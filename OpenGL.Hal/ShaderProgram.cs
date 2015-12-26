@@ -651,7 +651,7 @@ namespace OpenGL
 		/// </param>
 		public void Bind(GraphicsContext ctx)
 		{
-			int currentProgram;
+			// int currentProgram;
 			
 			if (IsLinked == false)
 				throw new InvalidOperationException("not linked");
@@ -662,6 +662,7 @@ namespace OpenGL
 
 			return;
 
+#if false
 			// UseProgram only if a different shader program is bound
 			Gl.Get(Gl.CURRENT_PROGRAM, out currentProgram);
 
@@ -669,6 +670,7 @@ namespace OpenGL
 				// Bind this program
 				Gl.UseProgram(ObjectName);
 			}
+#endif
 		}
 
 		/// <summary>
@@ -683,9 +685,9 @@ namespace OpenGL
 			Gl.UseProgram(InvalidObjectName);
 		}
 
-		#endregion
+#endregion
 
-		#region Program Attributes
+#region Program Attributes
 
 		/// <summary>
 		/// Collection of active attributes on this ShaderProgram.
@@ -742,9 +744,9 @@ namespace OpenGL
 		/// </summary>
 		private readonly Dictionary<string, AttributeBinding> mAttributesMap = new Dictionary<string, AttributeBinding>();
 
-		#endregion
+#endregion
 
-		#region Program Attributes Semantic
+#region Program Attributes Semantic
 
 		/// <summary>
 		/// 
@@ -821,9 +823,9 @@ namespace OpenGL
 		/// </summary>
 		private readonly Dictionary<string, string> mAttributeSemantic = new Dictionary<string, string>();
 
-		#endregion
+#endregion
 
-		#region Program Feedback Varyings
+#region Program Feedback Varyings
 
 		/// <summary>
 		/// Adds a feedback varying.
@@ -849,9 +851,9 @@ namespace OpenGL
 		/// </summary>
 		protected List<string> FeedbackVaryings;
 
-		#endregion
+#endregion
 
-		#region Fragment Locations
+#region Fragment Locations
 
 		/// <summary>
 		/// Set location of the fragment shader outputs.
@@ -911,9 +913,9 @@ namespace OpenGL
 		private readonly Dictionary<string, string> mFragDataSemantic = new Dictionary<string, string>();
 
 
-		#endregion
+#endregion
 
-		#region Program Binary
+#region Program Binary
 
 		public void LoadBinary(GraphicsContext ctx)
 		{
@@ -969,9 +971,9 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region Shader Programs Library Support
+#region Shader Programs Library Support
 
 		/// <summary>
 		/// Determine an unique identifier that specify the linked shader program.
@@ -1021,18 +1023,18 @@ namespace OpenGL
 		/// </summary>
 		internal string CompiledHash = String.Empty;
 
-		#endregion
+#endregion
 
-		#region Logging
+#region Logging
 
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
 		protected static readonly ILogger sLog = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-		#endregion
+#endregion
 
-		#region GraphicsResource Overrides
+#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Shader program object class.
@@ -1169,6 +1171,6 @@ namespace OpenGL
 			base.Dispose(disposing);
 		}
 
-		#endregion
+#endregion
 	}
 }

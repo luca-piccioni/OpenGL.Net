@@ -774,43 +774,9 @@ namespace OpenGL
 		/// </exception>
 		private static void Validate(GraphicsContext ctx)
 		{
-			int status;
-
 			// Check frambuffer completeness
-			status = Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER);
-			
-			if (status != Gl.FRAMEBUFFER_COMPLETE) {
-				string msg;
-
-				switch (status) {
-					case Gl.FRAMEBUFFER_UNDEFINED:
-						msg = "undefined";
-						break;
-					case Gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
-						msg = "incomplete attachment";
-						break;
-					case Gl.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
-						msg = "incomplete missing attachment";
-						break;
-					case Gl.FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
-						msg = "incomplete read buffer";
-						break;
-					case Gl.FRAMEBUFFER_UNSUPPORTED:
-						msg = "unsupported";
-						break;
-					case Gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:
-						msg = "incomplete multisample";
-						break;
-					case Gl.FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
-						msg = "incomplete layer targets";
-						break;
-					default:
-						msg = "unknown error";
-						break;
-				}
-
-				throw new GraphicsException((ErrorCode)status, String.Format("framebuffer not complete ({0})", msg));
-			}
+			int status = Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER);
+			GraphicsException.Throw(Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER));
 		}
 
 		/// <summary>

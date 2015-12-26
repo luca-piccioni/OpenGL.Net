@@ -27,7 +27,7 @@ using log4net.Repository.Hierarchy;
 namespace OpenGL
 {
 	/// <summary>
-	/// Main class for controlling logging.
+	/// Main class for controlling logging, wrapping log4net.
 	/// </summary>
 	public static class Log
 	{
@@ -77,7 +77,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a <see cref="Verbosity"/> corresponding to <paramref name="level"/>.
 		/// </returns>
-		public static Verbosity Convert(Level level)
+		private static Verbosity Convert(Level level)
 		{
 			if (level <= Level.Verbose)
 				return (Verbosity.Verbose);
@@ -104,7 +104,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a <see cref="log4net.Core.Level"/> corresponding to <paramref name="verbosity"/>.
 		/// </returns>
-		public static Level Convert(Verbosity verbosity)
+		private static Level Convert(Verbosity verbosity)
 		{
 			switch (verbosity) {
 				case Verbosity.Off:
@@ -191,18 +191,13 @@ namespace OpenGL
 			XmlConfigurator.Configure();
 
 			// Log OpenGL method calls
-			if ((flags & LogFlags.LogGl) != 0) {
-				// Ensure to have procedure logging initialized
-				OpenGL.KhronosApi.InitializeLog();
-				// Register delegate
-				OpenGL.KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
-					sOpenGlLogger.Debug(format, args);
-				});
-				// Setup procedure logging flags
-				OpenGL.KhronosApi.LogFlags |= OpenGL.KhronosApi.ProcLogFlags.LogOnApp;
-				// Enabe procedure logging
-				OpenGL.KhronosApi.LogEnabled = true;
-			}
+			KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
+				_ProcedureLogger.Debug(format, args);
+			});
+			// Setup procedure logging flags
+			KhronosApi.LogFlags |= KhronosApi.ProcLogFlags.LogOnApp;
+			// Enabe procedure logging
+			KhronosApi.LogEnabled = true;
 		}
 
 		/// <summary>
@@ -218,31 +213,6 @@ namespace OpenGL
 #else
 			XmlConfigurator.Configure(new FileInfo(path));
 #endif
-		}
-		
-		/// <summary>
-		/// Configure the loggin system.
-		/// </summary>
-		/// <param name="path">
-		/// A <see cref="System.String"/> that specify the log4net configuration file.
-		/// </param>
-		public static void Configure(string path, LogFlags flags)
-		{
-			Configure(path);
-			
-			// Log OpenGL method calls
-			if ((flags & LogFlags.LogGl) != 0) {
-				// Ensure to have procedure logging initialized
-				OpenGL.KhronosApi.InitializeLog();
-				// Register delegate
-				OpenGL.KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
-					sOpenGlLogger.Debug(format, args);
-				});
-				// Setup procedure logging flags
-				OpenGL.KhronosApi.LogFlags |= OpenGL.KhronosApi.ProcLogFlags.LogOnApp;
-				// Enabe procedure logging
-				OpenGL.KhronosApi.LogEnabled = true;
-			}
 		}
 
 		/// <summary>
@@ -272,7 +242,7 @@ namespace OpenGL
 		/// <summary>
 		/// The logger used for logging OpenGL procedures.
 		/// </summary>
-		private static ILogger sOpenGlLogger = GetLogger(typeof(Gl));
+		private static ILogger _ProcedureLogger = GetLogger(typeof(Gl));
 		
 		#endregion
 	}

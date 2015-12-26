@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="System.String"/> that specifies an additional message.
 		/// </param>
-		public ShaderException(string message) : base(ErrorCode.InvalidOperation, message)
+		public ShaderException(string message) : base((int)ErrorCode.InvalidOperation, message)
 		{
 			
 		}

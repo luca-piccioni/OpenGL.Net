@@ -16,14 +16,13 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 
 namespace OpenGL
 {
 	/// <summary>
 	/// Exception thrown from class used for rendering operations.
 	/// </summary>
-	public class GraphicsException : Exception
+	public class GraphicsException : InvalidOperationException
 	{
 		#region Constructors
 
@@ -31,9 +30,9 @@ namespace OpenGL
 		/// Construct a RenderException specifying the error code.
 		/// </summary>
 		/// <param name="err">
-		/// A <see cref="ErrorCode"/> that specifies the error code (code returned by <see cref="Gl.GetError"/>).
+		/// A <see cref="Int32"/> that specifies the error code (code returned by <see cref="Gl.GetError"/>).
 		/// </param>
-		public GraphicsException(ErrorCode err)
+		public GraphicsException(int err)
 		{
 			_ErrCode = err;
 		}
@@ -54,12 +53,12 @@ namespace OpenGL
 		/// Construct a RenderException specifying the error code and a message.
 		/// </summary>
 		/// <param name="err">
-		/// A <see cref="ErrorCode"/> that specifies the error code (code returned by <see cref="Gl.GetError"/>).
+		/// A <see cref="Int32"/> that specifies the error code (code returned by <see cref="Gl.GetError"/>).
 		/// </param>
 		/// <param name="message">
 		/// A <see cref="System.String"/> that specifies an additional message.
 		/// </param>
-		public GraphicsException(ErrorCode err, string message)
+		public GraphicsException(int err, string message)
 			: base(message)
 		{
 			_ErrCode = err;
@@ -82,151 +81,102 @@ namespace OpenGL
 
 		#endregion
 
-		#region Error Detection
-		
-		/// <summary>
-		/// Check for OpenGL errors.
-		/// </summary>
-		/// <exception cref="GraphicsException">
-		/// Exception thrown in the case OpenGL error has been detected by last check.
-		/// </exception>
-		public static bool CheckErrors()
-		{
-			return (CheckErrors(true));
-		}
-
-		/// <summary>
-		/// Check for OpenGL errors.
-		/// </summary>
-		/// <exception cref="GraphicsException">
-		/// Exception thrown in the case OpenGL error has been detected by last check.
-		/// </exception>
-		public static bool CheckErrors(bool throwOnErrors)
-		{
-			ErrorCode err;
-
-			// Question: shall GetError be executed in a loop?
-
-			if ((err = Gl.GetError()) != (ErrorCode)Gl.NO_ERROR) {
-				
-				switch (err) {
-					case ErrorCode.InvalidEnum:
-						KhronosApi.LogComment("glGetError() = INVALID_ENUM (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid enumeration on OpenGL call argument");
-						return (true);
-					case ErrorCode.InvalidValue:
-						KhronosApi.LogComment("glGetError() = INVALID_VALUE (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid value on OpenGL call argument");
-						return (true);
-					case ErrorCode.InvalidOperation:
-						KhronosApi.LogComment("glGetError() = INVALID_OPERATION (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid operation on OpenGL call");
-						return (true);
-					case ErrorCode.OutOfMemory:
-						KhronosApi.LogComment("glGetError() = OUT_OF_MEMORY (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "out of memory on OpenGL call");
-						return (true);
-					case ErrorCode.InvalidFramebufferOperation:
-						KhronosApi.LogComment("glGetError() = INVALID_FRAMEBUFFER_OPERATION (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid framebuffer operation OpenGL  call");
-						return (true);
-					
-					case (ErrorCode)Wgl.ERROR_INVALID_PIXEL_TYPE_ARB:
-						KhronosApi.LogComment("glGetError() = ERROR_INVALID_PIXEL_TYPE_ARB (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid pixel type");
-						return (true);
-					case (ErrorCode)Wgl.ERROR_INVALID_PROFILE_ARB:
-						KhronosApi.LogComment("glGetError() = ERROR_INVALID_PROFILE_ARB (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid profile");
-						return (true);
-					case (ErrorCode)Wgl.ERROR_INVALID_VERSION_ARB:
-						KhronosApi.LogComment("glGetError() = ERROR_INVALID_VERSION_ARB (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "invalid version");
-						return (true);
-					case (ErrorCode)Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB:
-						KhronosApi.LogComment("glGetError() = ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB (!)");
-						if (throwOnErrors)
-							throw new GraphicsException(err, "incompatible device contexts");
-						return (true);
-	
-					default:
-						KhronosApi.LogComment("glGetError() = 0x{0} (!)", err.ToString("X"));
-						throw new GraphicsException(err, "unknown error 0x"+err.ToString("X"));
-						return (true);
-				}
-			} else
-				return (false);
-		}
-
-		/// <summary>
-		/// Checks for OpenGL platform errors.
-		/// </summary>
-		public static Win32Exception CheckPlatformErrors(IDeviceContext deviceContext)
-		{
-			return (CheckPlatformErrors(deviceContext, true));
-		}
-
-		/// <summary>
-		/// Checks for OpenGL platform errors.
-		/// </summary>
-		public static Win32Exception CheckPlatformErrors(IDeviceContext deviceContext, bool throwOnError)
-		{
-			Win32Exception platformException = (Win32Exception)deviceContext.GetPlatformException();
-
-			if ((platformException != null) && (throwOnError == true))
-				throw platformException;
-
-			return (platformException);
-		}
-
-		/// <summary>
-		/// Check for OpenGL errors (debug only).
-		/// </summary>
-		[Conditional("DEBUG")]
-		public static void DebugCheckErrors()
-		{
-			// Check for errors
-			CheckErrors();
-		}
-
-		/// <summary>
-		/// Check for OpenGL platform errors (debug only).
-		/// </summary>
-		[Conditional("DEBUG")]
-		public static void DebugCheckPlatformErrors(IDeviceContext deviceContext)
-		{
-			CheckPlatformErrors(deviceContext);
-		}
-
-		#endregion
-
-		#region Error Clearing
-
-		/// <summary>
-		/// Clear all pending OpenGL errors.
-		/// </summary>
-		public static void ClearErrors()
-		{
-			while (Gl.GetError() != Gl.NO_ERROR)
-				;
-		}
-
-		#endregion
-
 		#region OpenGL Error Code
+
+		/// <summary>
+		/// Throw a a GraphicsException on error code.
+		/// </summary>
+		/// <param name="errorCode">
+		/// A <see cref="Int32"/> that specifies the error code defining the exception thrown.
+		/// </param>
+		/// <exception cref="GraphicsException">
+		/// Exception thrown if <paramref name="errorCode"/> is a value different from <see cref="Gl.NO_ERROR"/>.
+		/// </exception>
+		public static void Throw(int errorCode)
+		{
+			switch (errorCode) {
+
+				default:
+					throw new GraphicsException(errorCode, "unknown error 0x" + errorCode.ToString("X8"));
+
+				case Gl.NO_ERROR:
+				case Gl.FRAMEBUFFER_COMPLETE:
+					// No exception
+					return;
+
+				case Gl.INVALID_ENUM:
+					throw new GraphicsException(errorCode, "invalid enumeration");
+				case Gl.INVALID_FRAMEBUFFER_OPERATION:
+					throw new GraphicsException(errorCode, "invalid framebuffer operation");
+				case Gl.INVALID_OPERATION:
+					throw new GraphicsException(errorCode, "invalid operation on OpenGL call");
+				case Gl.INVALID_VALUE:
+					throw new GraphicsException(errorCode, "invalid value");
+				case Gl.OUT_OF_MEMORY:
+					throw new GraphicsException(errorCode, "out of memory");
+				case Gl.STACK_OVERFLOW:
+					throw new GraphicsException(errorCode, "stack overflow");
+				case Gl.STACK_UNDERFLOW:
+					throw new GraphicsException(errorCode, "stack underflow");
+
+				// GL_ARB_imaging
+				case Gl.TABLE_TOO_LARGE:
+					throw new GraphicsException(errorCode, "table too large");
+				// GL_EXT_texture
+				case Gl.TEXTURE_TOO_LARGE_EXT:
+					throw new GraphicsException(errorCode, "texture too large");
+
+				// WGL_ARB_create_context
+				case Wgl.ERROR_INVALID_VERSION_ARB:
+					throw new GraphicsException(errorCode, "invalid version");
+				// WGL_ARB_create_context_profile
+				case Wgl.ERROR_INVALID_PROFILE_ARB:
+					throw new GraphicsException(errorCode, "invalid profile");
+				// WGL_ARB_make_current_read
+				case Wgl.ERROR_INVALID_PIXEL_TYPE_ARB:
+					throw new GraphicsException(errorCode, "invalid pixel type");
+				case Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB:
+					throw new GraphicsException(errorCode, "incompatible device contexts");
+				// WGL_NV_gpu_affinity
+				case Wgl.ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV:
+					throw new GraphicsException(errorCode, "incompatible affinity mask");
+				case Wgl.ERROR_MISSING_AFFINITY_MASK_NV:
+					throw new GraphicsException(errorCode, "missing affinity mask");
+
+				// Framebuffer errors
+				case Gl.FRAMEBUFFER_UNDEFINED:
+					throw new GraphicsException(errorCode, "framebuffer undefined");
+				case Gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+					throw new GraphicsException(errorCode, "framebuffer incomplete attachment");
+				case Gl.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+					throw new GraphicsException(errorCode, "framebuffer incomplete missing attachment");
+				case Gl.FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
+					throw new GraphicsException(errorCode, "framebuffer incomplete read buffer");
+				case Gl.FRAMEBUFFER_UNSUPPORTED:
+					throw new GraphicsException(errorCode, "framebuffer unsupported");
+				case Gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:
+					throw new GraphicsException(errorCode, "framebuffer incomplete multisample");
+				case Gl.FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
+					throw new GraphicsException(errorCode, "framebuffer incomplete layer targets");
+			}
+		}
 
 		/// <summary>
 		/// Exception error code.
 		/// </summary>
-		public ErrorCode Code
+		/// <remarks>
+		/// <para>
+		/// This error code represent the actual numeric value returned by a GL function.
+		/// </para>
+		/// <para>
+		/// The sources of error codes are:
+		/// - glGetError
+		/// - glCheckFramebufferStatus
+		/// - 
+		/// - GetLastError
+		/// </para>
+		/// </remarks>
+		public int Code
 		{
 			get { return (_ErrCode); }
 		}
@@ -234,7 +184,7 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL error code.
 		/// </summary>
-		private readonly ErrorCode _ErrCode;
+		private readonly int _ErrCode;
 
 		#endregion
 	}

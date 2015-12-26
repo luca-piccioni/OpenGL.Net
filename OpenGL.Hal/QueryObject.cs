@@ -169,8 +169,6 @@ namespace OpenGL
 		/// </returns>
 		protected override uint CreateName(GraphicsContext ctx)
 		{
-			uint name;
-
 			switch (mTarget) {
 				case QueryTarget.SamplesPassed:
 					if (!ctx.Caps.GlExtensions.OcclusionQuery_ARB)

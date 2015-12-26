@@ -97,14 +97,12 @@ namespace OpenGL
 			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 				if (mTextureData.Stride % alignment == 0) {
 					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-					GraphicsException.DebugCheckErrors();
 					break;
 				}
 			}
 
 			// Upload texture contents
-			Gl.TexImage1D(OpenGL.TextureTarget.Texture1d, 0, internalFormat, (int)Width, 0, format, type, mTextureData.ImageBuffer);
-			GraphicsException.DebugCheckErrors();
+			Gl.TexImage1D(TextureTarget.Texture1d, 0, internalFormat, (int)Width, 0, format, type, mTextureData.ImageBuffer);
 			// Unbind this texture
 			Unbind(ctx);
 

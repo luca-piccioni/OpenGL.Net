@@ -28,14 +28,6 @@ namespace OpenGL
 		/// No flags.
 		/// </summary>
 		None =                  0x0000,
-		/// <summary>
-		/// Log OpenGL method calls, and their arguments.
-		/// </summary>
-		LogGl =                 0x0001,
-		/// <summary>
-		/// Log OpenGL method calls, and their arguments.
-		/// </summary>
-		LogGlIntegrated =       0x0001,
 	}
 }
 

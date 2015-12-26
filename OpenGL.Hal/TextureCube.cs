@@ -107,7 +107,6 @@ namespace OpenGL
 				// Define empty texture
 				for (int i = 0; i < 6; i++) {
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)Size, (int)Size, 0, /* Unused */ PixelFormat.Rgb, /* Unused */ PixelType.UnsignedByte, null);
-					GraphicsException.CheckErrors();
 				}
 			}
 		}
@@ -172,13 +171,11 @@ namespace OpenGL
 						if ((image.Stride % alignment) != 0)
 							continue;
 						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-						GraphicsException.DebugCheckErrors();
 						break;
 					}
 
 					// Upload texture contents
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);
-					GraphicsException.CheckErrors();
 				}
 			}
 		}

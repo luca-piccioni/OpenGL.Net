@@ -76,6 +76,9 @@ namespace OpenGL
 			if (xserverDeviceContext != null)
 				graphicsCapabilities._GlxExtensions.Query(xserverDeviceContext);
 
+			// Query implementation limits
+			graphicsCapabilities._GraphicsLimits = GraphicsLimits.Query(ctx, deviceContext);
+
 			return (graphicsCapabilities);
 		}
 

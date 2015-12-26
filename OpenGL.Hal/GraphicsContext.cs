@@ -137,7 +137,7 @@ namespace OpenGL
 				case PlatformID.Win32S:
 				case PlatformID.Win32Windows:
 				case PlatformID.WinCE:
-					// Synchronize WGL entry points (now that we have a render context)
+					// Synchronize WGL entry points (now that we have a dummy render context)
 					Wgl.SyncDelegates();
 					break;
 			}
@@ -253,7 +253,7 @@ namespace OpenGL
 		public GraphicsContext()
 		{
 			// Release device context on dispose
-			_CommonDeviceContext = true;
+			// _CommonDeviceContext = true;
 			// Create render context
 			CreateRenderContext(_HiddenWindowDevice, null, _CurrentVersion);
 		}
@@ -293,7 +293,7 @@ namespace OpenGL
 		public GraphicsContext(GraphicsContext hSharedContext)
 		{
 			// Release device context on dispose
-			_CommonDeviceContext = true;
+			//_CommonDeviceContext = true;
 			// Create render context
 			CreateRenderContext(_HiddenWindowDevice, hSharedContext, _CurrentVersion);
 		}
@@ -355,7 +355,7 @@ namespace OpenGL
 		public GraphicsContext(KhronosVersion version, GraphicsContext hSharedContext)
 		{
 			// Release device context on dispose
-			_CommonDeviceContext = true;
+			//_CommonDeviceContext = true;
 			// Create render context
 			CreateRenderContext(_HiddenWindowDevice, hSharedContext, version);
 		}
@@ -500,11 +500,8 @@ namespace OpenGL
 					// Create rendering context
 					int[] contextAttributes = cAttributes.ToArray();
 
-					if ((_RenderContext = _DeviceContext.CreateContextAttrib(pSharedContext, contextAttributes)) == IntPtr.Zero) {
-						Exception platformException = GraphicsException.CheckPlatformErrors(_DeviceContext, false);
-
-						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor, platformException);
-					}
+					if ((_RenderContext = _DeviceContext.CreateContextAttrib(pSharedContext, contextAttributes)) == IntPtr.Zero)
+						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor);
 				} else {
 					// Create rendering context
 					if ((_RenderContext = _DeviceContext.CreateContext(pSharedContext)) == IntPtr.Zero)
@@ -1140,7 +1137,7 @@ namespace OpenGL
 		/// no <see cref="GraphicsWindow"/> instance will release the device context, so this GraphicsContext instance will
 		/// take care of releasing it.
 		/// </summary>
-		private readonly bool _CommonDeviceContext;
+		// private readonly bool _CommonDeviceContext;
 
 		/// <summary>
 		/// Thread identifier which has created the device context. This field is meaninfull only in the case <see cref="_CommonDeviceContext"/> is

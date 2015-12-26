@@ -200,7 +200,6 @@ namespace OpenGL
 
 				// Define empty texture
 				Gl.TexImage3D(Target, 0, internalFormat, (int)Width, (int)Height, (int)Depth, 0, format, /* Unused */ PixelType.UnsignedByte, null);
-				GraphicsException.CheckErrors();
 			}
 		}
 
@@ -265,7 +264,6 @@ namespace OpenGL
 				uint width = Images[0].Width, height = Images[0].Height;
 
 				Gl.TexImage3D(Target, 0, internalFormat, (int)width, (int)height, Images.Length, 0, /* Unused */ OpenGL.PixelFormat.Red, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
-				GraphicsException.CheckErrors();
 
 				for (int i = 0; i < Images.Length; i++) {
 					Image image = Images[i];
@@ -278,13 +276,11 @@ namespace OpenGL
 						if ((image.Stride % alignment) != 0)
 							continue;
 						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-						GraphicsException.DebugCheckErrors();
 						break;
 					}
 
 					// Upload texture contents
 					Gl.TexSubImage3D(Target, 0, 0, 0, i, (int)width, (int)height, 1, format, type, image.ImageBuffer);
-					GraphicsException.CheckErrors();
 				}
 			}
 

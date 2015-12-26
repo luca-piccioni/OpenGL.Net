@@ -649,6 +649,7 @@ namespace OpenGL
 			// FIXME Maybe this method is no more necessary
 			throw new NotImplementedException();
 
+#if false
 			for (uint y = 0; y < image.Height; y++) {
 				for (uint x = 0; x < image.Width; x++) {
 					System.Drawing.Color bitmapColor = bitmap.GetPixel((int)x, (int)y);
@@ -657,6 +658,7 @@ namespace OpenGL
 					//image[x, y] = new ColorBGR24(bitmapColor.R, bitmapColor.G, bitmapColor.B);
 				}
 			}
+#endif
 		}
 
 		/// <summary>
@@ -789,6 +791,6 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+#endregion
 	}
 }

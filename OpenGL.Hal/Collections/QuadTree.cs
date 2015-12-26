@@ -147,7 +147,7 @@ namespace OpenGL.Collections
 			/// <summary>
 			/// Items belonging to this node.
 			/// </summary>
-			public readonly List<IQuadTreeNode> Items;
+			public readonly List<IQuadTreeNode> Items = new List<IQuadTreeNode>();
 		}
 
 		/// <summary>
