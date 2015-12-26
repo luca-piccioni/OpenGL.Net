@@ -19,10 +19,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 
 using ImportMap = System.Collections.Generic.SortedList<string, System.Reflection.MethodInfo>;
@@ -34,7 +32,7 @@ namespace OpenGL
 	/// Base class for loading external routines.
 	/// </summary>
 	/// <remarks>
-	/// This class is used for basic operations of automatic generated classes Gl, Wgl and Glx. The main
+	/// This class is used for basic operations of automatic generated classes Gl, Wgl, Glx and Egl. The main
 	/// functions of this class allows:
 	/// - To parse OpenGL extensions string
 	/// - To query import functions using reflection
@@ -567,7 +565,7 @@ namespace OpenGL
 		/// Log a comment.
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the comment format string. A comment prefix
+		/// A <see cref="String"/> that specifies the comment format string. A comment prefix
 		/// is prepended.
 		/// </param>
 		/// <param name="args">
@@ -586,7 +584,7 @@ namespace OpenGL
 		/// Log a procedure call.
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the format string.
+		/// A <see cref="String"/> that specifies the format string.
 		/// </param>
 		/// <param name="args">
 		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
@@ -606,6 +604,60 @@ namespace OpenGL
 					}
 				}
 			}
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValue">
+		/// A <see cref="Int32"/> that specifies the enumeration value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/> as hexadecimal value.
+		/// </returns>
+		protected virtual string LogEnumName(int enumValue)
+		{
+			return (String.Format("0x{0}", enumValue.ToString("X4")));
+		}
+
+		/// <summary>
+		/// Query KhronoApi derived class enumeration names.
+		/// </summary>
+		/// <param name="khronoApiType">
+		/// A <see cref="Type"/> that specifies the type of the class where to query enumeration names.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Dictionary{Int32, String}"/> that correlates the enumeration value with
+		/// the enumeration name.
+		/// </returns>
+		protected static Dictionary<Int64, string> QueryEnumNames(Type khronoApiType)
+		{
+			if (khronoApiType == null)
+				throw new ArgumentNullException("khronoApiType");
+
+			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
+
+			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
+
+			foreach (FieldInfo fieldInfo in fieldInfos) {
+				// Enumeration values are defined as const fields
+				if (fieldInfo.IsLiteral == false)
+					continue;
+
+				// Enumeration values have at least one RequiredByFeatureAttribute
+				Attribute[] requiredByFeatureAttribs = Attribute.GetCustomAttributes(fieldInfo, typeof(RequiredByFeatureAttribute));
+				if ((requiredByFeatureAttribs == null) || (requiredByFeatureAttribs.Length == 0))
+					continue;
+
+				// Collect enumeration
+				IConvertible fieldInfoValue = (IConvertible)fieldInfo.GetValue(null);
+				Int64 enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
+
+				if (enumNames.ContainsKey(enumValueKey) == false)
+					enumNames.Add(enumValueKey, fieldInfo.Name);
+			}
+
+			return (enumNames);
 		}
 		
 		#endregion

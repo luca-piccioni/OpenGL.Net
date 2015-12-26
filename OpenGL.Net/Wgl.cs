@@ -653,9 +653,8 @@ namespace OpenGL
 			/// Construct a pixel format descriptor.
 			/// </summary>
 			/// <param name="colorBits">
-			/// Specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size
-			/// of the color buffer, excluding the alpha bitplanes. For color-index pixels, it is the size of the
-			/// color-index buffer.
+			/// Specifies the number of color bitplanes in each color buffer. It is the size of the color buffer, excluding the alpha
+			/// bitplanes.
 			/// </param>
 			public PIXELFORMATDESCRIPTOR(Byte colorBits)
 			{

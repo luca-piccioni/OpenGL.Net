@@ -18,6 +18,7 @@
 
 #pragma warning disable 618
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
@@ -83,6 +84,47 @@ namespace OpenGL
 
 			if (error != ErrorCode.NoError)
 				throw new GlException(error);
+		}
+
+		#endregion
+
+		#region Procedure Logging
+
+		/// <summary>
+		/// Query <see cref="Gl"/> enumeration names, for logging purposes.
+		/// </summary>
+		public static void QueryEnumNames()
+		{
+			_EnumNames = QueryEnumNames(typeof(Gl));
+		}
+
+		/// <summary>
+		/// Enumeration names indexed by their value.
+		/// </summary>
+		private static Dictionary<Int64, string> _EnumNames;
+
+		#endregion
+
+		#region KhronosApi Overrides
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValue">
+		/// A <see cref="Int32"/> that specifies the enumeration value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/> as hexadecimal value. If the
+		/// name of the enumeration value is detected, it returns the relative OpenGL specification name.
+		/// </returns>
+		protected override string LogEnumName(int enumValue)
+		{
+			string enumName;
+
+			if (_EnumNames != null && _EnumNames.TryGetValue(enumValue, out enumName))
+				return (enumName);
+			else
+				return (base.LogEnumName(enumValue));
 		}
 
 		#endregion
