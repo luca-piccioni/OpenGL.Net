@@ -776,7 +776,9 @@ namespace OpenGL
 		{
 			// Check frambuffer completeness
 			int status = Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER);
-			GraphicsException.Throw(Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER));
+
+			if (status != Gl.FRAMEBUFFER_COMPLETE)
+				throw new FramebufferException(status);
 		}
 
 		/// <summary>

@@ -77,6 +77,7 @@
     <Compile Include="FeedbackBufferFormat.cs" />
     <Compile Include="FeedbackBufferObject.cs" />
     <Compile Include="Framebuffer.cs" />
+    <Compile Include="FramebufferException.cs" />
     <Compile Include="GraphicsCapabilities.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsContextFlags.cs" />
@@ -84,7 +85,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GraphicsControl.Designer.cs" />
-    <Compile Include="GraphicsException.cs" />
     <Compile Include="GraphicsGarbageService.cs" />
     <Compile Include="GraphicsInfoAttribute.cs" />
     <Compile Include="GraphicsKernelService.cs" />

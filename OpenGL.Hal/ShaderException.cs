@@ -21,7 +21,7 @@ namespace OpenGL
 	/// <summary>
 	/// Exception thrown from classed used for shader operations.
 	/// </summary>
-	public class ShaderException : GraphicsException
+	public class ShaderException : KhronosException
 	{
 		#region Constructors
 
@@ -29,23 +29,25 @@ namespace OpenGL
 		/// Construct a RenderException specifying a message.
 		/// </summary>
 		/// <param name="message">
-		/// A <see cref="System.String"/> that specifies an additional message.
+		/// A <see cref="String"/> that specifies an additional message.
 		/// </param>
-		public ShaderException(string message) : base((int)ErrorCode.InvalidOperation, message)
+		public ShaderException(string message) :
+			base((int)ErrorCode.InvalidOperation, message)
 		{
 			
 		}
 
 		/// <summary>
-		/// Construct a ShaderException specifying the error code and a message.
+		/// Construct a ShaderException specifying the message to format.
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies an additional message format string.
+		/// A <see cref="String"/> that specifies an additional message format string.
 		/// </param>
 		/// <param name="args">
 		/// A <see cref="T:System.Object[]"/> that specifies formatted arguments in <paramref name="format"/>.
 		/// </param>
-		public ShaderException(string format, params object[] args) : this(String.Format(format, args))
+		public ShaderException(string format, params object[] args) :
+			this(String.Format(format, args))
 		{
 			
 		}
