@@ -583,42 +583,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Log a method using reflection.
-		/// </summary>
-		/// <param name="mInfo">
-		/// A <see cref="MethodInfo"/> reflecting the method to log.
-		/// </param>
-		/// <param name="args">
-		/// The method arguments, if content renderable. This parameter is optional.
-		/// </param>
-		public static void LogMethod(MethodBase mInfo, params object[] args)
-		{
-			if (mInfo == null)
-				throw new ArgumentNullException("importMethod");
-
-			StringBuilder sb = new StringBuilder();
-			ParameterInfo[] mInfoParams = mInfo.GetParameters();
-
-			sb.AppendFormat("{0}.{1}(", mInfo.DeclaringType.Name, mInfo.Name);
-			if (mInfoParams.Length > 0) {
-				for (uint p = 0; p < mInfoParams.Length; p++) {
-					if ((args != null) && (p < args.Length)) {
-						if (args[p] != null)
-							sb.AppendFormat("{0}, ", args[p].ToString());
-						else
-							sb.AppendFormat("(null) [{0}]", mInfoParams[p].ParameterType.Name);
-					} else {
-						sb.AppendFormat("[{0}], ", mInfoParams[p].ParameterType.Name);
-					}
-				}
-				sb.Remove(sb.Length - 2, 2);
-			}
-			sb.Append(")");
-
-			LogFunction(sb.ToString());
-		}
-
-		/// <summary>
 		/// Log a procedure call.
 		/// </summary>
 		/// <param name="format">
