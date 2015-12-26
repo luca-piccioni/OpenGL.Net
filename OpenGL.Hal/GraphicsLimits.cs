@@ -29,8 +29,26 @@ namespace OpenGL
 	{
 		#region Query
 
-		public static GraphicsLimits Query(GraphicsContext ctx, IDeviceContext deviceContext)
+		/// <summary>
+		/// Query the OpenGL implementation limits.
+		/// </summary>
+		/// <param name="glExtensions">
+		/// A <see cref="Gl.Extensions"/> that specifies the supported OpenGL extension by the current
+		/// implementation.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="GraphicsLimits"/> that specifies the current OpenGL implementation limits.
+		/// </returns>
+		/// <remarks>
+		/// It is assumed to have a valid OpenGL context current on the calling thread.
+		/// </remarks>
+		public static GraphicsLimits Query(Gl.Extensions glExtensions)
 		{
+			if (glExtensions == null)
+				throw new ArgumentNullException("glExtensions");
+
+			KhronosApi.LogComment("Query OpenGL implementation imits.");
+
 			GraphicsLimits graphicsLimits = new GraphicsLimits();
 			FieldInfo[] graphicsLimitsFields = typeof(GraphicsLimits).GetFields(BindingFlags.Public | BindingFlags.Instance);
 
@@ -45,7 +63,7 @@ namespace OpenGL
 				// Check extension support
 				if ((graphicsExtensionAttributes != null) && (graphicsExtensionAttributes.Length > 0)) {
 					bool supported = Array.Exists(graphicsExtensionAttributes, delegate(Attribute item) {
-						return ctx.Caps.GlExtensions.HasExtensions(((KhronosApi.ExtensionAttribute)item).ExtensionName);
+						return glExtensions.HasExtensions(((KhronosApi.ExtensionAttribute)item).ExtensionName);
 					});
 
 					if (supported == false)

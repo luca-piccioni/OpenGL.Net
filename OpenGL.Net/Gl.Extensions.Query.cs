@@ -36,6 +36,8 @@ namespace OpenGL
 			/// </remarks>
 			public void Query()
 			{
+				LogComment("Query GL extensions.");
+
 				string glVersionString = GetString(StringName.Version);
 				if (glVersionString == null)
 					throw new InvalidOperationException("unable to determine OpenGL version");

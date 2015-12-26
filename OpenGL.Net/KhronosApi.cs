@@ -531,30 +531,6 @@ namespace OpenGL
 		#endregion
 
 		#region Procedure Logging
-
-		/// <summary>
-		/// Flags controlling procedure logging.
-		/// </summary>
-		[Flags]
-		public enum ProcLogFlags
-		{
-			/// <summary>
-			/// Log procedures on separate file.
-			/// </summary>
-			LogOnSeparateFile =			0x0001,
-			/// <summary>
-			/// Flush log at each procedure.
-			/// </summary>
-			LogFlush =					0x0002,
-			/// <summary>
-			/// Log procedures using application callback.
-			/// </summary>
-			LogOnApp =					0x0004,
-			/// <summary>
-			/// All features.
-			/// </summary>
-			All = LogOnSeparateFile | LogFlush | LogOnApp
-		}
 		
 		/// <summary>
 		/// Delegate used for logging procedure using application procedures.
@@ -586,16 +562,6 @@ namespace OpenGL
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
 		protected static bool _ProcLogEnabled = true;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public static ProcLogFlags LogFlags { get { return (_ProcLogFlags); } set { _ProcLogFlags = value; } }
-
-		/// <summary>
-		/// Flags controlling procedure logging.
-		/// </summary>
-		private static ProcLogFlags _ProcLogFlags = ProcLogFlags.All;
 
 		/// <summary>
 		/// Log a comment.

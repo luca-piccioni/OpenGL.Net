@@ -16,7 +16,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-using System.Windows.Forms;
+using System;
 
 using NUnit.Framework;
 
@@ -34,6 +34,11 @@ namespace OpenGL.Hal.Test
 		public void FixtureSetUp()
 		{
 			try {
+				// Set logging
+				KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
+					Console.WriteLine(format, args);
+				});
+
 				// Create window on which tests are run
 				_Window = new GraphicsWindow(800, 600);
 				_Window.ShowWindow();

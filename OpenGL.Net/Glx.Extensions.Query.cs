@@ -38,6 +38,8 @@ namespace OpenGL
 				if (deviceContext == null)
 					throw new ArgumentNullException("deviceContext");
 
+				LogComment("Query GLX extensions.");
+
 				string glxExtensions = null;
 				int[] majorArg = new int[1], minorArg = new int[1];
 

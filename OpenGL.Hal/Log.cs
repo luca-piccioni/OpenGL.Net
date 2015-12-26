@@ -194,8 +194,6 @@ namespace OpenGL
 			KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
 				_ProcedureLogger.Debug(format, args);
 			});
-			// Setup procedure logging flags
-			KhronosApi.LogFlags |= KhronosApi.ProcLogFlags.LogOnApp;
 			// Enabe procedure logging
 			KhronosApi.LogEnabled = true;
 		}

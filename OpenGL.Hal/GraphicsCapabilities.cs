@@ -49,6 +49,8 @@ namespace OpenGL
 		{
 			GraphicsCapabilities graphicsCapabilities = new GraphicsCapabilities();
 
+			KhronosApi.LogComment("Query OpenGL extensions.");
+
 			#region Platform Extension Reload
 
 			// Since at this point there's a current OpenGL context, it's possible to use
@@ -77,7 +79,7 @@ namespace OpenGL
 				graphicsCapabilities._GlxExtensions.Query(xserverDeviceContext);
 
 			// Query implementation limits
-			graphicsCapabilities._GraphicsLimits = GraphicsLimits.Query(ctx, deviceContext);
+			graphicsCapabilities._GraphicsLimits = GraphicsLimits.Query(graphicsCapabilities._GlExtensions);
 
 			return (graphicsCapabilities);
 		}

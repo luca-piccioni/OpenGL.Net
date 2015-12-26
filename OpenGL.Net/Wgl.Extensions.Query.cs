@@ -41,6 +41,8 @@ namespace OpenGL
 				if (deviceContext == null)
 					throw new ArgumentNullException("deviceContext");
 
+				LogComment("Query WGL extensions.");
+
 				string wglExtensions = null;
 
 				if (Delegates.pwglGetExtensionsStringARB != null) {

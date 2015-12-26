@@ -32,6 +32,8 @@ namespace OpenGL
 			/// </summary>
 			public void Query(KhronosVersion version, IntPtr display)
 			{
+				LogComment("Query EGL extensions.");
+
 				string eglExtensions = QueryString(display, Egl.EXTENSIONS);
 
 				Query(version, eglExtensions ?? String.Empty);

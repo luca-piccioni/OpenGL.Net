@@ -51,7 +51,8 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			Trace.TraceInformation("Synchronize WGL delegates.");
+			LogComment("Synchronize WGL delegates.");
+
 			SynchDelegates(_ImportMap, _Delegates);
 		}
 
