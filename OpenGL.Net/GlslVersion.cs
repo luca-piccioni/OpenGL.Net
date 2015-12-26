@@ -84,9 +84,6 @@ namespace OpenGL
 		/// <param name="revision">
 		/// A <see cref="Int32"/> that specifies that revision version number.
 		/// </param>
-		/// <param name="api">
-		/// A <see cref="String"/> that specifies the API name.
-		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
 		/// <paramref name="revision"/> are less than 0.

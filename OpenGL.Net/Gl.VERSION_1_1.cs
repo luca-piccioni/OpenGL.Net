@@ -7563,10 +7563,10 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE may be generated if <paramref name="i"/> is negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
 		/// data store is currently mapped.
 		/// </exception>
@@ -7610,13 +7610,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3 or 4.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -7669,13 +7669,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3 or 4.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -7719,10 +7719,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.EnableClientState is not allowed between the execution of Gl\.Begin and the corresponding Gl\.End, but an error may 
 		/// or may not be generated. If no error is generated, the behavior is undefined.
 		/// </exception>
@@ -7763,7 +7763,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -7809,7 +7809,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -7853,10 +7853,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.EnableClientState is not allowed between the execution of Gl\.Begin and the corresponding Gl\.End, but an error may 
 		/// or may not be generated. If no error is generated, the behavior is undefined.
 		/// </exception>
@@ -7901,10 +7901,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -7954,10 +7954,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8009,10 +8009,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8054,10 +8054,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8101,10 +8101,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8154,10 +8154,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8212,13 +8212,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, or 4.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8273,13 +8273,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, or 4.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8336,13 +8336,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 2, 3, or 4.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8395,13 +8395,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 2, 3, or 4.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -8449,14 +8449,14 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if any element in <paramref name="textures"/> is 0 or does not name a texture. In that 
 		/// case, the function returns Gl.FALSE and the contents of <paramref name="residences"/> is indeterminate.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.AreTexturesResident is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
 		/// </exception>
@@ -8499,10 +8499,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.PrioritizeTextures is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
 		/// </exception>
@@ -8575,10 +8575,10 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushClientAttrib is called while the attribute stack is full.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.STACK_UNDERFLOW is generated if Gl\.PopClientAttrib is called while the attribute stack is empty.
 		/// </exception>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -8613,10 +8613,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushClientAttrib is called while the attribute stack is full.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.STACK_UNDERFLOW is generated if Gl\.PopClientAttrib is called while the attribute stack is empty.
 		/// </exception>
 		/// <seealso cref="Gl.ColorPointer"/>

@@ -18,12 +18,9 @@
 
 #pragma warning disable 618
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace OpenGL
 {
@@ -85,7 +82,7 @@ namespace OpenGL
 			ErrorCode error = GetError();
 
 			if (error != ErrorCode.NoError)
-				throw new InvalidOperationException(error.ToString());
+				throw new GlException(error);
 		}
 
 		#endregion

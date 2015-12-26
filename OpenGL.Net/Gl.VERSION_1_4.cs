@@ -1032,10 +1032,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not either Gl.FLOAT or Gl.DOUBLE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -1085,10 +1085,10 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not either Gl.FLOAT or Gl.DOUBLE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -1543,13 +1543,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -1602,13 +1602,13 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
@@ -1655,7 +1655,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1688,7 +1688,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1729,7 +1729,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1762,7 +1762,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1803,7 +1803,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1836,7 +1836,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1877,7 +1877,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1910,7 +1910,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1954,7 +1954,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -1987,7 +1987,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -2031,7 +2031,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -2064,7 +2064,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -2108,7 +2108,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -2141,7 +2141,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -2185,7 +2185,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
@@ -2218,7 +2218,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>

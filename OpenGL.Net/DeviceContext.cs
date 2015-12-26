@@ -133,9 +133,6 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a boolean value indicating whether the operation was successful.
 		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="deviceContext"/> is null.
-		/// </exception>
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
@@ -179,9 +176,6 @@ namespace OpenGL
 		/// <summary>
 		/// Gets the platform exception relative to the last operation performed.
 		/// </summary>
-		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context on which an error occurred.
-		/// </param>
 		/// <returns>
 		/// The platform exception relative to the last operation performed.
 		/// </returns>

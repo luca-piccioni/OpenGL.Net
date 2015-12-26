@@ -443,7 +443,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx. is returned if an undefined GLX attribute is encountered in <paramref name="attribList"/>.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -485,21 +485,21 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx. is returned if execution fails on the client side.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if the context to be created would not share the address space or the screen of the context 
 		/// specified by <paramref name="shareList"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.alue is generated if <paramref name="vis"/> is not a valid visual (for example, if a particular GLX implementation 
 		/// does not support it).
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="shareList"/> is not a GLX context and is not Glx..
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.lloc is generated if the server does not have enough resources to allocate the new context.
 		/// </exception>
 		/// <seealso cref="Glx.DestroyContext"/>
@@ -530,7 +530,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -559,32 +559,32 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="drawable"/> was not created with the same X screen and visual as <paramref 
 		/// name="ctx"/>. It is also generated if <paramref name="drawable"/> is Glx. and <paramref name="ctx"/> is not Glx..
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.ccess is generated if <paramref name="ctx"/> was current to another thread at the time Glx.MakeCurrent was called.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="drawable"/> is not a valid GLX drawable.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContextState is generated if Glx.MakeCurrent is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContextState is also generated if the rendering context current to the calling thread has GL renderer state 
 		/// Glx.FEEDBACK or Glx.SELECT.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if there are pending GL commands for the previous context and the current drawable is a 
 		/// window that is no longer valid.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.lloc may be generated if the server has delayed allocation of ancillary buffers until Glx.MakeCurrent is called, 
 		/// only to find that it has insufficient resources to complete the allocation.
 		/// </exception>
@@ -625,19 +625,19 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if rendering contexts <paramref name="src"/> and <paramref name="dst"/> do not share an address 
 		/// space or were not created with respect to the same screen.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.ccess is generated if <paramref name="dst"/> is current to any thread (including the calling thread) at the time 
 		/// Glx.CopyContext is called.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if <paramref name="src"/> is the current context and the current drawable is a window 
 		/// that is no longer valid.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if either <paramref name="src"/> or <paramref name="dst"/> is not a valid GLX context.
 		/// </exception>
 		/// <seealso cref="Glx.ushAttrib"/>
@@ -663,10 +663,10 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="drawable"/> is not a valid GLX drawable.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if <paramref name="dpy"/> and <paramref name="drawable"/> are respectively the display 
 		/// and drawable associated with the current context of the calling thread, and <paramref name="drawable"/> identifies a 
 		/// window that is no longer valid.
@@ -695,19 +695,19 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if the depth of <paramref name="pixmap"/> does not match the depth value reported by core X11 for 
 		/// <paramref name="vis"/>, or if <paramref name="pixmap"/> was not created with respect to the same screen as <paramref 
 		/// name="vis"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.alue is generated if <paramref name="vis"/> is not a valid XVisualInfo pointer (for example, if a particular GLX 
 		/// implementation does not support this visual).
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.ixmap is generated if <paramref name="pixmap"/> is not a valid pixmap.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.lloc is generated if the server cannot allocate the GLX pixmap.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -739,7 +739,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adPixmap is generated if <paramref name="pix"/> is not a valid GLX pixmap.
 		/// </exception>
 		/// <seealso cref="Glx.CreateGLXPixmap"/>
@@ -799,10 +799,10 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.QueryVersion returns Glx.e if it fails, Glx. otherwise.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// <paramref name="major"/> and <paramref name="minor"/> are not updated when Glx.e is returned.
 		/// </exception>
 		/// <seealso cref="Glx.QueryExtension"/>
@@ -836,7 +836,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -871,16 +871,16 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.BAD_SCREEN is returned if the screen of <paramref name="vis"/> does not correspond to a screen.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.BAD_ATTRIBUTE is returned if <paramref name="attrib"/> is not a valid GLX attribute.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.BAD_VISUAL is returned if <paramref name="vis"/> doesn't support GLX and an attribute other than Glx.USE_GL is 
 		/// requested.
 		/// </exception>
@@ -948,7 +948,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
 		/// and that window is no longer valid.
 		/// </exception>
@@ -969,7 +969,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
 		/// and that window is no longer valid.
 		/// </exception>
@@ -1002,13 +1002,13 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.ont is generated if <paramref name="font"/> is not a valid font.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContextState is generated if the current GLX context is in display-list construction mode.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
 		/// and that window is no longer valid.
 		/// </exception>

@@ -2403,7 +2403,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="texture"/> is not one of Gl.TEXTUREi, where i ranges from 0 to the value 
 		/// of Gl.MAX_TEXTURE_COORDS - 1.
 		/// </exception>
@@ -3438,7 +3438,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
 		/// </exception>
@@ -3471,7 +3471,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
 		/// </exception>
@@ -3504,7 +3504,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.MultTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
 		/// </exception>
@@ -3536,7 +3536,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.MultTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
 		/// </exception>

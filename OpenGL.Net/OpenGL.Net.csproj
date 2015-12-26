@@ -312,6 +312,7 @@
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="Gl.VERSION_4_4.cs" />
     <Compile Include="Gl.VERSION_4_5.cs" />
+    <Compile Include="GlException.cs" />
     <Compile Include="GlslVersion.cs" />
     <Compile Include="Glx.cs" />
     <Compile Include="Glx.Delegates.cs" />
@@ -353,6 +354,7 @@
     <Compile Include="INTEL\Gl.INTEL_parallel_arrays.cs" />
     <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
     <Compile Include="INTEL\Glx.INTEL_swap_event.cs" />
+    <Compile Include="KhronosException.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="KHR\Egl.KHR_create_context.cs" />
     <Compile Include="KHR\Egl.KHR_image_base.cs" />

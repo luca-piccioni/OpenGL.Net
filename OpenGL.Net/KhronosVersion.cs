@@ -84,9 +84,6 @@ namespace OpenGL
 		/// <param name="revision">
 		/// A <see cref="Int32"/> that specifies that revision version number.
 		/// </param>
-		/// <param name="api">
-		/// A <see cref="String"/> that specifies the API name.
-		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
 		/// <paramref name="revision"/> are less than 0.
@@ -252,7 +249,7 @@ namespace OpenGL
 		/// It returns a boolean value indicating whether <paramref name="left"/> is greater than <paramref name="right"/>.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// The API names of this KhronosVersion and <paramref name="other"/> does not match.
+		/// The API names of this KhronosVersion and <paramref name="right"/> does not match.
 		/// </exception>
 		public static bool operator >(KhronosVersion left, KhronosVersion right)
 		{
@@ -277,7 +274,7 @@ namespace OpenGL
 		/// It returns a boolean value indicating whether <paramref name="left"/> is lower than <paramref name="right"/>.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// The API names of this KhronosVersion and <paramref name="other"/> does not match.
+		/// The API names of this KhronosVersion and <paramref name="right"/> does not match.
 		/// </exception>
 		public static bool operator <(KhronosVersion left, KhronosVersion right)
 		{
@@ -302,7 +299,7 @@ namespace OpenGL
 		/// It returns a boolean value indicating whether <paramref name="left"/> is greater than or equal to <paramref name="right"/>.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// The API names of this KhronosVersion and <paramref name="other"/> does not match.
+		/// The API names of this KhronosVersion and <paramref name="right"/> does not match.
 		/// </exception>
 		public static bool operator >=(KhronosVersion left, KhronosVersion right)
 		{
@@ -327,7 +324,7 @@ namespace OpenGL
 		/// It returns a boolean value indicating whether <paramref name="left"/> is lower than or equal to <paramref name="right"/>.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// The API names of this KhronosVersion and <paramref name="other"/> does not match.
+		/// The API names of this KhronosVersion and <paramref name="right"/> does not match.
 		/// </exception>
 		public static bool operator <=(KhronosVersion left, KhronosVersion right)
 		{

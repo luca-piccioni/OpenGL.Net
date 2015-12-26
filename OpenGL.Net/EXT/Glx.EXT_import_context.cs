@@ -67,13 +67,13 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.BAD_ATTRIBUTE is returned if <paramref name="attribute"/> is not a valid GLX context attribute.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// fred Glx.BAD_CONTEXT is returned if <paramref name="attribute"/> is not a valid context.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -105,7 +105,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -135,7 +135,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="contextID"/> does not refer to a valid context.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
@@ -167,7 +167,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>

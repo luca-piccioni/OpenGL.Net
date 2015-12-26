@@ -260,10 +260,9 @@ namespace OpenGL
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="hdc"></param>
-		/// <param name="iPixelFormat"></param>
-		/// <param name="nBytes"></param>
-		/// <param name="ppfd"></param>
+		/// <param name="deviceContext"></param>
+		/// <param name="pixelFormat"></param>
+		/// <param name="pixelFormatDescriptor"></param>
 		/// <returns></returns>
 		public static bool SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
 		{
