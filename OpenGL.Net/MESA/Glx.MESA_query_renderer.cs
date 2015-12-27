@@ -129,13 +129,13 @@ namespace OpenGL
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public static string QueryCurrentRendererStringMESA(int attribute)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXQueryCurrentRendererStringMESA != null, "pglXQueryCurrentRendererStringMESA not implemented");
 			retValue = Delegates.pglXQueryCurrentRendererStringMESA(attribute);
-			LogFunction("glXQueryCurrentRendererStringMESA({0}) = {1}", attribute, retValue);
+			LogFunction("glXQueryCurrentRendererStringMESA({0}) = {1}", attribute, Marshal.PtrToStringAnsi(retValue));
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>
@@ -186,13 +186,13 @@ namespace OpenGL
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public static string QueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXQueryRendererStringMESA != null, "pglXQueryRendererStringMESA not implemented");
 			retValue = Delegates.pglXQueryRendererStringMESA(dpy, screen, renderer, attribute);
-			LogFunction("glXQueryRendererStringMESA(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, renderer, attribute, retValue);
+			LogFunction("glXQueryRendererStringMESA(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, renderer, attribute, Marshal.PtrToStringAnsi(retValue));
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 	}

@@ -61,13 +61,13 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public static string QueryExtensionsString(IntPtr dpy, int screen)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXQueryExtensionsString != null, "pglXQueryExtensionsString not implemented");
 			retValue = Delegates.pglXQueryExtensionsString(dpy, screen);
-			LogFunction("glXQueryExtensionsString(0x{0}, {1}) = {2}", dpy.ToString("X8"), screen, retValue);
+			LogFunction("glXQueryExtensionsString(0x{0}, {1}) = {2}", dpy.ToString("X8"), screen, Marshal.PtrToStringAnsi(retValue));
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>
@@ -88,13 +88,13 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public static string QueryServerString(IntPtr dpy, int screen, int name)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXQueryServerString != null, "pglXQueryServerString not implemented");
 			retValue = Delegates.pglXQueryServerString(dpy, screen, name);
-			LogFunction("glXQueryServerString(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, name, retValue);
+			LogFunction("glXQueryServerString(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, name, Marshal.PtrToStringAnsi(retValue));
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>
@@ -112,13 +112,13 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public static string GetClientString(IntPtr dpy, int name)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXGetClientString != null, "pglXGetClientString not implemented");
 			retValue = Delegates.pglXGetClientString(dpy, name);
-			LogFunction("glXGetClientString(0x{0}, {1}) = {2}", dpy.ToString("X8"), name, retValue);
+			LogFunction("glXGetClientString(0x{0}, {1}) = {2}", dpy.ToString("X8"), name, Marshal.PtrToStringAnsi(retValue));
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 	}

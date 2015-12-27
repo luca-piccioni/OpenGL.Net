@@ -1070,14 +1070,14 @@ namespace OpenGL
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static string QueryString(IntPtr dpy, int name)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.peglQueryString != null, "peglQueryString not implemented");
 			retValue = Delegates.peglQueryString(dpy, name);
-			LogFunction("eglQueryString(0x{0}, {1}) = {2}", dpy.ToString("X8"), name, retValue);
+			LogFunction("eglQueryString(0x{0}, {1}) = {2}", dpy.ToString("X8"), name, Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>

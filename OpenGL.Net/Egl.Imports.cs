@@ -292,7 +292,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryDeviceStringEXT", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryDeviceStringEXT(IntPtr device, int name);
+			internal extern static unsafe IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryDevicesEXT", ExactSpelling = true)]
@@ -320,7 +320,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryOutputLayerStringEXT", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
+			internal extern static unsafe IntPtr eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryOutputPortAttribEXT", ExactSpelling = true)]
@@ -328,7 +328,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryOutputPortStringEXT", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
+			internal extern static unsafe IntPtr eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryStreamKHR", ExactSpelling = true)]
@@ -344,7 +344,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryString", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryString(IntPtr dpy, int name);
+			internal extern static unsafe IntPtr eglQueryString(IntPtr dpy, int name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQuerySurface", ExactSpelling = true)]

@@ -87,14 +87,14 @@ namespace OpenGL
 		[RequiredByFeature("EGL_EXT_device_base")]
 		public static string QueryDeviceStringEXT(IntPtr device, int name)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.peglQueryDeviceStringEXT != null, "peglQueryDeviceStringEXT not implemented");
 			retValue = Delegates.peglQueryDeviceStringEXT(device, name);
-			LogFunction("eglQueryDeviceStringEXT(0x{0}, {1}) = {2}", device.ToString("X8"), name, retValue);
+			LogFunction("eglQueryDeviceStringEXT(0x{0}, {1}) = {2}", device.ToString("X8"), name, Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>

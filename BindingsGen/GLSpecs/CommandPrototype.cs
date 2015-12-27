@@ -61,7 +61,7 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
-				string delegateType = DelegateReturnType;
+				string delegateType = ReturnTypeCore;
 
 				if ((Group != null) && (Group == "String"))
 					return ("String");
@@ -74,19 +74,33 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
-				if ((Group != null) && (Group == "String"))
+				string typeDecorator = Definition != null ? Definition.Trim() : null;
+				string delegateReturnType = ReturnTypeCore;
+
+				if ((delegateReturnType == "string") || ((Group != null) && (Group == "String")))
 					return ("IntPtr");
 
+				return (delegateReturnType);
+			}
+		}
+
+		private string ReturnTypeCore
+		{
+			get
+			{
 				string typeDecorator = Definition != null ? Definition.Trim() : null;
+				string delegateReturnType;
 
 				if ((Type != null) && (typeDecorator != null))
-					return (TypeMap.CsTypeMap.MapType(Type.Trim() + typeDecorator));
+					delegateReturnType = TypeMap.CsTypeMap.MapType(Type.Trim() + typeDecorator);
 				else if (Type != null)
-					return (TypeMap.CsTypeMap.MapType(Type.Trim()));
+					delegateReturnType = TypeMap.CsTypeMap.MapType(Type.Trim());
 				else if (typeDecorator != null)
-					return (TypeMap.CsTypeMap.MapType(typeDecorator));
+					delegateReturnType = TypeMap.CsTypeMap.MapType(typeDecorator);
 				else
-					return ("IntPtr");
+					delegateReturnType = "IntPtr";
+
+				return (delegateReturnType);
 			}
 		}
 

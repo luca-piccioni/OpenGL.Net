@@ -355,12 +355,12 @@ namespace OpenGL
 			internal static wglGetDigitalVideoParametersI3D pwglGetDigitalVideoParametersI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string wglGetExtensionsStringARB(IntPtr hdc);
+			internal unsafe delegate IntPtr wglGetExtensionsStringARB(IntPtr hdc);
 			[ThreadStatic]
 			internal static wglGetExtensionsStringARB pwglGetExtensionsStringARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate string wglGetExtensionsStringEXT();
+			internal delegate IntPtr wglGetExtensionsStringEXT();
 			[ThreadStatic]
 			internal static wglGetExtensionsStringEXT pwglGetExtensionsStringEXT;
 

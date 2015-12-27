@@ -348,7 +348,7 @@ namespace OpenGL
 			internal static eglQueryDeviceAttribEXT peglQueryDeviceAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string eglQueryDeviceStringEXT(IntPtr device, int name);
+			internal unsafe delegate IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
 			[ThreadStatic]
 			internal static eglQueryDeviceStringEXT peglQueryDeviceStringEXT;
 
@@ -383,7 +383,7 @@ namespace OpenGL
 			internal static eglQueryOutputLayerAttribEXT peglQueryOutputLayerAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
+			internal unsafe delegate IntPtr eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
 			[ThreadStatic]
 			internal static eglQueryOutputLayerStringEXT peglQueryOutputLayerStringEXT;
 
@@ -393,7 +393,7 @@ namespace OpenGL
 			internal static eglQueryOutputPortAttribEXT peglQueryOutputPortAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
+			internal unsafe delegate IntPtr eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
 			[ThreadStatic]
 			internal static eglQueryOutputPortStringEXT peglQueryOutputPortStringEXT;
 
@@ -413,7 +413,7 @@ namespace OpenGL
 			internal static eglQueryStreamu64KHR peglQueryStreamu64KHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string eglQueryString(IntPtr dpy, int name);
+			internal unsafe delegate IntPtr eglQueryString(IntPtr dpy, int name);
 			[ThreadStatic]
 			internal static eglQueryString peglQueryString;
 

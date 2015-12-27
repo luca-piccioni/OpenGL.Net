@@ -36,14 +36,14 @@ namespace OpenGL
 		[RequiredByFeature("WGL_ARB_extensions_string")]
 		public static string GetExtensionsStringARB(IntPtr hdc)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pwglGetExtensionsStringARB != null, "pwglGetExtensionsStringARB not implemented");
 			retValue = Delegates.pwglGetExtensionsStringARB(hdc);
-			LogFunction("wglGetExtensionsStringARB(0x{0}) = {1}", hdc.ToString("X8"), retValue);
+			LogFunction("wglGetExtensionsStringARB(0x{0}) = {1}", hdc.ToString("X8"), Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 	}

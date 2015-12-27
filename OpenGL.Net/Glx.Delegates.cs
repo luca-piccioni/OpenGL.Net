@@ -275,7 +275,7 @@ namespace OpenGL
 			internal static glXGetAGPOffsetMESA pglXGetAGPOffsetMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string glXGetClientString(IntPtr dpy, int name);
+			internal unsafe delegate IntPtr glXGetClientString(IntPtr dpy, int name);
 			[ThreadStatic]
 			internal static glXGetClientString pglXGetClientString;
 
@@ -500,7 +500,7 @@ namespace OpenGL
 			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate string glXQueryCurrentRendererStringMESA(int attribute);
+			internal delegate IntPtr glXQueryCurrentRendererStringMESA(int attribute);
 			[ThreadStatic]
 			internal static glXQueryCurrentRendererStringMESA pglXQueryCurrentRendererStringMESA;
 
@@ -515,7 +515,7 @@ namespace OpenGL
 			internal static glXQueryExtension pglXQueryExtension;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string glXQueryExtensionsString(IntPtr dpy, int screen);
+			internal unsafe delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 			[ThreadStatic]
 			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
@@ -565,12 +565,12 @@ namespace OpenGL
 			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+			internal unsafe delegate IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
 			[ThreadStatic]
 			internal static glXQueryRendererStringMESA pglXQueryRendererStringMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate string glXQueryServerString(IntPtr dpy, int screen, int name);
+			internal unsafe delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 			[ThreadStatic]
 			internal static glXQueryServerString pglXQueryServerString;
 

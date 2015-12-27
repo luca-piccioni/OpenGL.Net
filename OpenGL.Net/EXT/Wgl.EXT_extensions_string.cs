@@ -33,14 +33,14 @@ namespace OpenGL
 		[RequiredByFeature("WGL_EXT_extensions_string")]
 		public static string GetExtensionsStringEXT()
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pwglGetExtensionsStringEXT != null, "pwglGetExtensionsStringEXT not implemented");
 			retValue = Delegates.pwglGetExtensionsStringEXT();
-			LogFunction("wglGetExtensionsStringEXT() = {0}", retValue);
+			LogFunction("wglGetExtensionsStringEXT() = {0}", Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 	}

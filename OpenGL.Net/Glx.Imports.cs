@@ -224,7 +224,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetClientString", ExactSpelling = true)]
-			internal extern static unsafe string glXGetClientString(IntPtr dpy, int name);
+			internal extern static unsafe IntPtr glXGetClientString(IntPtr dpy, int name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetConfig", ExactSpelling = true)]
@@ -404,7 +404,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryCurrentRendererStringMESA", ExactSpelling = true)]
-			internal extern static string glXQueryCurrentRendererStringMESA(int attribute);
+			internal extern static IntPtr glXQueryCurrentRendererStringMESA(int attribute);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryDrawable", ExactSpelling = true)]
@@ -416,7 +416,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryExtensionsString", ExactSpelling = true)]
-			internal extern static unsafe string glXQueryExtensionsString(IntPtr dpy, int screen);
+			internal extern static unsafe IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryFrameCountNV", ExactSpelling = true)]
@@ -456,11 +456,11 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryRendererStringMESA", ExactSpelling = true)]
-			internal extern static unsafe string glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+			internal extern static unsafe IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryServerString", ExactSpelling = true)]
-			internal extern static unsafe string glXQueryServerString(IntPtr dpy, int screen, int name);
+			internal extern static unsafe IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQuerySwapGroupNV", ExactSpelling = true)]

@@ -209,14 +209,14 @@ namespace OpenGL
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public static string QueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.peglQueryOutputLayerStringEXT != null, "peglQueryOutputLayerStringEXT not implemented");
 			retValue = Delegates.peglQueryOutputLayerStringEXT(dpy, layer, name);
-			LogFunction("eglQueryOutputLayerStringEXT(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), layer.ToString("X8"), name, retValue);
+			LogFunction("eglQueryOutputLayerStringEXT(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), layer.ToString("X8"), name, Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>
@@ -295,14 +295,14 @@ namespace OpenGL
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public static string QueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name)
 		{
-			string retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.peglQueryOutputPortStringEXT != null, "peglQueryOutputPortStringEXT not implemented");
 			retValue = Delegates.peglQueryOutputPortStringEXT(dpy, port, name);
-			LogFunction("eglQueryOutputPortStringEXT(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), port.ToString("X8"), name, retValue);
+			LogFunction("eglQueryOutputPortStringEXT(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), port.ToString("X8"), name, Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 	}

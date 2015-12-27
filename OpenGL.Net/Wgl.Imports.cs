@@ -328,11 +328,11 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetExtensionsStringARB", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe string wglGetExtensionsStringARB(IntPtr hdc);
+			internal extern static unsafe IntPtr wglGetExtensionsStringARB(IntPtr hdc);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetExtensionsStringEXT", ExactSpelling = true, SetLastError = true)]
-			internal extern static string wglGetExtensionsStringEXT();
+			internal extern static IntPtr wglGetExtensionsStringEXT();
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetFrameUsageI3D", ExactSpelling = true, SetLastError = true)]
