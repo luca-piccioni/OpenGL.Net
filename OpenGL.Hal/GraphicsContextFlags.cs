@@ -28,7 +28,9 @@ namespace OpenGL
 		/// No flag.
 		/// </summary>
 		None = 					0x0000,
-		
+
+		#region Flags
+
 		/// <summary>
 		/// Construct a context using the debug profile.
 		/// </summary>
@@ -48,17 +50,7 @@ namespace OpenGL
 		/// - WGL_ARB_create_context
 		/// </remarks>
 		ForwardCompatible = 	0x0002,
-		
-		/// <summary>
-		/// Construct a context using the compatibility profile.
-		/// </summary>
-		/// <remarks>
-		/// One of the following extension must be implemented for supporting this flag:
-		/// - GLX_ARB_create_context_profile
-		/// - WGL_ARB_create_context_profile
-		/// </remarks>
-		CompatibilityProfile =	0x0004,
-		
+
 		/// <summary>
 		/// Construct a context using the robust profile.
 		/// </summary>
@@ -67,20 +59,36 @@ namespace OpenGL
 		/// - GLX_ARB_create_context, GLX_ARB_create_context_robustness and GL_ARB_robustness
 		/// - WGL_ARB_create_context, WGL_ARB_create_context_robustness and GL_ARB_robustness
 		/// </remarks>
-		Robust =				0x0010,
+		Robust =				0x0004,
+
 		/// <summary>
-		/// Construct a context using the robust profile, and notify about.
+		/// Reset event is guaranteed to do not affect other applications.
+		/// </summary>
+		ResetIsolation =		0x0080,
+
+		#endregion
+
+		#region Profiles
+
+		/// <summary>
+		/// Construct a context using the compatibility profile.
 		/// </summary>
 		/// <remarks>
-		/// One of the following extensions set must be implemented for supporting this flag:
-		/// - GLX_ARB_create_context, GLX_ARB_create_context_robustness and GL_ARB_robustness
-		/// - WGL_ARB_create_context, WGL_ARB_create_context_robustness and GL_ARB_robustness
+		/// One of the following extension must be implemented for supporting this flag:
+		/// - GLX_ARB_create_context_profile
+		/// - WGL_ARB_create_context_profile
 		/// </remarks>
-		RobustNotify =			0x0020 | Robust,
+		CoreProfile =			0x0100,
+
 		/// <summary>
-		/// Mask for extracting Robust* enumeration values.
+		/// Construct a context using the compatibility profile.
 		/// </summary>
-		RobustMask =			0x0030,
+		/// <remarks>
+		/// One of the following extension must be implemented for supporting this flag:
+		/// - GLX_ARB_create_context_profile
+		/// - WGL_ARB_create_context_profile
+		/// </remarks>
+		CompatibilityProfile =	0x0200,
 		
 		/// <summary>
 		/// Constant a context using a ES/ES2 compatible implementation.
@@ -90,7 +98,9 @@ namespace OpenGL
 		/// - GLX_ARB_create_context_profile and GLX_EXT_create_context_es_profile/GLX_EXT_create_context_es2_profile
 		/// - WGL_ARB_create_context_profile and WGL_EXT_create_context_es_profile/WGL_EXT_create_context_es2_profile
 		/// </remarks>
-		Es2Profile =			0x0100
+		EmbeddedProfile =		0x0400
+
+		#endregion
 	}
 }
 

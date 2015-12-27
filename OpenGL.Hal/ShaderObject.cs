@@ -423,7 +423,7 @@ namespace OpenGL
 			if (sVersion >= 150) {
 				// Starting from GLSL 1.50, profiles are implemented
 				
-				if (ctx.CompatibilityProfile == false)
+				if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
 					sLines.Add(String.Format("#version {0} core\n", sVersion));
 				else
 					sLines.Add(String.Format("#version {0} compatibility\n", sVersion));

@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -248,92 +247,184 @@ namespace OpenGL
 		/// </summary>
 		internal static void Touch() { _CurrentCaps.GetHashCode(); }
 
-		/// <summary>
-		/// GraphicsContext constructor.
-		/// </summary>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is throw in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		public GraphicsContext()
-		{
-			// Release device context on dispose
-			// _CommonDeviceContext = true;
-			// Create render context
-			CreateRenderContext(_HiddenWindowDevice, null, _CurrentVersion);
-		}
+		// Constructors using implicit static IDeviceContext
 
 		/// <summary>
-		/// GraphicsContext constructor.
+		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
-		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
-		/// this Render context.
-		/// </param>
 		/// <exception cref="InvalidOperationException">
-		/// This exception is throw in the case it's not possible to create a valid OpenGL context.
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
 		/// </exception>
-		public GraphicsContext(IDeviceContext deviceContext)
+		public GraphicsContext() :
+			this(_HiddenWindowDevice)
 		{
-			// Create render context
-			CreateRenderContext(deviceContext, null, _CurrentVersion);
-		}
 
-		/// <summary>
-		/// Construct a GraphicsContext implementing the current OpenGL version.
-		/// </summary>
-		/// <param name="hSharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this this Render context (to share resource with it).
-		/// In the case this parameter is null, this is equivalent to <see cref="OpenGL.Render.GraphicsContext.ctor"/>
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is throw in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it was created by a thread different from the calling one.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
-		/// </exception>
-		public GraphicsContext(GraphicsContext hSharedContext)
-		{
-			// Release device context on dispose
-			//_CommonDeviceContext = true;
-			// Create render context
-			CreateRenderContext(_HiddenWindowDevice, hSharedContext, _CurrentVersion);
-		}
-
-		/// <summary>
-		/// Construct a GraphicsContext implementing the current OpenGL version.
-		/// </summary>
-		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
-		/// this Render context.
-		/// </param>
-		/// <param name="hSharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
-		/// this Render context (to share resource with it).
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it was created by a thread different from the calling one.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
-		/// </exception>
-		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext hSharedContext)
-		{
-			// Create render context
-			CreateRenderContext(deviceContext, hSharedContext, _CurrentVersion);
 		}
 
 		/// <summary>
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// this Render context (to share resource with it).
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
+		/// </exception>
+		public GraphicsContext(GraphicsContext sharedContext) :
+			this(_HiddenWindowDevice, sharedContext)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a GraphicsContext specifying the implemented OpenGL version.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// this Render context (to share resource with it).
+		/// </param>
 		/// <param name="version">
 		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
 		/// </param>
-		/// <param name="hSharedContext">
+		/// <exception cref="ArgumentException">
+		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
+		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
+		/// are not implemented.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
+		/// </exception>
+		public GraphicsContext(GraphicsContext sharedContext, KhronosVersion version) :
+			this(_HiddenWindowDevice, sharedContext, version)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a GraphicsContext specifying the implemented OpenGL version.
+		/// </summary>
+		/// <param name="sharedContext">
 		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
 		/// this Render context (to share resource with it).
+		/// </param>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// </param>
+		/// <param name="flags">
+		/// A <see cref="GraphicsContextFlags"/> that specifies special features to enable in the case they are supported.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
+		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
+		/// are not implemented.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
+		/// </exception>
+		public GraphicsContext(GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags) :
+			this(_HiddenWindowDevice, sharedContext, version, flags)
+		{
+
+		}
+
+		// Constructors specifying IDeviceContext
+
+		/// <summary>
+		/// Construct a GraphicsContext.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// this Render context.
+		/// </param>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
+		/// are not implemented.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown in the case <paramref name="deviceContext"/> is <see cref="IntPtr.Zero"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
+		/// </exception>
+		public GraphicsContext(IDeviceContext deviceContext) :
+			this(deviceContext, null)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a GraphicsContext specifying the implemented OpenGL version.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// this Render context.
+		/// </param>
+		/// <param name="sharedContext">
+		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// this Render context (to share resource with it).
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown in the case <paramref name="deviceContext"/> is <see cref="IntPtr.Zero"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
+		/// </exception>
+		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext sharedContext) :
+			this(deviceContext, sharedContext, _CurrentVersion, GraphicsContextFlags.None)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a GraphicsContext specifying the implemented OpenGL version.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// this Render context.
+		/// </param>
+		/// <param name="sharedContext">
+		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// this Render context (to share resource with it).
+		/// </param>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
@@ -345,38 +436,39 @@ namespace OpenGL
 		/// are not implemented.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="devctx"/> is <see cref="System.IntPtr.Zero"/>.
+		/// This exception is thrown in the case <paramref name="deviceContext"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// This exception is throw in the case it's not possible to create a valid OpenGL context.
+		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it was created by a thread different from the calling one.
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(KhronosVersion version, GraphicsContext hSharedContext)
+		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version) :
+			this(deviceContext, sharedContext, version, GraphicsContextFlags.None)
 		{
-			// Release device context on dispose
-			//_CommonDeviceContext = true;
-			// Create render context
-			CreateRenderContext(_HiddenWindowDevice, hSharedContext, version);
+
 		}
 
 		/// <summary>
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
-		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
-		/// </param>
 		/// <param name="deviceContext">
 		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
 		/// this Render context.
 		/// </param>
-		/// <param name="hSharedContext">
+		/// <param name="sharedContext">
 		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
 		/// this Render context (to share resource with it).
+		/// </param>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// </param>
+		/// <param name="flags">
+		/// A <see cref="GraphicsContextFlags"/> that specifies special features to enable in the case they are supported.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
@@ -394,58 +486,18 @@ namespace OpenGL
 		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it was created by a thread different from the calling one.
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
+		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(KhronosVersion version, IDeviceContext deviceContext, GraphicsContext hSharedContext)
-		{
-			// Create render context
-			CreateRenderContext(deviceContext, hSharedContext, version);
-		}
-
-		/// <summary>
-		/// Create a GraphicsContext specifying the implemented OpenGL version and a shared object space.
-		/// </summary>
-		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this this Render context.
-		/// </param>
-		/// <param name="hSharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
-		/// this Render context (to share resource with it).
-		/// </param>
-		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="devctx"/> is <see cref="System.IntPtr.Zero"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it was created by a thread different from the calling one.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
-		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
-		/// are not implemented.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the driver,
-		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		private void CreateRenderContext(IDeviceContext deviceContext, GraphicsContext hSharedContext, KhronosVersion version)
+		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags)
 		{
 			try {
-				IntPtr pSharedContext = (hSharedContext != null) ? hSharedContext._RenderContext : IntPtr.Zero;
+				IntPtr sharedContextHandle = (sharedContext != null) ? sharedContext._RenderContext : IntPtr.Zero;
 
 #if DEBUG
-				mConstructorStackTrace = Environment.StackTrace;
+				_ConstructorStackTrace = Environment.StackTrace;
 #endif
 
 				// Store thread ID of the render context
@@ -454,26 +506,27 @@ namespace OpenGL
 				_DeviceContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
 
 				if (deviceContext == null)
-					throw new ArgumentNullException("devctx");
-				if ((hSharedContext != null) && (hSharedContext._DeviceContext == null))
+					throw new ArgumentNullException("deviceContext");
+				if ((sharedContext != null) && (sharedContext._DeviceContext == null))
 					throw new ArgumentException("shared context disposed", "hSharedContext");
-				if ((hSharedContext != null) && (hSharedContext._RenderContextThreadId != _RenderContextThreadId))
+				if ((sharedContext != null) && (sharedContext._RenderContextThreadId != _RenderContextThreadId))
 					throw new ArgumentException("shared context created from another thread", "hSharedContext");
-				if ((version != _CurrentVersion) && ((CurrentCaps.PlatformExtensions.CreateContext_ARB == false) && (CurrentCaps.PlatformExtensions.CreateContextProfile_ARB == false)))
+				if ((version != null) && (version != _CurrentVersion) && ((CurrentCaps.PlatformExtensions.CreateContext_ARB == false) && (CurrentCaps.PlatformExtensions.CreateContextProfile_ARB == false)))
 					throw new ArgumentException("unable to specify OpenGL version when GL_ARB_create_context[_profile] is not supported");
-
-#if false
-				if ((sVersionDb[version].ForwardCompatible == true) && ((CurrentCaps.PlatformExtensions.CreateContext_ARB == false) && (CurrentCaps.PlatformExtensions.CreateContextProfile_ARB == false)))
-					throw new ArgumentException("unable to specify forward-compatible OpenGL version when GL_ARB_create_context[_profile] is not supported");
-#endif
 
 				// Store device context handle
 				_DeviceContext = deviceContext;
 				_DeviceContext.IncRef();
 
+				// Allow version to be null (fallback to current version)
+				version = version ?? _CurrentVersion;
+				// Set flags
+				_ContextFlags = flags;
+
 				if ((CurrentCaps.PlatformExtensions.CreateContext_ARB || CurrentCaps.PlatformExtensions.CreateContextProfile_ARB) && (version.Major >= 3)) {
 					List<int> cAttributes = new List<int>();
-					int rContextFlags = 0;
+
+					#region Context Version
 
 					// Requires a specific version
 					Debug.Assert(Wgl.CONTEXT_MAJOR_VERSION_ARB == Glx.CONTEXT_MAJOR_VERSION_ARB);
@@ -483,20 +536,75 @@ namespace OpenGL
 						Wgl.CONTEXT_MINOR_VERSION_ARB, version.Minor
 					});
 
-					// Context flags
+					#endregion
+
+					#region Context Profile
+
+					uint contextProfile = 0;
+
+					// Check binary compatibility between WGL and GLX
+					Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
+					Debug.Assert(Wgl.CONTEXT_CORE_PROFILE_BIT_ARB == Glx.CONTEXT_CORE_PROFILE_BIT_ARB);
+					Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
+					Debug.Assert(Wgl.CONTEXT_ES_PROFILE_BIT_EXT == Glx.CONTEXT_ES_PROFILE_BIT_EXT);
+
+					// By default, Core profile
+
+					// Core profile?
+					if ((flags & GraphicsContextFlags.CoreProfile) != 0)
+						contextProfile |= Wgl.CONTEXT_CORE_PROFILE_BIT_ARB;
+					// Compatibility profile?
+					if ((flags & GraphicsContextFlags.CompatibilityProfile) != 0)
+						contextProfile |= Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
+					// OpenGL ES profile?
+					if ((flags & GraphicsContextFlags.EmbeddedProfile) != 0)
+						contextProfile |= Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
+
+					if (contextProfile != 0) {
+						cAttributes.AddRange(new int[] {
+							Wgl.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile)
+						});
+					}
+
+					#endregion
+
+					#region Context Flags
+
+					uint contextFlags = 0;
+
+					// Check binary compatibility between WGL and GLX
 					Debug.Assert(Wgl.CONTEXT_FLAGS_ARB == Glx.CONTEXT_FLAGS_ARB);
-					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
 					Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
-#if false
-					// Context flags: forward compatible context
-					if (sVersionDb[version].ForwardCompatible == true)
-						rContextFlags |= (int)(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
-#endif
+					Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
+					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
+					Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
+					Debug.Assert(Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB == Glx.CONTEXT_RESET_ISOLATION_BIT_ARB);
+
+					if (((flags & GraphicsContextFlags.CompatibilityProfile) != 0) && (_CurrentCaps.GlExtensions.Compatibility_ARB == false))
+						throw new NotSupportedException("compatibility profile not supported");
+					if (((flags & GraphicsContextFlags.Robust) != 0) && (_CurrentCaps.GlExtensions.Robustness_ARB == false && _CurrentCaps.GlExtensions.Robustness_EXT == false))
+						throw new NotSupportedException("robust profile not supported");
+
 					// Context flags: debug context
-					rContextFlags |= (int)(Wgl.CONTEXT_DEBUG_BIT_ARB);
-					cAttributes.AddRange(new int[] {
-						Wgl.CONTEXT_FLAGS_ARB, rContextFlags
-					});
+					if ((flags & GraphicsContextFlags.Debug) != 0)
+						contextFlags |= Wgl.CONTEXT_DEBUG_BIT_ARB;
+					// Context flags: forward compatible context
+					if ((flags & GraphicsContextFlags.ForwardCompatible) != 0)
+						contextFlags |= Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
+					// Context flags: robust behavior
+					if ((flags & GraphicsContextFlags.Robust) != 0)
+						contextFlags |= Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB;
+					// Context flags: reset isolation
+					if ((flags & GraphicsContextFlags.ResetIsolation) != 0)
+						contextFlags |= Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB;
+
+					if (contextFlags != 0) {
+						cAttributes.AddRange(new int[] {
+							Wgl.CONTEXT_FLAGS_ARB, unchecked((int)contextFlags)
+						});
+					}
+
+					#endregion
 
 					// End of attributes
 					cAttributes.Add(0);
@@ -504,16 +612,21 @@ namespace OpenGL
 					// Create rendering context
 					int[] contextAttributes = cAttributes.ToArray();
 
-					if ((_RenderContext = _DeviceContext.CreateContextAttrib(pSharedContext, contextAttributes)) == IntPtr.Zero)
-						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor);
+					_RenderContext = _DeviceContext.CreateContextAttrib(sharedContextHandle, contextAttributes);
+					Debug.Assert(_RenderContext != IntPtr.Zero);
 				} else {
 					// Create rendering context
-					if ((_RenderContext = _DeviceContext.CreateContext(pSharedContext)) == IntPtr.Zero)
-						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor);
+					_RenderContext = _DeviceContext.CreateContext(sharedContextHandle);
+					Debug.Assert(_RenderContext != IntPtr.Zero);
 				}
 
-				GraphicsContext rContextCurrent = GetCurrentContext();		// Back current context, if any
-				IDeviceContext rContextCurrentDevice = (rContextCurrent != null) ? rContextCurrent.mCurrentDeviceContext : null;
+				if (_RenderContext == IntPtr.Zero)
+					throw new InvalidOperationException(String.Format("unable to create context {0}", version));
+
+				// Allow the creation of a GraphicsContext while another GraphicsContext is currently current to the
+				// calling thread: restore currency after the job get done
+				GraphicsContext prevContext = GetCurrentContext();
+				IDeviceContext prevContextDevice = (prevContext != null) ? prevContext._CurrentDeviceContext : null;
 
 				// This will cause OpenGL operation flushed... not too bad
 				MakeCurrent(deviceContext, true);
@@ -522,32 +635,21 @@ namespace OpenGL
 				_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
 				// Get the current OpenGL Shading Language implementation supported by this GraphicsContext
 				_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
-				// Determine the compatibility profile
-				KhronosVersion compatibilityVersion = new KhronosVersion(3, 1);
+				// Query context capabilities
+				_Caps = GraphicsCapabilities.Query(this, deviceContext);
 
-				_CompatibilityProfile = (version < compatibilityVersion) && (_Version >= compatibilityVersion);
-
-				// Cache context capabilities for this version
-				if (_GraphicsCapsDb.ContainsKey(_Version) == false)
-					_GraphicsCapsDb[_Version] = GraphicsCapabilities.Query(this, deviceContext);
-
-				// Determine this GraphicsContext object name space and garbage service
-				if (hSharedContext != null) {
+				// Determine this GraphicsContext object namespace
+				if (sharedContext != null) {
 					// Sharing same object name space
-					_ObjectNameSpace = hSharedContext._ObjectNameSpace;
-
-					// Test for effective sharing
-					TestSharingObjects(hSharedContext);
+					_ObjectNameSpace = sharedContext._ObjectNameSpace;
 				} else {
 					// Reserved object name space
 					_ObjectNameSpace = Guid.NewGuid();
-
-					// Effective sharing false by default
 				}
 
-				// Restore previous current context, if any
-				if (rContextCurrent != null)
-					rContextCurrent.MakeCurrent(rContextCurrentDevice, true);
+				// Restore previous current context, if any. Otherwise, make uncurrent
+				if (prevContext != null)
+					prevContext.MakeCurrent(prevContextDevice, true);
 				else
 					MakeCurrent(deviceContext, false);
 			} catch {
@@ -560,7 +662,7 @@ namespace OpenGL
 		/// <summary>
 		/// Stack trace when constructor were called.
 		/// </summary>
-		private string mConstructorStackTrace = String.Empty;
+		private string _ConstructorStackTrace = String.Empty;
 #endif
 
 		#endregion
@@ -614,14 +716,19 @@ namespace OpenGL
 		private KhronosVersion _ShadingVersion;
 
 		/// <summary>
-		/// The compatibility profile presence implemented by this GraphicsContext.
+		/// Flags used to create this GraphicsContext.
 		/// </summary>
-		public bool CompatibilityProfile { get { return (_CompatibilityProfile); } }
+		public GraphicsContextFlags Flags { get { return (_ContextFlags); } }
 
 		/// <summary>
-		/// Compatibility profile enabled (only for versions greater than OpenGL 3.0).
+		/// The compatibility profile presence implemented by this GraphicsContext.
 		/// </summary>
-		private bool _CompatibilityProfile;
+		public bool IsCompatibleProfile { get { return ((_ContextFlags & GraphicsContextFlags.CompatibilityProfile) != 0); } }
+
+		/// <summary>
+		/// Flags used to create this GraphicsContext.
+		/// </summary>
+		private readonly GraphicsContextFlags _ContextFlags;
 
 		#endregion
 
@@ -640,9 +747,11 @@ namespace OpenGL
 		{
 			get
 			{
-				return (_GraphicsCapsDb[Version]);
+				return (_Caps);
 			}
 		}
+
+		private GraphicsCapabilities _Caps;
 
 		/// <summary>
 		/// Get rendering context capabilities of the current OpenGL implementation.
@@ -670,15 +779,6 @@ namespace OpenGL
 		/// </remarks>
 		private static readonly GraphicsCapabilities _CurrentCaps;
 
-		/// <summary>
-		/// Map OpenGL capabilities to a specific OpenGL version.
-		/// </summary>
-		/// <remarks>
-		/// The use of this map suppose that the capabilities doesn't change between context having the same OpenGL version. At this
-		/// moment is not clear if it really is.
-		/// </remarks>
-		private static readonly Dictionary<KhronosVersion, GraphicsCapabilities> _GraphicsCapsDb = new Dictionary<KhronosVersion, GraphicsCapabilities>();
-
 		#endregion
 
 		#region Object Namespace
@@ -692,262 +792,6 @@ namespace OpenGL
 		/// Object namespace identifier.
 		/// </summary>
 		private Guid _ObjectNameSpace = Guid.Empty;
-
-		#region Object Class Sharing
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing texture objects.
-		/// </summary>
-		public bool ShareTextureObjects { get { return (IsSharedObjectClass(Texture.TextureObjectClass)); } }
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing shader objects.
-		/// </summary>
-		public bool ShareShaderObjects { get { return (IsSharedObjectClass(ShaderObject.ShaderObjectClass)); } }
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing shader program objects.
-		/// </summary>
-		public bool ShareShaderProgramObjects { get { return (IsSharedObjectClass(ShaderProgram.ShaderProgramObjectClass)); } }
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing render buffer objects.
-		/// </summary>
-		public bool ShareRenderBufferObjects { get { return (IsSharedObjectClass(RenderBuffer.RenderBufferObjectClass)); } }
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing render buffer objects.
-		/// </summary>
-		public bool ShareFramebufferObjects { get { return (IsSharedObjectClass(RenderBuffer.RenderBufferObjectClass)); } }
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing vertex buffer objects.
-		/// </summary>
-		public bool ShareVertexBufferObjects { get { return (IsSharedObjectClass(BufferObject.BufferObjectClass)); } }
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing vertex array objects.
-		/// </summary>
-		public bool ShareVertexArrayObjects { get { return (IsSharedObjectClass(VertexArrayObject.VertexArrayObjectClass)); } }
-
-		#endregion
-
-		/// <summary>
-		/// Property that specify whether this GraphicsContext is sharing a specific object class.
-		/// </summary>
-		/// <param name="class"></param>
-		/// <returns></returns>
-		internal bool IsSharedObjectClass(Guid @class)
-		{
-			return ((mSharedObjectClasses != null) && (mSharedObjectClasses.Contains(@class)));
-		}
-
-		/// <summary>
-		/// Execute a benchmark to determine whether this GraphicsContext can share various object.
-		/// </summary>
-		/// <param name="rContextShare">
-		/// A <see cref="GraphicsContext"/> sharing with this GraphicsContext.
-		/// </param>
-		private void TestSharingObjects(GraphicsContext rContextShare)
-		{
-			if (rContextShare == null)
-				throw new ArgumentNullException("rContextShare");
-			if (IsCurrent == false)
-				throw new InvalidOperationException("not current");
-
-			#region Create Objects
-
-			// Create objects on this GraphicsContext
-			uint texture = 0;
-			uint shader = 0;
-			uint shaderProgram = 0;
-			uint renderBuffer = 0;
-			uint framebuffer = 0;
-			uint vertexBuffer = 0;
-			uint vertexArray = 0;
-
-			#region Textures
-
-			if (Caps.GlExtensions.TextureObject_EXT) {
-				// Generate texture name
-				texture = Gl.GenTexture();
-				// Ensure existing texture object
-				Gl.BindTexture(TextureTarget.Texture2d, texture);
-				Gl.BindTexture(TextureTarget.Texture2d, 0);
-				// Self test
-				if (Gl.IsTexture(texture) == false)
-					throw new NotSupportedException();
-			}
-
-			#endregion
-
-			#region Shader
-
-			if (Caps.GlExtensions.ShaderObjects_ARB) {
-				// Generate shader object name
-				shader = Gl.CreateShader(Gl.VERTEX_SHADER);
-				// Self test
-				if (Gl.IsShader(shader) == false)
-					throw new NotSupportedException();
-			}
-
-			#endregion
-
-			#region Shader Program
-
-			if (Caps.GlExtensions.VertexShader_ARB) {
-				// Generate shader program object name
-				shaderProgram = Gl.CreateProgram();
-				// Self test
-				if (Gl.IsProgram(shaderProgram) == false)
-					throw new NotSupportedException();
-			}
-
-			#endregion
-
-			#region Render Buffer
-
-			if (Caps.GlExtensions.FramebufferObject_ARB) {
-				// Generate shader program object name
-				renderBuffer = Gl.GenRenderbuffer();
-				// Ensure existing render buffer
-				Gl.BindRenderbuffer(Gl.RENDERBUFFER, renderBuffer);
-				Gl.BindRenderbuffer(Gl.RENDERBUFFER, 0);
-				// Self test
-				if (Gl.IsRenderbuffer(renderBuffer) == false)
-					throw new NotSupportedException();
-			}
-
-			#endregion
-
-			#region Framebuffer
-
-			if (Caps.GlExtensions.FramebufferObject_ARB) {
-				// Generate framebuffer name
-				framebuffer = Gl.GenFramebuffer();
-				// Ensure existing object
-				Gl.BindFramebuffer(Gl.FRAMEBUFFER, framebuffer);
-				Gl.BindFramebuffer(Gl.FRAMEBUFFER, 0);
-				// Self test
-				if (Gl.IsFramebuffer(framebuffer) == false)
-					throw new NotSupportedException();
-			}
-
-#endregion
-
-#region Vertex Buffer
-
-			if (Caps.GlExtensions.VertexBufferObject_ARB) {
-				// Generate buffer name
-				vertexBuffer = Gl.GenBuffer();
-				// Ensure existing object
-				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, vertexBuffer);
-				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
-				// Self test
-				if (Gl.IsBuffer(vertexBuffer) == false)
-					throw new NotSupportedException();
-			}
-
-#endregion
-
-#region Vertex Array
-
-			if (Caps.GlExtensions.VertexArrayObject_ARB) {
-				// Generate buffer name
-				vertexArray = Gl.GenVertexArray();
-				// Ensure existing object
-				Gl.BindVertexArray(vertexArray);
-				Gl.BindVertexArray(0);
-				// Self test
-				if (Gl.IsVertexArray(vertexArray) == false)
-					throw new NotSupportedException();
-			}
-
-#endregion
-
-#endregion
-
-			// Make current sharing context
-			rContextShare.MakeCurrent(true);
-
-#region Test Object Sharing
-
-			// Create dictionary
-			mSharedObjectClasses = new ListDictionary();
-
-			if ((texture != 0) && (Gl.IsTexture(texture) == true)) {
-				mSharedObjectClasses.Add(Texture.TextureObjectClass, Texture.TextureObjectClass);
-				_Log.Debug("- Texture objects are shared.");
-			}
-
-			if ((shader != 0) && (Gl.IsShader(shader) == true)) {
-				mSharedObjectClasses.Add(ShaderObject.ShaderObjectClass, ShaderObject.ShaderObjectClass);
-				_Log.Debug("- Shader objects are shared.");
-			}
-
-			if ((shaderProgram != 0) && (Gl.IsProgram(shaderProgram) == true)) {
-				mSharedObjectClasses.Add(ShaderProgram.ShaderProgramObjectClass, ShaderProgram.ShaderProgramObjectClass);
-				_Log.Debug("- Shader programs are shared.");
-			}
-
-			if ((renderBuffer != 0) && (Gl.IsRenderbuffer(renderBuffer) == true)) {
-				mSharedObjectClasses.Add(RenderBuffer.RenderBufferObjectClass, RenderBuffer.RenderBufferObjectClass);
-				_Log.Debug("- Render buffer objects are shared.");
-			}
-
-			if ((vertexBuffer != 0) && (Gl.IsBuffer(vertexBuffer) == true)) {
-				mSharedObjectClasses.Add(BufferObject.BufferObjectClass, BufferObject.BufferObjectClass);
-				_Log.Debug("- Vertex buffer objects are shared.");
-			}
-
-			if ((vertexArray != 0) && (Gl.IsVertexArray(vertexArray) == true)) {
-				mSharedObjectClasses.Add(VertexArrayObject.VertexArrayObjectClass, VertexArrayObject.VertexArrayObjectClass);
-				_Log.Debug("- Vertex array objects are shared.");
-			}
-
-#endregion
-
-#region Delete Objects
-
-			// Texture
-			if (texture != 0)
-				Gl.DeleteTextures(texture);
-			// Shader
-			if (shader != 0)
-				Gl.DeleteShader(shader);
-			// Shader program
-			if (shaderProgram != 0)
-				Gl.DeleteProgram(shaderProgram);
-			// Render buffer
-			if (renderBuffer != 0)
-				Gl.DeleteRenderbuffers(renderBuffer);
-			// Framebuffer
-			if (framebuffer != 0)
-				Gl.DeleteFramebuffers(framebuffer);
-			// Vertex buffer
-			if (vertexBuffer != 0)
-				Gl.DeleteBuffers(vertexBuffer);
-			// Vertex array
-			if (vertexArray != 0)
-				Gl.DeleteVertexArrays(vertexArray);
-
-#endregion
-
-			// Because sharing is transitive, the tested object sharing is managed also by the sharing context
-			rContextShare.mSharedObjectClasses = mSharedObjectClasses;
-
-			// Make current this context
-			MakeCurrent(true);
-		}
-
-		/// <summary>
-		/// Sharing object classes.
-		/// </summary>
-		/// <remarks>
-		/// This dictionary determine which object classes can be shared within this GraphicsContext object name
-		/// space.
-		/// </remarks>
-		private ListDictionary mSharedObjectClasses;
 
 		#endregion
 
@@ -977,9 +821,9 @@ namespace OpenGL
 		/// </exception>
 		public void MakeCurrent(bool flag)
 		{
-			if (mCurrentDeviceContext == null)
+			if (_CurrentDeviceContext == null)
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
-			MakeCurrent(mCurrentDeviceContext, flag);
+			MakeCurrent(_CurrentDeviceContext, flag);
 		}
 
 		/// <summary>
@@ -1016,7 +860,7 @@ namespace OpenGL
 					throw new InvalidOperationException("context cannot be current because error " + Marshal.GetLastWin32Error());
 
 				// Cache current device context
-				mCurrentDeviceContext = deviceContext;
+				_CurrentDeviceContext = deviceContext;
 				// Set current context on this thread (only on success)
 				lock (_RenderThreadsLock) {
 					_RenderThreads[threadId] = this;
@@ -1112,10 +956,10 @@ namespace OpenGL
 		/// </summary>
 		private static System.Windows.Forms.Form _HiddenWindow;
 
-        /// <summary>
-        /// Device context handle created from <see cref="_HiddenWindow"/>.
-        /// </summary>
-        private static IDeviceContext _HiddenWindowDevice;
+		/// <summary>
+		/// Device context handle created from <see cref="_HiddenWindow"/>.
+		/// </summary>
+		private static IDeviceContext _HiddenWindowDevice;
 
 		/// <summary>
 		/// Device context handle referred by GraphicsContext at construction time.
@@ -1134,7 +978,7 @@ namespace OpenGL
 		/// If its value is <see cref="System.IntPtr.Zero"/>, it means that this GraphicsContext has never been current on a thread.
 		/// </para>
 		/// </remarks>
-		private IDeviceContext mCurrentDeviceContext;
+		private IDeviceContext _CurrentDeviceContext;
 
 		/// <summary>
 		/// Flag indicating whether <see cref="_DeviceContext"/> is a device context for the entire screen. This means that

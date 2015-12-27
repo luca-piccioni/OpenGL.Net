@@ -199,14 +199,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get the Form handle used for rendering.
-		/// </summary>
-		public Form NestedForm
-		{
-			get { return (_RenderForm); }
-		}
-
-		/// <summary>
 		/// Form where rendering results are drawn. 
 		/// </summary>
 		private readonly RenderForm _RenderForm;
@@ -648,7 +640,7 @@ namespace OpenGL
 			if (ctx != null)
 				throw new ArgumentException("context not required", "ctx");
 
-			sLog.Info("Create rendering window '{0}'.", NestedForm != null ? NestedForm.Text : "untitled");
+			sLog.Info("Create rendering window '{0}'.", _RenderForm != null ? _RenderForm.Text : "untitled");
 
 			// Choose "best" pixel format matching with surface configuration
 			if (_DeviceFormat == null)
