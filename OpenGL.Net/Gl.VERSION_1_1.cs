@@ -31,18 +31,21 @@ namespace OpenGL
 		/// Gl.Clear: indicates the depth buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[Log(BitmaskName = "GL")]
 		public const uint DEPTH_BUFFER_BIT = 0x00000100;
 
 		/// <summary>
 		/// Gl.Clear: indicates the stencil buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[Log(BitmaskName = "GL")]
 		public const uint STENCIL_BUFFER_BIT = 0x00000400;
 
 		/// <summary>
 		/// Gl.Clear: indicates the buffers currently enabled for color writing.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[Log(BitmaskName = "GL")]
 		public const uint COLOR_BUFFER_BIT = 0x00004000;
 
 		/// <summary>
@@ -2098,6 +2101,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2108,6 +2112,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2118,6 +2123,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2128,6 +2134,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2138,6 +2145,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2148,6 +2156,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2158,6 +2167,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2168,6 +2178,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2178,6 +2189,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2188,6 +2200,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2198,6 +2211,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2208,6 +2222,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2218,6 +2233,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2228,6 +2244,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2238,6 +2255,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2248,6 +2266,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2258,6 +2277,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2268,6 +2288,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2278,6 +2299,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2288,6 +2310,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -2298,6 +2321,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
 #endif
@@ -4213,12 +4237,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
 		/// commands are generated when the map is evaluated but the current color is not updated with the value of these Gl.Color4 
 		/// commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4234,11 +4258,11 @@ namespace OpenGL
 		/// value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
 		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4254,12 +4278,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing the x, y, and z components of a normal vector. 
 		/// Internal Gl.Normal commands are generated when the map is evaluated but the current normal is not updated with the value 
 		/// of these Gl.Normal commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4275,13 +4299,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
-		/// Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is a single floating-point value representing the s texture coordinate. Internal 
 		/// Gl.TexCoord1 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
+		/// Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4297,13 +4321,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
-		/// Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is two floating-point values representing the s and t texture coordinates. Internal 
 		/// Gl.TexCoord2 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
+		/// Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4319,13 +4343,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
-		/// See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
 		/// Gl.TexCoord3 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
+		/// See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4341,13 +4365,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
-		/// coordinates. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
 		/// Gl.TexCoord4 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
+		/// coordinates. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4363,12 +4387,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
-		/// See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
 		/// generated when the map is evaluated.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
+		/// See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4384,12 +4408,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
-		/// vertex coordinates. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
 		/// generated when the map is evaluated.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
+		/// vertex coordinates. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -7457,7 +7481,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteTextures != null, "pglDeleteTextures not implemented");
 					Delegates.pglDeleteTextures((Int32)textures.Length, p_textures);
-					LogFunction("glDeleteTextures({0}, {1})", textures.Length, textures);
+					LogFunction("glDeleteTextures({0}, {1})", textures.Length, LogValue(textures));
 				}
 			}
 			DebugCheckErrors(null);
@@ -7492,7 +7516,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenTextures != null, "pglGenTextures not implemented");
 					Delegates.pglGenTextures((Int32)textures.Length, p_textures);
-					LogFunction("glGenTextures({0}, {1})", textures.Length, textures);
+					LogFunction("glGenTextures({0}, {1})", textures.Length, LogValue(textures));
 				}
 			}
 			DebugCheckErrors(null);
@@ -8479,7 +8503,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglAreTexturesResident != null, "pglAreTexturesResident not implemented");
 					retValue = Delegates.pglAreTexturesResident((Int32)textures.Length, p_textures, p_residences);
-					LogFunction("glAreTexturesResident({0}, {1}, {2}) = {3}", textures.Length, textures, residences, retValue);
+					LogFunction("glAreTexturesResident({0}, {1}, {2}) = {3}", textures.Length, LogValue(textures), LogValue(residences), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -8524,7 +8548,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPrioritizeTextures != null, "pglPrioritizeTextures not implemented");
 					Delegates.pglPrioritizeTextures((Int32)textures.Length, p_textures, p_priorities);
-					LogFunction("glPrioritizeTextures({0}, {1}, {2})", textures.Length, textures, priorities);
+					LogFunction("glPrioritizeTextures({0}, {1}, {2})", textures.Length, LogValue(textures), LogValue(priorities));
 				}
 			}
 			DebugCheckErrors(null);
@@ -8564,7 +8588,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglIndexubv != null, "pglIndexubv not implemented");
 					Delegates.pglIndexubv(p_c);
-					LogFunction("glIndexubv({0})", c);
+					LogFunction("glIndexubv({0})", LogValue(c));
 				}
 			}
 			DebugCheckErrors(null);

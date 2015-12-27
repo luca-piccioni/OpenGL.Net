@@ -63,7 +63,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateImageKHR != null, "peglCreateImageKHR not implemented");
 					retValue = Delegates.peglCreateImageKHR(dpy, ctx, target, buffer, p_attrib_list);
-					LogFunction("eglCreateImageKHR(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), ctx.ToString("X8"), target, buffer.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreateImageKHR(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), ctx.ToString("X8"), target, buffer.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

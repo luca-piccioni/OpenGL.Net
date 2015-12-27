@@ -94,7 +94,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQuerySwapGroupNV != null, "pwglQuerySwapGroupNV not implemented");
 					retValue = Delegates.pwglQuerySwapGroupNV(hDC, p_group, p_barrier);
-					LogFunction("wglQuerySwapGroupNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), group, barrier, retValue);
+					LogFunction("wglQuerySwapGroupNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), LogValue(group), LogValue(barrier), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -125,7 +125,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryMaxSwapGroupsNV != null, "pwglQueryMaxSwapGroupsNV not implemented");
 					retValue = Delegates.pwglQueryMaxSwapGroupsNV(hDC, p_maxGroups, p_maxBarriers);
-					LogFunction("wglQueryMaxSwapGroupsNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), maxGroups, maxBarriers, retValue);
+					LogFunction("wglQueryMaxSwapGroupsNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), LogValue(maxGroups), LogValue(maxBarriers), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -152,7 +152,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryFrameCountNV != null, "pwglQueryFrameCountNV not implemented");
 					retValue = Delegates.pwglQueryFrameCountNV(hDC, p_count);
-					LogFunction("wglQueryFrameCountNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), count, retValue);
+					LogFunction("wglQueryFrameCountNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), LogValue(count), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -37,12 +37,14 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_CORE_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
+		[Log(BitmaskName = "WGLContextProfileMask")]
 		public const uint CONTEXT_CORE_PROFILE_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
+		[Log(BitmaskName = "WGLContextProfileMask")]
 		public const uint CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x00000002;
 
 		/// <summary>

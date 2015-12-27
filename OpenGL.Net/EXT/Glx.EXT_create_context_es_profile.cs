@@ -31,6 +31,7 @@ namespace OpenGL
 		/// Value of GLX_CONTEXT_ES_PROFILE_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_create_context_es_profile")]
+		[Log(BitmaskName = "GLXContextProfileMask")]
 		public const uint CONTEXT_ES_PROFILE_BIT_EXT = 0x00000004;
 
 	}

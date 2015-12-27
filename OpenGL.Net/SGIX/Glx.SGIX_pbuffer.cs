@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of GLX_BUFFER_CLOBBER_MASK_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXEventMask")]
 		public const uint BUFFER_CLOBBER_MASK_SGIX = 0x08000000;
 
 		/// <summary>
 		/// Value of GLX_SAMPLE_BUFFERS_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint SAMPLE_BUFFERS_BIT_SGIX = 0x00000100;
 
 		/// <summary>
@@ -79,7 +81,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateGLXPbufferSGIX != null, "pglXCreateGLXPbufferSGIX not implemented");
 					retValue = Delegates.pglXCreateGLXPbufferSGIX(dpy, config, width, height, p_attrib_list);
-					LogFunction("glXCreateGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), width, height, attrib_list, retValue.ToString("X8"));
+					LogFunction("glXCreateGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), width, height, LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 
@@ -170,7 +172,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetSelectedEventSGIX != null, "pglXGetSelectedEventSGIX not implemented");
 					Delegates.pglXGetSelectedEventSGIX(dpy, drawable, p_mask);
-					LogFunction("glXGetSelectedEventSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), mask);
+					LogFunction("glXGetSelectedEventSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), LogValue(mask));
 				}
 			}
 		}

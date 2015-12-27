@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of GLX_CONTEXT_DEBUG_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
+		[Log(BitmaskName = "GLXContextFlags")]
 		public const uint CONTEXT_DEBUG_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
+		[Log(BitmaskName = "GLXContextFlags")]
 		public const uint CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
 
 		/// <summary>
@@ -85,7 +87,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateContextAttribsARB != null, "pglXCreateContextAttribsARB not implemented");
 					retValue = Delegates.pglXCreateContextAttribsARB(dpy, config, share_context, direct, p_attrib_list);
-					LogFunction("glXCreateContextAttribsARB(0x{0}, 0x{1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), share_context.ToString("X8"), direct, attrib_list, retValue.ToString("X8"));
+					LogFunction("glXCreateContextAttribsARB(0x{0}, 0x{1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), share_context.ToString("X8"), direct, LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 

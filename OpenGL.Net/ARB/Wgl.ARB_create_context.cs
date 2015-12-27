@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_DEBUG_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
+		[Log(BitmaskName = "WGLContextFlagsMask")]
 		public const uint CONTEXT_DEBUG_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
+		[Log(BitmaskName = "WGLContextFlagsMask")]
 		public const uint CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
 
 		/// <summary>
@@ -91,7 +93,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreateContextAttribsARB != null, "pwglCreateContextAttribsARB not implemented");
 					retValue = Delegates.pwglCreateContextAttribsARB(hDC, hShareContext, p_attribList);
-					LogFunction("wglCreateContextAttribsARB(0x{0}, 0x{1}, {2}) = {3}", hDC.ToString("X8"), hShareContext.ToString("X8"), attribList, retValue.ToString("X8"));
+					LogFunction("wglCreateContextAttribsARB(0x{0}, 0x{1}, {2}) = {3}", hDC.ToString("X8"), hShareContext.ToString("X8"), LogEnumName(attribList), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -31,6 +31,7 @@ namespace OpenGL
 		/// Value of GL_SPARSE_STORAGE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_sparse_buffer")]
+		[Log(BitmaskName = "GL")]
 		public const int SPARSE_STORAGE_BIT_ARB = 0x0400;
 
 		/// <summary>

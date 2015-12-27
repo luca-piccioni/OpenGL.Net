@@ -291,6 +291,14 @@ namespace BindingsGen.GLSpecs
 			foreach (IFeature feature in RemovedBy)
 				sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
 
+			// This metadata is used for procedure logging function
+			bool requiresLogAttribute = ParentEnumerantBlock.Type == "bitmask";
+
+			if (requiresLogAttribute == true) {
+				if (ParentEnumerantBlock.Type == "bitmask")
+					sw.WriteLine("[Log(BitmaskName = \"{0}\")]", ParentEnumerantBlock.Namespace);
+			}
+
 			if (IsDeprecated) {
 				sw.Write("#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE" + Environment.NewLine);
 				sw.WriteLine("[Obsolete(\"Deprecated/removed by {0}.\")]", SpecificationStyle.GetKhronosVersionHumanReadable(RemovedBy[0].Name));

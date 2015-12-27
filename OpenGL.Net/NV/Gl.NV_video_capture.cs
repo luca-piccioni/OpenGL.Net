@@ -302,7 +302,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureivNV != null, "pglGetVideoCaptureivNV not implemented");
 					Delegates.pglGetVideoCaptureivNV(video_capture_slot, pname, p_params);
-					LogFunction("glGetVideoCaptureivNV({0}, {1}, {2})", video_capture_slot, LogEnumName(pname), @params);
+					LogFunction("glGetVideoCaptureivNV({0}, {1}, {2})", video_capture_slot, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -331,7 +331,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureStreamivNV != null, "pglGetVideoCaptureStreamivNV not implemented");
 					Delegates.pglGetVideoCaptureStreamivNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glGetVideoCaptureStreamivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), @params);
+					LogFunction("glGetVideoCaptureStreamivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -360,7 +360,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureStreamfvNV != null, "pglGetVideoCaptureStreamfvNV not implemented");
 					Delegates.pglGetVideoCaptureStreamfvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glGetVideoCaptureStreamfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), @params);
+					LogFunction("glGetVideoCaptureStreamfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -389,7 +389,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureStreamdvNV != null, "pglGetVideoCaptureStreamdvNV not implemented");
 					Delegates.pglGetVideoCaptureStreamdvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glGetVideoCaptureStreamdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), @params);
+					LogFunction("glGetVideoCaptureStreamdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -418,7 +418,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureNV != null, "pglVideoCaptureNV not implemented");
 					retValue = Delegates.pglVideoCaptureNV(video_capture_slot, p_sequence_num, p_capture_time);
-					LogFunction("glVideoCaptureNV({0}, {1}, {2}) = {3}", video_capture_slot, sequence_num, capture_time, retValue);
+					LogFunction("glVideoCaptureNV({0}, {1}, {2}) = {3}", video_capture_slot, LogValue(sequence_num), LogValue(capture_time), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -449,7 +449,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureStreamParameterivNV != null, "pglVideoCaptureStreamParameterivNV not implemented");
 					Delegates.pglVideoCaptureStreamParameterivNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glVideoCaptureStreamParameterivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), @params);
+					LogFunction("glVideoCaptureStreamParameterivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -478,7 +478,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureStreamParameterfvNV != null, "pglVideoCaptureStreamParameterfvNV not implemented");
 					Delegates.pglVideoCaptureStreamParameterfvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glVideoCaptureStreamParameterfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), @params);
+					LogFunction("glVideoCaptureStreamParameterfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -507,7 +507,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureStreamParameterdvNV != null, "pglVideoCaptureStreamParameterdvNV not implemented");
 					Delegates.pglVideoCaptureStreamParameterdvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glVideoCaptureStreamParameterdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), @params);
+					LogFunction("glVideoCaptureStreamParameterdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

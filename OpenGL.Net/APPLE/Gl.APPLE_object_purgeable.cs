@@ -136,7 +136,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivAPPLE != null, "pglGetObjectParameterivAPPLE not implemented");
 					Delegates.pglGetObjectParameterivAPPLE(objectType, name, pname, p_params);
-					LogFunction("glGetObjectParameterivAPPLE({0}, {1}, {2}, {3})", LogEnumName(objectType), name, LogEnumName(pname), @params);
+					LogFunction("glGetObjectParameterivAPPLE({0}, {1}, {2}, {3})", LogEnumName(objectType), name, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

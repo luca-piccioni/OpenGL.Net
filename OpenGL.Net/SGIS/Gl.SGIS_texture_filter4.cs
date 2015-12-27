@@ -59,7 +59,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexFilterFuncSGIS != null, "pglGetTexFilterFuncSGIS not implemented");
 					Delegates.pglGetTexFilterFuncSGIS((Int32)target, filter, p_weights);
-					LogFunction("glGetTexFilterFuncSGIS({0}, {1}, {2})", target, LogEnumName(filter), weights);
+					LogFunction("glGetTexFilterFuncSGIS({0}, {1}, {2})", target, LogEnumName(filter), LogValue(weights));
 				}
 			}
 			DebugCheckErrors(null);
@@ -89,7 +89,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexFilterFuncSGIS != null, "pglTexFilterFuncSGIS not implemented");
 					Delegates.pglTexFilterFuncSGIS((Int32)target, filter, n, p_weights);
-					LogFunction("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, LogEnumName(filter), n, weights);
+					LogFunction("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, LogEnumName(filter), n, LogValue(weights));
 				}
 			}
 			DebugCheckErrors(null);
@@ -115,7 +115,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexFilterFuncSGIS != null, "pglTexFilterFuncSGIS not implemented");
 					Delegates.pglTexFilterFuncSGIS((Int32)target, filter, (Int32)weights.Length, p_weights);
-					LogFunction("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, LogEnumName(filter), weights.Length, weights);
+					LogFunction("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, LogEnumName(filter), weights.Length, LogValue(weights));
 				}
 			}
 			DebugCheckErrors(null);

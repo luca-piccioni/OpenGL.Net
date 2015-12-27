@@ -109,7 +109,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateFenceSyncNV != null, "peglCreateFenceSyncNV not implemented");
 					retValue = Delegates.peglCreateFenceSyncNV(dpy, condition, p_attrib_list);
-					LogFunction("eglCreateFenceSyncNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), condition, attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreateFenceSyncNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), condition, LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -224,7 +224,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetSyncAttribNV != null, "peglGetSyncAttribNV not implemented");
 					retValue = Delegates.peglGetSyncAttribNV(sync, attribute, p_value);
-					LogFunction("eglGetSyncAttribNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglGetSyncAttribNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -103,7 +103,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameterfvEXT != null, "pglGetHistogramParameterfvEXT not implemented");
 					Delegates.pglGetHistogramParameterfvEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetHistogramParameterfvEXT({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetHistogramParameterfvEXT({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -129,7 +129,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameterivEXT != null, "pglGetHistogramParameterivEXT not implemented");
 					Delegates.pglGetHistogramParameterivEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetHistogramParameterivEXT({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetHistogramParameterivEXT({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -211,7 +211,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameterfvEXT != null, "pglGetMinmaxParameterfvEXT not implemented");
 					Delegates.pglGetMinmaxParameterfvEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMinmaxParameterfvEXT({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetMinmaxParameterfvEXT({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -237,7 +237,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameterivEXT != null, "pglGetMinmaxParameterivEXT not implemented");
 					Delegates.pglGetMinmaxParameterivEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMinmaxParameterivEXT({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetMinmaxParameterivEXT({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

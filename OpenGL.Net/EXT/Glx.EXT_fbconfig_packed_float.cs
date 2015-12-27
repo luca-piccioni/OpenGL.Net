@@ -37,6 +37,7 @@ namespace OpenGL
 		/// Value of GLX_RGBA_UNSIGNED_FLOAT_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_fbconfig_packed_float")]
+		[Log(BitmaskName = "GLXRenderTypeMask")]
 		public const uint RGBA_UNSIGNED_FLOAT_BIT_EXT = 0x00000008;
 
 	}

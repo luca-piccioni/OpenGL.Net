@@ -31,18 +31,21 @@ namespace OpenGL
 		/// Value of GLX_TEXTURE_1D_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
+		[Log(BitmaskName = "GLXBindToTextureTargetMask")]
 		public const uint TEXTURE_1D_BIT_EXT = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_TEXTURE_2D_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
+		[Log(BitmaskName = "GLXBindToTextureTargetMask")]
 		public const uint TEXTURE_2D_BIT_EXT = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_TEXTURE_RECTANGLE_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
+		[Log(BitmaskName = "GLXBindToTextureTargetMask")]
 		public const uint TEXTURE_RECTANGLE_BIT_EXT = 0x00000004;
 
 		/// <summary>
@@ -236,7 +239,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXBindTexImageEXT != null, "pglXBindTexImageEXT not implemented");
 					Delegates.pglXBindTexImageEXT(dpy, drawable, buffer, p_attrib_list);
-					LogFunction("glXBindTexImageEXT(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), drawable.ToString("X8"), buffer, attrib_list);
+					LogFunction("glXBindTexImageEXT(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), drawable.ToString("X8"), buffer, LogValue(attrib_list));
 				}
 			}
 		}

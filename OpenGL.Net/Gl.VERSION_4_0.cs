@@ -1111,7 +1111,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform1dv != null, "pglUniform1dv not implemented");
 					Delegates.pglUniform1dv(location, count, p_value);
-					LogFunction("glUniform1dv({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform1dv({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1138,7 +1138,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform2dv != null, "pglUniform2dv not implemented");
 					Delegates.pglUniform2dv(location, count, p_value);
-					LogFunction("glUniform2dv({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform2dv({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1165,7 +1165,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform3dv != null, "pglUniform3dv not implemented");
 					Delegates.pglUniform3dv(location, count, p_value);
-					LogFunction("glUniform3dv({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform3dv({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1192,7 +1192,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform4dv != null, "pglUniform4dv not implemented");
 					Delegates.pglUniform4dv(location, count, p_value);
-					LogFunction("glUniform4dv({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform4dv({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1222,7 +1222,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2dv != null, "pglUniformMatrix2dv not implemented");
 					Delegates.pglUniformMatrix2dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix2dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix2dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1252,7 +1252,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3dv != null, "pglUniformMatrix3dv not implemented");
 					Delegates.pglUniformMatrix3dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix3dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix3dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1282,7 +1282,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4dv != null, "pglUniformMatrix4dv not implemented");
 					Delegates.pglUniformMatrix4dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix4dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix4dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1312,7 +1312,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x3dv != null, "pglUniformMatrix2x3dv not implemented");
 					Delegates.pglUniformMatrix2x3dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix2x3dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix2x3dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1342,7 +1342,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x4dv != null, "pglUniformMatrix2x4dv not implemented");
 					Delegates.pglUniformMatrix2x4dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix2x4dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix2x4dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1372,7 +1372,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x2dv != null, "pglUniformMatrix3x2dv not implemented");
 					Delegates.pglUniformMatrix3x2dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix3x2dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix3x2dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1402,7 +1402,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x4dv != null, "pglUniformMatrix3x4dv not implemented");
 					Delegates.pglUniformMatrix3x4dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix3x4dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix3x4dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1432,7 +1432,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x2dv != null, "pglUniformMatrix4x2dv not implemented");
 					Delegates.pglUniformMatrix4x2dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix4x2dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix4x2dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1462,7 +1462,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x3dv != null, "pglUniformMatrix4x3dv not implemented");
 					Delegates.pglUniformMatrix4x3dv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix4x3dv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix4x3dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1511,7 +1511,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetUniformdv != null, "pglGetUniformdv not implemented");
 					Delegates.pglGetUniformdv(program, location, p_params);
-					LogFunction("glGetUniformdv({0}, {1}, {2})", program, location, @params);
+					LogFunction("glGetUniformdv({0}, {1}, {2})", program, location, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1641,7 +1641,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineUniformiv != null, "pglGetActiveSubroutineUniformiv not implemented");
 					Delegates.pglGetActiveSubroutineUniformiv(program, shadertype, index, pname, p_values);
-					LogFunction("glGetActiveSubroutineUniformiv({0}, {1}, {2}, {3}, {4})", program, LogEnumName(shadertype), index, LogEnumName(pname), values);
+					LogFunction("glGetActiveSubroutineUniformiv({0}, {1}, {2}, {3}, {4})", program, LogEnumName(shadertype), index, LogEnumName(pname), LogValue(values));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1787,7 +1787,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformSubroutinesuiv != null, "pglUniformSubroutinesuiv not implemented");
 					Delegates.pglUniformSubroutinesuiv(shadertype, (Int32)indices.Length, p_indices);
-					LogFunction("glUniformSubroutinesuiv({0}, {1}, {2})", LogEnumName(shadertype), indices.Length, indices);
+					LogFunction("glUniformSubroutinesuiv({0}, {1}, {2})", LogEnumName(shadertype), indices.Length, LogValue(indices));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1945,7 +1945,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPatchParameterfv != null, "pglPatchParameterfv not implemented");
 					Delegates.pglPatchParameterfv(pname, p_values);
-					LogFunction("glPatchParameterfv({0}, {1})", LogEnumName(pname), values);
+					LogFunction("glPatchParameterfv({0}, {1})", LogEnumName(pname), LogValue(values));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2014,7 +2014,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteTransformFeedbacks != null, "pglDeleteTransformFeedbacks not implemented");
 					Delegates.pglDeleteTransformFeedbacks((Int32)ids.Length, p_ids);
-					LogFunction("glDeleteTransformFeedbacks({0}, {1})", ids.Length, ids);
+					LogFunction("glDeleteTransformFeedbacks({0}, {1})", ids.Length, LogValue(ids));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2042,7 +2042,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenTransformFeedbacks != null, "pglGenTransformFeedbacks not implemented");
 					Delegates.pglGenTransformFeedbacks((Int32)ids.Length, p_ids);
-					LogFunction("glGenTransformFeedbacks({0}, {1})", ids.Length, ids);
+					LogFunction("glGenTransformFeedbacks({0}, {1})", ids.Length, LogValue(ids));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2392,7 +2392,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryIndexediv != null, "pglGetQueryIndexediv not implemented");
 					Delegates.pglGetQueryIndexediv(target, index, pname, p_params);
-					LogFunction("glGetQueryIndexediv({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), @params);
+					LogFunction("glGetQueryIndexediv({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

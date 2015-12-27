@@ -157,7 +157,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementArrayAPPLE != null, "pglMultiDrawElementArrayAPPLE not implemented");
 					Delegates.pglMultiDrawElementArrayAPPLE((Int32)mode, p_first, p_count, primcount);
-					LogFunction("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, first, count, primcount);
+					LogFunction("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, LogValue(first), LogValue(count), primcount);
 				}
 			}
 			DebugCheckErrors(null);
@@ -184,7 +184,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementArrayAPPLE != null, "pglMultiDrawElementArrayAPPLE not implemented");
 					Delegates.pglMultiDrawElementArrayAPPLE((Int32)mode, p_first, p_count, (Int32)first.Length);
-					LogFunction("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, first, count, first.Length);
+					LogFunction("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, LogValue(first), LogValue(count), first.Length);
 				}
 			}
 			DebugCheckErrors(null);
@@ -222,7 +222,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawRangeElementArrayAPPLE != null, "pglMultiDrawRangeElementArrayAPPLE not implemented");
 					Delegates.pglMultiDrawRangeElementArrayAPPLE((Int32)mode, start, end, p_first, p_count, primcount);
-					LogFunction("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, first, count, primcount);
+					LogFunction("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, LogValue(first), LogValue(count), primcount);
 				}
 			}
 			DebugCheckErrors(null);
@@ -255,7 +255,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawRangeElementArrayAPPLE != null, "pglMultiDrawRangeElementArrayAPPLE not implemented");
 					Delegates.pglMultiDrawRangeElementArrayAPPLE((Int32)mode, start, end, p_first, p_count, (Int32)first.Length);
-					LogFunction("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, first, count, first.Length);
+					LogFunction("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, LogValue(first), LogValue(count), first.Length);
 				}
 			}
 			DebugCheckErrors(null);

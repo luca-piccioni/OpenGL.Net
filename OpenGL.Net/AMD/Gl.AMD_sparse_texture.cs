@@ -51,6 +51,7 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_STORAGE_SPARSE_BIT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
+		[Log(BitmaskName = "GL")]
 		public const uint TEXTURE_STORAGE_SPARSE_BIT_AMD = 0x00000001;
 
 		/// <summary>

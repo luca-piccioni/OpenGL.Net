@@ -65,7 +65,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglLoadDisplayColorTableEXT != null, "pwglLoadDisplayColorTableEXT not implemented");
 					retValue = Delegates.pwglLoadDisplayColorTableEXT(p_table, length);
-					LogFunction("wglLoadDisplayColorTableEXT({0}, {1}) = {2}", table, length, retValue);
+					LogFunction("wglLoadDisplayColorTableEXT({0}, {1}) = {2}", LogValue(table), length, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

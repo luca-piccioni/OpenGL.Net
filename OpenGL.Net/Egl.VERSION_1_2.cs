@@ -132,12 +132,14 @@ namespace OpenGL
 		/// Value of EGL_OPENGL_ES_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
+		[Log(BitmaskName = "EGLRenderableTypeMask")]
 		public const int OPENGL_ES_BIT = 0x0001;
 
 		/// <summary>
 		/// Value of EGL_OPENVG_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
+		[Log(BitmaskName = "EGLRenderableTypeMask")]
 		public const int OPENVG_BIT = 0x0002;
 
 		/// <summary>
@@ -310,7 +312,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePbufferFromClientBuffer != null, "peglCreatePbufferFromClientBuffer not implemented");
 					retValue = Delegates.peglCreatePbufferFromClientBuffer(dpy, buftype, buffer, config, p_attrib_list);
-					LogFunction("eglCreatePbufferFromClientBuffer(0x{0}, {1}, 0x{2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), buftype, buffer.ToString("X8"), config.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreatePbufferFromClientBuffer(0x{0}, {1}, 0x{2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), buftype, buffer.ToString("X8"), config.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

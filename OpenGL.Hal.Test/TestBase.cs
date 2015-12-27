@@ -35,7 +35,8 @@ namespace OpenGL.Hal.Test
 		{
 			try {
 				// Set logging
-				Gl.QueryEnumNames();
+				Gl.QueryLogContext();
+				Wgl.QueryLogContext();
 				KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
 					Console.WriteLine(format, args);
 				});

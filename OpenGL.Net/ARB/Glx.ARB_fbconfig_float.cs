@@ -37,6 +37,7 @@ namespace OpenGL
 		/// Value of GLX_RGBA_FLOAT_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_fbconfig_float")]
+		[Log(BitmaskName = "GLXRenderTypeMask")]
 		public const uint RGBA_FLOAT_BIT_ARB = 0x00000004;
 
 	}

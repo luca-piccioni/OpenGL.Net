@@ -158,7 +158,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCreateStatesNV != null, "pglCreateStatesNV not implemented");
 					Delegates.pglCreateStatesNV(n, p_states);
-					LogFunction("glCreateStatesNV({0}, {1})", n, states);
+					LogFunction("glCreateStatesNV({0}, {1})", n, LogValue(states));
 				}
 			}
 			DebugCheckErrors(null);
@@ -181,7 +181,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteStatesNV != null, "pglDeleteStatesNV not implemented");
 					Delegates.pglDeleteStatesNV(n, p_states);
-					LogFunction("glDeleteStatesNV({0}, {1})", n, states);
+					LogFunction("glDeleteStatesNV({0}, {1})", n, LogValue(states));
 				}
 			}
 			DebugCheckErrors(null);
@@ -292,7 +292,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsNV != null, "pglDrawCommandsNV not implemented");
 					Delegates.pglDrawCommandsNV(primitiveMode, buffer, p_indirects, p_sizes, count);
-					LogFunction("glDrawCommandsNV({0}, {1}, {2}, {3}, {4})", LogEnumName(primitiveMode), buffer, indirects, sizes, count);
+					LogFunction("glDrawCommandsNV({0}, {1}, {2}, {3}, {4})", LogEnumName(primitiveMode), buffer, LogValue(indirects), LogValue(sizes), count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -322,7 +322,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsAddressNV != null, "pglDrawCommandsAddressNV not implemented");
 					Delegates.pglDrawCommandsAddressNV(primitiveMode, p_indirects, p_sizes, count);
-					LogFunction("glDrawCommandsAddressNV({0}, {1}, {2}, {3})", LogEnumName(primitiveMode), indirects, sizes, count);
+					LogFunction("glDrawCommandsAddressNV({0}, {1}, {2}, {3})", LogEnumName(primitiveMode), LogValue(indirects), LogValue(sizes), count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -360,7 +360,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsStatesNV != null, "pglDrawCommandsStatesNV not implemented");
 					Delegates.pglDrawCommandsStatesNV(buffer, p_indirects, p_sizes, p_states, p_fbos, count);
-					LogFunction("glDrawCommandsStatesNV({0}, {1}, {2}, {3}, {4}, {5})", buffer, indirects, sizes, states, fbos, count);
+					LogFunction("glDrawCommandsStatesNV({0}, {1}, {2}, {3}, {4}, {5})", buffer, LogValue(indirects), LogValue(sizes), LogValue(states), LogValue(fbos), count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -395,7 +395,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsStatesAddressNV != null, "pglDrawCommandsStatesAddressNV not implemented");
 					Delegates.pglDrawCommandsStatesAddressNV(p_indirects, p_sizes, p_states, p_fbos, count);
-					LogFunction("glDrawCommandsStatesAddressNV({0}, {1}, {2}, {3}, {4})", indirects, sizes, states, fbos, count);
+					LogFunction("glDrawCommandsStatesAddressNV({0}, {1}, {2}, {3}, {4})", LogValue(indirects), LogValue(sizes), LogValue(states), LogValue(fbos), count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -418,7 +418,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCreateCommandListsNV != null, "pglCreateCommandListsNV not implemented");
 					Delegates.pglCreateCommandListsNV(n, p_lists);
-					LogFunction("glCreateCommandListsNV({0}, {1})", n, lists);
+					LogFunction("glCreateCommandListsNV({0}, {1})", n, LogValue(lists));
 				}
 			}
 			DebugCheckErrors(null);
@@ -441,7 +441,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteCommandListsNV != null, "pglDeleteCommandListsNV not implemented");
 					Delegates.pglDeleteCommandListsNV(n, p_lists);
-					LogFunction("glDeleteCommandListsNV({0}, {1})", n, lists);
+					LogFunction("glDeleteCommandListsNV({0}, {1})", n, LogValue(lists));
 				}
 			}
 			DebugCheckErrors(null);
@@ -501,7 +501,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglListDrawCommandsStatesClientNV != null, "pglListDrawCommandsStatesClientNV not implemented");
 					Delegates.pglListDrawCommandsStatesClientNV(list, segment, p_indirects, p_sizes, p_states, p_fbos, count);
-					LogFunction("glListDrawCommandsStatesClientNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", list, segment, indirects, sizes, states, fbos, count);
+					LogFunction("glListDrawCommandsStatesClientNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", list, segment, LogValue(indirects), LogValue(sizes), LogValue(states), LogValue(fbos), count);
 				}
 			}
 			DebugCheckErrors(null);

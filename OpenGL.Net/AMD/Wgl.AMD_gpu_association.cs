@@ -106,7 +106,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetGPUIDsAMD != null, "pwglGetGPUIDsAMD not implemented");
 					retValue = Delegates.pwglGetGPUIDsAMD(maxCount, p_ids);
-					LogFunction("wglGetGPUIDsAMD({0}, {1}) = {2}", maxCount, ids, retValue);
+					LogFunction("wglGetGPUIDsAMD({0}, {1}) = {2}", maxCount, LogValue(ids), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -205,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreateAssociatedContextAttribsAMD != null, "pwglCreateAssociatedContextAttribsAMD not implemented");
 					retValue = Delegates.pwglCreateAssociatedContextAttribsAMD(id, hShareContext, p_attribList);
-					LogFunction("wglCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, hShareContext.ToString("X8"), attribList, retValue.ToString("X8"));
+					LogFunction("wglCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, hShareContext.ToString("X8"), LogValue(attribList), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -31,24 +31,28 @@ namespace OpenGL
 		/// Value of WGL_FRONT_COLOR_BUFFER_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_buffer_region")]
+		[Log(BitmaskName = "WGLColorBufferMask")]
 		public const uint FRONT_COLOR_BUFFER_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_BACK_COLOR_BUFFER_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_buffer_region")]
+		[Log(BitmaskName = "WGLColorBufferMask")]
 		public const uint BACK_COLOR_BUFFER_BIT_ARB = 0x00000002;
 
 		/// <summary>
 		/// Value of WGL_DEPTH_BUFFER_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_buffer_region")]
+		[Log(BitmaskName = "WGLColorBufferMask")]
 		public const uint DEPTH_BUFFER_BIT_ARB = 0x00000004;
 
 		/// <summary>
 		/// Value of WGL_STENCIL_BUFFER_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_buffer_region")]
+		[Log(BitmaskName = "WGLColorBufferMask")]
 		public const uint STENCIL_BUFFER_BIT_ARB = 0x00000008;
 
 		/// <summary>

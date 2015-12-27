@@ -177,7 +177,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapVertexAttrib1dAPPLE != null, "pglMapVertexAttrib1dAPPLE not implemented");
 					Delegates.pglMapVertexAttrib1dAPPLE(index, size, u1, u2, stride, order, p_points);
-					LogFunction("glMapVertexAttrib1dAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, u1, u2, stride, order, points);
+					LogFunction("glMapVertexAttrib1dAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, u1, u2, stride, order, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);
@@ -215,7 +215,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapVertexAttrib1fAPPLE != null, "pglMapVertexAttrib1fAPPLE not implemented");
 					Delegates.pglMapVertexAttrib1fAPPLE(index, size, u1, u2, stride, order, p_points);
-					LogFunction("glMapVertexAttrib1fAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, u1, u2, stride, order, points);
+					LogFunction("glMapVertexAttrib1fAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, u1, u2, stride, order, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);
@@ -265,7 +265,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapVertexAttrib2dAPPLE != null, "pglMapVertexAttrib2dAPPLE not implemented");
 					Delegates.pglMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, p_points);
-					LogFunction("glMapVertexAttrib2dAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+					LogFunction("glMapVertexAttrib2dAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);
@@ -315,7 +315,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapVertexAttrib2fAPPLE != null, "pglMapVertexAttrib2fAPPLE not implemented");
 					Delegates.pglMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, p_points);
-					LogFunction("glMapVertexAttrib2fAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+					LogFunction("glMapVertexAttrib2fAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);

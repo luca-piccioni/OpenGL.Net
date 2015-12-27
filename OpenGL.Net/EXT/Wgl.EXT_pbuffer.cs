@@ -67,7 +67,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreatePbufferEXT != null, "pwglCreatePbufferEXT not implemented");
 					retValue = Delegates.pwglCreatePbufferEXT(hDC, iPixelFormat, iWidth, iHeight, p_piAttribList);
-					LogFunction("wglCreatePbufferEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iPixelFormat, iWidth, iHeight, piAttribList, retValue.ToString("X8"));
+					LogFunction("wglCreatePbufferEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iPixelFormat, iWidth, iHeight, LogValue(piAttribList), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -157,7 +157,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryPbufferEXT != null, "pwglQueryPbufferEXT not implemented");
 					retValue = Delegates.pwglQueryPbufferEXT(hPbuffer, iAttribute, p_piValue);
-					LogFunction("wglQueryPbufferEXT(0x{0}, {1}, {2}) = {3}", hPbuffer.ToString("X8"), iAttribute, piValue, retValue);
+					LogFunction("wglQueryPbufferEXT(0x{0}, {1}, {2}) = {3}", hPbuffer.ToString("X8"), iAttribute, LogValue(piValue), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

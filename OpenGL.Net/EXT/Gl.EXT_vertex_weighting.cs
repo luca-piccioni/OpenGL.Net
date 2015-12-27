@@ -122,7 +122,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexWeightfvEXT != null, "pglVertexWeightfvEXT not implemented");
 					Delegates.pglVertexWeightfvEXT(p_weight);
-					LogFunction("glVertexWeightfvEXT({0})", weight);
+					LogFunction("glVertexWeightfvEXT({0})", LogValue(weight));
 				}
 			}
 			DebugCheckErrors(null);

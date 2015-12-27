@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of GL_PERFQUERY_SINGLE_CONTEXT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query")]
+		[Log(BitmaskName = "GL")]
 		public const uint PERFQUERY_SINGLE_CONTEXT_INTEL = 0x00000000;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_GLOBAL_CONTEXT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query")]
+		[Log(BitmaskName = "GL")]
 		public const uint PERFQUERY_GLOBAL_CONTEXT_INTEL = 0x00000001;
 
 		/// <summary>
@@ -179,7 +181,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCreatePerfQueryINTEL != null, "pglCreatePerfQueryINTEL not implemented");
 					Delegates.pglCreatePerfQueryINTEL(queryId, p_queryHandle);
-					LogFunction("glCreatePerfQueryINTEL({0}, {1})", queryId, queryHandle);
+					LogFunction("glCreatePerfQueryINTEL({0}, {1})", queryId, LogValue(queryHandle));
 				}
 			}
 			DebugCheckErrors(null);
@@ -229,7 +231,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFirstPerfQueryIdINTEL != null, "pglGetFirstPerfQueryIdINTEL not implemented");
 					Delegates.pglGetFirstPerfQueryIdINTEL(p_queryId);
-					LogFunction("glGetFirstPerfQueryIdINTEL({0})", queryId);
+					LogFunction("glGetFirstPerfQueryIdINTEL({0})", LogValue(queryId));
 				}
 			}
 			DebugCheckErrors(null);
@@ -252,7 +254,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNextPerfQueryIdINTEL != null, "pglGetNextPerfQueryIdINTEL not implemented");
 					Delegates.pglGetNextPerfQueryIdINTEL(queryId, p_nextQueryId);
-					LogFunction("glGetNextPerfQueryIdINTEL({0}, {1})", queryId, nextQueryId);
+					LogFunction("glGetNextPerfQueryIdINTEL({0}, {1})", queryId, LogValue(nextQueryId));
 				}
 			}
 			DebugCheckErrors(null);
@@ -306,7 +308,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPerfCounterInfoINTEL != null, "pglGetPerfCounterInfoINTEL not implemented");
 					Delegates.pglGetPerfCounterInfoINTEL(queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, p_counterOffset, p_counterDataSize, p_counterTypeEnum, p_counterDataTypeEnum, p_rawCounterMaxValue);
-					LogFunction("glGetPerfCounterInfoINTEL({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
+					LogFunction("glGetPerfCounterInfoINTEL({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, LogValue(counterOffset), LogValue(counterDataSize), LogValue(counterTypeEnum), LogValue(counterDataTypeEnum), LogValue(rawCounterMaxValue));
 				}
 			}
 			DebugCheckErrors(null);
@@ -338,7 +340,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPerfQueryDataINTEL != null, "pglGetPerfQueryDataINTEL not implemented");
 					Delegates.pglGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data.ToPointer(), p_bytesWritten);
-					LogFunction("glGetPerfQueryDataINTEL({0}, {1}, {2}, 0x{3}, {4})", queryHandle, flags, dataSize, data.ToString("X8"), bytesWritten);
+					LogFunction("glGetPerfQueryDataINTEL({0}, {1}, {2}, 0x{3}, {4})", queryHandle, flags, dataSize, data.ToString("X8"), LogValue(bytesWritten));
 				}
 			}
 			DebugCheckErrors(null);
@@ -390,7 +392,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPerfQueryIdByNameINTEL != null, "pglGetPerfQueryIdByNameINTEL not implemented");
 					Delegates.pglGetPerfQueryIdByNameINTEL(queryName, p_queryId);
-					LogFunction("glGetPerfQueryIdByNameINTEL({0}, {1})", queryName, queryId);
+					LogFunction("glGetPerfQueryIdByNameINTEL({0}, {1})", queryName, LogValue(queryId));
 				}
 			}
 			DebugCheckErrors(null);
@@ -431,7 +433,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPerfQueryInfoINTEL != null, "pglGetPerfQueryInfoINTEL not implemented");
 					Delegates.pglGetPerfQueryInfoINTEL(queryId, queryNameLength, queryName, p_dataSize, p_noCounters, p_noInstances, p_capsMask);
-					LogFunction("glGetPerfQueryInfoINTEL({0}, {1}, {2}, {3}, {4}, {5}, {6})", queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
+					LogFunction("glGetPerfQueryInfoINTEL({0}, {1}, {2}, {3}, {4}, {5}, {6})", queryId, queryNameLength, queryName, LogValue(dataSize), LogValue(noCounters), LogValue(noInstances), LogValue(capsMask));
 				}
 			}
 			DebugCheckErrors(null);

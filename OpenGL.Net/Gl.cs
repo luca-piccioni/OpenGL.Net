@@ -98,9 +98,9 @@ namespace OpenGL
 		/// After having called this method, the method <see cref="LogFunction"/> will output known enumeration
 		/// names instead of the numerical value.
 		/// </remarks>
-		public static void QueryEnumNames()
+		public static void QueryLogContext()
 		{
-			_EnumNames = QueryEnumNames(typeof(Gl));
+			_LogContext = QueryLogContext(typeof(Gl));
 		}
 
 		/// <summary>
@@ -117,7 +117,7 @@ namespace OpenGL
 		{
 			string enumName;
 
-			if (_EnumNames != null && _EnumNames.TryGetValue(enumValue, out enumName))
+			if (_LogContext.EnumNames != null && _LogContext.EnumNames.TryGetValue(enumValue, out enumName))
 				return (enumName);
 			else
 				return (KhronosApi.LogEnumName(enumValue));
@@ -147,9 +147,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Log an bitmask value.
+		/// </summary>
+		/// <param name="bitmaskName">
+		/// A <see cref="String"/> that specifies the enumeration bitmask name.
+		/// </param>
+		/// <param name="bitmaskValue">
+		/// A <see cref="Int32"/> that specifies the enumeration bitmask value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="bitmaskValue"/>.
+		/// </returns>
+		protected static new string LogEnumBitmask(string bitmaskName, long bitmaskValue)
+		{
+			Dictionary<long, String> bitmaskNames;
+
+			if (_LogContext.EnumBitmasks.TryGetValue(bitmaskName, out bitmaskNames) == false)
+				return (KhronosApi.LogEnumBitmask(bitmaskName, bitmaskValue));
+
+			return (KhronosApi.LogEnumBitmask(bitmaskValue, bitmaskNames));
+		}
+
+		/// <summary>
 		/// Enumeration names indexed by their value.
 		/// </summary>
-		private static Dictionary<Int64, string> _EnumNames;
+		private static LogContext _LogContext = new LogContext();
 
 		#endregion
 	}

@@ -77,6 +77,7 @@ namespace OpenGL
 		/// Value of EGL_OPENGL_ES2_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_3")]
+		[Log(BitmaskName = "EGLRenderableTypeMask")]
 		public const int OPENGL_ES2_BIT = 0x0004;
 
 		/// <summary>
@@ -117,6 +118,7 @@ namespace OpenGL
 		[AliasOf("EGL_VG_ALPHA_FORMAT_PRE_BIT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		[RequiredByFeature("EGL_KHR_config_attribs")]
+		[Log(BitmaskName = "EGLSurfaceTypeMask")]
 		public const int VG_ALPHA_FORMAT_PRE_BIT = 0x0040;
 
 		/// <summary>
@@ -148,6 +150,7 @@ namespace OpenGL
 		[AliasOf("EGL_VG_COLORSPACE_LINEAR_BIT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		[RequiredByFeature("EGL_KHR_config_attribs")]
+		[Log(BitmaskName = "EGLSurfaceTypeMask")]
 		public const int VG_COLORSPACE_LINEAR_BIT = 0x0020;
 
 	}

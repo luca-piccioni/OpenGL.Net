@@ -89,7 +89,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryContextInfoEXT != null, "pglXQueryContextInfoEXT not implemented");
 					retValue = Delegates.pglXQueryContextInfoEXT(dpy, context, attribute, p_value);
-					LogFunction("glXQueryContextInfoEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), context.ToString("X8"), attribute, value, retValue);
+					LogFunction("glXQueryContextInfoEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), context.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 

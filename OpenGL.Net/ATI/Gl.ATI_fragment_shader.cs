@@ -577,78 +577,91 @@ namespace OpenGL
 		/// Value of GL_RED_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint RED_BIT_ATI = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_GREEN_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint GREEN_BIT_ATI = 0x00000002;
 
 		/// <summary>
 		/// Value of GL_BLUE_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint BLUE_BIT_ATI = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_2X_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint _2X_BIT_ATI = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_4X_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint _4X_BIT_ATI = 0x00000002;
 
 		/// <summary>
 		/// Value of GL_8X_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint _8X_BIT_ATI = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_HALF_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint HALF_BIT_ATI = 0x00000008;
 
 		/// <summary>
 		/// Value of GL_QUARTER_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint QUARTER_BIT_ATI = 0x00000010;
 
 		/// <summary>
 		/// Value of GL_EIGHTH_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint EIGHTH_BIT_ATI = 0x00000020;
 
 		/// <summary>
 		/// Value of GL_SATURATE_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint SATURATE_BIT_ATI = 0x00000040;
 
 		/// <summary>
 		/// Value of GL_COMP_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint COMP_BIT_ATI = 0x00000002;
 
 		/// <summary>
 		/// Value of GL_NEGATE_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint NEGATE_BIT_ATI = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_BIAS_BIT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint BIAS_BIT_ATI = 0x00000008;
 
 		/// <summary>
@@ -1026,7 +1039,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSetFragmentShaderConstantATI != null, "pglSetFragmentShaderConstantATI not implemented");
 					Delegates.pglSetFragmentShaderConstantATI(dst, p_value);
-					LogFunction("glSetFragmentShaderConstantATI({0}, {1})", dst, value);
+					LogFunction("glSetFragmentShaderConstantATI({0}, {1})", dst, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);

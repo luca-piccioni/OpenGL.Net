@@ -101,7 +101,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQuerySwapGroupNV != null, "pglXQuerySwapGroupNV not implemented");
 					retValue = Delegates.pglXQuerySwapGroupNV(dpy, drawable, p_group, p_barrier);
-					LogFunction("glXQuerySwapGroupNV(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), drawable.ToString("X8"), group, barrier, retValue);
+					LogFunction("glXQuerySwapGroupNV(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), drawable.ToString("X8"), LogValue(group), LogValue(barrier), retValue);
 				}
 			}
 
@@ -134,7 +134,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryMaxSwapGroupsNV != null, "pglXQueryMaxSwapGroupsNV not implemented");
 					retValue = Delegates.pglXQueryMaxSwapGroupsNV(dpy, screen, p_maxGroups, p_maxBarriers);
-					LogFunction("glXQueryMaxSwapGroupsNV(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, maxGroups, maxBarriers, retValue);
+					LogFunction("glXQueryMaxSwapGroupsNV(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, LogValue(maxGroups), LogValue(maxBarriers), retValue);
 				}
 			}
 
@@ -163,7 +163,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryFrameCountNV != null, "pglXQueryFrameCountNV not implemented");
 					retValue = Delegates.pglXQueryFrameCountNV(dpy, screen, p_count);
-					LogFunction("glXQueryFrameCountNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, count, retValue);
+					LogFunction("glXQueryFrameCountNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(count), retValue);
 				}
 			}
 

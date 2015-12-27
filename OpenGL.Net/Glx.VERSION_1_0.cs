@@ -458,7 +458,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseVisual != null, "pglXChooseVisual not implemented");
 					retValue = Delegates.pglXChooseVisual(dpy, screen, p_attribList);
-					LogFunction("glXChooseVisual(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, attribList, (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+					LogFunction("glXChooseVisual(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(attribList), (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 				}
 			}
 
@@ -777,7 +777,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryExtension != null, "pglXQueryExtension not implemented");
 					retValue = Delegates.pglXQueryExtension(dpy, p_errorb, p_event);
-					LogFunction("glXQueryExtension(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), errorb, @event, retValue);
+					LogFunction("glXQueryExtension(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), LogValue(errorb), LogValue(@event), retValue);
 				}
 			}
 
@@ -817,7 +817,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryVersion != null, "pglXQueryVersion not implemented");
 					retValue = Delegates.pglXQueryVersion(dpy, p_maj, p_min);
-					LogFunction("glXQueryVersion(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), maj, min, retValue);
+					LogFunction("glXQueryVersion(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), LogValue(maj), LogValue(min), retValue);
 				}
 			}
 
@@ -896,7 +896,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetConfig != null, "pglXGetConfig not implemented");
 					retValue = Delegates.pglXGetConfig(dpy, visual, attrib, p_value);
-					LogFunction("glXGetConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), visual, attrib, value, retValue);
+					LogFunction("glXGetConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), visual, attrib, LogValue(value), retValue);
 				}
 			}
 

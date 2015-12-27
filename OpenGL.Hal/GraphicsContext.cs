@@ -152,6 +152,8 @@ namespace OpenGL
 			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
 			_CurrentCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
 
+			// Before deletion, make uncurrent
+			_HiddenWindowDevice.MakeCurrent(IntPtr.Zero);
 			// Detroy context
 			if (_HiddenWindowDevice.DeleteContext(rContext) == false)
 				throw new InvalidOperationException("unable to delete OpenGL context");

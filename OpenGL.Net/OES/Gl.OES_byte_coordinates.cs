@@ -62,7 +62,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1bvOES != null, "pglMultiTexCoord1bvOES not implemented");
 					Delegates.pglMultiTexCoord1bvOES(texture, p_coords);
-					LogFunction("glMultiTexCoord1bvOES({0}, {1})", LogEnumName(texture), coords);
+					LogFunction("glMultiTexCoord1bvOES({0}, {1})", LogEnumName(texture), LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -106,7 +106,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2bvOES != null, "pglMultiTexCoord2bvOES not implemented");
 					Delegates.pglMultiTexCoord2bvOES(texture, p_coords);
-					LogFunction("glMultiTexCoord2bvOES({0}, {1})", LogEnumName(texture), coords);
+					LogFunction("glMultiTexCoord2bvOES({0}, {1})", LogEnumName(texture), LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -153,7 +153,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3bvOES != null, "pglMultiTexCoord3bvOES not implemented");
 					Delegates.pglMultiTexCoord3bvOES(texture, p_coords);
-					LogFunction("glMultiTexCoord3bvOES({0}, {1})", LogEnumName(texture), coords);
+					LogFunction("glMultiTexCoord3bvOES({0}, {1})", LogEnumName(texture), LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -203,7 +203,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4bvOES != null, "pglMultiTexCoord4bvOES not implemented");
 					Delegates.pglMultiTexCoord4bvOES(texture, p_coords);
-					LogFunction("glMultiTexCoord4bvOES({0}, {1})", LogEnumName(texture), coords);
+					LogFunction("glMultiTexCoord4bvOES({0}, {1})", LogEnumName(texture), LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -238,7 +238,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord1bvOES != null, "pglTexCoord1bvOES not implemented");
 					Delegates.pglTexCoord1bvOES(p_coords);
-					LogFunction("glTexCoord1bvOES({0})", coords);
+					LogFunction("glTexCoord1bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -276,7 +276,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2bvOES != null, "pglTexCoord2bvOES not implemented");
 					Delegates.pglTexCoord2bvOES(p_coords);
-					LogFunction("glTexCoord2bvOES({0})", coords);
+					LogFunction("glTexCoord2bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -317,7 +317,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord3bvOES != null, "pglTexCoord3bvOES not implemented");
 					Delegates.pglTexCoord3bvOES(p_coords);
-					LogFunction("glTexCoord3bvOES({0})", coords);
+					LogFunction("glTexCoord3bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -361,7 +361,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord4bvOES != null, "pglTexCoord4bvOES not implemented");
 					Delegates.pglTexCoord4bvOES(p_coords);
-					LogFunction("glTexCoord4bvOES({0})", coords);
+					LogFunction("glTexCoord4bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -399,7 +399,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertex2bvOES != null, "pglVertex2bvOES not implemented");
 					Delegates.pglVertex2bvOES(p_coords);
-					LogFunction("glVertex2bvOES({0})", coords);
+					LogFunction("glVertex2bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -440,7 +440,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertex3bvOES != null, "pglVertex3bvOES not implemented");
 					Delegates.pglVertex3bvOES(p_coords);
-					LogFunction("glVertex3bvOES({0})", coords);
+					LogFunction("glVertex3bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);
@@ -484,7 +484,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertex4bvOES != null, "pglVertex4bvOES not implemented");
 					Delegates.pglVertex4bvOES(p_coords);
-					LogFunction("glVertex4bvOES({0})", coords);
+					LogFunction("glVertex4bvOES({0})", LogValue(coords));
 				}
 			}
 			DebugCheckErrors(null);

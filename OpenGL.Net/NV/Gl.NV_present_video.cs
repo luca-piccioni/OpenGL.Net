@@ -179,7 +179,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoivNV != null, "pglGetVideoivNV not implemented");
 					Delegates.pglGetVideoivNV(video_slot, pname, p_params);
-					LogFunction("glGetVideoivNV({0}, {1}, {2})", video_slot, LogEnumName(pname), @params);
+					LogFunction("glGetVideoivNV({0}, {1}, {2})", video_slot, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -205,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideouivNV != null, "pglGetVideouivNV not implemented");
 					Delegates.pglGetVideouivNV(video_slot, pname, p_params);
-					LogFunction("glGetVideouivNV({0}, {1}, {2})", video_slot, LogEnumName(pname), @params);
+					LogFunction("glGetVideouivNV({0}, {1}, {2})", video_slot, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -231,7 +231,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoi64vNV != null, "pglGetVideoi64vNV not implemented");
 					Delegates.pglGetVideoi64vNV(video_slot, pname, p_params);
-					LogFunction("glGetVideoi64vNV({0}, {1}, {2})", video_slot, LogEnumName(pname), @params);
+					LogFunction("glGetVideoi64vNV({0}, {1}, {2})", video_slot, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -257,7 +257,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoui64vNV != null, "pglGetVideoui64vNV not implemented");
 					Delegates.pglGetVideoui64vNV(video_slot, pname, p_params);
-					LogFunction("glGetVideoui64vNV({0}, {1}, {2})", video_slot, LogEnumName(pname), @params);
+					LogFunction("glGetVideoui64vNV({0}, {1}, {2})", video_slot, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

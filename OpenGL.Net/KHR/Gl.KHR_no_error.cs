@@ -31,6 +31,7 @@ namespace OpenGL
 		/// Value of GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_KHR_no_error")]
+		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_NO_ERROR_BIT_KHR = 0x00000008;
 
 	}

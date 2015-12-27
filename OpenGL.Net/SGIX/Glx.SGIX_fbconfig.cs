@@ -52,7 +52,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetFBConfigAttribSGIX != null, "pglXGetFBConfigAttribSGIX not implemented");
 					retValue = Delegates.pglXGetFBConfigAttribSGIX(dpy, config, attribute, p_value);
-					LogFunction("glXGetFBConfigAttribSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue);
+					LogFunction("glXGetFBConfigAttribSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 
@@ -85,7 +85,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseFBConfigSGIX != null, "pglXChooseFBConfigSGIX not implemented");
 					retValue = Delegates.pglXChooseFBConfigSGIX(dpy, screen, p_attrib_list, p_nelements);
-					LogFunction("glXChooseFBConfigSGIX(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, attrib_list, nelements, retValue != null ? retValue->ToString() : "(null)");
+					LogFunction("glXChooseFBConfigSGIX(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, LogValue(attrib_list), LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
 

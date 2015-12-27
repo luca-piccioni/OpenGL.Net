@@ -67,7 +67,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDeviceAttribEXT != null, "peglQueryDeviceAttribEXT not implemented");
 					retValue = Delegates.peglQueryDeviceAttribEXT(device, attribute, p_value);
-					LogFunction("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -120,7 +120,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDevicesEXT != null, "peglQueryDevicesEXT not implemented");
 					retValue = Delegates.peglQueryDevicesEXT(max_devices, p_devices, p_num_devices);
-					LogFunction("eglQueryDevicesEXT({0}, {1}, {2}) = {3}", max_devices, devices, num_devices, retValue.ToString("X8"));
+					LogFunction("eglQueryDevicesEXT({0}, {1}, {2}) = {3}", max_devices, LogValue(devices), LogValue(num_devices), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -150,7 +150,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDisplayAttribEXT != null, "peglQueryDisplayAttribEXT not implemented");
 					retValue = Delegates.peglQueryDisplayAttribEXT(dpy, attribute, p_value);
-					LogFunction("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

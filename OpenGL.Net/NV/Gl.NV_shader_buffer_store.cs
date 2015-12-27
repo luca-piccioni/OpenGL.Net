@@ -31,6 +31,7 @@ namespace OpenGL
 		/// Value of GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV = 0x00000010;
 
 	}

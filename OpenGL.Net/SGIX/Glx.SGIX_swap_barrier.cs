@@ -69,7 +69,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryMaxSwapBarriersSGIX != null, "pglXQueryMaxSwapBarriersSGIX not implemented");
 					retValue = Delegates.pglXQueryMaxSwapBarriersSGIX(dpy, screen, p_max);
-					LogFunction("glXQueryMaxSwapBarriersSGIX(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, max, retValue);
+					LogFunction("glXQueryMaxSwapBarriersSGIX(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(max), retValue);
 				}
 			}
 

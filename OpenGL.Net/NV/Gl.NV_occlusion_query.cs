@@ -65,7 +65,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenOcclusionQueriesNV != null, "pglGenOcclusionQueriesNV not implemented");
 					Delegates.pglGenOcclusionQueriesNV((Int32)ids.Length, p_ids);
-					LogFunction("glGenOcclusionQueriesNV({0}, {1})", ids.Length, ids);
+					LogFunction("glGenOcclusionQueriesNV({0}, {1})", ids.Length, LogValue(ids));
 				}
 			}
 			DebugCheckErrors(null);
@@ -96,7 +96,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteOcclusionQueriesNV != null, "pglDeleteOcclusionQueriesNV not implemented");
 					Delegates.pglDeleteOcclusionQueriesNV((Int32)ids.Length, p_ids);
-					LogFunction("glDeleteOcclusionQueriesNV({0}, {1})", ids.Length, ids);
+					LogFunction("glDeleteOcclusionQueriesNV({0}, {1})", ids.Length, LogValue(ids));
 				}
 			}
 			DebugCheckErrors(null);
@@ -168,7 +168,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetOcclusionQueryivNV != null, "pglGetOcclusionQueryivNV not implemented");
 					Delegates.pglGetOcclusionQueryivNV(id, pname, p_params);
-					LogFunction("glGetOcclusionQueryivNV({0}, {1}, {2})", id, LogEnumName(pname), @params);
+					LogFunction("glGetOcclusionQueryivNV({0}, {1}, {2})", id, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -194,7 +194,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetOcclusionQueryuivNV != null, "pglGetOcclusionQueryuivNV not implemented");
 					Delegates.pglGetOcclusionQueryuivNV(id, pname, p_params);
-					LogFunction("glGetOcclusionQueryuivNV({0}, {1}, {2})", id, LogEnumName(pname), @params);
+					LogFunction("glGetOcclusionQueryuivNV({0}, {1}, {2})", id, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

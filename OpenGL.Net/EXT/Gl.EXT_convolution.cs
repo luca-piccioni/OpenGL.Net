@@ -97,7 +97,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfvEXT != null, "pglGetConvolutionParameterfvEXT not implemented");
 					Delegates.pglGetConvolutionParameterfvEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -123,7 +123,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterivEXT != null, "pglGetConvolutionParameterivEXT not implemented");
 					Delegates.pglGetConvolutionParameterivEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetConvolutionParameterivEXT({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetConvolutionParameterivEXT({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

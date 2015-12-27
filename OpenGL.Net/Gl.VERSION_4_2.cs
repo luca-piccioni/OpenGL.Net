@@ -310,6 +310,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint VERTEX_ATTRIB_ARRAY_BARRIER_BIT = 0x00000001;
 
 		/// <summary>
@@ -319,6 +320,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint ELEMENT_ARRAY_BARRIER_BIT = 0x00000002;
 
 		/// <summary>
@@ -328,6 +330,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint UNIFORM_BARRIER_BIT = 0x00000004;
 
 		/// <summary>
@@ -337,6 +340,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint TEXTURE_FETCH_BARRIER_BIT = 0x00000008;
 
 		/// <summary>
@@ -346,6 +350,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint SHADER_IMAGE_ACCESS_BARRIER_BIT = 0x00000020;
 
 		/// <summary>
@@ -355,6 +360,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint COMMAND_BARRIER_BIT = 0x00000040;
 
 		/// <summary>
@@ -364,6 +370,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint PIXEL_BUFFER_BARRIER_BIT = 0x00000080;
 
 		/// <summary>
@@ -373,6 +380,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint TEXTURE_UPDATE_BARRIER_BIT = 0x00000100;
 
 		/// <summary>
@@ -382,6 +390,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint BUFFER_UPDATE_BARRIER_BIT = 0x00000200;
 
 		/// <summary>
@@ -391,6 +400,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint FRAMEBUFFER_BARRIER_BIT = 0x00000400;
 
 		/// <summary>
@@ -400,6 +410,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint TRANSFORM_FEEDBACK_BARRIER_BIT = 0x00000800;
 
 		/// <summary>
@@ -409,6 +420,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint ATOMIC_COUNTER_BARRIER_BIT = 0x00001000;
 
 		/// <summary>
@@ -418,6 +430,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
+		[Log(BitmaskName = "GL")]
 		public const uint ALL_BARRIER_BITS = 0xFFFFFFFF;
 
 		/// <summary>
@@ -1220,7 +1233,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
 					Delegates.pglGetInternalformativ(target, internalformat, pname, (Int32)@params.Length, p_params);
-					LogFunction("glGetInternalformativ({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), LogEnumName(pname), @params.Length, @params);
+					LogFunction("glGetInternalformativ({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), LogEnumName(pname), @params.Length, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1267,7 +1280,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveAtomicCounterBufferiv != null, "pglGetActiveAtomicCounterBufferiv not implemented");
 					Delegates.pglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, p_params);
-					LogFunction("glGetActiveAtomicCounterBufferiv({0}, {1}, {2}, {3})", program, bufferIndex, LogEnumName(pname), @params);
+					LogFunction("glGetActiveAtomicCounterBufferiv({0}, {1}, {2}, {3})", program, bufferIndex, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

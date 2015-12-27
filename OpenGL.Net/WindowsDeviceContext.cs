@@ -60,6 +60,7 @@ namespace OpenGL
 			if (window == null)
 				throw new ArgumentNullException("window");
 
+			// "Force" handle creation
 			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
 				throw new InvalidOperationException("invalid handle");
 
@@ -438,14 +439,20 @@ namespace OpenGL
 				throw new InvalidOperationException("pixel format already set");
 
 			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
+			bool res;
 
 			// Note (from MSDN): Setting the pixel format of a window more than once can lead to significant complications for the Window Manager
 			// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
 			// window's pixel format is set, it cannot be changed.
 
+			res = Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor);
+			Debug.Assert(res);
+
 			// Set choosen pixel format
-			if (Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor) == false)
-				throw new InvalidOperationException("unable to select surface pixel format");
+			res = Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor);
+			Debug.Assert(res);
+
+			// Unable to set pixel format again
 			_PixelFormatSet = true;
 		}
 

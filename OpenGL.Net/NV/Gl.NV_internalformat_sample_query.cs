@@ -77,7 +77,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInternalformatSampleivNV != null, "pglGetInternalformatSampleivNV not implemented");
 					Delegates.pglGetInternalformatSampleivNV(target, internalformat, samples, pname, (Int32)@params.Length, p_params);
-					LogFunction("glGetInternalformatSampleivNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(internalformat), samples, LogEnumName(pname), @params.Length, @params);
+					LogFunction("glGetInternalformatSampleivNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(internalformat), samples, LogEnumName(pname), @params.Length, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

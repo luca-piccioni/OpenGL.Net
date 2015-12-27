@@ -32,6 +32,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_lock_surface")]
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
+		[Log(BitmaskName = "EGLLockUsageHintKHRMask")]
 		public const int READ_SURFACE_BIT_KHR = 0x0001;
 
 		/// <summary>
@@ -39,6 +40,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_lock_surface")]
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
+		[Log(BitmaskName = "EGLLockUsageHintKHRMask")]
 		public const int WRITE_SURFACE_BIT_KHR = 0x0002;
 
 		/// <summary>
@@ -46,6 +48,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_lock_surface")]
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
+		[Log(BitmaskName = "EGLSurfaceTypeMask")]
 		public const int LOCK_SURFACE_BIT_KHR = 0x0080;
 
 		/// <summary>
@@ -53,6 +56,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_lock_surface")]
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
+		[Log(BitmaskName = "EGLSurfaceTypeMask")]
 		public const int OPTIMAL_FORMAT_BIT_KHR = 0x0100;
 
 		/// <summary>
@@ -204,7 +208,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglLockSurfaceKHR != null, "peglLockSurfaceKHR not implemented");
 					retValue = Delegates.peglLockSurfaceKHR(dpy, surface, p_attrib_list);
-					LogFunction("eglLockSurfaceKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglLockSurfaceKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -260,7 +264,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQuerySurface64KHR != null, "peglQuerySurface64KHR not implemented");
 					retValue = Delegates.peglQuerySurface64KHR(dpy, surface, attribute, p_value);
-					LogFunction("eglQuerySurface64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglQuerySurface64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

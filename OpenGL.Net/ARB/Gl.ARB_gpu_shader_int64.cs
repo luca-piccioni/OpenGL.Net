@@ -201,7 +201,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform1i64vARB != null, "pglUniform1i64vARB not implemented");
 					Delegates.pglUniform1i64vARB(location, count, p_value);
-					LogFunction("glUniform1i64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform1i64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -227,7 +227,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform2i64vARB != null, "pglUniform2i64vARB not implemented");
 					Delegates.pglUniform2i64vARB(location, count, p_value);
-					LogFunction("glUniform2i64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform2i64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -253,7 +253,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform3i64vARB != null, "pglUniform3i64vARB not implemented");
 					Delegates.pglUniform3i64vARB(location, count, p_value);
-					LogFunction("glUniform3i64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform3i64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -279,7 +279,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform4i64vARB != null, "pglUniform4i64vARB not implemented");
 					Delegates.pglUniform4i64vARB(location, count, p_value);
-					LogFunction("glUniform4i64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform4i64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -395,7 +395,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform1ui64vARB != null, "pglUniform1ui64vARB not implemented");
 					Delegates.pglUniform1ui64vARB(location, count, p_value);
-					LogFunction("glUniform1ui64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform1ui64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -421,7 +421,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform2ui64vARB != null, "pglUniform2ui64vARB not implemented");
 					Delegates.pglUniform2ui64vARB(location, count, p_value);
-					LogFunction("glUniform2ui64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform2ui64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -447,7 +447,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform3ui64vARB != null, "pglUniform3ui64vARB not implemented");
 					Delegates.pglUniform3ui64vARB(location, count, p_value);
-					LogFunction("glUniform3ui64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform3ui64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -473,7 +473,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniform4ui64vARB != null, "pglUniform4ui64vARB not implemented");
 					Delegates.pglUniform4ui64vARB(location, count, p_value);
-					LogFunction("glUniform4ui64vARB({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniform4ui64vARB({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -499,7 +499,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetUniformi64vARB != null, "pglGetUniformi64vARB not implemented");
 					Delegates.pglGetUniformi64vARB(program, location, p_params);
-					LogFunction("glGetUniformi64vARB({0}, {1}, {2})", program, location, @params);
+					LogFunction("glGetUniformi64vARB({0}, {1}, {2})", program, location, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -525,7 +525,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetUniformui64vARB != null, "pglGetUniformui64vARB not implemented");
 					Delegates.pglGetUniformui64vARB(program, location, p_params);
-					LogFunction("glGetUniformui64vARB({0}, {1}, {2})", program, location, @params);
+					LogFunction("glGetUniformui64vARB({0}, {1}, {2})", program, location, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -554,7 +554,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformi64vARB != null, "pglGetnUniformi64vARB not implemented");
 					Delegates.pglGetnUniformi64vARB(program, location, bufSize, p_params);
-					LogFunction("glGetnUniformi64vARB({0}, {1}, {2}, {3})", program, location, bufSize, @params);
+					LogFunction("glGetnUniformi64vARB({0}, {1}, {2}, {3})", program, location, bufSize, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -583,7 +583,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformui64vARB != null, "pglGetnUniformui64vARB not implemented");
 					Delegates.pglGetnUniformui64vARB(program, location, bufSize, p_params);
-					LogFunction("glGetnUniformui64vARB({0}, {1}, {2}, {3})", program, location, bufSize, @params);
+					LogFunction("glGetnUniformui64vARB({0}, {1}, {2}, {3})", program, location, bufSize, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -711,7 +711,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform1i64vARB != null, "pglProgramUniform1i64vARB not implemented");
 					Delegates.pglProgramUniform1i64vARB(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniform1i64vARB({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniform1i64vARB({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -740,7 +740,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform2i64vARB != null, "pglProgramUniform2i64vARB not implemented");
 					Delegates.pglProgramUniform2i64vARB(program, location, count, p_value);
-					LogFunction("glProgramUniform2i64vARB({0}, {1}, {2}, {3})", program, location, count, value);
+					LogFunction("glProgramUniform2i64vARB({0}, {1}, {2}, {3})", program, location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -769,7 +769,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform3i64vARB != null, "pglProgramUniform3i64vARB not implemented");
 					Delegates.pglProgramUniform3i64vARB(program, location, count, p_value);
-					LogFunction("glProgramUniform3i64vARB({0}, {1}, {2}, {3})", program, location, count, value);
+					LogFunction("glProgramUniform3i64vARB({0}, {1}, {2}, {3})", program, location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -798,7 +798,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform4i64vARB != null, "pglProgramUniform4i64vARB not implemented");
 					Delegates.pglProgramUniform4i64vARB(program, location, count, p_value);
-					LogFunction("glProgramUniform4i64vARB({0}, {1}, {2}, {3})", program, location, count, value);
+					LogFunction("glProgramUniform4i64vARB({0}, {1}, {2}, {3})", program, location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -926,7 +926,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform1ui64vARB != null, "pglProgramUniform1ui64vARB not implemented");
 					Delegates.pglProgramUniform1ui64vARB(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniform1ui64vARB({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniform1ui64vARB({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -955,7 +955,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform2ui64vARB != null, "pglProgramUniform2ui64vARB not implemented");
 					Delegates.pglProgramUniform2ui64vARB(program, location, count, p_value);
-					LogFunction("glProgramUniform2ui64vARB({0}, {1}, {2}, {3})", program, location, count, value);
+					LogFunction("glProgramUniform2ui64vARB({0}, {1}, {2}, {3})", program, location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -984,7 +984,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform3ui64vARB != null, "pglProgramUniform3ui64vARB not implemented");
 					Delegates.pglProgramUniform3ui64vARB(program, location, count, p_value);
-					LogFunction("glProgramUniform3ui64vARB({0}, {1}, {2}, {3})", program, location, count, value);
+					LogFunction("glProgramUniform3ui64vARB({0}, {1}, {2}, {3})", program, location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1013,7 +1013,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform4ui64vARB != null, "pglProgramUniform4ui64vARB not implemented");
 					Delegates.pglProgramUniform4ui64vARB(program, location, count, p_value);
-					LogFunction("glProgramUniform4ui64vARB({0}, {1}, {2}, {3})", program, location, count, value);
+					LogFunction("glProgramUniform4ui64vARB({0}, {1}, {2}, {3})", program, location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);

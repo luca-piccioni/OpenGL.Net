@@ -425,7 +425,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegerui64i_vNV != null, "pglGetIntegerui64i_vNV not implemented");
 					Delegates.pglGetIntegerui64i_vNV(value, index, p_result);
-					LogFunction("glGetIntegerui64i_vNV({0}, {1}, {2})", LogEnumName(value), index, result);
+					LogFunction("glGetIntegerui64i_vNV({0}, {1}, {2})", LogEnumName(value), index, LogValue(result));
 				}
 			}
 			DebugCheckErrors(null);

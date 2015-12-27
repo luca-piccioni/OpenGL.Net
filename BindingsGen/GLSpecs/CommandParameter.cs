@@ -470,11 +470,11 @@ namespace BindingsGen.GLSpecs
 
 		public virtual void WriteCallLogArgParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			CommandFlagsDatabase.CommandItem.ParameterItemFlags paraneterFlags = CommandFlagsDatabase.GetCommandParameterFlags(parentCommand, this);
+			CommandFlagsDatabase.CommandItem.ParameterItemFlags parameterFlags = CommandFlagsDatabase.GetCommandParameterFlags(parentCommand, this);
 
-			if (((Type != null) && (Type == "GLenum")) || ((paraneterFlags & CommandFlagsDatabase.CommandItem.ParameterItemFlags.LogAsEnum) != 0))
+			if (((Type != null) && (Type == "GLenum")) || ((parameterFlags & CommandFlagsDatabase.CommandItem.ParameterItemFlags.LogAsEnum) != 0))
 				sw.Write("LogEnumName({0})", ImplementationName);
-			else if (IsManagedArray)
+			else if (IsManagedArray && GetImplementationTypeModifier(ctx, parentCommand) != "out")
 				sw.Write("LogValue({0})", ImplementationName);
 			else
 				WriteCallLogArgParam(sw, ImplementationName, GetImplementationType(ctx, parentCommand));

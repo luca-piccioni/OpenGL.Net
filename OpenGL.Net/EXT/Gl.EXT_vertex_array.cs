@@ -139,7 +139,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglEdgeFlagPointerEXT != null, "pglEdgeFlagPointerEXT not implemented");
 					Delegates.pglEdgeFlagPointerEXT(stride, count, p_pointer);
-					LogFunction("glEdgeFlagPointerEXT({0}, {1}, {2})", stride, count, pointer);
+					LogFunction("glEdgeFlagPointerEXT({0}, {1}, {2})", stride, count, LogValue(pointer));
 				}
 			}
 			DebugCheckErrors(null);

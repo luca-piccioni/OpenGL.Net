@@ -31,6 +31,7 @@ namespace OpenGL
 		/// Value of GLX_CONTEXT_ROBUST_ACCESS_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_robustness")]
+		[Log(BitmaskName = "GLXContextFlags")]
 		public const uint CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x00000004;
 
 		/// <summary>

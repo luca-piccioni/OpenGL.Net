@@ -208,7 +208,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformHandleui64vARB != null, "pglUniformHandleui64vARB not implemented");
 					Delegates.pglUniformHandleui64vARB(location, (Int32)value.Length, p_value);
-					LogFunction("glUniformHandleui64vARB({0}, {1}, {2})", location, value.Length, value);
+					LogFunction("glUniformHandleui64vARB({0}, {1}, {2})", location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -255,7 +255,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformHandleui64vARB != null, "pglProgramUniformHandleui64vARB not implemented");
 					Delegates.pglProgramUniformHandleui64vARB(program, location, (Int32)values.Length, p_values);
-					LogFunction("glProgramUniformHandleui64vARB({0}, {1}, {2}, {3})", program, location, values.Length, values);
+					LogFunction("glProgramUniformHandleui64vARB({0}, {1}, {2}, {3})", program, location, values.Length, LogValue(values));
 				}
 			}
 			DebugCheckErrors(null);
@@ -334,7 +334,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexAttribL1ui64vARB != null, "pglVertexAttribL1ui64vARB not implemented");
 					Delegates.pglVertexAttribL1ui64vARB(index, p_v);
-					LogFunction("glVertexAttribL1ui64vARB({0}, {1})", index, v);
+					LogFunction("glVertexAttribL1ui64vARB({0}, {1})", index, LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -360,7 +360,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLui64vARB != null, "pglGetVertexAttribLui64vARB not implemented");
 					Delegates.pglGetVertexAttribLui64vARB(index, pname, p_params);
-					LogFunction("glGetVertexAttribLui64vARB({0}, {1}, {2})", index, LogEnumName(pname), @params);
+					LogFunction("glGetVertexAttribLui64vARB({0}, {1}, {2})", index, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

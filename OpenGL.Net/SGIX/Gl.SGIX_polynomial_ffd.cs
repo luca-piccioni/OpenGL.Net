@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_DEFORMATION_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
+		[Log(BitmaskName = "GL")]
 		public const uint TEXTURE_DEFORMATION_BIT_SGIX = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_DEFORMATION_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
+		[Log(BitmaskName = "GL")]
 		public const uint GEOMETRY_DEFORMATION_BIT_SGIX = 0x00000002;
 
 		/// <summary>
@@ -116,7 +118,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeformationMap3dSGIX != null, "pglDeformationMap3dSGIX not implemented");
 					Delegates.pglDeformationMap3dSGIX((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
-					LogFunction("glDeformationMap3dSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
+					LogFunction("glDeformationMap3dSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);
@@ -175,7 +177,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeformationMap3fSGIX != null, "pglDeformationMap3fSGIX not implemented");
 					Delegates.pglDeformationMap3fSGIX((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
-					LogFunction("glDeformationMap3fSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
+					LogFunction("glDeformationMap3fSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);

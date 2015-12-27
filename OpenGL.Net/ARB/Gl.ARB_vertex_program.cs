@@ -598,7 +598,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteProgramsARB != null, "pglDeleteProgramsARB not implemented");
 					Delegates.pglDeleteProgramsARB((Int32)programs.Length, p_programs);
-					LogFunction("glDeleteProgramsARB({0}, {1})", programs.Length, programs);
+					LogFunction("glDeleteProgramsARB({0}, {1})", programs.Length, LogValue(programs));
 				}
 			}
 			DebugCheckErrors(null);
@@ -619,7 +619,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenProgramsARB != null, "pglGenProgramsARB not implemented");
 					Delegates.pglGenProgramsARB((Int32)programs.Length, p_programs);
-					LogFunction("glGenProgramsARB({0}, {1})", programs.Length, programs);
+					LogFunction("glGenProgramsARB({0}, {1})", programs.Length, LogValue(programs));
 				}
 			}
 			DebugCheckErrors(null);
@@ -689,7 +689,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameter4dvARB != null, "pglProgramEnvParameter4dvARB not implemented");
 					Delegates.pglProgramEnvParameter4dvARB(target, index, p_params);
-					LogFunction("glProgramEnvParameter4dvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glProgramEnvParameter4dvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -747,7 +747,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameter4fvARB != null, "pglProgramEnvParameter4fvARB not implemented");
 					Delegates.pglProgramEnvParameter4fvARB(target, index, p_params);
-					LogFunction("glProgramEnvParameter4fvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glProgramEnvParameter4fvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -805,7 +805,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameter4dvARB != null, "pglProgramLocalParameter4dvARB not implemented");
 					Delegates.pglProgramLocalParameter4dvARB(target, index, p_params);
-					LogFunction("glProgramLocalParameter4dvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glProgramLocalParameter4dvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -863,7 +863,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameter4fvARB != null, "pglProgramLocalParameter4fvARB not implemented");
 					Delegates.pglProgramLocalParameter4fvARB(target, index, p_params);
-					LogFunction("glProgramLocalParameter4fvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glProgramLocalParameter4fvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -890,7 +890,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterdvARB != null, "pglGetProgramEnvParameterdvARB not implemented");
 					Delegates.pglGetProgramEnvParameterdvARB(target, index, p_params);
-					LogFunction("glGetProgramEnvParameterdvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glGetProgramEnvParameterdvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -917,7 +917,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterfvARB != null, "pglGetProgramEnvParameterfvARB not implemented");
 					Delegates.pglGetProgramEnvParameterfvARB(target, index, p_params);
-					LogFunction("glGetProgramEnvParameterfvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glGetProgramEnvParameterfvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -944,7 +944,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterdvARB != null, "pglGetProgramLocalParameterdvARB not implemented");
 					Delegates.pglGetProgramLocalParameterdvARB(target, index, p_params);
-					LogFunction("glGetProgramLocalParameterdvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glGetProgramLocalParameterdvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -971,7 +971,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterfvARB != null, "pglGetProgramLocalParameterfvARB not implemented");
 					Delegates.pglGetProgramLocalParameterfvARB(target, index, p_params);
-					LogFunction("glGetProgramLocalParameterfvARB({0}, {1}, {2})", LogEnumName(target), index, @params);
+					LogFunction("glGetProgramLocalParameterfvARB({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

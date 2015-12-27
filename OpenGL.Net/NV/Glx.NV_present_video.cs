@@ -55,7 +55,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXEnumerateVideoDevicesNV != null, "pglXEnumerateVideoDevicesNV not implemented");
 					retValue = Delegates.pglXEnumerateVideoDevicesNV(dpy, screen, p_nelements);
-					LogFunction("glXEnumerateVideoDevicesNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, nelements, retValue.ToString("X8"));
+					LogFunction("glXEnumerateVideoDevicesNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue.ToString("X8"));
 				}
 			}
 
@@ -87,7 +87,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXBindVideoDeviceNV != null, "pglXBindVideoDeviceNV not implemented");
 					retValue = Delegates.pglXBindVideoDeviceNV(dpy, video_slot, video_device, p_attrib_list);
-					LogFunction("glXBindVideoDeviceNV(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), video_slot, video_device, attrib_list, retValue);
+					LogFunction("glXBindVideoDeviceNV(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), video_slot, video_device, LogValue(attrib_list), retValue);
 				}
 			}
 

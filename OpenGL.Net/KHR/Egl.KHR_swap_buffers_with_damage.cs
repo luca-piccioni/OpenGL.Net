@@ -52,7 +52,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglSwapBuffersWithDamageKHR != null, "peglSwapBuffersWithDamageKHR not implemented");
 					retValue = Delegates.peglSwapBuffersWithDamageKHR(dpy, surface, p_rects, n_rects);
-					LogFunction("eglSwapBuffersWithDamageKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), rects, n_rects, retValue.ToString("X8"));
+					LogFunction("eglSwapBuffersWithDamageKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

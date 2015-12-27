@@ -33,6 +33,7 @@ namespace OpenGL
 		[AliasOf("GLX_WINDOW_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
+		[Log(BitmaskName = "GLXDrawableTypeMask")]
 		public const uint WINDOW_BIT = 0x00000001;
 
 		/// <summary>
@@ -41,6 +42,7 @@ namespace OpenGL
 		[AliasOf("GLX_PIXMAP_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
+		[Log(BitmaskName = "GLXDrawableTypeMask")]
 		public const uint PIXMAP_BIT = 0x00000002;
 
 		/// <summary>
@@ -49,6 +51,7 @@ namespace OpenGL
 		[AliasOf("GLX_PBUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXDrawableTypeMask")]
 		public const uint PBUFFER_BIT = 0x00000004;
 
 		/// <summary>
@@ -57,6 +60,7 @@ namespace OpenGL
 		[AliasOf("GLX_RGBA_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
+		[Log(BitmaskName = "GLXRenderTypeMask")]
 		public const uint RGBA_BIT = 0x00000001;
 
 		/// <summary>
@@ -65,12 +69,14 @@ namespace OpenGL
 		[AliasOf("GLX_COLOR_INDEX_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
+		[Log(BitmaskName = "GLXRenderTypeMask")]
 		public const uint COLOR_INDEX_BIT = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_PBUFFER_CLOBBER_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[Log(BitmaskName = "GLXEventMask")]
 		public const uint PBUFFER_CLOBBER_MASK = 0x08000000;
 
 		/// <summary>
@@ -79,6 +85,7 @@ namespace OpenGL
 		[AliasOf("GLX_FRONT_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint FRONT_LEFT_BUFFER_BIT = 0x00000001;
 
 		/// <summary>
@@ -87,6 +94,7 @@ namespace OpenGL
 		[AliasOf("GLX_FRONT_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint FRONT_RIGHT_BUFFER_BIT = 0x00000002;
 
 		/// <summary>
@@ -95,6 +103,7 @@ namespace OpenGL
 		[AliasOf("GLX_BACK_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint BACK_LEFT_BUFFER_BIT = 0x00000004;
 
 		/// <summary>
@@ -103,6 +112,7 @@ namespace OpenGL
 		[AliasOf("GLX_BACK_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint BACK_RIGHT_BUFFER_BIT = 0x00000008;
 
 		/// <summary>
@@ -111,6 +121,7 @@ namespace OpenGL
 		[AliasOf("GLX_AUX_BUFFERS_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint AUX_BUFFERS_BIT = 0x00000010;
 
 		/// <summary>
@@ -119,6 +130,7 @@ namespace OpenGL
 		[AliasOf("GLX_DEPTH_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint DEPTH_BUFFER_BIT = 0x00000020;
 
 		/// <summary>
@@ -127,6 +139,7 @@ namespace OpenGL
 		[AliasOf("GLX_STENCIL_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint STENCIL_BUFFER_BIT = 0x00000040;
 
 		/// <summary>
@@ -135,6 +148,7 @@ namespace OpenGL
 		[AliasOf("GLX_ACCUM_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint ACCUM_BUFFER_BIT = 0x00000080;
 
 		/// <summary>
@@ -633,7 +647,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetFBConfigs != null, "pglXGetFBConfigs not implemented");
 					retValue = Delegates.pglXGetFBConfigs(dpy, screen, p_nelements);
-					LogFunction("glXGetFBConfigs(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, nelements, retValue != null ? retValue->ToString() : "(null)");
+					LogFunction("glXGetFBConfigs(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
 
@@ -708,7 +722,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseFBConfig != null, "pglXChooseFBConfig not implemented");
 					retValue = Delegates.pglXChooseFBConfig(dpy, screen, p_attrib_list, p_nelements);
-					LogFunction("glXChooseFBConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, attrib_list, nelements, retValue != null ? retValue->ToString() : "(null)");
+					LogFunction("glXChooseFBConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, LogValue(attrib_list), LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
 
@@ -751,7 +765,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetFBConfigAttrib != null, "pglXGetFBConfigAttrib not implemented");
 					retValue = Delegates.pglXGetFBConfigAttrib(dpy, config, attribute, p_value);
-					LogFunction("glXGetFBConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue);
+					LogFunction("glXGetFBConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 
@@ -885,7 +899,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateWindow != null, "pglXCreateWindow not implemented");
 					retValue = Delegates.pglXCreateWindow(dpy, config, win, p_attrib_list);
-					LogFunction("glXCreateWindow(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), win.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("glXCreateWindow(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), win.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 
@@ -970,7 +984,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreatePixmap != null, "pglXCreatePixmap not implemented");
 					retValue = Delegates.pglXCreatePixmap(dpy, config, pixmap, p_attrib_list);
-					LogFunction("glXCreatePixmap(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), pixmap.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("glXCreatePixmap(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), pixmap.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 
@@ -1043,7 +1057,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreatePbuffer != null, "pglXCreatePbuffer not implemented");
 					retValue = Delegates.pglXCreatePbuffer(dpy, config, p_attrib_list);
-					LogFunction("glXCreatePbuffer(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("glXCreatePbuffer(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 
@@ -1310,7 +1324,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryContext != null, "pglXQueryContext not implemented");
 					retValue = Delegates.pglXQueryContext(dpy, ctx, attribute, p_value);
-					LogFunction("glXQueryContext(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), ctx.ToString("X8"), attribute, value, retValue);
+					LogFunction("glXQueryContext(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), ctx.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 
@@ -1372,7 +1386,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetSelectedEvent != null, "pglXGetSelectedEvent not implemented");
 					Delegates.pglXGetSelectedEvent(dpy, draw, p_event_mask);
-					LogFunction("glXGetSelectedEvent(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), draw.ToString("X8"), event_mask);
+					LogFunction("glXGetSelectedEvent(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), draw.ToString("X8"), LogValue(event_mask));
 				}
 			}
 		}

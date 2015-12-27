@@ -270,6 +270,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
+		[Log(BitmaskName = "GL")]
 		public const uint COMPUTE_SHADER_BIT = 0x00000020;
 
 		/// <summary>
@@ -592,6 +593,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_DEBUG_BIT = 0x00000002;
 
 		/// <summary>
@@ -1937,6 +1939,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[Log(BitmaskName = "GL")]
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
 		/// <summary>
@@ -2595,7 +2598,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameteriv != null, "pglGetFramebufferParameteriv not implemented");
 					Delegates.pglGetFramebufferParameteriv(target, pname, p_params);
-					LogFunction("glGetFramebufferParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetFramebufferParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2643,7 +2646,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInternalformati64v != null, "pglGetInternalformati64v not implemented");
 					Delegates.pglGetInternalformati64v(target, internalformat, pname, (Int32)@params.Length, p_params);
-					LogFunction("glGetInternalformati64v({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), LogEnumName(pname), @params.Length, @params);
+					LogFunction("glGetInternalformati64v({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), LogEnumName(pname), @params.Length, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -3221,7 +3224,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramInterfaceiv != null, "pglGetProgramInterfaceiv not implemented");
 					Delegates.pglGetProgramInterfaceiv(program, programInterface, pname, p_params);
-					LogFunction("glGetProgramInterfaceiv({0}, {1}, {2}, {3})", program, LogEnumName(programInterface), LogEnumName(pname), @params);
+					LogFunction("glGetProgramInterfaceiv({0}, {1}, {2}, {3})", program, LogEnumName(programInterface), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -3381,7 +3384,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramResourceiv != null, "pglGetProgramResourceiv not implemented");
 					Delegates.pglGetProgramResourceiv(program, programInterface, index, (Int32)props.Length, p_props, (Int32)@params.Length, p_length, p_params);
-					LogFunction("glGetProgramResourceiv({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", program, LogEnumName(programInterface), index, props.Length, LogEnumName(props), @params.Length, length, @params);
+					LogFunction("glGetProgramResourceiv({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", program, LogEnumName(programInterface), index, props.Length, LogEnumName(props), @params.Length, length, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4165,7 +4168,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDebugMessageControl != null, "pglDebugMessageControl not implemented");
 					Delegates.pglDebugMessageControl(source, type, severity, (Int32)ids.Length, p_ids, enabled);
-					LogFunction("glDebugMessageControl({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(source), LogEnumName(type), LogEnumName(severity), ids.Length, ids, enabled);
+					LogFunction("glDebugMessageControl({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(source), LogEnumName(type), LogEnumName(severity), ids.Length, LogValue(ids), enabled);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4307,7 +4310,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDebugMessageLog != null, "pglGetDebugMessageLog not implemented");
 					retValue = Delegates.pglGetDebugMessageLog((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
-					LogFunction("glGetDebugMessageLog({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, LogEnumName(sources), LogEnumName(types), ids, LogEnumName(severities), lengths, messageLog, retValue);
+					LogFunction("glGetDebugMessageLog({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, LogEnumName(sources), LogEnumName(types), LogValue(ids), LogEnumName(severities), LogValue(lengths), messageLog, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

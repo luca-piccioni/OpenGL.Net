@@ -834,7 +834,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetUniformIndices != null, "pglGetUniformIndices not implemented");
 					Delegates.pglGetUniformIndices(program, uniformCount, uniformNames, p_uniformIndices);
-					LogFunction("glGetUniformIndices({0}, {1}, {2}, {3})", program, uniformCount, uniformNames, uniformIndices);
+					LogFunction("glGetUniformIndices({0}, {1}, {2}, {3})", program, uniformCount, LogValue(uniformNames), LogValue(uniformIndices));
 				}
 			}
 			DebugCheckErrors(null);
@@ -889,7 +889,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveUniformsiv != null, "pglGetActiveUniformsiv not implemented");
 					Delegates.pglGetActiveUniformsiv(program, (Int32)uniformIndices.Length, p_uniformIndices, pname, p_params);
-					LogFunction("glGetActiveUniformsiv({0}, {1}, {2}, {3}, {4})", program, uniformIndices.Length, uniformIndices, LogEnumName(pname), @params);
+					LogFunction("glGetActiveUniformsiv({0}, {1}, {2}, {3}, {4})", program, uniformIndices.Length, LogValue(uniformIndices), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1020,7 +1020,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveUniformBlockiv != null, "pglGetActiveUniformBlockiv not implemented");
 					Delegates.pglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, p_params);
-					LogFunction("glGetActiveUniformBlockiv({0}, {1}, {2}, {3})", program, uniformBlockIndex, LogEnumName(pname), @params);
+					LogFunction("glGetActiveUniformBlockiv({0}, {1}, {2}, {3})", program, uniformBlockIndex, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

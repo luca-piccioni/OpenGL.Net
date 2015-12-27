@@ -59,7 +59,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteFencesNV != null, "pglDeleteFencesNV not implemented");
 					Delegates.pglDeleteFencesNV((Int32)fences.Length, p_fences);
-					LogFunction("glDeleteFencesNV({0}, {1})", fences.Length, fences);
+					LogFunction("glDeleteFencesNV({0}, {1})", fences.Length, LogValue(fences));
 				}
 			}
 			DebugCheckErrors(null);
@@ -79,7 +79,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenFencesNV != null, "pglGenFencesNV not implemented");
 					Delegates.pglGenFencesNV((Int32)fences.Length, p_fences);
-					LogFunction("glGenFencesNV({0}, {1})", fences.Length, fences);
+					LogFunction("glGenFencesNV({0}, {1})", fences.Length, LogValue(fences));
 				}
 			}
 			DebugCheckErrors(null);
@@ -154,7 +154,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFenceivNV != null, "pglGetFenceivNV not implemented");
 					Delegates.pglGetFenceivNV(fence, pname, p_params);
-					LogFunction("glGetFenceivNV({0}, {1}, {2})", fence, LogEnumName(pname), @params);
+					LogFunction("glGetFenceivNV({0}, {1}, {2})", fence, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

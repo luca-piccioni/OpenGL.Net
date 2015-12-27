@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of GLX_SYNC_FRAME_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
+		[Log(BitmaskName = "GLXSyncType")]
 		public const uint SYNC_FRAME_SGIX = 0x00000000;
 
 		/// <summary>
 		/// Value of GLX_SYNC_SWAP_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
+		[Log(BitmaskName = "GLXSyncType")]
 		public const uint SYNC_SWAP_SGIX = 0x00000001;
 
 		/// <summary>
@@ -139,7 +141,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryChannelRectSGIX != null, "pglXQueryChannelRectSGIX not implemented");
 					retValue = Delegates.pglXQueryChannelRectSGIX(display, screen, channel, p_dx, p_dy, p_dw, p_dh);
-					LogFunction("glXQueryChannelRectSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, dx, dy, dw, dh, retValue);
+					LogFunction("glXQueryChannelRectSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, LogValue(dx), LogValue(dy), LogValue(dw), LogValue(dh), retValue);
 				}
 			}
 
@@ -183,7 +185,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryChannelDeltasSGIX != null, "pglXQueryChannelDeltasSGIX not implemented");
 					retValue = Delegates.pglXQueryChannelDeltasSGIX(display, screen, channel, p_x, p_y, p_w, p_h);
-					LogFunction("glXQueryChannelDeltasSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, x, y, w, h, retValue);
+					LogFunction("glXQueryChannelDeltasSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, LogValue(x), LogValue(y), LogValue(w), LogValue(h), retValue);
 				}
 			}
 

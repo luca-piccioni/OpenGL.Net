@@ -31,6 +31,7 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_ROBUST_ACCESS_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_robustness")]
+		[Log(BitmaskName = "WGLContextFlagsMask")]
 		public const uint CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x00000004;
 
 		/// <summary>

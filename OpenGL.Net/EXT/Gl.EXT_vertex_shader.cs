@@ -1067,7 +1067,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantbvEXT != null, "pglVariantbvEXT not implemented");
 					Delegates.pglVariantbvEXT(id, p_addr);
-					LogFunction("glVariantbvEXT({0}, {1})", id, addr);
+					LogFunction("glVariantbvEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1090,7 +1090,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantsvEXT != null, "pglVariantsvEXT not implemented");
 					Delegates.pglVariantsvEXT(id, p_addr);
-					LogFunction("glVariantsvEXT({0}, {1})", id, addr);
+					LogFunction("glVariantsvEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1113,7 +1113,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantivEXT != null, "pglVariantivEXT not implemented");
 					Delegates.pglVariantivEXT(id, p_addr);
-					LogFunction("glVariantivEXT({0}, {1})", id, addr);
+					LogFunction("glVariantivEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1136,7 +1136,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantfvEXT != null, "pglVariantfvEXT not implemented");
 					Delegates.pglVariantfvEXT(id, p_addr);
-					LogFunction("glVariantfvEXT({0}, {1})", id, addr);
+					LogFunction("glVariantfvEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1159,7 +1159,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantdvEXT != null, "pglVariantdvEXT not implemented");
 					Delegates.pglVariantdvEXT(id, p_addr);
-					LogFunction("glVariantdvEXT({0}, {1})", id, addr);
+					LogFunction("glVariantdvEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1182,7 +1182,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantubvEXT != null, "pglVariantubvEXT not implemented");
 					Delegates.pglVariantubvEXT(id, p_addr);
-					LogFunction("glVariantubvEXT({0}, {1})", id, addr);
+					LogFunction("glVariantubvEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1205,7 +1205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantusvEXT != null, "pglVariantusvEXT not implemented");
 					Delegates.pglVariantusvEXT(id, p_addr);
-					LogFunction("glVariantusvEXT({0}, {1})", id, addr);
+					LogFunction("glVariantusvEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1228,7 +1228,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVariantuivEXT != null, "pglVariantuivEXT not implemented");
 					Delegates.pglVariantuivEXT(id, p_addr);
-					LogFunction("glVariantuivEXT({0}, {1})", id, addr);
+					LogFunction("glVariantuivEXT({0}, {1})", id, LogValue(addr));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1466,7 +1466,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVariantBooleanvEXT != null, "pglGetVariantBooleanvEXT not implemented");
 					Delegates.pglGetVariantBooleanvEXT(id, value, p_data);
-					LogFunction("glGetVariantBooleanvEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetVariantBooleanvEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1492,7 +1492,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVariantIntegervEXT != null, "pglGetVariantIntegervEXT not implemented");
 					Delegates.pglGetVariantIntegervEXT(id, value, p_data);
-					LogFunction("glGetVariantIntegervEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetVariantIntegervEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1518,7 +1518,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVariantFloatvEXT != null, "pglGetVariantFloatvEXT not implemented");
 					Delegates.pglGetVariantFloatvEXT(id, value, p_data);
-					LogFunction("glGetVariantFloatvEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetVariantFloatvEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1544,7 +1544,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVariantPointervEXT != null, "pglGetVariantPointervEXT not implemented");
 					Delegates.pglGetVariantPointervEXT(id, value, p_data);
-					LogFunction("glGetVariantPointervEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetVariantPointervEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1570,7 +1570,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInvariantBooleanvEXT != null, "pglGetInvariantBooleanvEXT not implemented");
 					Delegates.pglGetInvariantBooleanvEXT(id, value, p_data);
-					LogFunction("glGetInvariantBooleanvEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetInvariantBooleanvEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1596,7 +1596,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInvariantIntegervEXT != null, "pglGetInvariantIntegervEXT not implemented");
 					Delegates.pglGetInvariantIntegervEXT(id, value, p_data);
-					LogFunction("glGetInvariantIntegervEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetInvariantIntegervEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1622,7 +1622,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInvariantFloatvEXT != null, "pglGetInvariantFloatvEXT not implemented");
 					Delegates.pglGetInvariantFloatvEXT(id, value, p_data);
-					LogFunction("glGetInvariantFloatvEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetInvariantFloatvEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1648,7 +1648,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetLocalConstantBooleanvEXT != null, "pglGetLocalConstantBooleanvEXT not implemented");
 					Delegates.pglGetLocalConstantBooleanvEXT(id, value, p_data);
-					LogFunction("glGetLocalConstantBooleanvEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetLocalConstantBooleanvEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1674,7 +1674,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetLocalConstantIntegervEXT != null, "pglGetLocalConstantIntegervEXT not implemented");
 					Delegates.pglGetLocalConstantIntegervEXT(id, value, p_data);
-					LogFunction("glGetLocalConstantIntegervEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetLocalConstantIntegervEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1700,7 +1700,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetLocalConstantFloatvEXT != null, "pglGetLocalConstantFloatvEXT not implemented");
 					Delegates.pglGetLocalConstantFloatvEXT(id, value, p_data);
-					LogFunction("glGetLocalConstantFloatvEXT({0}, {1}, {2})", id, LogEnumName(value), data);
+					LogFunction("glGetLocalConstantFloatvEXT({0}, {1}, {2})", id, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);

@@ -288,7 +288,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetPbufferAttribARB != null, "pwglSetPbufferAttribARB not implemented");
 					retValue = Delegates.pwglSetPbufferAttribARB(hPbuffer, p_piAttribList);
-					LogFunction("wglSetPbufferAttribARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), piAttribList, retValue);
+					LogFunction("wglSetPbufferAttribARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), LogValue(piAttribList), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

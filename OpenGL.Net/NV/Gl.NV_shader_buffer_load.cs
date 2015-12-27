@@ -169,7 +169,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameterui64vNV != null, "pglGetBufferParameterui64vNV not implemented");
 					Delegates.pglGetBufferParameterui64vNV(target, pname, p_params);
-					LogFunction("glGetBufferParameterui64vNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetBufferParameterui64vNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -195,7 +195,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameterui64vNV != null, "pglGetNamedBufferParameterui64vNV not implemented");
 					Delegates.pglGetNamedBufferParameterui64vNV(buffer, pname, p_params);
-					LogFunction("glGetNamedBufferParameterui64vNV({0}, {1}, {2})", buffer, LogEnumName(pname), @params);
+					LogFunction("glGetNamedBufferParameterui64vNV({0}, {1}, {2})", buffer, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -218,7 +218,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegerui64vNV != null, "pglGetIntegerui64vNV not implemented");
 					Delegates.pglGetIntegerui64vNV(value, p_result);
-					LogFunction("glGetIntegerui64vNV({0}, {1})", LogEnumName(value), result);
+					LogFunction("glGetIntegerui64vNV({0}, {1})", LogEnumName(value), LogValue(result));
 				}
 			}
 			DebugCheckErrors(null);
@@ -262,7 +262,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformui64vNV != null, "pglUniformui64vNV not implemented");
 					Delegates.pglUniformui64vNV(location, count, p_value);
-					LogFunction("glUniformui64vNV({0}, {1}, {2})", location, count, value);
+					LogFunction("glUniformui64vNV({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -289,7 +289,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetUniformui64vNV != null, "pglGetUniformui64vNV not implemented");
 					Delegates.pglGetUniformui64vNV(program, location, p_params);
-					LogFunction("glGetUniformui64vNV({0}, {1}, {2})", program, location, @params);
+					LogFunction("glGetUniformui64vNV({0}, {1}, {2})", program, location, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -336,7 +336,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformui64vNV != null, "pglProgramUniformui64vNV not implemented");
 					Delegates.pglProgramUniformui64vNV(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniformui64vNV({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniformui64vNV({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);

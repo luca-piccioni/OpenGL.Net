@@ -69,7 +69,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglInstrumentsBufferSGIX != null, "pglInstrumentsBufferSGIX not implemented");
 					Delegates.pglInstrumentsBufferSGIX((Int32)buffer.Length, p_buffer);
-					LogFunction("glInstrumentsBufferSGIX({0}, {1})", buffer.Length, buffer);
+					LogFunction("glInstrumentsBufferSGIX({0}, {1})", buffer.Length, LogValue(buffer));
 				}
 			}
 			DebugCheckErrors(null);
@@ -91,7 +91,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPollInstrumentsSGIX != null, "pglPollInstrumentsSGIX not implemented");
 					retValue = Delegates.pglPollInstrumentsSGIX(p_marker_p);
-					LogFunction("glPollInstrumentsSGIX({0}) = {1}", marker_p, retValue);
+					LogFunction("glPollInstrumentsSGIX({0}) = {1}", LogValue(marker_p), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

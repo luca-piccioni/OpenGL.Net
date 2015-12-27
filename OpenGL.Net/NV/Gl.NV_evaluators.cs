@@ -271,7 +271,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapParameterivNV != null, "pglMapParameterivNV not implemented");
 					Delegates.pglMapParameterivNV(target, pname, p_params);
-					LogFunction("glMapParameterivNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glMapParameterivNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -297,7 +297,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapParameterfvNV != null, "pglMapParameterfvNV not implemented");
 					Delegates.pglMapParameterfvNV(target, pname, p_params);
-					LogFunction("glMapParameterfvNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glMapParameterfvNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -391,7 +391,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapParameterivNV != null, "pglGetMapParameterivNV not implemented");
 					Delegates.pglGetMapParameterivNV(target, pname, p_params);
-					LogFunction("glGetMapParameterivNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetMapParameterivNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -417,7 +417,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapParameterfvNV != null, "pglGetMapParameterfvNV not implemented");
 					Delegates.pglGetMapParameterfvNV(target, pname, p_params);
-					LogFunction("glGetMapParameterfvNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetMapParameterfvNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -446,7 +446,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapAttribParameterivNV != null, "pglGetMapAttribParameterivNV not implemented");
 					Delegates.pglGetMapAttribParameterivNV(target, index, pname, p_params);
-					LogFunction("glGetMapAttribParameterivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), @params);
+					LogFunction("glGetMapAttribParameterivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -475,7 +475,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapAttribParameterfvNV != null, "pglGetMapAttribParameterfvNV not implemented");
 					Delegates.pglGetMapAttribParameterfvNV(target, index, pname, p_params);
-					LogFunction("glGetMapAttribParameterfvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), @params);
+					LogFunction("glGetMapAttribParameterfvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

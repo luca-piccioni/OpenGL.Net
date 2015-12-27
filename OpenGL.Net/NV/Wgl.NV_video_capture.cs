@@ -80,7 +80,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumerateVideoCaptureDevicesNV != null, "pwglEnumerateVideoCaptureDevicesNV not implemented");
 					retValue = Delegates.pwglEnumerateVideoCaptureDevicesNV(hDc, p_phDeviceList);
-					LogFunction("wglEnumerateVideoCaptureDevicesNV(0x{0}, {1}) = {2}", hDc.ToString("X8"), phDeviceList, retValue);
+					LogFunction("wglEnumerateVideoCaptureDevicesNV(0x{0}, {1}) = {2}", hDc.ToString("X8"), LogValue(phDeviceList), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -135,7 +135,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryVideoCaptureDeviceNV != null, "pwglQueryVideoCaptureDeviceNV not implemented");
 					retValue = Delegates.pwglQueryVideoCaptureDeviceNV(hDc, hDevice, iAttribute, p_piValue);
-					LogFunction("wglQueryVideoCaptureDeviceNV(0x{0}, 0x{1}, {2}, {3}) = {4}", hDc.ToString("X8"), hDevice.ToString("X8"), iAttribute, piValue, retValue);
+					LogFunction("wglQueryVideoCaptureDeviceNV(0x{0}, 0x{1}, {2}, {3}) = {4}", hDc.ToString("X8"), hDevice.ToString("X8"), iAttribute, LogValue(piValue), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

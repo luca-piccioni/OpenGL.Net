@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of GL_CONTEXT_CORE_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_CORE_PROFILE_BIT = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_CONTEXT_COMPATIBILITY_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_COMPATIBILITY_PROFILE_BIT = 0x00000002;
 
 		/// <summary>
@@ -376,6 +378,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
+		[Log(BitmaskName = "GL")]
 		public const uint SYNC_FLUSH_COMMANDS_BIT = 0x00000001;
 
 		/// <summary>
@@ -937,7 +940,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
 					Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (Int32)type, p_indices, drawcount, p_basevertex);
-					LogFunction("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(mode), count, type, indices, drawcount, basevertex);
+					LogFunction("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(mode), LogValue(count), type, LogValue(indices), drawcount, LogValue(basevertex));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1179,7 +1182,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 					Delegates.pglGetInteger64v(pname, p_data);
-					LogFunction("glGetInteger64v({0}, {1})", LogEnumName(pname), data);
+					LogFunction("glGetInteger64v({0}, {1})", LogEnumName(pname), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1279,7 +1282,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
 					Delegates.pglGetSynciv(sync, pname, (Int32)values.Length, p_length, p_values);
-					LogFunction("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, LogEnumName(pname), values.Length, length, values);
+					LogFunction("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, LogEnumName(pname), values.Length, length, LogValue(values));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1339,7 +1342,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
-					LogFunction("glGetInteger64i_v({0}, {1}, {2})", LogEnumName(target), index, data);
+					LogFunction("glGetInteger64i_v({0}, {1}, {2})", LogEnumName(target), index, LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1448,7 +1451,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
 					Delegates.pglGetBufferParameteri64v((Int32)target, value, p_params);
-					LogFunction("glGetBufferParameteri64v({0}, {1}, {2})", target, LogEnumName(value), data);
+					LogFunction("glGetBufferParameteri64v({0}, {1}, {2})", target, LogEnumName(value), LogValue(data));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1672,7 +1675,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultisamplefv != null, "pglGetMultisamplefv not implemented");
 					Delegates.pglGetMultisamplefv(pname, index, p_val);
-					LogFunction("glGetMultisamplefv({0}, {1}, {2})", LogEnumName(pname), index, val);
+					LogFunction("glGetMultisamplefv({0}, {1}, {2})", LogEnumName(pname), index, LogValue(val));
 				}
 			}
 			DebugCheckErrors(null);

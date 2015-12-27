@@ -1,4 +1,4 @@
-
+﻿
 // Copyright (C) 2015 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -16,24 +16,18 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#pragma warning disable 1734
-
 using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace OpenGL
 {
-	public partial class Wgl
+	/// <summary>
+	/// Attribute defining information useful for logging the underlying member.
+	/// </summary>
+	public sealed class LogAttribute : Attribute
 	{
 		/// <summary>
-		/// Value of WGL_CONTEXT_ES_PROFILE_BIT_EXT symbol.
+		/// If it different from null, defines the name of the bitmask defining by the underlying member.
 		/// </summary>
-		[RequiredByFeature("WGL_EXT_create_context_es_profile")]
-		[Log(BitmaskName = "WGLContextProfileMask")]
-		public const uint CONTEXT_ES_PROFILE_BIT_EXT = 0x00000004;
-
+		public string BitmaskName;
 	}
-
 }

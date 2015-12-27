@@ -197,7 +197,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformHandleui64vNV != null, "pglUniformHandleui64vNV not implemented");
 					Delegates.pglUniformHandleui64vNV(location, (Int32)value.Length, p_value);
-					LogFunction("glUniformHandleui64vNV({0}, {1}, {2})", location, value.Length, value);
+					LogFunction("glUniformHandleui64vNV({0}, {1}, {2})", location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -244,7 +244,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformHandleui64vNV != null, "pglProgramUniformHandleui64vNV not implemented");
 					Delegates.pglProgramUniformHandleui64vNV(program, location, (Int32)values.Length, p_values);
-					LogFunction("glProgramUniformHandleui64vNV({0}, {1}, {2}, {3})", program, location, values.Length, values);
+					LogFunction("glProgramUniformHandleui64vNV({0}, {1}, {2}, {3})", program, location, values.Length, LogValue(values));
 				}
 			}
 			DebugCheckErrors(null);

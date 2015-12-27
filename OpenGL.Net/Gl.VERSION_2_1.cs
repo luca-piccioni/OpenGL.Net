@@ -302,7 +302,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x3fv != null, "pglUniformMatrix2x3fv not implemented");
 					Delegates.pglUniformMatrix2x3fv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix2x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix2x3fv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -372,7 +372,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x2fv != null, "pglUniformMatrix3x2fv not implemented");
 					Delegates.pglUniformMatrix3x2fv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix3x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix3x2fv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -442,7 +442,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x4fv != null, "pglUniformMatrix2x4fv not implemented");
 					Delegates.pglUniformMatrix2x4fv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix2x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix2x4fv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -512,7 +512,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x2fv != null, "pglUniformMatrix4x2fv not implemented");
 					Delegates.pglUniformMatrix4x2fv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix4x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix4x2fv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -582,7 +582,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x4fv != null, "pglUniformMatrix3x4fv not implemented");
 					Delegates.pglUniformMatrix3x4fv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix3x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix3x4fv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -652,7 +652,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x3fv != null, "pglUniformMatrix4x3fv not implemented");
 					Delegates.pglUniformMatrix4x3fv(location, count, transpose, p_value);
-					LogFunction("glUniformMatrix4x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
+					LogFunction("glUniformMatrix4x3fv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);

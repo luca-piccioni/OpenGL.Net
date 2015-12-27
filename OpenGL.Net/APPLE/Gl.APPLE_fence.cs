@@ -53,7 +53,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenFencesAPPLE != null, "pglGenFencesAPPLE not implemented");
 					Delegates.pglGenFencesAPPLE((Int32)fences.Length, p_fences);
-					LogFunction("glGenFencesAPPLE({0}, {1})", fences.Length, fences);
+					LogFunction("glGenFencesAPPLE({0}, {1})", fences.Length, LogValue(fences));
 				}
 			}
 			DebugCheckErrors(null);
@@ -84,7 +84,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteFencesAPPLE != null, "pglDeleteFencesAPPLE not implemented");
 					Delegates.pglDeleteFencesAPPLE((Int32)fences.Length, p_fences);
-					LogFunction("glDeleteFencesAPPLE({0}, {1})", fences.Length, fences);
+					LogFunction("glDeleteFencesAPPLE({0}, {1})", fences.Length, LogValue(fences));
 				}
 			}
 			DebugCheckErrors(null);

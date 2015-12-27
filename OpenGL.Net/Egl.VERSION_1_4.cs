@@ -37,6 +37,7 @@ namespace OpenGL
 		/// Value of EGL_MULTISAMPLE_RESOLVE_BOX_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_4")]
+		[Log(BitmaskName = "EGLSurfaceTypeMask")]
 		public const int MULTISAMPLE_RESOLVE_BOX_BIT = 0x0200;
 
 		/// <summary>
@@ -77,12 +78,14 @@ namespace OpenGL
 		/// Value of EGL_OPENGL_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_4")]
+		[Log(BitmaskName = "EGLRenderableTypeMask")]
 		public const int OPENGL_BIT = 0x0008;
 
 		/// <summary>
 		/// Value of EGL_SWAP_BEHAVIOR_PRESERVED_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_4")]
+		[Log(BitmaskName = "EGLSurfaceTypeMask")]
 		public const int SWAP_BEHAVIOR_PRESERVED_BIT = 0x0400;
 
 		/// <summary>

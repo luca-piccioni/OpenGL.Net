@@ -61,12 +61,14 @@ namespace OpenGL
 		/// Value of EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[Log(BitmaskName = "EGLContextProfileMask")]
 		public const uint CONTEXT_OPENGL_CORE_PROFILE_BIT = 0x00000001;
 
 		/// <summary>
 		/// Value of EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[Log(BitmaskName = "EGLContextProfileMask")]
 		public const uint CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT = 0x00000002;
 
 		/// <summary>
@@ -92,6 +94,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		[RequiredByFeature("EGL_KHR_create_context")]
+		[Log(BitmaskName = "EGLRenderableTypeMask")]
 		public const uint OPENGL_ES3_BIT = 0x00000040;
 
 		/// <summary>
@@ -152,6 +155,7 @@ namespace OpenGL
 		/// Value of EGL_SYNC_FLUSH_COMMANDS_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[Log(BitmaskName = "EGLSyncFlagsKHR")]
 		public const int SYNC_FLUSH_COMMANDS_BIT = 0x0001;
 
 		/// <summary>
@@ -292,7 +296,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateSync != null, "peglCreateSync not implemented");
 					retValue = Delegates.peglCreateSync(dpy, type, p_attrib_list);
-					LogFunction("eglCreateSync(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), type, attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreateSync(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), type, LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -375,7 +379,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetSyncAttrib != null, "peglGetSyncAttrib not implemented");
 					retValue = Delegates.peglGetSyncAttrib(dpy, sync, attribute, p_value);
-					LogFunction("eglGetSyncAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglGetSyncAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -411,7 +415,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateImage != null, "peglCreateImage not implemented");
 					retValue = Delegates.peglCreateImage(dpy, ctx, target, buffer, p_attrib_list);
-					LogFunction("eglCreateImage(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), ctx.ToString("X8"), target, buffer.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreateImage(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), ctx.ToString("X8"), target, buffer.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -463,7 +467,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetPlatformDisplay != null, "peglGetPlatformDisplay not implemented");
 					retValue = Delegates.peglGetPlatformDisplay(platform, native_display, p_attrib_list);
-					LogFunction("eglGetPlatformDisplay({0}, 0x{1}, {2}) = {3}", platform, native_display.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglGetPlatformDisplay({0}, 0x{1}, {2}) = {3}", platform, native_display.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -496,7 +500,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePlatformWindowSurface != null, "peglCreatePlatformWindowSurface not implemented");
 					retValue = Delegates.peglCreatePlatformWindowSurface(dpy, config, native_window, p_attrib_list);
-					LogFunction("eglCreatePlatformWindowSurface(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_window.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreatePlatformWindowSurface(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_window.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -529,7 +533,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePlatformPixmapSurface != null, "peglCreatePlatformPixmapSurface not implemented");
 					retValue = Delegates.peglCreatePlatformPixmapSurface(dpy, config, native_pixmap, p_attrib_list);
-					LogFunction("eglCreatePlatformPixmapSurface(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_pixmap.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreatePlatformPixmapSurface(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_pixmap.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

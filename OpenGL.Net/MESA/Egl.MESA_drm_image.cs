@@ -61,12 +61,14 @@ namespace OpenGL
 		/// Value of EGL_DRM_BUFFER_USE_SCANOUT_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
+		[Log(BitmaskName = "EGLDRMBufferUseMESAMask")]
 		public const uint DRM_BUFFER_USE_SCANOUT_MESA = 0x00000001;
 
 		/// <summary>
 		/// Value of EGL_DRM_BUFFER_USE_SHARE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
+		[Log(BitmaskName = "EGLDRMBufferUseMESAMask")]
 		public const uint DRM_BUFFER_USE_SHARE_MESA = 0x00000002;
 
 		/// <summary>
@@ -88,7 +90,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateDRMImageMESA != null, "peglCreateDRMImageMESA not implemented");
 					retValue = Delegates.peglCreateDRMImageMESA(dpy, p_attrib_list);
-					LogFunction("eglCreateDRMImageMESA(0x{0}, {1}) = {2}", dpy.ToString("X8"), attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreateDRMImageMESA(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -126,7 +128,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDRMImageMESA != null, "peglExportDRMImageMESA not implemented");
 					retValue = Delegates.peglExportDRMImageMESA(dpy, image, p_name, p_handle, p_stride);
-					LogFunction("eglExportDRMImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), name, handle, stride, retValue.ToString("X8"));
+					LogFunction("eglExportDRMImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(name), LogValue(handle), LogValue(stride), retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

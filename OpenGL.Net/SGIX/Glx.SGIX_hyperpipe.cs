@@ -49,36 +49,42 @@ namespace OpenGL
 		/// Value of GLX_HYPERPIPE_DISPLAY_PIPE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
+		[Log(BitmaskName = "GLXHyperpipeTypeMask")]
 		public const uint HYPERPIPE_DISPLAY_PIPE_SGIX = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_HYPERPIPE_RENDER_PIPE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
+		[Log(BitmaskName = "GLXHyperpipeTypeMask")]
 		public const uint HYPERPIPE_RENDER_PIPE_SGIX = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_PIPE_RECT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
+		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const uint PIPE_RECT_SGIX = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_PIPE_RECT_LIMITS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
+		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const uint PIPE_RECT_LIMITS_SGIX = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_HYPERPIPE_STEREO_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
+		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const uint HYPERPIPE_STEREO_SGIX = 0x00000003;
 
 		/// <summary>
 		/// Value of GLX_HYPERPIPE_PIXEL_AVERAGE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
+		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const uint HYPERPIPE_PIXEL_AVERAGE_SGIX = 0x00000004;
 
 		/// <summary>
@@ -106,7 +112,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryHyperpipeNetworkSGIX != null, "pglXQueryHyperpipeNetworkSGIX not implemented");
 					retValue = Delegates.pglXQueryHyperpipeNetworkSGIX(dpy, p_npipes);
-					LogFunction("glXQueryHyperpipeNetworkSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), npipes, retValue != null ? retValue->ToString() : "(null)");
+					LogFunction("glXQueryHyperpipeNetworkSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(npipes), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
 
@@ -141,7 +147,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXHyperpipeConfigSGIX != null, "pglXHyperpipeConfigSGIX not implemented");
 					retValue = Delegates.pglXHyperpipeConfigSGIX(dpy, networkId, npipes, cfg, p_hpId);
-					LogFunction("glXHyperpipeConfigSGIX(0x{0}, {1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), networkId, npipes, cfg.ToString("X8"), hpId, retValue);
+					LogFunction("glXHyperpipeConfigSGIX(0x{0}, {1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), networkId, npipes, cfg.ToString("X8"), LogValue(hpId), retValue);
 				}
 			}
 
@@ -170,7 +176,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryHyperpipeConfigSGIX != null, "pglXQueryHyperpipeConfigSGIX not implemented");
 					retValue = Delegates.pglXQueryHyperpipeConfigSGIX(dpy, hpId, p_npipes);
-					LogFunction("glXQueryHyperpipeConfigSGIX(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), hpId, npipes, retValue.ToString("X8"));
+					LogFunction("glXQueryHyperpipeConfigSGIX(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), hpId, LogValue(npipes), retValue.ToString("X8"));
 				}
 			}
 

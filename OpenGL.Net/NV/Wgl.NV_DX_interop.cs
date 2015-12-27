@@ -31,18 +31,21 @@ namespace OpenGL
 		/// Value of WGL_ACCESS_READ_ONLY_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
+		[Log(BitmaskName = "WGLDXInteropMaskNV")]
 		public const uint ACCESS_READ_ONLY_NV = 0x00000000;
 
 		/// <summary>
 		/// Value of WGL_ACCESS_READ_WRITE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
+		[Log(BitmaskName = "WGLDXInteropMaskNV")]
 		public const uint ACCESS_READ_WRITE_NV = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_ACCESS_WRITE_DISCARD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
+		[Log(BitmaskName = "WGLDXInteropMaskNV")]
 		public const uint ACCESS_WRITE_DISCARD_NV = 0x00000002;
 
 		/// <summary>
@@ -202,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglDXLockObjectsNV != null, "pwglDXLockObjectsNV not implemented");
 					retValue = Delegates.pwglDXLockObjectsNV(hDevice, count, p_hObjects);
-					LogFunction("wglDXLockObjectsNV(0x{0}, {1}, {2}) = {3}", hDevice.ToString("X8"), count, hObjects, retValue);
+					LogFunction("wglDXLockObjectsNV(0x{0}, {1}, {2}) = {3}", hDevice.ToString("X8"), count, LogValue(hObjects), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -232,7 +235,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglDXUnlockObjectsNV != null, "pwglDXUnlockObjectsNV not implemented");
 					retValue = Delegates.pwglDXUnlockObjectsNV(hDevice, count, p_hObjects);
-					LogFunction("wglDXUnlockObjectsNV(0x{0}, {1}, {2}) = {3}", hDevice.ToString("X8"), count, hObjects, retValue);
+					LogFunction("wglDXUnlockObjectsNV(0x{0}, {1}, {2}) = {3}", hDevice.ToString("X8"), count, LogValue(hObjects), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -214,7 +214,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXSendPbufferToVideoNV != null, "pglXSendPbufferToVideoNV not implemented");
 					retValue = Delegates.pglXSendPbufferToVideoNV(dpy, pbuf, iBufferType, p_pulCounterPbuffer, bBlock);
-					LogFunction("glXSendPbufferToVideoNV(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), pbuf.ToString("X8"), iBufferType, pulCounterPbuffer, bBlock, retValue);
+					LogFunction("glXSendPbufferToVideoNV(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), pbuf.ToString("X8"), iBufferType, LogValue(pulCounterPbuffer), bBlock, retValue);
 				}
 			}
 
@@ -250,7 +250,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetVideoInfoNV != null, "pglXGetVideoInfoNV not implemented");
 					retValue = Delegates.pglXGetVideoInfoNV(dpy, screen, VideoDevice, p_pulCounterOutputPbuffer, p_pulCounterOutputVideo);
-					LogFunction("glXGetVideoInfoNV(0x{0}, {1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), screen, VideoDevice.ToString("X8"), pulCounterOutputPbuffer, pulCounterOutputVideo, retValue);
+					LogFunction("glXGetVideoInfoNV(0x{0}, {1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), screen, VideoDevice.ToString("X8"), LogValue(pulCounterOutputPbuffer), LogValue(pulCounterOutputVideo), retValue);
 				}
 			}
 

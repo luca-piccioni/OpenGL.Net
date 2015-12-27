@@ -222,6 +222,75 @@ namespace OpenGL
 
 		#endregion
 
+		#region Procedure Logging
+
+		/// <summary>
+		/// Query <see cref="Gl"/> enumeration names, for logging purposes.
+		/// </summary>
+		/// <remarks>
+		/// After having called this method, the method <see cref="LogFunction"/> will output known enumeration
+		/// names instead of the numerical value.
+		/// </remarks>
+		public static void QueryLogContext()
+		{
+			_LogContext = QueryLogContext(typeof(Wgl));
+
+			_LogContext.EnumNames.Remove(0);
+			_LogContext.EnumNames.Add(0, "FALSE");
+			_LogContext.EnumNames.Remove(1);
+			_LogContext.EnumNames.Add(1, "TRUE");
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValue">
+		/// A <see cref="Int32"/> that specifies the enumeration value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/> as hexadecimal value. If the
+		/// name of the enumeration value is detected, it returns the relative OpenGL specification name.
+		/// </returns>
+		protected static new string LogEnumName(int enumValue)
+		{
+			string enumName;
+
+			if (_LogContext.EnumNames != null && _LogContext.EnumNames.TryGetValue(enumValue, out enumName))
+				return (enumName);
+			else
+				return (Gl.LogEnumName(enumValue) ?? KhronosApi.LogEnumName(enumValue));
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValues">
+		/// An array of <see cref="Int32"/> that specifies the enumeration values.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValues"/> as hexadecimal value.
+		/// </returns>
+		protected static new string LogEnumName(int[] enumValues)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("{");
+			foreach (int enumValue in enumValues)
+				sb.AppendFormat("{0},", LogEnumName(enumValue));
+			if (enumValues.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
+
+			return (sb.ToString());
+		}
+
+		/// <summary>
+		/// Enumeration names indexed by their value.
+		/// </summary>
+		private static LogContext _LogContext = new LogContext();
+
+		#endregion
+
 		#region Required External Declarations
 
 		/// <summary>
@@ -862,6 +931,7 @@ namespace OpenGL
 		/// Each pixel has four components in this order: red, green, blue,
 		/// and alpha.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_TYPE_RGBA = 0;
 
 		/// <summary>
@@ -870,6 +940,7 @@ namespace OpenGL
 		/// <remarks>
 		/// Each pixel uses a color-index value.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_TYPE_COLORINDEX = 1;
 
 		#endregion
@@ -879,16 +950,19 @@ namespace OpenGL
 		/// <summary>
 		/// The layer is the main plane.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_MAIN_PLANE = 0;
 
 		/// <summary>
 		/// The layer is the overlay plane
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_OVERLAY_PLANE = 1;
 
 		/// <summary>
 		/// The layer is the underlay plane.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_UNDERLAY_PLANE = -1;
 
 		#endregion
@@ -898,37 +972,51 @@ namespace OpenGL
 		/// <summary>
 		/// The buffer is double-buffered. This flag and PFD_SUPPORT_GDI are mutually exclusive in the current generic implementation.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_DOUBLEBUFFER = 0x00000001;
 
 		/// <summary>
 		/// The buffer is stereoscopic. This flag is not supported in the current generic implementation.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_STEREO = 0x00000002;
 
 		/// <summary>
 		/// The buffer can draw to a window or device surface.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_DRAW_TO_WINDOW = 0x00000004;
 
 		/// <summary>
 		/// The buffer can draw to a memory bitmap.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_DRAW_TO_BITMAP = 0x00000008;
 
 		/// <summary>
 		/// The buffer supports GDI drawing. This flag and PFD_DOUBLEBUFFER are mutually exclusive in the current generic implementation.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SUPPORT_GDI = 0x00000010;
 
 		/// <summary>
 		/// The buffer supports OpenGL drawing.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SUPPORT_OPENGL = 0x00000020;
 
 		/// <summary>
 		/// The pixel format is supported by the GDI software implementation, which is also known as the generic implementation.
 		/// If this bit is clear, the pixel format is supported by a device driver or hardware.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_GENERIC_FORMAT = 0x00000040;
 
 		/// <summary>
@@ -937,6 +1025,8 @@ namespace OpenGL
 		/// cGreenShift, cBluebits, and cBlueShift members. The palette should be created and realized in the device context before
 		/// calling wglMakeCurrent.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_NEED_PALETTE = 0x00000080;
 
 		/// <summary>
@@ -950,6 +1040,8 @@ namespace OpenGL
 		/// <remarks>
 		/// This flag is not set in the generic pixel formats.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_NEED_SYSTEM_PALETTE =		0x00000100;
 
 		/// <summary>
@@ -963,6 +1055,8 @@ namespace OpenGL
 		/// content before the swap. <b>PFD_SWAP_EXCHANGE</b> is a hint only and might
 		/// not be provided by a driver.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SWAP_EXCHANGE =			0x00000200;
 
 		/// <summary>
@@ -975,6 +1069,8 @@ namespace OpenGL
 		/// buffer is not affected by the swap.  <b>PFD_SWAP_COPY</b> is a hint only and
 		/// might not be provided by a driver.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SWAP_COPY =				0x00000400;
 
 		/// <summary>
@@ -982,27 +1078,37 @@ namespace OpenGL
 		/// overlay or underlay planes. Otherwise all layer planes are swapped together as a group. When this flag is set,
 		/// wglSwapLayerBuffers is supported.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SWAP_LAYER_BUFFERS =		0x00000800;
 
 		/// <summary>
 		/// The pixel format is supported by a device driver that accelerates the generic implementation. If this flag is clear
 		/// and the PFD_GENERIC_FORMAT flag is set, the pixel format is supported by the generic implementation only.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_GENERIC_ACCELERATED =		0x00001000;
 
 		/// <summary>
 		/// Undocumented.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SUPPORT_DIRECTDRAW =		0x00002000;
 
 		/// <summary>
 		/// Undocumented.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_DIRECT3D_ACCELERATED =		0x00004000;
 
 		/// <summary>
 		/// Undocumented.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_SUPPORT_COMPOSITION =		0x00008000;
 
 		/// <summary>
@@ -1013,6 +1119,8 @@ namespace OpenGL
 		/// <remarks>
 		/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_DEPTH_DONTCARE =			0x20000000;
 
 		/// <summary>
@@ -1021,6 +1129,8 @@ namespace OpenGL
 		/// <remarks>
 		/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_DOUBLEBUFFER_DONTCARE =	0x40000000;
 
 		/// <summary>
@@ -1029,6 +1139,8 @@ namespace OpenGL
 		/// <remarks>
 		/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
 		/// </remarks>
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_STEREO_DONTCARE =			unchecked((int)0x80000000);
 
 		#endregion

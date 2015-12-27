@@ -110,7 +110,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCompileShaderIncludeARB != null, "pglCompileShaderIncludeARB not implemented");
 					Delegates.pglCompileShaderIncludeARB(shader, (Int32)path.Length, path, p_length);
-					LogFunction("glCompileShaderIncludeARB({0}, {1}, {2}, {3})", shader, path.Length, path, length);
+					LogFunction("glCompileShaderIncludeARB({0}, {1}, {2}, {3})", shader, path.Length, LogValue(path), LogValue(length));
 				}
 			}
 			DebugCheckErrors(null);
@@ -193,7 +193,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedStringivARB != null, "pglGetNamedStringivARB not implemented");
 					Delegates.pglGetNamedStringivARB(namelen, name, pname, p_params);
-					LogFunction("glGetNamedStringivARB({0}, {1}, {2}, {3})", namelen, name, LogEnumName(pname), @params);
+					LogFunction("glGetNamedStringivARB({0}, {1}, {2}, {3})", namelen, name, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

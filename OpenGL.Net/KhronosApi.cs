@@ -668,6 +668,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Log an bitmask value.
+		/// </summary>
+		/// <param name="bitmaskName">
+		/// A <see cref="String"/> that specifies the enumeration bitmask name.
+		/// </param>
+		/// <param name="bitmaskValue">
+		/// A <see cref="Int32"/> that specifies the enumeration bitmask value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="bitmaskValue"/>.
+		/// </returns>
+		protected static string LogEnumBitmask(string bitmaskName, long bitmaskValue)
+		{
+			return (String.Format("0x{0}", bitmaskValue.ToString("X8")));
+		}
+
+		/// <summary>
+		/// Log an bitmask value.
+		/// </summary>
+		/// <param name="bitmaskValue">
+		/// A <see cref="Int32"/> that specifies the enumeration bitmask value.
+		/// </param>
+		/// <param name="bitmaskNames">
+		/// A <see cref="Dictionary{Int32, String}"/> that specifies the bitmask items names.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="bitmaskValue"/>.
+		/// </returns>
+		protected static string LogEnumBitmask(long bitmaskValue, Dictionary<long, string> bitmaskNames)
+		{
+			if (bitmaskNames == null)
+				throw new ArgumentNullException("bitmaskNames");
+
+			StringBuilder sb = new StringBuilder();
+
+			foreach (KeyValuePair<long, string> pair in bitmaskNames) {
+				// Exclude zero values
+				if (pair.Key == 0)
+					continue;
+				// Append name in the case all value bits are set
+				if ((bitmaskValue & pair.Key) == pair.Key) {
+					sb.AppendFormat("{0}|", pair.Value);
+					// Esclude these bits
+					bitmaskValue &= ~pair.Key;
+				}
+			}
+			// Remove trailing pipe
+			if (sb.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+
+			return (sb.ToString());
+		}
+
+		/// <summary>
+		/// Information usedful for logging purposes.
+		/// </summary>
+		protected struct LogContext
+		{
+			/// <summary>
+			/// Enumeration names indexed by their value.
+			/// </summary>
+			public Dictionary<Int64, string> EnumNames;
+
+			/// <summary>
+			/// Enumeration names (indexed by their values) collected in enumeration bitmask.
+			/// </summary>
+			public Dictionary<string, Dictionary<Int64, string>> EnumBitmasks;
+		}
+
+		/// <summary>
 		/// Query KhronoApi derived class enumeration names.
 		/// </summary>
 		/// <param name="khronoApiType">
@@ -677,12 +747,15 @@ namespace OpenGL
 		/// It returns a <see cref="Dictionary{Int32, String}"/> that correlates the enumeration value with
 		/// the enumeration name.
 		/// </returns>
-		protected static Dictionary<Int64, string> QueryEnumNames(Type khronoApiType)
+		protected static LogContext QueryLogContext(Type khronoApiType)
 		{
 			if (khronoApiType == null)
 				throw new ArgumentNullException("khronoApiType");
 
+			LogContext logContext = new LogContext();
+
 			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
+			Dictionary<string, Dictionary<Int64, string>> enumBitmasks = new Dictionary<string, Dictionary<Int64, string>>();
 
 			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
@@ -696,15 +769,36 @@ namespace OpenGL
 				if ((requiredByFeatureAttribs == null) || (requiredByFeatureAttribs.Length == 0))
 					continue;
 
-				// Collect enumeration
+				LogAttribute logAttribute = (LogAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(LogAttribute));
 				IConvertible fieldInfoValue = (IConvertible)fieldInfo.GetValue(null);
 				Int64 enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
 
-				if (enumNames.ContainsKey(enumValueKey) == false)
-					enumNames.Add(enumValueKey, fieldInfo.Name);
+				// Pure enum
+				if ((logAttribute == null) || (logAttribute.BitmaskName == null)) {
+					// Collect enumeration
+					if (enumNames.ContainsKey(enumValueKey) == false)
+						enumNames.Add(enumValueKey, fieldInfo.Name);
+				}
+
+				// Bitmask enum
+				if ((logAttribute != null) && (logAttribute.BitmaskName != null)) {
+					Dictionary<Int64, string> enumBitmaskNames;
+
+					if (enumBitmasks.TryGetValue(logAttribute.BitmaskName, out enumBitmaskNames) == false) {
+						enumBitmaskNames = new Dictionary<long, string>();
+						enumBitmasks.Add(logAttribute.BitmaskName, enumBitmaskNames);
+					}
+
+					if (enumBitmaskNames.ContainsKey(enumValueKey) == false)
+						enumBitmaskNames.Add(enumValueKey, fieldInfo.Name);
+				}
 			}
 
-			return (enumNames);
+			// Componse LogContext
+			logContext.EnumNames = enumNames;
+			logContext.EnumBitmasks = enumBitmasks;
+
+			return (logContext);
 		}
 		
 		#endregion

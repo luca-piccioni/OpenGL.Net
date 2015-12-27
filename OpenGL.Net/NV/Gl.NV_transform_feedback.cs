@@ -149,7 +149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackAttribsNV != null, "pglTransformFeedbackAttribsNV not implemented");
 					Delegates.pglTransformFeedbackAttribsNV(count, p_attribs, bufferMode);
-					LogFunction("glTransformFeedbackAttribsNV({0}, {1}, {2})", count, attribs, LogEnumName(bufferMode));
+					LogFunction("glTransformFeedbackAttribsNV({0}, {1}, {2})", count, LogValue(attribs), LogEnumName(bufferMode));
 				}
 			}
 			DebugCheckErrors(null);
@@ -175,7 +175,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackVaryingsNV != null, "pglTransformFeedbackVaryingsNV not implemented");
 					Delegates.pglTransformFeedbackVaryingsNV(program, (Int32)locations.Length, p_locations, bufferMode);
-					LogFunction("glTransformFeedbackVaryingsNV({0}, {1}, {2}, {3})", program, locations.Length, locations, LogEnumName(bufferMode));
+					LogFunction("glTransformFeedbackVaryingsNV({0}, {1}, {2}, {3})", program, locations.Length, LogValue(locations), LogEnumName(bufferMode));
 				}
 			}
 			DebugCheckErrors(null);
@@ -308,7 +308,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackStreamAttribsNV != null, "pglTransformFeedbackStreamAttribsNV not implemented");
 					Delegates.pglTransformFeedbackStreamAttribsNV((Int32)attribs.Length, p_attribs, (Int32)bufstreams.Length, p_bufstreams, bufferMode);
-					LogFunction("glTransformFeedbackStreamAttribsNV({0}, {1}, {2}, {3}, {4})", attribs.Length, attribs, bufstreams.Length, bufstreams, LogEnumName(bufferMode));
+					LogFunction("glTransformFeedbackStreamAttribsNV({0}, {1}, {2}, {3}, {4})", attribs.Length, LogValue(attribs), bufstreams.Length, LogValue(bufstreams), LogEnumName(bufferMode));
 				}
 			}
 			DebugCheckErrors(null);

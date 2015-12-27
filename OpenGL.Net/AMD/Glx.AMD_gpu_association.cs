@@ -199,7 +199,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateAssociatedContextAttribsAMD != null, "pglXCreateAssociatedContextAttribsAMD not implemented");
 					retValue = Delegates.pglXCreateAssociatedContextAttribsAMD(id, share_context, p_attribList);
-					LogFunction("glXCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, share_context.ToString("X8"), attribList, retValue.ToString("X8"));
+					LogFunction("glXCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, share_context.ToString("X8"), LogValue(attribList), retValue.ToString("X8"));
 				}
 			}
 

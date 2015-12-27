@@ -834,7 +834,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorTableParameterfv != null, "pglColorTableParameterfv not implemented");
 					Delegates.pglColorTableParameterfv(target, pname, p_params);
-					LogFunction("glColorTableParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glColorTableParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -871,7 +871,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorTableParameteriv != null, "pglColorTableParameteriv not implemented");
 					Delegates.pglColorTableParameteriv(target, pname, p_params);
-					LogFunction("glColorTableParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glColorTableParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1107,7 +1107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterfv != null, "pglGetColorTableParameterfv not implemented");
 					Delegates.pglGetColorTableParameterfv(target, pname, p_params);
-					LogFunction("glGetColorTableParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetColorTableParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1148,7 +1148,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameteriv != null, "pglGetColorTableParameteriv not implemented");
 					Delegates.pglGetColorTableParameteriv(target, pname, p_params);
-					LogFunction("glGetColorTableParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetColorTableParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1809,7 +1809,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglConvolutionParameterfv != null, "pglConvolutionParameterfv not implemented");
 					Delegates.pglConvolutionParameterfv(target, pname, p_params);
-					LogFunction("glConvolutionParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glConvolutionParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1896,7 +1896,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglConvolutionParameteriv != null, "pglConvolutionParameteriv not implemented");
 					Delegates.pglConvolutionParameteriv(target, pname, p_params);
-					LogFunction("glConvolutionParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glConvolutionParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2202,7 +2202,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfv != null, "pglGetConvolutionParameterfv not implemented");
 					Delegates.pglGetConvolutionParameterfv(target, pname, p_params);
-					LogFunction("glGetConvolutionParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetConvolutionParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2250,7 +2250,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameteriv != null, "pglGetConvolutionParameteriv not implemented");
 					Delegates.pglGetConvolutionParameteriv(target, pname, p_params);
-					LogFunction("glGetConvolutionParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetConvolutionParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2814,7 +2814,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameterfv != null, "pglGetHistogramParameterfv not implemented");
 					Delegates.pglGetHistogramParameterfv(target, pname, p_params);
-					LogFunction("glGetHistogramParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetHistogramParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2856,7 +2856,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameteriv != null, "pglGetHistogramParameteriv not implemented");
 					Delegates.pglGetHistogramParameteriv(target, pname, p_params);
-					LogFunction("glGetHistogramParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetHistogramParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -3038,7 +3038,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameterfv != null, "pglGetMinmaxParameterfv not implemented");
 					Delegates.pglGetMinmaxParameterfv(target, pname, p_params);
-					LogFunction("glGetMinmaxParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetMinmaxParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -3078,7 +3078,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameteriv != null, "pglGetMinmaxParameteriv not implemented");
 					Delegates.pglGetMinmaxParameteriv(target, pname, p_params);
-					LogFunction("glGetMinmaxParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetMinmaxParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

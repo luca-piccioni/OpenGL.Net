@@ -95,7 +95,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDetailTexFuncSGIS != null, "pglDetailTexFuncSGIS not implemented");
 					Delegates.pglDetailTexFuncSGIS((Int32)target, n, p_points);
-					LogFunction("glDetailTexFuncSGIS({0}, {1}, {2})", target, n, points);
+					LogFunction("glDetailTexFuncSGIS({0}, {1}, {2})", target, n, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);
@@ -118,7 +118,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDetailTexFuncSGIS != null, "pglGetDetailTexFuncSGIS not implemented");
 					Delegates.pglGetDetailTexFuncSGIS((Int32)target, p_points);
-					LogFunction("glGetDetailTexFuncSGIS({0}, {1})", target, points);
+					LogFunction("glGetDetailTexFuncSGIS({0}, {1})", target, LogValue(points));
 				}
 			}
 			DebugCheckErrors(null);

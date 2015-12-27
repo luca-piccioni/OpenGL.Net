@@ -50,6 +50,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[Log(BitmaskName = "GL")]
 		public const int MAP_PERSISTENT_BIT = 0x0040;
 
 		/// <summary>
@@ -57,6 +58,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[Log(BitmaskName = "GL")]
 		public const int MAP_COHERENT_BIT = 0x0080;
 
 		/// <summary>
@@ -64,6 +66,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[Log(BitmaskName = "GL")]
 		public const int DYNAMIC_STORAGE_BIT = 0x0100;
 
 		/// <summary>
@@ -71,6 +74,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[Log(BitmaskName = "GL")]
 		public const int CLIENT_STORAGE_BIT = 0x0200;
 
 		/// <summary>
@@ -78,6 +82,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[Log(BitmaskName = "GL")]
 		public const uint CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x00004000;
 
 		/// <summary>
@@ -140,6 +145,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[Log(BitmaskName = "GL")]
 		public const uint QUERY_BUFFER_BARRIER_BIT = 0x00008000;
 
 		/// <summary>
@@ -691,7 +697,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
 					Delegates.pglBindBuffersBase(target, first, (Int32)buffers.Length, p_buffers);
-					LogFunction("glBindBuffersBase({0}, {1}, {2}, {3})", LogEnumName(target), first, buffers.Length, buffers);
+					LogFunction("glBindBuffersBase({0}, {1}, {2}, {3})", LogEnumName(target), first, buffers.Length, LogValue(buffers));
 				}
 			}
 			DebugCheckErrors(null);
@@ -757,7 +763,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
 					Delegates.pglBindBuffersRange(target, first, (Int32)buffers.Length, p_buffers, p_offsets, p_sizes);
-					LogFunction("glBindBuffersRange({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), first, buffers.Length, buffers, offsets, sizes);
+					LogFunction("glBindBuffersRange({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), first, buffers.Length, LogValue(buffers), LogValue(offsets), LogValue(sizes));
 				}
 			}
 			DebugCheckErrors(null);
@@ -803,7 +809,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindTextures != null, "pglBindTextures not implemented");
 					Delegates.pglBindTextures(first, (Int32)textures.Length, p_textures);
-					LogFunction("glBindTextures({0}, {1}, {2})", first, textures.Length, textures);
+					LogFunction("glBindTextures({0}, {1}, {2})", first, textures.Length, LogValue(textures));
 				}
 			}
 			DebugCheckErrors(null);
@@ -846,7 +852,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindSamplers != null, "pglBindSamplers not implemented");
 					Delegates.pglBindSamplers(first, (Int32)samplers.Length, p_samplers);
-					LogFunction("glBindSamplers({0}, {1}, {2})", first, samplers.Length, samplers);
+					LogFunction("glBindSamplers({0}, {1}, {2})", first, samplers.Length, LogValue(samplers));
 				}
 			}
 			DebugCheckErrors(null);
@@ -902,7 +908,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindImageTextures != null, "pglBindImageTextures not implemented");
 					Delegates.pglBindImageTextures(first, (Int32)textures.Length, p_textures);
-					LogFunction("glBindImageTextures({0}, {1}, {2})", first, textures.Length, textures);
+					LogFunction("glBindImageTextures({0}, {1}, {2})", first, textures.Length, LogValue(textures));
 				}
 			}
 			DebugCheckErrors(null);
@@ -957,7 +963,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindVertexBuffers != null, "pglBindVertexBuffers not implemented");
 					Delegates.pglBindVertexBuffers(first, (Int32)buffers.Length, p_buffers, p_offsets, p_strides);
-					LogFunction("glBindVertexBuffers({0}, {1}, {2}, {3}, {4})", first, buffers.Length, buffers, offsets, strides);
+					LogFunction("glBindVertexBuffers({0}, {1}, {2}, {3}, {4})", first, buffers.Length, LogValue(buffers), LogValue(offsets), LogValue(strides));
 				}
 			}
 			DebugCheckErrors(null);

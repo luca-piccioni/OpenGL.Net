@@ -64,7 +64,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFinishAsyncSGIX != null, "pglFinishAsyncSGIX not implemented");
 					retValue = Delegates.pglFinishAsyncSGIX(p_markerp);
-					LogFunction("glFinishAsyncSGIX({0}) = {1}", markerp, retValue);
+					LogFunction("glFinishAsyncSGIX({0}) = {1}", LogValue(markerp), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -88,7 +88,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPollAsyncSGIX != null, "pglPollAsyncSGIX not implemented");
 					retValue = Delegates.pglPollAsyncSGIX(p_markerp);
-					LogFunction("glPollAsyncSGIX({0}) = {1}", markerp, retValue);
+					LogFunction("glPollAsyncSGIX({0}) = {1}", LogValue(markerp), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

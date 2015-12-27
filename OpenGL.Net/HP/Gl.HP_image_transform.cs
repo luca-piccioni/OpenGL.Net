@@ -179,7 +179,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglImageTransformParameterivHP != null, "pglImageTransformParameterivHP not implemented");
 					Delegates.pglImageTransformParameterivHP(target, pname, p_params);
-					LogFunction("glImageTransformParameterivHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glImageTransformParameterivHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -205,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglImageTransformParameterfvHP != null, "pglImageTransformParameterfvHP not implemented");
 					Delegates.pglImageTransformParameterfvHP(target, pname, p_params);
-					LogFunction("glImageTransformParameterfvHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glImageTransformParameterfvHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -231,7 +231,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetImageTransformParameterivHP != null, "pglGetImageTransformParameterivHP not implemented");
 					Delegates.pglGetImageTransformParameterivHP(target, pname, p_params);
-					LogFunction("glGetImageTransformParameterivHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetImageTransformParameterivHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -257,7 +257,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetImageTransformParameterfvHP != null, "pglGetImageTransformParameterfvHP not implemented");
 					Delegates.pglGetImageTransformParameterfvHP(target, pname, p_params);
-					LogFunction("glGetImageTransformParameterfvHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogFunction("glGetImageTransformParameterfvHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

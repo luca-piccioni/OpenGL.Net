@@ -31,12 +31,14 @@ namespace OpenGL
 		/// Value of WGL_IMAGE_BUFFER_MIN_ACCESS_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
+		[Log(BitmaskName = "WGLImageBufferMaskI3D")]
 		public const uint IMAGE_BUFFER_MIN_ACCESS_I3D = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_IMAGE_BUFFER_LOCK_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
+		[Log(BitmaskName = "WGLImageBufferMaskI3D")]
 		public const uint IMAGE_BUFFER_LOCK_I3D = 0x00000002;
 
 		/// <summary>
@@ -116,7 +118,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglAssociateImageBufferEventsI3D != null, "pwglAssociateImageBufferEventsI3D not implemented");
 					retValue = Delegates.pwglAssociateImageBufferEventsI3D(hDC, p_pEvent, p_pAddress, p_pSize, count);
-					LogFunction("wglAssociateImageBufferEventsI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), pEvent, pAddress, pSize, count, retValue);
+					LogFunction("wglAssociateImageBufferEventsI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), LogValue(pEvent), LogValue(pAddress), LogValue(pSize), count, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -146,7 +148,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglReleaseImageBufferEventsI3D != null, "pwglReleaseImageBufferEventsI3D not implemented");
 					retValue = Delegates.pwglReleaseImageBufferEventsI3D(hDC, p_pAddress, count);
-					LogFunction("wglReleaseImageBufferEventsI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), pAddress, count, retValue);
+					LogFunction("wglReleaseImageBufferEventsI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), LogValue(pAddress), count, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

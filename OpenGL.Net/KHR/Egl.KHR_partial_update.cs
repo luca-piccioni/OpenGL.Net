@@ -52,7 +52,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglSetDamageRegionKHR != null, "peglSetDamageRegionKHR not implemented");
 					retValue = Delegates.peglSetDamageRegionKHR(dpy, surface, p_rects, n_rects);
-					LogFunction("eglSetDamageRegionKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), rects, n_rects, retValue.ToString("X8"));
+					LogFunction("eglSetDamageRegionKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -146,7 +146,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTangent3bvEXT != null, "pglTangent3bvEXT not implemented");
 					Delegates.pglTangent3bvEXT(p_v);
-					LogFunction("glTangent3bvEXT({0})", v);
+					LogFunction("glTangent3bvEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -187,7 +187,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTangent3dvEXT != null, "pglTangent3dvEXT not implemented");
 					Delegates.pglTangent3dvEXT(p_v);
-					LogFunction("glTangent3dvEXT({0})", v);
+					LogFunction("glTangent3dvEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -228,7 +228,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTangent3fvEXT != null, "pglTangent3fvEXT not implemented");
 					Delegates.pglTangent3fvEXT(p_v);
-					LogFunction("glTangent3fvEXT({0})", v);
+					LogFunction("glTangent3fvEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -269,7 +269,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTangent3ivEXT != null, "pglTangent3ivEXT not implemented");
 					Delegates.pglTangent3ivEXT(p_v);
-					LogFunction("glTangent3ivEXT({0})", v);
+					LogFunction("glTangent3ivEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -310,7 +310,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTangent3svEXT != null, "pglTangent3svEXT not implemented");
 					Delegates.pglTangent3svEXT(p_v);
-					LogFunction("glTangent3svEXT({0})", v);
+					LogFunction("glTangent3svEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -351,7 +351,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBinormal3bvEXT != null, "pglBinormal3bvEXT not implemented");
 					Delegates.pglBinormal3bvEXT(p_v);
-					LogFunction("glBinormal3bvEXT({0})", v);
+					LogFunction("glBinormal3bvEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -392,7 +392,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBinormal3dvEXT != null, "pglBinormal3dvEXT not implemented");
 					Delegates.pglBinormal3dvEXT(p_v);
-					LogFunction("glBinormal3dvEXT({0})", v);
+					LogFunction("glBinormal3dvEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -433,7 +433,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBinormal3fvEXT != null, "pglBinormal3fvEXT not implemented");
 					Delegates.pglBinormal3fvEXT(p_v);
-					LogFunction("glBinormal3fvEXT({0})", v);
+					LogFunction("glBinormal3fvEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -474,7 +474,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBinormal3ivEXT != null, "pglBinormal3ivEXT not implemented");
 					Delegates.pglBinormal3ivEXT(p_v);
-					LogFunction("glBinormal3ivEXT({0})", v);
+					LogFunction("glBinormal3ivEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);
@@ -515,7 +515,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBinormal3svEXT != null, "pglBinormal3svEXT not implemented");
 					Delegates.pglBinormal3svEXT(p_v);
-					LogFunction("glBinormal3svEXT({0})", v);
+					LogFunction("glBinormal3svEXT({0})", LogValue(v));
 				}
 			}
 			DebugCheckErrors(null);

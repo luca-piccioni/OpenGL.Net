@@ -97,7 +97,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterfvSGI != null, "pglGetColorTableParameterfvSGI not implemented");
 					Delegates.pglGetColorTableParameterfvSGI((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetColorTableParameterfvSGI({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -123,7 +123,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterivSGI != null, "pglGetColorTableParameterivSGI not implemented");
 					Delegates.pglGetColorTableParameterivSGI((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetColorTableParameterivSGI({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetColorTableParameterivSGI({0}, {1}, {2})", target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);

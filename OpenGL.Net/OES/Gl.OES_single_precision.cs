@@ -44,7 +44,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglClipPlanefOES != null, "pglClipPlanefOES not implemented");
 					Delegates.pglClipPlanefOES(plane, p_equation);
-					LogFunction("glClipPlanefOES({0}, {1})", LogEnumName(plane), equation);
+					LogFunction("glClipPlanefOES({0}, {1})", LogEnumName(plane), LogValue(equation));
 				}
 			}
 			DebugCheckErrors(null);
@@ -97,7 +97,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetClipPlanefOES != null, "pglGetClipPlanefOES not implemented");
 					Delegates.pglGetClipPlanefOES(plane, p_equation);
-					LogFunction("glGetClipPlanefOES({0}, {1})", LogEnumName(plane), equation);
+					LogFunction("glGetClipPlanefOES({0}, {1})", LogEnumName(plane), LogValue(equation));
 				}
 			}
 			DebugCheckErrors(null);

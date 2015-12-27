@@ -62,7 +62,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixLoadfEXT != null, "pglMatrixLoadfEXT not implemented");
 					Delegates.pglMatrixLoadfEXT((Int32)mode, p_m);
-					LogFunction("glMatrixLoadfEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixLoadfEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -85,7 +85,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixLoaddEXT != null, "pglMatrixLoaddEXT not implemented");
 					Delegates.pglMatrixLoaddEXT((Int32)mode, p_m);
-					LogFunction("glMatrixLoaddEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixLoaddEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -108,7 +108,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixMultfEXT != null, "pglMatrixMultfEXT not implemented");
 					Delegates.pglMatrixMultfEXT((Int32)mode, p_m);
-					LogFunction("glMatrixMultfEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixMultfEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -131,7 +131,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixMultdEXT != null, "pglMatrixMultdEXT not implemented");
 					Delegates.pglMatrixMultdEXT((Int32)mode, p_m);
-					LogFunction("glMatrixMultdEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixMultdEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -475,7 +475,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
 					Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glTextureParameterfvEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glTextureParameterfvEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -528,7 +528,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
 					Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glTextureParameterivEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glTextureParameterivEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1092,7 +1092,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
 					Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetTextureParameterfvEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glGetTextureParameterfvEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1121,7 +1121,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
 					Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetTextureParameterivEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glGetTextureParameterivEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1153,7 +1153,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
 					Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, p_params);
-					LogFunction("glGetTextureLevelParameterfvEXT({0}, {1}, {2}, {3}, {4})", texture, target, level, pname, @params);
+					LogFunction("glGetTextureLevelParameterfvEXT({0}, {1}, {2}, {3}, {4})", texture, target, level, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1185,7 +1185,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
 					Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, p_params);
-					LogFunction("glGetTextureLevelParameterivEXT({0}, {1}, {2}, {3}, {4})", texture, target, level, pname, @params);
+					LogFunction("glGetTextureLevelParameterivEXT({0}, {1}, {2}, {3}, {4})", texture, target, level, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1547,7 +1547,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexEnvfvEXT != null, "pglMultiTexEnvfvEXT not implemented");
 					Delegates.pglMultiTexEnvfvEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glMultiTexEnvfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glMultiTexEnvfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1600,7 +1600,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexEnvivEXT != null, "pglMultiTexEnvivEXT not implemented");
 					Delegates.pglMultiTexEnvivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glMultiTexEnvivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glMultiTexEnvivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1653,7 +1653,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexGendvEXT != null, "pglMultiTexGendvEXT not implemented");
 					Delegates.pglMultiTexGendvEXT(texunit, (Int32)coord, (Int32)pname, p_params);
-					LogFunction("glMultiTexGendvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, @params);
+					LogFunction("glMultiTexGendvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1706,7 +1706,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexGenfvEXT != null, "pglMultiTexGenfvEXT not implemented");
 					Delegates.pglMultiTexGenfvEXT(texunit, (Int32)coord, (Int32)pname, p_params);
-					LogFunction("glMultiTexGenfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, @params);
+					LogFunction("glMultiTexGenfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1759,7 +1759,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexGenivEXT != null, "pglMultiTexGenivEXT not implemented");
 					Delegates.pglMultiTexGenivEXT(texunit, (Int32)coord, (Int32)pname, p_params);
-					LogFunction("glMultiTexGenivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, @params);
+					LogFunction("glMultiTexGenivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1788,7 +1788,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexEnvfvEXT != null, "pglGetMultiTexEnvfvEXT not implemented");
 					Delegates.pglGetMultiTexEnvfvEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexEnvfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glGetMultiTexEnvfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1817,7 +1817,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexEnvivEXT != null, "pglGetMultiTexEnvivEXT not implemented");
 					Delegates.pglGetMultiTexEnvivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexEnvivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glGetMultiTexEnvivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1846,7 +1846,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexGendvEXT != null, "pglGetMultiTexGendvEXT not implemented");
 					Delegates.pglGetMultiTexGendvEXT(texunit, (Int32)coord, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexGendvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, @params);
+					LogFunction("glGetMultiTexGendvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1875,7 +1875,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexGenfvEXT != null, "pglGetMultiTexGenfvEXT not implemented");
 					Delegates.pglGetMultiTexGenfvEXT(texunit, (Int32)coord, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexGenfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, @params);
+					LogFunction("glGetMultiTexGenfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1904,7 +1904,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexGenivEXT != null, "pglGetMultiTexGenivEXT not implemented");
 					Delegates.pglGetMultiTexGenivEXT(texunit, (Int32)coord, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexGenivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, @params);
+					LogFunction("glGetMultiTexGenivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), coord, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1957,7 +1957,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterivEXT != null, "pglMultiTexParameterivEXT not implemented");
 					Delegates.pglMultiTexParameterivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glMultiTexParameterivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glMultiTexParameterivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2010,7 +2010,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterfvEXT != null, "pglMultiTexParameterfvEXT not implemented");
 					Delegates.pglMultiTexParameterfvEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glMultiTexParameterfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glMultiTexParameterfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2574,7 +2574,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterfvEXT != null, "pglGetMultiTexParameterfvEXT not implemented");
 					Delegates.pglGetMultiTexParameterfvEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexParameterfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glGetMultiTexParameterfvEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2603,7 +2603,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterivEXT != null, "pglGetMultiTexParameterivEXT not implemented");
 					Delegates.pglGetMultiTexParameterivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexParameterivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glGetMultiTexParameterivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2635,7 +2635,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexLevelParameterfvEXT != null, "pglGetMultiTexLevelParameterfvEXT not implemented");
 					Delegates.pglGetMultiTexLevelParameterfvEXT(texunit, (Int32)target, level, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexLevelParameterfvEXT({0}, {1}, {2}, {3}, {4})", LogEnumName(texunit), target, level, pname, @params);
+					LogFunction("glGetMultiTexLevelParameterfvEXT({0}, {1}, {2}, {3}, {4})", LogEnumName(texunit), target, level, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -2667,7 +2667,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexLevelParameterivEXT != null, "pglGetMultiTexLevelParameterivEXT not implemented");
 					Delegates.pglGetMultiTexLevelParameterivEXT(texunit, (Int32)target, level, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexLevelParameterivEXT({0}, {1}, {2}, {3}, {4})", LogEnumName(texunit), target, level, pname, @params);
+					LogFunction("glGetMultiTexLevelParameterivEXT({0}, {1}, {2}, {3}, {4})", LogEnumName(texunit), target, level, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4103,7 +4103,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixLoadTransposefEXT != null, "pglMatrixLoadTransposefEXT not implemented");
 					Delegates.pglMatrixLoadTransposefEXT((Int32)mode, p_m);
-					LogFunction("glMatrixLoadTransposefEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixLoadTransposefEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4126,7 +4126,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixLoadTransposedEXT != null, "pglMatrixLoadTransposedEXT not implemented");
 					Delegates.pglMatrixLoadTransposedEXT((Int32)mode, p_m);
-					LogFunction("glMatrixLoadTransposedEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixLoadTransposedEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4149,7 +4149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixMultTransposefEXT != null, "pglMatrixMultTransposefEXT not implemented");
 					Delegates.pglMatrixMultTransposefEXT((Int32)mode, p_m);
-					LogFunction("glMatrixMultTransposefEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixMultTransposefEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4172,7 +4172,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixMultTransposedEXT != null, "pglMatrixMultTransposedEXT not implemented");
 					Delegates.pglMatrixMultTransposedEXT((Int32)mode, p_m);
-					LogFunction("glMatrixMultTransposedEXT({0}, {1})", mode, m);
+					LogFunction("glMatrixMultTransposedEXT({0}, {1})", mode, LogValue(m));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4289,7 +4289,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
 					Delegates.pglGetNamedBufferParameterivEXT(buffer, pname, p_params);
-					LogFunction("glGetNamedBufferParameterivEXT({0}, {1}, {2})", buffer, LogEnumName(pname), @params);
+					LogFunction("glGetNamedBufferParameterivEXT({0}, {1}, {2})", buffer, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4465,7 +4465,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
 					Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glTextureParameterIivEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glTextureParameterIivEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4494,7 +4494,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
 					Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glTextureParameterIuivEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glTextureParameterIuivEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4523,7 +4523,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
 					Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetTextureParameterIivEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glGetTextureParameterIivEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4552,7 +4552,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
 					Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetTextureParameterIuivEXT({0}, {1}, {2}, {3})", texture, target, pname, @params);
+					LogFunction("glGetTextureParameterIuivEXT({0}, {1}, {2}, {3})", texture, target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4581,7 +4581,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterIivEXT != null, "pglMultiTexParameterIivEXT not implemented");
 					Delegates.pglMultiTexParameterIivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glMultiTexParameterIivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glMultiTexParameterIivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4610,7 +4610,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterIuivEXT != null, "pglMultiTexParameterIuivEXT not implemented");
 					Delegates.pglMultiTexParameterIuivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glMultiTexParameterIuivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glMultiTexParameterIuivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4639,7 +4639,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterIivEXT != null, "pglGetMultiTexParameterIivEXT not implemented");
 					Delegates.pglGetMultiTexParameterIivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexParameterIivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glGetMultiTexParameterIivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4668,7 +4668,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterIuivEXT != null, "pglGetMultiTexParameterIuivEXT not implemented");
 					Delegates.pglGetMultiTexParameterIuivEXT(texunit, (Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetMultiTexParameterIuivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, @params);
+					LogFunction("glGetMultiTexParameterIuivEXT({0}, {1}, {2}, {3})", LogEnumName(texunit), target, pname, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4700,7 +4700,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameters4fvEXT != null, "pglNamedProgramLocalParameters4fvEXT not implemented");
 					Delegates.pglNamedProgramLocalParameters4fvEXT(program, target, index, count, p_params);
-					LogFunction("glNamedProgramLocalParameters4fvEXT({0}, {1}, {2}, {3}, {4})", program, LogEnumName(target), index, count, @params);
+					LogFunction("glNamedProgramLocalParameters4fvEXT({0}, {1}, {2}, {3}, {4})", program, LogEnumName(target), index, count, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4762,7 +4762,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameterI4ivEXT != null, "pglNamedProgramLocalParameterI4ivEXT not implemented");
 					Delegates.pglNamedProgramLocalParameterI4ivEXT(program, target, index, p_params);
-					LogFunction("glNamedProgramLocalParameterI4ivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glNamedProgramLocalParameterI4ivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4794,7 +4794,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParametersI4ivEXT != null, "pglNamedProgramLocalParametersI4ivEXT not implemented");
 					Delegates.pglNamedProgramLocalParametersI4ivEXT(program, target, index, count, p_params);
-					LogFunction("glNamedProgramLocalParametersI4ivEXT({0}, {1}, {2}, {3}, {4})", program, LogEnumName(target), index, count, @params);
+					LogFunction("glNamedProgramLocalParametersI4ivEXT({0}, {1}, {2}, {3}, {4})", program, LogEnumName(target), index, count, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4856,7 +4856,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameterI4uivEXT != null, "pglNamedProgramLocalParameterI4uivEXT not implemented");
 					Delegates.pglNamedProgramLocalParameterI4uivEXT(program, target, index, p_params);
-					LogFunction("glNamedProgramLocalParameterI4uivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glNamedProgramLocalParameterI4uivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4888,7 +4888,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParametersI4uivEXT != null, "pglNamedProgramLocalParametersI4uivEXT not implemented");
 					Delegates.pglNamedProgramLocalParametersI4uivEXT(program, target, index, count, p_params);
-					LogFunction("glNamedProgramLocalParametersI4uivEXT({0}, {1}, {2}, {3}, {4})", program, LogEnumName(target), index, count, @params);
+					LogFunction("glNamedProgramLocalParametersI4uivEXT({0}, {1}, {2}, {3}, {4})", program, LogEnumName(target), index, count, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4917,7 +4917,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramLocalParameterIivEXT != null, "pglGetNamedProgramLocalParameterIivEXT not implemented");
 					Delegates.pglGetNamedProgramLocalParameterIivEXT(program, target, index, p_params);
-					LogFunction("glGetNamedProgramLocalParameterIivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glGetNamedProgramLocalParameterIivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -4946,7 +4946,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramLocalParameterIuivEXT != null, "pglGetNamedProgramLocalParameterIuivEXT not implemented");
 					Delegates.pglGetNamedProgramLocalParameterIuivEXT(program, target, index, p_params);
-					LogFunction("glGetNamedProgramLocalParameterIuivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glGetNamedProgramLocalParameterIuivEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5149,7 +5149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameter4dvEXT != null, "pglNamedProgramLocalParameter4dvEXT not implemented");
 					Delegates.pglNamedProgramLocalParameter4dvEXT(program, target, index, p_params);
-					LogFunction("glNamedProgramLocalParameter4dvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glNamedProgramLocalParameter4dvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5211,7 +5211,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameter4fvEXT != null, "pglNamedProgramLocalParameter4fvEXT not implemented");
 					Delegates.pglNamedProgramLocalParameter4fvEXT(program, target, index, p_params);
-					LogFunction("glNamedProgramLocalParameter4fvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glNamedProgramLocalParameter4fvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5240,7 +5240,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramLocalParameterdvEXT != null, "pglGetNamedProgramLocalParameterdvEXT not implemented");
 					Delegates.pglGetNamedProgramLocalParameterdvEXT(program, target, index, p_params);
-					LogFunction("glGetNamedProgramLocalParameterdvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glGetNamedProgramLocalParameterdvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5269,7 +5269,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramLocalParameterfvEXT != null, "pglGetNamedProgramLocalParameterfvEXT not implemented");
 					Delegates.pglGetNamedProgramLocalParameterfvEXT(program, target, index, p_params);
-					LogFunction("glGetNamedProgramLocalParameterfvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, @params);
+					LogFunction("glGetNamedProgramLocalParameterfvEXT({0}, {1}, {2}, {3})", program, LogEnumName(target), index, LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5398,7 +5398,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
 					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, pname, p_params);
-					LogFunction("glGetNamedRenderbufferParameterivEXT({0}, {1}, {2})", renderbuffer, LogEnumName(pname), @params);
+					LogFunction("glGetNamedRenderbufferParameterivEXT({0}, {1}, {2})", renderbuffer, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5614,7 +5614,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
 					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, attachment, pname, p_params);
-					LogFunction("glGetNamedFramebufferAttachmentParameterivEXT({0}, {1}, {2}, {3})", framebuffer, LogEnumName(attachment), LogEnumName(pname), @params);
+					LogFunction("glGetNamedFramebufferAttachmentParameterivEXT({0}, {1}, {2}, {3})", framebuffer, LogEnumName(attachment), LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5735,7 +5735,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
 					Delegates.pglGetFramebufferParameterivEXT(framebuffer, pname, p_params);
-					LogFunction("glGetFramebufferParameterivEXT({0}, {1}, {2})", framebuffer, LogEnumName(pname), @params);
+					LogFunction("glGetFramebufferParameterivEXT({0}, {1}, {2})", framebuffer, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6307,7 +6307,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayIntegervEXT != null, "pglGetVertexArrayIntegervEXT not implemented");
 					Delegates.pglGetVertexArrayIntegervEXT(vaobj, pname, p_param);
-					LogFunction("glGetVertexArrayIntegervEXT({0}, {1}, {2})", vaobj, LogEnumName(pname), param);
+					LogFunction("glGetVertexArrayIntegervEXT({0}, {1}, {2})", vaobj, LogEnumName(pname), LogValue(param));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6385,7 +6385,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayIntegeri_vEXT != null, "pglGetVertexArrayIntegeri_vEXT not implemented");
 					Delegates.pglGetVertexArrayIntegeri_vEXT(vaobj, index, pname, p_param);
-					LogFunction("glGetVertexArrayIntegeri_vEXT({0}, {1}, {2}, {3})", vaobj, index, LogEnumName(pname), param);
+					LogFunction("glGetVertexArrayIntegeri_vEXT({0}, {1}, {2}, {3})", vaobj, index, LogEnumName(pname), LogValue(param));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6414,7 +6414,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayPointeri_vEXT != null, "pglGetVertexArrayPointeri_vEXT not implemented");
 					Delegates.pglGetVertexArrayPointeri_vEXT(vaobj, index, pname, p_param);
-					LogFunction("glGetVertexArrayPointeri_vEXT({0}, {1}, {2}, {3})", vaobj, index, LogEnumName(pname), param);
+					LogFunction("glGetVertexArrayPointeri_vEXT({0}, {1}, {2}, {3})", vaobj, index, LogEnumName(pname), LogValue(param));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6634,7 +6634,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
 					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, pname, p_params);
-					LogFunction("glGetNamedFramebufferParameterivEXT({0}, {1}, {2})", framebuffer, LogEnumName(pname), @params);
+					LogFunction("glGetNamedFramebufferParameterivEXT({0}, {1}, {2})", framebuffer, LogEnumName(pname), LogValue(@params));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6762,7 +6762,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform1dvEXT != null, "pglProgramUniform1dvEXT not implemented");
 					Delegates.pglProgramUniform1dvEXT(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniform1dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniform1dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6788,7 +6788,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform2dvEXT != null, "pglProgramUniform2dvEXT not implemented");
 					Delegates.pglProgramUniform2dvEXT(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniform2dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniform2dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6814,7 +6814,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform3dvEXT != null, "pglProgramUniform3dvEXT not implemented");
 					Delegates.pglProgramUniform3dvEXT(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniform3dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniform3dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6840,7 +6840,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniform4dvEXT != null, "pglProgramUniform4dvEXT not implemented");
 					Delegates.pglProgramUniform4dvEXT(program, location, (Int32)value.Length, p_value);
-					LogFunction("glProgramUniform4dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+					LogFunction("glProgramUniform4dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6869,7 +6869,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2dvEXT != null, "pglProgramUniformMatrix2dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix2dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6898,7 +6898,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3dvEXT != null, "pglProgramUniformMatrix3dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix3dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6927,7 +6927,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4dvEXT != null, "pglProgramUniformMatrix4dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix4dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6956,7 +6956,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dvEXT != null, "pglProgramUniformMatrix2x3dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix2x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix2x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6985,7 +6985,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dvEXT != null, "pglProgramUniformMatrix2x4dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix2x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix2x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -7014,7 +7014,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dvEXT != null, "pglProgramUniformMatrix3x2dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix3x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix3x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -7043,7 +7043,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dvEXT != null, "pglProgramUniformMatrix3x4dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix3x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix3x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -7072,7 +7072,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dvEXT != null, "pglProgramUniformMatrix4x2dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix4x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix4x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);
@@ -7101,7 +7101,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dvEXT != null, "pglProgramUniformMatrix4x3dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, (Int32)value.Length, transpose, p_value);
-					LogFunction("glProgramUniformMatrix4x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+					LogFunction("glProgramUniformMatrix4x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, LogValue(value));
 				}
 			}
 			DebugCheckErrors(null);

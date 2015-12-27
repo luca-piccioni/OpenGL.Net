@@ -262,6 +262,15 @@
 		<flags>NoGetError</flags>
 	</command>
 
+	<command name="^wglCreateContextAttribsARB$">
+		<param id="attribList"><flags>LogAsEnum</flags></param>
+	</command>
+
+	<command name="^wglGetPixelFormatAttribivARB$">
+		<param id="piAttributes"><flags>LogAsEnum</flags></param>
+		<param id="piValues"><flags>LogAsEnum</flags></param>
+	</command>
+
 	<command name="^wgl.+">
 		<!-- WGL commands errors won't be automatically checked by bindings -->
 		<flags>SetLastError</flags>
