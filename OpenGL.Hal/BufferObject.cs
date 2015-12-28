@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2009-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Runtime.InteropServices;
@@ -51,9 +53,9 @@ namespace OpenGL
 		protected BufferObject(BufferTargetARB type, Hint hint)
 		{
 			// Store the buffer object type
-			mType = type;
+			_Type = type;
 			// Store the buffer data usage hints
-			mHint = hint;
+			_Hint = hint;
 		}
 		
 		#endregion
@@ -139,17 +141,17 @@ namespace OpenGL
 		/// <summary>
 		/// Get this BufferObject type.
 		/// </summary>
-		public BufferTargetARB BufferType { get { return (mType); } }
+		public BufferTargetARB BufferType { get { return (_Type); } }
 
 		/// <summary>
 		/// Get this BufferObject hint.
 		/// </summary>
-		public Hint BufferHint { get { return (mHint); } }
+		public Hint BufferHint { get { return (_Hint); } }
 
 		/// <summary>
 		/// Get this BufferObject total size, in basic machine units.
 		/// </summary>
-		public uint BufferSize { get { return (mSize); } }
+		public uint BufferSize { get { return (_Size); } }
 
 		/// <summary>
 		/// Define this buffer object allocation.
@@ -170,25 +172,25 @@ namespace OpenGL
 		protected void Allocate(uint size)
 		{
 			// Store buffer object size
-			mSize = size;
+			_Size = size;
 			// Allocate memory, if required
-			MemoryBuffer = new AlignedMemoryBuffer(mSize, 16);
+			MemoryBuffer = new AlignedMemoryBuffer(_Size, 16);
 		}
 
 		/// <summary>
 		/// BufferObject type, indicatinvg the usage pattern.
 		/// </summary>
-		private readonly BufferTargetARB mType;
+		private readonly BufferTargetARB _Type;
 
 		/// <summary>
 		/// BufferObject hints.
 		/// </summary>
-		private readonly Hint mHint;
+		private readonly Hint _Hint;
 
 		/// <summary>
 		/// Size of the buffer object, in basic machine units (bytes).
 		/// </summary>
-		private uint mSize;
+		private uint _Size;
 
 		/// <summary>
 		/// The buffer object representation in client memory.
@@ -208,7 +210,7 @@ namespace OpenGL
 				throw new InvalidOperationException("invalid name");
 			
 			// Bind this buffer object
-			Gl.BindBuffer(mType, ObjectName);
+			Gl.BindBuffer(_Type, ObjectName);
 		}
 
 		/// <summary>
@@ -217,7 +219,7 @@ namespace OpenGL
 		internal virtual void Unbind(GraphicsContext ctx)
 		{
 			// Unbind actually binded buffer object
-			Gl.BindBuffer(mType, 0);
+			Gl.BindBuffer(_Type, 0);
 		}
 
 		#endregion
@@ -240,10 +242,10 @@ namespace OpenGL
 
 			if (Exists(ctx)) {
 				// Map buffer object data (resident on server)
-				mMappedBuffer = Gl.MapBuffer(mType, mask);
+				_MappedBuffer = Gl.MapBuffer(_Type, mask);
 			} else {
 				// Emulate mapping
-				mMappedBuffer = MemoryBuffer.AlignedBuffer;
+				_MappedBuffer = MemoryBuffer.AlignedBuffer;
 			}
 		}
 
@@ -271,7 +273,7 @@ namespace OpenGL
 			if (IsMapped() == false)
 				throw new InvalidOperationException("BufferObject not mapped");
 
-			Marshal.StructureToPtr(value, new IntPtr(mMappedBuffer.ToInt64()+offset), false);
+			Marshal.StructureToPtr(value, new IntPtr(_MappedBuffer.ToInt64()+offset), false);
 		}
 
 		/// <summary>
@@ -298,7 +300,7 @@ namespace OpenGL
 			if (IsMapped() == false)
 				throw new InvalidOperationException("not mapped");
 
-			return ((T)Marshal.PtrToStructure(new IntPtr(mMappedBuffer.ToInt64()+offset), typeof(T)));
+			return ((T)Marshal.PtrToStructure(new IntPtr(_MappedBuffer.ToInt64()+offset), typeof(T)));
 		}
 		
 		/// <summary>
@@ -311,13 +313,13 @@ namespace OpenGL
 
 			if (Exists(ctx)) {
 				// Unmap buffer object data (resident on server)
-				bool uncorrupted = Gl.UnmapBuffer(mType);
+				bool uncorrupted = Gl.UnmapBuffer(_Type);
 
 				if (uncorrupted == false)
 					throw new InvalidOperationException("corrupted when unmapping");
 			}
 			// Removes reference for mapped buffer data
-			mMappedBuffer = IntPtr.Zero;
+			_MappedBuffer = IntPtr.Zero;
 		}
 
 		/// <summary>
@@ -326,13 +328,13 @@ namespace OpenGL
 		/// <returns></returns>
 		public bool IsMapped()
 		{
-			return (mMappedBuffer != IntPtr.Zero);
+			return (_MappedBuffer != IntPtr.Zero);
 		}
 
 		/// <summary>
 		/// Mapped buffer.
 		/// </summary>
-		private IntPtr mMappedBuffer = IntPtr.Zero;
+		private IntPtr _MappedBuffer = IntPtr.Zero;
 
 		#endregion
 		
@@ -343,11 +345,11 @@ namespace OpenGL
 			if (MemoryBuffer != null)
 				MemoryBuffer.Dispose();
 			
-			MemoryBuffer = new AlignedMemoryBuffer(mSize, 16);
+			MemoryBuffer = new AlignedMemoryBuffer(_Size, 16);
 			
 			Bind(ctx);
 			
-			Gl.GetBufferSubData(mType, IntPtr.Zero, mSize, MemoryBuffer.AlignedBuffer);
+			Gl.GetBufferSubData(_Type, IntPtr.Zero, _Size, MemoryBuffer.AlignedBuffer);
 		}
 		
 		#endregion
@@ -429,23 +431,23 @@ namespace OpenGL
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			if (mSize == 0)
+			if (_Size == 0)
 				throw new InvalidOperationException("size not defined");
-			if ((MemoryBuffer == null) && ((mHint != Hint.StaticCpuDraw) && (mHint != Hint.DynamicCpuDraw)))
+			if ((MemoryBuffer == null) && ((_Hint != Hint.StaticCpuDraw) && (_Hint != Hint.DynamicCpuDraw)))
 				throw new InvalidOperationException("contents not defined");
 
 			// Buffer must be bound
 			Bind(ctx);
 
 			// Define buffer object (type, size and hints)
-			Gl.BufferData((int)mType, mSize, null, (int)mHint);
+			Gl.BufferData((int)_Type, _Size, null, (int)_Hint);
 
 			// Define buffer object contents
 			if (MemoryBuffer != null) {
 				// Provide buffer contents
-				Gl.BufferSubData(mType, IntPtr.Zero, mSize, MemoryBuffer.AlignedBuffer);
+				Gl.BufferSubData(_Type, IntPtr.Zero, _Size, MemoryBuffer.AlignedBuffer);
 				// Release memory, if they are not required
-				if (mHint == Hint.StaticCpuDraw) {
+				if (_Hint == Hint.StaticCpuDraw) {
 					MemoryBuffer.Dispose();
 					MemoryBuffer = null;
 				}

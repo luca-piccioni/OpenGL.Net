@@ -53,7 +53,7 @@ namespace OpenGL.Hal.Test
 
 				_Window.Create(graphicsBuffersFormat);
 				// Create graphics context
-				_Context = new GraphicsContext(_Window.GetDeviceContext());
+				_Context = new GraphicsContext(_Window.GetDeviceContext(), null, null, GraphicsContextFlags.CompatibilityProfile);
 			} catch {
 				// Release resources manually
 				FixtureTearDown();

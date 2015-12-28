@@ -29,8 +29,7 @@ namespace OpenGL
 	/// <remarks>
 	/// <para>
 	/// A GraphicsWindow shall be considered an object able to output the graphical result
-	/// of some rendering operation. A GraphicsWindow instance must have associated a GraphicsContext
-	/// instance.
+	/// of some rendering operation.
 	/// </para>
 	/// </remarks>
 	public class GraphicsWindow : GraphicsSurface
@@ -151,16 +150,16 @@ namespace OpenGL
 			/// <summary>
 			/// RenderForm constructor. 
 			/// </summary>
-			public RenderForm(GraphicsWindow win)
+			public RenderForm(GraphicsWindow graphicsWindow)
 			{
-				if (win == null)
-					throw new ArgumentNullException("win");
+				if (graphicsWindow == null)
+					throw new ArgumentNullException("graphicsWindow");
 
 				// Store GraphicsWindow reference
-				_Window = win;
+				_Window = graphicsWindow;
 				// Initialize Form extents
 				//SetClientSizeCore((int)win.Width, (int)win.Height);
-				ClientSize = new Size((int)win.Width, (int)win.Height);
+				ClientSize = new Size((int)graphicsWindow.Width, (int)graphicsWindow.Height);
 				
 				// No need to erase window background
 				SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -355,7 +354,7 @@ namespace OpenGL
 		/// GraphicsWindow fullscreen flag.
 		/// </summary>
 		private bool mFullscreen;
-		
+
 		#endregion
 
 		#region GraphicsWindow Creation
@@ -363,7 +362,10 @@ namespace OpenGL
 		/// <summary>
 		/// Create this GraphicsWindow.
 		/// </summary>
-		/// <param name="surfaceFormat"></param>
+		/// <param name="surfaceFormat">
+		/// A <see cref="GraphicsBuffersFormat"/> that specifies the pixel format of the device context created
+		/// along with this GraphicsWindow.
+		/// </param>
 		public void Create(GraphicsBuffersFormat surfaceFormat)
 		{
 			if ((surfaceFormat == null) && (_SurfaceFormat == null))
@@ -559,6 +561,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Set the swap interval parameter.
+		/// </summary>
+		protected void SetSwapInterval()
+		{
+			int swapInterval = SwapInterval;
+
+			if (swapInterval != 1) {
+				if (GraphicsContext.CurrentCaps.PlatformExtensions.SwapControl == true) {
+					if (swapInterval < 0) {
+						if (GraphicsContext.CurrentCaps.PlatformExtensions.SwapControlTear == false) {
+							sLog.Warn("Ignoring tearing swap interval ({0}) because is not supported.", swapInterval);
+							swapInterval = -swapInterval;
+						}
+					}
+					if (swapInterval != 1) {
+						if (_DeviceContext.SwapInterval(swapInterval) == false) {
+							Exception platformException = _DeviceContext.GetPlatformException();
+							sLog.Warn("Unable to set swap interval to {0}: {1}.", swapInterval, platformException != null ? platformException.ToString() : "null");
+						}
+					}
+				} else
+					sLog.Warn("Ignoring swap interval ({0}) because is not supported.", swapInterval);
+			}
+		}
+
+		/// <summary>
 		/// Swap render surface. 
 		/// </summary>
 		public override void SwapSurface()
@@ -643,33 +671,14 @@ namespace OpenGL
 			sLog.Info("Create rendering window '{0}'.", _RenderForm != null ? _RenderForm.Text : "untitled");
 
 			// Choose "best" pixel format matching with surface configuration
-			if (_DeviceFormat == null)
-				_DeviceFormat = _SurfaceFormat.ChoosePixelFormat(_DeviceContext, ValidPixelFormat);
+			_DeviceFormat = _SurfaceFormat.ChoosePixelFormat(_DeviceContext, ValidPixelFormat);
 			// Set device pixel format
 			_DeviceContext.SetPixelFormat(_DeviceFormat);
 			// Confirm surface configuration
 			_SurfaceFormat.SetBufferConfiguration(_DeviceFormat);
 
 			// Set swap interval
-			int swapInterval = SwapInterval;
-			
-			if (swapInterval != 1) {
-				if (GraphicsContext.CurrentCaps.WglExtensions.SwapControl_EXT == true) {
-					if (swapInterval < 0) {
-						if (GraphicsContext.CurrentCaps.WglExtensions.SwapControlTear_EXT == false) {
-							sLog.Warn("Ignoring tearing swap interval ({0}) because is not supported.", swapInterval);
-							swapInterval = -swapInterval;
-						}
-					}
-					if (swapInterval != 1) {
-						if (_DeviceContext.SwapInterval(swapInterval) == false) {
-							Exception platformException = _DeviceContext.GetPlatformException();
-							sLog.Warn("Unable to set swap interval to {0}: {1}.", swapInterval, platformException != null ? platformException.ToString() : "null");
-						}
-					}
-				} else
-					sLog.Warn("Ignoring swap interval ({0}) because is not supported.", swapInterval);
-			}
+			SetSwapInterval();
 		}
 		
 		/// <summary>

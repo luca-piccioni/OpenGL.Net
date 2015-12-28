@@ -1091,6 +1091,11 @@ namespace OpenGL
 
 			if (disposing == true) {
 				// Dispose unmanaged resources
+				if (_ShaderIncludeLibrary != null) {
+					_ShaderIncludeLibrary.DecRef();
+					_ShaderIncludeLibrary = null;
+				}
+
 				if (_RenderContext != IntPtr.Zero) {
 					if (_DeviceContext.DeleteContext(_RenderContext) == false)
 						throw new InvalidOperationException("unable to release OpenGL context");

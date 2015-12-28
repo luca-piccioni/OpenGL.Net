@@ -165,6 +165,22 @@ namespace OpenGL
 				get { return (_GraphicsCapabilities.WglExtensions.Multisample_ARB || _GraphicsCapabilities.GlxExtensions.Multisample_ARB); }
 			}
 
+			/// <summary>
+			/// Support for extension WGL_swap_control_EXT or GLX_swap_control_EXT.
+			/// </summary>
+			public bool SwapControl
+			{
+				get { return (_GraphicsCapabilities.WglExtensions.SwapControl_EXT || _GraphicsCapabilities.GlxExtensions.SwapControl_EXT); }
+			}
+
+			/// <summary>
+			/// Support for extension WGL_swap_control_tear_EXT or GLX_swap_control_tear_EXT.
+			/// </summary>
+			public bool SwapControlTear
+			{
+				get { return (_GraphicsCapabilities.WglExtensions.SwapControlTear_EXT || _GraphicsCapabilities.GlxExtensions.SwapControlTear_EXT); }
+			}
+
 			#endregion
 		}
 
