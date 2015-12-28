@@ -3705,6 +3705,7 @@ namespace OpenGL
 		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.QUADS, Gl.QUAD_STRIP, and Gl.POLYGON.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is set to an unaccepted value.
@@ -3750,7 +3751,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBegin != null, "pglBegin not implemented");
 			Delegates.pglBegin((Int32)mode);
 			LogFunction("glBegin({0})", mode);
-			DebugCheckErrors(null);
 		}
 
 		/// <summary>
