@@ -164,7 +164,6 @@
     <Compile Include="Runtime.cs" />
     <Compile Include="RuntimeVersion.cs" />
     <Compile Include="ShaderAttributeType.cs" />
-    <Compile Include="ShaderCacheService.cs" />
     <Compile Include="ShaderCompilerContext.cs" />
     <Compile Include="ShaderException.cs" />
     <Compile Include="ShaderExtension.cs" />
@@ -173,15 +172,8 @@
     <Compile Include="ShaderIncludeLibrary.cs" />
     <Compile Include="ShaderIncludePreprocessor.cs" />
     <Compile Include="ShaderInterface.cs" />
-    <Compile Include="ShaderLibrary.cs" />
-    <Compile Include="ShaderLibraryConfiguration.cs" />
-    <Compile Include="ShaderLibraryInclude.cs" />
-    <Compile Include="ShaderLibraryModule.cs" />
-    <Compile Include="ShaderLibraryObject.cs" />
-    <Compile Include="ShaderLibraryProgram.cs" />
     <Compile Include="ShaderObject.cs" />
     <Compile Include="ShaderProgram.cs" />
-    <Compile Include="ShaderProgramObject.cs" />
     <Compile Include="ShaderProgramUniform.cs" />
     <Compile Include="ShaderProgramVariantUniform.cs" />
     <Compile Include="ShaderSourcePreprocessor.cs" />

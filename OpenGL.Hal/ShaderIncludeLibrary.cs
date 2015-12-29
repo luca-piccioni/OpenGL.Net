@@ -28,15 +28,17 @@ namespace OpenGL
 		
 		public ShaderIncludeLibrary()
 		{
+#if false
 			foreach (Type shaderIncludeType in ShaderLibrary.sIncludeLibrary) {
 				IShaderInclude shaderInclude = (IShaderInclude)Activator.CreateInstance(shaderIncludeType);
 				mIncludeSourceTree[shaderInclude.IncludePath] = shaderInclude;
 			}
+#endif
 		}
 		
-		#endregion
+#endregion
 		
-		#region Shader Include Collection
+#region Shader Include Collection
 		
 		public bool IsPathDefined(string path)
 		{
@@ -68,9 +70,9 @@ namespace OpenGL
 		/// </summary>
 		private readonly Dictionary<string, IShaderInclude> mIncludeSourceTree = new Dictionary<string,IShaderInclude>();
 		
-		#endregion
+#endregion
 		
-		#region GraphicsResource Overrides
+#region GraphicsResource Overrides
 		
 		/// <summary>
 		/// Shader include object class.
@@ -154,7 +156,7 @@ namespace OpenGL
 			base.Delete(ctx);
 		}
 		
-		#endregion
+#endregion
 	}
 }
 

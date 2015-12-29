@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2009-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -42,11 +44,6 @@ namespace OpenGL
 	/// by the enumeration <see cref="Stage"/>.
 	/// </para>
 	/// <para>
-	/// A ShaderObject can be correctly linked only with ShaderObject of the same class. Implementing
-	/// a ShaderObject on external definition of a ShaderObject with different class will result in a
-	/// link error.
-	/// </para>
-	/// <para>
 	/// This class automatically builds the source code of each ShaderObject. The generated source code
 	/// has the following strings:
 	/// - Standard shader header
@@ -74,7 +71,7 @@ namespace OpenGL
 		public ShaderObject(Stage sType)
 		{
 			// Store shader type
-			mType = sType;
+			_Stage = sType;
 		}
 
 		/// <summary>
@@ -94,7 +91,7 @@ namespace OpenGL
 					throw new ArgumentNullException("sourcePath");
 
 				// Store shader path (for debugging)
-				mSourceFilePath = sourcePath;
+				_SourceFilePath = sourcePath;
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -143,7 +140,7 @@ namespace OpenGL
 					throw new ArgumentNullException("sSource");
 
 				// Store shader source
-				mSourceStrings = new List<string>(new string[] {sSource});
+				_SourceStrings = new List<string>(new string[] {sSource});
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -174,7 +171,7 @@ namespace OpenGL
 					throw new ArgumentNullException("sSource");
 
 				// Store shader source
-				mSourceStrings = new List<string>(sSource);
+				_SourceStrings = new List<string>(sSource);
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -207,10 +204,10 @@ namespace OpenGL
 					throw new ArgumentException("not a file", "sourceUri");
 
 				// Store shader source path (absolute)
-				mSourceFilePath = sourceUri.LocalPath;
+				_SourceFilePath = sourceUri.LocalPath;
 				// Store shader source
-				mSourceStrings = new List<string>(64);
-				AppendSourceStrings(mSourceStrings, sourceUri.AbsolutePath);
+				_SourceStrings = new List<string>(64);
+				AppendSourceStrings(_SourceStrings, sourceUri.AbsolutePath);
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -231,18 +228,22 @@ namespace OpenGL
 			/// Shader object is linkable at vertex stage.
 			/// </summary>
 			Vertex = Gl.VERTEX_SHADER,
+
 			/// <summary>
 			/// Shader object is linkable at tesselation control stage.
 			/// </summary>
 			TessellationControl = Gl.TESS_CONTROL_SHADER,
+
 			/// <summary>
 			/// Shader object is linkable at tesselation evaluation stage.
 			/// </summary>
 			TessellationEvaluation = Gl.TESS_EVALUATION_SHADER,
+
 			/// <summary>
 			/// Shader object is linkable at geometry stage.
 			/// </summary>
 			Geometry = Gl.GEOMETRY_SHADER,
+
 			/// <summary>
 			/// Shader object is linkable at fragment stage.
 			/// </summary>
@@ -252,12 +253,12 @@ namespace OpenGL
 		/// <summary>
 		/// Shader object stage.
 		/// </summary>
-		public Stage ObjectStage { get { return (mType); } }
+		public Stage ObjectStage { get { return (_Stage); } }
 
 		/// <summary>
 		/// Shader stage (synch with Gl constants).
 		/// </summary>
-		private readonly Stage mType;
+		private readonly Stage _Stage;
 
 		#endregion
 
@@ -269,6 +270,9 @@ namespace OpenGL
 		/// <param name="sourceStream">
 		/// A <see cref="Stream"/>that holds the 
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown in the case <paramref name="sourceStream"/> is null.
+		/// </exception>
 		public void LoadSource(Stream sourceStream)
 		{
 			if (sourceStream == null)
@@ -282,7 +286,48 @@ namespace OpenGL
 				}
 			}
 
-			mSourceStrings = shaderSourceLines;
+			_SourceStrings = shaderSourceLines;
+		}
+
+		/// <summary>
+		/// Load the shader source from an embedded resource
+		/// </summary>
+		/// <param name="resourcePath">
+		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resourcePath"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if no embedded resource can be found.
+		/// </exception>
+		public void LoadSource(string resourcePath)
+		{
+			if (resourcePath == null)
+				throw new ArgumentNullException("resourcePath");
+
+			Assembly[] resourceAssemblies = new Assembly[] {
+				Assembly.GetExecutingAssembly(),
+				Assembly.GetCallingAssembly(),
+				Assembly.GetEntryAssembly()
+			};
+			Stream resourceStream = null;
+
+			try {
+				for (int i = 0; i < resourceAssemblies.Length && resourceStream == null; i++) {
+					if (resourceAssemblies[i] == null)
+						continue;
+					resourceStream = resourceAssemblies[i].GetManifestResourceStream(resourcePath);
+				}
+
+				if (resourceStream == null)
+					throw new ArgumentException("resource path not found", "resourcePath");
+
+				LoadSource(resourceStream);
+			} finally {
+				if (resourceStream != null)
+					resourceStream.Dispose();
+			}
 		}
 
 		#endregion
@@ -301,24 +346,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get source path (actual or fictive, used for shader source identification).
 		/// </summary>
-		public string SourcePath { get { return (mSourceFilePath); } }
-
-		/// <summary>
-		/// Shader object source strings.
-		/// </summary>
-		/// <remarks>
-		/// This property is fundamental for shader object source code. It is meant as the text lines
-		/// composing the shader source, without the the following elements:
-		/// - version directive
-		/// - pragma {optimization|debug} directives
-		/// The elements listed above are appended automatically when the shader source is generated.
-		/// </remarks>
-		protected virtual string[] Source
-		{
-			get {
-				return ((mSourceStrings != null) ? mSourceStrings.ToArray() : null);
-			}
-		}
+		public string SourcePath { get { return (_SourceFilePath); } }
 
 		/// <summary>
 		/// Generate ShaderObject source.
@@ -334,67 +362,62 @@ namespace OpenGL
 		/// </returns>
 		private List<string> GenerateSource(GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
-			List<string> shaderSource = new List<string>(256);
-			string[] shaderSourceStrings = Source;
-
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
 
-			sLog.Debug("Generate shader source for '{0}'.", mSourceFilePath);
+			if (_SourceStrings == null)
+				throw new InvalidOperationException("no source loaded");
 
-			if (shaderSourceStrings != null) {
-				// Append imposed header - Every source shall compile with this header
-				AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
+			List<string> shaderSource = new List<string>(256);
+			string[] shaderSourceStrings = _SourceStrings.ToArray();
 
-				// Append required #define statments
-				string[] knownSymbols = GetKnownPreprocessorSymbol(GetType());
+			if (_SourceFilePath != null)
+				sLog.Debug("Generate shader source for '{0}'.", _SourceFilePath);
 
-				if (cctx.Defines != null) {
-					foreach (string def in cctx.Defines) {
-						// Skip non meaninfull preprocessor definitions
-						if (knownSymbols == null || !IsKnownPreprocessorSymbol(def, knownSymbols))
-							continue;
+			// Append imposed header - Every source shall compile with this header
+			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
 
-						shaderSource.Add(String.Format("#define {0}\n", def));
-					}
+			// Append required #define statments
+			if (cctx.Defines != null) {
+				foreach (string def in cctx.Defines) {
+					shaderSource.Add(String.Format("#define {0}\n", def));
 				}
+			}
 
-				// Append specific source for composing shader essence
-				AppendSourceStrings(shaderSource, shaderSourceStrings);
+			// Append specific source for composing shader essence
+			AppendSourceStrings(shaderSource, shaderSourceStrings);
 
-				// Log shader source
-				uint sourcelineNo;
+			// Log shader source
+			uint sourcelineNo;
 
-				sLog.Verbose("Original source code for shader '{0}' (comments hidden).", mSourceFilePath);
-				sLog.Verbose("--------------------------------------------------------------------------------");
-				sourcelineNo = 0;
-				foreach (string sourceline in shaderSource) {
-					++sourcelineNo;
+			sLog.Verbose("Original source code for shader '{0}' (comments hidden).", _SourceFilePath);
+			sLog.Verbose("--------------------------------------------------------------------------------");
+			sourcelineNo = 0;
+			foreach (string sourceline in shaderSource) {
+				++sourcelineNo;
 
-					if (ShaderSourcePreprocessor.IsCommentLine(sourceline))
-						continue;
-					sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
-				}
-				sLog.Verbose("--------------------------------------------------------------------------------");
+				if (ShaderSourcePreprocessor.IsCommentLine(sourceline))
+					continue;
+				sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
+			}
+			sLog.Verbose("--------------------------------------------------------------------------------");
 
-				// Manage #include preprocessor directives
-				shaderSource = ShaderIncludePreprocessor.ProcessIncludeDirectives(ctx, cctx, shaderSource);
+			// Manage #include preprocessor directives
+			shaderSource = ShaderIncludePreprocessor.ProcessIncludeDirectives(ctx, cctx, shaderSource);
 
-				// Remove comment lines
-				shaderSource.RemoveAll(delegate(string item) { return (ShaderSourcePreprocessor.IsCommentLine(item)); });
+			// Remove comment lines
+			shaderSource.RemoveAll(delegate(string item) { return (ShaderSourcePreprocessor.IsCommentLine(item)); });
 
-				sLog.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", mSourceFilePath);
-				sLog.Verbose("--------------------------------------------------------------------------------");
-				sourcelineNo = 0;
-				foreach (string sourceline in shaderSource)
-					sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
-				sLog.Verbose("--------------------------------------------------------------------------------");
+			sLog.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", _SourceFilePath);
+			sLog.Verbose("--------------------------------------------------------------------------------");
+			sourcelineNo = 0;
+			foreach (string sourceline in shaderSource)
+				sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
+			sLog.Verbose("--------------------------------------------------------------------------------");
 
-				return (shaderSource);
-			} else
-				return (null);
+			return (shaderSource);
 		}
 
 		/// <summary>
@@ -551,32 +574,32 @@ namespace OpenGL
 		/// The strings specified using this member compose the partial source to be
 		/// compiled. 
 		/// </remarks>
-		private List<string> mSourceStrings;
+		private List<string> _SourceStrings;
 
 		/// <summary>
 		/// Shader source file path, if any.
 		/// </summary>
-		private string mSourceFilePath;
+		private string _SourceFilePath;
 		
 		/// <summary>
 		/// The extensions.
 		/// </summary>
-		private readonly Dictionary<string, ShaderExtension> mExtensions = new Dictionary<string, ShaderExtension>();
-
+		private readonly Dictionary<string, ShaderExtension> _Extensions = new Dictionary<string, ShaderExtension>();
+		
 #endregion
 
-#region Source Code Compilation
+		#region Source Code Compilation
 		
 		/// <summary>
 		/// The required minimum version for compiling this shader object.
 		/// </summary>
 		public KhronosVersion RequiredMinVersion
 		{
-			get { return (mRequiredMinVersion); }
+			get { return (_RequiredMinVersion); }
 			set {
-				if (mCompiled)
+				if (_Compiled)
 					throw new InvalidOperationException("object already compiled");
-				mRequiredMinVersion = value;
+				_RequiredMinVersion = value;
 			}
 		}
 		
@@ -607,25 +630,25 @@ namespace OpenGL
 			// instance and the attached ShaderObject instances
 			cctx = new ShaderCompilerContext(cctx);
 			
-			sLog.Debug("Compilation of shader object '{0}'.", mSourceFilePath);
+			sLog.Debug("Compilation of shader object '{0}'.", _SourceFilePath);
 
 			List<string> source = GenerateSource(ctx, cctx);		// Source generation!
 
 			// Set shader source
-			int[] mSourceLengths = new int[source.Count];
-			for (int i = 0; i < source.Count; i++)
-				mSourceLengths[i] = source[i].Length;
-			Gl.ShaderSource(ObjectName, source.ToArray(), mSourceLengths);
+			Gl.ShaderSource(ObjectName, source.ToArray());
+
 			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
 				string[] includePaths = new string[cctx.Includes.Count];
 
 				cctx.Includes.CopyTo(includePaths, 0);
+
 				// Compile shader object (specifying include paths)
 				Gl.CompileShaderIncludeARB(ObjectName, includePaths, (int[])null);
 			} else {
 				// Compile shader object (includes are already preprocessed)
 				Gl.CompileShader(ObjectName);
 			}
+
 			// Check for compilation errors
 			int cStatus;
 
@@ -635,25 +658,25 @@ namespace OpenGL
 				StringBuilder sb = GetInfoLog();
 				
 				// Stop compilation process
-				sLog.Error("Shader object \"{0}\" compilation failed:\n{1}", mSourceFilePath ?? "<Hardcoded>", sb.ToString());
+				sLog.Error("Shader object \"{0}\" compilation failed:\n{1}", _SourceFilePath ?? "<Hardcoded>", sb.ToString());
 				
 				// Log the source code referred to the shader log
-				sLog.Error("Source code for shader '{0}' that has generated the compiler error.", mSourceFilePath);
+				sLog.Error("Source code for shader '{0}' that has generated the compiler error.", _SourceFilePath);
 				sLog.Error("--------------------------------------------------------------------------------");
 				uint sourcelineNo = 0;
 				foreach (string sourceline in source)
 					sLog.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
 				sLog.Error("--------------------------------------------------------------------------------");
 
-				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", mSourceFilePath, sb.ToString());
+				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", _SourceFilePath, sb.ToString());
 			} else {
 				StringBuilder sb = GetInfoLog();
 				
 				if (sb.Length > 0)
-					sLog.Warn("Shader object \"{0}\" compilation warning: {1}", mSourceFilePath ?? "<Hardcoded>", sb.ToString());
+					sLog.Warn("Shader object \"{0}\" compilation warning: {1}", _SourceFilePath ?? "<Hardcoded>", sb.ToString());
 			}
 			
-			mCompiled = true;
+			_Compiled = true;
 		}
 		
 		/// <summary>
@@ -673,12 +696,11 @@ namespace OpenGL
 			// Obtain compilation log
 			Gl.GetInfoLogARB(ObjectName, MaxInfoLength - 1, out logLength, logInfo);
 
-			// Stop compilation process
 			StringBuilder sb = new StringBuilder(logInfo.Capacity);
 
 			string[] compilerLogLines = logInfo.ToString().Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
 			foreach (string logLine in compilerLogLines)
-				sb.AppendFormat("  {0}: {1}\n", mSourceFilePath, logLine);
+				sb.AppendFormat("  {0}: {1}\n", _SourceFilePath, logLine);
 			
 			return (sb);
 		}
@@ -686,16 +708,16 @@ namespace OpenGL
 		/// <summary>
 		/// Flag indicating whether this object is compiled.
 		/// </summary>
-		private bool mCompiled;
+		private bool _Compiled;
 		
 		/// <summary>
 		/// The required minimum version for compiling this shader object.
 		/// </summary>
-		private KhronosVersion mRequiredMinVersion;
+		private KhronosVersion _RequiredMinVersion;
 		
-#endregion
+		#endregion
 
-#region Shader Object Creation
+		#region Shader Object Creation
 
 		/// <summary>
 		/// Create this ShaderObject.
@@ -718,14 +740,14 @@ namespace OpenGL
 				throw new ArgumentNullException("cctx");
 
 			// Cache compilation parameters (used by CreateObject)
-			mCompilationParams = cctx;
+			_CompilationParams = cctx;
 			// Base implementation
 			base.Create(ctx);
 		}
 
-#endregion
+		#endregion
 
-#region Shader Objects Library Support
+		#region Shader Objects Library Support
 
 		/// <summary>
 		/// Get the known preprocessor symbol to be effective on shader object compilation.
@@ -935,17 +957,8 @@ namespace OpenGL
 			// Take into account the shader version
 			hashMessage.Append(cctx.ShaderVersion);
 			// Take into account the shader program compilation symbols
-			string[] knownSymbols = GetKnownPreprocessorSymbol(ShaderLibrary.GetShaderObjectType(libraryId, sObjectStage));
-
-			foreach (String define in cctx.Defines) {
-				// Preprocessor symbols not known does not contribute to compilation process, indeed
-				// same shader object compiled with different preprocessor symbol will be the same
-				// in shader library
-				if (knownSymbols == null || IsKnownPreprocessorSymbol(define, knownSymbols) == false)
-					continue;
-
+			foreach (String define in cctx.Defines)
 				hashMessage.AppendFormat("{0}", define);
-			}
 			// Take into account the shader program include paths
 			foreach (string includePath in cctx.Includes)
 				hashMessage.AppendFormat("{0}", includePath);
@@ -966,18 +979,18 @@ namespace OpenGL
 		/// </summary>
 		internal string CompiledHash = String.Empty;
 
-#endregion
+		#endregion
 
-#region Logging
+		#region Logging
 		
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
 		private static readonly ILogger sLog = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-#endregion
+		#endregion
 
-#region GraphicsResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Shader object class.
@@ -1032,7 +1045,7 @@ namespace OpenGL
 		public override void Create(GraphicsContext ctx)
 		{
 			// Create default compilation
-			mCompilationParams = new ShaderCompilerContext();
+			_CompilationParams = new ShaderCompilerContext();
 			// Base implementation
 			base.Create(ctx);
 		}
@@ -1049,11 +1062,11 @@ namespace OpenGL
 		protected override uint CreateName(GraphicsContext ctx)
 		{
 			// Create shader
-			return (Gl.CreateShader((int)mType));
+			return (Gl.CreateShader((int)_Stage));
 		}
 
 		/// <summary>
-		/// Actually create this ShaderObject resources.
+		/// Actually create this ShaderObject resource.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
@@ -1061,7 +1074,7 @@ namespace OpenGL
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			// Compile this shader object
-			Compile(ctx, mCompilationParams);
+			Compile(ctx, _CompilationParams);
 		}
 
 		/// <summary>
@@ -1082,8 +1095,8 @@ namespace OpenGL
 		/// <summary>
 		/// ShaderCompilerContext used for compilation.
 		/// </summary>
-		private ShaderCompilerContext mCompilationParams;
+		private ShaderCompilerContext _CompilationParams;
 
-#endregion
+		#endregion
 	}
 }

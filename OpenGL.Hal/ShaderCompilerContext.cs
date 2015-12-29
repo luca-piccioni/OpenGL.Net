@@ -1,18 +1,20 @@
 
-// Copyright (C) 2011-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,7 @@ using System.Xml.Serialization;
 namespace OpenGL
 {
 	/// <summary>
-	/// The compilation context.
+	/// The shader compiler context.
 	/// </summary>
 	/// <remarks>
 	/// This class shall group all elements which influence the compilation process.
@@ -35,8 +37,8 @@ namespace OpenGL
 		/// <summary>
 		/// Default compilation context.
 		/// </summary>
-		public ShaderCompilerContext()
-			: this(GraphicsContext.CurrentShadingVersion, null)
+		public ShaderCompilerContext() :
+			this(GraphicsContext.CurrentShadingVersion, null)
 		{
 
 		}
@@ -47,8 +49,8 @@ namespace OpenGL
 		/// <param name="defines">
 		/// The list of preprocessor definitions included in each shader source.
 		/// </param>
-		public ShaderCompilerContext(params string[] defines)
-			: this(GraphicsContext.CurrentShadingVersion, defines)
+		public ShaderCompilerContext(params string[] defines) :
+			this(GraphicsContext.CurrentShadingVersion, defines)
 		{
 
 		}
@@ -64,11 +66,11 @@ namespace OpenGL
 		/// </param>
 		public ShaderCompilerContext(KhronosVersion version, params string[] defines)
 		{
-			mShaderVersion = version;
+			_ShaderVersion = version;
 
 			if (defines != null) {
-				mDefines = new List<string>(defines);
-				mDefines.Sort();
+				_Define = new List<string>(defines);
+				_Define.Sort();
 			}
 		}
 
@@ -83,11 +85,10 @@ namespace OpenGL
 			if (otherCompilerContext == null)
 				throw new ArgumentNullException("otherCompilerContext");
 
-			mShaderVersion = otherCompilerContext.mShaderVersion;
-			mDefines = new List<string>(otherCompilerContext.mDefines);
-			mIncludes = new List<string>(otherCompilerContext.mIncludes);
-			mExtraObjects = new List<ShaderProgramObject>(otherCompilerContext.mExtraObjects);
-			mFeedbackVaryingsFormat = otherCompilerContext.mFeedbackVaryingsFormat;
+			_ShaderVersion = otherCompilerContext._ShaderVersion;
+			_Define = new List<string>(otherCompilerContext._Define);
+			_Includes = new List<string>(otherCompilerContext._Includes);
+			_FeedbackVaryingsFormat = otherCompilerContext._FeedbackVaryingsFormat;
 		}
 
 		#endregion
@@ -101,23 +102,20 @@ namespace OpenGL
 		/// If the property is set to null, the property will be defined as <see cref="GraphicsContext.CurrentGLSLVersion"/>. In this way the
 		/// value of this property will always specify a concrete GLSL version value.
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the value specified at setter is <see cref="GraphicsContext.GLSLVersion.None"/>.
-		/// </exception>
 		[XmlElement("ShaderVersion")]
 		public KhronosVersion ShaderVersion
 		{
-			get { return (mShaderVersion); }
+			get { return (_ShaderVersion); }
 			set
 			{
-				mShaderVersion = value == null ? GraphicsContext.CurrentShadingVersion : value;
+				_ShaderVersion = value == null ? GraphicsContext.CurrentShadingVersion : value;
 			}
 		}
 
 		/// <summary>
 		/// The shading language version used by compiler.
 		/// </summary>
-		private KhronosVersion mShaderVersion;
+		private KhronosVersion _ShaderVersion;
 
 		#endregion
 
@@ -148,7 +146,7 @@ namespace OpenGL
 				throw new ArgumentException(String.Format("symbol '{0}' already defined", symbol), "def");
 
 			// Set symbol
-			mDefines.Add(def);
+			_Define.Add(def);
 		}
 
 		/// <summary>
@@ -200,7 +198,7 @@ namespace OpenGL
 			if (symbol == null)
 				throw new ArgumentNullException("symbol");
 
-			return (mDefines.Exists(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); }));
+			return (_Define.Exists(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); }));
 		}
 
 		public string GetSymbol(string symbol)
@@ -208,7 +206,7 @@ namespace OpenGL
 			if (symbol == null)
 				throw new ArgumentNullException("symbol");
 
-			return (mDefines.Find(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); }));
+			return (_Define.Find(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); }));
 		}
 
 		/// <summary>
@@ -229,12 +227,12 @@ namespace OpenGL
 			if (symbol == null)
 				throw new ArgumentNullException("symbol");
 
-			int symbolIndex = mDefines.FindIndex(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); });
+			int symbolIndex = _Define.FindIndex(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); });
 
 			if (symbolIndex < 0)
 				throw new ArgumentException("not defined", "symbol");
 
-			mDefines.RemoveAt(symbolIndex);
+			_Define.RemoveAt(symbolIndex);
 		}
 
 		/// <summary>
@@ -242,7 +240,7 @@ namespace OpenGL
 		/// </summary>
 		public void RemoveSymbols()
 		{
-			mDefines.Clear();
+			_Define.Clear();
 		}
 
 		/// <summary>
@@ -251,11 +249,11 @@ namespace OpenGL
 		[XmlElement("PreprocessorSymbol")]
 		public List<string> Defines
 		{
-			get { return (mDefines); }
+			get { return (_Define); }
 			set
 			{
-				mDefines.Clear();
-				mDefines.AddRange(value);
+				_Define.Clear();
+				_Define.AddRange(value);
 			}
 		}
 
@@ -284,7 +282,7 @@ namespace OpenGL
 		/// This imply that the symbol
 		/// </para>
 		/// </remarks>
-		private readonly List<string> mDefines = new List<string>();
+		private readonly List<string> _Define = new List<string>();
 
 		#endregion
 
@@ -305,18 +303,18 @@ namespace OpenGL
 			if (paths == null)
 				throw new ArgumentNullException("paths");
 
-			mIncludes.Clear();
+			_Includes.Clear();
 			foreach (string path in paths) {
 				if (String.IsNullOrEmpty(path) == true)
 					throw new ArgumentException("invalid path", "paths");
-				mIncludes.Add(path);
+				_Includes.Add(path);
 			}
 		}
 
 		/// <summary>
 		/// Ordered paths for relative #include preprocessor directives.
 		/// </summary>
-		public ICollection<string> Includes { get { return (mIncludes.AsReadOnly()); } }
+		public ICollection<string> Includes { get { return (_Includes.AsReadOnly()); } }
 
 		/// <summary>
 		/// Ordered paths for relative #include preprocessor directives.
@@ -324,79 +322,7 @@ namespace OpenGL
 		/// <remarks>
 		/// 
 		/// </remarks>
-		private readonly List<string> mIncludes = new List<string>();
-
-		#endregion
-
-		#region Additional Objects
-
-		public void AddExtraObject(ShaderObject shaderObject)
-		{
-			mExtraObjects.Add(new ShaderProgramObject(shaderObject));
-		}
-
-		public void AddExtraObject(ShaderObject shaderObject, string @interface)
-		{
-			mExtraObjects.Add(new ShaderProgramObject(shaderObject, @interface));
-		}
-
-		public void AddExtraObject(string shaderObjectId, ShaderObject.Stage stage)
-		{
-			mExtraObjects.Add(new ShaderProgramObject(shaderObjectId, stage));
-		}
-		
-		public void RemoveExtraObject(string shaderObjectId, ShaderObject.Stage stage)
-		{
-			if (shaderObjectId == null)
-				throw new ArgumentNullException("shaderObjectId");
-			
-			mExtraObjects.RemoveAll(delegate(ShaderProgramObject obj) {
-				return (obj.Id == shaderObjectId && obj.Stage == stage);
-			});
-		}
-		
-		/// <summary>
-		/// List of additional shader objects attached 
-		/// </summary>
-		[XmlArray("ExtraObjects")]
-		[XmlArrayItem("ShaderObject")]
-		public List<ShaderProgramObject> ExtraObjects
-		{
-			get { return (mExtraObjects); }
-			set
-			{
-				mExtraObjects.Clear();
-				if (value != null)
-					mExtraObjects.AddRange(value);
-			}
-		}
-
-		/// <summary>
-		/// Shader objects that need to be linked with the shader program.
-		/// </summary>
-		public IEnumerable<ShaderObject> GetExtraObjects(GraphicsContext ctx, ShaderCompilerContext cctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (cctx == null)
-				throw new ArgumentNullException("cctx");
-
-			ShaderObject[] extraObjects = new ShaderObject[mExtraObjects.Count];
-
-			for (int i = 0; i < mExtraObjects.Count; i++)
-				extraObjects[i] = mExtraObjects[i].GetShaderObject(ctx, cctx);
-
-			return (extraObjects);
-		}
-		
-		/// <summary>
-		/// Shader objects that need to be linked with the shader program.
-		/// </summary>
-		/// <remarks>
-		/// This field is used to allow more customization using <see cref="ShaderProgram"/> and <see cref="ShaderLibrary"/> classes,
-		/// but it is also used for computing correctly shader program cache identifier (required for correct shader program caching).
-		/// </remarks>
-		private readonly List<ShaderProgramObject> mExtraObjects = new List<ShaderProgramObject>();
+		private readonly List<string> _Includes = new List<string>();
 
 		#endregion
 		
@@ -421,37 +347,15 @@ namespace OpenGL
 		/// </summary>
 		public FeedbackBufferFormat FeedbackVaryingsFormat
 		{
-			get { return (mFeedbackVaryingsFormat); }
-			set { mFeedbackVaryingsFormat = value; }
+			get { return (_FeedbackVaryingsFormat); }
+			set { _FeedbackVaryingsFormat = value; }
 		}
 
 		/// <summary>
 		/// The feedback varyings format.
 		/// </summary>
-		private FeedbackBufferFormat mFeedbackVaryingsFormat = FeedbackBufferFormat.Interleaved;
+		private FeedbackBufferFormat _FeedbackVaryingsFormat = FeedbackBufferFormat.Interleaved;
 
-		#endregion
-		
-		#region Shaders Interfaces Support
-		
-		public void SetupLambertLightShading(ShaderObject.Stage lightStage)
-		{
-			switch (lightStage) {
-				case ShaderObject.Stage.Vertex:
-					DefineSymbol("DS_LIGHTING_PER_VERTEX");
-					AddExtraObject("Derm.Shaders.Light.LambertShading", ShaderObject.Stage.Vertex);
-					AddExtraObject("Derm.Shaders.Light.LightStateShader", ShaderObject.Stage.Vertex);
-					break;
-				case ShaderObject.Stage.Fragment:
-					DefineSymbol("DS_LIGHTING_PER_FRAGMENT");
-					AddExtraObject("Derm.Shaders.Light.LambertShading", ShaderObject.Stage.Fragment);
-					AddExtraObject("Derm.Shaders.Light.LightStateShader", ShaderObject.Stage.Fragment);
-					break;
-				default:
-					throw new ArgumentException(String.Format("light stage {0} not supported", lightStage), "lightStage");
-			}
-		}
-		
 		#endregion
 		
 		#region Equality Operators
@@ -484,9 +388,9 @@ namespace OpenGL
 		/// </summary>
 		private static readonly ILogger sLog = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-#endregion
+		#endregion
 
-#region IEquatable<ShaderCompilerContext> Implementation
+		#region IEquatable<ShaderCompilerContext> Implementation
 
 		/// <summary>
 		/// Indicates whether the this Matrix is equal to another Matrix.
@@ -518,27 +422,20 @@ namespace OpenGL
 			// Compare preprocessor includes (order dependent)
 			if (Includes.Count != other.Includes.Count)
 				return (false);
-			for (int i = 0; i < mIncludes.Count; i++)
-				if (mIncludes[i] != other.mIncludes[i])
-					return (false);
-
-			// Compare extra shader objects (order independent)
-			if (mExtraObjects.Count != other.mExtraObjects.Count)
-				return (false);
-			foreach (ShaderProgramObject programObject in mExtraObjects)
-				if (other.mExtraObjects.Contains(programObject) == false)
+			for (int i = 0; i < _Includes.Count; i++)
+				if (_Includes[i] != other._Includes[i])
 					return (false);
 
 			// Feedback varying format
-			if (mFeedbackVaryingsFormat != other.mFeedbackVaryingsFormat)
+			if (_FeedbackVaryingsFormat != other._FeedbackVaryingsFormat)
 				return (false);
 
 			return (true);
 		}
 
-#endregion
+		#endregion
 
-#region Object Overrides
+		#region Object Overrides
 
 		/// <summary>
 		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
@@ -580,6 +477,6 @@ namespace OpenGL
 			}
 		}
 
-#endregion
+		#endregion
 	}
 }

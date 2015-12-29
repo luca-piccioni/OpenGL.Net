@@ -45,7 +45,7 @@ namespace OpenGL
 		static ShaderProgram()
 		{
 			// Initialize default shader library
-			ShaderLibrary.Touch();
+			// ShaderLibrary.Touch();
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 				throw new ArgumentNullException("sObjectId");
 
 			// Define cached shader object
-			mProgramObjects.Add(new ShaderProgramObject(sObjectId, @interface, stage));
+			
 		}
 
 		/// <summary>
@@ -162,7 +162,7 @@ namespace OpenGL
 				throw new ArgumentNullException("sObject");
 
 			// Collect shader
-			mProgramObjects.Add(new ShaderProgramObject(sObject, @interface));
+			
 			// Force relink
 			mLinked = false;
 		}
@@ -177,7 +177,7 @@ namespace OpenGL
 				throw new ArgumentNullException("sObject");
 
 			// Remove shader
-			mProgramObjects.RemoveAll(delegate(ShaderProgramObject programObject) { return (ReferenceEquals(sObject, programObject.Shader)); });
+			
 		}
 		
 		/// <summary>
@@ -190,7 +190,7 @@ namespace OpenGL
 				throw new ArgumentNullException("sObjectId");
 
 			// Remove shader
-			mProgramObjects.RemoveAll(delegate(ShaderProgramObject programObject) { return (programObject.Id == sObjectId); });
+			
 		}
 
 		/// <summary>
@@ -204,7 +204,7 @@ namespace OpenGL
 			if (sObject == null)
 				throw new ArgumentNullException("sObject");
 
-			return (mProgramObjects.Exists(delegate(ShaderProgramObject programObject) { return (ReferenceEquals(sObject, programObject.Shader)); }));
+			return (false);
 		}
 
 		/// <summary>
@@ -251,31 +251,11 @@ namespace OpenGL
 			
 			#region Compile and Attach Shader Objects
 			
-			// Before linking interfaces, attach extra objects
-			foreach (ShaderObject shaderObject in cctx.GetExtraObjects(ctx, cctx)) {
-				if (shaderObject.RequiredMinVersion >= cctx.ShaderVersion)
-					sLog.Warn("Shader object {0} requires GLSL {0}, but compiling with {1}. Program may not compile/link.", cctx.ShaderVersion);
-				AttachShader(shaderObject);
-			}
-
 			// Ensure cached shader objects
-			foreach (ShaderProgramObject programObject in mProgramObjects) {
-				// Skip 
-				switch (programObject.Stage) {
-					case ShaderObject.Stage.Geometry:
-						if (!ctx.Caps.GlExtensions.GeometryShader_EXT) {
-							sLog.Warn("Do not link object: geometry shaders are not supported.");
-							continue;
-						}
-						break;
-				}
-
-				ShaderObject shaderObject = programObject.GetShaderObject(ctx, cctx);
-
+			foreach (ShaderObject shaderObject in mProgramObjects) {
 				// Create shader object, if necessary
 				if (shaderObject.Exists(ctx) == false)
 					shaderObject.Create(ctx, cctx);
-
 				// Attach shader object
 				Gl.AttachShader(ObjectName, shaderObject.ObjectName);
 			}
@@ -584,7 +564,7 @@ namespace OpenGL
 		/// <summary>
 		/// List of cached shader objects composing this shader program.
 		/// </summary>
-		private readonly List<ShaderProgramObject> mProgramObjects = new List<ShaderProgramObject>();
+		private readonly List<ShaderObject> mProgramObjects = new List<ShaderObject>();
 
 		#endregion
 
@@ -1004,10 +984,6 @@ namespace OpenGL
 			foreach (string includePath in cctx.Includes)
 				hashMessage.AppendFormat("{0}", includePath);
 
-			// Take into account extra objects
-			foreach (ShaderProgramObject programObject in cctx.ExtraObjects)
-				hashMessage.AppendFormat("{0}", programObject.ComputeCompilerHash(cctx));
-
 			// Hash all information
 			byte[] hashBytes;
 			using (System.Security.Cryptography.HashAlgorithm hash = System.Security.Cryptography.HashAlgorithm.Create("SHA256")) {
@@ -1126,15 +1102,15 @@ namespace OpenGL
 			// Link this shader program
 			Link(ctx, mCompilationParams);
 
-			// Lazy cache service registration
-			// Give a chance of caching this shader program: if the shader cache service is defined, and it has not cached
-			// this shader program, indeed this instance is a candidate for being cached.
-			ShaderCacheService cacheService = ShaderCacheService.GetService(ctx);
+			//// Lazy cache service registration
+			//// Give a chance of caching this shader program: if the shader cache service is defined, and it has not cached
+			//// this shader program, indeed this instance is a candidate for being cached.
+			//ShaderCacheService cacheService = ShaderCacheService.GetService(ctx);
 
-			if (cacheService != null) {
-				if (!cacheService.IsCachedShaderProgram(mCompilationParams, Identifier))
-					cacheService.CacheShaderProgram(this);
-			}
+			//if (cacheService != null) {
+			//	if (!cacheService.IsCachedShaderProgram(mCompilationParams, Identifier))
+			//		cacheService.CacheShaderProgram(this);
+			//}
 		}
 
 		/// <summary>
@@ -1163,9 +1139,8 @@ namespace OpenGL
 		{
 			if (disposing) {
 				// Release reference to attached program objects
-				foreach (ShaderProgramObject programObject in mProgramObjects)
-					if (programObject.Shader != null)
-						programObject.Shader.DecRef();
+				foreach (ShaderObject programObject in mProgramObjects)
+					programObject.DecRef();
 			}
 			// Base implementation
 			base.Dispose(disposing);
