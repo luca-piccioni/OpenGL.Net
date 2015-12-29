@@ -1,18 +1,20 @@
 
-// Copyright (C) 2011-2012 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -49,49 +51,49 @@ namespace OpenGL
 		/// <param name="cctx">
 		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameteres.
 		/// </param>
-		/// <param name="sSource">
+		/// <param name="shaderSource">
 		/// A <see cref="IEnumerable{String}"/> that specify the shader source lines. Null items in the enumeration
 		/// will be ignored.
 		/// </param>
 		/// <returns>
-		/// It returns the processed source lines <paramref name="sSource"/>, but without any #include directive. Each #include
+		/// It returns the processed source lines <paramref name="shaderSource"/>, but without any #include directive. Each #include
 		/// directive will be replaced by the corresponding text depending on <paramref name="cctx"/>.
 		/// </returns>
 		/// <remarks>
 		/// <para>
 		/// <para>
-		/// In the case <paramref name="ctx"/> supports shader includes, the returned value equals to <paramref name="sSource"/> (there's
+		/// In the case <paramref name="ctx"/> supports shader includes, the returned value equals to <paramref name="shaderSource"/> (there's
 		/// no need to process shader source: it will be done by the shader compiler).
 		/// </para>
 		/// </para>
 		/// </remarks>
 		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="ctx"/>, <paramref name="cctx"/> or <paramref name="sSource"/> is null.
+		/// Exception throw if <paramref name="ctx"/>, <paramref name="cctx"/> or <paramref name="shaderSource"/> is null.
 		/// </exception>
-		public static List<string> ProcessIncludeDirectives(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sSource)
+		public static List<string> Process(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> shaderSource)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
-			if (sSource == null)
+			if (shaderSource == null)
 				throw new ArgumentNullException("sSource");
 
 			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == false) {
 				IncludeProcessorContext ictx = new IncludeProcessorContext();
 
-				return (ProcessIncludeDirectives(ctx, cctx, ictx, sSource));
+				return (Process(ctx, cctx, ictx, shaderSource));
 			} else
-				return (sSource);
+				return (shaderSource);
 		}
 
-		private static List<string> ProcessIncludeDirectives(GraphicsContext ctx, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> sSource)
+		private static List<string> Process(GraphicsContext ctx, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> shaderSource)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
-			if (sSource == null)
+			if (shaderSource == null)
 				throw new ArgumentNullException("sSource");
 			
 			ShaderIncludeLibrary includeLibrary = ctx.IncludeLibrary;
@@ -99,11 +101,11 @@ namespace OpenGL
 
 			// Shader includes not supported. Process them manually before submitting shader source text lines.
 
-			foreach (string line in sSource) {
+			foreach (string line in shaderSource) {
 				// Ignore null items
 				if (line == null) continue;
 
-				if ((sIncludeRegex.Match(line)).Success) {
+				if ((_RegexInclude.Match(line)).Success) {
 					IShaderInclude shaderInclude = null;
 					string includePath = ExtractIncludePath(line);
 					string canonicalPath = String.Empty;
@@ -113,7 +115,7 @@ namespace OpenGL
 						// If <path> does not start with a forward slash, it is a path relative
 						// to one of the ordered list of initial search points.
 
-						if ((ictx.CurrentPath != String.Empty) && (sIncludeRegexAngular.Match(line).Success == false)) {
+						if ((ictx.CurrentPath != String.Empty) && (_RegexIncludeAngular.Match(line).Success == false)) {
 
 							// If it is quoted with double quotes in a previously included string, then the first
 							// search point will be the tree location where the previously included
@@ -162,7 +164,7 @@ namespace OpenGL
 					System.Diagnostics.Debug.Assert(String.IsNullOrEmpty(canonicalPath) == false);
 					ictxRecurse.CurrentPath = canonicalPath;
 
-					processedSource.AddRange(ProcessIncludeDirectives(ctx, cctx, ictxRecurse, shaderInclude.IncludeSource));
+					processedSource.AddRange(Process(ctx, cctx, ictxRecurse, shaderInclude.IncludeSource));
 				} else
 					processedSource.Add(line);
 			}
@@ -176,7 +178,7 @@ namespace OpenGL
 				throw new ArgumentNullException("directive");
 
 			// Parse included path
-			string[] tokens = sIncludePathSplitRegex.Split(directive);
+			string[] tokens = _RegexIncludePathSplit.Split(directive);
 
 			// Remove empty lines
 			tokens = Array.FindAll(tokens, delegate (string s) { return (String.IsNullOrEmpty(s) == false); });
@@ -223,17 +225,17 @@ namespace OpenGL
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex sIncludeRegex = new Regex("#include *[<\"].*[>\"]", RegexOptions.Compiled);
+		private static readonly Regex _RegexInclude = new Regex("#include *[<\"].*[>\"]", RegexOptions.Compiled);
 
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex sIncludeRegexAngular = new Regex("#include *[<\"].*[>\"]", RegexOptions.Compiled);
+		private static readonly Regex _RegexIncludeAngular = new Regex("#include *[<\"].*[>\"]", RegexOptions.Compiled);
 
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex sIncludePathSplitRegex = new Regex("[<>\"\\n]", RegexOptions.Compiled);
+		private static readonly Regex _RegexIncludePathSplit = new Regex("[<>\"\\n]", RegexOptions.Compiled);
 
 		#endregion
 	}

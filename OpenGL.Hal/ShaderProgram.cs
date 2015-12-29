@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2009-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -84,7 +86,7 @@ namespace OpenGL
 					throw new ArgumentException("invalid", "programName");
 
 				// Default compilation parameter
-				mCompilationParams = compilationParams ?? new ShaderCompilerContext();
+				_CompilationParams = compilationParams ?? new ShaderCompilerContext();
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -97,115 +99,65 @@ namespace OpenGL
 		#region Program Linkage
 
 		/// <summary>
-		/// Attach a cached ShaderObject to this ShaderProgram.
-		/// </summary>
-		/// <param name="sObjectId">
-		/// A <see cref="System.String"/> that specify the cached shader object name. This value usually correspond
-		/// to a static field <i>LibraryId</i> declared by ShaderObject subclasses (however, this convention could
-		/// be broken by some implementation).
-		/// </param>
-		/// <param name="stage">
-		/// A <see cref="ShaderObject.Stage"/> that specify the stage of the cached shader object <paramref name="sObjectId"/>.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="sObjectId"/> is null.
-		/// </exception>
-		public void AttachShader(string sObjectId, ShaderObject.Stage stage)
-		{
-			AttachShader(sObjectId, null, stage);
-		}
-
-		/// <summary>
-		/// Attach a cached ShaderObject to this ShaderProgram.
-		/// </summary>
-		/// <param name="sObjectId">
-		/// A <see cref="System.String"/> that specify the cached shader object name. This value usually correspond
-		/// to a static field <i>LibraryId</i> declared by ShaderObject subclasses (however, this convention could
-		/// be broken by some implementation).
-		/// </param>
-		/// <param name="interface">
-		/// 
-		/// </param>
-		/// <param name="stage">
-		/// A <see cref="ShaderObject.Stage"/> that specify the stage of the cached shader object <paramref name="sObjectId"/>.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="sObjectId"/> is null.
-		/// </exception>
-		public void AttachShader(string sObjectId, string @interface, ShaderObject.Stage stage)
-		{
-			if (sObjectId == null)
-				throw new ArgumentNullException("sObjectId");
-
-			// Define cached shader object
-			
-		}
-
-		/// <summary>
 		/// Attach a ShaderObject to this ShaderProgram.
 		/// </summary>
-		/// <param name="sObject"></param>
-		public void AttachShader(ShaderObject sObject)
-		{
-			AttachShader(sObject, null);
-		}
-
-		/// <summary>
-		/// Attach a ShaderObject to this ShaderProgram, implementing an interface.
-		/// </summary>
-		/// <param name="sObject"></param>
-		/// <param name="interface">
+		/// <param name="shaderObject">
+		/// A <see cref="ShaderObject"/> to be attached to this ShaderProgram.
 		/// </param>
-		public void AttachShader(ShaderObject sObject, string @interface)
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="shaderObject"/> is null.
+		/// </exception>
+		public void AttachShader(ShaderObject shaderObject)
 		{
-			if (sObject == null)
+			if (shaderObject == null)
 				throw new ArgumentNullException("sObject");
 
-			// Collect shader
-			
+			// Link object
+			_ProgramObjects.Add(shaderObject);
 			// Force relink
-			mLinked = false;
+			_Linked = false;
 		}
 
 		/// <summary>
 		/// Detach an attached ShaderObject from this ShaderProgram.
 		/// </summary>
-		/// <param name="sObject"></param>
-		public void DetachShader(ShaderObject sObject)
+		/// <param name="shaderObject">
+		/// A <see cref="ShaderObject"/> to be detached to this ShaderProgram.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="shaderObject"/> is null.
+		/// </exception>
+		public void DetachShader(ShaderObject shaderObject)
 		{
-			if (sObject == null)
-				throw new ArgumentNullException("sObject");
+			if (shaderObject == null)
+				throw new ArgumentNullException("shaderObject");
 
 			// Remove shader
-			
-		}
-		
-		/// <summary>
-		/// Detach an attached ShaderObject from this ShaderProgram.
-		/// </summary>
-		/// <param name="sObject"></param>
-		public void DetachShader(string sObjectId)
-		{
-			if (sObjectId == null)
-				throw new ArgumentNullException("sObjectId");
-
-			// Remove shader
-			
-		}
+			_ProgramObjects.Remove(shaderObject);
+        }
 
 		/// <summary>
 		/// Check the attachment state of a ShaderObject on this ShaderProgram.
 		/// </summary>
-		/// <param name="sObject"></param>
+		/// <param name="shaderObject"></param>
 		/// <returns>
+		/// It returns a boolean value indicating the attachment state of <paramref name="shaderObject"/>.
 		/// </returns>
-		public bool IsAttachedShader(ShaderObject sObject)
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="shaderObject"/> is null.
+		/// </exception>
+		public bool IsAttachedShader(ShaderObject shaderObject)
 		{
-			if (sObject == null)
-				throw new ArgumentNullException("sObject");
+			if (shaderObject == null)
+				throw new ArgumentNullException("shaderObject");
 
-			return (false);
+			return (_ProgramObjects.Contains(shaderObject));
 		}
+
+		/// <summary>
+		/// List of cached shader objects composing this shader program.
+		/// </summary>
+		private readonly List<ShaderObject> _ProgramObjects = new List<ShaderObject>();
 
 		/// <summary>
 		/// Link this ShaderProgram.
@@ -252,7 +204,7 @@ namespace OpenGL
 			#region Compile and Attach Shader Objects
 			
 			// Ensure cached shader objects
-			foreach (ShaderObject shaderObject in mProgramObjects) {
+			foreach (ShaderObject shaderObject in _ProgramObjects) {
 				// Create shader object, if necessary
 				if (shaderObject.Exists(ctx) == false)
 					shaderObject.Create(ctx, cctx);
@@ -264,18 +216,18 @@ namespace OpenGL
 
 			#region Transform Feedback Definition
 
-			if ((FeedbackVaryings != null) && (FeedbackVaryings.Count > 0)) {
+			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
 				if (!ctx.Caps.GlExtensions.TransformFeedback_EXT)
 					throw new InvalidOperationException("transform feedback not supported");
 
 				sLog.Debug("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
 				sLog.Indent();
-				foreach (string feedbackVarying in FeedbackVaryings)
+				foreach (string feedbackVarying in _FeedbackVaryings)
 					sLog.Debug("- {0}", feedbackVarying);
 				sLog.Unindent();
 
 				// Specify program feedback
-				Gl.TransformFeedbackVaryings(ObjectName, FeedbackVaryings.ToArray(), (int)cctx.FeedbackVaryingsFormat);
+				Gl.TransformFeedbackVaryings(ObjectName, _FeedbackVaryings.ToArray(), (int)cctx.FeedbackVaryingsFormat);
 			}
 
 			#endregion
@@ -284,7 +236,7 @@ namespace OpenGL
 
 			if (ctx.Caps.GlExtensions.GpuShader4_EXT) {
 				// Setup fragment locations, where defined
-				foreach (KeyValuePair<string, int> pair in mFragLocations) {
+				foreach (KeyValuePair<string, int> pair in _FragLocations) {
 					if (pair.Value >= 0)
 						Gl.BindFragDataLocation(ObjectName, (uint) pair.Value, pair.Key);
 				}
@@ -324,7 +276,7 @@ namespace OpenGL
 				throw new ShaderException("shader program is not valid. Linker output for {0}: {1}\n", Identifier ?? "<Unnamed>", sb.ToString());
 			}
 			// Set linked flag
-			mLinked = true;
+			_Linked = true;
 
 			#endregion
 
@@ -339,8 +291,8 @@ namespace OpenGL
 			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORM_MAX_LENGTH, out uniformBufferSize);
 
 			// Clear uniform mapping
-			mUniformMap.Clear();
-			mDefaultBlockUniformSlots = 0;
+			_UniformMap.Clear();
+			_DefaultBlockUniformSlots = 0;
 
 			// Collect uniform information
 			for (uint i = 0; i < (uint)uniformCount; i++) {
@@ -361,22 +313,22 @@ namespace OpenGL
 				UniformBinding uniformBinding = new UniformBinding(uniformName, i, uLocation, (ShaderUniformType)uniformType);
 
 				// Map active uniform
-				mUniformMap[uniformName] = uniformBinding;
+				_UniformMap[uniformName] = uniformBinding;
 				// Keep track of used slot
-				mDefaultBlockUniformSlots += GetUniformSlotCount(uniformBinding.UniformType);
+				_DefaultBlockUniformSlots += GetUniformSlotCount(uniformBinding.UniformType);
 			}
 
 			// Log uniform location mapping
-			List<string> uniformNames = new List<string>(mUniformMap.Keys);
+			List<string> uniformNames = new List<string>(_UniformMap.Keys);
 
 			// Make uniform list invariant respect the used driver (ease log comparation)
 			uniformNames.Sort();
 
 			sLog.Debug("Shader program active uniforms:");
 			foreach (string uniformName in uniformNames)
-				sLog.Debug("\tUniform {0} (Type: {1}, Location: {2})", uniformName, mUniformMap[uniformName].UniformType, mUniformMap[uniformName].Location);
+				sLog.Debug("\tUniform {0} (Type: {1}, Location: {2})", uniformName, _UniformMap[uniformName].UniformType, _UniformMap[uniformName].Location);
 
-			sLog.Debug("Shader program active uniform slots: {0}", mDefaultBlockUniformSlots);
+			sLog.Debug("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
 
 			#endregion
 
@@ -390,7 +342,7 @@ namespace OpenGL
 			Gl.GetProgram(ObjectName, Gl.ACTIVE_ATTRIBUTE_MAX_LENGTH, out attributeBufferSize);
 
 			// Clear input mapping
-			mAttributesMap.Clear();
+			_AttributesMap.Clear();
 
 			// Collect input location mapping
 			for (uint i = 0; i < (uint)activeInputs; i++) {
@@ -408,18 +360,18 @@ namespace OpenGL
 				AttributeBinding attributeBinding = new AttributeBinding();
 				attributeBinding.Location = (uint)aLocation;
 				attributeBinding.Type = (ShaderAttributeType) aType;
-				mAttributesMap[aNameBuilder.ToString()] = attributeBinding;
+				_AttributesMap[aNameBuilder.ToString()] = attributeBinding;
 			}
 
 			// Log attribute location mapping
-			List<string> attributeNames = new List<string>(mAttributesMap.Keys);
+			List<string> attributeNames = new List<string>(_AttributesMap.Keys);
 
 			// Make attribute list invariant respect the used driver (ease log comparation)
 			attributeNames.Sort();
 
 			sLog.Debug("Shader program active attributes:");
 			foreach (string attributeName in attributeNames)
-				sLog.Debug("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, mAttributesMap[attributeName].Type, mAttributesMap[attributeName].Location);
+				sLog.Debug("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, _AttributesMap[attributeName].Type, _AttributesMap[attributeName].Location);
 
 			#endregion
 
@@ -427,15 +379,15 @@ namespace OpenGL
 
 			if (ctx.Caps.GlExtensions.GpuShader4_EXT) {
 				// Get fragment locations, just in the case automatically assigned
-				foreach (string fragOutputName in new List<string>(mFragLocations.Keys))
-					mFragLocations[fragOutputName] = Gl.GetFragDataLocation(ObjectName, fragOutputName);
+				foreach (string fragOutputName in new List<string>(_FragLocations.Keys))
+					_FragLocations[fragOutputName] = Gl.GetFragDataLocation(ObjectName, fragOutputName);
 			}
 
 			#endregion
 			
 			#region Collect Feedback Varyings
 			
-			if ((FeedbackVaryings != null) && (FeedbackVaryings.Count > 0)) {
+			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
 				int feebackVaryings, feebackVaryingsMaxLength;
 				
 				Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYINGS, out feebackVaryings);
@@ -513,7 +465,7 @@ namespace OpenGL
 		/// </summary>
 		public bool IsLinked
 		{
-			get { return (mLinked); }
+			get { return (_Linked); }
 		}
 
 		/// <summary>
@@ -559,32 +511,11 @@ namespace OpenGL
 		/// <summary>
 		/// Linked flag.
 		/// </summary>
-		private bool mLinked;
-
-		/// <summary>
-		/// List of cached shader objects composing this shader program.
-		/// </summary>
-		private readonly List<ShaderObject> mProgramObjects = new List<ShaderObject>();
+		private bool _Linked;
 
 		#endregion
 
 		#region Program Creation
-
-		/// <summary>
-		/// Create this ShaderProgram, specifying the compiler parameters.
-		/// </summary>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameters used for compiling and
-		/// linking this ShaderProgram.
-		/// </param>
-		public void Create(ShaderCompilerContext cctx)
-		{
-			if (cctx == null)
-				throw new ArgumentNullException("cctx");
-
-			// Cache compilation parameters (used by CreateObject)
-			mCompilationParams = cctx;
-		}
 
 		/// <summary>
 		/// Create this ShaderProgram, specifying the compiler parameters.
@@ -604,7 +535,7 @@ namespace OpenGL
 				throw new ArgumentNullException("cctx");
 
 			// Cache compilation parameters (used by CreateObject)
-			mCompilationParams = cctx;
+			_CompilationParams = cctx;
 			// Base implementation
 			base.Create(ctx);
 		}
@@ -612,12 +543,12 @@ namespace OpenGL
 		/// <summary>
 		/// ShaderCompilerContext used for linkage.
 		/// </summary>
-		public ShaderCompilerContext CompilationParams { get { return (mCompilationParams); } }
+		public ShaderCompilerContext CompilationParams { get { return (_CompilationParams); } }
 
 		/// <summary>
 		/// ShaderCompilerContext used for compilation.
 		/// </summary>
-		private ShaderCompilerContext mCompilationParams;
+		private ShaderCompilerContext _CompilationParams;
 
 		#endregion
 
@@ -654,12 +585,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Unbind this ShaderProgram.
+		/// Unbind any ShaderProgram.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for binding.
 		/// </param>
-		public void Unbind(GraphicsContext ctx)
+		public static void Unbind(GraphicsContext ctx)
 		{
 			// Unbind this program
 			Gl.UseProgram(InvalidObjectName);
@@ -667,7 +598,7 @@ namespace OpenGL
 
 #endregion
 
-#region Program Attributes
+		#region Program Attributes
 
 		/// <summary>
 		/// Collection of active attributes on this ShaderProgram.
@@ -675,32 +606,32 @@ namespace OpenGL
 		public ICollection<string> ActiveAttributes
 		{
 			get {
-				return (mAttributesMap.Keys);
+				return (_AttributesMap.Keys);
 			}
 		}
 
 		/// <summary>
 		/// Determine whether an attributes is active or not.
 		/// </summary>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> which specify the input name.
+		/// <param name="attributeName">
+		/// A <see cref="String"/> which specify the input name.
 		/// </param>
 		/// <returns>
-		/// It returns true in the case the input named <paramref name="uName"/> is active.
+		/// It returns true in the case the input named <paramref name="attributeName"/> is active.
 		/// </returns>
-		public bool IsActiveAttribute(string uName)
+		public bool IsActiveAttribute(string attributeName)
 		{
-			return (mAttributesMap.ContainsKey(uName));
+			return (_AttributesMap.ContainsKey(attributeName));
 		}
 
 		/// <summary>
 		/// Active attributes binding information.
 		/// </summary>
-		/// <param name="inputName"></param>
+		/// <param name="attributeName"></param>
 		/// <returns></returns>
-		internal AttributeBinding GetActiveAttribute(string inputName)
+		internal AttributeBinding GetActiveAttribute(string attributeName)
 		{
-			return (mAttributesMap[inputName]);
+			return (_AttributesMap[attributeName]);
 		}
 
 		/// <summary>
@@ -722,11 +653,11 @@ namespace OpenGL
 		/// <summary>
 		/// Map active uniform location with uniform name.
 		/// </summary>
-		private readonly Dictionary<string, AttributeBinding> mAttributesMap = new Dictionary<string, AttributeBinding>();
+		private readonly Dictionary<string, AttributeBinding> _AttributesMap = new Dictionary<string, AttributeBinding>();
 
-#endregion
+		#endregion
 
-#region Program Attributes Semantic
+		#region Program Attributes Semantic
 
 		/// <summary>
 		/// 
@@ -745,7 +676,7 @@ namespace OpenGL
 			if (arrayMatch.Success)
 				attributeName = arrayMatch.Groups["AttributeName"].Value;
 
-			if (mAttributeSemantic.TryGetValue(attributeName, out semantic)) {
+			if (_AttributeSemantic.TryGetValue(attributeName, out semantic)) {
 				if (arrayMatch.Success)
 					semantic = String.Format("{0}[{1}]", semantic, arrayMatch.Groups["AttributeIndex"].Value);
 
@@ -772,7 +703,7 @@ namespace OpenGL
 			if (semantic == null)
 				throw new ArgumentNullException("semantic");
 
-			mAttributeSemantic[attributeName] = semantic;
+			_AttributeSemantic[attributeName] = semantic;
 		}
 
 		/// <summary>
@@ -787,7 +718,7 @@ namespace OpenGL
 			if (attributeName == null)
 				throw new ArgumentNullException("attributeName");
 
-			mAttributeSemantic.Remove(attributeName);
+			_AttributeSemantic.Remove(attributeName);
 		}
 
 		/// <summary>
@@ -795,17 +726,17 @@ namespace OpenGL
 		/// </summary>
 		public void ClearAttributeSemantic()
 		{
-			mAttributeSemantic.Clear();
+			_AttributeSemantic.Clear();
 		}
 
 		/// <summary>
 		/// Map between program attribute names and attribute semantic.
 		/// </summary>
-		private readonly Dictionary<string, string> mAttributeSemantic = new Dictionary<string, string>();
+		private readonly Dictionary<string, string> _AttributeSemantic = new Dictionary<string, string>();
 
-#endregion
+		#endregion
 
-#region Program Feedback Varyings
+		#region Program Feedback Varyings
 
 		/// <summary>
 		/// Adds a feedback varying.
@@ -821,50 +752,50 @@ namespace OpenGL
 			if (varying == null)
 				throw new ArgumentNullException("varying");
 
-			if (FeedbackVaryings == null)
-				FeedbackVaryings = new List<string>();
-			FeedbackVaryings.Add(varying);
+			if (_FeedbackVaryings == null)
+				_FeedbackVaryings = new List<string>();
+			_FeedbackVaryings.Add(varying);
 		}
 
 		/// <summary>
 		/// The feedback varyings of this program.
 		/// </summary>
-		protected List<string> FeedbackVaryings;
+		protected List<string> _FeedbackVaryings;
 
-#endregion
+		#endregion
 
-#region Fragment Locations
+		#region Fragment Locations
 
 		/// <summary>
 		/// Set location of the fragment shader outputs.
 		/// </summary>
-		/// <param name="fragOutputName">
+		/// <param name="fragmentOutputName">
 		/// A <see cref="System.String"/> that specify the fragment shader output variable to bind for a specific
 		/// location.
 		/// </param>
 		/// <param name="location">
 		/// A <see cref="System.Int32"/> that will be the location of the fragment data written to
-		/// <paramref name="fragOutputName"/>.
+		/// <paramref name="fragmentOutputName"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="fragOutputName"/> is null.
+		/// Exception thrown if <paramref name="fragmentOutputName"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="fragOutputName"/> starts with "gl_" (reserved name).
+		/// Exception thrown if <paramref name="fragmentOutputName"/> starts with "gl_" (reserved name).
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if the program has been already linked.
 		/// </exception>
-		public void SetFragmentLocation(string fragOutputName, int location)
+		public void SetFragmentLocation(string fragmentOutputName, int location)
 		{
-			if (fragOutputName == null)
-				throw new ArgumentNullException("fragOutputName");
-			if (fragOutputName.StartsWith("gl_"))
+			if (fragmentOutputName == null)
+				throw new ArgumentNullException("fragmentOutputName");
+			if (fragmentOutputName.StartsWith("gl_"))
 				throw new ArgumentException("reserved name");
 			if (IsLinked)
 				throw new InvalidOperationException("already linked");
 
-			mFragLocations[fragOutputName] = location;
+			_FragLocations[fragmentOutputName] = location;
 		}
 
 		/// <summary>
@@ -879,23 +810,22 @@ namespace OpenGL
 			if (fragOutputName.StartsWith("gl"))
 				throw new ArgumentException("reserved name");
 
-			return (mFragLocations[fragOutputName]);
+			return (_FragLocations[fragOutputName]);
 		}
 
 		/// <summary>
 		/// The location of the fragment shader outputs.
 		/// </summary>
-		private readonly Dictionary<string, int> mFragLocations = new Dictionary<string, int>();
+		private readonly Dictionary<string, int> _FragLocations = new Dictionary<string, int>();
 
 		/// <summary>
 		/// Map between program attribute names and attribute semantic.
 		/// </summary>
-		private readonly Dictionary<string, string> mFragDataSemantic = new Dictionary<string, string>();
+		private readonly Dictionary<string, string> _FragDataSemantic = new Dictionary<string, string>();
 
+		#endregion
 
-#endregion
-
-#region Program Binary
+		#region Program Binary
 
 		public void LoadBinary(GraphicsContext ctx)
 		{
@@ -951,9 +881,9 @@ namespace OpenGL
 			}
 		}
 
-#endregion
+		#endregion
 
-#region Shader Programs Library Support
+		#region Shader Programs Library Support
 
 		/// <summary>
 		/// Determine an unique identifier that specify the linked shader program.
@@ -999,18 +929,18 @@ namespace OpenGL
 		/// </summary>
 		internal string CompiledHash = String.Empty;
 
-#endregion
+		#endregion
 
-#region Logging
+		#region Logging
 
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
 		protected static readonly ILogger sLog = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-#endregion
+		#endregion
 
-#region GraphicsResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Shader program object class.
@@ -1071,7 +1001,7 @@ namespace OpenGL
 
 			// Create default compilation, but only if necessary
 			if (ReferenceEquals(CompilationParams, null))
-				mCompilationParams = new ShaderCompilerContext(ctx.ShadingVersion);
+				_CompilationParams = new ShaderCompilerContext(ctx.ShadingVersion);
 			// Base implementation
 			base.Create(ctx);
 		}
@@ -1100,7 +1030,7 @@ namespace OpenGL
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			// Link this shader program
-			Link(ctx, mCompilationParams);
+			Link(ctx, _CompilationParams);
 
 			//// Lazy cache service registration
 			//// Give a chance of caching this shader program: if the shader cache service is defined, and it has not cached
@@ -1139,13 +1069,13 @@ namespace OpenGL
 		{
 			if (disposing) {
 				// Release reference to attached program objects
-				foreach (ShaderObject programObject in mProgramObjects)
+				foreach (ShaderObject programObject in _ProgramObjects)
 					programObject.DecRef();
 			}
 			// Base implementation
 			base.Dispose(disposing);
 		}
 
-#endregion
+		#endregion
 	}
 }

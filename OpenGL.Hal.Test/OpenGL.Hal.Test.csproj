@@ -52,6 +52,7 @@
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsSurface.cs" />
     <Compile Include="GraphicsWindow.cs" />
+    <Compile Include="ShaderObject.cs" />
     <Compile Include="Texture2d.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

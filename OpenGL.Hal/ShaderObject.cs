@@ -41,7 +41,7 @@ namespace OpenGL
 	/// A ShaderObject instance has a main class, which determine the execution stage of the code,
 	/// when the formed ShaderProgram is executed. The avaialable classes depends on the current
 	/// OpenGL implementation; at the current state, the shader object class is determined
-	/// by the enumeration <see cref="Stage"/>.
+	/// by the enumeration <see cref="ShaderStage"/>.
 	/// </para>
 	/// <para>
 	/// This class automatically builds the source code of each ShaderObject. The generated source code
@@ -65,149 +65,32 @@ namespace OpenGL
 		/// <summary>
 		/// Construct a ShaderObject defining its main class.
 		/// </summary>
-		/// <param name="sType">
-		/// A <see cref="Stage"/> indicating the shader stage of this ShaderObject.
+		/// <param name="shaderStage">
+		/// A <see cref="ShaderStage"/> indicating the shader stage of this ShaderObject.
 		/// </param>
-		public ShaderObject(Stage sType)
+		public ShaderObject(ShaderStage shaderStage)
 		{
 			// Store shader type
-			_Stage = sType;
+			_Stage = shaderStage;
 		}
 
 		/// <summary>
 		/// Construct a ShaderObject defining its main class.
 		/// </summary>
-		/// <param name="sType">
-		/// A <see cref="Stage"/> indicating the shader stage of this ShaderObject.
+		/// <param name="shaderStage">
+		/// A <see cref="ShaderStage"/> indicating the shader stage of this ShaderObject.
 		/// </param>
 		/// <param name="sourcePath">
 		/// A <see cref="System.String"/> that specifies the file containing the shader object source strings.
 		/// </param>
-		protected ShaderObject(Stage sType, string sourcePath)
-			: this(sType)
+		protected ShaderObject(ShaderStage shaderStage, string sourcePath) :
+			this(shaderStage)
 		{
 			try {
 				if (sourcePath == null)
 					throw new ArgumentNullException("sourcePath");
-
 				// Store shader path (for debugging)
-				_SourceFilePath = sourcePath;
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
-		}
-
-		/// <summary>
-		/// Construct a ShaderObject defining its execution stage and the source strings.
-		/// </summary>
-		/// <param name="sType">
-		/// A <see cref="Stage"/> indicating the shader execution stage.
-		/// </param>
-		/// <param name="sSource">
-		/// A <see cref="IEnumerable{String}"/> that specifies the shader object source strings.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="sSource"/> is null.
-		/// </exception>
-		public ShaderObject(Stage sType, IEnumerable<string> sSource)
-			: this(sType, String.Empty, sSource)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a ShaderObject defining its execution stage and the source strings.
-		/// </summary>
-		/// <param name="sType">
-		/// A <see cref="Stage"/> indicating the shader execution stage.
-		/// </param>
-		/// <param name="sourcePath">
-		/// A <see cref="System.String"/> that specifies the file containing the shader object source strings.
-		/// </param>
-		/// <param name="sSource">
-		/// A <see cref="String"/> that specifies the shader object source strings.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="sSource"/> is null.
-		/// </exception>
-		public ShaderObject(Stage sType, string sourcePath, string sSource)
-			: this(sType, sourcePath)
-		{
-			try {
-				if (sSource == null)
-					throw new ArgumentNullException("sSource");
-
-				// Store shader source
-				_SourceStrings = new List<string>(new string[] {sSource});
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
-		}
-
-		/// <summary>
-		/// Construct a ShaderObject defining its execution stage and the source strings.
-		/// </summary>
-		/// <param name="sType">
-		/// A <see cref="Stage"/> indicating the shader execution stage.
-		/// </param>
-		/// <param name="sourcePath">
-		/// A <see cref="System.String"/> that specifies the file containing the shader object source strings.
-		/// </param>
-		/// <param name="sSource">
-		/// A <see cref="IEnumerable{String}"/> that specifies the shader object source strings.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="sSource"/> is null.
-		/// </exception>
-		public ShaderObject(Stage sType, string sourcePath, IEnumerable<string> sSource)
-			: this(sType, sourcePath)
-		{
-			try {
-				if (sSource == null)
-					throw new ArgumentNullException("sSource");
-
-				// Store shader source
-				_SourceStrings = new List<string>(sSource);
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
-		}
-
-		/// <summary>
-		/// Construct a ShaderObject defining its main class and the source strings.
-		/// </summary>
-		/// <param name="sType">
-		/// A <see cref="Stage"/> indicating the shader class.
-		/// </param>
-		/// <param name="sourceUri">
-		/// A <see cref="System.Uri"/> that specifies the file containing the shader object source strings.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="sourceUri"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if the parameter <paramref name="sourceUri"/> doesn't point to a file.
-		/// </exception>
-		public ShaderObject(Stage sType, Uri sourceUri)
-			: this(sType)
-		{
-			try {
-				if (sourceUri == null)
-					throw new ArgumentNullException("sourceUri");
-				if (sourceUri.IsFile == false)
-					throw new ArgumentException("not a file", "sourceUri");
-
-				// Store shader source path (absolute)
-				_SourceFilePath = sourceUri.LocalPath;
-				// Store shader source
-				_SourceStrings = new List<string>(64);
-				AppendSourceStrings(_SourceStrings, sourceUri.AbsolutePath);
+				_SourcePath = sourcePath;
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -220,45 +103,14 @@ namespace OpenGL
 		#region Shader Stage
 
 		/// <summary>
-		/// Shader object stages.
-		/// </summary>
-		public enum Stage
-		{
-			/// <summary>
-			/// Shader object is linkable at vertex stage.
-			/// </summary>
-			Vertex = Gl.VERTEX_SHADER,
-
-			/// <summary>
-			/// Shader object is linkable at tesselation control stage.
-			/// </summary>
-			TessellationControl = Gl.TESS_CONTROL_SHADER,
-
-			/// <summary>
-			/// Shader object is linkable at tesselation evaluation stage.
-			/// </summary>
-			TessellationEvaluation = Gl.TESS_EVALUATION_SHADER,
-
-			/// <summary>
-			/// Shader object is linkable at geometry stage.
-			/// </summary>
-			Geometry = Gl.GEOMETRY_SHADER,
-
-			/// <summary>
-			/// Shader object is linkable at fragment stage.
-			/// </summary>
-			Fragment = Gl.FRAGMENT_SHADER,
-		}
-
-		/// <summary>
 		/// Shader object stage.
 		/// </summary>
-		public Stage ObjectStage { get { return (_Stage); } }
+		public ShaderStage ObjectStage { get { return (_Stage); } }
 
 		/// <summary>
 		/// Shader stage (synch with Gl constants).
 		/// </summary>
-		private readonly Stage _Stage;
+		private readonly ShaderStage _Stage;
 
 		#endregion
 
@@ -346,7 +198,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get source path (actual or fictive, used for shader source identification).
 		/// </summary>
-		public string SourcePath { get { return (_SourceFilePath); } }
+		public string SourcePath { get { return (_SourcePath); } }
 
 		/// <summary>
 		/// Generate ShaderObject source.
@@ -373,8 +225,8 @@ namespace OpenGL
 			List<string> shaderSource = new List<string>(256);
 			string[] shaderSourceStrings = _SourceStrings.ToArray();
 
-			if (_SourceFilePath != null)
-				sLog.Debug("Generate shader source for '{0}'.", _SourceFilePath);
+			if (_SourcePath != null)
+				sLog.Debug("Generate shader source for '{0}'.", _SourcePath);
 
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
@@ -392,7 +244,7 @@ namespace OpenGL
 			// Log shader source
 			uint sourcelineNo;
 
-			sLog.Verbose("Original source code for shader '{0}' (comments hidden).", _SourceFilePath);
+			sLog.Verbose("Original source code for shader '{0}' (comments hidden).", _SourcePath);
 			sLog.Verbose("--------------------------------------------------------------------------------");
 			sourcelineNo = 0;
 			foreach (string sourceline in shaderSource) {
@@ -405,12 +257,12 @@ namespace OpenGL
 			sLog.Verbose("--------------------------------------------------------------------------------");
 
 			// Manage #include preprocessor directives
-			shaderSource = ShaderIncludePreprocessor.ProcessIncludeDirectives(ctx, cctx, shaderSource);
+			shaderSource = ShaderIncludePreprocessor.Process(ctx, cctx, shaderSource);
 
 			// Remove comment lines
 			shaderSource.RemoveAll(delegate(string item) { return (ShaderSourcePreprocessor.IsCommentLine(item)); });
 
-			sLog.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", _SourceFilePath);
+			sLog.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", _SourcePath);
 			sLog.Verbose("--------------------------------------------------------------------------------");
 			sourcelineNo = 0;
 			foreach (string sourceline in shaderSource)
@@ -426,20 +278,20 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for the compilation process.
 		/// </param>
-		/// <param name="sLines">
+		/// <param name="sourceLines">
 		/// A <see cref="List{String}"/> which represent the current shader object
 		/// source lines.
 		/// </param>
 		/// <param name="sVersion">
 		/// A <see cref="System.Int32"/> representing the shader language version to use in generated shader.
 		/// </param>
-		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sLines, int sVersion)
+		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sourceLines, int sVersion)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (cctx == null)
 				throw new ArgumentNullException("ctx");
-			if (sLines == null)
+			if (sourceLines == null)
 				throw new ArgumentNullException("sLines");
 			
 			// Prepend required shader version
@@ -447,11 +299,11 @@ namespace OpenGL
 				// Starting from GLSL 1.50, profiles are implemented
 				
 				if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
-					sLines.Add(String.Format("#version {0} core\n", sVersion));
+					sourceLines.Add(String.Format("#version {0} core\n", sVersion));
 				else
-					sLines.Add(String.Format("#version {0} compatibility\n", sVersion));
+					sourceLines.Add(String.Format("#version {0} compatibility\n", sVersion));
 			} else {
-				sLines.Add(String.Format("#version {0}\n", sVersion));
+				sourceLines.Add(String.Format("#version {0}\n", sVersion));
 			}
 			
 			// #extension
@@ -500,8 +352,8 @@ namespace OpenGL
 			// #pragma
 #if DEBUG
 			// Debug directives
-			sLines.Add("#pragma optimization(off)\n");
-			sLines.Add("#pragma debug(on)\n");
+			sourceLines.Add("#pragma optimization(off)\n");
+			sourceLines.Add("#pragma debug(on)\n");
 #else
 			sLines.Add("#pragma optimization(on)\n");
 			sLines.Add("#pragma debug(off)\n");
@@ -511,12 +363,12 @@ namespace OpenGL
 		/// <summary>
 		/// Append a constant array of strings.
 		/// </summary>
-		/// <param name="sLines">
-		/// A <see cref="List&lt;String&gt;"/> representing the current shader source.
+		/// <param name="sourceLines">
+		/// A <see cref="List{String}"/> representing the current shader source.
 		/// </param>
 		/// <param name="source">
 		/// An array of <see cref="System.String"/> which represents the source for be appended
-		/// at the end of the source <paramref name="sLines"/>.
+		/// at the end of the source <paramref name="sourceLines"/>.
 		/// </param>
 		/// <remarks>
 		/// This is a simple utility routine will appends an array of strings to a
@@ -524,10 +376,10 @@ namespace OpenGL
 		/// This routine automatically add the end-of-line character for each
 		/// string present in <paramref name="source"/>.
 		/// </remarks>
-		protected void AppendSourceStrings(List<string> sLines, IEnumerable<string> source)
+		protected void AppendSourceStrings(List<string> sourceLines, IEnumerable<string> source)
 		{
-			if (sLines == null)
-				throw new ArgumentNullException("sLines");
+			if (sourceLines == null)
+				throw new ArgumentNullException("sourceLines");
 			if (source == null)
 				throw new ArgumentNullException("source");
 
@@ -536,34 +388,7 @@ namespace OpenGL
 				// Ensure that no multi-line string is passed
 
 				foreach (string subline in Regex.Split(line, @"\n"))
-					sLines.Add(subline + "\n");
-			}
-		}
-
-		/// <summary>
-		/// Append every line stored in a file.
-		/// </summary>
-		/// <param name="sLines">
-		/// A <see cref="List&lt;String&gt;"/> representing the current shader source.
-		/// </param>
-		/// <param name="sPath">
-		/// A <see cref="System.String"/> which specify the path for accessing to the
-		/// file containing the source to append.
-		/// </param>
-		protected void AppendSourceStrings(List<string> sLines, string sPath)
-		{
-			if (sLines == null)
-				throw new ArgumentNullException("sLines");
-			if (sPath == null)
-				throw new ArgumentNullException("sPath");
-
-			// Open file at specified path
-			using (StreamReader sr = new StreamReader(sPath)) {
-				// Read all text file lines
-				while (sr.EndOfStream == false)
-					sLines.Add(sr.ReadLine() + "\n");
-				// Close file
-				sr.Close();
+					sourceLines.Add(subline + "\n");
 			}
 		}
 
@@ -579,7 +404,7 @@ namespace OpenGL
 		/// <summary>
 		/// Shader source file path, if any.
 		/// </summary>
-		private string _SourceFilePath;
+		private string _SourcePath;
 		
 		/// <summary>
 		/// The extensions.
@@ -604,82 +429,6 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// Compile this ShaderObject.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for the compilation process.
-		/// </param>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> that specifies the information required for compiling this ShaderObject.
-		/// </param>
-		/// <remarks>
-		/// This routine is called automatically by attached ShaderProgram(s), whenever
-		/// it's needed.
-		/// </remarks>
-		/// <exception cref="ShaderException">
-		/// This exception is thrown in the case this shader object is not compilable.
-		/// </exception>
-		private void Compile(GraphicsContext ctx, ShaderCompilerContext cctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (cctx == null)
-				throw new ArgumentNullException("cctx");
-			
-			// Using a deep copy of the shader compiler context, since it will be modified by this ShaderProgram
-			// instance and the attached ShaderObject instances
-			cctx = new ShaderCompilerContext(cctx);
-			
-			sLog.Debug("Compilation of shader object '{0}'.", _SourceFilePath);
-
-			List<string> source = GenerateSource(ctx, cctx);		// Source generation!
-
-			// Set shader source
-			Gl.ShaderSource(ObjectName, source.ToArray());
-
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
-				string[] includePaths = new string[cctx.Includes.Count];
-
-				cctx.Includes.CopyTo(includePaths, 0);
-
-				// Compile shader object (specifying include paths)
-				Gl.CompileShaderIncludeARB(ObjectName, includePaths, (int[])null);
-			} else {
-				// Compile shader object (includes are already preprocessed)
-				Gl.CompileShader(ObjectName);
-			}
-
-			// Check for compilation errors
-			int cStatus;
-
-			Gl.GetObjectParameterARB(ObjectName, Gl.COMPILE_STATUS, out cStatus);
-
-			if (cStatus != Gl.TRUE) {
-				StringBuilder sb = GetInfoLog();
-				
-				// Stop compilation process
-				sLog.Error("Shader object \"{0}\" compilation failed:\n{1}", _SourceFilePath ?? "<Hardcoded>", sb.ToString());
-				
-				// Log the source code referred to the shader log
-				sLog.Error("Source code for shader '{0}' that has generated the compiler error.", _SourceFilePath);
-				sLog.Error("--------------------------------------------------------------------------------");
-				uint sourcelineNo = 0;
-				foreach (string sourceline in source)
-					sLog.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
-				sLog.Error("--------------------------------------------------------------------------------");
-
-				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", _SourceFilePath, sb.ToString());
-			} else {
-				StringBuilder sb = GetInfoLog();
-				
-				if (sb.Length > 0)
-					sLog.Warn("Shader object \"{0}\" compilation warning: {1}", _SourceFilePath ?? "<Hardcoded>", sb.ToString());
-			}
-			
-			_Compiled = true;
-		}
-		
-		/// <summary>
 		/// Gets the informational log.
 		/// </summary>
 		/// <returns>
@@ -700,7 +449,7 @@ namespace OpenGL
 
 			string[] compilerLogLines = logInfo.ToString().Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
 			foreach (string logLine in compilerLogLines)
-				sb.AppendFormat("  {0}: {1}\n", _SourceFilePath, logLine);
+				sb.AppendFormat("  {0}: {1}\n", _SourcePath, logLine);
 			
 			return (sb);
 		}
@@ -747,183 +496,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Shader Objects Library Support
-
-		/// <summary>
-		/// Get the known preprocessor symbol to be effective on shader object compilation.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies a ShaderObject subclass.
-		/// </param>
-		/// <returns>
-		/// It returns an array listing all known preprocesor symbol given a shader object type. It can return null.
-		/// </returns>
-		internal static string[] GetKnownPreprocessorSymbol(Type type)
-		{
-			const string SymbolRegexFieldName = "KnownSymbolRegex";
-
-			if (type == null)
-				throw new ArgumentNullException("type");
-
-			FieldInfo field;
-
-			// Get field
-			if ((field = type.GetField(SymbolRegexFieldName, BindingFlags.Static | BindingFlags.Public)) == null)
-				return (null);		// No exception, less auto-generated code
-			if (field.FieldType != typeof(string[]))
-				throw new ArgumentException(String.Format("field {0}.{1} is not a string[]", type.FullName, SymbolRegexFieldName), "type");
-
-			return ((string[])field.GetValue(null));
-		}
-
-		/// <summary>
-		/// Method for ackoledge a known preprocessor symbol.
-		/// </summary>
-		/// <param name="symbol">
-		/// A <see cref="String"/> that specify the preprocessor symbol to consider for compilation process and library
-		/// support.
-		/// </param>
-		/// <param name="symbolPatterns">
-		/// A set of regular expressions used for matching <paramref name="symbol"/>.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether to consider the preprocessor symbol <paramref name="symbol"/> in
-		/// the compilation process and library support (contributes to hash computation). By default, this routine
-		/// returns false.
-		/// </returns>
-		private static bool IsKnownPreprocessorSymbol(string symbol, IEnumerable<string> symbolPatterns)
-		{
-			foreach (string pattern in symbolPatterns) {
-				if (Regex.IsMatch(symbol, pattern))
-					return (true);
-			}
-
-			return (false);
-		}
-
-		/// <summary>
-		/// Obtain the shader library identifier using reflection.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies a ShaderObject subclass.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="System.String"/> that identify the ShaderObject class in the shader library.
-		/// </returns>
-		internal static string GetLibraryId(Type type)
-		{
-			const string LibraryIdFieldName = "LibraryId";
-
-			if (type == null)
-				throw new ArgumentNullException("type");
-			if (type.IsSubclassOf(typeof(ShaderObject)) == false)
-				throw new ArgumentException("not subclassing ShaderObject", "type");
-
-			FieldInfo field;
-
-			// Get field
-			if ((field = type.GetField(LibraryIdFieldName, BindingFlags.Static | BindingFlags.Public)) == null)
-				throw new ArgumentException(String.Format("static field {0}.{1} not implemented", type.FullName, LibraryIdFieldName), "type");
-			if (field.FieldType != typeof(string))
-				throw new ArgumentException(String.Format("field {0}.{1} is not a string", type.FullName, LibraryIdFieldName), "type");
-
-			return ((string)field.GetValue(null));
-		}
-
-		/// <summary>
-		/// Determine whether a ShaderObject subclass declares default constructor stage.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies a ShaderObject subclass.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="type"/> declares a fixes <see cref="Stage"/>. If true,
-		/// the method <see cref="GetLibraryStage"/> shall not throw any exception. The value returned by <i>GetLibraryStage</i>
-		/// will define the <see cref="ObjectStage"/> value once the instance created by the default constructor.
-		/// </returns>
-		/// <seealso cref="GetLibraryStage"/>
-		/// <seealso cref="HasDefaultConstructor"/>
-		internal static bool HasLibraryStage(Type type)
-		{
-			FieldInfo field;
-
-			return (HasLibraryStage(type, out field));
-		}
-
-		/// <summary>
-		/// Determine whether a ShaderObject subclass implements the default constructor.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies a ShaderObject subclass.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="type"/> implements the default constructor.
-		/// </returns>
-		/// <remarks>
-		/// The instance created by the default constructor shall have the property <see cref="ObjectStage"/> equals to
-		/// the value returned by <see cref="GetLibraryStage"/> (if any).
-		/// </remarks>
-		/// <seealso cref="GetLibraryStage"/>
-		internal static bool HasDefaultConstructor(Type type)
-		{
-			if (type == null)
-				throw new ArgumentNullException("type");
-			if (type.IsSubclassOf(typeof(ShaderObject)) == false)
-				throw new ArgumentException("not subclassing ShaderObject", "type");
-
-			return (type.GetConstructor(Type.EmptyTypes) != null);
-		}
-
-		/// <summary>
-		/// Determine whether a ShaderObject subclass implements the constructor that specify.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies a ShaderObject subclass.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="type"/> implements the constructor
-		/// taking a <see cref="Stage"/> argument.
-		/// </returns>
-		internal static bool HasStageConstructor(Type type)
-		{
-			if (type == null)
-				throw new ArgumentNullException("type");
-			if (type.IsSubclassOf(typeof(ShaderObject)) == false)
-				throw new ArgumentException("not subclassing ShaderObject", "type");
-
-			return (type.GetConstructor(new Type[] { typeof(Stage) }) != null);
-		}
-
-		internal static Stage GetLibraryStage(Type sType)
-		{
-			FieldInfo field;
-
-			if (HasLibraryStage(sType, out field) == true)
-				return ((Stage)field.GetValue(null));
-			else
-				throw new ArgumentException(String.Format("not specifing library stage"));
-			
-		}
-
-		private static bool HasLibraryStage(Type type, out FieldInfo field)
-		{
-			const string LibraryStageFieldName = "LibraryStage";
-
-			// No field
-			field = null;
-
-			if (type == null)
-				throw new ArgumentNullException("type");
-			if (type.IsSubclassOf(typeof(ShaderObject)) == false)
-				throw new ArgumentException("not subclassing ShaderObject", "type");
-
-			if ((field = type.GetField(LibraryStageFieldName, BindingFlags.Static | BindingFlags.Public)) == null)
-				return (false);
-			if (field.FieldType != typeof(Stage))
-				return (false);
-
-			return (true);
-		}
+		#region Shader Objects Caching Support
 
 		/// <summary>
 		/// Determine an unique identifier that specify the compiled shader object.
@@ -935,13 +508,13 @@ namespace OpenGL
 		/// A <see cref="System.String"/> that identifies the shader object in library.
 		/// </param>
 		/// <param name="sObjectStage">
-		/// A <see cref="ShaderObject.Stage"/> that specifies the shader object stage.
+		/// A <see cref="ShaderObject.ShaderStage"/> that specifies the shader object stage.
 		/// </param>
 		/// <returns>
 		/// It returns a string that identify the a shader object classified with <paramref name="libraryId"/>, by
 		/// specifying <paramref name="cctx"/> as compiled parameters, for the shader stage <paramref name="sObjectStage"/>.
 		/// </returns>
-		internal static string ComputeCompilerHash(ShaderCompilerContext cctx, string libraryId, Stage sObjectStage)
+		internal static string ComputeCompilerHash(ShaderCompilerContext cctx, string libraryId, ShaderStage sObjectStage)
 		{
 			StringBuilder hashMessage = new StringBuilder();
 
@@ -1073,8 +646,62 @@ namespace OpenGL
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			// Compile this shader object
-			Compile(ctx, _CompilationParams);
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (_CompilationParams == null)
+				throw new InvalidOperationException("no compiler parameters");
+
+			// Using a deep copy of the shader compiler context, since it will be modified by this ShaderProgram
+			// instance and the attached ShaderObject instances
+			ShaderCompilerContext cctx = new ShaderCompilerContext(_CompilationParams);
+
+			sLog.Debug("Compilation of shader object '{0}'.", _SourcePath);
+
+			List<string> source = GenerateSource(ctx, cctx);        // Source generation!
+
+			// Set shader source
+			Gl.ShaderSource(ObjectName, source.ToArray());
+
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
+				string[] includePaths = new string[cctx.Includes.Count];
+
+				cctx.Includes.CopyTo(includePaths, 0);
+
+				// Compile shader object (specifying include paths)
+				Gl.CompileShaderIncludeARB(ObjectName, includePaths, (int[])null);
+			} else {
+				// Compile shader object (includes are already preprocessed)
+				Gl.CompileShader(ObjectName);
+			}
+
+			// Check for compilation errors
+			int cStatus;
+
+			Gl.GetObjectParameterARB(ObjectName, Gl.COMPILE_STATUS, out cStatus);
+
+			if (cStatus != Gl.TRUE) {
+				StringBuilder sb = GetInfoLog();
+
+				// Stop compilation process
+				sLog.Error("Shader object \"{0}\" compilation failed:\n{1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
+
+				// Log the source code referred to the shader log
+				sLog.Error("Source code for shader '{0}' that has generated the compiler error.", _SourcePath);
+				sLog.Error("--------------------------------------------------------------------------------");
+				uint sourcelineNo = 0;
+				foreach (string sourceline in source)
+					sLog.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
+				sLog.Error("--------------------------------------------------------------------------------");
+
+				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", _SourcePath, sb.ToString());
+			} else {
+				StringBuilder sb = GetInfoLog();
+
+				if (sb.Length > 0)
+					sLog.Warn("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
+			}
+
+			_Compiled = true;
 		}
 
 		/// <summary>

@@ -1,18 +1,20 @@
 
-// Copyright (C) 2011-2012 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -265,7 +267,7 @@ namespace OpenGL
 			/// Expand known symbols contained in a source text.
 			/// </summary>
 			/// <param name="text">
-			/// A <see cref="System.String"/> that specify a source text to preprocess..
+			/// A <see cref="String"/> that specify a source text to preprocess..
 			/// </param>
 			/// <returns>
 			/// It returns the result of preprocessing of <paramref name="text"/>.
@@ -284,10 +286,10 @@ namespace OpenGL
 			/// Expand symbols contained in a source text.
 			/// </summary>
 			/// <param name="text">
-			/// A <see cref="System.String"/> that specify a source text to preprocess..
+			/// A <see cref="String"/> that specify a source text to preprocess..
 			/// </param>
 			/// <param name="conservative">
-			/// A <see cref="System.Boolean"/> indicating whether expand even the unknown symbols.
+			/// A <see cref="Boolean"/> indicating whether expand even the unknown symbols.
 			/// </param>
 			/// <returns>
 			/// It returns the result of preprocessing of <paramref name="text"/>.
@@ -505,28 +507,12 @@ namespace OpenGL
 		/// Parse a shader source.
 		/// </summary>
 		/// <param name="source">
-		/// A <see cref="System.String"/> that specify the shader source text. It can contains multiple lines.
+		/// A <see cref="String"/> that specify the shader source text. It can contains multiple lines.
 		/// </param>
 		/// <returns>
 		/// It returns the result of preprocessing of <paramref name="source"/>.
 		/// </returns>
-		public static List<string> Parse(string source)
-		{
-			List<string> sourceLines = new List<string>(source.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries));
-
-			return (Parse(sourceLines));
-		}
-
-		/// <summary>
-		/// Parse a shader source.
-		/// </summary>
-		/// <param name="source">
-		/// A <see cref="System.String"/> that specify the shader source text. It can contains multiple lines.
-		/// </param>
-		/// <returns>
-		/// It returns the result of preprocessing of <paramref name="source"/>.
-		/// </returns>
-		public static List<string> Parse(List<string> source)
+		public static List<string> Process(List<string> source)
 		{
 			Context ctx = new Context();
 			List<string> processedSource = new List<string>();
@@ -535,7 +521,7 @@ namespace OpenGL
 				Match directiveMatch;
 				string sourceLine = source[sourceLineNumber];
 
-				if ((directiveMatch = sDirectiveRegex.Match(sourceLine)).Success) {
+				if ((directiveMatch = _RegexDirective.Match(sourceLine)).Success) {
 					StringBuilder sb = new StringBuilder();
 
 					do {
@@ -549,13 +535,13 @@ namespace OpenGL
 					} while (sourceLine.TrimEnd().EndsWith(@"\"));
 
 					// Replace backslash-newline with newlines
-					sourceLine = sBackslashNewlineRegex.Replace(sb.ToString(), "\n");
+					sourceLine = _RegexBackslashNewline.Replace(sb.ToString(), "\n");
 					// Remove C++ comments (still preserve new lines)
-					sourceLine = sCppCommentRegex.Replace(sourceLine, " ");
+					sourceLine = _RegexCppComment.Replace(sourceLine, " ");
 					// Remove C comments (still preserve new lines, except the commented ones)
-					sourceLine = sCCommentRegex.Replace(sourceLine, " ");
+					sourceLine = _RegexCComment.Replace(sourceLine, " ");
 					// Build a single long directive line (discards new lines)
-					sourceLine = sNewlineRegex.Replace(sourceLine, String.Empty);
+					sourceLine = _RegexNewline.Replace(sourceLine, String.Empty);
 
 					// Parse preprocessor directive
 					string directive = directiveMatch.Groups["Directive"].Value;
@@ -621,11 +607,18 @@ namespace OpenGL
 			return (processedSource);
 		}
 
+		/// <summary>
+		/// Determine whether a line is composed only by a comment line.
+		/// </summary>
+		/// <param name="sourceLine">
+		/// 
+		/// </param>
+		/// <returns></returns>
 		public static bool IsCommentLine(string sourceLine)
 		{
-			if (sCppCommentLineRegex.IsMatch(sourceLine))
+			if (_RegexCppCommentLine.IsMatch(sourceLine))
 				return (true);
-			if (sCCommentLineRegex.IsMatch(sourceLine))
+			if (_RegexCCommentLine.IsMatch(sourceLine))
 				return (true);
 
 			return (false);
@@ -634,37 +627,37 @@ namespace OpenGL
 		/// <summary>
 		/// Regular expression for matching backslashes before EOL.
 		/// </summary>
-		private static readonly Regex sBackslashNewlineRegex = new Regex(@"\\ *$", RegexOptions.Multiline);
+		private static readonly Regex _RegexBackslashNewline = new Regex(@"\\ *$", RegexOptions.Multiline);
 
 		/// <summary>
 		/// Regular expression for matching C++ comments.
 		/// </summary>
-		private static readonly Regex sCppCommentRegex = new Regex(@"//.*", RegexOptions.Multiline);
+		private static readonly Regex _RegexCppComment = new Regex(@"//.*", RegexOptions.Multiline);
 
 		/// <summary>
 		/// Regular expression for matching C++ comments.
 		/// </summary>
-		private static readonly Regex sCppCommentLineRegex = new Regex(@"^\s*//.*$");
+		private static readonly Regex _RegexCppCommentLine = new Regex(@"^\s*//.*$");
 
 		/// <summary>
 		/// Regular expression for matching C comments.
 		/// </summary>
-		private static readonly Regex sCCommentRegex = new Regex(@"/\*(.|$)*\*/", RegexOptions.Multiline);
+		private static readonly Regex _RegexCComment = new Regex(@"/\*(.|$)*\*/", RegexOptions.Multiline);
 
 		/// <summary>
 		/// Regular expression for matching C comments.
 		/// </summary>
-		private static readonly Regex sCCommentLineRegex = new Regex(@"^\s*/\*(.|$)*\*/ *$");
+		private static readonly Regex _RegexCCommentLine = new Regex(@"^\s*/\*(.|$)*\*/ *$");
 
 		/// <summary>
 		/// Regular expression for matching EOL characters.
 		/// </summary>
-		private static readonly Regex sNewlineRegex = new Regex(@"$", RegexOptions.Multiline);
+		private static readonly Regex _RegexNewline = new Regex(@"$", RegexOptions.Multiline);
 
 		/// <summary>
 		/// Regular expression for matching preprocessor directive.
 		/// </summary>
-		private static readonly Regex sDirectiveRegex = new Regex(@"^ *# *(?<Directive>if|ifdef|ifndef|elif|else|endif|define|undef|include) .*", RegexOptions.Multiline);
+		private static readonly Regex _RegexDirective = new Regex(@"^ *# *(?<Directive>if|ifdef|ifndef|elif|else|endif|define|undef|include) .*", RegexOptions.Multiline);
 
 		#endregion
 
@@ -672,8 +665,8 @@ namespace OpenGL
 
 		private static void ParseDefineDirective(Context ctx, string line)
 		{
-			Match symbolMatch = sSymbolRegex.Match(line);
-			Match macroMatch = sMacroRegex.Match(line);
+			Match symbolMatch = _RegexDefineSymbol.Match(line);
+			Match macroMatch = _RegexMacro.Match(line);
 
 			if ((symbolMatch.Success == false) && (macroMatch.Success == false))
 				throw new ArgumentException("no valid 'define' preprocessor directive");
@@ -705,12 +698,12 @@ namespace OpenGL
 		/// <summary>
 		/// Regular expression for matching preprocessor directive.
 		/// </summary>
-		private static readonly Regex sSymbolRegex = new Regex(@"# *define (?<Symbol>[A-Z_a-z]\w*) *(?<Value>.*)", RegexOptions.Compiled | RegexOptions.Multiline);
+		private static readonly Regex _RegexDefineSymbol = new Regex(@"# *define (?<Symbol>[A-Z_a-z]\w*) *(?<Value>.*)", RegexOptions.Compiled | RegexOptions.Multiline);
 
 		/// <summary>
 		/// Regular expression for matching preprocessor directive.
 		/// </summary>
-		private static readonly Regex sMacroRegex = new Regex(@"# *define *(?<Symbol>[A-Z_a-z]\w*)\((?<Arg0>\w+ *(?<ArgN>, *\w+)*)?\) *(?<Macro>.*)", RegexOptions.Compiled | RegexOptions.Multiline);
+		private static readonly Regex _RegexMacro = new Regex(@"# *define *(?<Symbol>[A-Z_a-z]\w*)\((?<Arg0>\w+ *(?<ArgN>, *\w+)*)?\) *(?<Macro>.*)", RegexOptions.Compiled | RegexOptions.Multiline);
 
 		#endregion
 

@@ -171,12 +171,12 @@
     <Compile Include="ShaderInclude.cs" />
     <Compile Include="ShaderIncludeLibrary.cs" />
     <Compile Include="ShaderIncludePreprocessor.cs" />
-    <Compile Include="ShaderInterface.cs" />
     <Compile Include="ShaderObject.cs" />
     <Compile Include="ShaderProgram.cs" />
     <Compile Include="ShaderProgramUniform.cs" />
     <Compile Include="ShaderProgramVariantUniform.cs" />
     <Compile Include="ShaderSourcePreprocessor.cs" />
+    <Compile Include="ShaderStage.cs" />
     <Compile Include="ShaderUniformType.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Texture1d.cs" />
@@ -205,6 +205,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Shaders\Compatibility.glsl" />
+    <EmbeddedResource Include="Shaders\Light\BlinnShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ConstantShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ILightShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LambertShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\MaterialState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\PhongShading.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Time.glsl" />
+    <EmbeddedResource Include="Shaders\TransformState.glsl" />
+    <EmbeddedResource Include="Shaders\Viewport.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\CompatibilityNotes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

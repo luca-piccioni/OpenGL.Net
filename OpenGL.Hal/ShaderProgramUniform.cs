@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2012 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2009-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -33,11 +35,11 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="System.Object"/> holding the uniform variabile data.
+		/// A <see cref="Object"/> holding the uniform variabile data.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -45,9 +47,9 @@ namespace OpenGL
 		/// This exception is thrown if the parameter <paramref name="ctx"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="uName"/> is null.
+		/// This exception is thrown if the parameter <paramref name="uniformName"/> is null.
 		/// </exception>
-		public void SetUniform(GraphicsContext ctx, string uName, object value)
+		public void SetUniform(GraphicsContext ctx, string uniformName, object value)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -56,9 +58,9 @@ namespace OpenGL
 
 			MethodInfo setUniformMethod;
 
-			if (sSetUniformMethods.TryGetValue(value.GetType(), out setUniformMethod) == false) {
+			if (_SetUniformMethods.TryGetValue(value.GetType(), out setUniformMethod) == false) {
 				setUniformMethod = typeof(ShaderProgram).GetMethod("SetUniform", new Type[] { typeof(GraphicsContext), typeof(string), value.GetType() });
-				sSetUniformMethods[value.GetType()] = setUniformMethod;
+				_SetUniformMethods[value.GetType()] = setUniformMethod;
 			}
 
 			if (setUniformMethod != null) {
@@ -67,7 +69,7 @@ namespace OpenGL
 					throw new NotSupportedException(value.GetType() + " is not supported");
 
 				try {
-					setUniformMethod.Invoke(this, new object[] { ctx, uName, value });
+					setUniformMethod.Invoke(this, new object[] { ctx, uniformName, value });
 				} catch (TargetInvocationException targetInvocationException) {
 					throw targetInvocationException.InnerException;
 				}
@@ -78,12 +80,12 @@ namespace OpenGL
 		/// <summary>
 		/// Methods used for setting uniform values.
 		/// </summary>
-		private static readonly Dictionary<Type, MethodInfo> sSetUniformMethods = new Dictionary<Type, MethodInfo>();
+		private static readonly Dictionary<Type, MethodInfo> _SetUniformMethods = new Dictionary<Type, MethodInfo>();
 
 		/// <summary>
 		/// Methods used for getting uniform values.
 		/// </summary>
-		private static readonly Dictionary<Type, MethodInfo> sGetUniformMethods = new Dictionary<Type, MethodInfo>();
+		private static readonly Dictionary<Type, MethodInfo> _GetUniformMethods = new Dictionary<Type, MethodInfo>();
 
 		#endregion
 
@@ -95,18 +97,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Single"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, float v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, float v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
@@ -121,21 +123,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (first component).
+		/// A <see cref="Single"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (second component).
+		/// A <see cref="Single"/> holding the uniform variabile data (second component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, float x, float y)
+		public void SetUniform(GraphicsContext ctx, string uniformName, float x, float y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
@@ -150,24 +152,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (first component).
+		/// A <see cref="Single"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (second component).
+		/// A <see cref="Single"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (third component).
+		/// A <see cref="Single"/> holding the uniform variabile data (third component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, float x, float y, float z)
+		public void SetUniform(GraphicsContext ctx, string uniformName, float x, float y, float z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
@@ -182,27 +184,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (first component).
+		/// A <see cref="Single"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (second component).
+		/// A <see cref="Single"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (third component).
+		/// A <see cref="Single"/> holding the uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Single"/> holding the uniform variabile data (fourth component).
+		/// A <see cref="Single"/> holding the uniform variabile data (fourth component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, float x, float y, float z, float w)
+		public void SetUniform(GraphicsContext ctx, string uniformName, float x, float y, float z, float w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -217,15 +219,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex2f"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex2f v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f v)
 		{
-			SetUniform(ctx, uName, v.x, v.y);
+			SetUniform(ctx, uniformName, v.x, v.y);
 		}
 
 		/// <summary>
@@ -234,15 +236,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex3f v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f v)
 		{
-			SetUniform(ctx, uName, v.x, v.y, v.z);
+			SetUniform(ctx, uniformName, v.x, v.y, v.z);
 		}
 
 		/// <summary>
@@ -251,15 +253,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex4f v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f v)
 		{
-			SetUniform(ctx, uName, v.x, v.y, v.z, v.w);
+			SetUniform(ctx, uniformName, v.x, v.y, v.z, v.w);
 		}
 
 		/// <summary>
@@ -268,15 +270,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="ColorRGBAF"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, ColorRGBAF v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF v)
 		{
-			SetUniform(ctx, uName, v.Red, v.Green, v.Blue, v.Alpha);
+			SetUniform(ctx, uniformName, v.Red, v.Green, v.Blue, v.Alpha);
 		}
 
 		/// <summary>
@@ -285,18 +287,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex3 v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3 v)
 		{
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			SetUniform(ctx, uName, v.X, v.Y, v.Z);
+			SetUniform(ctx, uniformName, v.X, v.Y, v.Z);
 		}
 
 		/// <summary>
@@ -305,18 +307,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="ColorRGBAF"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, ColorRGBA v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBA v)
 		{
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			SetUniform(ctx, uName, v.Red, v.Green, v.Blue, v.Alpha);
+			SetUniform(ctx, uniformName, v.Red, v.Green, v.Blue, v.Alpha);
 		}
 
 		/// <summary>
@@ -325,18 +327,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Single"/> holding the returned uniform variabile data.
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out float v)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out float v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
@@ -354,8 +356,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the returned uniform variabile data (first component).
@@ -363,12 +365,12 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="Single"/> holding the returned uniform variabile data (second component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out float x, out float y)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out float x, out float y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
@@ -387,8 +389,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the returned uniform variabile data (first component).
@@ -399,12 +401,12 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="Single"/> holding the returned uniform variabile data (third component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out float x, out float y, out float z)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out float x, out float y, out float z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
@@ -424,8 +426,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the returned uniform variabile data (first component).
@@ -439,12 +441,12 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="Single"/> holding the returned uniform variabile data (fourth component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out float x, out float y, out float z, out float w)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out float x, out float y, out float z, out float w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
@@ -469,18 +471,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Double"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, double v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, double v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE);
@@ -495,21 +497,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (first component).
+		/// A <see cref="Double"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (second component).
+		/// A <see cref="Double"/> holding the uniform variabile data (second component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, double x, double y)
+		public void SetUniform(GraphicsContext ctx, string uniformName, double x, double y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
@@ -524,24 +526,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (first component).
+		/// A <see cref="Double"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (second component).
+		/// A <see cref="Double"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (third component).
+		/// A <see cref="Double"/> holding the uniform variabile data (third component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, double x, double y, double z)
+		public void SetUniform(GraphicsContext ctx, string uniformName, double x, double y, double z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
@@ -556,27 +558,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (first component).
+		/// A <see cref="Double"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (second component).
+		/// A <see cref="Double"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (third component).
+		/// A <see cref="Double"/> holding the uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Double"/> holding the uniform variabile data (fourth component).
+		/// A <see cref="Double"/> holding the uniform variabile data (fourth component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, double x, double y, double z, double w)
+		public void SetUniform(GraphicsContext ctx, string uniformName, double x, double y, double z, double w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
@@ -591,15 +593,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex2d"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex2d v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2d v)
 		{
-			SetUniform(ctx, uName, v.x, v.y);
+			SetUniform(ctx, uniformName, v.x, v.y);
 		}
 
 		/// <summary>
@@ -608,15 +610,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3d"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex3d v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3d v)
 		{
-			SetUniform(ctx, uName, v.x, v.y, v.z);
+			SetUniform(ctx, uniformName, v.x, v.y, v.z);
 		}
 
 		/// <summary>
@@ -625,15 +627,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex4d"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex4d v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4d v)
 		{
-			SetUniform(ctx, uName, v.x, v.y, v.z, v.w);
+			SetUniform(ctx, uniformName, v.x, v.y, v.z, v.w);
 		}
 
 		/// <summary>
@@ -642,18 +644,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Double"/> holding the returned uniform variabile data.
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out double v)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out double v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.DOUBLE);
 
@@ -671,8 +673,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the returned uniform variabile data (first component).
@@ -680,12 +682,12 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="Double"/> holding the returned uniform variabile data (second component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out double x, out double y)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out double x, out double y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
 
@@ -704,8 +706,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the returned uniform variabile data (first component).
@@ -716,12 +718,12 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="Double"/> holding the returned uniform variabile data (third component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out double x, out double y, out double z)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out double x, out double y, out double z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
 
@@ -741,8 +743,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the returned uniform variabile data (first component).
@@ -756,12 +758,12 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="Double"/> holding the returned uniform variabile data (fourth component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out double x, out double y, out double z, out double w)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out double x, out double y, out double z, out double w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
 
@@ -786,18 +788,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data.
+		/// A <see cref="Int32"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, int v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, int v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
@@ -812,21 +814,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (first component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (second component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (second component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, int x, int y)
+		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
@@ -841,24 +843,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (first component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (second component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (third component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (third component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, int x, int y, int z)
+		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y, int z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -873,27 +875,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (first component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (second component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (third component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> holding the uniform variabile data (fourth component).
+		/// A <see cref="Int32"/> holding the uniform variabile data (fourth component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, int x, int y, int z, int w)
+		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y, int z, int w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -908,15 +910,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex2i"/> holding the uniform variabile data (first component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex2i v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2i v)
 		{
-			SetUniform(ctx, uName, v.x, v.y);
+			SetUniform(ctx, uniformName, v.x, v.y);
 		}
 
 		/// <summary>
@@ -925,15 +927,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3i"/> holding the uniform variabile data (first component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex3i v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3i v)
 		{
-			SetUniform(ctx, uName, v.x, v.y, v.z);
+			SetUniform(ctx, uniformName, v.x, v.y, v.z);
 		}
 
 		/// <summary>
@@ -942,15 +944,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex4i"/> holding the uniform variabile data (first component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Vertex4i v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4i v)
 		{
-			SetUniform(ctx, uName, v.x, v.y, v.z, v.w);
+			SetUniform(ctx, uniformName, v.x, v.y, v.z, v.w);
 		}
 
 		/// <summary>
@@ -959,18 +961,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data.
+		/// A <see cref="Int32"/> holding the returned uniform variabile data.
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out int v)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out int v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
 
@@ -988,21 +990,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (first component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (second component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (second component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out int x, out int y)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out int x, out int y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
@@ -1021,24 +1023,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (first component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (second component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (third component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (third component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out int x, out int y, out int z)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out int x, out int y, out int z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
@@ -1058,27 +1060,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (first component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (second component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (third component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> holding the returned uniform variabile data (fourth component).
+		/// A <see cref="Int32"/> holding the returned uniform variabile data (fourth component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out int x, out int y, out int z, out int w)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out int x, out int y, out int z, out int w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
@@ -1103,18 +1105,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data.
+		/// A <see cref="UInt32"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, uint v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, uint v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
@@ -1129,21 +1131,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (second component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, uint x, uint y)
+		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
@@ -1158,24 +1160,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (third component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (third component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, uint x, uint y, uint z)
+		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y, uint z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
@@ -1190,27 +1192,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (third component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (fourth component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (fourth component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, uint x, uint y, uint z, uint w)
+		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y, uint z, uint w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
@@ -1225,18 +1227,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data.
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data.
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out uint v)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out uint v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
 
@@ -1254,21 +1256,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (second component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out uint x, out uint y)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out uint x, out uint y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
 
@@ -1287,24 +1289,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (third component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (third component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out uint x, out uint y, out uint z)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out uint x, out uint y, out uint z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
 
@@ -1324,27 +1326,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (third component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.UInt32"/> holding the returned uniform variabile data (fourth component).
+		/// A <see cref="UInt32"/> holding the returned uniform variabile data (fourth component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out uint x, out uint y, out uint z, out uint w)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out uint x, out uint y, out uint z, out uint w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
 
@@ -1369,18 +1371,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="System.Boolean"/> holding the uniform variabile data.
+		/// A <see cref="Boolean"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, bool v)
+		public void SetUniform(GraphicsContext ctx, string uniformName, bool v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL);
@@ -1395,21 +1397,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (second component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, bool x, bool y)
+		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
@@ -1424,24 +1426,24 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (third component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (third component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, bool x, bool y, bool z)
+		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y, bool z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
@@ -1456,27 +1458,27 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (first component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (first component).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (second component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (second component).
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (third component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (third component).
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.UInt32"/> holding the uniform variabile data (fourth component).
+		/// A <see cref="UInt32"/> holding the uniform variabile data (fourth component).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, bool x, bool y, bool z, bool w)
+		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y, bool z, bool w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
@@ -1491,18 +1493,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data.
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out bool v)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out bool v)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.BOOL);
 
@@ -1520,8 +1522,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data (first component).
@@ -1529,12 +1531,12 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data (second component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out bool x, out bool y)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out bool x, out bool y)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
 
@@ -1553,8 +1555,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data (first component).
@@ -1565,12 +1567,12 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data (third component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out bool x, out bool y, out bool z)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out bool x, out bool y, out bool z)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
 
@@ -1590,8 +1592,8 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data (first component).
@@ -1605,12 +1607,12 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="Boolean"/> holding the returned uniform variabile data (fourth component).
 		/// </param>
-		public void GetUniform(GraphicsContext ctx, string uName, out bool x, out bool y, out bool z, out bool w)
+		public void GetUniform(GraphicsContext ctx, string uniformName, out bool x, out bool y, out bool z, out bool w)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
 
@@ -1635,20 +1637,20 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Matrix m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 
@@ -1709,20 +1711,20 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Matrix3x3 m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3 m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
@@ -1737,20 +1739,20 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Matrix4x4 m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4 m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
@@ -1769,20 +1771,20 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="MatrixDouble"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, MatrixDouble m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 
@@ -1843,18 +1845,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="MatrixDouble3x3"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, MatrixDouble3x3 m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble3x3 m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_MAT3);
@@ -1869,18 +1871,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="MatrixDouble4x4"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, MatrixDouble4x4 m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble4x4 m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
@@ -1899,15 +1901,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="tex">
 		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Texture tex)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Texture tex)
 		{
-			SetUniform(ctx, uName, tex, mTexActiveUnit++);
+			SetUniform(ctx, uniformName, tex, mTexActiveUnit++);
 		}
 
 		/// <summary>
@@ -1916,21 +1918,21 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> that specifies the variable name in the shader source.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the variable name in the shader source.
 		/// </param>
 		/// <param name="tex">
 		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
 		/// </param>
 		/// <param name="texUnit">
-		/// A <see cref="System.Int32"/> that specifies the texture unit processing the texture <paramref name="tex"/>.
+		/// A <see cref="Int32"/> that specifies the texture unit processing the texture <paramref name="tex"/>.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uName, Texture tex, uint texUnit)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Texture tex, uint texUnit)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uName);
+			UniformBinding uniform = GetUniform(uniformName);
 
 			if (tex == null)
 				throw new ArgumentNullException("tex");
@@ -1973,7 +1975,7 @@ namespace OpenGL
 		/// <summary>
 		/// The number of slots used for storing uniform data.
 		/// </summary>
-		public uint UniformSlots { get { return (mDefaultBlockUniformSlots); } }
+		public uint UniformSlots { get { return (_DefaultBlockUniformSlots); } }
 
 		/// <summary>
 		/// Collection of active uniforms on this ShaderProgram.
@@ -1993,28 +1995,28 @@ namespace OpenGL
 		{
 			get
 			{
-				return (mUniformMap.Keys);
+				return (_UniformMap.Keys);
 			}
 		}
 
 		/// <summary>
 		/// Determine whether an uniform is active or not.
 		/// </summary>
-		/// <param name="uName">
-		/// A <see cref="System.String"/> which specify the uniform name.
+		/// <param name="uniformName">
+		/// A <see cref="String"/> which specify the uniform name.
 		/// </param>
 		/// <returns>
 		/// </returns>
-		public bool IsActiveUniform(string uName)
+		public bool IsActiveUniform(string uniformName)
 		{
-			return (mUniformMap.ContainsKey(uName));
+			return (_UniformMap.ContainsKey(uniformName));
 		}
 
 		/// <summary>
 		/// Request uniform variable location.
 		/// </summary>
 		/// <param name="uniformName">
-		/// A <see cref="System.String"/> of the uniform variable used.
+		/// A <see cref="String"/> of the uniform variable used.
 		/// </param>
 		/// <returns></returns>
 		private UniformBinding GetUniform(string uniformName)
@@ -2024,7 +2026,7 @@ namespace OpenGL
 
 			UniformBinding uniformBinding;
 
-			if (mUniformMap.TryGetValue(uniformName, out uniformBinding) == false)
+			if (_UniformMap.TryGetValue(uniformName, out uniformBinding) == false)
 				throw new InvalidOperationException(String.Format("uniform {0} is not active", uniformName));
 
 			return (uniformBinding);
@@ -2086,7 +2088,14 @@ namespace OpenGL
 			/// Construct a UniformBinding.
 			/// </summary>
 			/// <param name="uniformName">
-			/// A <see cref="System.String"/> that specify the uniform variable name.
+			/// A <see cref="String"/> that specify the uniform variable name.
+			/// </param>
+			/// <param name="uniformIndex">
+			/// </param>
+			/// <param name="uniformLocation">
+			/// </param>
+			/// <param name="uniformType">
+			/// A <see cref="ShaderUniformType"/> that specifies the uniform variable type.
 			/// </param>
 			public UniformBinding(string uniformName, uint uniformIndex, int uniformLocation, ShaderUniformType uniformType)
 			{
@@ -2123,12 +2132,12 @@ namespace OpenGL
 		/// <summary>
 		/// Map active uniform location with uniform name.
 		/// </summary>
-		private readonly Dictionary<string, UniformBinding> mUniformMap = new Dictionary<string, UniformBinding>();
+		private readonly Dictionary<string, UniformBinding> _UniformMap = new Dictionary<string, UniformBinding>();
 
 		/// <summary>
 		/// Uniform slots used by the default block of this shader program.
 		/// </summary>
-		private uint mDefaultBlockUniformSlots;
+		private uint _DefaultBlockUniformSlots;
 
 		#endregion
 	}
