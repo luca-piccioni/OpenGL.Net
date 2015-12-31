@@ -199,6 +199,35 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for glGetNamedStringivARB.
+		/// </summary>
+		/// <param name="namelen">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="name">
+		/// A <see cref="T:String"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
+		public static void GetNamedStringARB(Int32 namelen, String name, Int32 pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetNamedStringivARB != null, "pglGetNamedStringivARB not implemented");
+					Delegates.pglGetNamedStringivARB(namelen, name, pname, p_params);
+					LogFunction("glGetNamedStringivARB({0}, {1}, {2}, {3})", namelen, name, LogEnumName(pname), @params);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
 	}
 
 }

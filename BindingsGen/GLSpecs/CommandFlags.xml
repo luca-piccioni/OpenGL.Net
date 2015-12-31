@@ -145,7 +145,7 @@
 		<flags>OutParam</flags>
 	</command>
 
-	<command name="^glGet(ShaderPrecisionFormat|BufferParameteriv(ARB)?)$">
+	<command name="^glGet(ShaderPrecisionFormat|BufferParameteriv(ARB)?|NamedStringivARB)$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
