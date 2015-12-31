@@ -1,18 +1,20 @@
 
-// Copyright (c) 2013 Luca Piccioni
+// Copyright (C) 2013-2015 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-// This program is distributed in the hope that it will be useful,
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -25,54 +27,57 @@ namespace OpenGL
 	class ShaderIncludeLibrary : GraphicsResource
 	{
 		#region Constructors
-		
+
+		/// <summary>
+		/// Construct a ShaderIncludeLibrary.
+		/// </summary>
 		public ShaderIncludeLibrary()
 		{
-#if false
-			foreach (Type shaderIncludeType in ShaderLibrary.sIncludeLibrary) {
-				IShaderInclude shaderInclude = (IShaderInclude)Activator.CreateInstance(shaderIncludeType);
-				mIncludeSourceTree[shaderInclude.IncludePath] = shaderInclude;
+			// Load all include files defined by ShadersLibrary
+			foreach (ShadersLibrary.Include shaderLibraryInclude in ShadersLibrary.Instance.Includes) {
+				if (_IncludeFileSystem.ContainsKey(shaderLibraryInclude.Id))
+					throw new InvalidOperationException(String.Format("include path '{0}' is duplicated", shaderLibraryInclude.Id));
+
+				ShaderInclude shaderInclude = new ShaderInclude(shaderLibraryInclude.Id);
+
+				shaderInclude.LoadSource(shaderLibraryInclude.Path);
+				shaderInclude.IncRef();
+
+				_IncludeFileSystem.Add(shaderInclude.IncludePath, shaderInclude);
 			}
-#endif
 		}
-		
-#endregion
-		
-#region Shader Include Collection
-		
+
+		#endregion
+
+		#region Shader Include Collection
+
+		/// <summary>
+		/// Determine whether an include source have a specific path.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specifies an include file path.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether <paramref name="path"/> specifies an include file.
+		/// </returns>
 		public bool IsPathDefined(string path)
 		{
-			return (mIncludeSourceTree.ContainsKey(path));
+			return (_IncludeFileSystem.ContainsKey(path));
 		}
 		
-		public IShaderInclude GetInclude(string path)
+		public ShaderInclude GetInclude(string path)
 		{
-			return (mIncludeSourceTree[path]);
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
-		public IEnumerable<string> GetIncludeTree()
-		{
-			List<string> treePaths = new List<string>(mIncludeSourceTree.Keys.Count);
-
-			foreach (string key in mIncludeSourceTree.Keys)
-				treePaths.Add(key);
-			treePaths.Sort();
-
-			return (treePaths);
+			return (_IncludeFileSystem[path]);
 		}
 		
 		/// <summary>
 		/// Map between paths and include source strings.
 		/// </summary>
-		private readonly Dictionary<string, IShaderInclude> mIncludeSourceTree = new Dictionary<string,IShaderInclude>();
+		private readonly Dictionary<string, ShaderInclude> _IncludeFileSystem = new Dictionary<string, ShaderInclude>();
 		
-#endregion
+		#endregion
 		
-#region GraphicsResource Overrides
+		#region GraphicsResource Overrides
 		
 		/// <summary>
 		/// Shader include object class.
@@ -108,7 +113,7 @@ namespace OpenGL
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			foreach (IShaderInclude shaderInclude in mIncludeSourceTree.Values)
+			foreach (ShaderInclude shaderInclude in _IncludeFileSystem.Values)
 				shaderInclude.Create(ctx);
 		}
 		
@@ -149,14 +154,14 @@ namespace OpenGL
 		/// </exception>
 		public override void Delete(GraphicsContext ctx)
 		{
-			foreach (IShaderInclude shaderInclude in mIncludeSourceTree.Values)
-				shaderInclude.Delete(ctx);
-			
+			// Dispose shader includes
+			foreach (ShaderInclude shaderInclude in _IncludeFileSystem.Values)
+				shaderInclude.DecRef();
 			// Base implementation
 			base.Delete(ctx);
 		}
 		
-#endregion
+		#endregion
 	}
 }
 

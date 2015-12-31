@@ -116,7 +116,6 @@
     <Compile Include="IPlugin.cs" />
     <Compile Include="IReferenceable.cs" />
     <Compile Include="IResource.cs" />
-    <Compile Include="IShaderInclude.cs" />
     <Compile Include="IVertex.cs" />
     <Compile Include="IVertex2.cs" />
     <Compile Include="IVertex3.cs" />
@@ -171,6 +170,7 @@
     <Compile Include="ShaderInclude.cs" />
     <Compile Include="ShaderIncludeLibrary.cs" />
     <Compile Include="ShaderIncludePreprocessor.cs" />
+    <Compile Include="ShadersLibrary.cs" />
     <Compile Include="ShaderObject.cs" />
     <Compile Include="ShaderProgram.cs" />
     <Compile Include="ShaderProgramUniform.cs" />
@@ -221,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\CompatibilityNotes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\ShadersLibrary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

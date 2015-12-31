@@ -106,7 +106,7 @@ namespace OpenGL
 				if (line == null) continue;
 
 				if ((_RegexInclude.Match(line)).Success) {
-					IShaderInclude shaderInclude = null;
+					ShaderInclude shaderInclude = null;
 					string includePath = ExtractIncludePath(line);
 					string canonicalPath = String.Empty;
 
@@ -164,7 +164,7 @@ namespace OpenGL
 					System.Diagnostics.Debug.Assert(String.IsNullOrEmpty(canonicalPath) == false);
 					ictxRecurse.CurrentPath = canonicalPath;
 
-					processedSource.AddRange(Process(ctx, cctx, ictxRecurse, shaderInclude.IncludeSource));
+					processedSource.AddRange(Process(ctx, cctx, ictxRecurse, shaderInclude.Source));
 				} else
 					processedSource.Add(line);
 			}

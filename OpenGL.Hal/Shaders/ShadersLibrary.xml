@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+	
+	<!-- Include sources -->
+	<Includes>
+		<Include Id="/OpenGL/Compatibility.glsl">
+			<Path>OpenGL.Shaders.Compatibility.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Time.glsl">
+			<Path>OpenGL.Shaders.Time.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/TransformState.glsl">
+			<Path>OpenGL.Shaders.TransformState.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Viewport.glsl">
+			<Path>OpenGL.Shaders.Viewport.glsl</Path>
+		</Include>
+		
+		<Include Id="/OpenGL/Light/MaterialState.glsl">
+			<Path>OpenGL.Shaders.Light.MaterialState.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Light/LightState.glsl">
+			<Path>OpenGL.Shaders.Light.LightState.glsl</Path>
+		</Include>
+	</Includes>
+	
+	<!-- Program Objects -->
+	<Objects>
+		
+		<Object Path="/OpenGL.Hal/Shaders/Standard/Vertex.glsl">
+			<Symbols>
+				<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
+				<Symbol>HAL_LIGHTING_PER_VERTEX</Symbol>
+				<Symbol>HAL_LIGHTING_PER_FRAGMENT</Symbol>
+			</Symbols>
+		</Object>
+
+		<Object Path="/OpenGL.Hal/Shaders/Standard/Fragment.glsl">
+			<Symbols>
+				<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
+				<Symbol>HAL_LIGHTING_PER_VERTEX</Symbol>
+				<Symbol>HAL_LIGHTING_PER_FRAGMENT</Symbol>
+				<Symbol>HAL_REFLECTION_PER_FRAGMENT</Symbol>
+				<Symbol>HAL_REFRACTION_PER_FRAGMENT</Symbol>
+			</Symbols>
+		</Object>
+		
+	</Objects>
+	
+</ShadersLibrary>

@@ -647,6 +647,10 @@ namespace OpenGL
 					_ObjectNameSpace = Guid.NewGuid();
 				}
 
+				// Create shader include library (GLSL #include support)
+				_ShaderIncludeLibrary = new ShaderIncludeLibrary();
+				_ShaderIncludeLibrary.Create(this);
+
 				// Restore previous current context, if any. Otherwise, make uncurrent
 				if (prevContext != null)
 					prevContext.MakeCurrent(prevContextDevice, true);
@@ -1039,7 +1043,7 @@ namespace OpenGL
 		/// <summary>
 		/// The shader include library used for compiling shaders.
 		/// </summary>
-		private ShaderIncludeLibrary _ShaderIncludeLibrary = new ShaderIncludeLibrary();
+		private ShaderIncludeLibrary _ShaderIncludeLibrary;
 
 		#endregion
 

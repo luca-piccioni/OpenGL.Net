@@ -1,21 +1,24 @@
 
-// Copyright (C) 2011-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace OpenGL
@@ -23,42 +26,42 @@ namespace OpenGL
 	/// <summary>
 	/// Shader source string which can be included in other shader objects by means of #include preprocessor directive.
 	/// </summary>
-	public class ShaderInclude : GraphicsResource, IShaderInclude
+	public class ShaderInclude : GraphicsResource
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Construct a ShaderInclude specifying only its path.
 		/// </summary>
-		/// <param name="path">
+		/// <param name="resourcePath">
 		/// A <see cref="System.String"/> that specifies the path used for including the include source string
 		/// using GLSL #include preprocessor directive.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown is <paramref name="path"/> is null.
+		/// Exception thrown is <paramref name="resourcePath"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="path"/> is not rooted (i.e. it doesn't start with '/' character), or if
+		/// Exception thrown if <paramref name="resourcePath"/> is not rooted (i.e. it doesn't start with '/' character), or if
 		/// it specifies a directory path (i.e. it ends with '/' character) or if its value contains invalid path
 		/// characters ('\n', '\t', '"', '&lt;', or '&gt;').
 		/// </exception>
-		protected ShaderInclude(string path)
+		public ShaderInclude(string resourcePath)
 		{
-			if (path == null)
+			if (resourcePath == null)
 				throw new ArgumentNullException("path");
-			if (path.StartsWith("/") == false)
+			if (resourcePath.StartsWith("/") == false)
 				throw new ArgumentException("path not rooted", "path");
-			if (path.EndsWith("/") == true)
+			if (resourcePath.EndsWith("/") == true)
 				throw new ArgumentException("path has a trailing slash", "path");
-			if (path.IndexOfAny(sInvalidPathChars) != -1)
-				throw new ArgumentException(String.Format("path {0} contains invalid characters", path), "path");
+			if (resourcePath.IndexOfAny(_InvalidPathChars) != -1)
+				throw new ArgumentException(String.Format("path {0} contains invalid characters", resourcePath), "path");
 
 			// Store include path
-			mIncludePath = path;
+			_IncludePath = resourcePath;
 		}
 
 		/// <summary>
-		/// Construct a ShaderInclude specifying only its path.
+		/// Construct a ShaderInclude specifying its path and the relative source lines.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="System.String"/> that specifies the path used for including the include source string
@@ -75,51 +78,87 @@ namespace OpenGL
 		/// it specifies a directory path (i.e. it ends with '/' character) or if its value contains invalid path
 		/// characters ('\n', '\t', '"', '&lt;', or '&gt;').
 		/// </exception>
-		protected ShaderInclude(string path, IEnumerable<string> source) : this(path)
+		public ShaderInclude(string path, IEnumerable<string> source) :
+			this(path)
 		{
 			if (source == null)
 				throw new ArgumentNullException("source");
 
 			// Store include source
-			mIncludeSource = new List<string>(source);
+			_SourceStrings = new List<string>(source);
 		}
 
 		#endregion
 
-		#region Include Path
+		#region Source Loading
 
 		/// <summary>
-		/// Path used for including this ShaderInclude source string.
+		/// Load the shader source from a stream.
 		/// </summary>
-		public string IncludePath { get { return (mIncludePath); } }
+		/// <param name="sourceStream">
+		/// A <see cref="Stream"/>that holds the source lines.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown in the case <paramref name="sourceStream"/> is null.
+		/// </exception>
+		public void LoadSource(Stream sourceStream)
+		{
+			_SourceStrings = ShaderObject.LoadSourceLines(sourceStream);
+		}
 
 		/// <summary>
-		/// Path used for including this ShaderInclude source string.
+		/// Load the shader source from an embedded resource
 		/// </summary>
-		private readonly string mIncludePath;
-
-		private static readonly char[] sInvalidPathChars = new char[] {
-			'\n', '\t', '"', '<', '>'
-		};
+		/// <param name="resourcePath">
+		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resourcePath"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if no embedded resource can be found.
+		/// </exception>
+		public void LoadSource(string resourcePath)
+		{
+			_SourceStrings = ShaderObject.LoadSourceLines(resourcePath);
+		}
 
 		#endregion
 
-		#region Include Source
+		#region Shader Include
+
+		/// <summary>
+		/// Path used for including this ShaderInclude source string.
+		/// </summary>
+		public string IncludePath { get { return (_IncludePath); } }
+
+		/// <summary>
+		/// Path used for including this ShaderInclude source string.
+		/// </summary>
+		private readonly string _IncludePath;
+
+		/// <summary>
+		/// Invalid characters for path specification.
+		/// </summary>
+		private static readonly char[] _InvalidPathChars = new char[] {
+			'\n', '\t', '"', '<', '>'
+		};
 
 		/// <summary>
 		/// Include source strings.
 		/// </summary>
-		public virtual ICollection<string> IncludeSource
+		public virtual ICollection<string> Source
 		{
-			get {
-				return (mIncludeSource.AsReadOnly());
+			get
+			{
+				return (_SourceStrings.AsReadOnly());
 			}
 		}
 
 		/// <summary>
 		/// Include source strings.
 		/// </summary>
-		protected List<string> mIncludeSource;
+		protected List<string> _SourceStrings;
 
 		#endregion
 
@@ -171,7 +210,16 @@ namespace OpenGL
 
 			return (true);
 		}
-		
+
+		/// <summary>
+		/// Determine whether this object requires a name bound to a context or not.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		/// </param>
+		/// <returns>
+		/// It returns always false, since the named strings does not have an actual name.
+		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
 			return (false);
@@ -192,7 +240,7 @@ namespace OpenGL
 				StringBuilder sb = new StringBuilder();
 
 				// Build include source string
-				foreach (string line in IncludeSource)
+				foreach (string line in Source)
 					sb.AppendLine(line);
 
 				// Create shader include

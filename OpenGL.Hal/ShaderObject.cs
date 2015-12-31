@@ -117,15 +117,18 @@ namespace OpenGL
 		#region Source Loading
 
 		/// <summary>
-		/// Load the shader source from a stream.
+		/// Load the shader source lines from a stream.
 		/// </summary>
 		/// <param name="sourceStream">
-		/// A <see cref="Stream"/>that holds the 
+		/// A <see cref="Stream"/>that holds the source lines.
 		/// </param>
+		/// <returns>
+		/// It returns a <see cref="List{String}"/> that represent the loaded source lines.
+		/// </returns>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown in the case <paramref name="sourceStream"/> is null.
 		/// </exception>
-		public void LoadSource(Stream sourceStream)
+		internal static List<string> LoadSourceLines(Stream sourceStream)
 		{
 			if (sourceStream == null)
 				throw new ArgumentNullException("sourceStream");
@@ -138,7 +141,7 @@ namespace OpenGL
 				}
 			}
 
-			_SourceStrings = shaderSourceLines;
+			return (shaderSourceLines);
 		}
 
 		/// <summary>
@@ -147,13 +150,16 @@ namespace OpenGL
 		/// <param name="resourcePath">
 		/// A <see cref="String"/> that specifies the embedded resource path.
 		/// </param>
+		/// <returns>
+		/// It returns a <see cref="List{String}"/> that represent the loaded source lines.
+		/// </returns>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="resourcePath"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if no embedded resource can be found.
 		/// </exception>
-		public void LoadSource(string resourcePath)
+		internal static List<string> LoadSourceLines(string resourcePath)
 		{
 			if (resourcePath == null)
 				throw new ArgumentNullException("resourcePath");
@@ -175,11 +181,42 @@ namespace OpenGL
 				if (resourceStream == null)
 					throw new ArgumentException("resource path not found", "resourcePath");
 
-				LoadSource(resourceStream);
+				return (LoadSourceLines(resourceStream));
 			} finally {
 				if (resourceStream != null)
 					resourceStream.Dispose();
 			}
+		}
+
+		/// <summary>
+		/// Load the shader source from a stream.
+		/// </summary>
+		/// <param name="sourceStream">
+		/// A <see cref="Stream"/>that holds the source lines.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown in the case <paramref name="sourceStream"/> is null.
+		/// </exception>
+		public void LoadSource(Stream sourceStream)
+		{
+			_SourceStrings = LoadSourceLines(sourceStream);
+		}
+
+		/// <summary>
+		/// Load the shader source from an embedded resource
+		/// </summary>
+		/// <param name="resourcePath">
+		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resourcePath"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if no embedded resource can be found.
+		/// </exception>
+		public void LoadSource(string resourcePath)
+		{
+			_SourceStrings = LoadSourceLines(resourcePath);
 		}
 
 		#endregion
@@ -355,8 +392,8 @@ namespace OpenGL
 			sourceLines.Add("#pragma optimization(off)\n");
 			sourceLines.Add("#pragma debug(on)\n");
 #else
-			sLines.Add("#pragma optimization(on)\n");
-			sLines.Add("#pragma debug(off)\n");
+			sourceLines.Add("#pragma optimization(on)\n");
+			sourceLines.Add("#pragma debug(off)\n");
 #endif
 		}
 
