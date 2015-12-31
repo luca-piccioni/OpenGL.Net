@@ -293,8 +293,9 @@ namespace OpenGL
 			}
 			sLog.Verbose("--------------------------------------------------------------------------------");
 
-			// Manage #include preprocessor directives
-			shaderSource = ShaderIncludePreprocessor.Process(ctx, cctx, shaderSource);
+			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == false)
+				shaderSource = ShaderIncludePreprocessor.Process(ctx.IncludeLibrary, cctx, shaderSource);
 
 			// Remove comment lines
 			shaderSource.RemoveAll(delegate(string item) { return (ShaderSourcePreprocessor.IsCommentLine(item)); });

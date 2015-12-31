@@ -45,8 +45,8 @@ namespace OpenGL
 		/// <summary>
 		/// Process shader source lines to resolve #include directives.
 		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> determining the shader compiler capabilities.
+		/// <param name="includeLibrary">
+		/// A <see cref="ShaderIncludeLibrary"/> determining the shader include file system.
 		/// </param>
 		/// <param name="cctx">
 		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameteres.
@@ -61,42 +61,34 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// <para>
-		/// In the case <paramref name="ctx"/> supports shader includes, the returned value equals to <paramref name="shaderSource"/> (there's
-		/// no need to process shader source: it will be done by the shader compiler).
-		/// </para>
 		/// </para>
 		/// </remarks>
 		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="ctx"/>, <paramref name="cctx"/> or <paramref name="shaderSource"/> is null.
+		/// Exception throw if <paramref name="includeLibrary"/>, <paramref name="cctx"/> or <paramref name="shaderSource"/> is null.
 		/// </exception>
-		public static List<string> Process(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> shaderSource)
+		public static List<string> Process(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, List<string> shaderSource)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			if (includeLibrary == null)
+				throw new ArgumentNullException("includeLibrary");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
 			if (shaderSource == null)
 				throw new ArgumentNullException("sSource");
 
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == false) {
-				IncludeProcessorContext ictx = new IncludeProcessorContext();
+			IncludeProcessorContext ictx = new IncludeProcessorContext();
 
-				return (Process(ctx, cctx, ictx, shaderSource));
-			} else
-				return (shaderSource);
+			return (Process(includeLibrary, cctx, ictx, shaderSource));
 		}
 
-		private static List<string> Process(GraphicsContext ctx, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> shaderSource)
+		private static List<string> Process(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> shaderSource)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			if (includeLibrary == null)
+				throw new ArgumentNullException("includeLibrary");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
 			if (shaderSource == null)
 				throw new ArgumentNullException("sSource");
 			
-			ShaderIncludeLibrary includeLibrary = ctx.IncludeLibrary;
 			List<string> processedSource = new List<string>();
 
 			// Shader includes not supported. Process them manually before submitting shader source text lines.
@@ -164,7 +156,7 @@ namespace OpenGL
 					System.Diagnostics.Debug.Assert(String.IsNullOrEmpty(canonicalPath) == false);
 					ictxRecurse.CurrentPath = canonicalPath;
 
-					processedSource.AddRange(Process(ctx, cctx, ictxRecurse, shaderInclude.Source));
+					processedSource.AddRange(Process(includeLibrary, cctx, ictxRecurse, shaderInclude.Source));
 				} else
 					processedSource.Add(line);
 			}
