@@ -23,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Disposable interface extended to support graphics resources disposition.
 	/// </summary>
-	public interface IDisposableResource : IDisposable
+	public interface IGraphicsDisposable : IDisposable
 	{
 		/// <summary>
 		/// Dispose graphics resources using the underlying <see cref="GraphicsContext"/>.

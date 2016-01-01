@@ -79,7 +79,7 @@ namespace OpenGL
 	/// </para>
 	/// </remarks>
 	/// <seealso cref="GraphicsResource"/>
-	public interface IGraphicsResource : IDisposableResource
+	public interface IGraphicsResource : IResource, IGraphicsDisposable
 	{
 		#region Resource Identification
 

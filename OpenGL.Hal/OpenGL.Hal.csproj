@@ -96,7 +96,7 @@
     <Compile Include="GraphicsWindow.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="ICopiable.cs" />
-    <Compile Include="IDisposableResource.cs" />
+    <Compile Include="IGraphicsDisposable.cs" />
     <Compile Include="IFragment.cs" />
     <Compile Include="IGraphicsResource.cs" />
     <Compile Include="IImageCodecPlugin.cs" />

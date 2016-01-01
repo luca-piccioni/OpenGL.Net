@@ -15,6 +15,7 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
+
 using System;
 
 namespace OpenGL
@@ -39,8 +40,8 @@ namespace OpenGL
 		/// Increment the shared IResource reference count.
 		/// </summary>
 		/// <remarks>
-		/// Incrementing the reference count for this resource prevents the system to dispose this instance. Prevent
-		/// the disposition of this instance by other instance referenced.
+		/// Incrementing the reference count for this resource prevents the IResource to be disposed, acquiring a sort
+		/// of ownership of this instance.
 		/// </remarks>
 		void IncRef();
 
@@ -50,7 +51,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// Decrementing the reference count for this resource could cause this instance disposition. In the case
-		/// the reference count equals 0 (with or without decrementing it), this instance will be disposed.
+		/// the reference count equals 0 (with or without decrementing it), this instance will be disposed using .
 		/// </para>
 		/// <para>
 		/// This method should be meant almost equals to <see cref="IDisposable.Dispose"/> method (since it can dispose
