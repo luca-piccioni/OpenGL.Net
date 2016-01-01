@@ -180,7 +180,7 @@ namespace OpenGL
 		/// Create a resource to be used withing this RenderControl.
 		/// </summary>
 		/// <param name="resource">
-		/// A <see cref="IRenderResource"/> that needs to be created to be used within this RenderControl.
+		/// A <see cref="IGraphicsResource"/> that needs to be created to be used within this RenderControl.
 		/// </param>
 		public void Create(IGraphicsResource resource)
 		{

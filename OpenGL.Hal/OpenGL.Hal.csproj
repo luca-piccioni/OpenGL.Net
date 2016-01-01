@@ -151,6 +151,8 @@
     <Compile Include="PixelStructureAttribute.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="PrimitiveRestart.cs" />
+    <Compile Include="ProjectionMatrix.cs" />
+    <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quaternion.cs" />
     <Compile Include="QueryObject.cs" />
@@ -178,6 +180,23 @@
     <Compile Include="ShaderSourcePreprocessor.cs" />
     <Compile Include="ShaderStage.cs" />
     <Compile Include="ShaderUniformType.cs" />
+    <Compile Include="State\BlendState.cs" />
+    <Compile Include="State\CullFaceState.cs" />
+    <Compile Include="State\DepthTestState.cs" />
+    <Compile Include="State\IGraphicsState.cs" />
+    <Compile Include="State\LineState.cs" />
+    <Compile Include="State\PolygonModeState.cs" />
+    <Compile Include="State\PolygonOffsetState.cs" />
+    <Compile Include="State\RenderBufferState.cs" />
+    <Compile Include="State\GraphicsState.cs" />
+    <Compile Include="State\GraphicsStateSet.cs" />
+    <Compile Include="State\RenderStateSetStack.cs" />
+    <Compile Include="State\ShaderUniformState.cs" />
+    <Compile Include="State\TimeState.cs" />
+    <Compile Include="State\TransformStateBase.cs" />
+    <Compile Include="State\TransformStateDouble.cs" />
+    <Compile Include="State\TransformStateSingle.cs" />
+    <Compile Include="State\ViewportState.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Texture1d.cs" />
     <Compile Include="Texture2d.cs" />
@@ -218,6 +237,9 @@
     <EmbeddedResource Include="Shaders\Time.glsl" />
     <EmbeddedResource Include="Shaders\TransformState.glsl" />
     <EmbeddedResource Include="Shaders\Viewport.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Geometry.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\CompatibilityNotes.txt" />

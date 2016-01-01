@@ -121,7 +121,7 @@ namespace OpenGL
 		/// Delete this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for deleting this object. The IRenderResource shall belong to the object space to this
+		/// A <see cref="GraphicsContext"/> used for deleting this object. The IGraphicsResource shall belong to the object space to this
 		/// <see cref="GraphicsContext"/>. The <see cref="GraphicsContext"/> shall be current to the calling thread.
 		/// </param>
 		/// <remarks>

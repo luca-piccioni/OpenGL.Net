@@ -186,7 +186,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this BufferObject (or is sharing with the creator).
 		/// </para>
 		/// </remarks>

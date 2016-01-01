@@ -268,6 +268,11 @@ namespace OpenGL
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
 
+			// Append required shader extensions - ARB_shading_language_include
+			// Note: this extension, if supported, is required by the framework to compile correctly
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB)
+				shaderSource.Add("#extension GL_ARB_shading_language_include : require\n");
+
 			// Append required #define statments
 			if (cctx.Defines != null) {
 				foreach (string def in cctx.Defines) {
@@ -625,7 +630,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this ShaderObject (or is sharing with the creator).
 		/// </para>
 		/// </remarks>
@@ -706,7 +711,7 @@ namespace OpenGL
 				cctx.Includes.CopyTo(includePaths, 0);
 
 				// Compile shader object (specifying include paths)
-				Gl.CompileShaderIncludeARB(ObjectName, includePaths, (int[])null);
+				Gl.CompileShaderIncludeARB(ObjectName, includePaths, null);
 			} else {
 				// Compile shader object (includes are already preprocessed)
 				Gl.CompileShader(ObjectName);

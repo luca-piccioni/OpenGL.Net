@@ -543,7 +543,16 @@ namespace OpenGL
 		/// <summary>
 		/// ShaderCompilerContext used for linkage.
 		/// </summary>
-		public ShaderCompilerContext CompilationParams { get { return (_CompilationParams); } }
+		public ShaderCompilerContext CompilationParams
+		{
+			get { return (_CompilationParams); }
+			set
+			{
+				if (IsLinked)
+					throw new InvalidOperationException("already linked");
+				_CompilationParams = value ?? new ShaderCompilerContext();
+			}
+		}
 
 		/// <summary>
 		/// ShaderCompilerContext used for compilation.
@@ -964,7 +973,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this ShaderProgram (or is sharing with the creator).
 		/// </para>
 		/// </remarks>

@@ -266,7 +266,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this BufferObject (or is sharing with the creator).
 		/// </para>
 		/// </remarks>
@@ -397,7 +397,7 @@ namespace OpenGL
 		/// Delete this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for deleting this object. The IRenderResource shall belong to the object space to this
+		/// A <see cref="GraphicsContext"/> used for deleting this object. The IGraphicsResource shall belong to the object space to this
 		/// <see cref="GraphicsContext"/>. The <see cref="GraphicsContext"/> shall be current to the calling thread.
 		/// </param>
 		/// <remarks>

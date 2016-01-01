@@ -932,7 +932,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this Texture (or is sharing with the creator).
 		/// </para>
 		/// </remarks>
@@ -961,7 +961,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this object. The object space of this <see cref="GraphicsContext"/> is used
-		/// to generate <see cref="GraphicsResource.ObjectName"/>, and all contextes sharing lists with this parameter can handle this IRenderResource.
+		/// to generate <see cref="GraphicsResource.ObjectName"/>, and all contextes sharing lists with this parameter can handle this IGraphicsResource.
 		/// The <see cref="GraphicsContext"/> shall be current to the calling thread.
 		/// </param>
 		/// <exception cref="ArgumentNullException">

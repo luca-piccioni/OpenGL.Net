@@ -27,7 +27,9 @@
 	<!-- Program Objects -->
 	<Objects>
 		
-		<Object Path="/OpenGL.Hal/Shaders/Standard/Vertex.glsl">
+		<!-- Standard -->
+		
+		<Object Path="OpenGL.Shaders.Standard.Vertex.glsl">
 			<Symbols>
 				<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
 				<Symbol>HAL_LIGHTING_PER_VERTEX</Symbol>
@@ -35,7 +37,7 @@
 			</Symbols>
 		</Object>
 
-		<Object Path="/OpenGL.Hal/Shaders/Standard/Fragment.glsl">
+		<Object Path="OpenGL.Shaders.Standard.Fragment.glsl">
 			<Symbols>
 				<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
 				<Symbol>HAL_LIGHTING_PER_VERTEX</Symbol>
@@ -44,7 +46,39 @@
 				<Symbol>HAL_REFRACTION_PER_FRAGMENT</Symbol>
 			</Symbols>
 		</Object>
+
+		<!-- Line -->
+
+		<Object Path="OpenGL.Shaders.Line.Vertex.glsl" />
+		<Object Path="OpenGL.Shaders.Line.Geometry.glsl" />
+		<Object Path="OpenGL.Shaders.Line.Fragment.glsl">
+			<Symbols>
+				<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
+			</Symbols>
+		</Object>
 		
 	</Objects>
+
+	<Programs>
+		
+		<!-- Line -->
+		<Program Id="OpenGL.Line">
+			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="Geometry" />
+			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="Fragment" />
+		</Program>
+
+		<!-- Line+Color -->
+		<Program Id="OpenGL.Line+Color">
+			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="Geometry" />
+			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="Fragment" >
+				<Symbols>
+					<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
+				</Symbols>
+			</Object>
+		</Program>
+		
+	</Programs>
 	
 </ShadersLibrary>

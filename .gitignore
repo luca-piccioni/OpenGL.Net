@@ -17,3 +17,4 @@ packages
 /BindingsGen/DocWarnings.txt
 /OpenGL.Hal.Test/obj
 /OpenGL.Hal.Test/bin
+/*.sdf

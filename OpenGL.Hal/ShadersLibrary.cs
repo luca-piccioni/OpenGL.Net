@@ -88,6 +88,12 @@ namespace OpenGL
 			public string Path;
 
 			/// <summary>
+			/// Shader object stage.
+			/// </summary>
+			[XmlAttribute("Stage")]
+			public ShaderStage Stage = ShaderStage.Vertex;
+
+			/// <summary>
 			/// Preprocessor symbols affecting the shader object compilation.
 			/// </summary>
 			[XmlArray("Symbols")]
@@ -101,6 +107,68 @@ namespace OpenGL
 		[XmlArray("Objects")]
 		[XmlArrayItem("Object")]
 		public readonly List<Object> Objects = new List<Object>();
+
+		#endregion
+
+		#region Programs
+
+		/// <summary>
+		/// Program object.
+		/// </summary>
+		[XmlType("Program")]
+		public class Program
+		{
+			/// <summary>
+			/// The identifier of the shader program.
+			/// </summary>
+			[XmlAttribute("Id")]
+			public string Id;
+
+			/// <summary>
+			/// Object linked to this shader program.
+			/// </summary>
+			[XmlElement("Object")]
+			public readonly List<Object> Objects = new List<Object>();
+
+			/// <summary>
+			/// Create a program from this Program.
+			/// </summary>
+			/// <returns></returns>
+			public ShaderProgram Create()
+			{
+				if (String.IsNullOrEmpty(Id))
+					throw new InvalidOperationException("invalid program identifier");
+
+				ShaderProgram shaderProgram = new ShaderProgram(Id);
+				ShaderCompilerContext shaderCompilerParams = new ShaderCompilerContext();
+
+				// Attach required objects
+				foreach (Object shaderProgramObject in Objects) {
+					ShaderObject shaderObject = new ShaderObject(shaderProgramObject.Stage);
+
+					// Load source
+					shaderObject.LoadSource(shaderProgramObject.Path);
+					// Attach object
+					shaderProgram.AttachShader(shaderObject);
+
+					// Take into account required preprocessor symbols
+					foreach (string preprocessorSymbol in shaderProgramObject.Symbols)
+						shaderCompilerParams.Defines.Add(preprocessorSymbol);
+				}
+
+				// Set compiler parameters
+				shaderProgram.CompilationParams = shaderCompilerParams;
+
+				return (shaderProgram);
+			}
+		}
+
+		/// <summary>
+		/// List of <see cref="Program"/> instances describing the available shader programs in library.
+		/// </summary>
+		[XmlArray("Programs")]
+		[XmlArrayItem("Program")]
+		public readonly List<Program> Programs = new List<Program>();
 
 		#endregion
 
@@ -197,12 +265,30 @@ namespace OpenGL
 			// Merge information
 			_ShadersLibrary.Includes.AddRange(embeddedShadersLibrary.Includes);
 			_ShadersLibrary.Objects.AddRange(embeddedShadersLibrary.Objects);
+			_ShadersLibrary.Programs.AddRange(embeddedShadersLibrary.Programs);
 		}
 
 		/// <summary>
 		/// The reference instance of <see cref="ShadersLibrary"/>.
 		/// </summary>
 		private static readonly ShadersLibrary _ShadersLibrary = new ShadersLibrary();
+
+		#endregion
+
+		#region Creation
+
+		public ShaderProgram CreateProgram(string programId)
+		{
+			if (String.IsNullOrEmpty(programId))
+				throw new ArgumentException("invalid program identifier", "programId");
+
+			Program libraryProgram = Programs.Find(delegate (Program item) { return (item.Id == programId); });
+
+			if (libraryProgram == null)
+				throw new ArgumentException("no program with such identifier", "programId");
+
+			return (libraryProgram.Create());
+		}
 
 		#endregion
 	}

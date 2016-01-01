@@ -26,16 +26,16 @@ namespace OpenGL
 	/// </summary>
 	/// <remarks>
 	/// <para>
-	/// This class in the main implementation of the <see cref="IRenderResource"/> interface. This is the suggested implementation; in the case it
+	/// This class in the main implementation of the <see cref="IGraphicsResource"/> interface. This is the suggested implementation; in the case it
 	/// is not possible to inherit class (i.e. a class is already inheriting from another one), it is possible to implement directly the
-	/// <see cref="IRenderResource"/>.
+	/// <see cref="IGraphicsResource"/>.
 	/// </para>
 	/// <para>
-	/// Most of the IRenderResource interface is implemented. The GraphicsResource inheritor shall implement the following methods:
+	/// Most of the IGraphicsResource interface is implemented. The GraphicsResource inheritor shall implement the following methods:
 	/// - <see cref="CreateName"/>: this method is virtual and it always throw a <see cref="NotImplementedException"/>. It shall generate an
-	///   object name of a specific object class (determined by inheritor). It is called in the <see cref="IRenderResource.Create"/> implementation.
+	///   object name of a specific object class (determined by inheritor). It is called in the <see cref="IGraphicsResource.Create"/> implementation.
 	/// - <see cref="CreateObject"/>: this method is virtual, and it can be overriden to actually create an useful object. Base implementation
-	///   is empty. It is called in the <see cref="IRenderResource.Create"/> implementation, after <see cref="CreateName"/>.
+	///   is empty. It is called in the <see cref="IGraphicsResource.Create"/> implementation, after <see cref="CreateName"/>.
 	/// - <see cref="Delete"/>: this method is abstract, and it shall delete the object name and resources of this GraphicsResource instance.
 	///   The implementation is dependent on the specific object class (determined by inheritor).
 	/// - <see cref="Exists"/>: this method is virtual, but throw always <see cref="NotImplementedException"/>. Inheritor shall override this
@@ -254,7 +254,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// The object class identify the resource type. It cannot be <see cref="System.Guid.Empty"/>, but a meaninfull
-		/// value. The allowed values are determine in the concrete implementation of the IRenderResource
+		/// value. The allowed values are determine in the concrete implementation of the IGraphicsResource
 		/// implementation.
 		/// </para>
 		/// </remarks>
@@ -320,7 +320,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this object. The object space of this <see cref="GraphicsContext"/> is used
-		/// to generate <see cref="ObjectName"/>, and all contextes sharing lists with this parameter can handle this IRenderResource.
+		/// to generate <see cref="ObjectName"/>, and all contextes sharing lists with this parameter can handle this IGraphicsResource.
 		/// The <see cref="GraphicsContext"/> shall be current to the calling thread.
 		/// </param>
 		/// <remarks>
@@ -395,7 +395,7 @@ namespace OpenGL
 		/// Delete this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for deleting this object. The IRenderResource shall belong to the object space to this
+		/// A <see cref="GraphicsContext"/> used for deleting this object. The IGraphicsResource shall belong to the object space to this
 		/// <see cref="GraphicsContext"/>. The <see cref="GraphicsContext"/> shall be current to the calling thread.
 		/// </param>
 		/// <remarks>

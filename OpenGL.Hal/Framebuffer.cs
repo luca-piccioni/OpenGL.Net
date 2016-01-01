@@ -114,7 +114,7 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				if (!Buffer.Exists(ctx))
+				if (Buffer.Exists(ctx) == false)
 					Buffer.Create(ctx);
 			}
 
@@ -414,7 +414,7 @@ namespace OpenGL
 			// Detach
 			DetachColor(attachmentIndex);
 			// Reset color attachment
-			mColorBuffers[attachmentIndex] = attachment;
+			_ColorBuffers[attachmentIndex] = attachment;
 		}
 
 		/// <summary>
@@ -428,9 +428,9 @@ namespace OpenGL
 			if (attachmentIndex >= GraphicsContext.CurrentCaps.Limits.MaxColorAttachments)
 				throw new ArgumentException("attachment index '" + attachmentIndex + "' is greater than the maximum allowed");
 
-			if (mColorBuffers[attachmentIndex] != null) {
-				mColorBuffers[attachmentIndex].Dispose();
-				mColorBuffers[attachmentIndex] = null;
+			if (_ColorBuffers[attachmentIndex] != null) {
+				_ColorBuffers[attachmentIndex].Dispose();
+				_ColorBuffers[attachmentIndex] = null;
 			}
 		}
 
@@ -446,7 +446,7 @@ namespace OpenGL
 		/// <summary>
 		/// RenderBuffers used as color attachment.
 		/// </summary>
-		private readonly Attachment[] mColorBuffers = new Attachment[GraphicsContext.CurrentCaps.Limits.MaxColorAttachments];
+		private readonly Attachment[] _ColorBuffers = new Attachment[GraphicsContext.CurrentCaps.Limits.MaxColorAttachments];
 
 		#endregion
 
@@ -540,7 +540,7 @@ namespace OpenGL
 		#region Framebuffer Grabbing
 
 		/// <summary>
-		/// Read this RenderSurface color buffer.
+		/// Read this GraphicsSurface color buffer.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/>
@@ -571,7 +571,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Copy this RenderSurface color buffer into a buffer.
+		/// Copy this GraphicsSurface color buffer into a buffer.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/>
@@ -595,10 +595,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region RenderSurface Overrides
+		#region GraphicsSurface Overrides
 
 		/// <summary>
-		/// RenderSurface width property. 
+		/// GraphicsSurface width property. 
 		/// </summary>
 		public override uint Width
 		{
@@ -606,8 +606,8 @@ namespace OpenGL
 				uint width = UInt32.MaxValue;
 
 				for (int i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
-					if (mColorBuffers[i] != null)
-						width = Math.Min(width, mColorBuffers[i].Width);
+					if (_ColorBuffers[i] != null)
+						width = Math.Min(width, _ColorBuffers[i].Width);
 				}
 
 				return ((width != UInt32.MaxValue) ? width : 0);
@@ -615,7 +615,7 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// RenderSurface height property. 
+		/// GraphicsSurface height property. 
 		/// </summary>
 		public override uint Height
 		{
@@ -623,8 +623,8 @@ namespace OpenGL
 				uint height = UInt32.MaxValue;
 
 				for (int i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
-					if (mColorBuffers[i] != null)
-						height = Math.Min(height, mColorBuffers[i].Height);
+					if (_ColorBuffers[i] != null)
+						height = Math.Min(height, _ColorBuffers[i].Height);
 				}
 
 				return ((height != UInt32.MaxValue) ? height : 0);
@@ -649,7 +649,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
-		/// buffer configuration. The object returned shall not be used to modify this RenderSurface buffers,
+		/// buffer configuration. The object returned shall not be used to modify this GraphicsSurface buffers,
 		/// but it shall be used to know which is the buffer configuration.
 		/// </para>
 		/// </remarks>
@@ -672,33 +672,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Bind this RenderSurface for drawing.
+		/// Bind this GraphicsSurface for drawing.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich associate its rendering result to this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich associate its rendering result to this GraphicsSurface.
 		/// </param>
 		public override void BindDraw(GraphicsContext ctx)
 		{
 			// Bind this framebuffer
 			Gl.BindFramebuffer(Gl.DRAW_FRAMEBUFFER, ObjectName);
 
-			// Object actually created
-			mObjectBound = true;
-
 			List<int> drawBuffers = new List<int>();
 			
 			for (uint i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
 				// Reset dirty binding points
-				if ((mColorBuffers[i] != null) && mColorBuffers[i].Dirty) {
+				if ((_ColorBuffers[i] != null) && _ColorBuffers[i].Dirty) {
 					// Ensure created buffer
-					mColorBuffers[i].Create(ctx);
+					_ColorBuffers[i].Create(ctx);
 					// Ensure attached buffer
-					mColorBuffers[i].Attach(Gl.DRAW_FRAMEBUFFER, Gl.COLOR_ATTACHMENT0 + (int)i);
-					mColorBuffers[i].Dirty = false;
+					_ColorBuffers[i].Attach(Gl.DRAW_FRAMEBUFFER, Gl.COLOR_ATTACHMENT0 + (int)i);
+					_ColorBuffers[i].Dirty = false;
 				}
 
 				// Collect draw buffers
-				if (mColorBuffers[i] != null)
+				if (_ColorBuffers[i] != null)
 					drawBuffers.Add(Gl.COLOR_ATTACHMENT0 + (int)i);
 			}
 
@@ -710,24 +707,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Unbind this RenderSurface for drawing.
+		/// Unbind this GraphicsSurface for drawing.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich disassociate its rendering result from this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich disassociate its rendering result from this GraphicsSurface.
 		/// </param>
 		public override void UnbindDraw(GraphicsContext ctx)
 		{
 			// Switch to default framebuffer
 			Gl.BindFramebuffer(Gl.DRAW_FRAMEBUFFER, InvalidObjectName);
-			// Object actually created
-			mObjectBound = true;
 		}
 
 		/// <summary>
-		/// Bind this RenderSurface for reading.
+		/// Bind this GraphicsSurface for reading.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich associate its read result to this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich associate its read result to this GraphicsSurface.
 		/// </param>
 		public override void BindRead(GraphicsContext ctx)
 		{
@@ -736,31 +731,26 @@ namespace OpenGL
 
 			// Reset dirty binding points
 			for (uint i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
-				if ((mColorBuffers[i] != null) && mColorBuffers[i].Dirty) {
+				if ((_ColorBuffers[i] != null) && _ColorBuffers[i].Dirty) {
 					// Ensure created buffer
-					mColorBuffers[i].Create(ctx);
+					_ColorBuffers[i].Create(ctx);
 					// Ensure attached buffer
-					mColorBuffers[i].Attach(Gl.DRAW_FRAMEBUFFER, Gl.COLOR_ATTACHMENT0 + (int)i);
-					mColorBuffers[i].Dirty = false;
+					_ColorBuffers[i].Attach(Gl.DRAW_FRAMEBUFFER, Gl.COLOR_ATTACHMENT0 + (int)i);
+					_ColorBuffers[i].Dirty = false;
 				}
 			}
-
-			// Object actually created
-			mObjectBound = true;
 		}
 
 		/// <summary>
-		/// Unbind this RenderSurface for reading.
+		/// Unbind this GraphicsSurface for reading.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich disassociate its read result from this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich disassociate its read result from this GraphicsSurface.
 		/// </param>
 		public override void UnbindRead(GraphicsContext ctx)
 		{
 			// Switch to default framebuffer
 			Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, InvalidObjectName);
-			// Object actually created
-			mObjectBound = true;
 		}
 		
 		/// <summary>
@@ -844,7 +834,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this RenderFramebuffer (or is sharing with the creator).
 		/// </para>
 		/// </remarks>
@@ -865,7 +855,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!mObjectBound || Gl.IsFramebuffer(ObjectName));
+			return (Gl.IsFramebuffer(ObjectName));
 		}
 
 		/// <summary>
@@ -886,6 +876,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			int currentBinding;
+
+			Gl.Get(Gl.READ_FRAMEBUFFER_BINDING, out currentBinding);
+			Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, ObjectName);
+
+			// Restore previous Framebuffer bound
+			Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, (uint)currentBinding);
+		}
+
+		/// <summary>
 		/// Delete a RenderFramebuffer name.
 		/// </summary>
 		/// <param name="ctx">
@@ -901,9 +908,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// 
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
-		private bool mObjectBound;
+		/// <param name="disposing">
+		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// this method is called by the finalizer.
+		/// </param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing) {
+				foreach (Attachment attachment in _ColorBuffers) {
+					if (attachment != null)
+						attachment.Dispose();
+				}
+				if (mDepthAttachment != null)
+					mDepthAttachment.Dispose();
+				if (mStencilBuffer != null)
+					mStencilBuffer.Dispose();
+			}
+
+			// Base implementation
+			base.Dispose(disposing);
+		}
 
 		#endregion
 	}

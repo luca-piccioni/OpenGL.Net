@@ -82,7 +82,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region ICollection<IRenderResource> Implementation
+		#region ICollection<IGraphicsResource> Implementation
 
 		/// <summary>
 		/// Adds an item to this collection.

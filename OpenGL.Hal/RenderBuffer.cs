@@ -1,18 +1,20 @@
 
-// Copyright (C) 2010-2012 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2010-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 
@@ -29,11 +31,11 @@ namespace OpenGL
 		/// Construct a render buffer.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="RenderBuffer.Type"/> that specifies the type of the buffer. This parameter
+		/// A <see cref="Type"/> that specifies the type of the buffer. This parameter
 		/// influence the framebuffer attachment, and the possible formats.
 		/// </param>
-		/// <param name="glFormat">
-		/// A <see cref="System.Int32"/> that specifies the internal OpenGL format for this
+		/// <param name="internalFormat">
+		/// A <see cref="PixelLayout"/> that specifies the internal OpenGL format for this
 		/// RenderBuffer. From OpenGL 3.2 specification:
 		/// @verbatim
 		/// Implementations are required to support the same internal formats for renderbuffers
@@ -43,12 +45,19 @@ namespace OpenGL
 		/// exactly the component types shown for that format in tables 3.12- 3.13.
 		/// @endverbatim
 		/// </param>
-		public RenderBuffer(Type type, int glFormat)
+		public RenderBuffer(Type type, PixelLayout internalFormat, uint w, uint h)
 		{
+			if (w >= GraphicsContext.CurrentCaps.Limits.MaxRenderBufferSize)
+				throw new ArgumentException("exceed maximum size", "w");
+			if (h >= GraphicsContext.CurrentCaps.Limits.MaxRenderBufferSize)
+				throw new ArgumentException("exceed maximum size", "w");
+
 			// Set buffer type
-			mType = type;
+			_Type = type;
 			// Store internal format
-			mInternalFormat = glFormat;
+			_InternalFormat = internalFormat;
+			_Width = w;
+			_Height = h;
 		}
 
 		#endregion
@@ -81,32 +90,32 @@ namespace OpenGL
 		/// <summary>
 		/// Render buffer type.
 		/// </summary>
-		public Type BufferType { get { return (mType); } }
+		public Type BufferType { get { return (_Type); } }
 
 		/// <summary>
 		/// RenderBuffer width.
 		/// </summary>
-		public uint Width { get { return (mWidth); } }
+		public uint Width { get { return (_Width); } }
 
 		/// <summary>
 		/// RenderBuffer width.
 		/// </summary>
-		public uint Height { get { return (mHeight); } }
+		public uint Height { get { return (_Height); } }
 
 		/// <summary>
 		/// Render buffer type.
 		/// </summary>
-		private Type mType;
+		private Type _Type;
 
 		/// <summary>
 		/// RenderBuffer width.
 		/// </summary>
-		private uint mWidth = 0;
+		private uint _Width;
 
 		/// <summary>
 		/// RenderBuffer width.
 		/// </summary>
-		private uint mHeight = 0;
+		private uint _Height;
 
 		#endregion
 
@@ -129,13 +138,13 @@ namespace OpenGL
 			// Allocate buffer
 			Gl.BindRenderbuffer(Gl.RENDERBUFFER, ObjectName);
 			// Define buffer storage
-			Gl.RenderbufferStorage(Gl.RENDERBUFFER, mInternalFormat, (int)w, (int)h);
+			Gl.RenderbufferStorage(Gl.RENDERBUFFER, Pixel.GetGlInternalFormat(_InternalFormat, ctx), (int)w, (int)h);
 		}
 
 		/// <summary>
 		/// Render buffer internal format.
 		/// </summary>
-		private int mInternalFormat;
+		private PixelLayout _InternalFormat;
 
 		#endregion
 
@@ -163,7 +172,7 @@ namespace OpenGL
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IRenderResource.ObjectName"/>. This routine will test whether
+		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
 		/// <paramref name="ctx"/> has created this RenderBuffer (or is sharing with the creator).
 		/// </para>
 		/// </remarks>
@@ -199,6 +208,25 @@ namespace OpenGL
 		protected override uint CreateName(GraphicsContext ctx)
 		{
 			return (Gl.GenRenderbuffer());
+		}
+
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			int currentBinding;
+
+			Gl.Get(Gl.RENDERBUFFER_BINDING, out currentBinding);
+			Gl.BindRenderbuffer(Gl.RENDERBUFFER, ObjectName);
+
+			// Define buffer storage
+			Gl.RenderbufferStorage(Gl.RENDERBUFFER, Pixel.GetGlInternalFormat(_InternalFormat, ctx), (int)_Width, (int)_Height);
+			// Restore previous RenderBuffer binding
+			Gl.BindRenderbuffer(Gl.RENDERBUFFER, (uint)currentBinding);
 		}
 
 		/// <summary>

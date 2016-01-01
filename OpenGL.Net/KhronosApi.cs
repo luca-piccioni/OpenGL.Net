@@ -618,16 +618,45 @@ namespace OpenGL
 		/// </returns>
 		protected static string LogValue(Array array)
 		{
-			StringBuilder sb = new StringBuilder();
+			if (array != null) {
+				StringBuilder sb = new StringBuilder();
 
-			sb.Append("{");
-			foreach (object arrayItem in array)
-				sb.AppendFormat("{0},", arrayItem.ToString());
-			if (array.Length > 0)
-				sb.Remove(sb.Length - 1, 1);
-			sb.Append("}");
+				sb.Append("{");
+				foreach (object arrayItem in array)
+					sb.AppendFormat("{0},", arrayItem.ToString());
+				if (array.Length > 0)
+					sb.Remove(sb.Length - 1, 1);
+				sb.Append("}");
 
-			return (sb.ToString());
+				return (sb.ToString());
+			} else
+				return ("{ null }");
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="array">
+		/// A <see cref="Array"/> that specifies the set of values.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="array"/>.
+		/// </returns>
+		protected static string LogValue(string[] stringArray)
+		{
+			if (stringArray != null) {
+				StringBuilder sb = new StringBuilder();
+
+				sb.Append("{");
+				foreach (string arrayItem in stringArray)
+					sb.AppendFormat("{0},", arrayItem.Replace("\n", "\\n"));
+				if (stringArray.Length > 0)
+					sb.Remove(sb.Length - 1, 1);
+				sb.Append("}");
+
+				return (sb.ToString());
+			} else
+				return ("{ null }");
 		}
 
 		/// <summary>

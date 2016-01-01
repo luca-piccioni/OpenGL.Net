@@ -51,7 +51,7 @@ namespace OpenGL
 	/// </para>
 	/// <para>
 	/// It is possible to share resources with other GraphicsContext instances by specifying a GraphicsContext parameter at construction time. The
-	/// resources could be shared are listed in <see cref="IRenderResource"/>. There can be sharing compatibility issues by sharing resources
+	/// resources could be shared are listed in <see cref="IGraphicsResource"/>. There can be sharing compatibility issues by sharing resources
 	/// having different OpenGL implementations.
 	/// 
 	/// As generale rule, when an OpenGL version introduce a new object space class not implemented by another version, those two OpenGL version

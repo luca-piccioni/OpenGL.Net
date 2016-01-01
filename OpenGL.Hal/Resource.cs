@@ -102,7 +102,7 @@ namespace OpenGL
 		#region IResource Implementation
 
 		/// <summary>
-		/// Number of shared instances of this IRenderResource.
+		/// Number of shared instances of this IGraphicsResource.
 		/// </summary>
 		/// <remarks>
 		/// The reference count shall be initially 0 on new instances.
@@ -110,7 +110,7 @@ namespace OpenGL
 		public uint RefCount { get { return (mRefCount); } }
 
 		/// <summary>
-		/// Increment the shared IRenderResource reference count.
+		/// Increment the shared IGraphicsResource reference count.
 		/// </summary>
 		/// <remarks>
 		/// Incrementing the reference count for this resource prevents the system to dispose this instance.
@@ -121,7 +121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Decrement the shared IRenderResource reference count.
+		/// Decrement the shared IGraphicsResource reference count.
 		/// </summary>
 		/// <remarks>
 		/// Decrementing the reference count for this resource could cause this instance disposition. In the case
