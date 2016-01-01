@@ -28,7 +28,7 @@ namespace OpenGL
 	/// the disposing thread is not the one which the corresponding context is current on.
 	/// </para>
 	/// </remarks>
-	public sealed class GraphicsGarbageService : GraphicsKernelService
+	public class GraphicsGarbageService : GraphicsKernelService
 	{
 		#region Constructors
 		

@@ -1097,12 +1097,12 @@ namespace OpenGL
 		/// <summary>
 		/// Vertex array object class.
 		/// </summary>
-		internal static readonly Guid VertexArrayObjectClass = new Guid("821E9AC8-6118-4543-B561-7C85BB998287");
+		internal static readonly Guid ThisObjectClass = new Guid("821E9AC8-6118-4543-B561-7C85BB998287");
 
 		/// <summary>
 		/// Vertex array object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (VertexArrayObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.

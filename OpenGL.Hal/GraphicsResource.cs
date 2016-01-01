@@ -229,7 +229,7 @@ namespace OpenGL
 							garbageService.CollectGarbage(this);
 						}
 					} else {
-						Delete(currentContext);
+						Dispose(currentContext);
 					}
 				}	
 			}
@@ -464,7 +464,8 @@ namespace OpenGL
 		/// </remarks>
 		public virtual void Dispose(GraphicsContext ctx)
 		{
-
+			// By default, delete object
+			Delete(ctx);
 		}
 
 		/// <summary>

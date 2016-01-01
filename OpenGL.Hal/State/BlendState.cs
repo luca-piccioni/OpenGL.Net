@@ -25,7 +25,7 @@ namespace OpenGL.State
 	/// Blend render state (buffer group, color).
 	/// </summary>
 	[DebuggerDisplay("BlendState: Enabled={Enabled} Src={SrcFactor} Dst={DstFactor} Eq={Equation} SrcAlpha={AlphaSrcFactor} DstAlpha={AlphaDstFactor} Inheritable={Inheritable}")]
-	public sealed class BlendState : GraphicsState
+	public class BlendState : GraphicsState
 	{
 		#region Constructors
 		

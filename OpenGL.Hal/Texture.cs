@@ -913,12 +913,12 @@ namespace OpenGL
 		/// <summary>
 		/// Texture object class.
 		/// </summary>
-		internal static readonly Guid TextureObjectClass = new Guid("0B0FA1F6-76B2-4B6A-B2B2-319D9E330FB1");
+		internal static readonly Guid ThisObjectClass = new Guid("0B0FA1F6-76B2-4B6A-B2B2-319D9E330FB1");
 
 		/// <summary>
 		/// Texture object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (TextureObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this Texture really exists for a specific context.

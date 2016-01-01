@@ -34,7 +34,7 @@ namespace OpenGL.State
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("RenderBufferState")]
-	public sealed class RenderBufferState : GraphicsState
+	public class RenderBufferState : GraphicsState
 	{
 		#region Constructors
 

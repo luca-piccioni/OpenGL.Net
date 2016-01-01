@@ -58,7 +58,7 @@ namespace OpenGL
 			base(w, h)
 		{
 			// Create Form linked with this GraphicsWindow
-			_RenderControl = _RenderForm = new RenderForm(this);
+			_RenderControl = _RenderForm = new RenderForm(this, new Size((int)w, (int)h));
 			// Obtain device context (relative to window)
 			_DeviceContext = DeviceContextFactory.Create(_RenderForm);
 			_DeviceContext.IncRef();
@@ -150,7 +150,7 @@ namespace OpenGL
 			/// <summary>
 			/// RenderForm constructor. 
 			/// </summary>
-			public RenderForm(GraphicsWindow graphicsWindow)
+			public RenderForm(GraphicsWindow graphicsWindow, Size clientSize)
 			{
 				if (graphicsWindow == null)
 					throw new ArgumentNullException("graphicsWindow");
@@ -158,8 +158,7 @@ namespace OpenGL
 				// Store GraphicsWindow reference
 				_Window = graphicsWindow;
 				// Initialize Form extents
-				//SetClientSizeCore((int)win.Width, (int)win.Height);
-				ClientSize = new Size((int)graphicsWindow.Width, (int)graphicsWindow.Height);
+				ClientSize = clientSize;
 				
 				// No need to erase window background
 				SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -636,12 +635,12 @@ namespace OpenGL
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		internal static readonly Guid ObjectClassId = new Guid("DE73B51E-2932-436C-BEC4-FD77203012F6");
+		internal static readonly Guid ThisObjectClass = new Guid("DE73B51E-2932-436C-BEC4-FD77203012F6");
 
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ObjectClassId); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.

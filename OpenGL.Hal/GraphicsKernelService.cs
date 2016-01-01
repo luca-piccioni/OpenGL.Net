@@ -554,12 +554,12 @@ namespace OpenGL
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		internal static readonly Guid RenderKernelServiceObjectClass = new Guid("CD7B206B-919D-40e2-9AB1-C5C3B8C98A8A");
+		internal static readonly Guid ThisObjectClass = new Guid("CD7B206B-919D-40e2-9AB1-C5C3B8C98A8A");
 
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (RenderKernelServiceObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.

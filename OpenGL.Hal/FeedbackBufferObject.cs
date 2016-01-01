@@ -247,12 +247,12 @@ namespace OpenGL
 		/// <summary>
 		/// Feedback buffer object class.
 		/// </summary>
-		internal static readonly Guid FeedbackBufferObjectClass = new Guid("B013C3F0-4E31-49F1-9AF6-4DB4B2711B67");
+		internal static new readonly Guid ThisObjectClass = new Guid("B013C3F0-4E31-49F1-9AF6-4DB4B2711B67");
 
 		/// <summary>
 		/// Feedback buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (FeedbackBufferObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this FeedbackBufferObject really exists for a specific context.
@@ -394,50 +394,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Delete this GraphicsResource.
+		/// Dispose graphics resources using the underlying <see cref="GraphicsContext"/>.
 		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for deleting this object. The IGraphicsResource shall belong to the object space to this
-		/// <see cref="GraphicsContext"/>. The <see cref="GraphicsContext"/> shall be current to the calling thread.
+		/// <param name='ctx'>
+		/// A <see cref="GraphicsContext"/> which have access to the <see cref="IRenderDisposable"/> graphics resources.
 		/// </param>
 		/// <remarks>
 		/// <para>
-		/// After this method, the resource must have deallocated every graphic resource associated with it. Normally it should be possible
-		/// to create again the resources by calling <see cref="GraphicsResource.Create"/>.
+		/// The instance shall be considered disposed as it were called <see cref="IDisposable.Dispose"/>, but in addition
+		/// this method will release this instance resources.
 		/// </para>
 		/// <para>
-		/// This methods shall be the preferred way to deallocate graphic resources.
-		/// </para>
-		/// <para>
-		/// After a successfull call to Create, <see cref="GraphicsResource.Exists"/> shall return true.
-		/// </para>
-		/// <para>
-		/// The actual implementation deletes the name (<see cref="GraphicsResource.DeleteName"/>) only if the implementation requires a context related name
-		/// (<see cref="GraphicsResource.RequiresName"/>). In the case derived classes requires more complex resource deletion pattern, this method could
-		/// be overriden for that purpose, paying attention to call the base implementation.
+		/// The <see cref="Dispose()"/> method should try to release the underlying resources by getting the optional graphics
+		/// context current on the calling thread.
 		/// </para>
 		/// </remarks>
-		/// <seealso cref="GraphicsResource.Create"/>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="ctx"/> is not current to the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if this object doesn't exists for <paramref name="ctx"/> (this is determined by calling <see cref="GraphicsResource.Exists"/>
-		/// method), or this resource has a name and <paramref name="ctx"/> is not current to the calling thread.
-		/// </exception>
-		public override void Delete(GraphicsContext ctx)
+		public override void Dispose(GraphicsContext ctx)
 		{
-			mPrimitivesGenerated.Dispose();
-			mPrimitivesGenerated = null;
+			if (mPrimitivesGenerated != null) {
+				mPrimitivesGenerated.Dispose(ctx);
+				mPrimitivesGenerated = null;
+			}
 
-			mPrimitivesWritten.Dispose();
-			mPrimitivesWritten = null;
+			if (mPrimitivesWritten != null) {
+				mPrimitivesWritten.Dispose(ctx);
+				mPrimitivesWritten = null;
+			}
 
 			// Base implementation
-			base.Delete(ctx);
+			base.Dispose(ctx);
 		}
 
 		#endregion

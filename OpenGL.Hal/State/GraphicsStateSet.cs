@@ -39,7 +39,7 @@ namespace OpenGL.State
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("GraphicsStateSet: States={mRenderStates.Count} Customs={mCustomStates.Count}")]
-	public sealed class GraphicsStateSet : GraphicsResource
+	public class GraphicsStateSet : GraphicsResource
 	{
 		#region State Factory
 
@@ -432,12 +432,12 @@ namespace OpenGL.State
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		internal static readonly Guid RenderStateSetObjectClass = new Guid("A2D35FBD-7918-4CD6-85A2-465D41474DF1");
+		internal static readonly Guid ThisObjectClass = new Guid("A2D35FBD-7918-4CD6-85A2-465D41474DF1");
 
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (RenderStateSetObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -489,6 +489,9 @@ namespace OpenGL.State
 				// Custom states
 				UndefineCustomStates();
 			}
+
+			// Base implementation
+			base.Dispose(disposing);
 		}
 
 		#endregion

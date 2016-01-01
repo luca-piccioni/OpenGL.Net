@@ -17,7 +17,9 @@
 // USA
 
 using System;
+using System.Reflection;
 
+using NSubstitute;
 using NUnit.Framework;
 
 namespace OpenGL.Hal.Test
@@ -94,6 +96,632 @@ namespace OpenGL.Hal.Test
 		/// The graphics context.
 		/// </summary>
 		protected GraphicsContext _Context;
+
+		#endregion
+
+		#region OpenGL.Hal Types Support
+
+		/// <summary>
+		/// Interface implemented to support testing on a specific complex type defined in OpenGL.Hal.
+		/// </summary>
+		protected interface IGraphicsTypeSupport
+		{
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			object Allocate(GraphicsContext ctx);
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			T AllocateSpy<T>(GraphicsContext ctx);
+
+			/// <summary>
+			/// Actually create resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for creating the resources.
+			/// </param>
+			void Create(object instance, GraphicsContext ctx);
+
+			/// <summary>
+			/// Dispose resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for disposing the resources.
+			/// </param>
+			void Dispose(object instance, GraphicsContext ctx);
+		}
+
+		/// <summary>
+		/// Base class implementing <see cref="IGraphicsTypeSupport"/>.
+		/// </summary>
+		protected class DefaultGraphicsTypeSupport : IGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a DefaultGraphicsTypeSupport specifying the underlying type.
+			/// </summary>
+			/// <param name="type">
+			/// The <see cref="Type"/> that determine the type of the instance.
+			/// </param>
+			public DefaultGraphicsTypeSupport(Type type)
+			{
+				if (type == null)
+					throw new ArgumentNullException("type");
+
+				_InstanceType = type;
+            }
+
+			/// <summary>
+			/// The underlying type.
+			/// </summary>
+			protected readonly Type _InstanceType;
+
+			#endregion
+
+			#region Mocking Support
+
+			/// <summary>
+			/// Create a NSubstitute partial of the specified type.
+			/// </summary>
+			/// <param name="type"></param>
+			/// <param name="parameters"></param>
+			/// <returns></returns>
+			internal static object CreateTypeSpy(Type type, params object[] parameters)
+			{
+				var example = Substitute.For<IResource>();
+
+				Type substituteType = typeof(Substitute);
+				MethodInfo method = substituteType.GetMethod("ForPartsOf", BindingFlags.Public | BindingFlags.Static);
+				MethodInfo methodGeneric = method.MakeGenericMethod(type);
+
+				return (methodGeneric.Invoke(null, new object[1] { parameters }));
+			}
+
+			#endregion
+
+			#region IGraphicsTypeSupport Implementation
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public virtual object Allocate(GraphicsContext ctx)
+			{
+				return (Activator.CreateInstance(_InstanceType));
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public virtual T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType));
+			}
+
+			/// <summary>
+			/// Actually create resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for creating the resources.
+			/// </param>
+			public virtual void Create(object instance, GraphicsContext ctx)
+			{
+				IGraphicsResource graphicsResource = instance as IGraphicsResource;
+
+				if (graphicsResource == null)
+					throw new InvalidOperationException("not implementing IGraphicsResource");
+
+				graphicsResource.Create(ctx);
+			}
+
+			/// <summary>
+			/// Dispose resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for disposing the resources.
+			/// </param>
+			public virtual void Dispose(object instance, GraphicsContext ctx)
+			{
+				IDisposable disposable = instance as IDisposable;
+
+				if (disposable == null)
+					throw new InvalidOperationException("not implementing IDisposable");
+
+				disposable.Dispose();
+			}
+
+			#endregion
+		}
+
+		protected class ShaderObjectTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ShaderObjectTypeSupport.
+			/// </summary>
+			public ShaderObjectTypeSupport() :
+				base(typeof(ShaderObject))
+			{
+				
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				string[] shaderObjectSource = new string[] {
+					"void main() {\n",
+					"	gl_Position = vec4(0, 0, 0, 1);\n",
+					"}\n"
+				};
+				ShaderObject shaderObject = new ShaderObject(ShaderStage.Vertex);
+
+				return (shaderObject);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(typeof(ShaderObject), ShaderStage.Vertex));
+			}
+
+			#endregion
+		}
+
+		protected class ShaderIncludeTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ShaderIncludeTypeSupport.
+			/// </summary>
+			public ShaderIncludeTypeSupport() :
+				base(typeof(ShaderInclude))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				return (new ShaderInclude("/Test.glsl"));
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType, "/Test.glsl"));
+			}
+
+			#endregion
+		}
+
+		protected class ShaderProgramTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ShaderProgramTypeSupport.
+			/// </summary>
+			public ShaderProgramTypeSupport() :
+				base(typeof(ShaderProgram))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				ShaderProgram shaderProgram = new ShaderProgram("UnitTestProgram");
+
+				string[] vertexShaderObjectSource = new string[] {
+					"void main() {\n",
+					"	gl_Position = vec4(0, 0, 0, 1);\n",
+					"}\n"
+				};
+				string[] fragmentShaderObjectSource = new string[] {
+					"#include </OpenGL/Compatibility.glsl>\n",
+					"OUT vec4 test_Color;\n",
+					"void main() {\n",
+					"	test_Color = vec4(0, 0, 0, 1);\n",
+					"}\n"
+				};
+
+				ShaderObject vertexShaderObject = new ShaderObject(ShaderStage.Vertex);
+				ShaderObject fragmentShaderObject = new ShaderObject(ShaderStage.Fragment);
+
+				shaderProgram.AttachShader(vertexShaderObject);
+				shaderProgram.AttachShader(fragmentShaderObject);
+
+				return (shaderProgram);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType, "Test"));
+			}
+
+			#endregion
+		}
+
+		protected class ArrayBufferObjectTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ShaderProgramTypeSupport.
+			/// </summary>
+			public ArrayBufferObjectTypeSupport() :
+				base(typeof(ArrayBufferObject))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				return (new ArrayBufferObject(VertexBaseType.Float, 3, BufferObject.Hint.StaticCpuDraw));
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType, VertexBaseType.Float, 3U, BufferObject.Hint.StaticCpuDraw));
+			}
+
+			#endregion
+		}
+
+		protected class QueryObjectTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a QueryObjectTypeSupport.
+			/// </summary>
+			public QueryObjectTypeSupport() :
+				base(typeof(QueryObject))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				return (new QueryObject(QueryTarget.SamplesPassed));
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType, QueryTarget.SamplesPassed));
+			}
+
+			#endregion
+		}
+
+		protected class RenderBufferTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a RenderBufferTypeSupport.
+			/// </summary>
+			public RenderBufferTypeSupport() :
+				base(typeof(RenderBuffer))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				return (new RenderBuffer(RenderBuffer.Type.Color, PixelLayout.RGB24, 16, 16));
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType, RenderBuffer.Type.Color, PixelLayout.RGB24, 16U, 16U));
+			}
+
+			#endregion
+		}
+
+		protected class Texture2dTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a Texture2dTypeSupport.
+			/// </summary>
+			public Texture2dTypeSupport() :
+				base(typeof(Texture2d))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Actually create resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for creating the resources.
+			/// </param>
+			public override void Create(object instance, GraphicsContext ctx)
+			{
+				Texture2d texture = instance as Texture2d;
+
+				if (texture == null)
+					throw new InvalidOperationException("not implementing Texture2d");
+
+				texture.Create(ctx, 16, 16, PixelLayout.RGB24);
+			}
+
+			#endregion
+		}
+
+		protected class TextureRectangleTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a TextureRectangleTypeSupport.
+			/// </summary>
+			public TextureRectangleTypeSupport() :
+				base(typeof(TextureRectangle))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Actually create resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for creating the resources.
+			/// </param>
+			public override void Create(object instance, GraphicsContext ctx)
+			{
+				Texture2d texture = instance as Texture2d;
+
+				if (texture == null)
+					throw new InvalidOperationException("not implementing TextureRectangle");
+
+				texture.Create(ctx, 16, 16, PixelLayout.RGB24);
+			}
+
+			#endregion
+		}
+
+		protected class ViewportStateTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ViewportStateTypeSupport.
+			/// </summary>
+			public ViewportStateTypeSupport() :
+				base(typeof(State.ViewportState))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				return (new State.ViewportState(16.0f, 16.0f));
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				return ((T)CreateTypeSpy(_InstanceType, 16.0f, 16.0f));
+			}
+
+			#endregion
+		}
+
+		protected IGraphicsTypeSupport GetGraphicsTypeSupport(Type type)
+		{
+			Type graphicsTypeSupport = typeof(TestBase).GetNestedType(String.Format("{0}TypeSupport", type.Name), BindingFlags.NonPublic);
+
+			if (graphicsTypeSupport != null)
+				return (Activator.CreateInstance(graphicsTypeSupport) as IGraphicsTypeSupport);
+
+			return (new DefaultGraphicsTypeSupport(type));
+		}
 
 		#endregion
 	}

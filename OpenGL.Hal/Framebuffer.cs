@@ -24,7 +24,7 @@ namespace OpenGL
 	/// <summary>
 	/// OpenGL framebuffer.
 	/// </summary>
-	public sealed class Framebuffer : GraphicsSurface
+	public class Framebuffer : GraphicsSurface
 	{
 		#region Framebuffer Attachments
 
@@ -815,12 +815,12 @@ namespace OpenGL
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		internal static readonly Guid FramebufferObjectClass = new Guid("7A8F2D14-9A8D-4CD9-BFAD-5E10CA1C33CE");
+		internal static readonly Guid ThisObjectClass = new Guid("7A8F2D14-9A8D-4CD9-BFAD-5E10CA1C33CE");
 
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (FramebufferObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this RenderFramebuffer really exists for a specific context.

@@ -611,12 +611,12 @@ namespace OpenGL
 		/// <summary>
 		/// Shader object class.
 		/// </summary>
-		internal static readonly Guid ShaderObjectClass = new Guid("56F66A42-10E0-4317-AF3E-8C6EB05A9A7A");
+		internal static readonly Guid ThisObjectClass = new Guid("56F66A42-10E0-4317-AF3E-8C6EB05A9A7A");
 
 		/// <summary>
 		/// Shader object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ShaderObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this ShaderObject really exists for a specific context.

@@ -24,7 +24,7 @@ namespace OpenGL.State
 	/// <summary>
 	/// Specify how polygons are rasterized.
 	/// </summary>
-	public sealed class PolygonOffsetState : GraphicsState
+	public class PolygonOffsetState : GraphicsState
 	{
 		#region Constructors
 

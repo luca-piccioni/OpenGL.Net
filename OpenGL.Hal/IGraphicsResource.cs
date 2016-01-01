@@ -101,6 +101,15 @@ namespace OpenGL
 		uint ObjectName { get; }
 
 		/// <summary>
+		/// OpenGL object namespace used for creating this GraphicsResource.
+		/// </summary>
+		/// <remarks>
+		/// This property determine the correct association between this object and the render contextes used
+		/// for drawing.
+		/// </remarks>
+		Guid ObjectNamespace { get; }
+
+		/// <summary>
 		/// Determine whether this IGraphicsResource really exists for a specific context.
 		/// </summary>
 		/// <param name="ctx">

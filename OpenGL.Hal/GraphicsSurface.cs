@@ -67,8 +67,8 @@ namespace OpenGL
 		protected GraphicsSurface(uint w, uint h)
 		{
 			// Store extents
-			mWidth = w;
-			mHeight = h;
+			_Width = w;
+			_Height = h;
 		}
 		
 		#endregion
@@ -92,12 +92,12 @@ namespace OpenGL
 		/// </summary>
 		public virtual uint Width
 		{
-			get { return (mWidth); }
+			get { return (_Width); }
 			protected internal set {
 				// Store surface width
-				mWidth = value;
+				_Width = value;
 				// Notify extents changes
-				mSizeChanged = true;
+				_SizeChanged = true;
 			}
 		}
 		
@@ -106,12 +106,12 @@ namespace OpenGL
 		/// </summary>
 		public virtual uint Height
 		{
-			get { return (mHeight); }
+			get { return (_Height); }
 			protected internal set {
 				// Store surface height
-				mHeight = value;
+				_Height = value;
 				// Notify extents changes
-				mSizeChanged = true;
+				_SizeChanged = true;
 			}
 		}
 		
@@ -126,17 +126,17 @@ namespace OpenGL
 		/// <summary>
 		/// GraphicsSurface height. 
 		/// </summary>
-		private uint mWidth;
+		private uint _Width;
 
 		/// <summary>
 		/// GraphicsSurface width. 
 		/// </summary>
-		private uint mHeight;
+		private uint _Height;
 
 		/// <summary>
 		/// Flag indicating whether surface extents are changed. 
 		/// </summary>
-		protected bool mSizeChanged = true;
+		protected bool _SizeChanged = true;
 		
 		#endregion
 		

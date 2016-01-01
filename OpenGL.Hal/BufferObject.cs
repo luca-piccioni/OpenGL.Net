@@ -359,12 +359,12 @@ namespace OpenGL
 		/// <summary>
 		/// Buffer object class.
 		/// </summary>
-		internal static readonly Guid BufferObjectClass = new Guid("BFE3C5F0-4E22-49F1-9AD6-4DB4B2711B67");
+		internal static readonly Guid ThisObjectClass = new Guid("BFE3C5F0-4E22-49F1-9AD6-4DB4B2711B67");
 
 		/// <summary>
 		/// Buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (BufferObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.

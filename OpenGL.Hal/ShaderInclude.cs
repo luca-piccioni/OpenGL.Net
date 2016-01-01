@@ -167,12 +167,12 @@ namespace OpenGL
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		internal static readonly Guid ShaderIncludeObjectClass = new Guid("2B402F5B-15D2-4D3A-9A42-42D4C61AD650");
+		internal static readonly Guid ThisObjectClass = new Guid("2B402F5B-15D2-4D3A-9A42-42D4C61AD650");
 
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ShaderIncludeObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.

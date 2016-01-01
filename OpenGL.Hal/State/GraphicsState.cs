@@ -140,12 +140,12 @@ namespace OpenGL.State
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		internal static readonly Guid RenderStateObjectClass = new Guid("FC7900E3-A8B8-4097-A6C1-339BC5B413F1");
+		internal static readonly Guid ThisObjectClass = new Guid("FC7900E3-A8B8-4097-A6C1-339BC5B413F1");
 
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (RenderStateObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -159,31 +159,6 @@ namespace OpenGL.State
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
 			return (false);
-		}
-
-		/// <summary>
-		/// Actually create this GraphicsResource resources.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		protected override void CreateObject(GraphicsContext ctx)
-		{
-			
-		}
-
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
-		/// </summary>
-		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
-		/// this method is called by the finalizer.
-		/// </param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing) {
-				
-			}
 		}
 
 		#endregion

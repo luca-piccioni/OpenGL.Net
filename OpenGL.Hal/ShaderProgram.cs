@@ -54,7 +54,7 @@ namespace OpenGL
 		/// Construct a ShaderProgram.
 		/// </summary>
 		/// <param name="programName">
-		/// A <see cref="System.String"/> that specifies the shader program name.
+		/// A <see cref="String"/> that specifies the shader program name.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if the parameter <paramref name="programName"/> is not a valid name.
@@ -954,12 +954,12 @@ namespace OpenGL
 		/// <summary>
 		/// Shader program object class.
 		/// </summary>
-		internal static readonly Guid ShaderProgramObjectClass = new Guid("63E57E43-9DD1-46E3-8EA0-DE87836818D7");
+		internal static readonly Guid ThisObjectClass = new Guid("63E57E43-9DD1-46E3-8EA0-DE87836818D7");
 
 		/// <summary>
 		/// Shader program object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ShaderProgramObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this ShaderProgram really exists for a specific context.

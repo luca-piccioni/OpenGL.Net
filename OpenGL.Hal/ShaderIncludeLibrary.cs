@@ -24,6 +24,7 @@ namespace OpenGL
 	/// <summary>
 	/// Shader include library.
 	/// </summary>
+	
 	class ShaderIncludeLibrary : GraphicsResource
 	{
 		#region Constructors
@@ -82,12 +83,12 @@ namespace OpenGL
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		internal static readonly Guid ShaderIncludeLibraryObjectClass = new Guid("2B702F5B-15D2-453A-9A42-4212C61AD650");
+		internal static readonly Guid ThisObjectClass = new Guid("2B702F5B-15D2-453A-9A42-4212C61AD650");
 
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ShaderIncludeLibraryObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 		
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.

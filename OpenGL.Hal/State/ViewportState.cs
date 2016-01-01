@@ -30,7 +30,7 @@ namespace OpenGL.State
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("ViewportState")]
-	public sealed class ViewportState : ShaderUniformState
+	public class ViewportState : ShaderUniformState
 	{
 		#region Constructors
 

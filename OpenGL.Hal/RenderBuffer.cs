@@ -153,12 +153,12 @@ namespace OpenGL
 		/// <summary>
 		/// Render buffer object class.
 		/// </summary>
-		internal static readonly Guid RenderBufferObjectClass = new Guid("DE480749-2F05-4872-A7E7-7D5B72AF79E8");
+		internal static readonly Guid ThisObjectClass = new Guid("DE480749-2F05-4872-A7E7-7D5B72AF79E8");
 
 		/// <summary>
 		/// Render buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (RenderBufferObjectClass); } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this RenderBuffer really exists for a specific context.

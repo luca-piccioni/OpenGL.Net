@@ -1127,7 +1127,7 @@ namespace OpenGL
 	/// A structure that holds the array item data. Typically this type match a <see cref="IVertex"/> or <see cref="IColor"/> implementation,
 	/// but it could any value type.
 	/// </typeparam>
-	public sealed class ArrayBufferObject<T> : ArrayBufferObject where T : struct
+	public class ArrayBufferObject<T> : ArrayBufferObject where T : struct
 	{
 		#region Constructors
 
@@ -1345,7 +1345,7 @@ namespace OpenGL
 	/// 
 	/// </para>
 	/// </remarks>
-	public sealed class ComplexArrayBufferObject : ArrayBufferObject
+	public abstract class ComplexArrayBufferObject : ArrayBufferObject
 	{
 		#region Constructors
 

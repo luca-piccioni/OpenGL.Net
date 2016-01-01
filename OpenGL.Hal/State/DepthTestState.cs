@@ -25,7 +25,7 @@ namespace OpenGL.State
 	/// Depth test render state.
 	/// </summary>
 	[DebuggerDisplay("DepthTestState: Function={Function} Inheritable={Inheritable}")]
-	public sealed class DepthTestState : GraphicsState
+	public class DepthTestState : GraphicsState
 	{
 		#region Constructors
 		
