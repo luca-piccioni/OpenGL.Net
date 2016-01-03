@@ -379,6 +379,7 @@
     <Compile Include="KHR\Gl.KHR_no_error.cs" />
     <Compile Include="KHR\Gl.KHR_robustness.cs" />
     <Compile Include="KHR\Gl.KHR_texture_compression_astc_hdr.cs" />
+    <Compile Include="MemoryLock.cs" />
     <Compile Include="MESAX\Gl.MESAX_texture_stack.cs" />
     <Compile Include="MESA\Egl.MESA_drm_image.cs" />
     <Compile Include="MESA\Gl.MESA_pack_invert.cs" />
