@@ -335,7 +335,7 @@ namespace OpenGL
 		/// Accumulate a translation on this ModelMatrix.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="Vertex2f"/> that specifies the translation.
+		/// A <see cref="Vertex2f"/> that specify the translation.
 		/// </param>
 		public void Translate(Vertex2f p)
 		{
@@ -351,7 +351,7 @@ namespace OpenGL
 		/// Accumulate a translation on this ModelMatrix.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="Vertex3f"/> that specifies the translation.
+		/// A <see cref="Vertex3f"/> that specify the translation.
 		/// </param>
 		public void Translate(Vertex3f p)
 		{
@@ -592,10 +592,10 @@ namespace OpenGL
 		/// Compute the product of a ModelMatrix with a Vertex3f.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="ModelMatrix"/> that specifies the left multiplication operand.
+		/// A <see cref="ModelMatrix"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the right vector operand.
+		/// A <see cref="Vertex4f"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3f"/> resulting from the product of the matrix <paramref name="m"/> and
@@ -610,10 +610,10 @@ namespace OpenGL
 		/// Compute the product of a ModelMatrix with a Vertex4f.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="ModelMatrix"/> that specifies the left multiplication operand.
+		/// A <see cref="ModelMatrix"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the right vector operand.
+		/// A <see cref="Vertex4f"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3f"/> resulting from the product of the matrix <paramref name="m"/> and
@@ -699,10 +699,10 @@ namespace OpenGL
 		/// Compute the product of two ModelMatrix.
 		/// </summary>
 		/// <param name="m1">
-		/// A <see cref="Matrix4x4"/> that specifies the left multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="m2">
-		/// A <see cref="Matrix4x4"/> that specifies the right multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Matrix4x4"/> resulting from the product of the matrix <paramref name="m1"/> and
@@ -854,7 +854,7 @@ namespace OpenGL
 		/// Accumulate a translation on this model matrix.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="Vertex2d"/> that specifies the translation.
+		/// A <see cref="Vertex2d"/> that specify the translation.
 		/// </param>
 		public void Translate(Vertex2d p)
 		{
@@ -865,7 +865,7 @@ namespace OpenGL
 		/// Accumulate a translation on this model matrix.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="Vertex3d"/> that specifies the translation.
+		/// A <see cref="Vertex3d"/> that specify the translation.
 		/// </param>
 		public void Translate(Vertex3d p)
 		{
@@ -1152,7 +1152,7 @@ namespace OpenGL
 		/// Multiply this IModelMatrix with another IModelMatrix.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="IModelMatrix"/> that specifies the right multiplication operand.
+		/// A <see cref="IModelMatrix"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IModelMatrix"/> resulting from the product of this matrix and the matrix <paramref name="a"/>.

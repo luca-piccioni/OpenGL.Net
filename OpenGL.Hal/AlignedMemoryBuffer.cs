@@ -1,18 +1,20 @@
 
-// Copyright (C) 2011-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Runtime.InteropServices;
@@ -52,16 +54,14 @@ namespace OpenGL
 				throw new ArgumentException("invalid", "alignment");
 
 			// Store alignment
-			mAlignment = alignment;
-			// Store size
-			mSize = size;
-			// Allocate unmanaged buffer
-			mUnmanagedBuffer = Marshal.AllocHGlobal(new IntPtr(size + alignment));
-
-			// Align buffer pointer
-			long misalignment = (long)((ulong)mUnmanagedBuffer.ToInt64() % alignment);
+			_Alignment = alignment;
 			
-			mAlignedBuffer = misalignment != 0 ? new IntPtr(mUnmanagedBuffer.ToInt64() + alignment - misalignment) : mUnmanagedBuffer;
+			// Allocate unmanaged buffer
+			_UnmanagedBuffer = Marshal.AllocHGlobal(new IntPtr(size + alignment));
+			// Store size
+			_Size = size;
+			// Align buffer pointer
+			ResetAlignment();
 		}
 
 		#endregion
@@ -80,39 +80,60 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("AlignedMemoryBuffer");
-				return (mAlignedBuffer);
+				return (_AlignedBuffer);
 			}
+		}
+
+		/// <summary>
+		/// Recompute <see cref="_AlignedBuffer"/> in order to respect alignment.
+		/// </summary>
+		private void ResetAlignment()
+		{
+			long misalignment = (long)((ulong)_UnmanagedBuffer.ToInt64() % _Alignment);
+
+			_AlignedBuffer = misalignment != 0 ? new IntPtr(_UnmanagedBuffer.ToInt64() + _Alignment - misalignment) : _UnmanagedBuffer;
 		}
 
 		/// <summary>
 		/// The size of the buffer, is basic machine units (bytes).
 		/// </summary>
-		public uint Size { get { return (mSize); } }
+		public uint Size { get { return (_Size); } }
+
+		/// <summary>
+		/// Reallocate the memory size.
+		/// </summary>
+		/// <param name="size"></param>
+		public void Realloc(uint size)
+		{
+			_UnmanagedBuffer = Marshal.ReAllocHGlobal(_UnmanagedBuffer, new IntPtr(size));
+			_Size = size;
+			ResetAlignment();
+		}
 
 		/// <summary>
 		/// The <see cref="AlignedBuffer"/> alignment.
 		/// </summary>
-		public uint Alignment { get { return (mAlignment); } }
+		public uint Alignment { get { return (_Alignment); } }
 
 		/// <summary>
 		/// Unmanaged buffer.
 		/// </summary>
-		private IntPtr mUnmanagedBuffer;
+		private IntPtr _UnmanagedBuffer;
 
 		/// <summary>
 		/// Point to 'mUnmanagedBuffer' in a way it is aligned.
 		/// </summary>
-		private IntPtr mAlignedBuffer;
+		private IntPtr _AlignedBuffer;
 
 		/// <summary>
 		/// The 'mAlignedBuffer' pointer alignment.
 		/// </summary>
-		private readonly uint mAlignment;
+		private readonly uint _Alignment;
 
 		/// <summary>
 		/// The size of the buffer, is basic machine units (bytes).
 		/// </summary>
-		private readonly uint mSize;
+		private uint _Size;
 
 		#endregion
 
@@ -139,7 +160,7 @@ namespace OpenGL
 				throw new ObjectDisposedException("AlignedMemoryBuffer");
 			if (otherMemoryBuffer == null)
 				throw new ArgumentNullException("otherMemoryBuffer");
-			if (otherMemoryBuffer.mUnmanagedBuffer == IntPtr.Zero)
+			if (otherMemoryBuffer._UnmanagedBuffer == IntPtr.Zero)
 				throw new ArgumentException("disposed", "otherMemoryBuffer");
 			if (thisOffset + bytesCopied >= otherMemoryBuffer.Size - otherOffset)
 				throw new InvalidOperationException("copying out of bounds");
@@ -177,11 +198,11 @@ namespace OpenGL
 		private void Dispose(bool disposing)
 		{
 			if (disposing) {
-				if (mUnmanagedBuffer != IntPtr.Zero) {
+				if (_UnmanagedBuffer != IntPtr.Zero) {
 					// Release unmanaged buffer
-					Marshal.FreeHGlobal(mUnmanagedBuffer);
+					Marshal.FreeHGlobal(_UnmanagedBuffer);
 					// Reset pointers
-					mUnmanagedBuffer = mAlignedBuffer = IntPtr.Zero;
+					_UnmanagedBuffer = _AlignedBuffer = IntPtr.Zero;
 				}
 			}
 		}

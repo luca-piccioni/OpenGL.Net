@@ -16,7 +16,7 @@ namespace OpenGL
 		/// Construct a FramebufferException.
 		/// </summary>
 		/// <param name="errorCode">
-		/// A <see cref="Int32"/> that specifies the error code.
+		/// A <see cref="Int32"/> that specify the error code.
 		/// </param>
 		public FramebufferException(int errorCode) :
 			base(errorCode, GetErrorMessage(errorCode))
@@ -28,10 +28,10 @@ namespace OpenGL
 		/// Construct a FramebufferException.
 		/// </summary>
 		/// <param name="errorCode">
-		/// A <see cref="Int32"/> that specifies the error code.
+		/// A <see cref="Int32"/> that specify the error code.
 		/// </param>
 		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
+		/// A <see cref="String"/> that specify the exception message.
 		/// </param>
 		public FramebufferException(int errorCode, String message) :
 			base(errorCode, message)
@@ -43,10 +43,10 @@ namespace OpenGL
 		/// Construct a FramebufferException.
 		/// </summary>
 		/// <param name="errorCode">
-		/// A <see cref="Int32"/> that specifies the error code.
+		/// A <see cref="Int32"/> that specify the error code.
 		/// </param>
 		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
+		/// A <see cref="String"/> that specify the exception message.
 		/// </param>
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.
@@ -65,7 +65,7 @@ namespace OpenGL
 		/// Returns a description of the error code.
 		/// </summary>
 		/// <param name="errorCode">
-		/// A <see cref="ErrorCode"/> that specifies the error code.
+		/// A <see cref="ErrorCode"/> that specify the error code.
 		/// </param>
 		/// <returns>
 		/// It returns a description of <paramref name="errorCode"/>, asssuming that is a value returned

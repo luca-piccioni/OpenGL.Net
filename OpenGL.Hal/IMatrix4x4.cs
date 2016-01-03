@@ -71,7 +71,7 @@ namespace OpenGL
 		/// Compute the product of this IMatrix with another IMatrix.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="IMatrix4x4"/> that specifies the right multiplication operand.
+		/// A <see cref="IMatrix4x4"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IMatrix"/> resulting from the product of this matrix and the matrix <paramref name="a"/>.
@@ -82,7 +82,7 @@ namespace OpenGL
 		/// Compute the product of a IMatrix4x4 with a Vertex4d (project a vertex on this matrix).
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4d"/> that specifies the right vector operand.
+		/// A <see cref="Vertex4d"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4d"/> resulting from the product of this Vertex4d and the vector

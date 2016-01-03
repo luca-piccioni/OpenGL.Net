@@ -59,7 +59,7 @@ namespace OpenGL
 		/// Accumulate a translation on this model matrix.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="Vertex2d"/> that specifies the translation.
+		/// A <see cref="Vertex2d"/> that specify the translation.
 		/// </param>
 		void Translate(Vertex2d p);
 
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// Accumulate a translation on this model matrix.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="Vertex3d"/> that specifies the translation.
+		/// A <see cref="Vertex3d"/> that specify the translation.
 		/// </param>
 		void Translate(Vertex3d p);
 
@@ -274,7 +274,7 @@ namespace OpenGL
 		/// Multiply this IModelMatrix with another IModelMatrix.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="IModelMatrix"/> that specifies the right multiplication operand.
+		/// A <see cref="IModelMatrix"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IModelMatrix"/> resulting from the product of this matrix and the matrix <paramref name="a"/>.

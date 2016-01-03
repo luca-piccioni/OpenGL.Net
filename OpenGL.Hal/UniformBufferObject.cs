@@ -28,7 +28,7 @@ namespace OpenGL
 		/// Construct an UniformBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.BufferHint"/> that specifies the data buffer usage hint.
+		/// An <see cref="BufferObject.BufferHint"/> that specify the data buffer usage hint.
 		/// </param>
 		public UniformBufferObject(Hint hint) : base(BufferTargetARB.UniformBuffer, hint)
 		{

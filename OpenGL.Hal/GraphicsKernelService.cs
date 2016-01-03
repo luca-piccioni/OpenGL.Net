@@ -391,7 +391,7 @@ namespace OpenGL
 		/// Bind this RenderKernelService to a specific object name space.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specifies the object name space used.
+		/// A <see cref="GraphicsContext"/> that specify the object name space used.
 		/// </param>
 		internal void BindObjectNameSpace(GraphicsContext ctx)
 		{
@@ -418,7 +418,7 @@ namespace OpenGL
 		/// Bind this RenderKernelService to a specific object name space.
 		/// </summary>
 		/// <param name="sObjectNameSpace">
-		/// A <see cref="System.Guid"/> that specifies the object name space used.
+		/// A <see cref="System.Guid"/> that specify the object name space used.
 		/// </param>
 		private void BindObjectNameSpace(Guid sObjectNameSpace)
 		{
@@ -448,7 +448,7 @@ namespace OpenGL
 		/// Unbind this RenderKernelService from a specific object name space.
 		/// </summary>
 		/// <param name="sObjectNameSpace">
-		/// A <see cref="System.Guid"/> that specifies the object name space used.
+		/// A <see cref="System.Guid"/> that specify the object name space used.
 		/// </param>
 		private void UnbindObjectNameSpace(Guid sObjectNameSpace)
 		{
@@ -479,7 +479,7 @@ namespace OpenGL
 		/// A <see cref="System.Guid"/> that specify the object name space of the service.
 		/// </param>
 		/// <param name="sName">
-		/// A <see cref="System.String"/> that specifies the service name.
+		/// A <see cref="System.String"/> that specify the service name.
 		/// </param>
 		/// <returns>
 		/// It returns the RenderKernelService with the name <paramref name="sName"/> for the calling thread. In the case

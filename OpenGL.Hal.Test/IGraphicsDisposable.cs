@@ -46,9 +46,8 @@ namespace OpenGL.Hal.Test
 
 				// Create the resource
 				Assert.DoesNotThrow(delegate () { graphicsTypeSupport.Create(resource, _Context); });
-
 				// Call Dispose() method
-				resource.Dispose();
+				Assert.DoesNotThrow(delegate () { resource.Dispose(); });
 				// Dispose() method shall call the Dispose(GraphicsContext) method since it is current
 				resource.Received().Dispose(_Context);
 			}
@@ -85,7 +84,7 @@ namespace OpenGL.Hal.Test
 		{
 			get
 			{
-				Type[] libraryTypes = Assembly.GetAssembly(typeof(IResource)).GetTypes();
+				Type[] libraryTypes = Assembly.GetAssembly(typeof(IGraphicsDisposable)).GetTypes();
 
 				return (Array.FindAll(libraryTypes, delegate (Type item) {
 					if (item.IsAbstract)
@@ -93,6 +92,16 @@ namespace OpenGL.Hal.Test
 					if (item.IsInterface)
 						return (false);
 					if (item.IsGenericType)
+						return (false);
+					if (item.IsSealed)
+						return (false);
+
+					// Note: GraphicsWindow as IGraphicsDisposable is somewhat an exception to the design pattern, since
+					// its object namespace cannot match with the device context. Need to rethink the GraphicsWindow.Dispose
+					// implementation, since a GraphicsContext could be created within the class, and used to create resources
+					// associated with the window.
+
+					if (item.GetType() == typeof(GraphicsWindow))
 						return (false);
 
 					return (item.GetInterface("IGraphicsDisposable") != null);

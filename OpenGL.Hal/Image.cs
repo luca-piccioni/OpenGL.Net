@@ -280,7 +280,7 @@ namespace OpenGL
 		/// Image pixel format.
 		/// </summary>
 		/// <returns>
-		/// It returns a <see cref="PixelLayout"/> that specifies the image color resolution.
+		/// It returns a <see cref="PixelLayout"/> that specify the image color resolution.
 		/// </returns>
 		public PixelLayout PixelLayout { get { return (_PixelFormat.DataFormat); } }
 
@@ -457,7 +457,7 @@ namespace OpenGL
 		/// ConvertItemType this image to another pixel type.
 		/// </summary>
 		/// <param name="dstFormat">
-		/// A <see cref="PixelLayout"/> that specifies the destination image pixel type.
+		/// A <see cref="PixelLayout"/> that specify the destination image pixel type.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="Image"/> visually equalivalent to this Image, but having a pixel format corresponding to

@@ -138,7 +138,7 @@ namespace OpenGL
 		/// Compute the product of this IMatrix with another IMatrix.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="IMatrix"/> that specifies the right multiplication operand.
+		/// A <see cref="IMatrix"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IMatrix"/> resulting from the product of this matrix and the matrix <paramref name="a"/>.

@@ -59,10 +59,10 @@ namespace OpenGL
 		/// GraphicsSurface constructor specifying extents. 
 		/// </summary>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> that specifies the surface width.
+		/// A <see cref="System.Int32"/> that specify the surface width.
 		/// </param>
 		/// <param name="h">
-		/// A <see cref="System.Int32"/> that specifies the surface height.
+		/// A <see cref="System.Int32"/> that specify the surface height.
 		/// </param>
 		protected GraphicsSurface(uint w, uint h)
 		{
@@ -393,19 +393,19 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="rBuffer">
-		/// A <see cref="ReadBufferMode"/> that specifies the read buffer where the colors are read from.
+		/// A <see cref="ReadBufferMode"/> that specify the read buffer where the colors are read from.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specifies the width of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specifies the height of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelLayout"/> which determine the pixel storage of the returned image.
@@ -456,13 +456,13 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> which is bound to this GraphicsSurface.
 		/// </param>
 		/// <param name="rBuffer">
-		/// A <see cref="ReadBufferMode"/> that specifies the read buffer where the colors are read from.
+		/// A <see cref="ReadBufferMode"/> that specify the read buffer where the colors are read from.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="Texture"/> that will hold the buffer data.

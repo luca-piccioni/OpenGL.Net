@@ -31,11 +31,11 @@ namespace OpenGL
 		/// Construct a render buffer.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="Type"/> that specifies the type of the buffer. This parameter
+		/// A <see cref="Type"/> that specify the type of the buffer. This parameter
 		/// influence the framebuffer attachment, and the possible formats.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="PixelLayout"/> that specifies the internal OpenGL format for this
+		/// A <see cref="PixelLayout"/> that specify the internal OpenGL format for this
 		/// RenderBuffer. From OpenGL 3.2 specification:
 		/// @verbatim
 		/// Implementations are required to support the same internal formats for renderbuffers
@@ -128,10 +128,10 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for allocation.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> that specifies the width of the renderbuffer.
+		/// A <see cref="System.Int32"/> that specify the width of the renderbuffer.
 		/// </param>
 		/// <param name="h">
-		/// A <see cref="System.Int32"/> that specifies the height of the renderbuffer.
+		/// A <see cref="System.Int32"/> that specify the height of the renderbuffer.
 		/// </param>
 		public void Allocate(GraphicsContext ctx, uint w, uint h)
 		{
@@ -236,7 +236,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

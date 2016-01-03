@@ -130,16 +130,16 @@ namespace OpenGL
 		/// A <see cref="GraphicsCapabilities"/> determining the underlying texture capabilities.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specifies the texture width.
+		/// A <see cref="System.UInt32"/> that specify the texture width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specifies the texture height.
+		/// A <see cref="System.UInt32"/> that specify the texture height.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="System.UInt32"/> that specifies the texture depth.
+		/// A <see cref="System.UInt32"/> that specify the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="OpenGL.PixelLayout"/> that specifies the texture internal format.
+		/// A <see cref="OpenGL.PixelLayout"/> that specify the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="caps"/> is null.
@@ -237,7 +237,7 @@ namespace OpenGL
 		/// A <see cref="OpenGL.PixelLayout"/> determining the pixel format of the downloaded data.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specifies the texture target.
+		/// A <see cref="TextureTarget"/> that specify the texture target.
 		/// </param>
 		/// <returns>
 		/// 
@@ -677,7 +677,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for setting texture parameter.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specifies the Texture target.
+		/// A <see cref="TextureTarget"/> that specify the Texture target.
 		/// </param>
 		protected void ApplyParameters(GraphicsContext ctx, TextureTarget target)
 		{
@@ -828,7 +828,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for binding this Texture.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specifies the texture target.
+		/// A <see cref="TextureTarget"/> that specify the texture target.
 		/// </param>
 		protected void Bind(GraphicsContext ctx, TextureTarget target)
 		{
@@ -843,7 +843,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for binding this Texture.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specifies the texture target.
+		/// A <see cref="TextureTarget"/> that specify the texture target.
 		/// </param>
 		protected void Unbind(GraphicsContext ctx, TextureTarget target)
 		{
@@ -1003,7 +1003,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

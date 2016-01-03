@@ -558,7 +558,7 @@ namespace OpenGL
 		/// A <see cref="System.String"/> that specify the file path where media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
@@ -596,7 +596,7 @@ namespace OpenGL
 		/// A <see cref="System.Uri"/> that specify the resource location where media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
@@ -636,7 +636,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
@@ -701,7 +701,7 @@ namespace OpenGL
 		/// A <see cref="System.String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
@@ -733,7 +733,7 @@ namespace OpenGL
 		/// The <see cref="System.String"/> which defines the format of the stream data.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
@@ -775,7 +775,7 @@ namespace OpenGL
 		/// The <see cref="System.String"/> which defines the format of the stream data.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
@@ -854,10 +854,10 @@ namespace OpenGL
 		/// A <typeparamref name="TMedia"/> that holds the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the media format to used for saving <paramref name="media"/>.
+		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="media"/>.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an image stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// This exception is thrown if at least one of the parameters <paramref name="path"/> or <paramref name="media"/>
@@ -902,10 +902,10 @@ namespace OpenGL
 		/// A <typeparamref name="TMedia"/> that holds the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the media format to used for saving <paramref name="media"/>.
+		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="media"/>.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an image stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// This exception is thrown if at least one of the parameters <paramref name="stream"/> or <paramref name="media"/>
@@ -1022,7 +1022,7 @@ namespace OpenGL
 		/// Loads a managed plugin type implementation from a dynamically loaded library.
 		/// </summary>
 		/// <param name="pluginPath">
-		/// A <see cref="System.String"/> that specifies the path of the dynamically loaded library.
+		/// A <see cref="System.String"/> that specify the path of the dynamically loaded library.
 		/// </param>
 		/// <param name="pluginFactoryType">
 		/// A <see cref="System.String"/> that specify the full name of the type that create the plugin. This type

@@ -33,11 +33,11 @@ namespace OpenGL
 		/// Query the OpenGL implementation limits.
 		/// </summary>
 		/// <param name="glExtensions">
-		/// A <see cref="Gl.Extensions"/> that specifies the supported OpenGL extension by the current
+		/// A <see cref="Gl.Extensions"/> that specify the supported OpenGL extension by the current
 		/// implementation.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="GraphicsLimits"/> that specifies the current OpenGL implementation limits.
+		/// It returns a <see cref="GraphicsLimits"/> that specify the current OpenGL implementation limits.
 		/// </returns>
 		/// <remarks>
 		/// It is assumed to have a valid OpenGL context current on the calling thread.
@@ -123,17 +123,134 @@ namespace OpenGL
 
 		#endregion
 
-		#region Viewport Limits
+		#region OpenGL 1.1 Limits
+
+		/// <summary>
+		/// Range of the widths supported for smooth lines.
+		/// </summary>
+		[GraphicsLimit(Gl.LINE_WIDTH_RANGE, ArrayLenght = 2)]
+		public float[] LineWidthRange = new float[] { 0.0f, 0.0f };
+
+		/// <summary>
+		/// Granularity of the effective value set by <see cref="Gl.LineWidth(float)"/> (minimum and maximum).
+		/// </summary>
+		[GraphicsLimit(Gl.LINE_WIDTH_GRANULARITY)]
+		public int LineWidthGranularity;
+
+		/// <summary>
+		/// Maximum 2D texture extents.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_TEXTURE_SIZE)]
+		public int MaxTexture2DSize;
 
 		/// <summary>
 		/// Maximum viewport dimensions (width and height).
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_VIEWPORT_DIMS, ArrayLenght = 2)]
-		public int[] MaxViewport = new int[] { 0, 0 };
+		public int[] MaxViewportDims = new int[] { 0, 0 };
 
 		#endregion
 
-		#region Frambuffer Object Limits
+		#region OpenGL 1.2 Limits
+
+		/// <summary>
+		/// Range of the widths supported for aliased lines.
+		/// </summary>
+		[GraphicsLimit(Gl.ALIASED_LINE_WIDTH_RANGE, ArrayLenght = 2)]
+		public float[] AliasedLineWidthRange = new float[] { 0.0f, 0.0f };
+
+		/// <summary>
+		/// Maximum number of drawable attribute array length.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_ELEMENTS_VERTICES)]
+		public int MaxElementsVertices;
+
+		/// <summary>
+		/// Maximum number of drawable attribute elements.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_ELEMENTS_INDICES)]
+		public int MaxElementsIndices;
+
+		/// <summary>
+		/// Maximum 3D texture extents.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_3D_TEXTURE_SIZE)]
+		[KhronosApi.Extension("GL_EXT_texture3D")]
+		public int MaxTexture3DSize;
+
+		#endregion
+
+		#region OpenGL 1.3 Limits
+
+		/// <summary>
+		/// Maximum cube map texture extents.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_CUBE_MAP_TEXTURE_SIZE)]
+		[KhronosApi.Extension("GL_ARB_texture_cube_map")]
+		public int MaxTextureCubeSize;
+
+		#endregion
+
+		#region OpenGL 2.0 Limits
+
+		/// <summary>
+		/// Maximum number of texture image units usable by all shader program stages at once.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS)]
+		[KhronosApi.Extension("GL_ARB_shader_program")]
+		public int MaxCombinedTextureImageUnits;
+
+		/// <summary>
+		/// The maximum number of color attachments that a shader support.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_DRAW_BUFFERS)]
+		public int MaxDrawBuffers;
+
+		/// <summary>
+		/// Maximum number of texture coordinate units usable by a fragment shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_TEXTURE_COORDS)]
+		[KhronosApi.Extension("GL_ARB_fragment_shader")]
+		public int MaxFragmentTextureCoordUnits;
+
+		/// <summary>
+		/// Maximum number of texture units usable  by a fragment shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_TEXTURE_IMAGE_UNITS)]
+		[KhronosApi.Extension("GL_ARB_fragment_shader")]
+		public int MaxFragmentTextureImageUnits;
+
+		/// <summary>
+		/// Maximum number of components for a fragment shader uniform variable.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_FRAGMENT_UNIFORM_COMPONENTS)]
+		[KhronosApi.Extension("GL_ARB_fragment_shader")]
+		public int MaxFragmentUniformComponents;
+
+		/// <summary>
+		/// Maximum number of varying vertex attributes.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_VERTEX_ATTRIBS)]
+		[KhronosApi.Extension("GL_ARB_vertex_shader")]
+		public int MaxVertexAttrib;
+
+		/// <summary>
+		/// Maximum number of texture units usable  by a vertex shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_VERTEX_TEXTURE_IMAGE_UNITS)]
+		[KhronosApi.Extension("GL_ARB_vertex_shader")]
+		public int MaxVertexTextureImageUnits;
+
+		/// <summary>
+		/// Maximum number of components for a vertex shader uniform variable.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_VERTEX_UNIFORM_COMPONENTS)]
+		[KhronosApi.Extension("GL_ARB_vertex_shader")]
+		public int MaxVertexUniformComponents;
+
+		#endregion
+
+		#region OpenGL 3.0 Limits
 
 		/// <summary>
 		/// The maximum number of color attachments that the frambuffer support.
@@ -151,60 +268,15 @@ namespace OpenGL
 		[KhronosApi.Extension("GL_EXT_framebuffer_object")]
 		public int MaxRenderBufferSize;
 
-		#endregion
-
-		#region Multisampling Limits
-
 		/// <summary>
 		/// Maximum sample bits for framebuffer attachments standard format.
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_SAMPLES)]
 		public int MaxSamples = 0;
 
-		/// <summary>
-		/// Maximum sample bits for framebuffer attachments with integer format.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_INTEGER_SAMPLES)]
-		public int MaxIntegerSamples = 0;
-
 		#endregion
 
-		#region Drawing Limits
-
-		/// <summary>
-		/// The maximum number of color attachments that a shader support.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_DRAW_BUFFERS)]
-		public int MaxDrawBuffers;
-
-		/// <summary>
-		/// Maximum number of drawable attribute array length.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_ELEMENTS_VERTICES)]
-		public int MaxElementsVertices;
-
-		/// <summary>
-		/// Maximum number of drawable attribute elements.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_ELEMENTS_INDICES)]
-		public int MaxElementsIndices;
-
-		#endregion
-
-		#region Texture Size Limits
-
-		/// <summary>
-		/// Maximum 2D texture extents.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_TEXTURE_SIZE)]
-		public int MaxTexture2DSize;
-
-		/// <summary>
-		/// Maximum 3D texture extents.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_3D_TEXTURE_SIZE)]
-		[KhronosApi.Extension("GL_EXT_texture3D")]
-		public int MaxTexture3DSize;
+		#region OpenGL 3.1 Limits
 
 		/// <summary>
 		/// Maximum rectangle texture extents.
@@ -212,117 +284,6 @@ namespace OpenGL
 		[GraphicsLimit(Gl.MAX_RECTANGLE_TEXTURE_SIZE)]
 		[KhronosApi.Extension("GL_ARB_texture_rectangle")]
 		public int MaxTextureRectSize;
-
-		/// <summary>
-		/// Maximum cube map texture extents.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_CUBE_MAP_TEXTURE_SIZE)]
-		[KhronosApi.Extension("GL_ARB_texture_cube_map")]
-		public int MaxTextureCubeSize;
-
-		#endregion
-
-		#region Shader Attributes
-
-		/// <summary>
-		/// Maximum number of varying vertex attributes.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_VERTEX_ATTRIBS)]
-		[KhronosApi.Extension("GL_ARB_vertex_shader")]
-		public int MaxVertexAttrib;
-
-		/// <summary>
-		/// Maximum number of outputs for vertex shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_VERTEX_OUTPUT_COMPONENTS)]
-		[KhronosApi.Extension("GL_ARB_vertex_shader")]
-		public int MaxVertexOutputsComponents = 0;
-
-		/// <summary>
-		/// Maximum number of inputs for fragment shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_FRAGMENT_INPUT_COMPONENTS)]
-		[KhronosApi.Extension("GL_ARB_fragment_shader")]
-		public int MaxFragmentInputComponents;
-
-		#endregion
-
-		#region Geometry Shader Output
-
-		/// <summary>
-		/// Maximum vertices outputtable by a geometry shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_GEOMETRY_OUTPUT_VERTICES)]
-		[KhronosApi.Extension("GL_ARB_geometry_shader4")]
-		public int MaxGeometryOutputVertices = 0;
-
-		#endregion
-
-		#region Texture Cooordinate and Image Units
-
-		/// <summary>
-		/// Maximum number of texture units usable  by a vertex shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_VERTEX_TEXTURE_IMAGE_UNITS)]
-		[KhronosApi.Extension("GL_ARB_vertex_shader")]
-		public int MaxVertexTextureImageUnits;
-
-		/// <summary>
-		/// Maximum number of texture units usable  by a geometry shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_GEOMETRY_TEXTURE_IMAGE_UNITS)]
-		[KhronosApi.Extension("GL_ARB_geometry_shader4")]
-		public int MaxGeometryTextureImageUnits;
-
-		/// <summary>
-		/// Maximum number of texture coordinate units usable by a fragment shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_TEXTURE_COORDS)]
-		[KhronosApi.Extension("GL_ARB_fragment_shader")]
-		public int MaxFragmentTextureCoordUnits;
-
-		/// <summary>
-		/// Maximum number of texture units usable  by a fragment shader.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_TEXTURE_IMAGE_UNITS)]
-		[KhronosApi.Extension("GL_ARB_fragment_shader")]
-		public int MaxFragmentTextureImageUnits;
-
-		/// <summary>
-		/// Maximum number of texture image units usable by all shader program stages at once.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS)]
-		[KhronosApi.Extension("GL_ARB_shader_program")]
-		public int MaxCombinedTextureImageUnits;
-
-		#endregion
-
-		#region Default Uniform Block
-
-		/// <summary>
-		/// Maximum number of components for a vertex shader uniform variable.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_VERTEX_UNIFORM_COMPONENTS)]
-		[KhronosApi.Extension("GL_ARB_vertex_shader")]
-		public int MaxVertexUniformComponents;
-
-		/// <summary>
-		/// Maximum number of components for a geometry shader uniform variable.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_GEOMETRY_UNIFORM_COMPONENTS)]
-		[KhronosApi.Extension("GL_ARB_geometry_shader4")]
-		public int MaxGeometryUniformComponents;
-
-		/// <summary>
-		/// Maximum number of components for a fragment shader uniform variable.
-		/// </summary>
-		[GraphicsLimit(Gl.MAX_FRAGMENT_UNIFORM_COMPONENTS)]
-		[KhronosApi.Extension("GL_ARB_fragment_shader")]
-		public int MaxFragmentUniformComponents;
-
-		#endregion
-
-		#region Uniform Blocks
 
 		/// <summary>
 		/// Maximum number of uniform blocks on a vertex shader.
@@ -367,6 +328,51 @@ namespace OpenGL
 		[GraphicsLimit(Gl.UNIFORM_BUFFER_OFFSET_ALIGNMENT)]
 		[KhronosApi.Extension("GL_ARB_uniform_buffer_object")]
 		public int UniformBufferOffsetAlignment;
+
+		#endregion
+
+		#region OpenGL 3.2 Limits
+
+		/// <summary>
+		/// Maximum sample bits for framebuffer attachments with integer format.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_INTEGER_SAMPLES)]
+		public int MaxIntegerSamples = 0;
+
+		/// <summary>
+		/// Maximum number of inputs for fragment shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_FRAGMENT_INPUT_COMPONENTS)]
+		[KhronosApi.Extension("GL_ARB_fragment_shader")]
+		public int MaxFragmentInputComponents;
+
+		/// <summary>
+		/// Maximum vertices outputtable by a geometry shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_GEOMETRY_OUTPUT_VERTICES)]
+		[KhronosApi.Extension("GL_ARB_geometry_shader4")]
+		public int MaxGeometryOutputVertices = 0;
+
+		/// <summary>
+		/// Maximum number of texture units usable  by a geometry shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_GEOMETRY_TEXTURE_IMAGE_UNITS)]
+		[KhronosApi.Extension("GL_ARB_geometry_shader4")]
+		public int MaxGeometryTextureImageUnits;
+
+		/// <summary>
+		/// Maximum number of components for a geometry shader uniform variable.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_GEOMETRY_UNIFORM_COMPONENTS)]
+		[KhronosApi.Extension("GL_ARB_geometry_shader4")]
+		public int MaxGeometryUniformComponents;
+
+		/// <summary>
+		/// Maximum number of outputs for vertex shader.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_VERTEX_OUTPUT_COMPONENTS)]
+		[KhronosApi.Extension("GL_ARB_vertex_shader")]
+		public int MaxVertexOutputsComponents = 0;
 
 		#endregion
 	}

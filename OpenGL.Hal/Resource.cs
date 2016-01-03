@@ -53,17 +53,17 @@ namespace OpenGL
 		/// </summary>
 		public static void CheckResourceLeaks()
 		{
-			foreach (Resource resource in mLivingResources)
-				Debug.Assert(resource.IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", resource.RefCount, resource.mConstructorStackTrace));
+			foreach (Resource resource in _LivingResources)
+				Debug.Assert(resource.IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", resource.RefCount, resource._ConstructorStackTrace));
 		}
 
 		[Conditional("DEBUG")]
 		private void TrackResourceLifetime()
 		{
 			// Store stack trace
-			mConstructorStackTrace = GetResourceConstructorStackTrace();
+			_ConstructorStackTrace = GetResourceConstructorStackTrace();
 			// Collect this ResourceResource for lifetime tracking
-			mLivingResources.Add(this);
+			_LivingResources.Add(this);
 		}
 
 		/// <summary>
@@ -90,12 +90,12 @@ namespace OpenGL
 		/// <summary>
 		/// The stack trace at construction time.
 		/// </summary>
-		private string mConstructorStackTrace;
+		private string _ConstructorStackTrace;
 
 		/// <summary>
 		/// Collect living RenderResources.
 		/// </summary>
-		private static readonly List<Resource> mLivingResources = new List<Resource>();
+		private static readonly List<Resource> _LivingResources = new List<Resource>();
 
 		#endregion
 
@@ -107,7 +107,7 @@ namespace OpenGL
 		/// <remarks>
 		/// The reference count shall be initially 0 on new instances.
 		/// </remarks>
-		public uint RefCount { get { return (mRefCount); } }
+		public uint RefCount { get { return (_RefCount); } }
 
 		/// <summary>
 		/// Increment the shared IGraphicsResource reference count.
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// </remarks>
 		public void IncRef()
 		{
-			mRefCount++;
+			_RefCount++;
 		}
 
 		/// <summary>
@@ -130,11 +130,11 @@ namespace OpenGL
 		public void DecRef()
 		{
 			// Instance could be never referenced with IncRef
-			if (mRefCount > 0)
-				mRefCount--;
+			if (_RefCount > 0)
+				_RefCount--;
 
 			// Automatically dispose when no references are available
-			if (mRefCount == 0)
+			if (_RefCount == 0)
 				Dispose();
 		}
 
@@ -150,12 +150,12 @@ namespace OpenGL
 		/// indeed copying the reference count.
 		/// </para>
 		/// </remarks>
-		protected void ResetRefCount() { mRefCount = 0; }
+		protected void ResetRefCount() { _RefCount = 0; }
 
 		/// <summary>
 		/// The count of references for this GraphicsResource.
 		/// </summary>
-		private uint mRefCount;
+		private uint _RefCount;
 
 		#endregion
 
@@ -166,14 +166,14 @@ namespace OpenGL
 		/// </summary>
 		~Resource()
 		{
-			Debug.Assert(IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", RefCount, mConstructorStackTrace));
+			Debug.Assert(IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", RefCount, _ConstructorStackTrace));
 			Dispose(false);
 		}
 
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (mDisposed); } }
+		public bool IsDisposed { get { return (_Disposed); } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -199,9 +199,9 @@ namespace OpenGL
 		{
 			// Dispose is equivalent to DecRef()...
 			// This allow using{} even on referenced variables, as long the GraphicsResource is referenced in the using block
-			if (mRefCount > 0)
-				mRefCount--;
-			if (mRefCount > 0)
+			if (_RefCount > 0)
+				_RefCount--;
+			if (_RefCount > 0)
 				return;
 
 			// Do not call Dispose(bool) twice
@@ -209,16 +209,16 @@ namespace OpenGL
 			// Dispose this object
 			Dispose(true);
 			// Mark as disposed
-			mDisposed = true;
+			_Disposed = true;
 
 			// Remove this GraphicsResource from the living ones
-			mLivingResources.RemoveAll(delegate(Resource resource) { return ReferenceEquals(resource, this); });
+			_LivingResources.RemoveAll(delegate(Resource resource) { return ReferenceEquals(resource, this); });
 		}
 
 		/// <summary>
 		/// Flag indicating that this instance has been disposed.
 		/// </summary>
-		private bool mDisposed;
+		private bool _Disposed;
 
 		#endregion
 	}

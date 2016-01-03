@@ -104,10 +104,10 @@ namespace OpenGL
 		/// Compute the product of a Matrix3x3 with a Vertex3f.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble3x3"/> that specifies the left multiplication operand.
+		/// A <see cref="MatrixDouble3x3"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex3f"/> that specifies the right vector operand.
+		/// A <see cref="Vertex3f"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3f"/> resulting from the product of the matrix <paramref name="m"/> and
@@ -134,10 +134,10 @@ namespace OpenGL
 		/// Compute the product of a Matrix3x3 with a Vertex4f.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble3x3"/> that specifies the left multiplication operand.
+		/// A <see cref="MatrixDouble3x3"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the right vector operand. This parameter is implicitly
+		/// A <see cref="Vertex4f"/> that specify the right vector operand. This parameter is implicitly
 		/// converted to a <see cref="Vertex3f"/> by using the explicit cast to (indeed performing the perspective
 		/// division by the W component).
 		/// </param>
@@ -160,10 +160,10 @@ namespace OpenGL
 		/// Compute the product of two Matrix4x4.
 		/// </summary>
 		/// <param name="m1">
-		/// A <see cref="MatrixDouble3x3"/> that specifies the left multiplication operand.
+		/// A <see cref="MatrixDouble3x3"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="m2">
-		/// A <see cref="MatrixDouble3x3"/> that specifies the right multiplication operand.
+		/// A <see cref="MatrixDouble3x3"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="MatrixDouble3x3"/> resulting from the product of the matrix <paramref name="m1"/> and
@@ -190,10 +190,10 @@ namespace OpenGL
 		/// A <see cref="MatrixDouble3x3"/> that stores the matrix multiplication result.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble3x3"/> that specifies the left multiplication operand.
+		/// A <see cref="MatrixDouble3x3"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="n">
-		/// A <see cref="MatrixDouble3x3"/> that specifies the right multiplication operand.
+		/// A <see cref="MatrixDouble3x3"/> that specify the right multiplication operand.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="result"/>, <paramref name="m"/> or <paramref name="n"/> is null.
@@ -408,7 +408,7 @@ namespace OpenGL
 		/// Compute the product of a IMatrix3x3 with a Vertex3d (project a vertex on this matrix).
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex3d"/> that specifies the right vector operand.
+		/// A <see cref="Vertex3d"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3d"/> resulting from the product of this Vertex4d and the vector

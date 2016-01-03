@@ -95,6 +95,8 @@ namespace OpenGL.Hal.Test
 						return (false);
 					if (item.IsGenericType)
 						return (false);
+					if (item.IsSealed)
+						return (false);
 
 					return (item.GetInterface("IResource") != null);
 				}));

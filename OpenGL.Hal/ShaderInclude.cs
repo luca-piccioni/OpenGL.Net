@@ -34,7 +34,7 @@ namespace OpenGL
 		/// Construct a ShaderInclude specifying only its path.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="System.String"/> that specifies the path used for including the include source string
+		/// A <see cref="System.String"/> that specify the path used for including the include source string
 		/// using GLSL #include preprocessor directive.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -42,7 +42,7 @@ namespace OpenGL
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="resourcePath"/> is not rooted (i.e. it doesn't start with '/' character), or if
-		/// it specifies a directory path (i.e. it ends with '/' character) or if its value contains invalid path
+		/// it specify a directory path (i.e. it ends with '/' character) or if its value contains invalid path
 		/// characters ('\n', '\t', '"', '&lt;', or '&gt;').
 		/// </exception>
 		public ShaderInclude(string resourcePath)
@@ -64,18 +64,18 @@ namespace OpenGL
 		/// Construct a ShaderInclude specifying its path and the relative source lines.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specifies the path used for including the include source string
+		/// A <see cref="System.String"/> that specify the path used for including the include source string
 		/// using GLSL #include preprocessor directive.
 		/// </param>
 		/// <param name="source">
-		/// A <see cref="IEnumerable{String}"/> that specifies the shader include source text.
+		/// A <see cref="IEnumerable{String}"/> that specify the shader include source text.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown is <paramref name="path"/> or <paramref name="source"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="path"/> is not rooted (i.e. it doesn't start with '/' character), or if
-		/// it specifies a directory path (i.e. it ends with '/' character) or if its value contains invalid path
+		/// it specify a directory path (i.e. it ends with '/' character) or if its value contains invalid path
 		/// characters ('\n', '\t', '"', '&lt;', or '&gt;').
 		/// </exception>
 		public ShaderInclude(string path, IEnumerable<string> source) :
@@ -110,7 +110,7 @@ namespace OpenGL
 		/// Load the shader source from an embedded resource
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// A <see cref="String"/> that specify the embedded resource path.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="resourcePath"/> is null.
@@ -121,6 +121,20 @@ namespace OpenGL
 		public void LoadSource(string resourcePath)
 		{
 			_SourceStrings = ShaderObject.LoadSourceLines(resourcePath);
+		}
+
+		/// <summary>
+		/// Load the shader include source from a string.
+		/// </summary>
+		/// <param name="sourceStrings">
+		/// A <see cref="IEnumerator{String}"/> that specify the shader source strings.
+		/// </param>
+		public void LoadSource(IEnumerable<string> sourceStrings)
+		{
+			if (sourceStrings == null)
+				throw new ArgumentNullException("sourceStrings");
+
+			_SourceStrings = new List<string>(sourceStrings);
 		}
 
 		#endregion
@@ -258,7 +272,10 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			
+
+			// Base implementation
+			base.Delete(ctx);
+			// Delete named string
 			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB)
 				Gl.DeleteNamedStringARB(-1, IncludePath);
 		}

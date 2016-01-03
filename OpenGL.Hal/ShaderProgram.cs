@@ -54,7 +54,7 @@ namespace OpenGL
 		/// Construct a ShaderProgram.
 		/// </summary>
 		/// <param name="programName">
-		/// A <see cref="String"/> that specifies the shader program name.
+		/// A <see cref="String"/> that specify the shader program name.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if the parameter <paramref name="programName"/> is not a valid name.
@@ -69,7 +69,7 @@ namespace OpenGL
 		/// Construct a ShaderProgram.
 		/// </summary>
 		/// <param name="programName">
-		/// A <see cref="System.String"/> that specifies the shader program name.
+		/// A <see cref="System.String"/> that specify the shader program name.
 		/// </param>
 		/// <param name="compilationParams">
 		/// A <see cref="ShaderCompilerContext"/>
@@ -1059,7 +1059,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

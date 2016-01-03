@@ -554,7 +554,7 @@ namespace OpenGL
 			if (attribute != null)
 				return (attribute.ArrayType);
 
-			return (ArrayBufferItemType.Complex);
+			throw new ArgumentException("not corresponding information", "type");
 		}
 
 		#endregion
@@ -933,7 +933,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get the size of a vertex array buffer item.
+		/// Get the size of a vertex array buffer item, in bytes.
 		/// </summary>
 		/// <param name="vertexArrayType">
 		/// A <see cref="ArrayBufferItemType"/> that describe the vertex array buffer item.

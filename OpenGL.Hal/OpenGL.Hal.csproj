@@ -64,6 +64,7 @@
     <Compile Include="ArrayBufferItemAttribute.cs" />
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
+    <Compile Include="Batch.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="Collections\IQuadTreeNode.cs" />
     <Compile Include="Collections\QuadTree.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="FramebufferException.cs" />
     <Compile Include="GraphicsCapabilities.cs" />
     <Compile Include="GraphicsContext.cs" />
+    <Compile Include="GraphicsContext.Draw.cs" />
     <Compile Include="GraphicsContextFlags.cs" />
     <Compile Include="GraphicsControl.cs">
       <SubType>UserControl</SubType>
@@ -114,7 +116,6 @@
     <Compile Include="IMediaCodecPlugin.cs" />
     <Compile Include="IModelMatrix.cs" />
     <Compile Include="IPlugin.cs" />
-    <Compile Include="IReferenceable.cs" />
     <Compile Include="IResource.cs" />
     <Compile Include="IVertex.cs" />
     <Compile Include="IVertex2.cs" />
@@ -203,7 +204,6 @@
     <Compile Include="Texture3d.cs" />
     <Compile Include="TextureCube.cs" />
     <Compile Include="TextureRectangle.cs" />
-    <Compile Include="TimerQueryObject.cs" />
     <Compile Include="UniformBufferObject.cs" />
     <Compile Include="Vertex.cs" />
     <Compile Include="Vertex2.cs" />

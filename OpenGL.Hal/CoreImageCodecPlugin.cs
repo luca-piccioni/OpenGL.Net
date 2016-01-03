@@ -280,7 +280,7 @@ namespace OpenGL
 		/// Check whether an media format is supported for reading.
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the media format to test for read support.
+		/// A <see cref="System.String"/> that specify the media format to test for read support.
 		/// </param>
 		/// <returns>
 		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
@@ -339,7 +339,7 @@ namespace OpenGL
 		/// Check whether an media format is supported for writing.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specifies the media format to test for write support.
+		/// An <see cref="System.String"/> that specify the media format to test for write support.
 		/// </param>
 		/// <returns>
 		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
@@ -391,7 +391,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// A <see cref="ImageInfo"/> containing information about the specified media.
@@ -431,7 +431,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// An <see cref="Image"/> holding the media data.
@@ -710,10 +710,10 @@ namespace OpenGL
 		/// A <see cref="Image"/> holding the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the media format to used for saving <paramref name="image"/>.
+		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="image"/>.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an image stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/>, <paramref name="image"/> or <paramref name="criteria"/> is null.

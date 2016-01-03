@@ -40,10 +40,10 @@ namespace OpenGL
 		/// The matrix components are all zeroes.
 		/// </remarks>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specifies the matrix colum count.
+		/// A <see cref="System.UInt32"/> that specify the matrix colum count.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specifies the matrix row count.
+		/// A <see cref="System.UInt32"/> that specify the matrix row count.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception throw is <paramref name="c"/> or <paramref name="r"/> equals to 0.
@@ -113,10 +113,10 @@ namespace OpenGL
 		/// An array of <see cref="System.Single"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specifies the matrix colums count.
+		/// A <see cref="System.UInt32"/> that specify the matrix colums count.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specifies the matrix rows count.
+		/// A <see cref="System.UInt32"/> that specify the matrix rows count.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.
@@ -231,10 +231,10 @@ namespace OpenGL
 		/// Add two Matrix.
 		/// </summary>
 		/// <param name="m1">
-		/// A <see cref="Matrix"/> that specifies the left Matrix.
+		/// A <see cref="Matrix"/> that specify the left Matrix.
 		/// </param>
 		/// <param name="m2">
-		/// A <see cref="Matrix"/> that specifies the right Matrix.
+		/// A <see cref="Matrix"/> that specify the right Matrix.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Matrix"/> resulting from the sum of the two Matrix specified as parameters.
@@ -278,7 +278,7 @@ namespace OpenGL
 		/// Multiply a matrix with a scalar value.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="Matrix"/> that specifies the left Matrix.
+		/// A <see cref="Matrix"/> that specify the left Matrix.
 		/// </param>
 		/// <param name="scalar">
 		/// A <see cref="System.Single"/> that multiply all matrix components.
@@ -314,7 +314,7 @@ namespace OpenGL
 		/// Divide a matrix with a scalar value.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="Matrix"/> that specifies the left Matrix.
+		/// A <see cref="Matrix"/> that specify the left Matrix.
 		/// </param>
 		/// <param name="scalar">
 		/// A <see cref="System.Single"/> that divide all matrix components.
@@ -351,10 +351,10 @@ namespace OpenGL
 		/// Multiply two Matrix.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="Matrix"/> that specifies the left multiplication operand.
+		/// A <see cref="Matrix"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="n">
-		/// A <see cref="Matrix"/> that specifies the right multiplication operand.
+		/// A <see cref="Matrix"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Matrix"/> resulting from the product of the matrix <paramref name="m"/> and the matrix <paramref name="n"/>.
@@ -908,7 +908,7 @@ namespace OpenGL
 		/// Multiply this IMatrix with another IMatrix.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="IMatrix"/> that specifies the right multiplication operand.
+		/// A <see cref="IMatrix"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IMatrix"/> resulting from the product of this matrix and the matrix <paramref name="a"/>.

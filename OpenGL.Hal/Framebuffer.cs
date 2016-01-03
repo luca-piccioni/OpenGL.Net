@@ -296,7 +296,7 @@ namespace OpenGL
 		/// A <see cref="RenderBuffer"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
 		/// <param name="attachmentIndex">
-		/// A <see cref="UInt32"/> that specifies the framebuffer color attachment index.
+		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		public void AttachColor(RenderBuffer buffer, uint attachmentIndex)
 		{
@@ -328,7 +328,7 @@ namespace OpenGL
 		/// A <see cref="Texture2d"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
 		/// <param name="attachmentIndex">
-		/// A <see cref="UInt32"/> that specifies the framebuffer color attachment index.
+		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		public void AttachColor(Texture2d texture, uint attachmentIndex)
 		{
@@ -342,10 +342,10 @@ namespace OpenGL
 		/// A <see cref="Texture"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="UInt32"/> that specifies the texture level to bind.
+		/// A <see cref="UInt32"/> that specify the texture level to bind.
 		/// </param>
 		/// <param name="attachmentIndex">
-		/// A <see cref="UInt32"/> that specifies the framebuffer color attachment index.
+		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		public void AttachColor(Texture2d texture, uint attachmentIndex, uint level)
 		{
@@ -373,7 +373,7 @@ namespace OpenGL
 		/// A <see cref="Texture"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
 		/// <param name="attachmentIndex">
-		/// A <see cref="UInt32"/> that specifies the framebuffer color attachment index.
+		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		public void AttachColor(TextureRectangle texture, uint attachmentIndex)
 		{
@@ -402,7 +402,7 @@ namespace OpenGL
 		/// A <see cref="Attachment"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
 		/// <param name="attachmentIndex">
-		/// A <see cref="UInt32"/> that specifies the framebuffer color attachment index.
+		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		private void AttachColor(Attachment attachment, uint attachmentIndex)
 		{
@@ -421,7 +421,7 @@ namespace OpenGL
 		/// Detach a color attachment.
 		/// </summary>
 		/// <param name="attachmentIndex">
-		/// A <see cref="UInt32"/> that specifies the framebuffer color attachment index.
+		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		public void DetachColor(uint attachmentIndex)
 		{
@@ -548,16 +548,16 @@ namespace OpenGL
 		/// <param name="attachment">
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specifies the width of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specifies the height of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelLayout"/> which determine the pixel storage of the returned image.
@@ -579,10 +579,10 @@ namespace OpenGL
 		/// <param name="attachment">
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="texture">
 		/// </param>
@@ -899,7 +899,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

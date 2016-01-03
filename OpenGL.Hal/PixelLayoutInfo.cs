@@ -46,7 +46,7 @@ namespace OpenGL
 		/// Construct a PixelLayoutInfo for a pixel format.
 		/// </summary>
 		/// <param name="pType">
-		/// A <see cref="PixelLayout"/> that specifies the pixel type (unique characteristic). All required information
+		/// A <see cref="PixelLayout"/> that specify the pixel type (unique characteristic). All required information
 		/// is retrieved using attributes of the enumeration field.
 		/// </param>
 		public PixelLayoutInfo(PixelLayout pType)

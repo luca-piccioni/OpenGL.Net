@@ -33,7 +33,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="Object"/> holding the uniform variabile data.
@@ -86,7 +86,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the uniform variabile data (first component).
@@ -116,7 +116,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the uniform variabile data (first component).
@@ -150,7 +150,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the uniform variabile data (first component).
@@ -187,7 +187,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Single"/> holding the uniform variabile data (first component).
@@ -283,7 +283,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex2f"/> holding the uniform variabile data.
@@ -300,7 +300,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
@@ -317,7 +317,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
@@ -334,7 +334,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="ColorRGBAF"/> holding the uniform variabile data.
@@ -351,7 +351,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3"/> holding the uniform variabile data.
@@ -371,7 +371,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="ColorRGBA"/> holding the uniform variabile data.
@@ -395,7 +395,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the uniform variabile data (first component).
@@ -425,7 +425,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the uniform variabile data (first component).
@@ -459,7 +459,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the uniform variabile data (first component).
@@ -496,7 +496,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="Double"/> holding the uniform variabile data (first component).
@@ -592,7 +592,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex2d"/> holding the uniform variabile data.
@@ -609,7 +609,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3d"/> holding the uniform variabile data.
@@ -626,7 +626,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
@@ -647,7 +647,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
@@ -678,7 +678,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
@@ -713,7 +713,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
@@ -744,7 +744,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
@@ -779,7 +779,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="IMatrix3x3"/> holding the uniform variabile data.
@@ -810,7 +810,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for operations.
 		/// </param>
 		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the variable name in the shader source.
+		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="IMatrix4x4"/> holding the uniform variabile data.

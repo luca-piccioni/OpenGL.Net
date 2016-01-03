@@ -22,14 +22,15 @@ using System.Diagnostics;
 namespace OpenGL.State
 {
 	/// <summary>
-	/// Specify how polygons are rasterized.
+	/// Specify how lines are rasterized.
 	/// </summary>
+	[DebuggerDisplay("LineState: Width={Width}")]
 	public class LineState : GraphicsState
 	{
 		#region Constructors
 
 		/// <summary>
-		/// 
+		/// Default constructor.
 		/// </summary>
 		public LineState()
 		{
@@ -37,24 +38,40 @@ namespace OpenGL.State
 		}
 
 		/// <summary>
-		/// 
+		/// Construct a LineState specifying the line width.
 		/// </summary>
-		/// <param name="width"></param>
+		/// <param name="width">
+		/// A <see cref="Single"/> that specify the line width, in pixels.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> is a zero or negative value.
+		/// </exception>
 		public LineState(float width)
 		{
+			if (width <= 0.0f)
+				throw new ArgumentException("zero or negative value not allowed", "width");
+
 			_Width = width;
 		}
 
 		/// <summary>
-		/// Construct the current PolygonOffsetState.
+		/// Construct the current LineState.
 		/// </summary>
 		/// <param name='ctx'>
-		/// Context.
+		/// The <see cref="GraphicsContext"/> defining the line state.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
 		public LineState(GraphicsContext ctx)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current", "ctx");
 
 			Gl.Get(Gl.LINE_WIDTH, out _Width);
 		}
@@ -64,14 +81,48 @@ namespace OpenGL.State
 		#region Line State Definition
 
 		/// <summary>
-		/// Specify the width of rasterized lines.
+		/// Specify the width of rasterized lines, in pixels.
 		/// </summary>
-		public float Width { get { return (_Width); } set { _Width = value; } }
+		public float Width
+		{
+			get { return (_Width); }
+			set { _Width = value; } }
 
 		/// <summary>
 		/// 
 		/// </summary>
 		private float _Width = 1.0f;
+
+		#endregion
+
+		#region Forward Compatible Profile Support
+
+		/// <summary>
+		/// Get or set the uniform variable that determine the actual line with in shader programs designed for a
+		/// forward compatibility profile.
+		/// </summary>
+		public string UniformName
+		{
+			get { return (_UniformName); }
+			set
+			{
+				_UniformName = String.IsNullOrEmpty(value) ? DefaultUniformName : value;
+			}
+		}
+
+		/// <summary>
+		/// The uniform variable that determine the actual line with in shader programs designed for a
+		/// forward compatibility profile.
+		/// </summary>
+		private string _UniformName = DefaultUniformName;
+
+		/// <summary>
+		/// Default uniform variable name.
+		/// </summary>
+		/// <remarks>
+		/// This value is derived by the OpenGL.Hal line shader.
+		/// </remarks>
+		private const string DefaultUniformName = "hal_LineWidth";
 
 		#endregion
 
@@ -87,7 +138,7 @@ namespace OpenGL.State
 		#region GraphicsState Overrides
 
 		/// <summary>
-		/// The identifier for the blend state.
+		/// The identifier of LineState.
 		/// </summary>
 		public static string StateId = "OpenGL.Line";
 
@@ -105,22 +156,40 @@ namespace OpenGL.State
 		public override bool IsContextBound { get { return (true); } }
 
 		/// <summary>
-		/// Set ShaderProgram state.
+		/// Set LineState state.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="sProgram"/>.
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
 		/// </param>
-		/// <param name="sProgram">
+		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram sProgram)
+		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+			Debug.Assert(Width >= 0.0f);
+			Debug.Assert(!String.IsNullOrEmpty(UniformName));
+
 			// Set the line width
-			if (ctx.IsCompatibleProfile || (_Width <= 1.0))
-				Gl.LineWidth(_Width);
+			if ((ctx.IsCompatibleProfile == true) || (shaderProgram == null) || (_Width <= 1.0)) {
+				float[] validRange = ctx.Caps.Limits.AliasedLineWidthRange;
+				float actualWidth = Math.Max(validRange[0], Math.Min(_Width, validRange[1]));
+
+				// LineWidth shall be called in the case drawing in immediate mode, or when no shader program
+				// is bound or when the line width is less than 1.0f
+				Gl.LineWidth(actualWidth);
+
+			} else if ((shaderProgram != null) && (shaderProgram.IsActiveUniform(UniformName) == true)) {
+
+				// Note that the width is not clamped in the higher boundary.
+
+				// In forward compatibility profiles, it is not possible to draw lines with a width greater than 1.0f; this
+				// mean that 'shaderProgram' possibly setup a geometry shader that takes the responsability of drawing a
+				// line with a width greater than 1.0f
+				shaderProgram.SetUniform(ctx, UniformName, _Width);
+			}
 		}
 
 		/// <summary>
@@ -167,7 +236,10 @@ namespace OpenGL.State
 
 			LineState otherState = (LineState)other;
 
-			return (Math.Abs(otherState._Width - _Width) < Double.Epsilon);
+			if (Math.Abs(otherState._Width - _Width) >= Double.Epsilon)
+				return (false);
+
+			return (true);
 		}
 		
 		/// <summary>

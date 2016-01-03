@@ -91,7 +91,7 @@ namespace OpenGL
 		/// of <see cref="VertexArraySemantic"/>, but it could be any string value.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specifies the contents of the array.
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
 		/// </param>
 		public void SetArray(string semantic, ArrayBufferObject bufferObject)
 		{
@@ -106,10 +106,10 @@ namespace OpenGL
 		/// of <see cref="VertexArraySemantic"/>, but it could be any string value.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specifies the contents of the array.
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="fieldIndex">
-		/// A <see cref="System.UInt32"/> that specifies the <paramref name="bufferObject"/> sub-array index.
+		/// A <see cref="System.UInt32"/> that specify the <paramref name="bufferObject"/> sub-array index.
 		/// </param>
 		public void SetArray(string semantic, ArrayBufferObject bufferObject, uint fieldIndex)
 		{
@@ -120,14 +120,14 @@ namespace OpenGL
 		/// Set an array buffer object to this array.
 		/// </summary>
 		/// <param name="inputName">
-		/// A <see cref="System.String"/> that specifies the name of the array binding.
+		/// A <see cref="System.String"/> that specify the name of the array binding.
 		/// </param>
 		/// <param name="blockName">
-		/// A <see cref="System.String"/> that specifies the name of the array binding block. It can be null
+		/// A <see cref="System.String"/> that specify the name of the array binding block. It can be null
 		/// for indicating the use of the default group (global scope).
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specifies the contents of the array.
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
@@ -148,16 +148,16 @@ namespace OpenGL
 		/// Set an array buffer object sub-array to this array.
 		/// </summary>
 		/// <param name="inputName">
-		/// A <see cref="System.String"/> that specifies the name of the array binding.
+		/// A <see cref="System.String"/> that specify the name of the array binding.
 		/// </param>
 		/// <param name="blockName">
-		/// A <see cref="System.String"/> that specifies the name of the array binding block.
+		/// A <see cref="System.String"/> that specify the name of the array binding block.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specifies the contents of the array.
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="fieldIndex">
-		/// A <see cref="System.UInt32"/> that specifies the <paramref name="bufferObject"/> sub-array index.
+		/// A <see cref="System.UInt32"/> that specify the <paramref name="bufferObject"/> sub-array index.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
@@ -340,13 +340,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Set a buffer object which specifies the element arrays.
+		/// Set a buffer object which specify the element arrays.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="Primitive"/> that specify how arrays elements are interpreted.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specifies a sequence of indices that defines the
+		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
 		/// array element sequence.
 		/// </param>
 		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
@@ -361,13 +361,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Set a buffer object which specifies the element arrays.
+		/// Set a buffer object which specify the element arrays.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specifies a sequence of indices that defines the
+		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
 		/// array element sequence.
 		/// </param>
 		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
@@ -1182,7 +1182,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

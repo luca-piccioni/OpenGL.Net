@@ -884,7 +884,7 @@ namespace OpenGL
 		/// Vertex4f constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A an array of values that specifies the vertex components.
+		/// A an array of values that specify the vertex components.
 		/// </param>
 		public Vertex4f(float[] v)
 			: this(v[0], v[1], v[2], v[3])
@@ -995,10 +995,10 @@ namespace OpenGL
 		/// Multiply with scalar operator.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="Single"/> that specifies the scalar value to divide.
+		/// A <see cref="Single"/> that specify the scalar value to divide.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
@@ -1019,10 +1019,10 @@ namespace OpenGL
 		/// Divide with scalar operator.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="Single"/> that specifies the scalar value to divide.
+		/// A <see cref="Single"/> that specify the scalar value to divide.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
@@ -1043,10 +1043,10 @@ namespace OpenGL
 		/// Transform vertex using transformation matrix.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specifies the transformation matrix.
+		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
@@ -1297,7 +1297,7 @@ namespace OpenGL
 		/// Vertex4d constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A an array of values that specifies the vertex components.
+		/// A an array of values that specify the vertex components.
 		/// </param>
 		public Vertex4d(double[] v)
 			: this(v[0], v[1], v[2], v[3])
@@ -1425,10 +1425,10 @@ namespace OpenGL
 		/// Multiply with scalar operator.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4d"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4d"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="Double"/> that specifies the scalar value to divide.
+		/// A <see cref="Double"/> that specify the scalar value to divide.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4d"/> which represents the transformed vertex.
@@ -1449,10 +1449,10 @@ namespace OpenGL
 		/// Divide with scalar operator.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4d"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4d"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="Double"/> that specifies the scalar value to divide.
+		/// A <see cref="Double"/> that specify the scalar value to divide.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4d"/> which represents the transformed vertex.
@@ -1766,7 +1766,7 @@ namespace OpenGL
 		/// Vertex4hf constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A an array of values that specifies the vertex components.
+		/// A an array of values that specify the vertex components.
 		/// </param>
 		public Vertex4hf(HalfFloat[] v)
 			: this(v[0], v[1], v[2], v[3])
@@ -1778,7 +1778,7 @@ namespace OpenGL
 		/// Vertex4hf constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A an array of values that specifies the vertex components.
+		/// A an array of values that specify the vertex components.
 		/// </param>
 		public Vertex4hf(float[] v)
 			: this((HalfFloat)v[0], (HalfFloat)v[1], (HalfFloat)v[2], (HalfFloat)v[3])
@@ -1910,10 +1910,10 @@ namespace OpenGL
 		/// Multiply with scalar operator.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="Single"/> that specifies the scalar value to divide.
+		/// A <see cref="Single"/> that specify the scalar value to divide.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
@@ -1934,10 +1934,10 @@ namespace OpenGL
 		/// Divide with scalar operator.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="Single"/> that specifies the scalar value to divide.
+		/// A <see cref="Single"/> that specify the scalar value to divide.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
@@ -1958,10 +1958,10 @@ namespace OpenGL
 		/// Transform vertex using transformation matrix.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the vertex to be transformed.
+		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specifies the transformation matrix.
+		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.

@@ -88,7 +88,7 @@ namespace OpenGL
 	/// by calling <see cref="GetCurrentContext"/>.
 	/// </para>
 	/// </remarks>
-	public sealed class GraphicsContext : IDisposable
+	public sealed partial class GraphicsContext : IDisposable
 	{
 		#region Constructors
 
@@ -265,7 +265,7 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <exception cref="InvalidOperationException">
@@ -287,18 +287,18 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
 		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
 		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
 		/// are not implemented.
 		/// </exception>
@@ -321,21 +321,21 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="GraphicsContextFlags"/> that specifies special features to enable in the case they are supported.
+		/// A <see cref="GraphicsContextFlags"/> that specify special features to enable in the case they are supported.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
 		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
 		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
 		/// are not implemented.
 		/// </exception>
@@ -360,14 +360,14 @@ namespace OpenGL
 		/// Construct a GraphicsContext.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
 		/// </param>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
 		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
 		/// are not implemented.
 		/// </exception>
@@ -387,11 +387,11 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <exception cref="ArgumentException">
@@ -416,22 +416,22 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
 		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
 		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
 		/// are not implemented.
 		/// </exception>
@@ -457,25 +457,25 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
+		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
+		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="GraphicsContextFlags"/> that specifies special features to enable in the case they are supported.
+		/// A <see cref="GraphicsContextFlags"/> that specify special features to enable in the case they are supported.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
 		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specifies a forward compatible version (greater than or equal to
+		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
 		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
 		/// are not implemented.
 		/// </exception>
@@ -637,6 +637,9 @@ namespace OpenGL
 				_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
 				// Query context capabilities
 				_Caps = GraphicsCapabilities.Query(this, deviceContext);
+
+				// Query draw methods
+				QueryDrawMethods(_Version);
 
 				// Determine this GraphicsContext object namespace
 				if (sharedContext != null) {
@@ -805,7 +808,7 @@ namespace OpenGL
 		/// Set this GraphicsContext current/uncurrent on current device.
 		/// </summary>
 		/// <param name="flag">
-		/// A <see cref="System.Boolean"/> that specifies the currency of this GraphicsContext on the
+		/// A <see cref="System.Boolean"/> that specify the currency of this GraphicsContext on the
 		/// device context used to create this GraphicsContext.
 		/// </param>
 		/// <remarks>
@@ -834,10 +837,10 @@ namespace OpenGL
 		/// Set this GraphicsContext current/uncurrent on device different from the one specified at construction time.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specifies the device context involved.
+		/// A <see cref="IDeviceContext"/> that specify the device context involved.
 		/// </param>
 		/// <param name="flag">
-		/// A <see cref="System.Boolean"/> that specifies the currency of this GraphicsContext on the
+		/// A <see cref="System.Boolean"/> that specify the currency of this GraphicsContext on the
 		/// device context <paramref name="rDevice"/>.
 		/// </param>
 		/// <exception cref="ArgumentException">
@@ -897,7 +900,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Determine whether rendering context is current to the calling thread.
+		/// Determine whether rendering context is current on the calling thread.
 		/// </summary>
 		/// <returns>
 		/// It returns true if the render context is current on the calling thread, otherwise it returns false.

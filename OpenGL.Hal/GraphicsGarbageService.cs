@@ -82,7 +82,7 @@ namespace OpenGL
 		/// Count the number of collected object for a specific object space.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specifies the object space.
+		/// A <see cref="GraphicsContext"/> that specify the object space.
 		/// </param>
 		/// <returns>
 		/// It returns the number of objects collected for garbage in the object space specified by <paramref name="ctx"/>.

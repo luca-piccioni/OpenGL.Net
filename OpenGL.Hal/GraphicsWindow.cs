@@ -235,7 +235,7 @@ namespace OpenGL
 		/// A <see cref="System.Object"/> which has raised the event.
 		/// </param>
 		/// <param name="e">
-		/// A <see cref="EventArgs"/> that specifies the event parameters.
+		/// A <see cref="EventArgs"/> that specify the event parameters.
 		/// </param>
 		/// <remarks>
 		/// In the case this GraphicsWindow has the property MainWindow as true, it closes
@@ -280,7 +280,7 @@ namespace OpenGL
 		/// Set the window into fullscreen mode, bounds to a screen position and size.
 		/// </summary>
 		/// <param name="screen">
-		/// A <see cref="Screen"/> that specifies the position and dimension of the GraphicsWindow.
+		/// A <see cref="Screen"/> that specify the position and dimension of the GraphicsWindow.
 		/// </param>
 		public void SetFullscreen(Screen screen)
 		{
@@ -362,7 +362,7 @@ namespace OpenGL
 		/// Create this GraphicsWindow.
 		/// </summary>
 		/// <param name="surfaceFormat">
-		/// A <see cref="GraphicsBuffersFormat"/> that specifies the pixel format of the device context created
+		/// A <see cref="GraphicsBuffersFormat"/> that specify the pixel format of the device context created
 		/// along with this GraphicsWindow.
 		/// </param>
 		public void Create(GraphicsBuffersFormat surfaceFormat)
@@ -423,16 +423,16 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specifies the width of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specifies the height of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelFormat"/> which determine the pixel storage of the returned image.
@@ -452,16 +452,16 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specifies the width of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specifies the height of the rectangle area to read.
+		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelFormat"/> which determine the pixel storage of the returned image.
@@ -595,7 +595,7 @@ namespace OpenGL
 
 			if (_SurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double))
 				_DeviceContext.SwapBuffers();
-        }
+		}
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -605,8 +605,6 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				// Base implementation
-				base.Dispose(true);
 				// Dispose unmanaged resources
 				if (_DeviceContext != null) {
 					_DeviceContext.DecRef();
@@ -616,6 +614,8 @@ namespace OpenGL
 
 			// Dispose managed resources
 
+			// Base implementation
+			base.Dispose(disposing);
 		}
 
 		/// <summary>

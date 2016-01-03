@@ -66,7 +66,8 @@ namespace OpenGL.Hal.Test
 		[SetUp()]
 		public void SetUp()
 		{
-			_Context.MakeCurrent(true);
+			if (_Context.IsCurrent == false)
+				_Context.MakeCurrent(true);
 		}
 
 		/// <summary>
@@ -271,6 +272,74 @@ namespace OpenGL.Hal.Test
 			#endregion
 		}
 
+		protected class GraphicsWindowTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a GraphicsWindowTypeSupport.
+			/// </summary>
+			public GraphicsWindowTypeSupport() :
+				base(typeof(GraphicsWindow))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				GraphicsWindow graphicsWindow = new GraphicsWindow(16, 16);
+
+				return (graphicsWindow);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				T shaderObjectSpy = (T)CreateTypeSpy(typeof(GraphicsWindow), 16U, 16U);
+
+				return (shaderObjectSpy);
+			}
+
+			/// <summary>
+			/// Actually create resources associated to the type.
+			/// </summary>
+			/// <param name="instance">
+			/// A <see cref="Object"/> that specifies the underlying instance.
+			/// </param>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for creating the resources.
+			/// </param>
+			public override void Create(object instance, GraphicsContext ctx)
+			{
+				GraphicsWindow graphicsWindow = (GraphicsWindow)instance;
+
+				graphicsWindow.Create(new GraphicsBuffersFormat(PixelLayout.RGB24, 24));
+			}
+
+			#endregion
+		}
+
 		protected class ShaderObjectTypeSupport : DefaultGraphicsTypeSupport
 		{
 			#region Constructors
@@ -299,12 +368,9 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				string[] shaderObjectSource = new string[] {
-					"void main() {\n",
-					"	gl_Position = vec4(0, 0, 0, 1);\n",
-					"}\n"
-				};
 				ShaderObject shaderObject = new ShaderObject(ShaderStage.Vertex);
+
+				shaderObject.LoadSource(ShaderSource);
 
 				return (shaderObject);
 			}
@@ -320,8 +386,20 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override T AllocateSpy<T>(GraphicsContext ctx)
 			{
-				return ((T)CreateTypeSpy(typeof(ShaderObject), ShaderStage.Vertex));
+				T shaderObjectSpy = (T)CreateTypeSpy(typeof(ShaderObject), ShaderStage.Vertex);
+				ShaderObject shaderObject = shaderObjectSpy as ShaderObject;
+
+				if (shaderObject != null)
+					shaderObject.LoadSource(ShaderSource);
+
+				return (shaderObjectSpy);
 			}
+
+			private static readonly string[] ShaderSource = new string[] {
+				"void main() {\n",
+				"	gl_Position = vec4(0, 0, 0, 1);\n",
+				"}\n"
+			};
 
 			#endregion
 		}
@@ -354,7 +432,11 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				return (new ShaderInclude("/Test.glsl"));
+				ShaderInclude shaderInclude = new ShaderInclude("/Test.glsl");
+
+				shaderInclude.LoadSource(ShaderIncludeSource);
+
+				return (shaderInclude);
 			}
 
 			/// <summary>
@@ -368,8 +450,18 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override T AllocateSpy<T>(GraphicsContext ctx)
 			{
-				return ((T)CreateTypeSpy(_InstanceType, "/Test.glsl"));
+				T shaderIncludeSpy = (T)CreateTypeSpy(_InstanceType, "/Test.glsl");
+				ShaderInclude shaderInclude = shaderIncludeSpy as ShaderInclude;
+
+				if (shaderInclude != null)
+					shaderInclude.LoadSource(ShaderIncludeSource);
+
+				return (shaderIncludeSpy);
 			}
+
+			private static readonly string[] ShaderIncludeSource = new string[] {
+				"uniform mat4 modelViewProjection;\n"
+			};
 
 			#endregion
 		}
@@ -402,23 +494,13 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				ShaderProgram shaderProgram = new ShaderProgram("UnitTestProgram");
-
-				string[] vertexShaderObjectSource = new string[] {
-					"void main() {\n",
-					"	gl_Position = vec4(0, 0, 0, 1);\n",
-					"}\n"
-				};
-				string[] fragmentShaderObjectSource = new string[] {
-					"#include </OpenGL/Compatibility.glsl>\n",
-					"OUT vec4 test_Color;\n",
-					"void main() {\n",
-					"	test_Color = vec4(0, 0, 0, 1);\n",
-					"}\n"
-				};
+				ShaderProgram shaderProgram = new ShaderProgram("TestProgram");
 
 				ShaderObject vertexShaderObject = new ShaderObject(ShaderStage.Vertex);
+				vertexShaderObject.LoadSource(VertexShaderSource);
+
 				ShaderObject fragmentShaderObject = new ShaderObject(ShaderStage.Fragment);
+				fragmentShaderObject.LoadSource(FragmentShaderSource);
 
 				shaderProgram.AttachShader(vertexShaderObject);
 				shaderProgram.AttachShader(fragmentShaderObject);
@@ -437,8 +519,36 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override T AllocateSpy<T>(GraphicsContext ctx)
 			{
-				return ((T)CreateTypeSpy(_InstanceType, "Test"));
+				T shaderProgramSpy = (T)CreateTypeSpy(_InstanceType, "Test");
+				ShaderProgram shaderProgram = shaderProgramSpy as ShaderProgram;
+
+				if (shaderProgram != null) {
+					ShaderObject vertexShaderObject = new ShaderObject(ShaderStage.Vertex);
+					vertexShaderObject.LoadSource(VertexShaderSource);
+
+					ShaderObject fragmentShaderObject = new ShaderObject(ShaderStage.Fragment);
+					fragmentShaderObject.LoadSource(FragmentShaderSource);
+
+					shaderProgram.AttachShader(vertexShaderObject);
+					shaderProgram.AttachShader(fragmentShaderObject);
+				}
+
+				return (shaderProgramSpy);
 			}
+
+			private static readonly string[] VertexShaderSource = new string[] {
+				"void main() {\n",
+				"	gl_Position = vec4(0, 0, 0, 1);\n",
+				"}\n"
+			};
+
+			private static readonly string[] FragmentShaderSource = new string[] {
+				"#include </OpenGL/Compatibility.glsl>\n",
+				"OUT vec4 test_Color;\n",
+				"void main() {\n",
+				"	test_Color = vec4(0, 0, 0, 1);\n",
+				"}\n"
+			};
 
 			#endregion
 		}
@@ -471,7 +581,11 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				return (new ArrayBufferObject(VertexBaseType.Float, 3, BufferObject.Hint.StaticCpuDraw));
+				ArrayBufferObject arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObject.Hint.StaticCpuDraw);
+
+				arrayBufferObject.Define(16);
+
+				return (arrayBufferObject);
 			}
 
 			/// <summary>
@@ -485,7 +599,13 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override T AllocateSpy<T>(GraphicsContext ctx)
 			{
-				return ((T)CreateTypeSpy(_InstanceType, VertexBaseType.Float, 3U, BufferObject.Hint.StaticCpuDraw));
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, VertexBaseType.Float, 3U, BufferObject.Hint.StaticCpuDraw);
+				ArrayBufferObject arrayBufferObject = arrayBufferObjectSpy as ArrayBufferObject;
+
+				if (arrayBufferObject != null)
+					arrayBufferObject.Define(16);
+
+				return (arrayBufferObjectSpy);
 			}
 
 			#endregion

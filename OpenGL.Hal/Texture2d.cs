@@ -56,10 +56,10 @@ namespace OpenGL
 		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="width">
-		/// A <see cref="UInt32"/> that specifies the texture width.
+		/// A <see cref="UInt32"/> that specify the texture width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="UInt32"/> that specifies the texture height.
+		/// A <see cref="UInt32"/> that specify the texture height.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="PixelLayout"/> determining the texture internal format.
@@ -94,10 +94,10 @@ namespace OpenGL
 		/// will be used.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="UInt32"/> that specifies the texture width.
+		/// A <see cref="UInt32"/> that specify the texture width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="UInt32"/> that specifies the texture height.
+		/// A <see cref="UInt32"/> that specify the texture height.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="PixelLayout"/> determining the texture internal format.
@@ -276,10 +276,10 @@ namespace OpenGL
 		/// Create a Texture2d, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
-		/// A <see cref="UInt32"/> that specifies the texture width.
+		/// A <see cref="UInt32"/> that specify the texture width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="UInt32"/> that specifies the texture height.
+		/// A <see cref="UInt32"/> that specify the texture height.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="PixelLayout"/> determining the texture internal format.
@@ -322,10 +322,10 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="UInt32"/> that specifies the texture width.
+		/// A <see cref="UInt32"/> that specify the texture width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="UInt32"/> that specifies the texture height.
+		/// A <see cref="UInt32"/> that specify the texture height.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="PixelLayout"/> determining the texture internal format.

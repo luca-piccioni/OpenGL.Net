@@ -54,7 +54,7 @@ namespace OpenGL
 		/// Compute the product of a IMatrix3x3 with a Vertex3d (project a vertex on this matrix).
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex3d"/> that specifies the right vector operand.
+		/// A <see cref="Vertex3d"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3d"/> resulting from the product of this Vertex4d and the vector

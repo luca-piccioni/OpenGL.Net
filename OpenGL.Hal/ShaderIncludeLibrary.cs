@@ -25,7 +25,7 @@ namespace OpenGL
 	/// Shader include library.
 	/// </summary>
 	
-	class ShaderIncludeLibrary : GraphicsResource
+	sealed class ShaderIncludeLibrary : GraphicsResource
 	{
 		#region Constructors
 
@@ -56,10 +56,10 @@ namespace OpenGL
 		/// Determine whether an include source have a specific path.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies an include file path.
+		/// A <see cref="String"/> that specify an include file path.
 		/// </param>
 		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="path"/> specifies an include file.
+		/// It returns a boolean value indicating whether <paramref name="path"/> specify an include file.
 		/// </returns>
 		public bool IsPathDefined(string path)
 		{
@@ -155,11 +155,11 @@ namespace OpenGL
 		/// </exception>
 		public override void Delete(GraphicsContext ctx)
 		{
+			// Base implementation
+			base.Delete(ctx);
 			// Dispose shader includes
 			foreach (ShaderInclude shaderInclude in _IncludeFileSystem.Values)
 				shaderInclude.DecRef();
-			// Base implementation
-			base.Delete(ctx);
 		}
 		
 		#endregion

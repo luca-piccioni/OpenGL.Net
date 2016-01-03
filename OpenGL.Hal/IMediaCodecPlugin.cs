@@ -40,7 +40,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
@@ -57,7 +57,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an media stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
@@ -77,10 +77,10 @@ namespace OpenGL
 		/// A <typeparamref name="TMedia"/> holding the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specifies the media format to used for saving <paramref name="media"/>.
+		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="media"/>.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specifies parameters for loading an image stream.
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/>, <paramref name="media"/> or <paramref name="criteria"/> is null.
@@ -103,7 +103,7 @@ namespace OpenGL
 		/// Check whether an media format is supported for reading.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specifies the media format to test for read support.
+		/// An <see cref="System.String"/> that specify the media format to test for read support.
 		/// </param>
 		/// <returns>
 		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
@@ -122,7 +122,7 @@ namespace OpenGL
 		/// Check whether an media format is supported for writing.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specifies the media format to test for write support.
+		/// An <see cref="System.String"/> that specify the media format to test for write support.
 		/// </param>
 		/// <returns>
 		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
@@ -133,7 +133,7 @@ namespace OpenGL
 		/// Determine the plugin priority for a certain image format.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specifies the media format to test for priority.
+		/// An <see cref="System.String"/> that specify the media format to test for priority.
 		/// </param>
 		/// <returns>
 		/// It returns an integer value indicating the priority of this implementation respect other ones supporting the same

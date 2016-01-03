@@ -81,7 +81,7 @@ namespace OpenGL
 		/// A <see cref="ShaderStage"/> indicating the shader stage of this ShaderObject.
 		/// </param>
 		/// <param name="sourcePath">
-		/// A <see cref="System.String"/> that specifies the file containing the shader object source strings.
+		/// A <see cref="System.String"/> that specify the file containing the shader object source strings.
 		/// </param>
 		protected ShaderObject(ShaderStage shaderStage, string sourcePath) :
 			this(shaderStage)
@@ -148,7 +148,7 @@ namespace OpenGL
 		/// Load the shader source from an embedded resource
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// A <see cref="String"/> that specify the embedded resource path.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="List{String}"/> that represent the loaded source lines.
@@ -206,7 +206,7 @@ namespace OpenGL
 		/// Load the shader source from an embedded resource
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// A <see cref="String"/> that specify the embedded resource path.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="resourcePath"/> is null.
@@ -217,6 +217,20 @@ namespace OpenGL
 		public void LoadSource(string resourcePath)
 		{
 			_SourceStrings = LoadSourceLines(resourcePath);
+		}
+
+		/// <summary>
+		/// Load the shader source from a string.
+		/// </summary>
+		/// <param name="sourceStrings">
+		/// A <see cref="IEnumerator{String}"/> that specify the shader source strings.
+		/// </param>
+		public void LoadSource(IEnumerable<string> sourceStrings)
+		{
+			if (sourceStrings == null)
+				throw new ArgumentNullException("sourceStrings");
+
+			_SourceStrings = new List<string>(sourceStrings);
 		}
 
 		#endregion
@@ -244,7 +258,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for the compilation process.
 		/// </param>
 		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> that specifies the information required for compiling this ShaderObject.
+		/// A <see cref="ShaderCompilerContext"/> that specify the information required for compiling this ShaderObject.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="List{T}"/> which represent this ShaderObject source. This source text is ready to be compiled.
@@ -551,7 +565,7 @@ namespace OpenGL
 		/// A <see cref="System.String"/> that identifies the shader object in library.
 		/// </param>
 		/// <param name="sObjectStage">
-		/// A <see cref="ShaderObject.ShaderStage"/> that specifies the shader object stage.
+		/// A <see cref="ShaderObject.ShaderStage"/> that specify the shader object stage.
 		/// </param>
 		/// <returns>
 		/// It returns a string that identify the a shader object classified with <paramref name="libraryId"/>, by
@@ -754,7 +768,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

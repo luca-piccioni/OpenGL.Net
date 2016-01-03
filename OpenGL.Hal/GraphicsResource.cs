@@ -42,7 +42,7 @@ namespace OpenGL
 	///   method since the implementation is dependent on the specific object class (determined by inheritor).
 	/// </para>
 	/// <para>
-	/// This class defines also an invalid object name <see cref="InvalidObjectName"/>. Despite the name, this field doesn't actually specifies
+	/// This class defines also an invalid object name <see cref="InvalidObjectName"/>. Despite the name, this field doesn't actually specify
 	/// an invalid object name for all object classes. OpenGL specification usually uses this value for indicating an invalid object name, but it
 	/// is not always the case (i.e. for framebuffer objects, InvalidObjectName indicates the default framebuffer object).
 	/// 
@@ -139,7 +139,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
@@ -433,7 +433,7 @@ namespace OpenGL
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current to this thread", "ctx");
 			if (Exists(ctx) == false)
-				throw new ArgumentException("object namespace mismatch", "ctx");
+				throw new ArgumentException("object not existing", "ctx");
 			if (RefCount > 0)
 				throw new InvalidOperationException("reference count greater than zero");
 

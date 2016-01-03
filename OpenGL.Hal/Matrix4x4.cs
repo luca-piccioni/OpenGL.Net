@@ -76,10 +76,10 @@ namespace OpenGL
 		/// Compute the product of a Matrix4x4 with a Vertex4f (project a vertex on this matrix).
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specifies the left multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specifies the right vector operand.
+		/// A <see cref="Vertex4f"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3f"/> resulting from the product of the matrix <paramref name="m"/> and
@@ -101,10 +101,10 @@ namespace OpenGL
 		/// Compute the product of two Matrix4x4.
 		/// </summary>
 		/// <param name="m1">
-		/// A <see cref="Matrix4x4"/> that specifies the left multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="m2">
-		/// A <see cref="Matrix4x4"/> that specifies the right multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Matrix4x4"/> resulting from the product of the matrix <paramref name="m1"/> and
@@ -143,10 +143,10 @@ namespace OpenGL
 		/// A <see cref="Matrix4x4"/> that stores the matrix multiplication result.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specifies the left multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="n">
-		/// A <see cref="Matrix4x4"/> that specifies the right multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the right multiplication operand.
 		/// </param>
 		protected static void ComputeMatrixProduct(Matrix4x4 result, Matrix4x4 m, Matrix4x4 n)
 		{
@@ -192,10 +192,10 @@ namespace OpenGL
 		/// A <see cref="Matrix4x4"/> that stores the matrix multiplication result.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specifies the left multiplication operand.
+		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
 		/// </param>
 		/// <param name="n">
-		/// A <see cref="MatrixDouble4x4"/> that specifies the right multiplication operand.
+		/// A <see cref="MatrixDouble4x4"/> that specify the right multiplication operand.
 		/// </param>
 		/// <remarks>
 		/// If you to store the result in a <see cref="MatrixDouble4x4"/>, use the <see cref="MatrixDouble4x4.ComputeMatrixProduct(MatrixDouble4x4,MatrixDouble4x4,Matrix4x4)"/>.
@@ -451,7 +451,7 @@ namespace OpenGL
 		/// Compute the product of this IMatrix with another IMatrix.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="IMatrix4x4"/> that specifies the right multiplication operand.
+		/// A <see cref="IMatrix4x4"/> that specify the right multiplication operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IMatrix"/> resulting from the product of this matrix and the matrix <paramref name="a"/>.
@@ -476,7 +476,7 @@ namespace OpenGL
 		/// Compute the product of a IMatrix4x4 with a Vertex4d (project a vertex on this matrix).
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="Vertex4d"/> that specifies the right vector operand.
+		/// A <see cref="Vertex4d"/> that specify the right vector operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4d"/> resulting from the product of this Vertex4d and the vector

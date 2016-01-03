@@ -197,7 +197,7 @@ namespace OpenGL
 		/// Load a ShadersLibrary from an embedded resource.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// A <see cref="String"/> that specify the embedded resource path.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ShadersLibrary"/> read from <paramref name="resourcePath"/>.
@@ -256,7 +256,7 @@ namespace OpenGL
 		/// Merge a ShaderLibrary loaded from an embedded resource with <see cref="Instance"/>.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the embedded resource path.
+		/// A <see cref="String"/> that specify the embedded resource path.
 		/// </param>
 		public static void Merge(string resourcePath)
 		{

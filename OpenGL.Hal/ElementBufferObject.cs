@@ -34,7 +34,7 @@ namespace OpenGL
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specifies the data buffer usage hints.
+		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
 		/// </param>
 		protected ElementBufferObject(Hint hint)
 			: base(BufferTargetARB.ElementArrayBuffer, hint)
@@ -213,7 +213,7 @@ namespace OpenGL
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specifies the data buffer usage hints.
+		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
 		/// </param>
 		public ElementBufferObject(Hint hint) : base(hint)
 		{
@@ -239,7 +239,7 @@ namespace OpenGL
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specifies the data buffer usage hints.
+		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
 		/// </param>
 		public ElementBufferObject(T[] indices, Hint hint) : this(hint)
 		{

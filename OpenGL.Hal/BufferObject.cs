@@ -45,10 +45,10 @@ namespace OpenGL
 		/// Construct a BufferObject determining its type, data usage and transfer mode.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="BufferTargetARB"/> that specifies the buffer object type.
+		/// A <see cref="BufferTargetARB"/> that specify the buffer object type.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="Hint"/> that specifies the data buffer usage hints.
+		/// An <see cref="Hint"/> that specify the data buffer usage hints.
 		/// </param>
 		protected BufferObject(BufferTargetARB type, Hint hint)
 		{
@@ -151,30 +151,50 @@ namespace OpenGL
 		/// <summary>
 		/// Get this BufferObject total size, in basic machine units.
 		/// </summary>
-		public uint BufferSize { get { return (_Size); } }
+		public uint BufferSize
+		{
+			get { return (_Size); }
+			protected set { _Size = value; }
+		}
 
 		/// <summary>
 		/// Define this buffer object allocation.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="System.UInt32"/> that determine the size of the buffer object.
+		/// A <see cref="UInt32"/> that determine the size of the buffer object, in bytes.
 		/// </param>
 		/// <remarks>
 		/// <para>
 		/// A call to this routine is required to create this BufferObject, since it determines the room necessary
 		/// to this BufferObject.
 		/// </para>
-		/// <para>
-		/// In the case the BufferObject hint is suggesting a GPU only object, no memory will be allocated by this
-		/// routine. Otherwise, <see cref="MemoryBuffer"/> will allocate the requested room for client operations.
-		/// </para>
 		/// </remarks>
 		protected void Allocate(uint size)
 		{
-			// Store buffer object size
-			_Size = size;
+			if (MemoryBuffer != null)
+				MemoryBuffer.Dispose();
+
 			// Allocate memory, if required
 			MemoryBuffer = new AlignedMemoryBuffer(_Size, 16);
+			// Store buffer object size
+			_Size = size;
+		}
+
+		/// <summary>
+		/// Ensure that buffer has at least the specified size.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="UInt32"/> that determine the size of the buffer object, in bytes.
+		/// </param>
+		protected void Reallocate(uint size)
+		{
+			if (MemoryBuffer == null) {
+				Allocate(size);
+				return;
+			} else {
+				MemoryBuffer.Realloc(size);
+				_Size = size;
+			}
 		}
 
 		/// <summary>
@@ -233,7 +253,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> required for mapping this BufferObject.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="MapMask"/> that specifies the map access.
+		/// A <see cref="MapMask"/> that specify the map access.
 		/// </param>
 		public void Map(GraphicsContext ctx, BufferAccessARB mask)
 		{
@@ -259,10 +279,10 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="value">
-		/// A <typeparamref name="T"/> that specifies the mapped BufferObject element.
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="Int64"/> that specifies the offset applied to the mapped BufferObject where <paramref name="value"/>
+		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
 		/// is stored. This value is expressed in basic machine units (bytes).
 		/// </param>
 		/// <exception cref="InvalidOperationException">
@@ -286,7 +306,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="Int64"/> that specifies the offset applied to the mapped BufferObject to get the stored
+		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject to get the stored
 		/// value. This value is expressed in basic machine units (bytes).
 		/// </param>
 		/// <returns>
@@ -330,6 +350,11 @@ namespace OpenGL
 		{
 			return (_MappedBuffer != IntPtr.Zero);
 		}
+
+		/// <summary>
+		/// Get the mapped buffer.
+		/// </summary>
+		protected IntPtr MappedBuffer { get { return (_MappedBuffer); } }
 
 		/// <summary>
 		/// Mapped buffer.
@@ -415,7 +440,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this buffer object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specifies the object name to delete.
+		/// A <see cref="System.UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
@@ -446,7 +471,7 @@ namespace OpenGL
 			if (MemoryBuffer != null) {
 				// Provide buffer contents
 				Gl.BufferSubData(_Type, IntPtr.Zero, _Size, MemoryBuffer.AlignedBuffer);
-				// Release memory, if they are not required
+				// Release memory, if it is not required anymore
 				if (_Hint == Hint.StaticCpuDraw) {
 					MemoryBuffer.Dispose();
 					MemoryBuffer = null;
