@@ -1,18 +1,20 @@
 
-// Copyright (C) 2011-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -43,232 +45,6 @@ namespace OpenGL
 		#region Vertex Array Definition
 
 		/// <summary>
-		/// Get whether this VertexArrayObject has defined a vertex array by semantic name.
-		/// </summary>
-		/// <param name="semantic">
-		/// A <see cref="System.String"/> that specify the vertex array semantic.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether this VertexArrayObject has defined the
-		/// vertex array having the semantic equals to <paramref name="semantic"/>.
-		/// </returns>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="semantic"/> is null or empty.
-		/// </exception>
-		public bool HasArray(string semantic)
-		{
-			if (String.IsNullOrEmpty(semantic))
-				throw new ArgumentException("invalid", "semantic");
-
-			return (mVertexArrays.ContainsKey(String.Format("##Semantic.{0}", semantic)));
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="semantic"></param>
-		/// <returns></returns>
-		public ArrayBufferObject GetArray(string semantic)
-		{
-			if (semantic == null)
-				throw new ArgumentNullException("semantic");
-
-			VertexArray vertexArray;
-
-			if (mVertexArrays.TryGetValue(String.Format("##Semantic.{0}", semantic), out vertexArray) == false)
-				throw new InvalidOperationException("no array " + semantic);
-			
-			Debug.Assert(vertexArray != null);
-
-			return (vertexArray.Array);
-		}
-
-		/// <summary>
-		/// Set an array buffer object to this array.
-		/// </summary>
-		/// <param name="semantic">
-		/// A <see cref="System.String"/> that specify the array semantic. Typically this value is a string field
-		/// of <see cref="VertexArraySemantic"/>, but it could be any string value.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		public void SetArray(string semantic, ArrayBufferObject bufferObject)
-		{
-			SetArray(semantic, "##Semantic", bufferObject, 0);
-		}
-
-		/// <summary>
-		/// Set an array buffer object sub-array to this array.
-		/// </summary>
-		/// <param name="semantic">
-		/// A <see cref="System.String"/> that specify the array semantic. Typically this value is a string field
-		/// of <see cref="VertexArraySemantic"/>, but it could be any string value.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <param name="fieldIndex">
-		/// A <see cref="System.UInt32"/> that specify the <paramref name="bufferObject"/> sub-array index.
-		/// </param>
-		public void SetArray(string semantic, ArrayBufferObject bufferObject, uint fieldIndex)
-		{
-			SetArray(semantic, "##Semantic", bufferObject, fieldIndex);
-		}
-
-		/// <summary>
-		/// Set an array buffer object to this array.
-		/// </summary>
-		/// <param name="inputName">
-		/// A <see cref="System.String"/> that specify the name of the array binding.
-		/// </param>
-		/// <param name="blockName">
-		/// A <see cref="System.String"/> that specify the name of the array binding block. It can be null
-		/// for indicating the use of the default group (global scope).
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="bufferObject"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="bufferObject"/> is an interleaved buffer object or it has no items
-		/// defined.
-		/// </exception>
-		public void SetArray(string inputName, string blockName, ArrayBufferObject bufferObject)
-		{
-			SetArray(inputName, blockName, bufferObject, 0);
-		}
-
-		/// <summary>
-		/// Set an array buffer object sub-array to this array.
-		/// </summary>
-		/// <param name="inputName">
-		/// A <see cref="System.String"/> that specify the name of the array binding.
-		/// </param>
-		/// <param name="blockName">
-		/// A <see cref="System.String"/> that specify the name of the array binding block.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <param name="fieldIndex">
-		/// A <see cref="System.UInt32"/> that specify the <paramref name="bufferObject"/> sub-array index.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="bufferObject"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="bufferObject"/> is not an interleaved buffer object.
-		/// </exception>
-		public void SetArray(string inputName, string blockName, ArrayBufferObject bufferObject, uint fieldIndex)
-		{
-			if (String.IsNullOrEmpty(inputName))
-				throw new ArgumentException("invalid name", "inputName");
-			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
-			if (bufferObject.ItemCount == 0)
-				throw new ArgumentException("zero items", "bufferObject");
-			if (fieldIndex >= bufferObject.SubArrayCount)
-				throw new ArgumentException("out of bounds", "fieldIndex");
-
-			// Map buffer object with input name
-			mVertexArrays[inputName] = new VertexArray(bufferObject);
-			mVertexArrays[inputName].Array.IncRef();
-			// Map buffer object with input name including block name also
-			if (blockName != null) {
-				mVertexArrays[String.Format("{0}.{1}", blockName, inputName)] = mVertexArrays[inputName];
-				mVertexArrays[String.Format("{0}.{1}", blockName, inputName)].Array.IncRef();
-			}
-
-			// Set sub-array!
-			mVertexArrays[inputName].SubArray = fieldIndex;
-
-			// Compute the actual vertex array length
-			UpdateVertexArrayLength();
-		}
-
-		/// <summary>
-		/// Get an array buffer object collected by this vertex array object.
-		/// </summary>
-		/// <param name="semantic">
-		/// A <see cref="System.String"/> that specify the attribute name.
-		/// </param>
-		/// <returns>
-		/// It returns the array corresponding to the semantic <paramref name="semantic"/>.
-		/// </returns>
-		private VertexArray GetVertexArray(string semantic)
-		{
-			return (GetVertexArray(semantic, "##Semantic"));
-		}
-
-		/// <summary>
-		/// Get an array buffer object collected by this vertex array object.
-		/// </summary>
-		/// <param name="attributeName">
-		/// A <see cref="System.String"/> that specify the attribute name.
-		/// </param>
-		/// <param name="blockName">
-		/// A <see cref="System.String"/> that specify the input block declaring <paramref name="attributeName"/>.
-		/// </param>
-		/// <returns>
-		/// It returns the array corresponding to the attribute having the name <paramref name="attributeName"/>.
-		/// </returns>
-		private VertexArray GetVertexArray(string attributeName, string blockName)
-		{
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid attribute name", "attributeName");
-
-			VertexArray vertexArray;
-			
-			if (blockName != null)
-				attributeName = String.Format("{0}.{1}", blockName, attributeName);
-
-			if (mVertexArrays.TryGetValue(attributeName, out vertexArray) == false)
-				return (null);
-
-			return (vertexArray);
-		}
-
-		/// <summary>
-		/// The the minimum length of the arrays compositing this vertex array.
-		/// </summary>
-		private void UpdateVertexArrayLength()
-		{
-			uint minLength = UInt32.MaxValue;
-
-			foreach (KeyValuePair<string, VertexArray> pair in mVertexArrays)
-				minLength = Math.Min(minLength, pair.Value.Array.ItemCount);
-
-			mVertexArrayLength = minLength;
-		}
-
-		private void CheckMultiDrawAvailability()
-		{
-			
-		}
-
-		/// <summary>
-		/// Validate this vertex array.
-		/// </summary>
-		/// <returns></returns>
-		[Conditional("DEBUG")]
-		private void Validate()
-		{
-			if (mVertexArrays.Count == 0)
-				throw new InvalidOperationException("no array");
-			//if (Elements.Count == 0)
-			//	throw new InvalidOperationException("no element array");
-		}
-
-		/// <summary>
 		/// A vertex array.
 		/// </summary>
 		protected class VertexArray
@@ -296,90 +72,253 @@ namespace OpenGL
 			/// </summary>
 			public uint SubArray
 			{
-				get { return (mSubArray); }
+				get { return (_SubArray); }
 				set
 				{
 					if (value >= Array.SubArrayCount)
 						throw new InvalidOperationException("sub-array index out of bounds");
-					mSubArray = value;
+					_SubArray = value;
 				}
 			}
 
 			/// <summary>
 			/// The vertex array sub-buffer index.
 			/// </summary>
-			private uint mSubArray;
+			private uint _SubArray;
+		}
+
+		/// <summary>
+		/// Set an array buffer object to this array.
+		/// </summary>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the array semantic. Typically this value is a string field
+		/// of <see cref="VertexArraySemantic"/>, but it could be any string value.
+		/// </param>
+		/// <param name="bufferObject">
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
+		/// </param>
+		public void SetArray(string semantic, ArrayBufferObject bufferObject)
+		{
+			SetArray(semantic, "##Semantic", bufferObject, 0);
+		}
+
+		/// <summary>
+		/// Set an array buffer object sub-array to this array.
+		/// </summary>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the array semantic. Typically this value is a string field
+		/// of <see cref="VertexArraySemantic"/>, but it could be any string value.
+		/// </param>
+		/// <param name="bufferObject">
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
+		/// </param>
+		/// <param name="fieldIndex">
+		/// A <see cref="UInt32"/> that specify the <paramref name="bufferObject"/> sub-array index.
+		/// </param>
+		public void SetArray(string semantic, ArrayBufferObject bufferObject, uint fieldIndex)
+		{
+			SetArray(semantic, "##Semantic", bufferObject, fieldIndex);
+		}
+
+		/// <summary>
+		/// Set an array buffer object to this array.
+		/// </summary>
+		/// <param name="inputName">
+		/// A <see cref="String"/> that specify the name of the array binding.
+		/// </param>
+		/// <param name="blockName">
+		/// A <see cref="String"/> that specify the name of the array binding block. It can be null
+		/// for indicating the use of the default group (global scope).
+		/// </param>
+		/// <param name="bufferObject">
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="bufferObject"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="bufferObject"/> is an interleaved buffer object or it has no items
+		/// defined.
+		/// </exception>
+		public void SetArray(string inputName, string blockName, ArrayBufferObject bufferObject)
+		{
+			SetArray(inputName, blockName, bufferObject, 0);
+		}
+
+		/// <summary>
+		/// Set an array buffer object sub-array to this array.
+		/// </summary>
+		/// <param name="inputName">
+		/// A <see cref="String"/> that specify the name of the array binding.
+		/// </param>
+		/// <param name="blockName">
+		/// A <see cref="String"/> that specify the name of the array binding block.
+		/// </param>
+		/// <param name="bufferObject">
+		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
+		/// </param>
+		/// <param name="fieldIndex">
+		/// A <see cref="UInt32"/> that specify the <paramref name="bufferObject"/> sub-array index.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="bufferObject"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="bufferObject"/> is not an interleaved buffer object.
+		/// </exception>
+		public void SetArray(string inputName, string blockName, ArrayBufferObject bufferObject, uint fieldIndex)
+		{
+			if (String.IsNullOrEmpty(inputName))
+				throw new ArgumentException("invalid name", "inputName");
+			if (bufferObject == null)
+				throw new ArgumentNullException("bufferObject");
+			if (bufferObject.ItemCount == 0)
+				throw new ArgumentException("zero items", "bufferObject");
+			if (fieldIndex >= bufferObject.SubArrayCount)
+				throw new ArgumentException("out of bounds", "fieldIndex");
+
+			// Map buffer object with input name
+			_VertexArrays[inputName] = new VertexArray(bufferObject);
+			_VertexArrays[inputName].Array.IncRef();
+			// Map buffer object with input name including block name also
+			if (blockName != null) {
+				_VertexArrays[String.Format("{0}.{1}", blockName, inputName)] = _VertexArrays[inputName];
+				_VertexArrays[String.Format("{0}.{1}", blockName, inputName)].Array.IncRef();
+			}
+
+			// Set sub-array!
+			_VertexArrays[inputName].SubArray = fieldIndex;
+
+			// Compute the actual vertex array length
+			UpdateVertexArrayLength();
+		}
+
+		/// <summary>
+		/// Get whether this VertexArrayObject has defined a vertex array by semantic name.
+		/// </summary>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the vertex array semantic.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this VertexArrayObject has defined the
+		/// vertex array having the semantic equals to <paramref name="semantic"/>.
+		/// </returns>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="semantic"/> is null or empty.
+		/// </exception>
+		public bool HasArray(string semantic)
+		{
+			if (String.IsNullOrEmpty(semantic))
+				throw new ArgumentException("invalid", "semantic");
+
+			return (_VertexArrays.ContainsKey(String.Format("##Semantic.{0}", semantic)));
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semantic"></param>
+		/// <returns></returns>
+		public ArrayBufferObject GetArray(string semantic)
+		{
+			if (semantic == null)
+				throw new ArgumentNullException("semantic");
+
+			VertexArray vertexArray;
+
+			if (_VertexArrays.TryGetValue(String.Format("##Semantic.{0}", semantic), out vertexArray) == false)
+				throw new InvalidOperationException("no array " + semantic);
+			
+			Debug.Assert(vertexArray != null);
+
+			return (vertexArray.Array);
+		}
+
+		/// <summary>
+		/// Get an array buffer object collected by this vertex array object.
+		/// </summary>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the attribute name.
+		/// </param>
+		/// <returns>
+		/// It returns the array corresponding to the semantic <paramref name="semantic"/>.
+		/// </returns>
+		private VertexArray GetVertexArray(string semantic)
+		{
+			return (GetVertexArray(semantic, "##Semantic"));
+		}
+
+		/// <summary>
+		/// Get an array buffer object collected by this vertex array object.
+		/// </summary>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the attribute name.
+		/// </param>
+		/// <param name="blockName">
+		/// A <see cref="String"/> that specify the input block declaring <paramref name="attributeName"/>.
+		/// </param>
+		/// <returns>
+		/// It returns the array corresponding to the attribute having the name <paramref name="attributeName"/>.
+		/// </returns>
+		private VertexArray GetVertexArray(string attributeName, string blockName)
+		{
+			if (String.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid attribute name", "attributeName");
+
+			VertexArray vertexArray;
+			
+			if (blockName != null)
+				attributeName = String.Format("{0}.{1}", blockName, attributeName);
+
+			if (_VertexArrays.TryGetValue(attributeName, out vertexArray) == false)
+				return (null);
+
+			return (vertexArray);
+		}
+
+		/// <summary>
+		/// The the minimum length of the arrays compositing this vertex array.
+		/// </summary>
+		private void UpdateVertexArrayLength()
+		{
+			uint minLength = UInt32.MaxValue;
+
+			foreach (KeyValuePair<string, VertexArray> pair in _VertexArrays)
+				minLength = Math.Min(minLength, pair.Value.Array.ItemCount);
+
+			_VertexArrayLength = minLength;
+		}
+
+		/// <summary>
+		/// Validate this vertex array.
+		/// </summary>
+		/// <returns></returns>
+		[Conditional("DEBUG")]
+		private void Validate()
+		{
+			if (_VertexArrays.Count == 0)
+				throw new InvalidOperationException("no array");
 		}
 
 		/// <summary>
 		/// Arrays defined by this vertex array object.
 		/// </summary>
-		protected readonly Dictionary<string, VertexArray> mVertexArrays = new Dictionary<string, VertexArray>();
+		protected readonly Dictionary<string, VertexArray> _VertexArrays = new Dictionary<string, VertexArray>();
 
 		/// <summary>
 		/// Number of items of the collected buffer objects.
 		/// </summary>
-		private uint mVertexArrayLength;
+		private uint _VertexArrayLength;
 
 		#endregion
 
 		#region Vertex Elements Definition
-
-		/// <summary>
-		/// Specify the entire array to be drawn sequentially.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
-		/// </param>
-		public void SetElementArray(PrimitiveType mode)
-		{
-			// Store element array (entire buffer)
-			Elements.Add(new AttributeElements(mode));
-
-			CheckMultiDrawAvailability();
-		}
-
-		/// <summary>
-		/// Set a buffer object which specify the element arrays.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="Primitive"/> that specify how arrays elements are interpreted.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
-		/// array element sequence.
-		/// </param>
-		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
-		{
-			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
-			if (bufferObject.BufferType != BufferTargetARB.ElementArrayBuffer)
-				throw new ArgumentException("not an ElementBufferObject", "bufferObject");
-
-			// Store element array
-			Elements.Add(new AttributeElements(mode, bufferObject));
-		}
-
-		/// <summary>
-		/// Set a buffer object which specify the element arrays.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
-		/// array element sequence.
-		/// </param>
-		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
-		{
-			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
-			if (bufferObject.BufferType != BufferTargetARB.ElementArrayBuffer)
-				throw new ArgumentException("not an ElementBufferObject", "bufferObject");
-
-			// Store element array
-			Elements.Add(new AttributeElements(mode, bufferObject, offset, count));
-		}
 
 		/// <summary>
 		/// A collection of indices reference input arrays.
@@ -401,10 +340,10 @@ namespace OpenGL
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
 			/// <param name="offset">
-			/// A <see cref="System.UInt32"/> that specify the offset applied to the drawn array elements.
+			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
 			/// </param>
 			/// <param name="count">
-			/// A <see cref="System.UInt32"/> that specify the number of array elements drawn.
+			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
 			public AttributeElements(PrimitiveType mode, uint offset, uint count) : this(mode, null, offset, count) { }
 
@@ -434,10 +373,10 @@ namespace OpenGL
 			/// <paramref name="offset"/>.
 			/// </param>
 			/// <param name="offset">
-			/// A <see cref="System.UInt32"/> that specify the offset applied to the drawn array elements.
+			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
 			/// </param>
 			/// <param name="count">
-			/// A <see cref="System.UInt32"/> that specify the number of array elements drawn.
+			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
 			public AttributeElements(PrimitiveType mode, ElementBufferObject indices, uint offset, uint count)
 			{
@@ -488,9 +427,63 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Specify the entire array to be drawn sequentially.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
+		/// </param>
+		public void SetElementArray(PrimitiveType mode)
+		{
+			// Store element array (entire buffer)
+			Elements.Add(new AttributeElements(mode));
+		}
+
+		/// <summary>
+		/// Set a buffer object which specify the element arrays.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="Primitive"/> that specify how arrays elements are interpreted.
+		/// </param>
+		/// <param name="bufferObject">
+		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
+		/// array element sequence.
+		/// </param>
+		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
+		{
+			if (bufferObject == null)
+				throw new ArgumentNullException("bufferObject");
+			if (bufferObject.BufferType != BufferTargetARB.ElementArrayBuffer)
+				throw new ArgumentException("not an ElementBufferObject", "bufferObject");
+
+			// Store element array
+			Elements.Add(new AttributeElements(mode, bufferObject));
+		}
+
+		/// <summary>
+		/// Set a buffer object which specify the element arrays.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
+		/// </param>
+		/// <param name="bufferObject">
+		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
+		/// array element sequence.
+		/// </param>
+		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
+		{
+			if (bufferObject == null)
+				throw new ArgumentNullException("bufferObject");
+			if (bufferObject.BufferType != BufferTargetARB.ElementArrayBuffer)
+				throw new ArgumentException("not an ElementBufferObject", "bufferObject");
+
+			// Store element array
+			Elements.Add(new AttributeElements(mode, bufferObject, offset, count));
+		}
+
+		/// <summary>
 		/// Collection of elements for drawing arrays.
 		/// </summary>
-		protected internal readonly List<AttributeElements>  Elements = new List<AttributeElements>();
+		protected internal readonly List<AttributeElements> Elements = new List<AttributeElements>();
 
 		#endregion
 
@@ -540,9 +533,9 @@ namespace OpenGL
 				SetArray(VertexArraySemantic.Normal, normalBuffer);
 			} else if (positionBuffer.ArrayType == ArrayBufferItemType.Float2) {
 				// General normal buffer for this vertex array
-				ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObject.Hint.StaticCpuDraw);
+				ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 
-				normalBuffer.Define(positionBuffer.ItemCount);
+				normalBuffer.Create(positionBuffer.ItemCount);
 				// Reset normal buffer (cumulate normals)
 				for (uint i = 0; i < positionBuffer.ItemCount; i++)
 					normalBuffer[i] = Vertex3f.UnitZ;
@@ -568,10 +561,10 @@ namespace OpenGL
 			if (positionArray.ArrayType != ArrayBufferItemType.Float3)
 				throw new ArgumentException("invalid array type", "positionArray");
 
-			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObject.Hint.StaticCpuDraw);
+			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 
 			try {
-				normalBuffer.Define(positionArray.ItemCount);
+				normalBuffer.Create(positionArray.ItemCount);
 
 				for (uint i = 0; i < positionArray.ItemCount; i += 3) {
 					Vertex3f p0 = positionArray.GetData<Vertex3f>(i + 0);
@@ -623,7 +616,7 @@ namespace OpenGL
 		/// A <see cref="ElementBufferObject"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
 		/// </param>
 		/// <param name="positionIndicesStride">
-		/// A <see cref="System.UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
+		/// A <see cref="UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferObject{Vertex3f}"/> that is the normal array derived from <paramref name="positionArray"/>. Each
@@ -644,10 +637,10 @@ namespace OpenGL
 		/// A <see cref="ElementBufferObject"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
 		/// </param>
 		/// <param name="positionIndicesOffset">
-		/// A <see cref="System.UInt32"/> that specify the offset of the considered <paramref name="positionIndices"/> items.
+		/// A <see cref="UInt32"/> that specify the offset of the considered <paramref name="positionIndices"/> items.
 		/// </param>
 		/// <param name="positionIndicesStride">
-		/// A <see cref="System.UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
+		/// A <see cref="UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferObject{Vertex3f}"/> that is the normal array derived from <paramref name="positionArray"/>. Each
@@ -664,10 +657,10 @@ namespace OpenGL
 			if (positionIndicesStride == 0)
 				throw new ArgumentException("invalid", "positionIndicesStride");
 
-			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObject.Hint.StaticCpuDraw);
+			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 
 			try {
-				normalBuffer.Define(positionArray.ItemCount);
+				normalBuffer.Create(positionArray.ItemCount);
 
 				// Reset normal buffer (cumulate normals)
 				for (uint i = 0; i < positionArray.ItemCount; i++)
@@ -715,7 +708,7 @@ namespace OpenGL
 		/// A <see cref="ArrayBufferObject"/> that specify the position array, from which normals are computed.
 		/// </param>
 		/// <param name="positionIndices">
-		/// A <see cref="System.UInt32[]"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
+		/// A <see cref="UInt32[]"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferObject{Vertex3f}"/> that is the normal array derived from <paramref name="positionArray"/>. Each
@@ -733,10 +726,10 @@ namespace OpenGL
 		/// A <see cref="ArrayBufferObject"/> that specify the position array, from which normals are computed.
 		/// </param>
 		/// <param name="positionIndices">
-		/// A <see cref="System.UInt32[]"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
+		/// A <see cref="UInt32[]"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
 		/// </param>
 		/// <param name="positionIndicesStride">
-		/// A <see cref="System.UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
+		/// A <see cref="UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferObject{Vertex3f}"/> that is the normal array derived from <paramref name="positionArray"/>. Each
@@ -754,13 +747,13 @@ namespace OpenGL
 		/// A <see cref="ArrayBufferObject"/> that specify the position array, from which normals are computed.
 		/// </param>
 		/// <param name="positionIndices">
-		/// A <see cref="System.UInt32[]"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
+		/// A <see cref="UInt32[]"/> that specify the indices used for sequencing the vertices from <paramref name="positionArray"/>.
 		/// </param>
 		/// <param name="positionIndicesOffset">
-		/// A <see cref="System.UInt32"/> that specify the offset of the considered <paramref name="positionIndices"/> items.
+		/// A <see cref="UInt32"/> that specify the offset of the considered <paramref name="positionIndices"/> items.
 		/// </param>
 		/// <param name="positionIndicesStride">
-		/// A <see cref="System.UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
+		/// A <see cref="UInt32"/> that specify the stride between subsequent <paramref name="positionIndices"/> items.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferObject{Vertex3f}"/> that is the normal array derived from <paramref name="positionArray"/>. Each
@@ -777,10 +770,10 @@ namespace OpenGL
 			if (positionIndicesStride == 0)
 				throw new ArgumentException("invalid", "positionIndicesStride");
 
-			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObject.Hint.StaticCpuDraw);
+			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 
 			try {
-				normalBuffer.Define(positionArray.ItemCount);
+				normalBuffer.Create(positionArray.ItemCount);
 
 				// Reset normal buffer (cumulate normals)
 				for (uint i = 0; i < positionArray.ItemCount; i++)
@@ -838,12 +831,14 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent)
+				throw new ArgumentException("not current", "ctx");
 			if (shader == null)
 				throw new InvalidOperationException("no shader");
 			if (shader.IsLinked == false)
 				throw new InvalidOperationException("shader not linked");
-			//if (!Exists(ctx))
-			//	throw new InvalidOperationException("not existing");		XXX
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
 			if (Elements.Count == 0)
 				throw new InvalidOperationException("no elements defined");
 
@@ -856,15 +851,14 @@ namespace OpenGL
 				// Uses shader
 				shader.Bind(ctx);
 				
-				if (mFeedbackBuffer != null)
-					mFeedbackBuffer.Begin(ctx, attributeElements.ElementsMode);
+				if (_FeedbackBuffer != null)
+					_FeedbackBuffer.Begin(ctx, attributeElements.ElementsMode);
 				
 				RenderAttributeElement(ctx, attributeElements);
 				
-				if (mFeedbackBuffer != null)
-					mFeedbackBuffer.End(ctx);
+				if (_FeedbackBuffer != null)
+					_FeedbackBuffer.End(ctx);
 			}
-				
 		}
 
 		/// <summary>
@@ -877,25 +871,21 @@ namespace OpenGL
 		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
 		/// </param>
 		protected void SetShaderProgramAttributes(GraphicsContext ctx, ShaderProgram shaderProgram)
-		{	
-			// Vertex array object supported?
-			if (mSupportVertexArray) {
-				if (mVertexArrayDirty)
-					CreateName(ctx);	// How to rename an object??? XXX
-
-				// Avoid to re-bind vertex array
-				int currentBinding;
-
-				Gl.Get(Gl.VERTEX_ARRAY_BINDING, out currentBinding);
-
-				if (ObjectName == currentBinding)
-					return;
-				
+		{
+			// Short path?
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty && _VertexArrayObjectName != InvalidObjectName) {
 				// Bind this vertex array
-				Gl.BindVertexArray(ObjectName);
+				Gl.BindVertexArray(_VertexArrayObjectName);
+				return;
+			}
 
-				if (mVertexArrayDirty == false)
-					return;		// Vertex attributes configuration already defined
+			// Reset vertex array state
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && _VertexArrayDirty) {
+				if (_VertexArrayObjectName != InvalidObjectName)
+					Gl.DeleteVertexArrays(_VertexArrayObjectName);
+
+				_VertexArrayObjectName = Gl.GenVertexArray();
+				Gl.BindVertexArray(_VertexArrayObjectName);
 			}
 
 			foreach (string inputName in shaderProgram.ActiveAttributes) {
@@ -951,8 +941,8 @@ namespace OpenGL
 				Gl.EnableVertexAttribArray(attributeBinding.Location);
 			}
 
-			// Next time do not set inputs
-			mVertexArrayDirty = false;
+			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
+			_VertexArrayDirty = false;
 		}
 
 		/// <summary>
@@ -977,9 +967,9 @@ namespace OpenGL
 			ElementBufferObject elementIndices = attributeElement.ArrayIndices;
 
 			if (elementIndices == null) {
-				uint count = (attributeElement.ElementCount == 0) ? mVertexArrayLength : attributeElement.ElementCount;
+				uint count = (attributeElement.ElementCount == 0) ? _VertexArrayLength : attributeElement.ElementCount;
 
-				Debug.Assert(count - attributeElement.ElementOffset <= mVertexArrayLength, "element array out of bounds");
+				Debug.Assert(count - attributeElement.ElementOffset <= _VertexArrayLength, "element array out of bounds");
 			
 				//if (mFeedbackBuffer != null)
 				//	mFeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
@@ -1066,7 +1056,12 @@ namespace OpenGL
 		/// <summary>
 		/// Flag indicating whether the vertex array is dirty due buffer object changes.
 		/// </summary>
-		private bool mVertexArrayDirty = true;
+		private bool _VertexArrayDirty = true;
+
+		/// <summary>
+		/// The actual vertex array object.
+		/// </summary>
+		private uint _VertexArrayObjectName = InvalidObjectName;
 
 		#endregion
 	
@@ -1074,13 +1069,13 @@ namespace OpenGL
 		
 		public void SetTransformFeedback(FeedbackBufferObject feedbackObject)
 		{
-			if (mFeedbackBuffer != null)
-				mFeedbackBuffer.DecRef();
+			if (_FeedbackBuffer != null)
+				_FeedbackBuffer.DecRef();
 		
-			mFeedbackBuffer = feedbackObject;
+			_FeedbackBuffer = feedbackObject;
 		
-			if (mFeedbackBuffer != null)
-				mFeedbackBuffer.IncRef();
+			if (_FeedbackBuffer != null)
+				_FeedbackBuffer.IncRef();
 		}
 	
 		public void SetSymmetricTransformFeedback()
@@ -1088,7 +1083,7 @@ namespace OpenGL
 			
 		}
 	
-		private FeedbackBufferObject mFeedbackBuffer;
+		private FeedbackBufferObject _FeedbackBuffer;
 		
 		#endregion
 
@@ -1137,7 +1132,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return ((mSupportVertexArray != true) || (Gl.IsVertexArray(ObjectName)));
+			return (true);
 		}
 
 		/// <summary>
@@ -1147,49 +1142,11 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for creating this object name.
 		/// </param>
 		/// <returns>
-		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
-		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
-		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
-		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
-		/// name is generated automatically in a context-independent manner.
+		/// It returns always false. Names are managed manually
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
-		}
-
-		/// <summary>
-		/// Create a BufferObject name.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
-		/// </param>
-		/// <returns>
-		/// It returns a valid object name for this BufferObject.
-		/// </returns>
-		protected override uint CreateName(GraphicsContext ctx)
-		{
-			// Determine vertex array support
-			mSupportVertexArray = true;
-
-			return (Gl.GenVertexArray());
-		}
-
-		/// <summary>
-		/// Delete a BufferObject name.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for deleting this object name.
-		/// </param>
-		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
-		/// </param>
-		protected override void DeleteName(GraphicsContext ctx, uint name)
-		{
-			if (mSupportVertexArray) {
-				// Delete buffer object
-				Gl.DeleteVertexArrays(name);
-			}
+			return (false);
 		}
 
 		/// <summary>
@@ -1204,7 +1161,7 @@ namespace OpenGL
 			Validate();
 
 			// Create vertex arrays
-			foreach (VertexArray inputArray in mVertexArrays.Values) {
+			foreach (VertexArray inputArray in _VertexArrays.Values) {
 				if (inputArray.Array.Exists(ctx) == false)
 					inputArray.Array.Create(ctx);
 			}
@@ -1214,22 +1171,22 @@ namespace OpenGL
 					attributeElements.ArrayIndices.Create(ctx);	
 			}
 		
-			if (mFeedbackBuffer != null)
-				mFeedbackBuffer.Create(ctx);
+			if (_FeedbackBuffer != null)
+				_FeedbackBuffer.Create(ctx);
 		}
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
 				// Unreference all collected array buffer objects
-				foreach (VertexArray vertexArray in mVertexArrays.Values)
+				foreach (VertexArray vertexArray in _VertexArrays.Values)
 					vertexArray.Array.DecRef();
 				// Unreference all collected array indices
 				foreach (AttributeElements vertexIndices in Elements)
@@ -1237,11 +1194,6 @@ namespace OpenGL
 						vertexIndices.ArrayIndices.DecRef();
 			}
 		}
-
-		/// <summary>
-		/// Flag indicating whether used context really support vertex arrays.
-		/// </summary>
-		private bool mSupportVertexArray;
 
 		#endregion
 	}

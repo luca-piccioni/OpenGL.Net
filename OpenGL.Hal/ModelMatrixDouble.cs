@@ -48,7 +48,7 @@ namespace OpenGL
 		/// Construct a matrix from a sequence of components.
 		/// </summary>
 		/// <param name="values">
-		/// An array of <see cref="System.Double"/>, representing the matrix components in column-major order.
+		/// An array of <see cref="Double"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.
@@ -333,7 +333,7 @@ namespace OpenGL
 		/// Stringify this ModelMatrix.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this ModelMatrix.
+		/// Returns a <see cref="String"/> that represents this ModelMatrix.
 		/// </returns>
 		public override string ToString()
 		{
@@ -366,10 +366,10 @@ namespace OpenGL
 		/// Accumulate a translation on this ModelMatrixDouble.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> indicating the translation on X axis.
+		/// A <see cref="Double"/> indicating the translation on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> indicating the translation on Y axis.
+		/// A <see cref="Double"/> indicating the translation on Y axis.
 		/// </param>
 		public void Translate(double x, double y)
 		{
@@ -385,13 +385,13 @@ namespace OpenGL
 		/// Accumulate a translation on this ModelMatrixDouble.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> indicating the translation on X axis.
+		/// A <see cref="Double"/> indicating the translation on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> indicating the translation on Y axis.
+		/// A <see cref="Double"/> indicating the translation on Y axis.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Double"/> indicating the translation on Z axis.
+		/// A <see cref="Double"/> indicating the translation on Z axis.
 		/// </param>
 		public void Translate(double x, double y, double z)
 		{
@@ -480,7 +480,7 @@ namespace OpenGL
 		/// Accumulate a rotation on X axis to this ModelMatrixDouble.
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="System.Double"/> representing the rotation angle, in degrees.
+		/// A <see cref="Double"/> representing the rotation angle, in degrees.
 		/// </param>
 		public void RotateX(double angle)
 		{
@@ -500,7 +500,7 @@ namespace OpenGL
 		/// Accumulate a rotation on Y axis to this ModelMatrixDouble.
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="System.Double"/> representing the rotation angle, in degrees.
+		/// A <see cref="Double"/> representing the rotation angle, in degrees.
 		/// </param>
 		public void RotateY(double angle)
 		{
@@ -520,7 +520,7 @@ namespace OpenGL
 		/// Accumulate a rotation on Z axis to this ModelMatrixDouble.
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="System.Double"/> representing the rotation angle, in degrees.
+		/// A <see cref="Double"/> representing the rotation angle, in degrees.
 		/// </param>
 		public void RotateZ(double angle)
 		{
@@ -540,7 +540,7 @@ namespace OpenGL
 		/// Accumulate a scaling to this model matrix.
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="System.Double"/> holding the scaling factor on X, Y and Z axes.
+		/// A <see cref="Double"/> holding the scaling factor on X, Y and Z axes.
 		/// </param>
 		public void Scale(double s)
 		{
@@ -557,10 +557,10 @@ namespace OpenGL
 		/// Accumulate a scaling to this model matrix.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the scaling factor on X axis.
+		/// A <see cref="Double"/> holding the scaling factor on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the scaling factor on Y axis.
+		/// A <see cref="Double"/> holding the scaling factor on Y axis.
 		/// </param>
 		public void Scale(double x, double y)
 		{
@@ -576,13 +576,13 @@ namespace OpenGL
 		/// Accumulate a scaling to this model matrix.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the scaling factor on X axis.
+		/// A <see cref="Double"/> holding the scaling factor on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the scaling factor on Y axis.
+		/// A <see cref="Double"/> holding the scaling factor on Y axis.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Double"/> holding the scaling factor on Z axis.
+		/// A <see cref="Double"/> holding the scaling factor on Z axis.
 		/// </param>
 		public void Scale(double x, double y, double z)
 		{

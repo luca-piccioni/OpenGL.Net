@@ -67,8 +67,8 @@ namespace OpenGL
 	/// <see cref="RenderGarbageService"/>). However, it is necessary to schedule the object delection by using <see cref="RenderGarbageService.DeleteGarbage"/>.
 	/// </para>
 	/// <para>
-	/// The IGraphicsResource interface inherits from <see cref="System.IDisposable"/>. The IDisposable implementation is used to ensure object resources
-	/// by means of the <i>using</i> construct. Tipically <see cref="System.IDisposable.Dispose"/> implementation shall call <see cref="Release"/>,
+	/// The IGraphicsResource interface inherits from <see cref="IDisposable"/>. The IDisposable implementation is used to ensure object resources
+	/// by means of the <i>using</i> construct. Tipically <see cref="IDisposable.Dispose"/> implementation shall call <see cref="Release"/>,
 	/// since it cannot be sure what (and if a) <see cref="GraphicsContext"/> is current on the calling thread.
 	/// </para>
 	/// <para>
@@ -88,7 +88,7 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// The object class identify the resource type. It cannot be <see cref="System.Guid.Empty"/>, but a meaninfull
+		/// The object class identify the resource type. It cannot be <see cref="Guid.Empty"/>, but a meaninfull
 		/// value. The allowed values are determined in the concrete implementation of the IGraphicsResource
 		/// implementation.
 		/// </para>

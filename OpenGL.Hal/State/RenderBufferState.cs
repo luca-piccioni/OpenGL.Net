@@ -275,7 +275,7 @@ namespace OpenGL.State
 		/// Represents the current <see cref="GraphicsState"/> for logging.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="System.String"/> that represents the current <see cref="GraphicsState"/>.
+		/// A <see cref="String"/> that represents the current <see cref="GraphicsState"/>.
 		/// </returns>
 		public override string ToString()
 		{

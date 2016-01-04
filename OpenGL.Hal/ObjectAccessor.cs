@@ -42,10 +42,10 @@ namespace OpenGL
 		/// Construct an ObjectAccessor that access to an object's field or property.
 		/// </summary>
 		/// <param name="container">
-		/// A <see cref="System.Object"/> that specify a generic member.
+		/// A <see cref="Object"/> that specify a generic member.
 		/// </param>
 		/// <param name="memberPattern">
-		/// A <see cref="System.String"/> that specify the pattern of the member of <paramref name="container"/>.
+		/// A <see cref="String"/> that specify the pattern of the member of <paramref name="container"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="container"/> or <paramref name="memberPattern"/> is null.
@@ -66,13 +66,13 @@ namespace OpenGL
 		/// Construct an ObjectAccessor that access to an object's field or property.
 		/// </summary>
 		/// <param name="container">
-		/// A <see cref="System.Object"/> that specify a generic member.
+		/// A <see cref="Object"/> that specify a generic member.
 		/// </param>
 		/// <param name="memberPattern">
-		/// A <see cref="System.String"/> that specify the pattern of the member of <paramref name="container"/>.
+		/// A <see cref="String"/> that specify the pattern of the member of <paramref name="container"/>.
 		/// </param>
 		/// <param name="dynamic">
-		/// A <see cref="System.Boolean"/> that specify whether member must be rebound using <paramref name="memberPattern"/>.
+		/// A <see cref="Boolean"/> that specify whether member must be rebound using <paramref name="memberPattern"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="container"/> or <paramref name="memberPattern"/> is null.
@@ -212,7 +212,7 @@ namespace OpenGL
 		private readonly string mMemberPattern;
 
 		/// <summary>
-		/// A <see cref="System.Boolean"/> that specify whether member must be rebound using <see cref="mMemberPattern"/>.
+		/// A <see cref="Boolean"/> that specify whether member must be rebound using <see cref="mMemberPattern"/>.
 		/// </summary>
 		private readonly bool mDynamic;
 
@@ -239,17 +239,17 @@ namespace OpenGL
 		/// Access to an object member.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="System.Object"/> which type defines the underlying member.
+		/// A <see cref="Object"/> which type defines the underlying member.
 		/// </param>
 		/// <param name="memberPattern">
-		/// A <see cref="System.String"/> that specify how the member is identified. For methods and indexed properties, the arguments
+		/// A <see cref="String"/> that specify how the member is identified. For methods and indexed properties, the arguments
 		/// list is specified also.
 		/// </param>
 		/// <param name="memberInfo">
-		/// A <see cref="System.Reflection.MemberInfo"/> that represent the member.
+		/// A <see cref="Reflection.MemberInfo"/> that represent the member.
 		/// </param>
 		/// <param name="memberArgs">
-		/// An array of <see cref="System.Object"/> that represent the argument list required for calling a method or an indexed
+		/// An array of <see cref="Object"/> that represent the argument list required for calling a method or an indexed
 		/// property.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -444,13 +444,13 @@ namespace OpenGL
 		/// Access to the object member.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="System.Object"/> which type defines the underlying member.
+		/// A <see cref="Object"/> which type defines the underlying member.
 		/// </param>
 		/// <param name="memberInfo">
-		/// A <see cref="System.Reflection.MemberInfo"/> that represent the member.
+		/// A <see cref="Reflection.MemberInfo"/> that represent the member.
 		/// </param>
 		/// <param name="memberArgs">
-		/// An array of <see cref="System.Object"/> that represent the argument list required for calling a method or an indexed
+		/// An array of <see cref="Object"/> that represent the argument list required for calling a method or an indexed
 		/// property.
 		/// </param>
 		/// <returns>

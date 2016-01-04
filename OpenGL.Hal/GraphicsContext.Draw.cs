@@ -30,7 +30,9 @@ namespace OpenGL
 		/// <summary>
 		/// Array buffer used to store geometry information.
 		/// </summary>
-		private ArrayBufferObject _DrawArrayBuffer = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObject.Hint.DynamicCpuDraw);
+		private readonly ArrayBufferObject _DrawArrayBuffer = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObjectHint.DynamicCpuDraw);
+
+		private readonly VertexArrayObject _VertexArray = new VertexArrayObject();
 
 		#endregion
 
@@ -128,7 +130,7 @@ namespace OpenGL
 
 		#region Lines
 
-		public void DrawLines(Vertex2f[] vertices, State.GraphicsState state)
+		public void DrawLines(params Vertex2f[] vertices)
 		{
 			if (vertices == null)
 				throw new ArgumentNullException("vertices");
@@ -170,10 +172,12 @@ namespace OpenGL
 
 		private void DrawLines2f_GL_3_2(Vertex2f[] vertices)
 		{
-			_DrawArrayBuffer.EnsureSize((uint)(vertices.Length));
+			// Define geometry buffer
 			_DrawArrayBuffer.Copy(this, vertices);
-
-
+			// Define geometry arrays
+			_VertexArray.SetArray(VertexArraySemantic.Position, _DrawArrayBuffer);
+			// Draw arrays
+			_VertexArray.DrawVertexArray(this, null);
 		}
 
 		#endregion

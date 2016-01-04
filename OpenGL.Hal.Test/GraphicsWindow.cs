@@ -35,7 +35,13 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void TestRender()
 		{
-			StartAnimation(_Context, new TimeSpan(0, 0, 10), GetAnimationDelegates(), null);
+			_Window.ShowWindow();
+
+			try {
+				StartAnimation(_Context, new TimeSpan(0, 0, 10), GetAnimationDelegates(), null);
+			} finally {
+				_Window.HideWindow();
+			}
 		}
 
 		#region GraphicsSurfaceTest Overrides

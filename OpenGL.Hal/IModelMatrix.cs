@@ -34,10 +34,10 @@ namespace OpenGL
 		/// Accumulate a translation on this model matrix.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> indicating the translation on X axis.
+		/// A <see cref="Double"/> indicating the translation on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> indicating the translation on Y axis.
+		/// A <see cref="Double"/> indicating the translation on Y axis.
 		/// </param>
 		void Translate(double x, double y);
 
@@ -45,13 +45,13 @@ namespace OpenGL
 		/// Accumulate a translation on this model matrix.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> indicating the translation on X axis.
+		/// A <see cref="Double"/> indicating the translation on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> indicating the translation on Y axis.
+		/// A <see cref="Double"/> indicating the translation on Y axis.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Double"/> indicating the translation on Z axis.
+		/// A <see cref="Double"/> indicating the translation on Z axis.
 		/// </param>
 		void Translate(double x, double y, double z);
 
@@ -92,7 +92,7 @@ namespace OpenGL
 		/// Accumulate a rotation around the X axis to this model matrix.
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="System.Double"/> representing the rotation around the X axis.
+		/// A <see cref="Double"/> representing the rotation around the X axis.
 		/// </param>
 		void RotateX(double angle);
 
@@ -100,7 +100,7 @@ namespace OpenGL
 		/// Accumulate a rotation around the X axis to this model matrix.
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="System.Double"/> representing the rotation around the X axis.
+		/// A <see cref="Double"/> representing the rotation around the X axis.
 		/// </param>
 		void RotateY(double angle);
 
@@ -108,7 +108,7 @@ namespace OpenGL
 		/// Accumulate a rotation around the X axis to this model matrix.
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="System.Double"/> representing the rotation around the X axis.
+		/// A <see cref="Double"/> representing the rotation around the X axis.
 		/// </param>
 		void RotateZ(double angle);
 
@@ -120,7 +120,7 @@ namespace OpenGL
 		/// Accumulate a scaling to this model matrix.
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="System.Double"/> holding the scaling factor on X, Y and Z axes.
+		/// A <see cref="Double"/> holding the scaling factor on X, Y and Z axes.
 		/// </param>
 		void Scale(double s);
 
@@ -128,10 +128,10 @@ namespace OpenGL
 		/// Accumulate a scaling to this model matrix.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the scaling factor on X axis.
+		/// A <see cref="Double"/> holding the scaling factor on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the scaling factor on Y axis.
+		/// A <see cref="Double"/> holding the scaling factor on Y axis.
 		/// </param>
 		void Scale(double x, double y);
 
@@ -139,13 +139,13 @@ namespace OpenGL
 		/// Accumulate a scaling to this model matrix.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/> holding the scaling factor on X axis.
+		/// A <see cref="Double"/> holding the scaling factor on X axis.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/> holding the scaling factor on Y axis.
+		/// A <see cref="Double"/> holding the scaling factor on Y axis.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="System.Double"/> holding the scaling factor on Z axis.
+		/// A <see cref="Double"/> holding the scaling factor on Z axis.
 		/// </param>
 		void Scale(double x, double y, double z);
 

@@ -54,7 +54,7 @@ namespace OpenGL
 		/// Construct a RenderKernelService.
 		/// </summary>
 		/// <param name="name">
-		/// A <see cref="System.String"/> specifying the service name. This name is used to getting service instances; since
+		/// A <see cref="String"/> specifying the service name. This name is used to getting service instances; since
 		/// this information is controlled by use application too, it's better to choose well formed names, such as
 		/// <i>Domain.ServiceName</i>. Services defined by Derm have the domain name part equals to "Derm".
 		/// </param>
@@ -418,7 +418,7 @@ namespace OpenGL
 		/// Bind this RenderKernelService to a specific object name space.
 		/// </summary>
 		/// <param name="sObjectNameSpace">
-		/// A <see cref="System.Guid"/> that specify the object name space used.
+		/// A <see cref="Guid"/> that specify the object name space used.
 		/// </param>
 		private void BindObjectNameSpace(Guid sObjectNameSpace)
 		{
@@ -448,7 +448,7 @@ namespace OpenGL
 		/// Unbind this RenderKernelService from a specific object name space.
 		/// </summary>
 		/// <param name="sObjectNameSpace">
-		/// A <see cref="System.Guid"/> that specify the object name space used.
+		/// A <see cref="Guid"/> that specify the object name space used.
 		/// </param>
 		private void UnbindObjectNameSpace(Guid sObjectNameSpace)
 		{
@@ -476,10 +476,10 @@ namespace OpenGL
 		/// Get the RenderKernelService for the calling thread by name.
 		/// </summary>
 		/// <param name="sObjectNameSpace">
-		/// A <see cref="System.Guid"/> that specify the object name space of the service.
+		/// A <see cref="Guid"/> that specify the object name space of the service.
 		/// </param>
 		/// <param name="sName">
-		/// A <see cref="System.String"/> that specify the service name.
+		/// A <see cref="String"/> that specify the service name.
 		/// </param>
 		/// <returns>
 		/// It returns the RenderKernelService with the name <paramref name="sName"/> for the calling thread. In the case

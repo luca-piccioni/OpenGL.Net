@@ -636,11 +636,11 @@ namespace OpenGL
 		/// <summary>
 		/// Log an enumeration value.
 		/// </summary>
-		/// <param name="array">
+		/// <param name="stringArray">
 		/// A <see cref="Array"/> that specifies the set of values.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="array"/>.
+		/// It returns a <see cref="String"/> that represents <paramref name="stringArray"/>.
 		/// </returns>
 		protected static string LogValue(string[] stringArray)
 		{

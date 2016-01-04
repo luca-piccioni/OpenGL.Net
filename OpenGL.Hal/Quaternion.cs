@@ -72,7 +72,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3f"/> representing the rotation axis.
 		/// </param>
 		/// <param name="rAngle">
-		/// A <see cref="System.Single"/> representing the rotation angle (in degrees).
+		/// A <see cref="Single"/> representing the rotation angle (in degrees).
 		/// </param>
 		/// <remarks>
 		/// This constructor is the base implementation for each other constructor.
@@ -169,7 +169,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3f"/> representing the rotation axis. It will be normalized.
 		/// </param>
 		/// <param name="rAngle">
-		/// A <see cref="System.Single"/> representing the rotation angle (in degrees).
+		/// A <see cref="Single"/> representing the rotation angle (in degrees).
 		/// </param>
 		/// <remarks>
 		/// This quaternion will result normalized.
@@ -520,7 +520,7 @@ namespace OpenGL
 		/// Stringify this Quaternion.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Quaternion.
+		/// Returns a <see cref="String"/> that represents this Quaternion.
 		/// </returns>
 		public override string ToString()
 		{

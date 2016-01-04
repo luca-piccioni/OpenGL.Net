@@ -99,7 +99,7 @@ namespace OpenGL.Hal.Test
 				animationDelegates.Init(ctx, data);
 
 			// Execute animation
-			while ((animationElapsedTime = DateTime.UtcNow - animationBegin) < animationTime) {
+			while ((animationElapsedTime = (DateTime.UtcNow - animationBegin)) < animationTime) {
 				// Clear surface
 				Surface.Clear(ctx);
 				// Execute drawing

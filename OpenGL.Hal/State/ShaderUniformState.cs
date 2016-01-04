@@ -62,7 +62,7 @@ namespace OpenGL.State
 		/// A <see cref="ShaderProgram"/> that specify this uniform state.
 		/// </param>
 		/// <param name="uniformScope">
-		/// A <see cref="System.String"/> that specify the scope the uniform variable.
+		/// A <see cref="String"/> that specify the scope the uniform variable.
 		/// </param>
 		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope)
 		{

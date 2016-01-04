@@ -62,10 +62,10 @@ namespace OpenGL
 		/// Define a criteria.
 		/// </summary>
 		/// <param name="criteriaName">
-		/// A <see cref="System.String"/> that specify the criteria value name.
+		/// A <see cref="String"/> that specify the criteria value name.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="System.Object"/> that specify the criteria value. It can null.
+		/// A <see cref="Object"/> that specify the criteria value. It can null.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <see cref="criteriaName"/> is null.
@@ -83,7 +83,7 @@ namespace OpenGL
 		/// Undefine a criteria.
 		/// </summary>
 		/// <param name="criteriaName">
-		/// A <see cref="System.String"/> that specify the criteria value name.
+		/// A <see cref="String"/> that specify the criteria value name.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <see cref="criteriaName"/> is null.
@@ -100,7 +100,7 @@ namespace OpenGL
 		/// Determine whether a criteria is defined.
 		/// </summary>
 		/// <param name="criteriaName">
-		/// A <see cref="System.String"/> that specify the criteria value name.
+		/// A <see cref="String"/> that specify the criteria value name.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether the criteria <see cref="criteriaName"/> is
@@ -124,7 +124,7 @@ namespace OpenGL
 		/// The type of the criterial value.
 		/// </typeparam>
 		/// <param name="criteriaName">
-		/// A <see cref="System.String"/> that specify the criteria value name.
+		/// A <see cref="String"/> that specify the criteria value name.
 		/// </param>
 		/// <returns>
 		/// It returns the value corresponding to the criterial <paramref name="criteriaName"/>.
@@ -180,7 +180,7 @@ namespace OpenGL
 		/// Get and set a codec criteria.
 		/// </summary>
 		/// <param name="criteriaName">
-		/// A <see cref="System.String"/> that specify the criteria value name.
+		/// A <see cref="String"/> that specify the criteria value name.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <see cref="criteriaName"/> is null.
@@ -211,7 +211,7 @@ namespace OpenGL
 		/// Stringify this MediaCodecCriteria.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this MediaCodecCriteria.
+		/// Returns a <see cref="String"/> that represents this MediaCodecCriteria.
 		/// </returns>
 		public override string ToString()
 		{

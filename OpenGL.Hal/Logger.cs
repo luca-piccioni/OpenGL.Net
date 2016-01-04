@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Construct a logger for a specific type.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="System.Type"/> that specify the type referred on the logging.
+		/// A <see cref="Type"/> that specify the type referred on the logging.
 		/// </param>
 		public Logger(Type type)
 		{

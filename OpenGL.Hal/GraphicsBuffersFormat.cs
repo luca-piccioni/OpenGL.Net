@@ -62,7 +62,7 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> that specify the format of the color buffer.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="System.UInt32"/> that specify the bit count of the depth buffer fragment.
+		/// A <see cref="UInt32"/> that specify the bit count of the depth buffer fragment.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -150,7 +150,7 @@ namespace OpenGL
 		/// Determine whether this RenderSurface has allocated a certain buffer. 
 		/// </summary>
 		/// <param name="sBuffer">
-		/// A <see cref="System.Int32"/> which could be one of the following values:
+		/// A <see cref="Int32"/> which could be one of the following values:
 		/// - <see cref="BufferType.Color"/>
 		/// - <see cref="BufferType.Depth"/>
 		/// - <see cref="BufferType.Stencil"/>
@@ -159,7 +159,7 @@ namespace OpenGL
 		/// - <see cref="BufferType.Stereo"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/> it shall
+		/// A <see cref="Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/> it shall
 		/// be allocated.
 		/// </returns>
 		public bool HasBuffer(BufferType sBuffer)
@@ -171,7 +171,7 @@ namespace OpenGL
 		/// Determine whether a RenderSurface buffer is required.
 		/// </summary>
 		/// <param name="sBuffer">
-		/// A <see cref="System.Int32"/> which could be one of the following values:
+		/// A <see cref="Int32"/> which could be one of the following values:
 		/// - <see cref="BufferType.Color"/>
 		/// - <see cref="BufferType.Depth"/>
 		/// - <see cref="BufferType.Stencil"/>
@@ -180,7 +180,7 @@ namespace OpenGL
 		/// - <see cref="BufferType.Stereo"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/>
+		/// A <see cref="Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/>
 		/// it was requested with Surface interface using <see cref="BufferPolicy.Required"/> or 
 		/// <see cref="BufferPolicy.RequiredAndDegradable"/>.
 		/// </returns>
@@ -193,7 +193,7 @@ namespace OpenGL
 		/// Determine whether a RenderSurface buffer is degradable.
 		/// </summary>
 		/// <param name="sBuffer">
-		/// A <see cref="System.Int32"/> which could be one of the following values:
+		/// A <see cref="Int32"/> which could be one of the following values:
 		/// - <see cref="BufferType.Color"/>
 		/// - <see cref="BufferType.Depth"/>
 		/// - <see cref="BufferType.Stencil"/>
@@ -202,7 +202,7 @@ namespace OpenGL
 		/// - <see cref="BufferType.Stereo"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/>
+		/// A <see cref="Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/>
 		/// it was requested with Surface interface using <see cref="BufferPolicy.RequiredAndDegradable"/>.
 		/// </returns>
 		public bool IsDegradableBuffer(BufferType sBuffer)
@@ -214,7 +214,7 @@ namespace OpenGL
 		/// Determine whether a buffer was requested.
 		/// </summary>
 		/// <param name="sBuffer">
-		/// A <see cref="System.Int32"/> which could be one of the following values:
+		/// A <see cref="Int32"/> which could be one of the following values:
 		/// - <see cref="BufferType.Color"/>
 		/// - <see cref="BufferType.Depth"/>
 		/// - <see cref="BufferType.Stencil"/>
@@ -223,7 +223,7 @@ namespace OpenGL
 		/// - <see cref="BufferType.Stereo"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/>
+		/// A <see cref="Boolean"/> indicating whether the buffer specified in <paramref name="sBuffer"/>
 		/// it was not requested with Surface interface.
 		/// </returns>
 		public bool IsIgnoredBuffer(BufferType sBuffer)
@@ -308,7 +308,7 @@ namespace OpenGL
 		/// Define RenderSurface format index. 
 		/// </summary>
 		/// <param name="formatIndex">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		public void DefineFormatIndex(int formatIndex) { DefineFormatIndex(formatIndex, BufferPolicy.RequiredAndDegradable); }
 		
@@ -316,7 +316,7 @@ namespace OpenGL
 		/// Define RenderSurface format index. 
 		/// </summary>
 		/// <param name="formatIndex">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		/// <param name="policy">
 		/// A <see cref="BufferPolicy"/>
@@ -471,7 +471,7 @@ namespace OpenGL
 		/// Define RenderSurface depth buffer.
 		/// </summary>
 		/// <param name="bits">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		public void DefineDepthBuffer(uint bits) { DefineDepthBuffer(bits, BufferPolicy.RequiredAndDegradable); }
 
@@ -479,7 +479,7 @@ namespace OpenGL
 		/// Define RenderSurface depth buffer.
 		/// </summary>
 		/// <param name="bits">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		/// <param name="policy">
 		/// A <see cref="BufferPolicy"/>
@@ -524,7 +524,7 @@ namespace OpenGL
 		/// Define RenderSurface stencil buffer.
 		/// </summary>
 		/// <param name="bits">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		public void DefineStencilBuffer(uint bits) { DefineStencilBuffer(bits, BufferPolicy.RequiredAndDegradable); }
 
@@ -532,7 +532,7 @@ namespace OpenGL
 		/// Define RenderSurface stencil buffer.
 		/// </summary>
 		/// <param name="bits">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		/// <param name="policy">
 		/// A <see cref="BufferPolicy"/>
@@ -577,7 +577,7 @@ namespace OpenGL
 		/// Define RenderSurface multisample buffer.
 		/// </summary>
 		/// <param name="bits">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		public void DefineMultisampleBuffer(uint bits) { DefineMultisampleBuffer(bits, BufferPolicy.RequiredAndDegradable); }
 
@@ -585,7 +585,7 @@ namespace OpenGL
 		/// Define RenderSurface multisample buffer.
 		/// </summary>
 		/// <param name="bits">
-		/// A <see cref="System.Int32"/>
+		/// A <see cref="Int32"/>
 		/// </param>
 		/// <param name="policy">
 		/// A <see cref="BufferPolicy"/>
@@ -759,7 +759,7 @@ namespace OpenGL
 		/// It returns the closest macthing pixel format to this Surface configuration.
 		/// </para>
 		/// </returns>
-		/// <exception cref="System.Exception">
+		/// <exception cref="Exception">
 		/// This exception is thrown when no pixel format was found for matching surface buffer
 		/// configuration using the specified buffer policy.
 		/// </exception>
@@ -788,7 +788,7 @@ namespace OpenGL
 		/// It returns the closest macthing pixel format to this Surface configuration.
 		/// </para>
 		/// </returns>
-		/// <exception cref="System.Exception">
+		/// <exception cref="Exception">
 		/// This exception is thrown when no pixel format was found for matching surface buffer
 		/// configuration using the specified buffer policy.
 		/// </exception>
@@ -817,7 +817,7 @@ namespace OpenGL
 		/// It returns the closest macthing pixel format to this Surface configuration.
 		/// </para>
 		/// </returns>
-		/// <exception cref="System.Exception">
+		/// <exception cref="Exception">
 		/// This exception is thrown when no pixel format was found for matching surface buffer
 		/// configuration using the specified buffer policy.
 		/// </exception>

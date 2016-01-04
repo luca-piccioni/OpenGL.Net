@@ -41,7 +41,7 @@ namespace OpenGL
 		/// A <see cref="VertexBaseType"/> describing the vector components type.
 		/// </param>
 		/// <param name="arrayLength">
-		/// A <see cref="System.UInt32"/> that specify the vector length.
+		/// A <see cref="UInt32"/> that specify the vector length.
 		/// </param>
 		public ArrayBufferItemAttribute(VertexBaseType arrayType, uint arrayLength)
 			: this(arrayType, 1, arrayLength)
@@ -56,10 +56,10 @@ namespace OpenGL
 		/// A <see cref="VertexBaseType"/> describing the matrix components type.
 		/// </param>
 		/// <param name="matrixColumns">
-		/// A <see cref="System.UInt32"/> that specify the matrix columns count.
+		/// A <see cref="UInt32"/> that specify the matrix columns count.
 		/// </param>
 		/// <param name="matrixRows">
-		/// A <see cref="System.UInt32"/> that specify the matrix rows count.
+		/// A <see cref="UInt32"/> that specify the matrix rows count.
 		/// </param>
 		public ArrayBufferItemAttribute(VertexBaseType arrayType, uint matrixColumns, uint matrixRows)
 		{

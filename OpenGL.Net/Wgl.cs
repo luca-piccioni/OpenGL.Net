@@ -132,6 +132,7 @@ namespace OpenGL
 				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the
 				// actual implementation
 				Gl.SyncDelegates();
+				Wgl.SyncDelegates();
 			}
 
 			return (retvalue);

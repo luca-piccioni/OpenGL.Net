@@ -59,7 +59,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="format">
-		/// The <see cref="System.String"/> which defines the format of the stream data.
+		/// The <see cref="String"/> which defines the format of the stream data.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.

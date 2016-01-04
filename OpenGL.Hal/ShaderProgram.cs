@@ -69,7 +69,7 @@ namespace OpenGL
 		/// Construct a ShaderProgram.
 		/// </summary>
 		/// <param name="programName">
-		/// A <see cref="System.String"/> that specify the shader program name.
+		/// A <see cref="String"/> that specify the shader program name.
 		/// </param>
 		/// <param name="compilationParams">
 		/// A <see cref="ShaderCompilerContext"/>
@@ -699,11 +699,11 @@ namespace OpenGL
 		/// Define a shader program attribute semantic.
 		/// </summary>
 		/// <param name="attributeName">
-		/// A <see cref="System.String"/> that specify the attribute name. This value doesn't have to match with the actual
+		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
 		/// shader program attributes.
 		/// </param>
 		/// <param name="semantic">
-		/// A <see cref="System.String"/> that specify the attribute semantic. It can be any value meaninfull for the application.
+		/// A <see cref="String"/> that specify the attribute semantic. It can be any value meaninfull for the application.
 		/// </param>
 		public void SetAttributeSemantic(string attributeName, string semantic)
 		{
@@ -719,7 +719,7 @@ namespace OpenGL
 		/// Remove a specific attribute semantic.
 		/// </summary>
 		/// <param name="attributeName">
-		/// A <see cref="System.String"/> that specify the attribute name. This value doesn't have to match with the actual
+		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
 		/// shader program attributes.
 		/// </param>
 		public void ResetAttributeSemantic(string attributeName)
@@ -779,11 +779,11 @@ namespace OpenGL
 		/// Set location of the fragment shader outputs.
 		/// </summary>
 		/// <param name="fragmentOutputName">
-		/// A <see cref="System.String"/> that specify the fragment shader output variable to bind for a specific
+		/// A <see cref="String"/> that specify the fragment shader output variable to bind for a specific
 		/// location.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="System.Int32"/> that will be the location of the fragment data written to
+		/// A <see cref="Int32"/> that will be the location of the fragment data written to
 		/// <paramref name="fragmentOutputName"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -901,7 +901,7 @@ namespace OpenGL
 		/// A <see cref="ShaderCompilerContext"/> determining the compiler parameteres.
 		/// </param>
 		/// <param name="libraryId">
-		/// A <see cref="System.String"/> that identifies the shader object in library.
+		/// A <see cref="String"/> that identifies the shader object in library.
 		/// </param>
 		/// <returns>
 		/// It returns a string that identify the a shader program classified with <paramref name="libraryId"/> by
@@ -1059,7 +1059,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
@@ -1071,7 +1071,7 @@ namespace OpenGL
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose"/>. If it is false,
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
 		protected override void Dispose(bool disposing)

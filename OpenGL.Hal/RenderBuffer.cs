@@ -128,10 +128,10 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for allocation.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> that specify the width of the renderbuffer.
+		/// A <see cref="Int32"/> that specify the width of the renderbuffer.
 		/// </param>
 		/// <param name="h">
-		/// A <see cref="System.Int32"/> that specify the height of the renderbuffer.
+		/// A <see cref="Int32"/> that specify the height of the renderbuffer.
 		/// </param>
 		public void Allocate(GraphicsContext ctx, uint w, uint h)
 		{
@@ -236,7 +236,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

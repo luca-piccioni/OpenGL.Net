@@ -211,24 +211,24 @@ namespace OpenGL
 		/// ConvertItemType a pixel array from a format to another one.
 		/// </summary>
 		/// <param name="src">
-		/// A <see cref="System.Object"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
+		/// A <see cref="Object"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
 		/// is the color source used for conversion.
 		/// </param>
 		/// <param name="srcType">
 		/// A <see cref="PixelLayout"/> that specify the structure type of <paramref name="src"/>.
 		/// </param>
 		/// <param name="dst">
-		/// A <see cref="System.Object"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
+		/// A <see cref="Object"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
 		/// is the color destination used for conversion.
 		/// </param>
 		/// <param name="dstType">
 		/// A <see cref="PixelLayout"/> that specify the structure type of <paramref name="dst"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specify the width of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
+		/// A <see cref="UInt32"/> that specify the width of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specify the height of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
+		/// A <see cref="UInt32"/> that specify the height of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
 		/// </param>
 		/// <exception cref="NotImplementedException">
 		/// Exception thrown in the case it is not possible to convert colors from <paramref name="src"/> to <paramref name="dst"/>.
@@ -246,24 +246,24 @@ namespace OpenGL
 		/// ConvertItemType a pixel array from a format to another one.
 		/// </summary>
 		/// <param name="src">
-		/// A <see cref="System.IntPtr"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
+		/// A <see cref="IntPtr"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
 		/// is the color source used for conversion.
 		/// </param>
 		/// <param name="srcType">
 		/// A <see cref="PixelLayout"/> that specify the structure type of <paramref name="src"/>.
 		/// </param>
 		/// <param name="dst">
-		/// A <see cref="System.IntPtr"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
+		/// A <see cref="IntPtr"/> pointing to a bi-dimensional array of structures deriving from <see cref="IColor"/>. This array
 		/// is the color destination used for conversion.
 		/// </param>
 		/// <param name="dstType">
 		/// A <see cref="PixelLayout"/> that specify the structure type of <paramref name="dst"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specify the width of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
+		/// A <see cref="UInt32"/> that specify the width of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specify the height of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
+		/// A <see cref="UInt32"/> that specify the height of the bi-dimensional arrays <paramref name="src"/> and <paramref name="dst"/>
 		/// </param>
 		/// <exception cref="NotImplementedException">
 		/// Exception thrown in the case it is not possible to convert colors from <paramref name="src"/> to <paramref name="dst"/>.
@@ -445,7 +445,7 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> determining the destination array pixel format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.String"/> determining the method name able to convert an array of
+		/// It returns a <see cref="String"/> determining the method name able to convert an array of
 		/// pixel from <paramref name="srcType"/> to <paramref name="dstType"/>.
 		/// </returns>
 		private static string GetConvertionMethodName(PixelLayout srcType, PixelLayout dstType)
@@ -1746,7 +1746,7 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel internal format.
 		/// </returns>
 		public static int GetGlInternalFormat(PixelLayout type)
@@ -1764,7 +1764,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> that specify which extensions are supported.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel internal format.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
@@ -1787,7 +1787,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsCapabilities"/> that specify which extension are supported.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel internal format.
 		/// </returns>
 		private static int GetGlInternalFormat(PixelLayout type, GraphicsCapabilities caps)
@@ -1941,7 +1941,7 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> to determine the OpenGL format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel format.
 		/// </returns>
 		public static PixelFormat GetGlFormat(PixelLayout type)
@@ -2074,7 +2074,7 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> to determine the OpenGL data format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel data format.
 		/// </returns>
 		public static PixelType GetPixelType(PixelLayout type)
@@ -2222,7 +2222,7 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> to determine the OpenGL data format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel data format.
 		/// </returns>
 		public static int GetPixelTypeCore(PixelLayout type)

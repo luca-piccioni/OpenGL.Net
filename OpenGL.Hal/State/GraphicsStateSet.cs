@@ -134,7 +134,7 @@ namespace OpenGL.State
 		/// Undefine a state.
 		/// </summary>
 		/// <param name="stateId">
-		/// A <see cref="System.String"/> that identify a specific state to undefine.
+		/// A <see cref="String"/> that identify a specific state to undefine.
 		/// </param>
 		public void UndefineState(string stateId)
 		{
@@ -153,7 +153,7 @@ namespace OpenGL.State
 		/// Determine whether a specific state is defined in this set.
 		/// </summary>
 		/// <param name="stateId">
-		/// A <see cref="System.String"/> that identify a specific state.
+		/// A <see cref="String"/> that identify a specific state.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether a state is defined in this GraphicsStateSet.
@@ -476,7 +476,7 @@ namespace OpenGL.State
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose"/>. If it is false,
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
 		protected override void Dispose(bool disposing)

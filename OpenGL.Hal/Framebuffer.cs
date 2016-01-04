@@ -548,16 +548,16 @@ namespace OpenGL
 		/// <param name="attachment">
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelLayout"/> which determine the pixel storage of the returned image.
@@ -579,10 +579,10 @@ namespace OpenGL
 		/// <param name="attachment">
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="texture">
 		/// </param>
@@ -899,7 +899,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
@@ -911,7 +911,7 @@ namespace OpenGL
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
 		protected override void Dispose(bool disposing)

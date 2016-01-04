@@ -34,7 +34,7 @@ namespace OpenGL
 		/// Color component access.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.Int32"/> indicating the color component index (0 based).
+		/// A <see cref="Int32"/> indicating the color component index (0 based).
 		/// </param>
 		/// <returns>
 		/// The color component is converted to/from a normalized floating point number,

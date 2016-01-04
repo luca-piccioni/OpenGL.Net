@@ -48,7 +48,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -85,7 +85,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -156,7 +156,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -193,7 +193,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -264,7 +264,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -301,7 +301,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -372,7 +372,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -409,7 +409,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -466,10 +466,10 @@ namespace OpenGL
 		/// Constructor a bidimensional vertex using coordinates.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public Vertex2i(int x, int y)
 		{
@@ -481,7 +481,7 @@ namespace OpenGL
 		/// Constructor a bidimensional vertex using coordinate array.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public Vertex2i(int[] v)
 			: this(v[0], v[1])
@@ -511,7 +511,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -548,7 +548,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -624,10 +624,10 @@ namespace OpenGL
 		/// Constructor a bidimensional vertex using coordinates.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/>
+		/// A <see cref="UInt32"/>
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.UInt32"/>
+		/// A <see cref="UInt32"/>
 		/// </param>
 		public Vertex2ui(uint x, uint y)
 		{
@@ -639,7 +639,7 @@ namespace OpenGL
 		/// Constructor a bidimensional vertex using coordinate array.
 		/// </summary>
 		/// <param name="v">
-		/// An array of <see cref="System.UInt32"/>
+		/// An array of <see cref="UInt32"/>
 		/// </param>
 		public Vertex2ui(uint[] v)
 			: this(v[0], v[1])
@@ -669,7 +669,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -706,7 +706,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -782,10 +782,10 @@ namespace OpenGL
 		/// Vertex2f constructor.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public Vertex2f(float x, float y)
 		{
@@ -797,7 +797,7 @@ namespace OpenGL
 		/// Vertex2f constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public Vertex2f(float[] v)
 			:
@@ -892,7 +892,7 @@ namespace OpenGL
 		/// A <see cref="Vertex2f"/>
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/>
@@ -914,7 +914,7 @@ namespace OpenGL
 		/// A <see cref="Vertex2f"/>
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/>
@@ -1049,7 +1049,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -1086,7 +1086,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -1205,10 +1205,10 @@ namespace OpenGL
 		/// Vertex2d constructor.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Double"/>
+		/// A <see cref="Double"/>
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Double"/>
+		/// A <see cref="Double"/>
 		/// </param>
 		public Vertex2d(double x, double y)
 		{
@@ -1220,7 +1220,7 @@ namespace OpenGL
 		/// Vertex2d constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="System.Double"/>
+		/// A <see cref="Double"/>
 		/// </param>
 		public Vertex2d(double[] v)
 			: this(v[0], v[1])
@@ -1295,7 +1295,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -1332,7 +1332,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -1389,10 +1389,10 @@ namespace OpenGL
 		/// Vertex2hf constructor.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public Vertex2hf(float x, float y)
 		{
@@ -1404,7 +1404,7 @@ namespace OpenGL
 		/// Vertex2f constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public Vertex2hf(float[] v)
 			: this(v[0], v[1])
@@ -1499,7 +1499,7 @@ namespace OpenGL
 		/// A <see cref="Vertex2hf"/>
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2hf"/>
@@ -1521,7 +1521,7 @@ namespace OpenGL
 		/// A <see cref="Vertex2hf"/>
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2hf"/>
@@ -1656,7 +1656,7 @@ namespace OpenGL
 		/// Stringify this Vertex2f.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Vertex3f.
+		/// Returns a <see cref="String"/> that represents this Vertex3f.
 		/// </returns>
 		public override string ToString()
 		{
@@ -1693,7 +1693,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>

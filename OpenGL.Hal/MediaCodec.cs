@@ -97,7 +97,7 @@ namespace OpenGL
 		/// Gets the brief description of a media format.
 		/// </summary>
 		/// <param name='mediaFormat'>
-		/// A <see cref="System.String"/> that specify the media format.
+		/// A <see cref="String"/> that specify the media format.
 		/// </param>
 		/// <returns>
 		/// The brief description of <paramref name="mediaFormat"/>.
@@ -111,7 +111,7 @@ namespace OpenGL
 		/// Gets the long description of a media format.
 		/// </summary>
 		/// <param name='mediaFormat'>
-		/// A <see cref="System.String"/> that specify the media format.
+		/// A <see cref="String"/> that specify the media format.
 		/// </param>
 		/// <returns>
 		/// The long description of <paramref name="mediaFormat"/>.
@@ -175,7 +175,7 @@ namespace OpenGL
 		/// Gets the possible media formats from URL.
 		/// </summary>
 		/// <param name="url">
-		/// A <see cref="System.String"/> that specify the URL where media is located.
+		/// A <see cref="String"/> that specify the URL where media is located.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IEnumerable{TMediaFormat}"/> enumerating all possible media formats given <paramref name="url"/>. This
@@ -205,7 +205,7 @@ namespace OpenGL
 		/// Gets the file extensions for the specified media format.
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the format of the media to query extensions.
+		/// A <see cref="String"/> that specify the format of the media to query extensions.
 		/// </param>
 		/// <returns>
 		/// The file extensions usually used for the <paramref name="format"/>. This method can return an
@@ -228,7 +228,7 @@ namespace OpenGL
 		/// Get the media format derived from the media input string.
 		/// </summary>
 		/// <param name="input">
-		/// A <see cref="System.String"/> that specify the media input string where the media is located (that
+		/// A <see cref="String"/> that specify the media input string where the media is located (that
 		/// is usually a file path).
 		/// </param>
 		/// <returns>
@@ -249,7 +249,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a string suitable for <see cref="System.Windows.Forms.OpenFileDialog.Filter"/> property.
+		/// Construct a string suitable for <see cref="Windows.Forms.OpenFileDialog.Filter"/> property.
 		/// </summary>
 		/// <returns>
 		/// It returns a string specifying the file filter usable on dialogs selecting a file for reading media
@@ -295,7 +295,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a string suitable for <see cref="System.Windows.Forms.SaveFileDialog.Filter"/> property.
+		/// Construct a string suitable for <see cref="Windows.Forms.SaveFileDialog.Filter"/> property.
 		/// </summary>
 		/// <returns>
 		/// It returns a string specifying the file filter usable on dialogs selecting a file for writing media
@@ -351,7 +351,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Extracts the media descriptions via reflection on a <see cref="System.Type"/>.
+		/// Extracts the media descriptions via reflection on a <see cref="Type"/>.
 		/// </summary>
 		/// <returns>
 		/// It returns a <see cref="Dictionary{TMediaFormat,MediaFormatAttribute}"/> mapping all known media formats with the relative
@@ -449,7 +449,7 @@ namespace OpenGL
 		/// A <see cref="List{TPlugin}"/> that contains all available plugins.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the criteria for filtering.
+		/// A <see cref="String"/> that specify the criteria for filtering.
 		/// </param>
 		/// <returns>
 		/// The plugins which can read <see cref="format"/>.
@@ -536,7 +536,7 @@ namespace OpenGL
 		/// Query media informations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specify the file path where media data is stored.
+		/// A <see cref="String"/> that specify the file path where media data is stored.
 		/// </param>
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
@@ -555,7 +555,7 @@ namespace OpenGL
 		/// Query media informations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specify the file path where media data is stored.
+		/// A <see cref="String"/> that specify the file path where media data is stored.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
@@ -579,7 +579,7 @@ namespace OpenGL
 		/// Query media informations.
 		/// </summary>
 		/// <param name="uri">
-		/// A <see cref="System.Uri"/> that specify the resource location where media data is stored.
+		/// A <see cref="Uri"/> that specify the resource location where media data is stored.
 		/// </param>
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
@@ -593,7 +593,7 @@ namespace OpenGL
 		/// Query media informations.
 		/// </summary>
 		/// <param name="uri">
-		/// A <see cref="System.Uri"/> that specify the resource location where media data is stored.
+		/// A <see cref="Uri"/> that specify the resource location where media data is stored.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
@@ -684,7 +684,7 @@ namespace OpenGL
 		/// Load media from a local file.
 		/// </summary>
 		/// <param name="uri">
-		/// A <see cref="System.String"/> that specify the resource path where the media data is stored.
+		/// A <see cref="String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
@@ -698,7 +698,7 @@ namespace OpenGL
 		/// Load media from a local file.
 		/// </summary>
 		/// <param name="uri">
-		/// A <see cref="System.String"/> that specify the resource path where the media data is stored.
+		/// A <see cref="String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
@@ -727,10 +727,10 @@ namespace OpenGL
 		/// Load media from a local file.
 		/// </summary>
 		/// <param name="uri">
-		/// A <see cref="System.String"/> that specify the resource path where the media data is stored.
+		/// A <see cref="String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <param name="format">
-		/// The <see cref="System.String"/> which defines the format of the stream data.
+		/// The <see cref="String"/> which defines the format of the stream data.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
@@ -755,7 +755,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="format">
-		/// The <see cref="System.String"/> which defines the format of the stream data.
+		/// The <see cref="String"/> which defines the format of the stream data.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
@@ -772,7 +772,7 @@ namespace OpenGL
 		/// A <see cref="Stream"/> where the media data is stored.
 		/// </param>
 		/// <param name="format">
-		/// The <see cref="System.String"/> which defines the format of the stream data.
+		/// The <see cref="String"/> which defines the format of the stream data.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
@@ -845,16 +845,16 @@ namespace OpenGL
 		#region Media Saving
 
 		/// <summary>
-		/// Save media to a <see cref="System.IO.Stream"/>.
+		/// Save media to a <see cref="IO.Stream"/>.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specify the file path where media data is stored.
+		/// A <see cref="String"/> that specify the file path where media data is stored.
 		/// </param>
 		/// <param name="media">
 		/// A <typeparamref name="TMedia"/> that holds the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="media"/>.
+		/// A <see cref="String"/> that specify the media format to used for saving <paramref name="media"/>.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
@@ -893,16 +893,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Save media to a <see cref="System.IO.Stream"/>.
+		/// Save media to a <see cref="IO.Stream"/>.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="System.IO.Stream"/> that stores the media data.
+		/// A <see cref="IO.Stream"/> that stores the media data.
 		/// </param>
 		/// <param name="media">
 		/// A <typeparamref name="TMedia"/> that holds the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="media"/>.
+		/// A <see cref="String"/> that specify the media format to used for saving <paramref name="media"/>.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
@@ -968,7 +968,7 @@ namespace OpenGL
 		/// Gets the local URI path.
 		/// </summary>
 		/// <param name='uri'>
-		/// A <see cref="System.Uri"/> that specify the resource (local or remote).
+		/// A <see cref="Uri"/> that specify the resource (local or remote).
 		/// </param>
 		/// <returns>
 		/// The local path of the file representing the resource specified by <paramref name="uri"/>.
@@ -1022,10 +1022,10 @@ namespace OpenGL
 		/// Loads a managed plugin type implementation from a dynamically loaded library.
 		/// </summary>
 		/// <param name="pluginPath">
-		/// A <see cref="System.String"/> that specify the path of the dynamically loaded library.
+		/// A <see cref="String"/> that specify the path of the dynamically loaded library.
 		/// </param>
 		/// <param name="pluginFactoryType">
-		/// A <see cref="System.String"/> that specify the full name of the type that create the plugin. This type
+		/// A <see cref="String"/> that specify the full name of the type that create the plugin. This type
 		/// shall have a method named CreatePlugin which returns a <typeparamref name="TPlugin"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">

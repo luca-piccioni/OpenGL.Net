@@ -71,13 +71,13 @@ namespace OpenGL
 		/// Save media to stream.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="System.IO.Stream"/> which stores the media data.
+		/// A <see cref="IO.Stream"/> which stores the media data.
 		/// </param>
 		/// <param name="media">
 		/// A <typeparamref name="TMedia"/> holding the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="media"/>.
+		/// A <see cref="String"/> that specify the media format to used for saving <paramref name="media"/>.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
@@ -103,10 +103,10 @@ namespace OpenGL
 		/// Check whether an media format is supported for reading.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specify the media format to test for read support.
+		/// An <see cref="String"/> that specify the media format to test for read support.
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
+		/// A <see cref="Boolean"/> indicating whether <paramref name="format"/> is supported.
 		/// </returns>
 		bool IsReadSupported(string format);
 
@@ -122,10 +122,10 @@ namespace OpenGL
 		/// Check whether an media format is supported for writing.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specify the media format to test for write support.
+		/// An <see cref="String"/> that specify the media format to test for write support.
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
+		/// A <see cref="Boolean"/> indicating whether <paramref name="format"/> is supported.
 		/// </returns>
 		bool IsWriteSupported(string format);
 
@@ -133,7 +133,7 @@ namespace OpenGL
 		/// Determine the plugin priority for a certain image format.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specify the media format to test for priority.
+		/// An <see cref="String"/> that specify the media format to test for priority.
 		/// </param>
 		/// <returns>
 		/// It returns an integer value indicating the priority of this implementation respect other ones supporting the same

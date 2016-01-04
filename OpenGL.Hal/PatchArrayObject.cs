@@ -64,7 +64,7 @@ namespace OpenGL
 			/// Specify how all elements shall be drawn.
 			/// </summary>
 			/// <param name="patchCount">
-			/// A <see cref="System.UInt32"/> that specify how many vertices has a single patch.
+			/// A <see cref="UInt32"/> that specify how many vertices has a single patch.
 			/// </param>
 			public PatchAttributeElement(uint patchCount) : this(patchCount, null, 0, 0) { }
 
@@ -72,13 +72,13 @@ namespace OpenGL
 			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="patchCount">
-			/// A <see cref="System.UInt32"/> that specify how many vertices has a single patch.
+			/// A <see cref="UInt32"/> that specify how many vertices has a single patch.
 			/// </param>
 			/// <param name="offset">
-			/// A <see cref="System.UInt32"/> that specify the offset applied to the drawn array elements.
+			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
 			/// </param>
 			/// <param name="count">
-			/// A <see cref="System.UInt32"/> that specify the number of array elements drawn.
+			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
 			public PatchAttributeElement(uint patchCount, uint offset, uint count) : this(patchCount, null, offset, count) { }
 
@@ -86,7 +86,7 @@ namespace OpenGL
 			/// Specify which elements shall be drawn by indexing them.
 			/// </summary>
 			/// <param name="patchCount">
-			/// A <see cref="System.UInt32"/> that specify how many vertices has a single patch.
+			/// A <see cref="UInt32"/> that specify how many vertices has a single patch.
 			/// </param>
 			/// <param name="indices">
 			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices. If it null, no indices are
@@ -99,7 +99,7 @@ namespace OpenGL
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="patchCount">
-			/// A <see cref="System.UInt32"/> that specify how many vertices has a single patch.
+			/// A <see cref="UInt32"/> that specify how many vertices has a single patch.
 			/// </param>
 			/// <param name="indices">
 			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices. If it null, no indices are
@@ -108,10 +108,10 @@ namespace OpenGL
 			/// <paramref name="offset"/>.
 			/// </param>
 			/// <param name="offset">
-			/// A <see cref="System.UInt32"/> that specify the offset applied to the drawn array elements.
+			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
 			/// </param>
 			/// <param name="count">
-			/// A <see cref="System.UInt32"/> that specify the number of array elements drawn.
+			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
 			public PatchAttributeElement(uint patchCount, ElementBufferObject indices, uint offset, uint count)
 				: base(PrimitiveType.Patches, indices, offset, count)

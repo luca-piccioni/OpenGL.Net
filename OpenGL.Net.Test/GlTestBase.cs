@@ -39,10 +39,10 @@ namespace OpenGL.Test
 		{
 			try {
 				// Create context
-				mContext = CreateContext();
+				_Context = CreateContext();
 
 				// Make OpenGL context current
-				if (_DeviceContext.MakeCurrent(mContext) == false)
+				if (_DeviceContext.MakeCurrent(_Context) == false)
 					throw new InvalidOperationException("unable to make current the OpenGL context");
 
 				// Get OpenGL version
@@ -79,15 +79,24 @@ namespace OpenGL.Test
 		{
 			// Detroy context
 			WindowsDeviceContext winDeviceContext = _DeviceContext as WindowsDeviceContext;
-			if ((winDeviceContext != null) && (Wgl.DeleteContext(mContext) == false))
+			if ((winDeviceContext != null) && (Wgl.DeleteContext(_Context) == false))
 				throw new InvalidOperationException("unable to delete OpenGL context");
-			mContext = IntPtr.Zero;
+			_Context = IntPtr.Zero;
+		}
+
+		/// <summary>
+		/// Synchronize thread-local delegates.
+		/// </summary>
+		[SetUp]
+		public new void SetUp()
+		{
+			_DeviceContext.MakeCurrent(_Context);
 		}
 
 		/// <summary>
 		/// The OpenGL context for this tst fixture.
 		/// </summary>
-		protected IntPtr mContext;
+		protected IntPtr _Context;
 
 		#endregion
 

@@ -39,7 +39,7 @@ namespace OpenGL.Test
 
 			uint arrayBuffer = Gl.GenBuffer();
 			try {
-				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
+				Assert.AreNotEqual(0U, arrayBuffer, "Gl.GenBuffer failure");
 				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 			} finally {
 				if (arrayBuffer != 0) {
@@ -106,7 +106,7 @@ namespace OpenGL.Test
 			int arrayBufferGet;
 
 			uint arrayBuffer = Gl.GenBuffer();
-			Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
+			Assert.AreNotEqual(0U, arrayBuffer, "Gl.GenBuffer failure");
 
 			try {
 				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));

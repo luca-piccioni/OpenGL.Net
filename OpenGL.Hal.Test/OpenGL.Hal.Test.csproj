@@ -53,8 +53,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="GraphicsContext.cs" />
-    <Compile Include="GraphicsResource.cs" />
     <Compile Include="GraphicsSurface.cs" />
     <Compile Include="GraphicsWindow.cs" />
     <Compile Include="IGraphicsDisposable.cs" />

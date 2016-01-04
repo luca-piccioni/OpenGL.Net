@@ -34,9 +34,9 @@ namespace OpenGL
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected ElementBufferObject(Hint hint)
+		protected ElementBufferObject(BufferObjectHint hint)
 			: base(BufferTargetARB.ElementArrayBuffer, hint)
 		{
 
@@ -69,7 +69,7 @@ namespace OpenGL
 		/// Get or set ElementBufferObject items.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="System.UInt32"/> that specify the item index.
+		/// A <see cref="UInt32"/> that specify the item index.
 		/// </param>
 		public uint this[uint index]
 		{
@@ -179,7 +179,7 @@ namespace OpenGL
 		/// layout.
 		/// </typeparam>
 		/// <param name="arrayLength">
-		/// A <see cref="System.UInt32"/> that specify the number of elements of the returned array.
+		/// A <see cref="UInt32"/> that specify the number of elements of the returned array.
 		/// </param>
 		/// <returns>
 		/// It returns an array having all items stored by this ArrayBufferObject.
@@ -199,6 +199,36 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region BufferObject Overrides
+
+		/// <summary>
+		/// Determine whether this object requires a name bound to a context or not.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		/// </param>
+		/// <returns>
+		/// <para>
+		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
+		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
+		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
+		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
+		/// name is generated automatically in a context-independent manner.
+		/// </para>
+		/// <para>
+		/// This implementation check the GL_ARB_vertex_array_object extension availability.
+		/// </para>
+		/// </returns>
+		protected override bool RequiresName(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+		}
+
+		#endregion
 	}
 
 	/// <summary>
@@ -213,9 +243,9 @@ namespace OpenGL
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBufferObject(Hint hint) : base(hint)
+		public ElementBufferObject(BufferObjectHint hint) : base(hint)
 		{
 			// The item is represented by 'T'
 			mItemSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(typeof(T));
@@ -239,9 +269,10 @@ namespace OpenGL
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBufferObject(T[] indices, Hint hint) : this(hint)
+		public ElementBufferObject(T[] indices, BufferObjectHint hint) :
+			this(hint)
 		{
 			Define(indices);
 		}
@@ -262,7 +293,7 @@ namespace OpenGL
 				throw new ArgumentNullException("items");
 			if (items.Length == 0)
 				throw new ArgumentException("zero items", "items");
-			if ((BufferHint != Hint.StaticCpuDraw) && (BufferHint != Hint.DynamicCpuDraw))
+			if ((BufferHint != BufferObjectHint.StaticCpuDraw) && (BufferHint != BufferObjectHint.DynamicCpuDraw))
 				throw new InvalidOperationException(String.Format("conflicting hint {0}", BufferHint));
 
 			// Store item count
@@ -288,7 +319,7 @@ namespace OpenGL
 		/// Define this ElementBufferObject by specifing only the number of <typeparamref name="T"/> items.
 		/// </summary>
 		/// <param name="itemsCount">
-		/// A <see cref="System.UInt32"/> that specify the number of <typeparamref name="T"/> hold by this
+		/// A <see cref="UInt32"/> that specify the number of <typeparamref name="T"/> hold by this
 		/// ArrayBufferObject.
 		/// </param>
 		public void Define(uint itemsCount)

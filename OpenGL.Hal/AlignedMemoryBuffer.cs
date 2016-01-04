@@ -32,10 +32,10 @@ namespace OpenGL
 		/// Construct an AlignedMemoryBuffer.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="System.UInt32"/> that specify the aligned buffer size, in basic machine units (bytes).
+		/// A <see cref="UInt32"/> that specify the aligned buffer size, in basic machine units (bytes).
 		/// </param>
 		/// <param name="alignment">
-		/// A <see cref="System.UInt32"/> that specify the aligned buffer alignment.
+		/// A <see cref="UInt32"/> that specify the aligned buffer alignment.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="size"/> is 0.
@@ -146,13 +146,13 @@ namespace OpenGL
 		/// A <see cref="AlignedMemoryBuffer"/> which has allocated the data to be copied.
 		/// </param>
 		/// <param name="otherOffset">
-		/// A <see cref="System.UInt64"/> which specify an additional offset (in bytes) to apply to <paramref name="otherMemoryBuffer"/>.
+		/// A <see cref="UInt64"/> which specify an additional offset (in bytes) to apply to <paramref name="otherMemoryBuffer"/>.
 		/// </param>
 		/// <param name="thisOffset">
-		/// A <see cref="System.UInt64"/> which specify an additional offset (in bytes) to apply to this AlignedMemoryBuffer.
+		/// A <see cref="UInt64"/> which specify an additional offset (in bytes) to apply to this AlignedMemoryBuffer.
 		/// </param>
 		/// <param name="bytesCopied">
-		/// A <see cref="System.UInt64"/> which specify the number of bytes to be copied.
+		/// A <see cref="UInt64"/> which specify the number of bytes to be copied.
 		/// </param>
 		public void CopyBuffer(AlignedMemoryBuffer otherMemoryBuffer, ulong otherOffset, ulong thisOffset, ulong bytesCopied)
 		{
@@ -188,7 +188,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (mDisposed); } }
+		public bool IsDisposed { get { return (_Disposed); } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -217,13 +217,13 @@ namespace OpenGL
 			// Dispose this instance
 			Dispose(true);
 			// Mark as disposed
-			mDisposed = true;
+			_Disposed = true;
 		}
 
 		/// <summary>
 		/// Flag indicating that this instance has been disposed.
 		/// </summary>
-		private bool mDisposed;
+		private bool _Disposed;
 
 		#endregion
 	}

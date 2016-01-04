@@ -44,7 +44,7 @@ namespace OpenGL
 		/// Determine whether the semantic is known.
 		/// </summary>
 		/// <param name="semantic">
-		/// A <see cref="System.String"/> that specify the vertex array semantic.
+		/// A <see cref="String"/> that specify the vertex array semantic.
 		/// </param>
 		/// <returns>
 		/// It returns true only in the case the semantic is known by this class.

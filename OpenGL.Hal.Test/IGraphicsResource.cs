@@ -63,6 +63,41 @@ namespace OpenGL.Hal.Test
 			}
 		}
 
+		[Test, TestCaseSource("TestTypes")]
+		public void DisposeWithoutCreate(Type resourceType)
+		{
+			if (resourceType == null)
+				throw new ArgumentNullException("resourceType");
+
+			IGraphicsTypeSupport graphicsTypeSupport = GetGraphicsTypeSupport(resourceType);
+			if (graphicsTypeSupport == null)
+				Assert.Inconclusive(String.Format("no type support for {0}", resourceType.Name));
+
+			// Assert currency of context
+			Assert.IsTrue(_Context.IsCurrent);
+
+			using (IGraphicsResource resource = graphicsTypeSupport.AllocateSpy<IGraphicsResource>(_Context)) {
+				if (resource == null)
+					Assert.Inconclusive(String.Format("unable to allocate an instance of {0}", resourceType.Name));
+
+				// Do NOT Create the resource
+
+				Assert.AreEqual(0, resource.ObjectName);
+				Assert.AreEqual(Guid.Empty, resource.ObjectNamespace);
+				Assert.IsFalse(resource.Exists(_Context));
+
+				// Delete the resource
+				resource.Dispose();
+				// Dispose(GraphicsContext) method shall call the Delete(GraphicsContext) method
+				resource.DidNotReceive().Delete(_Context);
+
+				Assert.AreEqual(0, resource.ObjectName);
+				Assert.AreEqual(Guid.Empty, resource.ObjectNamespace);
+				Assert.DoesNotThrow(delegate () { resource.Exists(_Context); });
+				Assert.IsFalse(resource.Exists(_Context));
+			}
+		}
+
 		/// <summary>
 		/// Test all type
 		/// </summary>

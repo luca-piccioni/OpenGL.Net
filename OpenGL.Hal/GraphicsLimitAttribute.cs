@@ -30,7 +30,7 @@ namespace OpenGL
 		/// Construct a GraphicsLimitAttribute.
 		/// </summary>
 		/// <param name="enum">
-		/// A <see cref="System.Int32"/> that specify the OpenGL enumeration value to used with Gl.Get and Gl.GetString routines.
+		/// A <see cref="Int32"/> that specify the OpenGL enumeration value to used with Gl.Get and Gl.GetString routines.
 		/// </param>
 		public GraphicsLimitAttribute(int @enum)
 		{

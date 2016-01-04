@@ -57,6 +57,14 @@ namespace OpenGL
 				Debug.Assert(resource.IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", resource.RefCount, resource._ConstructorStackTrace));
 		}
 
+		protected void NotifyDiedResource()
+		{
+			// Mark as disposed
+			_Disposed = true;
+			// Remove this GraphicsResource from the living ones
+			_LivingResources.RemoveAll(delegate (Resource resource) { return ReferenceEquals(resource, this); });
+		}
+
 		[Conditional("DEBUG")]
 		private void TrackResourceLifetime()
 		{
@@ -179,7 +187,7 @@ namespace OpenGL
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
 		protected virtual void Dispose(bool disposing) { }
@@ -209,16 +217,13 @@ namespace OpenGL
 			// Dispose this object
 			Dispose(true);
 			// Mark as disposed
-			_Disposed = true;
-
-			// Remove this GraphicsResource from the living ones
-			_LivingResources.RemoveAll(delegate(Resource resource) { return ReferenceEquals(resource, this); });
+			NotifyDiedResource();
 		}
 
 		/// <summary>
 		/// Flag indicating that this instance has been disposed.
 		/// </summary>
-		private bool _Disposed;
+		protected bool _Disposed;
 
 		#endregion
 	}

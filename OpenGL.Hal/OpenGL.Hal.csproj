@@ -66,6 +66,7 @@
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="Batch.cs" />
     <Compile Include="BufferObject.cs" />
+    <Compile Include="BufferObjectHint.cs" />
     <Compile Include="Collections\IQuadTreeNode.cs" />
     <Compile Include="Collections\QuadTree.cs" />
     <Compile Include="Collections\QuadTreeCoord.cs" />

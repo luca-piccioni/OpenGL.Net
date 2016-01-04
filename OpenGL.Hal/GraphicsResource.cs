@@ -66,7 +66,7 @@ namespace OpenGL
 		/// Construct a GraphicsResource, specifying its identifier.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="System.String"/> that identifies this GraphicsResource.
+		/// A <see cref="String"/> that identifies this GraphicsResource.
 		/// </param>
 		protected GraphicsResource(string identifier)
 		{
@@ -139,7 +139,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
@@ -153,7 +153,7 @@ namespace OpenGL
 		/// Utility routine for generating resource names by object class.
 		/// </summary>
 		/// <param name="objectClass">
-		/// A <see cref="System.Guid"/> that specify the resource class.
+		/// A <see cref="Guid"/> that specify the resource class.
 		/// </param>
 		/// <returns>
 		/// It returns an unused name for the resource class <paramref name="objectClass"/>.
@@ -207,7 +207,7 @@ namespace OpenGL
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
-		/// A <see cref="System.Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
 		protected override void Dispose(bool disposing)
@@ -229,7 +229,7 @@ namespace OpenGL
 							garbageService.CollectGarbage(this);
 						}
 					} else {
-						Dispose(currentContext);
+						Delete(currentContext);
 					}
 				}	
 			}
@@ -253,7 +253,7 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// The object class identify the resource type. It cannot be <see cref="System.Guid.Empty"/>, but a meaninfull
+		/// The object class identify the resource type. It cannot be <see cref="Guid.Empty"/>, but a meaninfull
 		/// value. The allowed values are determine in the concrete implementation of the IGraphicsResource
 		/// implementation.
 		/// </para>
@@ -464,8 +464,20 @@ namespace OpenGL
 		/// </remarks>
 		public virtual void Dispose(GraphicsContext ctx)
 		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current to this thread", "ctx");
+			if (RefCount > 0)
+				throw new InvalidOperationException("reference count greater than zero");
+
+			// Do not call Dispose(bool) twice
+			GC.SuppressFinalize(this);
+			// Remove this GraphicsResource from the living ones
+			NotifyDiedResource();
 			// By default, delete object
-			Delete(ctx);
+			if (ObjectName != InvalidObjectName)
+				Delete(ctx);
 		}
 
 		/// <summary>
@@ -485,7 +497,7 @@ namespace OpenGL
 		/// GraphicsResource name space.
 		/// </summary>
 		/// <remarks>
-		/// A value of <see cref="System.Guid.Empty"/> indicates that this GraphicsResource doesn't belong to
+		/// A value of <see cref="Guid.Empty"/> indicates that this GraphicsResource doesn't belong to
 		/// any context name space (i.e. its name is not yet created).
 		/// </remarks>
 		private Guid _ObjectNameSpace = Guid.Empty;

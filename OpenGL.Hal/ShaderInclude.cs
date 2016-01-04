@@ -34,7 +34,7 @@ namespace OpenGL
 		/// Construct a ShaderInclude specifying only its path.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="System.String"/> that specify the path used for including the include source string
+		/// A <see cref="String"/> that specify the path used for including the include source string
 		/// using GLSL #include preprocessor directive.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -64,7 +64,7 @@ namespace OpenGL
 		/// Construct a ShaderInclude specifying its path and the relative source lines.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specify the path used for including the include source string
+		/// A <see cref="String"/> that specify the path used for including the include source string
 		/// using GLSL #include preprocessor directive.
 		/// </param>
 		/// <param name="source">

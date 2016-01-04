@@ -51,12 +51,12 @@ namespace OpenGL
 		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
 		/// </param>
 		/// <param name="vertexLength">
-		/// A <see cref="System.UInt32"/> that specify how many components have the array item.
+		/// A <see cref="UInt32"/> that specify how many components have the array item.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, Hint hint)
+		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, BufferObjectHint hint)
 			: this(vertexBaseType, vertexLength, 1, hint)
 		{
 			
@@ -69,15 +69,15 @@ namespace OpenGL
 		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
 		/// </param>
 		/// <param name="vertexLength">
-		/// A <see cref="System.UInt32"/> that specify how many components have the array item.
+		/// A <see cref="UInt32"/> that specify how many components have the array item.
 		/// </param>
 		/// <param name="vertexRank">
-		/// A <see cref="System.UInt32"/> that specify how many columns have the array item of matrix type.
+		/// A <see cref="UInt32"/> that specify how many columns have the array item of matrix type.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, Hint hint)
+		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, BufferObjectHint hint)
 			: base(BufferTargetARB.ArrayBuffer, hint)
 		{
 			try {
@@ -112,9 +112,9 @@ namespace OpenGL
 		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(ArrayBufferItemType format, Hint hint)
+		public ArrayBufferObject(ArrayBufferItemType format, BufferObjectHint hint)
 			: base(BufferTargetARB.ArrayBuffer, hint)
 		{
 			try {
@@ -206,18 +206,20 @@ namespace OpenGL
 		#region Array Buffer Data Definition
 
 		/// <summary>
-		/// Define this ArrayBufferObject by specifing only the number of items.
+		/// Create this ArrayBufferObject by specifing only the number of items.
 		/// </summary>
 		/// <param name="itemsCount">
-		/// A <see cref="UInt32"/> that specify the number of elements hold by this
-		/// ArrayBufferObject.
+		/// A <see cref="UInt32"/> that specify the number of elements hold by this ArrayBufferObject.
 		/// </param>
 		/// <remarks>
 		/// <para>
 		/// Client memory is always allocated.
 		/// </para>
 		/// </remarks>
-		public void Define(uint itemsCount)
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="itemsCount"/> is zero.
+		/// </exception>
+		public void Create(uint itemsCount)
 		{
 			if (itemsCount == 0)
 				throw new ArgumentException("invalid", "itemsCount");
@@ -229,14 +231,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Define this ArrayBufferObject by specifing only the number of items.
+		/// Create this ArrayBufferObject by specifing only the number of items.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used to define this ArrayBufferObject.
 		/// </param>
 		/// <param name="itemsCount">
-		/// A <see cref="UInt32"/> that specify the number of elements hold by this
-		/// ArrayBufferObject.
+		/// A <see cref="UInt32"/> that specify the number of elements hold by this ArrayBufferObject.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -244,67 +245,16 @@ namespace OpenGL
 		/// <see cref=""/>.
 		/// </para>
 		/// </remarks>
-		public void Define(GraphicsContext ctx, uint itemsCount)
+		public void Create(GraphicsContext ctx, uint itemsCount)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-
 			if (Exists(ctx)) {
 				if (MemoryBuffer != null)
 					MemoryBuffer.Realloc(itemsCount * ItemSize);
 				ItemCount = itemsCount;
 			} else {
-				Define(itemsCount);
+				Create(itemsCount);
 				Create(ctx);
 			}
-		}
-
-		/// <summary>
-		/// Define this ArrayBufferObject by specifing only the number of items.
-		/// </summary>
-		/// <param name="items">
-		/// A <see cref="Array"/> that specify the elements hold by this ArrayBufferObject.
-		/// </param>
-		/// <remarks>
-		/// The array <paramref name="items"/> is copied onto the buffer respecting the ArrayBufferObject item stride.
-		/// </remarks>
-		public void Define(Array items)
-		{
-			if (items.Length == 0)
-				throw new ArgumentException("invalid", "items");
-
-			Type clientType = items.GetType().GetElementType();
-			if (clientType.IsValueType == false)
-				throw new ArgumentException("not array of values", "items");
-
-			int clientItemSize = Marshal.SizeOf(clientType);
-			if (clientItemSize > ItemSize)
-				throw new ArgumentException("array item type too big for this ArrayBufferObject", "items");
-
-			EnsureSize((uint)items.Length);
-
-			for (int i = 0; i < items.Length; i++)
-				Marshal.StructureToPtr(items.GetValue(i), new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + ItemSize * i), false);
-		}
-
-		/// <summary>
-		/// Define this ArrayBufferObject by specifing only the number of items.
-		/// </summary>
-		/// <param name="itemsCount">
-		/// A <see cref="UInt32"/> that specify the number of elements hold by this
-		/// ArrayBufferObject.
-		/// </param>
-		public void EnsureSize(uint itemsCount)
-		{
-			if (itemsCount <= ItemCount)
-				return;
-
-			// Store item count
-			ItemCount = itemsCount;
-			// Allocate buffer
-			Reallocate(ItemCount * ItemSize);
 		}
 
 		#endregion
@@ -325,8 +275,18 @@ namespace OpenGL
 		/// <returns>
 		/// An element of this ArrayBufferObject, of type <typeparamref name="T"/>, at index <paramref name="index"/>.
 		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject has no client memory allocated.
+		/// </exception>
+		/// <remarks>
+		/// This method differs from <see cref="BufferObject.MapGet{T}(GraphicsContext, long)"/> since it doesn't
+		/// require a GraphicsContext for buffer access.
+		/// </remarks>
 		public T GetData<T>(uint index) where T : struct
 		{
+			if (MemoryBuffer == null)
+				throw new InvalidOperationException("no client memory");
+
 			IntPtr bufferPtr = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + index * Marshal.SizeOf(typeof(T)));
 
 			return ((T)Marshal.PtrToStructure(bufferPtr, typeof(T)));
@@ -346,8 +306,18 @@ namespace OpenGL
 		/// The zero-based index of the element to read. The basic machine unit offset of the element to read is
 		/// determine by the size of the type <typeparamref name="T"/>.
 		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject has no client memory allocated.
+		/// </exception>
+		/// <remarks>
+		/// This method differs from <see cref="BufferObject.MapSet{T}(GraphicsContext, long)"/> since it doesn't
+		/// require a GraphicsContext for buffer access.
+		/// </remarks>
 		public void SetData<T>(T value, uint index) where T : struct
 		{
+			if (MemoryBuffer == null)
+				throw new InvalidOperationException("no client memory");
+
 			IntPtr bufferPtr = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + index * Marshal.SizeOf(typeof(T)));
 
 			Marshal.StructureToPtr(value, bufferPtr, false);
@@ -505,7 +475,7 @@ namespace OpenGL
 		/// layout.
 		/// </typeparam>
 		/// <param name="arrayLength">
-		/// A <see cref="System.UInt32"/> that specify the number of elements of the returned array.
+		/// A <see cref="UInt32"/> that specify the number of elements of the returned array.
 		/// </param>
 		/// <returns>
 		/// It returns an array having all items stored by this ArrayBufferObject.
@@ -719,12 +689,12 @@ namespace OpenGL
 		/// A <see cref="ArrayBufferItemType"/> that determine the generic argument of the created array buffer object.
 		/// </param>
 		/// <param name="hint">
-		/// A <see cref="BufferObject.Hint"/> required for creating a <see cref="ArrayBufferObject"/>.
+		/// A <see cref="BufferObjectHint"/> required for creating a <see cref="ArrayBufferObject"/>.
 		/// </param>
 		/// <returns>
 		/// 
 		/// </returns>
-		public static ArrayBufferObject CreateArrayObject(ArrayBufferItemType vertexArrayType, Hint hint)
+		public static ArrayBufferObject CreateArrayObject(ArrayBufferItemType vertexArrayType, BufferObjectHint hint)
 		{
 			switch (vertexArrayType) {
 				case ArrayBufferItemType.Byte:
@@ -1159,14 +1129,14 @@ namespace OpenGL
 		/// An array of indices indicating the order of the vertices copied from <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="System.UInt32"/> that specify how many elements to copy from <paramref name="buffer"/>.
+		/// A <see cref="UInt32"/> that specify how many elements to copy from <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="System.UInt32"/> that specify the first index considered from <paramref name="indices"/>. A
+		/// A <see cref="UInt32"/> that specify the first index considered from <paramref name="indices"/>. A
 		/// value of 0 indicates that the indices are considered from the first one.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="System.UInt32"/> that specify the offset between two indexes considered for the copy operations
+		/// A <see cref="UInt32"/> that specify the offset between two indexes considered for the copy operations
 		/// from <paramref name="indices"/>. A value of 1 indicates that all considered indices are contiguos.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -1204,7 +1174,7 @@ namespace OpenGL
 			if (_ArrayBaseType != buffer._ArrayBaseType)
 				throw new InvalidOperationException("base type mismatch");
 
-			Define(count);
+			Create(count);
 
 			unsafe {
 				byte* dstPtr = (byte*)MemoryBuffer.AlignedBuffer.ToPointer();
@@ -1237,11 +1207,11 @@ namespace OpenGL
 		/// An array of indices indicating the order of the vertices copied from <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="System.UInt32"/> that specify the first index considered from <paramref name="indices"/>. A
+		/// A <see cref="UInt32"/> that specify the first index considered from <paramref name="indices"/>. A
 		/// value of 0 indicates that the indices are considered from the first one.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="System.UInt32"/> that specify the offset between two indexes considered for the copy operations
+		/// A <see cref="UInt32"/> that specify the offset between two indexes considered for the copy operations
 		/// from <paramref name="indices"/>. A value of 1 indicates that all considered indices are contiguos.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -1297,7 +1267,7 @@ namespace OpenGL
 				}
 			});
 
-			Define(totalVerticesCount);
+			Create(totalVerticesCount);
 
 			// Copy polygons (triangulate)
 			uint count = 0;
@@ -1457,11 +1427,41 @@ namespace OpenGL
 			ArrayBufferObject arrayObject = CreateArrayObject(vertexArrayType, BufferHint);
 
 			// Different item count due different lengths
-			arrayObject.Define(componentsCount / convComponentsCount);
+			arrayObject.Create(componentsCount / convComponentsCount);
 			// Memory is copied
 			Memory.MemoryCopy(arrayObject.MemoryBuffer.AlignedBuffer, MemoryBuffer.AlignedBuffer, MemoryBuffer.Size);
 
 			return (arrayObject);
+		}
+
+		#endregion
+
+		#region BufferObject Overrides
+
+		/// <summary>
+		/// Determine whether this object requires a name bound to a context or not.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		/// </param>
+		/// <returns>
+		/// <para>
+		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
+		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
+		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
+		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
+		/// name is generated automatically in a context-independent manner.
+		/// </para>
+		/// <para>
+		/// This implementation check the GL_ARB_vertex_array_object extension availability.
+		/// </para>
+		/// </returns>
+		protected override bool RequiresName(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
 		}
 
 		#endregion
@@ -1482,9 +1482,9 @@ namespace OpenGL
 		/// Construct an ArrayBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(Hint hint)
+		public ArrayBufferObject(BufferObjectHint hint)
 			: base(ArrayBufferItem.GetArrayType(typeof(T)), hint)
 		{
 			try {
@@ -1493,7 +1493,7 @@ namespace OpenGL
 				// Determine basic type information
 				SubArrays = DetectSubArrays(typeof (T), out interleaved);
 				// The item is represented by 'T'
-				ItemSize = (uint) Marshal.SizeOf(typeof (T));
+				ItemSize = (uint)Marshal.SizeOf(typeof (T));
 				Interleaved = interleaved;
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -1518,11 +1518,11 @@ namespace OpenGL
 				throw new ArgumentNullException("items");
 			if (items.Length == 0)
 				throw new ArgumentException("zero items", "items");
-			if ((BufferHint != Hint.StaticCpuDraw) && (BufferHint != Hint.DynamicCpuDraw))
+			if ((BufferHint != BufferObjectHint.StaticCpuDraw) && (BufferHint != BufferObjectHint.DynamicCpuDraw))
 				throw new InvalidOperationException(String.Format("conflicting hint {0}", BufferHint));
 
 			// Store item count
-			Define((uint)items.Length);
+			Create((uint)items.Length);
 			// Copy the buffer
 			Memory.MemoryCopy(MemoryBuffer.AlignedBuffer, items, ItemCount * ItemSize);
 		}
@@ -1700,9 +1700,9 @@ namespace OpenGL
 		/// Construct an ArrayBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObject.Hint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ComplexArrayBufferObject(Hint hint)
+		public ComplexArrayBufferObject(BufferObjectHint hint)
 			: base(ArrayBufferItemType.Complex, hint)
 		{
 			ItemSize = 0;

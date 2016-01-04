@@ -228,10 +228,10 @@ namespace OpenGL
 		/// Loads a plugin from a dynamically loaded library.
 		/// </summary>
 		/// <param name='pluginPath'>
-		/// A <see cref="System.String"/> that specify the path of the dynamically loaded library.
+		/// A <see cref="String"/> that specify the path of the dynamically loaded library.
 		/// </param>
 		/// <param name='pluginFactoryType'>
-		/// A <see cref="System.String"/> that specify the full name of the type that create the plugin. This type
+		/// A <see cref="String"/> that specify the full name of the type that create the plugin. This type
 		/// shall have a method named CreatePlugin which returns a <typeparamref name="T"/>. This value is required
 		/// only for managed plugin implementations.
 		/// </param>
@@ -286,10 +286,10 @@ namespace OpenGL
 		/// Loads a managed plugin type implementation from a dynamically loaded library.
 		/// </summary>
 		/// <param name="pluginPath">
-		/// A <see cref="System.String"/> that specify the path of the dynamically loaded library.
+		/// A <see cref="String"/> that specify the path of the dynamically loaded library.
 		/// </param>
 		/// <param name="pluginFactoryType">
-		/// A <see cref="System.String"/> that specify the full name of the type that create the plugin. This type
+		/// A <see cref="String"/> that specify the full name of the type that create the plugin. This type
 		/// shall have a method named CreatePlugin which returns a <typeparamref name="T"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -343,7 +343,7 @@ namespace OpenGL
 		/// Loads an unmanaged plugin type implementation from a dynamically loaded library.
 		/// </summary>
 		/// <param name="pluginPath">
-		/// A <see cref="System.String"/> that specify the path of the dynamically loaded library.
+		/// A <see cref="String"/> that specify the path of the dynamically loaded library.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// This exception is thrown if the parameter <paramref name="pluginPath"/> is null.

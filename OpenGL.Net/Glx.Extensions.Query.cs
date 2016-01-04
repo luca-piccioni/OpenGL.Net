@@ -52,6 +52,17 @@ namespace OpenGL
 
 				Query(new KhronosVersion(majorArg[0], minorArg[1]), glxExtensions ?? String.Empty);
 			}
+
+			/// <summary>
+			/// Clone this instance.
+			/// </summary>
+			/// <returns>
+			/// It returns a deep copy of this Extension.
+			/// </returns>
+			public Extensions Clone()
+			{
+				return ((Extensions)MemberwiseClone());
+			}
 		}
 	}
 }

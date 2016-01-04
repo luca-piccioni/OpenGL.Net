@@ -199,7 +199,7 @@ namespace OpenGL
 		/// A <see cref="VertexBaseType"/> indicating the type of the components of the vertex array buffer item.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="System.UInt32"/> indicating the length of the vertex array buffer item.
+		/// A <see cref="UInt32"/> indicating the length of the vertex array buffer item.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferItemType"/> having a base type equals to <paramref name="baseType"/>, a
@@ -217,10 +217,10 @@ namespace OpenGL
 		/// A <see cref="VertexBaseType"/> indicating the type of the components of the vertex array buffer item.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="System.UInt32"/> indicating the length of the vertex array buffer item.
+		/// A <see cref="UInt32"/> indicating the length of the vertex array buffer item.
 		/// </param>
 		/// <param name="rank">
-		/// A <see cref="System.UInt32"/> indicating the rank of the vertex array buffer item.
+		/// A <see cref="UInt32"/> indicating the rank of the vertex array buffer item.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferItemType"/> having a base type equals to <paramref name="baseType"/>, a

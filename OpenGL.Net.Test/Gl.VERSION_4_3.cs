@@ -35,7 +35,7 @@ namespace OpenGL.Test
 		public void TestGetStringi()
 		{
 			if (!HasVersion(4, 3))
-				Assert.Inconclusive("OpenGL 4.3");
+				Assert.Inconclusive("OpenGL 4.3 not implemented");
 
 			#region Gl.SHADING_LANGUAGE_VERSION
 

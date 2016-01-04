@@ -280,10 +280,10 @@ namespace OpenGL
 		/// Check whether an media format is supported for reading.
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the media format to test for read support.
+		/// A <see cref="String"/> that specify the media format to test for read support.
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
+		/// A <see cref="Boolean"/> indicating whether <paramref name="format"/> is supported.
 		/// </returns>
 		public bool IsReadSupported(string format)
 		{
@@ -339,10 +339,10 @@ namespace OpenGL
 		/// Check whether an media format is supported for writing.
 		/// </summary>
 		/// <param name="format">
-		/// An <see cref="System.String"/> that specify the media format to test for write support.
+		/// An <see cref="String"/> that specify the media format to test for write support.
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/> indicating whether <paramref name="format"/> is supported.
+		/// A <see cref="Boolean"/> indicating whether <paramref name="format"/> is supported.
 		/// </returns>
 		public bool IsWriteSupported(string format)
 		{
@@ -500,7 +500,7 @@ namespace OpenGL
 		/// Internal method for creating Image from Bitmap.
 		/// </summary>
 		/// <param name="bitmap">
-		/// A <see cref="System.Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
+		/// A <see cref="Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify image conversion criteria.
@@ -568,7 +568,7 @@ namespace OpenGL
 		/// Loads the bitmap by locking its bits.
 		/// </summary>
 		/// <param name="bitmap">
-		/// A <see cref="System.Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
+		/// A <see cref="Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
 		/// </param>
 		/// <param name='image'>
 		/// A <see cref="Image"/> instance that will store <paramref name="bitmap"/> data.
@@ -622,7 +622,7 @@ namespace OpenGL
 		/// Loads the bitmap by cloning its data to a more compatible format.
 		/// </summary>
 		/// <param name="bitmap">
-		/// A <see cref="System.Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
+		/// A <see cref="Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
 		/// </param>
 		/// <param name='image'>
 		/// A <see cref="Image"/> instance that will store <paramref name="bitmap"/> data.
@@ -665,7 +665,7 @@ namespace OpenGL
 		/// Loads the bitmap by cloning its data to a more compatible format.
 		/// </summary>
 		/// <param name="bitmap">
-		/// A <see cref="System.Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
+		/// A <see cref="Drawing.Bitmap"/> to be converted into an <see cref="Image"/> instance.
 		/// </param>
 		/// <param name='image'>
 		/// A <see cref="Image"/> instance that will store <paramref name="bitmap"/> data.
@@ -704,13 +704,13 @@ namespace OpenGL
 		/// Save media to stream.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="System.IO.Stream"/> which stores the media data.
+		/// A <see cref="IO.Stream"/> which stores the media data.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="Image"/> holding the data to be stored.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="System.String"/> that specify the media format to used for saving <paramref name="image"/>.
+		/// A <see cref="String"/> that specify the media format to used for saving <paramref name="image"/>.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.

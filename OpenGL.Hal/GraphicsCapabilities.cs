@@ -192,7 +192,7 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL extensions support.
 		/// </summary>
-		private readonly Gl.Extensions _GlExtensions = new Gl.Extensions();
+		private Gl.Extensions _GlExtensions = new Gl.Extensions();
 
 		/// <summary>
 		/// Get Windows OpenGL extensions support.
@@ -202,7 +202,7 @@ namespace OpenGL
 		/// <summary>
 		/// Windows OpenGL extensions support.
 		/// </summary>
-		private readonly Wgl.Extensions _WglExtensions = new Wgl.Extensions();
+		private Wgl.Extensions _WglExtensions = new Wgl.Extensions();
 
 		/// <summary>
 		/// Get GLX OpenGL extensions support.
@@ -212,7 +212,7 @@ namespace OpenGL
 		/// <summary>
 		/// GLX OpenGL extensions support.
 		/// </summary>
-		private readonly Glx.Extensions _GlxExtensions = new Glx.Extensions();
+		private Glx.Extensions _GlxExtensions = new Glx.Extensions();
 
 		/// <summary>
 		/// Get platform extensions (WGL and GLX common extensions).
@@ -237,6 +237,25 @@ namespace OpenGL
 		/// OpenGL implementation limits.
 		/// </summary>
 		private GraphicsLimits _GraphicsLimits;
+
+		#endregion
+
+		#region Clone
+
+		/// <summary>
+		/// Clone this GraphicsCapabilities.
+		/// </summary>
+		/// <returns></returns>
+		public GraphicsCapabilities Clone()
+		{
+			GraphicsCapabilities clone = (GraphicsCapabilities)MemberwiseClone();
+
+			clone._GlExtensions = _GlExtensions.Clone();
+			clone._WglExtensions = _WglExtensions.Clone();
+			clone._GlxExtensions = _GlxExtensions.Clone();
+
+			return (clone);
+		}
 
 		#endregion
 	}

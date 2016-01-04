@@ -29,16 +29,13 @@ namespace OpenGL
 		/// Dispose graphics resources using the underlying <see cref="GraphicsContext"/>.
 		/// </summary>
 		/// <param name='ctx'>
-		/// A <see cref="GraphicsContext"/> which have access to the <see cref="IRenderDisposable"/> graphics resources.
+		/// A <see cref="GraphicsContext"/> which have access to the <see cref="IGraphicsDisposable"/> graphics resources. Expect
+		/// that this context is current on the calling thread.
 		/// </param>
 		/// <remarks>
 		/// <para>
 		/// The instance shall be considered disposed as it were called <see cref="IDisposable.Dispose"/>, but in addition
 		/// this method will release this instance resources.
-		/// </para>
-		/// <para>
-		/// The <see cref="Dispose()"/> method should try to release the underlying resources by getting the optional graphics
-		/// context current on the calling thread.
 		/// </para>
 		/// </remarks>
 		void Dispose(GraphicsContext ctx);

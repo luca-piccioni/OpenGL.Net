@@ -81,7 +81,7 @@ namespace OpenGL
 		/// A <see cref="ShaderStage"/> indicating the shader stage of this ShaderObject.
 		/// </param>
 		/// <param name="sourcePath">
-		/// A <see cref="System.String"/> that specify the file containing the shader object source strings.
+		/// A <see cref="String"/> that specify the file containing the shader object source strings.
 		/// </param>
 		protected ShaderObject(ShaderStage shaderStage, string sourcePath) :
 			this(shaderStage)
@@ -340,7 +340,7 @@ namespace OpenGL
 		/// source lines.
 		/// </param>
 		/// <param name="sVersion">
-		/// A <see cref="System.Int32"/> representing the shader language version to use in generated shader.
+		/// A <see cref="Int32"/> representing the shader language version to use in generated shader.
 		/// </param>
 		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sourceLines, int sVersion)
 		{
@@ -424,7 +424,7 @@ namespace OpenGL
 		/// A <see cref="List{String}"/> representing the current shader source.
 		/// </param>
 		/// <param name="source">
-		/// An array of <see cref="System.String"/> which represents the source for be appended
+		/// An array of <see cref="String"/> which represents the source for be appended
 		/// at the end of the source <paramref name="sourceLines"/>.
 		/// </param>
 		/// <remarks>
@@ -562,7 +562,7 @@ namespace OpenGL
 		/// A <see cref="ShaderCompilerContext"/> determining the compiler parameteres.
 		/// </param>
 		/// <param name="libraryId">
-		/// A <see cref="System.String"/> that identifies the shader object in library.
+		/// A <see cref="String"/> that identifies the shader object in library.
 		/// </param>
 		/// <param name="sObjectStage">
 		/// A <see cref="ShaderObject.ShaderStage"/> that specify the shader object stage.
@@ -768,7 +768,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

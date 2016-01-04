@@ -43,11 +43,11 @@ namespace OpenGL
 		/// A <see cref="Matrix4x4"/> on which is computed the complement matrix.
 		/// </param>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the index of the column that is excluded for
+		/// A <see cref="UInt32"/> that specify the index of the column that is excluded for
 		/// computing the complement matrix.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the index of the row that is excluded for
+		/// A <see cref="UInt32"/> that specify the index of the row that is excluded for
 		/// computing the complement matrix.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// Construct a matrix from a sequence of components.
 		/// </summary>
 		/// <param name="values">
-		/// An array of <see cref="System.Single"/>, representing the matrix components in column-major order.
+		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.

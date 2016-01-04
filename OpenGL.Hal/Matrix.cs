@@ -40,10 +40,10 @@ namespace OpenGL
 		/// The matrix components are all zeroes.
 		/// </remarks>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the matrix colum count.
+		/// A <see cref="UInt32"/> that specify the matrix colum count.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the matrix row count.
+		/// A <see cref="UInt32"/> that specify the matrix row count.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception throw is <paramref name="c"/> or <paramref name="r"/> equals to 0.
@@ -68,11 +68,11 @@ namespace OpenGL
 		/// A <see cref="Matrix"/>
 		/// </param>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/>  that specify the index of the column that is excluded for
+		/// A <see cref="UInt32"/>  that specify the index of the column that is excluded for
 		/// computing the complement matrix.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the index of the row that is excluded for
+		/// A <see cref="UInt32"/> that specify the index of the row that is excluded for
 		/// computing the complement matrix.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -110,13 +110,13 @@ namespace OpenGL
 		/// Construct a matrix from a sequence of components.
 		/// </summary>
 		/// <param name="values">
-		/// An array of <see cref="System.Single"/>, representing the matrix components in column-major order.
+		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the matrix colums count.
+		/// A <see cref="UInt32"/> that specify the matrix colums count.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the matrix rows count.
+		/// A <see cref="UInt32"/> that specify the matrix rows count.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.
@@ -191,10 +191,10 @@ namespace OpenGL
 		/// Matrix component indexer.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.Int32"/> the specify the column index (zero based).
+		/// A <see cref="Int32"/> the specify the column index (zero based).
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.Int32"/> the specify the row index (zero based).
+		/// A <see cref="Int32"/> the specify the row index (zero based).
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception throw if <paramref name="c"/> is greater than <see name="Matrix.Width"/> column count, or if <paramref name="r"/>
@@ -281,7 +281,7 @@ namespace OpenGL
 		/// A <see cref="Matrix"/> that specify the left Matrix.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="System.Single"/> that multiply all matrix components.
+		/// A <see cref="Single"/> that multiply all matrix components.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Matrix"/> resulted from the operation.
@@ -317,7 +317,7 @@ namespace OpenGL
 		/// A <see cref="Matrix"/> that specify the left Matrix.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="System.Single"/> that divide all matrix components.
+		/// A <see cref="Single"/> that divide all matrix components.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Matrix"/> resulted from the operation.
@@ -528,7 +528,7 @@ namespace OpenGL
 		/// Get a matrix column.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="System.UInt32"/> that specify the column index.
+		/// A <see cref="UInt32"/> that specify the column index.
 		/// </param>
 		/// <returns>
 		/// It returns the column components.
@@ -547,7 +547,7 @@ namespace OpenGL
 		/// Get a matrix row.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="System.UInt32"/> that specify the row index.
+		/// A <see cref="UInt32"/> that specify the row index.
 		/// </param>
 		/// <returns>
 		/// It returns the row components.
@@ -585,7 +585,7 @@ namespace OpenGL
 		/// Determine whether this matrix is an identity.
 		/// </summary>
 		/// <param name="precision">
-		/// A <see cref="System.Single"/> that specify the precision used for testing identity.
+		/// A <see cref="Single"/> that specify the precision used for testing identity.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating that this matrix is identity.
@@ -730,7 +730,7 @@ namespace OpenGL
 		/// Stringify this Matrix.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="System.String"/> that represents this Matrix.
+		/// Returns a <see cref="String"/> that represents this Matrix.
 		/// </returns>
 		public override string ToString()
 		{
@@ -845,7 +845,7 @@ namespace OpenGL
 		/// Determine whether this matrix is an identity.
 		/// </summary>
 		/// <param name="precision">
-		/// A <see cref="System.Double"/> that specify the precision used for testing identity.
+		/// A <see cref="Double"/> that specify the precision used for testing identity.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating that this matrix is identity.
@@ -888,11 +888,11 @@ namespace OpenGL
 		/// Compute the complement matrix.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the index of the column to exclude in complement
+		/// A <see cref="UInt32"/> that specify the index of the column to exclude in complement
 		/// matrix.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the index of the row to exclude in complement
+		/// A <see cref="UInt32"/> that specify the index of the row to exclude in complement
 		/// matrix.
 		/// </param>
 		/// <returns>
@@ -949,7 +949,7 @@ namespace OpenGL
 		/// Get a matrix column.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="System.UInt32"/> that specify the column index.
+		/// A <see cref="UInt32"/> that specify the column index.
 		/// </param>
 		/// <returns>
 		/// It returns the column components.
@@ -963,7 +963,7 @@ namespace OpenGL
 		/// Get a matrix row.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="System.UInt32"/> that specify the row index.
+		/// A <see cref="UInt32"/> that specify the row index.
 		/// </param>
 		/// <returns>
 		/// It returns the row components.
@@ -988,10 +988,10 @@ namespace OpenGL
 		/// IMatrix component indexer.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> the specify the column index (zero based).
+		/// A <see cref="UInt32"/> the specify the column index (zero based).
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> the specify the row index (zero based).
+		/// A <see cref="UInt32"/> the specify the row index (zero based).
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception throw if <paramref name="c"/> is greater than <see name="Matrix.Width"/> column count, or if <paramref name="r"/>

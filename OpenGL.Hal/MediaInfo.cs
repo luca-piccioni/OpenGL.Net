@@ -105,7 +105,7 @@ namespace OpenGL
 		/// Determine whether this MediaInfo has defined a specific tag.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="System.String"/> which identify a tag.
+		/// A <see cref="String"/> which identify a tag.
 		/// </param>
 		public bool HasTag(string id)
 		{
@@ -119,10 +119,10 @@ namespace OpenGL
 		/// Set a tag to this ImageInfo
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="System.String"/> which identify a tag.
+		/// A <see cref="String"/> which identify a tag.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="System.Object"/> which define the tag value.
+		/// A <see cref="Object"/> which define the tag value.
 		/// </param>
 		public void SetTag(string id, object value)
 		{
@@ -149,7 +149,7 @@ namespace OpenGL
 		/// The type of the tag value.
 		/// </typeparam>
 		/// <param name="id">
-		/// A <see cref="System.String"/> which identify a tag.
+		/// A <see cref="String"/> which identify a tag.
 		/// </param>
 		/// <returns>
 		/// It returns the value of the tag.
@@ -219,7 +219,7 @@ namespace OpenGL
 		/// Construct a MediaInfoTagAttribute that specify the tag value type.
 		/// </summary>
 		/// <param name="valueType">
-		/// A <see cref="System.Type"/> that specify the tag value type.
+		/// A <see cref="Type"/> that specify the tag value type.
 		/// </param>
 		public MediaInfoTagAttribute(Type valueType)
 		{

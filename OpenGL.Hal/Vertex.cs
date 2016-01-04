@@ -32,10 +32,10 @@ namespace OpenGL
 		/// Get or set matrix components.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the component's column index.
+		/// A <see cref="UInt32"/> that specify the component's column index.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the component's row index.
+		/// A <see cref="UInt32"/> that specify the component's row index.
 		/// </param>
 		float this[uint c, uint r] { get; set; }
 
@@ -75,10 +75,10 @@ namespace OpenGL
 		/// Get or set matrix components.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the component's column index.
+		/// A <see cref="UInt32"/> that specify the component's column index.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the component's row index.
+		/// A <see cref="UInt32"/> that specify the component's row index.
 		/// </param>
 		public float this[uint c, uint r]
 		{
@@ -159,10 +159,10 @@ namespace OpenGL
 		/// Get or set matrix components.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the component's column index.
+		/// A <see cref="UInt32"/> that specify the component's column index.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the component's row index.
+		/// A <see cref="UInt32"/> that specify the component's row index.
 		/// </param>
 		public float this[uint c, uint r]
 		{

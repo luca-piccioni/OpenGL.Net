@@ -46,11 +46,11 @@ namespace OpenGL
 		/// Compute the complement matrix.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="System.UInt32"/> that specify the index of the column to exclude in complement
+		/// A <see cref="UInt32"/> that specify the index of the column to exclude in complement
 		/// matrix.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="System.UInt32"/> that specify the index of the row to exclude in complement
+		/// A <see cref="UInt32"/> that specify the index of the row to exclude in complement
 		/// matrix.
 		/// </param>
 		/// <returns>

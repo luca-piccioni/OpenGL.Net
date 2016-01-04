@@ -130,13 +130,13 @@ namespace OpenGL
 		/// A <see cref="GraphicsCapabilities"/> determining the underlying texture capabilities.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specify the texture width.
+		/// A <see cref="UInt32"/> that specify the texture width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specify the texture height.
+		/// A <see cref="UInt32"/> that specify the texture height.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="System.UInt32"/> that specify the texture depth.
+		/// A <see cref="UInt32"/> that specify the texture depth.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="OpenGL.PixelLayout"/> that specify the texture internal format.
@@ -217,7 +217,7 @@ namespace OpenGL
 		/// Determine whether an integer is a power-of-two value.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="System.UInt32"/> that specify the value to test.
+		/// A <see cref="UInt32"/> that specify the value to test.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether <paramref name="x"/> is a power-of-two value.
@@ -365,16 +365,16 @@ namespace OpenGL
 		/// Compute the mipmap for a specific level.
 		/// </summary>
 		/// <param name="level">
-		/// A <see cref="System.UInt32"/> that specify the mipmap level.
+		/// A <see cref="UInt32"/> that specify the mipmap level.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specify the computed mipmap level width.
+		/// A <see cref="UInt32"/> that specify the computed mipmap level width.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specify the computed mipmap level height.
+		/// A <see cref="UInt32"/> that specify the computed mipmap level height.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="System.UInt32"/> that specify the computed mipmap level depth.
+		/// A <see cref="UInt32"/> that specify the computed mipmap level depth.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception throw if <paramref name="level"/> is greater than <see cref="MipmapLevels"/>.
@@ -1003,7 +1003,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

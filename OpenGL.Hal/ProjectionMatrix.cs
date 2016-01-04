@@ -42,7 +42,7 @@ namespace OpenGL
 		/// Construct a matrix from a sequence of components.
 		/// </summary>
 		/// <param name="values">
-		/// An array of <see cref="System.Single"/>, representing the matrix components in column-major order.
+		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.
@@ -114,7 +114,7 @@ namespace OpenGL
 		/// Get the infinity projection.
 		/// </summary>
 		/// <param name="epsilon">
-		/// A <see cref="System.Single"/> that specify a positive 
+		/// A <see cref="Single"/> that specify a positive 
 		/// </param>
 		public Matrix4x4 GetInfinityProjection(float epsilon)
 		{
@@ -167,16 +167,16 @@ namespace OpenGL
 		/// OrthoProjectionMatrix constructor.
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="System.Single"/> indicating the distance of the left plane, in world units.
+		/// A <see cref="Single"/> indicating the distance of the left plane, in world units.
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="System.Single"/> indicating the distance of the right plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the right plane, in world units
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="System.Single"/> indicating the distance of the bottom plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the bottom plane, in world units
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="System.Single"/> indicating the distance of the top plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the top plane, in world units
 		/// </param>
 		public OrthoProjectionMatrix(float left, float right, float bottom, float top)
 		{
@@ -187,22 +187,22 @@ namespace OpenGL
 		/// OrthoProjectionMatrix constructor.
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="System.Single"/> indicating the distance of the left plane, in world units.
+		/// A <see cref="Single"/> indicating the distance of the left plane, in world units.
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="System.Single"/> indicating the distance of the right plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the right plane, in world units
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="System.Single"/> indicating the distance of the bottom plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the bottom plane, in world units
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="System.Single"/> indicating the distance of the top plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the top plane, in world units
 		/// </param>
 		/// <param name="near">
-		/// A <see cref="System.Single"/> indicating the distance of the near plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the near plane, in world units
 		/// </param>
 		/// <param name="far">
-		/// A <see cref="System.Single"/> indicating the distance of the far plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the far plane, in world units
 		/// </param>
 		public OrthoProjectionMatrix(float left, float right, float bottom, float top, float near, float far)
 		{
@@ -213,7 +213,7 @@ namespace OpenGL
 		/// Construct a OrthoProjectionMatrix from a sequence of components.
 		/// </summary>
 		/// <param name="values">
-		/// An array of <see cref="System.Single"/>, representing the matrix components in column-major order.
+		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.
@@ -247,22 +247,22 @@ namespace OpenGL
 		/// Set orthographic projection matrix.
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="System.Single"/> indicating the distance of the left plane, in world units.
+		/// A <see cref="Single"/> indicating the distance of the left plane, in world units.
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="System.Single"/> indicating the distance of the right plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the right plane, in world units
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="System.Single"/> indicating the distance of the bottom plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the bottom plane, in world units
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="System.Single"/> indicating the distance of the top plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the top plane, in world units
 		/// </param>
 		/// <param name="near">
-		/// A <see cref="System.Single"/> indicating the distance of the near plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the near plane, in world units
 		/// </param>
 		/// <param name="far">
-		/// A <see cref="System.Single"/> indicating the distance of the far plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the far plane, in world units
 		/// </param>
 		public void SetOrtho(float left, float right, float bottom, float top, float near, float far)
 		{
@@ -292,16 +292,16 @@ namespace OpenGL
 		/// Set bidimensional orthographic projection matrix.
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="System.Single"/> indicating the distance of the left plane, in world units.
+		/// A <see cref="Single"/> indicating the distance of the left plane, in world units.
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="System.Single"/> indicating the distance of the right plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the right plane, in world units
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="System.Single"/> indicating the distance of the bottom plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the bottom plane, in world units
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="System.Single"/> indicating the distance of the top plane, in world units
+		/// A <see cref="Single"/> indicating the distance of the top plane, in world units
 		/// </param>
 		public void SetOrtho2D(float left, float right, float bottom, float top)
 		{
@@ -403,7 +403,7 @@ namespace OpenGL
 		/// Construct a OrthoProjectionMatrix from a sequence of components.
 		/// </summary>
 		/// <param name="values">
-		/// An array of <see cref="System.Single"/>, representing the matrix components in column-major order.
+		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="values"/> is null.
@@ -437,22 +437,22 @@ namespace OpenGL
 		/// Set frustrum projection matrix.
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="near">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		/// <param name="far">
-		/// A <see cref="System.Single"/>
+		/// A <see cref="Single"/>
 		/// </param>
 		public void SetFustrum(float left, float right, float bottom, float top, float near, float far)
 		{

@@ -27,7 +27,7 @@ namespace OpenGL
 		/// Vertex components indexer.
 		/// </summary>
 		/// <param name="idx">
-		/// A <see cref="System.UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
 		/// </param>
 		/// <remarks>
 		/// <para>

@@ -202,7 +202,7 @@ namespace OpenGL
 		/// Configure the loggin system.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specify the log4net configuration file.
+		/// A <see cref="String"/> that specify the log4net configuration file.
 		/// </param>
 		public static void Configure(string path)
 		{

@@ -39,6 +39,16 @@ namespace OpenGL
 				Query(version, eglExtensions ?? String.Empty);
 			}
 
+			/// <summary>
+			/// Clone this instance.
+			/// </summary>
+			/// <returns>
+			/// It returns a deep copy of this Extension.
+			/// </returns>
+			public Extensions Clone()
+			{
+				return ((Extensions)MemberwiseClone());
+			}
 		}
 	}
 }

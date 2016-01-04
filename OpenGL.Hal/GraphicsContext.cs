@@ -100,7 +100,7 @@ namespace OpenGL
 		/// use the inspected extensions to provide every acceleration as possible.
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Exception throw in the case the <see cref="System.Windows.Forms.Form"/> created cannot be used for getting a valid device context.
+		/// Exception throw in the case the <see cref="Windows.Forms.Form"/> created cannot be used for getting a valid device context.
 		/// </exception>
 		static GraphicsContext()
 		{
@@ -480,7 +480,7 @@ namespace OpenGL
 		/// are not implemented.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="devctx"/> is <see cref="System.IntPtr.Zero"/>.
+		/// This exception is thrown in the case <paramref name="devctx"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
@@ -636,7 +636,7 @@ namespace OpenGL
 				// Get the current OpenGL Shading Language implementation supported by this GraphicsContext
 				_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
 				// Query context capabilities
-				_Caps = GraphicsCapabilities.Query(this, deviceContext);
+				_CapsStack.Push(GraphicsCapabilities.Query(this, deviceContext));
 
 				// Query draw methods
 				QueryDrawMethods(_Version);
@@ -742,7 +742,7 @@ namespace OpenGL
 		#region OpenGL Extension Support
 
 		/// <summary>
-		/// Get rendering context capabilities of this GraphicsContext.
+		/// Get capabilities of this GraphicsContext.
 		/// </summary>
 		/// <returns>
 		/// A <see cref="Capabilities"/> which specify all available OpenGL implementation features and limits.
@@ -754,14 +754,35 @@ namespace OpenGL
 		{
 			get
 			{
-				return (_Caps);
+				return (_CapsStack.Peek());
 			}
 		}
 
-		private GraphicsCapabilities _Caps;
+		/// <summary>
+		/// Push <see cref="Caps"/> in order to restore it relater with <see cref="PopCaps"/>.
+		/// </summary>
+		internal void PushCaps()
+		{
+			_CapsStack.Push(Caps.Clone());
+		}
 
 		/// <summary>
-		/// Get rendering context capabilities of the current OpenGL implementation.
+		/// Restore previous <see cref="Caps"/> when the previous <see cref="PushCaps"/> was called.
+		/// </summary>
+		internal void PopCaps()
+		{
+			if (_CapsStack.Count == 1)
+				throw new InvalidOperationException("stack underflow");
+			_CapsStack.Pop();
+		}
+
+		/// <summary>
+		/// Stack used to modify <see cref="Caps"/> backing up the previous instances.
+		/// </summary>
+		private readonly Stack<GraphicsCapabilities> _CapsStack = new Stack<GraphicsCapabilities>();
+
+		/// <summary>
+		/// Get capabilities of the current OpenGL implementation.
 		/// </summary>
 		/// <returns>
 		/// A <see cref="Capabilities"/> which specify all available OpenGL implementation features and limits.
@@ -808,7 +829,7 @@ namespace OpenGL
 		/// Set this GraphicsContext current/uncurrent on current device.
 		/// </summary>
 		/// <param name="flag">
-		/// A <see cref="System.Boolean"/> that specify the currency of this GraphicsContext on the
+		/// A <see cref="Boolean"/> that specify the currency of this GraphicsContext on the
 		/// device context used to create this GraphicsContext.
 		/// </param>
 		/// <remarks>
@@ -840,11 +861,11 @@ namespace OpenGL
 		/// A <see cref="IDeviceContext"/> that specify the device context involved.
 		/// </param>
 		/// <param name="flag">
-		/// A <see cref="System.Boolean"/> that specify the currency of this GraphicsContext on the
+		/// A <see cref="Boolean"/> that specify the currency of this GraphicsContext on the
 		/// device context <paramref name="rDevice"/>.
 		/// </param>
 		/// <exception cref="ArgumentException">
-		/// Exception throw in the case <paramref name="rDevice"/> is <see cref="System.IntPtr.Zero"/>.
+		/// Exception throw in the case <paramref name="rDevice"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref="ObjectDisposedException">
 		/// Exception throw if this GraphicsContext has been disposed. Once the GraphicsContext has been disposed it cannot be current again.
@@ -982,7 +1003,7 @@ namespace OpenGL
 		/// on the correct device context.
 		/// </para>
 		/// <para>
-		/// If its value is <see cref="System.IntPtr.Zero"/>, it means that this GraphicsContext has never been current on a thread.
+		/// If its value is <see cref="IntPtr.Zero"/>, it means that this GraphicsContext has never been current on a thread.
 		/// </para>
 		/// </remarks>
 		private IDeviceContext _CurrentDeviceContext;
@@ -1093,16 +1114,22 @@ namespace OpenGL
 		/// </exception>
 		private void Dispose(bool disposing)
 		{
-			if ((disposing == false) && (_RenderContext != IntPtr.Zero))
-				throw new InvalidOperationException("not disposed on finalization");
-
 			if (disposing == true) {
-				// Dispose unmanaged resources
+
+				// Dispose resources
+
+				if (_VertexArray != null)
+					_VertexArray.Dispose(this);
+
+				if (_DrawArrayBuffer != null)
+					_DrawArrayBuffer.Dispose();
+
 				if (_ShaderIncludeLibrary != null) {
-					_ShaderIncludeLibrary.DecRef();
+					_ShaderIncludeLibrary.Dispose(this);
 					_ShaderIncludeLibrary = null;
 				}
 
+				// Dispose unmanaged resources
 				if (_RenderContext != IntPtr.Zero) {
 					if (_DeviceContext.DeleteContext(_RenderContext) == false)
 						throw new InvalidOperationException("unable to release OpenGL context");

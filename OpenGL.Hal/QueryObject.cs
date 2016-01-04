@@ -202,7 +202,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for deleting this buffer object name.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="System.UInt32"/> that specify the object name to delete.
+		/// A <see cref="UInt32"/> that specify the object name to delete.
 		/// </param>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{

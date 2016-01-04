@@ -80,10 +80,10 @@ namespace OpenGL
 		/// Compose an URI for capture device.
 		/// </summary>
 		/// <param name="captureDevice">
-		/// A <see cref="System.String"/> that specify the video capture device.
+		/// A <see cref="String"/> that specify the video capture device.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="System.String"/> that follows the URI pattern for the specified
+		/// It returns a <see cref="String"/> that follows the URI pattern for the specified
 		/// capture device.
 		/// </returns>
 		public static string GetCaptureScheme(string captureDevice)

@@ -170,7 +170,7 @@ namespace OpenGL
 		/// Get the GraphicsGarbageService for the specified object name space.
 		/// </summary>
 		/// <param name="rObjectNameSpace">
-		/// A <see cref="System.Guid"/> that specify the object name space of the service.
+		/// A <see cref="Guid"/> that specify the object name space of the service.
 		/// </param>
 		/// <returns>
 		/// It returns a GraphicsGarbageService which handle objects generated in the name space <paramref name="rObjectNameSpace"/>.

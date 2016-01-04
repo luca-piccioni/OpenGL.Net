@@ -37,6 +37,14 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static GraphicsWindow()
+		{
+			GraphicsContext.Touch();
+		}
+
+		/// <summary>
 		/// Construct a GraphicsWindow.
 		/// </summary>
 		public GraphicsWindow() :
@@ -49,10 +57,10 @@ namespace OpenGL
 		/// Construct a GraphicsWindow specifying its extents.
 		/// </summary>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> specifing window width (in pixels).
+		/// A <see cref="Int32"/> specifing window width (in pixels).
 		/// </param>
 		/// <param name="h">
-		/// A <see cref="System.Int32"/> specifing window height (in pixels).
+		/// A <see cref="Int32"/> specifing window height (in pixels).
 		/// </param>
 		public GraphicsWindow(uint w, uint h) :
 			base(w, h)
@@ -214,7 +222,7 @@ namespace OpenGL
 		///  
 		/// </summary>
 		/// <param name="sender">
-		/// A <see cref="System.Object"/>
+		/// A <see cref="Object"/>
 		/// </param>
 		/// <param name="e">
 		/// A <see cref="EventArgs"/>
@@ -232,7 +240,7 @@ namespace OpenGL
 		/// Form closed event handler.
 		/// </summary>
 		/// <param name="sender">
-		/// A <see cref="System.Object"/> which has raised the event.
+		/// A <see cref="Object"/> which has raised the event.
 		/// </param>
 		/// <param name="e">
 		/// A <see cref="EventArgs"/> that specify the event parameters.
@@ -423,16 +431,16 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelFormat"/> which determine the pixel storage of the returned image.
@@ -452,16 +460,16 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/>
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the x coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the y coordinate of the lower left corder of the rectangle area to read.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.Int32"/> that specify the width of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the width of the rectangle area to read.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.Int32"/> that specify the height of the rectangle area to read.
+		/// A <see cref="Int32"/> that specify the height of the rectangle area to read.
 		/// </param>
 		/// <param name="pType">
 		/// A <see cref="PixelFormat"/> which determine the pixel storage of the returned image.

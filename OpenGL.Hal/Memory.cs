@@ -123,17 +123,17 @@ namespace OpenGL
 		/// Copy memory from array to unmanaged memory.
 		/// </summary>
 		/// <param name="dst">
-		/// A <see cref="System.IntPtr"/> that specify the address of the destination unmanaged memory.
+		/// A <see cref="IntPtr"/> that specify the address of the destination unmanaged memory.
 		/// </param>
 		/// <param name="src">
-		/// A <see cref="System.Array"/> that specify the source array object.
+		/// A <see cref="Array"/> that specify the source array object.
 		/// </param>
 		/// <param name="srcOffset">
-		/// A <see cref="System.UInt32"/> that specify the offset to apply to memory copied from <paramref name="src"/>. This
+		/// A <see cref="UInt32"/> that specify the offset to apply to memory copied from <paramref name="src"/>. This
 		/// value is expressed in bytes.
 		/// </param>
 		/// <param name="bytes">
-		/// A <see cref="System.UInt64"/> that specify the number of bytes to copy.
+		/// A <see cref="UInt64"/> that specify the number of bytes to copy.
 		/// </param>
 		public static void MemoryCopy(IntPtr dst, Array src, uint srcOffset, ulong bytes)
 		{

@@ -55,7 +55,7 @@ namespace OpenGL.State
 		/// Factory method for getting the default GraphicsState of the specified type.
 		/// </summary>
 		/// <param name="stateId">
-		/// A <see cref="System.String"/> that identify the state type.
+		/// A <see cref="String"/> that identify the state type.
 		/// </param>
 		public static GraphicsState GetDefaultState(string stateId)
 		{
@@ -78,7 +78,7 @@ namespace OpenGL.State
 		/// thread.
 		/// </param>
 		/// <param name="stateId">
-		/// A <see cref="System.String"/> that identify the state type.
+		/// A <see cref="String"/> that identify the state type.
 		/// </param>
 		public static GraphicsState GetCurrentState(GraphicsContext ctx, string stateId)
 		{
@@ -302,7 +302,7 @@ namespace OpenGL.State
 		/// Represents the current <see cref="GraphicsState"/> for logging.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="System.String"/> that represents the current <see cref="GraphicsState"/>.
+		/// A <see cref="String"/> that represents the current <see cref="GraphicsState"/>.
 		/// </returns>
 		public override string ToString()
 		{

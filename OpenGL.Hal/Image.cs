@@ -42,10 +42,10 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> indicating the image pixel format.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> indicating the image width, in pixels.
+		/// A <see cref="UInt32"/> indicating the image width, in pixels.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> indicating the image height, in pixels.
+		/// A <see cref="UInt32"/> indicating the image height, in pixels.
 		/// </param>
 		public Image(PixelLayout format, uint width, uint height)
 			: this(format, width, height, 0)
@@ -60,10 +60,10 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> indicating the image pixel format.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="System.UInt32"/> indicating the image width, in pixels.
+		/// A <see cref="UInt32"/> indicating the image width, in pixels.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="System.UInt32"/> indicating the image height, in pixels.
+		/// A <see cref="UInt32"/> indicating the image height, in pixels.
 		/// </param>
 		/// <param name="modifiers">
 		/// 
@@ -94,10 +94,10 @@ namespace OpenGL
 		/// A <see cref="PixelLayout"/> indicating the image pixel format.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="System.Int32"/> indicating the image width, in pixels.
+		/// A <see cref="Int32"/> indicating the image width, in pixels.
 		/// </param>
 		/// <param name="h">
-		/// A <see cref="System.Int32"/> indicating the image height, in pixels.
+		/// A <see cref="Int32"/> indicating the image height, in pixels.
 		/// </param>
 		public void Create(PixelLayout format, uint w, uint h)
 		{
@@ -307,11 +307,11 @@ namespace OpenGL
 		/// Get and set image pixel.
 		/// </summary>
 		/// <param name="w">
-		/// A <see cref="System.UInt32"/> that specify the horizontal position of the image pixel, from the left bound
+		/// A <see cref="UInt32"/> that specify the horizontal position of the image pixel, from the left bound
 		/// of the image.
 		/// </param>
 		/// <param name="h">
-		/// A <see cref="System.UInt32"/> that specify the vertical position of the image pixel, from the bottom bound
+		/// A <see cref="UInt32"/> that specify the vertical position of the image pixel, from the bottom bound
 		/// of the image.
 		/// </param>
 		/// <returns>

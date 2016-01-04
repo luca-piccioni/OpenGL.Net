@@ -125,7 +125,7 @@ namespace OpenGL
 		/// Set a preprocessor symbol controlling the shader compilation.
 		/// </summary>
 		/// <param name="def">
-		/// A <see cref="System.String"/> representing the symbol string. This string will be
+		/// A <see cref="String"/> representing the symbol string. This string will be
 		/// presented after a <i>#define</i> preprocessor directive (i.e. "SYMBOL 1").
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -153,11 +153,11 @@ namespace OpenGL
 		/// Set a preprocessor symbol controlling the shader compilation.
 		/// </summary>
 		/// <param name="def">
-		/// A <see cref="System.String"/> representing the symbol string. This string will be
+		/// A <see cref="String"/> representing the symbol string. This string will be
 		/// presented after a <i>#define</i> preprocessor directive (i.e. "SYMBOL 1").
 		/// </param>
 		/// <param name="override">
-		/// A <see cref="System.Boolean"/> indicating whether <paramref name="def"/> shall override
+		/// A <see cref="Boolean"/> indicating whether <paramref name="def"/> shall override
 		/// the already registered symbol, if any.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -184,7 +184,7 @@ namespace OpenGL
 		/// Check whether a specific preprocessor symbol is defined.
 		/// </summary>
 		/// <param name="symbol">
-		/// A <see cref="System.String"/> representing the symbol string. Only the first token of the symbol
+		/// A <see cref="String"/> representing the symbol string. Only the first token of the symbol
 		/// has to be specified.
 		/// </param>
 		/// <returns>
@@ -213,7 +213,7 @@ namespace OpenGL
 		/// Remove a symbol definition.
 		/// </summary>
 		/// <param name="symbol">
-		/// A <see cref="System.String"/> representing the symbol string. Only the first token of the symbol
+		/// A <see cref="String"/> representing the symbol string. Only the first token of the symbol
 		/// has to be specified.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
