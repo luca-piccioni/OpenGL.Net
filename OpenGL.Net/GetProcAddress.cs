@@ -16,10 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Macro utility for logging platform-relared function calls
+#undef PLATFORM_LOG_ENABLED
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -65,7 +67,7 @@ namespace OpenGL
 		/// Retrieves the entry point for a dynamically exported function from any valid assembly.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specifies the path of the assembly file.
+		/// A <see cref="String"/> that specifies the path of the assembly file.
 		/// </param>
 		/// <param name="function">
 		/// The function string for the OpenGL function (i.e. "GetProcAddress")
@@ -92,9 +94,9 @@ namespace OpenGL
 		/// </returns>
 		public static IntPtr GetOpenGLAddress(string function)
 		{
-            if (_GetProcAddress == null)
-                throw new PlatformNotSupportedException();
-            return (_GetProcAddress.GetOpenGLProcAddress(function));
+			if (_GetProcAddress == null)
+				throw new PlatformNotSupportedException();
+			return (_GetProcAddress.GetOpenGLProcAddress(function));
 		}
 
 		/// <summary>
@@ -155,10 +157,10 @@ namespace OpenGL
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.String"/> that specifies the path of the library defining the function.
+		/// A <see cref="String"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -169,10 +171,10 @@ namespace OpenGL
 		/// Get a function pointer from a library, specified by handle.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.IntPtr"/> which represents an opaque handle to the library containing the function.
+		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -183,7 +185,7 @@ namespace OpenGL
 		/// Get a function pointer from the OpenGL driver.
 		/// </summary>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -221,10 +223,10 @@ namespace OpenGL
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.String"/> that specifies the path of the library defining the function.
+		/// A <see cref="String"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -240,10 +242,10 @@ namespace OpenGL
 		/// Get a function pointer from a library, specified by handle.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.IntPtr"/> which represents an opaque handle to the library containing the function.
+		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -255,37 +257,47 @@ namespace OpenGL
 			if (function == null)
 				throw new ArgumentNullException("function");
 
-			return (UnsafeNativeMethods.Win32GetProcAddress(library, function));
+			IntPtr procAddress = UnsafeNativeMethods.Win32GetProcAddress(library, function);
+#if PLATFORM_LOG_ENABLED
+			KhronosApi.LogFunction("GetProcAddress(0x{0}, {1}) = 0x{2}", library.ToString("X8"), function, procAddress.ToString("X8"));
+#endif
+
+			return (procAddress);
 		}
 
 		/// <summary>
 		/// Get a function pointer from the OpenGL driver.
 		/// </summary>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
 		/// </returns>
 		public IntPtr GetOpenGLProcAddress(string function)
 		{
-			IntPtr libraryFunct;
+			IntPtr procAddress = UnsafeNativeMethods.wglGetProcAddress(function);
+#if PLATFORM_LOG_ENABLED
+			KhronosApi.LogFunction("wglGetProcAddress({0}) = 0x{1}", function, procAddress.ToString("X8"));
+#endif
 
-			if ((libraryFunct = UnsafeNativeMethods.wglGetProcAddress(function)) == IntPtr.Zero) {
-				IntPtr libraryHandle = GetLibraryHandle(Library);
-
-				return (UnsafeNativeMethods.Win32GetProcAddress(libraryHandle, function));
-			} else
-				return (libraryFunct);
+			if (procAddress == IntPtr.Zero)
+				return (GetProcAddress(Library, function));
+			else
+				return (procAddress);
 		}
 
 		private IntPtr GetLibraryHandle(string libraryPath)
 		{
 			IntPtr libraryHandle;
 
-			if (sLibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
+			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
 				libraryHandle = UnsafeNativeMethods.LoadLibrary(libraryPath);
-				sLibraryHandles.Add(libraryPath, libraryHandle);
+#if PLATFORM_LOG_ENABLED
+				KhronosApi.LogFunction("LoadLibrary({0}) = 0x{1}", libraryPath, libraryHandle.ToString("X8"));
+#endif
+
+				_LibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
 			if (libraryHandle == IntPtr.Zero)
@@ -300,19 +312,11 @@ namespace OpenGL
 		private const string Library = "opengl32.dll";
 
 		/// <summary>
-		/// The OpenGL library handle.
-		/// </summary>
-		/// <remarks>
-		/// This handle is meaningfull only in the case wglGetProcAddress fails to load a function pointer.
-		/// </remarks>
-		private static IntPtr mLibraryHandle = IntPtr.Zero;
-
-		/// <summary>
 		/// Currently loaded libraries.
 		/// </summary>
-		private static readonly Dictionary<string, IntPtr> sLibraryHandles = new Dictionary<string,IntPtr>();
+		private static readonly Dictionary<string, IntPtr> _LibraryHandles = new Dictionary<string,IntPtr>();
 
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -320,7 +324,7 @@ namespace OpenGL
 	/// </summary>
 	class GetProcAddressX11 : IGetProcAddress
 	{
-		#region X11 Platform Imports
+#region X11 Platform Imports
 
 		unsafe static class UnsafeNativeMethods
 		{
@@ -336,18 +340,18 @@ namespace OpenGL
 			public static extern IntPtr glxGetProcAddress([MarshalAs(UnmanagedType.LPTStr)] string procName);
 		}
 
-		#endregion
+#endregion
 
-		#region IGetProcAdress Imports
+#region IGetProcAdress Imports
 
 		/// <summary>
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.String"/> that specifies the path of the library defining the function.
+		/// A <see cref="String"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -363,10 +367,10 @@ namespace OpenGL
 		/// Get a function pointer from a library, specified by handle.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.IntPtr"/> which represents an opaque handle to the library containing the function.
+		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -385,7 +389,7 @@ namespace OpenGL
 		/// Get a function pointer from the OpenGL driver.
 		/// </summary>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -420,7 +424,7 @@ namespace OpenGL
 		/// </summary>
 		private static readonly Dictionary<string, IntPtr> sLibraryHandles = new Dictionary<string,IntPtr>();
 
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -428,7 +432,7 @@ namespace OpenGL
 	/// </summary>
 	class GetProcAddressOSX : IGetProcAddress
 	{
-		#region OSX Platform Imports
+#region OSX Platform Imports
 
 		unsafe static class UnsafeNativeMethods
 		{
@@ -442,18 +446,18 @@ namespace OpenGL
 			public static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
 		}
 
-		#endregion
+#endregion
 
-		#region IGetProcAddress Implementation
+#region IGetProcAddress Implementation
 
 		/// <summary>
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.String"/> that specifies the path of the library defining the function.
+		/// A <see cref="String"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -467,10 +471,10 @@ namespace OpenGL
 		/// Get a function pointer from a library, specified by handle.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="System.IntPtr"/> which represents an opaque handle to the library containing the function.
+		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -484,7 +488,7 @@ namespace OpenGL
 		/// Get a function pointer from the OpenGL driver.
 		/// </summary>
 		/// <param name="function">
-		/// A <see cref="System.String"/> that specifies the function name.
+		/// A <see cref="String"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -507,6 +511,6 @@ namespace OpenGL
 		/// </summary>
 		private const string Library = "libdl.dylib";
 
-		#endregion
+#endregion
 	}
 }

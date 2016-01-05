@@ -45,25 +45,12 @@ namespace OpenGL.Test
 				_DeviceContext = DeviceContextFactory.Create(Form);
 				// Set pixel format
 				SetPixelFormatWgl();
-				// Synch delegates
-				SetUp();
 			} catch {
 				// Release resources manually
 				FixtureTearDown();
 
 				throw;
 			}
-		}
-
-		/// <summary>
-		/// Synchronize thread-local delegates.
-		/// </summary>
-		[SetUp]
-		public void SetUp()
-		{
-			Gl.SyncDelegates();
-			Wgl.SyncDelegates();
-			Glx.SyncDelegates();
 		}
 
 		/// <summary>

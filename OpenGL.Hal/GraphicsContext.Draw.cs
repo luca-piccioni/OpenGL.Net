@@ -173,7 +173,7 @@ namespace OpenGL
 		private void DrawLines2f_GL_3_2(Vertex2f[] vertices)
 		{
 			// Define geometry buffer
-			_DrawArrayBuffer.Copy(this, vertices);
+			_DrawArrayBuffer.Create(this, vertices);
 			// Define geometry arrays
 			_VertexArray.SetArray(VertexArraySemantic.Position, _DrawArrayBuffer);
 			// Draw arrays

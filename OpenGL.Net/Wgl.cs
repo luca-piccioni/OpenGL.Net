@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -51,6 +52,8 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
+			Debug.Assert(GetCurrentContext() != IntPtr.Zero, "no context current on calling thread");
+
 			LogComment("Synchronize WGL delegates.");
 
 			SynchDelegates(_ImportMap, _Delegates);
@@ -132,7 +135,9 @@ namespace OpenGL
 				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the
 				// actual implementation
 				Gl.SyncDelegates();
-				Wgl.SyncDelegates();
+
+				// Get WGL functions pointers
+				SyncDelegates();
 			}
 
 			return (retvalue);

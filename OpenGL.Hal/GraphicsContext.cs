@@ -131,16 +131,6 @@ namespace OpenGL
 			if (_HiddenWindowDevice.MakeCurrent(rContext) == false)
 				throw new InvalidOperationException("unable to make current");
 
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-				case PlatformID.Win32S:
-				case PlatformID.Win32Windows:
-				case PlatformID.WinCE:
-					// Synchronize WGL entry points (now that we have a dummy render context)
-					Wgl.SyncDelegates();
-					break;
-			}
-
 			// Obtain current OpenGL implementation
 			string glVersion = Gl.GetString(StringName.Version);
 			_CurrentVersion = KhronosVersion.Parse(glVersion);

@@ -54,9 +54,11 @@ namespace OpenGL
 		protected BufferObject(BufferTargetARB type, BufferObjectHint hint)
 		{
 			// Store the buffer object type
-			_Type = type;
+			BufferType = type;
 			// Store the buffer data usage hints
-			_Hint = hint;
+			Hint = hint;
+			// Automatically dispose client buffer?
+			_MemoryBufferAutoDispose = IsClientBufferAutoDisposable(hint);
 		}
 		
 		#endregion
@@ -64,86 +66,135 @@ namespace OpenGL
 		#region Buffer Definition
 
 		/// <summary>
-		/// Get this BufferObject type.
-		/// </summary>
-		public BufferTargetARB BufferType { get { return (_Type); } }
-
-		/// <summary>
 		/// BufferObject type, indicatinvg the usage pattern.
 		/// </summary>
-		private readonly BufferTargetARB _Type;
+		public readonly BufferTargetARB BufferType;
 
 		/// <summary>
-		/// Get this BufferObject hint.
+		/// The usage hint of this BufferObject.
 		/// </summary>
-		public BufferObjectHint BufferHint { get { return (_Hint); } }
+		public readonly BufferObjectHint Hint;
 
 		/// <summary>
-		/// BufferObject usage hint.
-		/// </summary>
-		private readonly BufferObjectHint _Hint;
-
-		/// <summary>
-		/// Get this BufferObject total size, in bytes.
+		/// Get the size of the storage allocated for this buffer object, in bytes. In the case this BufferObject
+		/// has not been created yet, it returns the size of the client buffer.
 		/// </summary>
 		public uint BufferSize
 		{
-			get { return (_BufferSize); }
-			protected set { _BufferSize = value; }
+			get { return (_BufferSize != 0 ? _BufferSize : ClientBufferSize); }
 		}
 
 		/// <summary>
-		/// Size of the buffer object, in basic machine units (bytes).
+		/// Get the size of the client storage allocated  for this buffer object. In the case this BufferObject
+		/// has not been defined yet, it returns 0.
+		/// </summary>
+		public uint ClientBufferSize
+		{
+			get { return (_MemoryBuffer != null ? _MemoryBuffer.Size : _ClientBufferSize); }
+			protected set { _ClientBufferSize = value; }
+		}
+
+		/// <summary>
+		/// Size of the storage allocated for this buffer object, in bytes.
 		/// </summary>
 		private uint _BufferSize;
 
+		/// <summary>
+		/// Size of the storage to be allocated for this buffer object, in bytes. Normally is aligned with
+		/// <see cref="_MemoryBuffer"/>, size, altought it is not meant to be.
+		/// </summary>
+		private uint _ClientBufferSize;
+
 		#endregion
 
-		#region Client Memory
+		#region Client Buffer
 
 		/// <summary>
-		/// Allocate client memory for this BufferObject.
+		/// Allocate a new client buffer for this BufferObject.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="UInt32"/> that determine the size of the buffer object client memory, in bytes.
+		/// A <see cref="UInt32"/> that determine the size of the buffer object client buffer, in bytes.
 		/// </param>
-		/// <remarks>
-		/// <para>
-		/// A call to this routine is required to create this BufferObject, since it determines the room necessary
-		/// to this BufferObject.
-		/// </para>
-		/// </remarks>
 		protected void Allocate(uint size)
 		{
 			// Discard previous buffer
-			if (MemoryBuffer != null)
-				MemoryBuffer.Dispose();
+			ReleaseClientBuffer();
 			// Allocate memory, if required
-			MemoryBuffer = new AlignedMemoryBuffer(size, DefaultBufferAlignment);
-			// Store buffer object size
-			_BufferSize = size;
+			_MemoryBuffer = new AlignedMemoryBuffer(size, DefaultBufferAlignment);
 		}
 
 		/// <summary>
-		/// Ensure that buffer has at least the specified size.
+		/// Reallocate a new client buffer for this BufferObject.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="UInt32"/> that determine the size of the buffer object, in bytes.
 		/// </param>
 		protected void Reallocate(uint size)
 		{
-			if (MemoryBuffer != null) {
-				MemoryBuffer.Realloc(size);
-				_BufferSize = size;
+			if (_MemoryBuffer != null) {
+				_MemoryBuffer.Realloc(size);
 			} else {
 				Allocate(size);
 			}
 		}
 
 		/// <summary>
+		/// Release the client buffer of this BufferObject.
+		/// </summary>
+		protected void ReleaseClientBuffer()
+		{
+			if (_MemoryBuffer != null) {
+				_MemoryBuffer.Dispose();
+				_MemoryBuffer = null;
+			}
+		}
+
+		/// <summary>
+		/// Get the address of the client buffer of this BufferObject.
+		/// </summary>
+		protected IntPtr ClientBufferAddress
+		{
+			get
+			{
+				if (_MemoryBuffer != null && !_MemoryBuffer.IsDisposed)
+					return (_MemoryBuffer.AlignedBuffer);
+
+				return (IntPtr.Zero);
+			}
+		}
+
+		/// <summary>
+		/// Get or set whether the client buffer must be disposed once this BufferObject is created; this
+		/// attribute is ignored when the required buffer cannot be managed at GPU side (i.e.
+		/// <see cref="IGraphicsResource.RequiresName(GraphicsContext)"/>.
+		/// </summary>
+		protected virtual bool AutoDisposeClientBuffer
+		{
+			get { return (_MemoryBufferAutoDispose); }
+			set { _MemoryBufferAutoDispose = value; }
+		}
+
+		/// <summary>
+		/// Boolean in
+		/// </summary>
+		private bool _MemoryBufferAutoDispose;
+
+		/// <summary>
+		/// Determine the default value of <see cref="AutoDisposeClientBuffer"/>.
+		/// </summary>
+		/// <param name="hint">
+		/// A <see cref="BufferObjectHint"/> that hints the buffer usage.
+		/// </param>
+		/// <returns></returns>
+		protected static bool IsClientBufferAutoDisposable(BufferObjectHint hint)
+		{
+			return (hint == BufferObjectHint.StaticCpuDraw);
+		}
+
+		/// <summary>
 		/// The buffer object representation in client memory.
 		/// </summary>
-		internal AlignedMemoryBuffer MemoryBuffer;
+		private AlignedMemoryBuffer _MemoryBuffer;
 
 		/// <summary>
 		/// The default memory alignment required.
@@ -178,9 +229,9 @@ namespace OpenGL
 			if (ObjectName == InvalidObjectName)
 				throw new InvalidOperationException("invalid name");
 			
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				// Bind this buffer object
-				Gl.BindBuffer(_Type, ObjectName);
+				Gl.BindBuffer(BufferType, ObjectName);
 			}
 		}
 
@@ -192,9 +243,9 @@ namespace OpenGL
 		/// </param>
 		internal virtual void Unbind(GraphicsContext ctx)
 		{
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				// Unbind actually binded buffer object
-				Gl.BindBuffer(_Type, InvalidObjectName);
+				Gl.BindBuffer(BufferType, InvalidObjectName);
 			}
 		}
 
@@ -239,14 +290,14 @@ namespace OpenGL
 			if (IsMapped())
 				throw new InvalidOperationException("already mapped");
 
-			if (Exists(ctx) && ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (Exists(ctx) && ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				// Map buffer object data (resident on server)
-				_MappedBuffer = Gl.MapBuffer(_Type, mask);
+				_MappedBuffer = Gl.MapBuffer(BufferType, mask);
 			} else {
-				if (MemoryBuffer == null)
+				if (_MemoryBuffer == null)
 					throw new InvalidOperationException("not buffer defined");
 				// Emulate mapping
-				_MappedBuffer = MemoryBuffer.AlignedBuffer;
+				_MappedBuffer = _MemoryBuffer.AlignedBuffer;
 			}
 		}
 
@@ -323,9 +374,9 @@ namespace OpenGL
 			if (IsMapped() == false)
 				throw new InvalidOperationException("not mapped");
 
-			if (Exists(ctx) && ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (Exists(ctx) && ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				// Unmap buffer object data (resident on server)
-				bool uncorrupted = Gl.UnmapBuffer(_Type);
+				bool uncorrupted = Gl.UnmapBuffer(BufferType);
 
 				if (uncorrupted == false)
 					throw new InvalidOperationException("corrupted buffer");
@@ -369,13 +420,16 @@ namespace OpenGL
 				throw new ArgumentNullException("ctx");
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current", "ctx");
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
 
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
+				// Ensure enought buffer
 				Reallocate(_BufferSize);
 
 				Bind(ctx);
 
-				Gl.GetBufferSubData(_Type, IntPtr.Zero, _BufferSize, MemoryBuffer.AlignedBuffer);
+				Gl.GetBufferSubData(BufferType, IntPtr.Zero, _BufferSize, _MemoryBuffer.AlignedBuffer);
 			}
 		}
 		
@@ -426,7 +480,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!ctx.Caps.GlExtensions.VertexArrayObject_ARB || Gl.IsBuffer(ObjectName));
+			return (!RequiresName(ctx) || Gl.IsBuffer(ObjectName));
 		}
 
 		/// <summary>
@@ -451,7 +505,7 @@ namespace OpenGL
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current");
 
-			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB);
 
 			return (Gl.GenBuffer());
 		}
@@ -483,7 +537,7 @@ namespace OpenGL
 			if (Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 
-			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB);
 
 			// Delete buffer object
 			Gl.DeleteBuffers(name);
@@ -513,32 +567,38 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current");
-			if (_BufferSize == 0)
-				throw new InvalidOperationException("size not defined");
-			if ((MemoryBuffer == null) && ((_Hint != BufferObjectHint.StaticCpuDraw) && (_Hint != BufferObjectHint.DynamicCpuDraw)))
+				throw new ArgumentException("not current", "ctx");
+			if ((_MemoryBuffer == null) && ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw)))
 				throw new InvalidOperationException("contents not defined");
 
 			// Buffer must be bound
 			Bind(ctx);
 
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				if (IsMapped())
 					throw new InvalidOperationException("mapped");
 
+				uint clientBufferSize = _ClientBufferSize;
+
+				if (_MemoryBuffer != null)
+					clientBufferSize = _MemoryBuffer.Size;
+
 				// Define buffer object (type, size and hints)
-				Gl.BufferData((int)_Type, _BufferSize, null, (int)_Hint);
+				Gl.BufferData((int)BufferType, clientBufferSize, null, (int)Hint);
+				// Store GPU buffer size
+				_BufferSize = clientBufferSize;
 
 				// Define buffer object contents
-				if (MemoryBuffer != null) {
+				if (_MemoryBuffer != null) {
 					// Provide buffer contents
-					Gl.BufferSubData(_Type, IntPtr.Zero, _BufferSize, MemoryBuffer.AlignedBuffer);
+					Gl.BufferSubData(BufferType, IntPtr.Zero, _BufferSize, _MemoryBuffer.AlignedBuffer);
 					// Release memory, if it is not required anymore
-					if (_Hint == BufferObjectHint.StaticCpuDraw) {
-						MemoryBuffer.Dispose();
-						MemoryBuffer = null;
-					}
+					if (_MemoryBufferAutoDispose)
+						ReleaseClientBuffer();
 				}
+			} else {
+				if (_MemoryBuffer == null)
+					Allocate(_ClientBufferSize);
 			}
 		}
 
@@ -554,9 +614,9 @@ namespace OpenGL
 			// Base implementation
 			base.Dispose(disposing);
 			// Release memory buffer
-			if ((disposing == true) && (MemoryBuffer != null)) {
-				MemoryBuffer.Dispose();
-				MemoryBuffer = null;
+			if ((disposing == true) && (_MemoryBuffer != null)) {
+				_MemoryBuffer.Dispose();
+				_MemoryBuffer = null;
 			}
 		}
 

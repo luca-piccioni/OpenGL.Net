@@ -51,7 +51,7 @@ namespace OpenGL
 			ArrayAttachment arrayAttachment = new ArrayAttachment();
 
 			arrayAttachment.BufferObject = bufferObject;
-			arrayAttachment.BufferInfo = bufferObject.GetSubArrayInfo(bufferStreamIndex);
+			arrayAttachment.BufferInfo = bufferObject.GetArraySection(bufferStreamIndex);
 
 			mAttachedArrays[feedbackIndex] = arrayAttachment;
 		}
@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			internal ArrayBufferObject BufferObject;
 
-			internal ArrayBufferObject.SubArrayBuffer BufferInfo;
+			internal ArrayBufferObject.IArraySection BufferInfo;
 		}
 		
 		private void MapBufferObjects(GraphicsContext ctx)

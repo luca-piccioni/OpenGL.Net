@@ -42,7 +42,7 @@ namespace OpenGL
 	/// </remarks>
 	public class VertexArrayObject : GraphicsResource
 	{
-		#region Vertex Array Definition
+		#region Vertex Arrays Definition
 
 		/// <summary>
 		/// A vertex array.
@@ -53,9 +53,9 @@ namespace OpenGL
 			/// Construct an VertexArray.
 			/// </summary>
 			/// <param name="bufferObject">
-			/// A <see cref="ArrayBufferObject"/> which defines a vertex array data.
+			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array data.
 			/// </param>
-			public VertexArray(ArrayBufferObject bufferObject)
+			public VertexArray(ArrayBufferObjectBase bufferObject)
 			{
 				if (bufferObject == null)
 					throw new ArgumentNullException("bufferObject");
@@ -65,18 +65,18 @@ namespace OpenGL
 			/// <summary>
 			/// The vertex array buffer object.
 			/// </summary>
-			public readonly ArrayBufferObject Array;
+			public readonly ArrayBufferObjectBase Array;
 
 			/// <summary>
-			/// The vertex array sub-buffer index.
+			/// The underlying vertex array section index.
 			/// </summary>
-			public uint SubArray
+			public uint ArraySectionIndex
 			{
 				get { return (_SubArray); }
 				set
 				{
-					if (value >= Array.SubArrayCount)
-						throw new InvalidOperationException("sub-array index out of bounds");
+					if (value >= Array.ArraySectionsCount)
+						throw new InvalidOperationException("array section index out of bounds");
 					_SubArray = value;
 				}
 			}
@@ -180,7 +180,7 @@ namespace OpenGL
 				throw new ArgumentNullException("bufferObject");
 			if (bufferObject.ItemCount == 0)
 				throw new ArgumentException("zero items", "bufferObject");
-			if (fieldIndex >= bufferObject.SubArrayCount)
+			if (fieldIndex >= bufferObject.ArraySectionsCount)
 				throw new ArgumentException("out of bounds", "fieldIndex");
 
 			// Map buffer object with input name
@@ -192,8 +192,8 @@ namespace OpenGL
 				_VertexArrays[String.Format("{0}.{1}", blockName, inputName)].Array.IncRef();
 			}
 
-			// Set sub-array!
-			_VertexArrays[inputName].SubArray = fieldIndex;
+			// Set array section index!
+			_VertexArrays[inputName].ArraySectionIndex = fieldIndex;
 
 			// Compute the actual vertex array length
 			UpdateVertexArrayLength();
@@ -225,7 +225,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="semantic"></param>
 		/// <returns></returns>
-		public ArrayBufferObject GetArray(string semantic)
+		public ArrayBufferObjectBase GetArray(string semantic)
 		{
 			if (semantic == null)
 				throw new ArgumentNullException("semantic");
@@ -323,7 +323,7 @@ namespace OpenGL
 		/// <summary>
 		/// A collection of indices reference input arrays.
 		/// </summary>
-		protected internal class AttributeElements
+		protected class AttributeElements
 		{
 			/// <summary>
 			/// Specify how all elements shall be drawn.
@@ -483,11 +483,13 @@ namespace OpenGL
 		/// <summary>
 		/// Collection of elements for drawing arrays.
 		/// </summary>
-		protected internal readonly List<AttributeElements> Elements = new List<AttributeElements>();
+		protected readonly List<AttributeElements> Elements = new List<AttributeElements>();
 
 		#endregion
 
-		#region Normal Generation
+#if false
+
+#region Normal Generation
 
 		/// <summary>
 		/// Generate normal array for this vertex array.
@@ -519,7 +521,7 @@ namespace OpenGL
 			if (positionArray == null)
 				throw new InvalidOperationException("no position semantic");
 
-			ArrayBufferObject positionBuffer = positionArray.Array;
+			ArrayBufferObjectBase positionBuffer = positionArray.Array;
 
 			if (positionBuffer.ArrayType == ArrayBufferItemType.Float3) {
 				// General normal buffer for this vertex array
@@ -567,9 +569,9 @@ namespace OpenGL
 				normalBuffer.Create(positionArray.ItemCount);
 
 				for (uint i = 0; i < positionArray.ItemCount; i += 3) {
-					Vertex3f p0 = positionArray.GetData<Vertex3f>(i + 0);
-					Vertex3f p1 = positionArray.GetData<Vertex3f>(i + 1);
-					Vertex3f p2 = positionArray.GetData<Vertex3f>(i + 2);
+					Vertex3f p0 = positionArray.GetClientData<Vertex3f>(i + 0);
+					Vertex3f p1 = positionArray.GetClientData<Vertex3f>(i + 1);
+					Vertex3f p2 = positionArray.GetClientData<Vertex3f>(i + 2);
 
 					Vertex3f normal = (p1 - p0) ^ (p2 - p0);
 
@@ -671,9 +673,9 @@ namespace OpenGL
 					uint p1Index = positionIndices[positionIndicesOffset + i + 1 * positionIndicesStride];
 					uint p2Index = positionIndices[positionIndicesOffset + i + 2 * positionIndicesStride];
 
-					Vertex3f p0 = positionArray.GetData<Vertex3f>(p0Index);
-					Vertex3f p1 = positionArray.GetData<Vertex3f>(p1Index);
-					Vertex3f p2 = positionArray.GetData<Vertex3f>(p2Index);
+					Vertex3f p0 = positionArray.GetClientData<Vertex3f>(p0Index);
+					Vertex3f p1 = positionArray.GetClientData<Vertex3f>(p1Index);
+					Vertex3f p2 = positionArray.GetClientData<Vertex3f>(p2Index);
 
 					Vertex3f normal = (p1 - p0) ^ (p2 - p0);
 
@@ -784,9 +786,9 @@ namespace OpenGL
 					uint p1Index = positionIndices[positionIndicesOffset + i + 1 * positionIndicesStride];
 					uint p2Index = positionIndices[positionIndicesOffset + i + 2 * positionIndicesStride];
 
-					Vertex3f p0 = positionArray.GetData<Vertex3f>(p0Index);
-					Vertex3f p1 = positionArray.GetData<Vertex3f>(p1Index);
-					Vertex3f p2 = positionArray.GetData<Vertex3f>(p2Index);
+					Vertex3f p0 = positionArray.GetClientData<Vertex3f>(p0Index);
+					Vertex3f p1 = positionArray.GetClientData<Vertex3f>(p1Index);
+					Vertex3f p2 = positionArray.GetClientData<Vertex3f>(p2Index);
 
 					Vertex3f normal = (p1 - p0) ^ (p2 - p0);
 
@@ -814,9 +816,11 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region Vertex Array Application
+#endif
+
+#region Vertex Array Application
 
 		/// <summary>
 		/// Render this vertex array.
@@ -843,7 +847,7 @@ namespace OpenGL
 				throw new InvalidOperationException("no elements defined");
 
 			// Set vertex arrays
-			SetShaderProgramAttributes(ctx, shader);
+			SetVertexArrayState(ctx, shader);
 			
 			// Issue rendering using shader
 			foreach (AttributeElements attributeElements in Elements) {
@@ -854,7 +858,7 @@ namespace OpenGL
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.Begin(ctx, attributeElements.ElementsMode);
 				
-				RenderAttributeElement(ctx, attributeElements);
+				DrawAttributeElement(ctx, attributeElements);
 				
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.End(ctx);
@@ -862,7 +866,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Bind the vertex arrays to the shader program.
+		/// Set the vertex arrays state for the shader program.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> on which the shader program is bound.
@@ -870,22 +874,18 @@ namespace OpenGL
 		/// <param name="shaderProgram">
 		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
 		/// </param>
-		protected void SetShaderProgramAttributes(GraphicsContext ctx, ShaderProgram shaderProgram)
+		protected void SetVertexArrayState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent)
+				throw new ArgumentException("not current", "ctx");
+
 			// Short path?
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty && _VertexArrayObjectName != InvalidObjectName) {
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty && ObjectName != InvalidObjectName) {
 				// Bind this vertex array
-				Gl.BindVertexArray(_VertexArrayObjectName);
+				Gl.BindVertexArray(ObjectName);
 				return;
-			}
-
-			// Reset vertex array state
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && _VertexArrayDirty) {
-				if (_VertexArrayObjectName != InvalidObjectName)
-					Gl.DeleteVertexArrays(_VertexArrayObjectName);
-
-				_VertexArrayObjectName = Gl.GenVertexArray();
-				Gl.BindVertexArray(_VertexArrayObjectName);
 			}
 
 			foreach (string inputName in shaderProgram.ActiveAttributes) {
@@ -905,10 +905,15 @@ namespace OpenGL
 				if (shaderVertexArray == null)
 					continue;
 
+				// Bind the array buffer object
 				shaderVertexArray.Array.Bind(ctx);
 
-				// A single array buffer object could contains multiple sub-array
-				ArrayBufferObject.SubArrayBuffer subArrayBuffer = shaderVertexArray.Array.GetSubArrayInfo(shaderVertexArray.SubArray);
+				// Select the array section to point
+				ArrayBufferObjectBase.IArraySection arraySection = shaderVertexArray.Array.GetArraySection(shaderVertexArray.ArraySectionIndex);
+				int arrayBaseType = (int)ArrayBufferItem.GetArrayBaseType(arraySection.ItemType);
+				int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+				int arrayStride = arraySection.Stride.ToInt32();
+				
 				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(inputName);
 
 				// Bind varying attribute to currently bound buffer object
@@ -916,23 +921,23 @@ namespace OpenGL
 					case VertexBaseType.Float:
 						Gl.VertexAttribPointer(
 							attributeBinding.Location,
-							(int) subArrayBuffer.ArrayLength, (int) subArrayBuffer.BaseType, subArrayBuffer.Normalized,
-							(int) subArrayBuffer.ArrayStride, subArrayBuffer.ArrayOffset.ToInt32()
-							);
+							arrayLength, arrayBaseType, arraySection.Normalized,
+							arrayStride, arraySection.Offset
+						);
 						break;
 					case VertexBaseType.Int:
 					case VertexBaseType.UInt:
 						Gl.VertexAttribIPointer(
 							attributeBinding.Location,
-							(int) subArrayBuffer.ArrayLength, (int) subArrayBuffer.BaseType,
-							(int) subArrayBuffer.ArrayStride, subArrayBuffer.ArrayOffset
+							arrayLength, arrayBaseType,
+							arrayStride, arraySection.Offset
 							);
 						break;
 					case VertexBaseType.Double:
 						Gl.VertexAttribLPointer(
 							attributeBinding.Location,
-							(int) subArrayBuffer.ArrayLength, (int) subArrayBuffer.BaseType,
-							(int) subArrayBuffer.ArrayStride, subArrayBuffer.ArrayOffset
+							arrayLength, arrayBaseType,
+							arrayStride, arraySection.Offset
 							);
 						break;
 				}
@@ -957,7 +962,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
 		/// </exception>
-		protected void RenderAttributeElement(GraphicsContext ctx, AttributeElements attributeElement)
+		protected void DrawAttributeElement(GraphicsContext ctx, AttributeElements attributeElement)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -984,7 +989,7 @@ namespace OpenGL
 
 				Debug.Assert(count - attributeElement.ElementOffset <= elementIndices.ItemCount, "element indices array out of bounds");
 
-				// Element array must be bound
+				// Element array must be (re)bound
 				elementIndices.Bind(ctx);
 				// Enable restart primitive?
 				if (elementIndices.RestartIndexEnabled)
@@ -1058,14 +1063,9 @@ namespace OpenGL
 		/// </summary>
 		private bool _VertexArrayDirty = true;
 
-		/// <summary>
-		/// The actual vertex array object.
-		/// </summary>
-		private uint _VertexArrayObjectName = InvalidObjectName;
-
-		#endregion
+#endregion
 	
-		#region Transform Feedback
+#region Transform Feedback
 		
 		public void SetTransformFeedback(FeedbackBufferObject feedbackObject)
 		{
@@ -1085,9 +1085,9 @@ namespace OpenGL
 	
 		private FeedbackBufferObject _FeedbackBuffer;
 		
-		#endregion
+#endregion
 
-		#region GraphicsResource Overrides
+#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Vertex array object class.
@@ -1132,7 +1132,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (true);
+			return (!RequiresName(ctx) || Gl.IsVertexArray(ObjectName));
 		}
 
 		/// <summary>
@@ -1146,29 +1146,111 @@ namespace OpenGL
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (false);
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
 		}
 
 		/// <summary>
-		/// Actually create this GraphicsResource resources.
+		/// Create a BufferObject name.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this buffer object name.
+		/// </param>
+		/// <returns>
+		/// It returns a valid object name for this BufferObject.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		protected override uint CreateName(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current");
+
+			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+
+			return (Gl.GenVertexArray());
+		}
+
+		/// <summary>
+		/// Delete a BufferObject name.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for deleting this buffer object name.
+		/// </param>
+		/// <param name="name">
+		/// A <see cref="UInt32"/> that specify the object name to delete.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject does not exist.
+		/// </exception>
+		protected override void DeleteName(GraphicsContext ctx, uint name)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current");
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
+
+			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+
+			// Delete buffer object
+			Gl.DeleteVertexArrays(name);
+		}
+
+		/// <summary>
+		/// Actually create this BufferObject resources.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject has not client memory allocated and the hint is different from
+		/// <see cref="BufferObjectHint.StaticCpuDraw"/> or <see cref="BufferObjectHint.DynamicCpuDraw"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is currently mapped.
+		/// </exception>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current", "ctx");
+
 			// Validate vertex array object
 			Validate();
 
 			// Create vertex arrays
-			foreach (VertexArray inputArray in _VertexArrays.Values) {
-				if (inputArray.Array.Exists(ctx) == false)
-					inputArray.Array.Create(ctx);
+			foreach (VertexArray vertexArray in _VertexArrays.Values) {
+				if (vertexArray.Array.Exists(ctx) == false)
+					vertexArray.Array.Create(ctx);
 			}
-			// Create element array
-			foreach (AttributeElements attributeElements in Elements) {
-				if (attributeElements.ArrayIndices != null && !attributeElements.ArrayIndices.Exists(ctx))
-					attributeElements.ArrayIndices.Create(ctx);	
+
+			// Create element arrays
+			foreach (AttributeElements element in Elements) {
+				if (element.ArrayIndices != null && !element.ArrayIndices.Exists(ctx))
+					element.ArrayIndices.Create(ctx);	
 			}
 		
 			if (_FeedbackBuffer != null)
@@ -1195,6 +1277,6 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+#endregion
 	}
 }

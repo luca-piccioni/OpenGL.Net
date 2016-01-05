@@ -75,8 +75,10 @@ namespace OpenGL
 		{
 			get
 			{
-				if ((MemoryBuffer == null) || (MemoryBuffer.AlignedBuffer == IntPtr.Zero))
-					throw new InvalidOperationException("not defined");
+				IntPtr clientBufferAddress = ClientBufferAddress;
+
+				if (clientBufferAddress == IntPtr.Zero)
+					throw new InvalidOperationException("no client buffer");
 				if (index >= ItemCount)
 					throw new ArgumentException("index out of bounds", "index");
 
@@ -96,14 +98,16 @@ namespace OpenGL
 						throw new InvalidOperationException("invalid item type " + ItemType);
 				}
 
-				IConvertible value = (IConvertible) Marshal.PtrToStructure(new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + (index * ItemSize)), structType);
+				IConvertible value = (IConvertible) Marshal.PtrToStructure(new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), structType);
 
 				return (value.ToUInt32(NumberFormatInfo.InvariantInfo));
 			}
 			set
 			{
-				if ((MemoryBuffer == null) || (MemoryBuffer.AlignedBuffer == IntPtr.Zero))
-					throw new InvalidOperationException("not defined");
+				IntPtr clientBufferAddress = ClientBufferAddress;
+
+				if (clientBufferAddress == IntPtr.Zero)
+					throw new InvalidOperationException("no client buffer");
 				if (index >= ItemCount)
 					throw new ArgumentException("index out of bounds", "index");
 
@@ -123,7 +127,7 @@ namespace OpenGL
 						throw new InvalidOperationException("invalid item type " + ItemType);
 				}
 
-				Marshal.StructureToPtr(convertedValue, new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + (index * ItemSize)), false);
+				Marshal.StructureToPtr(convertedValue, new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), false);
 			}
 		}
 
@@ -186,6 +190,11 @@ namespace OpenGL
 		/// </returns>
 		public T[] ToArray<T>(uint arrayLength) where T : struct
 		{
+			IntPtr clientBufferAddress = ClientBufferAddress;
+
+			if (clientBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
+
 			T[] array = new T[ItemCount];
 			uint sizeOfType = (uint)Marshal.SizeOf(typeof(T));
 
@@ -193,7 +202,7 @@ namespace OpenGL
 				throw new InvalidOperationException(String.Format("size of {0}[{1}] greater than array buffer", GetType(), arrayLength));
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(array, MemoryBuffer.AlignedBuffer, arrayLength * sizeOfType);
+			Memory.MemoryCopy(array, clientBufferAddress, arrayLength * sizeOfType);
 
 			return (array);
 		}
@@ -225,7 +234,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			return (ctx.Caps.GlExtensions.VertexBufferObject_ARB);
 		}
 
 		#endregion
@@ -293,8 +302,8 @@ namespace OpenGL
 				throw new ArgumentNullException("items");
 			if (items.Length == 0)
 				throw new ArgumentException("zero items", "items");
-			if ((BufferHint != BufferObjectHint.StaticCpuDraw) && (BufferHint != BufferObjectHint.DynamicCpuDraw))
-				throw new InvalidOperationException(String.Format("conflicting hint {0}", BufferHint));
+			if ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw))
+				throw new InvalidOperationException(String.Format("conflicting hint {0}", Hint));
 
 			// Store item count
 			mItemCount = (uint)items.Length;
@@ -306,7 +315,7 @@ namespace OpenGL
 			try {
 				unsafe {
 					byte* arrayPtr = (byte*) ppData.AddrOfPinnedObject().ToPointer();
-					byte* dstPtr = (byte*) MemoryBuffer.AlignedBuffer.ToPointer();
+					byte* dstPtr = (byte*) ClientBufferAddress.ToPointer();
 
 					Memory.MemoryCopy(dstPtr, arrayPtr, (uint)items.Length * mItemSize);
 				}

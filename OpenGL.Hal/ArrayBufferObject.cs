@@ -17,15 +17,13 @@
 // USA
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
 	/// <summary>
-	/// Array buffer object.
+	/// Single array buffer object.
 	/// </summary>
 	/// <remarks>
 	/// <para>
@@ -40,7 +38,7 @@ namespace OpenGL
 	/// - <see cref="Interleaved"/>: a boolean flag indicating whether different data types are interleaved regularly in the array.
 	/// </para>
 	/// </remarks>
-	public class ArrayBufferObject : BufferObject
+	public class ArrayBufferObject : ArrayBufferObjectBase, ArrayBufferObjectBase.IArraySection
 	{
 		#region Constructors
 
@@ -56,10 +54,10 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, BufferObjectHint hint)
-			: this(vertexBaseType, vertexLength, 1, hint)
+		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, BufferObjectHint hint) :
+			this(vertexBaseType, vertexLength, 1, hint)
 		{
-			
+
 		}
 
 		/// <summary>
@@ -77,32 +75,10 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, BufferObjectHint hint)
-			: base(BufferTargetARB.ArrayBuffer, hint)
+		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, BufferObjectHint hint) :
+			this(ArrayBufferItem.GetArrayType(vertexBaseType, vertexLength, vertexRank), hint)
 		{
-			try {
-				if (vertexBaseType == VertexBaseType.Undefined)
-					throw new ArgumentException("invalid base type", "vertexBaseType");
-				if (vertexLength < 1 || vertexLength > 4)
-					throw new ArgumentOutOfRangeException("vertexLength", vertexLength, "it must be in the range [1..4]");
-				if (vertexRank < 1 || vertexRank > 4)
-					throw new ArgumentOutOfRangeException("vertexRank", vertexRank, "it must be in the range [1..4]");
-
-				// Store GPU array type
-				_ArrayType = ArrayBufferItem.GetArrayType(vertexBaseType, vertexLength, vertexRank);
-				Debug.Assert(_ArrayType != ArrayBufferItemType.Complex);
-				// Store base type
-				_ArrayBaseType = vertexBaseType;
-				// Determine array item size
-				_ItemSize = ArrayBufferItem.GetArrayItemSize(vertexBaseType) * vertexLength * vertexRank;
-
-				SubArrays = new List<SubArrayBuffer>(1);
-				SubArrays.Add(new SubArrayBuffer(_ArrayBaseType, vertexLength));
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
+			
 		}
 
 		/// <summary>
@@ -114,20 +90,14 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(ArrayBufferItemType format, BufferObjectHint hint)
-			: base(BufferTargetARB.ArrayBuffer, hint)
+		public ArrayBufferObject(ArrayBufferItemType format, BufferObjectHint hint) :
+			base(hint)
 		{
 			try {
 				// Store array type
 				_ArrayType = format;
-				// Determine base type and item size, if possible
-				if (format != ArrayBufferItemType.Complex) {
-					_ArrayBaseType = ArrayBufferItem.GetArrayBaseType(format);
-					_ItemSize = ArrayBufferItem.GetArrayItemSize(format);
-
-					SubArrays = new List<SubArrayBuffer>(1);
-					SubArrays.Add(new SubArrayBuffer(format));
-				}
+				// Determine array item size
+				ItemSize = ArrayBufferItem.GetArrayItemSize(format);
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -145,65 +115,15 @@ namespace OpenGL
 		public ArrayBufferItemType ArrayType { get { return (_ArrayType); } }
 
 		/// <summary>
-		/// The array buffer object element base type.
-		/// </summary>
-		public VertexBaseType ArrayBaseType { get { return (_ArrayBaseType); } }
-
-		/// <summary>
-		/// Array buffer object items count.
-		/// </summary>
-		public uint ItemCount
-		{
-			get { return (_ItemCount); }
-			protected set { _ItemCount = value; }
-		}
-
-		/// <summary>
-		/// Array buffer object items size, in bytes.
-		/// </summary>
-		public uint ItemSize
-		{
-			get { return (_ItemSize); }
-			protected set { _ItemSize = value; }
-		}
-
-		/// <summary>
-		/// Array buffer is interleaved.
-		/// </summary>
-		public bool Interleaved
-		{
-			get { return (_Interleaved); }
-			protected set { _Interleaved = value; }
-		}
-
-		/// <summary>
 		/// The array buffer object element type.
 		/// </summary>
 		private readonly ArrayBufferItemType _ArrayType;
 
-		/// <summary>
-		/// The array buffer object element base type.
-		/// </summary>
-		private readonly VertexBaseType _ArrayBaseType = VertexBaseType.Undefined;
-
-		/// <summary>
-		/// Array buffer object items count.
-		/// </summary>
-		private uint _ItemCount;
-
-		/// <summary>
-		/// Data item size, in basic machine units (bytes).
-		/// </summary>
-		private uint _ItemSize;
-
-		/// <summary>
-		/// Array buffer is interleaved.
-		/// </summary>
-		private bool _Interleaved;
-
 		#endregion
 
-		#region Array Buffer Data Definition
+		#region Create
+
+		#region Create(uint itemsCount)
 
 		/// <summary>
 		/// Create this ArrayBufferObject by specifing only the number of items.
@@ -213,7 +133,7 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// <para>
-		/// Client memory is always allocated.
+		/// Previous content of the client buffer is discarded.
 		/// </para>
 		/// </remarks>
 		/// <exception cref="ArgumentException">
@@ -224,11 +144,13 @@ namespace OpenGL
 			if (itemsCount == 0)
 				throw new ArgumentException("invalid", "itemsCount");
 
-			// Store item count
-			ItemCount = itemsCount;
 			// Allocate buffer
-			Allocate(ItemCount * ItemSize);
+			Allocate(itemsCount * ItemSize);
 		}
+
+		#endregion
+
+		#region Create(GraphicsContext ctx, uint itemsCount)
 
 		/// <summary>
 		/// Create this ArrayBufferObject by specifing only the number of items.
@@ -241,25 +163,427 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// <para>
-		/// Client memory is allocated only if <see cref="BufferObject.BufferHint"/> if different from
-		/// <see cref=""/>.
+		/// Previous content of the client buffer is discarded, if any was defined.
 		/// </para>
 		/// </remarks>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="itemsCount"/> is zero.
+		/// </exception>
 		public void Create(GraphicsContext ctx, uint itemsCount)
 		{
-			if (Exists(ctx)) {
-				if (MemoryBuffer != null)
-					MemoryBuffer.Realloc(itemsCount * ItemSize);
-				ItemCount = itemsCount;
-			} else {
-				Create(itemsCount);
-				Create(ctx);
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (itemsCount == 0)
+				throw new ArgumentException("invalid", "itemsCount");
+
+			// Object already existing: resize client buffer, if any
+			if (ClientBufferAddress != IntPtr.Zero)
+				Allocate(itemsCount * ItemSize);
+			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
+			ClientBufferSize = itemsCount * ItemSize;
+			// Allocate object
+			Create(ctx);
+		}
+
+		#endregion
+
+		#region Create(Array array, uint offset, uint count)
+
+		/// <summary>
+		/// Copy data from any source supported.
+		/// </summary>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
+		/// </exception>
+		public void Create(Array array)
+		{
+			Create(array, 0, (uint)array.Length);
+		}
+
+		/// <summary>
+		/// Copy data from any source supported.
+		/// </summary>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="count"/> let exceed the array boundaries.
+		/// </exception>
+		public void Create(Array array, uint count)
+		{
+			Create(array, 0, count);
+		}
+
+		/// <summary>
+		/// Copy data from any source supported.
+		/// </summary>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="offset"/> or <paramref name="count"/> let exceed the array boundaries.
+		/// </exception>
+		public void Create(Array array, uint offset, uint count)
+		{
+			if (array == null)
+				throw new ArgumentNullException("array");
+			if (array.Rank != 1)
+				throw new ArgumentException(String.Format("copying from array of rank {0} not supported", array.Rank));
+			if (count == 0)
+				return;
+
+			Type arrayElementType = array.GetType().GetElementType();
+			if (arrayElementType == null || !arrayElementType.IsValueType)
+				throw new ArgumentException("invalid array element type", "array");
+
+			// The base type should be corresponding
+			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
+			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(arrayElementVertexType))
+				throw new ArgumentException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, ArrayBufferItem.GetArrayBaseType(_ArrayType)), "array");
+
+			// Array element item size cannot exceed ItemSize
+			uint arrayItemSize = ArrayBufferItem.GetArrayItemSize(arrayElementVertexType);
+			if (arrayItemSize > ItemSize)
+				throw new ArgumentException("array element type too big", "array");
+
+			// Ensure that ClientBufferSize returns the correct client buffer size
+			ClientBufferSize = 0;
+			// Memory buffer shall be able to contains all data
+			if (ClientBufferSize < ItemSize * count)
+				Allocate(ItemSize * count);
+
+			// Copy on buffer
+			CopyArray(ClientBufferAddress, array, arrayItemSize, offset, count);
+		}
+
+		#endregion
+
+		#region Create(GraphicsContext ctx, Array array, uint offset, uint count)
+
+		/// <summary>
+		/// Copy data from any source supported, uploading data.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// </param>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
+		/// </exception>
+		public void Create(GraphicsContext ctx, Array array)
+		{
+			Create(ctx, array, 0, (uint)array.Length);
+		}
+
+		/// <summary>
+		/// Copy data from any source supported, uploading data.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// </param>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="count"/> let exceed the array boundaries.
+		/// </exception>
+		public void Create(GraphicsContext ctx, Array array, uint count)
+		{
+			Create(ctx, array, 0, count);
+		}
+
+		/// <summary>
+		/// Copy data from any source supported, uploading data.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// </param>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="offset"/> or <paramref name="count"/> let exceed the array boundaries.
+		/// </exception>
+		public void Create(GraphicsContext ctx, Array array, uint offset, uint count)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current", "ctx");
+			if (array == null)
+				throw new ArgumentNullException("array");
+			if (array.Rank != 1)
+				throw new ArgumentException(String.Format("copying from array of rank {0} not supported", array.Rank));
+			if (count == 0)
+				return;
+
+			Type arrayElementType = array.GetType().GetElementType();
+			if (arrayElementType == null || !arrayElementType.IsValueType)
+				throw new ArgumentException("invalid array element type", "array");
+
+			// The base type should be corresponding
+			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
+			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(arrayElementVertexType))
+				throw new ArgumentException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, ArrayBufferItem.GetArrayBaseType(_ArrayType)), "array");
+
+			// Array element item size cannot exceed ItemSize
+			uint arrayItemSize = ArrayBufferItem.GetArrayItemSize(arrayElementVertexType);
+			if (arrayItemSize > ItemSize)
+				throw new ArgumentException("array element type too big", "array");
+
+			// Ensure enought buffer
+			Create(ctx, count);
+			// Copy data mapping GPU buffer
+			Map(ctx, BufferAccessARB.WriteOnly);
+			try {
+				// Copy on buffer
+				CopyArray(MappedBuffer, array, arrayItemSize, offset, count);
+			} finally {
+				Unmap(ctx);
 			}
 		}
 
 		#endregion
 
-		#region Array Buffer Data Access
+		/// <summary>
+		/// Copy to pinned memory the items defined by an array, item by item, respecting item strides.
+		/// </summary>
+		/// <param name="dst">
+		/// The <see cref="IntPtr"/> that specify the destination memory where copy to.
+		/// </param>
+		/// <param name="src">
+		/// The <see cref="Array"/> that specify the source data to be copied.
+		/// </param>
+		/// <param name="srcItemSize">
+		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="src"/>.
+		/// </param>
+		/// <param name="srcOffset">
+		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// </param>
+		/// <param name="srcCount">
+		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="src"/> must be copied.
+		/// </param>
+		private void CopyArray(IntPtr dst, Array src, uint srcItemSize, uint srcOffset, uint srcCount)
+		{
+			if (dst == IntPtr.Zero)
+				throw new ArgumentException("invalid pointer", "dst");
+			if (src == null)
+				throw new ArgumentNullException("src");
+			if (srcItemSize > ItemSize)
+				throw new ArgumentException("too large", "srcItemSize");
+			if (src.Length < srcCount)
+				throw new ArgumentException("exceed array length", "srcCount");
+			if (src.Length < srcOffset + srcCount)
+				throw new ArgumentException("exceed array length", "srcOffset");
+
+			GCHandle arrayHandle = GCHandle.Alloc(src, GCHandleType.Pinned);
+			try {
+				unsafe
+				{
+					byte* arrayPtr = (byte*)arrayHandle.AddrOfPinnedObject().ToPointer();
+					byte* dstPtr = (byte*)dst.ToPointer();
+
+					// Take into account source offset
+					arrayPtr += srcItemSize * srcOffset;
+
+					if (srcItemSize != ItemSize) {
+						// Respect this ArrayBufferObject item stride
+						for (uint i = 0; i < srcCount; i++, arrayPtr += srcItemSize, dstPtr += ItemSize)
+							Memory.MemoryCopy(dstPtr, arrayPtr, srcItemSize);
+					} else {
+						Memory.MemoryCopy(dstPtr, arrayPtr, srcItemSize * srcCount);
+					}
+				}
+			} finally {
+				arrayHandle.Free();
+			}
+		}
+
+		/// <summary>
+		/// Copy from pinned memory the items defined by an array, item by item, respecting item strides.
+		/// </summary>
+		/// <param name="dst">
+		/// The <see cref="Array"/> that specify the destination memory where copy to.
+		/// </param>
+		/// <param name="src">
+		/// The <see cref="IntPtr"/> that specify the source data to be copied.
+		/// </param>
+		/// <param name="dstItemSize">
+		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="dst"/>.
+		/// </param>
+		/// <param name="dstOffset">
+		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// </param>
+		/// <param name="dstCount">
+		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="dst"/> must be copied.
+		/// </param>
+		private void CopyArray(Array dst, IntPtr src, uint dstItemSize, uint dstOffset, uint dstCount)
+		{
+			if (dst == null)
+				throw new ArgumentNullException("dst");
+			if (src == IntPtr.Zero)
+				throw new ArgumentException("invalid pointer", "src");
+			if (dstItemSize > ItemSize)
+				throw new ArgumentException("too large", "dstItemSize");
+			if (dst.Length < dstCount)
+				throw new ArgumentException("exceed array length", "dstCount");
+			if (dst.Length < dstOffset + dstCount)
+				throw new ArgumentException("exceed array length", "dstOffset");
+
+			GCHandle arrayHandle = GCHandle.Alloc(dst, GCHandleType.Pinned);
+			try {
+				unsafe
+				{
+					byte* arrayPtr = (byte*)arrayHandle.AddrOfPinnedObject().ToPointer();
+					byte* srcPtr = (byte*)src.ToPointer();
+
+					// Take into account destination offset
+					arrayPtr += dstItemSize * dstOffset;
+
+					if (dstItemSize != ItemSize) {
+						// Respect this ArrayBufferObject item stride
+						for (uint i = 0; i < dstCount; i++, arrayPtr += dstItemSize, srcPtr += ItemSize)
+							Memory.MemoryCopy(arrayPtr, srcPtr, dstItemSize);
+					} else {
+						Memory.MemoryCopy(arrayPtr, srcPtr, dstItemSize * dstCount);
+					}
+				}
+			} finally {
+				arrayHandle.Free();
+			}
+		}
+
+		#endregion
+
+		#region Client Buffer Access
 
 		/// <summary>
 		/// Gets data from this ArrayBufferObject.
@@ -282,12 +606,14 @@ namespace OpenGL
 		/// This method differs from <see cref="BufferObject.MapGet{T}(GraphicsContext, long)"/> since it doesn't
 		/// require a GraphicsContext for buffer access.
 		/// </remarks>
-		public T GetData<T>(uint index) where T : struct
+		public T GetClientData<T>(uint index) where T : struct
 		{
-			if (MemoryBuffer == null)
-				throw new InvalidOperationException("no client memory");
+			IntPtr clientBufferAddress = ClientBufferAddress;
 
-			IntPtr bufferPtr = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + index * Marshal.SizeOf(typeof(T)));
+			if (clientBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
+
+			IntPtr bufferPtr = new IntPtr(clientBufferAddress.ToInt64() + index * Marshal.SizeOf(typeof(T)));
 
 			return ((T)Marshal.PtrToStructure(bufferPtr, typeof(T)));
 		}
@@ -313,12 +639,14 @@ namespace OpenGL
 		/// This method differs from <see cref="BufferObject.MapSet{T}(GraphicsContext, long)"/> since it doesn't
 		/// require a GraphicsContext for buffer access.
 		/// </remarks>
-		public void SetData<T>(T value, uint index) where T : struct
+		public void SetClientData<T>(T value, uint index) where T : struct
 		{
-			if (MemoryBuffer == null)
-				throw new InvalidOperationException("no client memory");
+			IntPtr clientBufferAddress = ClientBufferAddress;
 
-			IntPtr bufferPtr = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + index * Marshal.SizeOf(typeof(T)));
+			if (clientBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
+
+			IntPtr bufferPtr = new IntPtr(clientBufferAddress.ToInt64() + index * Marshal.SizeOf(typeof(T)));
 
 			Marshal.StructureToPtr(value, bufferPtr, false);
 		}
@@ -326,6 +654,8 @@ namespace OpenGL
 		#endregion
 
 		#region To Array
+
+		#region ToArray()
 
 		/// <summary>
 		/// Convert this array buffer object in a strongly-typed array.
@@ -335,6 +665,9 @@ namespace OpenGL
 		/// </returns>
 		public Array ToArray()
 		{
+			if (ClientBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
+
 			Array genericArray;
 
 			switch (ArrayType) {
@@ -447,14 +780,18 @@ namespace OpenGL
 					genericArray = new Vertex4hf[ItemCount];
 					break;
 				default:
-					throw new InvalidOperationException(String.Format("array type {0} not supported", ArrayType));
+					throw new NotImplementedException(String.Format("array type {0} not yet implemented", ArrayType));
 			}
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, MemoryBuffer.AlignedBuffer, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, ClientBufferAddress, ItemCount * ItemSize);
 
 			return (genericArray);
 		}
+
+		#endregion
+
+		#region ToArray<T>()
 
 		/// <summary>
 		/// Convert this array buffer object in a strongly-typed array.
@@ -482,201 +819,34 @@ namespace OpenGL
 		/// </returns>
 		public T[] ToArray<T>(uint arrayLength) where T : struct
 		{
-			T[] array = new T[ItemCount];
-			uint sizeOfType = (uint)Marshal.SizeOf(typeof(T));
+			if (arrayLength > ItemCount)
+				throw new ArgumentOutOfRangeException("arrayLength", arrayLength, "cannot exceed items count");
+			if (ClientBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
 
-			if (arrayLength * sizeOfType > ItemCount * ItemSize)
-				throw new InvalidOperationException(String.Format("size of {0}[{1}] greater than array buffer", GetType(), arrayLength));
+			Type arrayElementType = typeof(T);
+			if (arrayElementType == null || !arrayElementType.IsValueType)
+				throw new InvalidOperationException("invalid array element type");
+
+			// The base type should be corresponding
+			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
+			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(arrayElementVertexType))
+				throw new InvalidOperationException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, ArrayBufferItem.GetArrayBaseType(_ArrayType)));
+
+			// Array element item size cannot exceed ItemSize
+			uint arrayItemSize = ArrayBufferItem.GetArrayItemSize(arrayElementVertexType);
+			if (arrayItemSize > ItemSize)
+				throw new ArgumentException("array element type too big", "array");
+
+			T[] array = new T[arrayLength];
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(array, MemoryBuffer.AlignedBuffer, arrayLength * sizeOfType);
+			CopyArray(array, ClientBufferAddress, arrayItemSize, 0, arrayLength);
 
 			return (array);
 		}
 
 		#endregion
-
-		#region Sub-Array Abstraction
-
-		/// <summary>
-		/// Sub-array information.
-		/// </summary>
-		/// <remarks>
-		/// Using this buffer fragmentation, it is possible to define multiple buffers allocated into a single
-		/// one (packing and/or inteleaving).
-		/// </remarks>
-		[DebuggerDisplay("SubArrayBuffer Offset={ArrayOffset} Stride={ArrayStride}")]
-		protected internal class SubArrayBuffer : ArrayBufferItem
-		{
-			public SubArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength)
-				: base(vertexBaseType, vertexLength)
-			{
-				
-			}
-
-			public SubArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank)
-				: base(vertexBaseType, vertexLength, vertexRank)
-			{
-
-			}
-
-			/// <summary>
-			/// Construct an SubArrayBuffer from a <see cref="ArrayBufferItemType"/>.
-			/// </summary>
-			/// <param name="vertexArrayType">
-			/// A <see cref="ArrayBufferItemType"/> that synthetize all informations about a vertex array buffer item.
-			/// </param>
-			public SubArrayBuffer(ArrayBufferItemType vertexArrayType)
-				: base(vertexArrayType)
-			{
-				
-			}
-
-			/// <summary>
-			/// Construct an SubArrayBuffer from a <see cref="ArrayBufferItemAttribute"/>.
-			/// </summary>
-			/// <param name="attribute">
-			/// A <see cref="ArrayBufferItemAttribute"/> describing the vertex array buffer item.
-			/// </param>
-			public SubArrayBuffer(ArrayBufferItemAttribute attribute)
-				: base(attribute)
-			{
-
-			}
-
-			/// <summary>
-			/// The offset for accessing to the sub-array.
-			/// </summary>
-			public IntPtr ArrayOffset;
-
-			/// <summary>
-			/// The stride for accessing to the next sub-array item.
-			/// </summary>
-			public uint ArrayStride;
-		}
-
-		/// <summary>
-		/// Number of vertex streams specified in this ArrayBufferObject.
-		/// </summary>
-		protected internal uint SubArrayCount { get { return ((uint)SubArrays.Count); } }
-
-		/// <summary>
-		/// Information about array buffer vertex stream.
-		/// </summary>
-		internal SubArrayBuffer GetSubArrayInfo(uint streamIndex)
-		{
-			return (SubArrays[(int)streamIndex]);
-		}
-
-		/// <summary>
-		/// Sub-array compositing this ArrayBufferObject.
-		/// </summary>
-		protected List<SubArrayBuffer> SubArrays;
-
-		/// <summary>
-		/// Detect array configuration of an array buffer item.
-		/// </summary>
-		/// <param name="type"></param>
-		/// <param name="interleaved"></param>
-		/// <returns></returns>
-		protected List<SubArrayBuffer> DetectSubArrays(Type type, out bool interleaved)
-		{
-			// Test for simple buffer
-			SubArrayBuffer subarray = DetectSubArray(type);
-			if (subarray != null) {
-				List<SubArrayBuffer> uniqueArray = new List<SubArrayBuffer>(1);
-				uniqueArray.Add(subarray);
-				interleaved = false;
-				return (uniqueArray);
-			}
-
-			// Test for interleaved sub arrays
-			List<SubArrayBuffer> subArrays = DetectInterleavedSubArrays(type);
-			if (subArrays != null) {
-				interleaved = true;
-				return (subArrays);
-			}
-
-			interleaved = false;
-
-			return (null);
-		}
-
-		/// <summary>
-		/// Detect sub-array configuration of a structure (interleaved sub-arrays)
-		/// </summary>
-		/// <param name="type"></param>
-		/// <returns></returns>
-		protected List<SubArrayBuffer> DetectInterleavedSubArrays(Type type)
-		{
-			if (type == null)
-				throw new ArgumentNullException("type");
-
-			FieldInfo[] typeFields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-			if (typeFields.Length == 0)
-				throw new InvalidOperationException(String.Format("type {0} has no public field", type.FullName));
-
-			List<SubArrayBuffer> subArrays = new List<SubArrayBuffer>();
-			uint structStride = (uint)Marshal.SizeOf(type);
-
-			foreach (FieldInfo typeField in typeFields) {
-				SubArrayBuffer subarray = DetectSubArray(typeField.FieldType);
-
-				// Sub-array must have
-				if (subarray == null)
-					throw new InvalidOperationException(String.Format("field {0}.{1} is not a array buffer item", type.FullName, typeField.Name));
-
-				// Determine sub-array offset
-				subarray.ArrayOffset = Marshal.OffsetOf(type, typeField.Name);
-				subarray.ArrayStride = structStride;
-
-				// Collect sub-array
-				subArrays.Add(subarray);
-			}
-
-			return (subArrays);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="type"></param>
-		/// <returns></returns>
-		protected SubArrayBuffer DetectSubArray(Type type)
-		{
-			ArrayBufferItemAttribute itemAttribute = (ArrayBufferItemAttribute)Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
-
-			if (itemAttribute == null) {
-				if (type.IsValueType && type.IsPrimitive) {
-					if      (type == typeof(float))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.Float, 1);
-					else if (type == typeof(double))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.Double, 1);
-					else if (type == typeof(int))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.Int, 1);
-					else if (type == typeof(short))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.Short, 1);
-					else if (type == typeof(uint))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.UInt, 1);
-					else if (type == typeof(ushort))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.UShort, 1);
-					else if (type == typeof(byte))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.UByte, 1);
-					else if (type == typeof(sbyte))
-						itemAttribute = new ArrayBufferItemAttribute(VertexBaseType.Byte, 1);
-					else
-						return (null);
-
-					Debug.Assert(itemAttribute != null);
-
-					return (new SubArrayBuffer(itemAttribute));
-				} else
-					return (null);
-			} else {
-				return (new SubArrayBuffer(itemAttribute));
-			}
-		}
 
 		#endregion
 
@@ -780,343 +950,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Core Copy
-
-		private void CopyCore(IntPtr dst, Array src, uint srcItemSize, uint srcOffset, uint srcCount)
-		{
-			if (dst == IntPtr.Zero)
-				throw new ArgumentException("invalid pointer", "dst");
-			if (src == null)
-				throw new ArgumentNullException("src");
-			if (srcItemSize > ItemSize)
-				throw new ArgumentException("too large", "srcItemSize");
-			if (src.Length < srcCount)
-				throw new ArgumentException("exceed array length", "srcCount");
-			if (src.Length < srcOffset + srcCount)
-				throw new ArgumentException("exceed array length", "srcOffset");
-
-			GCHandle arrayHandle = GCHandle.Alloc(src, GCHandleType.Pinned);
-			try {
-				unsafe
-				{
-					byte* arrayPtr = (byte*)arrayHandle.AddrOfPinnedObject().ToPointer();
-					byte* dstPtr = (byte*)dst.ToPointer();
-
-					// Take into account source offset
-					arrayPtr += srcItemSize * srcOffset;
-
-					if (srcItemSize != ItemSize) {
-						// Respect this ArrayBufferObject item stride
-						for (uint i = 0; i < srcCount; i++, arrayPtr += srcItemSize, dstPtr += ItemSize)
-							Memory.MemoryCopy(dstPtr, arrayPtr, srcItemSize);
-					} else {
-						Memory.MemoryCopy(dstPtr, arrayPtr, srcItemSize * srcCount);
-					}
-				}
-			} finally {
-				arrayHandle.Free();
-			}
-		}
-
-		#endregion
-
-		#region Copy(Array array, uint offset, uint count)
-
-		/// <summary>
-		/// Copy data from any source supported.
-		/// </summary>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		public void Copy(Array array)
-		{
-			Copy(array, 0, (uint)array.Length);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported.
-		/// </summary>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public void Copy(Array array, uint count)
-		{
-			Copy(array, 0, count);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported.
-		/// </summary>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="offset"/> or <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public void Copy(Array array, uint offset, uint count)
-		{
-			if (array == null)
-				throw new ArgumentNullException("array");
-			if (array.Rank != 1)
-				throw new ArgumentException(String.Format("copying from array of rank {0} not supported", array.Rank));
-			if (count == 0)
-				return;
-
-			Type arrayElementType = array.GetType().GetElementType();
-			if (arrayElementType == null || !arrayElementType.IsValueType)
-				throw new ArgumentException("invalid array element type", "array");
-
-			// The base type should be corresponding
-			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
-			if (_ArrayBaseType != ArrayBufferItem.GetArrayBaseType(arrayElementVertexType))
-				throw new ArgumentException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, _ArrayBaseType), "array");
-
-			// Array element item size cannot exceed ItemSize
-			uint arrayItemSize = ArrayBufferItem.GetArrayItemSize(arrayElementVertexType);
-			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", "array");
-
-			// Memory buffer shall be able to contains all data
-			if (MemoryBuffer == null || MemoryBuffer.Size < ItemSize * count)
-				Reallocate(ItemSize * count);
-
-			// Copy on buffer
-			CopyCore(MemoryBuffer.AlignedBuffer, array, arrayItemSize, offset, count);
-		}
-
-		#endregion
-
-		#region Copy(GraphicsContext ctx, Array array, uint offset, uint count)
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		public void Copy(GraphicsContext ctx, Array array)
-		{
-			Copy(ctx, array, 0, (uint)array.Length);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public void Copy(GraphicsContext ctx, Array array, uint count)
-		{
-			Copy(ctx, array, 0, count);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="offset"/> or <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public void Copy(GraphicsContext ctx, Array array, uint offset, uint count)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-			if (array == null)
-				throw new ArgumentNullException("array");
-			if (array.Rank != 1)
-				throw new ArgumentException(String.Format("copying from array of rank {0} not supported", array.Rank));
-			if (count == 0)
-				return;
-
-			Type arrayElementType = array.GetType().GetElementType();
-			if (arrayElementType == null || !arrayElementType.IsValueType)
-				throw new ArgumentException("invalid array element type", "array");
-
-			// The base type should be corresponding
-			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
-			if (_ArrayBaseType != ArrayBufferItem.GetArrayBaseType(arrayElementVertexType))
-				throw new ArgumentException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, _ArrayBaseType), "array");
-
-			// Array element item size cannot exceed ItemSize
-			uint arrayItemSize = ArrayBufferItem.GetArrayItemSize(arrayElementVertexType);
-			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", "array");
-
-			if (Exists(ctx)) {
-				// Reallocate array buffer object, if necessary
-				if (BufferSize < ItemSize * count) {
-					// Update the buffer size
-					BufferSize = ItemSize * count;
-					// Define data on GPU
-					CreateObject(ctx);
-				}
-			} else {
-				// Update the buffer size
-				BufferSize = ItemSize * count;
-				// Create array buffer object, and define data on GPU
-				Create(ctx);
-			}
-
-			// Copy data mapping GPU buffer
-			Map(ctx, BufferAccessARB.WriteOnly);
-			try {
-				// Copy on buffer
-				CopyCore(MappedBuffer, array, arrayItemSize, offset, count);
-			} finally {
-				Unmap(ctx);
-			}
-		}
-
-		#endregion
-
 		#region Copy with Indices
 
 		/// <summary>
@@ -1171,26 +1004,24 @@ namespace OpenGL
 				throw new ArgumentException("invalid", "stride");
 			if (offset + ((count - 1) * stride) > indices.Length)
 				throw new InvalidOperationException("indices out of bounds");
-			if (_ArrayBaseType != buffer._ArrayBaseType)
+			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(buffer._ArrayType))
 				throw new InvalidOperationException("base type mismatch");
 
 			Create(count);
 
 			unsafe {
-				byte* dstPtr = (byte*)MemoryBuffer.AlignedBuffer.ToPointer();
+				byte* dstPtr = (byte*)ClientBufferAddress.ToPointer();
 
 				for (uint i = 0; i < count; i++, dstPtr += ItemSize) {
 					uint arrayIndex = indices[(i * stride) + offset];
 
 					// Position 'srcPtr' to the indexed element
-					byte* srcPtr = ((byte*)buffer.MemoryBuffer.AlignedBuffer.ToPointer()) + (ItemSize * arrayIndex);
+					byte* srcPtr = ((byte*)buffer.ClientBufferAddress.ToPointer()) + (ItemSize * arrayIndex);
 
 					// Copy the 'arrayIndex'th element
 					Memory.MemoryCopy(dstPtr, srcPtr, ItemSize);
 				}
 			}
-
-			ItemCount = count;
 		}
 
 		/// <summary>
@@ -1237,33 +1068,30 @@ namespace OpenGL
 				throw new ArgumentNullException("indices");
 			if (stride == 0)
 				throw new ArgumentException("invalid", "stride");
-
-			if (_ArrayType == ArrayBufferItemType.Complex)
-				throw new InvalidOperationException("complex buffer");
-			if (_ArrayBaseType != buffer._ArrayBaseType)
+			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(buffer._ArrayType))
 				throw new InvalidOperationException("base type mismatch");
 
 			// Allocate array buffer
 			uint minVertices = UInt32.MaxValue, maxVertices = UInt32.MinValue;
 
-			Array.ForEach(vcount, delegate(uint v) {
-          		minVertices = Math.Min(v, minVertices);
+			Array.ForEach(vcount, delegate (uint v) {
+				minVertices = Math.Min(v, minVertices);
 				maxVertices = Math.Max(v, maxVertices);
-          	});
+			});
 
 			if ((minVertices < 3) && (maxVertices >= 3))
 				throw new ArgumentException("ambigous polygons set", "vcount");
 
 			uint totalVerticesCount = 0;
 
-			Array.ForEach(vcount, delegate(uint v) {
+			Array.ForEach(vcount, delegate (uint v) {
 				if (v == 4) {
-          			totalVerticesCount += 6;			// Triangulate quad with two triangles
+					totalVerticesCount += 6;            // Triangulate quad with two triangles
 				} else if (v > 4) {
-					totalVerticesCount += (v - 2) * 3;	// Triangulate as if it is a polygon
+					totalVerticesCount += (v - 2) * 3;  // Triangulate as if it is a polygon
 				} else {
 					Debug.Assert(v == 3);
-					totalVerticesCount += 3;			// Exactly a triangle
+					totalVerticesCount += 3;            // Exactly a triangle
 				}
 			});
 
@@ -1273,7 +1101,7 @@ namespace OpenGL
 			uint count = 0;
 
 			unsafe {
-				byte* dstPtr = (byte*)MemoryBuffer.AlignedBuffer.ToPointer();
+				byte* dstPtr = (byte*)ClientBufferAddress.ToPointer();
 				uint indicesIndex = offset;
 
 				for (uint i = 0; i < vcount.Length; i++) {
@@ -1310,18 +1138,16 @@ namespace OpenGL
 							verticesIndices[j] = indices[indicesIndex];
 					}
 
-					count += (uint) verticesIndices.Length;
+					count += (uint)verticesIndices.Length;
 
 					for (uint j = 0; j < verticesIndices.Length; j++, dstPtr += ItemSize) {
 						// Position 'srcPtr' to the indexed element
-						byte* srcPtr = ((byte*) buffer.MemoryBuffer.AlignedBuffer.ToPointer()) + (ItemSize * verticesIndices[j]);
+						byte* srcPtr = ((byte*)buffer.ClientBufferAddress.ToPointer()) + (ItemSize * verticesIndices[j]);
 						// Copy the 'arrayIndex'th element
 						Memory.MemoryCopy(dstPtr, srcPtr, ItemSize);
 					}
 				}
 			}
-
-			ItemCount = count;
 		}
 
 		/// <summary>
@@ -1334,7 +1160,7 @@ namespace OpenGL
 		{
 			Copy(buffer, indices, count, 0, 1);
 		}
-		
+
 		/// <summary>
 		/// Copy from an ArrayBufferObject with an indirection defined by an index (polygon tessellation).
 		/// </summary>
@@ -1349,10 +1175,10 @@ namespace OpenGL
 
 			switch (indices.ItemType) {
 				case DrawElementsType.UnsignedByte:
-					indicesArray = Array.ConvertAll<byte, uint>(indices.ToArray<byte>(), delegate(byte item) { return (uint)item; });
+					indicesArray = Array.ConvertAll<byte, uint>(indices.ToArray<byte>(), delegate (byte item) { return (uint)item; });
 					break;
 				case DrawElementsType.UnsignedShort:
-					indicesArray = Array.ConvertAll<ushort, uint>(indices.ToArray<ushort>(), delegate(ushort item) { return (uint)item; });
+					indicesArray = Array.ConvertAll<ushort, uint>(indices.ToArray<ushort>(), delegate (ushort item) { return (uint)item; });
 					break;
 				case DrawElementsType.UnsignedInt:
 					indicesArray = indices.ToArray<uint>();
@@ -1414,7 +1240,7 @@ namespace OpenGL
 		/// </exception>
 		public ArrayBufferObject ConvertItemType(ArrayBufferItemType vertexArrayType)
 		{
-			if (ArrayBaseType != ArrayBufferItem.GetArrayBaseType(vertexArrayType))
+			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(vertexArrayType))
 				throw new ArgumentException("base type mismatch", "vertexArrayType");
 
 			uint componentsCount = ItemCount * ArrayBufferItem.GetArrayLength(ArrayType) * ArrayBufferItem.GetArrayRank(ArrayType);
@@ -1424,45 +1250,65 @@ namespace OpenGL
 			if ((componentsCount % convComponentsCount) != 0)
 				throw new InvalidOperationException("components length incompatibility");
 
-			ArrayBufferObject arrayObject = CreateArrayObject(vertexArrayType, BufferHint);
+			ArrayBufferObject arrayObject = CreateArrayObject(vertexArrayType, Hint);
 
 			// Different item count due different lengths
 			arrayObject.Create(componentsCount / convComponentsCount);
 			// Memory is copied
-			Memory.MemoryCopy(arrayObject.MemoryBuffer.AlignedBuffer, MemoryBuffer.AlignedBuffer, MemoryBuffer.Size);
+			Memory.MemoryCopy(arrayObject.ClientBufferAddress, ClientBufferAddress, ClientBufferSize);
 
 			return (arrayObject);
 		}
 
 		#endregion
 
-		#region BufferObject Overrides
+		#region ArrayBufferObjectBase Overrides
 
 		/// <summary>
-		/// Determine whether this object requires a name bound to a context or not.
+		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		protected internal override uint ArraySectionsCount { get { return (1); } }
+
+		/// <summary>
+		/// Get the specified section information.
+		/// </summary>
+		/// <param name="index">
+		/// The <see cref="UInt32"/> that specify the array section index.
 		/// </param>
 		/// <returns>
-		/// <para>
-		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
-		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
-		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
-		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
-		/// name is generated automatically in a context-independent manner.
-		/// </para>
-		/// <para>
-		/// This implementation check the GL_ARB_vertex_array_object extension availability.
-		/// </para>
+		/// It returns the <see cref="IArraySection"/> defining the array section.
 		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx)
+		protected internal override IArraySection GetArraySection(uint index)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			if (index != 0)
+				throw new ArgumentOutOfRangeException("different from 0", index, "index");
 
-			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			return (this);
 		}
+
+		#endregion
+
+		#region ArrayBufferObjectBase.IArraySection Implementation
+
+		/// <summary>
+		/// The type of the elements of the array section.
+		/// </summary>
+		ArrayBufferItemType IArraySection.ItemType { get { return (ArrayType); } }
+
+		/// <summary>
+		/// Get whether the array elements should be meant normalized (fixed point precision values).
+		/// </summary>
+		bool IArraySection.Normalized { get { return (false); } }
+
+		/// <summary>
+		/// Offset of the first element of the array section, in bytes.
+		/// </summary>
+		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
+
+		/// <summary>
+		/// Offset between two element of the array section, in bytes.
+		/// </summary>
+		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
 
 		#endregion
 	}
@@ -1487,19 +1333,7 @@ namespace OpenGL
 		public ArrayBufferObject(BufferObjectHint hint)
 			: base(ArrayBufferItem.GetArrayType(typeof(T)), hint)
 		{
-			try {
-				bool interleaved;
-
-				// Determine basic type information
-				SubArrays = DetectSubArrays(typeof (T), out interleaved);
-				// The item is represented by 'T'
-				ItemSize = (uint)Marshal.SizeOf(typeof (T));
-				Interleaved = interleaved;
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
+			
 		}
 
 		#endregion
@@ -1518,13 +1352,13 @@ namespace OpenGL
 				throw new ArgumentNullException("items");
 			if (items.Length == 0)
 				throw new ArgumentException("zero items", "items");
-			if ((BufferHint != BufferObjectHint.StaticCpuDraw) && (BufferHint != BufferObjectHint.DynamicCpuDraw))
-				throw new InvalidOperationException(String.Format("conflicting hint {0}", BufferHint));
+			if ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw))
+				throw new InvalidOperationException(String.Format("conflicting hint {0}", Hint));
 
 			// Store item count
 			Create((uint)items.Length);
 			// Copy the buffer
-			Memory.MemoryCopy(MemoryBuffer.AlignedBuffer, items, ItemCount * ItemSize);
+			Memory.MemoryCopy(ClientBufferAddress, items, ItemCount * ItemSize);
 		}
 
 		#endregion
@@ -1540,21 +1374,25 @@ namespace OpenGL
 		{
 			get
 			{
-				if ((MemoryBuffer == null) || (MemoryBuffer.AlignedBuffer == IntPtr.Zero))
-					throw new InvalidOperationException("not defined");
+				IntPtr clientBufferAddress = ClientBufferAddress;
+
+				if (clientBufferAddress == IntPtr.Zero)
+					throw new InvalidOperationException("no client buffer");
 				if (index >= ItemCount)
 					throw new ArgumentException("index out of bounds", "index");
 
-				return ((T) Marshal.PtrToStructure(new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + (index * ItemSize)), typeof(T)));
+				return ((T) Marshal.PtrToStructure(new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), typeof(T)));
 			}
 			set
 			{
-				if ((MemoryBuffer == null) || (MemoryBuffer.AlignedBuffer == IntPtr.Zero))
-					throw new InvalidOperationException("not defined");
+				IntPtr clientBufferAddress = ClientBufferAddress;
+
+				if (clientBufferAddress == IntPtr.Zero)
+					throw new InvalidOperationException("no client buffer");
 				if (index >= ItemCount)
 					throw new ArgumentException("index out of bounds", "index");
 
-				Marshal.StructureToPtr(value, new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + (index * ItemSize)), false);
+				Marshal.StructureToPtr(value, new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), false);
 			}
 		}
 
@@ -1568,10 +1406,15 @@ namespace OpenGL
 		/// <returns></returns>
 		public new T[] ToArray()
 		{
+			IntPtr clientBufferAddress = ClientBufferAddress;
+
+			if (clientBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
+
 			T[] array = new T[ItemCount];
 
 			// Copy the buffer
-			Memory.MemoryCopy(array, MemoryBuffer.AlignedBuffer, ItemCount * ItemSize);
+			Memory.MemoryCopy(array, clientBufferAddress, ItemCount * ItemSize);
 
 			return (array);
 		}
@@ -1668,197 +1511,14 @@ namespace OpenGL
 			// Join buffers into a single one
 			bufferSize = 0;
 			for (int i = 0; i < buffers.Length; i++) {
-				IntPtr src = buffers[i].MemoryBuffer.AlignedBuffer;
-				IntPtr dst = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + bufferSize);
+				IntPtr src = buffers[i].ClientBufferAddress;
+				IntPtr dst = new IntPtr(ClientBufferAddress.ToInt64() + bufferSize);
 
 				// Copy 'i'th buffer content
 				Memory.MemoryCopy(dst, src, buffers[i].BufferSize);
 				// Next buffer offset
 				bufferSize += buffers[i].BufferSize;
 			}
-
-			// Item count is the sum of the items found in 'buffers'
-			ItemCount = itemCount;
-		}
-
-		#endregion
-	}
-
-	/// <summary>
-	/// An packed or interleaved set of buffer objects.
-	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// 
-	/// </para>
-	/// </remarks>
-	public abstract class ComplexArrayBufferObject : ArrayBufferObject
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Construct an ArrayBufferObject.
-		/// </summary>
-		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
-		/// </param>
-		public ComplexArrayBufferObject(BufferObjectHint hint)
-			: base(ArrayBufferItemType.Complex, hint)
-		{
-			ItemSize = 0;
-			ItemCount = 0;
-		}
-
-		#endregion
-
-		#region Packing & Interleaving
-
-		/// <summary>
-		/// Pack a set of buffers.
-		/// </summary>
-		/// <param name="buffers">
-		/// An array of <see cref="ArrayBufferObject"/> instances to be packed sequentially on this ArrayBufferObject.
-		/// </param>
-		/// <remarks>
-		/// Each buffer specified in <paramref name="buffers"/> will be copied into this ArrayBufferObject as sub-array.
-		/// The order of sub-arrays is defined by the order of the ArrayBufferObject instances in <paramref name="buffers"/>.
-		/// </remarks>
-		public void Pack(params ArrayBufferObject[] buffers)
-		{
-			if (buffers == null)
-				throw new ArgumentNullException("buffers");
-			if (buffers.Length <= 1)
-				throw new ArgumentException("not enought buffers", "buffers");
-
-			// Collect buffer statistics
-			uint bufferOffset = 0;
-			uint bufferSize = 0, bufferItemsCount = buffers[0].ItemCount, bufferItemSize = 0;
-
-			for (int i = 0; i < buffers.Length; i++) {
-				if (buffers[i] == null)
-					throw new ArgumentNullException("buffers["+i+"]");
-				if (buffers[i].ItemCount != bufferItemsCount)
-					throw new ArgumentException("items count mismatch", "buffers["+i+"]");
-				if (buffers[i].Interleaved)
-					throw new ArgumentException("interleaved buffer", "buffers["+i+"]");
-
-				// Determine total buffer size
-				bufferSize += buffers[i].BufferSize;
-				// Determine total item size (not really useful)
-				bufferItemSize += buffers[i].ItemSize;
-			}
-
-			// Define packed buffer layout
-			List<SubArrayBuffer> packedArrays = new List<SubArrayBuffer>();
-
-			for (int i = 0; i < buffers.Length; i++) {
-				SubArrayBuffer sourceArray = buffers[i].GetSubArrayInfo(0);
-				ArrayBufferItemAttribute arrayBufferAttrs = new ArrayBufferItemAttribute(sourceArray.BaseType, sourceArray.ArrayLength);
-				SubArrayBuffer packedArray = new SubArrayBuffer(arrayBufferAttrs);
-
-				packedArray.ArrayOffset = new IntPtr(bufferOffset);
-				packedArrays.Add(packedArray);
-
-				bufferOffset += buffers[i].BufferSize;
-			}
-
-			// Pack data
-			Allocate(bufferSize);
-
-			bufferSize = 0;
-			for (int i = 0; i < buffers.Length; i++) {
-				IntPtr src = new IntPtr(buffers[i].MemoryBuffer.AlignedBuffer.ToInt64());
-				IntPtr dst = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + bufferSize);
-
-				Memory.MemoryCopy(dst, src, buffers[i].BufferSize);
-
-				bufferSize += buffers[i].BufferSize;
-			}
-
-			// Define this packed buffer
-			SubArrays = packedArrays;
-			ItemCount = bufferItemsCount;
-			ItemSize = bufferItemSize;
-			Interleaved = false;
-		}
-
-		/// <summary>
-		/// Interleave a set of buffers.
-		/// </summary>
-		/// <param name="buffers">
-		/// A set of <see cref="ArrayBufferObject"/> which has to be interleaved with each other.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="buffers"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="buffers"/> length is less than two.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if one of the items in <paramref name="buffers"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if one of the items in <paramref name="buffers"/> is already inteleaved.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if not all the items in <paramref name="buffers"/> has the same items count.
-		/// </exception>
-		public void Interleave(params ArrayBufferObject[] buffers)
-		{
-			if (buffers == null)
-				throw new ArgumentNullException("buffers");
-			if (buffers.Length <= 1)
-				throw new ArgumentException("not enought buffers", "buffers");
-
-			// Collect buffer statistics
-			uint itemsCount = buffers[0].ItemCount;
-			uint itemSize = 0;
-			uint[] itemOffset = new uint[buffers.Length];
-
-			for (int i = 0; i < buffers.Length; i++) {
-				if (buffers[i] == null)
-					throw new ArgumentNullException("buffers["+i+"]");
-				if (buffers[i].Interleaved)
-					throw new ArgumentException("interleaved buffer", "buffers["+i+"]");
-				if (buffers[i].ItemCount != itemsCount)
-					throw new ArgumentException("items count mismatch", "buffers["+i+"]");
-
-				// Determine interleaved field offset
-				itemOffset[i] = itemSize;
-				// Collect item size
-				itemSize += buffers[i].ItemSize;
-			}
-
-			// Define interleaved buffer layout
-			List<SubArrayBuffer> interleavedArrays = new List<SubArrayBuffer>();
-
-			for (int i = 0; i < buffers.Length; i++) {
-				SubArrayBuffer sourceArray = buffers[i].GetSubArrayInfo(0);
-				ArrayBufferItemAttribute arrayBufferAttrs = new ArrayBufferItemAttribute(sourceArray.BaseType, sourceArray.ArrayLength);
-				SubArrayBuffer interleavedArray = new SubArrayBuffer(arrayBufferAttrs);
-
-				interleavedArray.ArrayOffset = new IntPtr(itemOffset[i]);
-				interleavedArray.ArrayStride = itemSize;
-
-				interleavedArrays.Add(interleavedArray);
-			}
-
-			// Interleave data
-			Allocate(itemSize * itemsCount);
-
-			for (int i = 0; i < itemsCount; i++) {
-				for (int j = 0; j < buffers.Length; j++) {
-					IntPtr src = new IntPtr(buffers[j].MemoryBuffer.AlignedBuffer.ToInt64() + (buffers[j].ItemSize * i));
-					IntPtr dst = new IntPtr(MemoryBuffer.AlignedBuffer.ToInt64() + (i * itemSize) + interleavedArrays[j].ArrayOffset.ToInt64());
-
-					Memory.MemoryCopy(dst, src, buffers[j].ItemSize);
-				}
-			}
-
-			// Define this interleaved buffer
-			SubArrays = interleavedArrays;
-			ItemCount = itemsCount;
-			Interleaved = true;
 		}
 
 		#endregion

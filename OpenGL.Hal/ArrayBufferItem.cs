@@ -28,29 +28,57 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// 
+		/// Construct an ArrayBufferItem specifying the vertex base type and the array item length.
 		/// </summary>
-		/// <param name="vertexBaseType"></param>
-		/// <param name="vertexLength"></param>
-		public ArrayBufferItem(VertexBaseType vertexBaseType, uint vertexLength)
-			: this(vertexBaseType, vertexLength, 1)
+		/// <param name="vertexBaseType">
+		/// A <see cref="VertexBaseType"/> that specify the basic type of the array item.
+		/// </param>
+		/// <param name="vertexLength">
+		/// A <see cref="UInt32"/> that specify the number of components of the array item.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="vertexBaseType"/> is <see cref="VertexBaseType.Undefined"/>.
+		/// </exception>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if <paramref name="vertexLength"/> is outside the valid range (greater than 0,
+		/// less than or equal to 4).
+		/// </exception>
+		public ArrayBufferItem(VertexBaseType vertexBaseType, uint vertexLength) :
+			this(vertexBaseType, vertexLength, 1)
 		{
 			
 		}
 
 		/// <summary>
-		/// 
+		/// Construct an ArrayBufferItem specifying the vertex base type and the array item length and rank.
 		/// </summary>
-		/// <param name="vertexBaseType"></param>
-		/// <param name="vertexLength"></param>
-		/// <param name="vertexRank"></param>
+		/// <param name="vertexBaseType">
+		/// A <see cref="VertexBaseType"/> that specify the basic type of the array item.
+		/// </param>
+		/// <param name="vertexLength">
+		/// A <see cref="UInt32"/> that specify the number of components of the array item.
+		/// </param>
+		/// <param name="vertexRank">
+		/// A <see cref="UInt32"/> that specify the rank of the array item (matrix columns count).
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="vertexBaseType"/> is <see cref="VertexBaseType.Undefined"/>.
+		/// </exception>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if <paramref name="vertexLength"/> or <paramref name="vertexRank"/> are outside
+		/// the valid range (greater than 0, less than or equal to 4).
+		/// </exception>
 		public ArrayBufferItem(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank)
 		{
 			if (vertexBaseType == VertexBaseType.Undefined)
 				throw new ArgumentException("invalid", "vertexBaseType");
+			if (vertexLength < 1 || vertexLength > 4)
+				throw new ArgumentOutOfRangeException("vertexLength", vertexLength, "must be in [1,4] range");
+			if (vertexRank < 1 || vertexRank > 4)
+				throw new ArgumentOutOfRangeException("vertexRank", vertexRank, "must be in [1,4] range");
 
-			mVertexArrayType = GetArrayType(vertexBaseType, vertexLength, vertexRank);
-			mVertexBaseType = vertexBaseType;
+			ArrayType = GetArrayType(vertexBaseType, vertexLength, vertexRank);
+			BaseType = vertexBaseType;
 		}
 
 		/// <summary>
@@ -59,13 +87,13 @@ namespace OpenGL
 		/// <param name="vertexArrayType">
 		/// A <see cref="ArrayBufferItemType"/> that synthetize all informations about a vertex array buffer item.
 		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="vertexArrayType"/> is <see cref="ArrayBufferItemType.Complex"/>.
+		/// </exception>
 		public ArrayBufferItem(ArrayBufferItemType vertexArrayType)
 		{
-			if (vertexArrayType == ArrayBufferItemType.Complex)
-				throw new ArgumentException("invalid", "vertexArrayType");
-
-			mVertexArrayType = vertexArrayType;
-			mVertexBaseType = GetArrayBaseType(mVertexArrayType);
+			ArrayType = vertexArrayType;
+			BaseType = GetArrayBaseType(ArrayType);
 		}
 
 		/// <summary>
@@ -74,13 +102,16 @@ namespace OpenGL
 		/// <param name="attribute">
 		/// A <see cref="ArrayBufferItemAttribute"/> describing the vertex array buffer item.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="attribute"/> is null.
+		/// </exception>
 		public ArrayBufferItem(ArrayBufferItemAttribute attribute)
 		{
 			if (attribute == null)
 				throw new ArgumentNullException("attribute");
 
-			mVertexArrayType = GetArrayType(attribute.ArrayBaseType, attribute.ArrayLength, attribute.ArrayRank);
-			mVertexBaseType = GetArrayBaseType(mVertexArrayType);
+			ArrayType = GetArrayType(attribute.ArrayBaseType, attribute.ArrayLength, attribute.ArrayRank);
+			BaseType = GetArrayBaseType(ArrayType);
 		}
 
 		#endregion
@@ -88,37 +119,24 @@ namespace OpenGL
 		#region Array Information
 
 		/// <summary>
-		/// The base type of each component of the vertex array buffer item.
+		/// The vertex array item type.
 		/// </summary>
-		public VertexBaseType BaseType { get { return (mVertexBaseType); } }
-
-		/// <summary>
-		/// The type of this vertex array buffer item.
-		/// </summary>
-		public ArrayBufferItemType Type
-		{
-			get { return (mVertexArrayType); }
-		}
-
-		/// <summary>
-		/// The number of components of the vertex array buffer item.
-		/// </summary>
-		public uint ArrayLength { get { return (GetArrayLength(mVertexArrayType)); } }
-
-		/// <summary>
-		/// Determine whether the base type is a floating-point value.
-		/// </summary>
-		public bool IsFloat { get { return (IsFloatBaseType(mVertexArrayType)); } }
+		public readonly ArrayBufferItemType ArrayType;
 
 		/// <summary>
 		/// The vertex array item base type.
 		/// </summary>
-		private readonly VertexBaseType mVertexBaseType;
+		public readonly VertexBaseType BaseType;
 
 		/// <summary>
-		/// The vertex array item type.
+		/// The number of components of the vertex array buffer item.
 		/// </summary>
-		private readonly ArrayBufferItemType mVertexArrayType;
+		public uint ArrayLength { get { return (GetArrayLength(ArrayType)); } }
+
+		/// <summary>
+		/// Determine whether the base type is a floating-point value.
+		/// </summary>
+		public bool IsFloat { get { return (IsFloatBaseType(BaseType)); } }
 
 		#endregion
 
@@ -129,14 +147,14 @@ namespace OpenGL
 		/// </summary>
 		public bool Normalized
 		{
-			get { return (mNormalized); }
-			set { mNormalized = value; }
+			get { return (_Normalized); }
+			set { _Normalized = value; }
 		}
 
 		/// <summary>
 		/// Determine whether the integer values shall be considered normalized floating-point.
 		/// </summary>
-		private bool mNormalized;
+		private bool _Normalized;
 
 		#endregion
 
@@ -516,10 +534,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get the corresponding <see cref="ArrayBufferItemType"/> from a <see cref="Type"/>.
+		/// Get the corresponding <see cref="ArrayBufferItemType"/> from a <see cref="ArrayType"/>.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="Type"/> indicating the structure describing the vertex array buffer item.
+		/// A <see cref="ArrayType"/> indicating the structure describing the vertex array buffer item.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ArrayBufferItemType"/> corresponding to <paramref name="type"/>.

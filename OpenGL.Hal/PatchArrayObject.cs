@@ -157,12 +157,12 @@ namespace OpenGL
 				Gl.PatchParameter(Gl.PATCH_VERTICES, (int)PatchElement.PatchCount);
 
 				// Set vertex arrays
-				SetShaderProgramAttributes(ctx, shader);
+				SetVertexArrayState(ctx, shader);
 
 				// Uses shader
 				shader.Bind(ctx);
 				// Draw patches
-				RenderAttributeElement(ctx, PatchElement);
+				DrawAttributeElement(ctx, PatchElement);
 			}
 
 			// Based implementation

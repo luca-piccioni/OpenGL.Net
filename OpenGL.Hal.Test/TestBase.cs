@@ -16,7 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#undef GL_LOG_ENABLED
+// Macro utility for enabling OpenGL function calls logging
+#define GL_LOG_ENABLED
 
 using System;
 using System.Reflection;
@@ -101,9 +102,9 @@ namespace OpenGL.Hal.Test
 		/// </summary>
 		protected GraphicsContext _Context;
 
-#endregion
+		#endregion
 
-#region OpenGL.Hal Types Support
+		#region OpenGL.Hal Types Support
 
 		/// <summary>
 		/// Interface implemented to support testing on a specific complex type defined in OpenGL.Hal.
@@ -160,7 +161,7 @@ namespace OpenGL.Hal.Test
 		/// </summary>
 		protected class DefaultGraphicsTypeSupport : IGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a DefaultGraphicsTypeSupport specifying the underlying type.
@@ -181,9 +182,9 @@ namespace OpenGL.Hal.Test
 			/// </summary>
 			protected readonly Type _InstanceType;
 
-#endregion
+			#endregion
 
-#region Mocking Support
+			#region Mocking Support
 
 			/// <summary>
 			/// Create a NSubstitute partial of the specified type.
@@ -202,9 +203,9 @@ namespace OpenGL.Hal.Test
 				return (methodGeneric.Invoke(null, new object[1] { parameters }));
 			}
 
-#endregion
+			#endregion
 
-#region IGraphicsTypeSupport Implementation
+			#region IGraphicsTypeSupport Implementation
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -277,7 +278,7 @@ namespace OpenGL.Hal.Test
 
 		protected class GraphicsWindowTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a GraphicsWindowTypeSupport.
@@ -288,9 +289,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -340,12 +341,12 @@ namespace OpenGL.Hal.Test
 				graphicsWindow.Create(new GraphicsBuffersFormat(PixelLayout.RGB24, 24));
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class ShaderObjectTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a ShaderObjectTypeSupport.
@@ -356,9 +357,9 @@ namespace OpenGL.Hal.Test
 				
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -404,12 +405,12 @@ namespace OpenGL.Hal.Test
 				"}\n"
 			};
 
-#endregion
+			#endregion
 		}
 
 		protected class ShaderIncludeTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a ShaderIncludeTypeSupport.
@@ -420,9 +421,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -466,12 +467,12 @@ namespace OpenGL.Hal.Test
 				"uniform mat4 modelViewProjection;\n"
 			};
 
-#endregion
+			#endregion
 		}
 
 		protected class ShaderProgramTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a ShaderProgramTypeSupport.
@@ -484,7 +485,7 @@ namespace OpenGL.Hal.Test
 
 #endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -553,12 +554,12 @@ namespace OpenGL.Hal.Test
 				"}\n"
 			};
 
-#endregion
+			#endregion
 		}
 
 		protected class ArrayBufferObjectTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a ShaderProgramTypeSupport.
@@ -569,9 +570,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -611,12 +612,12 @@ namespace OpenGL.Hal.Test
 				return (arrayBufferObjectSpy);
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class QueryObjectTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a QueryObjectTypeSupport.
@@ -627,9 +628,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -659,12 +660,12 @@ namespace OpenGL.Hal.Test
 				return ((T)CreateTypeSpy(_InstanceType, QueryTarget.SamplesPassed));
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class RenderBufferTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a RenderBufferTypeSupport.
@@ -675,9 +676,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -707,12 +708,12 @@ namespace OpenGL.Hal.Test
 				return ((T)CreateTypeSpy(_InstanceType, RenderBuffer.Type.Color, PixelLayout.RGB24, 16U, 16U));
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class Texture2dTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a Texture2dTypeSupport.
@@ -723,9 +724,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Actually create resources associated to the type.
@@ -751,7 +752,7 @@ namespace OpenGL.Hal.Test
 
 		protected class TextureRectangleTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a TextureRectangleTypeSupport.
@@ -762,9 +763,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Actually create resources associated to the type.
@@ -785,12 +786,12 @@ namespace OpenGL.Hal.Test
 				texture.Create(ctx, 16, 16, PixelLayout.RGB24);
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class ViewportStateTypeSupport : DefaultGraphicsTypeSupport
 		{
-#region Constructors
+			#region Constructors
 
 			/// <summary>
 			/// Construct a ViewportStateTypeSupport.
@@ -801,9 +802,9 @@ namespace OpenGL.Hal.Test
 
 			}
 
-#endregion
+			#endregion
 
-#region DefaultGraphicsTypeSupport Overrides
+			#region DefaultGraphicsTypeSupport Overrides
 
 			/// <summary>
 			/// Allocate an instance of the type.
@@ -846,6 +847,6 @@ namespace OpenGL.Hal.Test
 			return (new DefaultGraphicsTypeSupport(type));
 		}
 
-#endregion
+		#endregion
 	}
 }

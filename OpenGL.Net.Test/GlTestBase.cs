@@ -72,6 +72,17 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
+		/// Synchronize thread-local delegates.
+		/// </summary>
+		[SetUp]
+		public void SetUp()
+		{
+			// Make OpenGL context current
+			if (_DeviceContext.MakeCurrent(_Context) == false)
+				throw new InvalidOperationException("unable to make current the OpenGL context");
+		}
+
+		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
 		[TestFixtureTearDown]
@@ -82,15 +93,6 @@ namespace OpenGL.Test
 			if ((winDeviceContext != null) && (Wgl.DeleteContext(_Context) == false))
 				throw new InvalidOperationException("unable to delete OpenGL context");
 			_Context = IntPtr.Zero;
-		}
-
-		/// <summary>
-		/// Synchronize thread-local delegates.
-		/// </summary>
-		[SetUp]
-		public new void SetUp()
-		{
-			_DeviceContext.MakeCurrent(_Context);
 		}
 
 		/// <summary>
