@@ -39,13 +39,8 @@ namespace OpenGL
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
 		public InterleavedArrayBufferObject(Type arrayItemType, BufferObjectHint hint) :
-			base(hint)
+			base(arrayItemType, hint)
 		{
-			if (arrayItemType == null)
-				throw new ArgumentNullException("arrayItemType");
-			if (arrayItemType.IsValueType == false)
-				throw new ArgumentException("not a value type", "arrayItemType");
-
 			// Get fields for defining array item definition
 			FieldInfo[] arrayItemTypeFields = arrayItemType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 			if (arrayItemTypeFields.Length == 0)
@@ -54,13 +49,14 @@ namespace OpenGL
 			// Determine array sections stride
 			int structStride = Marshal.SizeOf(arrayItemType);
 
-			foreach (FieldInfo arrayItemTypeField in arrayItemTypeFields) {
+			for (int i = 0; i < arrayItemTypeFields.Length; i++) {
+				FieldInfo arrayItemTypeField = arrayItemTypeFields[i];
 				ArraySection arraySection = new ArraySection(arrayItemTypeField.FieldType);
 
-				// Array section offset is re-computed each time the item count is defined
-				arraySection.ItemOffset = IntPtr.Zero;
+				// Determine array section offset
+				arraySection.ItemOffset = Marshal.OffsetOf(arrayItemType, arrayItemTypeField.Name);
 				// Determine array section stride
-				arraySection.ItemStride = IntPtr.Zero;
+				arraySection.ItemStride = new IntPtr(structStride);
 				// Mission Normalized property management: add attributes?
 				arraySection.Normalized = false;
 
@@ -77,7 +73,7 @@ namespace OpenGL
 	/// <summary>
 	/// Array buffer object aggregating multiple arrays.
 	/// </summary>
-	public class PackedArrayBufferObject<T> : PackedArrayBufferObject
+	public class InterleavedArrayBufferObject<T> : InterleavedArrayBufferObject
 	{
 		#region Constructors
 
@@ -87,7 +83,7 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public PackedArrayBufferObject(BufferObjectHint hint) :
+		public InterleavedArrayBufferObject(BufferObjectHint hint) :
 			base(typeof(T), hint)
 		{
 

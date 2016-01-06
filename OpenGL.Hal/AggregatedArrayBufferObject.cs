@@ -32,13 +32,25 @@ namespace OpenGL
 		/// <summary>
 		/// Construct an AggregatedArrayBufferObject.
 		/// </summary>
+		/// <param name="arrayItemType">
+		/// A <see cref="Type"/> describing the type of the array item.
+		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public AggregatedArrayBufferObject(BufferObjectHint hint) :
+		protected AggregatedArrayBufferObject(Type arrayItemType, BufferObjectHint hint) :
 			base(hint)
 		{
-			
+			try {
+				if (arrayItemType == null)
+					throw new ArgumentNullException("arrayItemType");
+				if (arrayItemType.IsValueType == false)
+					throw new ArgumentException("not a value type", "arrayItemType");
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
 		}
 
 		#endregion
@@ -132,7 +144,21 @@ namespace OpenGL
 		/// </returns>
 		protected internal override IArraySection GetArraySection(uint index)
 		{
+			if (index >= ArraySectionsCount)
+				throw new ArgumentOutOfRangeException("greater or equal to ArraySectionsCount", index, "index");
+
 			return (ArraySections[(int)index]);
+		}
+
+		/// <summary>
+		/// Convert the client buffer in a strongly-typed array.
+		/// </summary>
+		/// <returns>
+		/// It returns an <see cref="Array"/> having all items stored by this ArrayBufferObjectBase.
+		/// </returns>
+		public override Array ToArray()
+		{
+			throw new NotImplementedException();
 		}
 
 		#endregion

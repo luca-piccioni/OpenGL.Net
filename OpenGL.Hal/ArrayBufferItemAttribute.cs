@@ -31,7 +31,7 @@ namespace OpenGL
 	/// </para>
 	/// </remarks>
 	[AttributeUsage(AttributeTargets.Struct, AllowMultiple = false)]
-	[DebuggerDisplay("ArrayBufferItemAttribute ArrayType={ArrayType} ArraySize{ArraySize} Normalized{Normalized}")]
+	[DebuggerDisplay("ArrayBufferItemAttribute: ArrayType={ArrayType} ArraySize{ArraySize} Normalized{Normalized}")]
 	public class ArrayBufferItemAttribute : Attribute
 	{
 		/// <summary>
@@ -63,9 +63,9 @@ namespace OpenGL
 		/// </param>
 		public ArrayBufferItemAttribute(VertexBaseType arrayType, uint matrixColumns, uint matrixRows)
 		{
-			mArrayType = arrayType;
-			mArrayLength = matrixRows;
-			mArrayRank = matrixColumns;
+			ArrayBaseType = arrayType;
+			ArrayLength = matrixRows;
+			ArrayRank = matrixColumns;
 		}
 
 		/// <summary>
@@ -74,49 +74,34 @@ namespace OpenGL
 		/// <param name="vertexArrayType"></param>
 		public ArrayBufferItemAttribute(ArrayBufferItemType vertexArrayType)
 		{
-			mArrayType = ArrayBufferItem.GetArrayBaseType(vertexArrayType);
-			mArrayLength = ArrayBufferItem.GetArrayLength(vertexArrayType);
-			mArrayRank = ArrayBufferItem.GetArrayRank(vertexArrayType);
+			ArrayBaseType = ArrayBufferItem.GetArrayBaseType(vertexArrayType);
+			ArrayLength = ArrayBufferItem.GetArrayLength(vertexArrayType);
+			ArrayRank = ArrayBufferItem.GetArrayRank(vertexArrayType);
 		}
 
 		/// <summary>
 		/// The array type.
 		/// </summary>
-		public ArrayBufferItemType ArrayType { get { return (ArrayBufferItem.GetArrayType(mArrayType, ArrayLength, ArrayRank)); } }
+		public ArrayBufferItemType ArrayType { get { return (ArrayBufferItem.GetArrayType(ArrayBaseType, ArrayLength, ArrayRank)); } }
 
 		/// <summary>
 		/// The array base type.
 		/// </summary>
-		public VertexBaseType ArrayBaseType { get { return (mArrayType); } }
+		public readonly VertexBaseType ArrayBaseType;
 
 		/// <summary>
 		/// The array length.
 		/// </summary>
-		public uint ArrayLength { get { return (mArrayLength); } }
+		public readonly uint ArrayLength;
 
 		/// <summary>
 		/// The array rank.
 		/// </summary>
-		public uint ArrayRank { get { return (mArrayRank); } }
+		public readonly uint ArrayRank;
 
 		/// <summary>
 		/// Indicates whether the integer data shall be interpreted as normalized floating-point.
 		/// </summary>
 		public bool Normalized;
-
-		/// <summary>
-		/// The array type.
-		/// </summary>
-		private readonly VertexBaseType mArrayType;
-
-		/// <summary>
-		/// The array length.
-		/// </summary>
-		private readonly uint mArrayLength;
-
-		/// <summary>
-		/// The array rank.
-		/// </summary>
-		private readonly uint mArrayRank;
 	}
 }

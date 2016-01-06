@@ -309,7 +309,7 @@ namespace OpenGL
 			mItemCount = (uint)items.Length;
 
 			// Allocate buffer
-			Allocate((uint)items.Length * mItemSize);
+			AllocateClientBuffer((uint)items.Length * mItemSize);
 			// Copy the buffer
 			GCHandle ppData = GCHandle.Alloc(items, GCHandleType.Pinned);
 			try {
@@ -336,7 +336,7 @@ namespace OpenGL
 			// Store item count
 			mItemCount = itemsCount;
 			// Allocate buffer
-			Allocate(itemsCount * mItemSize);
+			AllocateClientBuffer(itemsCount * mItemSize);
 		}
 
 		/// <summary>
