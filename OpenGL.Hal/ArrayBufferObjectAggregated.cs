@@ -25,12 +25,12 @@ namespace OpenGL
 	/// <summary>
 	/// Array buffer object aggregating multiple arrays.
 	/// </summary>
-	public abstract class AggregatedArrayBufferObject : ArrayBufferObjectBase
+	public abstract class ArrayBufferObjectAggregated : ArrayBufferObjectBase
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an AggregatedArrayBufferObject.
+		/// Construct an ArrayBufferObjectAggregated.
 		/// </summary>
 		/// <param name="arrayItemType">
 		/// A <see cref="Type"/> describing the type of the array item.
@@ -38,7 +38,7 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected AggregatedArrayBufferObject(Type arrayItemType, BufferObjectHint hint) :
+		protected ArrayBufferObjectAggregated(Type arrayItemType, BufferObjectHint hint) :
 			base(hint)
 		{
 			try {
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Array sections compositing this AggregatedArrayBufferObject.
+		/// Array sections compositing this ArrayBufferObjectAggregated.
 		/// </summary>
 		protected readonly List<ArraySection> ArraySections = new List<ArraySection>();
 

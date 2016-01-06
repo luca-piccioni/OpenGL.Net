@@ -25,12 +25,12 @@ namespace OpenGL
 	/// <summary>
 	/// Array buffer object aggregating multiple arrays.
 	/// </summary>
-	public class InterleavedArrayBufferObject : AggregatedArrayBufferObject
+	public class ArrayBufferObjectInterleaved : ArrayBufferObjectAggregated
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an InterleavedArrayBufferObject specifying its item layout on CPU side.
+		/// Construct an ArrayBufferObjectInterleaved specifying its item layout on CPU side.
 		/// </summary>
 		/// <param name="arrayItemType">
 		/// A <see cref="Type"/> describing the type of the array item.
@@ -38,7 +38,7 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public InterleavedArrayBufferObject(Type arrayItemType, BufferObjectHint hint) :
+		public ArrayBufferObjectInterleaved(Type arrayItemType, BufferObjectHint hint) :
 			base(arrayItemType, hint)
 		{
 			// Get fields for defining array item definition
@@ -73,17 +73,17 @@ namespace OpenGL
 	/// <summary>
 	/// Array buffer object aggregating multiple arrays.
 	/// </summary>
-	public class InterleavedArrayBufferObject<T> : InterleavedArrayBufferObject
+	public class ArrayBufferObjectInterleaved<T> : ArrayBufferObjectInterleaved
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an InterleavedArrayBufferObject.
+		/// Construct an ArrayBufferObjectInterleaved.
 		/// </summary>
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public InterleavedArrayBufferObject(BufferObjectHint hint) :
+		public ArrayBufferObjectInterleaved(BufferObjectHint hint) :
 			base(typeof(T), hint)
 		{
 

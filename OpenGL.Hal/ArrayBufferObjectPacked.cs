@@ -26,12 +26,12 @@ namespace OpenGL
 	/// <summary>
 	/// Array buffer object aggregating multiple arrays.
 	/// </summary>
-	public class PackedArrayBufferObject : AggregatedArrayBufferObject
+	public class ArrayBufferObjectPacked : ArrayBufferObjectAggregated
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an InterleavedArrayBufferObject specifying its item layout on CPU side.
+		/// Construct an ArrayBufferObjectInterleaved specifying its item layout on CPU side.
 		/// </summary>
 		/// <param name="arrayItemType">
 		/// A <see cref="Type"/> describing the type of the array item.
@@ -39,7 +39,7 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public PackedArrayBufferObject(Type arrayItemType, BufferObjectHint hint) :
+		public ArrayBufferObjectPacked(Type arrayItemType, BufferObjectHint hint) :
 			base(arrayItemType, hint)
 		{
 			// Get fields for defining array item definition
@@ -105,7 +105,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region AggregatedArrayBufferObject Overrides
+		#region ArrayBufferObjectAggregated Overrides
 
 		/// <summary>
 		/// Create this ArrayBufferObject by specifing only the number of items.
@@ -302,12 +302,12 @@ namespace OpenGL
 	/// <summary>
 	/// Array buffer object aggregating multiple arrays.
 	/// </summary>
-	public class PackedArrayBufferObject<T> : PackedArrayBufferObject
+	public class PackedArrayBufferObject<T> : ArrayBufferObjectPacked
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an InterleavedArrayBufferObject.
+		/// Construct an ArrayBufferObjectInterleaved.
 		/// </summary>
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
