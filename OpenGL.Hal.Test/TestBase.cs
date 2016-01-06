@@ -273,7 +273,7 @@ namespace OpenGL.Hal.Test
 				disposable.Dispose();
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class GraphicsWindowTypeSupport : DefaultGraphicsTypeSupport
@@ -615,6 +615,200 @@ namespace OpenGL.Hal.Test
 			#endregion
 		}
 
+		protected class ArrayBufferObjectInterleavedTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ArrayBufferObjectInterleavedTypeSupport.
+			/// </summary>
+			public ArrayBufferObjectInterleavedTypeSupport() :
+				base(typeof(ArrayBufferObjectInterleaved))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				ArrayBufferObjectInterleaved arrayBufferObject = new ArrayBufferObjectInterleaved(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+
+				arrayBufferObject.Create(16);
+
+				return (arrayBufferObject);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObjectInterleaved arrayBufferObject = arrayBufferObjectSpy as ArrayBufferObjectInterleaved;
+
+				if (arrayBufferObject != null)
+					arrayBufferObject.Create(16);
+
+				return (arrayBufferObjectSpy);
+			}
+
+			#endregion
+		}
+
+		protected class ArrayBufferObjectPackedTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ArrayBufferObjectPackedTypeSupport.
+			/// </summary>
+			public ArrayBufferObjectPackedTypeSupport() :
+				base(typeof(ArrayBufferObjectPacked))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				ArrayBufferObjectPacked arrayBufferObject = new ArrayBufferObjectPacked(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+
+				arrayBufferObject.Create(16);
+
+				return (arrayBufferObject);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObjectPacked arrayBufferObject = arrayBufferObjectSpy as ArrayBufferObjectPacked;
+
+				if (arrayBufferObject != null)
+					arrayBufferObject.Create(16);
+
+				return (arrayBufferObjectSpy);
+			}
+
+			#endregion
+		}
+
+		protected class VertexArrayObjectTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a VertexArrayObjectTypeSupport.
+			/// </summary>
+			public VertexArrayObjectTypeSupport() :
+				base(typeof(VertexArrayObject))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				VertexArrayObject vertexArrayObject = new VertexArrayObject();
+				ArrayBufferObject arrayBufferObject;
+
+				arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObjectHint.StaticCpuDraw);
+				arrayBufferObject.Create(16);
+				vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.Position);
+
+				arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 2, BufferObjectHint.StaticCpuDraw);
+				arrayBufferObject.Create(16);
+				vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.TexCoord);
+
+				vertexArrayObject.SetElementArray(PrimitiveType.Lines);
+
+				return (vertexArrayObject);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType);
+				VertexArrayObject vertexArrayObject = arrayBufferObjectSpy as VertexArrayObject;
+
+				if (vertexArrayObject != null) {
+					ArrayBufferObject arrayBufferObject;
+
+					arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObjectHint.StaticCpuDraw);
+					arrayBufferObject.Create(16);
+					vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.Position);
+
+					arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 2, BufferObjectHint.StaticCpuDraw);
+					arrayBufferObject.Create(16);
+					vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.TexCoord);
+
+					vertexArrayObject.SetElementArray(PrimitiveType.Lines);
+				}
+
+				return (arrayBufferObjectSpy);
+			}
+
+			#endregion
+		}
+
 		protected class QueryObjectTypeSupport : DefaultGraphicsTypeSupport
 		{
 			#region Constructors
@@ -747,7 +941,7 @@ namespace OpenGL.Hal.Test
 				texture.Create(ctx, 16, 16, PixelLayout.RGB24);
 			}
 
-#endregion
+			#endregion
 		}
 
 		protected class TextureRectangleTypeSupport : DefaultGraphicsTypeSupport

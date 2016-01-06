@@ -48,8 +48,8 @@ namespace OpenGL.Hal.Test
 				Assert.DoesNotThrow(delegate () { graphicsTypeSupport.Create(resource, _Context); });
 				// Call Dispose() method
 				Assert.DoesNotThrow(delegate () { resource.Dispose(); });
-				// Dispose() method shall call the Dispose(GraphicsContext) method since it is current
-				resource.Received().Dispose(_Context);
+				// Dispose() method shall not call the Dispose(GraphicsContext) method since they are equivalent
+				resource.DidNotReceive().Dispose(_Context);
 			}
 		}
 

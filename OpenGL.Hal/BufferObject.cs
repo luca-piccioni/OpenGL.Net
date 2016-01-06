@@ -232,8 +232,8 @@ namespace OpenGL
 		/// </exception>
 		internal virtual void Bind(GraphicsContext ctx)
 		{
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
 			
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, ObjectName);
@@ -247,6 +247,9 @@ namespace OpenGL
 		/// </param>
 		internal virtual void Unbind(GraphicsContext ctx)
 		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, InvalidObjectName);
 		}

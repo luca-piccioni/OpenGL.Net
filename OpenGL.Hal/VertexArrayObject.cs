@@ -126,13 +126,13 @@ namespace OpenGL
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");
 
-			VertexArray previousVertexArray;
+			VertexArray vertexArray, previousVertexArray;
 
 			// Dispose previous vertex array
 			if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
 				previousVertexArray.Dispose();
 			// Map buffer object with attribute name
-			_VertexArrays[attributeName] = new VertexArray(arrayBuffer, sectionIndex);
+			_VertexArrays[attributeName] = vertexArray = new VertexArray(arrayBuffer, sectionIndex);
 
 			// Map buffer object with input name including block name also
 			if (blockName != null) {
@@ -143,7 +143,7 @@ namespace OpenGL
 				if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
 					previousVertexArray.Dispose();
 				// Map buffer object with attribute name
-				_VertexArrays[attributeName] = _VertexArrays[attributeName];
+				_VertexArrays[attributeName] = vertexArray;
 			}
 
 			// Compute the actual vertex array length
@@ -1278,14 +1278,16 @@ namespace OpenGL
 		/// </param>
 		protected override void Dispose(bool disposing)
 		{
+			// Base implementation
+			base.Dispose(disposing);
+			// Dispose related resources
 			if (disposing) {
 				// Unreference all collected array buffer objects
 				foreach (VertexArray vertexArray in _VertexArrays.Values)
 					vertexArray.Dispose();
 				// Unreference all collected array indices
 				foreach (AttributeElements vertexIndices in _Elements)
-					if (vertexIndices.ArrayIndices != null)
-						vertexIndices.ArrayIndices.DecRef();
+					vertexIndices.Dispose();
 			}
 		}
 
