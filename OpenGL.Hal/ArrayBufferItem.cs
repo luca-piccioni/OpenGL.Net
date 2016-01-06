@@ -694,6 +694,62 @@ namespace OpenGL
 			throw new ArgumentException(String.Format("unable to match type {0}", type.Name));
 		}
 
+		/// <summary>
+		/// Get the array components base type of the vertex array attribute item type.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
+		/// the vertex array buffer item.
+		/// </returns>
+		public static VertexBaseType GetArrayBaseType(ShaderAttributeType shaderAttributeType)
+		{
+			switch (shaderAttributeType) {
+				case ShaderAttributeType.Float:
+				case ShaderAttributeType.Vec2:
+				case ShaderAttributeType.Vec3:
+				case ShaderAttributeType.Vec4:
+				case ShaderAttributeType.Mat2x2:
+				case ShaderAttributeType.Mat3x3:
+				case ShaderAttributeType.Mat4x4:
+				case ShaderAttributeType.Mat2x3:
+				case ShaderAttributeType.Mat2x4:
+				case ShaderAttributeType.Mat3x2:
+				case ShaderAttributeType.Mat3x4:
+				case ShaderAttributeType.Mat4x2:
+				case ShaderAttributeType.Mat4x3:
+					return (VertexBaseType.Float);
+				case ShaderAttributeType.Int:
+				case ShaderAttributeType.IntVec2:
+				case ShaderAttributeType.IntVec3:
+				case ShaderAttributeType.IntVec4:
+					return (VertexBaseType.Int);
+				case ShaderAttributeType.UInt:
+				case ShaderAttributeType.UIntVec2:
+				case ShaderAttributeType.UIntVec3:
+				case ShaderAttributeType.UIntVec4:
+					return (VertexBaseType.UInt);
+				case ShaderAttributeType.Double:
+				case ShaderAttributeType.DoubleVec2:
+				case ShaderAttributeType.DoubleVec3:
+				case ShaderAttributeType.DoubleVec4:
+				case ShaderAttributeType.DoubleMat2x2:
+				case ShaderAttributeType.DoubleMat3x3:
+				case ShaderAttributeType.DoubleMat4x4:
+				case ShaderAttributeType.DoubleMat2x3:
+				case ShaderAttributeType.DoubleMat2x4:
+				case ShaderAttributeType.DoubleMat3x2:
+				case ShaderAttributeType.DoubleMat3x4:
+				case ShaderAttributeType.DoubleMat4x2:
+				case ShaderAttributeType.DoubleMat4x3:
+					return (VertexBaseType.Double);
+				default:
+					throw new ArgumentException(String.Format("unrecognized shader attribute type {0}", shaderAttributeType));
+			}
+		}
+
 		#endregion
 
 		#region Is Float

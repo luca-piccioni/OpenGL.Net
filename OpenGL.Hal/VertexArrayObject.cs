@@ -437,23 +437,21 @@ namespace OpenGL
 			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
 				// Bind this vertex array
 				Gl.BindVertexArray(ObjectName);
+				// Short path?
+				if (!_VertexArrayDirty) {
+					CheckVertexAttributes(ctx, shaderProgram);
+					return;
+				}
 			}
 
-			// Short path?
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
-				CheckVertexAttributes(ctx, shaderProgram);
-				return;
-			}
-
+			// Set vertex array state
 			foreach (string attributeName in shaderProgram.ActiveAttributes) {
 				VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
 				if (shaderVertexArray == null)
 					continue;
 				
-				// Set vertex array state
-				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
-
-				shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeBinding);
+				// Set array attribute
+				shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, shaderProgram.GetActiveAttribute(attributeName));
 			}
 
 			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
@@ -479,62 +477,6 @@ namespace OpenGL
 					continue;
 
 				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding);
-			}
-		}
-	
-		/// <summary>
-		/// Get the array components base type of the vertex array buffer item.
-		/// </summary>
-		/// <param name="vertexArrayType">
-		/// A <see cref="ArrayBufferItemType"/> that describe the vertex array buffer item.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
-		/// the vertex array buffer item.
-		/// </returns>
-		private static VertexBaseType GetArrayBaseType(ShaderAttributeType shaderAttributeType)
-		{
-			switch (shaderAttributeType) {
-				case ShaderAttributeType.Float:
-				case ShaderAttributeType.Vec2:
-				case ShaderAttributeType.Vec3:
-				case ShaderAttributeType.Vec4:
-				case ShaderAttributeType.Mat2x2:
-				case ShaderAttributeType.Mat3x3:
-				case ShaderAttributeType.Mat4x4:
-				case ShaderAttributeType.Mat2x3:
-				case ShaderAttributeType.Mat2x4:
-				case ShaderAttributeType.Mat3x2:
-				case ShaderAttributeType.Mat3x4:
-				case ShaderAttributeType.Mat4x2:
-				case ShaderAttributeType.Mat4x3:
-					return (VertexBaseType.Float);
-				case ShaderAttributeType.Int:
-				case ShaderAttributeType.IntVec2:
-				case ShaderAttributeType.IntVec3:
-				case ShaderAttributeType.IntVec4:
-					return (VertexBaseType.Int);
-				case ShaderAttributeType.UInt:
-				case ShaderAttributeType.UIntVec2:
-				case ShaderAttributeType.UIntVec3:
-				case ShaderAttributeType.UIntVec4:
-					return (VertexBaseType.UInt);
-				case ShaderAttributeType.Double:
-				case ShaderAttributeType.DoubleVec2:
-				case ShaderAttributeType.DoubleVec3:
-				case ShaderAttributeType.DoubleVec4:
-				case ShaderAttributeType.DoubleMat2x2:
-				case ShaderAttributeType.DoubleMat3x3:
-				case ShaderAttributeType.DoubleMat4x4:
-				case ShaderAttributeType.DoubleMat2x3:
-				case ShaderAttributeType.DoubleMat2x4:
-				case ShaderAttributeType.DoubleMat3x2:
-				case ShaderAttributeType.DoubleMat3x4:
-				case ShaderAttributeType.DoubleMat4x2:
-				case ShaderAttributeType.DoubleMat4x3:
-					return (VertexBaseType.Double);
-				default:
-					throw new ArgumentException(String.Format("unrecognized shader attribute type {0}", shaderAttributeType));
 			}
 		}
 	

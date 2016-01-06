@@ -32,7 +32,7 @@ namespace OpenGL
 			#region Constructors
 
 			/// <summary>
-			/// Construct an VertexArray.
+			/// Construct an VertexArray for enabling vertex attribute.
 			/// </summary>
 			/// <param name="arrayBuffer">
 			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array data.
@@ -51,6 +51,19 @@ namespace OpenGL
 				if (ArrayBuffer != null)
 					ArrayBuffer.IncRef();
 				ArraySectionIndex = sectionIndex;
+			}
+
+			/// <summary>
+			/// Construct an VertexArray for disabling vertex attribute.
+			/// </summary>
+			/// <param name="reset">
+			/// A <see cref="Boolean"/> that specify whether the vertex attribute should be disabled at the
+			/// chance.
+			/// </param>
+			public VertexArray(bool reset)
+			{
+				// Force vertex attribute reset (disabled)
+				IsDirty = reset;
 			}
 
 			#endregion
@@ -131,7 +144,7 @@ namespace OpenGL
 				} else {
 					int vertexAttribArrayEnabled;
 
-					// Attribute enabled
+					// Attribute disabled
 					Gl.GetVertexAttrib(attributeBinding.Location, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, out vertexAttribArrayEnabled);
 					Debug.Assert(vertexAttribArrayEnabled == Gl.FALSE);
 				}
@@ -155,7 +168,7 @@ namespace OpenGL
 				ArrayBuffer.Bind(ctx);
 
 				// Bind varying attribute to currently bound buffer object
-				switch (GetArrayBaseType(attributeBinding.Type)) {
+				switch (ArrayBufferItem.GetArrayBaseType(attributeBinding.Type)) {
 					case VertexBaseType.Float:
 						Gl.VertexAttribPointer(
 							attributeBinding.Location,
@@ -178,6 +191,8 @@ namespace OpenGL
 							arrayStride, arraySection.Offset
 							);
 						break;
+					default:
+						throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", attributeBinding.Type));
 				}
 
 				// Enable vertex attribute
