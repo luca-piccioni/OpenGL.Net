@@ -40,458 +40,8 @@ namespace OpenGL
 	/// the rendering result of the collected arrays.
 	/// </para>
 	/// </remarks>
-	public class VertexArrayObject : GraphicsResource
+	public partial class VertexArrayObject : GraphicsResource
 	{
-		#region Vertex Arrays Definition
-
-		/// <summary>
-		/// A vertex array buffer.
-		/// </summary>
-		protected class VertexArray : IDisposable
-		{
-			/// <summary>
-			/// Construct an VertexArray.
-			/// </summary>
-			/// <param name="arrayBuffer">
-			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array data.
-			/// </param>
-			public VertexArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex)
-			{
-				if (arrayBuffer == null)
-					throw new ArgumentNullException("arrayBuffer");
-				if (arrayBuffer.ItemCount == 0)
-					throw new ArgumentException("zero items", "arrayBuffer");
-				if (sectionIndex >= arrayBuffer.ArraySectionsCount)
-					throw new ArgumentException("out of bounds", "sectionIndex");
-
-				ArrayBuffer = arrayBuffer;
-				ArrayBuffer.IncRef();
-				ArraySectionIndex = sectionIndex;
-			}
-
-			/// <summary>
-			/// The vertex array buffer object.
-			/// </summary>
-			public readonly ArrayBufferObjectBase ArrayBuffer;
-
-			/// <summary>
-			/// The vertex array sub-buffer index.
-			/// </summary>
-			public readonly uint ArraySectionIndex;
-
-			/// <summary>
-			/// Dirty flag at vertex array level.
-			/// </summary>
-			public bool IsDirty = true;
-
-			/// <summary>
-			/// Dispose this VertexArray.
-			/// </summary>
-			public void Dispose()
-			{
-				ArrayBuffer.DecRef();
-			}
-		}
-
-		/// <summary>
-		/// Link an array buffer to an attribute of this vertex array.
-		/// </summary>
-		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <param name="sectionIndex">
-		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
-		/// </param>
-		/// <param name="attributeName">
-		/// A <see cref="String"/> that specify the name of the attribute variable.
-		/// </param>
-		/// <param name="blockName">
-		/// A <see cref="String"/> that specify the name of the attribute block encolosing <paramref name="semantic"/>. It
-		/// can be null.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="sectionIndex"/> specify an invalid section of <paramref name="arrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid input name.
-		/// </exception>
-		public void SetArray(ArrayBufferObject arrayBuffer, uint sectionIndex, string attributeName, string blockName)
-		{
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid name", "attributeName");
-
-			VertexArray vertexArray, previousVertexArray;
-
-			// Dispose previous vertex array
-			if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
-				previousVertexArray.Dispose();
-			// Map buffer object with attribute name
-			_VertexArrays[attributeName] = vertexArray = new VertexArray(arrayBuffer, sectionIndex);
-
-			// Map buffer object with input name including block name also
-			if (blockName != null) {
-				// Attribute referenced in block
-				attributeName = String.Format("{0}.{1}", blockName, attributeName);
-
-				// Dispose previous vertex array
-				if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
-					previousVertexArray.Dispose();
-				// Map buffer object with attribute name
-				_VertexArrays[attributeName] = vertexArray;
-			}
-
-			// Compute the actual vertex array length
-			UpdateVertexArrayLength();
-			// Update vertex arrays
-			_VertexArrayDirty = true;
-		}
-
-		/// <summary>
-		/// Set an array buffer to this vertex array.
-		/// </summary>
-		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <param name="sectionIndex">
-		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
-		/// </param>
-		/// <param name="inputName">
-		/// A <see cref="String"/> that specify the name of the input variable.
-		/// </param>
-		/// <param name="blockName">
-		/// A <see cref="String"/> that specify the name of the input block encolosing <paramref name="inputName"/>. It
-		/// can be null.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
-		/// </exception>
-		public void SetArray(ArrayBufferObject arrayBuffer, string inputName, string blockName)
-		{
-			SetArray(arrayBuffer, 0, inputName, blockName);
-		}
-
-		/// <summary>
-		/// Set an array buffer to this vertex array.
-		/// </summary>
-		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <param name="sectionIndex">
-		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
-		/// </param>
-		/// <param name="semantic">
-		/// A <see cref="String"/> that specify the attribute semantic. Normally a constant of <see cref="VertexArraySemantic"/>.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="sectionIndex"/> specify an invalid section of <paramref name="arrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
-		/// </exception>
-		public void SetArray(ArrayBufferObject arrayBuffer, uint sectionIndex, string semantic)
-		{
-			SetArray(arrayBuffer, sectionIndex, semantic, SemanticBlockName);
-		}
-
-		/// <summary>
-		/// Set an array buffer to this vertex array.
-		/// </summary>
-		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObject"/> that specify the contents of the array.
-		/// </param>
-		/// <param name="semantic">
-		/// A <see cref="String"/> that specify the attribute semantic. Normally a constant of <see cref="VertexArraySemantic"/>.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
-		/// </exception>
-		public void SetArray(ArrayBufferObject arrayBuffer, string semantic)
-		{
-			SetArray(arrayBuffer, 0, semantic, SemanticBlockName);
-		}
-
-		/// <summary>
-		/// Get an array buffer object collected by this vertex array object.
-		/// </summary>
-		/// <param name="attributeName">
-		/// A <see cref="String"/> that specify the attribute name.
-		/// </param>
-		/// <param name="attributeBlock">
-		/// A <see cref="String"/> that specify the attribute block declaring <paramref name="attributeName"/>.
-		/// </param>
-		/// <returns>
-		/// It returns the array corresponding to the attribute having the name <paramref name="attributeName"/>.
-		/// </returns>
-		private VertexArray GetVertexArray(string attributeName, string attributeBlock)
-		{
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid attribute name", "attributeName");
-
-			VertexArray vertexArray;
-
-			if (attributeBlock != null)
-				attributeName = String.Format("{0}.{1}", attributeBlock, attributeName);
-
-			if (_VertexArrays.TryGetValue(attributeName, out vertexArray) == false)
-				return (null);
-
-			return (vertexArray);
-		}
-
-		/// <summary>
-		/// Get an array buffer object collected by this vertex array object.
-		/// </summary>
-		/// <param name="semantic">
-		/// A <see cref="String"/> that specify the attribute semantic.
-		/// </param>
-		/// <returns>
-		/// It returns the array corresponding to the semantic <paramref name="semantic"/>.
-		/// </returns>
-		private VertexArray GetVertexArray(string semantic)
-		{
-			return (GetVertexArray(semantic, SemanticBlockName));
-		}
-
-		/// <summary>
-		/// The the minimum length of the arrays compositing this vertex array.
-		/// </summary>
-		private void UpdateVertexArrayLength()
-		{
-			uint minLength = UInt32.MaxValue;
-
-			foreach (KeyValuePair<string, VertexArray> pair in _VertexArrays)
-				minLength = Math.Min(minLength, pair.Value.ArrayBuffer.ItemCount);
-
-			_VertexArrayLength = minLength;
-		}
-
-		/// <summary>
-		/// Validate this vertex array.
-		/// </summary>
-		/// <returns></returns>
-		[Conditional("DEBUG")]
-		private void Validate()
-		{
-			if (_VertexArrays.Count == 0)
-				throw new InvalidOperationException("no array");
-		}
-
-		/// <summary>
-		/// Array buffer objects required by this vertex array object.
-		/// </summary>
-		protected readonly Dictionary<string, VertexArray> _VertexArrays = new Dictionary<string, VertexArray>();
-
-		/// <summary>
-		/// Special name for the attributes relative to a semantic.
-		/// </summary>
-		private const string SemanticBlockName = "##Semantic";
-
-		/// <summary>
-		/// Number of items of the collected buffer objects.
-		/// </summary>
-		private uint _VertexArrayLength;
-
-		#endregion
-
-		#region Vertex Elements Definition
-
-		/// <summary>
-		/// A collection of indices reference input arrays.
-		/// </summary>
-		protected class AttributeElements : IDisposable
-		{
-			/// <summary>
-			/// Specify how all elements shall be drawn.
-			/// </summary>
-			/// <param name="mode">
-			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
-			/// </param>
-			public AttributeElements(PrimitiveType mode) : this(mode, null, 0, 0) { }
-
-			/// <summary>
-			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
-			/// </summary>
-			/// <param name="mode">
-			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
-			/// </param>
-			/// <param name="offset">
-			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
-			/// </param>
-			/// <param name="count">
-			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
-			/// </param>
-			public AttributeElements(PrimitiveType mode, uint offset, uint count) : this(mode, null, offset, count) { }
-
-			/// <summary>
-			/// Specify which elements shall be drawn by indexing them.
-			/// </summary>
-			/// <param name="mode">
-			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
-			/// </param>
-			/// <param name="indices">
-			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices. If it null, no indices are
-			/// used for drawing; instead, all array elements are drawns, starting from the first one. If it is not null, all
-			/// indices are drawn starting from the first one.
-			/// </param>
-			public AttributeElements(PrimitiveType mode, ElementBufferObject indices) : this(mode, indices, 0, 0) { }
-
-			/// <summary>
-			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of elements.
-			/// </summary>
-			/// <param name="mode">
-			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
-			/// </param>
-			/// <param name="indices">
-			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices. If it null, no indices are
-			/// used for drawing; instead, <paramref name="count"/> contiguos array elements are drawns, starting from
-			/// <paramref name="offset"/>. If it is not null, <paramref name="count"/> indices are drawn starting from
-			/// <paramref name="offset"/>.
-			/// </param>
-			/// <param name="offset">
-			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
-			/// </param>
-			/// <param name="count">
-			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
-			/// </param>
-			public AttributeElements(PrimitiveType mode, ElementBufferObject indices, uint offset, uint count)
-			{
-				ElementsMode = mode;
-				ElementOffset = offset;
-				ElementCount = count;
-				ArrayIndices = indices;
-
-				if (ArrayIndices != null)
-					ArrayIndices.IncRef();
-			}
-
-			/// <summary>
-			/// The primitive used for interpreting the sequence of the array elements.
-			/// </summary>
-			public readonly PrimitiveType ElementsMode;
-
-			/// <summary>
-			/// The offset for sending element for drawing.
-			/// </summary>
-			/// <remarks>
-			/// <para>
-			/// If <see cref="ArrayIndices"/> is null, this member indicates the first index of the array item
-			/// to draw, otherwise it indicates the offset (in basic machine unit) of the first element of
-			/// <see cref="ArrayIndices"/> to draw.
-			/// </para>
-			/// </remarks>
-			public readonly uint ElementOffset;
-
-			/// <summary>
-			/// The number of array elements to draw.
-			/// </summary>
-			/// <remarks>
-			/// <para>
-			/// If <see cref="ArrayIndices"/> is null, this member indicates how many array elements are drawn, otherwise
-			/// it indicates how many array indices are drawn.
-			/// </para>
-			/// <para>
-			/// In the case this field equals to 0, it means that all array elements shall be drawn.
-			/// </para>
-			/// </remarks>
-			public readonly uint ElementCount;
-
-			/// <summary>
-			/// An integral buffer that specify vertices by they index.
-			/// </summary>
-			public readonly ElementBufferObject ArrayIndices;
-
-
-			/// <summary>
-			/// Dispose this VertexArray.
-			/// </summary>
-			public void Dispose()
-			{
-				if (ArrayIndices != null)
-					ArrayIndices.DecRef();
-			}
-		}
-
-		/// <summary>
-		/// Specify the entire array to be drawn sequentially.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
-		/// </param>
-		public void SetElementArray(PrimitiveType mode)
-		{
-			// Store element array (entire buffer)
-			_Elements.Add(new AttributeElements(mode));
-		}
-
-		/// <summary>
-		/// Set a buffer object which specify the element arrays.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="Primitive"/> that specify how arrays elements are interpreted.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
-		/// array element sequence.
-		/// </param>
-		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
-		{
-			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
-
-			// Store element array
-			_Elements.Add(new AttributeElements(mode, bufferObject));
-		}
-
-		/// <summary>
-		/// Set a buffer object which specify the element arrays.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
-		/// </param>
-		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
-		/// array element sequence.
-		/// </param>
-		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
-		{
-			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
-
-			// Store element array
-			_Elements.Add(new AttributeElements(mode, bufferObject, offset, count));
-		}
-
-		/// <summary>
-		/// Collection of elements for drawing arrays.
-		/// </summary>
-		protected readonly List<AttributeElements> _Elements = new List<AttributeElements>();
-
-		#endregion
-
 #if false
 
 #region Normal Generation
@@ -836,7 +386,7 @@ namespace OpenGL
 		/// <param name="shader">
 		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
 		/// </param>
-		public virtual void DrawVertexArray(GraphicsContext ctx, ShaderProgram shader)
+		public virtual void Draw(GraphicsContext ctx, ShaderProgram shader)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -856,15 +406,14 @@ namespace OpenGL
 
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
-
 			// Uses shader
 			shader.Bind(ctx);
 			// Issue rendering using shader
-			foreach (AttributeElements attributeElements in _Elements) {
+			foreach (VertexElementArray attributeElements in _Elements) {
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.Begin(ctx, attributeElements.ElementsMode);
-				
-				DrawAttributeElement(ctx, attributeElements);
+
+				attributeElements.Draw(ctx, this);
 				
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.End(ctx);
@@ -891,70 +440,20 @@ namespace OpenGL
 			}
 
 			// Short path?
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty)
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
+				CheckVertexAttributes(ctx, shaderProgram);
 				return;
+			}
 
 			foreach (string attributeName in shaderProgram.ActiveAttributes) {
-				VertexArray shaderVertexArray;
-
-				// Get the buffer object containing data for vertex shader attribute
-				if ((shaderVertexArray = GetVertexArray(attributeName, null)) == null) {
-					// Failed, try using attribute semantic, if any
-					string semantic = shaderProgram.GetAttributeSemantic(attributeName);
-
-					if (semantic != null)
-						shaderVertexArray = GetVertexArray(semantic);
-				}
-
+				VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
 				if (shaderVertexArray == null)
 					continue;
-
-				// Avoid rendundant buffer binding and relative vertex array setup
-				if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && shaderVertexArray.IsDirty == false)
-					continue;
-
-				// Bind the array buffer object
-				shaderVertexArray.ArrayBuffer.Bind(ctx);
-
-				// Select the array section to point
-				ArrayBufferObjectBase.IArraySection arraySection = shaderVertexArray.ArrayBuffer.GetArraySection(shaderVertexArray.ArraySectionIndex);
-				int arrayBaseType = (int)ArrayBufferItem.GetArrayBaseType(arraySection.ItemType);
-				int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
-				int arrayStride = arraySection.Stride.ToInt32();
 				
+				// Set vertex array state
 				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
 
-				// Bind varying attribute to currently bound buffer object
-				switch (GetArrayBaseType(attributeBinding.Type)) {
-					case VertexBaseType.Float:
-						Gl.VertexAttribPointer(
-							attributeBinding.Location,
-							arrayLength, arrayBaseType, arraySection.Normalized,
-							arrayStride, arraySection.Offset
-						);
-						break;
-					case VertexBaseType.Int:
-					case VertexBaseType.UInt:
-						Gl.VertexAttribIPointer(
-							attributeBinding.Location,
-							arrayLength, arrayBaseType,
-							arrayStride, arraySection.Offset
-							);
-						break;
-					case VertexBaseType.Double:
-						Gl.VertexAttribLPointer(
-							attributeBinding.Location,
-							arrayLength, arrayBaseType,
-							arrayStride, arraySection.Offset
-							);
-						break;
-				}
-				
-				// Enable vertex attribute
-				Gl.EnableVertexAttribArray(attributeBinding.Location);
-
-				// Next time do not set bindings and array state if GL_ARB_vertex_array_object is supported
-				shaderVertexArray.IsDirty = false;
+				shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeBinding);
 			}
 
 			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
@@ -962,54 +461,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Renders the attribute elements.
+		/// Utility routine for checking the vertex array state.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for rendering.
+		/// A <see cref="GraphicsContext"/> on which the shader program is bound.
 		/// </param>
-		/// <param name="attributeElement">
-		/// Attribute elements to be rendered.
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
-		/// </exception>
-		protected void DrawAttributeElement(GraphicsContext ctx, AttributeElements attributeElement)
+		private void CheckVertexAttributes(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (attributeElement == null)
-				throw new ArgumentNullException("attributeElement");
+			// Vertex array state overall check
+			foreach (string attributeName in shaderProgram.ActiveAttributes) {
+				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
+				VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
+				if (shaderVertexArray == null)
+					continue;
 
-			ElementBufferObject elementIndices = attributeElement.ArrayIndices;
-
-			if (elementIndices == null) {
-				uint count = (attributeElement.ElementCount == 0) ? _VertexArrayLength : attributeElement.ElementCount;
-
-				Debug.Assert(count - attributeElement.ElementOffset <= _VertexArrayLength, "element array out of bounds");
-			
-				//if (mFeedbackBuffer != null)
-				//	mFeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
-				
-				// Draw vertex array sequentially
-				Gl.DrawArrays(attributeElement.ElementsMode, (int)attributeElement.ElementOffset, (int)count);
-			
-				//if (mFeedbackBuffer != null)
-				//	mFeedbackBuffer.End(ctx);
-			} else {
-				uint count = (attributeElement.ElementCount == 0) ? elementIndices.ItemCount : attributeElement.ElementCount;
-
-				Debug.Assert(count - attributeElement.ElementOffset <= elementIndices.ItemCount, "element indices array out of bounds");
-
-				// Element array must be (re)bound
-				elementIndices.Bind(ctx);
-				// Enable restart primitive?
-				if (elementIndices.RestartIndexEnabled)
-					PrimitiveRestart.EnablePrimitiveRestart(ctx, elementIndices.ItemType);
-				// Draw vertex arrays by indices
-				Gl.DrawElements(attributeElement.ElementsMode, (int)count, elementIndices.ItemType, (int)attributeElement.ElementOffset);
-				// Keep robust the restart_primitive state
-				if (elementIndices.RestartIndexEnabled)
-					PrimitiveRestart.DisablePrimitiveRestart(ctx);
+				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding);
 			}
 		}
 	
@@ -1259,7 +728,7 @@ namespace OpenGL
 			}
 
 			// Create element arrays
-			foreach (AttributeElements element in _Elements) {
+			foreach (VertexElementArray element in _Elements) {
 				if (element.ArrayIndices != null && element.ArrayIndices.Exists(ctx) == false)
 					element.ArrayIndices.Create(ctx);	
 			}
@@ -1286,7 +755,7 @@ namespace OpenGL
 				foreach (VertexArray vertexArray in _VertexArrays.Values)
 					vertexArray.Dispose();
 				// Unreference all collected array indices
-				foreach (AttributeElements vertexIndices in _Elements)
+				foreach (VertexElementArray vertexIndices in _Elements)
 					vertexIndices.Dispose();
 			}
 		}

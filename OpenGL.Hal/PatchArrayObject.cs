@@ -58,7 +58,7 @@ namespace OpenGL
 		/// <summary>
 		/// A collection of indices reference input arrays.
 		/// </summary>
-		class PatchAttributeElement : AttributeElements
+		class PatchAttributeElement : VertexElementArray
 		{
 			/// <summary>
 			/// Specify how all elements shall be drawn.
@@ -143,7 +143,7 @@ namespace OpenGL
 		/// <param name="shader">
 		/// The <see cref="ShaderProgram"/> used for drawing this vertex array.
 		/// </param>
-		public override void DrawVertexArray(GraphicsContext ctx, ShaderProgram shader)
+		public override void Draw(GraphicsContext ctx, ShaderProgram shader)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -162,12 +162,12 @@ namespace OpenGL
 				// Uses shader
 				shader.Bind(ctx);
 				// Draw patches
-				DrawAttributeElement(ctx, PatchElement);
+				// DrawAttributeElement(ctx, PatchElement);
 			}
 
 			// Based implementation
 			if (_Elements.Count > 0)
-				base.DrawVertexArray(ctx, shader);
+				base.Draw(ctx, shader);
 		}
 
 		protected override void CreateObject(GraphicsContext ctx)

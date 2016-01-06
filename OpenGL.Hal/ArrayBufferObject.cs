@@ -575,18 +575,18 @@ namespace OpenGL
 		{
 			uint[] indicesArray;
 
-			switch (indices.ItemType) {
+			switch (indices.ElementsType) {
 				case DrawElementsType.UnsignedByte:
-					indicesArray = Array.ConvertAll<byte, uint>(indices.ToArray<byte>(), delegate (byte item) { return (uint)item; });
+					indicesArray = Array.ConvertAll<byte, uint>((byte[])indices.ToArray(), delegate (byte item) { return (uint)item; });
 					break;
 				case DrawElementsType.UnsignedShort:
-					indicesArray = Array.ConvertAll<ushort, uint>(indices.ToArray<ushort>(), delegate (ushort item) { return (uint)item; });
+					indicesArray = Array.ConvertAll<ushort, uint>((ushort[])indices.ToArray(), delegate (ushort item) { return (uint)item; });
 					break;
 				case DrawElementsType.UnsignedInt:
-					indicesArray = indices.ToArray<uint>();
+					indicesArray = (uint[])indices.ToArray();
 					break;
 				default:
-					throw new InvalidOperationException(String.Format("element type {0} not supportted", indices.ItemType));
+					throw new InvalidOperationException(String.Format("element type {0} not supportted", indices.ElementsType));
 			}
 
 			Copy(buffer, indicesArray, count, offset, stride);
@@ -699,7 +699,7 @@ namespace OpenGL
 			if (ClientBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
-			Array genericArray = CreateArray(ItemCount);
+			Array genericArray = CreateArray(ArrayType, ItemCount);
 
 			// Copy from buffer data to array data
 			Memory.MemoryCopy(genericArray, ClientBufferAddress, ItemCount * ItemSize);
@@ -724,7 +724,7 @@ namespace OpenGL
 			if (Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 
-			Array genericArray = CreateArray(ItemCount);
+			Array genericArray = CreateArray(ArrayType, ItemCount);
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccessARB.ReadOnly);
@@ -736,96 +736,6 @@ namespace OpenGL
 			}
 
 			return (genericArray);
-		}
-
-		/// <summary>
-		/// Create a strongly typed array following <see cref="ArrayType"/>.
-		/// </summary>
-		/// <param name="itemCount">
-		/// A <see cref="UInt32"/> that specify the length of the array returned.
-		/// </param>
-		/// <returns>
-		/// It returns an uninitialized array, strongly typed depending on <see cref="ArrayType"/>, with
-		/// the length equals to <paramref name="itemCount"/>.
-		/// </returns>
-		private Array CreateArray(uint itemCount)
-		{
-			switch (ArrayType) {
-				case ArrayBufferItemType.Byte:
-					return new SByte[itemCount];
-				case ArrayBufferItemType.Byte2:
-					return new Vertex2b[itemCount];
-				case ArrayBufferItemType.Byte3:
-					return new Vertex3b[itemCount];
-				case ArrayBufferItemType.Byte4:
-					return new Vertex4b[itemCount];
-				case ArrayBufferItemType.UByte:
-					return new Byte[itemCount];
-				case ArrayBufferItemType.UByte2:
-					return new Vertex2ub[itemCount];
-				case ArrayBufferItemType.UByte3:
-					return new Vertex3ub[itemCount];
-				case ArrayBufferItemType.UByte4:
-					return new Vertex4ub[itemCount];
-				case ArrayBufferItemType.Short:
-					return new Int16[itemCount];
-				case ArrayBufferItemType.Short2:
-					return new Vertex2s[itemCount];
-				case ArrayBufferItemType.Short3:
-					return new Vertex3s[itemCount];
-				case ArrayBufferItemType.Short4:
-					return new Vertex4s[itemCount];
-				case ArrayBufferItemType.UShort:
-					return new UInt16[itemCount];
-				case ArrayBufferItemType.UShort2:
-					return new Vertex2us[itemCount];
-				case ArrayBufferItemType.UShort3:
-					return new Vertex3us[itemCount];
-				case ArrayBufferItemType.UShort4:
-					return new Vertex4us[itemCount];
-				case ArrayBufferItemType.Int:
-					return new Int32[itemCount];
-				case ArrayBufferItemType.Int2:
-					return new Vertex2i[itemCount];
-				case ArrayBufferItemType.Int3:
-					return new Vertex3i[itemCount];
-				case ArrayBufferItemType.Int4:
-					return new Vertex4i[itemCount];
-				case ArrayBufferItemType.UInt:
-					return new UInt32[itemCount];
-				case ArrayBufferItemType.UInt2:
-					return new Vertex2ui[itemCount];
-				case ArrayBufferItemType.UInt3:
-					return new Vertex3ui[itemCount];
-				case ArrayBufferItemType.UInt4:
-					return new Vertex4ui[itemCount];
-				case ArrayBufferItemType.Float:
-					return new Single[itemCount];
-				case ArrayBufferItemType.Float2:
-					return new Vertex2f[itemCount];
-				case ArrayBufferItemType.Float3:
-					return new Vertex3f[itemCount];
-				case ArrayBufferItemType.Float4:
-					return new Vertex4f[itemCount];
-				case ArrayBufferItemType.Double:
-					return new Double[itemCount];
-				case ArrayBufferItemType.Double2:
-					return new Vertex2d[itemCount];
-				case ArrayBufferItemType.Double3:
-					return new Vertex3d[itemCount];
-				case ArrayBufferItemType.Double4:
-					return new Vertex4d[itemCount];
-				case ArrayBufferItemType.Half:
-					return new HalfFloat[itemCount];
-				case ArrayBufferItemType.Half2:
-					return new Vertex2hf[itemCount];
-				case ArrayBufferItemType.Half3:
-					return new Vertex3hf[itemCount];
-				case ArrayBufferItemType.Half4:
-					return new Vertex4hf[itemCount];
-				default:
-					throw new NotImplementedException(String.Format("array type {0} not yet implemented", ArrayType));
-			}
 		}
 
 		#endregion

@@ -26,7 +26,7 @@ namespace OpenGL
 	/// <summary>
 	/// Element buffer object.
 	/// </summary>
-	public abstract class ElementBufferObject : BufferObject
+	public class ElementBufferObject : ArrayBufferObjectBase
 	{
 		#region Constructors
 
@@ -36,37 +36,79 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected ElementBufferObject(BufferObjectHint hint)
+		public ElementBufferObject(Type elementType, BufferObjectHint hint)
 			: base(BufferTargetARB.ElementArrayBuffer, hint)
 		{
+			try {
+				if (elementType == null)
+					throw new ArgumentNullException("elementType");
 
+				// Determine array item size
+				switch (Type.GetTypeCode(elementType)) {
+					case TypeCode.Byte:
+						ElementsType = DrawElementsType.UnsignedByte;
+						break;
+					case TypeCode.UInt16:
+						ElementsType = DrawElementsType.UnsignedShort;
+						break;
+					case TypeCode.UInt32:
+						ElementsType = DrawElementsType.UnsignedInt;
+						break;
+					default:
+						throw new ArgumentException("not supported type", "element type");
+				}
+
+				_RuntimeType = elementType;
+				ItemSize = (uint)Marshal.SizeOf(elementType);
+
+				Debug.Assert(_RuntimeType.GetInterface("IConvertible") != null);
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
 		}
 
 		#endregion
 
-		#region Abstract Interface
+		#region Elements Type
 
 		/// <summary>
-		/// Element array buffer object items count.
+		/// The <see cref="Type"/> that corresponds to <see cref="ElementsType"/>.
 		/// </summary>
-		public abstract uint ItemCount { get; }
+		private readonly Type _RuntimeType;
 
 		/// <summary>
-		/// The element item size, in bytes.
+		/// The type of the array elements.
 		/// </summary>
-		public abstract uint ItemSize { get; }
+		internal readonly DrawElementsType ElementsType;
 
 		/// <summary>
-		/// The element buffer indices type.
+		/// Get the <see cref="ArrayBufferItemType"/> corresponding to <see cref="ElementsType"/>.
 		/// </summary>
-		internal abstract DrawElementsType ItemType { get; }
+		private ArrayBufferItemType ArrayType
+		{
+			get
+			{
+				switch (ElementsType) {
+					case DrawElementsType.UnsignedByte:
+						return (ArrayBufferItemType.UByte);
+					case DrawElementsType.UnsignedShort:
+						return (ArrayBufferItemType.UShort);
+					case DrawElementsType.UnsignedInt:
+						return (ArrayBufferItemType.UInt);
+					default:
+						throw new NotSupportedException();
+				}
+			}
+		}
 
 		#endregion
 
 		#region Element Buffer Access
 
 		/// <summary>
-		/// Get or set ElementBufferObject items.
+		/// Get or set the item stored in the client buffer of this ElementBufferObject.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="UInt32"/> that specify the item index.
@@ -82,23 +124,7 @@ namespace OpenGL
 				if (index >= ItemCount)
 					throw new ArgumentException("index out of bounds", "index");
 
-				Type structType;
-
-				switch (ItemType) {
-					case DrawElementsType.UnsignedByte:
-						structType = typeof(byte);
-						break;
-					case DrawElementsType.UnsignedShort:
-						structType = typeof(UInt16);
-						break;
-					case DrawElementsType.UnsignedInt:
-						structType = typeof(UInt32);
-						break;
-					default:
-						throw new InvalidOperationException("invalid item type " + ItemType);
-				}
-
-				IConvertible value = (IConvertible) Marshal.PtrToStructure(new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), structType);
+				IConvertible value = (IConvertible)Marshal.PtrToStructure(new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), _RuntimeType);
 
 				return (value.ToUInt32(NumberFormatInfo.InvariantInfo));
 			}
@@ -113,7 +139,7 @@ namespace OpenGL
 
 				object convertedValue;
 
-				switch (ItemType) {
+				switch (ElementsType) {
 					case DrawElementsType.UnsignedByte:
 						convertedValue = (byte) (value & 0xFF);
 						break;
@@ -124,7 +150,7 @@ namespace OpenGL
 						convertedValue = value;
 						break;
 					default:
-						throw new InvalidOperationException("invalid item type " + ItemType);
+						throw new InvalidOperationException("invalid item type " + ElementsType);
 				}
 
 				Marshal.StructureToPtr(convertedValue, new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), false);
@@ -139,102 +165,81 @@ namespace OpenGL
 		/// The restart index enabled.
 		/// </summary>
 		public bool RestartIndexEnabled;
-		
+
 		#endregion
-		
-		#region To Array
+
+		#region ArrayBufferObjectBase Overrides
 
 		/// <summary>
-		/// Convert this array buffer object in a strongly-typed array.
+		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		/// <returns>
-		/// It returns an array having all items stored by this ArrayBufferObject.
-		/// </returns>
-		public Array ToArray()
-		{
-			switch (ItemType) {
-				case DrawElementsType.UnsignedByte:
-					return (ToArray<byte>());
-				case DrawElementsType.UnsignedShort:
-					return (ToArray<ushort>());
-				case DrawElementsType.UnsignedInt:
-					return (ToArray<uint>());
-				default:
-					throw new InvalidOperationException(String.Format("element type {0} not supported", ItemType));
-			}
-		}
+		/// <exception cref="NotImplementedException">
+		/// Exception always thrown.
+		/// </exception>
+		protected internal override uint ArraySectionsCount { get { throw new NotImplementedException(); } }
 
 		/// <summary>
-		/// Convert this array buffer object in a strongly-typed array.
+		/// Get the specified section information.
 		/// </summary>
-		/// <typeparam name="T">
-		/// 
-		/// </typeparam>
-		/// <returns>
-		/// It returns an array having all items stored by this ArrayBufferObject.
-		/// </returns>
-		public T[] ToArray<T>() where T : struct { return (ToArray<T>(ItemCount)); }
-
-		/// <summary>
-		/// Convert this array buffer object in a strongly-typed array.
-		/// </summary>
-		/// <typeparam name="T">
-		/// An arbitrary structure defining the returned array item. It doesn't need to be correlated with the ArrayBufferObject
-		/// layout.
-		/// </typeparam>
-		/// <param name="arrayLength">
-		/// A <see cref="UInt32"/> that specify the number of elements of the returned array.
+		/// <param name="index">
+		/// The <see cref="UInt32"/> that specify the array section index.
 		/// </param>
 		/// <returns>
-		/// It returns an array having all items stored by this ArrayBufferObject.
+		/// It returns the <see cref="IArraySection"/> defining the array section.
 		/// </returns>
-		public T[] ToArray<T>(uint arrayLength) where T : struct
-		{
-			IntPtr clientBufferAddress = ClientBufferAddress;
+		/// <exception cref="NotImplementedException">
+		/// Exception always thrown.
+		/// </exception>
+		protected internal override IArraySection GetArraySection(uint index) { throw new NotImplementedException(); }
 
-			if (clientBufferAddress == IntPtr.Zero)
+		/// <summary>
+		/// Convert the client buffer in a strongly-typed array.
+		/// </summary>
+		/// <returns>
+		/// It returns an <see cref="Array"/> having all items stored by this ArrayBufferObjectBase.
+		/// </returns>
+		public override Array ToArray()
+		{
+			if (ClientBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
-			T[] array = new T[ItemCount];
-			uint sizeOfType = (uint)Marshal.SizeOf(typeof(T));
-
-			if (arrayLength * sizeOfType > ItemCount * ItemSize)
-				throw new InvalidOperationException(String.Format("size of {0}[{1}] greater than array buffer", GetType(), arrayLength));
+			Array genericArray = CreateArray(ArrayType, ItemCount);
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(array, clientBufferAddress, arrayLength * sizeOfType);
+			Memory.MemoryCopy(genericArray, ClientBufferAddress, ItemCount * ItemSize);
 
-			return (array);
+			return (genericArray);
 		}
 
-		#endregion
-
-		#region BufferObject Overrides
-
 		/// <summary>
-		/// Determine whether this object requires a name bound to a context or not.
+		/// Convert the GPU buffer in a strongly-typed array.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		/// The <see cref="GraphicsContext"/> that has created this ArrayBufferObject.
 		/// </param>
 		/// <returns>
-		/// <para>
-		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
-		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
-		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
-		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
-		/// name is generated automatically in a context-independent manner.
-		/// </para>
-		/// <para>
-		/// This implementation check the GL_ARB_vertex_array_object extension availability.
-		/// </para>
+		/// It returns an <see cref="Array"/> having all items stored by this ArrayBufferObjectBase.
 		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx)
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this ArrayBufferObject does not exist for <paramref name="ctx"/>.
+		/// </exception>
+		public override Array ToArray(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
 
-			return (ctx.Caps.GlExtensions.VertexBufferObject_ARB);
+			Array genericArray = CreateArray(ArrayType, ItemCount);
+
+			// By checking existence, it's sure that we map the GPU buffer
+			Map(ctx, BufferAccessARB.ReadOnly);
+			try {
+				// Copy from mapped data to array data
+				Memory.MemoryCopy(genericArray, MappedBuffer, ItemCount * ItemSize);
+			} finally {
+				Unmap(ctx);
+			}
+
+			return (genericArray);
 		}
 
 		#endregion
@@ -254,110 +259,11 @@ namespace OpenGL
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBufferObject(BufferObjectHint hint) : base(hint)
+		public ElementBufferObject(BufferObjectHint hint) :
+			base(typeof(T), hint)
 		{
-			// The item is represented by 'T'
-			mItemSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(typeof(T));
-			// Determine the item type by size
-			switch (mItemSize) {
-				case 1:
-					mItemType = DrawElementsType.UnsignedByte;
-					break;
-				case 2:
-					mItemType = DrawElementsType.UnsignedShort;
-					break;
-				case 4:
-					mItemType = DrawElementsType.UnsignedInt;
-					break;
-				default:
-					throw new InvalidOperationException(String.Format("invalid generic type {0}", typeof(T)));
-			}
+			
 		}
-
-		/// <summary>
-		/// Construct an ElementBufferObject.
-		/// </summary>
-		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
-		/// </param>
-		public ElementBufferObject(T[] indices, BufferObjectHint hint) :
-			this(hint)
-		{
-			Define(indices);
-		}
-
-		#endregion
-
-		#region Element Buffer Data Definition
-
-		/// <summary>
-		/// Define this ElementBufferObject by specifing only the number of <typeparamref name="T"/> items.
-		/// </summary>
-		/// <param name="items">
-		/// A <see cref="T"/> that specify the contents of this ElementBufferObject.
-		/// </param>
-		public void Define(T[] items)
-		{
-			if (items == null)
-				throw new ArgumentNullException("items");
-			if (items.Length == 0)
-				throw new ArgumentException("zero items", "items");
-			if ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw))
-				throw new InvalidOperationException(String.Format("conflicting hint {0}", Hint));
-
-			// Store item count
-			mItemCount = (uint)items.Length;
-
-			// Allocate buffer
-			AllocateClientBuffer((uint)items.Length * mItemSize);
-			// Copy the buffer
-			GCHandle ppData = GCHandle.Alloc(items, GCHandleType.Pinned);
-			try {
-				unsafe {
-					byte* arrayPtr = (byte*) ppData.AddrOfPinnedObject().ToPointer();
-					byte* dstPtr = (byte*) ClientBufferAddress.ToPointer();
-
-					Memory.MemoryCopy(dstPtr, arrayPtr, (uint)items.Length * mItemSize);
-				}
-			} finally {
-				ppData.Free();
-			}
-		}
-
-		/// <summary>
-		/// Define this ElementBufferObject by specifing only the number of <typeparamref name="T"/> items.
-		/// </summary>
-		/// <param name="itemsCount">
-		/// A <see cref="UInt32"/> that specify the number of <typeparamref name="T"/> hold by this
-		/// ArrayBufferObject.
-		/// </param>
-		public void Define(uint itemsCount)
-		{
-			// Store item count
-			mItemCount = itemsCount;
-			// Allocate buffer
-			AllocateClientBuffer(itemsCount * mItemSize);
-		}
-
-		/// <summary>
-		/// The element item size, in bytes.
-		/// </summary>
-		public override uint ItemSize { get { return (mItemSize); } }
-
-		/// <summary>
-		/// The element buffer indicates type.
-		/// </summary>
-		internal override DrawElementsType ItemType { get { return (mItemType); } }
-
-		/// <summary>
-		/// Data item size, in basic machine units (bytes).
-		/// </summary>
-		private readonly uint mItemSize;
-
-		/// <summary>
-		/// Data item type.
-		/// </summary>
-		private readonly DrawElementsType mItemType;
 
 		#endregion
 
@@ -379,9 +285,9 @@ namespace OpenGL
 			uint minVertices = UInt32.MaxValue, maxVertices = UInt32.MinValue;
 
 			Array.ForEach(verticesCount, delegate(uint v) {
-          		minVertices = Math.Min(v, minVertices);
+				minVertices = Math.Min(v, minVertices);
 				maxVertices = Math.Max(v, maxVertices);
-          	});
+			});
 
 			if ((minVertices < 3) && (maxVertices >= 3))
 				throw new ArgumentException("ambigous polygons set", "verticesCount");
@@ -390,7 +296,7 @@ namespace OpenGL
 
 			Array.ForEach(verticesCount, delegate(uint v) {
 				if (v == 4) {
-          			totalVerticesCount += 6;			// Triangulate quad with two triangles
+					totalVerticesCount += 6;			// Triangulate quad with two triangles
 				} else if (v > 4) {
 					totalVerticesCount += (v - 2) * 3;	// Triangulate as if it is a polygon
 				} else {
@@ -399,7 +305,7 @@ namespace OpenGL
 				}
 			});
 
-			Define(totalVerticesCount);
+			Create(totalVerticesCount);
 
 			// Copy polygons (triangulate)
 			uint thisIndicesIndex = 0, indicesIndex = 0;
@@ -434,20 +340,6 @@ namespace OpenGL
 				}
 			}
 		}
-
-		#endregion
-
-		#region ElementBufferObject Overrides
-
-		/// <summary>
-		/// Element array buffer object items count.
-		/// </summary>
-		public override uint ItemCount { get { return (mItemCount); } }
-
-		/// <summary>
-		/// Element array buffer object items count.
-		/// </summary>
-		private uint mItemCount;
 
 		#endregion
 	}

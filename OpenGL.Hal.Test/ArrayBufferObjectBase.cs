@@ -46,6 +46,7 @@ namespace OpenGL.Hal.Test
 	/// Test ArrayBufferObject class.
 	/// </summary>
 	[TestFixture(typeof(ArrayBufferObject))]
+	[TestFixture(typeof(ElementBufferObject))]
 	[TestFixture(typeof(ArrayBufferObjectInterleaved))]
 	[TestFixture(typeof(ArrayBufferObjectPacked))]
 	class ArrayBufferObjectBaseTest<T> : TestBase where T : ArrayBufferObjectBase
@@ -60,6 +61,8 @@ namespace OpenGL.Hal.Test
 		{
 			if (typeof(T) == typeof(ArrayBufferObject))
 				return (new ArrayBufferObject(ArrayBufferItemType.Float, BufferObjectHint.StaticCpuDraw));
+			else if (typeof(T) == typeof(ElementBufferObject))
+				return (new ElementBufferObject(typeof(uint), BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectInterleaved))
 				return (new ArrayBufferObjectInterleaved(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectPacked))
@@ -74,6 +77,8 @@ namespace OpenGL.Hal.Test
 		{
 			if (typeof(T) == typeof(ArrayBufferObject)) {
 				return (new float[16]);
+			} else if (typeof(T) == typeof(ElementBufferObject)) {
+				return (new uint[16]);
 			} else if ((typeof(T) == typeof(ArrayBufferObjectInterleaved)) || (typeof(T) == typeof(ArrayBufferObjectPacked))) {
 				return (new ComplexVertexArray[16]);
 			}

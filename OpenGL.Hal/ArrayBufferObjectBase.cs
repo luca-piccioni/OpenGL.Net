@@ -34,17 +34,8 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// Construct an ArrayBufferObjectBase.
 		/// </summary>
-		/// <param name="vertexBaseType">
-		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
-		/// </param>
-		/// <param name="vertexLength">
-		/// A <see cref="UInt32"/> that specify how many components have the array item.
-		/// </param>
-		/// <param name="vertexRank">
-		/// A <see cref="UInt32"/> that specify how many columns have the array item of matrix type.
-		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
@@ -52,6 +43,21 @@ namespace OpenGL
 			base(BufferTargetARB.ArrayBuffer, hint)
 		{
 			
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObjectBase.
+		/// </summary>
+		/// <param name="bufferTarget">
+		/// A <see cref="BufferTargetARB"/> that specify the buffer target.
+		/// </param>
+		/// <param name="hint">
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// </param>
+		protected ArrayBufferObjectBase(BufferTargetARB bufferTarget, BufferObjectHint hint) :
+			base(bufferTarget, hint)
+		{
+
 		}
 
 		#endregion
@@ -867,6 +873,106 @@ namespace OpenGL
 		/// Exception thrown if this ArrayBufferObject does not exist for <paramref name="ctx"/>.
 		/// </exception>
 		public abstract Array ToArray(GraphicsContext ctx);
+
+		/// <summary>
+		/// Create a strongly typed array following <see cref="ArrayType"/>.
+		/// </summary>
+		/// <param name="itemCount">
+		/// A <see cref="UInt32"/> that specify the length of the array returned.
+		/// </param>
+		/// <returns>
+		/// It returns an uninitialized array, strongly typed depending on <see cref="ArrayType"/>, with
+		/// the length equals to <paramref name="itemCount"/>.
+		/// </returns>
+		protected Array CreateArray(ArrayBufferItemType arrayBufferItemType, uint itemCount)
+		{
+			switch (arrayBufferItemType) {
+
+				case ArrayBufferItemType.Byte:
+					return new SByte[itemCount];
+				case ArrayBufferItemType.Byte2:
+					return new Vertex2b[itemCount];
+				case ArrayBufferItemType.Byte3:
+					return new Vertex3b[itemCount];
+				case ArrayBufferItemType.Byte4:
+					return new Vertex4b[itemCount];
+
+				case ArrayBufferItemType.UByte:
+					return new Byte[itemCount];
+				case ArrayBufferItemType.UByte2:
+					return new Vertex2ub[itemCount];
+				case ArrayBufferItemType.UByte3:
+					return new Vertex3ub[itemCount];
+				case ArrayBufferItemType.UByte4:
+					return new Vertex4ub[itemCount];
+
+				case ArrayBufferItemType.Short:
+					return new Int16[itemCount];
+				case ArrayBufferItemType.Short2:
+					return new Vertex2s[itemCount];
+				case ArrayBufferItemType.Short3:
+					return new Vertex3s[itemCount];
+				case ArrayBufferItemType.Short4:
+					return new Vertex4s[itemCount];
+
+				case ArrayBufferItemType.UShort:
+					return new UInt16[itemCount];
+				case ArrayBufferItemType.UShort2:
+					return new Vertex2us[itemCount];
+				case ArrayBufferItemType.UShort3:
+					return new Vertex3us[itemCount];
+				case ArrayBufferItemType.UShort4:
+					return new Vertex4us[itemCount];
+
+				case ArrayBufferItemType.Int:
+					return new Int32[itemCount];
+				case ArrayBufferItemType.Int2:
+					return new Vertex2i[itemCount];
+				case ArrayBufferItemType.Int3:
+					return new Vertex3i[itemCount];
+				case ArrayBufferItemType.Int4:
+					return new Vertex4i[itemCount];
+
+				case ArrayBufferItemType.UInt:
+					return new UInt32[itemCount];
+				case ArrayBufferItemType.UInt2:
+					return new Vertex2ui[itemCount];
+				case ArrayBufferItemType.UInt3:
+					return new Vertex3ui[itemCount];
+				case ArrayBufferItemType.UInt4:
+					return new Vertex4ui[itemCount];
+
+				case ArrayBufferItemType.Float:
+					return new Single[itemCount];
+				case ArrayBufferItemType.Float2:
+					return new Vertex2f[itemCount];
+				case ArrayBufferItemType.Float3:
+					return new Vertex3f[itemCount];
+				case ArrayBufferItemType.Float4:
+					return new Vertex4f[itemCount];
+
+				case ArrayBufferItemType.Double:
+					return new Double[itemCount];
+				case ArrayBufferItemType.Double2:
+					return new Vertex2d[itemCount];
+				case ArrayBufferItemType.Double3:
+					return new Vertex3d[itemCount];
+				case ArrayBufferItemType.Double4:
+					return new Vertex4d[itemCount];
+
+				case ArrayBufferItemType.Half:
+					return new HalfFloat[itemCount];
+				case ArrayBufferItemType.Half2:
+					return new Vertex2hf[itemCount];
+				case ArrayBufferItemType.Half3:
+					return new Vertex3hf[itemCount];
+				case ArrayBufferItemType.Half4:
+					return new Vertex4hf[itemCount];
+
+				default:
+					throw new NotImplementedException(String.Format("array type {0} not yet implemented", arrayBufferItemType));
+			}
+		}
 
 		#endregion
 

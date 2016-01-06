@@ -177,7 +177,7 @@ namespace OpenGL
 			// Define geometry arrays
 			_VertexArray.SetArray(_DrawArrayBuffer, VertexArraySemantic.Position);
 			// Draw arrays
-			_VertexArray.DrawVertexArray(this, null);
+			_VertexArray.Draw(this, null);
 		}
 
 		#endregion
