@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregatedArrayBufferObject.cs" />
+    <Compile Include="ArrayBufferObjectAggregated.cs" />
     <Compile Include="AlignedMemoryBuffer.cs" />
     <Compile Include="Angle.cs" />
     <Compile Include="ArrayBufferItem.cs" />
@@ -118,7 +118,7 @@
     <Compile Include="IMedia.cs" />
     <Compile Include="IMediaCodecPlugin.cs" />
     <Compile Include="IModelMatrix.cs" />
-    <Compile Include="InterleavedArrayBufferObject.cs" />
+    <Compile Include="ArrayBufferObjectInterleaved.cs" />
     <Compile Include="IPlugin.cs" />
     <Compile Include="IResource.cs" />
     <Compile Include="IVertex.cs" />
@@ -142,7 +142,7 @@
     <Compile Include="ModelMatrix.cs" />
     <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="ObjectAccessor.cs" />
-    <Compile Include="PackedArrayBufferObject.cs" />
+    <Compile Include="ArrayBufferObjectPacked.cs" />
     <Compile Include="PatchArrayObject.cs" />
     <Compile Include="Pixel.cs" />
     <Compile Include="PixelColorspaceAttribute.cs" />

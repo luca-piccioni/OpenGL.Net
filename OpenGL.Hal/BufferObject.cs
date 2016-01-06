@@ -232,12 +232,8 @@ namespace OpenGL
 		/// </exception>
 		internal virtual void Bind(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-			if (ObjectName == InvalidObjectName)
-				throw new InvalidOperationException("invalid name");
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
 			
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, ObjectName);
@@ -290,9 +286,6 @@ namespace OpenGL
 		/// </remarks>
 		public void Map(GraphicsContext ctx, BufferAccessARB mask)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
 			if (IsMapped())
 				throw new InvalidOperationException("already mapped");
 
@@ -377,8 +370,6 @@ namespace OpenGL
 		/// </exception>
 		public void Unmap(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
 			if (IsMapped() == false)
 				throw new InvalidOperationException("not mapped");
 

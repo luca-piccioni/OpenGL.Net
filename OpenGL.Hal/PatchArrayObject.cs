@@ -166,7 +166,7 @@ namespace OpenGL
 			}
 
 			// Based implementation
-			if (Elements.Count > 0)
+			if (_Elements.Count > 0)
 				base.DrawVertexArray(ctx, shader);
 		}
 

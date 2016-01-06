@@ -687,6 +687,10 @@ namespace OpenGL
 			if (type == typeof(SByte))
 				return (VertexBaseType.Byte);
 
+			ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute)Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
+			if (attribute != null)
+				return (attribute.ArrayBaseType);
+
 			throw new ArgumentException(String.Format("unable to match type {0}", type.Name));
 		}
 

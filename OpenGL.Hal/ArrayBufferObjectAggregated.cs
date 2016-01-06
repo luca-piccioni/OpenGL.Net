@@ -160,6 +160,23 @@ namespace OpenGL
 		{
 			throw new NotImplementedException();
 		}
+		
+		/// <summary>
+		/// Convert the GPU buffer in a strongly-typed array.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> that has created this ArrayBufferObject.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="Array"/> having all items stored by this ArrayBufferObjectBase.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this ArrayBufferObject does not exist for <paramref name="ctx"/>.
+		/// </exception>
+		public override Array ToArray(GraphicsContext ctx)
+		{
+			throw new NotImplementedException();
+		}
 
 		#endregion
 	}

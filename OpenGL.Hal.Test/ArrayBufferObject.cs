@@ -17,6 +17,8 @@
 // USA
 
 using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 using NUnit.Framework;
 
@@ -42,6 +44,169 @@ namespace OpenGL.Hal.Test
 				Assert.AreEqual(ArrayBufferItemType.Float3, arrayBuffer.ArrayType);
 				Assert.AreEqual(0, arrayBuffer.ItemCount);
 				Assert.AreEqual(12, arrayBuffer.ItemSize);
+			}
+		}
+
+		#endregion
+
+		#region ToArray()
+
+		/// <summary>
+		/// Test <see cref="ArrayBufferObject.ToArray()"/>.
+		/// </summary>
+		/// <param name="vertexBaseType"></param>
+		/// <param name="vertexLength"></param>
+		/// <param name="array"></param>
+		public void TestToArray_Core(VertexBaseType vertexBaseType, uint vertexLength, Array array)
+		{
+			using (ArrayBufferObject arrayBuffer = new ArrayBufferObject(vertexBaseType, vertexLength, BufferObjectHint.StaticCpuDraw)) {
+				// Create client buffer
+				arrayBuffer.Create(array);
+				// ToArray() must be equal to array
+				CollectionAssert.AreEqual(array, arrayBuffer.ToArray());
+
+				// Create GPU buffer
+				arrayBuffer.Create(_Context);
+				// ToArray() must be equal to array
+				CollectionAssert.AreEqual(array, arrayBuffer.ToArray(_Context));
+
+				// Create a reversed array from test array
+				Array arrayReverse = Array.CreateInstance(array.GetType().GetElementType(), array.Length);
+				Array.Copy(array, arrayReverse, array.Length);
+				Array.Reverse(arrayReverse);
+				CollectionAssert.AreEquivalent(array, arrayReverse);
+
+				// Update client buffer
+				arrayBuffer.Create(arrayReverse);
+				// Client buffer is updated, but not the GPU buffer
+				CollectionAssert.AreEqual(arrayReverse, arrayBuffer.ToArray());
+			}
+		}
+
+		[Test, TestCaseSource("TestToArrayValues")]
+		public void TestToArray(VertexBaseType vertexBaseType, uint vertexLength, Array array)
+		{
+			TestToArray_Core(vertexBaseType, vertexLength, array);
+		}
+
+		[Test, TestCaseSource("TestToArrayValues")]
+		public void TestToArray_NoExtension(VertexBaseType vertexBaseType, uint vertexLength, Array array)
+		{
+			_Context.PushCaps();
+			try {
+				// Disable GL_ARB_vertex_array_object
+				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+
+				TestToArray_Core(vertexBaseType, vertexLength, array);
+			} finally {
+				_Context.PopCaps();
+			}
+		}
+
+		private static object[] TestToArrayValues
+		{
+			get
+			{
+				List<object> values = new List<object>();
+
+				values.Add(new object[] { VertexBaseType.Float, 1U, CreateArray<float>() });
+				values.Add(new object[] { VertexBaseType.Float, 2U, CreateArray<Vertex2f>() });
+				values.Add(new object[] { VertexBaseType.Float, 3U, CreateArray<Vertex3f>() });
+				values.Add(new object[] { VertexBaseType.Float, 4U, CreateArray<Vertex4f>() });
+
+				return (values.ToArray());
+			}
+		}
+		
+		private static Array CreateArray<T>()
+		{
+			T[] array = new T[16];
+			Random random = new Random();
+			int arrayItemSize = Marshal.SizeOf(typeof(T));
+
+			switch (ArrayBufferItem.GetArrayBaseType(typeof(T))) {
+				case VertexBaseType.Float:
+					unsafe {
+						GCHandle arrayHandle = GCHandle.Alloc(array, GCHandleType.Pinned);
+						try {
+							float* arrayPtr = (float*)arrayHandle.AddrOfPinnedObject().ToPointer();
+
+							for (int i = 0; i < (array.Length * arrayItemSize) / Marshal.SizeOf(typeof(float)); i++)
+								arrayPtr[i] = (float)random.NextDouble();
+						} finally {
+							arrayHandle.Free();
+						}
+					}
+					break;
+			}
+
+			return (array);
+		}
+
+		#endregion
+
+		#region ToArray(GraphicsContext)
+
+		/// <summary>
+		/// Test <see cref="ArrayBufferObject.ToArray()"/>.
+		/// </summary>
+		/// <param name="vertexBaseType"></param>
+		/// <param name="vertexLength"></param>
+		/// <param name="array"></param>
+		public void TestToArrayCtx_Core(VertexBaseType vertexBaseType, uint vertexLength, Array array)
+		{
+			using (ArrayBufferObject arrayBuffer = new ArrayBufferObject(vertexBaseType, vertexLength, BufferObjectHint.StaticCpuDraw)) {
+				// Without creation, ToArray(GraphicsContext) will throw an exception
+				Assert.Throws<InvalidOperationException>(delegate () { arrayBuffer.ToArray(_Context); });
+
+				// Create client buffer
+				arrayBuffer.Create(array);
+				// ToArray() must be equal to array
+				CollectionAssert.AreEqual(array, arrayBuffer.ToArray());
+
+				// Without creation, ToArray(GraphicsContext) will throw an exception
+				Assert.Throws<InvalidOperationException>(delegate () { arrayBuffer.ToArray(_Context); });
+
+				// Create GPU buffer
+				arrayBuffer.Create(_Context);
+				// ToArray() must be equal to array
+				CollectionAssert.AreEqual(array, arrayBuffer.ToArray(_Context));
+
+				// Create a reversed array from test array
+				Array arrayReverse = Array.CreateInstance(array.GetType().GetElementType(), array.Length);
+				Array.Copy(array, arrayReverse, array.Length);
+				Array.Reverse(arrayReverse);
+				CollectionAssert.AreEquivalent(array, arrayReverse);
+
+				// Update client buffer
+				arrayBuffer.Create(arrayReverse);
+				// Client buffer is updated, but not the GPU buffer
+				CollectionAssert.AreEqual(arrayReverse, arrayBuffer.ToArray());
+				CollectionAssert.AreNotEqual(arrayReverse, arrayBuffer.ToArray(_Context));
+
+				// Update GPU buffer
+				arrayBuffer.Create(_Context);
+				CollectionAssert.AreEqual(arrayReverse, arrayBuffer.ToArray(_Context));
+			}
+		}
+
+		[Test, TestCaseSource("TestToArrayValues")]
+		public void TestToArrayCtx(VertexBaseType vertexBaseType, uint vertexLength, Array array)
+		{
+			TestToArrayCtx_Core(vertexBaseType, vertexLength, array);
+		}
+
+		[Test, TestCaseSource("TestToArrayValues")]
+		public void TestToArrayCtx_NoExtension(VertexBaseType vertexBaseType, uint vertexLength, Array array)
+		{
+			_Context.PushCaps();
+			try {
+				// Disable GL_ARB_vertex_array_object
+				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+
+				TestToArrayCtx_Core(vertexBaseType, vertexLength, array);
+			} finally {
+				_Context.PopCaps();
 			}
 		}
 

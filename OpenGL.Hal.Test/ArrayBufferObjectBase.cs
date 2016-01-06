@@ -46,8 +46,8 @@ namespace OpenGL.Hal.Test
 	/// Test ArrayBufferObject class.
 	/// </summary>
 	[TestFixture(typeof(ArrayBufferObject))]
-	[TestFixture(typeof(InterleavedArrayBufferObject))]
-	[TestFixture(typeof(PackedArrayBufferObject))]
+	[TestFixture(typeof(ArrayBufferObjectInterleaved))]
+	[TestFixture(typeof(ArrayBufferObjectPacked))]
 	class ArrayBufferObjectBaseTest<T> : TestBase where T : ArrayBufferObjectBase
 	{
 		/// <summary>
@@ -60,10 +60,10 @@ namespace OpenGL.Hal.Test
 		{
 			if (typeof(T) == typeof(ArrayBufferObject))
 				return (new ArrayBufferObject(ArrayBufferItemType.Float, BufferObjectHint.StaticCpuDraw));
-			else if (typeof(T) == typeof(InterleavedArrayBufferObject))
-				return (new InterleavedArrayBufferObject(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
-			else if (typeof(T) == typeof(PackedArrayBufferObject))
-				return (new PackedArrayBufferObject(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
+			else if (typeof(T) == typeof(ArrayBufferObjectInterleaved))
+				return (new ArrayBufferObjectInterleaved(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
+			else if (typeof(T) == typeof(ArrayBufferObjectPacked))
+				return (new ArrayBufferObjectPacked(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
 
 			Assert.Inconclusive("Type argument not implemented");
 
@@ -74,7 +74,7 @@ namespace OpenGL.Hal.Test
 		{
 			if (typeof(T) == typeof(ArrayBufferObject)) {
 				return (new float[16]);
-			} else if ((typeof(T) == typeof(InterleavedArrayBufferObject)) || (typeof(T) == typeof(PackedArrayBufferObject))) {
+			} else if ((typeof(T) == typeof(ArrayBufferObjectInterleaved)) || (typeof(T) == typeof(ArrayBufferObjectPacked))) {
 				return (new ComplexVertexArray[16]);
 			}
 
