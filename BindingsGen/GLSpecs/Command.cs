@@ -170,6 +170,16 @@ namespace BindingsGen.GLSpecs
 			return (parameters);
 		}
 
+		private List<CommandParameter> GetUnsafeParameters(RegistryContext ctx)
+		{
+			List<CommandParameter> parameters = new List<CommandParameter>();
+
+			foreach (CommandParameter commandParameter in Parameters)
+				parameters.Add(new CommandParameterUnsafe(commandParameter, ctx, this));
+
+			return (parameters);
+		}
+
 		/// <summary>
 		/// Command alias.
 		/// </summary>
@@ -415,7 +425,12 @@ namespace BindingsGen.GLSpecs
 		/// </returns>
 		private bool IsUnsafeImplementationSignature(RegistryContext ctx, List<CommandParameter> commandParams)
 		{
+			// Return type is a pointer
 			if (GetImplementationReturnType(ctx).EndsWith("*"))
+				return (true);
+
+			// At least one command parameter is a CommandParameterUnsafe
+			if (commandParams.Exists(delegate (CommandParameter item) { return (item is CommandParameterUnsafe); }))
 				return (true);
 
 			return (false);
@@ -488,6 +503,8 @@ namespace BindingsGen.GLSpecs
 			bool isPinnedObjCompatible = CommandParameterPinned.IsCompatible(ctx, this);
 			// At least one parameter is an array with length correlated with another parameter
 			bool isArrayLengthCompatible = CommandParameterArrayLength.IsCompatible(ctx, this);
+			// At least one parameter is a pointer, 
+			bool isUnsafeCompatible = ((Flags & CommandFlags.UnsafeParams) != 0) && CommandParameterUnsafe.IsCompatible(ctx, this);
 
 			// Standard implementation - default
 			if (plainParams || (!isArrayLengthCompatible && !isStrongCompatible))
@@ -518,6 +535,9 @@ namespace BindingsGen.GLSpecs
 			// Array Length overrides
 			if (isArrayLengthCompatible)
 				overridenParameters.Add(GetArrayLengthParameters(ctx));
+
+			if (isUnsafeCompatible)
+				overridenParameters.Add(GetUnsafeParameters(ctx));
 
 			return (overridenParameters.ToArray());
 		}

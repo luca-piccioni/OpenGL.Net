@@ -64,6 +64,7 @@
     <Compile Include="GLSpecs\CommandParameterOut.cs" />
     <Compile Include="GLSpecs\CommandParameterPinned.cs" />
     <Compile Include="GLSpecs\CommandParameterStrong.cs" />
+    <Compile Include="GLSpecs\CommandParameterUnsafe.cs" />
     <Compile Include="GLSpecs\CommandPrototype.cs" />
     <Compile Include="GLSpecs\Enumerant.cs" />
     <Compile Include="GLSpecs\EnumerantBlock.cs" />

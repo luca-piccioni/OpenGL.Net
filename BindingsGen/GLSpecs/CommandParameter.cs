@@ -143,7 +143,7 @@ namespace BindingsGen.GLSpecs
 		/// <param name="ctx"></param>
 		/// <param name="parentCommand"></param>
 		/// <returns></returns>
-		internal bool IsFixed(RegistryContext ctx, Command parentCommand)
+		internal virtual bool IsFixed(RegistryContext ctx, Command parentCommand)
 		{
 			string implementationType = ManagedImplementationType;
 			string importType = ImportType;
@@ -182,11 +182,8 @@ namespace BindingsGen.GLSpecs
 		/// 1, and <paramref name="parentCommand"/> is a "Get" implementation, the implementation type is converted
 		/// to a basic type, with an "out" modifier.
 		/// </para>
-		/// <para>
-		/// 
-		/// </para>
 		/// </remarks>
-		public string GetImplementationType(RegistryContext ctx, Command parentCommand)
+		public virtual string GetImplementationType(RegistryContext ctx, Command parentCommand)
 		{
 			string implementationType = ManagedImplementationType;
 

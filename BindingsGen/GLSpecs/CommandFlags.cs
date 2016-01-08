@@ -47,10 +47,10 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Generate command with an "out" parameter, in the case the last parameter is a non-constant array.
 		/// </summary>
-		OutParamLast =	0x08,
+		OutParamLast =		0x08,
 
 		/// <summary>
-		/// Generate the method overload with plain parameters even if parameters are stringly typed.
+		/// Generate the method overload with plain parameters even if parameters are strongly typed.
 		/// </summary>
 		ForcePlainParams =	0x10,
 
@@ -63,5 +63,10 @@ namespace BindingsGen.GLSpecs
 		/// DllImport definition includes the property SetLastError set to true (by default is it false).
 		/// </summary>
 		SetLastError =		0x40,
+
+		/// <summary>
+		/// Generate the method overload with unsafe parameters, if any.
+		/// </summary>
+		UnsafeParams =		0x80,
 	}
 }
