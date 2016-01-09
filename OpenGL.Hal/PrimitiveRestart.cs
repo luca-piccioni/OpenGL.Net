@@ -23,11 +23,21 @@ namespace OpenGL
 	/// </summary>
 	static class PrimitiveRestart
 	{
+		public static bool IsPrimitiveRestartSupported(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			return (ctx.Caps.GlExtensions.PrimitiveRestart || ctx.Caps.GlExtensions.PrimitiveRestart_NV);
+		}
+
 		public static void EnablePrimitiveRestart(GraphicsContext ctx, uint index)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			
+			if (ctx.IsCurrent)
+				throw new ArgumentException("not current", "ctx");
+
 			if (ctx.Caps.GlExtensions.PrimitiveRestart) {
 				// Enable primitive restart (server state)
 				Gl.Enable(EnableCap.PrimitiveRestart);

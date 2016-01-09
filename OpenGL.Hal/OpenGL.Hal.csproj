@@ -66,7 +66,7 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
-    <Compile Include="Batch.cs" />
+    <Compile Include="VertexBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
     <Compile Include="Collections\IQuadTreeNode.cs" />

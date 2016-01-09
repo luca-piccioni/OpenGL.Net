@@ -628,9 +628,6 @@ namespace OpenGL
 				// Query context capabilities
 				_CapsStack.Push(GraphicsCapabilities.Query(this, deviceContext));
 
-				// Query draw methods
-				QueryDrawMethods(_Version);
-
 				// Determine this GraphicsContext object namespace
 				if (sharedContext != null) {
 					// Sharing same object name space
@@ -1107,12 +1104,10 @@ namespace OpenGL
 			if (disposing == true) {
 
 				// Dispose resources
-
+				if (_DrawArrayBuffer != null)
+					_DrawArrayBuffer.Dispose(this);
 				if (_VertexArray != null)
 					_VertexArray.Dispose(this);
-
-				if (_DrawArrayBuffer != null)
-					_DrawArrayBuffer.Dispose();
 
 				if (_ShaderIncludeLibrary != null) {
 					_ShaderIncludeLibrary.Dispose(this);

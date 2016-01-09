@@ -75,7 +75,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Get the item count allocated in the client buffer of this buffer object. In the case this ArrayBufferObject
-		/// has not been defined yet, it returns 0.
+		/// has not been defined yet, or the client buffer has been disposed due the context creation, it returns 0.
 		/// </summary>
 		public uint ClientItemCount
 		{
@@ -103,6 +103,90 @@ namespace OpenGL
 
 		#endregion
 
+		#region Buffer Map Access
+
+		/// <summary>
+		/// Set an element to this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>
+		/// </param>
+		/// <param name="value">
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="UInt32"/> that specify the index of the element to set.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set<T>(GraphicsContext ctx, T value, UInt32 index) where T : struct
+		{
+			Set(ctx, value, GetItemOffset(index));
+		}
+
+		/// <summary>
+		/// Get an element from this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="UInt32"/> that specify the index of the element to get.
+		/// </param>
+		/// <returns>
+		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public T Get<T>(GraphicsContext ctx, UInt32 index) where T : struct
+		{
+			return (Get<T>(ctx, GetItemOffset(index)));
+		}
+
+		/// <summary>
+		/// Get an element from this mapped BufferObject.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for mapping this BufferObject.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="UInt32"/> that specify the index of the element to get.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Vertex3f"/>, read from the mapped BufferObject at the specified offset.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public Vertex3f Get(GraphicsContext ctx, UInt32 index)
+		{
+			return (Get(ctx, GetItemOffset(index)));
+		}
+
+		/// <summary>
+		/// Compute the offset, in bytes, of the item with the specified index.
+		/// </summary>
+		/// <param name="index">
+		/// A <see cref="UInt32"/> that specify the item index.
+		/// </param>
+		/// <returns>
+		/// It returns <see cref="UInt64"/> that is the offset of the item indexed by <paramref name="index"/>, in bytes.
+		/// </returns>
+		private UInt64 GetItemOffset(UInt32 index)
+		{
+			return ((UInt64)(ItemSize * index));
+		}
+
+		#endregion
+
 		#region Array Section Interface
 
 		/// <summary>
@@ -124,16 +208,23 @@ namespace OpenGL
 			bool Normalized { get; }
 
 			/// <summary>
+			/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
+			/// buffer reference.
+			/// </summary>
+			IntPtr Pointer { get; }
+
+			/// <summary>
 			/// Offset of the first element of the array section, in bytes.
 			/// </summary>
 			/// <remarks>
-			/// It should take into account the client buffer address, if the GL_ARB_vertex_buffer_object extension
-			/// is not supported by current implementation.
+			/// It should NOT take into account the client buffer address, even if the GL_ARB_vertex_buffer_object extension
+			/// is not supported by current implementation. It indicates an actual offset, in bytes.
 			/// </remarks>
 			IntPtr Offset { get; }
 
 			/// <summary>
-			/// Offset between two element of the array section, in bytes.
+			/// Offset between two element of the array section, in bytes. If it is <see cref="IntPtr.Zero"/> it means that
+			/// items are tighly packed.
 			/// </summary>
 			IntPtr Stride { get; }
 		}

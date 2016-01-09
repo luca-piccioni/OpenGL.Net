@@ -71,10 +71,12 @@ namespace OpenGL
 			/// <param name="arrayItemType">
 			/// A <see cref="Type"/> describing the vertex array buffer item type.
 			/// </param>
-			public ArraySection(Type arrayItemType) :
+			public ArraySection(ArrayBufferObjectBase arrayBuffer, Type arrayItemType) :
 				base(GetArrayType(arrayItemType))
 			{
-
+				if (arrayBuffer == null)
+					throw new ArgumentNullException("arrayBuffer");
+				_ArrayBuffer = arrayBuffer;
 			}
 
 			#endregion
@@ -82,7 +84,12 @@ namespace OpenGL
 			#region Definition
 
 			/// <summary>
-			/// Get whether the array elements should be meant normalized (fixed point precision values).
+			/// Field required for implementing <see cref="ArrayBufferObjectBase.IArraySection"/>
+			/// </summary>
+			private readonly ArrayBufferObjectBase _ArrayBuffer;
+
+			/// <summary>
+			/// Get whether the array elements should be meant normalized (fixed point precision values). XXX
 			/// </summary>
 			public bool ValueNormalized;
 
@@ -109,6 +116,12 @@ namespace OpenGL
 			/// Get whether the array elements should be meant normalized (fixed point precision values).
 			/// </summary>
 			bool IArraySection.Normalized { get { return (ValueNormalized); } }
+
+			/// <summary>
+			/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
+			/// buffer reference.
+			/// </summary>
+			IntPtr IArraySection.Pointer { get { return (_ArrayBuffer.GpuBufferAddress); } }
 
 			/// <summary>
 			/// Offset of the first element of the array section, in bytes.

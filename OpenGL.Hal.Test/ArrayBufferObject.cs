@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 using NUnit.Framework;
@@ -205,6 +206,88 @@ namespace OpenGL.Hal.Test
 				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
 
 				TestToArrayCtx_Core(vertexBaseType, vertexLength, array);
+			} finally {
+				_Context.PopCaps();
+			}
+		}
+
+		#endregion
+
+		#region ArrayBufferObjectBase.Map Performance
+
+		private void MapPerformance_Core()
+		{
+			const int TestMaxTime = 30, TestMaxSize = 1024 * 1024 * 16;
+			const int TestSizeStep = 1024;
+
+			// Determine test array size;
+			Vertex3f[] testArray = new Vertex3f[TestSizeStep];
+
+			Stopwatch crono = new Stopwatch();
+			int testCalibrationLoops = 0;
+			crono.Start();
+			do {
+				for (int i = 0; i < TestSizeStep; i++, testCalibrationLoops++) {
+					Vertex3f testElement = testArray[i];
+					testElement = testElement.Normalized;
+				}
+			} while (crono.ElapsedMilliseconds < TestMaxTime);
+			crono.Stop();
+
+			// Allocate and initialize test array
+			int testArraySize = Math.Min(TestMaxSize, 1024 * 512);
+
+			testArray = new Vertex3f[testArraySize];
+
+			Stopwatch cronoArray = new Stopwatch();
+			Stopwatch cronoBuffer = new Stopwatch();
+
+			cronoArray.Start();
+			for (int i = 0; i < testArray.Length; i++) {
+				Vertex3f testElement = testArray[i];
+				testElement = testElement.Normalized;
+			}
+			cronoArray.Stop();
+
+			// Test mapped buffer access performance respect the native array access
+			using (ArrayBufferObject arrayBuffer = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObjectHint.StaticCpuDraw)) {
+				arrayBuffer.Create(_Context, testArray);
+
+				cronoBuffer.Start();
+				arrayBuffer.Map(_Context, BufferAccessARB.ReadOnly);
+				for (uint i = 0; i < arrayBuffer.ItemCount; i++) {
+					Vertex3f testElement = arrayBuffer.Get(_Context, i); ;
+					testElement = testElement.Normalized;
+				}
+				arrayBuffer.Unmap(_Context);
+				cronoBuffer.Stop();
+			}
+
+			Console.WriteLine("Map performance timings: Array={0} ms buffer={1} ms", cronoArray.ElapsedMilliseconds, cronoBuffer.ElapsedMilliseconds);
+			Assert.That((float)cronoArray.ElapsedMilliseconds / (float)cronoBuffer.ElapsedMilliseconds < 1.5f);
+		}
+
+		/// <summary>
+		/// Test <see cref="ArrayBufferObject.Create(uint)"/>.
+		/// </summary>
+		[Test]
+		public void MapPerformance()
+		{
+			MapPerformance_Core();
+		}
+
+		/// <summary>
+		/// Test <see cref="ArrayBufferObject.Create(uint)"/>.
+		/// </summary>
+		[Test]
+		public void MapPerformance_NoExtension()
+		{
+			_Context.PushCaps();
+			try {
+				// Disable GL_ARB_vertex_array_object
+				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+
+				MapPerformance_Core();
 			} finally {
 				_Context.PopCaps();
 			}

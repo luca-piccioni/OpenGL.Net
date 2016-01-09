@@ -58,7 +58,7 @@ namespace OpenGL
 
 			for (int i = 0; i < arrayItemTypeFields.Length; i++) {
 				FieldInfo arrayItemTypeField = arrayItemTypeFields[i];
-				ArraySection arraySection = new ArraySection(arrayItemTypeField.FieldType);
+				ArraySection arraySection = new ArraySection(this, arrayItemTypeField.FieldType);
 
 				// Store field size: used for re-computing section offsets
 				_FieldsSize[i] = (uint)Marshal.SizeOf(arrayItemTypeField.FieldType);

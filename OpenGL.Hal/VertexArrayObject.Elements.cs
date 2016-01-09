@@ -27,7 +27,7 @@ namespace OpenGL
 		/// <summary>
 		/// A collection of indices reference input arrays.
 		/// </summary>
-		protected class VertexElementArray : IDisposable
+		protected internal class VertexElementArray : IDisposable
 		{
 			#region Constructors
 
@@ -122,7 +122,7 @@ namespace OpenGL
 			/// <remarks>
 			/// <para>
 			/// If <see cref="ArrayIndices"/> is null, this member indicates the first index of the array item
-			/// to draw, otherwise it indicates the offset (in basic machine unit) of the first element of
+			/// to draw, otherwise it indicates the offset (in bytes) of the first element of
 			/// <see cref="ArrayIndices"/> to draw.
 			/// </para>
 			/// </remarks>
@@ -151,7 +151,16 @@ namespace OpenGL
 
 			#region Vertex Elements
 
-			public void Draw(GraphicsContext ctx, VertexArrayObject vertexArray)
+			/// <summary>
+			/// Draw the elements defined by this VertexElementArray.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/> which this VertexElementArray belongs to.
+			/// </param>
+			public virtual void Draw(GraphicsContext ctx, ShaderProgram shaderProgram, VertexArrayObject vertexArray)
 			{
 				if (ArrayIndices != null)
 					DrawElements(ctx, vertexArray);
@@ -170,8 +179,8 @@ namespace OpenGL
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled)
 					PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
-				// Draw vertex arrays by indices
-				Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, (int)ElementOffset);
+				// Draw vertex arrays by indices XXX ElementOffset
+				Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, IntPtr.Zero /* (int)ElementOffset */);
 				// Keep robust the restart_primitive state
 				if (ArrayIndices.RestartIndexEnabled)
 					PrimitiveRestart.DisablePrimitiveRestart(ctx);

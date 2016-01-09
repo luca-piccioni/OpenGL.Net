@@ -42,7 +42,7 @@ namespace OpenGL
 	/// this is implemented by defining up to two client buffers to emulate the "simulated" GPU buffer allocation behavior.
 	/// </para>
 	/// </remarks>
-	public abstract class BufferObject : GraphicsResource
+	public abstract partial class BufferObject : GraphicsResource
 	{
 		#region Constructors
 
@@ -85,29 +85,28 @@ namespace OpenGL
 		/// </summary>
 		public uint BufferSize
 		{
-			get { return (_BufferSize != 0 ? _BufferSize : ClientBufferSize); }
+			get { return (_GpuBufferSize != 0 ? _GpuBufferSize : ClientBufferSize); }
 		}
 
 		/// <summary>
-		/// Get the size of the client storage allocated  for this buffer object. In the case this BufferObject
-		/// has not been defined yet, it returns 0.
+		/// Get the address of the simulated GPU buffer of this BufferObject, if defined. Otherwise it returns
+		/// <see cref="IntPtr.Zero"/>.
 		/// </summary>
-		public uint ClientBufferSize
+		protected internal IntPtr GpuBufferAddress
 		{
-			get { return (_ClientBuffer != null ? _ClientBuffer.Size : 0); }
-			protected set { _ClientBufferSize = value; }
+			get { return (_GpuBuffer != null ? _GpuBuffer.AlignedBuffer : IntPtr.Zero); }
 		}
+
+		/// <summary>
+		/// An reference used for simulating the GPU buffer in the case the relative OpenGL extension is
+		/// not supported by current implementation. If this is not the case, the field is set to null.
+		/// </summary>
+		protected AlignedMemoryBuffer _GpuBuffer;
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
 		/// </summary>
-		private uint _BufferSize;
-
-		/// <summary>
-		/// Size of the storage to be allocated for this buffer object, in bytes. Normally is aligned with
-		/// <see cref="_ClientBuffer"/>, size, altought it is not meant to be.
-		/// </summary>
-		private uint _ClientBufferSize;
+		private uint _GpuBufferSize;
 
 		#endregion
 
@@ -119,7 +118,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// A <see cref="UInt32"/> that determine the size of the buffer object client buffer, in bytes.
 		/// </param>
-		protected void AllocateClientBuffer(uint size)
+		protected virtual void AllocateClientBuffer(uint size)
 		{
 			// Discard previous buffer
 			ReleaseClientBuffer();
@@ -133,7 +132,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// A <see cref="UInt32"/> that determine the size of the buffer object, in bytes.
 		/// </param>
-		protected void ReallocateClientBuffer(uint size)
+		protected virtual void ReallocateClientBuffer(uint size)
 		{
 			if (_ClientBuffer != null) {
 				_ClientBuffer.Realloc(size);
@@ -145,7 +144,7 @@ namespace OpenGL
 		/// <summary>
 		/// Release the client buffer of this BufferObject.
 		/// </summary>
-		protected void ReleaseClientBuffer()
+		protected virtual void ReleaseClientBuffer()
 		{
 			if (_ClientBuffer != null) {
 				_ClientBuffer.Dispose();
@@ -156,7 +155,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the address of the client buffer of this BufferObject.
 		/// </summary>
-		protected IntPtr ClientBufferAddress
+		protected virtual IntPtr ClientBufferAddress
 		{
 			get
 			{
@@ -168,6 +167,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the size of the client storage allocated  for this buffer object. In the case this BufferObject
+		/// has not been defined yet, it returns 0.
+		/// </summary>
+		public virtual uint ClientBufferSize
+		{
+			get { return (_ClientBuffer != null ? _ClientBuffer.Size : 0); }
+			protected set { _ClientBufferSize = value; }
+		}
+
+		/// <summary>
+		/// Size of the storage to be allocated for this buffer object, in bytes. Normally is aligned with
+		/// <see cref="_ClientBuffer"/>, size, altought it is not meant to be.
+		/// </summary>
+		private uint _ClientBufferSize;
+
+		/// <summary>
 		/// Get or set whether the client buffer must be disposed once this BufferObject is created; this
 		/// attribute is ignored when the required buffer cannot be managed at GPU side (i.e.
 		/// <see cref="IGraphicsResource.RequiresName(GraphicsContext)"/>.
@@ -176,6 +191,35 @@ namespace OpenGL
 		{
 			get { return (_MemoryBufferAutoDispose); }
 			set { _MemoryBufferAutoDispose = value; }
+		}
+
+		/// <summary>
+		/// Define the fake GPU buffer (when GL_ARB_vertex_array_object is not supported) using the current client buffer.
+		/// </summary>
+		protected virtual void UploadClientBuffer()
+		{
+			if (_MemoryBufferAutoDispose == false) {
+
+				// Note: client buffer is expected to be allocated and modificable; even while the GPU is rendering
+				// using the simulated GPU buffer. We need to copy: in this way it is implemented the double buffer
+				// mechanism of the GL_ARB_vertex_buffer_object extension
+
+				// Allocate a new GPU buffer
+				_GpuBuffer = new AlignedMemoryBuffer(ClientBufferSize, MinimumBufferAlignment);
+				// Copy from client buffer
+				Memory.MemoryCopy(_GpuBuffer.AlignedBuffer, ClientBufferAddress, ClientBufferSize);
+
+			} else {
+
+				// Note: since client buffer need to be disposed (ending set to null), we do not copy
+				// client buffer to GPU buffer; instead, switch references and do not dispose the client buffer
+
+				// Allocate GPU buffer
+				_GpuBuffer = _ClientBuffer;
+				// Do not need disposition (not really sure, but apart ClientBufferAddress, no reference of _ClientBuffer
+				// should be out of here
+				_ClientBuffer = null;
+			}
 		}
 
 		/// <summary>
@@ -196,12 +240,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// An reference used for simulating the GPU buffer in the case the relative OpenGL extension is
-		/// not supported by current implementation. If this is not the case, the field is set to null.
-		/// </summary>
-		protected AlignedMemoryBuffer _GpuBuffer;
-
-		/// <summary>
 		/// The buffer object representation in client memory.
 		/// </summary>
 		private AlignedMemoryBuffer _ClientBuffer;
@@ -209,7 +247,7 @@ namespace OpenGL
 		/// <summary>
 		/// The default memory alignment required.
 		/// </summary>
-		protected const uint MinimumBufferAlignment = 16;
+		protected const uint MinimumBufferAlignment = 0;
 
 		#endregion
 
@@ -259,7 +297,34 @@ namespace OpenGL
 		#region Buffer Mapping
 
 		/// <summary>
-		/// Map this BufferObject.
+		/// Map the client buffer allocated by this BufferObject.
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is already mapped.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject has no client buffer allocated.
+		/// </exception>
+		/// <remarks>
+		/// <para>
+		/// After being mapped, the mapped buffer is accessible via <see cref="MapGet{T}(GraphicsContext, long)"/> or
+		/// <see cref="MapSet{T}(GraphicsContext, T, long)"/>, or via <see cref="MappedBuffer"/> as raw pointer.
+		/// </para>
+		/// </remarks>
+		public void Map()
+		{
+			if (IsMapped)
+				throw new InvalidOperationException("already mapped");
+
+			// Emulate mapping
+			_MappedBuffer = ClientBufferAddress;
+			// Check actual mapped buffer
+			if (_MappedBuffer == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
+		}
+
+		/// <summary>
+		/// Map the GPU buffer allocated by this BufferObject.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> required for mapping this BufferObject.
@@ -267,21 +332,13 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="BufferAccessARB"/> that specify the map access.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is already mapped.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject does not exist, and no client memory buffer is allocated.
+		/// Exception thrown if this BufferObject does not exist for <paramref name="ctx"/>.
 		/// </exception>
 		/// <remarks>
-		/// <para>
-		/// This method does not care whether the BufferObject is actually created (i.e. an actual GPU
-		/// buffer is allocated): in the case the GL_ARB_vertex_buffer_object is not supported, nor
-		/// the buffer is not yet created, the mapped buffer corresponds with the client buffer object memory.
-		/// </para>
 		/// <para>
 		/// After being mapped, the mapped buffer is accessible via <see cref="MapGet{T}(GraphicsContext, long)"/> or
 		/// <see cref="MapSet{T}(GraphicsContext, T, long)"/>, or via <see cref="MappedBuffer"/> as raw pointer.
@@ -289,74 +346,14 @@ namespace OpenGL
 		/// </remarks>
 		public void Map(GraphicsContext ctx, BufferAccessARB mask)
 		{
-			if (IsMapped())
+			if (IsMapped)
 				throw new InvalidOperationException("already mapped");
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("no existing");
 
-			if (Exists(ctx)) {
-				Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB || _GpuBuffer != null);
-				// Map GPU buffer (actual or fake)
-				_MappedBuffer = ctx.Caps.GlExtensions.VertexBufferObject_ARB ? Gl.MapBuffer(BufferType, mask) : _GpuBuffer.AlignedBuffer;
-			} else {
-				if (_ClientBuffer == null)
-					throw new InvalidOperationException("no client buffer");
-
-				// Emulate mapping
-				_MappedBuffer = _ClientBuffer.AlignedBuffer;
-			}
-		}
-
-		/// <summary>
-		/// Set an element to this mapped BufferObject.
-		/// </summary>
-		/// <typeparam name="T">
-		/// A structure representing this BufferObject element.
-		/// </typeparam>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
-		/// <param name="value">
-		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
-		/// is stored. This value is expressed in basic machine units (bytes).
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public void MapSet<T>(GraphicsContext ctx, T value, Int64 offset) where T : struct
-		{
-			if (IsMapped() == false)
-				throw new InvalidOperationException("BufferObject not mapped");
-
-			Marshal.StructureToPtr(value, new IntPtr(_MappedBuffer.ToInt64()+offset), false);
-		}
-
-		/// <summary>
-		/// Get an element from this mapped BufferObject.
-		/// </summary>
-		/// <typeparam name="T">
-		/// A structure representing this BufferObject element.
-		/// </typeparam>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject to get the stored
-		/// value. This value is expressed in basic machine units (bytes).
-		/// </param>
-		/// <returns>
-		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public T MapGet<T>(GraphicsContext ctx, Int64 offset) where T : struct
-		{
-			if (IsMapped() == false)
-				throw new InvalidOperationException("not mapped");
-
-			return ((T)Marshal.PtrToStructure(new IntPtr(_MappedBuffer.ToInt64()+offset), typeof(T)));
+			Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB || _GpuBuffer != null);
+			// Map GPU buffer (actual or fake)
+			_MappedBuffer = ctx.Caps.GlExtensions.VertexBufferObject_ARB ? Gl.MapBuffer(BufferType, mask) : _GpuBuffer.AlignedBuffer;
 		}
 
 		/// <summary>
@@ -373,7 +370,7 @@ namespace OpenGL
 		/// </exception>
 		public void Unmap(GraphicsContext ctx)
 		{
-			if (IsMapped() == false)
+			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
 			if (Exists(ctx) && ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
@@ -390,12 +387,10 @@ namespace OpenGL
 		/// <summary>
 		/// Check whether this BufferObject data is mapped.
 		/// </summary>
-		/// <returns>
-		/// It returns a boolean value indicating whether this BufferObject is mapped.
-		/// </returns>
-		public bool IsMapped()
+		public bool IsMapped
 		{
-			return (_MappedBuffer != IntPtr.Zero);
+			get { return (_MappedBuffer != IntPtr.Zero); }
+			
 		}
 
 		/// <summary>
@@ -407,6 +402,91 @@ namespace OpenGL
 		/// Mapped buffer.
 		/// </summary>
 		private IntPtr _MappedBuffer = IntPtr.Zero;
+
+		#endregion
+
+		#region Buffer Map Access
+
+		/// <summary>
+		/// Set an element to this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>
+		/// </param>
+		/// <param name="value">
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
+		/// is stored. This value is expressed in basic machine units (bytes).
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set<T>(GraphicsContext ctx, T value, UInt64 offset) where T : struct
+		{
+			if (IsMapped == false)
+				throw new InvalidOperationException("not mapped");
+
+			Marshal.StructureToPtr(value, new IntPtr(_MappedBuffer.ToInt64() + (Int64)offset), false);
+		}
+
+		/// <summary>
+		/// Get an element from this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject to get the stored
+		/// value. This value is expressed in basic machine units (bytes).
+		/// </param>
+		/// <returns>
+		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public T Get<T>(GraphicsContext ctx, UInt64 offset) where T : struct
+		{
+			if (IsMapped == false)
+				throw new InvalidOperationException("not mapped");
+
+			return ((T)Marshal.PtrToStructure(new IntPtr(_MappedBuffer.ToInt64() + (Int64)offset), typeof(T)));
+		}
+
+		/// <summary>
+		/// Get an element from this mapped BufferObject.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for mapping this BufferObject.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject to get the stored
+		/// value, in bytes.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Vertex3f"/>, read from the mapped BufferObject at the specified offset.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public Vertex3f Get(GraphicsContext ctx, UInt64 offset)
+		{
+			unsafe
+			{
+				byte* bufferPtr = (byte*)MappedBuffer.ToPointer();
+				Vertex3f* bufferItemPtr = (Vertex3f*)(bufferPtr + offset);
+
+				return (bufferItemPtr[0]);
+			}
+		}
 
 		#endregion
 
@@ -425,25 +505,26 @@ namespace OpenGL
 			if (Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 
+			// Discard client buffer, if required
+			if (ClientBufferSize != BufferSize) {
+				ReleaseClientBuffer();
+				AllocateClientBuffer(BufferSize);
+				Debug.Assert(ClientBufferAddress != IntPtr.Zero);
+				Debug.Assert(ClientBufferSize == BufferSize);
+			}
+
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
-				// Ensure client buffer storage
-				ReallocateClientBuffer(_BufferSize);
 				// Read this buffer object
 				Bind(ctx);
 				// Get the GPU buffer content
-				Gl.GetBufferSubData(BufferType, IntPtr.Zero, _BufferSize, _ClientBuffer.AlignedBuffer);
+				Gl.GetBufferSubData(BufferType, IntPtr.Zero, _GpuBufferSize, ClientBufferAddress);
 			} else {
-				// Discard client buffer, if required
-				if (ClientBufferSize != BufferSize) {
-					ReleaseClientBuffer();
-					AllocateClientBuffer(BufferSize);
-				}
 				// Copy GPU buffer into client buffer
-				Memory.MemoryCopy(_ClientBuffer.AlignedBuffer, _GpuBuffer.AlignedBuffer, BufferSize);
+				Memory.MemoryCopy(ClientBufferAddress, _GpuBuffer.AlignedBuffer, BufferSize);
 			}
 		}
 		
-		#endregion
+#endregion
 
 		#region GraphicsResource Overrides
 
@@ -552,7 +633,7 @@ namespace OpenGL
 			// Delete buffer object
 			Gl.DeleteBuffers(name);
 			// Reset GPU buffer size
-			_BufferSize = 0;
+			_GpuBufferSize = 0;
 		}
 
 		/// <summary>
@@ -580,30 +661,30 @@ namespace OpenGL
 				throw new ArgumentNullException("ctx");
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current", "ctx");
-			if ((_ClientBuffer == null) && ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw)))
-				throw new InvalidOperationException("contents not defined");
+			if ((ClientBufferAddress == IntPtr.Zero) && ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw)))
+				throw new InvalidOperationException("no client buffer");
 
 			uint clientBufferSize = _ClientBufferSize;
 
-			if (_ClientBuffer != null)
-				clientBufferSize = _ClientBuffer.Size;
+			if (ClientBufferAddress != IntPtr.Zero)
+				clientBufferSize = ClientBufferSize;
 
 			// Buffer must be bound
 			Bind(ctx);
 
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
-				if (IsMapped())
+				if (IsMapped)
 					throw new InvalidOperationException("mapped");
 
 				// Define buffer object (type, size and hints)
 				Gl.BufferData((int)BufferType, clientBufferSize, null, (int)Hint);
 				// Store GPU buffer size
-				_BufferSize = clientBufferSize;
+				_GpuBufferSize = clientBufferSize;
 
 				// Define buffer object contents
-				if (_ClientBuffer != null) {
+				if (ClientBufferAddress != IntPtr.Zero) {
 					// Provide buffer contents
-					Gl.BufferSubData(BufferType, IntPtr.Zero, _BufferSize, _ClientBuffer.AlignedBuffer);
+					Gl.BufferSubData(BufferType, IntPtr.Zero, _GpuBufferSize, ClientBufferAddress);
 					// Release memory, if it is not required anymore
 					if (_MemoryBufferAutoDispose)
 						ReleaseClientBuffer();
@@ -613,45 +694,24 @@ namespace OpenGL
 				if (_GpuBuffer != null)
 					_GpuBuffer.Dispose();
 
-				if (_ClientBuffer != null) {
-					if (_MemoryBufferAutoDispose == false) {
-
-						// Note: client buffer is expected to be allocated and modificable; even while the GPU is rendering
-						// using the simulated GPU buffer. We need to copy: in this way it is implemented the double buffer
-						// mechanism of the GL_ARB_vertex_buffer_object extension
-
-						// Allocate a new GPU buffer
-						_GpuBuffer = new AlignedMemoryBuffer(_ClientBuffer.Size, _ClientBuffer.Alignment);
-						// Copy from client buffer
-						Memory.MemoryCopy(_GpuBuffer.AlignedBuffer, _ClientBuffer.AlignedBuffer, _ClientBuffer.Size);
-
-					} else {
-
-						// Note: since client buffer need to be disposed (ending set to null), we do not copy
-						// client buffer to GPU buffer; instead, switch references and do not dispose the client buffer
-						
-						// Allocate GPU buffer
-						_GpuBuffer = _ClientBuffer;
-						// Do not need disposition (not really sure, but apart ClientBufferAddress, no reference of _ClientBuffer
-						// should be out of here
-						_ClientBuffer = null;
-					}
-				} else {
-					
+				if (ClientBufferAddress == IntPtr.Zero) {
 					// Note: GPU buffer size specified by _ClientBufferSize
 					Debug.Assert(_ClientBufferSize > 0);
-
 					// Allocate simulated GPU buffer
 					_GpuBuffer = new AlignedMemoryBuffer(_ClientBufferSize, MinimumBufferAlignment);
+				} else {
+					// Let a virtual implementation decide how pass information from the client buffer
+					// and the "GPU" buffer
+					UploadClientBuffer();
 				}
 
 				// Store GPU buffer size
-				_BufferSize = _GpuBuffer.Size;
+				_GpuBufferSize = _GpuBuffer.Size;
 			}
 
 			// Reset requested client buffer size
 			_ClientBufferSize = 0;
-        }
+		}
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -671,13 +731,153 @@ namespace OpenGL
 					_GpuBuffer.Dispose();
 					_GpuBuffer = null;
 					// Reset GPU buffer size
-					_BufferSize = 0;
+					_GpuBufferSize = 0;
 				}
 
 				// Release client buffer
 				ReleaseClientBuffer();
 			}
 		}
+
+		#endregion
+	}
+
+	/// <summary>
+	/// Data buffer object abstraction (generic variant).
+	/// </summary>
+	/// <remarks>
+	/// This derivation allows to allocate the client buffer using a strongly typed array.
+	/// </remarks>
+	public abstract class BufferObject<T> : BufferObject where T : struct
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a BufferObject determining its type, data usage and transfer mode.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="BufferTargetARB"/> that specify the buffer object type.
+		/// </param>
+		/// <param name="hint">
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// </param>
+		protected BufferObject(BufferTargetARB type, BufferObjectHint hint) :
+			base(type, hint)
+		{
+			_ClientBufferElementSize = (uint)Marshal.SizeOf(typeof(T));
+		}
+
+		#endregion
+
+		#region Buffer Object Overrides
+
+		/// <summary>
+		/// Allocate a new client buffer for this BufferObject.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="UInt32"/> that determine the size of the buffer object client buffer, in bytes.
+		/// </param>
+		protected override void AllocateClientBuffer(uint size)
+		{
+			// Discard previous buffer
+			ReleaseClientBuffer();
+			// Allocate memory, if required
+			_TypedClientBuffer = new T[size];
+			// Pin client buffer (ugly, but necessary till ClientBufferAddress has not Create/Delete pattern)
+			_TypedClientBufferHandle = GCHandle.Alloc(_TypedClientBuffer, GCHandleType.Pinned);
+		}
+
+		/// <summary>
+		/// Reallocate a new client buffer for this BufferObject.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="UInt32"/> that determine the size of the buffer object, in bytes.
+		/// </param>
+		protected override void ReallocateClientBuffer(uint size)
+		{
+			if (_TypedClientBuffer != null) {
+				T[] reallocClientBuffer = new T[size];
+
+				// Copy previous client buffer contents
+				Array.Copy(_TypedClientBuffer, reallocClientBuffer, _TypedClientBuffer.Length);
+				// Unpin and release previous client buffer
+				ReleaseClientBuffer();
+
+				// Substitute previous client buffer
+				_TypedClientBuffer = reallocClientBuffer;
+				// Pin client buffer (ugly, but necessary till ClientBufferAddress has not Create/Delete pattern)
+				_TypedClientBufferHandle = GCHandle.Alloc(_TypedClientBuffer, GCHandleType.Pinned);
+			} else {
+				AllocateClientBuffer(size);
+			}
+		}
+
+		/// <summary>
+		/// Release the client buffer of this BufferObject.
+		/// </summary>
+		protected override void ReleaseClientBuffer()
+		{
+			// Unpin client buffer
+			if (_TypedClientBufferHandle.HasValue) {
+				_TypedClientBufferHandle.Value.Free();
+				_TypedClientBufferHandle = null;
+			}
+			// Let the GC to collect the client buffer
+			_TypedClientBuffer = null;
+		}
+
+		/// <summary>
+		/// Get the address of the client buffer of this BufferObject.
+		/// </summary>
+		protected override IntPtr ClientBufferAddress
+		{
+			get
+			{
+				if (_TypedClientBufferHandle.HasValue)
+					return (_TypedClientBufferHandle.Value.AddrOfPinnedObject());
+
+				return (IntPtr.Zero);
+			}
+		}
+
+		/// <summary>
+		/// Get the size of the client storage allocated for this buffer object. In the case this BufferObject
+		/// has not been defined yet, it returns 0.
+		/// </summary>
+		public override uint ClientBufferSize
+		{
+			get { return (_TypedClientBuffer != null ? (uint)(_TypedClientBuffer.Length * _ClientBufferElementSize) : 0); }
+			protected set { base.ClientBufferSize = value; }
+		}
+
+		/// <summary>
+		/// Define the fake GPU buffer (when GL_ARB_vertex_array_object is not supported) using the current client buffer.
+		/// </summary>
+		protected override void UploadClientBuffer()
+		{
+			// Allocate a new GPU buffer
+			_GpuBuffer = new AlignedMemoryBuffer(ClientBufferSize, MinimumBufferAlignment);
+			// Upload client buffer
+			Memory.MemoryCopy(_GpuBuffer.AlignedBuffer, ClientBufferAddress, ClientBufferSize);
+			// Automatically dispose client buffer
+			if (AutoDisposeClientBuffer)
+				ReleaseClientBuffer();
+		}
+
+		/// <summary>
+		/// The size of the elements of <see cref="_TypedClientBuffer"/>, in bytes.
+		/// </summary>
+		private readonly uint _ClientBufferElementSize;
+
+		/// <summary>
+		/// The client buffer, allocated using a stringly typed array.
+		/// </summary>
+		private T[] _TypedClientBuffer;
+
+		/// <summary>
+		/// GC handle for <see cref="_TypedClientBuffer"/>.
+		/// </summary>
+		private GCHandle? _TypedClientBufferHandle;
 
 		#endregion
 	}

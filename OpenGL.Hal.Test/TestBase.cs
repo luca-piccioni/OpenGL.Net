@@ -17,7 +17,7 @@
 // USA
 
 // Macro utility for enabling OpenGL function calls logging
-#define GL_LOG_ENABLED
+#undef GL_LOG_ENABLED
 
 using System;
 using System.Reflection;
@@ -643,7 +643,7 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				ArrayBufferObjectInterleaved arrayBufferObject = new ArrayBufferObjectInterleaved(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObjectInterleaved arrayBufferObject = new ArrayBufferObjectInterleaved(typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw);
 
 				arrayBufferObject.Create(16);
 
@@ -661,7 +661,7 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override T AllocateSpy<T>(GraphicsContext ctx)
 			{
-				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw);
 				ArrayBufferObjectInterleaved arrayBufferObject = arrayBufferObjectSpy as ArrayBufferObjectInterleaved;
 
 				if (arrayBufferObject != null)
@@ -701,7 +701,7 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				ArrayBufferObjectPacked arrayBufferObject = new ArrayBufferObjectPacked(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObjectPacked arrayBufferObject = new ArrayBufferObjectPacked(typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw);
 
 				arrayBufferObject.Create(16);
 
@@ -719,7 +719,7 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override T AllocateSpy<T>(GraphicsContext ctx)
 			{
-				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw);
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw);
 				ArrayBufferObjectPacked arrayBufferObject = arrayBufferObjectSpy as ArrayBufferObjectPacked;
 
 				if (arrayBufferObject != null)

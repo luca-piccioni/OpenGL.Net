@@ -199,7 +199,7 @@ namespace OpenGL
 		/// Convert this array buffer object in a strongly-typed array.
 		/// </summary>
 		/// <typeparam name="T">
-		/// 
+		/// The type of elements of the returned array.
 		/// </typeparam>
 		/// <returns>
 		/// It returns an array having all items stored by this ArrayBufferObject.
@@ -753,9 +753,15 @@ namespace OpenGL
 		bool IArraySection.Normalized { get { return (false); } }
 
 		/// <summary>
+		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
+		/// buffer reference.
+		/// </summary>
+		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
+
+		/// <summary>
 		/// Offset of the first element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Offset { get { return (_GpuBuffer != null ? _GpuBuffer.AlignedBuffer : IntPtr.Zero); } }
+		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
 
 		/// <summary>
 		/// Offset between two element of the array section, in bytes.
@@ -790,187 +796,17 @@ namespace OpenGL
 
 		#endregion
 
-		#region Array Buffer Data Definition
-
-		/// <summary>
-		/// Define this ArrayBufferObject by specifing an array of <typeparamref name="T"/>.
-		/// </summary>
-		/// <param name="items">
-		/// An array that specify the contents of this ArrayBufferObject.
-		/// </param>
-		public void Define(T[] items)
-		{
-			if (items == null)
-				throw new ArgumentNullException("items");
-			if (items.Length == 0)
-				throw new ArgumentException("zero items", "items");
-			if ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw))
-				throw new InvalidOperationException(String.Format("conflicting hint {0}", Hint));
-
-			// Store item count
-			Create((uint)items.Length);
-			// Copy the buffer
-			Memory.MemoryCopy(ClientBufferAddress, items, ItemCount * ItemSize);
-		}
-
-		#endregion
-
-		#region Array Buffer Access
-
-		/// <summary>
-		/// Accessor to ArrayBufferObject items.
-		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		public T this[uint index]
-		{
-			get
-			{
-				IntPtr clientBufferAddress = ClientBufferAddress;
-
-				if (clientBufferAddress == IntPtr.Zero)
-					throw new InvalidOperationException("no client buffer");
-				if (index >= ItemCount)
-					throw new ArgumentException("index out of bounds", "index");
-
-				return ((T) Marshal.PtrToStructure(new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), typeof(T)));
-			}
-			set
-			{
-				IntPtr clientBufferAddress = ClientBufferAddress;
-
-				if (clientBufferAddress == IntPtr.Zero)
-					throw new InvalidOperationException("no client buffer");
-				if (index >= ItemCount)
-					throw new ArgumentException("index out of bounds", "index");
-
-				Marshal.StructureToPtr(value, new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), false);
-			}
-		}
-
-		#endregion
-
 		#region To Array
 
 		/// <summary>
 		/// Convert this array buffer object in a strongly-typed array.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>
+		/// It returns an array having all items stored by this ArrayBufferObject.
+		/// </returns>
 		public new T[] ToArray()
 		{
-			IntPtr clientBufferAddress = ClientBufferAddress;
-
-			if (clientBufferAddress == IntPtr.Zero)
-				throw new InvalidOperationException("no client buffer");
-
-			T[] array = new T[ItemCount];
-
-			// Copy the buffer
-			Memory.MemoryCopy(array, clientBufferAddress, ItemCount * ItemSize);
-
-			return (array);
-		}
-
-		#endregion
-
-		#region Array Buffer Mapping
-
-		/// <summary>
-		/// Set an item to this mapped BufferObject.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
-		/// <param name="value">
-		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
-		/// is stored. The offset is expressed in number of items from the beginning of the array buffer object, indeed
-		/// dependent on the <typeparamref name="T"/> size in bytes.
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this ArrayBufferObject is not mapped (<see cref="BufferObject.IsMapped"/>).
-		/// </exception>
-		public void MapSet(GraphicsContext ctx, T value, Int64 offset) { MapSet<T>(ctx, value, offset * ItemSize); }
-
-		/// <summary>
-		/// Get an element from this mapped BufferObject.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject. The offset is expressed
-		/// in number of items from the beginning of the array buffer object, indeed dependent on the <typeparamref name="T"/>
-		/// size in bytes.
-		/// </param>
-		/// <returns>
-		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this ArrayBufferObject is not mapped (<see cref="BufferObject.IsMapped"/>).
-		/// </exception>
-		public T MapGet(GraphicsContext ctx, Int64 offset) { return (MapGet<T>(ctx, offset * ItemSize)); }
-
-		#endregion
-
-		#region Join Multiple ArrayBufferObject
-
-		/// <summary>
-		/// Join a set of compatible buffers.
-		/// </summary>
-		/// <param name="buffers">
-		/// An array of <see cref="ArrayBufferObject"/> instances to be packed sequentially on this ArrayBufferObject.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="buffers"/> is null or any item in <paramref name="buffers"/> array
-		/// is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="buffers"/> length is less than two (minimum number of ArrayBufferObject
-		/// to join).
-		/// </exception>
-		/// <remarks>
-		/// <para>
-		/// This ArrayBufferObject will store sequentially all the items stored in <paramref name="buffers"/>.
-		/// </para>
-		/// </remarks>
-		public void Join(params ArrayBufferObject<T>[] buffers)
-		{
-			if (buffers == null)
-				throw new ArgumentNullException("buffers");
-			if (buffers.Length <= 1)
-				throw new ArgumentException("not enought buffers", "buffers");
-
-			// Since T is the same for 'buffers' and 'this', they are compatible for every T, even if
-			// T is a complex structure
-
-			// Collect array buffer objects statistics
-			uint bufferSize = 0, itemCount = 0;
-
-			for (int i = 0; i < buffers.Length; i++) {
-				if (buffers[i] == null)
-					throw new ArgumentNullException("buffers[" + i + "]");
-
-				bufferSize += buffers[i].BufferSize;
-				itemCount += buffers[i].ItemCount;
-			}
-
-			// Allocate the array buffer object
-			AllocateClientBuffer(bufferSize);
-
-			// Join buffers into a single one
-			bufferSize = 0;
-			for (int i = 0; i < buffers.Length; i++) {
-				IntPtr src = buffers[i].ClientBufferAddress;
-				IntPtr dst = new IntPtr(ClientBufferAddress.ToInt64() + bufferSize);
-
-				// Copy 'i'th buffer content
-				Memory.MemoryCopy(dst, src, buffers[i].BufferSize);
-				// Next buffer offset
-				bufferSize += buffers[i].BufferSize;
-			}
+			return (ToArray<T>());
 		}
 
 		#endregion

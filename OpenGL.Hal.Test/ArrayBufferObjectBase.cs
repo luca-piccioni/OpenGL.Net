@@ -24,7 +24,7 @@ using NUnit.Framework;
 namespace OpenGL.Hal.Test
 {
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	struct ComplexVertexArray
+	struct ComplexVertexElement
 	{
 		/// <summary>
 		/// Position attribute.
@@ -64,9 +64,9 @@ namespace OpenGL.Hal.Test
 			else if (typeof(T) == typeof(ElementBufferObject))
 				return (new ElementBufferObject(typeof(uint), BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectInterleaved))
-				return (new ArrayBufferObjectInterleaved(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
+				return (new ArrayBufferObjectInterleaved(typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectPacked))
-				return (new ArrayBufferObjectPacked(typeof(ComplexVertexArray), BufferObjectHint.StaticCpuDraw));
+				return (new ArrayBufferObjectPacked(typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw));
 
 			Assert.Inconclusive("Type argument not implemented");
 
@@ -80,7 +80,7 @@ namespace OpenGL.Hal.Test
 			} else if (typeof(T) == typeof(ElementBufferObject)) {
 				return (new uint[16]);
 			} else if ((typeof(T) == typeof(ArrayBufferObjectInterleaved)) || (typeof(T) == typeof(ArrayBufferObjectPacked))) {
-				return (new ComplexVertexArray[16]);
+				return (new ComplexVertexElement[16]);
 			}
 
 			Assert.Inconclusive("Type argument not implemented");
@@ -89,7 +89,7 @@ namespace OpenGL.Hal.Test
 		}
 
 		/// <summary>
-		/// Test for defautl values after construction.
+		/// Test for default values after construction.
 		/// </summary>
 		/// <param name="arrayBuffer"></param>
 		private void ConstructionDefaulValues(ArrayBufferObjectBase arrayBuffer)
@@ -99,7 +99,7 @@ namespace OpenGL.Hal.Test
 		}
 
 		/// <summary>
-		/// Test for defautl values after construction.
+		/// Test for default values after construction.
 		/// </summary>
 		/// <param name="arrayBuffer"></param>
 		private void DispositionDefaulValues(ArrayBufferObjectBase arrayBuffer)

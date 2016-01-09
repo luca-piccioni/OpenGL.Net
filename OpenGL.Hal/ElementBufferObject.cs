@@ -18,7 +18,6 @@
 
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -43,24 +42,29 @@ namespace OpenGL
 				if (elementType == null)
 					throw new ArgumentNullException("elementType");
 
-				// Determine array item size
+				// Determine ElementsType and default RestartIndexKey
 				switch (Type.GetTypeCode(elementType)) {
 					case TypeCode.Byte:
 						ElementsType = DrawElementsType.UnsignedByte;
+						RestartIndexKey = 0x000000FF;
 						break;
 					case TypeCode.UInt16:
 						ElementsType = DrawElementsType.UnsignedShort;
+						RestartIndexKey = 0x0000FFFF;
 						break;
 					case TypeCode.UInt32:
 						ElementsType = DrawElementsType.UnsignedInt;
+						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("not supported type", "element type");
+						throw new ArgumentException("type not supported", "elementType");
 				}
 
+				// Store element type
 				_RuntimeType = elementType;
+				// Determine the element size, in bytes
 				ItemSize = (uint)Marshal.SizeOf(elementType);
-
+				// The element type must implement IConvertible
 				Debug.Assert(_RuntimeType.GetInterface("IConvertible") != null);
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -104,60 +108,6 @@ namespace OpenGL
 		}
 
 		#endregion
-
-		#region Element Buffer Access
-
-		/// <summary>
-		/// Get or set the item stored in the client buffer of this ElementBufferObject.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the item index.
-		/// </param>
-		public uint this[uint index]
-		{
-			get
-			{
-				IntPtr clientBufferAddress = ClientBufferAddress;
-
-				if (clientBufferAddress == IntPtr.Zero)
-					throw new InvalidOperationException("no client buffer");
-				if (index >= ItemCount)
-					throw new ArgumentException("index out of bounds", "index");
-
-				IConvertible value = (IConvertible)Marshal.PtrToStructure(new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), _RuntimeType);
-
-				return (value.ToUInt32(NumberFormatInfo.InvariantInfo));
-			}
-			set
-			{
-				IntPtr clientBufferAddress = ClientBufferAddress;
-
-				if (clientBufferAddress == IntPtr.Zero)
-					throw new InvalidOperationException("no client buffer");
-				if (index >= ItemCount)
-					throw new ArgumentException("index out of bounds", "index");
-
-				object convertedValue;
-
-				switch (ElementsType) {
-					case DrawElementsType.UnsignedByte:
-						convertedValue = (byte) (value & 0xFF);
-						break;
-					case DrawElementsType.UnsignedShort:
-						convertedValue = (ushort) (value & 0xFFFF);
-						break;
-					case DrawElementsType.UnsignedInt:
-						convertedValue = value;
-						break;
-					default:
-						throw new InvalidOperationException("invalid item type " + ElementsType);
-				}
-
-				Marshal.StructureToPtr(convertedValue, new IntPtr(clientBufferAddress.ToInt64() + (index * ItemSize)), false);
-			}
-		}
-
-		#endregion
 		
 		#region Primitive Restart
 		
@@ -165,6 +115,11 @@ namespace OpenGL
 		/// The restart index enabled.
 		/// </summary>
 		public bool RestartIndexEnabled;
+
+		/// <summary>
+		/// The restart index value (fixed).
+		/// </summary>
+		public readonly uint RestartIndexKey;
 
 		#endregion
 
@@ -263,82 +218,6 @@ namespace OpenGL
 			base(typeof(T), hint)
 		{
 			
-		}
-
-		#endregion
-
-		#region Element Buffer Conversion
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="buffer"></param>
-		/// <param name="verticesCount"></param>
-		public void Triangulate(ElementBufferObject<T> buffer, uint[] verticesCount)
-		{
-			if (buffer == null)
-				throw new ArgumentNullException("buffer");
-			if (verticesCount == null)
-				throw new ArgumentNullException("verticesCount");
-
-			// Allocate array buffer
-			uint minVertices = UInt32.MaxValue, maxVertices = UInt32.MinValue;
-
-			Array.ForEach(verticesCount, delegate(uint v) {
-				minVertices = Math.Min(v, minVertices);
-				maxVertices = Math.Max(v, maxVertices);
-			});
-
-			if ((minVertices < 3) && (maxVertices >= 3))
-				throw new ArgumentException("ambigous polygons set", "verticesCount");
-
-			uint totalVerticesCount = 0;
-
-			Array.ForEach(verticesCount, delegate(uint v) {
-				if (v == 4) {
-					totalVerticesCount += 6;			// Triangulate quad with two triangles
-				} else if (v > 4) {
-					totalVerticesCount += (v - 2) * 3;	// Triangulate as if it is a polygon
-				} else {
-					Debug.Assert(v == 3);
-					totalVerticesCount += 3;			// Exactly a triangle
-				}
-			});
-
-			Create(totalVerticesCount);
-
-			// Copy polygons (triangulate)
-			uint thisIndicesIndex = 0, indicesIndex = 0;
-
-			for (uint i = 0; i < verticesCount.Length; i++) {
-				uint polygonVertices = verticesCount[i];
-
-				if (polygonVertices == 4) {
-					this[thisIndicesIndex++] = buffer[indicesIndex + 0];
-					this[thisIndicesIndex++] = buffer[indicesIndex + 1];
-					this[thisIndicesIndex++] = buffer[indicesIndex + 2];
-					this[thisIndicesIndex++] = buffer[indicesIndex + 0];
-					this[thisIndicesIndex++] = buffer[indicesIndex + 2];
-					this[thisIndicesIndex++] = buffer[indicesIndex + 3];
-
-					indicesIndex += 4;
-				} else if (polygonVertices > 4) {
-					uint triCount = polygonVertices - 2;
-					uint pivotIndex = indicesIndex;
-
-					// Copy polygon indices
-					for (uint tri = 0; tri < triCount; tri++) {
-						this[thisIndicesIndex++] = buffer[pivotIndex];
-						this[thisIndicesIndex++] = buffer[indicesIndex + (tri + 2)];
-						this[thisIndicesIndex++] = buffer[indicesIndex + (tri + 1)];
-					}
-
-					indicesIndex += polygonVertices;
-				} else {
-					for (int j = 0; j < polygonVertices; j++, indicesIndex += 1)
-						this[thisIndicesIndex++] = buffer[indicesIndex];
-				}
-			}
 		}
 
 		#endregion

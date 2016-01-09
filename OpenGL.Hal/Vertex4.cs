@@ -893,7 +893,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex3f constructor.
+		/// Vertex4f constructor.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="Single"/>
@@ -913,6 +913,48 @@ namespace OpenGL
 			this.y = y;
 			this.z = z;
 			this.w = w;
+		}
+
+		/// <summary>
+		/// Vertex4f constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="Single"/>
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="Single"/>
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="Single"/>
+		/// </param>
+		/// <param name="w">
+		/// A <see cref="Single"/>
+		/// </param>
+		public Vertex4f(float x, float y, float z) :
+			this(x, y, z, 1.0f)
+		{
+			
+		}
+
+		/// <summary>
+		/// Vertex4f constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="Single"/>
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="Single"/>
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="Single"/>
+		/// </param>
+		/// <param name="w">
+		/// A <see cref="Single"/>
+		/// </param>
+		public Vertex4f(float x, float y) :
+			this(x, y, 0.0f, 1.0f)
+		{
+			
 		}
 
 		#endregion

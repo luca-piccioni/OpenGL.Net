@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <param name="memoryObject"></param>
 		public MemoryLock(object memoryObject)
 		{
-			_Handle = GCHandle.Alloc(memoryObject);
+			_Handle = GCHandle.Alloc(memoryObject, GCHandleType.Pinned);
 		}
 
 		#endregion

@@ -132,9 +132,7 @@ namespace OpenGL.Hal.Test.Shaders
 				// Issue rendering
 				_Framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
 				_Framebuffer.Clear(_Context);
-				_Context.DrawLines(
-					new Vertex2f(0.0f, 0.5f), new Vertex2f(1.0f, 0.5f)
-				);
+				
 
 				// Get rendering feedback
 				using (Image feedbackImage = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, 16, 16, PixelLayout.GRAY8)) {

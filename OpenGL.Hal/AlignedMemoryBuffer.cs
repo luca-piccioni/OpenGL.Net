@@ -50,7 +50,7 @@ namespace OpenGL
 		{
 			if (size == 0)
 				throw new ArgumentException("invalid", "size");
-			if ((alignment != 4) && (alignment != 8) && (alignment != 16) && (alignment != 32))
+			if ((alignment != 0) && (alignment != 4) && (alignment != 8) && (alignment != 16) && (alignment != 32))
 				throw new ArgumentException("invalid", "alignment");
 
 			// Store alignment
@@ -89,9 +89,12 @@ namespace OpenGL
 		/// </summary>
 		private void ResetAlignment()
 		{
-			long misalignment = (long)((ulong)_UnmanagedBuffer.ToInt64() % _Alignment);
+			if (_Alignment > 0) {
+				long misalignment = (long)((ulong)_UnmanagedBuffer.ToInt64() % _Alignment);
 
-			_AlignedBuffer = misalignment != 0 ? new IntPtr(_UnmanagedBuffer.ToInt64() + _Alignment - misalignment) : _UnmanagedBuffer;
+				_AlignedBuffer = misalignment != 0 ? new IntPtr(_UnmanagedBuffer.ToInt64() + _Alignment - misalignment) : _UnmanagedBuffer;
+			} else
+				_AlignedBuffer = _UnmanagedBuffer;
 		}
 
 		/// <summary>

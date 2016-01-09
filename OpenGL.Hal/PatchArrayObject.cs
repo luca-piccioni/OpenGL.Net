@@ -25,36 +25,6 @@ namespace OpenGL
 	{
 		#region Patch Elements Definitions
 
-		public void SetPatchArray(uint patchCount)
-		{
-			if (patchCount < 3)
-				throw new ArgumentException("invalid", "patchCount");
-			if (PatchElement != null)
-				throw new InvalidOperationException("only one patch element is supported");
-
-			PatchElement = new PatchAttributeElement(patchCount);
-		}
-
-		public void SetPatchArray(uint patchCount, ElementBufferObject bufferObject)
-		{
-			if (patchCount < 3)
-				throw new ArgumentException("invalid", "patchCount");
-			if (PatchElement != null)
-				throw new InvalidOperationException("only one patch element is supported");
-
-			PatchElement = new PatchAttributeElement(patchCount, bufferObject);
-		}
-
-		public void SetPatchArray(uint patchCount, ElementBufferObject bufferObject, uint offset, uint count)
-		{
-			if (patchCount < 3)
-				throw new ArgumentException("invalid", "patchCount");
-			if (PatchElement != null)
-				throw new InvalidOperationException("only one patch element is supported");
-
-			PatchElement = new PatchAttributeElement(patchCount, bufferObject, offset, count);
-		}
-
 		/// <summary>
 		/// A collection of indices reference input arrays.
 		/// </summary>
@@ -125,10 +95,40 @@ namespace OpenGL
 			public readonly uint PatchCount;
 		}
 
+		public void SetPatchArray(uint patchCount)
+		{
+			if (patchCount < 3)
+				throw new ArgumentException("invalid", "patchCount");
+			if (_PatchElement != null)
+				throw new InvalidOperationException("only one patch element is supported");
+
+			_PatchElement = new PatchAttributeElement(patchCount);
+		}
+
+		public void SetPatchArray(uint patchCount, ElementBufferObject bufferObject)
+		{
+			if (patchCount < 3)
+				throw new ArgumentException("invalid", "patchCount");
+			if (_PatchElement != null)
+				throw new InvalidOperationException("only one patch element is supported");
+
+			_PatchElement = new PatchAttributeElement(patchCount, bufferObject);
+		}
+
+		public void SetPatchArray(uint patchCount, ElementBufferObject bufferObject, uint offset, uint count)
+		{
+			if (patchCount < 3)
+				throw new ArgumentException("invalid", "patchCount");
+			if (_PatchElement != null)
+				throw new InvalidOperationException("only one patch element is supported");
+
+			_PatchElement = new PatchAttributeElement(patchCount, bufferObject, offset, count);
+		}
+
 		/// <summary>
-		/// Collection of elements for drawing arrays.
+		/// Element for drawing patches.
 		/// </summary>
-		private PatchAttributeElement PatchElement;
+		private PatchAttributeElement _PatchElement;
 
 		#endregion
 
@@ -140,34 +140,69 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for rendering.
 		/// </param>
-		/// <param name="shader">
+		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> used for drawing this vertex array.
 		/// </param>
-		public override void Draw(GraphicsContext ctx, ShaderProgram shader)
+		public override void Draw(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (shader == null)
-				throw new InvalidOperationException("no shader");
-			if (shader.IsLinked == false)
-				throw new InvalidOperationException("shader not linked");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current", "ctx");
+			if (shaderProgram == null)
+				throw new ArgumentNullException("shaderProgram");
+			if (shaderProgram.Exists(ctx) == false)
+				throw new ArgumentException("not existing", "shaderProgram");
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
+			if (_Elements.Count == 0 && _PatchElement == null)
+				throw new InvalidOperationException("no elements defined");
 
-			if (PatchElement != null) {
+			if (_PatchElement != null) {
 				// Setup patch vertices
-				Gl.PatchParameter(Gl.PATCH_VERTICES, (int)PatchElement.PatchCount);
+				Gl.PatchParameter(Gl.PATCH_VERTICES, (int)_PatchElement.PatchCount);
+
+				// GL_PATCH_DEFAULT_OUTER_LEVEL | GL_PATCH_DEFAULT_INNER_LEVEL
 
 				// Set vertex arrays
-				SetVertexArrayState(ctx, shader);
-
+				SetVertexArrayState(ctx, shaderProgram);
 				// Uses shader
-				shader.Bind(ctx);
+				shaderProgram.Bind(ctx);
 				// Draw patches
-				// DrawAttributeElement(ctx, PatchElement);
+				_PatchElement.Draw(ctx, shaderProgram, this);
 			}
 
 			// Based implementation
 			if (_Elements.Count > 0)
-				base.Draw(ctx, shader);
+				base.Draw(ctx, shaderProgram);
+		}
+
+		/// <summary>
+		/// Create a BufferObject name.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this buffer object name.
+		/// </param>
+		/// <returns>
+		/// It returns a valid object name for this BufferObject.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		protected override uint CreateName(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			// Here is the most appropriate point where to check patch support by current OpenGL implementation.
+			if (ctx.Caps.GlExtensions.TessellationShader_ARB == false)
+				throw new NotSupportedException("GL_ARB_tesselation_shader_ARB not supported by current implementation");
+
+			// Base implementation
+			return (base.CreateName(ctx));
 		}
 
 		protected override void CreateObject(GraphicsContext ctx)
@@ -175,8 +210,8 @@ namespace OpenGL
 			// Base implementation
 			base.CreateObject(ctx);
 
-			if ((PatchElement != null) && (PatchElement.ArrayIndices != null))
-				PatchElement.ArrayIndices.Create(ctx);
+			if ((_PatchElement != null) && (_PatchElement.ArrayIndices != null))
+				_PatchElement.ArrayIndices.Create(ctx);
 		}
 
 		#endregion

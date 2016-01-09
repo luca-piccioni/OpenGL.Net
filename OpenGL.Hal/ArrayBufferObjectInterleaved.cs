@@ -51,7 +51,7 @@ namespace OpenGL
 
 			for (int i = 0; i < arrayItemTypeFields.Length; i++) {
 				FieldInfo arrayItemTypeField = arrayItemTypeFields[i];
-				ArraySection arraySection = new ArraySection(arrayItemTypeField.FieldType);
+				ArraySection arraySection = new ArraySection(this, arrayItemTypeField.FieldType);
 
 				// Determine array section offset
 				arraySection.ItemOffset = Marshal.OffsetOf(arrayItemType, arrayItemTypeField.Name);
