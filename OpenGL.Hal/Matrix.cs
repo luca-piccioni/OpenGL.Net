@@ -200,7 +200,7 @@ namespace OpenGL
 			// Copy matrix components
 			for (uint r = 0; r < _Height; r++) {
 				for (uint c = 0; c < _Width; c++) {
-					this[c, r] = (float)m[c, r]
+					this[c, r] = (float)m[c, r];
 				}
 			}
 		}
