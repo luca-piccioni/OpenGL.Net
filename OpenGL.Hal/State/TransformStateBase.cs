@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace OpenGL.State
 {
@@ -35,33 +36,87 @@ namespace OpenGL.State
 	/// </remarks>
 	public abstract class TransformStateBase : ShaderUniformState
 	{
-		#region Transform State
-		
-		/// <summary>
-		/// The matrix used for viewing the universe. It can be null in the case the information
-		/// is not required; in this case it is included in <see cref="ModelView"/>.
-		/// </summary>
-		public abstract IModelMatrix View { get; internal set; }
+		#region Constructors
 
 		/// <summary>
-		/// The local model.
+		/// Static constructor.
+		/// </summary>
+		static TransformStateBase()
+		{
+			_UniformProperties = DetectUniformProperties(typeof(TransformStateBase));
+		}
+
+		#endregion
+
+		#region Local Transform State
+
+		/// <summary>
+		/// The local projection: the projection matrix of the current verte arrays, without considering inherited
+		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
+		/// previous state.
+		/// </summary>
+		public abstract IMatrix4x4 LocalProjection { get; set; }
+
+		/// <summary>
+		/// The local model: the transformation of the current vertex arrays object space, without considering
+		/// inherited transform states of parent objects.
 		/// </summary>
 		public abstract IModelMatrix LocalModel { get; }
 
+		#endregion
+
+		#region Transform State
+
 		/// <summary>
-		/// The final model of this state, that is <see cref="LocalModel"/> multiplied with each <see cref="IModelTransform"/>
-		/// collected by <see cref="Transforms"/>.
+		/// The actual projection matrix used for projecting vertex arrays.
 		/// </summary>
-		public abstract IModelMatrix TransformModel { get; }
-		
+		[ShaderUniformState()]
+		public abstract IMatrix4x4 Projection { get; internal set; }
+
 		/// <summary>
-		/// The final model of this state, that is <see cref="View"/> multiplied with <see cref="TransformModel"/>.
+		/// The actual projection matrix used for projecting vertex arrays.
 		/// </summary>
-		public abstract IModelMatrix ModelView { get; }
+		[ShaderUniformState()]
+		public abstract IMatrix4x4 InverseProjection { get; }
+
+		/// <summary>
+		/// The actual model-view matrix used for transforming vertex arrays object space.
+		/// </summary>
+		[ShaderUniformState()]
+		public abstract IModelMatrix ModelView { get; internal set; }
+
+		/// <summary>
+		/// The actual model-view-projection matrix used for drawing vertex arrays.
+		/// </summary>
+		[ShaderUniformState()]
+		public abstract IModelMatrix ModelViewProjection { get; internal set; }
+
+		/// <summary>
+		/// The inverse of <see cref="ModelView"/>.
+		/// </summary>
+		[ShaderUniformState()]
+		public abstract IModelMatrix InverseModelView { get; }
+
+		/// <summary>
+		/// The inverse of <see cref="ModelViewProjection"/>.
+		/// </summary>
+		[ShaderUniformState()]
+		public abstract IModelMatrix InverseModelViewProjection { get; }
+
+		/// <summary>
+		/// The normal matrix, derived from <see cref="ModelView"/>.
+		/// </summary>
+		[ShaderUniformState()]
+		public abstract IModelMatrix NormalMatrix { get; }
 
 		#endregion
 
 		#region ShaderUniformState Overrides
+
+		/// <summary>
+		/// Get the uniform state values associated with the uniform variable names.
+		/// </summary>
+		protected override Dictionary<string, MemberInfo> UniformStateProperties { get { return (_UniformProperties); } }
 
 		/// <summary>
 		/// The identifier for the blend state.
@@ -72,7 +127,30 @@ namespace OpenGL.State
 		/// The identifier of this GraphicsState.
 		/// </summary>
 		public override string StateIdentifier { get { return (StateId); } }
-		
+
+		/// <summary>
+		/// Apply this TransformStateBase.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// The <see cref="ShaderProgram"/> which has the state set.
+		/// </param>
+		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+			if (shaderProgram != null) {
+				throw new NotImplementedException();
+			} else {
+				// Set projection matrix
+				Gl.MatrixMode(MatrixMode.Projection);
+				Gl.LoadMatrix(Projection.ToArray());
+				// Set model-view matrix
+				Gl.MatrixMode(MatrixMode.Modelview);
+				Gl.LoadMatrix(ModelView.ToArray());
+			}
+		}
+
 		/// <summary>
 		/// Represents the current <see cref="GraphicsState"/> for logging.
 		/// </summary>
@@ -81,9 +159,14 @@ namespace OpenGL.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("{0}: View=[{1}] TransformModel=[{2}] ModelView=[{3}] {4}", StateIdentifier, View != null ? View.ToString() : "null", TransformModel, ModelView, GetType().Name));
+			return (String.Empty);
 		}
-		
+
+		/// <summary>
+		/// The uniform state of this UniformColorState.
+		/// </summary>
+		private static readonly Dictionary<string, MemberInfo> _UniformProperties;
+
 		#endregion
 	}
 }

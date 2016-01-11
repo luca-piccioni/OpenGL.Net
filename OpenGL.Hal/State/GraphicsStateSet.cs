@@ -54,6 +54,8 @@ namespace OpenGL.State
 			GraphicsStateSet renderStateSet = new GraphicsStateSet();
 
 			// Instantiate all context-bound states
+			renderStateSet.DefineState(UniformColorState.DefaultState);
+
 			renderStateSet.DefineState(PolygonModeState.DefaultState);
 			renderStateSet.DefineState(TransformStateSingle.DefaultState);
 			renderStateSet.DefineState(BlendState.DefaultState);
@@ -288,6 +290,7 @@ namespace OpenGL.State
 						continue;
 				}
 
+				// Apply state if the state is context-bound, or a shader is currently in use
 				if ((program != null) || (state.IsContextBound))
 					state.ApplyState(ctx, program);
 			}

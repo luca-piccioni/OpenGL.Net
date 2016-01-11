@@ -24,7 +24,7 @@ namespace OpenGL.State
 	/// <summary>
 	/// State tracking the transformation state (double-precision implementation).
 	/// </summary>
-	[DebuggerDisplay("TransformStateDouble View={View} Transform={TransformModel} ModelView={ModelView} LocalModel={LocalModel}")]
+	[DebuggerDisplay("TransformStateDouble: View={View} Transform={TransformModel} ModelView={ModelView} LocalModel={LocalModel}")]
 	public class TransformStateDouble : TransformStateBase
 	{
 		#region Constructors
@@ -47,63 +47,6 @@ namespace OpenGL.State
 
 		#endregion
 
-		#region Transform State
-		
-		/// <summary>
-		/// The matrix used for viewing the universe.
-		/// </summary>
-		public override IModelMatrix View
-		{
-			get { return (mViewMatrix); }
-			internal set { mViewMatrix = new ModelMatrixDouble(value); }
-		}
-
-		/// <summary>
-		/// The local model of this state.
-		/// </summary>
-		public override IModelMatrix LocalModel { get { return (mLocalModel); } }
-
-		/// <summary>
-		/// The final model of this state, that is <see cref="LocalModel"/> multiplied with each <see cref="IModelTransform"/>
-		/// collected by <see cref="TransformStateBase.Transforms"/>.
-		/// </summary>
-		public override IModelMatrix TransformModel
-		{
-			get
-			{
-				// Initial model is the stored one
-				IModelMatrix localModel = new ModelMatrixDouble(mLocalModel);
-
-				return (localModel);
-			}
-		}
-		
-		/// <summary>
-		/// The final model of this state, that is <see cref="View"/> multiplied with <see cref="TransformModel"/>.
-		/// </summary>
-		public override IModelMatrix ModelView { get { return (mModelView); } }
-		
-		/// <summary>
-		/// The matrix used for viewing the universe.
-		/// </summary>
-		/// <remarks>
-		/// This is meant as the transform state only of the "camera" model, indeed the inverse of the camera node.
-		/// </remarks>
-		internal ModelMatrixDouble mViewMatrix;
-		
-		/// <summary>
-		/// The local model of this state.
-		/// </summary>
-		protected ModelMatrixDouble mLocalModel = new ModelMatrixDouble();
-		
-		/// <summary>
-		/// The final model of this state, that is <see cref="View"/> multiplied with <see cref="TransformModel"/>.
-		/// </summary>
-		private ModelMatrixDouble mModelView = new ModelMatrix();
-
-		
-		#endregion
-
 		#region Default State
 
 		/// <summary>
@@ -113,7 +56,67 @@ namespace OpenGL.State
 
 		#endregion
 
-		#region ShaderUniformState Overrides
+		#region TransformStateBase Overrides
+
+		/// <summary>
+		/// The local projection: the projection matrix of the current verte arrays, without considering inherited
+		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
+		/// previous state.
+		/// </summary>
+		public override IMatrix4x4 LocalProjection { get { return (null); } }
+
+		/// <summary>
+		/// The local model: the transformation of the current vertex arrays object space, without considering
+		/// inherited transform states of parent objects.
+		/// </summary>
+		public override IModelMatrix LocalModel { get { return (_LocalModel); } }
+
+		/// <summary>
+		/// The local model of this state.
+		/// </summary>
+		private readonly ModelMatrixDouble _LocalModel = new ModelMatrixDouble();
+
+		/// <summary>
+		/// The actual projection matrix used for projecting vertex arrays.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IMatrix4x4 Projection { get { return (null); } internal set { } }
+
+		/// <summary>
+		/// The actual projection matrix used for projecting vertex arrays.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IMatrix4x4 InverseProjection { get { return (null); } }
+
+		/// <summary>
+		/// The actual model-view matrix used for transforming vertex arrays object space.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IModelMatrix ModelView { get { return (null); } internal set { } }
+
+		/// <summary>
+		/// The actual model-view-projection matrix used for drawing vertex arrays.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IModelMatrix ModelViewProjection { get { return (null); } internal set { } }
+
+		/// <summary>
+		/// The inverse of <see cref="ModelView"/>.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IModelMatrix InverseModelView { get { return (null); } }
+
+		/// <summary>
+		/// The inverse of <see cref="ModelViewProjection"/>.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IModelMatrix InverseModelViewProjection { get { return (null); } }
+
+		/// <summary>
+		/// The normal matrix, derived from <see cref="ModelView"/>.
+		/// </summary>
+		[ShaderUniformState()]
+		public override IModelMatrix NormalMatrix { get { return (null); } }
 
 		/// <summary>
 		/// Merge this state with another one.
@@ -139,6 +142,7 @@ namespace OpenGL.State
 			if (state.StateIdentifier != StateId)
 				throw new ArgumentException("state id mismatch", "state");
 
+#if false
 			TransformStateBase transformState = (TransformStateBase)state;
 			IModelMatrix stateModel = transformState.TransformModel;
 			
@@ -150,6 +154,7 @@ namespace OpenGL.State
 				mModelView.Set(mModelView.Multiply(stateModel));
 			// Update world model (do not copy Transforms: embed in LocalModel)
 			mLocalModel.Set(TransformModel.Multiply(stateModel));
+#endif
 		}
 
 		/// <summary>
@@ -188,16 +193,10 @@ namespace OpenGL.State
 		public override IGraphicsState Copy()
 		{
 			TransformStateDouble copiedState = new TransformStateDouble();		// Do not use base.Copy()!
-			
-			// Copy View
-			if (mViewMatrix != null)
-				copiedState.mViewMatrix = new ModelMatrixDouble(mViewMatrix);
-			// Copy LocalModel
-			copiedState.mLocalModel = new ModelMatrixDouble(mLocalModel);
 
 			return (copiedState);
 		}
 		
-		#endregion
+#endregion
 	}
 }
