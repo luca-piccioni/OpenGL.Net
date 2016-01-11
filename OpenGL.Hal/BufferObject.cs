@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -247,7 +247,7 @@ namespace OpenGL
 		/// <summary>
 		/// The default memory alignment required.
 		/// </summary>
-		protected const uint MinimumBufferAlignment = 0;
+		protected const uint MinimumBufferAlignment = 16;
 
 		#endregion
 
@@ -270,8 +270,7 @@ namespace OpenGL
 		/// </exception>
 		internal virtual void Bind(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 			
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, ObjectName);
@@ -285,8 +284,7 @@ namespace OpenGL
 		/// </param>
 		internal virtual void Unbind(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, InvalidObjectName);
@@ -346,14 +344,29 @@ namespace OpenGL
 		/// </remarks>
 		public void Map(GraphicsContext ctx, BufferAccessARB mask)
 		{
-			if (IsMapped)
-				throw new InvalidOperationException("already mapped");
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("no existing");
+			CheckThisExistence(ctx);
 
 			Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB || _GpuBuffer != null);
 			// Map GPU buffer (actual or fake)
 			_MappedBuffer = ctx.Caps.GlExtensions.VertexBufferObject_ARB ? Gl.MapBuffer(BufferType, mask) : _GpuBuffer.AlignedBuffer;
+		}
+
+		/// <summary>
+		/// Unmap this BufferObject data.
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped, or if it was mapped using <see cref="Map(GraphicsContext, BufferAccessARB)"/>
+		/// method.
+		/// </exception>
+		public void Unmap()
+		{
+			if (IsMapped == false)
+				throw new InvalidOperationException("not mapped");
+			if (MappedBuffer != ClientBufferAddress)
+				throw new InvalidOperationException("cannot Unmap when mapped with Map(GraphicsContext, BufferAccessARB)");
+
+			// Removes reference for mapped buffer data
+			_MappedBuffer = IntPtr.Zero;
 		}
 
 		/// <summary>
@@ -387,11 +400,7 @@ namespace OpenGL
 		/// <summary>
 		/// Check whether this BufferObject data is mapped.
 		/// </summary>
-		public bool IsMapped
-		{
-			get { return (_MappedBuffer != IntPtr.Zero); }
-			
-		}
+		public bool IsMapped { get { return (_MappedBuffer != IntPtr.Zero); } }
 
 		/// <summary>
 		/// Get the mapped buffer address.
@@ -493,17 +502,14 @@ namespace OpenGL
 		#region Get Data
 
 		/// <summary>
-		/// Retrieve the buffer object context
+		/// Retrieve the buffer object content , and store it in the client buffer.
 		/// </summary>
-		/// <param name="ctx"></param>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for creating this BufferObject.
+		/// </param>
 		public virtual void GetBufferData(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
+			CheckThisExistence(ctx);
 
 			// Discard client buffer, if required
 			if (ClientBufferSize != BufferSize) {
@@ -524,7 +530,7 @@ namespace OpenGL
 			}
 		}
 		
-#endregion
+		#endregion
 
 		#region GraphicsResource Overrides
 
@@ -562,11 +568,6 @@ namespace OpenGL
 		/// </exception>
 		public override bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current");
-
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
 				return (false);
@@ -591,10 +592,7 @@ namespace OpenGL
 		/// </exception>
 		protected override uint CreateName(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current");
+			CheckCurrentContext(ctx);
 
 			Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB);
 
@@ -621,12 +619,7 @@ namespace OpenGL
 		/// </exception>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current");
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
+			CheckThisExistence(ctx);
 
 			Debug.Assert(ctx.Caps.GlExtensions.VertexBufferObject_ARB);
 
@@ -657,17 +650,18 @@ namespace OpenGL
 		/// </exception>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+			CheckThisExistence(ctx);
+
 			if ((ClientBufferAddress == IntPtr.Zero) && ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw)))
 				throw new InvalidOperationException("no client buffer");
 
+			// Determine the client buffer size
 			uint clientBufferSize = _ClientBufferSize;
 
 			if (ClientBufferAddress != IntPtr.Zero)
 				clientBufferSize = ClientBufferSize;
+
+			Debug.Assert(clientBufferSize > 0);
 
 			// Buffer must be bound
 			Bind(ctx);
@@ -700,8 +694,7 @@ namespace OpenGL
 					// Allocate simulated GPU buffer
 					_GpuBuffer = new AlignedMemoryBuffer(_ClientBufferSize, MinimumBufferAlignment);
 				} else {
-					// Let a virtual implementation decide how pass information from the client buffer
-					// and the "GPU" buffer
+					// Let a virtual implementation decide how pass information from the client buffer and the "GPU" buffer
 					UploadClientBuffer();
 				}
 

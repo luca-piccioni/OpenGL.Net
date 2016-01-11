@@ -121,76 +121,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Client Buffer Access
-
-		/// <summary>
-		/// Gets data from this ArrayBufferObject.
-		/// </summary>
-		/// <typeparam name='T'>
-		/// The type parameter that determine the type of the data to read. This type could be different from the real
-		/// ArrayBufferObject items.
-		/// </typeparam>
-		/// <param name='index'>
-		/// The zero-based index of the element to read. The basic machine unit offset of the element to read is
-		/// determine by the size of the type <typeparamref name="T"/>.
-		/// </param>
-		/// <returns>
-		/// An element of this ArrayBufferObject, of type <typeparamref name="T"/>, at index <paramref name="index"/>.
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject has no client memory allocated.
-		/// </exception>
-		/// <remarks>
-		/// This method differs from <see cref="BufferObject.MapGet{T}(GraphicsContext, long)"/> since it doesn't
-		/// require a GraphicsContext for buffer access.
-		/// </remarks>
-		public T GetClientData<T>(uint index) where T : struct
-		{
-			IntPtr clientBufferAddress = ClientBufferAddress;
-
-			if (clientBufferAddress == IntPtr.Zero)
-				throw new InvalidOperationException("no client buffer");
-
-			IntPtr bufferPtr = new IntPtr(clientBufferAddress.ToInt64() + index * Marshal.SizeOf(typeof(T)));
-
-			return ((T)Marshal.PtrToStructure(bufferPtr, typeof(T)));
-		}
-
-		/// <summary>
-		/// Sets data to this ArrayBufferObject.
-		/// </summary>
-		/// <typeparam name="T">
-		/// The type parameter that determine the type of the data to read. This type could be different from the real
-		/// ArrayBufferObject elements.
-		/// </typeparam>
-		/// <param name="value">
-		/// A <typeparamref name="T"/> that is the value to store in this ArrayBufferObject.
-		/// </param>
-		/// <param name='index'>
-		/// The zero-based index of the element to read. The basic machine unit offset of the element to read is
-		/// determine by the size of the type <typeparamref name="T"/>.
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject has no client memory allocated.
-		/// </exception>
-		/// <remarks>
-		/// This method differs from <see cref="BufferObject.MapSet{T}(GraphicsContext, long)"/> since it doesn't
-		/// require a GraphicsContext for buffer access.
-		/// </remarks>
-		public void SetClientData<T>(T value, uint index) where T : struct
-		{
-			IntPtr clientBufferAddress = ClientBufferAddress;
-
-			if (clientBufferAddress == IntPtr.Zero)
-				throw new InvalidOperationException("no client buffer");
-
-			IntPtr bufferPtr = new IntPtr(clientBufferAddress.ToInt64() + index * Marshal.SizeOf(typeof(T)));
-
-			Marshal.StructureToPtr(value, bufferPtr, false);
-		}
-
-		#endregion
-
 		#region To Array
 
 		#region ToArray<T>()
@@ -721,8 +651,7 @@ namespace OpenGL
 		/// </exception>
 		public override Array ToArray(GraphicsContext ctx)
 		{
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
+			CheckThisExistence(ctx);
 
 			Array genericArray = CreateArray(ArrayType, ItemCount);
 

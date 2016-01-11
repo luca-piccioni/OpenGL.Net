@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL
@@ -48,23 +49,26 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for rendering.
 		/// </param>
+		public void Draw(GraphicsContext ctx)
+		{
+			Draw(ctx, null);
+		}
+
+		/// <summary>
+		/// Draw the attributes of this vertex array.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for rendering.
+		/// </param>
 		/// <param name="shader">
 		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
 		/// </param>
 		public virtual void Draw(GraphicsContext ctx, ShaderProgram shader)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent)
-				throw new ArgumentException("not current", "ctx");
-			if (shader == null)
-				throw new ArgumentNullException("no shader");
-			if (shader.Exists(ctx) == false)
+			CheckThisExistence(ctx);
+
+			if (shader != null && shader.Exists(ctx) == false)
 				throw new ArgumentException("not existing", "shader");
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
-			if (_Elements.Count == 0)
-				throw new InvalidOperationException("no elements defined");
 
 			// If vertex was modified after creation, don't miss to create array buffers
 			if (_VertexArrayDirty) CreateObject(ctx);
@@ -72,13 +76,14 @@ namespace OpenGL
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
 			// Uses shader
-			shader.Bind(ctx);
+			if (shader != null)
+				shader.Bind(ctx);
 			// Issue rendering using shader
-			foreach (VertexElementArray attributeElements in _Elements) {
+			foreach (Element attributeElement in DrawElements) {
 				if (_FeedbackBuffer != null)
-					_FeedbackBuffer.Begin(ctx, attributeElements.ElementsMode);
+					_FeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
 
-				attributeElements.Draw(ctx, shader, this);
+				attributeElement.Draw(ctx);
 				
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.End(ctx);
@@ -104,19 +109,36 @@ namespace OpenGL
 				Gl.BindVertexArray(ObjectName);
 				// Short path?
 				if (!_VertexArrayDirty) {
-					CheckVertexAttributes(ctx, shaderProgram);
+					// CheckVertexAttributes(ctx, shaderProgram);
 					return;
 				}
 			}
 
-			// Set vertex array state
-			foreach (string attributeName in shaderProgram.ActiveAttributes) {
-				VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
-				if (shaderVertexArray == null)
-					continue;
-				
-				// Set array attribute
-				shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, shaderProgram.GetActiveAttribute(attributeName));
+			if (shaderProgram != null) {
+				// Set vertex array state
+				foreach (string attributeName in shaderProgram.ActiveAttributes) {
+					VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
+					if (shaderVertexArray == null)
+						continue;
+
+					// Set array attribute
+					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName);
+				}
+			} else {
+				VertexArray attributeArray;
+
+				// No shader program: using fixed pipeline program. ATM enable all attributes having a semantic
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.Position)) == null)
+					throw new InvalidOperationException("no position semantic array defined");
+				attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Position);
+
+				// Optional attributes
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.Color)) != null)
+					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Color);
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.Normal)) != null)
+					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Normal);
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.TexCoord)) != null)
+					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.TexCoord);
 			}
 
 			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
@@ -329,16 +351,14 @@ namespace OpenGL
 			Validate();
 
 			// Create vertex arrays
-			foreach (VertexArray vertexArray in _VertexArrays.Values) {
+			foreach (VertexArray vertexArray in DrawArrays) {
 				if (vertexArray.ArrayBuffer.Exists(ctx) == false)
 					vertexArray.ArrayBuffer.Create(ctx);
 			}
 
 			// Create element arrays
-			foreach (VertexElementArray element in _Elements) {
-				if (element.ArrayIndices != null && element.ArrayIndices.Exists(ctx) == false)
-					element.ArrayIndices.Create(ctx);	
-			}
+			foreach (Element element in DrawElements)
+				element.Create(ctx);
 		
 			// Create feedback buffer
 			if (_FeedbackBuffer != null)
@@ -362,7 +382,7 @@ namespace OpenGL
 				foreach (VertexArray vertexArray in _VertexArrays.Values)
 					vertexArray.Dispose();
 				// Unreference all collected array indices
-				foreach (VertexElementArray vertexIndices in _Elements)
+				foreach (Element vertexIndices in _Elements)
 					vertexIndices.Dispose();
 			}
 		}

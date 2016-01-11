@@ -62,13 +62,18 @@ namespace OpenGL.Hal.Test
 				ArrayBufferObject arrayBufferObject = (ArrayBufferObject)buffer;
 
 				arrayBufferObject.Create(CreateTestArray());
-
 			} else if (buffer.GetType() == typeof(ElementBufferObject)) {
-				
-			} else if (buffer.GetType() == typeof(ArrayBufferObjectInterleaved)) {
+				ElementBufferObject elementBufferObject = (ElementBufferObject)buffer;
 
+				elementBufferObject.Create(CreateTestArray());
+			} else if (buffer.GetType() == typeof(ArrayBufferObjectInterleaved)) {
+				ArrayBufferObjectInterleaved arrayBufferObjectInterleaved = (ArrayBufferObjectInterleaved)buffer;
+
+				arrayBufferObjectInterleaved.Create(CreateTestArray());
 			} else if (buffer.GetType() == typeof(ArrayBufferObjectPacked)) {
-				
+				ArrayBufferObjectPacked arrayBufferObjectPacked = (ArrayBufferObjectPacked)buffer;
+
+				arrayBufferObjectPacked.Create(CreateTestArray());
 			}
 		}
 
@@ -84,13 +89,18 @@ namespace OpenGL.Hal.Test
 				ArrayBufferObject arrayBufferObject = (ArrayBufferObject)buffer;
 
 				arrayBufferObject.Create(_Context, CreateTestArray());
-
 			} else if (buffer.GetType() == typeof(ElementBufferObject)) {
+				ElementBufferObject elementBufferObject = (ElementBufferObject)buffer;
 
+				elementBufferObject.Create(_Context, CreateTestArray());
 			} else if (buffer.GetType() == typeof(ArrayBufferObjectInterleaved)) {
+				ArrayBufferObjectInterleaved arrayBufferObjectInterleaved = (ArrayBufferObjectInterleaved)buffer;
 
+				arrayBufferObjectInterleaved.Create(_Context, CreateTestArray());
 			} else if (buffer.GetType() == typeof(ArrayBufferObjectPacked)) {
+				ArrayBufferObjectPacked arrayBufferObjectPacked = (ArrayBufferObjectPacked)buffer;
 
+				arrayBufferObjectPacked.Create(_Context, CreateTestArray());
 			}
 		}
 
@@ -117,6 +127,8 @@ namespace OpenGL.Hal.Test
 		{
 			Assert.AreEqual(0, buffer.BufferSize);
 			Assert.AreEqual(0, buffer.ClientBufferSize);
+			Assert.AreEqual(IntPtr.Zero, buffer.GpuBufferAddress);
+			Assert.AreEqual(IntPtr.Zero, buffer.ClientBufferSize);
 		}
 
 		/// <summary>

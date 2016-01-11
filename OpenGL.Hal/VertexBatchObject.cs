@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// A collection of indices reference input arrays.
 		/// </summary>
-		protected class BatchVertexElementArray : VertexElementArray
+		protected class BatchVertexElementArray : IndexedElement
 		{
 			#region Constructors
 
@@ -53,8 +53,8 @@ namespace OpenGL
 			/// <param name="count">
 			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
-			public BatchVertexElementArray(PrimitiveType mode, ElementBufferObject indices, uint offset, uint count) :
-				base(mode, indices, offset, count)
+			public BatchVertexElementArray(VertexArrayObject vao, PrimitiveType mode, ElementBufferObject indices, uint offset, uint count) :
+				base(vao, mode, indices, offset, count)
 			{
 				
 			}
@@ -70,8 +70,8 @@ namespace OpenGL
 			/// used for drawing; instead, all array elements are drawns, starting from the first one. If it is not null, all
 			/// indices are drawn starting from the first one.
 			/// </param>
-			public BatchVertexElementArray(PrimitiveType mode, ElementBufferObject indices) :
-				this(mode, indices, 0, 0)
+			public BatchVertexElementArray(VertexArrayObject vao, PrimitiveType mode, ElementBufferObject indices) :
+				this(vao, mode, indices, 0, 0)
 			{
 
 			}
@@ -88,8 +88,8 @@ namespace OpenGL
 			/// <param name="count">
 			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
-			public BatchVertexElementArray(PrimitiveType mode, uint offset, uint count) :
-				this(mode, null, offset, count)
+			public BatchVertexElementArray(VertexArrayObject vao, PrimitiveType mode, uint offset, uint count) :
+				this(vao, mode, null, offset, count)
 			{
 
 			}
@@ -100,8 +100,8 @@ namespace OpenGL
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
-			public BatchVertexElementArray(PrimitiveType mode) :
-				this(mode, null, 0, 0)
+			public BatchVertexElementArray(VertexArrayObject vao, PrimitiveType mode) :
+				this(vao, mode, null, 0, 0)
 			{
 
 			}
@@ -128,12 +128,12 @@ namespace OpenGL
 			/// <param name="vertexArray">
 			/// The <see cref="VertexArrayObject"/> which this VertexElementArray belongs to.
 			/// </param>
-			public override void Draw(GraphicsContext ctx, ShaderProgram shaderProgram, VertexArrayObject vertexArray)
+			public void Draw(GraphicsContext ctx, ShaderProgram shaderProgram, VertexArrayObject vertexArray)
 			{
 				// Before draw elements, set the graphics state
 				StateSet.Apply(ctx, shaderProgram);
 				// Base implementation
-				base.Draw(ctx, shaderProgram, vertexArray);
+				// base.Draw(ctx, shaderProgram, vertexArray);
 			}
 
 			#endregion

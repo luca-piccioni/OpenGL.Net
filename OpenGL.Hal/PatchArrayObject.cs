@@ -28,7 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// A collection of indices reference input arrays.
 		/// </summary>
-		class PatchAttributeElement : VertexElementArray
+		class PatchAttributeElement : IndexedElement
 		{
 			/// <summary>
 			/// Specify how all elements shall be drawn.
@@ -169,7 +169,7 @@ namespace OpenGL
 				// Uses shader
 				shaderProgram.Bind(ctx);
 				// Draw patches
-				_PatchElement.Draw(ctx, shaderProgram, this);
+				_PatchElement.Draw(ctx);
 			}
 
 			// Based implementation

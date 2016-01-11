@@ -297,8 +297,8 @@ namespace OpenGL
 		/// </exception>
 		public virtual void Create(GraphicsContext ctx, uint itemsCount)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+
 			if (itemsCount == 0)
 				throw new ArgumentException("invalid", "itemsCount");
 
@@ -468,10 +468,8 @@ namespace OpenGL
 		/// </exception>
 		public virtual void Create(GraphicsContext ctx, Array array, uint offset, uint count)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+			CheckCurrentContext(ctx);
+
 			if (count == 0)
 				throw new ArgumentException("zero not allowed", "count");
 
@@ -1089,8 +1087,7 @@ namespace OpenGL
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckValidContext(ctx);
 
 			return (ctx.Caps.GlExtensions.VertexBufferObject_ARB);
 		}

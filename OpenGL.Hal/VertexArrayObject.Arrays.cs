@@ -89,13 +89,38 @@ namespace OpenGL
 
 			#region Vertex Attribute
 
-			internal void SetVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, ShaderProgram.AttributeBinding attributeBinding)
+			internal void SetVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, string attributeName)
 			{
-				// Enable/Disable attribute
-				if (ArrayBuffer != null)
-					EnableVertexAttribute(ctx, shaderProgram, attributeBinding);
-				else
-					DisableVertexAttribute(ctx, attributeBinding);
+				if (attributeName == null)
+					throw new ArgumentNullException("attributeName");
+
+				if (shaderProgram != null) {
+					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
+
+					// Enable/Disable shader attribute
+					if (ArrayBuffer != null)
+						EnableVertexAttribute(ctx, attributeBinding);
+					else
+						DisableVertexAttribute(ctx, attributeBinding);
+				} else {
+					switch (attributeName) {
+						case VertexArraySemantic.Position:
+							SetPositionAttribute(ctx);
+							break;
+						case VertexArraySemantic.Color:
+							SetColorAttribute(ctx);
+							break;
+						case VertexArraySemantic.Normal:
+							SetNormalAttribute(ctx);
+							break;
+						case VertexArraySemantic.TexCoord:
+							SetTexCoordAttribute(ctx);
+							break;
+						default:
+							throw new NotSupportedException(String.Format("attribute {0} not supported on fixed pipeline", attributeName));
+					}
+				}
+				
 
 				// Next time do not set bindings and array state if GL_ARB_vertex_array_object is supported
 				IsDirty = false;
@@ -150,7 +175,9 @@ namespace OpenGL
 				}
 			}
 
-			private void EnableVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, ShaderProgram.AttributeBinding attributeBinding)
+			#region Shader Attributes
+
+			private void EnableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
 			{
 				ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
@@ -217,6 +244,102 @@ namespace OpenGL
 				// Enable vertex attribute
 				Gl.DisableVertexAttribArray(attributeBinding.Location);
 			}
+
+			#endregion
+
+			#region Fixed Pipeline Attributes
+
+			private void SetPositionAttribute(GraphicsContext ctx)
+			{
+				if (ArrayBuffer != null) {
+					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+
+					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayStride = arraySection.Stride.ToInt32();
+
+					// Bind the array buffer
+					ArrayBuffer.Bind(ctx);
+
+					// Set vertex pointer
+					Gl.VertexPointer(
+						arrayLength, ArrayBufferItem.GetVertexPointerType(arraySection.ItemType), arrayStride,
+						arraySection.Pointer
+					);
+					// Enable vertex attribute
+					Gl.EnableClientState(EnableCap.VertexArray);	
+				} else
+					Gl.DisableClientState(EnableCap.VertexArray);
+				
+			}
+
+			private void SetColorAttribute(GraphicsContext ctx)
+			{
+				if (ArrayBuffer != null) {
+					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+
+					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayStride = arraySection.Stride.ToInt32();
+
+					// Bind the array buffer
+					ArrayBuffer.Bind(ctx);
+
+					// Set vertex pointer
+					Gl.ColorPointer(
+						arrayLength, ArrayBufferItem.GetColorPointerType(arraySection.ItemType), arrayStride,
+						arraySection.Pointer
+					);
+					// Enable vertex attribute
+					Gl.EnableClientState(EnableCap.ColorArray);
+				} else
+					Gl.DisableClientState(EnableCap.ColorArray);
+			}
+
+			private void SetNormalAttribute(GraphicsContext ctx)
+			{
+				if (ArrayBuffer != null) {
+					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+
+					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					if (arrayLength != 3)
+						throw new NotSupportedException(String.Format("normal pointer of length {0} not supported", arrayLength));
+
+					// Bind the array buffer
+					ArrayBuffer.Bind(ctx);
+
+					// Set vertex pointer
+					Gl.NormalPointer(
+						ArrayBufferItem.GetNormalPointerType(arraySection.ItemType), arraySection.Stride.ToInt32(),
+						arraySection.Pointer
+					);
+					// Enable vertex attribute
+					Gl.EnableClientState(EnableCap.NormalArray);
+				} else
+					Gl.DisableClientState(EnableCap.NormalArray);
+			}
+
+			private void SetTexCoordAttribute(GraphicsContext ctx)
+			{
+				if (ArrayBuffer != null) {
+					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+
+					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayStride = arraySection.Stride.ToInt32();
+
+					// Bind the array buffer
+					ArrayBuffer.Bind(ctx);
+
+					// Set vertex pointer
+					Gl.TexCoordPointer(
+						arrayLength, ArrayBufferItem.GetTexCoordPointerType(arraySection.ItemType), arraySection.Stride.ToInt32(),
+						arraySection.Pointer
+					);
+					// Enable vertex attribute
+					Gl.EnableClientState(EnableCap.TextureCoordArray);
+				} else
+					Gl.DisableClientState(EnableCap.TextureCoordArray);
+			}
+
+			#endregion
 
 			#endregion
 
@@ -433,6 +556,10 @@ namespace OpenGL
 			return (shaderVertexArray);
 		}
 
+		/// <summary>
+		/// The vertex array length, based on the property <see cref="ArrayBufferObjectBase.ItemCount"/> of the
+		/// array objects compositing this vertex array.
+		/// </summary>
 		public uint ArrayLength
 		{
 			get { return (_VertexArrayLength); }
@@ -466,6 +593,11 @@ namespace OpenGL
 			if (_VertexArrays.Count == 0)
 				throw new InvalidOperationException("no array");
 		}
+
+		/// <summary>
+		/// Determine the actual <see cref="VertexArray"/> instances used for drawing.
+		/// </summary>
+		protected virtual IEnumerable<VertexArray> DrawArrays { get { return (_VertexArrays.Values); } }
 
 		/// <summary>
 		/// Array buffer objects required by this vertex array object.

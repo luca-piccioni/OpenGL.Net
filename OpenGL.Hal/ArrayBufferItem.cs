@@ -752,6 +752,124 @@ namespace OpenGL
 
 		#endregion
 
+		#region Fixed Pipeline Array Base Type
+
+		/// <summary>
+		/// Get the array components base type of the vertex array attribute item type.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
+		/// the vertex array buffer item.
+		/// </returns>
+		public static VertexPointerType GetVertexPointerType(ArrayBufferItemType vertexArrayType)
+		{
+			switch (GetArrayBaseType(vertexArrayType)) {
+				case VertexBaseType.Short:
+					return (VertexPointerType.Short);
+				case VertexBaseType.Int:
+					return (VertexPointerType.Int);
+				case VertexBaseType.Float:
+					return (VertexPointerType.Float);
+				case VertexBaseType.Double:
+					return (VertexPointerType.Double);
+				default:
+					throw new NotSupportedException(String.Format("vertex pointer of type {0} not supported", vertexArrayType));
+			}
+		}
+
+		/// <summary>
+		/// Get the array components base type of the vertex array attribute item type.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
+		/// the vertex array buffer item.
+		/// </returns>
+		public static ColorPointerType GetColorPointerType(ArrayBufferItemType vertexArrayType)
+		{
+			switch (GetArrayBaseType(vertexArrayType)) {
+				case VertexBaseType.Byte:
+					return (ColorPointerType.Byte);
+				case VertexBaseType.UByte:
+					return (ColorPointerType.UnsignedByte);
+				case VertexBaseType.Short:
+					return (ColorPointerType.Short);
+				case VertexBaseType.UShort:
+					return (ColorPointerType.UnsignedShort);
+				case VertexBaseType.Int:
+					return (ColorPointerType.Int);
+				case VertexBaseType.UInt:
+					return (ColorPointerType.UnsignedInt);
+				case VertexBaseType.Float:
+					return (ColorPointerType.Float);
+				case VertexBaseType.Double:
+					return (ColorPointerType.Double);
+				default:
+					throw new NotSupportedException(String.Format("color pointer of type {0} not supported", vertexArrayType));
+			}
+		}
+
+		/// <summary>
+		/// Get the array components base type of the vertex array attribute item type.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
+		/// the vertex array buffer item.
+		/// </returns>
+		public static NormalPointerType GetNormalPointerType(ArrayBufferItemType vertexArrayType)
+		{
+			switch (GetArrayBaseType(vertexArrayType)) {
+				case VertexBaseType.Byte:
+					return (NormalPointerType.Byte);
+				case VertexBaseType.Short:
+					return (NormalPointerType.Short);
+				case VertexBaseType.Int:
+					return (NormalPointerType.Int);
+				case VertexBaseType.Float:
+					return (NormalPointerType.Float);
+				case VertexBaseType.Double:
+					return (NormalPointerType.Double);
+				default:
+					throw new NotSupportedException(String.Format("normal pointer of type {0} not supported", vertexArrayType));
+			}
+		}
+
+		/// <summary>
+		/// Get the array components base type of the vertex array attribute item type.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
+		/// the vertex array buffer item.
+		/// </returns>
+		public static TexCoordPointerType GetTexCoordPointerType(ArrayBufferItemType vertexArrayType)
+		{
+			switch (GetArrayBaseType(vertexArrayType)) {
+				case VertexBaseType.Short:
+					return (TexCoordPointerType.Short);
+				case VertexBaseType.Int:
+					return (TexCoordPointerType.Int);
+				case VertexBaseType.Float:
+					return (TexCoordPointerType.Float);
+				case VertexBaseType.Double:
+					return (TexCoordPointerType.Double);
+				default:
+					throw new NotSupportedException(String.Format("vertex pointer of type {0} not supported", vertexArrayType));
+			}
+		}
+
+		#endregion
+
 		#region Is Float
 
 		/// <summary>

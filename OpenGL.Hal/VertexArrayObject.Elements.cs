@@ -25,61 +25,91 @@ namespace OpenGL
 	public partial class VertexArrayObject
 	{
 		/// <summary>
-		/// A collection of indices reference input arrays.
+		/// Abstract vertex array element.
 		/// </summary>
-		protected internal class VertexElementArray : IDisposable
+		protected internal abstract class Element : IDisposable
 		{
 			#region Constructors
 
 			/// <summary>
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of elements.
 			/// </summary>
+			/// <param name="vao">
+			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// </param>
 			/// <param name="mode">
-			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
+			/// A <see cref="PrimitiveType"/> that indicates how elements are interpreted.
 			/// </param>
-			/// <param name="indices">
-			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices. If it null, no indices are
-			/// used for drawing; instead, <paramref name="count"/> contiguos array elements are drawns, starting from
-			/// <paramref name="offset"/>. If it is not null, <paramref name="count"/> indices are drawn starting from
-			/// <paramref name="offset"/>.
-			/// </param>
-			/// <param name="offset">
-			/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
-			/// </param>
-			/// <param name="count">
-			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
-			/// </param>
-			public VertexElementArray(PrimitiveType mode, ElementBufferObject indices, uint offset, uint count)
+			protected Element(VertexArrayObject vao, PrimitiveType mode)
 			{
+				if (vao == null)
+					throw new ArgumentNullException("vao");
+				_VertexArrayObject = vao;
 				ElementsMode = mode;
-				ElementOffset = offset;
-				ElementCount = count;
-				ArrayIndices = indices;
-
-				if (ArrayIndices != null)
-					ArrayIndices.IncRef();
 			}
 
 			/// <summary>
-			/// Specify which elements shall be drawn by indexing them.
+			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
 			/// </summary>
-			/// <param name="mode">
-			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
-			/// </param>
-			/// <param name="indices">
-			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices. If it null, no indices are
-			/// used for drawing; instead, all array elements are drawns, starting from the first one. If it is not null, all
-			/// indices are drawn starting from the first one.
-			/// </param>
-			public VertexElementArray(PrimitiveType mode, ElementBufferObject indices) :
-				this(mode, indices, 0, 0)
-			{
+			protected readonly VertexArrayObject _VertexArrayObject;
 
+			#endregion
+
+			#region Primitive Mode
+
+			/// <summary>
+			/// The primitive used for interpreting the sequence of the array elements.
+			/// </summary>
+			public readonly PrimitiveType ElementsMode;
+
+			#endregion
+
+			#region Operations
+
+			/// <summary>
+			/// Ensure that all required resources are created.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public virtual void Create(GraphicsContext ctx) { }
+
+			/// <summary>
+			/// Draw the elements.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			public abstract void Draw(GraphicsContext ctx);
+
+			#endregion
+
+			#region IDisposable Implementation
+
+			/// <summary>
+			/// Dispose this Element.
+			/// </summary>
+			public virtual void Dispose()
+			{
+				
 			}
+
+			#endregion
+		}
+
+		/// <summary>
+		/// Vertex array element drawing vertices directly (<see cref="Gl.DrawArrays(PrimitiveType, int, int)"/>.
+		/// </summary>
+		protected internal class ArrayElement : Element
+		{
+			#region Constructors
 
 			/// <summary>
 			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
 			/// </summary>
+			/// <param name="vao">
+			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
@@ -89,20 +119,202 @@ namespace OpenGL
 			/// <param name="count">
 			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
-			public VertexElementArray(PrimitiveType mode, uint offset, uint count) :
-				this(mode, null, offset, count)
+			public ArrayElement(VertexArrayObject vao, PrimitiveType mode, uint offset, uint count) :
+				base(vao, mode)
 			{
-
+				ElementOffset = offset;
+				ElementCount = count;
 			}
 
 			/// <summary>
-			/// Specify how all elements shall be drawn.
+			/// Specify which elements shall be drawn.
 			/// </summary>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
-			public VertexElementArray(PrimitiveType mode) :
-				this(mode, null, 0, 0)
+			/// <remarks>
+			/// The array elements count is implictly defined as the vertex array length at <see cref="Draw(GraphicsContext)"/>
+			/// execution time.
+			/// </remarks>
+			public ArrayElement(VertexArrayObject vao, PrimitiveType mode) :
+				this(vao, mode, 0, 0)
+			{
+				
+			}
+
+			#endregion
+
+			#region Array Range
+
+			/// <summary>
+			/// The offset for sending element for drawing.
+			/// </summary>
+			/// <remarks>
+			public readonly uint ElementOffset;
+
+			/// <summary>
+			/// The number of array elements to draw.
+			/// </summary>
+			/// <remarks>
+			/// In the case this field equals to 0, it means that all array elements defined in the vertex array shall be drawn.
+			/// </remarks>
+			public readonly uint ElementCount;
+
+			#endregion
+
+			#region Element Overrides
+
+			/// <summary>
+			/// Draw the elements.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			public override void Draw(GraphicsContext ctx)
+			{
+				uint count = ElementCount != 0 ? ElementCount : _VertexArrayObject.ArrayLength;
+
+				Gl.DrawArrays(ElementsMode, (int)ElementOffset, (int)count);
+			}
+
+			#endregion
+		}
+
+		/// <summary>
+		/// Vertex array element drawing vertices directly (<see cref="Gl.MultiDrawArrays(PrimitiveType, int[], int[], int)"/>.
+		/// </summary>
+		protected internal class MultiArrayElement : Element
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
+			/// </summary>
+			/// <param name="vao">
+			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// </param>
+			/// <param name="mode">
+			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
+			/// </param>
+			/// <param name="offsets">
+			/// A <see cref="Int32[]"/> that specify the offset applied to the drawn array elements.
+			/// </param>
+			/// <param name="counts">
+			/// A <see cref="Int32[]"/> that specify the number of array elements drawn.
+			/// </param>
+			public MultiArrayElement(VertexArrayObject vao, PrimitiveType mode, int[] offsets, int[] counts) :
+				base(vao, mode)
+			{
+				if (offsets == null)
+					throw new ArgumentNullException("offset");
+				if (counts == null)
+					throw new ArgumentNullException("count");
+				if (offsets.Length == 0)
+					throw new ArgumentException("invalid size", "offset");
+				if (counts.Length != offsets.Length)
+					throw new ArgumentException("no mtaching length with offsets", "count");
+
+				ArrayOffsets = offsets;
+				ArrayCounts = counts;
+			}
+
+			#endregion
+
+			#region Array Range
+
+			/// <summary>
+			/// The offset for sending element for drawing.
+			/// </summary>
+			/// <remarks>
+			public readonly int[] ArrayOffsets;
+
+			/// <summary>
+			/// The number of array elements to draw.
+			/// </summary>
+			/// <remarks>
+			/// In the case this field equals to 0, it means that all array elements defined in the vertex array shall be drawn.
+			/// </remarks>
+			public readonly int[] ArrayCounts;
+
+			#endregion
+
+			#region Element Overrides
+
+			/// <summary>
+			/// Draw the elements.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			public override void Draw(GraphicsContext ctx)
+			{
+				if (ctx == null)
+					throw new ArgumentNullException("ctx");
+				if (ctx.IsCurrent == false)
+					throw new ArgumentException("not current", "ctx");
+
+				Gl.MultiDrawArrays(ElementsMode, ArrayOffsets, ArrayCounts, ArrayOffsets.Length);
+			}
+
+			#endregion
+		}
+
+		/// <summary>
+		/// A collection of indices reference input arrays (<see cref="Gl.DrawElements(PrimitiveType, int, DrawElementsType, IntPtr)"/>).
+		/// </summary>
+		protected internal class IndexedElement : ArrayElement
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of element indices.
+			/// </summary>
+			/// <param name="vao">
+			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// </param>
+			/// <param name="mode">
+			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
+			/// </param>
+			/// <param name="indices">
+			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices.
+			/// </param>
+			/// <param name="offset">
+			/// A <see cref="UInt32"/> that specify the offset applied to the drawn elements indices.
+			/// </param>
+			/// <param name="count">
+			/// A <see cref="UInt32"/> that specify the number of element indices drawn.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="indices"/> is null.
+			/// </exception>
+			public IndexedElement(VertexArrayObject vao, PrimitiveType mode, ElementBufferObject indices, uint offset, uint count) :
+				base(vao, mode, offset, count)
+			{
+				if (indices == null)
+					throw new ArgumentNullException("indices");
+
+				ArrayIndices = indices;
+				ArrayIndices.IncRef();
+			}
+
+			/// <summary>
+			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of element indices.
+			/// </summary>
+			/// <param name="mode">
+			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
+			/// </param>
+			/// <param name="indices">
+			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="indices"/> is null.
+			/// </exception>
+			/// <remarks>
+			/// The element indices count is implictly defined by <paramref name="indices"/> at <see cref="Draw(GraphicsContext)"/>
+			/// execution time.
+			/// </remarks>
+			public IndexedElement(VertexArrayObject vao, PrimitiveType mode, ElementBufferObject indices) :
+				this(vao, mode, indices, 0, 0)
 			{
 
 			}
@@ -112,99 +324,83 @@ namespace OpenGL
 			#region Element Array
 
 			/// <summary>
-			/// The primitive used for interpreting the sequence of the array elements.
-			/// </summary>
-			public readonly PrimitiveType ElementsMode;
-
-			/// <summary>
-			/// The offset for sending element for drawing.
-			/// </summary>
-			/// <remarks>
-			/// <para>
-			/// If <see cref="ArrayIndices"/> is null, this member indicates the first index of the array item
-			/// to draw, otherwise it indicates the offset (in bytes) of the first element of
-			/// <see cref="ArrayIndices"/> to draw.
-			/// </para>
-			/// </remarks>
-			public readonly uint ElementOffset;
-
-			/// <summary>
-			/// The number of array elements to draw.
-			/// </summary>
-			/// <remarks>
-			/// <para>
-			/// If <see cref="ArrayIndices"/> is null, this member indicates how many array elements are drawn, otherwise
-			/// it indicates how many array indices are drawn.
-			/// </para>
-			/// <para>
-			/// In the case this field equals to 0, it means that all array elements shall be drawn.
-			/// </para>
-			/// </remarks>
-			public readonly uint ElementCount;
-
-			/// <summary>
 			/// An integral buffer that specify vertices by they index.
 			/// </summary>
 			public readonly ElementBufferObject ArrayIndices;
 
 			#endregion
 
-			#region Vertex Elements
+			#region ArrayElement Overrides
 
 			/// <summary>
-			/// Draw the elements defined by this VertexElementArray.
+			/// Ensure that all required resources are created.
 			/// </summary>
 			/// <param name="ctx">
-			/// A <see cref="GraphicsContext"/> used for drawing.
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
 			/// </param>
-			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/> which this VertexElementArray belongs to.
-			/// </param>
-			public virtual void Draw(GraphicsContext ctx, ShaderProgram shaderProgram, VertexArrayObject vertexArray)
+			public override void Create(GraphicsContext ctx)
 			{
-				if (ArrayIndices != null)
-					DrawElements(ctx, vertexArray);
-				else
-					DrawArrays(ctx, vertexArray);
+				if (ctx == null)
+					throw new ArgumentNullException("ctx");
+				if (ctx.IsCurrent == false)
+					throw new ArgumentException("not current", "ctx");
+
+				if (ArrayIndices.Exists(ctx) == false)
+					ArrayIndices.Create(ctx);
 			}
 
-			private void DrawElements(GraphicsContext ctx, VertexArrayObject vertexArray)
+			/// <summary>
+			/// Draw the elements.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			public override void Draw(GraphicsContext ctx)
 			{
-				uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
+				if (ctx == null)
+					throw new ArgumentNullException("ctx");
+				if (ctx.IsCurrent == false)
+					throw new ArgumentException("not current", "ctx");
 
-				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+				ArrayBufferObjectBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
+				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
 				ArrayIndices.Bind(ctx);
+
 				// Enable restart primitive?
-				if (ArrayIndices.RestartIndexEnabled)
-					PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
-				// Draw vertex arrays by indices XXX ElementOffset
-				Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, IntPtr.Zero /* (int)ElementOffset */);
-				// Keep robust the restart_primitive state
-				if (ArrayIndices.RestartIndexEnabled)
-					PrimitiveRestart.DisablePrimitiveRestart(ctx);
+				if (ArrayIndices.RestartIndexEnabled) {
+					Debug.Assert(ElementCount != 0, "specified ElementCount but primitive restart enabled");
+
+					if (PrimitiveRestart.IsPrimitiveRestartSupported(ctx)) {
+						// Enable primitive restart
+						PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
+						// Draw elements as usual
+						Gl.DrawElements(ElementsMode, (int)ElementCount, ArrayIndices.ElementsType, arraySection.Pointer);
+						// Disable primitive restart
+						PrimitiveRestart.DisablePrimitiveRestart(ctx);
+					} else {
+						// Note: uses MultiDrawElements to emulate the primitive restart feature; PrimitiveRestartOffsets and
+						// PrimitiveRestartCounts are computed at element buffer creation time
+						Gl.MultiDrawElements(ElementsMode, ArrayIndices.PrimitiveRestartOffsets, ArrayIndices.ElementsType, ArrayIndices.PrimitiveRestartCounts, ArrayIndices.PrimitiveRestartOffsets.Length);
+					}
+				} else {
+					uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
+					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+
+					// Draw vertex arrays by indices
+					Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, arraySection.Pointer);
+				}
 			}
-
-			private void DrawArrays(GraphicsContext ctx, VertexArrayObject vertexArray)
-			{
-				uint count = (ElementCount == 0) ? vertexArray._VertexArrayLength : ElementCount;
-
-				Debug.Assert(count - ElementOffset <= vertexArray._VertexArrayLength, "element array out of bounds");
-
-				// Draw vertex array sequentially
-				Gl.DrawArrays(ElementsMode, (int)ElementOffset, (int)count);
-			}
-
-			#endregion
-
-			#region IDisposable Implementation
 
 			/// <summary>
 			/// Dispose this VertexArray.
 			/// </summary>
-			public void Dispose()
+			public override void Dispose()
 			{
+				// Base implementation
+				base.Dispose();
+				// Dereference array buffer
 				if (ArrayIndices != null)
 					ArrayIndices.DecRef();
 			}
@@ -221,7 +417,25 @@ namespace OpenGL
 		public void SetElementArray(PrimitiveType mode)
 		{
 			// Store element array (entire buffer)
-			_Elements.Add(new VertexElementArray(mode));
+			_Elements.Add(new ArrayElement(this, mode));
+		}
+
+		/// <summary>
+		/// Specify the entire array to be drawn sequentially.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the offset applied to the drawn array elements.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of array elements drawn.
+		/// </param>
+		public void SetElementArray(PrimitiveType mode, uint offset, uint count)
+		{
+			// Store element array (entire buffer)
+			_Elements.Add(new ArrayElement(this, mode, offset, count));
 		}
 
 		/// <summary>
@@ -240,7 +454,7 @@ namespace OpenGL
 				throw new ArgumentNullException("bufferObject");
 
 			// Store element array
-			_Elements.Add(new VertexElementArray(mode, bufferObject));
+			_Elements.Add(new IndexedElement(this, mode, bufferObject));
 		}
 
 		/// <summary>
@@ -253,18 +467,31 @@ namespace OpenGL
 		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
 		/// array element sequence.
 		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the offset applied to the drawn elements indices.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of element indices drawn.
+		/// </param>
 		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
 		{
 			if (bufferObject == null)
 				throw new ArgumentNullException("bufferObject");
+			if (bufferObject.RestartIndexEnabled && (count != 0))
+				throw new ArgumentException("invalid count", "count");
 
 			// Store element array
-			_Elements.Add(new VertexElementArray(mode, bufferObject, offset, count));
+			_Elements.Add(new IndexedElement(this, mode, bufferObject, offset, count));
 		}
+
+		/// <summary>
+		/// Determine the actual <see cref="Element"/> instances used for drawing.
+		/// </summary>
+		protected virtual IEnumerable<Element> DrawElements { get { return (_Elements); } }
 
 		/// <summary>
 		/// Collection of elements for drawing arrays.
 		/// </summary>
-		protected readonly List<VertexElementArray> _Elements = new List<VertexElementArray>();
+		protected readonly List<Element> _Elements = new List<Element>();
 	}
 }

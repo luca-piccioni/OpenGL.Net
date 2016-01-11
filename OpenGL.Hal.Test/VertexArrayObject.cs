@@ -282,5 +282,43 @@ namespace OpenGL.Hal.Test
 		}
 
 		#endregion
+
+		#region Draw(GraphicsContext)
+
+		[Test]
+		public void Draw_Exception1()
+		{
+			Vertex2f[] vertices = new Vertex2f[] {
+				new Vertex2f(0.0f, 0.0f),
+				new Vertex2f(1.0f, 0.0f),
+				new Vertex2f(1.0f, 1.0f),
+				new Vertex2f(0.0f, 1.0f),
+			};
+
+			using (VertexArrayObject vao = new VertexArrayObject()) {
+				// Setup ABO (Position)
+				ArrayBufferObject abo = new ArrayBufferObject(VertexBaseType.Float, 2, BufferObjectHint.StaticCpuDraw);
+				abo.Create(vertices);
+
+				// Setup VAO
+				vao.SetArray(abo, VertexArraySemantic.Position);
+				vao.SetElementArray(PrimitiveType.TriangleStrip);
+				vao.Create(_Context);
+
+				using (State.GraphicsStateSet currentState = State.GraphicsStateSet.GetDefaultSet()) {
+					// Set transform state
+					State.TransformStateBase stateTransform = (State.TransformStateBase)currentState[State.TransformStateBase.StateId];
+
+					stateTransform.ModelView.SetIdentity();
+
+					// Apply state
+					currentState.Apply(_Context);
+					// Draw
+					Assert.DoesNotThrow(delegate () { vao.Draw(_Context); });
+				}
+			}
+		}
+
+		#endregion
 	}
 }

@@ -66,6 +66,8 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="State\UniformColorState.cs" />
+    <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="VertexBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
@@ -143,7 +145,7 @@
     <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="ObjectAccessor.cs" />
     <Compile Include="ArrayBufferObjectPacked.cs" />
-    <Compile Include="PatchArrayObject.cs" />
+    <None Include="PatchArrayObject.cs" />
     <Compile Include="Pixel.cs" />
     <Compile Include="PixelColorspaceAttribute.cs" />
     <Compile Include="PixelComponentsAttribute.cs" />

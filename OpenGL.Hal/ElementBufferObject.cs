@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -25,7 +26,7 @@ namespace OpenGL
 	/// <summary>
 	/// Element buffer object.
 	/// </summary>
-	public class ElementBufferObject : ArrayBufferObjectBase
+	public class ElementBufferObject : ArrayBufferObjectBase, ArrayBufferObjectBase.IArraySection
 	{
 		#region Constructors
 
@@ -121,6 +122,122 @@ namespace OpenGL
 		/// </summary>
 		public readonly uint RestartIndexKey;
 
+		/// <summary>
+		/// Utility routine for extracting 
+		/// </summary>
+		/// <param name="count">
+		/// 
+		/// </param>
+		/// <returns>
+		/// 
+		/// </returns>
+		private int[] GetRestartIndices(out IntPtr[] count)
+		{
+			Map();
+			try {
+				switch (ElementsType) {
+					case DrawElementsType.UnsignedByte:
+						return (GetRestartIndices_UnsignedByte(out count));
+					case DrawElementsType.UnsignedShort:
+						return (GetRestartIndices_UnsignedShort(out count));
+					case DrawElementsType.UnsignedInt:
+						return (GetRestartIndices_UnsignedInt(out count));
+					default:
+						throw new NotSupportedException();
+				}
+			} finally {
+				Unmap();
+			}
+		}
+
+		private int[] GetRestartIndices_UnsignedByte(out IntPtr[] count)
+		{
+			unsafe {
+				List<int> offsets = new List<int>();
+				List<IntPtr> counts = new List<IntPtr>();
+				byte* indicesPtr = (byte*)ClientBufferAddress.ToPointer();
+				byte restartIndex = (byte)(RestartIndexKey & 0x000000FF);
+
+				offsets.Add(0);
+				for (int i = 0; i < ItemCount; i++, indicesPtr++) {
+					if (indicesPtr[i] == restartIndex) {
+						int previousIndex = offsets[offsets.Count - 1];
+
+						counts.Add(new IntPtr(i - previousIndex));
+						offsets.Add(i + 1);
+					}
+				}
+				counts.Add(new IntPtr((int)ItemCount - offsets[offsets.Count - 1]));
+
+				Debug.Assert(offsets.Count == counts.Count);
+				count = counts.ToArray();
+
+				return (offsets.ToArray());
+			}
+		}
+
+		private int[] GetRestartIndices_UnsignedShort(out IntPtr[] count)
+		{
+			unsafe
+			{
+				List<int> offsets = new List<int>();
+				List<IntPtr> counts = new List<IntPtr>();
+				ushort* indicesPtr = (ushort*)ClientBufferAddress.ToPointer();
+				ushort restartIndex = (ushort)(RestartIndexKey & 0x0000FFFF);
+
+				for (int i = 0; i < ItemCount; i++) {
+					if (indicesPtr[i] == restartIndex) {
+						int previousIndex = offsets[offsets.Count - 1];
+
+						counts.Add(new IntPtr(i - previousIndex));
+						offsets.Add(i + 1);
+					}
+				}
+				counts.Add(new IntPtr((int)ItemCount - offsets[offsets.Count - 1]));
+
+				Debug.Assert(offsets.Count == counts.Count);
+				count = counts.ToArray();
+
+				return (offsets.ToArray());
+			}
+		}
+
+		private int[] GetRestartIndices_UnsignedInt(out IntPtr[] count)
+		{
+			unsafe
+			{
+				List<int> offsets = new List<int>();
+				List<IntPtr> counts = new List<IntPtr>();
+				uint* indicesPtr = (uint*)ClientBufferAddress.ToPointer();
+				uint restartIndex = RestartIndexKey;
+
+				for (int i = 0; i < ItemCount; i++) {
+					if (indicesPtr[i] == restartIndex) {
+						int previousIndex = offsets[offsets.Count - 1];
+
+						counts.Add(new IntPtr(i - previousIndex));
+						offsets.Add(i + 1);
+					}
+				}
+				counts.Add(new IntPtr((int)ItemCount - offsets[offsets.Count - 1]));
+
+				Debug.Assert(offsets.Count == counts.Count);
+				count = counts.ToArray();
+
+				return (offsets.ToArray());
+			}
+		}
+
+		/// <summary>
+		/// Offset of the primitives at each restart.
+		/// </summary>
+		internal int[] PrimitiveRestartOffsets;
+
+		/// <summary>
+		/// Number of indices composing the restarted primitives.
+		/// </summary>
+		internal IntPtr[] PrimitiveRestartCounts;
+
 		#endregion
 
 		#region ArrayBufferObjectBase Overrides
@@ -131,7 +248,7 @@ namespace OpenGL
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override uint ArraySectionsCount { get { throw new NotImplementedException(); } }
+		protected internal override uint ArraySectionsCount { get { return (1); } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -145,7 +262,7 @@ namespace OpenGL
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override IArraySection GetArraySection(uint index) { throw new NotImplementedException(); }
+		protected internal override IArraySection GetArraySection(uint index) { return (this); }
 
 		/// <summary>
 		/// Convert the client buffer in a strongly-typed array.
@@ -196,6 +313,64 @@ namespace OpenGL
 
 			return (genericArray);
 		}
+
+		/// <summary>
+		/// Actually create this BufferObject resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject has not client memory allocated and the hint is different from
+		/// <see cref="BufferObjectHint.StaticCpuDraw"/> or <see cref="BufferObjectHint.DynamicCpuDraw"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is currently mapped.
+		/// </exception>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			// Base implementation
+			base.CreateObject(ctx);
+			// Compute necessary information to support primitive restart even if the platform does not implement it
+			if (!PrimitiveRestart.IsPrimitiveRestartSupported(ctx)  && RestartIndexEnabled)
+				PrimitiveRestartOffsets = GetRestartIndices(out PrimitiveRestartCounts);
+		}
+
+		#endregion
+
+		#region ArrayBufferObjectBase.IArraySection Implementation
+
+		/// <summary>
+		/// The type of the elements of the array section.
+		/// </summary>
+		ArrayBufferItemType IArraySection.ItemType { get { throw new NotImplementedException(); } }
+
+		/// <summary>
+		/// Get whether the array elements should be meant normalized (fixed point precision values).
+		/// </summary>
+		bool IArraySection.Normalized { get { return (false); } }
+
+		/// <summary>
+		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
+		/// buffer reference.
+		/// </summary>
+		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
+
+		/// <summary>
+		/// Offset of the first element of the array section, in bytes.
+		/// </summary>
+		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
+
+		/// <summary>
+		/// Offset between two element of the array section, in bytes.
+		/// </summary>
+		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
 
 		#endregion
 	}

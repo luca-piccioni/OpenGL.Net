@@ -29,18 +29,6 @@ namespace OpenGL.State
 	/// </summary>
 	public class ShaderUniformState : GraphicsState
 	{
-		#region Constructors
-
-		/// <summary>
-		/// Construct a ShaderUniformState.
-		/// </summary>
-		public ShaderUniformState()
-		{
-			
-		}
-
-		#endregion
-
 		#region Uniform Block Support
 
 		/// <summary>
@@ -50,7 +38,107 @@ namespace OpenGL.State
 
 		#endregion
 
-		#region Shader Uniform State Application
+		#region Uniform State
+
+		/// <summary>
+		/// Attribute applied to those fields that are bound to a shader program uniform state.
+		/// </summary>
+		[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+		protected class ShaderUniformStateAttribute : Attribute
+		{
+
+		}
+
+		/// <summary>
+		/// Utility routine for detecting fields and properties which value is bound to a shader program uniform
+		/// state.
+		/// </summary>
+		/// <param name="shaderUniformStateType">
+		/// 
+		/// </param>
+		/// <returns></returns>
+		protected static Dictionary<string, MemberInfo> DetectUniformProperties(Type shaderUniformStateType)
+		{
+			if (shaderUniformStateType == null)
+				throw new ArgumentNullException("shaderUniformStateType");
+
+			Dictionary<string, MemberInfo> uniformMembers = new Dictionary<string, MemberInfo>();
+
+			// Fields
+			FieldInfo[] uniformFields = shaderUniformStateType.GetFields(BindingFlags.Public | BindingFlags.Instance);
+
+			foreach (FieldInfo uniformField in uniformFields) {
+				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformField, typeof(ShaderUniformStateAttribute));
+				if (attribute == null)
+					continue;
+
+				uniformMembers.Add(uniformField.Name, uniformField);
+			}
+
+			// Properties
+			PropertyInfo[] uniformProperties = shaderUniformStateType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+			foreach (PropertyInfo uniformProperty in uniformProperties) {
+				if (uniformProperty.CanRead == false)
+					continue;
+				if (uniformProperty.GetIndexParameters() != null)
+					continue;
+
+				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformProperty, typeof(ShaderUniformStateAttribute));
+				if (attribute == null)
+					continue;
+
+				uniformMembers.Add(uniformProperty.Name, uniformProperty);
+			}
+
+			return (uniformMembers);
+		}
+
+		/// <summary>
+		/// Get the uniform state values associated with the uniform variable names.
+		/// </summary>
+		protected virtual Dictionary<string, object> UniformStateValues
+		{
+			get
+			{
+				Dictionary<string, object> uniformStateValues = new Dictionary<string, object>();
+
+				// Define uniform state via derived type properties
+				Dictionary<string, MemberInfo> uniformProperties = UniformStateProperties;
+
+				if (uniformProperties != null) {
+					foreach (KeyValuePair<string, MemberInfo> pair in uniformProperties) {
+						object memberValue;
+
+						switch (pair.Value.MemberType) {
+							case MemberTypes.Field:
+								memberValue = ((FieldInfo)pair.Value).GetValue(this);
+								break;
+							case MemberTypes.Property:
+								memberValue = ((PropertyInfo)pair.Value).GetValue(this, null);
+								break;
+							default:
+								// It should happen
+								Debug.Assert(false, String.Format("unsupported member {1} of type {0}", pair.Value.MemberType, pair.Value.Name));
+								continue;
+						}
+
+						uniformStateValues.Add(pair.Key, memberValue);
+					}
+				}
+
+				// Define manually specified uniform state values
+				foreach (KeyValuePair<string, object> pair in _UniformStateValues)
+					uniformStateValues.Add(pair.Key, pair.Value);
+
+				return (uniformStateValues);
+			}
+		}
+
+		/// <summary>
+		/// Get the uniform state values associated with the uniform variable names.
+		/// </summary>
+		protected virtual Dictionary<string, MemberInfo> UniformStateProperties { get { return (null); } }
 
 		/// <summary>
 		/// Apply this state to a shader program.
@@ -66,18 +154,32 @@ namespace OpenGL.State
 		/// </param>
 		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
 
-			
+			Dictionary<string, object> uniformStateValues = UniformStateValues;
+
+			foreach (string uniformName in shaderProgram.ActiveUniforms) {
+				object uniformValue;
+
+				if (uniformStateValues.TryGetValue(uniformName, out uniformValue) == false)
+					continue;
+
+				shaderProgram.SetUniform(ctx, uniformName, uniformValue);
+			}
 		}
+
+		/// <summary>
+		/// Uniform state values associated with the uniform variable names.
+		/// </summary>
+		private readonly Dictionary<string, object> _UniformStateValues = new Dictionary<string, object>();
 
 		#endregion
 
 		#region GraphicsState Overrides
-		
+
 		/// <summary>
 		/// Actually create this GraphicsResource resources.
 		/// </summary>
