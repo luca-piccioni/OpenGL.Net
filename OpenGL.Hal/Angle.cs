@@ -44,7 +44,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the normalized value of <paramref name="angle"/>.
 		/// </returns>
-		public static double Normalize(double angle)
+		public static double Normalize360(double angle)
 		{
 			return (Math.IEEERemainder(angle, 360.0));
 		}

@@ -117,7 +117,7 @@ namespace OpenGL.Hal.Test
 			Gl.LoadIdentity();
 
 			// Animation: rotate triangle
-			Gl.Rotate(Angle.Normalize(animationTime.TotalSeconds * DEG_PER_SEC), 0.0f, 0.0f, 1.0f);
+			Gl.Rotate(Angle.Normalize360(animationTime.TotalSeconds * DEG_PER_SEC), 0.0f, 0.0f, 1.0f);
 
 			// Red triangle
 			Gl.Color3(1.0f, 0.0f, 0.0f);
