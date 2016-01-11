@@ -32,8 +32,8 @@ namespace OpenGL
 		/// <summary>
 		/// Square matrix constructor.
 		/// </summary>
-		public Matrix4x4()
-			: base(4, 4)
+		public Matrix4x4() :
+			base(4, 4)
 		{
 
 		}
@@ -50,8 +50,8 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception throw if <paramref name="values"/> length differs from 16.
 		/// </exception>
-		public Matrix4x4(float[] values)
-			: base(values, 4, 4)
+		public Matrix4x4(float[] values) :
+			base(values, 4, 4)
 		{
 		
 		}
@@ -60,10 +60,22 @@ namespace OpenGL
 		/// Matrix copy constructor.
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="Matrix"/>
+		/// A <see cref="Matrix"/> to be copied.
 		/// </param>
-		public Matrix4x4(Matrix4x4 m)
-			: base(m)
+		public Matrix4x4(Matrix4x4 m) :
+			base(m)
+		{
+
+		}
+
+		/// <summary>
+		/// Matrix copy constructor.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="Matrix"/> to be copied.
+		/// </param>
+		public Matrix4x4(IMatrix4x4 m) :
+			base(m)
 		{
 
 		}
