@@ -63,13 +63,28 @@ namespace OpenGL.State
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public override IMatrix4x4 LocalProjection { get { return (null); } }
+		public override IMatrix4x4 LocalProjection
+		{
+			get { return (_LocalProjection); }
+			set
+			{
+				if (value != null)
+					_LocalProjection = new Matrix4x4(value);
+				else
+					_LocalProjection = null;        // Inherited projection matrix
+			}
+		}
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
 		/// inherited transform states of parent objects.
 		/// </summary>
 		public override IModelMatrix LocalModel { get { return (_LocalModel); } }
+
+		/// <summary>
+		///  The local projection matrix of this state.
+		/// </summary>
+		private MatrixDouble4x4 _LocalProjection;
 
 		/// <summary>
 		/// The local model of this state.
