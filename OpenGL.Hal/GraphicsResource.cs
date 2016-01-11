@@ -1,5 +1,5 @@
 
-// Copyright (C) 2010-2015 Luca Piccioni
+// Copyright (C) 2010-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -22,7 +22,7 @@ using System.Collections.Generic;
 namespace OpenGL
 {
 	/// <summary>
-	/// Any resource that is involved in the rendering operations.
+	/// Any resource that is involved in the graphics operations.
 	/// </summary>
 	/// <remarks>
 	/// <para>
@@ -31,7 +31,7 @@ namespace OpenGL
 	/// <see cref="IGraphicsResource"/>.
 	/// </para>
 	/// <para>
-	/// Most of the IGraphicsResource interface is implemented. The GraphicsResource inheritor shall implement the following methods:
+	/// Most of the IGraphicsResource interface is implemented. The GraphicsResource inheritors shall implement the following methods:
 	/// - <see cref="CreateName"/>: this method is virtual and it always throw a <see cref="NotImplementedException"/>. It shall generate an
 	///   object name of a specific object class (determined by inheritor). It is called in the <see cref="IGraphicsResource.Create"/> implementation.
 	/// - <see cref="CreateObject"/>: this method is virtual, and it can be overriden to actually create an useful object. Base implementation
@@ -68,6 +68,9 @@ namespace OpenGL
 		/// <param name="identifier">
 		/// A <see cref="String"/> that identifies this GraphicsResource.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="identifier"/> is null.
+		/// </exception>
 		protected GraphicsResource(string identifier)
 		{
 			try {
@@ -166,12 +169,12 @@ namespace OpenGL
 		{
 			uint fakeObjectName = InvalidObjectName;
 
-			lock (sClientObjectNamesLock) {
+			lock (_ClientObjectNamesLock) {
 				// Ensure managed object class
-				if (sClientObjectNames.ContainsKey(objectClass) == false)
-					sClientObjectNames[objectClass] = InvalidObjectName;
+				if (_ClientObjectNames.ContainsKey(objectClass) == false)
+					_ClientObjectNames[objectClass] = InvalidObjectName;
 				// Create name automatically
-				fakeObjectName = ++sClientObjectNames[objectClass];
+				fakeObjectName = ++_ClientObjectNames[objectClass];
 			}
 
 			return (fakeObjectName);
@@ -180,12 +183,12 @@ namespace OpenGL
 		/// <summary>
 		/// Common name database for objects not supported by OpenGL context.
 		/// </summary>
-		private static readonly Dictionary<Guid, uint> sClientObjectNames = new Dictionary<Guid, uint>();
+		private static readonly Dictionary<Guid, uint> _ClientObjectNames = new Dictionary<Guid, uint>();
 
 		/// <summary>
-		/// Lock for accessing <see cref="sClientObjectNames"/>.
+		/// Lock for accessing <see cref="_ClientObjectNames"/>.
 		/// </summary>
-		private static readonly object sClientObjectNamesLock = new object();
+		private static readonly object _ClientObjectNamesLock = new object();
 
 		#endregion
 
@@ -198,6 +201,66 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
 		/// </param>
 		protected virtual void CreateObject(GraphicsContext ctx) { }
+
+		#endregion
+
+		#region Common Argument Checking
+
+		/// <summary>
+		/// Check whether the specified <see cref="GraphicsContext"/> is not null.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> to check.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		protected internal static void CheckValidContext(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+		}
+
+		/// <summary>
+		/// Check whether the specified <see cref="GraphicsContext"/> is current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> to check.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		protected internal static void CheckCurrentContext(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (ctx.IsCurrent == false)
+				throw new ArgumentException("not current", "ctx");
+		}
+
+		/// <summary>
+		/// Check whether this <see cref="GraphicsResource"/> exists for the specified <see cref="GraphicsContext"/>.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for checking existence.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
+		/// </exception>
+		protected void CheckThisExistence(GraphicsContext ctx)
+		{
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
+		}
 
 		#endregion
 
@@ -304,8 +367,7 @@ namespace OpenGL
 		/// </exception>
 		public virtual bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 
 			// Object not created
 			if (ObjectName == InvalidObjectName)
@@ -374,10 +436,7 @@ namespace OpenGL
 				if (ctx != null)
 					_ObjectNameSpace = ctx.ObjectNameSpace;
 			} else {
-				if (ctx == null)
-					throw new ArgumentNullException("ctx");
-				if (ctx.IsCurrent == false)
-					throw new ArgumentException("not current to this thread", "ctx");
+				CheckCurrentContext(ctx);
 
 				// Create a name for this resource
 				if (ObjectName == InvalidObjectName)
@@ -420,20 +479,13 @@ namespace OpenGL
 		/// Exception thrown if <paramref name="ctx"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="ctx"/> is not current to the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
 		/// Exception thrown if this object doesn't exists for <paramref name="ctx"/> (this is determined by calling <see cref="Exists"/>
 		/// method), or this resource has a name and <paramref name="ctx"/> is not current to the calling thread.
 		/// </exception>
 		public virtual void Delete(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current to this thread", "ctx");
-			if (Exists(ctx) == false)
-				throw new ArgumentException("object not existing", "ctx");
+			CheckValidContext(ctx);
+
 			if (RefCount > 0)
 				throw new InvalidOperationException("reference count greater than zero");
 
@@ -464,10 +516,8 @@ namespace OpenGL
 		/// </remarks>
 		public virtual void Dispose(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current to this thread", "ctx");
+			CheckCurrentContext(ctx);
+
 			if (RefCount > 0)
 				throw new InvalidOperationException("reference count greater than zero");
 
