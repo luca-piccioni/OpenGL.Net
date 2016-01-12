@@ -53,13 +53,14 @@ namespace OpenGL.Test
 				Assert.Inconclusive("OpenGL 2.0");
 
 			uint program = Gl.CreateProgram();
+			Assert.AreNotEqual(0, program, "Gl.CreateProgram failure");
+
 			try {
-				Assert.AreNotEqual(0, program, "Gl.CreateProgram failure");
 				Assert.IsTrue(Gl.IsProgram(program));
 			} finally {
 				if (program != 0) {
 					Gl.DeleteProgram(program);
-					// Assert.IsFalse(Gl.IsProgram(program), "Gl.DeleteProgram failure");
+					Assert.IsFalse(Gl.IsProgram(program), "Gl.DeleteProgram failure");
 				}
 			}
 		}

@@ -155,7 +155,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the address of the client buffer of this BufferObject.
 		/// </summary>
-		protected virtual IntPtr ClientBufferAddress
+		protected internal virtual IntPtr ClientBufferAddress
 		{
 			get
 			{
@@ -650,7 +650,7 @@ namespace OpenGL
 		/// </exception>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			CheckThisExistence(ctx);
+			CheckCurrentContext(ctx);
 
 			if ((ClientBufferAddress == IntPtr.Zero) && ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw)))
 				throw new InvalidOperationException("no client buffer");
@@ -822,7 +822,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the address of the client buffer of this BufferObject.
 		/// </summary>
-		protected override IntPtr ClientBufferAddress
+		protected internal override IntPtr ClientBufferAddress
 		{
 			get
 			{

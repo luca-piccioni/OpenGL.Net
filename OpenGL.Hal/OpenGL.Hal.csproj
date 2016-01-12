@@ -68,7 +68,6 @@
     <Compile Include="ArrayBufferObjectBase.cs" />
     <Compile Include="State\UniformColorState.cs" />
     <Compile Include="VertexArrayBatchObject.cs" />
-    <Compile Include="VertexBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
     <Compile Include="Collections\IQuadTreeNode.cs" />

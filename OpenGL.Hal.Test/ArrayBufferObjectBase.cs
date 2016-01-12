@@ -62,7 +62,7 @@ namespace OpenGL.Hal.Test
 			if (typeof(T) == typeof(ArrayBufferObject))
 				return (new ArrayBufferObject(ArrayBufferItemType.Float, BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ElementBufferObject))
-				return (new ElementBufferObject(typeof(uint), BufferObjectHint.StaticCpuDraw));
+				return (new ElementBufferObject(DrawElementsType.UnsignedInt, BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectInterleaved))
 				return (new ArrayBufferObjectInterleaved(typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectPacked))

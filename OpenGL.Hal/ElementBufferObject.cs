@@ -31,42 +31,88 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
+		/// Construct an ElementBufferObject, implictly used with <see cref="BufferObjectHint.StaticCpuDraw"/>.
+		/// </summary>
+		/// <param name="elementType">
+		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
+		/// </param>
+		public ElementBufferObject(DrawElementsType elementType) :
+			this(elementType, BufferObjectHint.StaticCpuDraw)
+		{
+
+		}
+
+		/// <summary>
 		/// Construct an ElementBufferObject.
 		/// </summary>
+		/// <param name="elementType">
+		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
+		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBufferObject(Type elementType, BufferObjectHint hint)
+		public ElementBufferObject(DrawElementsType elementType, BufferObjectHint hint)
 			: base(BufferTargetARB.ElementArrayBuffer, hint)
 		{
 			try {
-				if (elementType == null)
-					throw new ArgumentNullException("elementType");
-
 				// Determine ElementsType and default RestartIndexKey
-				switch (Type.GetTypeCode(elementType)) {
-					case TypeCode.Byte:
-						ElementsType = DrawElementsType.UnsignedByte;
+				ElementsType = elementType;
+				switch (elementType) {
+					case DrawElementsType.UnsignedByte:
+						ItemSize = 1;
 						RestartIndexKey = 0x000000FF;
 						break;
-					case TypeCode.UInt16:
-						ElementsType = DrawElementsType.UnsignedShort;
+					case DrawElementsType.UnsignedShort:
+						ItemSize = 2;
 						RestartIndexKey = 0x0000FFFF;
 						break;
-					case TypeCode.UInt32:
-						ElementsType = DrawElementsType.UnsignedInt;
+					case DrawElementsType.UnsignedInt:
+						ItemSize = 4;
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
 						throw new ArgumentException("type not supported", "elementType");
 				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
+		}
 
-				// Store element type
-				_RuntimeType = elementType;
-				// Determine the element size, in bytes
-				ItemSize = (uint)Marshal.SizeOf(elementType);
-				// The element type must implement IConvertible
-				Debug.Assert(_RuntimeType.GetInterface("IConvertible") != null);
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="elementType">
+		/// 
+		/// </param>
+		/// <param name="hint">
+		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// </param>
+		protected ElementBufferObject(Type elementType, BufferObjectHint hint)
+			: base(BufferTargetARB.ElementArrayBuffer, hint)
+		{
+			try {
+				// Determine ElementsType and default RestartIndexKey
+				switch (Type.GetTypeCode(elementType)) {
+					case TypeCode.Byte:
+						ElementsType = DrawElementsType.UnsignedByte;
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case TypeCode.UInt16:
+						ElementsType = DrawElementsType.UnsignedShort;
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case TypeCode.UInt32:
+						ElementsType = DrawElementsType.UnsignedInt;
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -77,11 +123,6 @@ namespace OpenGL
 		#endregion
 
 		#region Elements Type
-
-		/// <summary>
-		/// The <see cref="Type"/> that corresponds to <see cref="ElementsType"/>.
-		/// </summary>
-		private readonly Type _RuntimeType;
 
 		/// <summary>
 		/// The type of the array elements.
@@ -378,10 +419,22 @@ namespace OpenGL
 	/// <summary>
 	/// Element buffer object.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
+	/// <typeparam name="T">
+	/// The generic type must be <see cref="Byte"/>, <see cref="UInt16"/> or <see cref="UInt32"/>, otherwise
+	/// the constructors will throw an exception.
+	/// </typeparam>
 	public class ElementBufferObject<T> : ElementBufferObject where T : struct, IConvertible
 	{
 		#region Constructors
+
+		/// <summary>
+		/// Construct an ElementBufferObject, implictly used with <see cref="BufferObjectHint.StaticCpuDraw"/>.
+		/// </summary>
+		public ElementBufferObject() :
+			this(BufferObjectHint.StaticCpuDraw)
+		{
+
+		}
 
 		/// <summary>
 		/// Construct an ElementBufferObject.

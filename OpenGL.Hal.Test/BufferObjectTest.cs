@@ -39,7 +39,7 @@ namespace OpenGL.Hal.Test
 			if (typeof(T) == typeof(ArrayBufferObject))
 				return (new ArrayBufferObject(ArrayBufferItemType.Float3, BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ElementBufferObject))
-				return (new ElementBufferObject(typeof(uint), BufferObjectHint.StaticCpuDraw));
+				return (new ElementBufferObject(DrawElementsType.UnsignedInt, BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectInterleaved))
 				return (new ArrayBufferObjectInterleaved(typeof(ComplexVertexElement), BufferObjectHint.StaticCpuDraw));
 			else if (typeof(T) == typeof(ArrayBufferObjectPacked))
@@ -125,10 +125,10 @@ namespace OpenGL.Hal.Test
 		/// <param name="buffer"></param>
 		private void ConstructionDefaulValues(BufferObject buffer)
 		{
-			Assert.AreEqual(0, buffer.BufferSize);
-			Assert.AreEqual(0, buffer.ClientBufferSize);
+			Assert.AreEqual(0U, buffer.BufferSize);
+			Assert.AreEqual(0U, buffer.ClientBufferSize);
 			Assert.AreEqual(IntPtr.Zero, buffer.GpuBufferAddress);
-			Assert.AreEqual(IntPtr.Zero, buffer.ClientBufferSize);
+			Assert.AreEqual(IntPtr.Zero, buffer.ClientBufferAddress);
 		}
 
 		/// <summary>
@@ -137,8 +137,8 @@ namespace OpenGL.Hal.Test
 		/// <param name="buffer"></param>
 		private void DispositionDefaulValues(BufferObject buffer)
 		{
-			Assert.AreEqual(0, buffer.BufferSize);
-			Assert.AreEqual(0, buffer.ClientBufferSize);
+			Assert.AreEqual(0U, buffer.BufferSize);
+			Assert.AreEqual(0U, buffer.ClientBufferSize);
 		}
 
 		#region ArrayBufferObjectBase.Map()

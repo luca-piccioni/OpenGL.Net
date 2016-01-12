@@ -53,7 +53,7 @@ namespace OpenGL
 			arrayAttachment.BufferObject = bufferObject;
 			arrayAttachment.BufferInfo = bufferObject.GetArraySection(bufferStreamIndex);
 
-			mAttachedArrays[feedbackIndex] = arrayAttachment;
+			_AttachedArrays[feedbackIndex] = arrayAttachment;
 		}
 
 		private struct ArrayAttachment
@@ -65,7 +65,7 @@ namespace OpenGL
 		
 		private void MapBufferObjects(GraphicsContext ctx)
 		{
-			foreach (KeyValuePair<uint,ArrayAttachment> pair in mAttachedArrays) {
+			foreach (KeyValuePair<uint,ArrayAttachment> pair in _AttachedArrays) {
 				ArrayAttachment arrayAttachment = pair.Value;
 				
 				if (arrayAttachment.BufferObject.Exists(ctx) == false)
@@ -78,7 +78,7 @@ namespace OpenGL
 		/// <summary>
 		/// The attached arrays to this feedback buffer.
 		/// </summary>
-		private readonly Dictionary<uint, ArrayAttachment> mAttachedArrays = new Dictionary<uint, ArrayAttachment>();
+		private readonly Dictionary<uint, ArrayAttachment> _AttachedArrays = new Dictionary<uint, ArrayAttachment>();
 
 		#endregion
 		
@@ -95,10 +95,7 @@ namespace OpenGL
 		/// </exception>
 		public void Begin(GraphicsContext ctx, PrimitiveType primitive)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ObjectName == 0)
-				throw new InvalidOperationException("invalid name");
+			CheckThisExistence(ctx);
 			
 			// Make this feedback buffer current
 			Bind(ctx);
@@ -127,8 +124,8 @@ namespace OpenGL
 				Gl.Enable(EnableCap.RasterizerDiscard);
 			
 			// Start queries
-			mPrimitivesGenerated.Begin(ctx);
-			mPrimitivesWritten.Begin(ctx);
+			_PrimitivesGenerated.Begin(ctx);
+			_PrimitivesWritten.Begin(ctx);
 		}
 
 		/// <summary>
@@ -146,11 +143,11 @@ namespace OpenGL
 				throw new ArgumentNullException("ctx");
 			
 			// Start queries
-			mPrimitivesGenerated.End(ctx);
-			mPrimitivesWritten.End(ctx);
+			_PrimitivesGenerated.End(ctx);
+			_PrimitivesWritten.End(ctx);
 			
-			mPrimitivesGenerated.GetResult(ctx, out mPrimitivesGeneratedCached);
-			mPrimitivesWritten.GetResult(ctx, out mPrimitivesWrittenCached);
+			_PrimitivesGenerated.GetResult(ctx, out mPrimitivesGeneratedCached);
+			_PrimitivesWritten.GetResult(ctx, out mPrimitivesWrittenCached);
 			
 			// End tranform feedback
 			Gl.EndTransformFeedback();
@@ -188,11 +185,11 @@ namespace OpenGL
 		
 		public bool Overflow { get { return (mPrimitivesWrittenCached != 0 && mPrimitivesGeneratedCached > mPrimitivesWrittenCached); } }
 		
-		private QueryObject mPrimitivesGenerated;
+		private QueryObject _PrimitivesGenerated;
 		
 		private ulong mPrimitivesGeneratedCached;
 		
-		private QueryObject mPrimitivesWritten;
+		private QueryObject _PrimitivesWritten;
 		
 		private ulong mPrimitivesWrittenCached;
 		
@@ -365,7 +362,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (mAttachedArrays.Count == 0)
+			if (_AttachedArrays.Count == 0)
 				throw new InvalidOperationException("no feedback attachments");
 			
 			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
@@ -386,11 +383,11 @@ namespace OpenGL
 			}
 			
 			// Create queries
-			mPrimitivesGenerated = new QueryObject(QueryTarget.PrimitivesGenerated);
-			mPrimitivesGenerated.Create(ctx);
+			_PrimitivesGenerated = new QueryObject(QueryTarget.PrimitivesGenerated);
+			_PrimitivesGenerated.Create(ctx);
 			
-			mPrimitivesWritten = new QueryObject(QueryTarget.TransformFeedbackPrimitivesGenerated);
-			mPrimitivesWritten.Create(ctx);
+			_PrimitivesWritten = new QueryObject(QueryTarget.TransformFeedbackPrimitivesGenerated);
+			_PrimitivesWritten.Create(ctx);
 		}
 
 		/// <summary>
@@ -411,14 +408,14 @@ namespace OpenGL
 		/// </remarks>
 		public override void Dispose(GraphicsContext ctx)
 		{
-			if (mPrimitivesGenerated != null) {
-				mPrimitivesGenerated.Dispose(ctx);
-				mPrimitivesGenerated = null;
+			if (_PrimitivesGenerated != null) {
+				_PrimitivesGenerated.Dispose(ctx);
+				_PrimitivesGenerated = null;
 			}
 
-			if (mPrimitivesWritten != null) {
-				mPrimitivesWritten.Dispose(ctx);
-				mPrimitivesWritten = null;
+			if (_PrimitivesWritten != null) {
+				_PrimitivesWritten.Dispose(ctx);
+				_PrimitivesWritten = null;
 			}
 
 			// Base implementation

@@ -156,6 +156,16 @@ namespace OpenGL.Hal.Test
 			void Dispose(object instance, GraphicsContext ctx);
 		}
 
+		protected IGraphicsTypeSupport GetGraphicsTypeSupport(Type type)
+		{
+			Type graphicsTypeSupport = typeof(TestBase).GetNestedType(String.Format("{0}TypeSupport", type.Name), BindingFlags.NonPublic);
+
+			if (graphicsTypeSupport != null)
+				return (Activator.CreateInstance(graphicsTypeSupport) as IGraphicsTypeSupport);
+
+			return (new DefaultGraphicsTypeSupport(type));
+		}
+
 		/// <summary>
 		/// Base class implementing <see cref="IGraphicsTypeSupport"/>.
 		/// </summary>
@@ -731,6 +741,64 @@ namespace OpenGL.Hal.Test
 			#endregion
 		}
 
+		protected class ElementBufferObjectTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ElementBufferObjectTypeSupport.
+			/// </summary>
+			public ElementBufferObjectTypeSupport() :
+				base(typeof(ElementBufferObject))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				ElementBufferObject arrayBufferObject = new ElementBufferObject(DrawElementsType.UnsignedInt);
+
+				arrayBufferObject.Create(16);
+
+				return (arrayBufferObject);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				T elementBufferObjectSpy = (T)CreateTypeSpy(_InstanceType, DrawElementsType.UnsignedInt);
+				ElementBufferObject elementBufferObject = elementBufferObjectSpy as ElementBufferObject;
+
+				if (elementBufferObject != null)
+					elementBufferObject.Create(16);
+
+				return (elementBufferObjectSpy);
+			}
+
+			#endregion
+		}
+
 		protected class VertexArrayObjectTypeSupport : DefaultGraphicsTypeSupport
 		{
 			#region Constructors
@@ -788,6 +856,84 @@ namespace OpenGL.Hal.Test
 			{
 				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType);
 				VertexArrayObject vertexArrayObject = arrayBufferObjectSpy as VertexArrayObject;
+
+				if (vertexArrayObject != null) {
+					ArrayBufferObject arrayBufferObject;
+
+					arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObjectHint.StaticCpuDraw);
+					arrayBufferObject.Create(16);
+					vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.Position);
+
+					arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 2, BufferObjectHint.StaticCpuDraw);
+					arrayBufferObject.Create(16);
+					vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.TexCoord);
+
+					vertexArrayObject.SetElementArray(PrimitiveType.Lines);
+				}
+
+				return (arrayBufferObjectSpy);
+			}
+
+			#endregion
+		}
+
+		protected class VertexArrayBatchObjectTypeSupport : DefaultGraphicsTypeSupport
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a VertexArrayObjectTypeSupport.
+			/// </summary>
+			public VertexArrayBatchObjectTypeSupport() :
+				base(typeof(VertexArrayBatchObject))
+			{
+
+			}
+
+			#endregion
+
+			#region DefaultGraphicsTypeSupport Overrides
+
+			/// <summary>
+			/// Allocate an instance of the type.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override object Allocate(GraphicsContext ctx)
+			{
+				VertexArrayBatchObject vertexArrayObject = new VertexArrayBatchObject();
+				ArrayBufferObject arrayBufferObject;
+
+				arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 3, BufferObjectHint.StaticCpuDraw);
+				arrayBufferObject.Create(16);
+				vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.Position);
+
+				arrayBufferObject = new ArrayBufferObject(VertexBaseType.Float, 2, BufferObjectHint.StaticCpuDraw);
+				arrayBufferObject.Create(16);
+				vertexArrayObject.SetArray(arrayBufferObject, VertexArraySemantic.TexCoord);
+
+				vertexArrayObject.SetElementArray(PrimitiveType.Lines);
+
+				return (vertexArrayObject);
+			}
+
+			/// <summary>
+			/// Allocate an instance of the type mocked for spying.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating the instance.
+			/// </param>
+			/// <returns>
+			/// It returns an instance of a specific type.
+			/// </returns>
+			public override T AllocateSpy<T>(GraphicsContext ctx)
+			{
+				T arrayBufferObjectSpy = (T)CreateTypeSpy(_InstanceType);
+				VertexArrayBatchObject vertexArrayObject = arrayBufferObjectSpy as VertexArrayBatchObject;
 
 				if (vertexArrayObject != null) {
 					ArrayBufferObject arrayBufferObject;
@@ -1029,16 +1175,6 @@ namespace OpenGL.Hal.Test
 			}
 
 #endregion
-		}
-
-		protected IGraphicsTypeSupport GetGraphicsTypeSupport(Type type)
-		{
-			Type graphicsTypeSupport = typeof(TestBase).GetNestedType(String.Format("{0}TypeSupport", type.Name), BindingFlags.NonPublic);
-
-			if (graphicsTypeSupport != null)
-				return (Activator.CreateInstance(graphicsTypeSupport) as IGraphicsTypeSupport);
-
-			return (new DefaultGraphicsTypeSupport(type));
 		}
 
 		#endregion
