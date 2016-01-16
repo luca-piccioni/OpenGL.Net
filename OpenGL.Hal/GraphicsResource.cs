@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace OpenGL
 {
@@ -215,6 +216,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> is null.
 		/// </exception>
+		[Conditional("DEBUG")]
 		protected internal static void CheckValidContext(GraphicsContext ctx)
 		{
 			if (ctx == null)
@@ -233,6 +235,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
 		/// </exception>
+		[Conditional("DEBUG")]
 		protected internal static void CheckCurrentContext(GraphicsContext ctx)
 		{
 			if (ctx == null)

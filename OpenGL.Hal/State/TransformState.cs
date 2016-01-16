@@ -24,7 +24,7 @@ namespace OpenGL.State
 	/// <summary>
 	/// State tracking the transformation state (single-precision implementation).
 	/// </summary>
-	[DebuggerDisplay("TransformStateSingle View={View} Transform={TransformModel} ModelView={ModelView} LocalModel={LocalModel}")]
+	[DebuggerDisplay("TransformState View={View} Transform={TransformModel} ModelView={ModelView} LocalModel={LocalModel}")]
 	public class TransformState : TransformStateBase
 	{
 		#region Constructors
@@ -56,7 +56,7 @@ namespace OpenGL.State
 
 		#endregion
 
-		#region ShaderUniformState Overrides
+		#region TransformStateBase Overrides
 
 		/// <summary>
 		/// The local projection: the projection matrix of the current verte arrays, without considering inherited
@@ -90,110 +90,6 @@ namespace OpenGL.State
 		/// The local model-view matrix of this state.
 		/// </summary>
 		private readonly ModelMatrix _LocalModel = new ModelMatrix();
-
-		/// <summary>
-		/// The actual projection matrix used for projecting vertex arrays.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IMatrix4x4 Projection { get { return (null); } internal set { } }
-
-		/// <summary>
-		/// The actual projection matrix used for projecting vertex arrays.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IMatrix4x4 InverseProjection { get { return (null); } }
-
-		/// <summary>
-		/// The actual model-view matrix used for transforming vertex arrays object space.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IModelMatrix ModelView { get { return (null); } internal set { } }
-
-		/// <summary>
-		/// The actual model-view-projection matrix used for drawing vertex arrays.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IModelMatrix ModelViewProjection { get { return (null); } internal set { } }
-
-		/// <summary>
-		/// The inverse of <see cref="ModelView"/>.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IModelMatrix InverseModelView { get { return (null); } }
-
-		/// <summary>
-		/// The inverse of <see cref="ModelViewProjection"/>.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IModelMatrix InverseModelViewProjection { get { return (null); } }
-
-		/// <summary>
-		/// The normal matrix, derived from <see cref="ModelView"/>.
-		/// </summary>
-		[ShaderUniformState()]
-		public override IModelMatrix NormalMatrix { get { return (null); } }
-
-		/// <summary>
-		/// Merge this state with another one.
-		/// </summary>
-		/// <param name="state">
-		/// A <see cref="IGraphicsState"/> having the same <see cref="RenderState.StateIdentifier"/> of this state.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// After a call to this routine, this IGraphicsState store the union of the previous information
-		/// and of the information of <paramref name="state"/>.
-		/// </para>
-		/// <para>
-		/// The semantic of the merge result is dependent on the actual implementation of this IGraphicsState. Normally
-		/// the merge method will copy <paramref name="state"/> into this IGraphicsState, but other state could do
-		/// different operations.
-		/// </para>
-		/// </remarks>
-		public override void Merge(IGraphicsState state)
-		{
-			if (state == null)
-				throw new ArgumentNullException("state");
-			if (state.StateIdentifier != StateId)
-				throw new ArgumentException("state id mismatch", "state");
-
-#if false
-			TransformStateBase transformState = (TransformStateBase)state;
-			IModelMatrix stateModel = transformState.TransformModel;
-			
-			// Inherith view matrix, if any (usually it is null)
-			if (transformState.View != null)
-				mViewMatrix = (ModelMatrix)transformState.View;
-			// Update world model (do not copy Transforms: embed in LocalModel)
-			mLocalModel.Set(TransformModel.Multiply(stateModel));
-#endif
-		}
-
-		/// <summary>
-		/// Indicates whether the current object is equal to another object of the same type.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="RenderState"/> to compare to this RenderState.
-		/// </param>
-		/// <returns>
-		/// It returns true if the current object is equal to <paramref name="other"/>.
-		/// </returns>
-		/// <remarks>
-		/// <para>
-		/// This method test only whether <paramref name="other"/> type equals to this type.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="other"/> is null.
-		/// </exception>
-		public override bool Equals(IGraphicsState other)
-		{
-			if (base.Equals(other) == false)
-				return (false);
-			Debug.Assert(other is TransformState);
-
-			return (false);
-		}
 
 		/// <summary>
 		/// Performs a deep copy of this <see cref="IGraphicsState"/>.

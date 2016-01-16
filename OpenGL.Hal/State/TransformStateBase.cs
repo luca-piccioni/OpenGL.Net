@@ -72,50 +72,56 @@ namespace OpenGL.State
 		/// The actual projection matrix used for projecting vertex arrays.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IMatrix4x4 Projection { get; internal set; }
+		public virtual IMatrix4x4 Projection { get { return (LocalProjection); } }
 
 		/// <summary>
 		/// The actual projection matrix used for projecting vertex arrays.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IMatrix4x4 InverseProjection { get; }
+		public virtual IMatrix4x4 InverseProjection { get { return (Projection.GetInverseMatrix()); } }
 
 		/// <summary>
 		/// The actual model-view matrix used for transforming vertex arrays object space.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IModelMatrix ModelView { get; internal set; }
+		public virtual IModelMatrix ModelView { get { return (LocalModel); } }
 
 		/// <summary>
 		/// The actual model-view-projection matrix used for drawing vertex arrays.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IModelMatrix ModelViewProjection { get; internal set; }
+		public virtual IMatrix4x4 ModelViewProjection { get { return (Projection.Multiply(ModelView)); } }
 
 		/// <summary>
 		/// The inverse of <see cref="ModelView"/>.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IModelMatrix InverseModelView { get; }
+		public virtual IModelMatrix InverseModelView { get { return (ModelView.GetInverseMatrix()); } }
 
 		/// <summary>
 		/// The inverse of <see cref="ModelViewProjection"/>.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IModelMatrix InverseModelViewProjection { get; }
+		public virtual IMatrix4x4 InverseModelViewProjection { get { return (ModelViewProjection.GetInverseMatrix()); } }
 
 		/// <summary>
 		/// The normal matrix, derived from <see cref="ModelView"/>.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract IModelMatrix NormalMatrix { get; }
+		public virtual IMatrix3x3 NormalMatrix
+		{
+			get
+			{
+				return (ModelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose());
+			}
+		}
 
 		#endregion
 
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// The identifier for the blend state.
+		/// The identifier for the TransformStateBase derived classes.
 		/// </summary>
 		public static string StateId = "OpenGL.TransformState";
 
@@ -123,6 +129,14 @@ namespace OpenGL.State
 		/// The identifier of this GraphicsState.
 		/// </summary>
 		public override string StateIdentifier { get { return (StateId); } }
+
+		/// <summary>
+		/// Flag indicating whether the state is context-bound.
+		/// </summary>
+		/// <remarks>
+		/// It returns always true, since it supports also fixed pipeline.
+		/// </remarks>
+		public override bool IsContextBound { get { return (true); } }
 
 		/// <summary>
 		/// Apply this TransformStateBase.
@@ -135,21 +149,52 @@ namespace OpenGL.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
+			CheckCurrentContext(ctx);
+
 			if (shaderProgram == null) {
 
 				// Fixed pipeline rendering requires server state
-
-				// Set projection matrix
-				Gl.MatrixMode(MatrixMode.Projection);
-				Gl.LoadMatrix(Projection.ToArray());
-				// Set model-view matrix
-				Gl.MatrixMode(MatrixMode.Modelview);
-				Gl.LoadMatrix(ModelView.ToArray());
 				
+				if (ctx.Caps.GlExtensions.DirectStateAccess_EXT) {
+					// Set projection and model-view matrix
+					Gl.MatrixLoadEXT(MatrixMode.Projection, Projection.ToArray());
+					Gl.MatrixLoadEXT(MatrixMode.Modelview, ModelView.ToArray());
+				} else {
+					// Set projection matrix
+					Gl.MatrixMode(MatrixMode.Projection);
+					Gl.LoadMatrix(Projection.ToArray());
+					// Set model-view matrix
+					Gl.MatrixMode(MatrixMode.Modelview);
+					Gl.LoadMatrix(ModelView.ToArray());
+				}
 			} else {
 				// Base implementation
 				base.ApplyState(ctx, shaderProgram);
 			}
+		}
+
+		/// <summary>
+		/// Merge this state with another one.
+		/// </summary>
+		/// <param name="state">
+		/// A <see cref="IGraphicsState"/> having the same <see cref="StateIdentifier"/> of this state.
+		/// </param>
+		/// <remarks>
+		public override void Merge(IGraphicsState state)
+		{
+			if (state == null)
+				throw new ArgumentNullException("state");
+
+			TransformStateBase otherState = state as TransformStateBase;
+
+			if (otherState == null)
+				throw new ArgumentException("not a TransformStateBase", "state");
+
+			// Override projection matrix, if defined
+			if (otherState.LocalProjection != null)
+				LocalProjection = otherState.LocalProjection;
+			// Affine local model
+			LocalModel.Multiply(otherState.LocalModel);
 		}
 
 		/// <summary>

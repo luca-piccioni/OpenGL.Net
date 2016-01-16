@@ -67,6 +67,17 @@ namespace OpenGL.State
 			ViewportSize = new Vertex2f(viewportCoords[2] - viewportCoords[0], viewportCoords[3] - viewportCoords[1]);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="graphicsSurface"></param>
+		public ViewportState(GraphicsSurface graphicsSurface)
+		{
+			if (graphicsSurface == null)
+				throw new ArgumentNullException("graphicsSurface");
+			ViewportSize = new Vertex2f(graphicsSurface.Width, graphicsSurface.Height);
+		}
+
 		#endregion
 
 		#region Viewport Information
