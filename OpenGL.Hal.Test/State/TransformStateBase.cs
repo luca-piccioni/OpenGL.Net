@@ -24,7 +24,7 @@ using OpenGL.State;
 
 namespace OpenGL.Hal.Test
 {
-	[TestFixture(typeof(TransformStateSingle))]
+	[TestFixture(typeof(TransformState))]
 	[TestFixture(typeof(TransformStateDouble))]
 	class TransformStateBaseTest<T> : TestBase where T : TransformStateBase
 	{

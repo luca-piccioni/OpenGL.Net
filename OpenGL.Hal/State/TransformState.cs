@@ -25,14 +25,14 @@ namespace OpenGL.State
 	/// State tracking the transformation state (single-precision implementation).
 	/// </summary>
 	[DebuggerDisplay("TransformStateSingle View={View} Transform={TransformModel} ModelView={ModelView} LocalModel={LocalModel}")]
-	public class TransformStateSingle : TransformStateBase
+	public class TransformState : TransformStateBase
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Default TransformStateSingle.
 		/// </summary>
-		public TransformStateSingle()
+		public TransformState()
 		{
 
 		}
@@ -40,7 +40,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// Construct the current TransformStateSingle (compatibility profile only).
 		/// </summary>
-		public TransformStateSingle(GraphicsContext ctx)
+		public TransformState(GraphicsContext ctx)
 		{
 
 		}
@@ -52,7 +52,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The system default state for TransformState.
 		/// </summary>
-		public static TransformStateSingle DefaultState { get { return (new TransformStateSingle()); } }
+		public static TransformState DefaultState { get { return (new TransformState()); } }
 
 		#endregion
 
@@ -190,7 +190,7 @@ namespace OpenGL.State
 		{
 			if (base.Equals(other) == false)
 				return (false);
-			Debug.Assert(other is TransformStateSingle);
+			Debug.Assert(other is TransformState);
 
 			return (false);
 		}
@@ -204,7 +204,7 @@ namespace OpenGL.State
 		/// </returns>
 		public override IGraphicsState Copy()
 		{
-			TransformStateSingle copiedState = new TransformStateSingle();		// Do not use base.Copy()!
+			TransformState copiedState = new TransformState();		// Do not use base.Copy()!
 			
 			return (copiedState);
 		}

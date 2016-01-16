@@ -202,7 +202,7 @@
     <Compile Include="State\TimeState.cs" />
     <Compile Include="State\TransformStateBase.cs" />
     <Compile Include="State\TransformStateDouble.cs" />
-    <Compile Include="State\TransformStateSingle.cs" />
+    <Compile Include="State\TransformState.cs" />
     <Compile Include="State\ViewportState.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Texture1d.cs" />

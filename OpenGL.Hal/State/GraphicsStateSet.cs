@@ -57,7 +57,7 @@ namespace OpenGL.State
 			renderStateSet.DefineState(UniformColorState.DefaultState);
 
 			renderStateSet.DefineState(PolygonModeState.DefaultState);
-			renderStateSet.DefineState(TransformStateSingle.DefaultState);
+			renderStateSet.DefineState(TransformState.DefaultState);
 			renderStateSet.DefineState(BlendState.DefaultState);
 			renderStateSet.DefineState(DepthTestState.DefaultState);
 			renderStateSet.DefineState(CullFaceState.DefaultState);
@@ -92,7 +92,7 @@ namespace OpenGL.State
 			renderStateSet.DefineState(new CullFaceState(ctx));
 			renderStateSet.DefineState(new RenderBufferState(ctx));
 			renderStateSet.DefineState(new ViewportState(ctx));
-			renderStateSet.DefineState(new TransformStateSingle(ctx));
+			renderStateSet.DefineState(new TransformState(ctx));
 			
 			sLog.Verbose("Detected current state set:");
 			foreach (KeyValuePair<string, IGraphicsState> pair in renderStateSet.mRenderStates)
