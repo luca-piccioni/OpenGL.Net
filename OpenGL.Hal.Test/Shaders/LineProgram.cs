@@ -16,6 +16,10 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 using NUnit.Framework;
 
 namespace OpenGL.Hal.Test.Shaders
@@ -24,7 +28,7 @@ namespace OpenGL.Hal.Test.Shaders
 	/// Test Line shader.
 	/// </summary>
 	[TestFixture]
-	class LineProgram : ShaderTestBase
+	class LineShaderTest : ShaderTestBase
 	{
 		/// <summary>
 		/// Test Line program vertex shader object.
@@ -79,7 +83,7 @@ namespace OpenGL.Hal.Test.Shaders
 		}
 
 		/// <summary>
-		/// Test Line program.
+		/// Test Line shader.
 		/// </summary>
 		[Test]
 		public void TestLineProgram()
@@ -97,10 +101,10 @@ namespace OpenGL.Hal.Test.Shaders
 		}
 
 		/// <summary>
-		/// Test Line program.
+		/// Test Line shader.
 		/// </summary>
 		[Test]
-		public void TestLineColorProgram()
+		public void TestLineColorShader()
 		{
 			using (ShaderProgram shaderProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Line")) {
 				Assert.DoesNotThrow(delegate () { shaderProgram.Create(_Context, new ShaderCompilerContext("HAL_COLOR_PER_VERTEX")); });
@@ -115,29 +119,103 @@ namespace OpenGL.Hal.Test.Shaders
 		}
 
 		/// <summary>
-		/// Test Line program.
+		/// Test Line shader.
 		/// </summary>
 		[Test]
-		public void TestLineProgramRender()
+		public void TestLineShaderRender()
 		{
 			using (ShaderProgram shaderProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Line")) {
 				Assert.DoesNotThrow(delegate () { shaderProgram.Create(_Context); });
 
-				shaderProgram.Bind(_Context);
-				shaderProgram.SetUniform(_Context, "hal_ModelViewProjection", RenderProjectionMatrix);
-				shaderProgram.SetUniform(_Context, "hal_UniformColor", new ColorRGBA(1.0f, 1.0f, 1.0f));
-				shaderProgram.SetUniform(_Context, "hal_LineWidth", 1.0f);
-				shaderProgram.SetUniform(_Context, "hal_ViewportSize", new Vertex2f(_Framebuffer.Width, _Framebuffer.Height));
+				using (VertexArrayObject vao = new VertexArrayObject()) {
+					List<Vertex2f> vertices = new List<Vertex2f>();
 
-				// Issue rendering
-				_Framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
-				_Framebuffer.Clear(_Context);
-				
+					for (float y = 0.375f; y < _Framebuffer.Height; y += 2.0f) {
+						vertices.Add(new Vertex2f(0.0f, y));
+						vertices.Add(new Vertex2f(_Framebuffer.Width, y));
+					}
 
-				// Get rendering feedback
-				using (Image feedbackImage = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, 16, 16, PixelLayout.GRAY8)) {
+					// Setup ABO (Position)
+					ArrayBufferObject abo = new ArrayBufferObject(VertexBaseType.Float, 2, BufferObjectHint.StaticCpuDraw);
+					abo.Create(vertices.ToArray());
 
+					// Setup VAO
+					vao.SetArray(abo, VertexArraySemantic.Position);
+					vao.SetElementArray(PrimitiveType.Lines);
+					vao.Create(_Context);
+
+					// Draw test
+					Image feedbackImageFixed = null, feedbackImageShader = null;
+
+					try {
+						Gl.Viewport(0, 0, (int)_Framebuffer.Width, (int)_Framebuffer.Height);
+
+						#region Fixed pipeline
+
+						_Framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
+						_Framebuffer.Clear(_Context);
+
+						Gl.MatrixMode(MatrixMode.Projection);
+						Gl.LoadMatrix(new OrthoProjectionMatrix(0.0f, _Framebuffer.Width, 0.0f, _Framebuffer.Height).ToArray());
+						Gl.MatrixMode(MatrixMode.Modelview);
+						Gl.LoadIdentity();
+						Gl.Color3(1.0f, 1.0f, 1.0f);
+						Gl.LineWidth(1.0f);
+
+						vao.Draw(_Context);
+
+						feedbackImageFixed = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.GRAY8);
+						ImageCodec.Instance.Save(
+							Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LineProgram.Fixed.png"),
+							feedbackImageFixed, ImageFormat.Png, null
+						);
+
+						#endregion
+
+						#region Shader pipeline
+
+						_Framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
+						_Framebuffer.Clear(_Context);
+
+						shaderProgram.Bind(_Context);
+						shaderProgram.SetUniform(_Context, "hal_ModelViewProjection", RenderProjectionMatrix);
+						shaderProgram.SetUniform(_Context, "hal_UniformColor", new ColorRGBA(1.0f, 1.0f, 1.0f));
+						shaderProgram.SetUniform(_Context, "hal_LineWidth", 1.0f);
+						shaderProgram.SetUniform(_Context, "hal_ViewportSize", new Vertex2f(_Framebuffer.Width, _Framebuffer.Height));
+
+						vao.Draw(_Context, shaderProgram);
+
+						feedbackImageShader = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.GRAY8);
+						ImageCodec.Instance.Save(
+							Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LineProgram.Shader.png"),
+							feedbackImageShader, ImageFormat.Png, null
+						);
+
+						#endregion
+
+						// Compare results
+
+					} finally {
+						if (feedbackImageFixed != null)
+							feedbackImageFixed.Dispose();
+						if (feedbackImageShader != null)
+							feedbackImageShader.Dispose();
+					}
 				}
+
+				//// Get rendering feedback
+				//using (Image feedbackImage = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.GRAY8)) {
+					
+
+				//	// Drawn only even lines
+				//	for (uint y = 0; y < _Framebuffer.Height; y++) {
+				//		for (uint x = 0; x < _Framebuffer.Width; x++) {
+				//			ColorGRAY8 fragment = (ColorGRAY8)feedbackImage[x, y];
+
+				//			Assert.AreEqual((y % 2) == 0 ? 255 : 0, fragment.Level, String.Format("Color mismatch at {0}x{1}", x, y));
+				//		}
+				//	}
+				//}
 			}
 		}
 

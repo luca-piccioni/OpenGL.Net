@@ -337,9 +337,6 @@ namespace OpenGL
 				// Determine pixel data offset
 				IntPtr pixelData = GetPixelDataOffset(w, h);
 				// Copy from memory to structure
-				//object pixelStruct = mPixelFormat.CreatePixelStruct();
-				//Marshal.PtrToStructure(pixelData, pixelStruct);
-				
 				object pixelStruct = Marshal.PtrToStructure(pixelData, _PixelFormat.PixelStructType);
 
 				return ((IColor)pixelStruct);

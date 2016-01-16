@@ -286,7 +286,7 @@ namespace OpenGL.Hal.Test
 		#region Draw(GraphicsContext)
 
 		[Test]
-		public void Draw_Exception1()
+		public void Draw()
 		{
 			Vertex2f[] vertices = new Vertex2f[] {
 				new Vertex2f(0.0f, 0.0f),
@@ -309,10 +309,11 @@ namespace OpenGL.Hal.Test
 					// Set transform state
 					State.TransformStateBase stateTransform = (State.TransformStateBase)currentState[State.TransformStateBase.StateId];
 
-					stateTransform.ModelView.SetIdentity();
-
+					// Set normalized orthogonal projection
+					stateTransform.LocalProjection = new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f);
 					// Apply state
 					currentState.Apply(_Context);
+
 					// Draw
 					Assert.DoesNotThrow(delegate () { vao.Draw(_Context); });
 				}

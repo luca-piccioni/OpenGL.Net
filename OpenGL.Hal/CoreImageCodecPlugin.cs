@@ -1,21 +1,24 @@
 
-// Copyright (C) 2010-2013 Luca Piccioni
+// Copyright (C) 2010-2015 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//   
-// This program is distributed in the hope that it will be useful,
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
@@ -194,28 +197,28 @@ namespace OpenGL
 		{
 			switch (from) {
 				case PixelLayout.GRAY8:
-					to = System.Drawing.Imaging.PixelFormat.Format16bppRgb555;
-					flags = (int)System.Drawing.Imaging.ImageFlags.ColorSpaceRgb;
+					to = System.Drawing.Imaging.PixelFormat.Format8bppIndexed;
+					flags = (int)ImageFlags.ColorSpaceGray;
 					break;
 				case PixelLayout.GRAY16:
 					to = System.Drawing.Imaging.PixelFormat.Format16bppGrayScale;
-					flags = (int)System.Drawing.Imaging.ImageFlags.ColorSpaceGray;
+					flags = (int)ImageFlags.ColorSpaceGray;
 					break;
 				case PixelLayout.BGR15:
 					to = System.Drawing.Imaging.PixelFormat.Format16bppRgb555;
-					flags = (int)System.Drawing.Imaging.ImageFlags.ColorSpaceRgb;
+					flags = (int)ImageFlags.ColorSpaceRgb;
 					break;
 				case PixelLayout.BGR16:
 					to = System.Drawing.Imaging.PixelFormat.Format16bppRgb565;
-					flags = (int)System.Drawing.Imaging.ImageFlags.ColorSpaceRgb;
+					flags = (int)ImageFlags.ColorSpaceRgb;
 					break;
 				case PixelLayout.BGR24:
 					to = System.Drawing.Imaging.PixelFormat.Format24bppRgb;
-					flags = (int)System.Drawing.Imaging.ImageFlags.ColorSpaceRgb;
+					flags = (int)ImageFlags.ColorSpaceRgb;
 					break;
 				case PixelLayout.BGRA32:
 					to = System.Drawing.Imaging.PixelFormat.Format32bppArgb;
-					flags = (int)System.Drawing.Imaging.ImageFlags.ColorSpaceRgb;
+					flags = (int)ImageFlags.ColorSpaceRgb;
 					break;
 				default:
 					throw new ArgumentException(String.Format("pixel format {0} not supported", from));
@@ -720,7 +723,7 @@ namespace OpenGL
 		/// </exception>
 		public void Save(Stream stream, Image image, string format, MediaCodecCriteria criteria)
 		{
-			System.Drawing.Bitmap iBitmap;
+			Bitmap iBitmap;
 			System.Drawing.Imaging.ImageFormat iBitmapFormat;
 			System.Drawing.Imaging.PixelFormat iBitmapPixelFormat;
 			int iBitmapFlags;
@@ -729,12 +732,12 @@ namespace OpenGL
 			ConvertPixelFormat(image.PixelLayout, out iBitmapPixelFormat, out iBitmapFlags);
 
 			// Obtain source and destination data pointers
-			using (iBitmap = new System.Drawing.Bitmap((int)image.Width, (int)image.Height, iBitmapPixelFormat)) {
-				System.Drawing.Imaging.BitmapData iBitmapData = null;
+			using (iBitmap = new Bitmap((int)image.Width, (int)image.Height, iBitmapPixelFormat)) {
+				BitmapData iBitmapData = null;
 				IntPtr imageData = image.ImageBuffer;
 
 				try {
-					iBitmapData = iBitmap.LockBits(new System.Drawing.Rectangle(0, 0, iBitmap.Width, iBitmap.Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, iBitmap.PixelFormat);
+					iBitmapData = iBitmap.LockBits(new System.Drawing.Rectangle(0, 0, iBitmap.Width, iBitmap.Height), ImageLockMode.ReadOnly, iBitmap.PixelFormat);
 
 					// Copy Image data dst Bitmap
 					unsafe {
@@ -751,43 +754,43 @@ namespace OpenGL
 						for (uint line = 0; line < image.Height; line++, hImageDataPtr += hImageDataStride, iBitmapDataPtr -= iBitmapDataStride)
 							Memory.MemoryCopy(iBitmapDataPtr, hImageDataPtr, hImageDataStride);
 					}
-
-					// Save image with the specified format
-					ImageCodecInfo encoderInfo = Array.Find(ImageCodecInfo.GetImageEncoders(), delegate(ImageCodecInfo item) {
-						return (item.FormatID == iBitmapFormat.Guid);
-					});
-
-					EncoderParameters encoderParams = null;
-
-					try {
-						EncoderParameters encoderInfoParamList = iBitmap.GetEncoderParameterList(encoderInfo.Clsid);
-						EncoderParameter[] encoderInfoParams = encoderInfoParamList != null ? encoderInfoParamList.Param : null;
-						bool supportQuality = false;
-						int paramsCount = 0;
-
-						if (encoderInfoParams != null) {
-							Array.ForEach(encoderInfoParams, delegate(EncoderParameter item) {
-								if (item.Encoder.Guid == Encoder.Quality.Guid) {
-									supportQuality = true;
-									paramsCount++;
-								}
-							});
-						}
-
-						encoderParams = new EncoderParameters(paramsCount);
-
-						paramsCount = 0;
-						if (supportQuality)
-							encoderParams.Param[paramsCount++] = new EncoderParameter(Encoder.Quality, 100);
-					} catch (NotImplementedException) {
-						// Encoder does not support parameters
-					}
-
-					iBitmap.Save(stream, encoderInfo, encoderParams);
 				} finally {
 					if (iBitmapData != null)
 						iBitmap.UnlockBits(iBitmapData);
 				}
+
+				// Save image with the specified format
+				ImageCodecInfo encoderInfo = Array.Find(ImageCodecInfo.GetImageEncoders(), delegate(ImageCodecInfo item) {
+					return (item.FormatID == iBitmapFormat.Guid);
+				});
+
+				EncoderParameters encoderParams = null;
+
+				try {
+					EncoderParameters encoderInfoParamList = iBitmap.GetEncoderParameterList(encoderInfo.Clsid);
+					EncoderParameter[] encoderInfoParams = encoderInfoParamList != null ? encoderInfoParamList.Param : null;
+					bool supportQuality = false;
+					int paramsCount = 0;
+
+					if (encoderInfoParams != null) {
+						Array.ForEach(encoderInfoParams, delegate(EncoderParameter item) {
+							if (item.Encoder.Guid == Encoder.Quality.Guid) {
+								supportQuality = true;
+								paramsCount++;
+							}
+						});
+					}
+
+					encoderParams = new EncoderParameters(paramsCount);
+
+					paramsCount = 0;
+					if (supportQuality)
+						encoderParams.Param[paramsCount++] = new EncoderParameter(Encoder.Quality, 100);
+				} catch (Exception) {
+					// Encoder does not support parameters
+				}
+
+				iBitmap.Save(stream, encoderInfo, encoderParams);
 			}
 		}
 
