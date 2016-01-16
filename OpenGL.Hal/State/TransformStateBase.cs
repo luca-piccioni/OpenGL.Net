@@ -43,6 +43,7 @@ namespace OpenGL.State
 		/// </summary>
 		static TransformStateBase()
 		{
+			// Statically initialize uniform properties
 			_UniformProperties = DetectUniformProperties(typeof(TransformStateBase));
 		}
 
@@ -114,11 +115,6 @@ namespace OpenGL.State
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// Get the uniform state values associated with the uniform variable names.
-		/// </summary>
-		protected override Dictionary<string, MemberInfo> UniformStateProperties { get { return (_UniformProperties); } }
-
-		/// <summary>
 		/// The identifier for the blend state.
 		/// </summary>
 		public static string StateId = "OpenGL.TransformState";
@@ -139,17 +135,27 @@ namespace OpenGL.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			if (shaderProgram != null) {
-				throw new NotImplementedException();
-			} else {
+			if (shaderProgram == null) {
+
+				// Fixed pipeline rendering requires server state
+
 				// Set projection matrix
 				Gl.MatrixMode(MatrixMode.Projection);
 				Gl.LoadMatrix(Projection.ToArray());
 				// Set model-view matrix
 				Gl.MatrixMode(MatrixMode.Modelview);
 				Gl.LoadMatrix(ModelView.ToArray());
+				
+			} else {
+				// Base implementation
+				base.ApplyState(ctx, shaderProgram);
 			}
 		}
+
+		/// <summary>
+		/// Get the uniform state associated with this instance.
+		/// </summary>
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
 
 		/// <summary>
 		/// Represents the current <see cref="GraphicsState"/> for logging.
@@ -163,9 +169,9 @@ namespace OpenGL.State
 		}
 
 		/// <summary>
-		/// The uniform state of this UniformColorState.
+		/// The uniform state of this TransformStateBase.
 		/// </summary>
-		private static readonly Dictionary<string, MemberInfo> _UniformProperties;
+		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 
 		#endregion
 	}

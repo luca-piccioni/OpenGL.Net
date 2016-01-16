@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL.State
@@ -33,6 +34,15 @@ namespace OpenGL.State
 	public class ViewportState : ShaderUniformState
 	{
 		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static ViewportState()
+		{
+			// Statically initialize uniform properties
+			_UniformProperties = DetectUniformProperties(typeof(ViewportState));
+		}
 
 		/// <summary>
 		/// 
@@ -148,6 +158,11 @@ namespace OpenGL.State
 		}
 
 		/// <summary>
+		/// Get the uniform state associated with this instance.
+		/// </summary>
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
+
+		/// <summary>
 		/// Indicates whether the current object is equal to another object of the same type.
 		/// </summary>
 		/// <param name="other">
@@ -188,6 +203,11 @@ namespace OpenGL.State
 		{
 			return (String.Format("{0}: ViewportSize={1}x{2}", StateIdentifier, ViewportSize.X, ViewportSize.Y));
 		}
+
+		/// <summary>
+		/// The uniform state of this TransformStateBase.
+		/// </summary>
+		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 
 		#endregion
 	}

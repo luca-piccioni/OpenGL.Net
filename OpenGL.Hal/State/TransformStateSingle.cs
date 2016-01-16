@@ -72,7 +72,7 @@ namespace OpenGL.State
 					_LocalProjection = new Matrix4x4(value);
 				else
 					_LocalProjection = null;		// Inherited projection matrix
-            }
+			}
 		}
 
 		/// <summary>

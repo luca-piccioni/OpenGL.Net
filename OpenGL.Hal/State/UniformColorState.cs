@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace OpenGL.State
 {
@@ -29,6 +28,9 @@ namespace OpenGL.State
 	{
 		#region Constructors
 
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
 		static UniformColorState()
 		{
 			// Statically initialize uniform properties
@@ -89,11 +91,6 @@ namespace OpenGL.State
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// Get the uniform state values associated with the uniform variable names.
-		/// </summary>
-		protected override Dictionary<string, MemberInfo> UniformStateProperties { get { return (_UniformProperties); } }
-
-		/// <summary>
 		/// The identifier for the blend state.
 		/// </summary>
 		public static string StateId = "OpenGL.CurrentColor";
@@ -124,13 +121,22 @@ namespace OpenGL.State
 		{
 			CheckCurrentContext(ctx);
 
-			if (shaderProgram != null) {
-				throw new NotImplementedException();
-			} else {
-				// No shader program: set current color
+			if (shaderProgram == null) {
+
+				// Fixed pipeline rendering requires server state
+
 				Gl.Color4((float[])UniformColor);
+
+			} else {
+				// Base implementation
+				base.ApplyState(ctx, shaderProgram);
 			}
 		}
+
+		/// <summary>
+		/// Get the uniform state associated with this instance.
+		/// </summary>
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
 
 		/// <summary>
 		/// Represents the current <see cref="GraphicsState"/> for logging.
@@ -140,13 +146,13 @@ namespace OpenGL.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("UniformColorState: UniformaColor={0}", UniformColor));
+			return (String.Format("UniformColorState: UniformColor={0}", UniformColor));
 		}
 
 		/// <summary>
-		/// The uniform state of this UniformColorState.
+		/// The uniform state of this TransformStateBase.
 		/// </summary>
-		private static readonly Dictionary<string, MemberInfo> _UniformProperties;
+		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 
 		#endregion
 	}

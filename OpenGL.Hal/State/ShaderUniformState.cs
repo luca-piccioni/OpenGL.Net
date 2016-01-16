@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
@@ -27,7 +26,11 @@ namespace OpenGL.State
 	/// <summary>
 	/// Class describing a partial uniform state of a <see cref="ShaderProgram"/>
 	/// </summary>
-	public class ShaderUniformState : GraphicsState
+	/// <remarks>
+	/// This class is able to setup <see cref="ShaderProgram"/> uniform state by detecting fields and properties of derived
+	/// classes having the <see cref="ShaderUniformStateAttribute"/> attribute.
+	/// </remarks>
+	public abstract class ShaderUniformState : GraphicsState
 	{
 		#region Uniform Block Support
 
@@ -50,19 +53,141 @@ namespace OpenGL.State
 		}
 
 		/// <summary>
+		/// Delegate used for getting the uniform variable value.
+		/// </summary>
+		/// <param name="instance">
+		/// The <see cref="Object"/> that specify the instance defining <paramref name="memberInfo"/>.
+		/// </param>
+		/// <param name="memberInfo">
+		/// The <see cref="MemberInfo"/> that is used to get the uniform value.
+		/// </param>
+		/// <returns>
+		/// It returns an object that specify the value of the underlying uniform variable.
+		/// </returns>
+		protected delegate object GetUniformValueDelegate(object instance, MemberInfo memberInfo);
+
+		/// <summary>
+		/// The <see cref="GetUniformValueDelegate"/> implementation for fields.
+		/// </summary>
+		/// <param name="instance">
+		/// The <see cref="Object"/> that specify the instance defining <paramref name="memberInfo"/>.
+		/// </param>
+		/// <param name="memberInfo">
+		/// The <see cref="MemberInfo"/> that is used to get the uniform value.
+		/// </param>
+		/// <returns>
+		/// It returns an object that specify the value of the underlying uniform variable.
+		/// </returns>
+		private static object GetFieldUniformValue(object instance, MemberInfo memberInfo)
+		{
+			if (memberInfo == null)
+				throw new ArgumentNullException("memberInfo");
+			if (memberInfo.MemberType != MemberTypes.Field)
+				throw new ArgumentException("not a field member", "memberInfo");
+
+			FieldInfo fieldInfo = (FieldInfo)memberInfo;
+
+			return (fieldInfo.GetValue(instance));
+		}
+
+		/// <summary>
+		/// The <see cref="GetUniformValueDelegate"/> implementation for properties.
+		/// </summary>
+		/// <param name="instance">
+		/// The <see cref="Object"/> that specify the instance defining <paramref name="memberInfo"/>.
+		/// </param>
+		/// <param name="memberInfo">
+		/// The <see cref="MemberInfo"/> that is used to get the uniform value.
+		/// </param>
+		/// <returns>
+		/// It returns an object that specify the value of the underlying uniform variable.
+		/// </returns>
+		private static object GetPropertyUniformValue(object instance, MemberInfo memberInfo)
+		{
+			if (memberInfo == null)
+				throw new ArgumentNullException("memberInfo");
+			if (memberInfo.MemberType != MemberTypes.Property)
+				throw new ArgumentException("not a property member", "memberInfo");
+
+			PropertyInfo propertyInfo = (PropertyInfo)memberInfo;
+
+			return (propertyInfo.GetValue(instance, null));
+		}
+
+		/// <summary>
+		/// Context used for compositing all information required for getting the uniform state.
+		/// </summary>
+		protected class UniformStateMember
+		{
+			/// <summary>
+			/// Construct a UniformStateMember.
+			/// </summary>
+			/// <param name="memberInfo">
+			/// The <see cref="MemberInfo"/> that specify the uniform state variable.
+			/// </param>
+			/// <param name="getUniformValueDelegate">
+			/// The <see cref="GetUniformValueDelegate"/> used for getting the uniform state from <paramref name="memberInfo"/>.
+			/// </param>
+			public UniformStateMember(MemberInfo memberInfo, GetUniformValueDelegate getUniformValueDelegate)
+			{
+				if (memberInfo == null)
+					throw new ArgumentNullException("memberInfo");
+				if (getUniformValueDelegate == null)
+					throw new ArgumentNullException("getUniformValueDelegate");
+
+				Member = memberInfo;
+				GetValueDelegate = getUniformValueDelegate;
+			}
+
+			/// <summary>
+			/// The underlying member that specify the uniform state variable.
+			/// </summary>
+			public readonly MemberInfo Member;
+
+			/// <summary>
+			/// The <see cref="GetUniformValueDelegate"/> used for getting the uniform state from <see cref="Member"/>.
+			/// </summary>
+			public readonly GetUniformValueDelegate GetValueDelegate;
+
+			public Type GetUniformType()
+			{
+				switch (Member.MemberType) {
+					case MemberTypes.Field:
+						return (((FieldInfo)Member).FieldType);
+					case MemberTypes.Property:
+						return (((PropertyInfo)Member).PropertyType);
+					default:
+						throw new NotImplementedException();
+				}
+			}
+
+			/// <summary>
+			/// Get the uniform variable value.
+			/// </summary>
+			/// <param name="instance">
+			/// The <see cref="Object"/> that specify the instance defining <paramref name="memberInfo"/>.
+			/// </param>
+			/// <returns></returns>
+			public object GetUniformValue(object instance) { return (GetValueDelegate(instance, Member)); } }
+
+		/// <summary>
 		/// Utility routine for detecting fields and properties which value is bound to a shader program uniform
 		/// state.
 		/// </summary>
 		/// <param name="shaderUniformStateType">
-		/// 
+		/// The <see cref="Type"/> that is defining the fields and properties to be linked with the uniform state.
 		/// </param>
-		/// <returns></returns>
-		protected static Dictionary<string, MemberInfo> DetectUniformProperties(Type shaderUniformStateType)
+		/// <returns>
+		/// It returns a <see cref="Dictionary{String, UniformStateMember}"/> that associate uniform variable names with
+		/// the relative <see cref="UniformStateMember"/>, which define access to backing properties for getting uniform
+		/// variable values.
+		/// </returns>
+		protected static Dictionary<string, UniformStateMember> DetectUniformProperties(Type shaderUniformStateType)
 		{
 			if (shaderUniformStateType == null)
 				throw new ArgumentNullException("shaderUniformStateType");
 
-			Dictionary<string, MemberInfo> uniformMembers = new Dictionary<string, MemberInfo>();
+			Dictionary<string, UniformStateMember> uniformMembers = new Dictionary<string, UniformStateMember>();
 
 			// Fields
 			FieldInfo[] uniformFields = shaderUniformStateType.GetFields(BindingFlags.Public | BindingFlags.Instance);
@@ -72,7 +197,7 @@ namespace OpenGL.State
 				if (attribute == null)
 					continue;
 
-				uniformMembers.Add(uniformField.Name, uniformField);
+				uniformMembers.Add(uniformField.Name, new UniformStateMember(uniformField, GetFieldUniformValue));
 			}
 
 			// Properties
@@ -88,57 +213,16 @@ namespace OpenGL.State
 				if (attribute == null)
 					continue;
 
-				uniformMembers.Add(uniformProperty.Name, uniformProperty);
+				uniformMembers.Add(uniformProperty.Name, new UniformStateMember(uniformProperty, GetPropertyUniformValue));
 			}
 
 			return (uniformMembers);
 		}
 
 		/// <summary>
-		/// Get the uniform state values associated with the uniform variable names.
+		/// Get the uniform state associated with this instance.
 		/// </summary>
-		protected virtual Dictionary<string, object> UniformStateValues
-		{
-			get
-			{
-				Dictionary<string, object> uniformStateValues = new Dictionary<string, object>();
-
-				// Define uniform state via derived type properties
-				Dictionary<string, MemberInfo> uniformProperties = UniformStateProperties;
-
-				if (uniformProperties != null) {
-					foreach (KeyValuePair<string, MemberInfo> pair in uniformProperties) {
-						object memberValue;
-
-						switch (pair.Value.MemberType) {
-							case MemberTypes.Field:
-								memberValue = ((FieldInfo)pair.Value).GetValue(this);
-								break;
-							case MemberTypes.Property:
-								memberValue = ((PropertyInfo)pair.Value).GetValue(this, null);
-								break;
-							default:
-								// It should happen
-								Debug.Assert(false, String.Format("unsupported member {1} of type {0}", pair.Value.MemberType, pair.Value.Name));
-								continue;
-						}
-
-						uniformStateValues.Add(pair.Key, memberValue);
-					}
-				}
-
-				// Define manually specified uniform state values
-				foreach (KeyValuePair<string, object> pair in _UniformStateValues)
-					uniformStateValues.Add(pair.Key, pair.Value);
-
-				return (uniformStateValues);
-			}
-		}
-
-		/// <summary>
-		/// Get the uniform state values associated with the uniform variable names.
-		/// </summary>
-		protected virtual Dictionary<string, MemberInfo> UniformStateProperties { get { return (null); } }
+		protected abstract Dictionary<string, UniformStateMember> UniformState { get; }
 
 		/// <summary>
 		/// Apply this state to a shader program.
@@ -159,22 +243,19 @@ namespace OpenGL.State
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
 
-			Dictionary<string, object> uniformStateValues = UniformStateValues;
+			Dictionary<string, UniformStateMember> uniformState = UniformState;
 
 			foreach (string uniformName in shaderProgram.ActiveUniforms) {
-				object uniformValue;
+				UniformStateMember uniformStateMember;
 
-				if (uniformStateValues.TryGetValue(uniformName, out uniformValue) == false)
+				// Get the underlying member
+				if (uniformState.TryGetValue(uniformName, out uniformStateMember) == false)
 					continue;
 
-				shaderProgram.SetUniform(ctx, uniformName, uniformValue);
+				// Set the program uniform
+				shaderProgram.SetUniform(ctx, uniformName, uniformStateMember.GetUniformValue(this));
 			}
 		}
-
-		/// <summary>
-		/// Uniform state values associated with the uniform variable names.
-		/// </summary>
-		private readonly Dictionary<string, object> _UniformStateValues = new Dictionary<string, object>();
 
 		#endregion
 
@@ -188,13 +269,19 @@ namespace OpenGL.State
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			
-		}
+			Dictionary<string, UniformStateMember> uniformState = UniformState;
 
-		/// <summary>
-		/// The identifier of this GraphicsState.
-		/// </summary>
-		public override string StateIdentifier { get { return (GetType().FullName); } }
+			foreach (KeyValuePair<string, UniformStateMember> pair in uniformState) {
+				if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
+					continue;
+
+				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
+
+				// Create the IGraphicsResource associated with the uniform state variable
+				Debug.Assert(graphicsResource != null);
+				graphicsResource.Create(ctx);
+			}
+		}
 
 		/// <summary>
 		/// Flag indicating whether the state is context-bound.
@@ -215,8 +302,8 @@ namespace OpenGL.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
 

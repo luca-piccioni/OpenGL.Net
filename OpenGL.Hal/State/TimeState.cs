@@ -17,7 +17,7 @@
 // USA
 
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace OpenGL.State
 {
@@ -27,7 +27,16 @@ namespace OpenGL.State
 	public class TimeState : ShaderUniformState
 	{
 		#region Constructors
-		
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static TimeState()
+		{
+			// Statically initialize uniform properties
+			_UniformProperties = DetectUniformProperties(typeof(TimeState));
+		}
+
 		/// <summary>
 		/// Construct a default TimeState.
 		/// </summary>
@@ -75,7 +84,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The identifier for the time state.
 		/// </summary>
-		public static string StateId = "OpenGL.State.Time";
+		public static string StateId = "OpenGL.Time";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.
@@ -89,6 +98,16 @@ namespace OpenGL.State
 		/// It returns always false.
 		/// </remarks>
 		public override bool IsContextBound { get { return (false); } }
+
+		/// <summary>
+		/// Get the uniform state associated with this instance.
+		/// </summary>
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
+
+		/// <summary>
+		/// The uniform state of this TransformStateBase.
+		/// </summary>
+		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 
 		#endregion
 	}
