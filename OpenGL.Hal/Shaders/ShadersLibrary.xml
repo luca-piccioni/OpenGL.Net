@@ -66,6 +66,7 @@
 			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="Geometry" />
 			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="Fragment" />
+			<Attribute Name="hal_Position" Semantic="Position" />
 		</Program>
 
 		<!-- Line+Color -->
@@ -77,6 +78,7 @@
 					<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
 				</Symbols>
 			</Object>
+			<Attribute Name="hal_Position" Semantic="Position" />
 		</Program>
 		
 	</Programs>

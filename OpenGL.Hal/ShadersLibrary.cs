@@ -130,6 +130,28 @@ namespace OpenGL
 			[XmlElement("Object")]
 			public readonly List<Object> Objects = new List<Object>();
 
+			[XmlType("Attribute")]
+			public class Attribute
+			{
+				/// <summary>
+				/// Attribute name.
+				/// </summary>
+				[XmlAttribute("Name")]
+				public string Name;
+
+				/// <summary>
+				/// Attribute semantic.
+				/// </summary>
+				[XmlAttribute("Semantic")]
+				public string Semantic;
+			}
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[XmlElement("Attribute")]
+			public readonly List<Attribute> Attributes = new List<Attribute>();
+
 			/// <summary>
 			/// Create a program from this Program.
 			/// </summary>
@@ -158,6 +180,10 @@ namespace OpenGL
 
 				// Set compiler parameters
 				shaderProgram.CompilationParams = shaderCompilerParams;
+
+				// Register attributes semantic
+				foreach (Attribute attribute in Attributes)
+					shaderProgram.SetAttributeSemantic(attribute.Name, attribute.Semantic);
 
 				return (shaderProgram);
 			}
