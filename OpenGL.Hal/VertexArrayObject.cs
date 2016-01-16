@@ -75,9 +75,13 @@ namespace OpenGL
 
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
-			// Uses shader
-			if (shader != null)
+			
+			// Fixed or programmable pipeline?
+			if     ((shader == null) && (ctx.Caps.GlExtensions.VertexShader_ARB == true))
+				ShaderProgram.Unbind(ctx);
+			else if (shader != null)
 				shader.Bind(ctx);
+
 			// Issue rendering using shader
 			foreach (Element attributeElement in DrawElements) {
 				if (_FeedbackBuffer != null)
@@ -115,6 +119,8 @@ namespace OpenGL
 			}
 
 			if (shaderProgram != null) {
+				uint attributesSet = 0;
+
 				// Set vertex array state
 				foreach (string attributeName in shaderProgram.ActiveAttributes) {
 					VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
@@ -122,8 +128,11 @@ namespace OpenGL
 						continue;
 
 					// Set array attribute
-					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName);
+					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName); attributesSet++;
 				}
+
+				if (attributesSet == 0)
+					throw new InvalidOperationException("no attribute is set");
 			} else {
 				VertexArray attributeArray;
 
