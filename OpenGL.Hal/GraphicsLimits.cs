@@ -88,13 +88,23 @@ namespace OpenGL
 						else
 							obj = Array.CreateInstance(field.FieldType.GetElementType(), graphicsLimitAttribute.ArrayLenght);
 						object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };
-						getMethod.Invoke(null, @params);
 
-						field.SetValue(graphicsLimits, @params[1]);
+						try {
+							getMethod.Invoke(null, @params);
+
+							field.SetValue(graphicsLimits, @params[1]);
+						} catch (Exception) {
+
+						}
+						
 					} else {
-						string s = (string)getMethod.Invoke(null, new object[] { graphicsLimitAttribute.EnumValue });
+						try {
+							string s = (string)getMethod.Invoke(null, new object[] { graphicsLimitAttribute.EnumValue });
 
-						field.SetValue(graphicsLimits, s);
+							field.SetValue(graphicsLimits, s);
+						} catch (Exception) {
+							
+						}
 					}
 				} else
 					throw new InvalidOperationException("GraphicsLimits field " + field.Name + " doesn't have a OpenGL compatible type");
@@ -269,6 +279,22 @@ namespace OpenGL
 		public int MaxRenderBufferSize;
 
 		/// <summary>
+		/// The maximum number of components allowed in an inteleaved feedback buffer.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS)]
+		[KhronosApi.Extension("GL_EXT_transform_feedback")]
+		[KhronosApi.Extension("GL_NV_transform_feedback")]
+		public int MaxTransformFeedbackInterleavedComponents;
+
+		/// <summary>
+		/// The maximum number of seperate feedback buffers allowed.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS)]
+		[KhronosApi.Extension("GL_EXT_transform_feedback")]
+		[KhronosApi.Extension("GL_NV_transform_feedback")]
+		public int MaxTransformFeedbackSeparateComponents;
+
+		/// <summary>
 		/// Maximum sample bits for framebuffer attachments standard format.
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_SAMPLES)]
@@ -289,7 +315,6 @@ namespace OpenGL
 		/// Maximum number of uniform blocks on a vertex shader.
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_VERTEX_UNIFORM_BLOCKS)]
-		[KhronosApi.Extension("GL_ARB_vertex_shader")]
 		[KhronosApi.Extension("GL_ARB_uniform_buffer_object")]
 		public int MaxVertexUniformBlocks;
 
@@ -297,7 +322,6 @@ namespace OpenGL
 		/// Maximum number of uniform blocks on a fragment shader.
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_FRAGMENT_UNIFORM_BLOCKS)]
-		[KhronosApi.Extension("GL_ARB_fragment_shader")]
 		[KhronosApi.Extension("GL_ARB_uniform_buffer_object")]
 		public int MaxFragmentUniformBlocks;
 
@@ -337,6 +361,7 @@ namespace OpenGL
 		/// Maximum sample bits for framebuffer attachments with integer format.
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_INTEGER_SAMPLES)]
+		[KhronosApi.Extension("GL_ARB_texture_multisample")]
 		public int MaxIntegerSamples = 0;
 
 		/// <summary>
