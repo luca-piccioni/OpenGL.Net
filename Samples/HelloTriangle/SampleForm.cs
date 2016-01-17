@@ -21,24 +21,26 @@ namespace HelloTriangle
 
 		private void SampleGraphicsControl_GraphicsContextCreated(object sender, GraphicsControlEventArgs e)
 		{
-			// Allocate resources for drawing the triangle
-			_Triangle = new VertexArrayObject();
-			
+			GraphicsContext ctx = e.Context;
 
+			// Create Newton program
+			_NewtonProgram = ShadersLibrary.Instance.CreateProgram("Newton");
+			_NewtonProgram.AddFeedbackVarying("hal_VertexPosition");
+			_NewtonProgram.AddFeedbackVarying("hal_VertexSpeed");
+			_NewtonProgram.AddFeedbackVarying("hal_VertexAcceleration");
+			_NewtonProgram.Create(ctx);
         }
 
 		private void SampleGraphicsControl_GraphicsContextDestroyed(object sender, GraphicsControlEventArgs e)
 		{
-			// Dispose resources
-			_Triangle.Dispose(e.Context);
-        }
+			
+		}
 
 		private void SampleGraphicsControl_Render(object sender, GraphicsControlEventArgs e)
 		{
-			// Draw the vertex arrays
-			_Triangle.Draw(e.Context);
-        }
+			
+		}
 
-		VertexArrayObject _Triangle;
+		ShaderProgram _NewtonProgram;
 	}
 }
