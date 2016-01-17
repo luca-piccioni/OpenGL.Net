@@ -42,15 +42,6 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// Default constructor.
-		/// </summary>
-		static ShaderProgram()
-		{
-			// Initialize default shader library
-			// ShaderLibrary.Touch();
-		}
-
-		/// <summary>
 		/// Construct a ShaderProgram.
 		/// </summary>
 		/// <param name="programName">
@@ -216,18 +207,29 @@ namespace OpenGL
 
 			#region Transform Feedback Definition
 
-			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				if (!ctx.Caps.GlExtensions.TransformFeedback_EXT)
-					throw new InvalidOperationException("transform feedback not supported");
+			IntPtr[] feedbackVaryingsPtrs = null;
 
+			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
 				sLog.Debug("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
 				sLog.Indent();
 				foreach (string feedbackVarying in _FeedbackVaryings)
 					sLog.Debug("- {0}", feedbackVarying);
 				sLog.Unindent();
 
-				// Specify program feedback
-				Gl.TransformFeedbackVaryings(ObjectName, _FeedbackVaryings.ToArray(), (int)cctx.FeedbackVaryingsFormat);
+				if (ctx.Caps.GlExtensions.TransformFeedback2_ARB || ctx.Caps.GlExtensions.TransformFeedback_EXT) {
+					string[] feedbackVaryings = _FeedbackVaryings.ToArray();
+
+					// Bug in NVIDIA drivers? Not exactly, but the NVIDIA driver hold the 'feedbackVaryings' pointer untill
+					// glLinkProgram is executed, causing linker errors like 'duplicate varying names are not allowed' or garbaging
+					// part of the returned strings via glGetTransformFeedbackVarying
+					feedbackVaryingsPtrs = feedbackVaryings.AllocHGlobal();
+
+					// Specify feedback varyings
+					Gl.TransformFeedbackVaryings(ObjectName, feedbackVaryingsPtrs, (int)cctx.FeedbackVaryingsFormat);
+				} else if (ctx.Caps.GlExtensions.TransformFeedback2_NV) {
+					// Nothing to do ATM
+				} else
+					throw new InvalidOperationException("transform feedback not supported");
 			}
 
 			#endregion
@@ -254,6 +256,10 @@ namespace OpenGL
 			Gl.LinkProgram(ObjectName);
 			// Check for linking errors
 			Gl.GetProgram(ObjectName, Gl.LINK_STATUS, out lStatus);
+
+			// Release feedback varyings unmanaged memory
+			if (feedbackVaryingsPtrs != null)
+				feedbackVaryingsPtrs.FreeHGlobal();
 
 			if (lStatus != Gl.TRUE) {
 				const int MaxInfoLength = 4096;
@@ -346,24 +352,23 @@ namespace OpenGL
 
 			// Collect input location mapping
 			for (uint i = 0; i < (uint)activeInputs; i++) {
-				int aNameLength, aSize, aType;
+				StringBuilder nameBuffer = new StringBuilder(attributeBufferSize);
+				int nameLength, size, type;
 
-				// Mono optimize StringBuilder capacity after P/Invoke... ensure enought room
-				StringBuilder aNameBuilder = new StringBuilder(attributeBufferSize);
-				aNameBuilder.EnsureCapacity(attributeBufferSize);
+				// Mono optimize StringBuilder capacity after P/Invoke... ensure enought room for the current loop
+				nameBuffer.EnsureCapacity(attributeBufferSize);
 
 				// Obtain active input informations
-				Gl.GetActiveAttrib(ObjectName, i, attributeBufferSize, out aNameLength, out aSize, out aType, aNameBuilder);
+				Gl.GetActiveAttrib(ObjectName, i, attributeBufferSize, out nameLength, out size, out type, nameBuffer);
 				// Obtain active input location
-				int aLocation = Gl.GetAttribLocation(ObjectName, aNameBuilder.ToString());
+				string name = nameBuffer.ToString();
+
+				int location = Gl.GetAttribLocation(ObjectName, name);
 				// Map active input
-				AttributeBinding attributeBinding = new AttributeBinding();
-				attributeBinding.Location = (uint)aLocation;
-				attributeBinding.Type = (ShaderAttributeType) aType;
-				_AttributesMap[aNameBuilder.ToString()] = attributeBinding;
+				_AttributesMap[name] = new AttributeBinding((uint)location, (ShaderAttributeType)type);
 			}
 
-			// Log attribute location mapping
+			// Log attribute mapping
 			List<string> attributeNames = new List<string>(_AttributesMap.Keys);
 
 			// Make attribute list invariant respect the used driver (ease log comparation)
@@ -388,22 +393,63 @@ namespace OpenGL
 			#region Collect Feedback Varyings
 			
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				int feebackVaryings, feebackVaryingsMaxLength;
-				
-				Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYINGS, out feebackVaryings);
-				Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH, out feebackVaryingsMaxLength);
-				
-				sLog.Debug("Effective feedback varyings:");
-				sLog.Indent();
-				for (uint i = 0; i < feebackVaryings; i++) {
-					StringBuilder sb = new StringBuilder(feebackVaryingsMaxLength);
-					int length = 0, size = 0, type = 0;
+				if (ctx.Caps.GlExtensions.TransformFeedback2_ARB || ctx.Caps.GlExtensions.TransformFeedback_EXT) {
+					// Map active feedback
+					int feebackVaryings, feebackVaryingsMaxLength;
+
+					Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYINGS, out feebackVaryings);
+					Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH, out feebackVaryingsMaxLength);
+
+					for (uint i = 0; i < feebackVaryings; i++) {
+						StringBuilder sb = new StringBuilder(feebackVaryingsMaxLength);
+						int length = 0, size = 0, type = 0;
+
+						Gl.GetTransformFeedbackVarying(ObjectName, (uint)i, feebackVaryingsMaxLength, out length, out size, out type, sb);
+						_FeedbacksMap.Add(sb.ToString(), new FeedbackBinding((ShaderAttributeType)type, (uint)size));
+					}
+				} else if (ctx.Caps.GlExtensions.TransformFeedback2_NV) {
+					// Activate varyings
+					foreach (string feedbackVaryingName in _FeedbackVaryings) {
+						Gl.ActiveVaryingNV(ObjectName, feedbackVaryingName);
+					}
 					
-					Gl.GetTransformFeedbackVarying(ObjectName, (uint)i, feebackVaryingsMaxLength, out length, out size, out type, sb);
-					
-					sLog.Debug("- {0}: {1} ({2}))", sb.ToString(), (ShaderAttributeType)type, size);
+					// Map active feedback
+					int feebackVaryings, feebackVaryingsMaxLength;
+
+					Gl.GetProgram(ObjectName, Gl.ACTIVE_VARYINGS_NV, out feebackVaryings);
+					Gl.GetProgram(ObjectName, Gl.ACTIVE_VARYING_MAX_LENGTH_NV, out feebackVaryingsMaxLength);
+
+					for (uint i = 0; i < feebackVaryings; i++) {
+						StringBuilder sb = new StringBuilder(feebackVaryingsMaxLength * 2);
+						int length = 0, size = 0, type = 0;
+
+						Gl.GetActiveVaryingNV(ObjectName, (uint)i, feebackVaryingsMaxLength * 2, out length, out size, out type, sb);
+
+						_FeedbacksMap.Add(sb.ToString(), new FeedbackBinding((ShaderAttributeType)type, (uint)size));
+					}
+
+					// Specify feedback varyings
+					List<int> feedbackLocations = new List<int>();
+
+					foreach (string feedbackVaryingName in _FeedbackVaryings) {
+						int location = Gl.GetVaryingLocationNV(ObjectName, feedbackVaryingName);
+
+						if (location >= 0)
+							feedbackLocations.Add(location);
+					}
+
+					Gl.TransformFeedbackVaryingsNV(ObjectName, feedbackLocations.ToArray(), (int)cctx.FeedbackVaryingsFormat);
+
+					// Map active feedback
+
 				}
-				sLog.Unindent();
+
+				Debug.Assert(_FeedbacksMap.Count > 0);
+
+				// Log feedback mapping
+				sLog.Debug("Shader program active feedbacks:");
+				foreach (string feedbackName in _FeedbacksMap.Keys)
+					sLog.Debug("\tFeedback {0} (Type: {1})", feedbackName, _FeedbacksMap[feedbackName].Type);
 			}
 			
 			#endregion
@@ -649,14 +695,25 @@ namespace OpenGL
 		internal class AttributeBinding
 		{
 			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="location"></param>
+			/// <param name="type"></param>
+			public AttributeBinding(uint location, ShaderAttributeType type)
+			{
+				Location = location;
+				Type = type;
+			}
+
+			/// <summary>
 			/// Attribute location.
 			/// </summary>
-			public uint Location;
+			public readonly uint Location;
 
 			/// <summary>
 			/// The type of the shader program attribute.
 			/// </summary>
-			public ShaderAttributeType Type;
+			public readonly ShaderAttributeType Type;
 		}
 
 		/// <summary>
@@ -669,16 +726,49 @@ namespace OpenGL
 		#region Program Attributes Semantic
 
 		/// <summary>
-		/// 
+		/// Set a shader program attribute semantic.
 		/// </summary>
-		/// <param name="attributeName"></param>
-		/// <returns></returns>
-		public string GetAttributeSemantic(string attributeName)
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
+		/// shader program attributes, but it is usually.
+		/// </param>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the attribute semantic. It can be any value meaninfull for the application; usually
+		/// it equals to the constant fields of <see cref="VertexArraySemantic"/>.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="attributeName"/> or <paramref name="semantic"/> is null.
+		/// </exception>
+		public void SetAttributeSemantic(string attributeName, string semantic)
 		{
-			string semantic;
-
 			if (attributeName == null)
 				throw new ArgumentNullException("attributeName");
+			if (semantic == null)
+				throw new ArgumentNullException("semantic");
+
+			_AttributeSemantic[attributeName] = semantic;
+		}
+
+		/// <summary>
+		/// Get a shader program attribute semantic.
+		/// </summary>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
+		/// shader program attributes, but it is usually.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that specify the semantic associated to <paramref name="attributeName"/>, if defined. In
+		/// the case no semantic was associated to <paramref name="attributeName"/>, it returns null.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="attributeName"/> is null.
+		/// </exception>
+		public string GetAttributeSemantic(string attributeName)
+		{
+			if (attributeName == null)
+				throw new ArgumentNullException("attributeName");
+
+			string semantic;
 
 			// Extract array name
 			Match arrayMatch = Regex.Match(attributeName, @"(?<AttributeName>\w+)\[(?<AttributeIndex>\d+)\]");
@@ -696,32 +786,15 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Define a shader program attribute semantic.
-		/// </summary>
-		/// <param name="attributeName">
-		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
-		/// shader program attributes.
-		/// </param>
-		/// <param name="semantic">
-		/// A <see cref="String"/> that specify the attribute semantic. It can be any value meaninfull for the application.
-		/// </param>
-		public void SetAttributeSemantic(string attributeName, string semantic)
-		{
-			if (attributeName == null)
-				throw new ArgumentNullException("attributeName");
-			if (semantic == null)
-				throw new ArgumentNullException("semantic");
-
-			_AttributeSemantic[attributeName] = semantic;
-		}
-
-		/// <summary>
 		/// Remove a specific attribute semantic.
 		/// </summary>
 		/// <param name="attributeName">
 		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
 		/// shader program attributes.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="attributeName"/> is null.
+		/// </exception>
 		public void ResetAttributeSemantic(string attributeName)
 		{
 			if (attributeName == null)
@@ -748,6 +821,37 @@ namespace OpenGL
 		#region Program Feedback Varyings
 
 		/// <summary>
+		/// Information about a shader feedback attribute.
+		/// </summary>
+		public class FeedbackBinding
+		{
+			/// <summary>
+			/// Construct a FeedbackBinding, specifing the type of the size of the feedback attribute.
+			/// </summary>
+			/// <param name="type">
+			/// A <see cref="ShaderAttributeType"/> that specify the type of the components of the feedback attribute.
+			/// </param>
+			/// <param name="size">
+			/// A <see cref="UInt32"/> that specify the feedback size, in terms of <see cref="type"/>.
+			/// </param>
+			public FeedbackBinding(ShaderAttributeType type, uint size)
+			{
+				Type = type;
+				Size = size;
+			}
+
+			/// <summary>
+			/// The type of the shader program feedback.
+			/// </summary>
+			public readonly ShaderAttributeType Type;
+
+			/// <summary>
+			/// Feedback size, in terms of <see cref="Type"/>.
+			/// </summary>
+			public readonly uint Size;
+		}
+
+		/// <summary>
 		/// Adds a feedback varying.
 		/// </summary>
 		/// <param name='varying'>
@@ -756,20 +860,58 @@ namespace OpenGL
 		/// <exception cref='ArgumentNullException'>
 		/// Is thrown when <paramref name="varying"/> passed to a method is invalid because it is <see langword="null" /> .
 		/// </exception>
-		protected void AddFeedbackVarying(string varying)
+		public void AddFeedbackVarying(string varying)
 		{
 			if (varying == null)
 				throw new ArgumentNullException("varying");
 
-			if (_FeedbackVaryings == null)
-				_FeedbackVaryings = new List<string>();
 			_FeedbackVaryings.Add(varying);
+		}
+
+		/// <summary>
+		/// Collection of active attributes on this ShaderProgram.
+		/// </summary>
+		public ICollection<string> ActiveFeedbacks
+		{
+			get
+			{
+				return (_FeedbacksMap.Keys);
+			}
+		}
+
+		/// <summary>
+		/// Determine whether an attributes is active or not.
+		/// </summary>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> which specify the input name.
+		/// </param>
+		/// <returns>
+		/// It returns true in the case the input named <paramref name="attributeName"/> is active.
+		/// </returns>
+		public bool IsActiveFeedback(string attributeName)
+		{
+			return (_FeedbacksMap.ContainsKey(attributeName));
+		}
+
+		/// <summary>
+		/// Active attributes binding information.
+		/// </summary>
+		/// <param name="attributeName"></param>
+		/// <returns></returns>
+		internal FeedbackBinding GetActiveFeedback(string attributeName)
+		{
+			return (_FeedbacksMap[attributeName]);
 		}
 
 		/// <summary>
 		/// The feedback varyings of this program.
 		/// </summary>
-		protected List<string> _FeedbackVaryings;
+		protected readonly List<string> _FeedbackVaryings = new List<string>();
+
+		/// <summary>
+		/// Map active feedback location with veretx shader (or geometry shader) output attribute name.
+		/// </summary>
+		private readonly Dictionary<string, FeedbackBinding> _FeedbacksMap = new Dictionary<string, FeedbackBinding>();
 
 		#endregion
 

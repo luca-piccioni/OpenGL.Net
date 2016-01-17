@@ -66,6 +66,7 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="String.Extensions.cs" />
     <Compile Include="State\UniformColorState.cs" />
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />

@@ -180,8 +180,13 @@ namespace OpenGL
 		/// </param>
 		protected void RaiseGraphicsContextCreated(GraphicsControlEventArgs args)
 		{
-			if (GraphicsContextCreated != null)
-				GraphicsContextCreated(this, args);
+			if (GraphicsContextCreated != null) {
+				try {
+					GraphicsContextCreated(this, args);
+				} catch (Exception exception) {
+					sLog.Error("Unable to create resources.", exception);
+				}
+			}
 		}
 
 		/// <summary>
@@ -315,7 +320,7 @@ namespace OpenGL
 			if (DesignMode == false) {
 				// It should remains current on the current UI thread
 				_RenderContext.MakeCurrent(true);
-				RaiseGraphicsContextCreated(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
+				RaiseGraphicsContextCreated(new GraphicsControlEventArgs(_RenderContext));
 			}
 		}
 
@@ -331,7 +336,7 @@ namespace OpenGL
 				if (_RenderContext != null) {
 					// Raise DestroyContext event
 					_RenderContext.MakeCurrent(true);
-					RaiseGraphicsContextDestroyed(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
+					RaiseGraphicsContextDestroyed(new GraphicsControlEventArgs(_RenderContext));
 					_RenderContext.MakeCurrent(false);
 					// Dispose the renderer context
 					_RenderContext.Dispose();
@@ -366,7 +371,7 @@ namespace OpenGL
 					// Derived class implementation
 					RenderThis(_RenderContext);
 					// Render event
-					RaiseRenderEvent(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
+					RaiseRenderEvent(new GraphicsControlEventArgs(_RenderContext));
 
 					// Swap buffers if double-buffering
 					_RenderWindow.SwapSurface();

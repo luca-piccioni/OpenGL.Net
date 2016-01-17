@@ -137,7 +137,11 @@ namespace OpenGL
 
 			using (StreamReader sr = new StreamReader(sourceStream)) {
 				while (sr.EndOfStream == false) {
-					shaderSourceLines.Add(sr.ReadLine());
+					string line = sr.ReadLine();
+
+					if (line.EndsWith("\n") == false)
+						line = line + "\n";
+					shaderSourceLines.Add(line);
 				}
 			}
 
@@ -323,7 +327,7 @@ namespace OpenGL
 			sLog.Verbose("--------------------------------------------------------------------------------");
 			sourcelineNo = 0;
 			foreach (string sourceline in shaderSource)
-				sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
+				sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
 			sLog.Verbose("--------------------------------------------------------------------------------");
 
 			return (shaderSource);
@@ -747,7 +751,7 @@ namespace OpenGL
 				sLog.Error("--------------------------------------------------------------------------------");
 				uint sourcelineNo = 0;
 				foreach (string sourceline in source)
-					sLog.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
+					sLog.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
 				sLog.Error("--------------------------------------------------------------------------------");
 
 				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", _SourcePath, sb.ToString());

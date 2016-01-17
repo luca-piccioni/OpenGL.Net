@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			internal ArrayBufferObject BufferObject;
 
-			internal ArrayBufferObject.IArraySection BufferInfo;
+			internal ArrayBufferObjectBase.IArraySection BufferInfo;
 		}
 		
 		private void MapBufferObjects(GraphicsContext ctx)
@@ -206,7 +206,7 @@ namespace OpenGL
 				throw new ArgumentNullException("ctx");
 			
 			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
-				// Bind this  feedback buffer
+				// Bind this feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
 			} else {
 				base.Bind(ctx);
@@ -275,12 +275,7 @@ namespace OpenGL
 		/// </exception>
 		public override bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-
-			// Object name space test (and 'ctx' sanity checks)
+			// Object name space test
 			if (base.Exists(ctx) == false)
 				return (false);
 

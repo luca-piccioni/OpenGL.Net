@@ -1,5 +1,5 @@
-
-// Copyright (C) 2012-2015 Luca Piccioni
+﻿
+// Copyright (C) 2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -16,22 +16,30 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
+using System.Runtime.InteropServices;
+
 namespace OpenGL
 {
-	/// <summary>
-	/// Feedback buffer format.
-	/// </summary>
-	public enum FeedbackBufferFormat
+	static class StringExtensions
 	{
-		/// <summary>
-		/// Feedback varyings are stored in separated buffer objects.
-		/// </summary>
-		Separated = Gl.SEPARATE_ATTRIBS,
+		public static IntPtr[] AllocHGlobal(this String[] array)
+		{
+			IntPtr[] unmanagedArray = new IntPtr[array.Length];
 
-		/// <summary>
-		/// Feedback varyings are stored in a single buffer object, interleaved with each other.
-		/// </summary>
-		Interleaved = Gl.INTERLEAVED_ATTRIBS
+			for (int i = 0; i < array.Length; i++)
+				unmanagedArray[i] = Marshal.StringToHGlobalAnsi(array[i]);
+
+			return (unmanagedArray);
+		}
+
+		public static void FreeHGlobal(this IntPtr[] array)
+		{
+			for (int i = 0; i < array.Length; i++) {
+				if (array[i] == IntPtr.Zero)
+					continue;
+				Marshal.FreeHGlobal(array[i]);
+			}
+		}
 	}
 }
-
