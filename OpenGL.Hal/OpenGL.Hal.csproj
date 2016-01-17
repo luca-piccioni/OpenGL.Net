@@ -197,7 +197,7 @@
     <Compile Include="State\RenderBufferState.cs" />
     <Compile Include="State\GraphicsState.cs" />
     <Compile Include="State\GraphicsStateSet.cs" />
-    <Compile Include="State\RenderStateSetStack.cs" />
+    <Compile Include="State\GraphicsStateSetStack.cs" />
     <Compile Include="State\ShaderUniformState.cs" />
     <Compile Include="State\TimeState.cs" />
     <Compile Include="State\TransformStateBase.cs" />

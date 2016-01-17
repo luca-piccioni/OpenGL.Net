@@ -88,6 +88,9 @@ namespace OpenGL
 
 			// No form: using directly the handle passed as argument
 			_RenderControl = control;
+			// Obtain device context (relative to control)
+			_DeviceContext = DeviceContextFactory.Create(_RenderControl);
+			_DeviceContext.IncRef();
 			// Constructor used for rendering on any Control but not Form instances, indeed it cannot break
 			// the main application window
 			_MainWindow = false;

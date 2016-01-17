@@ -800,6 +800,9 @@ namespace OpenGL
 		/// </remarks>
 		public DevicePixelFormat ChoosePixelFormat(IDeviceContext deviceContext, ValidBuffersFormatDelegate formatFilter)
 		{
+			if (deviceContext == null)
+				throw new ArgumentNullException("deviceContext");
+
 			return (ChoosePixelFormat(deviceContext.PixelsFormats, formatFilter));
 		}
 		
@@ -829,6 +832,9 @@ namespace OpenGL
 		/// </remarks>
 		private DevicePixelFormat ChoosePixelFormat(List<DevicePixelFormat> pFormats, ValidBuffersFormatDelegate formatFilter)
 		{
+			if (pFormats == null)
+				throw new ArgumentNullException("pFormats");
+
 			// Custom filtering
 			if (formatFilter != null)
 				pFormats.RemoveAll(delegate(DevicePixelFormat match) { return (formatFilter(match) == false); });
