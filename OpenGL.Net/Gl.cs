@@ -16,12 +16,14 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#pragma warning disable 618
+#pragma warning disable 618, 1734
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -172,6 +174,68 @@ namespace OpenGL
 		/// Enumeration names indexed by their value.
 		/// </summary>
 		private static LogContext _LogContext = new LogContext();
+
+		#endregion
+
+		#region Hand-crafted Bindings
+
+		/// <summary>
+		/// specify values to record in transform feedback buffers
+		/// </summary>
+		/// <param name="program">
+		/// The name of the target program object.
+		/// </param>
+		/// <param name="varyings">
+		/// An array of <paramref name="count"/> zero-terminated strings specifying the names of the varying variables to use for 
+		/// transform feedback.
+		/// </param>
+		/// <param name="bufferMode">
+		/// Identifies the mode used to capture the varying variables when transform feedback is active. <paramref 
+		/// name="bufferMode"/> must be Gl.INTERLEAVED_ATTRIBS or Gl.SEPARATE_ATTRIBS.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufferMode"/> is Gl.SEPARATE_ATTRIBS and <paramref name="count"/> is 
+		/// greater than the implementation-dependent limit Gl.MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS.
+		/// </exception>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
+		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public static void TransformFeedbackVaryings(UInt32 program, IntPtr[] varyings, Int32 bufferMode)
+		{
+			unsafe
+			{
+				fixed (IntPtr* p_varyings = varyings)
+				{
+					Debug.Assert(Delegates.pglTransformFeedbackVaryings_Unmanaged != null, "pglTransformFeedbackVaryings not implemented");
+					Delegates.pglTransformFeedbackVaryings_Unmanaged(program, (Int32)varyings.Length, p_varyings, bufferMode);
+					LogFunction("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, varyings.Length, LogValue(varyings), LogEnumName(bufferMode));
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
+			[AliasOf("glTransformFeedbackVaryings")]
+			[AliasOf("glTransformFeedbackVaryingsEXT")]
+			[ThreadStatic]
+			internal static glTransformFeedbackVaryings_Unmanaged pglTransformFeedbackVaryings_Unmanaged;
+		}
+
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTransformFeedbackVaryings", ExactSpelling = true)]
+			internal extern static void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
+		}
 
 		#endregion
 	}
