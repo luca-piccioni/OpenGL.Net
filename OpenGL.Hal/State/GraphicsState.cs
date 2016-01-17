@@ -49,54 +49,6 @@ namespace OpenGL.State
 
 		#endregion
 
-		#region State Factory
-
-		/// <summary>
-		/// Factory method for getting the default GraphicsState of the specified type.
-		/// </summary>
-		/// <param name="stateId">
-		/// A <see cref="String"/> that identify the state type.
-		/// </param>
-		public static GraphicsState GetDefaultState(string stateId)
-		{
-			if (stateId == null)
-				throw new ArgumentNullException("stateId");
-
-			if      (stateId == BlendState.StateId)
-				return (BlendState.DefaultState);
-			else if (stateId == DepthTestState.StateId)
-				return (DepthTestState.DefaultState);
-			else
-				throw new NotSupportedException("not supported default state for " + stateId);
-		}
-
-		/// <summary>
-		/// Factory method for getting the current GraphicsState of the specific type.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that determines the state. It has to be current on the calling
-		/// thread.
-		/// </param>
-		/// <param name="stateId">
-		/// A <see cref="String"/> that identify the state type.
-		/// </param>
-		public static GraphicsState GetCurrentState(GraphicsContext ctx, string stateId)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (stateId == null)
-				throw new ArgumentNullException("stateId");
-
-			if      (stateId == BlendState.StateId)
-				return (new BlendState(ctx));
-			else if (stateId == DepthTestState.StateId)
-				return (new DepthTestState(ctx));
-			else
-				throw new NotSupportedException("not supported current state for " + stateId);
-		}
-
-		#endregion
-
 		#region Equality Operators
 
 		/// <summary>

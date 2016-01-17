@@ -1,5 +1,4 @@
 
-
 // Copyright (C) 2012-2015 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or

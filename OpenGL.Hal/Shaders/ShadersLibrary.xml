@@ -79,6 +79,7 @@
 				</Symbols>
 			</Object>
 			<Attribute Name="hal_Position" Semantic="Position" />
+			<Attribute Name="hal_Color" Semantic="Color" />
 		</Program>
 		
 	</Programs>
