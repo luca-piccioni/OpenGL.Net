@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenGL Specs", "OpenGL Spec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Hal.Test", "OpenGL.Hal.Test\OpenGL.Hal.Test.csproj", "{9AB979CC-DABB-4A8E-95DE-D6A72B4C68BD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{27084413-0B38-41E6-938B-7BBC697DDD25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle", "Samples\HelloTriangle\HelloTriangle.csproj", "{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,8 +51,15 @@ Global
 		{9AB979CC-DABB-4A8E-95DE-D6A72B4C68BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AB979CC-DABB-4A8E-95DE-D6A72B4C68BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AB979CC-DABB-4A8E-95DE-D6A72B4C68BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877} = {27084413-0B38-41E6-938B-7BBC697DDD25}
 	EndGlobalSection
 EndGlobal
