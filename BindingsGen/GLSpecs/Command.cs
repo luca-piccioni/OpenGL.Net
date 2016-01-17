@@ -303,12 +303,6 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		internal void GenerateDelegate(SourceStreamWriter sw, RegistryContext ctx)
 		{
-			if (Aliases.Count > 0) {
-				sw.WriteLine("[AliasOf(\"{0}\")]", ImportName);
-				foreach (Command aliasOf in Aliases)
-					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
-			}
-
 			// No sure if it is really necessary
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
 
@@ -338,6 +332,13 @@ namespace BindingsGen.GLSpecs
 			}
 			sw.Write(");");
 			sw.WriteLine();
+
+			sw.WriteLine();
+			if (Aliases.Count > 0) {
+				sw.WriteLine("[AliasOf(\"{0}\")]", ImportName);
+				foreach (Command aliasOf in Aliases)
+					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
+			}
 
 			// Required on Windows platform: different threads can bind different OpenGL context, which can have different
 			// entry points
