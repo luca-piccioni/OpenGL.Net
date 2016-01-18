@@ -41,37 +41,71 @@ namespace OpenGL
 
 		#region Array Buffer Attachment
 
-		public void AttachArray(uint feedbackIndex, ArrayBufferObject bufferObject)
+		public void AttachArray(uint varyingLocation, ArrayBufferObjectBase arrayBuffer)
 		{
-			AttachArray(feedbackIndex, bufferObject, 0);
+			AttachArray(varyingLocation, arrayBuffer, 0);
 		}
 
-		public void AttachArray(uint feedbackIndex, ArrayBufferObject bufferObject, uint bufferStreamIndex)
+		public void AttachArray(uint varyingLocation, ArrayBufferObjectBase arrayBuffer, uint sectionIndex)
 		{
-			ArrayAttachment arrayAttachment = new ArrayAttachment();
-
-			arrayAttachment.BufferObject = bufferObject;
-			arrayAttachment.BufferInfo = bufferObject.GetArraySection(bufferStreamIndex);
-
-			_AttachedArrays[feedbackIndex] = arrayAttachment;
+			_AttachedArrays[varyingLocation] = new ArrayAttachment(arrayBuffer, sectionIndex);
 		}
 
-		private struct ArrayAttachment
+		private class ArrayAttachment : IDisposable
 		{
-			internal ArrayBufferObject BufferObject;
+			#region Constructors
 
-			internal ArrayBufferObjectBase.IArraySection BufferInfo;
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="arrayBuffer"></param>
+			/// <param name="sectionIndex"></param>
+			public ArrayAttachment(ArrayBufferObjectBase arrayBuffer, uint sectionIndex)
+			{
+				if (arrayBuffer == null)
+					throw new ArgumentNullException("arrayBuffer");
+
+				ArrayBuffer = arrayBuffer;
+				ArrayBuffer.IncRef();
+				ArraySectionIndex = sectionIndex;
+			}
+
+			#endregion
+
+			#region Array Information
+
+			/// <summary>
+			/// The array buffer object used as transform feedback target.
+			/// </summary>
+			public readonly ArrayBufferObjectBase ArrayBuffer;
+
+			/// <summary>
+			/// The vertex array sub-buffer index.
+			/// </summary>
+			public readonly uint ArraySectionIndex;
+
+			#endregion
+
+			#region IDisposable Implementation
+
+			/// <summary>
+			/// Dispose this VertexArray.
+			/// </summary>
+			public void Dispose()
+			{
+				ArrayBuffer.DecRef();
+			}
+
+			#endregion
 		}
-		
+
 		private void MapBufferObjects(GraphicsContext ctx)
 		{
 			foreach (KeyValuePair<uint,ArrayAttachment> pair in _AttachedArrays) {
 				ArrayAttachment arrayAttachment = pair.Value;
-				
-				if (arrayAttachment.BufferObject.Exists(ctx) == false)
-					throw new InvalidOperationException(String.Format("attach buffer object at index {0} don't exist", pair.Key));
+				ArrayBufferObjectBase.IArraySection arraySection = arrayAttachment.ArrayBuffer.GetArraySection(arrayAttachment.ArraySectionIndex);
 
-				Gl.BindBufferRange(Gl.TRANSFORM_FEEDBACK_BUFFER, pair.Key, arrayAttachment.BufferObject.ObjectName, IntPtr.Zero, arrayAttachment.BufferObject.BufferSize);
+				Gl.BindBufferRange(Gl.TRANSFORM_FEEDBACK_BUFFER, pair.Key, arrayAttachment.ArrayBuffer.ObjectName, arraySection.Offset, arrayAttachment.ArrayBuffer.BufferSize - (uint)arraySection.Offset.ToInt32());
 			}
 		}
 		

@@ -279,7 +279,7 @@ namespace OpenGL
 		/// <summary>
 		/// Surface buffers. 
 		/// </summary>
-		private BufferType mSurfaceBuffers;
+		private BufferType mSurfaceBuffers = BufferType.Color | BufferType.Double;
 
 		/// <summary>
 		/// Required surface buffers flags. 
@@ -288,7 +288,7 @@ namespace OpenGL
 		/// In the case the mask has a buffer type bit set, indicates that buffer type is required for
 		/// RenderSurface creation.
 		/// </remarks>
-		private BufferType mRequiredSurfaceBuffers;
+		private BufferType mRequiredSurfaceBuffers = BufferType.Color | BufferType.Double;
 
 		/// <summary>
 		/// Degradable surface buffers flags.
@@ -298,7 +298,7 @@ namespace OpenGL
 		/// that buffer type is required, and its format could be degraded
 		/// to achieve RenderSurface creation. 
 		/// </remarks>
-		private BufferType mDegradableSurfaceBuffers;
+		private BufferType mDegradableSurfaceBuffers = BufferType.Color;
 
 		#endregion
 		

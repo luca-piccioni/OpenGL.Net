@@ -158,7 +158,7 @@ namespace OpenGL
 		/// </summary>
 		public float RotationAngle
 		{
-			get { return (float)(2.0 * Math.Acos(mCosAngle) * Angle.RadianToDegree); }
+			get { return (float)(Angle.ToDegrees(2.0 * Math.Acos(mCosAngle))); }
 			set { SetEuler(RotationVector, value); }
 		}
 
@@ -176,7 +176,7 @@ namespace OpenGL
 		/// </remarks>
 		public void SetEuler(Vertex3f rVector, float rAngle)
 		{
-			double qAngle = rAngle * Angle.DegreeToRadian / 2.0;
+			double qAngle = Angle.ToDegrees(rAngle / 2.0f);
 			double qAngleSin = Math.Sin(qAngle);
 
 			mVector.x = qAngleSin * rVector.x;

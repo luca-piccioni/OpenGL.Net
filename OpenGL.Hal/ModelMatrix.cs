@@ -378,8 +378,8 @@ namespace OpenGL
 		{
 			ModelMatrix rotationMatrix = new ModelMatrix();
 
-			float cosa = (float)Math.Cos(angle * Angle.DegreeToRadian);
-			float sina = (float)Math.Sin(angle * Angle.DegreeToRadian);
+			float cosa = (float)Math.Cos(Angle.ToRadians(angle));
+			float sina = (float)Math.Sin(Angle.ToRadians(angle));
 
 			rotationMatrix[1, 1] = +cosa;
 			rotationMatrix[2, 1] = -sina;
@@ -399,8 +399,8 @@ namespace OpenGL
 		{
 			ModelMatrix rotationMatrix = new ModelMatrix();
 
-			float cosa = (float)Math.Cos(angle * Angle.DegreeToRadian);
-			float sina = (float)Math.Sin(angle * Angle.DegreeToRadian);
+			float cosa = (float)Math.Cos(Angle.ToRadians(angle));
+			float sina = (float)Math.Sin(Angle.ToRadians(angle));
 
 			rotationMatrix[0, 0] = +cosa;
 			rotationMatrix[2, 0] = +sina;
@@ -420,8 +420,8 @@ namespace OpenGL
 		{
 			ModelMatrix rotationMatrix = new ModelMatrix();
 
-			float cosa = (float)Math.Cos(angle * Angle.DegreeToRadian);
-			float sina = (float)Math.Sin(angle * Angle.DegreeToRadian);
+			float cosa = (float)Math.Cos(Angle.ToRadians(angle));
+			float sina = (float)Math.Sin(Angle.ToRadians(angle));
 
 			rotationMatrix[0, 0] = +cosa;
 			rotationMatrix[1, 0] = -sina;

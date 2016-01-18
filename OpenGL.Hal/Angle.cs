@@ -26,16 +26,6 @@ namespace OpenGL
 	public sealed class Angle
 	{
 		/// <summary>
-		/// Constant for converting degrees to radians.
-		/// </summary>
-		public const double DegreeToRadian = Math.PI / 180.0;
-
-		/// <summary>
-		/// Constant for converting radians to degree.
-		/// </summary>
-		public const double RadianToDegree = 180.0 / Math.PI;
-
-		/// <summary>
 		/// Normalize an angle in the range [0,360).
 		/// </summary>
 		/// <param name="angle">
@@ -47,6 +37,26 @@ namespace OpenGL
 		public static double Normalize360(double angle)
 		{
 			return (Math.IEEERemainder(angle, 360.0));
+		}
+
+		public static double ToDegrees(double radians)
+		{
+			return (radians / Math.PI * 180.0);
+		}
+
+		public static float ToDegrees(float radians)
+		{
+			return (radians / (float)Math.PI * 180.0f);
+		}
+
+		public static double ToRadians(double degrees)
+		{
+			return (degrees / 180.0 * Math.PI);
+		}
+
+		public static float ToRadians(float degrees)
+		{
+			return (degrees / 180.0f * (float)Math.PI);
 		}
 	}
 }

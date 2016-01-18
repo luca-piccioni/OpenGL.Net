@@ -196,11 +196,9 @@ namespace OpenGL
 				_FeedbackBuffer.IncRef();
 		}
 	
-		public void SetSymmetricTransformFeedback()
-		{
-			
-		}
-	
+		/// <summary>
+		/// The feedback buffer object that specify the feedback array buffers.
+		/// </summary>
 		private FeedbackBufferObject _FeedbackBuffer;
 		
 		#endregion

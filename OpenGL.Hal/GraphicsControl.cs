@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2015 Luca Piccioni
+// Copyright (C) 2011-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -35,16 +35,16 @@ namespace OpenGL
 		/// </summary>
 		public GraphicsControl()
 		{
-			// No need to draw window background
-			SetStyle(ControlStyles.Opaque, true);
-			// Painting handled by user
-			SetStyle(ControlStyles.UserPaint, true);
 			// No need to erase window background
 			SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-			// Redraw window on resize
-			SetStyle(ControlStyles.ResizeRedraw, true);
+			// No need to draw window background
+			SetStyle(ControlStyles.Opaque, true);
 			// Buffer control
 			SetStyle(ControlStyles.DoubleBuffer, false);
+			// Redraw window on resize
+			SetStyle(ControlStyles.ResizeRedraw, false);
+			// Painting handled by user
+			SetStyle(ControlStyles.UserPaint, true);
 
 			InitializeComponent();
 		}
@@ -127,7 +127,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Description("Flag indicating whether double buffering is enabled.")]
-		[DefaultValue(false)]
+		[DefaultValue(true)]
 		public bool DoubleBuffer
 		{
 			get { return (SurfaceFormat.DoubleBuffers); }
@@ -279,10 +279,17 @@ namespace OpenGL
 		/// </summary>
 		protected override void CreateHandle()
 		{
+			// Create the render window
+			_RenderWindow = new GraphicsWindow(this);
+			_RenderWindow.Width = (uint)base.ClientSize.Width;
+			_RenderWindow.Height = (uint)base.ClientSize.Height;
+			// OVerride default swap interval
+			_RenderWindow.SwapInterval = SwapInterval;
+
 			// "Select" device pixel format before creating control handle
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Unix:
-					//_RenderWindow.PreCreateObjectX11(SurfaceFormat);
+					_RenderWindow.PreCreateObjectX11(SurfaceFormat);
 					break;
 			}
 			// Base implementation
@@ -298,13 +305,6 @@ namespace OpenGL
 		protected override void OnHandleCreated(EventArgs e)
 		{
 			if (DesignMode == false) {
-				// Create the render window
-				_RenderWindow = new GraphicsWindow(this);
-				_RenderWindow.Width = (uint)base.ClientSize.Width;
-				_RenderWindow.Height = (uint)base.ClientSize.Height;
-				// OVerride default swap interval
-				_RenderWindow.SwapInterval = SwapInterval;
-
 				// Finalize control handle creation
 				// - WGL: SetPixelFormat
 				// - GLX: store FBConfig and XVisualInfo selected in CreateHandle()
@@ -320,7 +320,7 @@ namespace OpenGL
 			if (DesignMode == false) {
 				// It should remains current on the current UI thread
 				_RenderContext.MakeCurrent(true);
-				RaiseGraphicsContextCreated(new GraphicsControlEventArgs(_RenderContext));
+				RaiseGraphicsContextCreated(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
 			}
 		}
 
@@ -336,7 +336,7 @@ namespace OpenGL
 				if (_RenderContext != null) {
 					// Raise DestroyContext event
 					_RenderContext.MakeCurrent(true);
-					RaiseGraphicsContextDestroyed(new GraphicsControlEventArgs(_RenderContext));
+					RaiseGraphicsContextDestroyed(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
 					_RenderContext.MakeCurrent(false);
 					// Dispose the renderer context
 					_RenderContext.Dispose();
@@ -367,11 +367,13 @@ namespace OpenGL
 						_RenderContext.MakeCurrent(true);
 					// Define viewport
 					Gl.Viewport(0, 0, ClientSize.Width, ClientSize.Height);
+					// Clear
+					_RenderWindow.Clear(_RenderContext);
 
 					// Derived class implementation
 					RenderThis(_RenderContext);
 					// Render event
-					RaiseRenderEvent(new GraphicsControlEventArgs(_RenderContext));
+					RaiseRenderEvent(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
 
 					// Swap buffers if double-buffering
 					_RenderWindow.SwapSurface();
@@ -380,8 +382,8 @@ namespace OpenGL
 					base.OnPaint(e);
 				} else {
 					e.Graphics.DrawLines(_FailurePen, new Point[] {
-						new Point(e.ClipRectangle.Left, e.ClipRectangle.Bottom), new Point(e.ClipRectangle.Right, e.ClipRectangle.Top),
-						new Point(e.ClipRectangle.Left, e.ClipRectangle.Top), new Point(e.ClipRectangle.Right, e.ClipRectangle.Bottom),
+						new Point(0, 0), new Point(ClientSize.Width, ClientSize.Height),
+						new Point(0, ClientSize.Height), new Point(ClientSize.Width, 0),
 					});
 
 					// Base implementation
@@ -390,9 +392,9 @@ namespace OpenGL
 			} else {
 				e.Graphics.Clear(Color.Black);
 				e.Graphics.DrawLines(_DesignPen, new Point[] {
-						new Point(e.ClipRectangle.Left, e.ClipRectangle.Bottom), new Point(e.ClipRectangle.Right, e.ClipRectangle.Top),
-						new Point(e.ClipRectangle.Left, e.ClipRectangle.Top), new Point(e.ClipRectangle.Right, e.ClipRectangle.Bottom),
-					});
+					new Point(0, 0), new Point(ClientSize.Width, ClientSize.Height),
+					new Point(0, ClientSize.Height), new Point(ClientSize.Width, 0),
+				});
 
 				// Base implementation
 				base.OnPaint(e);
@@ -445,14 +447,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for the <see cref="GraphicsControl"/>.
 		/// </param>
-		/// <param name="window">
-		/// The <see cref="GraphicsWindow"/> displaying the rendering result.
+		/// <param name="framebuffer">
+		/// The <see cref="GraphicsSurface"/> displaying the rendering result.
 		/// </param>
-		public GraphicsControlEventArgs(GraphicsContext ctx)
+		public GraphicsControlEventArgs(GraphicsContext ctx, GraphicsSurface framebuffer)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
+			if (framebuffer == null)
+				throw new ArgumentNullException("framebuffer");
+
 			Context = ctx;
+			Framebuffer = framebuffer;
 		}
 
 		#endregion
@@ -463,6 +469,11 @@ namespace OpenGL
 		/// The render context used for rendering.
 		/// </summary>
 		public readonly GraphicsContext Context;
+
+		/// <summary>
+		/// The actual surface used for rendering.
+		/// </summary>
+		public readonly GraphicsSurface Framebuffer;
 
 		#endregion
 	}

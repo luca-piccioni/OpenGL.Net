@@ -67,9 +67,6 @@ namespace OpenGL
 		{
 			// Create Form linked with this GraphicsWindow
 			_RenderControl = _RenderForm = new RenderForm(this, new Size((int)w, (int)h));
-			// Obtain device context (relative to window)
-			_DeviceContext = DeviceContextFactory.Create(_RenderForm);
-			_DeviceContext.IncRef();
 		}
 
 		/// <summary>
@@ -88,9 +85,6 @@ namespace OpenGL
 
 			// No form: using directly the handle passed as argument
 			_RenderControl = control;
-			// Obtain device context (relative to control)
-			_DeviceContext = DeviceContextFactory.Create(_RenderControl);
-			_DeviceContext.IncRef();
 			// Constructor used for rendering on any Control but not Form instances, indeed it cannot break
 			// the main application window
 			_MainWindow = false;
@@ -679,6 +673,10 @@ namespace OpenGL
 				throw new ArgumentException("context not required", "ctx");
 
 			sLog.Info("Create rendering window '{0}'.", _RenderForm != null ? _RenderForm.Text : "untitled");
+
+			// Obtain device context (relative to window)
+			_DeviceContext = DeviceContextFactory.Create(_RenderControl);
+			_DeviceContext.IncRef();
 
 			// Choose "best" pixel format matching with surface configuration
 			_DeviceFormat = _SurfaceFormat.ChoosePixelFormat(_DeviceContext, ValidPixelFormat);

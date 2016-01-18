@@ -485,8 +485,8 @@ namespace OpenGL
 		public void RotateX(double angle)
 		{
 			ModelMatrixDouble rotationMatrix = new ModelMatrixDouble();
-			double cosa = Math.Cos(angle * Angle.DegreeToRadian);
-			double sina = Math.Sin(angle * Angle.DegreeToRadian);
+			double cosa = Math.Cos(Angle.ToRadians(angle));
+			double sina = Math.Sin(Angle.ToRadians(angle));
 
 			rotationMatrix[1, 1] = +cosa;
 			rotationMatrix[2, 1] = -sina;
@@ -505,8 +505,8 @@ namespace OpenGL
 		public void RotateY(double angle)
 		{
 			ModelMatrixDouble rotationMatrix = new ModelMatrixDouble();
-			double cosa = Math.Cos(angle * Angle.DegreeToRadian);
-			double sina = Math.Sin(angle * Angle.DegreeToRadian);
+			double cosa = Math.Cos(Angle.ToRadians(angle));
+			double sina = Math.Sin(Angle.ToRadians(angle));
 
 			rotationMatrix[0, 0] = +cosa;
 			rotationMatrix[2, 0] = +sina;
@@ -525,8 +525,8 @@ namespace OpenGL
 		public void RotateZ(double angle)
 		{
 			ModelMatrixDouble rotationMatrix = new ModelMatrixDouble();
-			double cosa = Math.Cos(angle * Angle.DegreeToRadian);
-			double sina = Math.Sin(angle * Angle.DegreeToRadian);
+			double cosa = Math.Cos(Angle.ToRadians(angle));
+			double sina = Math.Sin(Angle.ToRadians(angle));
 
 			rotationMatrix[0, 0] = +cosa;
 			rotationMatrix[1, 0] = -sina;

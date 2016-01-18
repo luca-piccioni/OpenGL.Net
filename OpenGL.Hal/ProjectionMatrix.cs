@@ -483,7 +483,7 @@ namespace OpenGL
 		/// </summary>
 		public void SetPerspective(float fovy, float aspectRatio, float near, float far)
 		{
-			float ymax = near * (float)Math.Tan(fovy * Math.PI / 360.0);
+			float ymax = near * (float)Math.Tan(Angle.ToRadians(fovy));
 			float xmax = ymax * aspectRatio;
 
 			SetFustrum(-xmax, +xmax, -ymax, +ymax, near, far);
