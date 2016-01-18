@@ -22,7 +22,7 @@ using System.Windows.Forms;
 
 using OpenGL;
 
-namespace HelloTriangle
+namespace HelloNewton
 {
 	static class Program
 	{
@@ -35,6 +35,10 @@ namespace HelloTriangle
 			// UI initialization (before accessing GraphicsContext and others)
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
+#if DEBUG
+			Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
+#endif
 
 			// Check requirements
 			StringBuilder missingReq = new StringBuilder();

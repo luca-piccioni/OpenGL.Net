@@ -18,5 +18,5 @@ packages
 /OpenGL.Hal.Test/obj
 /OpenGL.Hal.Test/bin
 /*.sdf
-/Samples/HelloTriangle/obj
-/Samples/HelloTriangle/bin
+/Samples/HelloNewton/obj
+/Samples/HelloNewton/bin

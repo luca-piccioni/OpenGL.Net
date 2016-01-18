@@ -1,4 +1,4 @@
-﻿namespace HelloTriangle
+﻿namespace HelloNewton
 {
 	partial class SampleForm
 	{
@@ -32,20 +32,18 @@
 			// 
 			// SampleGraphicsControl
 			// 
-			this.SampleGraphicsControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.SampleGraphicsControl.DepthBits = ((uint)(0u));
-			this.SampleGraphicsControl.DoubleBuffer = true;
-			this.SampleGraphicsControl.Location = new System.Drawing.Point(12, 12);
+			this.SampleGraphicsControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.SampleGraphicsControl.Location = new System.Drawing.Point(0, 0);
 			this.SampleGraphicsControl.MultisampleBits = ((uint)(0u));
 			this.SampleGraphicsControl.Name = "SampleGraphicsControl";
-			this.SampleGraphicsControl.Size = new System.Drawing.Size(663, 553);
+			this.SampleGraphicsControl.Size = new System.Drawing.Size(687, 577);
 			this.SampleGraphicsControl.StencilBits = ((uint)(0u));
 			this.SampleGraphicsControl.TabIndex = 0;
 			this.SampleGraphicsControl.GraphicsContextCreated += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.SampleGraphicsControl_GraphicsContextCreated);
-			this.SampleGraphicsControl.GraphicsContextDestroyed += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.SampleGraphicsControl_GraphicsContextDestroyed);
 			this.SampleGraphicsControl.Render += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.SampleGraphicsControl_Render);
+			this.SampleGraphicsControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SampleGraphicsControl_MouseDown);
+			this.SampleGraphicsControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SampleGraphicsControl_MouseMove);
 			// 
 			// SampleForm
 			// 

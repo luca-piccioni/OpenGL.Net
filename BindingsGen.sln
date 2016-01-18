@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Hal.Test", "OpenGL.H
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{27084413-0B38-41E6-938B-7BBC697DDD25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNewton", "Samples\HelloTriangle\HelloNewton.csproj", "{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNewton", "Samples\HelloNewton\HelloNewton.csproj", "{A1D1DFF5-1438-4DF3-8C94-60AB3EF3B877}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

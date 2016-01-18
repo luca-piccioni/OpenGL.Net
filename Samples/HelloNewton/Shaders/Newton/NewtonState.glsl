@@ -29,6 +29,9 @@ struct CenterOfGravity
 };
 
 /// Gravity points
-CenterOfGravity hal_GravityPoints[];
+uniform CenterOfGravity hal_GravityPoints[5];
+
+// Number of valid gravity points.
+uniform int hal_GravityPointsCount = 5;
 
 #endif

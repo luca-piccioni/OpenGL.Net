@@ -17,6 +17,7 @@
 // USA
 
 #include </OpenGL/Compatibility.glsl>
+#include </OpenGL/Time.glsl>
 #include </OpenGL/TransformState.glsl>
 #include </Newton/NewtonState.glsl>
 
@@ -40,15 +41,36 @@ SHADER_OUT float hal_VertexMass;
 
 void main()
 {
+	const float G = 6.674e−11;
+
+	vec3 newtonAcceleration = vec3(0.0);
+
+	// Compute contributions of centers of gravity
+	for (int i = 0; i < hal_GravityPointsCount; i++) {
+
+		// Note: Newton's law of universal gravitation
+		// F = G * m1 * m2
+
+		vec3 cogVector = hal_GravityPoints[i].Position - hal_Position;
+		float cogDistance = length(cogVector);
+		float cogForce = (hal_VertexMass * hal_GravityPoints[i].Mass * G) / pow(cogDistance, 2);
+
+		// Note: Newton's law of motion (second law)
+		// F = m * a --> a = F / M
+		float cogAcceleration =  cogForce / hal_VertexMass;
+
+		newtonAcceleration += normalize(cogVector) * cogAcceleration;
+	}
+
 	// Compute acceleration
-	hal_VertexAcceleration = hal_Acceleration;
+	hal_VertexAcceleration = hal_Acceleration + newtonAcceleration;
 	// Compute speed
-	hal_VertexSpeed = hal_Speed;
+	hal_VertexSpeed = hal_Speed + (hal_VertexAcceleration * hal_FrameTimeInterval);
 	// Compute mass
 	hal_VertexMass = hal_Mass;
 	// Compute position
-	hal_VertexPosition = hal_Position;
+	hal_VertexPosition = hal_Position + (hal_VertexSpeed * hal_FrameTimeInterval);
 
 	// Project vertex position
-	gl_Position = hal_ModelViewProjection * vec4(hal_VertexPosition, 1.0);
+	gl_Position = hal_ModelViewProjection * vec4(hal_Position, 1.0);
 }
