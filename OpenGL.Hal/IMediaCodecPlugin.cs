@@ -1,20 +1,21 @@
 
-// Copyright (C) 2012-2013 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-// This program is distributed in the hope that it will be useful,
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -29,9 +30,29 @@ namespace OpenGL
 	/// <typeparam name="TMediaInfo">
 	/// A <see cref="MediaInfo"/> that stored information about <typeparamref name="TMedia"/>
 	/// </typeparam>
-	public interface IMediaCodecPlugin<TMedia, TMediaInfo> : IPlugin where TMedia : IMedia<TMediaInfo> where TMediaInfo : MediaInfo
+	public interface IMediaCodecPlugin<TMedia, TMediaInfo, TMediaCodecCriteria> : IPlugin
+		where TMedia : IMedia<TMediaInfo>
+		where TMediaInfo : MediaInfo
+		where TMediaCodecCriteria : MediaCodecCriteria
 	{
 		#region Managed Stream Codec Implementation
+
+		/// <summary>
+		/// Query media informations.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specify the media path.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
+		/// </param>
+		/// <returns>
+		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		TMediaInfo QueryInfo(string path, TMediaCodecCriteria criteria);
 
 		/// <summary>
 		/// Query media informations.
@@ -48,7 +69,24 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
 		/// </exception>
-		TMediaInfo QueryInfo(Stream stream, MediaCodecCriteria criteria);
+		TMediaInfo QueryInfo(Stream stream, TMediaCodecCriteria criteria);
+
+		/// <summary>
+		/// Load media from stream.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specify the media path.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
+		/// </param>
+		/// <returns>
+		/// An <typeparamref name="TMedia"/> holding the media data.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		TMedia Load(string path, TMediaCodecCriteria criteria);
 
 		/// <summary>
 		/// Load media from stream.
@@ -65,7 +103,27 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
 		/// </exception>
-		TMedia Load(Stream stream, MediaCodecCriteria criteria);
+		TMedia Load(Stream stream, TMediaCodecCriteria criteria);
+
+		/// <summary>
+		/// Save media to stream.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specify the media path.
+		/// </param>
+		/// <param name="media">
+		/// A <typeparamref name="TMedia"/> holding the data to be stored.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="String"/> that specify the media format to used for saving <paramref name="media"/>.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/>, <paramref name="media"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		void Save(string path, TMedia media, string format, TMediaCodecCriteria criteria);
 
 		/// <summary>
 		/// Save media to stream.
@@ -85,7 +143,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/>, <paramref name="media"/> or <paramref name="criteria"/> is null.
 		/// </exception>
-		void Save(Stream stream, TMedia media, string format, MediaCodecCriteria criteria);
+		void Save(Stream stream, TMedia media, string format, TMediaCodecCriteria criteria);
 
 		#endregion
 

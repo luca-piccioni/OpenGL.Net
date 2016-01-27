@@ -1,18 +1,20 @@
 
-// Copyright (C) 2012-2013 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-// This program is distributed in the hope that it will be useful,
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -35,27 +37,6 @@ namespace OpenGL
 	/// </remarks>
 	public class MediaCodecCriteria
 	{
-		#region Constructors
-
-		/// <summary>
-		/// Construct a MediaCodecCriteria.
-		/// </summary>
-		public MediaCodecCriteria()
-		{
-			
-		}
-
-		/// <summary>
-		/// Construct a MediaCodecCriteria, specifying an option set.
-		/// </summary>
-		/// <param name="options"></param>
-		public MediaCodecCriteria(string options)
-		{
-			
-		}
-
-		#endregion
-
 		#region Criteria Collection
 
 		/// <summary>
@@ -70,13 +51,13 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <see cref="criteriaName"/> is null.
 		/// </exception>
-		public void Define(string criteriaName, object value)
+		public void Set(string criteriaName, object value)
 		{
 			if (criteriaName == null)
 				throw new ArgumentNullException("criteriaName");
 
 			// Define or overwrite criteria value
-			mCriteria[criteriaName] = value;
+			_Criteria[criteriaName] = value;
 		}
 
 		/// <summary>
@@ -88,12 +69,12 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <see cref="criteriaName"/> is null.
 		/// </exception>
-		public void Undefine(string criteriaName)
+		public void Reset(string criteriaName)
 		{
 			if (criteriaName == null)
 				throw new ArgumentNullException("criteriaName");
 
-			mCriteria.Remove(criteriaName);
+			_Criteria.Remove(criteriaName);
 		}
 
 		/// <summary>
@@ -109,12 +90,12 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <see cref="criteriaName"/> is null.
 		/// </exception>
-		public bool IsDefined(string criteriaName)
+		public bool IsSet(string criteriaName)
 		{
 			if (criteriaName == null)
 				throw new ArgumentNullException("criteriaName");
 
-			return (mCriteria.ContainsKey(criteriaName));
+			return (_Criteria.ContainsKey(criteriaName));
 		}
 
 		/// <summary>
@@ -151,10 +132,10 @@ namespace OpenGL
 		{
 			if (criteriaName == null)
 				throw new ArgumentNullException("criteriaName");
-			if (!IsDefined(criteriaName))
+			if (!IsSet(criteriaName))
 				throw new ArgumentException("not defined", "criteriaName");
 
-			object criteriaObjectValue = mCriteria[criteriaName];
+			object criteriaObjectValue = _Criteria[criteriaName];
 
 			// Exact match on value type?
 			if (criteriaObjectValue is T)
@@ -170,7 +151,7 @@ namespace OpenGL
 		/// <summary>
 		/// Map between criteria and its value.
 		/// </summary>
-		private readonly Dictionary<string, object> mCriteria = new Dictionary<string, object>();
+		private readonly Dictionary<string, object> _Criteria = new Dictionary<string, object>();
 
 		#endregion
 
@@ -192,14 +173,14 @@ namespace OpenGL
 				if (criteriaName == null)
 					throw new ArgumentNullException("criteriaName");
 
-				return (mCriteria[criteriaName]);
+				return (_Criteria[criteriaName]);
 			}
 			set
 			{
 				if (criteriaName == null)
 					throw new ArgumentNullException("criteriaName");
 
-				mCriteria[criteriaName] = value;
+				_Criteria[criteriaName] = value;
 			}
 		}
 
@@ -217,9 +198,10 @@ namespace OpenGL
 		{
 			StringBuilder sb = new StringBuilder();
 
-			sb.Append("{MediaCodecCriteria} Criteria: ");
-			foreach (KeyValuePair<String, object> key in mCriteria)
+			sb.Append("MediaCodecCriteria: Criteria { ");
+			foreach (KeyValuePair<String, object> key in _Criteria)
 				sb.AppendFormat("{0}={1};", key.Key, key.Value);
+			sb.Append(" }");
 
 			return (sb.ToString());
 		}

@@ -1,18 +1,20 @@
 
-//  Copyright (C) 2012-2013 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -36,7 +38,6 @@ namespace OpenGL
 		{
 			DetectTagInformation();
 		}
-			
 
 		#endregion
 
@@ -63,7 +64,7 @@ namespace OpenGL
 						throw new InvalidOperationException(String.Format("null tag name for field {0}.{1}", GetType().Name, tagField.Name));
 
 					// Register tag information
-					mTagInfo[tagName] = infoTagAttribute;
+					_TagInfo[tagName] = infoTagAttribute;
 					// Register default value
 					if (infoTagAttribute.DefaultValue != null)
 						SetTag(tagName, infoTagAttribute.DefaultValue);
@@ -74,7 +75,7 @@ namespace OpenGL
 		/// <summary>
 		/// Generic tag collection.
 		/// </summary>
-		private readonly TagFieldMap mTagInfo = new TagFieldMap();
+		private readonly TagFieldMap _TagInfo = new TagFieldMap();
 
 		#endregion
 
@@ -86,7 +87,7 @@ namespace OpenGL
 		public uint TagCount
 		{
 			get {
-				return ((uint)mTags.Values.Count);
+				return ((uint)_Tags.Values.Count);
 			}
 		}
 
@@ -96,7 +97,7 @@ namespace OpenGL
 		public IEnumerable<KeyValuePair<string, object>> Tags
 		{
 			get {
-				foreach (KeyValuePair<string, object> pair in mTags)
+				foreach (KeyValuePair<string, object> pair in _Tags)
 					yield return (pair);
 			}
 		}
@@ -112,7 +113,7 @@ namespace OpenGL
 			if (id == null)
 				throw new ArgumentNullException("id");
 
-			return (mTags.ContainsKey(id) && mTags[id] != null);
+			return (_Tags.ContainsKey(id) && _Tags[id] != null);
 		}
 
 		/// <summary>
@@ -131,7 +132,7 @@ namespace OpenGL
 
 			MediaInfoTagAttribute infoTagAttribute;
 
-			if (mTagInfo.TryGetValue(id, out infoTagAttribute)) {
+			if (_TagInfo.TryGetValue(id, out infoTagAttribute)) {
 
 				// Information available
 
@@ -139,7 +140,7 @@ namespace OpenGL
 					throw new ArgumentException(String.Format("the tag {0} expects a value of type {1}, instead a {2} is supplied", id, infoTagAttribute.TagType.Name, value.GetType().Name), "value");
 			}
 
-			mTags[id] = value;
+			_Tags[id] = value;
 		}
 
 		/// <summary>
@@ -162,7 +163,7 @@ namespace OpenGL
 				throw new ArgumentException(String.Format("tag {0} not defined", id));
 
 			// Get the tag object
-			tag = mTags[id];
+			tag = _Tags[id];
 
 			// Check tag type
 			if (!(tag is T))
@@ -174,7 +175,7 @@ namespace OpenGL
 		/// <summary>
 		/// Generic tag collection.
 		/// </summary>
-		private readonly Dictionary<string, object> mTags = new Dictionary<string,object>();
+		private readonly Dictionary<string, object> _Tags = new Dictionary<string,object>();
 
 		#endregion
 
@@ -226,13 +227,13 @@ namespace OpenGL
 			if (valueType == null)
 				throw new ArgumentNullException("valueType");
 
-			mTagType = valueType;
+			_TagType = valueType;
 		}
 
 		/// <summary>
 		/// The type of the tag value.
 		/// </summary>
-		public Type TagType { get { return (mTagType); } }
+		public Type TagType { get { return (_TagType); } }
 
 		/// <summary>
 		/// The default value of the tag.
@@ -242,7 +243,7 @@ namespace OpenGL
 		/// <summary>
 		/// The type of the tag value.
 		/// </summary>
-		private readonly Type mTagType = typeof(object);
+		private readonly Type _TagType = typeof(object);
 	}
 }
 

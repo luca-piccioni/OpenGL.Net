@@ -1,18 +1,23 @@
 
-//  Copyright (C) 2009-2013 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Drawing;
 
 namespace OpenGL
 {
@@ -28,12 +33,21 @@ namespace OpenGL
 		/// </summary>
 		public ImageCodecCriteria()
 		{
-			// Default values
-
 			// Good compromize between quality and size
 			this[QualityPreset] = 0.75f;
 			// Uses software support: wider pixel format support
 			this[SoftwareSupport] = true;
+			// By default, all area
+			this[_ImageSection] = new Nullable<Rectangle>();
+		}
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public ImageCodecCriteria(Rectangle section) : this()
+		{
+			// Specific area
+			this[_ImageSection] = new Nullable<Rectangle>(section);
 		}
 
 		#endregion
@@ -62,6 +76,26 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		public static readonly string SoftwareSupport = "SoftwareSupport";
+
+		#region Image Section
+
+		/// <summary>
+		/// The <see cref="Rectangle"/> that specify the section of the image to load. If it is not defined or it is
+		/// null, the entire image area is considered.
+		/// </summary>
+		public Rectangle? ImageSection
+		{
+			get { return (Get<Rectangle?>(_ImageSection)); }
+			set { this[_ImageSection] = value; }
+		}
+
+		/// <summary>
+		/// The <see cref="Rectangle"/> that specify the section of the image to load. If it is not defined or it is
+		/// null, the entire image area is considered.
+		/// </summary>
+		private static readonly string _ImageSection = "ImageSection";
+
+		#endregion
 
 		#endregion
 	}

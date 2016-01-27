@@ -1,18 +1,20 @@
 
-// Copyright (C) 2012-2013 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-// This program is distributed in the hope that it will be useful,
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -47,10 +49,11 @@ namespace OpenGL
 	/// {UrlType}://
 	/// </para>
 	/// </remarks>
-	public abstract class MediaCodec<TPlugin, TMedia, TMediaInfo> : PluginLoader<TPlugin>
-		where TPlugin : class, IMediaCodecPlugin<TMedia, TMediaInfo>
+	public abstract class MediaCodec<TPlugin, TMedia, TMediaInfo, TMediaCodecCriteria> : PluginLoader<TPlugin>
+		where TPlugin : class, IMediaCodecPlugin<TMedia, TMediaInfo, TMediaCodecCriteria>
 		where TMedia : class, IMedia<TMediaInfo>
 		where TMediaInfo : MediaInfo
+		where TMediaCodecCriteria : MediaCodecCriteria
 	{
 		#region Constructors
 
@@ -83,11 +86,6 @@ namespace OpenGL
 		{
 			
 		}
-
-		/// <summary>
-		/// Force static constructor execution.
-		/// </summary>
-		public void Touch() { GetHashCode(); }
 
 		#endregion
 
@@ -408,7 +406,7 @@ namespace OpenGL
 		/// object returned by this method will be used for Load and Save methods when a <see cref="MediaCodecCriteria"/> is not
 		/// specified.
 		/// </returns>
-		protected abstract MediaCodecCriteria CreateDefaultMediaCodecCriteria();
+		protected abstract TMediaCodecCriteria CreateDefaultMediaCodecCriteria();
 
 		/// <summary>
 		/// Filters the plugins (used for reading) by criteria.
@@ -417,7 +415,7 @@ namespace OpenGL
 		/// A <see cref="List{TPlugin}"/> that contains all available plugins.
 		/// </param>
 		/// <param name="criteria">
-		/// A <see cref="MediaCodecCriteria"/> that specify the plugin filtering criteria.
+		/// A <see cref="TMediaCodecCriteria"/> that specify the plugin filtering criteria.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="List{TPlugin}"/> that satisfy the criteria <paramref name="criteria"/>.
@@ -425,7 +423,7 @@ namespace OpenGL
 		/// <exception cref='ArgumentNullException'>
 		/// Exception thrown if <paramref name="plugins"/> of <paramref name="criteria"/> is null.
 		/// </exception>
-		protected virtual List<TPlugin> FilterReadPlugins(List<TPlugin> plugins, MediaCodecCriteria criteria)
+		protected virtual List<TPlugin> FilterReadPlugins(List<TPlugin> plugins, TMediaCodecCriteria criteria)
 		{
 			if (plugins == null)
 				throw new ArgumentNullException("plugins");
@@ -433,7 +431,7 @@ namespace OpenGL
 				throw new ArgumentNullException("criteria");
 
 			// Criteria: PluginName
-			if (criteria.IsDefined(PluginName)) {
+			if (criteria.IsSet(PluginName)) {
 				plugins = plugins.FindAll(delegate(TPlugin obj) {
 					return (obj.Name == (string)criteria[PluginName]);
 				});
@@ -485,7 +483,7 @@ namespace OpenGL
 		/// <exception cref='ArgumentNullException'>
 		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
 		/// </exception>
-		protected virtual List<TPlugin> FilterWritePlugins(List<TPlugin> plugins, MediaCodecCriteria criteria)
+		protected virtual List<TPlugin> FilterWritePlugins(List<TPlugin> plugins, TMediaCodecCriteria criteria)
 		{
 			if (plugins == null)
 				throw new ArgumentNullException("plugins");
@@ -493,7 +491,7 @@ namespace OpenGL
 				throw new ArgumentNullException("criteria");
 
 			// Criteria: PluginName
-			if (criteria.IsDefined(PluginName)) {
+			if (criteria.IsSet(PluginName)) {
 				plugins = plugins.FindAll(delegate(TPlugin obj) {
 					return (obj.Name == (string)criteria[PluginName]);
 				});
@@ -563,7 +561,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
 		/// </returns>
-		public TMediaInfo QueryInfo(string path, MediaCodecCriteria criteria)
+		public TMediaInfo QueryInfo(string path, TMediaCodecCriteria criteria)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -601,7 +599,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
 		/// </returns>
-		public TMediaInfo QueryInfo(Uri uri, MediaCodecCriteria criteria)
+		public TMediaInfo QueryInfo(Uri uri, TMediaCodecCriteria criteria)
 		{
 			if (uri == null)
 				throw new ArgumentNullException("uri");
@@ -641,7 +639,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <typeparamref name="TMediaInfo"/> containing information about the specified media.
 		/// </returns>
-		public TMediaInfo QueryInfo(Stream stream, MediaCodecCriteria criteria)
+		public TMediaInfo QueryInfo(Stream stream, TMediaCodecCriteria criteria)
 		{
 			if (stream == null)
 				throw new ArgumentNullException("stream");
@@ -683,21 +681,21 @@ namespace OpenGL
 		/// <summary>
 		/// Load media from a local file.
 		/// </summary>
-		/// <param name="uri">
+		/// <param name="path">
 		/// A <see cref="String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
 		/// </returns>
-		public TMedia Load(string uri)
+		public TMedia Load(string path)
 		{
-			return (Load(uri, CreateDefaultMediaCodecCriteria()));
+			return (Load(path, CreateDefaultMediaCodecCriteria()));
 		}
 
 		/// <summary>
 		/// Load media from a local file.
 		/// </summary>
-		/// <param name="uri">
+		/// <param name="path">
 		/// A <see cref="String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <param name="criteria">
@@ -707,26 +705,24 @@ namespace OpenGL
 		/// An <typeparamref name="TMedia"/> holding the media data.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// Eception thrown if no media plugin can open <paramref name="uri"/>.
+		/// Eception thrown if no media plugin can open <paramref name="path"/>.
 		/// </exception>
-		public TMedia Load(string uri, MediaCodecCriteria criteria)
+		public TMedia Load(string path, TMediaCodecCriteria criteria)
 		{
-			if (uri == null)
+			if (path == null)
 				throw new ArgumentNullException("uri");
 
-			foreach (string format in GetFormatsFromUrl(uri)) {
-				using (MediaStream ms = new MediaStream(uri, FileMode.Open, FileAccess.Read)) {
-					return (Load(ms, format, criteria));
-				}
+			foreach (string format in GetFormatsFromUrl(path)) {
+				return (Load(path, format, criteria));
 			}
 
-			throw new InvalidOperationException(String.Format("no format recognized from URI \"{0}\"", uri));
+			throw new InvalidOperationException(String.Format("no format recognized from URI \"{0}\"", path));
 		}
 
 		/// <summary>
 		/// Load media from a local file.
 		/// </summary>
-		/// <param name="uri">
+		/// <param name="path">
 		/// A <see cref="String"/> that specify the resource path where the media data is stored.
 		/// </param>
 		/// <param name="format">
@@ -738,14 +734,34 @@ namespace OpenGL
 		/// <returns>
 		/// An <typeparamref name="TMedia"/> holding the media data.
 		/// </returns>
-		public TMedia Load(string uri, string format, MediaCodecCriteria criteria)
+		public virtual TMedia Load(string path, string format, TMediaCodecCriteria criteria)
 		{
-			if (uri == null)
+			if (path == null)
 				throw new ArgumentNullException("uri");
+			if (criteria == null)
+				throw new ArgumentNullException("criteria");
 
-			using (MediaStream ms = new MediaStream(uri, FileMode.Open, FileAccess.Read)) {
-				return (Load(ms, format, criteria));
+			List<TPlugin> supportedPlugins = GetLoadPlugins(format, criteria);
+			StringBuilder exceptionMessage = new StringBuilder();
+
+			foreach (TPlugin plugin in supportedPlugins) {
+				try {
+					// Try to get information
+					return (plugin.Load(path, criteria));
+				} catch (Exception exception) {
+					if (supportedPlugins.Count > 1) {
+						exceptionMessage.AppendLine(String.Format("- '{0}' exception: {1};", plugin.Name, exception.Message));
+						continue;
+					}
+
+					throw new InvalidOperationException(String.Format("no plugin can load media: {0}", exception.Message));
+				}
 			}
+
+			// Remove trailing carriage return.
+			exceptionMessage = exceptionMessage.Remove(exceptionMessage.Length - 1, 1);
+			// Don't returns not assigned information
+			throw new InvalidOperationException(String.Format("no plugin can load media; the reasons are:\n{0}", exceptionMessage));
 		}
 
 		/// <summary>
@@ -794,7 +810,7 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if <paramref name="format"/> is not supported by any loaded plugin.
 		/// </exception>
-		public virtual TMedia Load(Stream stream, string format, MediaCodecCriteria criteria)
+		public virtual TMedia Load(Stream stream, string format, TMediaCodecCriteria criteria)
 		{
 			if (stream == null)
 				throw new ArgumentNullException("stream");
@@ -803,18 +819,7 @@ namespace OpenGL
 			if (stream.CanRead == false)
 				throw new ArgumentException("unable to read from stream");
 
-			List<TPlugin> supportedPlugins = Plugins;
-
-			// Format filtering
-			if (supportedPlugins != null)
-				supportedPlugins = FilterReadPlugins(supportedPlugins, format);
-			if ((supportedPlugins == null) || (supportedPlugins.Count == 0))
-				throw new NotSupportedException(String.Format("format {0} is not supported", format));
-			// Class filtering
-			supportedPlugins = FilterReadPlugins(supportedPlugins, criteria);
-			if ((supportedPlugins == null) || (supportedPlugins.Count == 0))
-				throw new InvalidOperationException("no plugin available");
-
+			List<TPlugin> supportedPlugins = GetLoadPlugins(format, criteria);
 			StringBuilder exceptionMessage = new StringBuilder();
 
 			foreach (TPlugin plugin in supportedPlugins) {
@@ -838,6 +843,23 @@ namespace OpenGL
 			exceptionMessage = exceptionMessage.Remove(exceptionMessage.Length - 1, 1);
 			// Don't returns not assigned information
 			throw new InvalidOperationException(String.Format("no plugin can load media; the reasons are:\n{0}", exceptionMessage));
+		}
+
+		private List<TPlugin> GetLoadPlugins(string format, TMediaCodecCriteria criteria)
+		{
+			List<TPlugin> supportedPlugins = Plugins;
+
+			// Format filtering
+			if (supportedPlugins != null)
+				supportedPlugins = FilterReadPlugins(supportedPlugins, format);
+			if ((supportedPlugins == null) || (supportedPlugins.Count == 0))
+				throw new NotSupportedException(String.Format("format {0} is not supported", format));
+			// Class filtering
+			supportedPlugins = FilterReadPlugins(supportedPlugins, criteria);
+			if ((supportedPlugins == null) || (supportedPlugins.Count == 0))
+				throw new InvalidOperationException("no plugin available");
+
+			return (supportedPlugins);
 		}
 
 		#endregion
@@ -866,7 +888,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// This exception is thrown if no plugin cannot save the image <paramref name="media"/> on <paramref name="path"/>.
 		/// </exception>
-		public void Save(string path, TMedia media, string format, MediaCodecCriteria criteria)
+		public void Save(string path, TMedia media, string format, TMediaCodecCriteria criteria)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -917,7 +939,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// This exception is thrown if no plugin cannot save the media <paramref name="media"/> on the stream <paramref name="stream"/>.
 		/// </exception>
-		public void Save(Stream stream, TMedia media, string format, MediaCodecCriteria criteria)
+		public void Save(Stream stream, TMedia media, string format, TMediaCodecCriteria criteria)
 		{
 			if (stream == null)
 				throw new ArgumentNullException("stream");

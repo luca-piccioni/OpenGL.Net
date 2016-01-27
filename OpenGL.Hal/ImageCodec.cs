@@ -1,20 +1,21 @@
 
-//  Copyright (C) 2009-2013 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
-using System;
 using System.IO;
 
 namespace OpenGL
@@ -22,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Image coder/decoder.
 	/// </summary>
-	public sealed class ImageCodec : MediaCodec<IImageCodecPlugin, Image, ImageInfo>
+	public sealed class ImageCodec : MediaCodec<IImageCodecPlugin, Image, ImageInfo, ImageCodecCriteria>
 	{
 		#region Constructors
 
@@ -35,12 +36,13 @@ namespace OpenGL
 		/// This type is a singleton.
 		/// </summary>
 		private ImageCodec() :
-			base(PluginFactoryType, "DERM_IMAGE_CODEC_DIR")
+			base(PluginFactoryType, "HAL_IMAGE_CODEC_DIR")
 		{
 			// Common media description
 			ExtractDescriptions(typeof(ImageFormat));
 			// Core plugin always registered
 			RegisterPlugin(new CoreImagingImageCodecPlugin());
+			RegisterPlugin(new GdalImageCodecPlugin());
 		}
 
 		/// <summary>
@@ -81,7 +83,7 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if <paramref name="format"/> is not supported by any loaded plugin.
 		/// </exception>
-		public override Image Load(Stream stream, string format, MediaCodecCriteria criteria)
+		public override Image Load(Stream stream, string format, ImageCodecCriteria criteria)
 		{
 			// Base implementation
 			Image image = base.Load(stream, format, criteria);
@@ -97,7 +99,7 @@ namespace OpenGL
 		/// <returns>
 		/// The default media codec criteria.
 		/// </returns>
-		protected override MediaCodecCriteria CreateDefaultMediaCodecCriteria()
+		protected override ImageCodecCriteria CreateDefaultMediaCodecCriteria()
 		{
 			return (new ImageCodecCriteria());
 		}

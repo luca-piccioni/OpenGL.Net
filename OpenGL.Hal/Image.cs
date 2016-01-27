@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2013 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//   
-// This program is distributed in the hope that it will be useful,
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Diagnostics;
@@ -48,27 +50,6 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> indicating the image height, in pixels.
 		/// </param>
 		public Image(PixelLayout format, uint width, uint height)
-			: this(format, width, height, 0)
-		{
-		
-		}
-
-		/// <summary>
-		/// Construct an image.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="PixelLayout"/> indicating the image pixel format.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="UInt32"/> indicating the image width, in pixels.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="UInt32"/> indicating the image height, in pixels.
-		/// </param>
-		/// <param name="modifiers">
-		/// 
-		/// </param>
-		public Image(PixelLayout format, uint width, uint height, ModifierFlags modifiers)
 		{
 			if (format == PixelLayout.None)
 				throw new ArgumentException("invalid", "format");
@@ -79,8 +60,6 @@ namespace OpenGL
 
 			// Allocate
 			Create(format, width, height);
-			// Modifiers are immutable
-			mModifiers = modifiers;
 		}
 
 		#endregion
@@ -107,6 +86,7 @@ namespace OpenGL
 				// Single plane formats
 				case PixelLayout.GRAY8:
 				case PixelLayout.GRAY16:
+				case PixelLayout.GRAY16S:
 				case PixelLayout.GRAYF:
 				case PixelLayout.GRAYHF:
 				case PixelLayout.GRAYAF:
@@ -363,6 +343,7 @@ namespace OpenGL
 				// Single plane formats
 				case PixelLayout.GRAY8:
 				case PixelLayout.GRAY16:
+				case PixelLayout.GRAY16S:
 				case PixelLayout.GRAYF:
 				case PixelLayout.GRAYHF:
 				case PixelLayout.GRAYAF:
@@ -419,35 +400,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Image Modifiers
-
-		/// <summary>
-		/// Image modifier flags.
-		/// </summary>
-		[Flags()]
-		public enum ModifierFlags : ushort
-		{
-			/// <summary>
-			/// No flag.
-			/// </summary>
-			None =						0x0000,
-		}
-
-		/// <summary>
-		/// This Image modifiers.
-		/// </summary>
-		public bool HasModifiers(ModifierFlags flags)
-		{
-			return ((mModifiers & flags) == flags);
-		}
-
-		/// <summary>
-		/// Image modifiers.
-		/// </summary>
-		private readonly ModifierFlags mModifiers = ModifierFlags.None;
-
-		#endregion
-
 		#region Conversions
 
 		/// <summary>
@@ -485,46 +437,6 @@ namespace OpenGL
 		#endregion
 
 		#region Image Transformation
-
-		#region Colors
-
-		/// <summary>
-		/// Transform this image to the negative color image.
-		/// </summary>
-		public void Negative()
-		{
-			IntPtr imageData = ImageBuffer;
-
-			unsafe {
-				byte* hImageDataPtr = (byte*)imageData.ToPointer();
-				byte* hImageDataPtrEnd = hImageDataPtr + Stride * Height;
-
-				for (; hImageDataPtr < hImageDataPtrEnd;) {
-					switch (PixelLayout) {
-						case PixelLayout.GRAY8:
-						case PixelLayout.RGB24:
-						case PixelLayout.BGR24:
-							NegateColorComponent(hImageDataPtr);
-							hImageDataPtr += 1;
-							break;
-						case PixelLayout.GRAY16:
-						case PixelLayout.RGB48:
-						case PixelLayout.BGR48:
-							NegateColorComponent((ushort*)hImageDataPtr);
-							hImageDataPtr += 2;
-							break;
-						default:
-							throw new InvalidOperationException("pixel format " + PixelLayout + " is unsupported for negate colors");
-					}
-				}
-			}
-		}
-
-		private unsafe void NegateColorComponent(byte *color) { *color = (byte)(Byte.MaxValue - *color); }
-
-		private unsafe void NegateColorComponent(ushort *color) { *color = (ushort)(UInt16.MaxValue - *color); }
-
-		#endregion
 
 		#region Flipping
 
