@@ -422,9 +422,6 @@ namespace OpenGL
 		/// <typeparam name="T">
 		/// A structure representing this BufferObject element.
 		/// </typeparam>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
 		/// <param name="value">
 		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
 		/// </param>
@@ -435,7 +432,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(GraphicsContext ctx, T value, UInt64 offset) where T : struct
+		public void Set<T>(T value, UInt64 offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -444,14 +441,65 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Set an element to this mapped BufferObject.
+		/// </summary>
+		/// <param name="value">
+		/// A <see cref="Vertex2f"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
+		/// is stored. This value is expressed in basic machine units (bytes).
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set(Vertex2f value, UInt64 offset)
+		{
+			if (IsMapped == false)
+				throw new InvalidOperationException("not mapped");
+
+			unsafe
+			{
+				byte* bufferPtr = (byte*)MappedBuffer.ToPointer();
+				Vertex2f* bufferItemPtr = (Vertex2f*)(bufferPtr + offset);
+
+				bufferItemPtr[0] = value;
+			}
+		}
+
+		/// <summary>
+		/// Set an element to this mapped BufferObject.
+		/// </summary>
+		/// <param name="value">
+		/// A <see cref="Vertex3f"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
+		/// is stored. This value is expressed in basic machine units (bytes).
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set(Vertex3f value, UInt64 offset)
+		{
+			if (IsMapped == false)
+				throw new InvalidOperationException("not mapped");
+
+			unsafe
+			{
+				byte* bufferPtr = (byte*)MappedBuffer.ToPointer();
+				Vertex3f* bufferItemPtr = (Vertex3f*)(bufferPtr + offset);
+
+				bufferItemPtr[0] = value;
+			}
+		}
+
+		/// <summary>
 		/// Get an element from this mapped BufferObject.
 		/// </summary>
 		/// <typeparam name="T">
 		/// A structure representing this BufferObject element.
 		/// </typeparam>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
 		/// <param name="offset">
 		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject to get the stored
 		/// value. This value is expressed in basic machine units (bytes).
@@ -462,7 +510,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public T Get<T>(GraphicsContext ctx, UInt64 offset) where T : struct
+		public T Get<T>(UInt64 offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -473,9 +521,6 @@ namespace OpenGL
 		/// <summary>
 		/// Get an element from this mapped BufferObject.
 		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for mapping this BufferObject.
-		/// </param>
 		/// <param name="offset">
 		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject to get the stored
 		/// value, in bytes.
@@ -486,7 +531,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public Vertex3f Get(GraphicsContext ctx, UInt64 offset)
+		public Vertex3f Get(UInt64 offset)
 		{
 			unsafe
 			{
