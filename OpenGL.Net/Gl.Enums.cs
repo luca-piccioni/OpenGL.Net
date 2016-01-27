@@ -7745,6 +7745,16 @@ namespace OpenGL
 		/// </summary>
 		TextureCubeMapNegativeZ = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z,
 
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_1D_ARRAY.
+		/// </summary>
+		Texture1dArray = Gl.TEXTURE_1D_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_2D_ARRAY.
+		/// </summary>
+		Texture2dArray = Gl.TEXTURE_2D_ARRAY,
+
 	}
 
 	/// <summary>
