@@ -111,9 +111,6 @@ namespace OpenGL
 		/// <typeparam name="T">
 		/// A structure representing this BufferObject element.
 		/// </typeparam>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
 		/// <param name="value">
 		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
 		/// </param>
@@ -123,9 +120,43 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(GraphicsContext ctx, T value, UInt32 index) where T : struct
+		public void Set<T>(T value, UInt32 index) where T : struct
 		{
-			Set(ctx, value, GetItemOffset(index));
+			Set(value, GetItemOffset(index));
+		}
+
+		/// <summary>
+		/// Set an element to this mapped BufferObject.
+		/// </summary>
+		/// <param name="value">
+		/// A <see cref="Vertex2f"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="UInt32"/> that specify the index of the element to set.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set(Vertex2f value, UInt32 index)
+		{
+			Set(value, GetItemOffset(index));
+		}
+
+		/// <summary>
+		/// Set an element to this mapped BufferObject.
+		/// </summary>
+		/// <param name="value">
+		/// A <see cref="Vertex3f"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="UInt32"/> that specify the index of the element to set.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set(Vertex3f value, UInt32 index)
+		{
+			Set(value, GetItemOffset(index));
 		}
 
 		/// <summary>
@@ -134,9 +165,6 @@ namespace OpenGL
 		/// <typeparam name="T">
 		/// A structure representing this BufferObject element.
 		/// </typeparam>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>
-		/// </param>
 		/// <param name="index">
 		/// A <see cref="UInt32"/> that specify the index of the element to get.
 		/// </param>
@@ -146,17 +174,14 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public T Get<T>(GraphicsContext ctx, UInt32 index) where T : struct
+		public T Get<T>(UInt32 index) where T : struct
 		{
-			return (Get<T>(ctx, GetItemOffset(index)));
+			return (Get<T>(GetItemOffset(index)));
 		}
 
 		/// <summary>
 		/// Get an element from this mapped BufferObject.
 		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for mapping this BufferObject.
-		/// </param>
 		/// <param name="index">
 		/// A <see cref="UInt32"/> that specify the index of the element to get.
 		/// </param>
@@ -166,9 +191,9 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public Vertex3f Get(GraphicsContext ctx, UInt32 index)
+		public Vertex3f Get(UInt32 index)
 		{
-			return (Get(ctx, GetItemOffset(index)));
+			return (Get(GetItemOffset(index)));
 		}
 
 		/// <summary>
