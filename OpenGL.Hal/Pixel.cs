@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -91,7 +91,7 @@ namespace OpenGL
 				if (pixelType == PixelLayout.None)
 					continue;	// Invalid pixel format
 
-				sPixelFormats.Add(pixelType, new PixelLayoutInfo(pixelType));
+				_PixelFormats.Add(pixelType, new PixelLayoutInfo(pixelType));
 			}
 		}
 
@@ -110,10 +110,10 @@ namespace OpenGL
 		/// </returns>
 		public static PixelLayoutInfo GetPixelFormat(PixelLayout type)
 		{
-			if (sPixelFormats.ContainsKey(type) == false)
+			if (_PixelFormats.ContainsKey(type) == false)
 				throw new ArgumentException("unknown pixel type " + type, "type");
 
-			return (sPixelFormats[type]);
+			return (_PixelFormats[type]);
 		}
 
 		public static bool IsLinearFormat(PixelLayout type)
@@ -176,7 +176,7 @@ namespace OpenGL
 		/// <summary>
 		/// Collection of known pixel types.
 		/// </summary>
-		private static readonly Dictionary<PixelLayout, PixelLayoutInfo> sPixelFormats = new Dictionary<PixelLayout, PixelLayoutInfo>();
+		private static readonly Dictionary<PixelLayout, PixelLayoutInfo> _PixelFormats = new Dictionary<PixelLayout, PixelLayoutInfo>();
 
 		#endregion
 
@@ -204,7 +204,7 @@ namespace OpenGL
 			if (dstType == PixelLayout.None)
 				throw new ArgumentException("invalid pixel type None", "dstType");
 
-			return (GetConversionMethod(srcType, dstType, typeof(IntPtr)) != null);
+			return (GetConversionMethod(srcType, dstType) != null);
 		}
 
 		/// <summary>
@@ -235,11 +235,17 @@ namespace OpenGL
 		/// </exception>
 		public static void Convert(object src, PixelLayout srcType, object dst, PixelLayout dstType, uint width, uint height)
 		{
-			MethodInfo mInfo = GetConversionMethod(srcType, dstType, typeof(object));
-
-			if (mInfo == null)
-				throw new NotImplementedException(String.Format("pixel convetion from {0} to {1} not implemented", srcType, dstType));
-			mInfo.Invoke(null, new object[] {src, dst, width, height});
+			GCHandle srcHandle = GCHandle.Alloc(src, GCHandleType.Pinned);
+			try {
+				GCHandle dstHandle = GCHandle.Alloc(src, GCHandleType.Pinned);
+				try {
+					Convert(srcHandle.AddrOfPinnedObject(), srcType, dstHandle.AddrOfPinnedObject(), dstType, width, height);
+				} finally {
+					dstHandle.Free();
+				}
+			} finally {
+				srcHandle.Free();
+			}
 		}
 
 		/// <summary>
@@ -270,11 +276,11 @@ namespace OpenGL
 		/// </exception>
 		public static void Convert(IntPtr src, PixelLayout srcType, IntPtr dst, PixelLayout dstType, uint width, uint height)
 		{
-			MethodInfo mInfo = GetConversionMethod(srcType, dstType, typeof(IntPtr));
+			MethodInfo conversionMethod = GetConversionMethod(srcType, dstType);
 
-			if (mInfo == null)
+			if (conversionMethod == null)
 				throw new NotImplementedException(String.Format("pixel convetion from {0} to {1} not implemented", srcType, dstType));
-			mInfo.Invoke(null, new object[] {src, dst, width, height});
+			conversionMethod.Invoke(null, new object[] {src, dst, width, height});
 		}
 
 		/// <summary>
@@ -423,15 +429,12 @@ namespace OpenGL
 		/// It returns a <see cref="MethodInfo"/> pointing to the conversion method. In the case the conversion
 		/// is not implemeneted, it returns null.
 		/// </returns>
-		private static MethodInfo GetConversionMethod(PixelLayout srcType, PixelLayout dstType, Type dataType)
+		private static MethodInfo GetConversionMethod(PixelLayout srcType, PixelLayout dstType)
 		{
-			if (dataType == null)
-				throw new ArgumentNullException("dataType");
-
 			return (typeof(Pixel).GetMethod(
 				GetConvertionMethodName(srcType, dstType),
 				BindingFlags.NonPublic | BindingFlags.Static, null,
-				new Type[] { dataType, dataType, typeof(uint), typeof(uint) }, null
+				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }, null
 			));
 		}
 
@@ -753,6 +756,29 @@ namespace OpenGL
 		#endregion
 
 		#region Convertion From GRAY
+
+		/// <summary>
+		/// Convert a GRAY16S to GRAY8 pixel array.
+		/// </summary>
+		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="width"></param>
+		/// <param name="height"></param>
+		private static void Convert_GRAY16S_GRAY8(IntPtr src, IntPtr dst, uint width, uint height)
+		{
+			unsafe {
+				const uint srcStride = 2, dstStride = 1;
+
+				short* srcPtr = (short*)src.ToPointer(), srcPtrEnd = srcPtr + width * height * srcStride;
+				byte* dstPtr = (byte*)dst.ToPointer(), dstPtrEnd = dstPtr + width * height * dstStride;
+
+				for (; (srcPtr < srcPtrEnd) && (dstPtr < dstPtrEnd); srcPtr += srcStride, dstPtr += dstStride) {
+					double srcNormalized = *srcPtr / (double)Int16.MaxValue;
+
+					*dstPtr = (byte)(Math.Abs(srcNormalized) * Byte.MaxValue);
+				}
+			}
+		}
 
 		private static void Convert_GRAY8_RGB24(object src, object dst, uint width, uint height)
 		{
@@ -1322,6 +1348,8 @@ namespace OpenGL
 				case PixelLayout.GRAY8:
 				case PixelLayout.GRAY16:
 					return (caps.GlExtensions.TextureSwizzle_ARB);
+				case PixelLayout.GRAY16S:
+					return (caps.GlExtensions.TextureSnorm_EXT);
 				case PixelLayout.GRAYF:
 					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
 				case PixelLayout.GRAYHF:
@@ -1519,6 +1547,7 @@ namespace OpenGL
 
 				case PixelLayout.GRAY8:
 				case PixelLayout.GRAY16:
+				case PixelLayout.GRAY16S:
 				case PixelLayout.GRAYF:
 					return (true);
 				
@@ -1866,6 +1895,8 @@ namespace OpenGL
 					return (Gl.R8);
 				case PixelLayout.GRAY16:
 					return (Gl.R16);
+				case PixelLayout.GRAY16S:
+					return (Gl.R16_SNORM);
 				case PixelLayout.GRAYF:
 					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.R32F);
@@ -2014,6 +2045,7 @@ namespace OpenGL
 
 				case PixelLayout.GRAY8:
 				case PixelLayout.GRAY16:
+				case PixelLayout.GRAY16S:
 				case PixelLayout.GRAYF:
 				case PixelLayout.GRAYHF:
 					return (PixelFormat.Red);
@@ -2165,6 +2197,8 @@ namespace OpenGL
 					return (PixelType.UnsignedByte);
 				case PixelLayout.GRAY16:
 					return (PixelType.UnsignedShort);
+				case PixelLayout.GRAY16S:
+					return (PixelType.Short);
 				case PixelLayout.GRAYF:
 					return (PixelType.Float);
 				case PixelLayout.GRAYHF:

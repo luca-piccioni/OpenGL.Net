@@ -64,6 +64,13 @@ namespace OpenGL
 		[PixelStructure(typeof(ColorGRAY16))]
 		GRAY16,
 		/// <summary>
+		/// Grayscale composed by 16 bits.
+		/// </summary>
+		[PixelColorspace(PixelSpace.Gray)]
+		[PixelComponents(1)]
+		[PixelPrecision(16)]
+		GRAY16S,
+		/// <summary>
 		/// Grayscale composed by floating point number (32 bit IEEE floating point).
 		/// </summary>
 		[PixelColorspace(PixelSpace.Gray)]
