@@ -263,6 +263,14 @@ namespace OpenGL
 		#region OpenGL 3.0 Limits
 
 		/// <summary>
+		/// The maximum number of layers that the array texture support.
+		/// </summary>
+		[GraphicsLimit(Gl.MAX_ARRAY_TEXTURE_LAYERS)]
+		[KhronosApi.CoreExtension(3, 0)]
+		[KhronosApi.Extension("GL_EXT_texture_array")]
+		public int MaxArrayTextureLayers;
+
+		/// <summary>
 		/// The maximum number of color attachments that the frambuffer support.
 		/// </summary>
 		[GraphicsLimit(Gl.MAX_COLOR_ATTACHMENTS)]
