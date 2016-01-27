@@ -16,11 +16,11 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#include </OpenGL/Compatibility>
-#include </OpenGL/EnvironMap/EnvironReflection>
-#include </OpenGL/EnvironMap/EnvironRefraction>
-#include </OpenGL/Light/ILightShading>
-#include </OpenGL/Shadow/ShadowMap>
+#include </OpenGL/Compatibility.glsl>
+//#include </OpenGL/EnvironMap/EnvironReflection>
+//#include </OpenGL/EnvironMap/EnvironRefraction>
+//#include </OpenGL/Light/ILightShading>
+//#include </OpenGL/Shadow/ShadowMap>
 
 // Vertex uniform color
 uniform vec4 hal_UniformColor = vec4(1.0, 1.0, 1.0, 1.0);
@@ -46,7 +46,7 @@ BEGIN_INPUT_BLOCK(hal_PerVertex)
 END_INPUT_BLOCK()
 
 // Fragment color
-OUT vec4		ds_FragColor;
+OUT vec4		hal_FragColor;
 
 // Fragment shader entry point
 void main()
@@ -86,31 +86,31 @@ void main()
 	}
 
 	// Fragment color
-	ds_FragColor = ComputeLightShading(fragmentMaterial, hal_VertexPosition, normalize(hal_VertexNormal));
+	hal_FragColor = ComputeLightShading(fragmentMaterial, hal_VertexPosition, normalize(hal_VertexNormal));
 	
 #elif defined(HAL_LIGHTING_PER_VERTEX)
 
 	int index;
 
 	// Vertex shader computes fragment color
-	ds_FragColor = hal_VertexColor;
+	hal_FragColor = hal_VertexColor;
 
 	// No emission texture support!
 
 	// Diffuse color from texture (modulated with vertex color)
 	index = hal_FrontMaterialDiffuseTexCoord;
 	if (hal_FrontMaterialDiffuseTexCoord >= 0)
-		ds_FragColor = TEXTURE_2D(hal_FrontMaterialDiffuseTexture, hal_VertexTexCoord[index]) * hal_FragColor;
+		hal_FragColor = TEXTURE_2D(hal_FrontMaterialDiffuseTexture, hal_VertexTexCoord[index]) * hal_FragColor;
 
 #elif defined(HAL_COLOR_PER_VERTEX)
 
 	// Vertex shader computes fragment color
-	ds_FragColor = hal_VertexColor;
+	hal_FragColor = hal_VertexColor;
 
 #else
 
 	// Default to uniform color
-	ds_FragColor = hal_UniformColor;
+	hal_FragColor = hal_UniformColor;
 
 #endif
 
@@ -119,7 +119,7 @@ void main()
 	// Test shadow map
 	vec4 shadowAttenuation = ComputeShadowShading();
 	// Modulate color
-	ds_FragColor = hal_FragColor * shadowAttenuation;
+	hal_FragColor = hal_FragColor * shadowAttenuation;
 
 #endif
 
@@ -130,7 +130,7 @@ void main()
 	// Perform reflection computation
 	vec4 reflectedColor = ComputeEnvironmentReflection(-vec3(hal_VertexPosition), hal_VertexNormalModel);
 	// Mix reflected color with material color
-	ds_FragColor += reflectedColor;
+	hal_FragColor += reflectedColor;
 
 #endif
 
@@ -141,7 +141,7 @@ void main()
 	// Perform reflection computation
 	vec4 refractedColor = ComputeEnvironmentRefraction(-vec3(hal_VertexPosition), hal_VertexNormalModel);
 	// Mix reflected color with material color
-	ds_FragColor += refractedColor;
+	hal_FragColor += refractedColor;
 
 #endif
 
@@ -158,9 +158,9 @@ void main()
 
 		// Blend functions: Src=ONE Dst=ONE_MINUS_ALPHA
 		// -> Blend Src in shader (because blend function is ONE)
-		ds_FragColor *= alphaFragment.a;
+		hal_FragColor *= alphaFragment.a;
 		// -> Set Src.a to blend Dst
-		ds_FragColor.a = alphaFragment.a;
+		hal_FragColor.a = alphaFragment.a;
 	}
 
 #endif

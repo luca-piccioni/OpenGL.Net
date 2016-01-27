@@ -57,9 +57,20 @@
 			</Symbols>
 		</Object>
 		
+		<!-- Geometry Clipmap -->
+		<Object Path="OpenGL.Shaders.GeometryClipmap.Vertex.glsl" />
+		<Object Path="OpenGL.Shaders.GeometryClipmap.Fragment.glsl" />
+	
 	</Objects>
 
 	<Programs>
+
+		<!-- Standard -->
+		<Program Id="OpenGL.Standard">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="Fragment" />
+			<Attribute Name="hal_Position" Semantic="Position" />
+		</Program>
 		
 		<!-- Line -->
 		<Program Id="OpenGL.Line">
@@ -82,6 +93,13 @@
 			<Attribute Name="hal_Color" Semantic="Color" />
 		</Program>
 		
+		<!-- Geometry Clipmap -->
+		<Program Id="GeometryClipmap">
+			<Object Path="OpenGL.Shaders.GeometryClipmap.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Shaders.GeometryClipmap.Fragment.glsl" Stage="Fragment" />
+			<Attribute Name="hal_Position" Semantic="Position" />
+		</Program>
+	
 	</Programs>
 	
 </ShadersLibrary>

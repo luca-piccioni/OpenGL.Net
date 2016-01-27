@@ -256,7 +256,7 @@ namespace OpenGL.Hal.Test
 				cronoBuffer.Start();
 				arrayBuffer.Map(_Context, BufferAccessARB.ReadOnly);
 				for (uint i = 0; i < arrayBuffer.ItemCount; i++) {
-					Vertex3f testElement = arrayBuffer.Get(_Context, i); ;
+					Vertex3f testElement = arrayBuffer.Get(i); ;
 					testElement = testElement.Normalized;
 				}
 				arrayBuffer.Unmap(_Context);

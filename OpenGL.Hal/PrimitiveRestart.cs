@@ -23,6 +23,11 @@ namespace OpenGL
 	/// </summary>
 	static class PrimitiveRestart
 	{
+		public static bool IsPrimitiveRestartSupported()
+		{
+			return (GraphicsContext.CurrentCaps.GlExtensions.PrimitiveRestart || GraphicsContext.CurrentCaps.GlExtensions.PrimitiveRestart_NV);
+		}
+
 		public static bool IsPrimitiveRestartSupported(GraphicsContext ctx)
 		{
 			if (ctx == null)
@@ -35,7 +40,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent)
+			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current", "ctx");
 
 			if (ctx.Caps.GlExtensions.PrimitiveRestart) {
@@ -54,12 +59,12 @@ namespace OpenGL
 		
 		public static void EnablePrimitiveRestart(GraphicsContext ctx, ushort index)
 		{
-			EnablePrimitiveRestart(ctx, index);
+			EnablePrimitiveRestart(ctx, (uint)index);
 		}
 		
 		public static void EnablePrimitiveRestart(GraphicsContext ctx, byte index)
 		{
-			EnablePrimitiveRestart(ctx, index);
+			EnablePrimitiveRestart(ctx, (uint)index);
 		}
 		
 		public static void EnablePrimitiveRestart(GraphicsContext ctx, DrawElementsType elementType)

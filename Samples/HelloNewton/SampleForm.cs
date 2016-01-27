@@ -24,88 +24,11 @@ namespace HelloNewton
 			GraphicsContext ctx = e.Context;
 			GraphicsSurface framebuffer = e.Framebuffer;
 
-			// Create Newton program
-			_NewtonProgram = ShadersLibrary.Instance.CreateProgram("Newton");
-			_NewtonProgram.AddFeedbackVarying("hal_VertexPosition");
-			_NewtonProgram.AddFeedbackVarying("hal_VertexSpeed");
-			_NewtonProgram.AddFeedbackVarying("hal_VertexAcceleration");
-			_NewtonProgram.AddFeedbackVarying("hal_VertexMass");
-			_NewtonProgram.Create(ctx);
-
-			// Initialize first vertex array
-			NewtonVertex[] newtonArray = new NewtonVertex[VertexCount];
-			Random random = new Random();
-
-			for (int i = 0; i < newtonArray.Length; i++) {
-				NewtonVertex newtonVertex = new NewtonVertex();
-
-				newtonVertex.Position = new Vertex3f(RandomNormalized(), RandomNormalized(), RandomNormalized());
-				newtonVertex.Speed = new Vertex3f(RandomNormalized(), RandomNormalized(), RandomNormalized());
-				newtonVertex.Acceleration = new Vertex3f();
-				newtonVertex.Mass = RandomNormalized();
-
-				newtonArray[i] = newtonVertex;
-			}
-
-			// Create vertex arrays
-			ArrayBufferObjectBase newtonVertexArrayBuffer1, newtonVertexArrayBuffer2;
-
-			_NewtonVertexArray1 = CreateVertexArray(newtonArray, out newtonVertexArrayBuffer1);
-			_NewtonVertexArray2 = CreateVertexArray(null, out newtonVertexArrayBuffer2);
-
-			_NewtonVertexArray1.SetTransformFeedback(CreateFeedbackBuffer(newtonVertexArrayBuffer2));
-			_NewtonVertexArray2.SetTransformFeedback(CreateFeedbackBuffer(newtonVertexArrayBuffer1));
-
-			_NewtonVertexArray1.Create(ctx);
-			_NewtonVertexArray2.Create(ctx);
-
-			// Starts from initialized buffer
-			_NewtonVertexArray = _NewtonVertexArray1;
+			_GeometryClipmap = new GeometryClipmapObject(4, 3);
+			_GeometryClipmap.Create(ctx);
 
 			// Clear color
 			framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
-		}
-
-		private float RandomNormalized()
-		{
-			return (float)((_Random.NextDouble() - 0.5) * 2.0);
-		}
-
-		private static Random _Random = new Random();
-
-		private VertexArrayObject CreateVertexArray(NewtonVertex[] array, out ArrayBufferObjectBase interleavedArrayBuffer)
-		{
-			VertexArrayObject newtonVertexArray = new VertexArrayObject();
-			ArrayBufferObjectInterleaved newtonVertexArrayBuffer = new ArrayBufferObjectInterleaved(typeof(NewtonVertex), BufferObjectHint.DynamicGpuDraw);
-
-			if (array != null)
-				newtonVertexArrayBuffer.Create(array);
-			else
-				newtonVertexArrayBuffer.Create(VertexCount);
-			newtonVertexArray.SetArray(newtonVertexArrayBuffer, 0, VertexArraySemantic.Position);
-			newtonVertexArray.SetArray(newtonVertexArrayBuffer, 1, VertexArraySemantic.Speed);
-			newtonVertexArray.SetArray(newtonVertexArrayBuffer, 2, VertexArraySemantic.Acceleration);
-			newtonVertexArray.SetArray(newtonVertexArrayBuffer, 3, VertexArraySemantic.Mass);
-			newtonVertexArray.SetElementArray(PrimitiveType.Points);
-
-			interleavedArrayBuffer = newtonVertexArrayBuffer;
-
-			return (newtonVertexArray);
-		}
-
-		const uint VertexCount = 1024;
-
-		private FeedbackBufferObject CreateFeedbackBuffer(ArrayBufferObjectBase interleavedArrayBuffer)
-		{
-			FeedbackBufferObject newtonFeedbackBuffer = new FeedbackBufferObject();
-
-			newtonFeedbackBuffer.AttachArray(0, interleavedArrayBuffer, 0);
-			newtonFeedbackBuffer.AttachArray(1, interleavedArrayBuffer, 1);
-			newtonFeedbackBuffer.AttachArray(2, interleavedArrayBuffer, 2);
-			newtonFeedbackBuffer.AttachArray(3, interleavedArrayBuffer, 3);
-			newtonFeedbackBuffer.EnableRasterizer = true;
-
-			return (newtonFeedbackBuffer);
 		}
 
 		private void SampleGraphicsControl_Render(object sender, GraphicsControlEventArgs e)
@@ -113,68 +36,39 @@ namespace HelloNewton
 			GraphicsContext ctx = e.Context;
 			GraphicsSurface framebuffer = e.Framebuffer;
 
-			if (_AnimationBegin == DateTime.MinValue)
-				_AnimationBegin = DateTime.UtcNow;
-
 			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
 			Matrix4x4 matrixView;
 
 			// Set projection
-			matrixProjection.SetPerspective(60.0f, (float)ClientSize.Width / (float)ClientSize.Height, 1.0f, 1000.0f);
+			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 10000.0f);
 			// Set view
 			ModelMatrix matrixViewModel = new ModelMatrix();
+
+			// Update position
+			KeyTimer_Tick();
+
+			matrixViewModel.Translate(_ViewPosition);
 			matrixViewModel.RotateX(_ViewElevation);
 			matrixViewModel.RotateY(_ViewAzimuth);
 			matrixViewModel.Translate(0.0f, 0.0f, _ViewDistance);
 			matrixView = matrixViewModel.GetInverseMatrix();
 
-			_NewtonProgram.Bind(ctx);
-			_NewtonProgram.SetUniform(ctx, "hal_ModelViewProjection", matrixProjection * matrixView);
-			_NewtonProgram.SetUniform(ctx, "hal_FrameTimeInterval", (float)(DateTime.UtcNow - _AnimationBegin).TotalSeconds);
+			Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
-			_NewtonVertexArray.Draw(ctx, _NewtonProgram);
+			_GeometryClipmap.Draw(ctx, matrixProjection * matrixView);
 
-			SwapNewtonVertexArrays();
-
-			// Issue another rendering
 			SampleGraphicsControl.Invalidate();
 		}
 
-		private void SwapNewtonVertexArrays()
-		{
-			if (ReferenceEquals(_NewtonVertexArray, _NewtonVertexArray2))
-				_NewtonVertexArray = _NewtonVertexArray1;
-			else
-				_NewtonVertexArray = _NewtonVertexArray2;
-		}
+		GeometryClipmapObject _GeometryClipmap;
 
-		/// <summary>
-		/// Program used for rendering the example.
-		/// </summary>
-		ShaderProgram _NewtonProgram;
-
-		/// <summary>
-		/// The actual vertex array used for drawing/computing.
-		/// </summary>
-		VertexArrayObject _NewtonVertexArray;
-
-		/// <summary>
-		/// Vertex arrays (set 1).
-		/// </summary>
-		VertexArrayObject _NewtonVertexArray1;
-
-		/// <summary>
-		/// Vertex arrays (set 2).
-		/// </summary>
-		VertexArrayObject _NewtonVertexArray2;
-
-		DateTime _AnimationBegin = DateTime.MinValue;
-
-		private float _ViewDistance = 2.0f;
+		private float _ViewDistance = 16.0f;
 
 		private float _ViewAzimuth;
 
 		private float _ViewElevation;
+
+		private Vertex3f _ViewPosition;
 
 		private void SampleGraphicsControl_MouseDown(object sender, MouseEventArgs e)
 		{
@@ -200,5 +94,67 @@ namespace HelloNewton
 		}
 
 		private Point _MouseCursor;
+
+		private void SampleGraphicsControl_KeyDown(object sender, KeyEventArgs e)
+		{
+			switch (e.KeyCode) {
+				case Keys.W:
+				case Keys.S:
+				case Keys.A:
+				case Keys.D:
+				case Keys.PageUp:
+				case Keys.PageDown:
+					_PressedKeys[e.KeyCode] = true;
+					break;
+			}
+		}
+
+		private void SampleGraphicsControl_KeyUp(object sender, KeyEventArgs e)
+		{
+			switch (e.KeyCode) {
+				case Keys.W:
+				case Keys.S:
+				case Keys.A:
+				case Keys.D:
+				case Keys.PageUp:
+				case Keys.PageDown:
+					_PressedKeys[e.KeyCode] = false;
+					break;
+			}
+		}
+
+		private void KeyTimer_Tick()
+		{
+			foreach (KeyValuePair<Keys, bool> pair in _PressedKeys) {
+				if (pair.Value == false)
+					continue;
+
+				switch (pair.Key) {
+					case Keys.W:
+						_ViewPosition = _ViewPosition + new Vertex3f(+1.0f, 0.0f, 0.0f);
+						break;
+					case Keys.S:
+						_ViewPosition = _ViewPosition + new Vertex3f(-1.0f, 0.0f, 0.0f);
+						break;
+					case Keys.A:
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, +1.0f);
+						break;
+					case Keys.D:
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, -1.0f);
+						break;
+					case Keys.PageUp:
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, +1.0f, 0.0f);
+						break;
+					case Keys.PageDown:
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, -1.0f, 0.0f);
+						break;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Pressed keys map.
+		/// </summary>
+		private readonly Dictionary<Keys, bool> _PressedKeys = new Dictionary<Keys, bool>();
 	}
 }

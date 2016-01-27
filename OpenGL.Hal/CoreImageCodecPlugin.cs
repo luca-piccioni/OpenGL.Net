@@ -227,7 +227,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region IImageCodecPlugin Overrides
+		#region IImageCodecPlugin Implementation
 
 		/// <summary>
 		/// Plugin name.
@@ -243,6 +243,7 @@ namespace OpenGL
 		/// </returns>
 		public bool CheckAvailability()
 		{
+			// This plugin is always available
 			return (true);
 		}
 
@@ -390,8 +391,8 @@ namespace OpenGL
 		/// <summary>
 		/// Query media informations.
 		/// </summary>
-		/// <param name="stream">
-		/// A <see cref="Stream"/> where the media data is stored.
+		/// <param name="path">
+		/// A <see cref="String"/> that specify the media path.
 		/// </param>
 		/// <param name="criteria">
 		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
@@ -402,7 +403,29 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
 		/// </exception>
-		public ImageInfo QueryInfo(Stream stream, MediaCodecCriteria criteria)
+		public ImageInfo QueryInfo(string path, ImageCodecCriteria criteria)
+		{
+			using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read)) {
+				return (QueryInfo(fs, criteria));
+			}
+		}
+
+		/// <summary>
+		/// Query media informations.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specify the media path.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ImageInfo"/> containing information about the specified media.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		public ImageInfo QueryInfo(Stream stream, ImageCodecCriteria criteria)
 		{
 			if (stream == null)
 				throw new ArgumentNullException("stream");
@@ -411,7 +434,7 @@ namespace OpenGL
 
 			ImageInfo info = new ImageInfo();
 			
-			using (System.Drawing.Bitmap iBitmap = new System.Drawing.Bitmap(stream)) {
+			using (Bitmap iBitmap = new Bitmap(stream)) {
 				PixelLayout iBitmapPixelType;
 				string containerFormat;
 
@@ -442,7 +465,29 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
 		/// </exception>
-		public Image Load(Stream stream, MediaCodecCriteria criteria)
+		public Image Load(string path, ImageCodecCriteria criteria)
+		{
+			using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read)) {
+				return (Load(fs, criteria));
+			}
+		}
+
+		/// <summary>
+		/// Load media from stream.
+		/// </summary>
+		/// <param name="stream">
+		/// A <see cref="Stream"/> where the media data is stored.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
+		/// </param>
+		/// <returns>
+		/// An <see cref="Image"/> holding the media data.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		public Image Load(Stream stream, ImageCodecCriteria criteria)
 		{
 			if (stream == null)
 				throw new ArgumentNullException("stream");
@@ -458,7 +503,7 @@ namespace OpenGL
 
 				// Check for hardware/software support
 				if (Pixel.IsSupportedInternalFormat(pType) == false) {
-					if (criteria.IsDefined(ImageCodecCriteria.SoftwareSupport) && (bool)criteria[ImageCodecCriteria.SoftwareSupport]) {
+					if (criteria.IsSet(ImageCodecCriteria.SoftwareSupport) && (bool)criteria[ImageCodecCriteria.SoftwareSupport]) {
 						// Pixel type not directly supported by hardware... try to guess suitable software conversion
 						pConvType = Pixel.GuessBestSupportedConvertion(pType);
 						if (pConvType == PixelLayout.None)
@@ -514,7 +559,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="bitmap"/> or <see cref="criteria"/> is null.
 		/// </exception>
-		internal static Image LoadFromBitmap(System.Drawing.Bitmap bitmap, MediaCodecCriteria criteria)
+		internal static Image LoadFromBitmap(Bitmap bitmap, ImageCodecCriteria criteria)
 		{
 			if (bitmap == null)
 				throw new ArgumentNullException("bitmap");
@@ -528,7 +573,7 @@ namespace OpenGL
 
 			// Check for hardware/software support
 			if (Pixel.IsSupportedInternalFormat(pType) == false) {
-				if (criteria.IsDefined(ImageCodecCriteria.SoftwareSupport) && ((bool)criteria[ImageCodecCriteria.SoftwareSupport])) {
+				if (criteria.IsSet(ImageCodecCriteria.SoftwareSupport) && ((bool)criteria[ImageCodecCriteria.SoftwareSupport])) {
 					// Pixel type not directly supported by hardware... try to guess suitable software conversion
 					pConvType = Pixel.GuessBestSupportedConvertion(pType);
 					if (pConvType == PixelLayout.None)
@@ -583,7 +628,7 @@ namespace OpenGL
 		/// Exception thrown if <paramref name="image"/> line stride is greater than <paramref name="bitmap"/> line
 		/// stride. This never happens if <paramref name="image"/> is dimensionally compatible with <paramref name="bitmap"/>.
 		/// </exception>
-		private static void LoadBitmapByLockBits(System.Drawing.Bitmap bitmap, Image image)
+		private static void LoadBitmapByLockBits(Bitmap bitmap, Image image)
 		{
 			if (bitmap == null)
 				throw new ArgumentNullException("bitmap");
@@ -642,7 +687,7 @@ namespace OpenGL
 		/// This method is very memory consuming, because cloning cause to use additionally memory.
 		/// </para>
 		/// </remarks>
-		private static void LoadBitmapByPixel(System.Drawing.Bitmap bitmap, Image image)
+		private static void LoadBitmapByPixel(Bitmap bitmap, Image image)
 		{
 			if (bitmap == null)
 				throw new ArgumentNullException("bitmap");
@@ -685,7 +730,7 @@ namespace OpenGL
 		/// This method is very memory consuming, because cloning cause to use additionally memory.
 		/// </para>
 		/// </remarks>
-		private static void LoadBitmapByClone(System.Drawing.Bitmap bitmap, Image image)
+		private static void LoadBitmapByClone(Bitmap bitmap, Image image)
 		{
 			if (bitmap == null)
 				throw new ArgumentNullException("bitmap");
@@ -700,6 +745,31 @@ namespace OpenGL
 			// Clone image converting the pixel format
 			using (System.Drawing.Bitmap clonedBitmap = bitmap.Clone(new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height), iBitmapFormat)) {
 				LoadBitmapByLockBits(clonedBitmap, image);
+			}
+		}
+
+		/// <summary>
+		/// Save media to stream.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specify the media path.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="Image"/> holding the data to be stored.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="String"/> that specify the media format to used for saving <paramref name="image"/>.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an image stream.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/>, <paramref name="image"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		public void Save(string path, Image image, string format, ImageCodecCriteria criteria)
+		{
+			using (FileStream fs = new FileStream(path, FileMode.CreateNew, FileAccess.Write)) {
+				Save(fs, image, format, criteria);
 			}
 		}
 
@@ -721,23 +791,25 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="stream"/>, <paramref name="image"/> or <paramref name="criteria"/> is null.
 		/// </exception>
-		public void Save(Stream stream, Image image, string format, MediaCodecCriteria criteria)
+		public void Save(Stream stream, Image image, string format, ImageCodecCriteria criteria)
 		{
-			Bitmap iBitmap;
-			System.Drawing.Imaging.ImageFormat iBitmapFormat;
-			System.Drawing.Imaging.PixelFormat iBitmapPixelFormat;
+			System.Drawing.Imaging.ImageFormat bitmapFormat;
+			System.Drawing.Imaging.PixelFormat bitmapPixelFormat;
 			int iBitmapFlags;
 
-			ConvertImageFormat(format, out iBitmapFormat);
-			ConvertPixelFormat(image.PixelLayout, out iBitmapPixelFormat, out iBitmapFlags);
+			ConvertImageFormat(format, out bitmapFormat);
+			ConvertPixelFormat(image.PixelLayout, out bitmapPixelFormat, out iBitmapFlags);
 
 			// Obtain source and destination data pointers
-			using (iBitmap = new Bitmap((int)image.Width, (int)image.Height, iBitmapPixelFormat)) {
+			using (Bitmap bitmap = new Bitmap((int)image.Width, (int)image.Height, bitmapPixelFormat)) {
+
+				#region Copy Image To Bitmap
+
 				BitmapData iBitmapData = null;
 				IntPtr imageData = image.ImageBuffer;
 
 				try {
-					iBitmapData = iBitmap.LockBits(new System.Drawing.Rectangle(0, 0, iBitmap.Width, iBitmap.Height), ImageLockMode.ReadOnly, iBitmap.PixelFormat);
+					iBitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadOnly, bitmap.PixelFormat);
 
 					// Copy Image data dst Bitmap
 					unsafe {
@@ -756,18 +828,38 @@ namespace OpenGL
 					}
 				} finally {
 					if (iBitmapData != null)
-						iBitmap.UnlockBits(iBitmapData);
+						bitmap.UnlockBits(iBitmapData);
 				}
+
+				#endregion
+
+				#region Support Indexed Pixel Formats
+
+				if ((iBitmapFlags & (int)ImageFlags.ColorSpaceGray) != 0) {
+					ColorPalette bitmapPalette = bitmap.Palette;
+
+					switch (bitmapPixelFormat) {
+						case System.Drawing.Imaging.PixelFormat.Format8bppIndexed:
+							// Create grayscale palette
+							for (int i = 0; i <= 255; i++)
+								bitmapPalette.Entries[i] = Color.FromArgb(i, i, i);
+							break;
+					}
+
+					bitmap.Palette = bitmapPalette;
+				}
+
+				#endregion
 
 				// Save image with the specified format
 				ImageCodecInfo encoderInfo = Array.Find(ImageCodecInfo.GetImageEncoders(), delegate(ImageCodecInfo item) {
-					return (item.FormatID == iBitmapFormat.Guid);
+					return (item.FormatID == bitmapFormat.Guid);
 				});
 
 				EncoderParameters encoderParams = null;
 
 				try {
-					EncoderParameters encoderInfoParamList = iBitmap.GetEncoderParameterList(encoderInfo.Clsid);
+					EncoderParameters encoderInfoParamList = bitmap.GetEncoderParameterList(encoderInfo.Clsid);
 					EncoderParameter[] encoderInfoParams = encoderInfoParamList != null ? encoderInfoParamList.Param : null;
 					bool supportQuality = false;
 					int paramsCount = 0;
@@ -790,10 +882,10 @@ namespace OpenGL
 					// Encoder does not support parameters
 				}
 
-				iBitmap.Save(stream, encoderInfo, encoderParams);
+				bitmap.Save(stream, encoderInfo, encoderParams);
 			}
 		}
 
-#endregion
+		#endregion
 	}
 }

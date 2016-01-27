@@ -20,3 +20,4 @@ packages
 /*.sdf
 /Samples/HelloNewton/obj
 /Samples/HelloNewton/bin
+/GLSpecs/.UpdatedSpecs

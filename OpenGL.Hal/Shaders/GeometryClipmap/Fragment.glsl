@@ -16,22 +16,13 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#ifndef HAL_NEWTON_STATE
-#define HAL_NEWTON_STATE
+// Vertex color
+in vec4 hal_VertexColor;
 
-/// Model of center of gravity
-struct CenterOfGravity
+// The fragment color
+out vec4 hal_FragColor;
+
+void main()
 {
-	/// Position of the center of gravity.
-	vec3 Position;
-	/// Mass of the center of gravity.
-	float Mass;
-};
-
-/// Gravity points
-uniform CenterOfGravity hal_GravityPoints[5];
-
-// Number of valid gravity points.
-uniform int hal_GravityPointsCount = 0;
-
-#endif
+	hal_FragColor = hal_VertexColor;
+}

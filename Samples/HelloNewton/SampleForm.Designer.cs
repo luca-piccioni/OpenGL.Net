@@ -42,6 +42,8 @@
 			this.SampleGraphicsControl.TabIndex = 0;
 			this.SampleGraphicsControl.GraphicsContextCreated += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.SampleGraphicsControl_GraphicsContextCreated);
 			this.SampleGraphicsControl.Render += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.SampleGraphicsControl_Render);
+			this.SampleGraphicsControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SampleGraphicsControl_KeyDown);
+			this.SampleGraphicsControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SampleGraphicsControl_KeyUp);
 			this.SampleGraphicsControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SampleGraphicsControl_MouseDown);
 			this.SampleGraphicsControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SampleGraphicsControl_MouseMove);
 			// 

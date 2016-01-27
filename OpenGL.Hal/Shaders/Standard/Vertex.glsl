@@ -19,7 +19,7 @@
 
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
-#include </OpenGL/Light/ILightShading.glsl>
+// #include </OpenGL/Light/ILightShading.glsl>
 
 // Vertex position
 ATTRIBUTE vec4 hal_Position;
@@ -50,11 +50,11 @@ END_OUTPUT_BLOCK()
 void main()
 {
 	// Compute transformed vertex position
-	gl_Position = ProjectVertexPosition(ds_Position);
+	gl_Position = hal_ModelViewProjection * hal_Position;
 	// Normal is required for lighting
-	hal_VertexNormal = hal_NormalMatrix * normalize(ds_Normal);
+	hal_VertexNormal = hal_NormalMatrix * normalize(hal_Normal);
 	// Normal (model) is required for environment mapping
-	hal_VertexNormalModel = mat3x3(ds_ModelView) * normalize(ds_Normal);
+	hal_VertexNormalModel = mat3x3(hal_ModelView) * normalize(hal_Normal);
 	// Vertex texture coordinate "as is"
 	hal_VertexTexCoord[0] = hal_TexCoord0;
 	hal_VertexTexCoord[1] = hal_TexCoord1;

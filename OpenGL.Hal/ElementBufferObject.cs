@@ -154,7 +154,7 @@ namespace OpenGL
 		#region Primitive Restart
 		
 		/// <summary>
-		/// The restart index enabled.
+		/// Flag that specify whether the restart index is enabled for this ElementBufferObject. It defaults always to false.
 		/// </summary>
 		public bool RestartIndexEnabled;
 
