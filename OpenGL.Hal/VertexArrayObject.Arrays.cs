@@ -97,6 +97,12 @@ namespace OpenGL
 				if (shaderProgram != null) {
 					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
 
+					// Avoid rendundant buffer binding and relative vertex array setup
+					if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && IsDirty == false) {
+						CheckVertexAttribute(ctx, attributeBinding);
+						return;
+					}
+
 					// Enable/Disable shader attribute
 					if (ArrayBuffer != null)
 						EnableVertexAttribute(ctx, attributeBinding);
@@ -177,7 +183,16 @@ namespace OpenGL
 
 			#region Shader Attributes
 
-			private void EnableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
+			/// <summary>
+			/// Enable the generic vertex attribute.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
+			/// </param>
+			/// <param name="attributeBinding">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
+			/// </param>
+			internal virtual void EnableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
 			{
 				ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
@@ -226,21 +241,17 @@ namespace OpenGL
 				Gl.EnableVertexAttribArray(attributeBinding.Location);
 			}
 
-			private void DisableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
+			/// <summary>
+			/// Disable the generic vertex attribute.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
+			/// </param>
+			/// <param name="attributeBinding">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
+			/// </param>
+			internal virtual void DisableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
 			{
-				// Avoid rendundant buffer binding and relative vertex array setup
-				if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && IsDirty == false) {
-#if DEBUG
-					// Check effective state
-					int vertexAttribArrayEnabled;
-
-					// Attribute enabled
-					Gl.GetVertexAttrib(attributeBinding.Location, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, out vertexAttribArrayEnabled);
-					Debug.Assert(vertexAttribArrayEnabled == Gl.TRUE);
-#endif
-					return;
-				}
-
 				// Enable vertex attribute
 				Gl.DisableVertexAttribArray(attributeBinding.Location);
 			}
@@ -358,6 +369,86 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// An instanced vertex array buffer.
+		/// </summary>
+		protected internal class InstancedVertexArray : VertexArray
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct an InstancedVertexArray for enabling instanced vertex attribute.
+			/// </summary>
+			/// <param name="arrayBuffer">
+			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array buffer.
+			/// </param>
+			/// <param name="sectionIndex">
+			/// A <see cref="UInt32"/> that specify the section of <paramref name="arrayBuffer"/>.
+			/// </param>
+			/// <param name="divisor">
+			/// A <see cref="UInt32"/> that specify the number of instances that will pass between updates of the generic attribute.
+			/// </param>
+			public InstancedVertexArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor) :
+				base(arrayBuffer, sectionIndex)
+			{
+				if (divisor == 0)
+					throw new ArgumentException("invalid value", "divisor");
+
+				Divisor = divisor;
+			}
+
+			#endregion
+
+			#region Instanced Array Information
+
+			/// <summary>
+			/// The number of instances that will pass between updates of the generic attribute.
+			/// </summary>
+			public readonly uint Divisor;
+
+			#endregion
+
+			#region VertexArray Overrides
+
+			/// <summary>
+			/// Enable the generic vertex attribute.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
+			/// </param>
+			/// <param name="attributeBinding">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
+			/// </param>
+			internal override void EnableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
+			{
+				// Base implementation
+				base.EnableVertexAttribute(ctx, attributeBinding);
+				// Attribute divisor
+				Gl.VertexAttribDivisor(attributeBinding.Location, Divisor);
+			}
+
+			/// <summary>
+			/// Disable the generic vertex attribute.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
+			/// </param>
+			/// <param name="attributeBinding">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
+			/// </param>
+			internal override void DisableVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
+			{
+				// Base implementation
+				base.DisableVertexAttribute(ctx, attributeBinding);
+				// Attribute divisor (not instanced)
+				Gl.VertexAttribDivisor(attributeBinding.Location, 0);
+			}
+
+			#endregion
+		}
+
+		#region SetArray
+
+		/// <summary>
 		/// Link an array buffer to an attribute of this vertex array.
 		/// </summary>
 		/// <param name="arrayBuffer">
@@ -390,30 +481,10 @@ namespace OpenGL
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");
 
-			VertexArray vertexArray, previousVertexArray;
-
-			// Dispose previous vertex array
-			if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
-				previousVertexArray.Dispose();
-			// Map buffer object with attribute name
-			_VertexArrays[attributeName] = vertexArray = new VertexArray(arrayBuffer, sectionIndex);
-
-			// Map buffer object with input name including block name also
-			if (blockName != null) {
-				// Attribute referenced in block
-				attributeName = String.Format("{0}.{1}", blockName, attributeName);
-
-				// Dispose previous vertex array
-				if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
-					previousVertexArray.Dispose();
-				// Map buffer object with attribute name
-				_VertexArrays[attributeName] = vertexArray;
-			}
-
+			// Set vertex array
+			SetVertexArray(new VertexArray(arrayBuffer, sectionIndex), attributeName, blockName);
 			// Compute the actual vertex array length
 			UpdateVertexArrayLength();
-			// Update vertex arrays
-			_VertexArrayDirty = true;
 		}
 
 		/// <summary>
@@ -496,6 +567,177 @@ namespace OpenGL
 		public void SetArray(ArrayBufferObjectBase arrayBuffer, string semantic)
 		{
 			SetArray(arrayBuffer, 0, semantic, SemanticBlockName);
+		}
+
+		#endregion
+
+		#region SetInstancedArray
+
+		/// <summary>
+		/// Link an array buffer to an attribute of this vertex array.
+		/// </summary>
+		/// <param name="arrayBuffer">
+		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
+		/// </param>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the name of the attribute variable.
+		/// </param>
+		/// <param name="blockName">
+		/// A <see cref="String"/> that specify the name of the attribute block encolosing <paramref name="semantic"/>. It
+		/// can be null.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="sectionIndex"/> specify an invalid section of <paramref name="arrayBuffer"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid input name.
+		/// </exception>
+		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor, string attributeName, string blockName)
+		{
+			if (GraphicsContext.CurrentCaps.GlExtensions.InstancedArrays == false)
+				throw new InvalidOperationException("instanced arrays not support by current implementation");
+			if (String.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid name", "attributeName");
+
+			// Set vertex array
+			SetVertexArray(new InstancedVertexArray(arrayBuffer, sectionIndex, divisor), attributeName, blockName);
+			// Note: instanced vertex arrays do not contribute to vertex array length. Do not update vertex arrays length
+		}
+
+		/// <summary>
+		/// Set an array buffer to this vertex array.
+		/// </summary>
+		/// <param name="arrayBuffer">
+		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
+		/// </param>
+		/// <param name="inputName">
+		/// A <see cref="String"/> that specify the name of the input variable.
+		/// </param>
+		/// <param name="blockName">
+		/// A <see cref="String"/> that specify the name of the input block encolosing <paramref name="inputName"/>. It
+		/// can be null.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
+		/// </exception>
+		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint divisor, string inputName, string blockName)
+		{
+			SetInstancedArray(arrayBuffer, 0, divisor, inputName, blockName);
+		}
+
+		/// <summary>
+		/// Set an array buffer to this vertex array.
+		/// </summary>
+		/// <param name="arrayBuffer">
+		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
+		/// </param>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the attribute semantic. Normally a constant of <see cref="VertexArraySemantic"/>.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="sectionIndex"/> specify an invalid section of <paramref name="arrayBuffer"/>.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
+		/// </exception>
+		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor, string semantic)
+		{
+			SetInstancedArray(arrayBuffer, sectionIndex, divisor, semantic, SemanticBlockName);
+		}
+
+		/// <summary>
+		/// Set an array buffer to this vertex array.
+		/// </summary>
+		/// <param name="arrayBuffer">
+		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// </param>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the attribute semantic. Normally a constant of <see cref="VertexArraySemantic"/>.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="arrayBuffer"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="arrayBuffer"/> has no items.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
+		/// </exception>
+		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint divisor, string semantic)
+		{
+			SetInstancedArray(arrayBuffer, 0, divisor, semantic, SemanticBlockName);
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Set an array buffer object collected by this vertex array object.
+		/// </summary>
+		/// <param name="vertexArray">
+		/// The <see cref="VertexArray"/> that defined the vertex attribute buffer.
+		/// </param>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the attribute name.
+		/// </param>
+		/// <param name="blockName">
+		/// A <see cref="String"/> that specify the attribute block declaring <paramref name="attributeName"/>.
+		/// </param>
+		protected void SetVertexArray(VertexArray vertexArray, string attributeName, string blockName)
+		{
+			if (vertexArray == null)
+				throw new ArgumentNullException("vertexArray");
+			if (String.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid name", "attributeName");
+
+			VertexArray previousVertexArray;
+
+			// Dispose previous vertex array
+			if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
+				previousVertexArray.Dispose();
+			// Map buffer object with attribute name
+			_VertexArrays[attributeName] = vertexArray;
+
+			// Map buffer object with input name including block name also
+			if (blockName != null) {
+				// Attribute referenced in block
+				attributeName = String.Format("{0}.{1}", blockName, attributeName);
+
+				// Dispose previous vertex array
+				if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
+					previousVertexArray.Dispose();
+				// Map buffer object with attribute name
+				_VertexArrays[attributeName] = vertexArray;
+			}
+
+			// Update vertex arrays
+			_VertexArrayDirty = true;
 		}
 
 		/// <summary>

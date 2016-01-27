@@ -82,6 +82,17 @@ namespace OpenGL
 			/// </param>
 			public abstract void Draw(GraphicsContext ctx);
 
+			/// <summary>
+			/// Draw the elements instances
+			/// </summary>
+			///  <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="instances">
+			/// A <see cref="UInt32"/> that specify the number of instances to draw.
+			/// </param>
+			public abstract void DrawInstanced(GraphicsContext ctx, uint instances);
+
 			#endregion
 
 			#region IDisposable Implementation
@@ -177,6 +188,22 @@ namespace OpenGL
 				Gl.DrawArrays(ElementsMode, (int)ElementOffset, (int)count);
 			}
 
+			/// <summary>
+			/// Draw the elements instances
+			/// </summary>
+			///  <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="instances">
+			/// A <see cref="UInt32"/> that specify the number of instances to draw.
+			/// </param>
+			public override void DrawInstanced(GraphicsContext ctx, uint instances)
+			{
+				uint count = ElementCount != 0 ? ElementCount : _VertexArrayObject.ArrayLength;
+
+				Gl.DrawArraysInstanced(ElementsMode, (int)ElementOffset, (int)count, (int)instances);
+			}
+
 			#endregion
 		}
 
@@ -254,6 +281,20 @@ namespace OpenGL
 					throw new ArgumentException("not current", "ctx");
 
 				Gl.MultiDrawArrays(ElementsMode, ArrayOffsets, ArrayCounts, ArrayOffsets.Length);
+			}
+
+			/// <summary>
+			/// Draw the elements instances
+			/// </summary>
+			///  <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="instances">
+			/// A <see cref="UInt32"/> that specify the number of instances to draw.
+			/// </param>
+			public override void DrawInstanced(GraphicsContext ctx, uint instances)
+			{
+				throw new NotSupportedException();
 			}
 
 			#endregion
@@ -370,13 +411,11 @@ namespace OpenGL
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
-					Debug.Assert(ElementCount != 0, "specified ElementCount but primitive restart enabled");
-
 					if (PrimitiveRestart.IsPrimitiveRestartSupported(ctx)) {
 						// Enable primitive restart
 						PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
 						// Draw elements as usual
-						Gl.DrawElements(ElementsMode, (int)ElementCount, ArrayIndices.ElementsType, arraySection.Pointer);
+						DrawElements(ctx, arraySection.Pointer);
 						// Disable primitive restart
 						PrimitiveRestart.DisablePrimitiveRestart(ctx);
 					} else {
@@ -389,8 +428,81 @@ namespace OpenGL
 					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
 
 					// Draw vertex arrays by indices
-					Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, arraySection.Pointer);
+					DrawElements(ctx, arraySection.Pointer);
 				}
+			}
+
+			/// <summary>
+			/// Draw the elements instances
+			/// </summary>
+			///  <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="instances">
+			/// A <see cref="UInt32"/> that specify the number of instances to draw.
+			/// </param>
+			public override void DrawInstanced(GraphicsContext ctx, uint instances)
+			{
+				if (ctx == null)
+					throw new ArgumentNullException("ctx");
+				if (ctx.IsCurrent == false)
+					throw new ArgumentException("not current", "ctx");
+
+				ArrayBufferObjectBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
+				Debug.Assert(arraySection != null);
+
+				// Element array must be (re)bound
+				ArrayIndices.Bind(ctx);
+
+				// Enable restart primitive?
+				if (ArrayIndices.RestartIndexEnabled) {
+					if (PrimitiveRestart.IsPrimitiveRestartSupported(ctx)) {
+						// Enable primitive restart
+						PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
+						// Draw elements as usual
+						DrawElementsInstanced(ctx, arraySection.Pointer, instances);
+						// Disable primitive restart
+						PrimitiveRestart.DisablePrimitiveRestart(ctx);
+					} else {
+						throw new NotSupportedException();
+					}
+				} else {
+					uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
+					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+
+					// Draw vertex arrays by indices
+					DrawElementsInstanced(ctx, arraySection.Pointer, instances);
+				}
+			}
+
+			/// <summary>
+			/// Draw the elements indices.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			protected virtual void DrawElements(GraphicsContext ctx, IntPtr pointer)
+			{
+				uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
+				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+
+				// Draw elements as usual
+				Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer);
+			}
+
+			/// <summary>
+			/// Draw the elements indices.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			protected virtual void DrawElementsInstanced(GraphicsContext ctx, IntPtr pointer, uint instances)
+			{
+				uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
+				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+
+				// Draw elements
+				Gl.DrawElementsInstanced(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer, (int)instances);
 			}
 
 			/// <summary>
@@ -477,8 +589,6 @@ namespace OpenGL
 		{
 			if (bufferObject == null)
 				throw new ArgumentNullException("bufferObject");
-			if (bufferObject.RestartIndexEnabled && (count != 0))
-				throw new ArgumentException("invalid count", "count");
 
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject, offset, count));

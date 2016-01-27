@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2015 Luca Piccioni
+// Copyright (C) 2011-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL
@@ -89,6 +88,63 @@ namespace OpenGL
 
 				attributeElement.Draw(ctx);
 				
+				if (_FeedbackBuffer != null)
+					_FeedbackBuffer.End(ctx);
+			}
+		}
+
+		/// <summary>
+		/// Draw a number of instances of the attributes of this vertex array.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for rendering.
+		/// </param>
+		/// <param name="instances">
+		/// A <see cref="UInt32"/> that specify the number of instances to draw.
+		/// </param>
+		public virtual void DrawInstanced(GraphicsContext ctx, uint instances)
+		{
+			DrawInstanced(ctx, null, instances);
+		}
+
+		/// <summary>
+		/// Draw a number of instances of the attributes of this vertex array.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for rendering.
+		/// </param>
+		/// <param name="shader">
+		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
+		/// </param>
+		/// <param name="instances">
+		/// A <see cref="UInt32"/> that specify the number of instances to draw.
+		/// </param>
+		public virtual void DrawInstanced(GraphicsContext ctx, ShaderProgram shader, uint instances)
+		{
+			CheckThisExistence(ctx);
+
+			if (shader != null && shader.Exists(ctx) == false)
+				throw new ArgumentException("not existing", "shader");
+
+			// If vertex was modified after creation, don't miss to create array buffers
+			if (_VertexArrayDirty) CreateObject(ctx);
+
+			// Set vertex arrays
+			SetVertexArrayState(ctx, shader);
+
+			// Fixed or programmable pipeline?
+			if ((shader == null) && (ctx.Caps.GlExtensions.VertexShader_ARB == true))
+				ShaderProgram.Unbind(ctx);
+			else if (shader != null)
+				shader.Bind(ctx);
+
+			// Issue rendering using shader
+			foreach (Element attributeElement in DrawElements) {
+				if (_FeedbackBuffer != null)
+					_FeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
+
+				attributeElement.DrawInstanced(ctx, instances);
+
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.End(ctx);
 			}
