@@ -10,13 +10,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenGL</RootNamespace>
     <AssemblyName>OpenGL.Hal</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,6 +28,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,11 +38,47 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.3\lib\net35-full\log4net.dll</HintPath>
+    <Reference Include="gdalconst_csharp">
+      <HintPath>..\Libs\gdal-csharp\gdalconst_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="gdal_csharp">
+      <HintPath>..\Libs\gdal-csharp\gdal_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="ogr_csharp">
+      <HintPath>..\Libs\gdal-csharp\ogr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="osr_csharp">
+      <HintPath>..\Libs\gdal-csharp\osr_csharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -66,8 +104,11 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="GdalImageCodecPlugin.cs" />
+    <Compile Include="GeometryClipmapObject.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="State\UniformColorState.cs" />
+    <Compile Include="TextureArray2d.cs" />
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
@@ -145,6 +186,7 @@
     <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="ObjectAccessor.cs" />
     <Compile Include="ArrayBufferObjectPacked.cs" />
+    <None Include="packages.config" />
     <None Include="PatchArrayObject.cs" />
     <Compile Include="Pixel.cs" />
     <Compile Include="PixelColorspaceAttribute.cs" />
@@ -183,8 +225,8 @@
     <Compile Include="ShadersLibrary.cs" />
     <Compile Include="ShaderObject.cs" />
     <Compile Include="ShaderProgram.cs" />
-    <Compile Include="ShaderProgramUniform.cs" />
-    <Compile Include="ShaderProgramVariantUniform.cs" />
+    <Compile Include="ShaderProgram.Uniform.cs" />
+    <Compile Include="ShaderProgram.VariantUniform.cs" />
     <Compile Include="ShaderSourcePreprocessor.cs" />
     <Compile Include="ShaderStage.cs" />
     <Compile Include="ShaderUniformType.cs" />
@@ -221,6 +263,8 @@
     <Compile Include="VertexArrayObject.Elements.cs" />
     <Compile Include="VertexArraySemantic.cs" />
     <Compile Include="VertexBaseType.cs" />
+    <EmbeddedResource Include="Shaders\GeometryClipmap\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\GeometryClipmap\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj">
@@ -232,7 +276,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <EmbeddedResource Include="Shaders\Compatibility.glsl" />
     <EmbeddedResource Include="Shaders\Light\BlinnShading.glsl" />
     <EmbeddedResource Include="Shaders\Light\ConstantShading.glsl" />
