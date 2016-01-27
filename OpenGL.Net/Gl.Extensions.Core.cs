@@ -32,6 +32,14 @@ namespace OpenGL
 			/// </summary>
 			[CoreExtension(3, 1)]
 			public bool PrimitiveRestart;
+
+			/// <summary>
+			/// Core support for instanced arrays
+			/// </summary>
+			[CoreExtension(3, 2)]
+			[Extension("GL_ARB_instanced_arrays")]
+			[ExtensionSupport("gl")]
+			public bool InstancedArrays;
 		}
 	}
 }
