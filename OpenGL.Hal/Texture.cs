@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -19,6 +19,8 @@
 using System;
 using System.Diagnostics;
 
+using OSGeo.GDAL;
+
 namespace OpenGL
 {
 	/// <summary>
@@ -34,7 +36,7 @@ namespace OpenGL
 	/// (<see cref="Texture3d"/>), cube mapped (<see cref="TextureCube"/>).
 	/// </para>
 	/// </remarks>
-	[DebuggerDisplay("Texture Pixel:{PixelLayout}")]
+	[DebuggerDisplay("Texture: Pixel={PixelLayout}")]
 	public abstract class Texture : GraphicsResource
 	{
 		#region Internal Format
@@ -80,15 +82,13 @@ namespace OpenGL
 		public bool AutoReleaseData
 		{
 			get { return (_AutoRelease); }
-			set {
-				_AutoRelease = value;
-			}
+			set { _AutoRelease = value; }
 		}
 
 		/// <summary>
 		/// Flag for releasing data on upload.
 		/// </summary>
-		private bool _AutoRelease = true;
+		private bool _AutoRelease = GraphicsContext.CurrentCaps.GlExtensions.TextureObject_EXT;
 
 		#endregion
 
@@ -613,6 +613,7 @@ namespace OpenGL
 
 					case PixelLayout.GRAY8:
 					case PixelLayout.GRAY16:
+					case PixelLayout.GRAY16S:
 					case PixelLayout.GRAYF:
 					case PixelLayout.GRAYHF:
 						// Emulated Gl.LUMINANCE textel format
@@ -789,11 +790,6 @@ namespace OpenGL
 		public abstract TextureTarget TextureTarget { get; }
 
 		/// <summary>
-		/// Determine whether this Texture has a valid target.
-		/// </summary>
-		public bool HasValidTarget { get { return (TextureTarget != 0); } }
-
-		/// <summary>
 		/// Bind this Texture.
 		/// </summary>
 		/// <param name="ctx">
@@ -863,6 +859,11 @@ namespace OpenGL
 		#endregion
 
 		#region Technique
+
+		/// <summary>
+		/// Get whether the Texture has data to be updated.
+		/// </summary>
+		public bool IsDirty { get { return (_Technique != null); } }
 
 		/// <summary>
 		/// Technique for creating Texture2d objects.
@@ -944,41 +945,11 @@ namespace OpenGL
 		/// </exception>
 		public override bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-		
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (Gl.IsTexture(ObjectName));
-		}
-
-		/// <summary>
-		/// Create the texture and support repeated texture definitions.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object. The object space of this <see cref="GraphicsContext"/> is used
-		/// to generate <see cref="GraphicsResource.ObjectName"/>, and all contextes sharing lists with this parameter can handle this IGraphicsResource.
-		/// The <see cref="GraphicsContext"/> shall be current to the calling thread.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="ctx"/> is not current to the calling thread.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the object has been already created.
-		/// </exception>
-		public override void Create(GraphicsContext ctx)
-		{
-			if (Exists(ctx) == false)
-				base.Create(ctx);			// Create and update texture
-			else
-				CreateObject(ctx);			// Update texture
+			return (!ctx.Caps.GlExtensions.TextureObject_EXT || Gl.IsTexture(ObjectName));
 		}
 
 		/// <summary>
@@ -1019,8 +990,7 @@ namespace OpenGL
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 
 			// Bind this texture
 			Bind(ctx);
