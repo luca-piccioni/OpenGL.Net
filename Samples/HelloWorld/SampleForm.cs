@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using OpenGL;
+using OpenGL.Scene;
 
 namespace HelloNewton
 {
@@ -25,7 +20,11 @@ namespace HelloNewton
 			GraphicsSurface framebuffer = e.Framebuffer;
 
 			_GeometryClipmap = new GeometryClipmapObject(4, 3);
-			_GeometryClipmap.Create(ctx);
+			//_GeometryClipmap.Create(ctx);
+
+			_GeometryClipmapScene = new SceneGraph();
+			_GeometryClipmapScene.AddChild(_GeometryClipmap);
+			_GeometryClipmapScene.Create(ctx);
 
 			// Clear color
 			framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
@@ -40,7 +39,7 @@ namespace HelloNewton
 			Matrix4x4 matrixView;
 
 			// Set projection
-			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 10000.0f);
+			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 150000.0f);
 			// Set view
 			ModelMatrix matrixViewModel = new ModelMatrix();
 
@@ -55,10 +54,15 @@ namespace HelloNewton
 
 			Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
-			_GeometryClipmap.Draw(ctx, matrixProjection * matrixView);
+			_GeometryClipmapScene.LocalProjection = matrixProjection;
+			_GeometryClipmapScene.LocalModel = (IModelMatrix)matrixView;
+            _GeometryClipmapScene.Draw(ctx);
+            //_GeometryClipmap.Draw(ctx, matrixProjection * matrixView);
 
 			SampleGraphicsControl.Invalidate();
 		}
+
+		SceneGraph _GeometryClipmapScene;
 
 		GeometryClipmapObject _GeometryClipmap;
 
@@ -68,7 +72,7 @@ namespace HelloNewton
 
 		private float _ViewElevation;
 
-		private Vertex3f _ViewPosition;
+		private Vertex3f _ViewPosition = new Vertex3f(0.0f, 25.0f, 0.0f);
 
 		private void SampleGraphicsControl_MouseDown(object sender, MouseEventArgs e)
 		{
