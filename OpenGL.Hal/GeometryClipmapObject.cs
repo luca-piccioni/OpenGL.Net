@@ -169,9 +169,15 @@ namespace OpenGL
 			public ClipmapBlockInstance(uint n, uint m, int x, int y, uint lod, ColorRGBAF color)
 			{
 				float scale = (float)Math.Pow(2.0, lod);
+				float positionOffset = -1.0f;
+
+				//float xPosition = x * scale + positionOffset;
+				//float yPosition = y * scale + positionOffset;
+				float xPosition = (x + positionOffset) * scale;
+				float yPosition = (y + positionOffset) * scale;
 
 				// Position offset and scale
-				Offset = new Vertex4f((x - 1) * scale, (y - 1) * scale, (m - 1) * scale, (m - 1) * scale);
+				Offset = new Vertex4f(xPosition, yPosition, (m - 1) * scale, (m - 1) * scale);
 				// Texture coordinate offset and scale
 				float texOffset = 0.5f;
 				float texScale = (n + 1) / 3601.0f;
@@ -225,6 +231,16 @@ namespace OpenGL
 		/// </summary>
 		private readonly List<ClipmapBlockInstance> _ClipmapRingFixesV = new List<ClipmapBlockInstance>();
 
+		/// <summary>
+		/// Interior (horizontal).
+		/// </summary>
+		private readonly List<ClipmapBlockInstance> _ClipmapInteriorH = new List<ClipmapBlockInstance>();
+
+		/// <summary>
+		/// Interior (vertical).
+		/// </summary>
+		private readonly List<ClipmapBlockInstance> _ClipmapInteriorV = new List<ClipmapBlockInstance>();
+
 		#endregion
 
 		#region Drawing
@@ -246,6 +262,8 @@ namespace OpenGL
 			_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapBlocks.Count);
 			_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapRingFixesH.Count);
 			_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapRingFixesV.Count);
+			_InteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapInteriorH.Count);
+			_InteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapInteriorV.Count);
 		}
 
 		/// <summary>
@@ -258,7 +276,11 @@ namespace OpenGL
 			int semiStripStride = ((int)StripStride - 1) / 2;
 			int xBlock, yBlock;
 
-			#region Position Array
+			#region Clipmap Blocks
+
+			#region Position
+
+			// Note: this array is shared with ring fixes (horizontal)
 
 			// Create position array buffer ((n+1) x (n+1) vertices equally spaced)
 			ArrayBufferObject<Vertex2f> arrayBufferPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
@@ -277,7 +299,9 @@ namespace OpenGL
 
 			#endregion
 
-			#region Elements Array
+			#region Elements
+
+			// Note: this array is shared with ring fixes (horizontal)
 
 			// Create elements indices
 			ElementBufferObject<ushort> arrayBufferIndices = new ElementBufferObject<ushort>(BufferObjectHint.StaticCpuDraw);
@@ -304,7 +328,7 @@ namespace OpenGL
 
 			#endregion
 
-			#region Clipmap Blocks
+			#region Instances
 
 			ArrayBufferObjectInterleaved<ClipmapBlockInstance> instancedBlockArray = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.StaticCpuDraw);
 
@@ -336,7 +360,7 @@ namespace OpenGL
 				_ClipmapBlocks.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level));
 				// Line 3 - 1 right
 				xBlock = +semiStripStride - BlockSubdivs;
-                _ClipmapBlocks.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level));
+				_ClipmapBlocks.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level));
 
 				// Line 4
 				yBlock = +semiStripStride - BlockSubdivs;
@@ -352,6 +376,10 @@ namespace OpenGL
 
 			instancedBlockArray.Create(_ClipmapBlocks.ToArray());
 
+			#endregion
+
+			#region Vertex Array
+
 			// Create blocks array
 			_BlockArray = new VertexArrayObject();
 
@@ -366,7 +394,11 @@ namespace OpenGL
 
 			#endregion
 
+			#endregion
+
 			#region Clipmap Ring Fixes (Horizontal)
+
+			#region Instances
 
 			ColorRGBAF RingFixColor = new ColorRGBAF(1.0f, 0.0f, 1.0f);
 
@@ -382,6 +414,10 @@ namespace OpenGL
 			}
 
 			instancedRingArrayH.Create(_ClipmapRingFixesH.ToArray());
+
+			#endregion
+
+			#region Vertex Array
 
 			// Create ring fixes array
 			_RingFixArrayH = new VertexArrayObject();
@@ -399,9 +435,13 @@ namespace OpenGL
 
 			#endregion
 
+			#endregion
+
 			#region Clipmap Ring Fixes (Vertical)
 
-			// Create custom elements indices for 
+			#region Elements
+
+			// Create custom elements indices for ring fixes (vertical only)
 			ElementBufferObject<ushort> arrayBufferIndicesV = new ElementBufferObject<ushort>(BufferObjectHint.StaticCpuDraw);
 			List<ushort> arrayBufferElementsV = new List<ushort>();
 
@@ -424,6 +464,10 @@ namespace OpenGL
 
 			arrayBufferIndicesV.Create(arrayBufferElementsV.ToArray());
 
+			#endregion
+
+			#region Instances
+
 			ArrayBufferObjectInterleaved<ClipmapBlockInstance> instancedRingArrayV = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.StaticCpuDraw);
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
@@ -437,6 +481,10 @@ namespace OpenGL
 
 			instancedRingArrayV.Create(_ClipmapRingFixesV.ToArray());
 
+			#endregion
+
+			#region Vertex Array
+
 			// Create ring fixes array
 			_RingFixArrayV = new VertexArrayObject();
 
@@ -449,6 +497,92 @@ namespace OpenGL
 			_RingFixArrayV.SetInstancedArray(instancedRingArrayV, 3, 1, "hal_BlockColor", null);
 
 			_RingFixArrayV.SetElementArray(PrimitiveType.TriangleStrip, arrayBufferIndicesV);
+
+			#endregion
+
+			#endregion
+
+			#region Interiors (Horizontal)
+
+			#region Instances
+
+			ColorRGBAF InteriorColor = new ColorRGBAF(1.0f, 1.0f, 0.0f);
+
+			ArrayBufferObjectInterleaved<ClipmapBlockInstance> instancedInteriorArrayH = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.StaticCpuDraw);
+
+			for (ushort level = 0; level < ClipmapLevels; level++) {
+				yBlock = -semiStripStride - 2;
+				xBlock = -semiStripStride - 2;
+				for (int i = 0; i < 4; i++, xBlock += BlockSubdivs)
+					_ClipmapInteriorH.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, InteriorColor));
+
+				yBlock = -semiStripStride - 2;
+				xBlock = +semiStripStride - BlockSubdivs;
+				_ClipmapInteriorH.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, InteriorColor));
+			}
+
+			instancedInteriorArrayH.Create(_ClipmapInteriorH.ToArray());
+
+			#endregion
+
+			#region Vertex Array
+
+			_InteriorArrayH = new VertexArrayObject();
+
+			// Reuse position array buffer for ring fixes (horizontal)
+			_InteriorArrayH.SetArray(arrayBufferPosition, VertexArraySemantic.Position);
+
+			_InteriorArrayH.SetInstancedArray(instancedInteriorArrayH, 0, 1, "hal_BlockOffset", null);
+			_InteriorArrayH.SetInstancedArray(instancedInteriorArrayH, 1, 1, "hal_MapOffset", null);
+			_InteriorArrayH.SetInstancedArray(instancedInteriorArrayH, 2, 1, "hal_Lod", null);
+			_InteriorArrayH.SetInstancedArray(instancedInteriorArrayH, 3, 1, "hal_BlockColor", null);
+
+			// Reuse indices array buffer, but limiting to 2 triangle strips
+			_InteriorArrayH.SetElementArray(PrimitiveType.TriangleStrip, arrayBufferIndices, 0, BlockVertices * 4 + 3);
+
+			#endregion
+
+			#endregion
+
+			#region Interiors (Vertical)
+
+			#region Instances
+
+			ColorRGBAF OuterColor = new ColorRGBAF(0.7f, 0.7f, 0.0f);
+
+			ArrayBufferObjectInterleaved<ClipmapBlockInstance> instancedInteriorArrayV = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.StaticCpuDraw);
+
+			for (ushort level = 0; level < ClipmapLevels; level++) {
+				xBlock = -semiStripStride - 2;
+				yBlock = -semiStripStride - 2;
+				for (int i = 0; i < 4; i++, yBlock += BlockSubdivs)
+					_ClipmapInteriorV.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, OuterColor));
+
+				xBlock = -semiStripStride - 2;
+				yBlock = +semiStripStride - BlockSubdivs;
+				_ClipmapInteriorV.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, OuterColor));
+			}
+
+			instancedInteriorArrayV.Create(_ClipmapInteriorV.ToArray());
+
+			#endregion
+
+			#region Vertex Array
+
+			_InteriorArrayV = new VertexArrayObject();
+
+			// Reuse position array buffer for ring fixes (horizontal)
+			_InteriorArrayV.SetArray(arrayBufferPosition, VertexArraySemantic.Position);
+
+			_InteriorArrayV.SetInstancedArray(instancedInteriorArrayV, 0, 1, "hal_BlockOffset", null);
+			_InteriorArrayV.SetInstancedArray(instancedInteriorArrayV, 1, 1, "hal_MapOffset", null);
+			_InteriorArrayV.SetInstancedArray(instancedInteriorArrayV, 2, 1, "hal_Lod", null);
+			_InteriorArrayV.SetInstancedArray(instancedInteriorArrayV, 3, 1, "hal_BlockColor", null);
+
+			// Reuse indices array buffer, but limiting to 2 triangle strips
+			_InteriorArrayV.SetElementArray(PrimitiveType.TriangleStrip, arrayBufferIndicesV);
+
+			#endregion
 
 			#endregion
 		}
@@ -472,6 +606,16 @@ namespace OpenGL
 		/// Vertex arrays for drawing 
 		/// </summary>
 		private VertexArrayObject _RingFixArrayV;
+
+		/// <summary>
+		/// Vertex arrays for drawing interiors.
+		/// </summary>
+		private VertexArrayObject _InteriorArrayH;
+
+		/// <summary>
+		/// Vertex arrays for drawing interiors.
+		/// </summary>
+		private VertexArrayObject _InteriorArrayV;
 
 		/// <summary>
 		/// Elevation texture.
@@ -566,6 +710,8 @@ namespace OpenGL
 			_BlockArray.Create(ctx);
 			_RingFixArrayH.Create(ctx);
 			_RingFixArrayV.Create(ctx);
+			_InteriorArrayH.Create(ctx);
+			_InteriorArrayV.Create(ctx);
 			// Create elevation texture
 			uint elevationTextureSize = (uint)((BlockVertices + 1) * 2);
 
@@ -608,6 +754,16 @@ namespace OpenGL
 				if (_RingFixArrayV != null) {
 					_RingFixArrayV.Dispose();
 					_RingFixArrayV = null;
+				}
+
+				if (_InteriorArrayH != null) {
+					_InteriorArrayH.Dispose();
+					_InteriorArrayH = null;
+				}
+
+				if (_InteriorArrayV != null) {
+					_InteriorArrayV.Dispose();
+					_InteriorArrayV = null;
 				}
 
 				foreach (ClipmapLevel clipmapLevel in _ClipmapLevels)
