@@ -106,6 +106,9 @@
     <Compile Include="ArrayBufferObjectBase.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="GeometryClipmapObject.cs" />
+    <Compile Include="Scene\SceneGraph.cs" />
+    <Compile Include="Scene\SceneGraphContext.cs" />
+    <Compile Include="Scene\SceneGraphObject.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="State\UniformColorState.cs" />
     <Compile Include="TextureArray2d.cs" />
