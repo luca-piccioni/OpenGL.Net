@@ -197,7 +197,7 @@ namespace OpenGL.State
 				if (attribute == null)
 					continue;
 
-				uniformMembers.Add(uniformField.Name, new UniformStateMember(uniformField, GetFieldUniformValue));
+				uniformMembers.Add("hal_" + uniformField.Name, new UniformStateMember(uniformField, GetFieldUniformValue));
 			}
 
 			// Properties
@@ -206,14 +206,14 @@ namespace OpenGL.State
 			foreach (PropertyInfo uniformProperty in uniformProperties) {
 				if (uniformProperty.CanRead == false)
 					continue;
-				if (uniformProperty.GetIndexParameters() != null)
+				if (uniformProperty.GetIndexParameters().Length > 0)
 					continue;
 
 				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformProperty, typeof(ShaderUniformStateAttribute));
 				if (attribute == null)
 					continue;
 
-				uniformMembers.Add(uniformProperty.Name, new UniformStateMember(uniformProperty, GetPropertyUniformValue));
+				uniformMembers.Add("hal_" + uniformProperty.Name, new UniformStateMember(uniformProperty, GetPropertyUniformValue));
 			}
 
 			return (uniformMembers);
@@ -245,8 +245,9 @@ namespace OpenGL.State
 
 			Dictionary<string, UniformStateMember> uniformState = UniformState;
 
-			foreach (string uniformName in shaderProgram.ActiveUniforms) {
+			foreach (string activeUniform in shaderProgram.ActiveUniforms) {
 				UniformStateMember uniformStateMember;
+				string uniformName = activeUniform;
 
 				// Get the underlying member
 				if (uniformState.TryGetValue(uniformName, out uniformStateMember) == false)
@@ -303,10 +304,10 @@ namespace OpenGL.State
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			CheckCurrentContext(ctx);
+			CheckThatExistence(ctx, shaderProgram);
 
-			if (shaderProgram == null)
-				throw new ArgumentNullException("shaderProgram");
-
+			// Program must be bound
+			shaderProgram.Bind(ctx);
 			// Apply uniforms found using reflection
 			ApplyState(ctx, shaderProgram, String.Empty);
 		}

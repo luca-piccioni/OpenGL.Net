@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
+
 using OpenGL.State;
 
 namespace OpenGL.Scene
@@ -23,7 +25,7 @@ namespace OpenGL.Scene
 	/// <summary>
 	/// Context used for drawing a SceneGraph.
 	/// </summary>
-	public sealed class SceneGraphContext
+	public sealed class SceneGraphContext : IDisposable
 	{
 		#region Graphics State Stack
 
@@ -31,6 +33,18 @@ namespace OpenGL.Scene
 		/// The <see cref="GraphicsStateSetStack"/> supporting state variation during the scene graph traversal.
 		/// </summary>
 		public readonly GraphicsStateSetStack GraphicsStateStack = new GraphicsStateSetStack();
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+		/// </summary>
+		public void Dispose()
+		{
+			GraphicsStateStack.Dispose();
+		}
 
 		#endregion
 	}

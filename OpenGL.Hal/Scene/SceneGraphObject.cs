@@ -35,7 +35,8 @@ namespace OpenGL.Scene
 		/// </summary>
 		public SceneGraphObject()
 		{
-
+			// The graphics state TransformState is always defined
+			_ObjectState.DefineState(new TransformState());
 		}
 
 		#endregion
@@ -71,6 +72,31 @@ namespace OpenGL.Scene
 		/// Children drawn after this SceneGraphObject.
 		/// </summary>
 		private readonly List<SceneGraphObject> _Children = new List<SceneGraphObject>();
+
+		#endregion
+
+		#region Local Model
+
+		/// <summary>
+		/// The local projection: the projection matrix of the current verte arrays, without considering inherited
+		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
+		/// previous state.
+		/// </summary>
+		public IMatrix4x4 LocalProjection
+		{
+			get { return (((TransformState)_ObjectState[TransformState.StateId]).LocalProjection); }
+			set { ((TransformState)_ObjectState[TransformState.StateId]).LocalProjection = value; }
+		}
+
+		/// <summary>
+		/// The local model: the transformation of the current vertex arrays object space, without considering
+		/// inherited transform states of parent objects.
+		/// </summary>
+		public IModelMatrix LocalModel
+		{
+			get { return (((TransformState)_ObjectState[TransformState.StateId]).LocalModel); }
+			set { ((TransformState)_ObjectState[TransformState.StateId]).LocalModel.Set(value); }
+		}
 
 		#endregion
 
@@ -115,7 +141,7 @@ namespace OpenGL.Scene
 		/// <param name="ctxScene">
 		/// The <see cref="SceneGraphContext"/> used for drawing.
 		/// </param>
-		public virtual void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
+		protected virtual void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			// Do nothing by default. This basic implementation support:
 			// - Graphics state changes
@@ -230,6 +256,9 @@ namespace OpenGL.Scene
 			// Allocate all resources
 			foreach (IGraphicsResource graphicsResource in _Resources)
 				graphicsResource.Create(ctx);
+			// Propagate creation to hierarchy
+			foreach (SceneGraphObject sceneGraphObject in _Children)
+				sceneGraphObject.Create(ctx);
 		}
 
 		/// <summary>
@@ -249,6 +278,10 @@ namespace OpenGL.Scene
 				foreach (IGraphicsResource graphicsResource in _Resources)
 					graphicsResource.DecRef();
 				_Resources.Clear();
+
+				// Propagate disposition to hierarchy
+				foreach (SceneGraphObject sceneGraphObject in _Children)
+					sceneGraphObject.Dispose();
 			}
 		}
 

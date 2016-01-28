@@ -35,10 +35,10 @@ namespace OpenGL.Scene
 		{
 			CheckCurrentContext(ctx);
 
-			SceneGraphContext ctxScene = new SceneGraphContext();
-
-			// Base implementation
-			base.Draw(ctx, ctxScene);
+			using (SceneGraphContext ctxScene = new SceneGraphContext()) {
+				// Base implementation
+				base.Draw(ctx, ctxScene);
+			}
 		}
 
 		#endregion

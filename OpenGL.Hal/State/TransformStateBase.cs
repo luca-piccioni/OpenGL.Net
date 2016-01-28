@@ -194,7 +194,7 @@ namespace OpenGL.State
 			if (otherState.LocalProjection != null)
 				LocalProjection = otherState.LocalProjection;
 			// Affine local model
-			LocalModel.Multiply(otherState.LocalModel);
+			LocalModel.Set(LocalModel.Multiply(otherState.LocalModel));
 		}
 
 		/// <summary>

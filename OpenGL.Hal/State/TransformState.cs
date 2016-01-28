@@ -24,7 +24,7 @@ namespace OpenGL.State
 	/// <summary>
 	/// State tracking the transformation state (single-precision implementation).
 	/// </summary>
-	[DebuggerDisplay("TransformState View={View} Transform={TransformModel} ModelView={ModelView} LocalModel={LocalModel}")]
+	[DebuggerDisplay("TransformState LocalModel={LocalModel} LocalProjection={LocalProjection} LocalModel={LocalModel}")]
 	public class TransformState : TransformStateBase
 	{
 		#region Constructors
@@ -89,7 +89,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The local model-view matrix of this state.
 		/// </summary>
-		private readonly ModelMatrix _LocalModel = new ModelMatrix();
+		private ModelMatrix _LocalModel = new ModelMatrix();
 
 		/// <summary>
 		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
@@ -100,11 +100,15 @@ namespace OpenGL.State
 		/// </returns>
 		public override IGraphicsState Copy()
 		{
-			TransformState copiedState = new TransformState();		// Do not use base.Copy()!
-			
+			TransformState copiedState = (TransformState)base.Copy();
+
+			if (_LocalProjection != null)
+				copiedState._LocalProjection = new Matrix4x4(_LocalProjection);
+			copiedState._LocalModel = new ModelMatrix(_LocalModel);
+
 			return (copiedState);
 		}
 
-#endregion
+		#endregion
 	}
 }

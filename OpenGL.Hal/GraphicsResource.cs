@@ -259,9 +259,34 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
 		/// </exception>
+		[Conditional("DEBUG")]
 		protected void CheckThisExistence(GraphicsContext ctx)
 		{
 			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
+		}
+
+		/// <summary>
+		/// Check whether this <see cref="GraphicsResource"/> exists for the specified <see cref="GraphicsContext"/>.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for checking existence.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
+		/// </exception>
+		[Conditional("DEBUG")]
+		protected internal static void CheckThatExistence(GraphicsContext ctx, IGraphicsResource resource)
+		{
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+			if (resource.Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 		}
 

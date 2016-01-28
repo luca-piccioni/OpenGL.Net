@@ -105,7 +105,7 @@
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
-    <Compile Include="GeometryClipmapObject.cs" />
+    <Compile Include="Scene\GeometryClipmapObject.cs" />
     <Compile Include="Scene\SceneGraph.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />
     <Compile Include="Scene\SceneGraphObject.cs" />

@@ -19,12 +19,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenGL
+namespace OpenGL.Scene
 {
 	/// <summary>
 	/// Geometry clipmap implementation.
 	/// </summary>
-	public class GeometryClipmapObject : GraphicsResource
+	public class GeometryClipmapObject : SceneGraphObject
 	{
 		#region Constructors
 
@@ -50,7 +50,16 @@ namespace OpenGL
 			_ClipmapLevels = new ClipmapLevel[levels];
 			// Define geometry clipmap program
 			_GeometryClipmapProgram = ShadersLibrary.Instance.CreateProgram("GeometryClipmap");
-			_GeometryClipmapProgram.IncRef();
+			// Create elevation texture
+			uint elevationTextureSize = (uint)((BlockVertices + 1) * 2);
+
+			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
+			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
+			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
+
+			LinkResource(_ElevationTexture);
 			// Define geometry clipmap vertex arrays
 			CreateVertexArrays();
 		}
@@ -243,28 +252,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Drawing
-
-		/// <summary>
-		/// Draw the attributes of this vertex array.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for rendering.
-		/// </param>
-		public void Draw(GraphicsContext ctx, IMatrix4x4 modelviewproj)
-		{
-			_GeometryClipmapProgram.Bind(ctx);
-			_GeometryClipmapProgram.ResetTextureUnits();
-			_GeometryClipmapProgram.SetUniform(ctx, "hal_ModelViewProjection", modelviewproj);
-			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
-
-			// Draw clipmap blocks using instanced rendering
-			_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapBlocks.Count);
-			_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapRingFixesH.Count);
-			_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapRingFixesV.Count);
-			_InteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapInteriorH.Count);
-			_InteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapInteriorV.Count);
-		}
+		#region Resources
 
 		/// <summary>
 		/// Create vertex arrays required for drawing the geometry clipmap blocks.
@@ -509,11 +497,12 @@ namespace OpenGL
 			ColorRGBAF InteriorColor = new ColorRGBAF(1.0f, 1.0f, 0.0f);
 
 			ArrayBufferObjectInterleaved<ClipmapBlockInstance> instancedInteriorArrayH = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.StaticCpuDraw);
+			int interiorInstancesCountH = ((int)StripStride + 1) / BlockSubdivs;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
 				yBlock = -semiStripStride - 2;
 				xBlock = -semiStripStride - 2;
-				for (int i = 0; i < 4; i++, xBlock += BlockSubdivs)
+				for (int i = 0; i < interiorInstancesCountH; i++, xBlock += BlockSubdivs)
 					_ClipmapInteriorH.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, InteriorColor));
 
 				yBlock = -semiStripStride - 2;
@@ -551,11 +540,12 @@ namespace OpenGL
 			ColorRGBAF OuterColor = new ColorRGBAF(0.7f, 0.7f, 0.0f);
 
 			ArrayBufferObjectInterleaved<ClipmapBlockInstance> instancedInteriorArrayV = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.StaticCpuDraw);
+			int interiorInstancesCountV = ((int)StripStride + 1) / BlockSubdivs;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
 				xBlock = -semiStripStride - 2;
 				yBlock = -semiStripStride - 2;
-				for (int i = 0; i < 4; i++, yBlock += BlockSubdivs)
+				for (int i = 0; i < interiorInstancesCountV; i++, yBlock += BlockSubdivs)
 					_ClipmapInteriorV.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, OuterColor));
 
 				xBlock = -semiStripStride - 2;
@@ -585,6 +575,13 @@ namespace OpenGL
 			#endregion
 
 			#endregion
+
+			LinkResource(_GeometryClipmapProgram);
+			LinkResource(_BlockArray);
+			LinkResource(_RingFixArrayH);
+			LinkResource(_RingFixArrayV);
+			LinkResource(_InteriorArrayH);
+			LinkResource(_InteriorArrayV);
 		}
 
 		/// <summary>
@@ -624,152 +621,28 @@ namespace OpenGL
 
 		#endregion
 
-		#region GraphicsResource Overrides
+		#region SceneGraphObject Overrides
 
-		/// <summary>
-		/// GeometryClipmapObject class.
-		/// </summary>
-		internal static readonly Guid ThisObjectClass = new Guid("5340F306-B36B-46EA-8F5B-0886BB0FB78B");
-
-		/// <summary>
-		/// GeometryClipmapObject class.
-		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
-
-		/// <summary>
-		/// Determine whether this object requires a name bound to a context or not.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
-		/// </param>
-		/// <returns>
-		/// <para>
-		/// This implementation returns always false.
-		/// </para>
-		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx) { return (false); }
-
-		/// <summary>
-		/// Determine whether this GeometryClipmapObject really exists for a specific context.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that would have created (or a sharing one) the object. This context shall be current to
-		/// the calling thread.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether this GeometryClipmapObject exists in the object space of <paramref name="ctx"/>.
-		/// </returns>
-		/// <remarks>
-		/// <para>
-		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
-		/// <paramref name="ctx"/> has created this GeometryClipmapObject (or is sharing with the creator).
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		public override bool Exists(GraphicsContext ctx)
+		protected override void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			// Object name space test (and 'ctx' sanity checks)
-			if (base.Exists(ctx) == false)
-				return (false);
+			if (ctxScene == null)
+				throw new ArgumentNullException("ctx");
 
-			return (true);
-		}
-
-		/// <summary>
-		/// Actually create this BufferObject resources.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject has not client memory allocated and the hint is different from
-		/// <see cref="BufferObjectHint.StaticCpuDraw"/> or <see cref="BufferObjectHint.DynamicCpuDraw"/>.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is currently mapped.
-		/// </exception>
-		protected override void CreateObject(GraphicsContext ctx)
-		{
 			CheckCurrentContext(ctx);
 
-			// Create shader program
-			if (_GeometryClipmapProgram.Exists(ctx) == false)
-				_GeometryClipmapProgram.Create(ctx);
-			// Create vertex arrays
-			_BlockArray.Create(ctx);
-			_RingFixArrayH.Create(ctx);
-			_RingFixArrayV.Create(ctx);
-			_InteriorArrayH.Create(ctx);
-			_InteriorArrayV.Create(ctx);
-			// Create elevation texture
-			uint elevationTextureSize = (uint)((BlockVertices + 1) * 2);
+			ctxScene.GraphicsStateStack.Current.Apply(ctx, _GeometryClipmapProgram);
 
-			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
-			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
-			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
-			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
-			_ElevationTexture.Create(ctx);
-		}
+			_GeometryClipmapProgram.Bind(ctx);
+			//_GeometryClipmapProgram.ResetTextureUnits();
+			//_GeometryClipmapProgram.SetUniform(ctx, "hal_ModelViewProjection", modelviewproj);
+			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
 
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
-		/// </summary>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown in the case <see cref="GraphicsResource.RefCount"/> is greater than zero. This means that the method is trying to dispose
-		/// an object that is actually referenced by something else.
-		/// </exception>
-		protected override void Dispose(bool disposing)
-		{
-			// Base implementation
-			base.Dispose(disposing);
-
-			if (disposing == true) {
-				if (_GeometryClipmapProgram != null) {
-					_GeometryClipmapProgram.DecRef();
-					_GeometryClipmapProgram = null;
-				}
-
-				if (_BlockArray != null) {
-					_BlockArray.Dispose();
-					_BlockArray = null;
-				}
-
-				if (_RingFixArrayH != null) {
-					_RingFixArrayH.Dispose();
-					_RingFixArrayH = null;
-				}
-
-				if (_RingFixArrayV != null) {
-					_RingFixArrayV.Dispose();
-					_RingFixArrayV = null;
-				}
-
-				if (_InteriorArrayH != null) {
-					_InteriorArrayH.Dispose();
-					_InteriorArrayH = null;
-				}
-
-				if (_InteriorArrayV != null) {
-					_InteriorArrayV.Dispose();
-					_InteriorArrayV = null;
-				}
-
-				foreach (ClipmapLevel clipmapLevel in _ClipmapLevels)
-					if (clipmapLevel != null)
-						clipmapLevel.Dispose();
-			}
+			// Draw clipmap blocks using instanced rendering
+			_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapBlocks.Count);
+			_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapRingFixesH.Count);
+			_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapRingFixesV.Count);
+			_InteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapInteriorH.Count);
+			_InteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, (uint)_ClipmapInteriorV.Count);
 		}
 
 		#endregion
