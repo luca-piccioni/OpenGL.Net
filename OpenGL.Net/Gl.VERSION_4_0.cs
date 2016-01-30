@@ -1118,6 +1118,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glUniform1dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
+		public static unsafe void Uniform1(Int32 location, Int32 count, double* value)
+		{
+			Debug.Assert(Delegates.pglUniform1dv != null, "pglUniform1dv not implemented");
+			Delegates.pglUniform1dv(location, count, value);
+			LogFunction("glUniform1dv({0}, {1}, 0x{2})", location, count, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glUniform2dv.
 		/// </summary>
 		/// <param name="location">
@@ -1141,6 +1163,28 @@ namespace OpenGL
 					LogFunction("glUniform2dv({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glUniform2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
+		public static unsafe void Uniform2(Int32 location, Int32 count, double* value)
+		{
+			Debug.Assert(Delegates.pglUniform2dv != null, "pglUniform2dv not implemented");
+			Delegates.pglUniform2dv(location, count, value);
+			LogFunction("glUniform2dv({0}, {1}, 0x{2})", location, count, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1172,6 +1216,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glUniform3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
+		public static unsafe void Uniform3(Int32 location, Int32 count, double* value)
+		{
+			Debug.Assert(Delegates.pglUniform3dv != null, "pglUniform3dv not implemented");
+			Delegates.pglUniform3dv(location, count, value);
+			LogFunction("glUniform3dv({0}, {1}, 0x{2})", location, count, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glUniform4dv.
 		/// </summary>
 		/// <param name="location">
@@ -1195,6 +1261,28 @@ namespace OpenGL
 					LogFunction("glUniform4dv({0}, {1}, {2})", location, count, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glUniform4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
+		public static unsafe void Uniform4(Int32 location, Int32 count, double* value)
+		{
+			Debug.Assert(Delegates.pglUniform4dv != null, "pglUniform4dv not implemented");
+			Delegates.pglUniform4dv(location, count, value);
+			LogFunction("glUniform4dv({0}, {1}, 0x{2})", location, count, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

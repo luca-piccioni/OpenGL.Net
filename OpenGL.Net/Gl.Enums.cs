@@ -7751,9 +7751,19 @@ namespace OpenGL
 		Texture1dArray = Gl.TEXTURE_1D_ARRAY,
 
 		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_1D_ARRAY.
+		/// </summary>
+		ProxyTexture1dArray = Gl.PROXY_TEXTURE_1D_ARRAY,
+
+		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_2D_ARRAY.
 		/// </summary>
 		Texture2dArray = Gl.TEXTURE_2D_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D_ARRAY.
+		/// </summary>
+		ProxyTexture2dArray = Gl.PROXY_TEXTURE_2D_ARRAY,
 
 	}
 
