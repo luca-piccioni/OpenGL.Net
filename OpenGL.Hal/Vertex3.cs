@@ -2584,7 +2584,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex3d"/>
 		/// </returns>
-		public static explicit operator Vertex3d(Vertex3f a)
+		public static implicit operator Vertex3d(Vertex3f a)
 		{
 			Vertex3d v;
 
@@ -2604,7 +2604,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex3d"/>
 		/// </returns>
-		public static explicit operator Vertex4d(Vertex3f a)
+		public static implicit operator Vertex4d(Vertex3f a)
 		{
 			Vertex4d v;
 
@@ -3125,6 +3125,52 @@ namespace OpenGL
 			r.z = (v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + m[3, 2];
 
 			return (r);
+		}
+
+		/// <summary>
+		/// Modulus operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex3d"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex3d"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/>
+		/// </returns>
+		public static Vertex3d operator %(Vertex3d v1, Vertex3d v2)
+		{
+			Vertex3d v;
+
+			v.x = v1.x % v2.x;
+			v.y = v1.y % v2.y;
+			v.z = v1.z % v2.z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Modulus operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex3d"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/>
+		/// </returns>
+		public static Vertex3d operator %(Vertex3d v1, double scalar)
+		{
+			Vertex3d v;
+
+			v.x = v1.x % scalar;
+			v.y = v1.y % scalar;
+			v.z = v1.z % scalar;
+
+			return (v);
 		}
 
 		#endregion
