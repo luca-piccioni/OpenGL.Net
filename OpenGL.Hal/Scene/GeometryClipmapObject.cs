@@ -645,19 +645,10 @@ namespace OpenGL.Scene
 
 		#region SceneGraphObject Overrides
 
-		/// <summary>
-		/// Draw this SceneGraphObject hierarchy.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
 		protected internal override void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (ctxScene == null)
-				throw new ArgumentNullException("ctxScene");
+				throw new ArgumentNullException("ctx");
 
 			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
 
@@ -671,16 +662,11 @@ namespace OpenGL.Scene
 			while (clipmap0Size * Math.Pow(2.0, _CurrentLevel) < viewerHeight * HeightGain)
 				_CurrentLevel++;
 
-			// Compute position module
-			double positionModule = BlockQuadUnit * Math.Pow(2.0, _CurrentLevel);
-
-			// Reset to ground
-			currentPosition.y = 0.0;
-			// Update the model
+			// Update model of the geometry clipmap
 			LocalModel.SetIdentity();
-			LocalModel.Translate(currentPosition + (currentPosition % positionModule));
+			LocalModel.Translate(new Vertex3f(currentPosition.X, 0.0f, currentPosition.Z));
 
-			// Draw as usual
+			// Base implementation
 			base.Draw(ctx, ctxScene);
 		}
 
@@ -691,11 +677,24 @@ namespace OpenGL.Scene
 
 			CheckCurrentContext(ctx);
 
+			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
+
 			ctxScene.GraphicsStateStack.Current.Apply(ctx, _GeometryClipmapProgram);
 
 			_GeometryClipmapProgram.Bind(ctx);
 			_GeometryClipmapProgram.ResetTextureUnits();
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
+
+			// Set grid offsets
+			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
+
+			for (uint level = 0; level < ClipmapLevels; level++) {
+				double positionModule = BlockQuadUnit * Math.Pow(2.0, level);
+				Vertex3d gridPositionOffset = currentPosition % positionModule;
+
+				gridOffsets[level] = new Vertex2f(-gridPositionOffset.X, -gridPositionOffset.Z);
+			}
+			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", gridOffsets);
 
 			// Instance culling
 			List<ClipmapBlockInstance> instancesClipmapBlock = new List<ClipmapBlockInstance>(_InstancesClipmapBlock);

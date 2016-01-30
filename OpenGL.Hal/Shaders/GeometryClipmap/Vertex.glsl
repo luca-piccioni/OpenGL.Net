@@ -25,6 +25,9 @@ uniform float hal_ElevationNoDataValue = -1.0;
 // The scale applied to the elevation map value
 uniform float hal_ElevationMapScale = 32768.0;
 
+// Alignment of the geometry clipmap grids.
+uniform vec2 hal_GridOffset[16];
+
 // Position/texture coord
 in vec2 hal_Position;
 // Block offset and scale factor (instanced)
@@ -45,8 +48,8 @@ out vec4 hal_VertexColor;
 
 void main()
 {
-	// Offset and scale vertex position
-	vec2 worldPosition = hal_Position * hal_BlockOffset.zw + hal_BlockOffset.xy;
+	// Offset and scale vertex position (and grid alignment)
+	vec2 worldPosition = (hal_Position * hal_BlockOffset.zw) + hal_BlockOffset.xy + hal_GridOffset[int(hal_Lod)];
 	// Offset and scale vertex texture coordinate
 	vec2 elevationCoord = hal_Position * hal_MapOffset.zw + hal_MapOffset.xy;
 

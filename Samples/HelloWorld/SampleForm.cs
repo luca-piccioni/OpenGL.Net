@@ -127,7 +127,7 @@ namespace HelloNewton
 				if (pair.Value == false)
 					continue;
 
-				float step = _BlockUnit * 0.01f;
+				float step = _BlockUnit * 0.1f;
 
 				switch (pair.Key) {
 					case Keys.W:
@@ -143,10 +143,10 @@ namespace HelloNewton
 						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, -step);
 						break;
 					case Keys.PageUp:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, +step * 50.0f, 0.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, +step * 10.0f, 0.0f);
 						break;
 					case Keys.PageDown:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, -step * 50.0f, 0.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, -step * 10.0f, 0.0f);
 						break;
 				}
 			}
