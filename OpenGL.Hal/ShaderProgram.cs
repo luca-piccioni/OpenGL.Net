@@ -183,22 +183,38 @@ namespace OpenGL
 		/// </exception>
 		private void Link(GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
 			
 			// Using a deep copy of the shader compiler context, since it will be modified by this ShaderProgram
 			// instance and the attached ShaderObject instances
 			cctx = new ShaderCompilerContext(cctx);
-			
+
 			#region Compile and Attach Shader Objects
-			
-			// Ensure cached shader objects
+
+			// Be sure to take every attached shader
+			uint[] shadersObject = null;
+			int shadersCount;
+
+			Gl.GetProgram(ObjectName, Gl.ATTACHED_SHADERS, out shadersCount);
+
+			if (shadersCount > 0) {
+				shadersObject = new uint[shadersCount];
+				Gl.GetAttachedShaders(ObjectName, out shadersCount, shadersObject);
+				Debug.Assert(shadersCount == shadersObject.Length);
+			}
+
 			foreach (ShaderObject shaderObject in _ProgramObjects) {
 				// Create shader object, if necessary
 				if (shaderObject.Exists(ctx) == false)
 					shaderObject.Create(ctx, cctx);
+
+				// Do not re-attach the same shader object
+				if ((shadersObject != null) && Array.Exists(shadersObject, delegate (uint item) { return (item == shaderObject.ObjectName); }))
+					continue;
+
 				// Attach shader object
 				Gl.AttachShader(ObjectName, shaderObject.ObjectName);
 			}
@@ -219,7 +235,7 @@ namespace OpenGL
 				if (ctx.Caps.GlExtensions.TransformFeedback2_ARB || ctx.Caps.GlExtensions.TransformFeedback_EXT) {
 					string[] feedbackVaryings = _FeedbackVaryings.ToArray();
 
-					// Bug in NVIDIA drivers? Not exactly, but the NVIDIA driver hold the 'feedbackVaryings' pointer untill
+					// Bug in NVIDIA drivers? Not exactly, but the NVIDIA driver hold the 'feedbackVaryings' pointer until
 					// glLinkProgram is executed, causing linker errors like 'duplicate varying names are not allowed' or garbaging
 					// part of the returned strings via glGetTransformFeedbackVarying
 					feedbackVaryingsPtrs = feedbackVaryings.AllocHGlobal();
@@ -1127,11 +1143,6 @@ namespace OpenGL
 		/// </exception>
 		public override bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
-		
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
 				return (false);
@@ -1147,9 +1158,6 @@ namespace OpenGL
 		/// </param>
 		public override void Create(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
 			// Create default compilation, but only if necessary
 			if (ReferenceEquals(CompilationParams, null))
 				_CompilationParams = new ShaderCompilerContext(ctx.ShadingVersion);
