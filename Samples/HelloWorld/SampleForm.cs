@@ -19,12 +19,15 @@ namespace HelloNewton
 			GraphicsContext ctx = e.Context;
 			GraphicsSurface framebuffer = e.Framebuffer;
 
-			_GeometryClipmap = new GeometryClipmapObject(4, 3);
-			//_GeometryClipmap.Create(ctx);
-
 			_GeometryClipmapScene = new SceneGraph();
-			_GeometryClipmapScene.AddChild(_GeometryClipmap);
+			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
+			_GeometryClipmapScene.AddChild(new GeometryClipmapObject(7, 11, _BlockUnit));
 			_GeometryClipmapScene.Create(ctx);
+
+			// Set projection
+			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
+			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 150000.0f);
+			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
 
 			// Clear color
 			framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
@@ -35,36 +38,25 @@ namespace HelloNewton
 			GraphicsContext ctx = e.Context;
 			GraphicsSurface framebuffer = e.Framebuffer;
 
-			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
-			Matrix4x4 matrixView;
-
-			// Set projection
-			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 150000.0f);
-			// Set view
-			ModelMatrix matrixViewModel = new ModelMatrix();
-
 			// Update position
 			KeyTimer_Tick();
 
-			matrixViewModel.Translate(_ViewPosition);
-			matrixViewModel.RotateX(_ViewElevation);
-			matrixViewModel.RotateY(_ViewAzimuth);
-			matrixViewModel.Translate(0.0f, 0.0f, _ViewDistance);
-			matrixView = matrixViewModel.GetInverseMatrix();
+			// Define view
+			_GeometryClipmapScene.CurrentView.LocalModel.SetIdentity();
+			_GeometryClipmapScene.CurrentView.LocalModel.Translate(_ViewPosition);
+			_GeometryClipmapScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
+			_GeometryClipmapScene.CurrentView.LocalModel.RotateX(_ViewElevation);
+			_GeometryClipmapScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewDistance);
 
 			Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
-			_GeometryClipmapScene.LocalProjection = matrixProjection;
-			_GeometryClipmapScene.LocalModel = (IModelMatrix)matrixView;
-            _GeometryClipmapScene.Draw(ctx);
-            //_GeometryClipmap.Draw(ctx, matrixProjection * matrixView);
+			// Draw geometry clipmap
+			_GeometryClipmapScene.Draw(ctx);
 
 			SampleGraphicsControl.Invalidate();
 		}
 
-		SceneGraph _GeometryClipmapScene;
-
-		GeometryClipmapObject _GeometryClipmap;
+		private SceneGraph _GeometryClipmapScene;
 
 		private float _ViewDistance = 16.0f;
 
@@ -73,6 +65,8 @@ namespace HelloNewton
 		private float _ViewElevation;
 
 		private Vertex3f _ViewPosition = new Vertex3f(0.0f, 25.0f, 0.0f);
+
+		private float _BlockUnit = 30.0f;
 
 		private void SampleGraphicsControl_MouseDown(object sender, MouseEventArgs e)
 		{
@@ -89,7 +83,7 @@ namespace HelloNewton
 				float yDelta = (float)delta.Y / (float)ClientSize.Height;
 
 				_ViewAzimuth -= xDelta * 180.0f;
-				_ViewElevation -= yDelta * 90.0f;
+				_ViewElevation += yDelta * 90.0f;
 
 				_MouseCursor = e.Location;
 
@@ -133,24 +127,26 @@ namespace HelloNewton
 				if (pair.Value == false)
 					continue;
 
+				float step = _BlockUnit * 0.01f;
+
 				switch (pair.Key) {
 					case Keys.W:
-						_ViewPosition = _ViewPosition + new Vertex3f(+1.0f, 0.0f, 0.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(+step, 0.0f, 0.0f);
 						break;
 					case Keys.S:
-						_ViewPosition = _ViewPosition + new Vertex3f(-1.0f, 0.0f, 0.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(-step, 0.0f, 0.0f);
 						break;
 					case Keys.A:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, +1.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, +step);
 						break;
 					case Keys.D:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, -1.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, -step);
 						break;
 					case Keys.PageUp:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, +1.0f, 0.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, +step * 50.0f, 0.0f);
 						break;
 					case Keys.PageDown:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, -1.0f, 0.0f);
+						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, -step * 50.0f, 0.0f);
 						break;
 				}
 			}

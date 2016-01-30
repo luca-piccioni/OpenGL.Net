@@ -334,8 +334,7 @@ namespace OpenGL
 		/// Resource identifier.
 		/// </summary>
 		/// <remarks>
-		/// This string is used to identify this GraphicsResource among a collection. This identifier has to be
-		/// unique in order to be collected by <see cref="RenderResourceDb"/>.
+		/// This string is used to identify this GraphicsResource among a collection.
 		/// </remarks>
 		public string Identifier { get { return (_Identifier); } }
 
