@@ -16,53 +16,40 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-using System;
-
-using OpenGL.State;
-
 namespace OpenGL.Scene
 {
 	/// <summary>
-	/// Context used for drawing a SceneGraph.
+	/// Scene object representing a view point.
 	/// </summary>
-	public sealed class SceneGraphContext : IDisposable
+	public class SceneGraphCameraObject : SceneGraphObject
 	{
 		#region Constructors
 
 		/// <summary>
-		/// 
+		/// Construct a SceneGraphCameraObject.
 		/// </summary>
-		/// <param name="currentView"></param>
-		public SceneGraphContext(SceneGraphCameraObject currentView)
+		public SceneGraphCameraObject()
 		{
-			CurrentView = currentView;
+			
 		}
 
 		#endregion
 
-		#region Scene State
+		#region Camera Properties
 
 		/// <summary>
-		/// The view used for setting the scene graph view matrix.
+		/// Get or set the projection for this SceneGraphCameraObject.
 		/// </summary>
-		public readonly SceneGraphCameraObject CurrentView;
-
-		/// <summary>
-		/// The <see cref="GraphicsStateSetStack"/> supporting state variation during the scene graph traversal.
-		/// </summary>
-		public readonly GraphicsStateSetStack GraphicsStateStack = new GraphicsStateSetStack();
-
-		#endregion
-
-		#region IDisposable Implementation
-
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-		/// </summary>
-		public void Dispose()
+		public IMatrix4x4 ProjectionMatrix
 		{
-			GraphicsStateStack.Dispose();
+			get { return (_ProjectionMatrix); }
+			set { _ProjectionMatrix = new Matrix4x4(value); }
 		}
+
+		/// <summary>
+		/// The projection defined for this SceneGraphCameraObject.
+		/// </summary>
+		private Matrix4x4 _ProjectionMatrix;
 
 		#endregion
 	}

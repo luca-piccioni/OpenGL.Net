@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 
+using OpenGL.Collections;
 using OpenGL.State;
 
 namespace OpenGL.Scene
@@ -26,14 +27,28 @@ namespace OpenGL.Scene
 	/// <summary>
 	/// Scene object.
 	/// </summary>
-	public class SceneGraphObject : GraphicsResource
+	public class SceneGraphObject : GraphicsResource, IGraphNode
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Construct a SceneGraphObject.
 		/// </summary>
-		public SceneGraphObject()
+		/// <param name="id">
+		/// A <see cref="String"/> that specify the node identifier. It can be null for unnamed objects.
+		/// </param>
+		public SceneGraphObject() : this(String.Empty)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a SceneGraphObject.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="String"/> that specify the node identifier. It can be null for unnamed objects.
+		/// </param>
+		public SceneGraphObject(string id) : base(id)
 		{
 			// The graphics state TransformState is always defined
 			_ObjectState.DefineState(new TransformState());
@@ -49,7 +64,7 @@ namespace OpenGL.Scene
 		/// <param name="sceneGraphObject">
 		/// The <see cref="SceneGraphObject"/> to be included in the children list of this instance.
 		/// </param>
-		public void AddChild(SceneGraphObject sceneGraphObject)
+		public virtual void AddChild(SceneGraphObject sceneGraphObject)
 		{
 			if (sceneGraphObject == null)
 				throw new ArgumentNullException("sceneGraphObject");
@@ -60,6 +75,7 @@ namespace OpenGL.Scene
 			sceneGraphObject._ParentObject = this;
 			// Include object in children list
 			_Children.Add(sceneGraphObject);
+			LinkResource(sceneGraphObject);
 		}
 
 		/// <summary>
@@ -71,7 +87,7 @@ namespace OpenGL.Scene
 		/// <summary>
 		/// Children drawn after this SceneGraphObject.
 		/// </summary>
-		private readonly List<SceneGraphObject> _Children = new List<SceneGraphObject>();
+		protected readonly List<SceneGraphObject> _Children = new List<SceneGraphObject>();
 
 		#endregion
 
@@ -111,7 +127,7 @@ namespace OpenGL.Scene
 		/// <param name="ctxScene">
 		/// The <see cref="SceneGraphContext"/> used for drawing.
 		/// </param>
-		public virtual void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
+		protected internal virtual void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (ctxScene == null)
 				throw new ArgumentNullException("ctxScene");
@@ -150,7 +166,7 @@ namespace OpenGL.Scene
 		/// <summary>
 		/// The state relative to this SceneGraphObject.
 		/// </summary>
-		private readonly GraphicsStateSet _ObjectState = new GraphicsStateSet();
+		protected readonly GraphicsStateSet _ObjectState = new GraphicsStateSet();
 
 		#endregion
 
@@ -284,6 +300,15 @@ namespace OpenGL.Scene
 					sceneGraphObject.Dispose();
 			}
 		}
+
+		#endregion
+
+		#region IGraphNode Overrides
+
+		/// <summary>
+		/// The graph nodes linked to this node.
+		/// </summary>
+		IEnumerable<IGraphNode> IGraphNode.SubNodes { get { return (_Children); } }
 
 		#endregion
 	}
