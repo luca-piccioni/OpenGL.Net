@@ -197,6 +197,12 @@
 	<command name="^gl(DrawBuffers|UniformSubroutines|CreateShaderProgramv|InvalidateFramebuffer)$">
 		<flags>VariadicParams</flags>
 	</command>
+	
+	<!-- Unsafe parameters -->
+	
+	<command name="^glUniform(1|2|3|4)(d|f|i|ui)v$">
+		<flags>UnsafeParams</flags>
+	</command>
 
 	<!-- Argument renaming for better documentation -->
 	
