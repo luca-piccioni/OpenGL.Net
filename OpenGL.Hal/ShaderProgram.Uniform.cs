@@ -227,7 +227,47 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
+
+			unsafe {
+				Gl.Uniform2(uniform.Location, 1, (float*)&v);
+			}
+		}
+
+		/// <summary>
+		/// Set uniform state variable (array of vec2 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="Single"/> holding the uniform variabile data (first component).
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="Single"/> holding the uniform variabile data (second component).
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f[] v)
+		{
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
+
+			unsafe {
+				fixed (Vertex2f* p_v = v) {
+					Gl.Uniform2(uniform.Location, v.Length, (float*)p_v);
+				}
+			}
 		}
 
 		/// <summary>
@@ -244,7 +284,46 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y, v.z);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
+
+			unsafe
+			{
+				Gl.Uniform2(uniform.Location, 1, (float*)&v);
+			}
+		}
+
+		/// <summary>
+		/// Set uniform state variable (array of vec3 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex3f[]"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f[] v)
+		{
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
+
+			unsafe
+			{
+				fixed (Vertex3f* p_v = v) {
+					Gl.Uniform3(uniform.Location, v.Length, (float*)p_v);
+				}
+			}
 		}
 
 		/// <summary>
@@ -257,11 +336,50 @@ namespace OpenGL
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex3f"/> holding the uniform variabile data.
+		/// A <see cref="Vertex4f"/> holding the uniform variabile data.
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y, v.z, v.w);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
+
+			unsafe
+			{
+				Gl.Uniform2(uniform.Location, 1, (float*)&v);
+			}
+		}
+
+		/// <summary>
+		/// Set uniform state variable (array of vec4 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex4f"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f[] v)
+		{
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
+
+			unsafe
+			{
+				fixed (Vertex4f* p_v = v) {
+					Gl.Uniform4(uniform.Location, v.Length, (float*)p_v);
+				}
+			}
 		}
 
 		/// <summary>
@@ -278,7 +396,16 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF v)
 		{
-			SetUniform(ctx, uniformName, v.Red, v.Green, v.Blue, v.Alpha);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
+
+			unsafe {
+				Gl.Uniform4(uniform.Location, 1, (float*)&v);
+			}
 		}
 
 		/// <summary>
@@ -601,7 +728,16 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2d v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
+
+			unsafe {
+				Gl.Uniform2(uniform.Location, 1, (double*)&v);
+			}
 		}
 
 		/// <summary>
@@ -618,7 +754,16 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3d v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y, v.z);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
+
+			unsafe {
+				Gl.Uniform2(uniform.Location, 1, (double*)&v);
+			}
 		}
 
 		/// <summary>
@@ -635,7 +780,17 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4d v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y, v.z, v.w);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
+
+			unsafe
+			{
+				Gl.Uniform2(uniform.Location, 1, (double*)&v);
+			}
 		}
 
 		/// <summary>
@@ -918,7 +1073,17 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2i v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
+
+			unsafe
+			{
+				Gl.Uniform2(uniform.Location, 1, (int*)&v);
+			}
 		}
 
 		/// <summary>
@@ -935,7 +1100,17 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3i v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y, v.z);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
+
+			unsafe
+			{
+				Gl.Uniform3(uniform.Location, 1, (int*)&v);
+			}
 		}
 
 		/// <summary>
@@ -952,7 +1127,17 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4i v)
 		{
-			SetUniform(ctx, uniformName, v.x, v.y, v.z, v.w);
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(uniformName);
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
+
+			unsafe
+			{
+				Gl.Uniform4(uniform.Location, 1, (int*)&v);
+			}
 		}
 
 		/// <summary>
@@ -1909,7 +2094,7 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Texture tex)
 		{
-			SetUniform(ctx, uniformName, tex, mTexActiveUnit++);
+			SetUniform(ctx, uniformName, tex, _TexActiveUnit++);
 		}
 
 		/// <summary>
@@ -1929,15 +2114,9 @@ namespace OpenGL
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Texture tex, uint texUnit)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckThatExistence(ctx, tex);
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (tex == null)
-				throw new ArgumentNullException("tex");
-			if (tex.Exists(ctx) == false)
-				throw new ArgumentException("not exists", "tex");
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, tex.SamplerType);
@@ -1950,7 +2129,7 @@ namespace OpenGL
 			tex.ApplyParameters(ctx);
 
 			// Set uniform value (sampler)
-			// Cast to Int32 since the sampler type can be set only with glUniform2i
+			// Cast to Int32 since the sampler type can be set only with glUniform1i
 			Gl.Uniform1(uniform.Location, (int)texUnit);
 
 			// Validate program
@@ -1962,13 +2141,13 @@ namespace OpenGL
 		/// </summary>
 		public void ResetTextureUnits()
 		{
-			mTexActiveUnit = 0;
+			_TexActiveUnit = 0;
 		}
 
 		/// <summary>
 		/// The current active texture unit.
 		/// </summary>
-		private uint mTexActiveUnit;
+		private uint _TexActiveUnit;
 
 		#endregion
 
