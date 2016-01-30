@@ -89,6 +89,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Reset the allocated GPU buffer for this BufferObject.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="UInt32"/> that determine the size of the buffer object GPU buffer, in bytes.
+		/// </param>
+		protected void AllocateGpuBuffer(uint size, object data)
+		{
+			// Define buffer object (type, size and hints)
+			Gl.BufferData((int)BufferType, size, data, (int)Hint);
+			// Store GPU buffer size
+			_GpuBufferSize = size;
+		}
+
+		/// <summary>
 		/// Get the address of the simulated GPU buffer of this BufferObject, if defined. Otherwise it returns
 		/// <see cref="IntPtr.Zero"/>.
 		/// </summary>
@@ -102,6 +116,11 @@ namespace OpenGL
 		/// not supported by current implementation. If this is not the case, the field is set to null.
 		/// </summary>
 		protected AlignedMemoryBuffer _GpuBuffer;
+
+		/// <summary>
+		/// Size of the storage allocated for this buffer object, in bytes.
+		/// </summary>
+		protected uint GpuBufferSize { get { return (_GpuBufferSize); } }
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
@@ -716,9 +735,7 @@ namespace OpenGL
 					throw new InvalidOperationException("mapped");
 
 				// Define buffer object (type, size and hints)
-				Gl.BufferData((int)BufferType, clientBufferSize, null, (int)Hint);
-				// Store GPU buffer size
-				_GpuBufferSize = clientBufferSize;
+				AllocateGpuBuffer(clientBufferSize, null);
 
 				// Define buffer object contents
 				if (ClientBufferAddress != IntPtr.Zero) {

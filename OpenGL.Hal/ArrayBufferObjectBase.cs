@@ -658,6 +658,129 @@ namespace OpenGL
 
 		#endregion
 
+		#region Update
+
+		/// <summary>
+		/// Copy data from any source supported, uploading data.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// </param>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		public virtual void Update(GraphicsContext ctx, Array array, uint offset, uint count)
+		{
+			CheckThisExistence(ctx);
+
+			if (count == 0)
+				throw new ArgumentException("zero not allowed", "count");
+			if (IsMapped)
+				throw new InvalidOperationException("mapped");
+
+			// Check whether this GPU buffer overflow that required array
+			uint arrayItemSize = CheckArrayItemSize(array);
+
+			// Buffer  must be bound
+			Bind(ctx);
+
+			if (arrayItemSize * count > GpuBufferSize)
+				AllocateGpuBuffer(arrayItemSize * count, null);
+
+			// Copy data mapping GPU buffer
+			Map(ctx, BufferAccessARB.WriteOnly);
+			try {
+				// Copy on buffer
+				CopyBuffer(MappedBuffer, array, arrayItemSize, offset, count);
+			} finally {
+				Unmap(ctx);
+			}
+		}
+
+		/// <summary>
+		/// Copy data from any source supported, uploading data.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// </param>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		public void Update(GraphicsContext ctx, Array array, uint count)
+		{
+			Update(ctx, array, 0, count);
+		}
+
+		/// <summary>
+		/// Copy data from any source supported, uploading data.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// </param>
+		/// <param name="array">
+		/// The source array where the data comes from.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// </exception>
+		public void Update(GraphicsContext ctx, Array array)
+		{
+			Update(ctx, array, 0, (uint)array.Length);
+		}
+
+		#endregion
+
 		#region Copy Array
 
 		/// <summary>
