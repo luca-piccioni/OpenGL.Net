@@ -49,7 +49,7 @@ out vec4 hal_VertexColor;
 void main()
 {
 	// Offset and scale vertex position (and grid alignment)
-	vec2 worldPosition = (hal_Position * hal_BlockOffset.zw) + hal_BlockOffset.xy + hal_GridOffset[int(hal_Lod)];
+	vec2 worldPosition = hal_Position * hal_BlockOffset.zw + hal_BlockOffset.xy + hal_GridOffset[int(hal_Lod)];
 	// Offset and scale vertex texture coordinate
 	vec2 elevationCoord = hal_Position * hal_MapOffset.zw + hal_MapOffset.xy;
 

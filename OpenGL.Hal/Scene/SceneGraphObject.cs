@@ -127,12 +127,21 @@ namespace OpenGL.Scene
 		/// <param name="ctxScene">
 		/// The <see cref="SceneGraphContext"/> used for drawing.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctxScene"/>.
+		/// </exception>
 		protected internal virtual void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
+			CheckCurrentContext(ctx);
+
 			if (ctxScene == null)
 				throw new ArgumentNullException("ctxScene");
-
-			CheckCurrentContext(ctx);
 
 			// Push and merge the graphics state
 			ctxScene.GraphicsStateStack.Push(_ObjectState);
@@ -159,8 +168,7 @@ namespace OpenGL.Scene
 		/// </param>
 		protected virtual void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			// Do nothing by default. This basic implementation support:
-			// - Graphics state changes
+			
 		}
 
 		/// <summary>

@@ -61,12 +61,17 @@ namespace OpenGL.Scene
 			// Create elevation texture
 			uint elevationTextureSize = (uint)((BlockVertices + 1) * 2);
 
+			// Clamp texture size, if necessary
+			if (elevationTextureSize > GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize)
+				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
+
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
 			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
 			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
+
 			// Define geometry clipmap vertex arrays
 			CreateVertexArrays();
 		}
@@ -388,20 +393,20 @@ namespace OpenGL.Scene
 			
 			#endregion
 
-			#region Interiors (Horizontal)
+			#region Exteriors (Horizontal)
 
 			GenerateExteriorInstancesH();
 			_ArrayExteriorHInstances = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.DynamicCpuDraw);
 			_ArrayExteriorHInstances.Create((uint)_InstancesExteriorH.Count);
 
-			// Create interior arrays
+			// Create exterior arrays
 			// Reuse indices array buffer, but limiting to 2 triangle strips
-			_InteriorArrayH = CreateVertexArrays(arrayBufferPosition, _ArrayExteriorHInstances, arrayBufferIndices, 0, BlockVertices * 4 + 3);
-			LinkResource(_InteriorArrayH);
-			
+			_ExteriorArrayH = CreateVertexArrays(arrayBufferPosition, _ArrayExteriorHInstances, arrayBufferIndices, 0, BlockVertices * 4 + 3);
+			LinkResource(_ExteriorArrayH);
+
 			#endregion
 
-			#region Interiors (Vertical)
+			#region Exteriors (Vertical)
 
 			ColorRGBAF OuterColor = new ColorRGBAF(0.7f, 0.7f, 0.0f);
 
@@ -409,10 +414,10 @@ namespace OpenGL.Scene
 			_ArrayExteriorVInstances = new ArrayBufferObjectInterleaved<ClipmapBlockInstance>(BufferObjectHint.DynamicCpuDraw);
 			_ArrayExteriorVInstances.Create((uint)_InstancesExteriorV.Count);
 
-			// Create interior arrays
+			// Create exterior arrays
 			// Reuse indices array buffer, but limiting to 2 triangle strips
-			_InteriorArrayV = CreateVertexArrays(arrayBufferPosition, _ArrayExteriorVInstances, arrayBufferIndicesV, 0, 0);
-			LinkResource(_InteriorArrayV);
+			_ExteriorArrayV = CreateVertexArrays(arrayBufferPosition, _ArrayExteriorVInstances, arrayBufferIndicesV, 0, 0);
+			LinkResource(_ExteriorArrayV);
 
 			#endregion
 		}
@@ -529,12 +534,12 @@ namespace OpenGL.Scene
 			int semiStripStride = ((int)StripStride - 1) / 2;
 			int xBlock, yBlock;
 
-			int interiorInstancesCountH = ((int)StripStride + 1) / BlockSubdivs;
+			int exteriorInstancesCountH = ((int)StripStride + 1) / BlockSubdivs;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
 				yBlock = -semiStripStride - 2;
 				xBlock = -semiStripStride - 2;
-				for (int i = 0; i < interiorInstancesCountH; i++, xBlock += BlockSubdivs)
+				for (int i = 0; i < exteriorInstancesCountH; i++, xBlock += BlockSubdivs)
 					_InstancesExteriorH.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
 
 				yBlock = -semiStripStride - 2;
@@ -551,12 +556,12 @@ namespace OpenGL.Scene
 			int semiStripStride = ((int)StripStride - 1) / 2;
 			int xBlock, yBlock;
 
-			int interiorInstancesCountV = ((int)StripStride + 1) / BlockSubdivs;
+			int exteriorInstancesCountV = ((int)StripStride + 1) / BlockSubdivs;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
 				xBlock = -semiStripStride - 2;
 				yBlock = -semiStripStride - 2;
-				for (int i = 0; i < interiorInstancesCountV; i++, yBlock += BlockSubdivs)
+				for (int i = 0; i < exteriorInstancesCountV; i++, yBlock += BlockSubdivs)
 					_InstancesExteriorV.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
 
 				xBlock = -semiStripStride - 2;
@@ -565,6 +570,16 @@ namespace OpenGL.Scene
 			}
 		}
 
+		/// <summary>
+		/// Generate a <see cref="List{ClipmapBlockInstance}"/> defining instances to cap the clipmap level.
+		/// </summary>
+		/// <param name="level">
+		/// The <see cref="UInt32"/> that specify the level of the cap.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="List{ClipmapBlockInstance}"/> defining instances parameters used for capping
+		/// the geometry clipmap cap to be draw with <see cref="_BlockArray"/>.
+		/// </returns>
 		private List<ClipmapBlockInstance> GenerateLevelBlocksCap(uint level)
 		{
 			List<ClipmapBlockInstance> capBlocks = new List<ClipmapBlockInstance>();
@@ -594,22 +609,12 @@ namespace OpenGL.Scene
 		/// <summary>
 		/// Array buffer object defining instances attributes.
 		/// </summary>
-		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayRingFixHInstances;
+		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayRingFixHInstances, _ArrayRingFixVInstances;
 
 		/// <summary>
 		/// Array buffer object defining instances attributes.
 		/// </summary>
-		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayRingFixVInstances;
-
-		/// <summary>
-		/// Array buffer object defining instances attributes.
-		/// </summary>
-		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayExteriorHInstances;
-
-		/// <summary>
-		/// Array buffer object defining instances attributes.
-		/// </summary>
-		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayExteriorVInstances;
+		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayExteriorHInstances, _ArrayExteriorVInstances;
 
 		/// <summary>
 		/// Vertex arrays for drawing 
@@ -617,24 +622,14 @@ namespace OpenGL.Scene
 		private VertexArrayObject _BlockArray;
 
 		/// <summary>
-		/// Vertex arrays for drawing 
+		/// Vertex arrays for drawing ring fix (horizontal and vertical patches).
 		/// </summary>
-		private VertexArrayObject _RingFixArrayH;
+		private VertexArrayObject _RingFixArrayH, _RingFixArrayV;
 
 		/// <summary>
-		/// Vertex arrays for drawing 
+		/// Vertex arrays for drawing exteriors (horizontal and vertical patches).
 		/// </summary>
-		private VertexArrayObject _RingFixArrayV;
-
-		/// <summary>
-		/// Vertex arrays for drawing interiors.
-		/// </summary>
-		private VertexArrayObject _InteriorArrayH;
-
-		/// <summary>
-		/// Vertex arrays for drawing interiors.
-		/// </summary>
-		private VertexArrayObject _InteriorArrayV;
+		private VertexArrayObject _ExteriorArrayH, _ExteriorArrayV;
 
 		/// <summary>
 		/// Elevation texture.
@@ -645,6 +640,15 @@ namespace OpenGL.Scene
 
 		#region SceneGraphObject Overrides
 
+		/// <summary>
+		/// Draw this SceneGraphObject hierarchy.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="ctxScene">
+		/// The <see cref="SceneGraphContext"/> used for drawing.
+		/// </param>
 		protected internal override void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (ctxScene == null)
@@ -670,14 +674,21 @@ namespace OpenGL.Scene
 			base.Draw(ctx, ctxScene);
 		}
 
+		/// <summary>
+		/// Draw this SceneGraphObject instance.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="ctxScene">
+		/// The <see cref="SceneGraphContext"/> used for drawing.
+		/// </param>
 		protected override void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (ctxScene == null)
 				throw new ArgumentNullException("ctx");
 
 			CheckCurrentContext(ctx);
-
-			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
 
 			ctxScene.GraphicsStateStack.Current.Apply(ctx, _GeometryClipmapProgram);
 
@@ -686,6 +697,7 @@ namespace OpenGL.Scene
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
 
 			// Set grid offsets
+			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
 			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
 
 			for (uint level = 0; level < ClipmapLevels; level++) {
@@ -713,10 +725,25 @@ namespace OpenGL.Scene
 			_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, instancesClipmapBlockCount);
 			_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixHCount);
 			_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixVCount);
-			_InteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorHCount);
-			_InteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorVCount);
+			_ExteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorHCount);
+			_ExteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorVCount);
 		}
 
+		/// <summary>
+		/// Filter an array of <see cref="ClipmapBlockInstance"/> and updates the specifies array buffer.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for updating <paramref name="arrayBuffer"/>.
+		/// </param>
+		/// <param name="instances">
+		/// The <see cref="List{ClipmapBlockInstance}"/> to be filtered.
+		/// </param>
+		/// <param name="arrayBuffer">
+		/// The <see cref="ArrayBufferObjectInterleaved{ClipmapBlockInstance}"/> to be updated.
+		/// </param>
+		/// <returns>
+		/// It returns the number of items of <paramref name="instances"/> filtered.
+		/// </returns>
 		private uint CullInstances(GraphicsContext ctx, List<ClipmapBlockInstance> instances, ArrayBufferObjectInterleaved<ClipmapBlockInstance> arrayBuffer)
 		{
 			List<ClipmapBlockInstance> cull = new List<ClipmapBlockInstance>(instances);
@@ -728,7 +755,8 @@ namespace OpenGL.Scene
 			});
 
 			// Update instance arrays
-			arrayBuffer.Update(ctx, cull.ToArray());
+			if (cull.Count > 0)
+				arrayBuffer.Update(ctx, cull.ToArray());
 
 			return ((uint)cull.Count);
 		}
