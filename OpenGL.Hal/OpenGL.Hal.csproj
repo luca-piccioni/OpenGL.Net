@@ -104,9 +104,12 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Collections\Graph.cs" />
+    <Compile Include="Collections\IGraphNode.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="Scene\GeometryClipmapObject.cs" />
     <Compile Include="Scene\SceneGraph.cs" />
+    <Compile Include="Scene\SceneGraphCameraObject.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />
     <Compile Include="Scene\SceneGraphObject.cs" />
     <Compile Include="String.Extensions.cs" />
