@@ -271,6 +271,7 @@
     <Compile Include="VertexBaseType.cs" />
     <EmbeddedResource Include="Shaders\GeometryClipmap\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\GeometryClipmap\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\GeometryClipmap\ElevationFragment.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj">

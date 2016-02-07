@@ -16,8 +16,13 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#undef CULL_CLIPMAP_LEVEL
+
+#define POSITION_CORRECTION
+
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace OpenGL.Scene
 {
@@ -267,6 +272,15 @@ namespace OpenGL.Scene
 
 		#endregion
 
+		#region Elevation Texture Update
+
+		public interface IGeometryClipmapTexSource
+		{
+
+		}
+
+		#endregion
+
 		#region Resources
 
 		/// <summary>
@@ -276,26 +290,29 @@ namespace OpenGL.Scene
 		{
 			ushort BlockSubdivs = (ushort)(BlockVertices - 1);
 			int semiStripStride = ((int)StripStride - 1) / 2;
+			uint positionIndex;
 
 			#region Clipmap Blocks
 
 			#region Position
 
-			// Note: this array is shared with ring fixes (horizontal)
+			// Note: this array is shared with ring fixes
 
 			// Create position array buffer ((n+1) x (n+1) vertices equally spaced)
 			ArrayBufferObject<Vertex2f> arrayBufferPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
 			float positionStep = 1.0f / BlockSubdivs;
-			uint positionIndex = 0;
 
 			arrayBufferPosition.Create((uint)(BlockVertices * BlockVertices));
 			arrayBufferPosition.Map();
-			for (float y = 0.0f; y <= 1.0f; y += positionStep)
+
+			positionIndex = 0;
+			for (float y = 0.0f; y <= 1.0f; y += positionStep) {
 				for (float x = 0.0f; x <= 1.0f; x += positionStep, positionIndex++) {
-					System.Diagnostics.Debug.Assert(positionIndex < BlockVertices * BlockVertices);
+					Debug.Assert(positionIndex < BlockVertices * BlockVertices);
 					arrayBufferPosition.Set(new Vertex2f(x, y), positionIndex);
 				}
-					
+			}
+
 			arrayBufferPosition.Unmap();
 
 			#endregion
@@ -324,7 +341,7 @@ namespace OpenGL.Scene
 				if (i < BlockSubdivs - 1)
 					arrayBufferElements.Add((ushort)arrayBufferIndices.RestartIndexKey);
 			}
-			
+
 			arrayBufferIndices.Create(arrayBufferElements.ToArray());
 
 			#endregion
@@ -390,7 +407,73 @@ namespace OpenGL.Scene
 			// Create ring fixes array
 			_RingFixArrayV = CreateVertexArrays(arrayBufferPosition, _ArrayRingFixVInstances, arrayBufferIndicesV, 0, 0);
 			LinkResource(_RingFixArrayV);
+
+			#endregion
+
+			#region Exterior
+
+			// Note:
+			// - Exteriors shall be instanceable
+			// - Exteriors are 2 quad width
+			// - Larger exterior side vertices  V2 = (n + 4) * 4
+			// - Shorter exterior side vertices V1 = (n + 2) * 4
+			// - Larger exterior side subdivisions  M2 = (n - 1) + 4 => 2^k + 2
+			// - Shorter exterior side subdivisions M1 = (n - 1) + 2 => 2^k
+			// (1)
+			// - n is the number of vertices of the clipmap
+			// - m is the number of vertices of the clipmap block
+			// - n is normally set to 2^k - 1
+			// - m is normally set to (n + 1) / 4
 			
+			#region Position
+
+			// Create position array buffer ((n+4) x (n+4) vertices equally spaced)
+			ArrayBufferObject<Vertex2f> exteriorPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+			float exteriorPositionStep;
+
+			exteriorPosition.Create((uint)(((StripStride + 3) * 4) + ((StripStride + 1) * 4)));
+			exteriorPosition.Map();
+
+			positionIndex = 0;
+
+			#region Exterior E2
+
+			// E2 strip is 2+2 quad larger than clipmap level
+			exteriorPositionStep = 1.0f / (StripStride + 3);
+
+			// E2 - Left side
+			for (float y = 0.0f; y < 1.0f; y += positionStep, positionIndex++) {
+				Debug.Assert(positionIndex < BlockVertices * BlockVertices);
+				exteriorPosition.Set(new Vertex2f(0.0f, y), positionIndex);
+			}
+			// E2 - Top side
+			for (float x = 0.0f; x < 1.0f; x += positionStep, positionIndex++) {
+				Debug.Assert(positionIndex < BlockVertices * BlockVertices);
+				exteriorPosition.Set(new Vertex2f(x, 1.0f), positionIndex);
+			}
+			// E2 - Right side
+			for (float y = 1.0f; y > 0.0f; y -= positionStep, positionIndex++) {
+				Debug.Assert(positionIndex < BlockVertices * BlockVertices);
+				exteriorPosition.Set(new Vertex2f(1.0f, y), positionIndex);
+			}
+			// E2 - Bottom side
+			for (float x = 1.0f; x > 0.0f; x -= positionStep, positionIndex++) {
+				Debug.Assert(positionIndex < BlockVertices * BlockVertices);
+				exteriorPosition.Set(new Vertex2f(x, 0.0f), positionIndex);
+			}
+
+			#endregion
+
+			#region Exterior E1
+
+			exteriorPositionStep = 1.0f / (StripStride + 3);
+
+			#endregion
+
+			exteriorPosition.Unmap();
+
+			#endregion
+
 			#endregion
 
 			#region Exteriors (Horizontal)
@@ -617,6 +700,11 @@ namespace OpenGL.Scene
 		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayExteriorHInstances, _ArrayExteriorVInstances;
 
 		/// <summary>
+		/// Array buffer object defining instances attributes.
+		/// </summary>
+		private ArrayBufferObjectInterleaved<ClipmapBlockInstance> _ArrayCapExteriorHInstances, _ArrayCapExteriorVInstances;
+
+		/// <summary>
 		/// Vertex arrays for drawing 
 		/// </summary>
 		private VertexArrayObject _BlockArray;
@@ -630,6 +718,11 @@ namespace OpenGL.Scene
 		/// Vertex arrays for drawing exteriors (horizontal and vertical patches).
 		/// </summary>
 		private VertexArrayObject _ExteriorArrayH, _ExteriorArrayV;
+
+		/// <summary>
+		/// Vertex arrays for drawing cap exterior.
+		/// </summary>
+		private VertexArrayObject _CapExteriorArrayH, _CapExteriorArrayV;
 
 		/// <summary>
 		/// Elevation texture.
@@ -666,9 +759,11 @@ namespace OpenGL.Scene
 			while (clipmap0Size * Math.Pow(2.0, _CurrentLevel) < viewerHeight * HeightGain)
 				_CurrentLevel++;
 
+#if POSITION_CORRECTION
 			// Update model of the geometry clipmap
 			LocalModel.SetIdentity();
 			LocalModel.Translate(new Vertex3f(currentPosition.X, 0.0f, currentPosition.Z));
+#endif
 
 			// Base implementation
 			base.Draw(ctx, ctxScene);
@@ -704,15 +799,28 @@ namespace OpenGL.Scene
 				double positionModule = BlockQuadUnit * Math.Pow(2.0, level);
 				Vertex3d gridPositionOffset = currentPosition % positionModule;
 
+				// Avoid contiguos levels overlapping
+				while (gridPositionOffset.x > 0)
+					gridPositionOffset.x -= positionModule;
+				while (gridPositionOffset.z > 0)
+					gridPositionOffset.z -= positionModule;
+
 				gridOffsets[level] = new Vertex2f(-gridPositionOffset.X, -gridPositionOffset.Z);
 			}
+#if POSITION_CORRECTION
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", gridOffsets);
+#endif
 
 			// Instance culling
 			List<ClipmapBlockInstance> instancesClipmapBlock = new List<ClipmapBlockInstance>(_InstancesClipmapBlock);
 
+#if CULL_CLIPMAP_LEVEL
 			// Include cap in clipmap blocks
 			instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(_CurrentLevel));
+#else
+			// Include cap in clipmap blocks
+			instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(0));
+#endif
 
 			// Cull instances
 			uint instancesClipmapBlockCount = CullInstances(ctx, instancesClipmapBlock, _ArrayClipmapBlockInstances);
@@ -722,11 +830,17 @@ namespace OpenGL.Scene
 			uint instancesExteriorVCount = CullInstances(ctx, _InstancesExteriorV, _ArrayExteriorVInstances);
 
 			// Draw clipmap blocks using instanced rendering
-			_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, instancesClipmapBlockCount);
-			_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixHCount);
-			_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixVCount);
-			_ExteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorHCount);
-			_ExteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorVCount);
+			// Note: using instanced arrays, to draw the entire geometry clipmap, only N draw call are necessary
+			if (instancesClipmapBlockCount > 0)
+				_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, instancesClipmapBlockCount);
+			if (instancesRingFixHCount > 0)
+				_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixHCount);
+			if (instancesRingFixVCount > 0)
+				_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixVCount);
+			//if (instancesExteriorHCount > 0)
+			//	_ExteriorArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorHCount);
+			//if (instancesExteriorVCount > 0)
+			//	_ExteriorArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorVCount);
 		}
 
 		/// <summary>
@@ -748,11 +862,15 @@ namespace OpenGL.Scene
 		{
 			List<ClipmapBlockInstance> cull = new List<ClipmapBlockInstance>(instances);
 
+#if CULL_CLIPMAP_LEVEL
+
 			// Filter by level
 			// Exclude finer levels depending on viewer height
 			cull = cull.FindAll(delegate (ClipmapBlockInstance item) {
 				return (item.Lod >= _CurrentLevel);
 			});
+
+#endif
 
 			// Update instance arrays
 			if (cull.Count > 0)

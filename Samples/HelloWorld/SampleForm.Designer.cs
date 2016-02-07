@@ -54,7 +54,7 @@
 			this.ClientSize = new System.Drawing.Size(687, 577);
 			this.Controls.Add(this.SampleGraphicsControl);
 			this.Name = "SampleForm";
-			this.Text = "Hello Triangle";
+			this.Text = "Hello World";
 			this.ResumeLayout(false);
 
 		}

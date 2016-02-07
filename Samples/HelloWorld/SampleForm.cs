@@ -21,7 +21,7 @@ namespace HelloNewton
 
 			_GeometryClipmapScene = new SceneGraph();
 			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
-			_GeometryClipmapScene.AddChild(new GeometryClipmapObject(7, 11, _BlockUnit));
+			_GeometryClipmapScene.AddChild(new GeometryClipmapObject(4, 4, _BlockUnit));
 			_GeometryClipmapScene.Create(ctx);
 
 			// Set projection
@@ -46,7 +46,7 @@ namespace HelloNewton
 			_GeometryClipmapScene.CurrentView.LocalModel.Translate(_ViewPosition);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateX(_ViewElevation);
-			_GeometryClipmapScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewDistance);
+			//_GeometryClipmapScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewDistance);
 
 			Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 

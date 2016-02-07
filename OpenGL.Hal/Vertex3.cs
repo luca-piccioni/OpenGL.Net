@@ -3232,7 +3232,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex3d"/>
 		/// </returns>
-		public static explicit operator Vertex4d(Vertex3d a)
+		public static implicit operator Vertex4d(Vertex3d a)
 		{
 			Vertex4d v;
 
@@ -3249,10 +3249,21 @@ namespace OpenGL
 		#region Vertex Methods
 
 		/// <summary>
-		/// Compute bidimensional vertex module.
+		/// Compute absolute vertex.
 		/// </summary>
 		/// <returns>
-		/// It returns the vertex vector module.
+		/// It returns the vertex absolute.
+		/// </returns>
+		public Vertex3d Abs()
+		{
+			return (new Vertex3d(Math.Abs(x), Math.Abs(y), Math.Abs(z)));
+		}
+
+		/// <summary>
+		/// Compute vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex module.
 		/// </returns>
 		public double Module()
 		{
