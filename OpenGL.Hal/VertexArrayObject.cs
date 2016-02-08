@@ -40,7 +40,7 @@ namespace OpenGL
 	/// </remarks>
 	public partial class VertexArrayObject : GraphicsResource
 	{
-		#region Vertex Array Application
+		#region Draw
 
 		/// <summary>
 		/// Draw the attributes of this vertex array.
@@ -92,6 +92,97 @@ namespace OpenGL
 					_FeedbackBuffer.End(ctx);
 			}
 		}
+
+		/// <summary>
+		/// Set the vertex arrays state for the shader program.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> on which the shader program is bound.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
+		/// </param>
+		protected void SetVertexArrayState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+			if (Exists(ctx) == false)
+				throw new InvalidOperationException("not existing");
+
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+				// Bind this vertex array
+				Gl.BindVertexArray(ObjectName);
+				// Short path?
+				if (!_VertexArrayDirty) {
+					// CheckVertexAttributes(ctx, shaderProgram);
+					return;
+				}
+			}
+
+			if (shaderProgram != null) {
+				uint attributesSet = 0;
+
+				// Set vertex array state
+				foreach (string attributeName in shaderProgram.ActiveAttributes) {
+					IVertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
+					if (shaderVertexArray == null)
+						continue;
+
+					// Set array attribute
+					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName); attributesSet++;
+				}
+
+				if (attributesSet == 0)
+					throw new InvalidOperationException("no attribute is set");
+			} else {
+				IVertexArray attributeArray;
+
+				// No shader program: using fixed pipeline program. ATM enable all attributes having a semantic
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.Position)) == null)
+					throw new InvalidOperationException("no position semantic array defined");
+				attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Position);
+
+				// Optional attributes
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.Color)) != null)
+					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Color);
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.Normal)) != null)
+					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Normal);
+				if ((attributeArray = GetVertexArray(VertexArraySemantic.TexCoord)) != null)
+					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.TexCoord);
+			}
+
+			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
+			_VertexArrayDirty = false;
+		}
+
+		/// <summary>
+		/// Utility routine for checking the vertex array state.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> on which the shader program is bound.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
+		/// </param>
+		private void CheckVertexAttributes(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+			// Vertex array state overall check
+			foreach (string attributeName in shaderProgram.ActiveAttributes) {
+				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
+				VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram) as VertexArray;
+				if (shaderVertexArray == null)
+					continue;
+
+				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding);
+			}
+		}
+	
+		/// <summary>
+		/// Flag indicating whether the vertex array is dirty due buffer object changes.
+		/// </summary>
+		private bool _VertexArrayDirty = true;
+
+		#endregion
+
+		#region Draw Instanced
 
 		/// <summary>
 		/// Draw a number of instances of the attributes of this vertex array.
@@ -150,97 +241,10 @@ namespace OpenGL
 			}
 		}
 
-		/// <summary>
-		/// Set the vertex arrays state for the shader program.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> on which the shader program is bound.
-		/// </param>
-		/// <param name="shaderProgram">
-		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
-		/// </param>
-		protected void SetVertexArrayState(GraphicsContext ctx, ShaderProgram shaderProgram)
-		{
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
-
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
-				// Bind this vertex array
-				Gl.BindVertexArray(ObjectName);
-				// Short path?
-				if (!_VertexArrayDirty) {
-					// CheckVertexAttributes(ctx, shaderProgram);
-					return;
-				}
-			}
-
-			if (shaderProgram != null) {
-				uint attributesSet = 0;
-
-				// Set vertex array state
-				foreach (string attributeName in shaderProgram.ActiveAttributes) {
-					VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
-					if (shaderVertexArray == null)
-						continue;
-
-					// Set array attribute
-					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName); attributesSet++;
-				}
-
-				if (attributesSet == 0)
-					throw new InvalidOperationException("no attribute is set");
-			} else {
-				VertexArray attributeArray;
-
-				// No shader program: using fixed pipeline program. ATM enable all attributes having a semantic
-				if ((attributeArray = GetVertexArray(VertexArraySemantic.Position)) == null)
-					throw new InvalidOperationException("no position semantic array defined");
-				attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Position);
-
-				// Optional attributes
-				if ((attributeArray = GetVertexArray(VertexArraySemantic.Color)) != null)
-					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Color);
-				if ((attributeArray = GetVertexArray(VertexArraySemantic.Normal)) != null)
-					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.Normal);
-				if ((attributeArray = GetVertexArray(VertexArraySemantic.TexCoord)) != null)
-					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.TexCoord);
-			}
-
-			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
-			_VertexArrayDirty = false;
-		}
-
-		/// <summary>
-		/// Utility routine for checking the vertex array state.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> on which the shader program is bound.
-		/// </param>
-		/// <param name="shaderProgram">
-		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
-		/// </param>
-		private void CheckVertexAttributes(GraphicsContext ctx, ShaderProgram shaderProgram)
-		{
-			// Vertex array state overall check
-			foreach (string attributeName in shaderProgram.ActiveAttributes) {
-				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
-				VertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
-				if (shaderVertexArray == null)
-					continue;
-
-				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding);
-			}
-		}
-	
-		/// <summary>
-		/// Flag indicating whether the vertex array is dirty due buffer object changes.
-		/// </summary>
-		private bool _VertexArrayDirty = true;
-
 		#endregion
-	
+
 		#region Transform Feedback
-		
+
 		public void SetTransformFeedback(FeedbackBufferObject feedbackObject)
 		{
 			if (_FeedbackBuffer != null)
@@ -414,10 +418,8 @@ namespace OpenGL
 			Validate();
 
 			// Create vertex arrays
-			foreach (VertexArray vertexArray in DrawArrays) {
-				if (vertexArray.ArrayBuffer.Exists(ctx) == false)
-					vertexArray.ArrayBuffer.Create(ctx);
-			}
+			foreach (IVertexArray vertexArray in DrawArrays)
+				vertexArray.Create(ctx);
 
 			// Create element arrays
 			foreach (Element element in DrawElements)
