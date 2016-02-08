@@ -21,12 +21,12 @@ namespace HelloNewton
 
 			_GeometryClipmapScene = new SceneGraph();
 			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
-			_GeometryClipmapScene.AddChild(new GeometryClipmapObject(4, 4, _BlockUnit));
+			_GeometryClipmapScene.AddChild(new GeometryClipmapObject(7, 4, _BlockUnit));
 			_GeometryClipmapScene.Create(ctx);
 
 			// Set projection
 			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
-			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 150000.0f);
+			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 110000.0f);
 			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
 
 			// Clear color
@@ -46,7 +46,6 @@ namespace HelloNewton
 			_GeometryClipmapScene.CurrentView.LocalModel.Translate(_ViewPosition);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateX(_ViewElevation);
-			//_GeometryClipmapScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewDistance);
 
 			Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
@@ -103,6 +102,9 @@ namespace HelloNewton
 				case Keys.PageUp:
 				case Keys.PageDown:
 					_PressedKeys[e.KeyCode] = true;
+					break;
+				case Keys.R:
+					_ViewPosition = new Vertex3f();
 					break;
 			}
 		}
