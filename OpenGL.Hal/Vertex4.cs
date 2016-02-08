@@ -1138,13 +1138,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex3f(Vertex4f a)
 		{
-			Vertex3f v;
-
-			v.x = a.x / a.w;
-			v.y = a.y / a.w;
-			v.z = a.z / a.w;
-
-			return (v);
+			return (new Vertex3f(a.x / a.w, a.y / a.w, a.z / a.w));
 		}
 
 		/// <summary>
@@ -1156,16 +1150,9 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex4d"/>
 		/// </returns>
-		public static explicit operator Vertex4d(Vertex4f a)
+		public static implicit operator Vertex4d(Vertex4f a)
 		{
-			Vertex4d v;
-
-			v.x = a.x;
-			v.y = a.y;
-			v.z = a.z;
-			v.w = a.w;
-
-			return (v);
+			return (new Vertex4d(a.x, a.y, a.z, a.w));
 		}
 
 		#endregion
