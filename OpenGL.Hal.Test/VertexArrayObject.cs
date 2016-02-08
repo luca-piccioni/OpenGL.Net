@@ -45,7 +45,7 @@ namespace OpenGL.Hal.Test
 
 		private void VertexArrayBufferValues(VertexArrayObject vertexArray, string attributeName, string blockName, ArrayBufferObjectBase arrayBuffer, uint arraySectionIndex)
 		{
-			VertexArrayObject.VertexArray vertexArrayBuffer = vertexArray.GetVertexArray(attributeName, blockName);
+			VertexArrayObject.VertexArray vertexArrayBuffer = vertexArray.GetVertexArray(attributeName, blockName) as VertexArrayObject.VertexArray;
 
 			Assert.IsFalse(arrayBuffer.IsDisposed);
 			Assert.IsNotNull(vertexArrayBuffer);
@@ -55,7 +55,7 @@ namespace OpenGL.Hal.Test
 
 		private void VertexArrayBufferValues(VertexArrayObject vertexArray, string attributeSemantic, ArrayBufferObjectBase arrayBuffer, uint arraySectionIndex)
 		{
-			VertexArrayObject.VertexArray vertexArrayBuffer = vertexArray.GetVertexArray(attributeSemantic);
+			VertexArrayObject.VertexArray vertexArrayBuffer = vertexArray.GetVertexArray(attributeSemantic) as VertexArrayObject.VertexArray;
 
 			Assert.IsFalse(arrayBuffer.IsDisposed);
 			Assert.IsNotNull(vertexArrayBuffer);
