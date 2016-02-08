@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -23,7 +23,7 @@ uniform sampler2DArray hal_ElevationMap;
 // Value indicating an undefined value (to be compared with not scaled sample)
 uniform float hal_ElevationNoDataValue = -1.0;
 // The scale applied to the elevation map value
-uniform float hal_ElevationMapScale = 32768.0;
+uniform float hal_ElevationMapScale = 32767.0;
 
 // Alignment of the geometry clipmap grids.
 uniform vec2 hal_GridOffset[16];
