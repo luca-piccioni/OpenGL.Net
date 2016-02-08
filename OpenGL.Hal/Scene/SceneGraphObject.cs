@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 using OpenGL.Collections;
 using OpenGL.State;
@@ -193,6 +194,9 @@ namespace OpenGL.Scene
 		{
 			if (graphicsResource == null)
 				throw new ArgumentNullException("graphicsResource");
+
+			// Formally a resource can be linked multiple times, but probably it is caused by a copy & paste error
+			Debug.Assert(!_Resources.Contains(graphicsResource));
 
 			// By default, threat resources as shared ones
 			graphicsResource.IncRef();
