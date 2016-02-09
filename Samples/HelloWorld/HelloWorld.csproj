@@ -69,7 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewtonVertex.cs" />
     <Compile Include="SampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,9 +99,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Shaders\Newton\Fragment.glsl" />
-    <EmbeddedResource Include="Shaders\Newton\NewtonState.glsl" />
-    <EmbeddedResource Include="Shaders\Newton\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -112,9 +108,6 @@
       <Project>{B1656959-9AEE-45F3-A382-1BD0EAC86918}</Project>
       <Name>OpenGL.Hal</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Shaders\ShadersLibrary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

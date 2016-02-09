@@ -66,9 +66,6 @@ namespace HelloNewton
 				return;
 			}
 
-			// Load shaders library
-			ShadersLibrary.Merge("HelloNewton.Shaders.ShadersLibrary.xml");
-
 			// Run UI
 			Application.Run(new SampleForm());
 		}
