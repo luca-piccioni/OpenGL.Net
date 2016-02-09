@@ -38,13 +38,24 @@ namespace OpenGL
 		/// </summary>
 		static GdalImageCodecPlugin()
 		{
+			AllRegister();
+		}
+
+		internal static void AllRegister()
+		{
+			if (_AllRegister)
+				return;
+
 			try {
 				Gdal.AllRegister();
 			} catch {
 				// Fail-safe: plugin not available
 				_GdalAvailable = false;
 			}
+			_AllRegister = true;
 		}
+
+		private static bool _AllRegister;
 
 		#endregion
 
@@ -316,10 +327,14 @@ namespace OpenGL
 			}
 		}
 
-		private static Image Load_GrayIndex(Dataset dataset, int bandIndex, ImageCodecCriteria criteria)
+		internal static Image Load_GrayIndex(Dataset dataset, int bandIndex, ImageCodecCriteria criteria)
+		{
+			return (Load_GrayIndex(dataset, bandIndex, criteria, null));
+		}
+
+		internal static Image Load_GrayIndex(Dataset dataset, int bandIndex, ImageCodecCriteria criteria, Image image)
 		{
 			using (Band band = dataset.GetRasterBand(bandIndex)) {
-				Image image;
 				Rectangle? rasterSection = criteria.ImageSection;
 
 				if (rasterSection.HasValue == false)
@@ -327,18 +342,20 @@ namespace OpenGL
 
 				uint width = (uint)rasterSection.Value.Width, height = (uint)rasterSection.Value.Height;
 
-				switch (band.DataType) {
-					case OSGeo.GDAL.DataType.GDT_Byte:
-						image = new Image(PixelLayout.GRAY8, width, height);
-						break;
-					case OSGeo.GDAL.DataType.GDT_Int16:
-						image = new Image(PixelLayout.GRAY16S, width, height);
-						break;
-					case OSGeo.GDAL.DataType.GDT_Float32:
-						image = new Image(PixelLayout.GRAYF, width, height);
-						break;
-					default:
-						throw new NotSupportedException();
+				if (image == null) {
+					switch (band.DataType) {
+						case OSGeo.GDAL.DataType.GDT_Byte:
+							image = new Image(PixelLayout.GRAY8, width, height);
+							break;
+						case OSGeo.GDAL.DataType.GDT_Int16:
+							image = new Image(PixelLayout.GRAY16S, width, height);
+							break;
+						case OSGeo.GDAL.DataType.GDT_Float32:
+							image = new Image(PixelLayout.GRAYF, width, height);
+							break;
+						default:
+							throw new NotSupportedException();
+					}
 				}
 
 				// Read raster

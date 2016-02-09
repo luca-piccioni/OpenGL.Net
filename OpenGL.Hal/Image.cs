@@ -254,7 +254,7 @@ namespace OpenGL
 		/// <summary>
 		/// Image size, in bytes.
 		/// </summary>
-		public uint Size { get { return (_PixelBuffers.Size); } }
+		public uint Size { get { return (_PixelBuffers != null ? _PixelBuffers.Size : 0); } }
 
 		/// <summary>
 		/// Image pixel format.

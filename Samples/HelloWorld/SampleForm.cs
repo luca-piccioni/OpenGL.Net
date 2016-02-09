@@ -19,9 +19,13 @@ namespace HelloNewton
 			GraphicsContext ctx = e.Context;
 			GraphicsSurface framebuffer = e.Framebuffer;
 
+			GeometryClipmapObject geometryClipmapObject = new GeometryClipmapObject(7, 4, _BlockUnit);
+
+			geometryClipmapObject.SetTerrainElevationFactory(@"C:\Users\Luca\Documents\GitHubVisualStudio\OpenGL.Net\Samples\HelloWorld\Data\N45E010.hgt", 45.5, 10.5);
+
 			_GeometryClipmapScene = new SceneGraph();
 			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
-			_GeometryClipmapScene.AddChild(new GeometryClipmapObject(7, 4, _BlockUnit));
+			_GeometryClipmapScene.AddChild(geometryClipmapObject);
 			_GeometryClipmapScene.Create(ctx);
 
 			// Set projection
@@ -129,7 +133,7 @@ namespace HelloNewton
 				if (pair.Value == false)
 					continue;
 
-				float step = _BlockUnit * 0.1f;
+				float step = _BlockUnit * 0.01f;
 
 				switch (pair.Key) {
 					case Keys.W:
@@ -152,6 +156,8 @@ namespace HelloNewton
 						break;
 				}
 			}
+
+			System.Diagnostics.Trace.TraceInformation("View Pos: {0}", _ViewPosition);
 		}
 
 		/// <summary>

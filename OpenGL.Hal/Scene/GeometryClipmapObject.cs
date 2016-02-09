@@ -31,7 +31,7 @@ namespace OpenGL.Scene
 	/// <summary>
 	/// Geometry clipmap implementation.
 	/// </summary>
-	public class GeometryClipmapObject : SceneGraphObject
+	public partial class GeometryClipmapObject : SceneGraphObject
 	{
 		#region Constructors
 
@@ -62,6 +62,8 @@ namespace OpenGL.Scene
 
 			// Define clipmap resources
 			_ClipmapLevels = new ClipmapLevel[levels];
+			// Default the elevation sources (defaults to no sources)
+			_TerrainElevationSources = new ITerrainElevationSource[ClipmapLevels];
 			// Define geometry clipmap program
 			_GeometryClipmapProgram = ShadersLibrary.Instance.CreateProgram("GeometryClipmap");
 			LinkResource(_GeometryClipmapProgram);
@@ -258,16 +260,19 @@ namespace OpenGL.Scene
 				float scale = (float)Math.Pow(2.0, lod) * unit;
 				float positionOffset = -1.0f;
 
-				float xPosition = (x + positionOffset) * scale;
-				float yPosition = (y + positionOffset) * scale;
+				float xPosition = x + positionOffset;
+				float yPosition = y + positionOffset;
 
 				// Position offset and scale
-				Offset = new Vertex4f(xPosition, yPosition, (m - 1) * scale, (m - 1) * scale);
+				Offset = new Vertex4f(xPosition, yPosition, m - 1, m - 1) * scale;
 				// Texture coordinate offset and scale
-				float texOffset = 0.5f;
-				float texScale = (n + 1) / 3601.0f;
+				float blockSize = (float)(n + 1);
+				float blockSize2 = blockSize / 2.0f;
+				float xTexOffset = (x + blockSize2) / blockSize;
+				float yTexOffset = (y + blockSize2) / blockSize;
+				float texScale = m / blockSize;
 
-				MapOffset = new Vertex4f(texOffset, texOffset, texScale, texScale);
+				MapOffset = new Vertex4f(xTexOffset, 1.0f - yTexOffset, texScale, -texScale);
 				// LOD
 				Lod = lod;
 				// Instance color
@@ -324,10 +329,93 @@ namespace OpenGL.Scene
 
 		#region Elevation Texture Update
 
-		public interface IGeometryClipmapTexSource
+		/// <summary>
+		/// Factory pattern interface for creating <see cref="ITerrainElevationSource"/> instances.
+		/// </summary>
+		public interface ITerrainElevationFactory
 		{
-
+			/// <summary>
+			/// Creates the <see cref="ITerrainElevationSource"/> for the specified LOD.
+			/// </summary>
+			/// <param name="lod">
+			/// A <see cref="UInt32"/> that specify the Level Of Detail of the terrain elevation data.
+			/// </param>
+			/// <param name="size">
+			/// A <see cref="UInt32"/> that specify the size of the required terrain elevation source, in pixels, to be
+			/// applied for both extents.
+			/// </param>
+			/// <param name="unitScale">
+			/// A <see cref="Single"/> that specify the scale to be applied to a single terrain elevation fragment, in meters.
+			/// </param>
+			/// <returns>
+			/// It returns a <see cref="ITerrainElevationSource"/> that satisfy the specified parameters.
+			/// </returns>
+			ITerrainElevationSource CreateTerrainElevationSource(uint lod, uint size, float unitScale);
 		}
+
+		/// <summary>
+		/// Interface implemented by those objects able to provide terrain elevation data, feeding information required
+		/// to implement the geometry clipmap.
+		/// </summary>
+		public interface ITerrainElevationSource : IDisposable
+		{
+			/// <summary>
+			/// Get the terrain elevation map corresponding to the specified position.
+			/// </summary>
+			/// <param name="viewPosition">
+			/// The <see cref="Vertex3d"/> that specify the current view position, using an absolute cartesian reference system.
+			/// </param>
+			/// <returns>
+			/// It returns the <see cref="Image"/> that contains the terrain elevation data corresponding to <paramref name="viewPosition"/>.
+			/// </returns>
+			/// <remarks>
+			/// <para>
+			/// 
+			/// </para>
+			/// </remarks>
+			Image GetTerrainElevationMap(Vertex3d viewPosition);
+		}
+
+		/// <summary>
+		/// Set the default terrain elevation factory.
+		/// </summary>
+		/// <param name="lat">
+		/// The <see cref="Double"/> that specify the reference latitude coordinate, in degrees.
+		/// </param>
+		/// <param name="lon">
+		/// The <see cref="Double"/> that specify the reference longitude coordinate, in degrees.
+		/// </param>
+		public void SetTerrainElevationFactory(string databaseRoot, double lat, double lon)
+		{
+			SetTerrainElevationFactory(new DefaultTerrainElevationFactory(databaseRoot, lat, lon));
+		}
+
+		/// <summary>
+		/// Set the terrain elevation source.
+		/// </summary>
+		/// <param name="terrainElevationFactory">
+		/// The <see cref="ITerrainElevationFactory"/> that is able to create the terrain elevation sources for each
+		/// geometry clipmap level.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="terrainElevationFactory"/> is null.
+		/// </exception>
+		public void SetTerrainElevationFactory(ITerrainElevationFactory terrainElevationFactory)
+		{
+			if (terrainElevationFactory == null)
+				throw new ArgumentNullException("terrainElevationFactory");
+
+			for (ushort i = 0; i < ClipmapLevels; i++) {
+				if (_TerrainElevationSources[i] != null)
+					_TerrainElevationSources[i].Dispose();
+				_TerrainElevationSources[i] = terrainElevationFactory.CreateTerrainElevationSource(i, StripStride + 1, BlockQuadUnit);
+			}
+		}
+
+		/// <summary>
+		/// The source of the terrain elevation maps.
+		/// </summary>
+		private readonly ITerrainElevationSource[] _TerrainElevationSources;
 
 		#endregion
 
@@ -905,12 +993,25 @@ namespace OpenGL.Scene
 
 			ctxScene.GraphicsStateStack.Current.Apply(ctx, _GeometryClipmapProgram);
 
+			// Update elevation maps
+			Vertex3d viewPosition = ctxScene.CurrentView.LocalModel.Position;
+			for (ushort i = 0; i < ClipmapLevels; i++) {
+				if (_TerrainElevationSources[i] == null)
+					continue;
+
+				Image elevationMap = _TerrainElevationSources[i].GetTerrainElevationMap(viewPosition);
+				if (elevationMap == null)
+					continue;       // No update required
+
+				_ElevationTexture.Create(ctx, PixelLayout.GRAY16S, elevationMap, i);
+			}
+
 			_GeometryClipmapProgram.Bind(ctx);
 			_GeometryClipmapProgram.ResetTextureUnits();
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
 
 			// Set grid offsets
-			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
+			Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
 			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
 
 			for (uint level = 0; level < ClipmapLevels; level++) {
@@ -1007,6 +1108,17 @@ namespace OpenGL.Scene
 		/// Temporary field used by <see cref="Draw"/> and <see cref="DrawThis"/>.
 		/// </summary>
 		private uint _CurrentLevel;
+
+		protected override void Dispose(bool disposing)
+		{
+			// Base implementation
+			base.Dispose(disposing);
+
+			// Dispose previous terrain elevation sources
+			for (ushort i = 0; i < ClipmapLevels; i++)
+				if (_TerrainElevationSources[i] != null)
+					_TerrainElevationSources[i].Dispose();
+		}
 
 		#endregion
 	}
