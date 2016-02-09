@@ -3141,13 +3141,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex3d operator %(Vertex3d v1, Vertex3d v2)
 		{
-			Vertex3d v;
-
-			v.x = v1.x % v2.x;
-			v.y = v1.y % v2.y;
-			v.z = v1.z % v2.z;
-
-			return (v);
+			return (new Vertex3d(v1.x % v2.x, v1.y % v2.y, v1.z % v2.z));
 		}
 
 		/// <summary>
@@ -3164,13 +3158,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex3d operator %(Vertex3d v1, double scalar)
 		{
-			Vertex3d v;
-
-			v.x = v1.x % scalar;
-			v.y = v1.y % scalar;
-			v.z = v1.z % scalar;
-
-			return (v);
+			return (new Vertex3d(v1.x % scalar, v1.y % scalar, v1.z % scalar));
 		}
 
 		#endregion

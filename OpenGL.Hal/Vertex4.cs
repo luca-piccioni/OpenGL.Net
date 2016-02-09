@@ -1513,32 +1513,21 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex2f(Vertex4d a)
 		{
-			Vertex2f v;
-
-			v.x = (float)(a.x / a.w);
-			v.y = (float)(a.y / a.w);
-
-			return (v);
+			return (new Vertex2f((float)(a.x / a.w), (float)(a.y / a.w)));
 		}
 
 		/// <summary>
-		/// Cast to Vertex2f operator.
+		/// Cast to Vertex3f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/>
+		/// A <see cref="Vertex4d"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex2f"/>
+		/// A <see cref="Vertex3f"/>
 		/// </returns>
 		public static explicit operator Vertex3f(Vertex4d a)
 		{
-			Vertex3f v;
-
-			v.x = (float)(a.x / a.w);
-			v.y = (float)(a.y / a.w);
-			v.z = (float)(a.z / a.w);
-
-			return (v);
+			return (new Vertex3f((float)(a.x / a.w), (float)(a.y / a.w), (float)(a.z / a.w)));
 		}
 
 		/// <summary>
@@ -1552,34 +1541,21 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex4d a)
 		{
-			Vertex4f v;
-
-			v.x = (float)a.x;
-			v.y = (float)a.y;
-			v.z = (float)a.z;
-			v.w = (float)a.w;
-
-			return (v);
+			return (new Vertex4f((float)a.x, (float)a.y, (float)a.z, (float)a.w));
 		}
 
 		/// <summary>
-		/// Cast to Vertex2f operator.
+		/// Cast to Vertex3d operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/>
+		/// A <see cref="Vertex4d"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex2f"/>
+		/// A <see cref="Vertex3d"/>
 		/// </returns>
-		public static explicit operator Vertex3d(Vertex4d a)
+		public static implicit operator Vertex3d(Vertex4d a)
 		{
-			Vertex3d v;
-
-			v.x = a.x / a.w;
-			v.y = a.y / a.w;
-			v.z = a.z / a.w;
-
-			return (v);
+			return (new Vertex3d(a.x / a.w, a.y / a.w, a.z / a.w));
 		}
 
 		#endregion

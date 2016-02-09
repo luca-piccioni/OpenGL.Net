@@ -1255,12 +1255,109 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex2d operator -(Vertex2d v1)
 		{
-			Vertex2d v;
+			return (new Vertex2d(-v1.x, -v1.y));
+		}
 
-			v.x = -v1.x;
-			v.y = -v1.y;
+		/// <summary>
+		/// Addition operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2d"/>
+		/// </returns>
+		public static Vertex2d operator +(Vertex2d v1, Vertex2d v2)
+		{
+			return (new Vertex2d(v1.x + v2.x, v1.y + v2.y));
+		}
 
-			return (v);
+		/// <summary>
+		/// Subtract operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2d"/>
+		/// </returns>
+		public static Vertex2d operator -(Vertex2d v1, Vertex2d v2)
+		{
+			return (new Vertex2d(v1.x - v2.x, v1.y - v2.y));
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2d"/>
+		/// </returns>
+		public static Vertex2d operator *(Vertex2d v1, double scalar)
+		{
+			return (new Vertex2d(v1.x * scalar, v1.y * scalar));
+		}
+
+		/// <summary>
+		/// Scalar divide operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2d"/>
+		/// </returns>
+		public static Vertex2d operator /(Vertex2d v1, double scalar)
+		{
+			return (new Vertex2d(v1.x / scalar, v1.y / scalar));
+		}
+
+		/// <summary>
+		/// Modulus operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2d"/>
+		/// </returns>
+		public static Vertex2d operator %(Vertex2d v1, Vertex2d v2)
+		{
+			return (new Vertex2d(v1.x % v2.x, v1.y % v2.y));
+		}
+
+		/// <summary>
+		/// Modulus operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2d"/>
+		/// </returns>
+		public static Vertex2d operator %(Vertex2d v1, double scalar)
+		{
+			return (new Vertex2d(v1.x % scalar, v1.y % scalar));
 		}
 
 		#endregion
