@@ -165,9 +165,10 @@ namespace OpenGL.Scene
 
 				Latitude = lat;
 				Longitude = lon;
+				Size = size;
 				UnitScale = unitScale;
 
-				_TerrainElevation = new Image(PixelLayout.GRAY16S, size, size);
+				_TerrainElevation = new Image(PixelLayout.GRAY16S, Size, Size);
 				_TerrainElevation.IncRef();
 			}
 
@@ -190,6 +191,8 @@ namespace OpenGL.Scene
 			/// </summary>
 			public double Longitude;
 
+			public readonly uint Size;
+
 			/// <summary>
 			/// 
 			/// </summary>
@@ -207,7 +210,7 @@ namespace OpenGL.Scene
 			/// <summary>
 			/// The updated terrain elevation.
 			/// </summary>
-			private readonly Image _TerrainElevation;
+			private Image _TerrainElevation;
 
 			#endregion
 
@@ -226,40 +229,46 @@ namespace OpenGL.Scene
 			{
 				Vertex2d view2dPosition = new Vertex2d(viewPosition.x, viewPosition.z);
 
-				Vertex2d viewCacheDiff = view2dPosition - _LastCachePosition;
-				if (Math.Abs(viewCacheDiff.x) < UnitScale && Math.Abs(viewCacheDiff.y) < UnitScale)
-					return (null);
-
 				// Apply clipmap offset
 				Vertex2d viewOffset = view2dPosition / UnitScale;
+
+				viewOffset = new Vertex2d(Math.Floor(viewOffset.x), Math.Floor(viewOffset.y));
 
 				// Determine the dataset section to load
 				Rectangle datasetSection = new Rectangle(0, 0, (int)_TerrainElevation.Width, (int)_TerrainElevation.Height);
 				double x = viewOffset.x, y = viewOffset.y;
+				Vertex2d rasterPosition = CurrentPosition + new Vertex2d(x, -y);
 
-				double x1 = CurrentPosition.x + x - _TerrainElevation.Width / 2, x2 = CurrentPosition.x + x + _TerrainElevation.Width / 2;
-				double y1 = CurrentPosition.y + y - _TerrainElevation.Height / 2, y2 = CurrentPosition.y + y + _TerrainElevation.Height / 2;
+				Vertex2d viewCacheDiff = rasterPosition - _LastRasterPosition;
+
+				if (Math.Abs(viewCacheDiff.x) < 1.0 && Math.Abs(viewCacheDiff.y) < 1.0)
+					return (null);
+
+				double w2 = _TerrainElevation.Width / 2, h2 = _TerrainElevation.Height / 2;
+				double x1 = rasterPosition.x - w2, x2 = rasterPosition.x + w2;
+				double y1 = rasterPosition.y - h2, y2 = rasterPosition.y + h2;
 
 				datasetSection.X = (int)Math.Floor(x1);
 				datasetSection.Y = (int)Math.Floor(y1);
 				datasetSection.Width = (int)Math.Floor(x2 - x1);
 				datasetSection.Height = (int)Math.Floor(y2 - y1);
 
-				//System.Diagnostics.Trace.TraceInformation("{0}", datasetSection);
+				//System.Diagnostics.Trace.TraceInformation("View: {0}", view2dPosition);
+				//System.Diagnostics.Trace.TraceInformation("Data section: {0}", datasetSection);
 
 				// Update current terrain elevation, following the updated position
 				ImageCodecCriteria datasetCriteria = new ImageCodecCriteria();
 				datasetCriteria.ImageSection = datasetSection;
+				
 				GdalImageCodecPlugin.Load_GrayIndex(_DatabaseDataset, 1, datasetCriteria, _TerrainElevation);
 
 				// Update current position
-				//CurrentPosition = CurrentPosition + viewOffset;
-				_LastCachePosition = view2dPosition;
+				_LastRasterPosition = rasterPosition;
 
 				return (_TerrainElevation);
 			}
 
-			private Vertex2d _LastCachePosition;
+			private Vertex2d _LastRasterPosition;
 
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
