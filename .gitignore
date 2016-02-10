@@ -23,3 +23,6 @@ packages
 /GLSpecs/.UpdatedSpecs
 /Samples/HelloWorld/bin
 /Samples/HelloWorld/obj
+/Samples/HelloWorld/Data/Terrain.vrt.ovr
+/Samples/HelloWorld/Data/Terrain.vrt
+/Samples/HelloWorld/Data/TerrainFileList.txt

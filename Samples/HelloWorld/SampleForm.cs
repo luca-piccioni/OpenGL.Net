@@ -137,7 +137,7 @@ namespace HelloNewton
 
 				switch (pair.Key) {
 					case Keys.W:
-						_ViewPosition = _ViewPosition + new Vertex3f(+step, 0.0f, 0.0f);
+						_ViewPosition = _ViewPosition + (Vertex3f)(_GeometryClipmapScene.CurrentView.LocalModel.ForwardVector * step);
 						break;
 					case Keys.S:
 						_ViewPosition = _ViewPosition + new Vertex3f(-step, 0.0f, 0.0f);
@@ -156,8 +156,6 @@ namespace HelloNewton
 						break;
 				}
 			}
-
-			System.Diagnostics.Trace.TraceInformation("View Pos: {0}", _ViewPosition);
 		}
 
 		/// <summary>

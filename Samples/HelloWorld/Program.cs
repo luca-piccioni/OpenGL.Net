@@ -56,6 +56,10 @@ namespace HelloNewton
 
 			if (!GraphicsContext.CurrentCaps.GlExtensions.VertexShader_ARB)
 				missingReq.Append("- GL_ARB_vertex_shader\n");
+			if (!GraphicsContext.CurrentCaps.GlExtensions.PrimitiveRestart)
+				missingReq.Append("- OpenGL 3.1\n");
+			if (!GraphicsContext.CurrentCaps.GlExtensions.InstancedArrays)
+				missingReq.Append("- GL_ARB_instanced_arrays or OpenGL 3.2\n");
 
 			if (missingReq.Length > 0) {
 				MessageBox.Show(
