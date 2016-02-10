@@ -22,7 +22,7 @@
 
 #define POSITION_CORRECTION
 
-#undef TEXTURING_ELEVATION
+#define TEXTURING_ELEVATION
 
 #undef CULLING_CLIPMAP_CAP
 
@@ -79,8 +79,8 @@ namespace OpenGL.Scene
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Linear;
-			_ElevationTexture.MagFilter = Texture.Filter.Linear;
+			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
@@ -262,23 +262,19 @@ namespace OpenGL.Scene
 			public ClipmapBlockInstance(uint n, uint m, int x, int y, uint lod, float unit, ColorRGBAF color)
 			{
 				float scale = (float)Math.Pow(2.0, lod) * unit;
-				float positionOffset = -1.0f;
-
-				float xPosition = x + positionOffset;
-				float yPosition = y + positionOffset;
 
 				// Position offset and scale
-				Offset = new Vertex4f(xPosition, yPosition, m - 1, m - 1) * scale;
+				Offset = new Vertex4f(x, y, m - 1, m - 1) * scale;
 				// Texture coordinate offset and scale
 				float texNormalizedSize = (1.0f - (1.0f / (n + 1)));
 
-				float blockSize = (float)n;
-				float blockSize2 = blockSize / 2.0f;
-				float xTexOffset = (x + blockSize2) / blockSize;
-				float yTexOffset = (y + blockSize2) / blockSize;
+				float clipmapLevelSize = (float)(n - 1);
+				float clipmapLevelSize2 = clipmapLevelSize / 2.0f;
+				float xTexOffset = (x + clipmapLevelSize2) / clipmapLevelSize;
+				float yTexOffset = (y + clipmapLevelSize2) / clipmapLevelSize;
 				float texScale = (float)(m - 1) / (n - 1);
 
-				MapOffset = new Vertex4f(xTexOffset, texNormalizedSize - yTexOffset, texScale, -texScale) * texNormalizedSize;
+				MapOffset = new Vertex4f(xTexOffset, yTexOffset, texScale, texScale) * texNormalizedSize;
 				// LOD
 				Lod = new Vertex2f(lod, lod);
 				// Instance color
@@ -289,7 +285,7 @@ namespace OpenGL.Scene
 #endif
 			}
 
-#endregion
+			#endregion
 
 			#region Structure
 
@@ -861,7 +857,7 @@ namespace OpenGL.Scene
 				xBlock = -semiStripStride;
 				yBlock = -semiStripStride + 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				//clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = -semiStripStride + 1;

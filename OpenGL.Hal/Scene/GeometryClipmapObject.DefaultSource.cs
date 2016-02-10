@@ -159,7 +159,7 @@ namespace OpenGL.Scene
 
 				double xCurrentPosition, yCurrentPosition;
 				Gdal.ApplyGeoTransform(datasetInvTransform, lon, lat, out xCurrentPosition, out yCurrentPosition);
-				CurrentPosition = new Vertex2d(Math.Floor(xCurrentPosition), Math.Floor(yCurrentPosition));
+				CurrentTexPosition = OriginPosition = new Vertex2d(Math.Floor(xCurrentPosition), Math.Floor(yCurrentPosition));
 
 				Latitude = lat;
 				Longitude = lon;
@@ -200,9 +200,14 @@ namespace OpenGL.Scene
 			public readonly float UnitScale;
 
 			/// <summary>
-			/// The cartesian position corresponding to the coordinates <see cref="Latitude"/> and <see cref="Longitude"/>.
+			/// The cartesian position within the terrain elevation dataset corresponding to the coordinates <see cref="Latitude"/> and
+			/// <see cref="Longitude"/>. It corresponds with the world coordinate (0,0,0).
 			/// </summary>
-			public Vertex2d CurrentPosition;
+			public Vertex2d OriginPosition;
+
+			public Vertex2d CurrentViewPosition;
+
+			public Vertex2d CurrentTexPosition;
 
 			#endregion
 
@@ -232,20 +237,18 @@ namespace OpenGL.Scene
 
 				// Apply clipmap offset
 				double lodUnitScale = Math.Pow(2.0, Lod) * UnitScale;
-				Vertex2d viewOffset = view2dPosition / lodUnitScale;
+				Vertex2d texturePositionOffset = (view2dPosition - CurrentViewPosition) / lodUnitScale;
 
-				// Discard fractional part
-				viewOffset = new Vertex2d(Math.Floor(viewOffset.x), Math.Floor(viewOffset.y));
+				// Discard fractional part, move towards zero
+				texturePositionOffset = new Vertex2d(Math.Truncate(texturePositionOffset.x), Math.Truncate(texturePositionOffset.y));
+				// Determine whether an texture update is not required
+				if (Math.Abs(texturePositionOffset.x) < 1.0 && Math.Abs(texturePositionOffset.y) < 1.0)
+					return (null);
 
 				// Determine the dataset section to load
 				Rectangle datasetSection = new Rectangle(0, 0, (int)_TerrainElevation.Width, (int)_TerrainElevation.Height);
-				double x = viewOffset.x, y = viewOffset.y;
-				Vertex2d rasterPosition = CurrentPosition + new Vertex2d(x, -y);
-
-				// Determine whether an texture update is not required
-				Vertex2d viewCacheDiff = rasterPosition - _LastRasterPosition;
-				if (Math.Abs(viewCacheDiff.x) < 1.0 && Math.Abs(viewCacheDiff.y) < 1.0)
-					return (null);
+				double x = texturePositionOffset.x, y = texturePositionOffset.y;
+				Vertex2d rasterPosition = CurrentTexPosition + new Vertex2d(x, y);
 
 				double w2 = _TerrainElevation.Width / 2, h2 = _TerrainElevation.Height / 2;
 
@@ -267,13 +270,12 @@ namespace OpenGL.Scene
 				
 				GdalImageCodecPlugin.Load_GrayIndex(_DatabaseDataset, 1, datasetCriteria, _TerrainElevation);
 
-				// Update current position
-				_LastRasterPosition = rasterPosition;
+				// Update current positions
+				CurrentTexPosition = rasterPosition;
+				CurrentViewPosition = CurrentViewPosition + texturePositionOffset * lodUnitScale;
 
 				return (_TerrainElevation);
 			}
-
-			private Vertex2d _LastRasterPosition;
 
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
