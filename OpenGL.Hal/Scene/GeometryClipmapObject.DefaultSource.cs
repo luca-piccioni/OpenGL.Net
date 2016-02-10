@@ -130,9 +130,7 @@ namespace OpenGL.Scene
 			/// </returns>
 			public ITerrainElevationSource CreateTerrainElevationSource(uint lod, uint size, float unitScale)
 			{
-				if (lod == 0)
-					return (new DefaultTerrainElevationSource(_DatabaseDataset, Latitude, Longitude, size, (float)(Math.Pow(2.0, lod) * unitScale)));
-				return (null);
+				return (new DefaultTerrainElevationSource(_DatabaseDataset, Latitude, Longitude, size, lod, unitScale));
 			}
 
 			#endregion
@@ -145,7 +143,7 @@ namespace OpenGL.Scene
 		{
 			#region Constructors
 
-			public DefaultTerrainElevationSource(Dataset databaseDataset, double lat, double lon, uint size, float unitScale)
+			public DefaultTerrainElevationSource(Dataset databaseDataset, double lat, double lon, uint size, uint lod, float unitScale)
 			{
 				if (databaseDataset == null)
 					throw new ArgumentNullException("databaseDataset");
@@ -165,10 +163,10 @@ namespace OpenGL.Scene
 
 				Latitude = lat;
 				Longitude = lon;
-				Size = size;
+				Lod = lod;
 				UnitScale = unitScale;
 
-				_TerrainElevation = new Image(PixelLayout.GRAY16S, Size, Size);
+				_TerrainElevation = new Image(PixelLayout.GRAY16S, size, size);
 				_TerrainElevation.IncRef();
 			}
 
@@ -191,7 +189,10 @@ namespace OpenGL.Scene
 			/// </summary>
 			public double Longitude;
 
-			public readonly uint Size;
+			/// <summary>
+			/// Level of detail requested for this terrain elevation source.
+			/// </summary>
+			public readonly uint Lod;
 
 			/// <summary>
 			/// 
@@ -230,8 +231,10 @@ namespace OpenGL.Scene
 				Vertex2d view2dPosition = new Vertex2d(viewPosition.x, viewPosition.z);
 
 				// Apply clipmap offset
-				Vertex2d viewOffset = view2dPosition / UnitScale;
+				double lodUnitScale = Math.Pow(2.0, Lod) * UnitScale;
+				Vertex2d viewOffset = view2dPosition / lodUnitScale;
 
+				// Discard fractional part
 				viewOffset = new Vertex2d(Math.Floor(viewOffset.x), Math.Floor(viewOffset.y));
 
 				// Determine the dataset section to load
@@ -239,12 +242,17 @@ namespace OpenGL.Scene
 				double x = viewOffset.x, y = viewOffset.y;
 				Vertex2d rasterPosition = CurrentPosition + new Vertex2d(x, -y);
 
+				// Determine whether an texture update is not required
 				Vertex2d viewCacheDiff = rasterPosition - _LastRasterPosition;
-
 				if (Math.Abs(viewCacheDiff.x) < 1.0 && Math.Abs(viewCacheDiff.y) < 1.0)
 					return (null);
 
 				double w2 = _TerrainElevation.Width / 2, h2 = _TerrainElevation.Height / 2;
+
+				// Specify the LOD 0 size
+				w2 *= Math.Pow(2.0, Lod);
+				h2 *= Math.Pow(2.0, Lod);
+
 				double x1 = rasterPosition.x - w2, x2 = rasterPosition.x + w2;
 				double y1 = rasterPosition.y - h2, y2 = rasterPosition.y + h2;
 
