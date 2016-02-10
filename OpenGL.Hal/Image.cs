@@ -482,6 +482,7 @@ namespace OpenGL
 				if (_PixelBuffers != null) {
 					// Release the buffer buffer
 					_PixelBuffers.Dispose();
+					_PixelBuffers = null;
 				}
 			}
 		}
