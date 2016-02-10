@@ -75,8 +75,8 @@ namespace OpenGL.Scene
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Linear;
-			_ElevationTexture.MagFilter = Texture.Filter.Linear;
+			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
@@ -211,7 +211,7 @@ namespace OpenGL.Scene
 			/// Number of vertices composing the clipmap level (used for texturing).
 			/// </param>
 			/// <param name="m">
-			/// The number of subdivisions defining the block area normalized in the range [0.0, 1.0].
+			/// The number of vertices defining the block area normalized in the range [0.0, 1.0].
 			/// </param>
 			/// <param name="x">
 			/// The offset on X axis of the lower-left corner of the block, in block quad units (position and texturing).
@@ -238,7 +238,7 @@ namespace OpenGL.Scene
 			/// Number of vertices composing the clipmap level (used for texturing).
 			/// </param>
 			/// <param name="m">
-			/// The number of subdivisions defining the block area normalized in the range [0.0, 1.0].
+			/// The number of vertices defining the block area normalized in the range [0.0, 1.0].
 			/// </param>
 			/// <param name="x">
 			/// The offset on X axis of the lower-left corner of the block, in block quad units (position and texturing).
@@ -266,13 +266,15 @@ namespace OpenGL.Scene
 				// Position offset and scale
 				Offset = new Vertex4f(xPosition, yPosition, m - 1, m - 1) * scale;
 				// Texture coordinate offset and scale
-				float blockSize = (float)(n + 1);
+				float texNormalizedSize = (1.0f - (1.0f / (n + 1)));
+
+				float blockSize = (float)n;
 				float blockSize2 = blockSize / 2.0f;
 				float xTexOffset = (x + blockSize2) / blockSize;
 				float yTexOffset = (y + blockSize2) / blockSize;
-				float texScale = m / blockSize;
+				float texScale = (float)(m - 1) / (n - 1);
 
-				MapOffset = new Vertex4f(xTexOffset, 1.0f - yTexOffset, texScale, -texScale);
+				MapOffset = new Vertex4f(xTexOffset, texNormalizedSize - yTexOffset, texScale, -texScale) * texNormalizedSize;
 				// LOD
 				Lod = lod;
 				// Instance color

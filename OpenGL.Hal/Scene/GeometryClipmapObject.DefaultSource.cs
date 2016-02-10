@@ -253,9 +253,6 @@ namespace OpenGL.Scene
 				datasetSection.Width = (int)Math.Floor(x2 - x1);
 				datasetSection.Height = (int)Math.Floor(y2 - y1);
 
-				//System.Diagnostics.Trace.TraceInformation("View: {0}", view2dPosition);
-				//System.Diagnostics.Trace.TraceInformation("Data section: {0}", datasetSection);
-
 				// Update current terrain elevation, following the updated position
 				ImageCodecCriteria datasetCriteria = new ImageCodecCriteria();
 				datasetCriteria.ImageSection = datasetSection;

@@ -21,7 +21,7 @@ namespace HelloNewton
 
 			GeometryClipmapObject geometryClipmapObject = new GeometryClipmapObject(7, 4, _BlockUnit);
 
-			geometryClipmapObject.SetTerrainElevationFactory(@"C:\Users\Luca\Documents\GitHubVisualStudio\OpenGL.Net\Samples\HelloWorld\Data\N45E010.hgt", 45.5, 10.5);
+			geometryClipmapObject.SetTerrainElevationFactory(@"C:\Users\Luca\Documents\GitHubVisualStudio\OpenGL.Net\Samples\HelloWorld\Data\Terrain.vrt", 45.5, 10.5);
 
 			_GeometryClipmapScene = new SceneGraph();
 			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
