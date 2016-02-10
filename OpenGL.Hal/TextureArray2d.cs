@@ -335,8 +335,8 @@ namespace OpenGL
 					if (Images[layer] == null)
 						continue;
 
-					PixelFormat format = Pixel.GetGlFormat(Images[0].PixelLayout);
-					PixelType type = Pixel.GetPixelType(Images[0].PixelLayout);
+					PixelFormat format = Pixel.GetGlFormat(Images[layer].PixelLayout);
+					PixelType type = Pixel.GetPixelType(Images[layer].PixelLayout);
 
 					// Set pixel transfer (may vary from image to image)
 					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
@@ -404,10 +404,13 @@ namespace OpenGL
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(TextureTarget, internalFormat, images, resetLayers));
 
+			// Find reference image
+			Image refImage = Array.Find(images, delegate (Image item) { return (item != null); });
+
 			// Setup texture information
 			PixelLayout = internalFormat;
-			_Width = images[0].Width;
-			_Height = images[0].Height;
+			_Width = refImage.Width;
+			_Height = refImage.Height;
 			_Layers = (uint)images.Length;
 		}
 
