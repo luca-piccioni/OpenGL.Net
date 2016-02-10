@@ -68,15 +68,15 @@ namespace OpenGL.Scene
 			_GeometryClipmapProgram = ShadersLibrary.Instance.CreateProgram("GeometryClipmap");
 			LinkResource(_GeometryClipmapProgram);
 			// Create elevation texture
-			uint elevationTextureSize = (uint)((BlockVertices + 1) * 2);
+			uint elevationTextureSize = StripStride + 1;
 
 			// Clamp texture size, if necessary
 			if (elevationTextureSize > GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize)
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
-			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MinFilter = Texture.Filter.Linear;
+			_ElevationTexture.MagFilter = Texture.Filter.Linear;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
@@ -1006,7 +1006,7 @@ namespace OpenGL.Scene
 				_ElevationTexture.Create(ctx, PixelLayout.GRAY16S, elevationMap, i);
 			}
 
-			_GeometryClipmapProgram.Bind(ctx);
+			ctx.Bind(_GeometryClipmapProgram);
 			_GeometryClipmapProgram.ResetTextureUnits();
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
 
