@@ -39,7 +39,7 @@ in vec4 hal_BlockOffset;
 // ZW: scale
 in vec4 hal_MapOffset;
 // The actual LOD level associated to this instance (instanced)
-in float hal_Lod;
+in vec2 hal_Lod;
 // The instance color, for debugging (instanced)
 in vec4 hal_BlockColor;
 
@@ -49,12 +49,12 @@ out vec4 hal_VertexColor;
 void main()
 {
 	// Offset and scale vertex position (and grid alignment)
-	vec2 worldPosition = hal_Position * hal_BlockOffset.zw + hal_BlockOffset.xy + hal_GridOffset[int(hal_Lod)];
+	vec2 worldPosition = hal_Position * hal_BlockOffset.zw + hal_BlockOffset.xy + hal_GridOffset[int(hal_Lod.y)];
 	// Offset and scale vertex texture coordinate
 	vec2 elevationCoord = hal_Position * hal_MapOffset.zw + hal_MapOffset.xy;
 
 	// Extract elevation map information
-	vec4 elevationFragment = texture(hal_ElevationMap, vec3(elevationCoord, hal_Lod));
+	vec4 elevationFragment = texture(hal_ElevationMap, vec3(elevationCoord, hal_Lod.x));
 
 	if (elevationFragment.x == hal_ElevationNoDataValue)
 		elevationFragment.x = 0.0;
