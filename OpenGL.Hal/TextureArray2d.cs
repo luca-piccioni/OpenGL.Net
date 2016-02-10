@@ -347,7 +347,7 @@ namespace OpenGL
 					}
 
 					// Upload texture contents
-					Gl.TexImage3D(Target, 0, internalFormat, (int)Images[layer].Width, (int)Images[layer].Height, layer + 1, 0, format, type, Images[layer].ImageBuffer);
+					Gl.TexSubImage3D(Target, 0, 0, 0, layer, (int)Images[layer].Width, (int)Images[layer].Height, 1, format, type, Images[layer].ImageBuffer);
 				}
 			}
 
