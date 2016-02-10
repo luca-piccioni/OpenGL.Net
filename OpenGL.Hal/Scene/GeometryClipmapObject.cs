@@ -16,11 +16,15 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#undef CULL_CLIPMAP_LEVEL
+#define CLIPMAP_COLOR_DEBUG
+
+#define CLIPMAP_CAP
 
 #define POSITION_CORRECTION
 
-#define CLIPMAP_COLOR_DEBUG
+#undef TEXTURING_ELEVATION
+
+#undef CULLING_CLIPMAP_CAP
 
 using System;
 using System.Collections.Generic;
@@ -75,8 +79,8 @@ namespace OpenGL.Scene
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
-			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MinFilter = Texture.Filter.Linear;
+			_ElevationTexture.MagFilter = Texture.Filter.Linear;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
@@ -180,7 +184,7 @@ namespace OpenGL.Scene
 			public void Dispose()
 			{
 				Texture.DecRef();
-            }
+			}
 
 			#endregion
 		}
@@ -276,7 +280,7 @@ namespace OpenGL.Scene
 
 				MapOffset = new Vertex4f(xTexOffset, texNormalizedSize - yTexOffset, texScale, -texScale) * texNormalizedSize;
 				// LOD
-				Lod = lod;
+				Lod = new Vertex2f(lod, lod);
 				// Instance color
 #if CLIPMAP_COLOR_DEBUG
 				BlockColor = color;
@@ -302,7 +306,7 @@ namespace OpenGL.Scene
 			/// <summary>
 			/// The texture level of detail.
 			/// </summary>
-			public float Lod;
+			public Vertex2f Lod;
 
 			/// <summary>
 			/// Debugging color for instancing.
@@ -774,12 +778,17 @@ namespace OpenGL.Scene
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
+				ClipmapBlockInstance clipmapBlockInstance;
+
 				xBlock = -semiStripStride;
 				yBlock = -1;
-				_InstancesRingFixH.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor);
+				_InstancesRingFixH.Add(clipmapBlockInstance);
+
 				xBlock = (int)(+semiStripStride - BlockSubdivs);
 				yBlock = -1;
-				_InstancesRingFixH.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor);
+				_InstancesRingFixH.Add(clipmapBlockInstance);
 			}
 		}
 
@@ -791,12 +800,17 @@ namespace OpenGL.Scene
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
+				ClipmapBlockInstance clipmapBlockInstance;
+
 				xBlock = -1;
 				yBlock = -semiStripStride;
-				_InstancesRingFixV.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor);
+				_InstancesRingFixV.Add(clipmapBlockInstance);
+
 				xBlock = -1;
 				yBlock = (int)(+semiStripStride - BlockSubdivs);
-				_InstancesRingFixV.Add(new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, RingFixColor);
+				_InstancesRingFixV.Add(clipmapBlockInstance);
 			}
 		}
 
@@ -810,15 +824,25 @@ namespace OpenGL.Scene
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels - 1; level++) {
+				ClipmapBlockInstance clipmapBlockInstance;
+
 				xBlock = -semiStripStride + 2;
 				yBlock = -semiStripStride;
-				_InstancesExteriorH.Add(new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
+				//clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				_InstancesExteriorH.Add(clipmapBlockInstance);
+
 				xBlock = -semiStripStride + 2;
 				yBlock = -semiStripStride + 1;
-				_InstancesExteriorH.Add(new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
+				//clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				_InstancesExteriorH.Add(clipmapBlockInstance);
+
 				xBlock = -semiStripStride + 2;
 				yBlock = +semiStripStride - 2;
-				_InstancesExteriorH.Add(new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
+				//clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				_InstancesExteriorH.Add(clipmapBlockInstance);
 			}
 		}
 
@@ -832,15 +856,25 @@ namespace OpenGL.Scene
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels - 1; level++) {
+				ClipmapBlockInstance clipmapBlockInstance;
+
 				xBlock = -semiStripStride;
 				yBlock = -semiStripStride + 2;
-				_InstancesExteriorV.Add(new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
+				clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				_InstancesExteriorV.Add(clipmapBlockInstance);
+
 				xBlock = -semiStripStride + 1;
 				yBlock = -semiStripStride + 2;
-				_InstancesExteriorV.Add(new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
+				//clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				_InstancesExteriorV.Add(clipmapBlockInstance);
+
 				xBlock = +semiStripStride - 2;
 				yBlock = -semiStripStride + 2;
-				_InstancesExteriorV.Add(new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor));
+				clipmapBlockInstance = new ClipmapBlockInstance(StripStride, StripStride, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
+				//clipmapBlockInstance.Lod = new Vertex2f(level + 1, level);
+				_InstancesExteriorV.Add(clipmapBlockInstance);
 			}
 		}
 
@@ -967,12 +1001,6 @@ namespace OpenGL.Scene
 			while (clipmap0Size * Math.Pow(2.0, _CurrentLevel) < viewerHeight * HeightGain)
 				_CurrentLevel++;
 
-#if POSITION_CORRECTION
-			// Update model of the geometry clipmap
-			LocalModel.SetIdentity();
-			LocalModel.Translate(new Vertex3f(currentPosition.X, 0.0f, currentPosition.Z));
-#endif
-
 			// Base implementation
 			base.Draw(ctx, ctxScene);
 		}
@@ -1005,7 +1033,9 @@ namespace OpenGL.Scene
 				if (elevationMap == null)
 					continue;       // No update required
 
+#if TEXTURING_ELEVATION
 				_ElevationTexture.Create(ctx, PixelLayout.GRAY16S, elevationMap, i);
+#endif
 			}
 
 			ctx.Bind(_GeometryClipmapProgram);
@@ -1018,15 +1048,10 @@ namespace OpenGL.Scene
 
 			for (uint level = 0; level < ClipmapLevels; level++) {
 				double positionModule = BlockQuadUnit * Math.Pow(2.0, level);
-				Vertex3d gridPositionOffset = currentPosition % positionModule;
+				Vertex3d gridPositionOffset = currentPosition - (currentPosition % positionModule);
+				double x = gridPositionOffset.x, y = gridPositionOffset.z;
 
-				// Avoid contiguos levels overlapping
-				while (gridPositionOffset.x > 0)
-					gridPositionOffset.x -= positionModule;
-				while (gridPositionOffset.z > 0)
-					gridPositionOffset.z -= positionModule;
-
-				gridOffsets[level] = new Vertex2f(-gridPositionOffset.X, -gridPositionOffset.Z);
+				gridOffsets[level] = new Vertex2f((float)x, (float)y);
 			}
 #if POSITION_CORRECTION
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", gridOffsets);
@@ -1038,7 +1063,8 @@ namespace OpenGL.Scene
 			List<ClipmapBlockInstance> instancesRingFixV = new List<ClipmapBlockInstance>(_InstancesRingFixV);
 
 			// Base LOD cap instances
-#if CULL_CLIPMAP_LEVEL
+#if CLIPMAP_CAP
+#if CULLING_CLIPMAP_CAP
 			// Include cap in clipmap blocks
 			instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(_CurrentLevel));
 			instancesRingFixH.AddRange(GenerateLevelBlocksCapFixH(_CurrentLevel));
@@ -1048,6 +1074,7 @@ namespace OpenGL.Scene
 			instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(0));
 			instancesRingFixH.AddRange(GenerateLevelBlocksCapFixH(0));
 			instancesRingFixV.AddRange(GenerateLevelBlocksCapFixV(0));
+#endif
 #endif
 
 			// Cull instances
@@ -1089,7 +1116,7 @@ namespace OpenGL.Scene
 		{
 			List<ClipmapBlockInstance> cull = new List<ClipmapBlockInstance>(instances);
 
-#if CULL_CLIPMAP_LEVEL
+#if CULLING_CLIPMAP_CAP
 
 			// Filter by level
 			// Exclude finer levels depending on viewer height
