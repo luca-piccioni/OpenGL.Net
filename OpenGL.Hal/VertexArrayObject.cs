@@ -76,10 +76,10 @@ namespace OpenGL
 			SetVertexArrayState(ctx, shader);
 			
 			// Fixed or programmable pipeline?
-			if     ((shader == null) && (ctx.Caps.GlExtensions.VertexShader_ARB == true))
-				ShaderProgram.Unbind(ctx);
-			else if (shader != null)
-				shader.Bind(ctx);
+			if (shader != null)
+				ctx.Bind(shader);
+			else
+				ctx.ResetProgram();
 
 			// Issue rendering using shader
 			foreach (Element attributeElement in DrawElements) {
@@ -224,10 +224,10 @@ namespace OpenGL
 			SetVertexArrayState(ctx, shader);
 
 			// Fixed or programmable pipeline?
-			if ((shader == null) && (ctx.Caps.GlExtensions.VertexShader_ARB == true))
-				ShaderProgram.Unbind(ctx);
-			else if (shader != null)
-				shader.Bind(ctx);
+			if (shader != null)
+				ctx.Bind(shader);
+			else
+				ctx.ResetProgram();
 
 			// Issue rendering using shader
 			foreach (Element attributeElement in DrawElements) {

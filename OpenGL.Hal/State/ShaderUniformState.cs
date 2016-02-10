@@ -303,11 +303,8 @@ namespace OpenGL.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			CheckCurrentContext(ctx);
-			CheckThatExistence(ctx, shaderProgram);
-
 			// Program must be bound
-			shaderProgram.Bind(ctx);
+			ctx.Bind(shaderProgram);
 			// Apply uniforms found using reflection
 			ApplyState(ctx, shaderProgram, String.Empty);
 		}

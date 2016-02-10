@@ -177,7 +177,7 @@ namespace OpenGL.Hal.Test.Shaders
 						_Framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
 						_Framebuffer.Clear(_Context);
 
-						shaderProgram.Bind(_Context);
+						_Context.Bind(shaderProgram);
 						shaderProgram.SetUniform(_Context, "hal_ModelViewProjection", RenderProjectionMatrix);
 						shaderProgram.SetUniform(_Context, "hal_UniformColor", new ColorRGBA(1.0f, 1.0f, 1.0f));
 						shaderProgram.SetUniform(_Context, "hal_LineWidth", 1.0f);

@@ -107,6 +107,7 @@
     <Compile Include="Collections\Graph.cs" />
     <Compile Include="Collections\IGraphNode.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
+    <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
     <Compile Include="Scene\GeometryClipmapObject.cs" />
     <Compile Include="Scene\GeometryClipmapObject.DefaultSource.cs" />

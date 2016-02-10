@@ -810,6 +810,89 @@ namespace OpenGL
 
 		#endregion
 
+		#region Lazy Objects Binding
+
+		/// <summary>
+		/// Bind the specified resource.
+		/// </summary>
+		/// <param name="bindingResource">
+		/// The <see cref="IBindingResource"/> to be bound on this GraphicsContext.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="bindingResource"/> is null.
+		/// </exception>
+		public void Bind(IBindingResource bindingResource)
+		{
+			if (bindingResource == null)
+				throw new ArgumentNullException("bindingResource");
+
+			WeakReference<IBindingResource> boundResourceRef;
+
+			if (_BoundObjects.TryGetValue(bindingResource.BindingTarget, out boundResourceRef)) {
+				IBindingResource boundResource;
+
+				// It may be disposed
+				boundResourceRef.TryGetTarget(out boundResource);
+
+				if (ReferenceEquals(bindingResource, boundResource)) {
+					Debug.Assert(bindingResource.IsBound(this));
+					// Resource already bound, avoid rendundant "Bind" operation
+					return;
+				}
+			}
+
+			Debug.Assert(!bindingResource.IsBound(this));
+			bindingResource.Bind(this);
+
+			// Remind this object as bound
+			_BoundObjects.Add(bindingResource.BindingTarget, new WeakReference<IBindingResource>(bindingResource));
+		}
+
+		/// <summary>
+		/// Unbind the specified resource XXX It should be really applicable?.
+		/// </summary>
+		/// <param name="bindingResource">
+		/// The <see cref="IBindingResource"/> to be bound on this GraphicsContext.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="bindingResource"/> is null.
+		/// </exception>
+		public void Unbind(IBindingResource bindingResource)
+		{
+			if (bindingResource == null)
+				throw new ArgumentNullException("bindingResource");
+
+			Debug.Assert(bindingResource.IsBound(this));
+			bool res = _BoundObjects.Remove(bindingResource.BindingTarget);
+			Debug.Assert(res);
+
+			bindingResource.Unbind(this);
+		}
+
+		/// <summary>
+		/// Map between binding points.
+		/// </summary>
+		private readonly Dictionary<int, WeakReference<IBindingResource>> _BoundObjects = new Dictionary<int, WeakReference<IBindingResource>>();
+
+		#endregion
+
+		#region Fixed Pipeline
+
+		/// <summary>
+		/// Reset the current program bound.
+		/// </summary>
+		public void ResetProgram()
+		{
+			GraphicsResource.CheckCurrentContext(this);
+
+			if ((Caps.GlExtensions.VertexShader_ARB || Version >= new KhronosVersion(2, 0)) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
+				Gl.UseProgram(GraphicsResource.InvalidObjectName);
+				_BoundObjects.Remove(Gl.CURRENT_PROGRAM);
+			}
+		}
+
+		#endregion
+
 		#region Context Currency
 
 		/// <summary>

@@ -37,7 +37,7 @@ namespace OpenGL
 	/// and then linked all toghether to obtain an effective ShaderProgram instance.
 	/// </para>
 	/// </remarks>
-	public partial class ShaderProgram : GraphicsResource
+	public partial class ShaderProgram : GraphicsResource, IBindingResource
 	{
 		#region Constructors
 
@@ -623,52 +623,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Program Binding
-
-		/// <summary>
-		/// Bind this ShaderProgram.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding.
-		/// </param>
-		public void Bind(GraphicsContext ctx)
-		{
-			// int currentProgram;
-			
-			if (IsLinked == false)
-				throw new InvalidOperationException("not linked");
-
-			// Bind this program
-			Debug.Assert(ObjectName != InvalidObjectName, "not existing");
-			Gl.UseProgram(ObjectName);
-
-			return;
-
-#if false
-			// UseProgram only if a different shader program is bound
-			Gl.Get(Gl.CURRENT_PROGRAM, out currentProgram);
-
-			if (currentProgram != (int)ObjectName) {
-				// Bind this program
-				Gl.UseProgram(ObjectName);
-			}
-#endif
-		}
-
-		/// <summary>
-		/// Unbind any ShaderProgram.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding.
-		/// </param>
-		public static void Unbind(GraphicsContext ctx)
-		{
-			// Unbind this program
-			Gl.UseProgram(InvalidObjectName);
-		}
-
-#endregion
-
 		#region Program Attributes
 
 		/// <summary>
@@ -1233,6 +1187,63 @@ namespace OpenGL
 			}
 			// Base implementation
 			base.Dispose(disposing);
+		}
+
+		#endregion
+
+		#region IBindingResource Implementation
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		int IBindingResource.BindingTarget { get { return (Gl.CURRENT_PROGRAM); } }
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Bind(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			// Bind
+			Gl.UseProgram(ObjectName);
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Unbind(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			// Bind
+			Gl.UseProgram(InvalidObjectName);
+		}
+
+		/// <summary>
+		/// Check whether this IBindingResource is currently bound on the specified graphics context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for querying the current binding state.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this IBindingResource is currently bound on <paramref name="ctx"/>.
+		/// </returns>
+		bool IBindingResource.IsBound(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			int currentProgram;
+			
+			Gl.Get(Gl.CURRENT_PROGRAM, out currentProgram);
+
+			return (currentProgram == (int)ObjectName);
 		}
 
 		#endregion
