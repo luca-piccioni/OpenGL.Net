@@ -43,6 +43,8 @@ in vec2 hal_Lod;
 // The instance color, for debugging (instanced)
 in vec4 hal_BlockColor;
 
+// Texture coord
+out vec2 hal_VertexTexCoord;
 // Vertex color
 out vec4 hal_VertexColor;
 
@@ -61,6 +63,8 @@ void main()
 
 	// Vertex position
 	gl_Position = hal_ModelViewProjection * vec4(worldPosition.x, elevationFragment.x * hal_ElevationMapScale, worldPosition.y, 1.0);
+	// Vertex texture coord
+	hal_VertexTexCoord = elevationCoord;
 	// Vertex color
 	hal_VertexColor = hal_BlockColor;
 }

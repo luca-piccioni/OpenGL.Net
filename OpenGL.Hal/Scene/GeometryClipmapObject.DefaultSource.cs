@@ -159,7 +159,7 @@ namespace OpenGL.Scene
 
 				double xCurrentPosition, yCurrentPosition;
 				Gdal.ApplyGeoTransform(datasetInvTransform, lon, lat, out xCurrentPosition, out yCurrentPosition);
-				CurrentTexPosition = OriginPosition = new Vertex2d(Math.Floor(xCurrentPosition), Math.Floor(yCurrentPosition));
+				_CurrentTexPosition = _OriginPosition = new Vertex2d(Math.Floor(xCurrentPosition), Math.Floor(yCurrentPosition));
 
 				Latitude = lat;
 				Longitude = lon;
@@ -203,11 +203,17 @@ namespace OpenGL.Scene
 			/// The cartesian position within the terrain elevation dataset corresponding to the coordinates <see cref="Latitude"/> and
 			/// <see cref="Longitude"/>. It corresponds with the world coordinate (0,0,0).
 			/// </summary>
-			public Vertex2d OriginPosition;
+			private Vertex2d _OriginPosition;
 
-			public Vertex2d CurrentViewPosition;
+			/// <summary>
+			/// 
+			/// </summary>
+			private Vertex2d _CurrentViewPosition;
 
-			public Vertex2d CurrentTexPosition;
+			/// <summary>
+			/// 
+			/// </summary>
+			private Vertex2d _CurrentTexPosition;
 
 			#endregion
 
@@ -237,7 +243,7 @@ namespace OpenGL.Scene
 
 				// Apply clipmap offset
 				double lodUnitScale = Math.Pow(2.0, Lod) * UnitScale;
-				Vertex2d texturePositionOffset = (view2dPosition - CurrentViewPosition) / lodUnitScale;
+				Vertex2d texturePositionOffset = (view2dPosition - _CurrentViewPosition) / lodUnitScale;
 
 				// Discard fractional part, move towards zero
 				texturePositionOffset = new Vertex2d(Math.Truncate(texturePositionOffset.x), Math.Truncate(texturePositionOffset.y));
@@ -248,11 +254,12 @@ namespace OpenGL.Scene
 				// Determine the dataset section to load
 				Rectangle datasetSection = new Rectangle(0, 0, (int)_TerrainElevation.Width, (int)_TerrainElevation.Height);
 				double x = texturePositionOffset.x, y = texturePositionOffset.y;
-				Vertex2d rasterPosition = CurrentTexPosition + new Vertex2d(x, y);
+				Vertex2d rasterPosition = _CurrentTexPosition + new Vertex2d(x, y) * Math.Pow(2.0, Lod);
 
 				double w2 = _TerrainElevation.Width / 2, h2 = _TerrainElevation.Height / 2;
 
 				// Specify the LOD 0 size
+				// Note: the dataset should have overviews, in order to make CPU friendly update
 				w2 *= Math.Pow(2.0, Lod);
 				h2 *= Math.Pow(2.0, Lod);
 
@@ -271,8 +278,8 @@ namespace OpenGL.Scene
 				GdalImageCodecPlugin.Load_GrayIndex(_DatabaseDataset, 1, datasetCriteria, _TerrainElevation);
 
 				// Update current positions
-				CurrentTexPosition = rasterPosition;
-				CurrentViewPosition = CurrentViewPosition + texturePositionOffset * lodUnitScale;
+				_CurrentTexPosition = rasterPosition;
+				_CurrentViewPosition = _CurrentViewPosition + (texturePositionOffset * lodUnitScale);
 
 				return (_TerrainElevation);
 			}

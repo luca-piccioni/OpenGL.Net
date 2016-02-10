@@ -79,8 +79,8 @@ namespace OpenGL.Scene
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
-			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MinFilter = Texture.Filter.Linear;
+			_ElevationTexture.MagFilter = Texture.Filter.Linear;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);

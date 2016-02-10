@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 using OpenGL;
@@ -21,7 +22,9 @@ namespace HelloNewton
 
 			GeometryClipmapObject geometryClipmapObject = new GeometryClipmapObject(7, 4, _BlockUnit);
 
-			geometryClipmapObject.SetTerrainElevationFactory(@"C:\Users\Luca\Documents\GitHubVisualStudio\OpenGL.Net\Samples\HelloWorld\Data\Terrain.vrt", 45.5, 10.5);
+			string workingDir = Directory.GetCurrentDirectory();
+
+			geometryClipmapObject.SetTerrainElevationFactory(Path.Combine(workingDir, @"..\..\..\Data\Terrain.vrt"), 45.5, 10.5);
 
 			_GeometryClipmapScene = new SceneGraph();
 			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
@@ -61,15 +64,13 @@ namespace HelloNewton
 
 		private SceneGraph _GeometryClipmapScene;
 
-		private float _ViewDistance = 16.0f;
-
 		private float _ViewAzimuth;
 
 		private float _ViewElevation;
 
 		private Vertex3f _ViewPosition = new Vertex3f(0.0f, 25.0f, 0.0f);
 
-		private float _BlockUnit = 30.0f;
+		private float _BlockUnit = 100.0f;
 
 		private void SampleGraphicsControl_MouseDown(object sender, MouseEventArgs e)
 		{
@@ -109,6 +110,8 @@ namespace HelloNewton
 					break;
 				case Keys.R:
 					_ViewPosition = new Vertex3f();
+					_ViewAzimuth = 0.0f;
+					_ViewElevation = 0.0f;
 					break;
 			}
 		}
@@ -133,20 +136,20 @@ namespace HelloNewton
 				if (pair.Value == false)
 					continue;
 
-				float step = _BlockUnit * 0.01f;
+				float step = _BlockUnit * 0.2233f;
 
 				switch (pair.Key) {
 					case Keys.W:
 						_ViewPosition = _ViewPosition + (Vertex3f)(_GeometryClipmapScene.CurrentView.LocalModel.ForwardVector * step);
 						break;
 					case Keys.S:
-						_ViewPosition = _ViewPosition + new Vertex3f(-step, 0.0f, 0.0f);
+						_ViewPosition = _ViewPosition - (Vertex3f)(_GeometryClipmapScene.CurrentView.LocalModel.ForwardVector * step);
 						break;
 					case Keys.A:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, +step);
+						_ViewPosition = _ViewPosition - (Vertex3f)(_GeometryClipmapScene.CurrentView.LocalModel.RightVector * step);
 						break;
 					case Keys.D:
-						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, 0.0f, -step);
+						_ViewPosition = _ViewPosition + (Vertex3f)(_GeometryClipmapScene.CurrentView.LocalModel.RightVector * step);
 						break;
 					case Keys.PageUp:
 						_ViewPosition = _ViewPosition + new Vertex3f(0.0f, +step * 10.0f, 0.0f);

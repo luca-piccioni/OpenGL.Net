@@ -16,6 +16,10 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#undef DEBUG_TEX_COORD
+
+// Texture coord
+in vec2 hal_VertexTexCoord;
 // Vertex color
 in vec4 hal_VertexColor;
 
@@ -24,5 +28,9 @@ out vec4 hal_FragColor;
 
 void main()
 {
+#if defined(DEBUG_TEX_COORD)
+	hal_FragColor = vec4(hal_VertexTexCoord.x, 0.0, hal_VertexTexCoord.y, 1.0);
+#else
 	hal_FragColor = hal_VertexColor;
+#endif
 }

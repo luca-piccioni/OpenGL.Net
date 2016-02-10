@@ -338,7 +338,7 @@ namespace OpenGL
 					PixelFormat format = Pixel.GetGlFormat(Images[layer].PixelLayout);
 					PixelType type = Pixel.GetPixelType(Images[layer].PixelLayout);
 
-					// Set pixel transfer (may vary from image to image)
+					// Set pixel transfer
 					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 						if ((Images[layer].Stride % alignment) != 0)
 							continue;
