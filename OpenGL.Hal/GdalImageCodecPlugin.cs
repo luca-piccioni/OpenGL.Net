@@ -358,20 +358,20 @@ namespace OpenGL
 					}
 				}
 
-				if (rasterSection.Value.Left < 0 || rasterSection.Value.Right >= band.XSize)
-					throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
-				if (rasterSection.Value.Top < 0 || rasterSection.Value.Bottom >= band.YSize)
-					throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
-				if (rasterSection.Value.Width > image.Width)
-					throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
-				if (rasterSection.Value.Height > image.Height)
-					throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
+				try {
+					if (rasterSection.Value.Left < 0 || rasterSection.Value.Right >= band.XSize)
+						throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
+					if (rasterSection.Value.Top < 0 || rasterSection.Value.Bottom >= band.YSize)
+						throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
+				} catch {
+					return (null);
+				}
 
 				// Read raster
 				CPLErr err = band.ReadRaster(
 					rasterSection.Value.X, rasterSection.Value.Y, rasterSection.Value.Width, rasterSection.Value.Height,
 					image.ImageBuffer,
-					rasterSection.Value.Width, rasterSection.Value.Height,
+					(int)image.Width, (int)image.Height,
 					band.DataType, 0, 0
 				);
 
