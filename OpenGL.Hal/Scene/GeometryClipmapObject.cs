@@ -348,8 +348,8 @@ namespace OpenGL.Scene
 				// LOD - access to coarser texture, but mantains the position offset/scale
 				Lod = new Vertex2f(Lod.X + 1.02f, Lod.Y);
 				// Scale to next LOD
-				float x = (MapOffset.X + 1.0f) / 3.0f;
-				float y = (MapOffset.Y + 1.0f) / 3.0f;
+				float x = (MapOffset.X + 1.0f) / 4.0f;
+				float y = (MapOffset.Y + 1.0f) / 4.0f;
 				float x2 = ((MapOffset.X + MapOffset.Z) + 1.0f) / 3.0f;
 				float y2 = ((MapOffset.Y + MapOffset.W) + 1.0f) / 3.0f;
 
