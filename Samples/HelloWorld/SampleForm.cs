@@ -20,20 +20,24 @@ namespace HelloNewton
 			GraphicsContext ctx = e.Context;
 			GraphicsSurface framebuffer = e.Framebuffer;
 
-			GeometryClipmapObject geometryClipmapObject = new GeometryClipmapObject(7, 4, _BlockUnit);
+#if DEBUG
+			_GeometryClipmapObject = new GeometryClipmapObject(4, 4, _BlockUnit);
+#else
+			_GeometryClipmapObject = new GeometryClipmapObject(7, 7, _BlockUnit);
+#endif
 
 			string workingDir = Directory.GetCurrentDirectory();
 
-			geometryClipmapObject.SetTerrainElevationFactory(Path.Combine(workingDir, @"..\..\..\Data\Terrain.vrt"), 45.5, 10.5);
+			_GeometryClipmapObject.SetTerrainElevationFactory(Path.Combine(workingDir, @"..\..\..\Data\Terrain.vrt"), 45.5, 10.5);
 
 			_GeometryClipmapScene = new SceneGraph();
 			_GeometryClipmapScene.AddChild(new SceneGraphCameraObject());
-			_GeometryClipmapScene.AddChild(geometryClipmapObject);
+			_GeometryClipmapScene.AddChild(_GeometryClipmapObject);
 			_GeometryClipmapScene.Create(ctx);
 
 			// Set projection
 			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
-			matrixProjection.SetPerspective(60.0f / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 110000.0f);
+			matrixProjection.SetPerspective(_ViewFov / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 110000.0f);
 			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
 
 			// Clear color
@@ -64,6 +68,10 @@ namespace HelloNewton
 
 		private SceneGraph _GeometryClipmapScene;
 
+		GeometryClipmapObject _GeometryClipmapObject;
+
+		private float _ViewFov = 60.0f;
+
 		private float _ViewAzimuth;
 
 		private float _ViewElevation;
@@ -71,6 +79,22 @@ namespace HelloNewton
 		private Vertex3f _ViewPosition = new Vertex3f(0.0f, 25.0f, 0.0f);
 
 		private float _BlockUnit = 100.0f;
+
+		protected override void OnMouseWheel(MouseEventArgs e)
+		{
+			// Setup FoV using wheel
+			float ticks = e.Delta / 120.0f;
+
+			_ViewFov += ticks;
+
+			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
+			matrixProjection.SetPerspective(_ViewFov / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 110000.0f);
+
+			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
+
+			// Base implementation
+			base.OnMouseWheel(e);
+		}
 
 		private void SampleGraphicsControl_MouseDown(object sender, MouseEventArgs e)
 		{
@@ -112,6 +136,9 @@ namespace HelloNewton
 					_ViewPosition = new Vertex3f();
 					_ViewAzimuth = 0.0f;
 					_ViewElevation = 0.0f;
+					break;
+				case Keys.Space:
+					_GeometryClipmapObject.PositionCorrection = !_GeometryClipmapObject.PositionCorrection;
 					break;
 			}
 		}

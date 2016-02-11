@@ -3745,6 +3745,90 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Single component color (16 bits).
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	public struct ColorGRAY16S : IColorGRAY<Int16>
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a ColorGRAY16S specifying its level.
+		/// </summary>
+		/// <param name="level">
+		/// A <see cref="Int16"/> that specify the grayscale level.
+		/// </param>
+		public ColorGRAY16S(Int16 level)
+		{
+			c = level;
+		}
+
+		#endregion
+
+		#region Storage
+
+		/// <summary>
+		/// Unique component color (16 bits).
+		/// </summary>
+		private Int16 c;
+
+		#endregion
+
+		#region IColorGRAY<UInt16> Implementation
+
+		/// <summary>
+		/// PixelLayout of this IColor. 
+		/// </summary>
+		public PixelLayout PixelType { get { return (PixelLayout.GRAY16S); } }
+
+		/// <summary>
+		/// Color component access.
+		/// </summary>
+		/// <param name="c">
+		/// A <see cref="Int32"/> indicating the color component index (0 based).
+		/// </param>
+		/// <returns>
+		/// The color component is converted to/from a normalized floating point number,
+		/// where 0.0f indicates lowest intensity, while 1.0f indicated highest intensity.
+		/// </returns>
+		public Single this[int c]
+		{
+			get {
+				switch (c) {
+					case 0:
+						return ((Single)Level / (Single)0x7FFF);
+					default:
+						throw new ArgumentException(String.Format("invalid component index {0} for pixel type {1}", c, PixelType), "c");
+				}
+			}
+			set {
+				if ((value < -1.0f) || (value > +1.0f))
+					throw new ArgumentException(String.Format("component value not normalized for pixel type {0}", PixelType), "value");
+				switch (c) {
+					case 0:
+						Level = (Int16)(value * 0x7FFF);
+						break;
+					default:
+						throw new ArgumentException(String.Format("invalid component index {0} for pixel type {1}", c, PixelType), "c");
+				}
+			}
+		}
+
+		/// <summary>
+		/// Luminance component property.
+		/// </summary>
+		public Int16 Level
+		{
+			get { return (c); }
+			set {
+				c = value;
+			}
+		}
+
+		#endregion
+	}
+
+	/// <summary>
 	/// Single component color (32 bits IEEE floating point).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
