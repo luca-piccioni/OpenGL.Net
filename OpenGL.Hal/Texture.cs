@@ -440,7 +440,12 @@ namespace OpenGL
 		public Filter MinFilter
 		{
 			get { return (_MinFilter); }
-			set { _MinFilter = value; }
+			set
+			{
+				if (_MinFilter != value)
+					_MinFilterDirty = true;
+				_MinFilter = value;
+			}
 		}
 
 		/// <summary>
@@ -449,7 +454,12 @@ namespace OpenGL
 		public Filter MipFilter
 		{
 			get { return (_MipFilter); }
-			set { _MipFilter = value; }
+			set
+			{
+				if (_MipFilter != value)
+					_MipFilterDirty = true;
+				_MipFilter = value;
+			}
 		}
 		
 		/// <summary>
@@ -458,23 +468,43 @@ namespace OpenGL
 		public Filter MagFilter
 		{
 			get { return (_MagFilter); }
-			set { _MagFilter = value; }
+			set
+			{
+				if (_MagFilter != value)
+					_MagFilterDirty = true;
+				_MagFilter = value;
+			}
 		}
 
 		/// <summary>
 		/// Minification filter.
 		/// </summary>
-		protected Filter _MinFilter = Filter.Linear;
+		private Filter _MinFilter = Filter.Linear;
+
+		/// <summary>
+		/// Flag for applying <see cref="_MinFilter"/> only if changes.
+		/// </summary>
+		private bool _MinFilterDirty = true;
 
 		/// <summary>
 		/// Minification filter consider mipmaps (relevant only when texture has mipmaps).
 		/// </summary>
-		protected Filter _MipFilter = Filter.Nearest;
+		private Filter _MipFilter = Filter.Nearest;
+
+		/// <summary>
+		/// Flag for applying <see cref="_MipFilter"/> only if changes.
+		/// </summary>
+		private bool _MipFilterDirty = true;
 
 		/// <summary>
 		/// Magnification filter.
 		/// </summary>
-		protected Filter _MagFilter = Filter.Nearest;
+		private Filter _MagFilter = Filter.Nearest;
+
+		/// <summary>
+		/// Flag for applying <see cref="_MagFilter"/> only if changes.
+		/// </summary>
+		private bool _MagFilterDirty = true;
 		
 		#endregion
 
@@ -505,7 +535,12 @@ namespace OpenGL
 		public Wrap WrapCoordS
 		{
 			get { return (_WrapS); }
-			set { _WrapS = value; }
+			set
+			{
+				if (_WrapS != value)
+					_WrapSDirty = true;
+				_WrapS = value;
+			}
 		}
 
 		/// <summary>
@@ -514,7 +549,12 @@ namespace OpenGL
 		public Wrap WrapCoordT
 		{
 			get { return (_WrapT); }
-			set { _WrapT = value; }
+			set
+			{
+				if (_WrapT != value)
+					_WrapTDirty = true;
+				_WrapT = value;
+			}
 		}
 
 		/// <summary>
@@ -523,23 +563,43 @@ namespace OpenGL
 		public Wrap WrapCoordR
 		{
 			get { return (_WrapR); }
-			set { _WrapR = value; }
+			set
+			{
+				if (_WrapR != value)
+					_WrapRDirty = true;
+				_WrapR = value;
+			}
 		}
 
 		/// <summary>
 		/// Wrapping on S coordinate.
 		/// </summary>
-		protected Wrap _WrapS = Wrap.Repeat;
+		private Wrap _WrapS = Wrap.Repeat;
+
+		/// <summary>
+		/// Flag for applying <see cref="_MinFilter"/> only if changes.
+		/// </summary>
+		private bool _WrapSDirty = true;
 
 		/// <summary>
 		/// Wrapping on T coordinate.
 		/// </summary>
-		protected Wrap _WrapT = Wrap.Repeat;
+		private Wrap _WrapT = Wrap.Repeat;
+
+		/// <summary>
+		/// Flag for applying <see cref="_MinFilter"/> only if changes.
+		/// </summary>
+		private bool _WrapTDirty = true;
 
 		/// <summary>
 		/// Wrapping on R coordinate.
 		/// </summary>
-		protected Wrap _WrapR = Wrap.Repeat;
+		private Wrap _WrapR = Wrap.Repeat;
+
+		/// <summary>
+		/// Flag for applying <see cref="_MinFilter"/> only if changes.
+		/// </summary>
+		private bool _WrapRDirty = true;
 
 		#endregion
 
@@ -717,7 +777,9 @@ namespace OpenGL
 				}
 
 				// Set minification filter (with mipmaps)
-				Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
+				if (_MinFilterDirty || _MipFilterDirty)
+					Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
+				_MinFilterDirty = _MipFilterDirty = false;
 			} else {
 				switch (MinFilter) {
 					case Filter.Nearest:
@@ -730,7 +792,9 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("unknown minification filter {0}", MinFilter));
 				}
 				// Set minification filter (without mipmaps)
-				Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
+				if (_MinFilterDirty)
+					Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
+				_MinFilterDirty = false;
 			}
 
 			#endregion
@@ -749,7 +813,9 @@ namespace OpenGL
 			}
 
 			// Set minification filter (without mipmaps)
-			Gl.TexParameter(target, TextureParameterName.TextureMagFilter, iParam);
+			if (_MagFilterDirty)
+				Gl.TexParameter(target, TextureParameterName.TextureMagFilter, iParam);
+			_MagFilterDirty = false;
 
 			#endregion
 
@@ -757,11 +823,17 @@ namespace OpenGL
 
 			if (target != TextureTarget.TextureRectangle) {
 				// Wrap S coordinate
-				Gl.TexParameter(target, TextureParameterName.TextureWrapS, (int)WrapCoordS);
+				if (_WrapRDirty)
+					Gl.TexParameter(target, TextureParameterName.TextureWrapS, (int)WrapCoordS);
+				_WrapRDirty = false;
 				// Wrap T coordinate
-				Gl.TexParameter(target, TextureParameterName.TextureWrapT, (int)WrapCoordT);
+				if (_WrapTDirty)
+					Gl.TexParameter(target, TextureParameterName.TextureWrapT, (int)WrapCoordT);
+				_WrapTDirty = false;
 				// Wrap R coordinate
-				Gl.TexParameter(target, TextureParameterName.TextureWrapR, (int)WrapCoordR);
+				if (_WrapRDirty)
+					Gl.TexParameter(target, TextureParameterName.TextureWrapR, (int)WrapCoordR);
+				_WrapRDirty = false;
 			}
 
 			#endregion
