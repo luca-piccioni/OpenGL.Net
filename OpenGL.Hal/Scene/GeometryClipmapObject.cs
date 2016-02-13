@@ -80,8 +80,8 @@ namespace OpenGL.Scene
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Linear;
-			_ElevationTexture.MagFilter = Texture.Filter.Linear;
+			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
@@ -1190,12 +1190,20 @@ namespace OpenGL.Scene
 			uint instancesExteriorVCount = CullInstances(ctx, _InstancesExteriorV, _ArrayExteriorVInstances);
 
 			// Draw clipmap blocks using instanced rendering
+
+			_ElevationTexture.MinFilter = _ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.ApplyParameters(ctx);
+
 			if (instancesClipmapBlockCount > 0)
 				_BlockArray.DrawInstanced(ctx, _GeometryClipmapProgram, instancesClipmapBlockCount);
 			if (instancesRingFixHCount > 0)
 				_RingFixArrayH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixHCount);
 			if (instancesRingFixVCount > 0)
 				_RingFixArrayV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesRingFixVCount);
+
+			_ElevationTexture.MinFilter = _ElevationTexture.MagFilter = Texture.Filter.Linear;
+			_ElevationTexture.ApplyParameters(ctx);
+
 			if (instancesExteriorHCount > 0)
 				_LevelExteriorH.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorHCount);
 			if (instancesExteriorVCount > 0)
