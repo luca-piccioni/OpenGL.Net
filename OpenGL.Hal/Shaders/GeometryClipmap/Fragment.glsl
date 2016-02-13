@@ -16,7 +16,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#define DEBUG_TEX_COORD
+#undef DEBUG_TEX_COORD
 
 // Texture coord
 in vec2 hal_VertexTexCoord;
@@ -31,8 +31,8 @@ void main()
 #if defined(DEBUG_TEX_COORD)
 	vec4 defaultColor = hal_VertexColor;
 
-	if (hal_VertexTexCoord.x > 0.45 && hal_VertexTexCoord.x < 0.55)
-		defaultColor = vec4(1.0, 1.0, 1.0, 1.0);
+	if (hal_VertexTexCoord.x > (0.5 - 0.1) && hal_VertexTexCoord.x < (0.5 + 0.1))
+		defaultColor = vec4(1.0, 0.0, 0.0, 1.0);
 
 	hal_FragColor = defaultColor;
 #else

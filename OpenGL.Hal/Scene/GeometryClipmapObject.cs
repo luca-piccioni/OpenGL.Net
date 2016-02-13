@@ -16,7 +16,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#define CLIPMAP_COLOR_DEBUG
+#undef CLIPMAP_COLOR_DEBUG
 
 #define CLIPMAP_CAP
 
@@ -80,8 +80,8 @@ namespace OpenGL.Scene
 				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
-			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MinFilter = Texture.Filter.Linear;
+			_ElevationTexture.MagFilter = Texture.Filter.Linear;
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
@@ -323,16 +323,13 @@ namespace OpenGL.Scene
 
 				float clipmapLevelSize = (float)(n - 1);
 				float clipmapLevelSize2 = clipmapLevelSize / 2.0f;
-				float x1TexOffset = (x + clipmapLevelSize2) / clipmapLevelSize;
-				float y1TexOffset = (y + clipmapLevelSize2) / clipmapLevelSize;
 
-				float x2TexOffset = (x + mw - 1 + clipmapLevelSize2) / clipmapLevelSize;
-				float y2TexOffset = (y + mh - 1 + clipmapLevelSize2) / clipmapLevelSize;
+				float xTexOffset = (x + clipmapLevelSize2) / clipmapLevelSize;
+				float yTexOffset = (y + clipmapLevelSize2) / clipmapLevelSize;
+				float xTexScale = (float)(mw - 1) / (n - 1);
+				float yTexScale = (float)(mh - 1) / (n - 1);
 
-				float xTexScale = (float)(mw - 1) / (n + 1);
-				float yTexScale = (float)(mh - 1) / (n + 1);
-
-				MapOffset = new Vertex4f(x1TexOffset, y1TexOffset, xTexScale, yTexScale) * texNormalizedSize;
+				MapOffset = new Vertex4f(xTexOffset, yTexOffset, xTexScale, yTexScale) * texNormalizedSize;
 				// LOD
 				Lod = new Vertex2f(lod, lod);
 				// Instance color
@@ -350,7 +347,6 @@ namespace OpenGL.Scene
 			public void SetTextureLod(uint n, uint lod)
 			{
 				float texNormalizedSizeLod0 = (1.0f - (1.0f / (n + 1)));
-				float texNormalizedSizeLod1 = (1.0f - (1.0f / ((n + 1) * 2)));
 
 				// LOD - access to coarser texture, but mantains the position offset/scale
 				// Note: because this, we need Linear filter for texturing for this block
@@ -363,7 +359,7 @@ namespace OpenGL.Scene
 				float x2 = ((mapOffset.X + mapOffset.Z) + 0.5f) / 2.0f;
 				float y2 = ((mapOffset.Y + mapOffset.W) + 0.5f) / 2.0f;
 
-				MapOffset = new Vertex4f(x, y, (x2 - x) / texNormalizedSizeLod0, (y2 - y) / texNormalizedSizeLod0) * texNormalizedSizeLod0;
+				MapOffset = new Vertex4f(x, y, x2 - x, y2 - y) * texNormalizedSizeLod0;
 			}
 
 			#endregion
@@ -1142,6 +1138,8 @@ namespace OpenGL.Scene
 			ctx.Bind(_GeometryClipmapProgram);
 			_GeometryClipmapProgram.ResetTextureUnits();
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
+			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMapSize", (float)_ElevationTexture.Width);
+			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridUnitScale", BlockQuadUnit);
 
 			if (PositionCorrection) {
 				// Set grid offsets
