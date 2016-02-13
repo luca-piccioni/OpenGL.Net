@@ -323,12 +323,16 @@ namespace OpenGL.Scene
 
 				float clipmapLevelSize = (float)(n - 1);
 				float clipmapLevelSize2 = clipmapLevelSize / 2.0f;
-				float xTexOffset = (x + clipmapLevelSize2) / clipmapLevelSize;
-				float yTexOffset = (y + clipmapLevelSize2) / clipmapLevelSize;
-				float xTexScale = (float)(mw - 1) / (n - 0);
-				float yTexScale = (float)(mh - 1) / (n - 0);
+				float x1TexOffset = (x + clipmapLevelSize2) / clipmapLevelSize;
+				float y1TexOffset = (y + clipmapLevelSize2) / clipmapLevelSize;
 
-				MapOffset = new Vertex4f(xTexOffset, yTexOffset, xTexScale, yTexScale) * texNormalizedSize;
+				float x2TexOffset = (x + mw - 1 + clipmapLevelSize2) / clipmapLevelSize;
+				float y2TexOffset = (y + mh - 1 + clipmapLevelSize2) / clipmapLevelSize;
+
+				float xTexScale = (float)(mw - 1) / (n + 1);
+				float yTexScale = (float)(mh - 1) / (n + 1);
+
+				MapOffset = new Vertex4f(x1TexOffset, y1TexOffset, xTexScale, yTexScale) * texNormalizedSize;
 				// LOD
 				Lod = new Vertex2f(lod, lod);
 				// Instance color
@@ -343,17 +347,23 @@ namespace OpenGL.Scene
 
 			#region Level Of Detail
 
-			public void SetTextureLod(uint lod)
+			public void SetTextureLod(uint n, uint lod)
 			{
-				// LOD - access to coarser texture, but mantains the position offset/scale
-				Lod = new Vertex2f(Lod.X + 1.02f, Lod.Y);
-				// Scale to next LOD
-				float x = (MapOffset.X + 1.0f) / 4.0f;
-				float y = (MapOffset.Y + 1.0f) / 4.0f;
-				float x2 = ((MapOffset.X + MapOffset.Z) + 1.0f) / 3.0f;
-				float y2 = ((MapOffset.Y + MapOffset.W) + 1.0f) / 3.0f;
+				float texNormalizedSizeLod0 = (1.0f - (1.0f / (n + 1)));
+				float texNormalizedSizeLod1 = (1.0f - (1.0f / ((n + 1) * 2)));
 
-				MapOffset = new Vertex4f(x, y, x2 - x, y2 - y);
+				// LOD - access to coarser texture, but mantains the position offset/scale
+				// Note: because this, we need Linear filter for texturing for this block
+				Lod = new Vertex2f(Lod.X + 1.0f, Lod.Y);
+				// Scale to next LOD
+				Vertex4f mapOffset = MapOffset / texNormalizedSizeLod0;		// Normalize in range [0.0,1.0]
+
+				float x = (mapOffset.X + 0.5f) / 2.0f;
+				float y = (mapOffset.Y + 0.5f) / 2.0f;
+				float x2 = ((mapOffset.X + mapOffset.Z) + 0.5f) / 2.0f;
+				float y2 = ((mapOffset.Y + mapOffset.W) + 0.5f) / 2.0f;
+
+				MapOffset = new Vertex4f(x, y, (x2 - x) / texNormalizedSizeLod0, (y2 - y) / texNormalizedSizeLod0) * texNormalizedSizeLod0;
 			}
 
 			#endregion
@@ -797,6 +807,9 @@ namespace OpenGL.Scene
 
 		private void GenerateLevelBlocks()
 		{
+			ColorRGBAF ColorEven = new ColorRGBAF(0.5f, 0.5f, 0.5f);
+			ColorRGBAF ColorOdd = new ColorRGBAF(0.7f, 0.7f, 0.7f);
+
 			int semiClipmapSize = ((int)ClipmapVertices - 1) / 2;
 			int xBlock, yBlock;
 
@@ -806,11 +819,11 @@ namespace OpenGL.Scene
 				// Line 1 - 2 left
 				xBlock = -semiClipmapSize;
 				for (int i = 0; i < 2; i++, xBlock += (int)BlockSubdivs)
-					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit));
+					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, (i % 2) == 0 ? ColorEven : ColorOdd));
 				// Line 1 - 2 right
 				xBlock = +semiClipmapSize - (int)BlockSubdivs * 2;
 				for (int i = 0; i < 2; i++, xBlock += (int)BlockSubdivs)
-					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit));
+					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, (i % 2) == 0 ? ColorEven : ColorOdd));
 
 				// Line 2
 				yBlock += (int)(BlockVertices - 1);
@@ -835,11 +848,11 @@ namespace OpenGL.Scene
 				// Line 4 - 2 left
 				xBlock = -semiClipmapSize;
 				for (int i = 0; i < 2; i++, xBlock += (int)BlockSubdivs)
-					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit));
+					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, (i % 2) == 0 ? ColorEven : ColorOdd));
 				// Line 4 - 2 right
 				xBlock = +semiClipmapSize - (int)BlockSubdivs * 2;
 				for (int i = 0; i < 2; i++, xBlock += (int)BlockSubdivs)
-					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit));
+					_InstancesClipmapBlock.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, (i % 2) == 0 ? ColorEven : ColorOdd));
 			}
 		}
 
@@ -902,25 +915,25 @@ namespace OpenGL.Scene
 				xBlock = -semiClipmapSize - 2;
 				yBlock = -semiClipmapSize - 1;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = +semiClipmapSize;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = +semiClipmapSize + 1;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 			}
 		}
@@ -940,25 +953,25 @@ namespace OpenGL.Scene
 				xBlock = -semiClipmapSize - 1;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = +semiClipmapSize;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = +semiClipmapSize + 1;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod((uint)(level + 1));
+				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 			}
 		}
