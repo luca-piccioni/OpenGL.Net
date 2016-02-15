@@ -87,6 +87,7 @@
     <Compile Include="IGraphicsDisposable.cs" />
     <Compile Include="IGraphicsResource.cs" />
     <Compile Include="IResource.cs" />
+    <Compile Include="Plane.cs" />
     <Compile Include="ShaderObject.cs" />
     <Compile Include="Shaders\LineProgram.cs" />
     <Compile Include="Shaders\ShaderTestBase.cs" />
