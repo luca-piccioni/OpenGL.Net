@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -26,6 +27,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Byte, 2)]
+	[DebuggerDisplay("Vertex2b: X={x} Y={y}")]
 	public struct Vertex2b : IVertex2
 	{
 		#region Structure
@@ -134,6 +136,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 2)]
+	[DebuggerDisplay("Vertex2ub: X={x} Y={y}")]
 	public struct Vertex2ub : IVertex2
 	{
 		#region Structure
@@ -242,6 +245,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Short, 2)]
+	[DebuggerDisplay("Vertex2s: X={x} Y={y}")]
 	public struct Vertex2s : IVertex2
 	{
 		#region Structure
@@ -350,6 +354,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 2)]
+	[DebuggerDisplay("Vertex2us: X={x} Y={y}")]
 	public struct Vertex2us : IVertex2
 	{
 		#region Structure
@@ -458,6 +463,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 2)]
+	[DebuggerDisplay("Vertex2i: X={x} Y={y}")]
 	public struct Vertex2i : IVertex2, IColorInteger2<int>
 	{
 		#region Constructors
@@ -616,6 +622,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 2)]
+	[DebuggerDisplay("Vertex2ui: X={x} Y={y}")]
 	public struct Vertex2ui : IVertex2, IColorInteger2<uint>
 	{
 		#region Constructors
@@ -774,6 +781,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 2)]
+	[DebuggerDisplay("Vertex2f: X={x} Y={y}")]
 	public struct Vertex2f : IVertex2, IEquatable<IVertex2>
 	{
 		#region Constructors
@@ -1197,6 +1205,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 2)]
+	[DebuggerDisplay("Vertex2d: X={x} Y={y}")]
 	public struct Vertex2d : IVertex2
 	{
 		#region Constructors
@@ -1478,6 +1487,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 2)]
+	[DebuggerDisplay("Vertex2hf: X={x} Y={y}")]
 	public struct Vertex2hf : IVertex2, IEquatable<IVertex2>
 	{
 		#region Constructors

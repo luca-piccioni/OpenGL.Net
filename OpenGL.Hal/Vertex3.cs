@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -24,6 +25,7 @@ namespace OpenGL
 	/// <summary>
 	/// Vertex defined as reference type (single-precision implementation).
 	/// </summary>
+	[DebuggerDisplay("Vertex3: X={x} Y={y} Z={z}")]
 	public class Vertex3 : ICopiable<Vertex3>
 	{
 		#region Constructors
@@ -277,6 +279,7 @@ namespace OpenGL
 	/// <summary>
 	/// Vertex defined as reference type (double-precision implementation).
 	/// </summary>
+	[DebuggerDisplay("VertexDouble3: X={x} Y={y} Z={z}")]
 	public class VertexDouble3 : ICopiable<VertexDouble3>
 	{
 		#region Constructors
@@ -712,6 +715,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Byte, 3)]
+	[DebuggerDisplay("Vertex3b: X={x} Y={y} Z={z}")]
 	public struct Vertex3b : IVertex3, IEquatable<IVertex3>
 	{
 		#region Constructors
@@ -989,6 +993,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 3)]
+	[DebuggerDisplay("Vertex3ub: X={x} Y={y} Z={z}")]
 	public struct Vertex3ub : IVertex3, IEquatable<IVertex3>
 	{
 		#region Structure
@@ -1207,6 +1212,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Short, 3)]
+	[DebuggerDisplay("Vertex3s: X={x} Y={y} Z={z}")]
 	public struct Vertex3s : IVertex3, IEquatable<IVertex3>
 	{
 		#region Constructors
@@ -1506,6 +1512,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 3)]
+	[DebuggerDisplay("Vertex3us: X={x} Y={y} Z={z}")]
 	public struct Vertex3us : IVertex3, IEquatable<IVertex3>
 	{
 		#region Structure
@@ -1707,6 +1714,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 3)]
+	[DebuggerDisplay("Vertex3i: X={x} Y={y} Z={z}")]
 	public struct Vertex3i : IVertex3, IColorInteger3<int>, IEquatable<IVertex3>
 	{
 		#region Constructors
@@ -1967,6 +1975,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 3)]
+	[DebuggerDisplay("Vertex3ui: X={x} Y={y} Z={z}")]
 	public struct Vertex3ui : IVertex3, IColorInteger3<uint>, IEquatable<IVertex3>
 	{
 		#region Constructors
@@ -2227,6 +2236,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 3)]
+	[DebuggerDisplay("Vertex3f: X={x} Y={y} Z={z}")]
 	public struct Vertex3f : IVertex3, IEquatable<IVertex3>
 	{
 		#region Constructors
@@ -2563,7 +2573,7 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex2f"/>
 		/// </returns>
-		public static explicit operator Vertex4f(Vertex3f a)
+		public static implicit operator Vertex4f(Vertex3f a)
 		{
 			Vertex4f v;
 
@@ -2586,13 +2596,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex3f a)
 		{
-			Vertex3d v;
-
-			v.x = a.x;
-			v.y = a.y;
-			v.z = a.z;
-
-			return (v);
+			return (new Vertex3d(a.x, a.y, a.z));
 		}
 
 		/// <summary>
@@ -2602,18 +2606,11 @@ namespace OpenGL
 		/// A <see cref="Vertex3f"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex3d"/>
+		/// A <see cref="Vertex4d"/>
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex3f a)
 		{
-			Vertex4d v;
-
-			v.x = a.x;
-			v.y = a.y;
-			v.z = a.z;
-			v.w = 1.0f;
-
-			return (v);
+			return (new Vertex4d(a.x, a.y, a.z, 1.0));
 		}
 
 		/// <summary>
@@ -2869,7 +2866,7 @@ namespace OpenGL
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("|{0}, {1}, {2}|", x, y, z));
+			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
 		#endregion
@@ -2880,6 +2877,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 3)]
+	[DebuggerDisplay("Vertex3d: X={x} Y={y} Z={z}")]
 	public struct Vertex3d : IVertex3, IEquatable<IVertex3>
 	{
 		#region Constructors
@@ -3487,6 +3485,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 3)]
+	[DebuggerDisplay("Vertex3hf: X={x} Y={y} Z={z}")]
 	public struct Vertex3hf : IVertex3, IEquatable<IVertex3>
 	{
 		#region Constructors

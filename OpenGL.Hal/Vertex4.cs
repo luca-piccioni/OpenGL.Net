@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -26,6 +27,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Byte, 4)]
+	[DebuggerDisplay("Vertex4b: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4b : IVertex4
 	{
 		#region Structure
@@ -154,6 +156,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 4)]
+	[DebuggerDisplay("Vertex4ub: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4ub : IVertex4
 	{
 		#region Structure
@@ -282,6 +285,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Short, 4)]
+	[DebuggerDisplay("Vertex4s: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4s : IVertex4
 	{
 		#region Structure
@@ -413,6 +417,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 4)]
+	[DebuggerDisplay("Vertex4us: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4us : IVertex4
 	{
 		#region Structure
@@ -544,6 +549,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 4)]
+	[DebuggerDisplay("Vertex4i: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4i : IVertex4, IColorInteger4<int>
 	{
 		#region Structure
@@ -704,6 +710,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 4)]
+	[DebuggerDisplay("Vertex4ui: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4ui : IVertex4, IColorInteger4<uint>
 	{
 		#region Structure
@@ -864,6 +871,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 4)]
+	[DebuggerDisplay("Vertex4f: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4f : IVertex4
 	{
 		#region Constructors
@@ -1306,6 +1314,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 4)]
+	[DebuggerDisplay("Vertex4d: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4d : IVertex4
 	{
 		#region Constructors
@@ -1400,7 +1409,20 @@ namespace OpenGL
 
 		#endregion
 
-		#region Operators
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Negate operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4d"/>
+		/// <returns>
+		/// A <see cref="Vertex4d"/>
+		/// </returns>
+		public static Vertex4d operator -(Vertex4d v1)
+		{
+			return (new Vertex4d(-v1.x, -v1.y, -v1.z, -v1.w));
+		}
 
 		/// <summary>
 		/// Add operator.
@@ -1416,14 +1438,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4d operator +(Vertex4d v1, Vertex4d v2)
 		{
-			Vertex4d v;
-
-			v.x = v1.x + v2.x;
-			v.y = v1.y + v2.y;
-			v.z = v1.z + v2.z;
-			v.w = v1.w + v2.w;
-
-			return (v);
+			return (new Vertex4d(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z, v1.w + v2.w));
 		}
 
 		/// <summary>
@@ -1440,14 +1455,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4d operator -(Vertex4d v1, Vertex4d v2)
 		{
-			Vertex4d v;
-
-			v.x = v1.x - v2.x;
-			v.y = v1.y - v2.y;
-			v.z = v1.z - v2.z;
-			v.w = v1.w - v2.w;
-
-			return (v);
+			return (new Vertex4d(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z, v1.w - v2.w));
 		}
 
 		/// <summary>
@@ -1464,14 +1472,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4d operator *(Vertex4d v, double s)
 		{
-			Vertex4d r;
-
-			r.x = v.x * s;
-			r.y = v.y * s;
-			r.z = v.z * s;
-			r.w = v.w * s;
-
-			return (r);
+			return (new Vertex4d(v.x * s, v.y * s, v.z * s, v.w * s));
 		}
 
 		/// <summary>
@@ -1488,14 +1489,41 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4d operator /(Vertex4d v, double s)
 		{
-			Vertex4d r;
+			return (new Vertex4d(v.x / s, v.y / s, v.z / s, v.w / s));
+		}
 
-			r.x = v.x / s;
-			r.y = v.y / s;
-			r.z = v.z / s;
-			r.w = v.w / s;
+		/// <summary>
+		/// Modulus operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4d"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex4d"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4d"/>
+		/// </returns>
+		public static Vertex4d operator %(Vertex4d v1, Vertex4d v2)
+		{
+			return (new Vertex4d(v1.x % v2.x, v1.y % v2.y, v1.z % v2.z, v1.w % v2.w));
+		}
 
-			return (r);
+		/// <summary>
+		/// Modulus operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4d"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4d"/>
+		/// </returns>
+		public static Vertex4d operator %(Vertex4d v1, double scalar)
+		{
+			return (new Vertex4d(v1.x % scalar, v1.y % scalar, v1.z % scalar, v1.w % scalar));
 		}
 
 		#endregion
@@ -1739,6 +1767,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 4)]
+	[DebuggerDisplay("Vertex4hf: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4hf : IVertex4
 	{
 		#region Constructors
