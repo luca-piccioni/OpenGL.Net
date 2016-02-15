@@ -16,15 +16,23 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Symbol enabling debugging colors
 #undef CLIPMAP_COLOR_DEBUG
 
+// Symbol enabling clipmap level cap
 #define CLIPMAP_CAP
 
+// Symbol enabling position correction
 #define POSITION_CORRECTION
 
+// Symbol enabling elevation mapping
 #define TEXTURING_ELEVATION
 
-#undef CULLING_CLIPMAP_CAP
+// Symbol enabling culling of the clipmap level blocks
+#define CULLING_CLIPMAP_BLOCKS
+
+// Symbol enabling culling of the clipmap level cap
+#define CULLING_CLIPMAP_CAP
 
 using System;
 using System.Collections.Generic;
@@ -209,6 +217,9 @@ namespace OpenGL.Scene
 			}
 		}
 
+		/// <summary>
+		/// Flag used for enabling position correction.
+		/// </summary>
 		private bool _PositionCorrection = true;
 
 		#endregion
@@ -344,7 +355,13 @@ namespace OpenGL.Scene
 
 			#region Level Of Detail
 
-			public void SetTextureLod(uint n, uint lod)
+			/// <summary>
+			/// Increment the LOD used for texturing, mantaining the position offset and scale.
+			/// </summary>
+			/// <param name="n">
+			/// Number of vertices composing the clipmap level.
+			/// </param>
+			public void IncTextureLod(uint n)
 			{
 				float texNormalizedSizeLod0 = (1.0f - (1.0f / (n + 1)));
 
@@ -364,8 +381,24 @@ namespace OpenGL.Scene
 
 			#endregion
 
-			#region Structure
+			#region Culling
 
+			/// <summary>
+			/// The bounding volume containing the clipmap block.
+			/// </summary>
+			public IBoundingVolume GetBoundingVolume(Vertex2f[] gridOffsets)
+			{
+				Vertex2f gridOffset = new Vertex2f(); // gridOffsets[(int)Lod.Y];
+				Vertex3f min = new Vertex3f(Offset.X + gridOffset.x,           -3000.0f, Offset.Y + gridOffset.y);
+				Vertex3f max = new Vertex3f(Offset.X + gridOffset.x + Offset.Z, 8848.0f, Offset.Y + gridOffset.y + Offset.W);
+
+				return (new BoundingBox(min, max));
+			}
+
+			#endregion
+
+			#region Structure
+			
 			/// <summary>
 			/// Position offset (XY) and scale (ZW).
 			/// </summary>
@@ -911,25 +944,25 @@ namespace OpenGL.Scene
 				xBlock = -semiClipmapSize - 2;
 				yBlock = -semiClipmapSize - 1;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = +semiClipmapSize;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = +semiClipmapSize + 1;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, ExteriorVertices, 2, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorH.Add(clipmapBlockInstance);
 			}
 		}
@@ -949,25 +982,25 @@ namespace OpenGL.Scene
 				xBlock = -semiClipmapSize - 1;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = -semiClipmapSize - 2;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = +semiClipmapSize;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 
 				xBlock = +semiClipmapSize + 1;
 				yBlock = -semiClipmapSize - 2;
 				clipmapBlockInstance = new ClipmapBlockInstance(ClipmapVertices, 2, ExteriorVertices, (int)xBlock, (int)yBlock, level, BlockQuadUnit, ExteriorColor);
-				clipmapBlockInstance.SetTextureLod(ClipmapVertices, (uint)(level + 1));
+				clipmapBlockInstance.IncTextureLod(ClipmapVertices);
 				_InstancesExteriorV.Add(clipmapBlockInstance);
 			}
 		}
@@ -1141,10 +1174,11 @@ namespace OpenGL.Scene
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMapSize", (float)_ElevationTexture.Width);
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridUnitScale", BlockQuadUnit);
 
+			// Set grid offsets
+			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
+
 			if (PositionCorrection) {
-				// Set grid offsets
 				Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
-				Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
 
 				for (uint level = 0; level < ClipmapLevels; level++) {
 					double positionModule = BlockQuadUnit * Math.Pow(2.0, level);
@@ -1177,17 +1211,29 @@ namespace OpenGL.Scene
 			instancesRingFixV.AddRange(GenerateLevelBlocksCapFixV(0));
 #endif
 #endif
-			_InstancesExteriorH.Clear();
-			GenerateExteriorInstancesH();
-			_InstancesExteriorV.Clear();
-			GenerateExteriorInstancesV();
+			// Compute clipping planes
+			IMatrix4x4 matrixProjection = ctxScene.Scene.LocalProjection;
+			IModelMatrix matrixModelView = ctxScene.Scene.LocalModel;
+			IMatrix4x4 matrixMVP = matrixProjection.Multiply(matrixModelView);
+
+			_ClippingPlanes = Plane.GetFrustumPlanes(matrixModelView);
 
 			// Cull instances
-			uint instancesClipmapBlockCount = CullInstances(ctx, instancesClipmapBlock, _ArrayClipmapBlockInstances);
-			uint instancesRingFixHCount = CullInstances(ctx, instancesRingFixH, _ArrayRingFixHInstances);
-			uint instancesRingFixVCount = CullInstances(ctx, instancesRingFixV, _ArrayRingFixVInstances);
-			uint instancesExteriorHCount = CullInstances(ctx, _InstancesExteriorH, _ArrayExteriorHInstances);
-			uint instancesExteriorVCount = CullInstances(ctx, _InstancesExteriorV, _ArrayExteriorVInstances);
+			uint instancesClipmapBlockCount = CullInstances(ctx, ctxScene, gridOffsets, instancesClipmapBlock, _ArrayClipmapBlockInstances);
+			uint instancesRingFixHCount = CullInstances(ctx, ctxScene, gridOffsets, instancesRingFixH, _ArrayRingFixHInstances);
+			uint instancesRingFixVCount = CullInstances(ctx, ctxScene, gridOffsets, instancesRingFixV, _ArrayRingFixVInstances);
+			uint instancesExteriorHCount = CullInstances(ctx, ctxScene, gridOffsets, _InstancesExteriorH, _ArrayExteriorHInstances);
+			uint instancesExteriorVCount = CullInstances(ctx, ctxScene, gridOffsets, _InstancesExteriorV, _ArrayExteriorVInstances);
+			uint instancesCount =
+				(uint)instancesClipmapBlock.Count +
+				(uint)instancesRingFixH.Count + (uint)instancesRingFixV.Count +
+				(uint)_InstancesExteriorH.Count + (uint)_InstancesExteriorV.Count;
+			uint culledInstancesCount =
+				instancesClipmapBlockCount +
+				instancesRingFixHCount + instancesRingFixVCount +
+				instancesExteriorHCount + instancesExteriorVCount;
+
+			Trace.TraceInformation("Drawing {0}/{1} instances.", culledInstancesCount, instancesCount);
 
 			// Draw clipmap blocks using instanced rendering
 
@@ -1225,22 +1271,24 @@ namespace OpenGL.Scene
 		/// <returns>
 		/// It returns the number of items of <paramref name="instances"/> filtered.
 		/// </returns>
-		private uint CullInstances(GraphicsContext ctx, List<ClipmapBlockInstance> instances, ArrayBufferObjectInterleaved<ClipmapBlockInstance> arrayBuffer)
+		private uint CullInstances(GraphicsContext ctx, SceneGraphContext ctxScene, Vertex2f[] gridOffsets, List<ClipmapBlockInstance> instances, ArrayBufferObjectInterleaved<ClipmapBlockInstance> arrayBuffer)
 		{
-			List<ClipmapBlockInstance> cull = new List<ClipmapBlockInstance>(instances);
+			List<ClipmapBlockInstance> cull = instances;
 
 #if CULLING_CLIPMAP_CAP
-
 			// Filter by level
 			// Exclude finer levels depending on viewer height
-			cull = cull.FindAll(delegate (ClipmapBlockInstance item) {
-				return (item.Lod >= _CurrentLevel);
+			cull = instances.FindAll(delegate (ClipmapBlockInstance item) {
+				return (item.Lod.Y >= _CurrentLevel);
 			});
-
 #endif
-			//cull = cull.FindAll(delegate (ClipmapBlockInstance item) {
-			//	return (item.Lod.Y != 0);
-			//});
+
+#if CULLING_CLIPMAP_BLOCKS
+			// Filter using bounding volumes
+			cull = cull.FindAll(delegate (ClipmapBlockInstance item) {
+				return (item.GetBoundingVolume(gridOffsets).IsClipped(_ClippingPlanes) == false);
+			});
+#endif
 
 			// Update instance arrays
 			if (cull.Count > 0)
@@ -1254,6 +1302,18 @@ namespace OpenGL.Scene
 		/// </summary>
 		private uint _CurrentLevel;
 
+		/// <summary>
+		/// Clipping planes for the current geometry clipmap.
+		/// </summary>
+		private IEnumerable<Plane> _ClippingPlanes;
+
+		/// <summary>
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
+		/// </summary>
+		/// <param name="disposing">
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// this method is called by the finalizer.
+		/// </param>
 		protected override void Dispose(bool disposing)
 		{
 			// Base implementation
