@@ -51,7 +51,7 @@ namespace OpenGL.Scene
 		{
 			CheckCurrentContext(ctx);
 
-			using (SceneGraphContext ctxScene = new SceneGraphContext(_CurrentView)) {
+			using (SceneGraphContext ctxScene = new SceneGraphContext(this, _CurrentView)) {
 				// Override model-view-projection matrices if a camera is defined
 				if (_CurrentView != null) {
 					LocalProjection = _CurrentView.ProjectionMatrix;

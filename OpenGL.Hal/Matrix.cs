@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Globalization;
 using System.Text;
 
 namespace OpenGL
@@ -767,7 +768,7 @@ namespace OpenGL
 			for (uint c = 0; c < Width; c++) {
 				sb.Append(" [");
 				for (uint r = 0; r < Height; r++)
-					sb.AppendFormat("{0}{1}", this[c, r], (r < Height - 1) ? ", " : String.Empty);
+					sb.AppendFormat("{0}{1}", Math.Round(this[c, r], 4).ToString(NumberFormatInfo.InvariantInfo), (r < Height - 1) ? ", " : String.Empty);
 				sb.Append("]");
 			}
 

@@ -33,14 +33,25 @@ namespace OpenGL.Scene
 		/// 
 		/// </summary>
 		/// <param name="currentView"></param>
-		public SceneGraphContext(SceneGraphCameraObject currentView)
+		public SceneGraphContext(SceneGraph sceneGraph, SceneGraphCameraObject currentView)
 		{
+			if (sceneGraph == null)
+				throw new ArgumentNullException("sceneGraph");
+			if (currentView == null)
+				throw new ArgumentNullException("currentView");
+
+			Scene = sceneGraph;
 			CurrentView = currentView;
 		}
 
 		#endregion
 
 		#region Scene State
+
+		/// <summary>
+		/// The scene currently rendering.
+		/// </summary>
+		public readonly SceneGraph Scene;
 
 		/// <summary>
 		/// The view used for setting the scene graph view matrix.
