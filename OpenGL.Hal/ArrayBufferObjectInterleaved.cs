@@ -51,14 +51,20 @@ namespace OpenGL
 
 			for (int i = 0; i < arrayItemTypeFields.Length; i++) {
 				FieldInfo arrayItemTypeField = arrayItemTypeFields[i];
+				ArrayBufferItemAttribute arrayItemAttribute = (ArrayBufferItemAttribute)Attribute.GetCustomAttribute(arrayItemTypeField, typeof(ArrayBufferItemAttribute));
+
+				// Ignore field?
+				if ((arrayItemAttribute != null) && (arrayItemAttribute.Ignore == true))
+					continue;
+
 				ArraySection arraySection = new ArraySection(this, arrayItemTypeField.FieldType);
 
 				// Determine array section offset
 				arraySection.ItemOffset = Marshal.OffsetOf(arrayItemType, arrayItemTypeField.Name);
 				// Determine array section stride
 				arraySection.ItemStride = new IntPtr(structStride);
-				// Mission Normalized property management: add attributes?
-				arraySection.Normalized = false;
+				// Missing Normalized property management: add attributes?
+				arraySection.Normalized = arrayItemAttribute != null ? arrayItemAttribute.Normalized : false;
 
 				ArraySections.Add(arraySection);
 			}

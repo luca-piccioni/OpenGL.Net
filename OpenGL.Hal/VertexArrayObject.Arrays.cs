@@ -24,6 +24,9 @@ namespace OpenGL
 {
 	public partial class VertexArrayObject
 	{
+		/// <summary>
+		/// Vertex array buffer interface.
+		/// </summary>
 		protected internal interface IVertexArray : IDisposable
 		{
 			/// <summary>

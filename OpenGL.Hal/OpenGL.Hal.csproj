@@ -109,8 +109,12 @@
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
+    <Compile Include="Plane.cs" />
+    <Compile Include="Scene\BoundingBox.cs" />
+    <Compile Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\GeometryClipmapObject.cs" />
     <Compile Include="Scene\GeometryClipmapObject.DefaultSource.cs" />
+    <Compile Include="Scene\IBoundingVolume.cs" />
     <Compile Include="Scene\SceneGraph.cs" />
     <Compile Include="Scene\SceneGraphCameraObject.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />

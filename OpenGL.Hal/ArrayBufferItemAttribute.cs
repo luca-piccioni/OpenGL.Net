@@ -30,7 +30,7 @@ namespace OpenGL
 	/// types not specifying this Attribute cannot be used for managing buffer object data.
 	/// </para>
 	/// </remarks>
-	[AttributeUsage(AttributeTargets.Struct, AllowMultiple = false)]
+	[AttributeUsage(AttributeTargets.Struct | AttributeTargets.Field, AllowMultiple = false)]
 	[DebuggerDisplay("ArrayBufferItemAttribute: ArrayType={ArrayType} ArraySize{ArraySize} Normalized{Normalized}")]
 	public class ArrayBufferItemAttribute : Attribute
 	{
@@ -103,5 +103,10 @@ namespace OpenGL
 		/// Indicates whether the integer data shall be interpreted as normalized floating-point.
 		/// </summary>
 		public bool Normalized;
+
+		/// <summary>
+		/// Indicated whether this field should be ignored in special cases.
+		/// </summary>
+		public bool Ignore;
 	}
 }
