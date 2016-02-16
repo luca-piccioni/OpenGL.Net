@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,12 +17,14 @@
 // USA
 
 using System;
+using System.Diagnostics;
 
 namespace OpenGL
 {
 	/// <summary>
 	/// Projection matrix.
 	/// </summary>
+	[DebuggerDisplay("ProjectionMatrix: Near={Near}, Far={Far} FocalLength={FocalLength} AspectRatio={AspectRatio}")]
 	public abstract class ProjectionMatrix : Matrix4x4
 	{
 		#region Constructors
@@ -128,21 +130,6 @@ namespace OpenGL
 			infinityMatrix[3, 2] = (epsilon - 2.0f) * Near;
 
 			return (infinityMatrix);
-		}
-
-		#endregion
-		
-		#region Matrix4x4 Overrides
-
-		/// <summary>
-		/// Clone this ProjectionMatrix.
-		/// </summary>
-		/// <returns>
-		/// It returns a deep copy of this ProjectionMatrix, but returns it modelled as ModelMatrix!.
-		/// </returns>
-		public override Matrix Clone()
-		{
-			return (new ModelMatrix(this));
 		}
 
 		#endregion
@@ -366,10 +353,6 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
-
-		#region Matrix4x4 Overrides
-
 		/// <summary>
 		/// Clone this ProjectionMatrix.
 		/// </summary>
@@ -437,25 +420,35 @@ namespace OpenGL
 		/// Set frustrum projection matrix.
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="Single"/>
+		/// A <see cref="Single"/> that specify the frustum left plane distance.
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="Single"/>
+		/// A <see cref="Single"/> that specify the frustum right plane distance.
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="Single"/>
+		/// A <see cref="Single"/> that specify the frustum bottom plane distance.
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="Single"/>
+		/// A <see cref="Single"/> that specify the frustum top plane distance.
 		/// </param>
 		/// <param name="near">
-		/// A <see cref="Single"/>
+		/// A <see cref="Single"/> that specify the frustum near plane distance.
 		/// </param>
 		/// <param name="far">
-		/// A <see cref="Single"/>
+		/// A <see cref="Single"/> that specify the frustum far plane distance.
 		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the parameter have an invalid set of values.
+		/// </exception>
 		public void SetFustrum(float left, float right, float bottom, float top, float near, float far)
 		{
+			if (Math.Abs(right - left) < Single.Epsilon)
+				throw new ArgumentException("left/right planes are coincident");
+			if (Math.Abs(top - bottom) < Single.Epsilon)
+				throw new ArgumentException("top/bottom planes are coincident");
+			if (Math.Abs(far - near) < Single.Epsilon)
+				throw new ArgumentException("far/near planes are coincident");
+
 			// Column 1
 			this[0, 0] = 2.0f * near / (right - left);
 			this[0, 1] = 0.0f;
@@ -481,12 +474,54 @@ namespace OpenGL
 		/// <summary>
 		/// Set a perspective projection matrix.
 		/// </summary>
+		/// <param name="fovy">
+		/// A <see cref="Single"/> that specify the vertical Field Of View, in degrees.
+		/// </param>
+		/// <param name="aspectRatio">
+		/// A <see cref="Single"/> that specify the view aspect ratio (i.e. the width / height ratio).
+		/// </param>
+		/// <param name="near">
+		/// A <see cref="Single"/> that specify the distance of the frustum near plane.
+		/// </param>
+		/// <param name="far">
+		/// A <see cref="Single"/> that specify the distance of the frustum far plane.
+		/// </param>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if at least one parameter has an invalid value.
+		/// </exception>
 		public void SetPerspective(float fovy, float aspectRatio, float near, float far)
 		{
+			if (fovy <= 0.0f || fovy > 180.0f)
+				throw new ArgumentOutOfRangeException("not in range (0, 180)", "fovy");
+			if (Math.Abs(near) < Single.Epsilon)
+				throw new ArgumentOutOfRangeException("zero not allowed", "near");
+			if (Math.Abs(far) < Math.Abs(near))
+				throw new ArgumentOutOfRangeException("less than near", "far");
+
 			float ymax = near * (float)Math.Tan(Angle.ToRadians(fovy));
 			float xmax = ymax * aspectRatio;
 
 			SetFustrum(-xmax, +xmax, -ymax, +ymax, near, far);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="leftFov"></param>
+		/// <param name="rightFov"></param>
+		/// <param name="bottomFov"></param>
+		/// <param name="topFov"></param>
+		/// <param name="near"></param>
+		/// <param name="far"></param>
+		public void SetPerspective(float leftFov, float rightFov, float bottomFov, float topFov, float near, float far)
+		{
+			SetFustrum(
+				-near * (float)Math.Tan(Angle.ToRadians(leftFov)),
+				+near * (float)Math.Tan(Angle.ToRadians(rightFov)),
+				-near * (float)Math.Tan(Angle.ToRadians(bottomFov)),
+				+near * (float)Math.Tan(Angle.ToRadians(topFov)),
+				near, far
+			);
 		}
 
 		#endregion
@@ -546,10 +581,6 @@ namespace OpenGL
 				return (-0.5f * b * ((a - 1.0f) / (a + 1.0f) - 1.0f));
 			}
 		}
-
-		#endregion
-
-		#region Matrix4x4 Overrides
 
 		/// <summary>
 		/// Clone this ProjectionMatrix.
