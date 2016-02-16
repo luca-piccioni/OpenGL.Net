@@ -17,7 +17,7 @@
 // USA
 
 // Symbol enabling debugging colors
-#undef CLIPMAP_COLOR_DEBUG
+#define CLIPMAP_COLOR_DEBUG
 
 // Symbol enabling clipmap level cap
 #define CLIPMAP_CAP
@@ -388,9 +388,16 @@ namespace OpenGL.Scene
 			/// </summary>
 			public IBoundingVolume GetBoundingVolume(Vertex2f[] gridOffsets)
 			{
-				Vertex2f gridOffset = new Vertex2f(); // gridOffsets[(int)Lod.Y];
-				Vertex3f min = new Vertex3f(Offset.X + gridOffset.x,           -3000.0f, Offset.Y + gridOffset.y);
-				Vertex3f max = new Vertex3f(Offset.X + gridOffset.x + Offset.Z, 8848.0f, Offset.Y + gridOffset.y + Offset.W);
+				if (gridOffsets == null)
+					throw new ArgumentNullException("gridOffsets");
+				if (gridOffsets.Length <= (int)Lod.Y)
+					throw new ArgumentException("no offset for LOD");
+
+				const float MinY = -3000.0f, MaxY = 8848.0f;
+
+				Vertex2f gridOffset = gridOffsets[(int)Lod.Y];
+				Vertex3f min = new Vertex3f(Offset.X + gridOffset.x,            MinY, Offset.Y + gridOffset.y);
+				Vertex3f max = new Vertex3f(Offset.X + gridOffset.x + Offset.Z, MaxY, Offset.Y + gridOffset.y + Offset.W);
 
 				return (new BoundingBox(min, max));
 			}
@@ -1201,9 +1208,11 @@ namespace OpenGL.Scene
 #if CLIPMAP_CAP
 #if CULLING_CLIPMAP_CAP
 			// Include cap in clipmap blocks
-			instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(_CurrentLevel));
-			instancesRingFixH.AddRange(GenerateLevelBlocksCapFixH(_CurrentLevel));
-			instancesRingFixV.AddRange(GenerateLevelBlocksCapFixV(_CurrentLevel));
+			if (_CurrentLevel < ClipmapLevels) {
+				instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(_CurrentLevel));
+				instancesRingFixH.AddRange(GenerateLevelBlocksCapFixH(_CurrentLevel));
+				instancesRingFixV.AddRange(GenerateLevelBlocksCapFixV(_CurrentLevel));
+			}
 #else
 			// Include cap in clipmap blocks
 			instancesClipmapBlock.AddRange(GenerateLevelBlocksCap(0));
@@ -1216,7 +1225,7 @@ namespace OpenGL.Scene
 			IModelMatrix matrixModelView = ctxScene.Scene.LocalModel;
 			IMatrix4x4 matrixMVP = matrixProjection.Multiply(matrixModelView);
 
-			_ClippingPlanes = Plane.GetFrustumPlanes(matrixModelView);
+			_ClippingPlanes = Plane.GetFrustumPlanes(matrixMVP);
 
 			// Cull instances
 			uint instancesClipmapBlockCount = CullInstances(ctx, ctxScene, gridOffsets, instancesClipmapBlock, _ArrayClipmapBlockInstances);
