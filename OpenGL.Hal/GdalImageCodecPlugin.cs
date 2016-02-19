@@ -360,9 +360,9 @@ namespace OpenGL
 
 				try {
 					if (rasterSection.Value.Left < 0 || rasterSection.Value.Right >= band.XSize)
-						throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
+						return (null); // throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
 					if (rasterSection.Value.Top < 0 || rasterSection.Value.Bottom >= band.YSize)
-						throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
+						return (null); // throw new ArgumentOutOfRangeException("criteria", "section out of bounds");
 				} catch {
 					return (null);
 				}
