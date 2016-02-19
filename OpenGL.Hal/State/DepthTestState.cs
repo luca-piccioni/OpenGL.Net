@@ -100,7 +100,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// Depth test enabled flag.
 		/// </summary>
-		private bool _Enabled;
+		private bool _Enabled = true;
 
 		/// <summary>
 		/// Depth test function.
