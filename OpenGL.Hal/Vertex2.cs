@@ -1206,7 +1206,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 2)]
 	[DebuggerDisplay("Vertex2d: X={x} Y={y}")]
-	public struct Vertex2d : IVertex2
+	public struct Vertex2d : IVertex2, IEquatable<Vertex2d>, IEquatable<IVertex2>
 	{
 		#region Constructors
 
@@ -1371,7 +1371,47 @@ namespace OpenGL
 
 		#endregion
 
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(Vertex2d v1, Vertex2d v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(Vertex2d v1, Vertex2d v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
 		#region Cast Operators
+
+		/// <summary>
+		/// Cast to Vertex2f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2d"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2f"/>
+		/// </returns>
+		public static implicit operator Vertex2f(Vertex2d a)
+		{
+			return (new Vertex2f(a.X, a.Y));
+		}
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -1382,20 +1422,102 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex3d"/>
 		/// </returns>
-		public static explicit operator Vertex3d(Vertex2d a)
+		public static implicit operator Vertex3d(Vertex2d a)
 		{
-			Vertex3d v;
+			return (new Vertex3d(a.x, a.y, 0.0));
+		}
 
-			v.x = a.x;
-			v.y = a.y;
-			v.z = 0.0f;
+		#endregion
 
-			return (v);
+		#region IEquatable<Vertex2d> Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex2d is equal to another Vertex2d.
+		/// </summary>
+		/// <param name="other">
+		/// A <see cref="Vertex2d"/> to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex2d is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex2d other)
+		{
+			if (ReferenceEquals(null, other))
+				return false;
+
+			if (Math.Abs(x - other.x) >= Double.Epsilon)
+				return (false);
+			if (Math.Abs(y - other.y) >= Double.Epsilon)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
+		#region IEquatable<IVertex3> Implementation
+
+		/// <summary>
+		/// Indicates whether the this Matrix is equal to another Matrix.
+		/// </summary>
+		/// <param name="other">
+		/// A Matrix to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Matrix is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(IVertex2 other)
+		{
+			if (ReferenceEquals(null, other))
+				return false;
+
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
+				return (false);
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
+				return (false);
+
+			return (true);
 		}
 
 		#endregion
 		
 		#region Object Overrides
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = X.GetHashCode();
+				result = (result * 397) ^ Y.GetHashCode();
+
+				return result;
+			}
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (obj.GetType() != typeof(IVertex2))
+				return false;
+
+			return (Equals((IVertex3)obj));
+		}
 
 		/// <summary>
 		/// Stringify this Vertex2f.

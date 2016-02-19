@@ -2878,7 +2878,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 3)]
 	[DebuggerDisplay("Vertex3d: X={x} Y={y} Z={z}")]
-	public struct Vertex3d : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3d : IVertex3, IEquatable<Vertex3d>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -3399,6 +3399,34 @@ namespace OpenGL
 
 		#endregion
 
+		#region IEquatable<Vertex3d> Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex3d is equal to another Vertex3d.
+		/// </summary>
+		/// <param name="other">
+		/// A <see cref="Vertex3d"/> to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3d is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3d other)
+		{
+			if (ReferenceEquals(null, other))
+				return false;
+
+			if (Math.Abs(x - other.x) >= Double.Epsilon)
+				return (false);
+			if (Math.Abs(y - other.y) >= Double.Epsilon)
+				return (false);
+			if (Math.Abs(z - other.z) >= Double.Epsilon)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
 		#region IEquatable<IVertex3> Implementation
 
 		/// <summary>
@@ -3425,24 +3453,9 @@ namespace OpenGL
 			return (true);
 		}
 
-		/// <summary>
-		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
-		/// </summary>
-		/// <param name="obj">
-		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
-		/// </param>
-		/// <returns>
-		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
-		/// </returns>
-		public override bool Equals(object obj)
-		{
-			if (ReferenceEquals(null, obj))
-				return false;
-			if (obj.GetType() != typeof(IVertex3))
-				return false;
+		#endregion
 
-			return (Equals((IVertex3)obj));
-		}
+		#region Object Overrides
 
 		/// <summary>
 		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
@@ -3462,9 +3475,24 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (obj.GetType() != typeof(IVertex3))
+				return false;
 
-		#region Object Overrides
+			return (Equals((IVertex3)obj));
+		}
 
 		/// <summary>
 		/// Stringify this Vertex3d.
