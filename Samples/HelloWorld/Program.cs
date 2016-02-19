@@ -27,22 +27,14 @@ namespace HelloNewton
 {
 	static class Program
 	{
-		static int GetLevelLength(int level)
-		{
-			int length = (int)Math.Pow(2.0, level) * 2;
-
-			for (int i = 1; i < level; i++)
-				length *= 3;
-
-			return (length);
-		}
-
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
 		static void Main()
 		{
+			Log.ConfigureLogFile("Log.config");
+
 			// UI initialization (before accessing GraphicsContext and others)
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

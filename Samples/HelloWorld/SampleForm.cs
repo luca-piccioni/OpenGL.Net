@@ -21,7 +21,7 @@ namespace HelloNewton
 			GraphicsSurface framebuffer = e.Framebuffer;
 
 #if DEBUG
-			_GeometryClipmapObject = new GeometryClipmapObject(4, 4, _BlockUnit);
+			_GeometryClipmapObject = new GeometryClipmapObject(6, 7, _BlockUnit);
 #else
 			_GeometryClipmapObject = new GeometryClipmapObject(7, 7, _BlockUnit);
 #endif
@@ -37,7 +37,7 @@ namespace HelloNewton
 
 			// Set projection
 			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
-			matrixProjection.SetPerspective(_ViewFov / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 110000.0f);
+			matrixProjection.SetPerspective(_ViewFov / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 1.0f, 250000.0f);
 			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
 
 			// Clear color
@@ -58,7 +58,7 @@ namespace HelloNewton
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateX(_ViewElevation);
 
-			Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+			//Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
 			// Draw geometry clipmap
 			_GeometryClipmapScene.Draw(ctx);
@@ -163,7 +163,7 @@ namespace HelloNewton
 				if (pair.Value == false)
 					continue;
 
-				float step = _BlockUnit * 0.1163f;
+				float step = _BlockUnit * 0.13f;
 
 				switch (pair.Key) {
 					case Keys.W:
@@ -192,5 +192,17 @@ namespace HelloNewton
 		/// Pressed keys map.
 		/// </summary>
 		private readonly Dictionary<Keys, bool> _PressedKeys = new Dictionary<Keys, bool>();
+
+		private void MenuTerrainManage_Click(object sender, System.EventArgs e)
+		{
+			using (TerrainDialog terrainDialog = new TerrainDialog()) {
+				terrainDialog.ShowDialog(this);
+			}
+		}
+
+		private void MenuQuit_Click(object sender, System.EventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }
