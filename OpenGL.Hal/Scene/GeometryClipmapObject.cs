@@ -17,7 +17,9 @@
 // USA
 
 // Symbol enabling debugging colors
+#if DEBUG
 #define CLIPMAP_COLOR_DEBUG
+#endif
 
 // Symbol enabling clipmap level cap
 #define CLIPMAP_CAP
@@ -32,12 +34,16 @@
 #define CULLING_CLIPMAP_BLOCKS
 
 // Symbol enabling culling of the clipmap level cap
+#if !DEBUG
 #define CULLING_CLIPMAP_CAP
+#endif
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+
+using OpenGL.State;
 
 namespace OpenGL.Scene
 {
@@ -75,6 +81,8 @@ namespace OpenGL.Scene
 
 			// Define clipmap resources
 			_ClipmapLevels = new ClipmapLevel[levels];
+			for (uint i = 0; i < levels; i++)
+				_ClipmapLevels[i] = new ClipmapLevel(i);
 			// Default the elevation sources (defaults to no sources)
 			_TerrainElevationSources = new ITerrainElevationSource[ClipmapLevels];
 			// Define geometry clipmap program
@@ -96,6 +104,10 @@ namespace OpenGL.Scene
 
 			// Define geometry clipmap vertex arrays
 			CreateVertexArrays();
+
+			// Depth buffer enabled
+			_ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
+			_ObjectState.DefineState(new PolygonModeState(PolygonMode.Line));
 		}
 
 		#endregion
@@ -156,21 +168,11 @@ namespace OpenGL.Scene
 			/// <summary>
 			/// Construct a ClipmapLevel.
 			/// </summary>
-			/// <param name="texture">
-			/// The <see cref="TextureArray2d"/> holding the elevation data for every clipmap.
-			/// </param>
 			/// <param name="lod">
 			/// A <see cref="UInt32"/> that specify texture array LOD.
 			/// </param>
-			public ClipmapLevel(TextureArray2d texture, uint lod)
+			public ClipmapLevel(uint lod)
 			{
-				if (texture == null)
-					throw new ArgumentNullException("texture");
-				if (texture.Height < lod)
-					throw new ArgumentOutOfRangeException("lod", "exceed clipmap levels");
-
-				Texture = texture;
-				Texture.IncRef();
 				Lod = lod;
 			}
 
@@ -179,14 +181,33 @@ namespace OpenGL.Scene
 			#region Level Information
 
 			/// <summary>
-			/// The underlying texture array storing clipmap elevation data.
-			/// </summary>
-			public readonly TextureArray2d Texture;
-
-			/// <summary>
 			/// The Level Of Detail of the texture (i.e. the texture array level).
 			/// </summary>
 			public readonly uint Lod;
+
+			/// <summary>
+			/// Position on the grid of the clipmap level. Used to determine offsets.
+			/// </summary>
+			public Vertex2d GridPosition;
+
+			#endregion
+
+			#region Methods
+
+			public void UpdateGridPosition(Vertex2d position, double unitScale)
+			{
+				double lodUnitScale = Math.Pow(2.0, Lod) * unitScale;
+				Vertex2d positionDelta = (position - GridPosition) / lodUnitScale;
+
+				positionDelta = new Vertex2d(Math.Truncate(positionDelta.x), Math.Truncate(positionDelta.y));
+
+				if (Math.Abs(positionDelta.x) < 1.0 && Math.Abs(positionDelta.y) < 1.0)
+					return;
+
+				GridPosition = GridPosition + positionDelta * lodUnitScale;
+
+				// Trace.TraceInformation("Grid LOD {0} reposition: {1}", Lod, GridPosition);
+			}
 
 			#endregion
 
@@ -197,7 +218,7 @@ namespace OpenGL.Scene
 			/// </summary>
 			public void Dispose()
 			{
-				Texture.DecRef();
+				
 			}
 
 			#endregion
@@ -233,6 +254,7 @@ namespace OpenGL.Scene
 		/// Each Clipmap block defines instanced attributes for the geometry clipmap block.
 		/// </remarks>
 		[StructLayout(LayoutKind.Sequential, Pack = 1)]
+		[DebuggerDisplay("ClipmapBlockInstance: Lod={Lod} PosMin={PositionMin} PosMax={PositionMax}")]
 		private struct ClipmapBlockInstance
 		{
 			#region Constructors
@@ -427,6 +449,22 @@ namespace OpenGL.Scene
 			public ColorRGBAF BlockColor;
 
 			#endregion
+
+			#region Attributes
+
+			public Vertex2f PositionMin { get { return (new Vertex2f(Offset.x, Offset.y)); } }
+
+			public Vertex2f PositionMax { get { return (new Vertex2f(Offset.x + Offset.z, Offset.y + Offset.w)); } }
+
+			public float PositionWidth { get { return (Offset.z - Offset.x); } }
+
+			public float PositionHeight { get { return (Offset.w - Offset.y); } }
+
+			public Vertex2f TexCoordMin { get { return (new Vertex2f(MapOffset.x, MapOffset.y)); } }
+
+			public Vertex2f TexCoordMax { get { return (new Vertex2f(MapOffset.x + MapOffset.z, MapOffset.y + MapOffset.w)); } }
+
+			#endregion
 		}
 
 		/// <summary>
@@ -482,17 +520,12 @@ namespace OpenGL.Scene
 			/// Get the terrain elevation map corresponding to the specified position.
 			/// </summary>
 			/// <param name="viewPosition">
-			/// The <see cref="Vertex3d"/> that specify the current view position, using an absolute cartesian reference system.
+			/// The <see cref="Vertex2d"/> that specify the current view position, using an absolute cartesian reference system.
 			/// </param>
 			/// <returns>
 			/// It returns the <see cref="Image"/> that contains the terrain elevation data corresponding to <paramref name="viewPosition"/>.
 			/// </returns>
-			/// <remarks>
-			/// <para>
-			/// 
-			/// </para>
-			/// </remarks>
-			Image GetTerrainElevationMap(Vertex3d viewPosition);
+			Image GetTerrainElevationMap(Vertex2d viewPosition);
 		}
 
 		/// <summary>
@@ -506,7 +539,7 @@ namespace OpenGL.Scene
 		/// </param>
 		public void SetTerrainElevationFactory(string databaseRoot, double lat, double lon)
 		{
-			SetTerrainElevationFactory(new DefaultTerrainElevationFactory(databaseRoot, lat, lon));
+			SetTerrainElevationFactory(new DefaultTerrainElevationFactory(databaseRoot, lat, lon, ClipmapLevels));
 		}
 
 		/// <summary>
@@ -642,12 +675,8 @@ namespace OpenGL.Scene
 
 			// Vertex array
 			_LevelCapExterior = new VertexArrayObject();
-			LinkResource(_LevelCapExterior);
-
-			_LevelCapExterior.SetArrayDefault(new Vertex4f(), "hal_BlockOffset", null);
-			_LevelCapExterior.SetArrayDefault(new Vertex4f(), "hal_MapOffset", null);
-			_LevelCapExterior.SetArrayDefault(new Vertex4f(), "hal_Lod", null);
 			_LevelCapExterior.SetArrayDefault(new Vertex4f(), "hal_BlockColor", null);
+			LinkResource(_LevelCapExterior);
 
 			#endregion
 		}
@@ -1157,52 +1186,24 @@ namespace OpenGL.Scene
 
 			ctxScene.GraphicsStateStack.Current.Apply(ctx, _GeometryClipmapProgram);
 
-			// Update elevation maps
-			Vertex3d viewPosition = ctxScene.CurrentView.LocalModel.Position;
-
-			if (PositionCorrection) {
-				for (ushort i = 0; i < ClipmapLevels; i++) {
-					if (_TerrainElevationSources[i] == null)
-						continue;
-
-					Image elevationMap = _TerrainElevationSources[i].GetTerrainElevationMap(viewPosition);
-					if (elevationMap == null)
-						continue;       // No update required
-
-#if TEXTURING_ELEVATION
-					_ElevationTexture.Create(ctx, PixelLayout.GRAY16S, elevationMap, i);
-#endif
-				}
-			}
-
 			ctx.Bind(_GeometryClipmapProgram);
+
+			// Set grid offsets
+			UpdateGridOffsets(ctx, ctxScene);
+			// Update elevation maps
+			UpdateTerrainElevationTextures(ctx, ctxScene);
+
 			_GeometryClipmapProgram.ResetTextureUnits();
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMapSize", (float)_ElevationTexture.Width);
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridUnitScale", BlockQuadUnit);
 
-			// Set grid offsets
-			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
-
-			if (PositionCorrection) {
-				Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
-
-				for (uint level = 0; level < ClipmapLevels; level++) {
-					double positionModule = BlockQuadUnit * Math.Pow(2.0, level);
-					Vertex3d gridPositionOffset = currentPosition - (currentPosition % positionModule);
-					double x = gridPositionOffset.x, y = gridPositionOffset.z;
-
-					gridOffsets[level] = new Vertex2f((float)x, (float)y);
-				}
-#if POSITION_CORRECTION
-				_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", gridOffsets);
-#endif
-			}
-
 			// Instance culling
 			List<ClipmapBlockInstance> instancesClipmapBlock = new List<ClipmapBlockInstance>(_InstancesClipmapBlock);
 			List<ClipmapBlockInstance> instancesRingFixH = new List<ClipmapBlockInstance>(_InstancesRingFixH);
 			List<ClipmapBlockInstance> instancesRingFixV = new List<ClipmapBlockInstance>(_InstancesRingFixV);
+
+			#region Cap Instances
 
 			// Base LOD cap instances
 #if CLIPMAP_CAP
@@ -1220,6 +1221,17 @@ namespace OpenGL.Scene
 			instancesRingFixV.AddRange(GenerateLevelBlocksCapFixV(0));
 #endif
 #endif
+
+			#endregion
+
+			//Debug.Assert(instancesClipmapBlock.TrueForAll(delegate (ClipmapBlockInstance item) {
+			//	return
+			//		(item.TexCoordMin.x >= 0.0f && item.TexCoordMin.x <= 1.0f && item.TexCoordMin.y >= 0.0f && item.TexCoordMin.y <= 1.0f) &&
+			//		(item.TexCoordMax.x >= 0.0f && item.TexCoordMax.x <= 1.0f && item.TexCoordMax.y >= 0.0f && item.TexCoordMax.y <= 1.0f);
+			//}));
+
+			#region Cull Instances
+
 			// Compute clipping planes
 			IMatrix4x4 matrixProjection = ctxScene.Scene.LocalProjection;
 			IModelMatrix matrixModelView = ctxScene.Scene.LocalModel;
@@ -1228,11 +1240,11 @@ namespace OpenGL.Scene
 			_ClippingPlanes = Plane.GetFrustumPlanes(matrixMVP);
 
 			// Cull instances
-			uint instancesClipmapBlockCount = CullInstances(ctx, ctxScene, gridOffsets, instancesClipmapBlock, _ArrayClipmapBlockInstances);
-			uint instancesRingFixHCount = CullInstances(ctx, ctxScene, gridOffsets, instancesRingFixH, _ArrayRingFixHInstances);
-			uint instancesRingFixVCount = CullInstances(ctx, ctxScene, gridOffsets, instancesRingFixV, _ArrayRingFixVInstances);
-			uint instancesExteriorHCount = CullInstances(ctx, ctxScene, gridOffsets, _InstancesExteriorH, _ArrayExteriorHInstances);
-			uint instancesExteriorVCount = CullInstances(ctx, ctxScene, gridOffsets, _InstancesExteriorV, _ArrayExteriorVInstances);
+			uint instancesClipmapBlockCount = CullInstances(ctx, ctxScene, instancesClipmapBlock, _ArrayClipmapBlockInstances);
+			uint instancesRingFixHCount = CullInstances(ctx, ctxScene, instancesRingFixH, _ArrayRingFixHInstances);
+			uint instancesRingFixVCount = CullInstances(ctx, ctxScene, instancesRingFixV, _ArrayRingFixVInstances);
+			uint instancesExteriorHCount = CullInstances(ctx, ctxScene, _InstancesExteriorH, _ArrayExteriorHInstances);
+			uint instancesExteriorVCount = CullInstances(ctx, ctxScene, _InstancesExteriorV, _ArrayExteriorVInstances);
 			uint instancesCount =
 				(uint)instancesClipmapBlock.Count +
 				(uint)instancesRingFixH.Count + (uint)instancesRingFixV.Count +
@@ -1242,7 +1254,9 @@ namespace OpenGL.Scene
 				instancesRingFixHCount + instancesRingFixVCount +
 				instancesExteriorHCount + instancesExteriorVCount;
 
-			Trace.TraceInformation("Drawing {0}/{1} instances.", culledInstancesCount, instancesCount);
+			// Trace.TraceInformation("Drawing {0}/{1} instances.", culledInstancesCount, instancesCount);
+
+			#endregion
 
 			// Draw clipmap blocks using instanced rendering
 
@@ -1265,6 +1279,65 @@ namespace OpenGL.Scene
 				_LevelExteriorV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorVCount);
 		}
 
+		private void UpdateTerrainElevationTextures(GraphicsContext ctx, SceneGraphContext ctxScene)
+		{
+			if (PositionCorrection == false)
+				return;
+
+			Vertex3d viewPosition = ctxScene.CurrentView.LocalModel.Position;
+
+			for (ushort i = 0; i < ClipmapLevels; i++) {
+				if (_TerrainElevationSources[i] == null)
+					continue;
+
+				Image elevationMap = _TerrainElevationSources[i].GetTerrainElevationMap(new Vertex2d(viewPosition.x, viewPosition.z));
+#if DEBUG
+				Debug.Assert((elevationMap != null) == _GridOffsetsUpdated[i]);
+#endif
+				if (elevationMap == null)
+					continue;       // No update required
+
+#if TEXTURING_ELEVATION
+				_ElevationTexture.Create(ctx, PixelLayout.GRAY16S, elevationMap, i);
+#endif
+			}
+		}
+
+		private void UpdateGridOffsets(GraphicsContext ctx, SceneGraphContext ctxScene)
+		{
+			if (PositionCorrection == false)
+				return;
+
+			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
+			Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
+			Vertex2d gridOffset = new Vertex2d(currentPosition.x, currentPosition.z);
+
+			for (int i = 0; i < ClipmapLevels; i++) {
+				_ClipmapLevels[i].UpdateGridPosition(gridOffset, BlockQuadUnit);
+				gridOffsets[i] = _ClipmapLevels[i].GridPosition;
+			}
+
+#if POSITION_CORRECTION
+			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", gridOffsets);
+#endif
+
+#if DEBUG
+			bool[] gridOffsetsUpdated = new bool[ClipmapLevels];
+
+			if (_GridOffsets != null) {
+				for (int i = 0; i < ClipmapLevels; i++)
+					gridOffsetsUpdated[i] = _GridOffsets[i] != gridOffsets[i];
+			} else {
+				for (int i = 0; i < ClipmapLevels; i++)
+					gridOffsetsUpdated[i] = true;
+			}
+			_GridOffsetsUpdated = gridOffsetsUpdated;
+#endif
+
+			// Store current offsets
+			_GridOffsets = gridOffsets;
+		}
+
 		/// <summary>
 		/// Filter an array of <see cref="ClipmapBlockInstance"/> and updates the specifies array buffer.
 		/// </summary>
@@ -1280,7 +1353,7 @@ namespace OpenGL.Scene
 		/// <returns>
 		/// It returns the number of items of <paramref name="instances"/> filtered.
 		/// </returns>
-		private uint CullInstances(GraphicsContext ctx, SceneGraphContext ctxScene, Vertex2f[] gridOffsets, List<ClipmapBlockInstance> instances, ArrayBufferObjectInterleaved<ClipmapBlockInstance> arrayBuffer)
+		private uint CullInstances(GraphicsContext ctx, SceneGraphContext ctxScene, List<ClipmapBlockInstance> instances, ArrayBufferObjectInterleaved<ClipmapBlockInstance> arrayBuffer)
 		{
 			List<ClipmapBlockInstance> cull = instances;
 
@@ -1295,7 +1368,7 @@ namespace OpenGL.Scene
 #if CULLING_CLIPMAP_BLOCKS
 			// Filter using bounding volumes
 			cull = cull.FindAll(delegate (ClipmapBlockInstance item) {
-				return (item.GetBoundingVolume(gridOffsets).IsClipped(_ClippingPlanes) == false);
+				return (item.GetBoundingVolume(_GridOffsets).IsClipped(_ClippingPlanes) == false);
 			});
 #endif
 
@@ -1315,6 +1388,18 @@ namespace OpenGL.Scene
 		/// Clipping planes for the current geometry clipmap.
 		/// </summary>
 		private IEnumerable<Plane> _ClippingPlanes;
+
+		/// <summary>
+		/// Actual position offsets applied to
+		/// </summary>
+		private Vertex2f[] _GridOffsets;
+
+#if DEBUG
+		/// <summary>
+		/// 
+		/// </summary>
+		private bool[] _GridOffsetsUpdated;
+#endif
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

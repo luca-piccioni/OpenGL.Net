@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 
 using OSGeo.GDAL;
@@ -44,14 +45,10 @@ namespace OpenGL.Scene
 				}
 			}
 
-			public DefaultTerrainElevationFactory(string databaseRoot, double lat, double lon)
+			public DefaultTerrainElevationFactory(string databaseRoot, double lat, double lon, uint maxLod)
 			{
 				if (databaseRoot == null)
 					throw new ArgumentNullException("databaseRoot");
-
-				DatabaseRoot = databaseRoot;
-				Latitude = lat;
-				Longitude = lon;
 
 				// Open the dataset.
 				try {
@@ -59,6 +56,8 @@ namespace OpenGL.Scene
 
 					if (_DatabaseDataset.RasterCount != 1)
 						throw new NotSupportedException();
+
+					DatabaseRoot = databaseRoot;
 
 					using (Band band = _DatabaseDataset.GetRasterBand(1)) {
 						switch (band.GetColorInterpretation()) {
@@ -75,6 +74,29 @@ namespace OpenGL.Scene
 								throw new NotSupportedException("unknown color interpretation");
 						}
 					}
+
+					// Determine current position
+					double[] datasetTransform = new double[6], datasetInvTransform = new double[6];
+					_DatabaseDataset.GetGeoTransform(datasetTransform);
+					Gdal.InvGeoTransform(datasetTransform, datasetInvTransform);
+
+					double xCurrentPosition, yCurrentPosition;
+					Gdal.ApplyGeoTransform(datasetInvTransform, lon, lat, out xCurrentPosition, out yCurrentPosition);
+
+					// Let the higher levels to be pixel aligned
+					int x = (int)Math.Floor(xCurrentPosition), y = (int)Math.Floor(yCurrentPosition);
+					int maxLodStride = (int)Math.Pow(2.0, maxLod);
+
+					x -= x % maxLodStride;
+					y -= y % maxLodStride;
+
+					x = Math.Max(x, 0);
+					y = Math.Max(y, 0);
+
+					Gdal.ApplyGeoTransform(datasetTransform, x, y, out lon, out lat);
+
+					Latitude = lat;
+					Longitude = lon;
 				} catch {
 					// Ensure GDAL object disposition
 					if (_DatabaseDataset != null)
@@ -159,7 +181,11 @@ namespace OpenGL.Scene
 
 				double xCurrentPosition, yCurrentPosition;
 				Gdal.ApplyGeoTransform(datasetInvTransform, lon, lat, out xCurrentPosition, out yCurrentPosition);
-				_CurrentTexPosition = _OriginPosition = new Vertex2d(Math.Floor(xCurrentPosition), Math.Floor(yCurrentPosition));
+
+				// Let the higher levels to be pixel aligned
+				int x = (int)Math.Floor(xCurrentPosition), y = (int)Math.Floor(yCurrentPosition);
+				
+				_CurrentTexPosition = _OriginPosition = new Vertex2d(x, y);
 
 				Latitude = lat;
 				Longitude = lon;
@@ -224,6 +250,8 @@ namespace OpenGL.Scene
 			/// </summary>
 			private Image _TerrainElevation;
 
+			private bool _TerrainElevationInitialized;
+
 			#endregion
 
 			#region ITerrainElevationSource Implementation
@@ -232,24 +260,27 @@ namespace OpenGL.Scene
 			/// Get the terrain elevation map corresponding to the specified position.
 			/// </summary>
 			/// <param name="viewPosition">
-			/// The <see cref="Vertex3d"/> that specify the current view position, using an absolute cartesian reference system.
+			/// The <see cref="Vertex2d"/> that specify the current view position, using an absolute cartesian reference system.
 			/// </param>
 			/// <returns>
 			/// It returns the <see cref="Image"/> that contains the terrain elevation data corresponding to <paramref name="viewPosition"/>.
 			/// </returns>
-			public Image GetTerrainElevationMap(Vertex3d viewPosition)
+			public Image GetTerrainElevationMap(Vertex2d viewPosition)
 			{
-				Vertex2d view2dPosition = new Vertex2d(viewPosition.x, viewPosition.z);
-
 				// Apply clipmap offset
 				double lodUnitScale = Math.Pow(2.0, Lod) * UnitScale;
-				Vertex2d texturePositionOffset = (view2dPosition - _CurrentViewPosition) / lodUnitScale;
+				Vertex2d texturePositionOffset = viewPosition - _CurrentViewPosition;
+
+				texturePositionOffset /= lodUnitScale;
+
+				// Determine whether an texture update is not required
+				bool xNormOffset = texturePositionOffset.x > -1.0 && texturePositionOffset.x < 1.0;
+				bool yNormOffset = texturePositionOffset.y > -1.0 && texturePositionOffset.y < 1.0;
+				if (xNormOffset && yNormOffset && _TerrainElevationInitialized)
+					return (null);
 
 				// Discard fractional part, move towards zero
 				texturePositionOffset = new Vertex2d(Math.Truncate(texturePositionOffset.x), Math.Truncate(texturePositionOffset.y));
-				// Determine whether an texture update is not required
-				if (Math.Abs(texturePositionOffset.x) < 1.0 && Math.Abs(texturePositionOffset.y) < 1.0)
-					return (null);
 
 				// Determine the dataset section to load
 				Rectangle datasetSection = new Rectangle(0, 0, (int)_TerrainElevation.Width, (int)_TerrainElevation.Height);
@@ -268,7 +299,9 @@ namespace OpenGL.Scene
 				datasetSection.X = (int)Math.Floor(x1);
 				datasetSection.Y = (int)Math.Floor(y1);
 				datasetSection.Width = (int)Math.Floor(x2 - x1);
+				Debug.Assert(datasetSection.Width % _TerrainElevation.Width == 0);
 				datasetSection.Height = (int)Math.Floor(y2 - y1);
+				Debug.Assert(datasetSection.Height % _TerrainElevation.Height == 0);
 
 				// Update current terrain elevation, following the updated position
 				ImageCodecCriteria datasetCriteria = new ImageCodecCriteria();
@@ -278,13 +311,12 @@ namespace OpenGL.Scene
 
 				// Update current positions
 				_CurrentTexPosition = rasterPosition;
-				_CurrentViewPosition = _CurrentViewPosition + (texturePositionOffset * lodUnitScale);
+				_CurrentViewPosition = _CurrentViewPosition + (texturePositionOffset * lodUnitScale);;
 
-				//for (uint x = 0; x < _TerrainElevation.Width; x++) {
-				//	for (uint y = 0; y < _TerrainElevation.Height; y++) {
-				//		_TerrainElevation[x, y] = new ColorGRAY16S((Int16)(((float)x / _TerrainElevation.Width) * 1600));
-				//	}
-				//}
+				// Trace.TraceInformation("Texture LOD {0} reposition: {1}", Lod, _CurrentTexPosition);
+
+				// Allow first time initialization
+				_TerrainElevationInitialized = true;
 
 				return (_TerrainElevation);
 			}

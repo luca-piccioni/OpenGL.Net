@@ -50,10 +50,14 @@ in vec2 hal_Lod;
 // The instance color, for debugging (instanced)
 in vec4 hal_BlockColor;
 
+// Normal vector
+out vec3 hal_VertexNormal;
 // Texture coord
 out vec2 hal_VertexTexCoord;
 // Vertex color
 out vec4 hal_VertexColor;
+// Perspective correction for logarithmic depth
+out float hal_VertexLogZ;
 
 void main()
 {
@@ -77,6 +81,17 @@ void main()
 
 	// Vertex attributes
 	gl_Position = hal_ModelViewProjection * vec4(worldPosition.x, elevationFragment.x * hal_ElevationMapScale, worldPosition.y, 1.0);
+	hal_VertexNormal = vec3(0.0, 1.0, 0.0);
 	hal_VertexTexCoord = elevationCoord;
 	hal_VertexColor = hal_BlockColor;
+
+#if defined(LOGARITHMIC_DEPTH)
+	const float Far = 250000.0f;
+	const float Fcoef = 2.0 / log2(Far + 1.0);
+
+	float logz = 1.0 + gl_Position.w;
+
+	hal_VertexLogZ = logz;
+	gl_Position.z = log2(max(1e-6, logz)) * Fcoef - 1.0;
+#endif
 }

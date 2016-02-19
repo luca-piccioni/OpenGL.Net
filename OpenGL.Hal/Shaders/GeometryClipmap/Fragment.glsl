@@ -18,6 +18,11 @@
 
 #undef DEBUG_TEX_COORD
 
+// Direction of the sun's rays
+uniform vec3 hal_SunDirection = vec3(0.0, 1.0, 0.0);
+
+// Normal vector
+in vec3 hal_VertexNormal;
 // Texture coord
 in vec2 hal_VertexTexCoord;
 // Vertex color
@@ -36,6 +41,13 @@ void main()
 
 	hal_FragColor = defaultColor;
 #else
+	// Base color
 	hal_FragColor = hal_VertexColor;
+	// Diffuse lighting
+	float diffuse = dot(hal_VertexNormal, normalize(hal_SunDirection));
+	hal_FragColor = hal_VertexColor * clamp(diffuse, 0.0, 1.0);
+
+	// Perspective correction
+	//gl_FragDepth = log2(flogz) * Fcoef_half; where Fcoef_half = 0.5 * Fcoef
 #endif
 }
