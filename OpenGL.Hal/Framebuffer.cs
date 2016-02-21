@@ -29,7 +29,7 @@ namespace OpenGL
 		#region Framebuffer Attachments
 
 		/// <summary>
-		/// Generic attachment to RenderFramebuffer.
+		/// Generic attachment to Framebuffer.
 		/// </summary>
 		private abstract class Attachment : IDisposable
 		{
@@ -49,7 +49,9 @@ namespace OpenGL
 			/// <param name="target">
 			/// The target of the attachment.
 			/// </param>
-			/// <param name="attachmentIndex"></param>
+			/// <param name="attachmentIndex">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
 			public abstract void Attach(int target, int attachmentIndex);
 
 			/// <summary>
@@ -61,8 +63,14 @@ namespace OpenGL
 
 			#region Extents
 
+			/// <summary>
+			/// The width of the attachment, in pixels.
+			/// </summary>
 			public abstract uint Width { get; }
 
+			/// <summary>
+			/// The height of the attachment, in pixels.
+			/// </summary>
 			public abstract uint Height { get; }
 
 			#endregion
@@ -78,19 +86,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// RenderBuffer attachment to RenderFramebuffer.
+		/// RenderBuffer attachment to Framebuffer.
 		/// </summary>
 		private class RenderBufferAttachment : Attachment
 		{
 			#region Constructors
 
+			/// <summary>
+			/// Construct a RenderBufferAttachment that attach a <see cref="RenderBuffer"/>.
+			/// </summary>
+			/// <param name="buffer">
+			/// The <see cref="RenderBuffer"/> to attach to a Framebuffer.
+			/// </param>
 			public RenderBufferAttachment(RenderBuffer buffer)
 			{
 				if (buffer == null)
 					throw new ArgumentNullException("buffer");
 
-				Buffer = buffer;
-				Buffer.IncRef();
+				_Buffer = buffer;
+				_Buffer.IncRef();
 			}
 
 			#endregion
@@ -98,9 +112,14 @@ namespace OpenGL
 			#region Attachment Information
 
 			/// <summary>
-			/// The attached texture.
+			/// The attached <see cref="RenderBuffer"/>.
 			/// </summary>
-			public readonly RenderBuffer Buffer;
+			public RenderBuffer Buffer { get { return (_Buffer); } }
+
+			/// <summary>
+			/// The attached <see cref="RenderBuffer"/>.
+			/// </summary>
+			public RenderBuffer _Buffer;
 
 			#endregion
 
@@ -118,61 +137,113 @@ namespace OpenGL
 					Buffer.Create(ctx);
 			}
 
+			/// <summary>
+			/// Attach this Attachment.
+			/// </summary>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachmentIndex">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
 			public override void Attach(int target, int attachment)
 			{
  				// Attach render buffer
 				Gl.FramebufferRenderbuffer(target, attachment, Gl.RENDERBUFFER, Buffer.ObjectName);
 			}
 
+			/// <summary>
+			/// The width of the attachment, in pixels.
+			/// </summary>
 			public override uint Width { get { return (Buffer.Width); } }
 
+			/// <summary>
+			/// The height of the attachment, in pixels.
+			/// </summary>
 			public override uint Height { get { return (Buffer.Height); } }
 
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
 			public override void Dispose()
 			{
-				Buffer.DecRef();
+				if (_Buffer != null) {
+					_Buffer.DecRef();
+					_Buffer = null;
+				}
 			}
 
 			#endregion
 		}
 
 		/// <summary>
-		/// Texture attachment to RenderFramebuffer.
+		/// Texture attachment to Framebuffer.
 		/// </summary>
-		private class RenderTextureAttachment : Attachment
+		private class TextureAttachment : Attachment
 		{
 			#region Constructors
 
-			public RenderTextureAttachment(Texture texture)
+			/// <summary>
+			/// Construct a TextureAttachment specifing the texture.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureAttachment(Texture texture)
 				: this(texture, 0)
 			{
 				
 			}
 
-			public RenderTextureAttachment(Texture texture, uint textureLevel)
+			/// <summary>
+			/// Construct a TextureAttachment specifing the texture and its level.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <param name="textureLevel">
+			/// A <see cref="UInt32"/> that specify the level of <paramref name="texture"/> to be attached.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureAttachment(Texture texture, uint textureLevel)
 			{
 				if (texture == null)
 					throw new ArgumentNullException("texture");
 
-				Texture = texture;
-				Texture.IncRef();
-
+				_Texture = texture;
+				_Texture.IncRef();
 				TextureLevel = textureLevel;
-
-				// Derive texture target from Texture
 				TextureTarget = Texture.TextureTarget;
 			}
 
-			protected RenderTextureAttachment(Texture texture, uint textureLevel, TextureTarget textureTarget)
+			/// <summary>
+			/// Construct a TextureAttachment specifing the texture, its level and possibly a specific texture target.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <param name="textureLevel">
+			/// A <see cref="UInt32"/> that specify the level of <paramref name="texture"/> to be attached.
+			/// </param>
+			/// <param name="textureTarget">
+			/// A specific <see cref="TextureTarget"/> to used with <see cref="Gl.FramebufferTexture2D"/>.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			protected TextureAttachment(Texture texture, uint textureLevel, TextureTarget textureTarget)
 			{
 				if (texture == null)
 					throw new ArgumentNullException("texture");
 
-				Texture = texture;
-				Texture.IncRef();
-
+				_Texture = texture;
+				_Texture.IncRef();
 				TextureLevel = textureLevel;
-
 				TextureTarget = textureTarget;
 			}
 
@@ -183,7 +254,12 @@ namespace OpenGL
 			/// <summary>
 			/// The attached texture.
 			/// </summary>
-			public readonly Texture Texture;
+			public Texture Texture { get { return (_Texture); } }
+
+			/// <summary>
+			/// The attached texture.
+			/// </summary>
+			public Texture _Texture;
 
 			/// <summary>
 			/// The texture level used for attachment.
@@ -211,32 +287,84 @@ namespace OpenGL
 					Texture.Create(ctx);
 			}
 
+			/// <summary>
+			/// Attach this Attachment.
+			/// </summary>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachmentIndex">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
 			public override void Attach(int target, int attachment)
 			{
 				// Attach color texture
 				Gl.FramebufferTexture2D(target, attachment, (int)TextureTarget, Texture.ObjectName, (int)TextureLevel);
 			}
 
-			public override uint Width { get { return (Texture.Width); } }
+			/// <summary>
+			/// The width of the attachment, in pixels.
+			/// </summary>
+			public override uint Width
+			{
+				get
+				{
+					uint w = Texture.Width;
 
-			public override uint Height { get { return (Texture.Height); } }
+					for (uint lod = 0; lod < TextureLevel; lod++)
+						w = Math.Max(1, w / 2);
+
+					return (w);
+				}
+			}
+
+			/// <summary>
+			/// The height of the attachment, in pixels.
+			/// </summary>
+			public override uint Height
+			{
+				get
+				{
+					uint h = Texture.Width;
+
+					for (uint lod = 0; lod < TextureLevel; lod++)
+						h = Math.Max(1, h / 2);
+
+					return (h);
+				}
+			}
 
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 			/// </summary>
 			public override void Dispose()
 			{
-				Texture.DecRef();
+				if (_Texture != null) {
+					_Texture.DecRef();
+					_Texture = null;
+				}
 			}
 
 			#endregion
 		}
 
-		private class RenderTextureRectangleAttachment : RenderTextureAttachment
+		/// <summary>
+		/// Texture attachment to Framebuffer (specialization for <see cref="TextureRectangle"/>).
+		/// </summary>
+		private class TextureRectangleAttachment : TextureAttachment
 		{
 			#region Constructors
 
-			public RenderTextureRectangleAttachment(TextureRectangle texture)
+			/// <summary>
+			/// Construct a TextureRectangleAttachment specifing the texture.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureRectangle"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureRectangleAttachment(TextureRectangle texture)
 				: base(texture, 0)
 			{
 
@@ -245,30 +373,127 @@ namespace OpenGL
 			#endregion
 		}
 
-		private class RenderTextureCubeAttachment : RenderTextureAttachment
+		/// <summary>
+		/// Texture attachment to Framebuffer (specialization for <see cref="TextureCube"/>).
+		/// </summary>
+		private class TextureCubeAttachment : TextureAttachment
 		{
 			#region Constructors
 
-			public RenderTextureCubeAttachment(TextureCube texture, TextureCube.CubeFace cubeFace)
+			/// <summary>
+			/// Construct a TextureCubeAttachment specifing the texture.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureCube"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <param name="cubeFace">
+			/// The specific <see cref="TextureCube.CubeFace"/> to attach to a Framebuffer.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureCubeAttachment(TextureCube texture, TextureCube.CubeFace cubeFace)
 				: this(texture, cubeFace, 0)
 			{
 				
 			}
 
-			public RenderTextureCubeAttachment(TextureCube texture, TextureCube.CubeFace cubeFace, uint textureLevel)
+			/// <summary>
+			/// Construct a TextureCubeAttachment specifing the texture.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureCube"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <param name="cubeFace">
+			/// The specific <see cref="TextureCube.CubeFace"/> to attach to a Framebuffer.
+			/// </param>
+			/// <param name="textureLevel">
+			/// A <see cref="UInt32"/> that specify the level of <paramref name="texture"/> to be attached.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureCubeAttachment(TextureCube texture, TextureCube.CubeFace cubeFace, uint textureLevel)
 				: base(texture, textureLevel, TextureCube.GetTextureCubeTarget(cubeFace))
 			{
 				
 			}
 
 			#endregion
+		}
 
-			#region Attachment Overrides
+		/// <summary>
+		/// Texture attachment to Framebuffer (specialization for <see cref="TextureArray2d"/> and <see cref="Texture3d"/>).
+		/// </summary>
+		private class TextureArrayAttachment : TextureAttachment
+		{
+			#region Constructors
 
+			/// <summary>
+			/// Construct a Texture3dAttachment specifing the texture.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureCube"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <param name="layer">
+			/// A <see cref="UInt32"/> the specify the layer of <paramref name="texture"/> to attach.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureArrayAttachment(TextureArray2d texture, uint layer)
+				: this(texture, layer, 0)
+			{
+				
+			}
+
+			/// <summary>
+			/// Construct a Texture3dAttachment specifing the texture.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureCube"/> to be attached to a Framebuffer.
+			/// </param>
+			/// <param name="layer">
+			/// A <see cref="UInt32"/> the specify the layer of <paramref name="texture"/> to attach.
+			/// </param>
+			/// <param name="textureLevel">
+			/// A <see cref="UInt32"/> that specify the level of <paramref name="texture"/> to be attached.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public TextureArrayAttachment(TextureArray2d texture, uint layer, uint textureLevel)
+				: base(texture, textureLevel)
+			{
+				Depth = layer;
+			}
+
+			#endregion
+
+			#region Attachment Information
+
+			/// <summary>
+			/// The depth of the 2D texture to attach.
+			/// </summary>
+			public readonly uint Depth;
+
+			#endregion
+
+			#region TextureAttachment Overrides
+
+			/// <summary>
+			/// Attach this Attachment.
+			/// </summary>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachmentIndex">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
 			public override void Attach(int target, int attachment)
 			{
 				// Attach color texture
-				Gl.FramebufferTexture2D(target, attachment, (int)TextureTarget, Texture.ObjectName, (int)TextureLevel);
+				Gl.FramebufferTextureLayer(target, attachment, Texture.ObjectName, (int)TextureLevel, (int)Depth);
 			}
 
 			#endregion
@@ -278,61 +503,43 @@ namespace OpenGL
 
 		#region Color Buffer Attachment
 
-		/// <summary>
-		/// Attach a render buffer image to color buffer.
-		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="RenderBuffer"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
-		public void AttachColor(RenderBuffer buffer)
-		{
-			AttachColor(buffer, 0);
-		}
+		#region AttachColor(RenderBuffer)
 
 		/// <summary>
 		/// Attach a render buffer image to color buffer.
 		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="RenderBuffer"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
 		/// <param name="attachmentIndex">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void AttachColor(RenderBuffer buffer, uint attachmentIndex)
+		/// <param name="buffer">
+		/// A <see cref="RenderBuffer"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// </param>
+		public void AttachColor(uint attachmentIndex, RenderBuffer buffer)
 		{
 			if (buffer == null)
 				throw new ArgumentNullException("buffer");
 			if (buffer.BufferType != RenderBuffer.Type.Color)
 				throw new ArgumentException("buffer is not a color buffer type");
-			if (attachmentIndex >= GraphicsContext.CurrentCaps.Limits.MaxColorAttachments)
-				throw new ArgumentException("attachment index '" + attachmentIndex + "' is greater than the maximum allowed");
 
-			AttachColor(new RenderBufferAttachment(buffer), attachmentIndex);
+			AttachColor(attachmentIndex, new RenderBufferAttachment(buffer));
 		}
+
+		#endregion
+
+		#region AttachColor(Texture2d)
 
 		/// <summary>
 		/// Attach a 2D texture image to color buffer.
 		/// </summary>
-		/// <param name="texture">
-		/// A <see cref="Texture2d"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
-		public void AttachColor(Texture2d texture)
-		{
-			AttachColor(texture, 0, 0);
-		}
-
-		/// <summary>
-		/// Attach a 2D texture image to color buffer.
-		/// </summary>
-		/// <param name="texture">
-		/// A <see cref="Texture2d"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
 		/// <param name="attachmentIndex">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void AttachColor(Texture2d texture, uint attachmentIndex)
+		/// <param name="texture">
+		/// A <see cref="Texture2d"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// </param>
+		public void AttachColor(uint attachmentIndex, Texture2d texture)
 		{
-			AttachColor(texture, attachmentIndex, 0);
+			AttachColor(attachmentIndex, new TextureAttachment(texture));
 		}
 
 		/// <summary>
@@ -347,69 +554,74 @@ namespace OpenGL
 		/// <param name="attachmentIndex">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void AttachColor(Texture2d texture, uint attachmentIndex, uint level)
+		public void AttachColor(uint attachmentIndex, Texture2d texture, uint level)
 		{
-			if ((level != 0) && (level > (uint)Math.Log(level, 2.0)))
-				throw new ArgumentException("level greater than maximum allowed");
-
-			AttachColor(new RenderTextureAttachment(texture, level), attachmentIndex);
+			AttachColor(attachmentIndex, new TextureAttachment(texture, level));
 		}
+
+		#endregion
+
+		#region AttachColor(TextureRectangle)
 
 		/// <summary>
 		/// Attach a rectangle texture image to color buffer.
 		/// </summary>
-		/// <param name="texture">
-		/// A <see cref="Texture"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
-		public void AttachColor(TextureRectangle texture)
-		{
-			AttachColor(texture, 0);
-		}
-
-		/// <summary>
-		/// Attach a rectangle texture image to color buffer.
-		/// </summary>
-		/// <param name="texture">
-		/// A <see cref="Texture"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
 		/// <param name="attachmentIndex">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void AttachColor(TextureRectangle texture, uint attachmentIndex)
+		/// <param name="texture">
+		/// A <see cref="Texture"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// </param>
+		public void AttachColor(uint attachmentIndex, TextureRectangle texture)
 		{
-			AttachColor(new RenderTextureAttachment(texture), attachmentIndex);
+			AttachColor(attachmentIndex, new TextureAttachment(texture));
 		}
 
-		public void AttachColor(TextureCube texture, TextureCube.CubeFace cubeFace)
+		#endregion
+
+		#region AttachColor(TextureCube)
+
+		public void AttachColor(uint attachmentIndex, TextureCube texture, TextureCube.CubeFace cubeFace)
 		{
-			AttachColor(texture, cubeFace, 0);
+			AttachColor(attachmentIndex, new TextureCubeAttachment(texture, cubeFace));
 		}
 
-		public void AttachColor(TextureCube texture, TextureCube.CubeFace cubeFace, uint attachmentIndex)
+		public void AttachColor(uint attachmentIndex, TextureCube texture, TextureCube.CubeFace cubeFace, uint level)
 		{
-			AttachColor(texture, cubeFace, attachmentIndex, 0);
+			AttachColor(attachmentIndex, new TextureCubeAttachment(texture, cubeFace, level));
 		}
 
-		public void AttachColor(TextureCube texture, TextureCube.CubeFace cubeFace, uint attachmentIndex, uint level)
+		#endregion
+
+		#region AttachColor(TextureArray2d)
+
+		public void AttachColor(uint attachmentIndex, TextureArray2d texture, uint layer)
 		{
-			AttachColor(new RenderTextureCubeAttachment(texture, cubeFace, level), attachmentIndex);
+			AttachColor(attachmentIndex, new TextureArrayAttachment(texture, layer));
 		}
+
+		public void AttachColor(uint attachmentIndex, TextureArray2d texture, uint layer, uint level)
+		{
+			AttachColor(attachmentIndex, new TextureArrayAttachment(texture, layer, level));
+		}
+
+		#endregion
 
 		/// <summary>
 		/// Attach a texture image to color buffer.
 		/// </summary>
-		/// <param name="attachment">
-		/// A <see cref="Attachment"/> which will be used for read/write operation on this RenderFrambuffer.
-		/// </param>
 		/// <param name="attachmentIndex">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		private void AttachColor(Attachment attachment, uint attachmentIndex)
+		/// <param name="attachment">
+		/// A <see cref="Attachment"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// </param>
+		private void AttachColor(uint attachmentIndex, Attachment attachment)
 		{
 			if (attachment == null)
 				throw new ArgumentNullException("attachment");
 			if (attachmentIndex >= GraphicsContext.CurrentCaps.Limits.MaxColorAttachments)
-				throw new ArgumentException("attachment index '" + attachmentIndex + "' is greater than the maximum allowed");
+				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
 			// Detach
 			DetachColor(attachmentIndex);
@@ -426,7 +638,7 @@ namespace OpenGL
 		public void DetachColor(uint attachmentIndex)
 		{
 			if (attachmentIndex >= GraphicsContext.CurrentCaps.Limits.MaxColorAttachments)
-				throw new ArgumentException("attachment index '" + attachmentIndex + "' is greater than the maximum allowed");
+				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
 			if (_ColorBuffers[attachmentIndex] != null) {
 				_ColorBuffers[attachmentIndex].Dispose();
@@ -469,12 +681,12 @@ namespace OpenGL
 
 		public void AttachDepth(Texture2d texture, uint level)
 		{
-			AttachDepth(new RenderTextureAttachment(texture, level));
+			AttachDepth(new TextureAttachment(texture, level));
 		}
 
 		public void AttachDepth(TextureRectangle texture)
 		{
-			AttachDepth(new RenderTextureRectangleAttachment(texture));
+			AttachDepth(new TextureRectangleAttachment(texture));
 		}
 
 		private void AttachDepth(Attachment attachment)
@@ -484,7 +696,7 @@ namespace OpenGL
 
 			DetachDepth();
 
-			mDepthAttachment = attachment;
+			_DepthAttachment = attachment;
 		}
 
 		/// <summary>
@@ -492,16 +704,16 @@ namespace OpenGL
 		/// </summary>
 		public void DetachDepth()
 		{
-			if (mDepthAttachment != null) {
-				mDepthAttachment.Dispose();
-				mDepthAttachment = null;
+			if (_DepthAttachment != null) {
+				_DepthAttachment.Dispose();
+				_DepthAttachment = null;
 			}
 		}
 
 		/// <summary>
 		/// Depth attachment.
 		/// </summary>
-		private Attachment mDepthAttachment;
+		private Attachment _DepthAttachment;
 
 		#endregion
 
@@ -519,7 +731,7 @@ namespace OpenGL
 				throw new ArgumentException("buffer is not a stencil buffer type");
 
 			// Reset buffer color attachment
-			mStencilBuffer = buffer;
+			_StencilBuffer = buffer;
 		}
 
 		/// <summary>
@@ -527,13 +739,13 @@ namespace OpenGL
 		/// </summary>
 		public void DetachStencil()
 		{
-			mStencilBuffer = null;
+			_StencilBuffer = null;
 		}
 
 		/// <summary>
 		/// RenderBuffer used as depth attachment.
 		/// </summary>
-		private RenderBuffer mStencilBuffer = null;
+		private RenderBuffer _StencilBuffer = null;
 
 		#endregion
 
@@ -632,7 +844,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get the device context associated to this RenderFramebuffer. 
+		/// Get the device context associated to this Framebuffer. 
 		/// </summary>
 		/// <returns>
 		/// It always returns <see cref="IntPtr.Zero"/>, since no device context is related to this render
@@ -754,13 +966,13 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// Validate this RenderFramebuffer.
+		/// Validate this Framebuffer.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for validating this RenderFramebuffer.
+		/// A <see cref="GraphicsContext"/> used for validating this Framebuffer.
 		/// </param>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown whenever this RenderFramebuffer is not valid.
+		/// Exception thrown whenever this Framebuffer is not valid.
 		/// </exception>
 		private static void Validate(GraphicsContext ctx)
 		{
@@ -823,19 +1035,19 @@ namespace OpenGL
 		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
-		/// Determine whether this RenderFramebuffer really exists for a specific context.
+		/// Determine whether this Framebuffer really exists for a specific context.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> that would have created (or a sharing one) the object. This context shall be current to
 		/// the calling thread.
 		/// </param>
 		/// <returns>
-		/// It returns a boolean value indicating whether this RenderFramebuffer exists in the object space of <paramref name="ctx"/>.
+		/// It returns a boolean value indicating whether this Framebuffer exists in the object space of <paramref name="ctx"/>.
 		/// </returns>
 		/// <remarks>
 		/// <para>
 		/// The object existence is done by checking a valid object by its name <see cref="IGraphicsResource.ObjectName"/>. This routine will test whether
-		/// <paramref name="ctx"/> has created this RenderFramebuffer (or is sharing with the creator).
+		/// <paramref name="ctx"/> has created this Framebuffer (or is sharing with the creator).
 		/// </para>
 		/// </remarks>
 		/// <exception cref="ArgumentNullException">
@@ -859,7 +1071,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Create a RenderFramebuffer name.
+		/// Create a Framebuffer name.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this object name.
@@ -893,7 +1105,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Delete a RenderFramebuffer name.
+		/// Delete a Framebuffer name.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
@@ -921,10 +1133,10 @@ namespace OpenGL
 					if (attachment != null)
 						attachment.Dispose();
 				}
-				if (mDepthAttachment != null)
-					mDepthAttachment.Dispose();
-				if (mStencilBuffer != null)
-					mStencilBuffer.Dispose();
+				if (_DepthAttachment != null)
+					_DepthAttachment.Dispose();
+				if (_StencilBuffer != null)
+					_StencilBuffer.Dispose();
 			}
 
 			// Base implementation
