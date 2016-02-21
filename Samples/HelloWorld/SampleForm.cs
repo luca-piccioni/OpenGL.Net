@@ -1,4 +1,23 @@
-﻿using System.Collections.Generic;
+﻿
+// Copyright (C) 2016 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -23,7 +42,7 @@ namespace HelloNewton
 #if DEBUG
 			_GeometryClipmapObject = new GeometryClipmapObject(6, 7, _BlockUnit);
 #else
-			_GeometryClipmapObject = new GeometryClipmapObject(7, 7, _BlockUnit);
+			_GeometryClipmapObject = new GeometryClipmapObject(9, 11, _BlockUnit);
 #endif
 
 			string workingDir = Directory.GetCurrentDirectory();
@@ -36,9 +55,11 @@ namespace HelloNewton
 			_GeometryClipmapScene.Create(ctx);
 
 			// Set projection
-			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
-			matrixProjection.SetPerspective(_ViewFov / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 1.0f, 250000.0f);
-			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
+			_GeometryClipmapScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(
+				_ViewFov / 16.0f * 9.0f,
+				(float)ClientSize.Width / (float)ClientSize.Height,
+				1.0f, _ViewDepth
+			);;
 
 			// Clear color
 			framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
@@ -57,8 +78,6 @@ namespace HelloNewton
 			_GeometryClipmapScene.CurrentView.LocalModel.Translate(_ViewPosition);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_GeometryClipmapScene.CurrentView.LocalModel.RotateX(_ViewElevation);
-
-			//Gl.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
 			// Draw geometry clipmap
 			_GeometryClipmapScene.Draw(ctx);
@@ -80,6 +99,8 @@ namespace HelloNewton
 
 		private float _BlockUnit = 100.0f;
 
+		private float _ViewDepth = 6000000.0f;
+
 		protected override void OnMouseWheel(MouseEventArgs e)
 		{
 			// Setup FoV using wheel
@@ -87,10 +108,11 @@ namespace HelloNewton
 
 			_ViewFov += ticks;
 
-			PerspectiveProjectionMatrix matrixProjection = new PerspectiveProjectionMatrix();
-			matrixProjection.SetPerspective(_ViewFov / 16.0f * 9.0f, (float)ClientSize.Width / (float)ClientSize.Height, 0.1f, 110000.0f);
-
-			_GeometryClipmapScene.CurrentView.ProjectionMatrix = matrixProjection;
+			_GeometryClipmapScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(
+				_ViewFov / 16.0f * 9.0f,
+				(float)ClientSize.Width / (float)ClientSize.Height,
+				1.0f, _ViewDepth
+			);;
 
 			// Base implementation
 			base.OnMouseWheel(e);
@@ -163,7 +185,7 @@ namespace HelloNewton
 				if (pair.Value == false)
 					continue;
 
-				float step = _BlockUnit * 0.13f;
+				float step = _BlockUnit * 1.0f;
 
 				switch (pair.Key) {
 					case Keys.W:

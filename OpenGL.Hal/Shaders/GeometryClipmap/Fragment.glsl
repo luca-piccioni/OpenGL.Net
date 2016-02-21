@@ -16,10 +16,13 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Symbol for debugging texture coordinates
 #undef DEBUG_TEX_COORD
+// Symbol for debugging normals
+#undef DEBUG_NORMAL
 
 // Direction of the sun's rays
-uniform vec3 hal_SunDirection = vec3(0.0, 1.0, 0.0);
+uniform vec3 hal_SunDirection = vec3(1.0, 1.0, 0.0);
 
 // Normal vector
 in vec3 hal_VertexNormal;
@@ -40,14 +43,16 @@ void main()
 		defaultColor = vec4(1.0, 0.0, 0.0, 1.0);
 
 	hal_FragColor = defaultColor;
+#elif defined(DEBUG_NORMAL)
+	hal_FragColor = vec4(hal_VertexNormal, 1.0);
 #else
 	// Base color
 	hal_FragColor = hal_VertexColor;
 	// Diffuse lighting
-	//float diffuse = dot(hal_VertexNormal, normalize(hal_SunDirection));
-	// hal_FragColor = hal_VertexColor * clamp(diffuse, 0.0, 1.0);
+	float diffuse = dot(hal_VertexNormal, normalize(hal_SunDirection));
+	hal_FragColor = hal_VertexColor * clamp(diffuse, 0.0, 1.0);
 
 	// Perspective correction
-	//gl_FragDepth = log2(flogz) * Fcoef_half; where Fcoef_half = 0.5 * Fcoef
+	// gl_FragDepth = log2(flogz) * Fcoef_half; where Fcoef_half = 0.5 * Fcoef
 #endif
 }

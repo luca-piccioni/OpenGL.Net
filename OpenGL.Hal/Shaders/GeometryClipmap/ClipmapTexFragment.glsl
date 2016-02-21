@@ -22,6 +22,8 @@ uniform sampler2D hal_ElevationMap;
 uniform float hal_ElevationNoDataValue = -9999.0;
 // The scale applied to the elevation map value
 uniform float hal_ElevationMapScale = 32767.0;
+// The world size of a elevation map textel
+uniform float hal_ElevationMapQuadUnit = 100.0;
 
 // Vertex texture coordinates
 // Vertex/Fragment texture coordinates
@@ -38,15 +40,16 @@ void main()
 	vec3 texOffset = vec3(+1.0 / elevationMapSize.x, +1.0 / elevationMapSize.y, 0.0);
 	vec2 texCoord = hal_VertexTexCoord[0];
 
-	// Elevation, normalized in [-1.0,+1.0]
-	float ele = texture(hal_ElevationMap, texCoord).r;
-	// Get normal
-	float eleX = texture(hal_ElevationMap, texCoord + texOffset.xz).r;
-	float eleY = texture(hal_ElevationMap, texCoord - texOffset.yz).r;
+	// Elevation
+	float eleNormalized = texture(hal_ElevationMap, texCoord).r;
+	float ele = eleNormalized * hal_ElevationMapScale;
+	// Elevation map normal
+	float eleX = texture(hal_ElevationMap, texCoord + texOffset.xz).r * hal_ElevationMapScale;
+	float eleY = texture(hal_ElevationMap, texCoord + texOffset.yz).r * hal_ElevationMapScale;
 
-	vec3 normalX = vec3(1.0f, eleX - ele, 0.0);
-	vec3 normalZ = vec3(0.0f, eleY - ele, 1.0);
+	vec3 normalX = vec3(hal_ElevationMapQuadUnit, eleX - ele, 0.0);
+	vec3 normalZ = vec3(0.0f, eleY - ele, -hal_ElevationMapQuadUnit);
 	vec3 normal = cross(normalX, normalZ);
 
-	hal_ClipmapElevation = vec4(normalize(normal), ele);
+	hal_ClipmapElevation = vec4(normalize(normal), eleNormalized);
 }

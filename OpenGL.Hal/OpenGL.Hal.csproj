@@ -109,6 +109,7 @@
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
+    <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
     <Compile Include="Scene\BoundingSphere.cs" />
@@ -313,6 +314,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Shaders\ShadersLibrary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\GeometryClipmap\DefaultElevationBanding.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

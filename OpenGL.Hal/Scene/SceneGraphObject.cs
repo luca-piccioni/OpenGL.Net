@@ -99,7 +99,7 @@ namespace OpenGL.Scene
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public IMatrix4x4 LocalProjection
+		public IProjectionMatrix LocalProjection
 		{
 			get { return (((TransformState)_ObjectState[TransformState.StateId]).LocalProjection); }
 			set { ((TransformState)_ObjectState[TransformState.StateId]).LocalProjection = value; }

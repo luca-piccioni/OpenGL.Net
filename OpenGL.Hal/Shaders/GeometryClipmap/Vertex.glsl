@@ -16,6 +16,15 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Symbol for enabling logarithmic depth buffer
+#define LOGARITHMIC_DEPTH
+// Symbol for enabling terrain elevation banding
+#define ELEVATION_BANDING
+
+#define SPHERE_CORRECTION
+
+#define PI 3.14159265359
+
 #include </OpenGL/TransformState.glsl>
 
 // The elevation map determining the vertex height
@@ -27,6 +36,9 @@ uniform float hal_ElevationMapSize = 16.0;
 uniform float hal_ElevationNoDataValue = -1.0;
 // The scale applied to the elevation map value
 uniform float hal_ElevationMapScale = 32767.0;
+
+// Texture used to perform elevation banding
+uniform sampler1D hal_ElevationBanding;
 
 // Alignment of the geometry clipmap grids
 uniform vec2 hal_GridOffset[16];
@@ -79,19 +91,37 @@ void main()
 
 	vec4 elevationFragment = texture(hal_ElevationMap, vec3(elevationCoord, hal_Lod.x));
 
+	float worldElevation = elevationFragment.w * hal_ElevationMapScale;
+
+	// Vertex position
+#if defined(SPHERE_CORRECTION)
+	const float SPHERE_RADIUS = 6378137.0;
+
+	float planeDistance = length(worldPosition);
+
+	float sphereAlpha = planeDistance / SPHERE_RADIUS;
+	float sphereDelta = SPHERE_RADIUS - SPHERE_RADIUS * cos(sphereAlpha);
+
+	worldElevation -= sphereDelta;
+#endif
+
 	// Vertex attributes
-	gl_Position = hal_ModelViewProjection * vec4(worldPosition.x, elevationFragment.w * hal_ElevationMapScale, worldPosition.y, 1.0);
-	//hal_VertexNormal = hal_NormalMatrix * elevationFragment.xyz;
+	gl_Position = hal_ModelViewProjection * vec4(worldPosition.x, worldElevation, worldPosition.y, 1.0);
+	hal_VertexNormal = elevationFragment.xyz;
 	hal_VertexTexCoord = elevationCoord;
+#if defined(ELEVATION_BANDING)
+	hal_VertexColor = texture(hal_ElevationBanding, elevationFragment.w);
+#else
 	hal_VertexColor = hal_BlockColor;
+#endif
 
 #if defined(LOGARITHMIC_DEPTH)
-	const float Far = 250000.0f;
-	const float Fcoef = 2.0 / log2(Far + 1.0);
+	//float Fcoef = 2.0 / log2(hal_DepthDistances.y + 1.0);
+	//float logz = 1.0 + gl_Position.w;
 
-	float logz = 1.0 + gl_Position.w;
+	//hal_VertexLogZ = logz;
+	//gl_Position.z = log2(max(1e-6, logz)) * Fcoef - 1.0;
 
-	hal_VertexLogZ = logz;
-	gl_Position.z = log2(max(1e-6, logz)) * Fcoef - 1.0;
+	gl_Position.z = (2*log(gl_Position.w + 1) / log(hal_DepthDistances.y + 1) - 1) * gl_Position.w;
 #endif
 }

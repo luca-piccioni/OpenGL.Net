@@ -87,6 +87,7 @@
     <Compile Include="IGraphicsDisposable.cs" />
     <Compile Include="IGraphicsResource.cs" />
     <Compile Include="IResource.cs" />
+    <Compile Include="ProjectionMatrix.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
     <Compile Include="Scene\Plane.cs" />
     <Compile Include="ShaderObject.cs" />

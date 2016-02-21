@@ -21,6 +21,9 @@
 #define CLIPMAP_COLOR_DEBUG
 #endif
 
+// Symbol enabling wireframe rendering
+#undef CLIPMAP_DEBUG_WIREFRAME
+
 // Symbol enabling clipmap level cap
 #define CLIPMAP_CAP
 
@@ -86,8 +89,10 @@ namespace OpenGL.Scene
 			// Default the elevation sources (defaults to no sources)
 			_TerrainElevationSources = new ITerrainElevationSource[ClipmapLevels];
 			// Depth buffer enabled
-			_ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
+			_ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+#if CLIPMAP_DEBUG_WIREFRAME
 			_ObjectState.DefineState(new PolygonModeState(PolygonMode.Line));
+#endif
 
 			CreateGeometryResources();
 			CreateTextureResources();
@@ -621,11 +626,6 @@ namespace OpenGL.Scene
 				_ElevationFramebuffer.AttachColor(0, _ElevationTexture, (uint)i);
 				_ElevationFramebuffer.BindDraw(ctx);
 
-				ctx.Bind(_GeometryClipmapTextureProgram);
-
-				_GeometryClipmapTextureProgram.ResetTextureUnits();
-				_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationSource);
-
 				using (GraphicsStateKeeper graphicsStateKeeper = new GraphicsStateKeeper(ctx)) {
 					// Keep states
 					graphicsStateKeeper.Keep(PolygonModeState.StateId);
@@ -638,6 +638,7 @@ namespace OpenGL.Scene
 					ctx.Bind(_GeometryClipmapTextureProgram);
 					_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f));
 					_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationSource);
+					_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ElevationMapQuadUnit", (float)(BlockQuadUnit * Math.Pow(2.0, i)));
 
 					// Update texture layer
 					_ElevationTexQuad.Draw(ctx, _GeometryClipmapTextureProgram);
@@ -695,6 +696,15 @@ namespace OpenGL.Scene
 			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
 			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
 			LinkResource(_ElevationTexture);
+
+			// Create elevation banding texture
+			_ElevationBandingTexture = new Texture1d();
+			_ElevationBandingTexture.MinFilter = Texture.Filter.Nearest;
+			_ElevationBandingTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationBandingTexture.WrapCoordR = Texture.Wrap.MirroredRepeat;
+			_ElevationBandingTexture.WrapCoordS = Texture.Wrap.Clamp;
+			_ElevationBandingTexture.CreateFromResource("OpenGL.Shaders.GeometryClipmap.DefaultElevationBanding.png", ImageFormat.Png);
+			LinkResource(_ElevationBandingTexture);
 
 			// Define geometry clipmap vertex arrays
 			CreateGeometryVertexArrays();
@@ -1261,6 +1271,11 @@ namespace OpenGL.Scene
 		/// </summary>
 		private TextureArray2d _ElevationTexture;
 
+		/// <summary>
+		/// Elevation banding texture.
+		/// </summary>
+		private Texture1d _ElevationBandingTexture;
+
 		#endregion
 
 		#region SceneGraphObject Overrides
@@ -1326,6 +1341,8 @@ namespace OpenGL.Scene
 #if POSITION_CORRECTION
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", _GridOffsets);
 #endif
+			if (_GeometryClipmapProgram.IsActiveUniform("hal_ElevationBanding"))
+				_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationBanding", _ElevationBandingTexture);
 
 			// Instance culling
 			List<ClipmapBlockInstance> instancesClipmapBlock = new List<ClipmapBlockInstance>(_InstancesClipmapBlock);
