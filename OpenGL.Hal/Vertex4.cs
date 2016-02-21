@@ -550,8 +550,49 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 4)]
 	[DebuggerDisplay("Vertex4i: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4i : IVertex4, IColorInteger4<int>
+	public struct Vertex4i : IVertex4, IColorInteger4<int>, IEquatable<Vertex4i>
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a Vertex4i.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="Int32"/>.
+		/// </param>
+		public Vertex4i(int v)
+		{
+			this.x = v;
+			this.y = v;
+			this.z = v;
+			this.w = v;
+		}
+
+		/// <summary>
+		/// Construct a Vertex4i.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="Int32"/>.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="Int32"/>.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="Int32"/>.
+		/// </param>
+		/// <param name="w">
+		/// A <see cref="Int32"/>.
+		/// </param>
+		public Vertex4i(int x, int y, int z, int w)
+		{
+			this.x = x;
+			this.y = y;
+			this.z = z;
+			this.w = w;
+		}
+
+		#endregion
+
 		#region Structure
 
 		/// <summary>
@@ -573,6 +614,74 @@ namespace OpenGL
 		/// W coordinate for fourdimensional vertex.
 		/// </summary>
 		public int w;
+
+		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(Vertex4i v1, Vertex4i v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(Vertex4i v1, Vertex4i v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(Vertex4i))
+				return (false);
+
+			return (Equals((Vertex4i)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = x.GetHashCode();
+				result = (result * 397) ^ y.GetHashCode();
+				result = (result * 397) ^ z.GetHashCode();
+				result = (result * 397) ^ w.GetHashCode();
+
+				return result;
+			}
+		}
 
 		#endregion
 
@@ -701,6 +810,33 @@ namespace OpenGL
 		/// Get the fourth integer component.
 		/// </summary>
 		int IColorInteger4<int>.W { get { return (w); } }
+
+		#endregion
+
+		#region IEquatable<Vertex4i> Implementation
+
+		/// <summary>
+		/// Indicates whether the this Matrix is equal to another Matrix.
+		/// </summary>
+		/// <param name="other">
+		/// A Matrix to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Matrix is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4i other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+			if (w != other.w)
+				return (false);
+
+			return (true);
+		}
 
 		#endregion
 	}
