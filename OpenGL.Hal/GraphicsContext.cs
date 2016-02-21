@@ -845,7 +845,7 @@ namespace OpenGL
 			bindingResource.Bind(this);
 
 			// Remind this object as bound
-			_BoundObjects.Add(bindingResource.BindingTarget, new WeakReference<IBindingResource>(bindingResource));
+			_BoundObjects[bindingResource.BindingTarget] = new WeakReference<IBindingResource>(bindingResource);
 		}
 
 		/// <summary>
