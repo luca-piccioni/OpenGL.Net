@@ -841,7 +841,7 @@ namespace OpenGL
 				}
 			}
 
-			Debug.Assert(!bindingResource.IsBound(this));
+			// Debug.Assert(!bindingResource.IsBound(this));
 			bindingResource.Bind(this);
 
 			// Remind this object as bound

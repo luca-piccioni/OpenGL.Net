@@ -2124,7 +2124,7 @@ namespace OpenGL
 			// Activate texture unit
 			Gl.ActiveTexture(Gl.TEXTURE0 + (int)texUnit);
 			// Bind texture (on active texture unit)
-			tex.Bind(ctx);
+			ctx.Bind(tex);
 			// Apply texture parameters
 			tex.ApplyParameters(ctx);
 

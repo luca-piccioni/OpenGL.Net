@@ -35,7 +35,7 @@ namespace OpenGL
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("Texture: Pixel={PixelLayout}")]
-	public abstract class Texture : GraphicsResource
+	public abstract class Texture : GraphicsResource, IBindingResource
 	{
 		#region Internal Format
 
@@ -243,7 +243,7 @@ namespace OpenGL
 		protected Image[] Get(GraphicsContext ctx, PixelLayout pType, TextureTarget target)
 		{
 			// Bind this Texture
-			Bind(ctx);
+			ctx.Bind(this);
 
 			// Get texture extents
 			int width, height;
@@ -268,7 +268,7 @@ namespace OpenGL
 			Gl.GetTexImage(target, 0, Pixel.GetGlFormat(pType), Pixel.GetPixelType(pType), image.ImageBuffer);
 
 			// Unbind this texture
-			Unbind(ctx);
+			ctx.Unbind(this);
 
 			return (new Image[] { image });
 		}
@@ -313,11 +313,11 @@ namespace OpenGL
 		protected void GenerateMipmaps(GraphicsContext ctx, TextureTarget target)
 		{
 			// Bind this Texture
-			Bind(ctx);
+			ctx.Bind(this);
 			// Generate mipmaps
 			Gl.GenerateMipmap((int)target);
 			// Unbind this texture
-			Unbind(ctx);
+			ctx.Unbind(this);
 
 			// Now texture has mipmaps
 			_HasMipMaps = true;
@@ -876,64 +876,6 @@ namespace OpenGL
 		/// </remarks>
 		public abstract TextureTarget TextureTarget { get; }
 
-		/// <summary>
-		/// Bind this Texture.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding this Texture.
-		/// </param>
-		/// <remarks>
-		/// To call this routine the condition <i>IsCreated</i> shall be true.
-		/// </remarks>
-		public virtual void Bind(GraphicsContext ctx)
-		{
-			Bind(ctx, TextureTarget);
-		}
-		
-		/// <summary>
-		/// Unbind this Texture.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding this Texture.
-		/// </param>
-		/// <remarks>
-		/// To call this routine the condition <i>IsCreated</i> shall be true.
-		/// </remarks>
-		public virtual void Unbind(GraphicsContext ctx)
-		{
-			Unbind(ctx, TextureTarget);
-		}
-
-		/// <summary>
-		/// Bind this Texture on specific target.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding this Texture.
-		/// </param>
-		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specify the texture target.
-		/// </param>
-		protected void Bind(GraphicsContext ctx, TextureTarget target)
-		{
-			// Bind this Texture on specified target
-			Gl.BindTexture(target, ObjectName);
-		}
-
-		/// <summary>
-		/// Unbind this Texture on specific target.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding this Texture.
-		/// </param>
-		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specify the texture target.
-		/// </param>
-		protected void Unbind(GraphicsContext ctx, TextureTarget target)
-		{
-			// Unbind this Texture on specified target
-			Gl.BindTexture(target, 0);
-		}
-
 		#endregion
 
 		#region Shader Uniform Binding
@@ -1080,7 +1022,8 @@ namespace OpenGL
 			CheckCurrentContext(ctx);
 
 			// Bind this texture
-			Bind(ctx);
+			Gl.BindTexture(TextureTarget, ObjectName);
+			ctx.Bind(this);
 
 			// In the case of no technique, texture will exists but it will be undefined
 
@@ -1097,7 +1040,100 @@ namespace OpenGL
 			}
 
 			// Clear binding point
-			Unbind(ctx);
+			ctx.Unbind(this);
+		}
+
+		#endregion
+
+		#region IBindingResource Implementation
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		int IBindingResource.BindingTarget
+		{
+			get
+			{
+				// All-in-one implementation for all targets
+				switch ((int)TextureTarget) {
+					case Gl.TEXTURE_1D:
+						return (Gl.TEXTURE_BINDING_1D);
+					case Gl.TEXTURE_2D:
+						return (Gl.TEXTURE_BINDING_2D);
+					case Gl.TEXTURE_3D:
+						return (Gl.TEXTURE_BINDING_3D);
+
+					case Gl.TEXTURE_CUBE_MAP:
+						return (Gl.TEXTURE_BINDING_CUBE_MAP);
+
+					case Gl.TEXTURE_RECTANGLE:
+						return (Gl.TEXTURE_BINDING_RECTANGLE);
+
+					case Gl.TEXTURE_1D_ARRAY:
+						return (Gl.TEXTURE_BINDING_1D_ARRAY);
+					case Gl.TEXTURE_2D_ARRAY:
+						return (Gl.TEXTURE_BINDING_2D_ARRAY);
+					case Gl.TEXTURE_CUBE_MAP_ARRAY:
+						return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
+
+					case Gl.TEXTURE_2D_MULTISAMPLE:
+						return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
+						case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
+						return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
+
+					default:
+						throw new NotSupportedException();
+				}
+				
+			}
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Bind(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			// Bind
+			Gl.BindTexture(TextureTarget, ObjectName);
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Unbind(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			// Bind
+			Gl.BindTexture(TextureTarget, InvalidObjectName);
+		}
+
+		/// <summary>
+		/// Check whether this IBindingResource is currently bound on the specified graphics context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for querying the current binding state.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this IBindingResource is currently bound on <paramref name="ctx"/>.
+		/// </returns>
+		bool IBindingResource.IsBound(GraphicsContext ctx)
+		{
+			//CheckThisExistence(ctx);
+
+			int currentTexture;
+			
+			Gl.Get(((IBindingResource)this).BindingTarget, out currentTexture);
+
+			return (currentTexture == (int)ObjectName);
 		}
 
 		#endregion
