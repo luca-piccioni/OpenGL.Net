@@ -119,6 +119,7 @@
     <Compile Include="Scene\SceneGraphCameraObject.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />
     <Compile Include="Scene\SceneGraphObject.cs" />
+    <Compile Include="State\GraphicsStateKeeper.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="State\UniformColorState.cs" />
     <Compile Include="TextureArray2d.cs" />
