@@ -27,7 +27,7 @@ namespace OpenGL
 	/// <summary>
 	/// Two dimensional texture.
 	/// </summary>
-	[DebuggerDisplay("Texture2d: Pixel={mPixelFormat} Width={Width} Height={Height}")]
+	[DebuggerDisplay("Texture2d: Width={Width} Height={Height}")]
 	public class Texture2d : Texture
 	{
 		#region Constructors
