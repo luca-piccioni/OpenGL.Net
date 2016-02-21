@@ -92,14 +92,6 @@ namespace OpenGL.State
 		public override string StateIdentifier { get { return (StateId); } }
 
 		/// <summary>
-		/// Flag indicating whether the state is context-bound.
-		/// </summary>
-		/// <remarks>
-		/// It returns always false.
-		/// </remarks>
-		public override bool IsContextBound { get { return (false); } }
-
-		/// <summary>
 		/// Get the uniform state associated with this instance.
 		/// </summary>
 		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }

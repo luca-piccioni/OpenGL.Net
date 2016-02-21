@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -291,6 +291,11 @@ namespace OpenGL.State
 		/// It returns always false.
 		/// </remarks>
 		public override bool IsContextBound { get { return (false); } }
+
+		/// <summary>
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
+		/// </summary>
+		public override bool IsShaderProgramBound { get { return (true); } }
 
 		/// <summary>
 		/// Apply this depth test render state.

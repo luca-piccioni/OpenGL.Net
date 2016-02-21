@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -23,14 +23,9 @@ using System.Diagnostics;
 namespace OpenGL.State
 {
 	/// <summary>
-	/// State tracking the transformation state.
+	/// State tracking the viewport state.
 	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// The transform state define a set of matrices that are dedicated 
-	/// </para>
-	/// </remarks>
-	[DebuggerDisplay("ViewportState")]
+	[DebuggerDisplay("ViewportState: Size={Viewport}")]
 	public class ViewportState : ShaderUniformState
 	{
 		#region Constructors
@@ -45,37 +40,47 @@ namespace OpenGL.State
 		}
 
 		/// <summary>
-		/// 
+		/// Construct a ViewportState specifing the width and the height of the viewport.
 		/// </summary>
-		/// <param name="width"></param>
-		/// <param name="height"></param>
-		public ViewportState(float width, float height)
+		/// <param name="width">
+		/// A <see cref="Int32"/> that specify the width of the viewport.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="Int32"/> that specify the height of the viewport.
+		/// </param>
+		public ViewportState(int width, int height)
 		{
-			ViewportSize = new Vertex2f(width, height);
+			Viewport = new Vertex4i(0, 0, width, height);
 		}
 
 		/// <summary>
-		/// 
+		/// Construct a ViewportState representing the current viewport state.
 		/// </summary>
-		/// <param name="ctx"></param>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> holding the viewport state.
+		/// </param>
 		public ViewportState(GraphicsContext ctx)
 		{
-			int[] viewportCoords = new int[4];
+			CheckCurrentContext(ctx);
 
 			// Get current viewport
+			int[] viewportCoords = new int[4];
 			Gl.Get(Gl.VIEWPORT, viewportCoords);
-			ViewportSize = new Vertex2f(viewportCoords[2] - viewportCoords[0], viewportCoords[3] - viewportCoords[1]);
+			Viewport = new Vertex4i(viewportCoords[0], viewportCoords[1], viewportCoords[2], viewportCoords[3]);
 		}
 
 		/// <summary>
-		/// 
+		/// Construct the default ViewportState corresponding to a specific <see cref="GraphicsSurface"/>.
 		/// </summary>
-		/// <param name="graphicsSurface"></param>
+		/// <param name="graphicsSurface">
+		/// The <see cref="GraphicsSurface"/> that specify tha default viewport extents.
+		/// </param>
 		public ViewportState(GraphicsSurface graphicsSurface)
 		{
 			if (graphicsSurface == null)
 				throw new ArgumentNullException("graphicsSurface");
-			ViewportSize = new Vertex2f(graphicsSurface.Width, graphicsSurface.Height);
+
+			Viewport = new Vertex4i(0, 0, (int)graphicsSurface.Width, (int)graphicsSurface.Height);
 		}
 
 		#endregion
@@ -83,9 +88,19 @@ namespace OpenGL.State
 		#region Viewport Information
 
 		/// <summary>
-		/// The viewport size.
+		/// Get the width of the viewport, in pixels.
 		/// </summary>
-		public Vertex2f ViewportSize;
+		public int ViewportWidth { get { return (Viewport.z); } }
+
+		/// <summary>
+		/// Get the height of the viewport, in pixels.
+		/// </summary>
+		public int ViewportHeight { get { return (Viewport.w); } }
+
+		/// <summary>
+		/// The viewport position and size, packed into a <see cref="Vertex4i"/>.
+		/// </summary>
+		public Vertex4i Viewport;
 
 		#endregion
 
@@ -103,7 +118,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The identifier for the blend state.
 		/// </summary>
-		public static string StateId = "OpenGL.State.Viewport";
+		public const string StateId = "OpenGL.State.Viewport";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.
@@ -116,7 +131,7 @@ namespace OpenGL.State
 		/// <remarks>
 		/// It returns always true.
 		/// </remarks>
-		public override bool IsContextBound { get { return (false); } }
+		public override bool IsContextBound { get { return (true); } }
 
 		/// <summary>
 		/// Apply this depth test render state.
@@ -131,12 +146,11 @@ namespace OpenGL.State
 		{
 			int[] viewportCoords = new int[4];
 
-			// Get current viewport
-			Gl.Get(GetPName.Viewport, viewportCoords);
-			ViewportSize = new Vertex2f(viewportCoords[2] - viewportCoords[0], viewportCoords[3] - viewportCoords[1]);
-
-			// Base implementation
-			base.ApplyState(ctx, shaderProgram);
+			// Server state
+			Gl.Viewport(Viewport.x, Viewport.y, Viewport.z, Viewport.w);
+			// Base implementation (shader application)
+			if (shaderProgram != null)
+				base.ApplyState(ctx, shaderProgram);
 		}
 
 		/// <summary>
@@ -165,7 +179,7 @@ namespace OpenGL.State
 
 			ViewportState previousState = (ViewportState)state;
 
-			ViewportSize = previousState.ViewportSize;
+			Viewport = previousState.Viewport;
 		}
 
 		/// <summary>
@@ -198,7 +212,7 @@ namespace OpenGL.State
 
 			ViewportState otherState = (ViewportState)other;
 
-			if (ViewportSize != otherState.ViewportSize)
+			if (Viewport != otherState.Viewport)
 				return (false);
 
 			return (true);
@@ -212,7 +226,7 @@ namespace OpenGL.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("{0}: ViewportSize={1}x{2}", StateIdentifier, ViewportSize.X, ViewportSize.Y));
+			return (String.Format("{0}: Viewport={1}", StateIdentifier, Viewport));
 		}
 
 		/// <summary>

@@ -148,12 +148,9 @@ namespace OpenGL.State
 		public override string StateIdentifier { get { return (StateId); } }
 
 		/// <summary>
-		/// Flag indicating whether the state is context-bound.
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		/// <remarks>
-		/// It returns always true.
-		/// </remarks>
-		public override bool IsContextBound { get { return (true); } }
+		public override bool IsShaderProgramBound { get { return (true); } }
 
 		/// <summary>
 		/// Set LineState state.

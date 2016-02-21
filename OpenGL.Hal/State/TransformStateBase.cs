@@ -139,6 +139,11 @@ namespace OpenGL.State
 		public override bool IsContextBound { get { return (true); } }
 
 		/// <summary>
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
+		/// </summary>
+		public override bool IsShaderProgramBound { get { return (true); } }
+
+		/// <summary>
 		/// Apply this TransformStateBase.
 		/// </summary>
 		/// <param name="ctx">

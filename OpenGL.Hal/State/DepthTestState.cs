@@ -131,14 +131,6 @@ namespace OpenGL.State
 		public override string StateIdentifier { get { return (StateId); } }
 
 		/// <summary>
-		/// Flag indicating whether the state is context-bound.
-		/// </summary>
-		/// <remarks>
-		/// It returns always true.
-		/// </remarks>
-		public override bool IsContextBound { get { return (true); } }
-
-		/// <summary>
 		/// Apply this depth test render state.
 		/// </summary>
 		/// <param name="ctx">

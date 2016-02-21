@@ -62,7 +62,7 @@ namespace OpenGL.State
 			//renderStateSet.DefineState(DepthTestState.DefaultState);
 			//renderStateSet.DefineState(CullFaceState.DefaultState);
 			//renderStateSet.DefineState(RenderBufferState.DefaultState);
-			renderStateSet.DefineState(ViewportState.DefaultState);
+			//renderStateSet.DefineState(ViewportState.DefaultState);
 
 			return (renderStateSet);
 		}
@@ -95,7 +95,7 @@ namespace OpenGL.State
 			renderStateSet.DefineState(new TransformState(ctx));
 			
 			sLog.Verbose("Detected current state set:");
-			foreach (KeyValuePair<string, IGraphicsState> pair in renderStateSet.mRenderStates)
+			foreach (KeyValuePair<string, IGraphicsState> pair in renderStateSet._RenderStates)
 				sLog.Verbose(pair.Value.ToString());
 			
 			return (renderStateSet);
@@ -116,17 +116,12 @@ namespace OpenGL.State
 			if (renderState == null)
 				throw new ArgumentNullException("renderState");
 
-			// Store/override state
-			if (renderState.StateIdentifier != null) {
-				// Unreference previous state
-				IGraphicsState previousState;
+			// Unreference previous state
+			IGraphicsState previousState;
 
-				if (mRenderStates.TryGetValue(renderState.StateIdentifier, out previousState) && (previousState != null))
-					previousState.DecRef();
-
-				mRenderStates[renderState.StateIdentifier] = renderState;
-			} else
-				mCustomStates.Add(renderState);
+			if (_RenderStates.TryGetValue(renderState.StateIdentifier, out previousState) && (previousState != null))
+				previousState.DecRef();
+			_RenderStates[renderState.StateIdentifier] = renderState;
 
 			// Reference the new state
 			renderState.IncRef();
@@ -145,10 +140,11 @@ namespace OpenGL.State
 
 			// Unreference previous state
 			IGraphicsState previousState;
-			if (mRenderStates.TryGetValue(stateId, out previousState) && previousState != null)
+
+			if (_RenderStates.TryGetValue(stateId, out previousState) && previousState != null)
 				previousState.DecRef();
 			// Remove state
-			mRenderStates.Remove(stateId);
+			_RenderStates.Remove(stateId);
 		}
 
 		/// <summary>
@@ -165,19 +161,7 @@ namespace OpenGL.State
 			if (stateId == null)
 				throw new ArgumentNullException("stateId");
 
-			return (mRenderStates.ContainsKey(stateId));
-		}
-
-		/// <summary>
-		/// Undefine all custom states.
-		/// </summary>
-		public void UndefineCustomStates()
-		{
-			// Unreference all custom states
-			foreach (GraphicsState customState in mCustomStates)
-				customState.DecRef();
-			// Remove all custom states
-			mCustomStates.Clear();
+			return (_RenderStates.ContainsKey(stateId));
 		}
 
 		/// <summary>
@@ -191,7 +175,7 @@ namespace OpenGL.State
 			{
 				IGraphicsState state;
 
-				if (mRenderStates.TryGetValue(stateId, out state))
+				if (_RenderStates.TryGetValue(stateId, out state))
 					return (state);
 
 				return (null);
@@ -208,26 +192,12 @@ namespace OpenGL.State
 		/// <summary>
 		/// An enumerable of the states collected by this GraphicsStateSet.
 		/// </summary>
-		public IEnumerable<IGraphicsState> States
-		{
-			get
-			{
-				foreach (IGraphicsState state in mRenderStates.Values)
-					yield return state;
-				foreach (IGraphicsState state in mCustomStates)
-					yield return state;
-			}
-		}
+		public IEnumerable<IGraphicsState> States { get { return (_RenderStates.Values); } }
 
 		/// <summary>
 		/// The set of GraphicsState.
 		/// </summary>
-		private readonly Dictionary<string, IGraphicsState> mRenderStates = new Dictionary<string, IGraphicsState>();
-
-		/// <summary>
-		/// A list of custom states, applied after <see cref="mRenderStates"/>.
-		/// </summary>
-		private readonly List<IGraphicsState> mCustomStates = new List<IGraphicsState>();
+		private readonly Dictionary<string, IGraphicsState> _RenderStates = new Dictionary<string, IGraphicsState>();
 
 		#endregion
 
@@ -280,25 +250,21 @@ namespace OpenGL.State
 				program.ResetTextureUnits();
 
 			// Apply known states
-			foreach (KeyValuePair<string, IGraphicsState> pair in mRenderStates) {
+			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates) {
 				IGraphicsState state = pair.Value;
 				
 				if (state.IsContextBound && (currentStateSet != null) && (currentStateSet.IsDefinedState(state.StateIdentifier))) {
 					IGraphicsState currentState = currentStateSet[state.StateIdentifier];
 
-					if (currentState.Inheritable && state.Equals(currentState))
+					if (state.Equals(currentState))
 						continue;
 				}
 
-				// Apply state if the state is context-bound, or a shader is currently in use
-				if ((program != null) || (state.IsContextBound))
+				// Apply state if:
+				// - the state is context-bound, or
+				// - the state is program-bound and a shader program is currently in use
+				if (state.IsContextBound || (state.IsShaderProgramBound && program != null))
 					state.ApplyState(ctx, program);
-			}
-
-			// Apply custom states, if any
-			foreach (GraphicsState customState in mCustomStates) {
-				if ((program != null) || (customState.IsContextBound))
-					customState.ApplyState(ctx, program);
 			}
 		}
 
@@ -341,16 +307,8 @@ namespace OpenGL.State
 			foreach (GraphicsState state in thisSetStates) {
 				IGraphicsState otherState = stateSet[state.StateIdentifier];
 
-				if (state.Inheritable == false) {
-					// Do not include non-inheritable states
-					UndefineState(state.StateIdentifier);
-					// Include merged state, if defined
-					if (otherState != null)
-						DefineState(otherState);
-				} else {
-					if (otherState != null)
-						state.Merge(otherState);
-				}
+				if (otherState != null)
+					state.Merge(otherState);
 			}
 			// Include states not defined by this
 			foreach (GraphicsState state in stateSet.States)
@@ -381,11 +339,11 @@ namespace OpenGL.State
 				throw new ArgumentNullException("currentStateSet");
 
 			// Apply most recent states
-			foreach (KeyValuePair<string, IGraphicsState> pair in mRenderStates)
+			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
 				mergedState.DefineState(pair.Value.Copy());
 
 			// Keep inherited states
-			foreach (KeyValuePair<string, IGraphicsState> pair in currentStateSet.mRenderStates) {
+			foreach (KeyValuePair<string, IGraphicsState> pair in currentStateSet._RenderStates) {
 				IGraphicsState state = pair.Value;
 
 				if (mergedState.IsDefinedState(state.StateIdentifier) == false)
@@ -413,8 +371,8 @@ namespace OpenGL.State
 		{
 			GraphicsStateSet clone = new GraphicsStateSet();
 
-			foreach (KeyValuePair<string, IGraphicsState> pair in mRenderStates)
-				clone.mRenderStates.Add(pair.Key, pair.Value.Copy());
+			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
+				clone._RenderStates.Add(pair.Key, pair.Value.Copy());
 
 			return (clone);
 		}
@@ -467,10 +425,7 @@ namespace OpenGL.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			foreach (GraphicsState renderState in mRenderStates.Values)
-				if (renderState.Exists(ctx) == false)
-					renderState.Create(ctx);
-			foreach (GraphicsState renderState in mCustomStates)
+			foreach (GraphicsState renderState in _RenderStates.Values)
 				if (renderState.Exists(ctx) == false)
 					renderState.Create(ctx);
 		}
@@ -486,11 +441,9 @@ namespace OpenGL.State
 		{
 			if (disposing) {
 				// Identifiable states
-				foreach (GraphicsState renderState in mRenderStates.Values)
+				foreach (GraphicsState renderState in _RenderStates.Values)
 					renderState.DecRef();
-				mRenderStates.Clear();
-				// Custom states
-				UndefineCustomStates();
+				_RenderStates.Clear();
 			}
 
 			// Base implementation

@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -31,26 +31,26 @@ namespace OpenGL.State
 	/// </remarks>
 	public interface IGraphicsState : IGraphicsResource, IResource, IEquatable<IGraphicsState>
 	{
-		#region State Identification
+		#region State Properties
 
 		/// <summary>
 		/// The identifier of this IGraphicsState implementation.
 		/// </summary>
 		string StateIdentifier { get; }
 
-		#endregion
-
-		#region State Application
-
 		/// <summary>
-		/// Flag indicating whether the state is context-bound.
+		/// Flag indicating whether the state is applied to a <see cref="GraphicsContext"/>.
 		/// </summary>
 		bool IsContextBound { get; }
 
 		/// <summary>
-		/// Flag indicating whether this state shall be inherited for nested states.
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		bool Inheritable { get; }
+		bool IsShaderProgramBound { get; }
+
+		#endregion
+
+		#region State Application
 
 		/// <summary>
 		/// Apply the render state defined by this IGraphicsState.

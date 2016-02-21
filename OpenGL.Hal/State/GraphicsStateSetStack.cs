@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -39,7 +39,7 @@ namespace OpenGL.State
 			// Avoid a disposition of this state set
 			defaultSet.IncRef();
 			// The stack always defines a current state
-			mStateSetStack.AddLast(defaultSet);
+			_StateSetStack.AddLast(defaultSet);
 		}
 
 		/// <summary>
@@ -55,7 +55,7 @@ namespace OpenGL.State
 			// Avoid a disposition of this state set
 			defaultSet.IncRef();
 			// The stack always defines a current state
-			mStateSetStack.AddLast(defaultSet);
+			_StateSetStack.AddLast(defaultSet);
 		}
 
 		#endregion
@@ -71,7 +71,7 @@ namespace OpenGL.State
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("GraphicsStateSetStack");
-				return (mStateSetStack.Last.Value);
+				return (_StateSetStack.Last.Value);
 			}
 		}
 
@@ -92,7 +92,7 @@ namespace OpenGL.State
 			// Avoid a disposition of this state set
 			currentStateSetCopy.IncRef();
 			// Set the copy as the current state set
-			mStateSetStack.AddLast(currentStateSetCopy);
+			_StateSetStack.AddLast(currentStateSetCopy);
 		}
 
 		/// <summary>
@@ -122,7 +122,7 @@ namespace OpenGL.State
 		{
 			if (IsDisposed)
 				throw new ObjectDisposedException("GraphicsStateSetStack");
-			if (mStateSetStack.Count == 1)
+			if (_StateSetStack.Count == 1)
 				throw new InvalidOperationException("stack underflow");
 
 			GraphicsStateSet currentStateSet = Current;
@@ -130,7 +130,7 @@ namespace OpenGL.State
 			// Possibly dispose this state set
 			currentStateSet.DecRef();
 			// Restore previous state set
-			mStateSetStack.RemoveLast();
+			_StateSetStack.RemoveLast();
 		}
 
 		/// <summary>
@@ -142,16 +142,16 @@ namespace OpenGL.State
 				throw new ObjectDisposedException("GraphicsStateSetStack");
 
 			// Remove every state set included on the stack, except the first one
-			while (mStateSetStack.Count > 1) {
-				mStateSetStack.Last.Value.DecRef();
-				mStateSetStack.RemoveLast();
+			while (_StateSetStack.Count > 1) {
+				_StateSetStack.Last.Value.DecRef();
+				_StateSetStack.RemoveLast();
 			}
 		}
 
 		/// <summary>
 		/// The GraphicsStateSet stack.
 		/// </summary>
-		private readonly LinkedList<GraphicsStateSet> mStateSetStack = new LinkedList<GraphicsStateSet>();
+		private readonly LinkedList<GraphicsStateSet> _StateSetStack = new LinkedList<GraphicsStateSet>();
 
 		#endregion
 
@@ -169,7 +169,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (mDisposed); } }
+		public bool IsDisposed { get { return (_Disposed); } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -180,9 +180,9 @@ namespace OpenGL.State
 		{
 			if (disposing) {
 				// Remove EVERY state set on this stack, even the first one
-				while (mStateSetStack.Count > 0) {
-					mStateSetStack.Last.Value.DecRef();
-					mStateSetStack.RemoveLast();
+				while (_StateSetStack.Count > 0) {
+					_StateSetStack.Last.Value.DecRef();
+					_StateSetStack.RemoveLast();
 				}
 			}
 		}
@@ -197,13 +197,13 @@ namespace OpenGL.State
 			// Dispose this instance
 			Dispose(true);
 			// Mark as disposed
-			mDisposed = true;
+			_Disposed = true;
 		}
 
 		/// <summary>
 		/// Flag indicating that this instance has been disposed.
 		/// </summary>
-		private bool mDisposed;
+		private bool _Disposed;
 
 		#endregion
 	}

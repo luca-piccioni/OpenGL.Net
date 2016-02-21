@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -44,7 +44,7 @@ namespace OpenGL.State
 		protected GraphicsState(bool inheritable)
 		{
 			// Inheritable flag
-			mInheritable = inheritable;
+			_Inheritable = inheritable;
 		}
 
 		#endregion
@@ -113,6 +113,51 @@ namespace OpenGL.State
 			return (false);
 		}
 
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (ReferenceEquals(this, obj))
+				return (true);
+
+			if (obj.GetType().IsSubclassOf(typeof(GraphicsState)) == false)
+				return (false);
+
+			return Equals((GraphicsState) obj);
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			return (StateIdentifier.GetHashCode());
+		}
+		
+		/// <summary>
+		/// Represents the current <see cref="GraphicsState"/> for logging.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="String"/> that represents the current <see cref="GraphicsState"/>.
+		/// </returns>
+		public override string ToString()
+		{
+			return (StateIdentifier);
+		}
+
 		#endregion
 
 		#region IGraphicsState Implementation
@@ -125,12 +170,12 @@ namespace OpenGL.State
 		/// <summary>
 		/// Flag indicating whether the state is context-bound.
 		/// </summary>
-		public abstract bool IsContextBound { get; }
+		public virtual bool IsContextBound { get { return (true); } }
 
 		/// <summary>
-		/// Flag indicating whether this state shall be inherited from nested states.
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public bool Inheritable { get { return (mInheritable); } protected set { mInheritable = value; } }
+		public virtual bool IsShaderProgramBound { get { return (false); } }
 
 		/// <summary>
 		/// Apply the render state define by this IGraphicsState.
@@ -160,10 +205,7 @@ namespace OpenGL.State
 		/// different operations.
 		/// </para>
 		/// </remarks>
-		public virtual void Merge(IGraphicsState state)
-		{
-			throw new NotImplementedException(GetType() + " does not implement Merge");
-		}
+		public abstract void Merge(IGraphicsState state);
 
 		/// <summary>
 		/// Indicates whether the current object is equal to another object of the same type.
@@ -210,56 +252,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// Flag indicating whether this state is inheritable.
 		/// </summary>
-		private bool mInheritable = true;
-
-		#endregion
-
-		#region Object Overrides
-
-		/// <summary>
-		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
-		/// </summary>
-		/// <param name="obj">
-		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
-		/// </param>
-		/// <returns>
-		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
-		/// </returns>
-		public override bool Equals(object obj)
-		{
-			if (ReferenceEquals(null, obj))
-				return (false);
-			if (ReferenceEquals(this, obj))
-				return (true);
-
-			if (obj.GetType().IsSubclassOf(typeof(GraphicsState)) == false)
-				return (false);
-
-			return Equals((GraphicsState) obj);
-		}
-
-		/// <summary>
-		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
-		/// use in hashing algorithms and data structures like a hash table.
-		/// </summary>
-		/// <returns>
-		/// A hash code for the current <see cref="T:System.Object"/>.
-		/// </returns>
-		public override int GetHashCode()
-		{
-			return (StateIdentifier.GetHashCode());
-		}
-		
-		/// <summary>
-		/// Represents the current <see cref="GraphicsState"/> for logging.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="String"/> that represents the current <see cref="GraphicsState"/>.
-		/// </returns>
-		public override string ToString()
-		{
-			return (String.Format("{0}: ContextBound={1}", StateIdentifier, IsContextBound));
-		}
+		private bool _Inheritable = true;
 
 		#endregion
 	}
