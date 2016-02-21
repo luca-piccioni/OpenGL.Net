@@ -30,11 +30,9 @@ namespace OpenGL.Hal.Test.Scene
 		[Test]
 		public void TestPerspectiveFrustumNoModelView()
 		{
-			PerspectiveProjectionMatrix projectionMatrix = new PerspectiveProjectionMatrix();
+			PerspectiveProjectionMatrix projectionMatrix = new PerspectiveProjectionMatrix(60.0f, 1.0f, 1.0f, 10.0f);
 			BoundingBox boundingBox;
 			Vertex3f bboxPosition;
-
-			projectionMatrix.SetPerspective(60.0f, 1.0f, 1.0f, 10.0f);
 
 			IEnumerable<Plane> planes = Plane.GetFrustumPlanes(projectionMatrix);
 

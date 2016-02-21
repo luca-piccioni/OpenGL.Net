@@ -40,7 +40,7 @@ namespace OpenGL.Hal.Test
 				Assert.IsNull(transformState.LocalProjection);
 				// Allow to set custom projections
 				projectionMatrix = new OrthoProjectionMatrix();
-				Assert.DoesNotThrow(delegate () { transformState.LocalProjection = projectionMatrix; });
+				Assert.DoesNotThrow(delegate () { transformState.LocalProjection = (IProjectionMatrix)projectionMatrix; });
 				// LocalProjection reference another clone
 				Assert.IsNotNull(transformState.LocalProjection);
 				Assert.AreNotSame(projectionMatrix, transformState.LocalProjection);

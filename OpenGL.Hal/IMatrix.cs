@@ -175,6 +175,14 @@ namespace OpenGL
 		/// </returns>
 		double[] ToArray();
 
+		/// <summary>
+		/// Clone this IMatrix.
+		/// </summary>
+		/// <returns>
+		/// It returns a deep copy of this IMatrix.
+		/// </returns>
+		IMatrix Clone();
+
 		#endregion
 
 		#region Operators

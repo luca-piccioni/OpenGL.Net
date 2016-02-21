@@ -23,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Projection matrix.
 	/// </summary>
-	public abstract class ProjectionMatrixDouble : MatrixDouble4x4
+	public abstract class ProjectionMatrixDouble : MatrixDouble4x4, IProjectionMatrix
 	{
 		#region Constructors
 
@@ -78,7 +78,13 @@ namespace OpenGL
 		/// <remarks>
 		/// The far plane distance computation is based directly on matrix components.
 		/// </remarks>
-		public abstract double Near { get; }
+		public double Near
+		{
+			get
+			{
+				return (Plane.GetFrustumNearPlane(this).Distance);
+			}
+		}
 
 		/// <summary>
 		/// Get the far plane distance of this projection matrix.
@@ -86,7 +92,33 @@ namespace OpenGL
 		/// <remarks>
 		/// The far plane distance computation is based directly on matrix components.
 		/// </remarks>
-		public abstract double Far { get; }
+		public double Far
+		{
+			get
+			{
+				return (Plane.GetFrustumFarPlane(this).Distance);
+			}
+		}
+
+		#endregion
+
+		#region IProjectionMatrix Implementation
+
+		/// <summary>
+		/// Get the near plane distance of this projection matrix.
+		/// </summary>
+		/// <remarks>
+		/// The far plane distance computation is based directly on matrix components.
+		/// </remarks>
+		double IProjectionMatrix.Near { get { return (Near); } }
+
+		/// <summary>
+		/// Get the far plane distance of this projection matrix.
+		/// </summary>
+		/// <remarks>
+		/// The far plane distance computation is based directly on matrix components.
+		/// </remarks>
+		double IProjectionMatrix.Far { get { return (Far); } }
 
 		#endregion
 	}
@@ -275,43 +307,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region ProjectionMatrix Overrides
-
-		/// <summary>
-		/// Get the near plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override double Near
-		{
-			get
-			{
-				double a = this[2, 2], b = this[3, 2];
-
-				return (2.0 * ((a + 1.0) / (a - 1.0) - 0.5) * b);
-			}
-		}
-
-		/// <summary>
-		/// Get the far plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override double Far
-		{
-			get
-			{
-				double a = this[2, 2], b = this[3, 2];
-
-				return (-0.5 * b * ((a - 1.0) / (a + 1.0) - 1.0));
-			}
-		}
-
-		#endregion
-
-		#region Matrix4x4 Overrides
+		#region ProjectionMatrixDouble Overrides
 
 		/// <summary>
 		/// Clone this ProjectionMatrix.
@@ -456,43 +452,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region ProjectionMatrix Overrides
-
-		/// <summary>
-		/// Get the near plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override double Near
-		{
-			get
-			{
-				double a = this[2, 2], b = this[3, 2];
-
-				return (2.0f * ((a + 1.0f) / (a - 1.0f) - 0.5f) * b);
-			}
-		}
-
-		/// <summary>
-		/// Get the far plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override double Far
-		{
-			get
-			{
-				double a = this[2, 2], b = this[3, 2];
-
-				return (-0.5f * b * ((a - 1.0f) / (a + 1.0f) - 1.0f));
-			}
-		}
-
-		#endregion
-
-		#region Matrix4x4 Overrides
+		#region ProjectionMatrixDouble Overrides
 
 		/// <summary>
 		/// Clone this ProjectionMatrix.

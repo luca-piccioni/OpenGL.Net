@@ -22,6 +22,11 @@
 // Projection matrix
 uniform mat4 hal_Projection;
 
+// Projection near/far planes distances
+// - x: near plane distance
+// - y: far plane distance.
+uniform vec2 hal_DepthDistances;
+
 // The model-view matrix
 uniform mat4 hal_ModelView;
 

@@ -25,7 +25,7 @@ namespace OpenGL
 	/// Projection matrix.
 	/// </summary>
 	[DebuggerDisplay("ProjectionMatrix: Near={Near}, Far={Far} FocalLength={FocalLength} AspectRatio={AspectRatio}")]
-	public abstract class ProjectionMatrix : Matrix4x4
+	public abstract class ProjectionMatrix : Matrix4x4, IProjectionMatrix
 	{
 		#region Constructors
 
@@ -80,7 +80,13 @@ namespace OpenGL
 		/// <remarks>
 		/// The far plane distance computation is based directly on matrix components.
 		/// </remarks>
-		public abstract float Near { get; }
+		public float Near
+		{
+			get
+			{
+				return (Plane.GetFrustumNearPlane(this).Distance);
+			}
+		}
 
 		/// <summary>
 		/// Get the far plane distance of this projection matrix.
@@ -88,7 +94,13 @@ namespace OpenGL
 		/// <remarks>
 		/// The far plane distance computation is based directly on matrix components.
 		/// </remarks>
-		public abstract float Far { get; }
+		public float Far
+		{
+			get
+			{
+				return (Plane.GetFrustumFarPlane(this).Distance);
+			}
+		}
 
 		/// <summary>
 		/// The projection focal length.
@@ -131,6 +143,26 @@ namespace OpenGL
 
 			return (infinityMatrix);
 		}
+
+		#endregion
+
+		#region IProjectionMatrix Implementation
+
+		/// <summary>
+		/// Get the near plane distance of this projection matrix.
+		/// </summary>
+		/// <remarks>
+		/// The far plane distance computation is based directly on matrix components.
+		/// </remarks>
+		double IProjectionMatrix.Near { get { return (Near); } }
+
+		/// <summary>
+		/// Get the far plane distance of this projection matrix.
+		/// </summary>
+		/// <remarks>
+		/// The far plane distance computation is based directly on matrix components.
+		/// </remarks>
+		double IProjectionMatrix.Far { get { return (Far); } }
 
 		#endregion
 	}
@@ -322,38 +354,6 @@ namespace OpenGL
 		#region ProjectionMatrix Overrides
 
 		/// <summary>
-		/// Get the near plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override float Near
-		{
-			get
-			{
-				float a = this[2, 2], b = this[3, 2];
-
-				return (2.0f * ((a + 1.0f) / (a - 1.0f) - 0.5f) * b);
-			}
-		}
-
-		/// <summary>
-		/// Get the far plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override float Far
-		{
-			get
-			{
-				float a = this[2, 2], b = this[3, 2];
-
-				return (-0.5f * b * ((a - 1.0f) / (a + 1.0f) - 1.0f));
-			}
-		}
-
-		/// <summary>
 		/// Clone this ProjectionMatrix.
 		/// </summary>
 		/// <returns>
@@ -375,7 +375,7 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// OrthoProjectionMatrix constructor.
+		/// Parameterless constructor, !! Attention: not a valid projection: initializing to identity !!.
 		/// </summary>
 		public PerspectiveProjectionMatrix()
 		{
@@ -383,21 +383,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a OrthoProjectionMatrix from a sequence of components.
+		/// Construct a symmetric PerspectiveProjectionMatrix.
 		/// </summary>
-		/// <param name="values">
-		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
+		/// <param name="fovy">
+		/// A <see cref="Single"/> that specify the vertical Field Of View, in degrees.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="values"/> is null.
+		/// <param name="aspectRatio">
+		/// A <see cref="Single"/> that specify the view aspect ratio (i.e. the width / height ratio).
+		/// </param>
+		/// <param name="near">
+		/// A <see cref="Single"/> that specify the distance of the frustum near plane.
+		/// </param>
+		/// <param name="far">
+		/// A <see cref="Single"/> that specify the distance of the frustum far plane.
+		/// </param>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if at least one parameter has an invalid value.
 		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="values"/> length differs from 16.
-		/// </exception>
-		public PerspectiveProjectionMatrix(float[] values)
-			: base(values)
+		public PerspectiveProjectionMatrix(float fovy, float aspectRatio, float near, float far)
 		{
-		
+			SetPerspective(fovy, aspectRatio, near, far);
 		}
 
 		/// <summary>
@@ -406,8 +411,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="PerspectiveProjectionMatrix"/> to be copied.
 		/// </param>
-		public PerspectiveProjectionMatrix(PerspectiveProjectionMatrix m)
-			: base(m)
+		public PerspectiveProjectionMatrix(PerspectiveProjectionMatrix m) : base(m)
 		{
 
 		}
@@ -549,38 +553,6 @@ namespace OpenGL
 		#endregion
 
 		#region ProjectionMatrix Overrides
-
-		/// <summary>
-		/// Get the near plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override float Near
-		{
-			get
-			{
-				float a = this[2, 2], b = this[3, 2];
-
-				return (2.0f * ((a + 1.0f) / (a - 1.0f) - 0.5f) * b);
-			}
-		}
-
-		/// <summary>
-		/// Get the far plane distance of this projection matrix.
-		/// </summary>
-		/// <remarks>
-		/// The far plane distance computation is based directly on matrix components.
-		/// </remarks>
-		public override float Far
-		{
-			get
-			{
-				float a = this[2, 2], b = this[3, 2];
-
-				return (-0.5f * b * ((a - 1.0f) / (a + 1.0f) - 1.0f));
-			}
-		}
 
 		/// <summary>
 		/// Clone this ProjectionMatrix.

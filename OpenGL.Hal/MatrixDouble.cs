@@ -965,6 +965,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Clone this IMatrix.
+		/// </summary>
+		/// <returns>
+		/// It returns a deep copy of this IMatrix.
+		/// </returns>
+		IMatrix IMatrix.Clone()
+		{
+			return (Clone());
+		}
+
+		/// <summary>
 		/// Matrix component indexer.
 		/// </summary>
 		/// <param name="c">

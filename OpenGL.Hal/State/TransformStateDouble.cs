@@ -63,14 +63,17 @@ namespace OpenGL.State
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public override IMatrix4x4 LocalProjection
+		public override IProjectionMatrix LocalProjection
 		{
 			get { return (_LocalProjection); }
 			set
 			{
-				if (value != null)
-					_LocalProjection = new Matrix4x4(value);
-				else
+				if (value != null) {
+					ProjectionMatrixDouble projectionMatrix = value.Clone() as ProjectionMatrixDouble;
+					if (projectionMatrix == null)
+						throw new InvalidOperationException("value is not ProjectionMatrixDouble");
+					_LocalProjection = projectionMatrix;
+				} else
 					_LocalProjection = null;        // Inherited projection matrix
 			}
 		}
@@ -78,7 +81,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The local projection matrix of this state.
 		/// </summary>
-		private MatrixDouble4x4 _LocalProjection;
+		private ProjectionMatrixDouble _LocalProjection;
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
@@ -89,7 +92,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The local model of this state.
 		/// </summary>
-		private readonly ModelMatrixDouble _LocalModel = new ModelMatrixDouble();
+		private ModelMatrixDouble _LocalModel = new ModelMatrixDouble();
 
 		/// <summary>
 		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
@@ -100,7 +103,11 @@ namespace OpenGL.State
 		/// </returns>
 		public override IGraphicsState Copy()
 		{
-			TransformStateDouble copiedState = new TransformStateDouble();		// Do not use base.Copy()!
+			TransformStateDouble copiedState = (TransformStateDouble)base.Copy();
+
+			if (_LocalProjection != null)
+				copiedState._LocalProjection = (ProjectionMatrixDouble)_LocalProjection.Clone();
+			copiedState._LocalModel = new ModelMatrixDouble(_LocalModel);
 
 			return (copiedState);
 		}

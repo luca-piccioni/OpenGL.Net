@@ -63,14 +63,17 @@ namespace OpenGL.State
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public override IMatrix4x4 LocalProjection
+		public override IProjectionMatrix LocalProjection
 		{
 			get { return (_LocalProjection); }
 			set
 			{
-				if (value != null)
-					_LocalProjection = new Matrix4x4(value);
-				else
+				if (value != null) {
+					ProjectionMatrix projectionMatrix = value.Clone() as ProjectionMatrix;
+					if (projectionMatrix == null)
+						throw new InvalidOperationException("value is not ProjectionMatrix");
+					_LocalProjection = projectionMatrix;
+				} else
 					_LocalProjection = null;		// Inherited projection matrix
 			}
 		}
@@ -78,7 +81,7 @@ namespace OpenGL.State
 		/// <summary>
 		///  The local projection matrix of this state.
 		/// </summary>
-		private Matrix4x4 _LocalProjection;
+		private ProjectionMatrix _LocalProjection;
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
@@ -103,7 +106,7 @@ namespace OpenGL.State
 			TransformState copiedState = (TransformState)base.Copy();
 
 			if (_LocalProjection != null)
-				copiedState._LocalProjection = new Matrix4x4(_LocalProjection);
+				copiedState._LocalProjection = (ProjectionMatrix)_LocalProjection.Clone();
 			copiedState._LocalModel = new ModelMatrix(_LocalModel);
 
 			return (copiedState);

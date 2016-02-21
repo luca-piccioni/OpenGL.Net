@@ -56,7 +56,7 @@ namespace OpenGL.State
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public abstract IMatrix4x4 LocalProjection { get; set; }
+		public abstract IProjectionMatrix LocalProjection { get; set; }
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
@@ -73,6 +73,12 @@ namespace OpenGL.State
 		/// </summary>
 		[ShaderUniformState()]
 		public virtual IMatrix4x4 Projection { get { return (LocalProjection); } }
+
+		/// <summary>
+		/// Near and far distances.
+		/// </summary>
+		[ShaderUniformState()]
+		public Vertex2f DepthDistances { get { return (new Vertex2f((float)LocalProjection.Near, (float)LocalProjection.Far)); } }
 
 		/// <summary>
 		/// The actual projection matrix used for projecting vertex arrays.
