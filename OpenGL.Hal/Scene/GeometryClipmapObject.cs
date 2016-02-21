@@ -85,29 +85,12 @@ namespace OpenGL.Scene
 				_ClipmapLevels[i] = new ClipmapLevel(i);
 			// Default the elevation sources (defaults to no sources)
 			_TerrainElevationSources = new ITerrainElevationSource[ClipmapLevels];
-			// Define geometry clipmap program
-			_GeometryClipmapProgram = ShadersLibrary.Instance.CreateProgram("GeometryClipmap");
-			LinkResource(_GeometryClipmapProgram);
-			// Create elevation texture
-			uint elevationTextureSize = ClipmapVertices + 1;
-
-			// Clamp texture size, if necessary
-			if (elevationTextureSize > GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize)
-				elevationTextureSize = (uint)GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize;
-
-			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.GRAYF);
-			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
-			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
-			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
-			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
-			LinkResource(_ElevationTexture);
-
-			// Define geometry clipmap vertex arrays
-			CreateVertexArrays();
-
 			// Depth buffer enabled
 			_ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			_ObjectState.DefineState(new PolygonModeState(PolygonMode.Line));
+
+			CreateGeometryResources();
+			CreateTextureResources();
 		}
 
 		#endregion
@@ -484,7 +467,7 @@ namespace OpenGL.Scene
 
 		#endregion
 
-		#region Elevation Texture Update
+		#region Elevation Texture Source
 
 		/// <summary>
 		/// Factory pattern interface for creating <see cref="ITerrainElevationSource"/> instances.
@@ -564,19 +547,163 @@ namespace OpenGL.Scene
 			}
 		}
 
+		#endregion
+
+		#region Elevation Texture Update
+
+		/// <summary>
+		/// Create resources required for updating the elevation texture.
+		/// </summary>
+		private void CreateTextureResources()
+		{
+			// Create elevation texture
+			uint elevationTextureSize = (uint)Math.Min(ClipmapVertices + 1, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
+
+			_ElevationSource = new Texture2d(elevationTextureSize, elevationTextureSize, PixelLayout.GRAY16S);
+			_ElevationSource.MinFilter = Texture.Filter.Nearest;
+			_ElevationSource.MagFilter = Texture.Filter.Nearest;
+			_ElevationSource.WrapCoordR = Texture.Wrap.Clamp;
+			_ElevationSource.WrapCoordS = Texture.Wrap.Clamp;
+			LinkResource(_ElevationSource);
+
+			// Elevation texture framebuffer
+			_ElevationFramebuffer = new Framebuffer();
+			LinkResource(_ElevationFramebuffer);
+
+			// Create vertex arrays
+			ArrayBufferObject<Vertex2f> arrayBufferPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+
+			arrayBufferPosition.Create(new Vertex2f[] {
+				new Vertex2f(0.0f, 0.0f),
+				new Vertex2f(1.0f, 0.0f),
+				new Vertex2f(0.0f, 1.0f),
+				new Vertex2f(1.0f, 1.0f),
+			}, 4);
+
+			_ElevationTexQuad = new VertexArrayObject();
+			_ElevationTexQuad.SetArray(arrayBufferPosition, VertexArraySemantic.Position);
+			_ElevationTexQuad.SetArray(arrayBufferPosition, VertexArraySemantic.TexCoord);
+			_ElevationTexQuad.SetElementArray(PrimitiveType.TriangleStrip);
+			LinkResource(_ElevationTexQuad);
+
+			// Create shader program
+			_GeometryClipmapTextureProgram = ShadersLibrary.Instance.CreateProgram("GeometryClipmapTexture");
+			LinkResource(_GeometryClipmapTextureProgram);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="ctxScene"></param>
+		private void UpdateTerrainElevationTextures(GraphicsContext ctx, SceneGraphContext ctxScene)
+		{
+			if (PositionCorrection == false)
+				return;
+
+			Vertex3d viewPosition = ctxScene.CurrentView.LocalModel.Position;
+
+			for (int i = ClipmapLevels - 1; i >= 0; i--) {
+				if (_TerrainElevationSources[i] == null)
+					continue;
+
+				Image elevationMap = _TerrainElevationSources[i].GetTerrainElevationMap(new Vertex2d(viewPosition.x, viewPosition.z));
+#if DEBUG
+				Debug.Assert((elevationMap != null) == _GridOffsetsUpdated[i]);
+#endif
+				if (elevationMap == null)
+					continue;       // No update required
+
+#if TEXTURING_ELEVATION
+				// Update elevation map texture for this LOD
+				_ElevationSource.Create(ctx, elevationMap);
+				// Generate elevation map used for rendering
+				_ElevationFramebuffer.AttachColor(0, _ElevationTexture, (uint)i);
+				_ElevationFramebuffer.BindDraw(ctx);
+
+				ctx.Bind(_GeometryClipmapTextureProgram);
+
+				_GeometryClipmapTextureProgram.ResetTextureUnits();
+				_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationSource);
+
+				using (GraphicsStateKeeper graphicsStateKeeper = new GraphicsStateKeeper(ctx)) {
+					// Keep states
+					graphicsStateKeeper.Keep(PolygonModeState.StateId);
+					graphicsStateKeeper.Keep(ViewportState.StateId);
+					// Set new state
+					graphicsStateKeeper.DefineState(new PolygonModeState(PolygonMode.Fill));
+					graphicsStateKeeper.DefineState(new ViewportState(_ElevationFramebuffer));
+					graphicsStateKeeper.Apply(ctx, _GeometryClipmapTextureProgram);
+					// Set program uniforms
+					ctx.Bind(_GeometryClipmapTextureProgram);
+					_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f));
+					_GeometryClipmapTextureProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationSource);
+
+					// Update texture layer
+					_ElevationTexQuad.Draw(ctx, _GeometryClipmapTextureProgram);
+				}
+
+				_ElevationFramebuffer.UnbindDraw(ctx);
+#endif
+			}
+		}
+
 		/// <summary>
 		/// The source of the terrain elevation maps.
 		/// </summary>
 		private readonly ITerrainElevationSource[] _TerrainElevationSources;
 
+		/// <summary>
+		/// Shader program used for updating geometry clipmap texture.
+		/// </summary>
+		private ShaderProgram _GeometryClipmapTextureProgram;
+
+		/// <summary>
+		/// Framebuffer used for generating elevation texture.
+		/// </summary>
+		private Framebuffer _ElevationFramebuffer;
+
+		/// <summary>
+		/// Vertex arrays for drawing ring fix (horizontal and vertical patches).
+		/// </summary>
+		private VertexArrayObject _ElevationTexQuad;
+
+		/// <summary>
+		/// Temporary texture used for inputting elevation data to the elevation map.
+		/// </summary>
+		private Texture2d _ElevationSource;
+
 		#endregion
 
-		#region Resources
+		#region Geometry Resources
+
+		/// <summary>
+		/// Create resources required for geometry.
+		/// </summary>
+		private void CreateGeometryResources()
+		{
+			// Define geometry clipmap programs
+			_GeometryClipmapProgram = ShadersLibrary.Instance.CreateProgram("GeometryClipmap");
+			LinkResource(_GeometryClipmapProgram);
+
+			// Create elevation texture
+			uint elevationTextureSize = (uint)Math.Min(ClipmapVertices + 1, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
+
+			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.RGBAF);
+			_ElevationTexture.MinFilter = Texture.Filter.Nearest;
+			_ElevationTexture.MagFilter = Texture.Filter.Nearest;
+			_ElevationTexture.WrapCoordR = Texture.Wrap.Clamp;
+			_ElevationTexture.WrapCoordS = Texture.Wrap.Clamp;
+			LinkResource(_ElevationTexture);
+
+			// Define geometry clipmap vertex arrays
+			CreateGeometryVertexArrays();
+		}
 
 		/// <summary>
 		/// Create vertex arrays required for drawing the geometry clipmap blocks.
 		/// </summary>
-		private void CreateVertexArrays()
+		private void CreateGeometryVertexArrays()
 		{
 			#region Clipmap Blocks
 
@@ -875,7 +1002,7 @@ namespace OpenGL.Scene
 			ColorRGBAF ColorEven = new ColorRGBAF(0.5f, 0.5f, 0.5f);
 			ColorRGBAF ColorOdd = new ColorRGBAF(0.7f, 0.7f, 0.7f);
 
-			int semiClipmapSize = ((int)ClipmapVertices - 1) / 2;
+			int semiClipmapSize = (int)ClipmapSubdivs / 2;
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
@@ -925,7 +1052,7 @@ namespace OpenGL.Scene
 		{
 			ColorRGBAF RingFixColor = new ColorRGBAF(1.0f, 0.0f, 1.0f);
 
-			int semiClipmapSize = ((int)ClipmapVertices - 1) / 2;
+			int semiClipmapSize = (int)ClipmapSubdivs / 2;
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
@@ -947,7 +1074,7 @@ namespace OpenGL.Scene
 		{
 			ColorRGBAF RingFixColor = new ColorRGBAF(1.0f, 0.0f, 1.0f);
 
-			int semiClipmapSize = ((int)ClipmapVertices - 1) / 2;
+			int semiClipmapSize = (int)ClipmapSubdivs / 2;
 			int xBlock, yBlock;
 
 			for (ushort level = 0; level < ClipmapLevels; level++) {
@@ -1058,7 +1185,7 @@ namespace OpenGL.Scene
 			ushort BlockSubdivs = (ushort)(BlockVertices - 1);
 			int offsetx = -1, offsety = -1;
 
-			int semiClipmapSize = ((int)ClipmapVertices - 1) / 2;
+			int semiClipmapSize = (int)ClipmapSubdivs / 2;
 
 			capBlocks.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)offsetx, (int)offsety, level, BlockQuadUnit));
 			capBlocks.Add(new ClipmapBlockInstance(ClipmapVertices, BlockVertices, (int)-BlockSubdivs + offsetx, (int)offsety, level, BlockQuadUnit));
@@ -1139,7 +1266,7 @@ namespace OpenGL.Scene
 		#region SceneGraphObject Overrides
 
 		/// <summary>
-		/// Draw this SceneGraphObject hierarchy.
+		/// Update this SceneGraphObject instance.
 		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for drawing.
@@ -1147,25 +1274,29 @@ namespace OpenGL.Scene
 		/// <param name="ctxScene">
 		/// The <see cref="SceneGraphContext"/> used for drawing.
 		/// </param>
-		protected internal override void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
+		protected override void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (ctxScene == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException("ctxScene");
+			if (ctxScene.CurrentView == null)
+				throw new ArgumentException("no view defined",  "ctxScene");
 
-			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
+			Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
 
 			// Compute visible clipmap levels
 			const float HeightGain = 2.5f;
 
 			float viewerHeight = currentPosition.Y;
-			float clipmap0Size = BlockQuadUnit * (ClipmapVertices - 1);
+			float clipmap0Size = BlockQuadUnit * ClipmapSubdivs;
 
 			_CurrentLevel = 0;
 			while (clipmap0Size * Math.Pow(2.0, _CurrentLevel) < viewerHeight * HeightGain)
 				_CurrentLevel++;
 
-			// Base implementation
-			base.Draw(ctx, ctxScene);
+			// Update  grid offsets
+			UpdateGridOffsets(ctx, ctxScene);
+			// Update elevation maps
+			UpdateTerrainElevationTextures(ctx, ctxScene);
 		}
 
 		/// <summary>
@@ -1180,7 +1311,7 @@ namespace OpenGL.Scene
 		protected override void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (ctxScene == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException("ctxScene");
 
 			CheckCurrentContext(ctx);
 
@@ -1188,15 +1319,13 @@ namespace OpenGL.Scene
 
 			ctx.Bind(_GeometryClipmapProgram);
 
-			// Set grid offsets
-			UpdateGridOffsets(ctx, ctxScene);
-			// Update elevation maps
-			UpdateTerrainElevationTextures(ctx, ctxScene);
-
 			_GeometryClipmapProgram.ResetTextureUnits();
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMap", _ElevationTexture);
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_ElevationMapSize", (float)_ElevationTexture.Width);
 			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridUnitScale", BlockQuadUnit);
+#if POSITION_CORRECTION
+			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", _GridOffsets);
+#endif
 
 			// Instance culling
 			List<ClipmapBlockInstance> instancesClipmapBlock = new List<ClipmapBlockInstance>(_InstancesClipmapBlock);
@@ -1279,30 +1408,6 @@ namespace OpenGL.Scene
 				_LevelExteriorV.DrawInstanced(ctx, _GeometryClipmapProgram, instancesExteriorVCount);
 		}
 
-		private void UpdateTerrainElevationTextures(GraphicsContext ctx, SceneGraphContext ctxScene)
-		{
-			if (PositionCorrection == false)
-				return;
-
-			Vertex3d viewPosition = ctxScene.CurrentView.LocalModel.Position;
-
-			for (ushort i = 0; i < ClipmapLevels; i++) {
-				if (_TerrainElevationSources[i] == null)
-					continue;
-
-				Image elevationMap = _TerrainElevationSources[i].GetTerrainElevationMap(new Vertex2d(viewPosition.x, viewPosition.z));
-#if DEBUG
-				Debug.Assert((elevationMap != null) == _GridOffsetsUpdated[i]);
-#endif
-				if (elevationMap == null)
-					continue;       // No update required
-
-#if TEXTURING_ELEVATION
-				_ElevationTexture.Create(ctx, PixelLayout.GRAY16S, elevationMap, i);
-#endif
-			}
-		}
-
 		private void UpdateGridOffsets(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			if (PositionCorrection == false)
@@ -1316,10 +1421,6 @@ namespace OpenGL.Scene
 				_ClipmapLevels[i].UpdateGridPosition(gridOffset, BlockQuadUnit);
 				gridOffsets[i] = _ClipmapLevels[i].GridPosition;
 			}
-
-#if POSITION_CORRECTION
-			_GeometryClipmapProgram.SetUniform(ctx, "hal_GridOffset", gridOffsets);
-#endif
 
 #if DEBUG
 			bool[] gridOffsetsUpdated = new bool[ClipmapLevels];

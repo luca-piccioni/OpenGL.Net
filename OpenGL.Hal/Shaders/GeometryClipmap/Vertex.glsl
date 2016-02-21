@@ -80,8 +80,8 @@ void main()
 	vec4 elevationFragment = texture(hal_ElevationMap, vec3(elevationCoord, hal_Lod.x));
 
 	// Vertex attributes
-	gl_Position = hal_ModelViewProjection * vec4(worldPosition.x, elevationFragment.x * hal_ElevationMapScale, worldPosition.y, 1.0);
-	hal_VertexNormal = vec3(0.0, 1.0, 0.0);
+	gl_Position = hal_ModelViewProjection * vec4(worldPosition.x, elevationFragment.w * hal_ElevationMapScale, worldPosition.y, 1.0);
+	//hal_VertexNormal = hal_NormalMatrix * elevationFragment.xyz;
 	hal_VertexTexCoord = elevationCoord;
 	hal_VertexColor = hal_BlockColor;
 

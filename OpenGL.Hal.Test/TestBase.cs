@@ -1157,7 +1157,7 @@ namespace OpenGL.Hal.Test
 			/// </returns>
 			public override object Allocate(GraphicsContext ctx)
 			{
-				return (new State.ViewportState(16.0f, 16.0f));
+				return (new State.ViewportState(16, 16));
 			}
 
 			/// <summary>

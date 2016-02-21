@@ -117,6 +117,56 @@ namespace OpenGL.Scene
 
 		#endregion
 
+		#region Updating
+
+		/// <summary>
+		/// Update this SceneGraphObject hierarchy.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="ctxScene">
+		/// The <see cref="SceneGraphContext"/> used for drawing.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctxScene"/>.
+		/// </exception>
+		protected internal virtual void Update(GraphicsContext ctx, SceneGraphContext ctxScene)
+		{
+			CheckCurrentContext(ctx);
+
+			if (ctxScene == null)
+				throw new ArgumentNullException("ctxScene");
+
+			// Update this object
+			UpdateThis(ctx, ctxScene);
+			// Update all children
+			foreach (SceneGraphObject sceneGraphObject in _Children)
+				sceneGraphObject.Update(ctx, ctxScene);
+		}
+
+		/// <summary>
+		/// Update this SceneGraphObject instance.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="ctxScene">
+		/// The <see cref="SceneGraphContext"/> used for drawing.
+		/// </param>
+		protected virtual void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
+		{
+			
+		}
+
+		#endregion
+
 		#region Drawing
 
 		/// <summary>

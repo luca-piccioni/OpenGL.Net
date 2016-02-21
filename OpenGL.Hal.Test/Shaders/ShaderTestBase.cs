@@ -39,7 +39,7 @@ namespace OpenGL.Hal.Test.Shaders
 
 				// Create window on which tests are run
 				_Framebuffer = new Framebuffer();
-				_Framebuffer.AttachColor(new RenderBuffer(RenderBuffer.Type.Color, PixelLayout.GRAY8, 16, 16));
+				_Framebuffer.AttachColor(0, new RenderBuffer(RenderBuffer.Type.Color, PixelLayout.GRAY8, 16, 16));
 				_Framebuffer.Create(_Context);
 			} catch {
 				// Release resources manually

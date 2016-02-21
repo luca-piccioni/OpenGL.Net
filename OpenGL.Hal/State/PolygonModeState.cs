@@ -49,12 +49,11 @@ namespace OpenGL.State
 		/// Construct the current PolygonModeState.
 		/// </summary>
 		/// <param name='ctx'>
-		/// Context.
+		/// The <see cref="GraphicsContext"/> holding the polygon mode state.
 		/// </param>
 		public PolygonModeState(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 
 			int[] modes = new int[2];
 
@@ -92,7 +91,7 @@ namespace OpenGL.State
 		/// <summary>
 		/// The identifier for the blend state.
 		/// </summary>
-		public static string StateId = "OpenGL.PolygonMode";
+		public const string StateId = "OpenGL.PolygonMode";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.

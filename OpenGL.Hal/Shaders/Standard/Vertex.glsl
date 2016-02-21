@@ -34,18 +34,16 @@ ATTRIBUTE vec2 hal_TexCoord1;
 // Vertex texture coordinates
 ATTRIBUTE vec2 hal_TexCoord2;
 
-BEGIN_OUTPUT_BLOCK(ds_PerVertex)
-	// Vertex/Fragment color
-	SHADER_OUT vec4 hal_VertexColor;
-	// Vertex/Fragment position (model space)
-	SHADER_OUT vec4 hal_VertexPosition;
-	// Vertex/Fragment normal (view space)
-	SHADER_OUT vec3 hal_VertexNormal;
-	// Vertex/Fragment normal (model space)
-	SHADER_OUT vec3 hal_VertexNormalModel;
-	// Vertex/Fragment texture coordinates
-	SHADER_OUT vec2 hal_VertexTexCoord[3];
-END_OUTPUT_BLOCK()
+// Vertex/Fragment color
+SHADER_OUT vec4 hal_VertexColor;
+// Vertex/Fragment position (model space)
+SHADER_OUT vec4 hal_VertexPosition;
+// Vertex/Fragment normal (view space)
+SHADER_OUT vec3 hal_VertexNormal;
+// Vertex/Fragment normal (model space)
+SHADER_OUT vec3 hal_VertexNormalModel;
+// Vertex/Fragment texture coordinates
+SHADER_OUT vec2 hal_VertexTexCoord[3];
 
 void main()
 {

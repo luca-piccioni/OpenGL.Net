@@ -60,6 +60,7 @@
 		<!-- Geometry Clipmap -->
 		<Object Path="OpenGL.Shaders.GeometryClipmap.Vertex.glsl" />
 		<Object Path="OpenGL.Shaders.GeometryClipmap.Fragment.glsl" />
+		<Object Path="OpenGL.Shaders.GeometryClipmap.ClipmapTexFragment.glsl" />
 	
 	</Objects>
 
@@ -98,6 +99,12 @@
 			<Object Path="OpenGL.Shaders.GeometryClipmap.Vertex.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Shaders.GeometryClipmap.Fragment.glsl" Stage="Fragment" />
 			<Attribute Name="hal_Position" Semantic="Position" />
+		</Program>
+		<Program Id="GeometryClipmapTexture">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Shaders.GeometryClipmap.ClipmapTexFragment.glsl" Stage="Fragment" />
+			<Attribute Name="hal_Position" Semantic="Position" />
+			<Attribute Name="hal_TexCoord0" Semantic="TexCoord" />
 		</Program>
 	
 	</Programs>

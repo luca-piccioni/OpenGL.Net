@@ -44,8 +44,8 @@ void main()
 	// Base color
 	hal_FragColor = hal_VertexColor;
 	// Diffuse lighting
-	float diffuse = dot(hal_VertexNormal, normalize(hal_SunDirection));
-	hal_FragColor = hal_VertexColor * clamp(diffuse, 0.0, 1.0);
+	//float diffuse = dot(hal_VertexNormal, normalize(hal_SunDirection));
+	// hal_FragColor = hal_VertexColor * clamp(diffuse, 0.0, 1.0);
 
 	// Perspective correction
 	//gl_FragDepth = log2(flogz) * Fcoef_half; where Fcoef_half = 0.5 * Fcoef

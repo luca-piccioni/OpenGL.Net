@@ -24,7 +24,7 @@ namespace OpenGL.State
 	/// <summary>
 	/// Utility class for saving <see cref="GraphicsState"/> instances to be applied
 	/// </summary>
-	public sealed class GraphicsStateKeeper : IDisposable
+	public sealed class GraphicsStateKeeper : GraphicsStateSet
 	{
 		#region Constructors
 
@@ -67,6 +67,9 @@ namespace OpenGL.State
 				case BlendState.StateId:
 					Keep(new BlendState(_GraphicsContext));
 					break;
+				case PolygonModeState.StateId:
+					Keep(new PolygonModeState(_GraphicsContext));
+					break;
 				case ViewportState.StateId:
 					Keep(new ViewportState(_GraphicsContext));
 					break;
@@ -79,18 +82,18 @@ namespace OpenGL.State
 		/// Keep the specified graphics state, identified using its identifier.
 		/// </summary>
 		/// <param name="graphicsState">
-		/// A <see cref="GraphicsState"/> that holds the graphics state to keep.
+		/// A <see cref="IGraphicsState"/> that holds the graphics state to keep.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="graphicsState"/> is null.
 		/// </exception>
-		private void Keep(GraphicsState graphicsState)
+		private void Keep(IGraphicsState graphicsState)
 		{
 			if (graphicsState == null)
 				throw new ArgumentNullException("graphicsState");
 			GraphicsResource.CheckCurrentContext(_GraphicsContext);
 
-			GraphicsState previousGraphicsState;
+			IGraphicsState previousGraphicsState;
 
 			if (_KeepedStates.TryGetValue(graphicsState.StateIdentifier, out previousGraphicsState))
 				previousGraphicsState.Dispose(_GraphicsContext);
@@ -105,26 +108,30 @@ namespace OpenGL.State
 		/// <summary>
 		/// Current <see cref="GraphicsState"/> instances to restore at disposition.
 		/// </summary>
-		private readonly Dictionary<string, GraphicsState> _KeepedStates = new Dictionary<string, GraphicsState>();
+		private readonly Dictionary<string, IGraphicsState> _KeepedStates = new Dictionary<string, IGraphicsState>();
 
 		#endregion
 
-		#region IDisposable Implementation
+		#region GraphicsStateSet Overrides
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 		/// </summary>
-		public void Dispose()
+		public override void Dispose()
 		{
-			GraphicsResource.CheckCurrentContext(_GraphicsContext);
+			// Base implementation
+			base.Dispose(_GraphicsContext);
 
-			foreach (KeyValuePair<string, GraphicsState> pair in _KeepedStates) {
+			// Restore keeped states
+			CheckCurrentContext(_GraphicsContext);
+
+			foreach (KeyValuePair<string, IGraphicsState> pair in _KeepedStates) {
 				// Restore keeped state
 				pair.Value.ApplyState(_GraphicsContext, null);
 				// Release resources
 				pair.Value.Dispose(_GraphicsContext);
 			}
-			GC.SuppressFinalize(this);
+		
 		}
 
 

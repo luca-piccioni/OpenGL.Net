@@ -57,6 +57,8 @@ namespace OpenGL.Scene
 					LocalProjection = _CurrentView.ProjectionMatrix;
 					LocalModel = _CurrentView.LocalModel.GetInverseMatrix();
 				}
+				// Update
+				base.Update(ctx, ctxScene);
 				// Base implementation
 				base.Draw(ctx, ctxScene);
 			}
