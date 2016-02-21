@@ -19,8 +19,6 @@
 using System;
 using System.Diagnostics;
 
-using OSGeo.GDAL;
-
 namespace OpenGL
 {
 	/// <summary>
@@ -345,17 +343,16 @@ namespace OpenGL
 		/// If this texture is not defined, this property shall return 0.
 		/// </para>
 		/// <para>
-		/// If texture target doesn't support mipmapping, this property shall return 1, if it
-		/// is defined.
+		/// If texture target doesn't support mipmapping, this property shall return 1, if it is defined.
 		/// </para>
 		/// </remarks>
-		protected virtual uint MipmapLevels
+		protected uint MipmapLevels
 		{
 			get {
 				uint maxSize = Math.Max(Math.Max(Width, Height), Depth);
 
 				if (maxSize > 0)
-					return ((uint)Math.Log(maxSize, 2.0));
+					return (1 + (uint)Math.Floor(Math.Log(maxSize, 2.0)));
 				else
 					return (0);
 			}
@@ -384,8 +381,6 @@ namespace OpenGL
 		/// </exception>
 		protected void GetMipmapLevelSize(uint level, out uint width, out uint height, out uint depth)
 		{
-			if (level >= MipmapLevels)
-				throw new ArgumentException("greater or equals to MipmapLevels");
 			if ((Width == 0) || (Height == 0) || (Depth == 0))
 				throw new InvalidOperationException("texture size no defined");
 
@@ -414,6 +409,16 @@ namespace OpenGL
 		/// Flag indicating whether this Texture has mipmaps defined (actually).
 		/// </summary>
 		private bool _HasMipMaps;
+
+		/// <summary>
+		/// The index of the lowest (base) define mipmap level.
+		/// </summary>
+		private int _MipmapMinLevel = -1;
+
+		/// <summary>
+		/// The index of the highest (base) define mipmap level.
+		/// </summary>
+		private int _MipmapMaxLevel = -1;
 
 		#endregion
 
@@ -844,6 +849,16 @@ namespace OpenGL
 				// Set components swizzle setup
 				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, _TextelSwizzleRGBA);
 			}
+
+			#endregion
+
+			#region Mipmap Levels
+
+			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
+			if (_MipmapMinLevel >= 0)
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_BASE_LEVEL, _MipmapMinLevel);
+			if (_MipmapMaxLevel >= 0)
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_MAX_LEVEL, _MipmapMaxLevel);
 
 			#endregion
 		}
