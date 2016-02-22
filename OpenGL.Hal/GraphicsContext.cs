@@ -827,8 +827,9 @@ namespace OpenGL
 				throw new ArgumentNullException("bindingResource");
 
 			WeakReference<IBindingResource> boundResourceRef;
+			int bindingTarget = bindingResource.BindingTarget;
 
-			if (_BoundObjects.TryGetValue(bindingResource.BindingTarget, out boundResourceRef)) {
+			if (bindingTarget != 0 && _BoundObjects.TryGetValue(bindingTarget, out boundResourceRef)) {
 				IBindingResource boundResource;
 
 				// It may be disposed
@@ -845,7 +846,8 @@ namespace OpenGL
 			bindingResource.Bind(this);
 
 			// Remind this object as bound
-			_BoundObjects[bindingResource.BindingTarget] = new WeakReference<IBindingResource>(bindingResource);
+			if (bindingTarget != 0)
+				_BoundObjects[bindingTarget] = new WeakReference<IBindingResource>(bindingResource);
 		}
 
 		/// <summary>
@@ -862,9 +864,13 @@ namespace OpenGL
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");
 
-			Debug.Assert(bindingResource.IsBound(this));
-			bool res = _BoundObjects.Remove(bindingResource.BindingTarget);
-			Debug.Assert(res);
+			int bindingTarget = bindingResource.BindingTarget;
+
+			if (bindingTarget != 0) {
+				Debug.Assert(bindingResource.IsBound(this));
+				bool res = _BoundObjects.Remove(bindingTarget);
+				Debug.Assert(res);
+			}
 
 			bindingResource.Unbind(this);
 		}

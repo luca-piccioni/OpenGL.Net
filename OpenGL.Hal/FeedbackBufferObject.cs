@@ -132,7 +132,7 @@ namespace OpenGL
 			CheckThisExistence(ctx);
 			
 			// Make this feedback buffer current
-			Bind(ctx);
+			ctx.Bind(this);
 			
 			// Begin transform feedback
 			switch (primitive) {
@@ -191,7 +191,7 @@ namespace OpenGL
 				Gl.Disable(EnableCap.RasterizerDiscard);
 			
 			// This feedback buffer is not current anymore
-			Unbind(ctx);
+			ctx.Unbind(this);
 		}
 		
 		#endregion
@@ -231,49 +231,11 @@ namespace OpenGL
 		
 		#region BufferObject Overrides
 		
-		/// <summary>
-		/// Bind this BufferObject.
-		/// </summary>
-		internal override void Bind(GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			
-			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
-				// Bind this feedback buffer
-				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
-			} else {
-				base.Bind(ctx);
-				MapBufferObjects(ctx);
-			}
-		}
-
-		/// <summary>
-		/// Unbind this BufferObject.
-		/// </summary>
-		internal override void Unbind(GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			
-			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
-				// Bind this  feedback buffer
-				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, 0);
-			}
-#if false
-			else {
-				// Manually map buffer objects
-				foreach (KeyValuePair<uint,ArrayAttachment> pair in mAttachedArrays) {
-					Gl.BindBufferBase(Gl.TRANSFORM_FEEDBACK_BUFFER, pair.Key, 0);
-					RenderException.DebugCheckErrors();
-				}
-			}
-#endif
-		}
+		
 		
 		#endregion
 
-		#region GraphicsResource Overrides
+		#region BufferObject Overrides
 
 		/// <summary>
 		/// Feedback buffer object class.
@@ -405,7 +367,7 @@ namespace OpenGL
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, 0);
 			} else {
 				
-				Bind(ctx);
+				ctx.Bind(this);
 				
 				// Define feedback buffer
 				MapBufferObjects(ctx);
@@ -449,6 +411,38 @@ namespace OpenGL
 
 			// Base implementation
 			base.Dispose(ctx);
+		}
+
+		/// <summary>
+		/// Virtual Bind implementation.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		protected override void BindCore(GraphicsContext ctx)
+		{
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
+				// Bind this feedback buffer
+				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
+			} else {
+				base.BindCore(ctx);
+				MapBufferObjects(ctx);
+			}
+		}
+
+		/// <summary>
+		/// Virtual Unbind implementation.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		protected override void UnbindCore(GraphicsContext ctx)
+		{
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
+				// Bind this  feedback buffer
+				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, InvalidObjectName);
+			} else
+				base.UnbindCore(ctx);
 		}
 
 		#endregion

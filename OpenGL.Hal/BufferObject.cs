@@ -42,7 +42,7 @@ namespace OpenGL
 	/// this is implemented by defining up to two client buffers to emulate the "simulated" GPU buffer allocation behavior.
 	/// </para>
 	/// </remarks>
-	public abstract partial class BufferObject : GraphicsResource
+	public abstract partial class BufferObject : GraphicsResource, IBindingResource
 	{
 		#region Constructors
 
@@ -267,47 +267,6 @@ namespace OpenGL
 		/// The default memory alignment required.
 		/// </summary>
 		protected const uint MinimumBufferAlignment = 16;
-
-		#endregion
-
-		#region Buffer Binding
-
-		/// <summary>
-		/// Bind this BufferObject.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for binding this BufferObject.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if <see cref="GraphicsResource.ObjectName"/> represents an invalid object name.
-		/// </exception>
-		internal virtual void Bind(GraphicsContext ctx)
-		{
-			CheckCurrentContext(ctx);
-			
-			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
-				Gl.BindBuffer(BufferType, ObjectName);
-		}
-
-		/// <summary>
-		/// Unbind this BufferObject.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for unbinding any BufferObject.
-		/// </param>
-		internal virtual void Unbind(GraphicsContext ctx)
-		{
-			CheckCurrentContext(ctx);
-
-			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
-				Gl.BindBuffer(BufferType, InvalidObjectName);
-		}
 
 		#endregion
 
@@ -585,7 +544,7 @@ namespace OpenGL
 
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				// Read this buffer object
-				Bind(ctx);
+				ctx.Bind(this);
 				// Get the GPU buffer content
 				Gl.GetBufferSubData(BufferType, IntPtr.Zero, _GpuBufferSize, ClientBufferAddress);
 			} else {
@@ -728,7 +687,7 @@ namespace OpenGL
 			Debug.Assert(clientBufferSize > 0);
 
 			// Buffer must be bound
-			Bind(ctx);
+			ctx.Bind(this);
 
 			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
 				if (IsMapped)
@@ -792,6 +751,97 @@ namespace OpenGL
 				// Release client buffer
 				ReleaseClientBuffer();
 			}
+		}
+
+		#endregion
+
+		#region IBindingResource Implementation
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		int IBindingResource.BindingTarget
+		{
+			get
+			{
+				// All-in-one implementation for all targets
+				switch (BufferType) {
+					case BufferTargetARB.ArrayBuffer:
+						return (Gl.ARRAY_BUFFER_BINDING);
+					case BufferTargetARB.TransformFeedbackBuffer:
+						return (Gl.TRANSFORM_FEEDBACK_BINDING);
+					default:
+						return (0);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Bind(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			BindCore(ctx);
+		}
+
+		/// <summary>
+		/// Virtual Bind implementation.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		protected virtual void BindCore(GraphicsContext ctx)
+		{
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
+				Gl.BindBuffer(BufferType, ObjectName);
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Unbind(GraphicsContext ctx)
+		{
+			CheckThisExistence(ctx);
+
+			UnbindCore(ctx);
+		}
+
+		/// <summary>
+		/// Virtual Unbind implementation.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		protected virtual void UnbindCore(GraphicsContext ctx)
+		{
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
+				Gl.BindBuffer(BufferType, InvalidObjectName);
+		}
+
+		/// <summary>
+		/// Check whether this IBindingResource is currently bound on the specified graphics context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for querying the current binding state.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this IBindingResource is currently bound on <paramref name="ctx"/>.
+		/// </returns>
+		bool IBindingResource.IsBound(GraphicsContext ctx)
+		{
+			int currentBufferObject;
+			
+			Gl.Get(((IBindingResource)this).BindingTarget, out currentBufferObject);
+
+			return (currentBufferObject == (int)ObjectName);
 		}
 
 		#endregion

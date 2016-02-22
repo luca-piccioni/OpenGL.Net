@@ -702,7 +702,7 @@ namespace OpenGL
 			uint arrayItemSize = CheckArrayItemSize(array);
 
 			// Buffer  must be bound
-			Bind(ctx);
+			ctx.Bind(this);
 
 			if (arrayItemSize * count > GpuBufferSize)
 				AllocateGpuBuffer(arrayItemSize * count, null);

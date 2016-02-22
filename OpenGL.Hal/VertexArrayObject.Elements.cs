@@ -407,7 +407,7 @@ namespace OpenGL
 				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
-				ArrayIndices.Bind(ctx);
+				ctx.Bind(ArrayIndices);
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
@@ -452,7 +452,7 @@ namespace OpenGL
 				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
-				ArrayIndices.Bind(ctx);
+				ctx.Bind(ArrayIndices);
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {

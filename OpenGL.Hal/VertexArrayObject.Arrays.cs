@@ -197,7 +197,7 @@ namespace OpenGL
 				}
 
 				// Bind the array buffer
-				ArrayBuffer.Bind(ctx);
+				ctx.Bind(ArrayBuffer);
 
 				// Bind varying attribute to currently bound buffer object
 				switch (ArrayBufferItem.GetArrayBaseType(attributeBinding.Type)) {
@@ -259,7 +259,7 @@ namespace OpenGL
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Bind the array buffer
-					ArrayBuffer.Bind(ctx);
+					ctx.Bind(ArrayBuffer);
 
 					// Set vertex pointer
 					Gl.VertexPointer(
@@ -282,7 +282,7 @@ namespace OpenGL
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Bind the array buffer
-					ArrayBuffer.Bind(ctx);
+					ctx.Bind(ArrayBuffer);
 
 					// Set vertex pointer
 					Gl.ColorPointer(
@@ -305,7 +305,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("normal pointer of length {0} not supported", arrayLength));
 
 					// Bind the array buffer
-					ArrayBuffer.Bind(ctx);
+					ctx.Bind(ArrayBuffer);
 
 					// Set vertex pointer
 					Gl.NormalPointer(
@@ -327,7 +327,7 @@ namespace OpenGL
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Bind the array buffer
-					ArrayBuffer.Bind(ctx);
+					ctx.Bind(ArrayBuffer);
 
 					// Set vertex pointer
 					Gl.TexCoordPointer(

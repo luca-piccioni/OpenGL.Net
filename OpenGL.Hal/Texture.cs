@@ -1127,8 +1127,6 @@ namespace OpenGL
 		/// </returns>
 		bool IBindingResource.IsBound(GraphicsContext ctx)
 		{
-			//CheckThisExistence(ctx);
-
 			int currentTexture;
 			
 			Gl.Get(((IBindingResource)this).BindingTarget, out currentTexture);
