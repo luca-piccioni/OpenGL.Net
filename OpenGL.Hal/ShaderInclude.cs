@@ -212,9 +212,6 @@ namespace OpenGL
 		/// </exception>
 		public override bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			
 			// Base implementation
 			if (!base.Exists(ctx))
 				return (false);
@@ -247,8 +244,7 @@ namespace OpenGL
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 
 			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
 				StringBuilder sb = new StringBuilder();
