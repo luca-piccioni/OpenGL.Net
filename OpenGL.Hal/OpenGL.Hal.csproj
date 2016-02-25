@@ -104,7 +104,10 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Collections\GeoTree.cs" />
+    <Compile Include="Collections\GeoTreeArea.cs" />
     <Compile Include="Collections\Graph.cs" />
+    <Compile Include="Collections\IGeoTreeNode.cs" />
     <Compile Include="Collections\IGraphNode.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="IBindingResource.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Scene\SceneGraphCameraObject.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />
     <Compile Include="Scene\SceneGraphObject.cs" />
+    <Compile Include="Scene\Terrain.cs" />
     <Compile Include="State\GraphicsStateKeeper.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="State\UniformColorState.cs" />
@@ -127,10 +131,6 @@
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
-    <Compile Include="Collections\IQuadTreeNode.cs" />
-    <Compile Include="Collections\QuadTree.cs" />
-    <Compile Include="Collections\QuadTreeCoord.cs" />
-    <Compile Include="Collections\QuadTreeArea.cs" />
     <Compile Include="Color.cs" />
     <Compile Include="ColorRGBA.cs" />
     <Compile Include="CoreImageCodecPlugin.cs" />
@@ -201,6 +201,7 @@
     <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="ObjectAccessor.cs" />
     <Compile Include="ArrayBufferObjectPacked.cs" />
+    <Compile Include="Vincenty.cs" />
     <None Include="packages.config" />
     <None Include="PatchArrayObject.cs" />
     <Compile Include="Pixel.cs" />

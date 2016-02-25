@@ -26,3 +26,5 @@ packages
 /Samples/HelloWorld/Data/Terrain.vrt.ovr
 /Samples/HelloWorld/Data/Terrain.vrt
 /Samples/HelloWorld/Data/TerrainFileList.txt
+/Samples/HelloWorld/Data/dds.cr.usgs.gov
+/.vs/BindingsGen/v14
