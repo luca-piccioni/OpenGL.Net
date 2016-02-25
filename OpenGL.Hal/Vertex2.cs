@@ -1397,6 +1397,62 @@ namespace OpenGL
 
 		#endregion
 
+		#region Relational Operators
+
+		/// <summary>
+		/// Less than operator.
+		/// </summary>
+		/// <param name="v1">The left operand.</param>
+		/// <param name="v2">The right operand</param>
+		/// <returns>
+		/// It returns true if <paramref name="v1"/> is less than <paramref name="v2"/>.
+		/// </returns>
+		public static bool operator <(Vertex2d v1, Vertex2d v2)
+		{
+			return (v1.x < v2.x && v1.y < v2.y);
+		}
+
+		/// <summary>
+		/// Greater than operator.
+		/// </summary>
+		/// <param name="v1">The left operand.</param>
+		/// <param name="v2">The right operand</param>
+		/// <returns>
+		/// It returns true if <paramref name="v1"/> is less than <paramref name="v2"/>.
+		/// </returns>
+		public static bool operator >(Vertex2d v1, Vertex2d v2)
+		{
+			return (v1.x > v2.x && v1.y > v2.y);
+		}
+
+		/// <summary>
+		/// Less than or equal to operator.
+		/// </summary>
+		/// <param name="v1">The left operand.</param>
+		/// <param name="v2">The right operand</param>
+		/// <returns>
+		/// It returns true if <paramref name="v1"/> is less than or equal to <paramref name="v2"/>.
+		/// </returns>
+		public static bool operator <=(Vertex2d v1, Vertex2d v2)
+		{
+			return (v1.x <= v2.x && v1.y <= v2.y);
+		}
+
+		/// <summary>
+		/// Greater than or equal to operator.
+		/// </summary>
+		/// <param name="v1">The left operand.</param>
+		/// <param name="v2">The right operand</param>
+		/// <returns>
+		/// It returns true if <paramref name="v1"/> is less than or equal to <paramref name="v2"/>.
+		/// </returns>
+		public static bool operator >=(Vertex2d v1, Vertex2d v2)
+		{
+			return (v1.x >= v2.x && v1.y >= v2.y);
+		}
+
+		#endregion
+
 		#region Cast Operators
 
 		/// <summary>
@@ -1426,6 +1482,30 @@ namespace OpenGL
 		{
 			return (new Vertex3d(a.x, a.y, 0.0));
 		}
+
+		#endregion
+
+		#region Notable Vertex
+
+		/// <summary>
+		/// Origin vertex.
+		/// </summary>
+		public static readonly Vertex2d Zero = new Vertex2d(0.0, 0.0);
+
+		/// <summary>
+		/// Unit vertex.
+		/// </summary>
+		public static readonly Vertex2d One = new Vertex2d(1.0, 1.0);
+
+		/// <summary>
+		/// Unit vertex along X axis.
+		/// </summary>
+		public static readonly Vertex2d UnitX = new Vertex2d(1.0, 0.0);
+
+		/// <summary>
+		/// Unit vertex along Y axis.
+		/// </summary>
+		public static readonly Vertex2d UnitY = new Vertex2d(0.0, 1.0);
 
 		#endregion
 
