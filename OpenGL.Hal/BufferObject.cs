@@ -766,10 +766,10 @@ namespace OpenGL
 			{
 				// All-in-one implementation for all targets
 				switch (BufferType) {
-					case BufferTargetARB.ArrayBuffer:
-						return (Gl.ARRAY_BUFFER_BINDING);
-					case BufferTargetARB.TransformFeedbackBuffer:
-						return (Gl.TRANSFORM_FEEDBACK_BINDING);
+					//case BufferTargetARB.ArrayBuffer:
+					//	return (Gl.ARRAY_BUFFER_BINDING);
+					//case BufferTargetARB.TransformFeedbackBuffer:
+					//	return (Gl.TRANSFORM_FEEDBACK_BINDING);
 					default:
 						return (0);
 				}
