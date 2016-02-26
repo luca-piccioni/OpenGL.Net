@@ -35,7 +35,7 @@ namespace HelloNewton
 		{
 			Log.ConfigureLogFile("Log.config");
 
-			OpenGL.Scene.Terrain.Query(@"D:\__dds.cr.usgs.gov\srtm\version2_1\SRTM30\w180s10");
+			//OpenGL.Scene.Terrain.Query(@"D:\__dds.cr.usgs.gov\srtm\version2_1\SRTM30\w180s10");
 
 			// UI initialization (before accessing GraphicsContext and others)
 			Application.EnableVisualStyles();

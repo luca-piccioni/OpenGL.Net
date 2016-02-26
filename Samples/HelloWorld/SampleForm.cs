@@ -40,9 +40,9 @@ namespace HelloNewton
 			GraphicsSurface framebuffer = e.Framebuffer;
 
 #if DEBUG
-			_GeometryClipmapObject = new GeometryClipmapObject(6, 7, _BlockUnit);
+			_GeometryClipmapObject = new GeometryClipmapObject(9, 7, _BlockUnit);
 #else
-			_GeometryClipmapObject = new GeometryClipmapObject(9, 11, _BlockUnit);
+			_GeometryClipmapObject = new GeometryClipmapObject(9, 9, _BlockUnit);
 #endif
 
 			string workingDir = Directory.GetCurrentDirectory();
