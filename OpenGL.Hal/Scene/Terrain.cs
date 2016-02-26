@@ -64,20 +64,26 @@ namespace OpenGL.Scene
 			foreach (string datasetPath in datasetFiles) {
 				try {
 					using (Dataset dataset = Gdal.OpenShared(datasetPath, Access.GA_ReadOnly)) {
+						GeoElevationTerrainDataset geoElevationTerrainDataset;
+
 						// Determine terrain dataset information and collect it
 						switch (dataset.GetDriver().ShortName) {
 							// Elevation datasets
 							case "EHdr":        // USGS DEM
 								if (datasetPath.ToLowerInvariant().EndsWith(".dem") == false)
 									continue;
-								_GeoElevationTree.Insert(new GeoElevationTerrainDataset(datasetPath, dataset));
+								geoElevationTerrainDataset = new GeoElevationTerrainDataset(datasetPath, dataset);
+								_GeoElevationTree.Insert(geoElevationTerrainDataset.Blocks);
 								break;
 							case "SRTMHGT":		// USGS SRTM
-								_GeoElevationTree.Insert(new GeoElevationTerrainDataset(datasetPath, dataset));
+								geoElevationTerrainDataset = new GeoElevationTerrainDataset(datasetPath, dataset);
+								_GeoElevationTree.Insert(geoElevationTerrainDataset.Blocks);
 								break;
 							default:
 								throw new NotSupportedException(String.Format("driver {0} is not supported"));
 						}
+
+						
 					}
 				} catch (Exception exception) {
 
@@ -283,7 +289,6 @@ namespace OpenGL.Scene
 				}
 
 				// Cache blocks definitions
-				_Blocks = new List<GeoTerrainDataset>();
 				for (int x = 0; x < dataset.RasterXSize; x += _BlockSize.x) {
 					for (int y = 0; y < dataset.RasterYSize; y += _BlockSize.y) {
 						int wBlock = _BlockSize.x, hBlock = _BlockSize.y;
@@ -296,6 +301,7 @@ namespace OpenGL.Scene
 						_Blocks.Add(new GeoTerrainDatasetBlock(this, dataset, new Rectangle(x, y, wBlock, hBlock)));
 					}
 				}
+				Debug.Assert(_Blocks.Count > 0);
 			}
 
 			/// <summary>
@@ -306,7 +312,7 @@ namespace OpenGL.Scene
 			/// <summary>
 			/// Cached list of blocks defining this dataset.
 			/// </summary>
-			private List<GeoTerrainDataset> _Blocks;
+			private readonly List<GeoTerrainDataset> _Blocks = new List<GeoTerrainDataset>();
 
 			#endregion
 
@@ -321,6 +327,21 @@ namespace OpenGL.Scene
 			/// The average precision of a dataset textel, in meters.
 			/// </summary>
 			private double _TextelPrecision;
+
+			#endregion
+
+			#region Image Extraction
+
+			/// <summary>
+			/// Extract the image corresponding to this geographic dataset.
+			/// </summary>
+			/// <returns>
+			/// It returns the <see cref="Image"/> relative to this geographic dataset.
+			/// </returns>
+			public virtual Image ExtractImage()
+			{
+				return (ImageCodec.Instance.Load(Path));
+			}
 
 			#endregion
 
@@ -353,6 +374,7 @@ namespace OpenGL.Scene
 		/// <summary>
 		/// Geographic dataset block.
 		/// </summary>
+		[DebuggerDisplay("GeoTerrainDatasetBlock: Position={Position} Size={Size} Area={Area}")]
 		class GeoTerrainDatasetBlock : GeoTerrainDataset
 		{
 			#region Constructors
@@ -378,7 +400,32 @@ namespace OpenGL.Scene
 				if (dataset == null)
 					throw new ArgumentNullException("dataset");
 
+				Area = area;
 				ExtractGeoInformation(dataset, area);
+			}
+
+			#endregion
+
+			#region Dataset Section
+
+			/// <summary>
+			/// The <see cref="Rectangle"/> defining the section of the dataset used for loading the relative image.
+			/// </summary>
+			public readonly Rectangle Area;
+
+			#endregion
+
+			#region GeoTerrainDataset Overrides
+
+			/// <summary>
+			/// Extract the image corresponding to this geographic dataset.
+			/// </summary>
+			/// <returns>
+			/// It returns the <see cref="Image"/> relative to this geographic dataset.
+			/// </returns>
+			public override Image ExtractImage()
+			{
+				return (ImageCodec.Instance.Load(Path, new ImageCodecCriteria(Area)));
 			}
 
 			#endregion
@@ -421,6 +468,6 @@ namespace OpenGL.Scene
 		/// Using longitude (as larger area to partition), 360 is less than 2^9; indeed recommended depth is 9. Final leaf
 		/// node covers 0.70 x 0.35 degrees. Maybe lower depths have acceptable performances.
 		/// </remarks>
-		private static readonly GeoTree<GeoElevationTerrainDataset> _GeoElevationTree = new GeoTree<GeoElevationTerrainDataset>(8);
+		private static readonly GeoTree<GeoTerrainDataset> _GeoElevationTree = new GeoTree<GeoTerrainDataset>(8);
 	}
 }

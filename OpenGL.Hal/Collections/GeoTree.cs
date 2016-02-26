@@ -129,10 +129,10 @@ namespace OpenGL.Collections
 			#region Space Partitioning
 
 			/// <summary>
-			/// Insert a <see cref="IQuadTreeNode"/>.
+			/// Insert a <typeparamref name="T"/>.
 			/// </summary>
 			/// <param name="item">
-			/// The <see cref="IQuadTreeNode"/> to be inserted in the GeoTree.
+			/// The <typeparamref name="T"/> to be inserted in the GeoTree.
 			/// </param>
 			public virtual void Insert(T item)
 			{
@@ -148,10 +148,10 @@ namespace OpenGL.Collections
 			}
 
 			/// <summary>
-			/// Select a list of <see cref="IQuadTreeNode"/> which area intersect with the specified one.
+			/// Select a list of <typeparamref name="T"/> which area intersect with the specified one.
 			/// </summary>
 			/// <param name="area">
-			/// A <see cref="Vertex2d"/> which delimits the <see cref="IQuadTreeNode"/> instances to be
+			/// A <see cref="Vertex2d"/> which delimits the <typeparamref name="T"/> instances to be
 			/// selected.
 			/// </param>
 			/// <param name="selectedNodes">
@@ -321,10 +321,10 @@ namespace OpenGL.Collections
 			#region Node Overrides
 
 			/// <summary>
-			/// Insert a <see cref="IQuadTreeNode"/>.
+			/// Insert a <typeparamref name="T"/>.
 			/// </summary>
 			/// <param name="item">
-			/// The <see cref="IQuadTreeNode"/> to be inserted in the GeoTree.
+			/// The <typeparamref name="T"/> to be inserted in the GeoTree.
 			/// </param>
 			public override void Insert(T item)
 			{
@@ -336,10 +336,10 @@ namespace OpenGL.Collections
 			}
 
 			/// <summary>
-			/// Select a list of <see cref="IQuadTreeNode"/> which area intersect with the specified one.
+			/// Select a list of <typeparamref name="T"/> which area intersect with the specified one.
 			/// </summary>
 			/// <param name="area">
-			/// A <see cref="Vertex2d"/> which delimits the <see cref="IQuadTreeNode"/> instances to be
+			/// A <see cref="Vertex2d"/> which delimits the <typeparamref name="T"/> instances to be
 			/// selected.
 			/// </param>
 			/// <param name="selectedNodes">
@@ -378,10 +378,25 @@ namespace OpenGL.Collections
 		#region Collection
 
 		/// <summary>
-		/// Insert a <see cref="IQuadTreeNode"/>.
+		/// Insert a range of <typeparamref name="T"/>.
 		/// </summary>
 		/// <param name="item">
-		/// The <see cref="IQuadTreeNode"/> to be inserted in the GeoTree.
+		/// The <see cref="IEnumerable{T}"/> to be inserted in the GeoTree.
+		/// </param>
+		public void Insert(IEnumerable<T> items)
+		{
+			if (items == null)
+				throw new ArgumentNullException("items");
+
+			foreach (T item in items)
+				Insert(item);
+		}
+
+		/// <summary>
+		/// Insert a <typeparamref name="T"/>.
+		/// </summary>
+		/// <param name="item">
+		/// The <typeparamref name="T"/> to be inserted in the GeoTree.
 		/// </param>
 		public void Insert(T item)
 		{
@@ -392,14 +407,14 @@ namespace OpenGL.Collections
 		}
 
 		/// <summary>
-		/// Select a list of <see cref="IQuadTreeNode"/> which area intersect with the specified one.
+		/// Select a list of <typeparamref name="T"/> which area intersect with the specified one.
 		/// </summary>
 		/// <param name="area">
-		/// A <see cref="Vertex2d"/> which delimits the <see cref="IQuadTreeNode"/> instances to be
+		/// A <see cref="Vertex2d"/> which delimits the <typeparamref name="T"/> instances to be
 		/// selected.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="List{IQuadTreeNode}"/> containing all IQuadTreeNode instances intersecting
+		/// It returns a <see cref="ICollection{T}"/> containing all <typeparamref name="T"/> instances intersecting
 		/// with <paramref name="area"/>.
 		/// </returns>
 		public ICollection<T> Select(Vertex2d area)
