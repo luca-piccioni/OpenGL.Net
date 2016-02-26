@@ -127,6 +127,7 @@
     <Compile Include="State\GraphicsStateKeeper.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="State\UniformColorState.cs" />
+    <Compile Include="Technique.cs" />
     <Compile Include="TextureArray2d.cs" />
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />

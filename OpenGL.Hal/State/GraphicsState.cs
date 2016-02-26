@@ -25,7 +25,7 @@ namespace OpenGL.State
 	/// Generic render state.
 	/// </summary>
 	[DebuggerDisplay("GraphicsState: Id={StateIdentifier} Inheritable={Inheritable}")]
-	public abstract class GraphicsState : GraphicsResource, IGraphicsState
+	public abstract class GraphicsState : UserGraphicsResource, IGraphicsState
 	{
 		#region Constructors
 
@@ -88,30 +88,6 @@ namespace OpenGL.State
 		#endregion
 
 		#region GraphicsResource Overrides
-
-		/// <summary>
-		/// GraphicsResource object class.
-		/// </summary>
-		internal static readonly Guid ThisObjectClass = new Guid("FC7900E3-A8B8-4097-A6C1-339BC5B413F1");
-
-		/// <summary>
-		/// GraphicsResource object class.
-		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
-
-		/// <summary>
-		/// Determine whether this object requires a name bound to a context or not.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
-		/// </param>
-		/// <returns>
-		/// It returns a false, since this is not a real OpenGL object.
-		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx)
-		{
-			return (false);
-		}
 
 		/// <summary>
 		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
@@ -229,7 +205,7 @@ namespace OpenGL.State
 			if (other == null)
 				throw new ArgumentNullException("other");
 
-			return (other.StateIdentifier != StateIdentifier);
+			return (other.StateIdentifier == StateIdentifier);
 		}
 
 		/// <summary>

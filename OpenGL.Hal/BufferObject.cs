@@ -784,8 +784,6 @@ namespace OpenGL
 		/// </param>
 		void IBindingResource.Bind(GraphicsContext ctx)
 		{
-			CheckThisExistence(ctx);
-
 			BindCore(ctx);
 		}
 
@@ -797,8 +795,10 @@ namespace OpenGL
 		/// </param>
 		protected virtual void BindCore(GraphicsContext ctx)
 		{
-			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
+				CheckThisExistence(ctx);
 				Gl.BindBuffer(BufferType, ObjectName);
+			}
 		}
 
 		/// <summary>

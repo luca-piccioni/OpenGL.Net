@@ -35,11 +35,11 @@ namespace OpenGL.State
 	/// <para>
 	/// Usually rendering operations are ordered by the state they requires, and the order is meant to
 	/// minimize the state changes. The state is applied only if the actually one is different to the one
-	/// to be applied. This operation is performed using <see cref="Merge"/> method.
+	/// to be applied. This operation is performed using Merge method.
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("GraphicsStateSet: States={mRenderStates.Count} Customs={mCustomStates.Count}")]
-	public class GraphicsStateSet : GraphicsResource
+	public class GraphicsStateSet : UserGraphicsResource
 	{
 		#region State Factory
 
@@ -124,7 +124,7 @@ namespace OpenGL.State
 			_RenderStates[renderState.StateIdentifier] = renderState;
 
 			// Reference the new state
-			renderState.IncRef();
+			LinkResource(renderState);
 		}
 
 		/// <summary>
@@ -142,7 +142,7 @@ namespace OpenGL.State
 			IGraphicsState previousState;
 
 			if (_RenderStates.TryGetValue(stateId, out previousState) && previousState != null)
-				previousState.DecRef();
+				UnlinkResource(previousState);
 			// Remove state
 			_RenderStates.Remove(stateId);
 		}
@@ -313,48 +313,7 @@ namespace OpenGL.State
 			// Include states not defined by this
 			foreach (GraphicsState state in stateSet.States)
 				if (IsDefinedState(state.StateIdentifier) == false)
-					DefineState(state);
-		}
-
-		/// <summary>
-		/// Merge this GraphicsStateSet with a current state.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> defining the state vector.
-		/// </param>
-		/// <param name="program">
-		/// A <see cref="ShaderProgram"/> defining the uniform state.
-		/// </param>
-		/// <param name="currentStateSet">
-		/// 
-		/// </param>
-		/// <returns></returns>
-		internal GraphicsStateSet Merge(GraphicsContext ctx, ShaderProgram program, GraphicsStateSet currentStateSet)
-		{
-			GraphicsStateSet mergedState = new GraphicsStateSet();
-
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (currentStateSet == null)
-				throw new ArgumentNullException("currentStateSet");
-
-			// Apply most recent states
-			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
-				mergedState.DefineState(pair.Value.Copy());
-
-			// Keep inherited states
-			foreach (KeyValuePair<string, IGraphicsState> pair in currentStateSet._RenderStates) {
-				IGraphicsState state = pair.Value;
-
-				if (mergedState.IsDefinedState(state.StateIdentifier) == false)
-					mergedState.DefineState(state.Copy());
-				else
-					mergedState[state.StateIdentifier].Merge(state);
-			}
-
-			mergedState.Apply(ctx, program);
-
-			return (mergedState);
+					DefineState(state.Copy());
 		}
 
 		#endregion
@@ -372,7 +331,7 @@ namespace OpenGL.State
 			GraphicsStateSet clone = new GraphicsStateSet();
 
 			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
-				clone._RenderStates.Add(pair.Key, pair.Value.Copy());
+				clone.DefineState(pair.Value.Copy());
 
 			return (clone);
 		}
@@ -385,70 +344,6 @@ namespace OpenGL.State
 		/// Logger of this class.
 		/// </summary>
 		private static readonly ILogger sLog = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
-		#endregion
-
-		#region GraphicsResource Overrides
-
-		/// <summary>
-		/// GraphicsResource object class.
-		/// </summary>
-		internal static readonly Guid ThisObjectClass = new Guid("A2D35FBD-7918-4CD6-85A2-465D41474DF1");
-
-		/// <summary>
-		/// GraphicsResource object class.
-		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
-
-		/// <summary>
-		/// Determine whether this object requires a name bound to a context or not.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
-		/// </param>
-		/// <returns>
-		/// It returns a false, since this is not a real OpenGL object.
-		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx)
-		{
-			return (false);
-		}
-
-		/// <summary>
-		/// Actually create this GraphicsResource resources.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		protected override void CreateObject(GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
-			foreach (GraphicsState renderState in _RenderStates.Values)
-				if (renderState.Exists(ctx) == false)
-					renderState.Create(ctx);
-		}
-
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
-		/// </summary>
-		/// <param name="disposing">
-		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose"/>. If it is false,
-		/// this method is called by the finalizer.
-		/// </param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing) {
-				// Identifiable states
-				foreach (GraphicsState renderState in _RenderStates.Values)
-					renderState.DecRef();
-				_RenderStates.Clear();
-			}
-
-			// Base implementation
-			base.Dispose(disposing);
-		}
 
 		#endregion
 	}

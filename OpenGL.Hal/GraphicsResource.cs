@@ -581,4 +581,187 @@ namespace OpenGL
 
 		#endregion
 	}
+
+	/// <summary>
+	/// Graphics resource composed by a set of <see cref="GraphicsResource"/>.
+	/// </summary>
+	public class UserGraphicsResource : GraphicsResource
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a UserGraphicsResource.
+		/// </summary>
+		protected UserGraphicsResource() : base()
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct a UserGraphicsResource, specifying its identifier.
+		/// </summary>
+		/// <param name="identifier">
+		/// A <see cref="String"/> that identifies this GraphicsResource.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="identifier"/> is null.
+		/// </exception>
+		protected UserGraphicsResource(string identifier) : base(identifier)
+		{
+			
+		}
+
+		#endregion
+
+		#region User Resources
+
+		/// <summary>
+		/// Link a resource used by this UserGraphicsResource.
+		/// </summary>
+		/// <param name="graphicsResource">
+		/// The <see cref="GraphicsResource"/> that will be linked by this UserGraphicsResource. It will be referenced till
+		/// this instance disposition. You should not manually reference this instance for the UserGraphicsResource lifetime.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="graphicsResource"/> is null.
+		/// </exception>
+		protected void LinkResource(IGraphicsResource graphicsResource)
+		{
+			if (graphicsResource == null)
+				throw new ArgumentNullException("graphicsResource");
+			if (ObjectNamespace != Guid.Empty && graphicsResource.ObjectNamespace != Guid.Empty && ObjectNamespace != graphicsResource.ObjectNamespace)
+				throw new ArgumentException("namespace mismatch", "graphicsResource");
+
+			// Reference resources
+			graphicsResource.IncRef();
+			// Unreference at disposition
+			Debug.Assert(!_UserResources.Contains(graphicsResource));
+			_UserResources.Add(graphicsResource);
+		}
+
+		/// <summary>
+		/// Unlink a resource used by this UserGraphicsResource.
+		/// </summary>
+		/// <param name="graphicsResource">
+		/// The <see cref="GraphicsResource"/> that will be unlinked from this UserGraphicsResource. It will be unreferenced.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="graphicsResource"/> is null.
+		/// </exception>
+		protected void UnlinkResource(IGraphicsResource graphicsResource)
+		{
+			if (graphicsResource == null)
+				throw new ArgumentNullException("graphicsResource");
+			if (ObjectNamespace != Guid.Empty && graphicsResource.ObjectNamespace != Guid.Empty && ObjectNamespace != graphicsResource.ObjectNamespace)
+				throw new ArgumentException("namespace mismatch", "graphicsResource");
+
+			// Unreference at disposition
+			bool res = _UserResources.Remove(graphicsResource);
+			Debug.Assert(res);
+			// No more referenced
+			graphicsResource.DecRef();
+		}
+
+		/// <summary>
+		/// Resources used by this UserGraphicsResource.
+		/// </summary>
+		private readonly List<IGraphicsResource> _UserResources = new List<IGraphicsResource>();
+
+		#endregion
+
+		#region GraphicsResource Overrides
+
+		/// <summary>
+		/// Determine whether this object requires a name bound to a context or not.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		/// </param>
+		/// <returns>
+		/// This implementation returns always false.
+		/// </returns>
+		protected override bool RequiresName(GraphicsContext ctx) { return (false); }
+
+		/// <summary>
+		/// Buffer object class.
+		/// </summary>
+		internal static readonly Guid ThisObjectClass = new Guid("53523551-5828-41E8-B696-F4495F51998C");
+
+		/// <summary>
+		/// Buffer object class.
+		/// </summary>
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+
+		/// <summary>
+		/// Determine whether this GraphicsResource really exists.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> that would have created (or a sharing one) the object. This context shall be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this object exists in the object space of <paramref name="ctx"/>.
+		/// </returns>
+		/// <remarks>
+		/// <para>
+		/// The current implementation actually does not test for object existence, but it tests for object name space
+		/// correspondence, indicating a relationship between this GraphicsResource and the GraphicsContext used for creating
+		/// this resource.
+		/// </para>
+		/// <para>
+		/// Inheritors that managed an OpenGL resource shall override this method in order to check the effective existence of
+		/// this GraphicsResource agains <paramref name="ctx"/>. In counterpart, if the resource is not managed directly by
+		/// OpenGL, this routine could be leaved as is.
+		/// </para>
+		/// </remarks>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		public override bool Exists(GraphicsContext ctx)
+		{
+			// Base implementation
+			if (base.Exists(ctx) == false)
+				return (false);
+
+			// All linked resources must exists
+			foreach (GraphicsResource userResource in _UserResources)
+				if (userResource.Exists(ctx) == false)
+					return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			foreach (GraphicsResource userResource in _UserResources)
+				userResource.Create(ctx);
+		}
+
+		/// <summary>
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
+		/// </summary>
+		/// <param name="disposing">
+		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
+		/// this method is called by the finalizer.
+		/// </param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing) {
+				// Dereference linked resources
+				foreach (GraphicsResource graphicsResource in _UserResources)
+					graphicsResource.DecRef();
+				_UserResources.Clear();
+			}
+
+			// Base implementation
+			base.Dispose(disposing);
+		}
+
+		#endregion
+	}
 }

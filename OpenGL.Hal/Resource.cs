@@ -138,6 +138,7 @@ namespace OpenGL
 		public void DecRef()
 		{
 			// Instance could be never referenced with IncRef
+			Debug.Assert(_RefCount > 0);
 			if (_RefCount > 0)
 				_RefCount--;
 
