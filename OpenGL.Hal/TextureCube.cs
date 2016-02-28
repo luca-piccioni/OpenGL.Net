@@ -31,7 +31,7 @@ namespace OpenGL
 		
 		#endregion
 
-		#region Texture Creation
+		#region Create
 
 		/// <summary>
 		/// Enuemartion defining cube texture faces.
@@ -72,27 +72,37 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureCube"/> affected by this Technique.
+			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
 			/// </param>
 			/// <param name="size">
 			/// The size of the texture.
 			/// </param>
-			public EmptyTechnique(PixelLayout pixelFormat, uint size)
+			public EmptyTechnique(TextureCube texture, PixelLayout pixelFormat, uint size) :
+				base(texture)
 			{
-				PixelLayout = pixelFormat;
-				Size = size;
+				_TextureCube = texture;
+				_PixelFormat = pixelFormat;
+				_Size = size;
 			}
+
+			/// <summary>
+			/// The <see cref="TextureCube"/> affected by this Technique.
+			/// </summary>
+			private readonly TextureCube _TextureCube;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelLayout PixelLayout;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// Texture size.
 			/// </summary>
-			readonly uint Size;
+			private readonly uint _Size;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -102,13 +112,29 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
 
 				// Define empty texture
-				for (int i = 0; i < 6; i++) {
-					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)Size, (int)Size, 0, /* Unused */ PixelFormat.Rgb, /* Unused */ PixelType.UnsignedByte, null);
-				}
+				for (int i = 0; i < 6; i++)
+					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)_Size, (int)_Size, 0, /* Unused */ PixelFormat.Rgb, /* Unused */ PixelType.UnsignedByte, null);
+				// Define texture properties
+				_TextureCube.PixelLayout = _PixelFormat;
+				_TextureCube._Size= _Size;
 			}
+		}
+
+		public void Create(uint size, PixelLayout internalFormat)
+		{
+			// Setup technique for creation
+			SetTechnique(new EmptyTechnique(this, internalFormat, size));
+		}
+
+		public void Create(GraphicsContext ctx, uint size, PixelLayout internalFormat)
+		{
+			// Setup technique for creation
+			SetTechnique(new EmptyTechnique(this, internalFormat, size));
+			// Actually create texture
+			Create(ctx);
 		}
 
 		/// <summary>
@@ -119,13 +145,17 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a ImageTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="TextureCube"/> affected by this Technique.
+			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
 			/// </param>
 			/// <param name="images">
 			/// The texture data.
 			/// </param>
-			public ImageTechnique(PixelLayout pixelFormat, Image[] images)
+			public ImageTechnique(TextureCube texture, PixelLayout pixelFormat, Image[] images) :
+				base(texture)
 			{
 				if (images == null)
 					throw new ArgumentNullException("images");
@@ -136,20 +166,26 @@ namespace OpenGL
 				if (Array.TrueForAll(images, delegate(Image image) { return (image.Width == images[0].Width); }) == false)
 					throw new ArgumentException("images size mismatch", "images");
 
-				PixelLayout = pixelFormat;
-				Images = new Image[6];
-				Array.Copy(images, Images, 6);
+				_TextureCube = texture;
+				_PixelFormat = pixelFormat;
+				_Images = new Image[6];
+				Array.Copy(images, _Images, 6);
 			}
+
+			/// <summary>
+			/// The <see cref="TextureCube"/> affected by this Technique.
+			/// </summary>
+			private readonly TextureCube _TextureCube;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelLayout PixelLayout;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// The images that represents the texture data.
 			/// </summary>
-			readonly Image[] Images;
+			private readonly Image[] _Images;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -159,12 +195,12 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
-				PixelFormat format = Pixel.GetGlFormat(PixelLayout);
-				PixelType type = Pixel.GetPixelType(PixelLayout);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
+				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
+				PixelType type = Pixel.GetPixelType(_PixelFormat);
 
 				for (int i = 0; i < 6; i++) {
-					Image image = Images[i];
+					Image image = _Images[i];
 
 					// Set pixel transfer
 					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
@@ -177,66 +213,28 @@ namespace OpenGL
 					// Upload texture contents
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);
 				}
+
+				// Define texture properties
+				_TextureCube.PixelLayout = _PixelFormat;
+				_TextureCube._Size= _Images[0].Width;
 			}
-		}
-
-		public void Create(PixelLayout internalFormat, uint size)
-		{
-			// Setup texture information
-			mSize = size;
-
-			// Setup technique for creation
-			SetTechnique(new EmptyTechnique(internalFormat, size));
-		}
-
-		public void Create(GraphicsContext ctx, PixelLayout internalFormat, uint size)
-		{
-			// Setup texture information
-			mSize = size;
-
-			// Setup technique for creation
-			SetTechnique(new EmptyTechnique(internalFormat, size));
-			// Actually create texture
-			Create(ctx);
 		}
 
 		public void Create(PixelLayout internalFormat, Image[] images)
 		{
-			if (images == null)
-				throw new ArgumentNullException("images");
-			if (images[0] == null)
-				throw new ArgumentException("no image", "images");
-
-			// Trust about size (full checks will be done in SetTechnique)
-			uint size = images[0].Width;
-
-			// Setup texture information
-			mSize = size;
-
 			// Setup technique for creation
-			SetTechnique(new ImageTechnique(internalFormat, images));
+			SetTechnique(new ImageTechnique(this, internalFormat, images));
 		}
 
 		public void Create(GraphicsContext ctx, PixelLayout internalFormat, Image[] images)
 		{
-			if (images == null)
-				throw new ArgumentNullException("images");
-			if (images[0] == null)
-				throw new ArgumentException("no image", "images");
-
-			// Trust about size (full checks will be done in SetTechnique)
-			uint size = images[0].Width;
-
-			// Setup texture information
-			mSize = size;
-
 			// Setup technique for creation
-			SetTechnique(new ImageTechnique(internalFormat, images));
+			SetTechnique(new ImageTechnique(this, internalFormat, images));
 			// Actually create texture
 			Create(ctx);
 		}
 
-		public static TextureTarget GetTextureCubeTarget(CubeFace cubeFace)
+		internal static TextureTarget GetTextureCubeTarget(CubeFace cubeFace)
 		{
 			if ((int)cubeFace < 0 || (int)cubeFace >= _CubeTargets.Length)
 				throw new ArgumentOutOfRangeException("cubeFace");
@@ -265,12 +263,12 @@ namespace OpenGL
 		/// <summary>
 		/// Texture width.
 		/// </summary>
-		public override uint Width { get { return (mSize); } }
+		public override uint Width { get { return (_Size); } }
 
 		/// <summary>
 		/// Texture height.
 		/// </summary>
-		public override uint Height { get { return (mSize); } }
+		public override uint Height { get { return (_Size); } }
 
 		/// <summary>
 		/// Texture depth.
@@ -283,7 +281,7 @@ namespace OpenGL
 		/// <summary>
 		/// Texture size (cube map textures have equal width and height).
 		/// </summary>
-		public uint Size { get { return (mSize); } }
+		public uint Size { get { return (_Size); } }
 
 		/// <summary>
 		/// Determine the derived Texture target.
@@ -302,7 +300,7 @@ namespace OpenGL
 		/// <summary>
 		/// Texture size (width and height are the same).
 		/// </summary>
-		private uint mSize;
+		private uint _Size;
 
 		#endregion
 	}

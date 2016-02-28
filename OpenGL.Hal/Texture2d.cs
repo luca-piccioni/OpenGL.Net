@@ -133,8 +133,14 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -145,33 +151,46 @@ namespace OpenGL
 			/// <param name="height">
 			/// The height of the texture.
 			/// </param>
-			public EmptyTechnique(TextureTarget target, PixelLayout pixelFormat, uint width, uint height)
+			public EmptyTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height) :
+				base(texture)
 			{
-				Target = target;
-				PixelFormat = pixelFormat;
-				Width = width;
-				Height = height;
+				_Texture2d = texture;
+				_Target = target;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Width = width;
+				_Height = height;
 			}
+
+			/// <summary>
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture2d _Texture2d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
 			/// </summary>
-			private readonly TextureTarget Target;
+			private readonly TextureTarget _Target;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			private readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelLayout PixelFormat;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// Texture width.
 			/// </summary>
-			readonly uint Width;
+			private readonly uint _Width;
 
 			/// <summary>
 			/// Texture height.
 			/// </summary>
-			readonly uint Height;
+			private readonly uint _Height;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -181,11 +200,15 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				PixelFormat format = Pixel.GetGlFormat(PixelFormat);
-				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
+				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
 
 				// Define empty texture
-				Gl.TexImage2D(Target, 0, internalFormat, (int)Width, (int)Height, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+				// Define texture properties
+				_Texture2d.PixelLayout = _PixelFormat;
+				_Texture2d._Width = _Width;
+				_Texture2d._Height = _Height;
 			}
 		}
 
@@ -225,13 +248,8 @@ namespace OpenGL
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format)
 		{
-			// Setup texture information
-			PixelLayout = format;
-			_Width = width;
-			_Height = height;
-
-			// Setup technique for creation
-			SetTechnique(new EmptyTechnique(TextureTarget, format, width, height));
+			// Set creation technique
+			SetTechnique(new EmptyTechnique(this, TextureTarget, 0, format, width, height));
 		}
 
 		#endregion
@@ -275,8 +293,7 @@ namespace OpenGL
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
 
 			// Define technique
 			Create(width, height, format);
@@ -294,8 +311,14 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -303,31 +326,68 @@ namespace OpenGL
 			/// <param name="image">
 			/// The width of the texture.
 			/// </param>
-			public ImageTechnique(TextureTarget target, PixelLayout pixelFormat, Image image)
+			public ImageTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, Image image) :
+				this(texture, target, 0, pixelFormat, image)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a EmptyTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="target">
+			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="image">
+			/// The width of the texture.
+			/// </param>
+			public ImageTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image) :
+				base(texture)
 			{
 				if (image == null)
 					throw new ArgumentNullException("image");
 
-				Target = target;
-				PixelFormat = pixelFormat;
-				Image = image;
-				Image.IncRef();		// Referenced
+				_Texture2d = texture;
+				_Target = target;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Image = image;
+				_Image.IncRef();		// Referenced
 			}
+
+			/// <summary>
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture2d _Texture2d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
 			/// </summary>
-			private readonly TextureTarget Target;
+			private readonly TextureTarget _Target;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			public readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			private readonly PixelLayout PixelFormat;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// The image that represents the texture data.
 			/// </summary>
-			private readonly Image Image;
+			private readonly Image _Image;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -337,20 +397,24 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
-				PixelFormat format = Pixel.GetGlFormat(Image.PixelLayout);
-				PixelType type = Pixel.GetPixelType(Image.PixelLayout);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
+				PixelFormat format = Pixel.GetGlFormat(_Image.PixelLayout);
+				PixelType type = Pixel.GetPixelType(_Image.PixelLayout);
 
 				// Set pixel transfer
 				foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-					if ((Image.Stride % alignment) != 0)
+					if ((_Image.Stride % alignment) != 0)
 						continue;
 					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
 					break;
 				}
 
 				// Upload texture contents
-				Gl.TexImage2D(Target, 0, internalFormat, (int)Image.Width, (int)Image.Height, 0, format, type, Image.ImageBuffer);
+				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Image.Width, (int)_Image.Height, 0, format, type, _Image.ImageBuffer);
+				// Define texture properties
+				_Texture2d.PixelLayout = _PixelFormat;
+				_Texture2d._Width = _Image.Width;
+				_Texture2d._Height = _Image.Height;
 			}
 
 			/// <summary>
@@ -358,8 +422,8 @@ namespace OpenGL
 			/// </summary>
 			public override void Dispose()
 			{
-				if (Image != null)
-					Image.DecRef();
+				if (_Image != null)
+					_Image.DecRef();
 			}
 		}
 
@@ -395,13 +459,8 @@ namespace OpenGL
 			if (image == null)
 				throw new ArgumentNullException("image");
 
-			// Setup texture information
-			PixelLayout = image.PixelLayout;
-			_Width = image.Width;
-			_Height = image.Height;
-
 			// Setup technique for creation
-			SetTechnique(new ImageTechnique(TextureTarget, image.PixelLayout, image));
+			SetTechnique(new ImageTechnique(this, TextureTarget, image.PixelLayout, image));
 		}
 
 		#endregion

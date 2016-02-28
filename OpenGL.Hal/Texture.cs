@@ -346,7 +346,7 @@ namespace OpenGL
 		/// If texture target doesn't support mipmapping, this property shall return 1, if it is defined.
 		/// </para>
 		/// </remarks>
-		protected uint MipmapLevels
+		protected virtual uint MipmapLevels
 		{
 			get {
 				uint maxSize = Math.Max(Math.Max(Width, Height), Depth);
@@ -359,45 +359,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Compute the mipmap for a specific level.
+		/// Compute the mipmap size.
 		/// </summary>
-		/// <param name="level">
+		/// <param name="lod">
 		/// A <see cref="UInt32"/> that specify the mipmap level.
 		/// </param>
-		/// <param name="width">
-		/// A <see cref="UInt32"/> that specify the computed mipmap level width.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="UInt32"/> that specify the computed mipmap level height.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="UInt32"/> that specify the computed mipmap level depth.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="level"/> is greater than <see cref="MipmapLevels"/>.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this Texture extents are not defined (i.e. <see cref="Width"/> is 0).
-		/// </exception>
-		protected void GetMipmapLevelSize(uint level, out uint width, out uint height, out uint depth)
+		/// <returns>
+		/// It returns a <see cref="Vertex3ui"/> that contains the mipmap width, height and depth.
+		/// </returns>
+		protected Vertex3ui GetMipmapSize(uint lod)
 		{
-			if ((Width == 0) || (Height == 0) || (Depth == 0))
-				throw new InvalidOperationException("texture size no defined");
+			Vertex3ui baseSize = new Vertex3ui(Width, Height, Depth);
+			uint div = (uint)Math.Pow(2.0, lod);
 
-			if (Width > 1)
-				width = (uint)Math.Max(Width, Math.Pow(2.0, level));
-			else
-				width = 1;
+			Vertex3ui mipmapSize = baseSize / div;
 
-			if (Height > 1)
-				height = (uint)Math.Max(Height, Math.Pow(2.0, level));
-			else
-				height = 1;
+			mipmapSize.x = Math.Max(1, mipmapSize.x);
+			mipmapSize.y = Math.Max(1, mipmapSize.y);
+			mipmapSize.z = Math.Max(1, mipmapSize.z);
 
-			if (Depth > 1)
-				depth = (uint)Math.Max(Depth, Math.Pow(2.0, level));
-			else
-				depth = 1;
+			return (mipmapSize);
 		}
 
 		/// <summary>
@@ -899,6 +880,27 @@ namespace OpenGL
 		/// </summary>
 		protected abstract class Technique : IDisposable
 		{
+			/// <summary>
+			/// Construct a Technique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture"/> affected by this Technique.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="texture"/> is null.
+			/// </exception>
+			public Technique(Texture texture)
+			{
+				if (texture == null)
+					throw new ArgumentNullException("texture");
+				_Texture = texture;
+			}
+
+			/// <summary>
+			/// The <see cref="Texture"/> affected by this Technique.
+			/// </summary>
+			protected readonly Texture _Texture;
+
 			/// <summary>
 			/// Create the texture, using this technique.
 			/// </summary>

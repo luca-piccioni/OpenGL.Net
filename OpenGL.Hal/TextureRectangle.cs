@@ -123,6 +123,19 @@ namespace OpenGL
 		#region Texture2d Overrides
 
 		/// <summary>
+		/// Texture mapmaps level count (including the base level).
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// If this texture is not defined, this property shall return 0.
+		/// </para>
+		/// <para>
+		/// If texture target doesn't support mipmapping, this property shall return 1, if it is defined.
+		/// </para>
+		/// </remarks>
+		protected override uint MipmapLevels { get { return (1); } }
+
+		/// <summary>
 		/// Generate mipmaps for this Texture.
 		/// </summary>
 		/// <param name="ctx">

@@ -128,7 +128,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Texture Creation
+		#region Create
 
 		/// <summary>
 		/// Technique defining an empty texture.
@@ -138,6 +138,9 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
 			/// </param>
@@ -153,39 +156,52 @@ namespace OpenGL
 			/// <param name="depth">
 			/// The depth of the texture.
 			/// </param>
-			public EmptyTechnique(TextureTarget target, PixelLayout pixelFormat, uint width, uint height, uint depth)
+			public EmptyTechnique(Texture3d texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height, uint depth) :
+				base(texture)
 			{
-				Target = target;
-				PixelLayout = pixelFormat;
-				Width = width;
-				Height = height;
-				Depth = depth;
+				_Texture3d = texture;
+				_Target = target;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Width = width;
+				_Height = height;
+				_Depth = depth;
 			}
+
+			/// <summary>
+			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture3d _Texture3d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
 			/// </summary>
-			private readonly TextureTarget Target;
+			private readonly TextureTarget _Target;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			private readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelLayout PixelLayout;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// Texture width.
 			/// </summary>
-			readonly uint Width;
+			private readonly uint _Width;
 
 			/// <summary>
 			/// Texture height.
 			/// </summary>
-			readonly uint Height;
+			private readonly uint _Height;
 
 			/// <summary>
 			/// Texture depth.
 			/// </summary>
-			readonly uint Depth;
+			private readonly uint _Depth;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -195,103 +211,20 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				PixelFormat format = Pixel.GetGlFormat(PixelLayout);
-				int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
+				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
 
 				// Define empty texture
-				Gl.TexImage3D(Target, 0, internalFormat, (int)Width, (int)Height, (int)Depth, 0, format, /* Unused */ PixelType.UnsignedByte, null);
+				Gl.TexImage3D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, (int)_Depth, 0, format, /* Unused */ PixelType.UnsignedByte, null);
+				// Define texture properties
+				_Texture3d.PixelLayout = _PixelFormat;
+				_Texture3d._Width = _Width;
+				_Texture3d._Height = _Height;
+				_Texture3d._Depth = _Depth;
 			}
 		}
 
-		/// <summary>
-		/// Technique defining a texture based on images.
-		/// </summary>
-		class ImageTechnique : Technique
-		{
-			/// <summary>
-			/// Construct a EmptyTechnique.
-			/// </summary>
-			/// <param name="target">
-			/// A <see cref="TextureTarget"/> that specify the texture target.
-			/// </param>
-			/// <param name="pixelFormat">
-			/// The texture pixel format.
-			/// </param>
-			/// <param name="images">
-			/// The image set of the texture.
-			/// </param>
-			public ImageTechnique(TextureTarget target, PixelLayout pixelFormat, Image[] images)
-			{
-				if (images == null)
-					throw new ArgumentNullException("images");
-				if (images.Length == 0)
-					throw new ArgumentException("no images", "images");
-				if (!Array.TrueForAll(images, delegate(Image item) { return (item != null); }))
-					throw new ArgumentException("null item in image set", "images");
-				if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
-					throw new ArgumentException("eterogeneous size in image set", "images");
-
-				Target = target;
-				PixelLayout = pixelFormat;
-				Images = images;
-				Array.ForEach(Images, delegate(Image image) { image.IncRef(); });	// Referenced
-			}
-
-			/// <summary>
-			/// The texture target to use for creating the empty texture.
-			/// </summary>
-			private readonly TextureTarget Target;
-
-			/// <summary>
-			/// The internal pixel format of textel.
-			/// </summary>
-			private readonly PixelLayout PixelLayout;
-
-			/// <summary>
-			/// The images that represents the texture data.
-			/// </summary>
-			private readonly Image[] Images;
-
-			/// <summary>
-			/// Create the texture, using this technique.
-			/// </summary>
-			/// <param name="ctx">
-			/// A <see cref="GraphicsContext"/> used for allocating resources.
-			/// </param>
-			public override void Create(GraphicsContext ctx)
-			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
-				uint width = Images[0].Width, height = Images[0].Height;
-
-				Gl.TexImage3D(Target, 0, internalFormat, (int)width, (int)height, Images.Length, 0, /* Unused */ OpenGL.PixelFormat.Red, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
-
-				for (int i = 0; i < Images.Length; i++) {
-					Image image = Images[i];
-
-					PixelFormat format = Pixel.GetGlFormat(image.PixelLayout);
-					PixelType type = Pixel.GetPixelType(image.PixelLayout);
-
-					// Set pixel transfer
-					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-						if ((image.Stride % alignment) != 0)
-							continue;
-						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-						break;
-					}
-
-					// Upload texture contents
-					Gl.TexSubImage3D(Target, 0, 0, 0, i, (int)width, (int)height, 1, format, type, image.ImageBuffer);
-				}
-			}
-
-			/// <summary>
-			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-			/// </summary>
-			public override void Dispose()
-			{
-				Array.ForEach(Images, delegate(Image image) { image.DecRef(); });
-			}
-		}
+		#region Create(uint, uint, uint, PixelLayout)
 
 		/// <summary>
 		/// Create a Texture3d, defining the texture extents and the internal format.
@@ -330,15 +263,13 @@ namespace OpenGL
 		/// </exception>
 		public void Create(uint width, uint height, uint depth, PixelLayout format)
 		{
-			// Setup texture information
-			PixelLayout = format;
-			_Width = width;
-			_Height = height;
-			_Depth = depth;
-
 			// Setup technique for creation
-			SetTechnique(new EmptyTechnique(TextureTarget, format, width, height, depth));
+			SetTechnique(new EmptyTechnique(this, TextureTarget, 0, format, width, height, depth));
 		}
+
+		#endregion
+
+		#region Create(GraphicsContext, uint, uint, uint, PixelLayout)
 
 		/// <summary>
 		/// Create a Texture3d, defining the texture extents and the internal format.
@@ -389,6 +320,116 @@ namespace OpenGL
 			Create(ctx);
 		}
 
+		#endregion
+
+		/// <summary>
+		/// Technique defining a texture based on images.
+		/// </summary>
+		class ImageTechnique : Technique
+		{
+			/// <summary>
+			/// Construct a EmptyTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// </param>
+			/// <param name="target">
+			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="images">
+			/// The image set of the texture.
+			/// </param>
+			public ImageTechnique(Texture3d texture, TextureTarget target, PixelLayout pixelFormat, Image[] images) :
+				base(texture)
+			{
+				if (images == null)
+					throw new ArgumentNullException("images");
+				if (images.Length == 0)
+					throw new ArgumentException("no images", "images");
+				if (!Array.TrueForAll(images, delegate(Image item) { return (item != null); }))
+					throw new ArgumentException("null item in image set", "images");
+				if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
+					throw new ArgumentException("eterogeneous size in image set", "images");
+
+				_Texture3d = texture;
+				_Target = target;
+				_PixelFormat = pixelFormat;
+				_Images = images;
+				Array.ForEach(_Images, delegate(Image image) { image.IncRef(); });	// Referenced
+			}
+
+			/// <summary>
+			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture3d _Texture3d;
+
+			/// <summary>
+			/// The texture target to use for creating the empty texture.
+			/// </summary>
+			private readonly TextureTarget _Target;
+
+			/// <summary>
+			/// The internal pixel format of textel.
+			/// </summary>
+			private readonly PixelLayout _PixelFormat;
+
+			/// <summary>
+			/// The images that represents the texture data.
+			/// </summary>
+			private readonly Image[] _Images;
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
+				uint width = _Images[0].Width, height = _Images[0].Height;
+
+				Gl.TexImage3D(_Target, 0, internalFormat, (int)width, (int)height, _Images.Length, 0, /* Unused */ OpenGL.PixelFormat.Red, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+
+				for (int i = 0; i < _Images.Length; i++) {
+					Image image = _Images[i];
+
+					PixelFormat format = Pixel.GetGlFormat(image.PixelLayout);
+					PixelType type = Pixel.GetPixelType(image.PixelLayout);
+
+					// Set pixel transfer
+					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
+						if ((image.Stride % alignment) != 0)
+							continue;
+						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
+						break;
+					}
+
+					// Upload texture contents
+					Gl.TexSubImage3D(_Target, 0, 0, 0, i, (int)width, (int)height, 1, format, type, image.ImageBuffer);
+				}
+
+				// Define texture properties
+				_Texture3d.PixelLayout = _PixelFormat;
+				_Texture3d._Width = width;
+				_Texture3d._Height = height;
+				_Texture3d._Depth = (uint)_Images.Length;
+			}
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public override void Dispose()
+			{
+				Array.ForEach(_Images, delegate(Image image) { image.DecRef(); });
+			}
+		}
+
+		#region Create(Image[], PixelLayout)
+
 		/// <summary>
 		/// Create a Texture3d, defining the texture extents and the internal format.
 		/// </summary>
@@ -425,17 +466,13 @@ namespace OpenGL
 			if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
 				throw new ArgumentException("eterogeneous size in image set", "images");
 
-			uint width = images[0].Width, height = images[0].Height;
-
-			// Setup texture information
-			PixelLayout = format;
-			_Width = width;
-			_Height = height;
-			_Depth = (uint)images.Length;
-
 			// Setup technique for creation
-			SetTechnique(new ImageTechnique(TextureTarget, format, images));
+			SetTechnique(new ImageTechnique(this, TextureTarget, format, images));
 		}
+
+		#endregion
+
+		#region Create(GraphicsContext, Image[], PixelLayout)
 
 		/// <summary>
 		/// Create a Texture3d, defining the texture extents and the internal format.
@@ -475,6 +512,8 @@ namespace OpenGL
 			// Actually create texture
 			Create(ctx);
 		}
+
+		#endregion
 
 		#endregion
 

@@ -125,27 +125,46 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
 			/// </param>
 			/// <param name="width">
 			/// The width of the texture.
 			/// </param>
-			public EmptyTechnique(PixelLayout pixelFormat, uint width)
+			public EmptyTechnique(Texture1d texture, uint level, PixelLayout pixelFormat, uint width) :
+				base(texture)
 			{
-				PixelFormat = pixelFormat;
-				Width = width;
+				_Texture1d = texture;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Width = width;
 			}
+
+			/// <summary>
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture1d _Texture1d;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			private readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelLayout PixelFormat;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// Texture width.
 			/// </summary>
-			readonly uint Width;
+			private readonly uint _Width;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -155,11 +174,14 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				PixelFormat format = Pixel.GetGlFormat(PixelFormat);
-				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
+				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
 
 				// Define empty texture
-				Gl.TexImage1D(TextureTarget.Texture1d, 0, internalFormat, (int)Width, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Width, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+				// Define texture properties
+				_Texture1d.PixelLayout = _PixelFormat;
+				_Texture1d._Width = _Width;
 			}
 		}
 
@@ -194,12 +216,8 @@ namespace OpenGL
 		/// </exception>
 		public void Create(uint width, PixelLayout format)
 		{
-			// Setup texture information
-			PixelLayout = format;
-			_Width = width;
-
 			// Setup technique for creation
-			SetTechnique(new EmptyTechnique(format, width));
+			SetTechnique(new EmptyTechnique(this, 0, format, width));
 		}
 
 		#endregion
@@ -255,35 +273,72 @@ namespace OpenGL
 		class ImageTechnique : Technique
 		{
 			/// <summary>
-			/// Construct a EmptyTechnique.
+			/// Construct a ImageTechnique.
 			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
 			/// </param>
 			/// <param name="image">
-			/// The width of the texture.
+			/// The <see cref="Image"/> that holds the texture data.
 			/// </param>
-			public ImageTechnique(PixelLayout pixelFormat, Image image)
+			public ImageTechnique(Texture1d texture, PixelLayout pixelFormat, Image image) :
+				this(texture, 0, pixelFormat, image)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a ImageTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="image">
+			/// The <see cref="Image"/> that holds the texture data.
+			/// </param>
+			public ImageTechnique(Texture1d texture, uint level, PixelLayout pixelFormat, Image image) :
+				base(texture)
 			{
 				if (image == null)
 					throw new ArgumentNullException("image");
 				if (image.Height != 1)
 					throw new ArgumentException("height greater than 1", "image");
 
-				PixelFormat = pixelFormat;
-				Image = image;
-				Image.IncRef();		// Referenced
+				_Texture1d = texture;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Image = image;
+				_Image.IncRef();		// Referenced
 			}
+
+			/// <summary>
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture1d _Texture1d;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			private readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			private readonly PixelLayout PixelFormat;
+			private readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// The image that represents the texture data.
 			/// </summary>
-			private readonly Image Image;
+			private readonly Image _Image;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -293,20 +348,23 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
-				PixelFormat format = Pixel.GetGlFormat(Image.PixelLayout);
-				PixelType type = Pixel.GetPixelType(Image.PixelLayout);
+				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat, ctx);
+				PixelFormat format = Pixel.GetGlFormat(_Image.PixelLayout);
+				PixelType type = Pixel.GetPixelType(_Image.PixelLayout);
 
 				// Set pixel transfer
 				foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-					if ((Image.Stride % alignment) != 0)
+					if ((_Image.Stride % alignment) != 0)
 						continue;
 					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
 					break;
 				}
 
 				// Upload texture contents
-				Gl.TexImage1D(TextureTarget.Texture1d, 0, internalFormat, (int)Image.Width, 0, format, type, Image.ImageBuffer);
+				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Image.Width, 0, format, type, _Image.ImageBuffer);
+				// Define texture properties
+				_Texture1d.PixelLayout = _PixelFormat;
+				_Texture1d._Width = _Image.Width;
 			}
 
 			/// <summary>
@@ -314,8 +372,8 @@ namespace OpenGL
 			/// </summary>
 			public override void Dispose()
 			{
-				if (Image != null)
-					Image.DecRef();
+				if (_Image != null)
+					_Image.DecRef();
 			}
 		}
 
@@ -351,12 +409,8 @@ namespace OpenGL
 			if (image == null)
 				throw new ArgumentNullException("image");
 
-			// Setup texture information
-			PixelLayout = image.PixelLayout;
-			_Width = image.Width;
-
 			// Setup technique for creation
-			SetTechnique(new ImageTechnique(image.PixelLayout, image));
+			SetTechnique(new ImageTechnique(this, image.PixelLayout, image));
 		}
 
 		#endregion
@@ -459,11 +513,7 @@ namespace OpenGL
 				Image resourceImage = ImageCodec.Instance.Load(resourceStream, format);
 
 				// Setup technique for creation
-				SetTechnique(new ImageTechnique(resourceImage.PixelLayout, resourceImage));
-
-				// Setup texture information
-				PixelLayout = resourceImage.PixelLayout;
-				_Width = resourceImage.Width;
+				SetTechnique(new ImageTechnique(this, resourceImage.PixelLayout, resourceImage));
 			}
 		}
 
