@@ -67,5 +67,24 @@ namespace OpenGL.Hal.Test
 				texture = null;
 			}
 		}
+
+		/// <summary>
+		/// Test <see cref="Texture2d.Create(GraphicsContext, uint, uint, PixelLayout, uint)"/>.
+		/// </summary>
+		[Test]
+		public void TestCreate2()
+		{
+			using (Texture2d texture = new Texture2d()) {
+				texture.Create(_Context, 16, 16, PixelLayout.RGB24, 1);
+				texture.MipmapBaseLevel = 1;
+
+				Assert.AreEqual(16, texture.Width);
+				Assert.AreEqual(16, texture.Height);
+
+				Assert.AreEqual(32, texture.BaseSize.x);
+				Assert.AreEqual(32, texture.BaseSize.y);
+				Assert.AreEqual(1, texture.BaseSize.z);
+			}
+		}
 	}
 }

@@ -1485,6 +1485,49 @@ namespace OpenGL
 
 		#endregion
 
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public double Module()
+		{
+			return (Math.Sqrt(x * x + y * y));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			double length = Module();
+
+			if (Math.Abs(length) < Double.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2d Normalized
+		{
+			get
+			{
+				Vertex2d normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		#endregion
+
 		#region Notable Vertex
 
 		/// <summary>

@@ -141,7 +141,7 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for generating texture mipmaps.
 		/// </param>
-		internal override void GenerateMipmaps(GraphicsContext ctx)
+		protected override void GenerateMipmaps(GraphicsContext ctx)
 		{
 			throw new InvalidOperationException("TextureRectangle doesn't support mipmapping");
 		}

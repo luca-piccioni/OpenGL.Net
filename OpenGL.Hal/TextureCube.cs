@@ -118,8 +118,7 @@ namespace OpenGL
 				for (int i = 0; i < 6; i++)
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)_Size, (int)_Size, 0, /* Unused */ PixelFormat.Rgb, /* Unused */ PixelType.UnsignedByte, null);
 				// Define texture properties
-				_TextureCube.PixelLayout = _PixelFormat;
-				_TextureCube._Size= _Size;
+				_TextureCube.DefineExtents(_PixelFormat, _Size, _Size, 1, 0);
 			}
 		}
 
@@ -215,8 +214,7 @@ namespace OpenGL
 				}
 
 				// Define texture properties
-				_TextureCube.PixelLayout = _PixelFormat;
-				_TextureCube._Size= _Images[0].Width;
+				_TextureCube.DefineExtents(_PixelFormat, _Images[0].Width, _Images[0].Height, 1, 0);
 			}
 		}
 
@@ -261,29 +259,6 @@ namespace OpenGL
 		#region Texture Overrides
 
 		/// <summary>
-		/// Texture width.
-		/// </summary>
-		public override uint Width { get { return (_Size); } }
-
-		/// <summary>
-		/// Texture height.
-		/// </summary>
-		public override uint Height { get { return (_Size); } }
-
-		/// <summary>
-		/// Texture depth.
-		/// </summary>
-		/// <remarks>
-		/// Only Texture3d target has a depth. For every else texture target, it is set to 1.
-		/// </remarks>
-		public override uint Depth { get { return (1); } }
-
-		/// <summary>
-		/// Texture size (cube map textures have equal width and height).
-		/// </summary>
-		public uint Size { get { return (_Size); } }
-
-		/// <summary>
 		/// Determine the derived Texture target.
 		/// </summary>
 		/// <remarks>
@@ -296,11 +271,6 @@ namespace OpenGL
 		/// Uniform sampler type for managing this Texture.
 		/// </summary>
 		internal override int SamplerType { get { return (Gl.SAMPLER_CUBE); } }
-
-		/// <summary>
-		/// Texture size (width and height are the same).
-		/// </summary>
-		private uint _Size;
 
 		#endregion
 	}

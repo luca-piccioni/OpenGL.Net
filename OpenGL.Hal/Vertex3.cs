@@ -1976,24 +1976,23 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 3)]
 	[DebuggerDisplay("Vertex3ui: X={x} Y={y} Z={z}")]
-	public struct Vertex3ui : IVertex3, IColorInteger3<uint>, IEquatable<IVertex3>
+	public struct Vertex3ui : IVertex3, IColorInteger3<uint>, IEquatable<Vertex3ui>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Vertex3i constructor.
+		/// Vertex3ui constructor.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="UInt32"/>
 		/// </param>
-		public Vertex3ui(uint[] v)
-			: this(v[0], v[1], v[2])
+		public Vertex3ui(uint[] v) : this(v[0], v[1], v[2])
 		{
 
 		}
 
 		/// <summary>
-		/// Vertex3i constructor.
+		/// Vertex3ui constructor.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="UInt32"/>
@@ -2019,14 +2018,112 @@ namespace OpenGL
 		/// X coordinate for tridimensional vertex.
 		/// </summary>
 		public uint x;
+
 		/// <summary>
 		/// Y coordinate for tridimensional vertex.
 		/// </summary>
 		public uint y;
+
 		/// <summary>
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public uint z;
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Add operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex3ui"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex3ui"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3ui"/>
+		/// </returns>
+		public static Vertex3ui operator +(Vertex3ui v1, Vertex3ui v2)
+		{
+			Vertex3ui v;
+
+			v.x = v1.x + v2.x;
+			v.y = v1.y + v2.y;
+			v.z = v1.z + v2.z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Subtract operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex3ui"/>
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="Vertex3ui"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3ui"/>
+		/// </returns>
+		public static Vertex3ui operator -(Vertex3ui v1, Vertex3ui v2)
+		{
+			Vertex3ui v;
+
+			v.x = v1.x - v2.x;
+			v.y = v1.y - v2.y;
+			v.z = v1.z - v2.z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex3ui"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="UInt32"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3ui"/>
+		/// </returns>
+		public static Vertex3ui operator *(Vertex3ui v1, uint scalar)
+		{
+			Vertex3ui v;
+
+			v.x = v1.x * scalar;
+			v.y = v1.y * scalar;
+			v.z = v1.z * scalar;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar divide operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex3ui"/>
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="UInt32"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3ui"/>
+		/// </returns>
+		public static Vertex3ui operator /(Vertex3ui v1, uint scalar)
+		{
+			Vertex3ui v;
+
+			v.x = v1.x / scalar;
+			v.y = v1.y / scalar;
+			v.z = v1.z / scalar;
+
+			return (v);
+		}
 
 		#endregion
 
@@ -2052,6 +2149,56 @@ namespace OpenGL
 		public static bool operator !=(Vertex3ui v1, Vertex3ui v2)
 		{
 			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region Notable Vertex
+
+		/// <summary>
+		/// Zero vertex.
+		/// </summary>
+		public static readonly Vertex3ui Zero = new Vertex3ui(0, 0, 0);
+
+		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (obj.GetType() != typeof(IVertex3))
+				return false;
+
+			return (Equals((IVertex3)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = X.GetHashCode();
+				result = (result * 397) ^ Y.GetHashCode();
+				result = (result * 397) ^ Z.GetHashCode();
+
+				return result;
+			}
 		}
 
 		#endregion
@@ -2084,10 +2231,6 @@ namespace OpenGL
 			get { return (z); }
 			set { z = checked((uint)value); }
 		}
-
-		#endregion
-
-		#region IVertex Implementation
 
 		/// <summary>
 		/// Vertex components indexer.
@@ -2165,6 +2308,31 @@ namespace OpenGL
 
 		#endregion
 
+		#region IEquatable<Vertex2ui>
+
+		/// <summary>
+		/// Indicates whether the this Matrix is equal to another Matrix.
+		/// </summary>
+		/// <param name="other">
+		/// A Vertex2ui to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex2ui is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3ui other)
+		{
+			if (x - other.x != 0)
+				return (false);
+			if (y - other.y != 0)
+				return (false);
+			if (z - other.z != 0)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
 		#region IEquatable<IVertex3> Implementation
 
 		/// <summary>
@@ -2189,43 +2357,6 @@ namespace OpenGL
 				return (false);
 
 			return (true);
-		}
-
-		/// <summary>
-		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
-		/// </summary>
-		/// <param name="obj">
-		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
-		/// </param>
-		/// <returns>
-		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
-		/// </returns>
-		public override bool Equals(object obj)
-		{
-			if (ReferenceEquals(null, obj))
-				return false;
-			if (obj.GetType() != typeof(IVertex3))
-				return false;
-
-			return (Equals((IVertex3)obj));
-		}
-
-		/// <summary>
-		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
-		/// use in hashing algorithms and data structures like a hash table.
-		/// </summary>
-		/// <returns>
-		/// A hash code for the current <see cref="T:System.Object"/>.
-		/// </returns>
-		public override int GetHashCode()
-		{
-			unchecked {
-				int result = X.GetHashCode();
-				result = (result * 397) ^ Y.GetHashCode();
-				result = (result * 397) ^ Z.GetHashCode();
-
-				return result;
-			}
 		}
 
 		#endregion
@@ -2654,10 +2785,9 @@ namespace OpenGL
 			float length = Module();
 
 			if (Math.Abs(length) < Single.Epsilon)
-				return;
-				//throw new DivideByZeroException("zero length normalization");
+				throw new DivideByZeroException("zero length normalization");
 
-			this /= Module();
+			this /= length;
 		}
 
 		/// <summary>

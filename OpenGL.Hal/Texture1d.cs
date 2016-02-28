@@ -180,8 +180,7 @@ namespace OpenGL
 				// Define empty texture
 				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Width, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 				// Define texture properties
-				_Texture1d.PixelLayout = _PixelFormat;
-				_Texture1d._Width = _Width;
+				_Texture1d.DefineExtents(_PixelFormat, _Width, 1, 1, _Level);
 			}
 		}
 
@@ -363,8 +362,7 @@ namespace OpenGL
 				// Upload texture contents
 				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Image.Width, 0, format, type, _Image.ImageBuffer);
 				// Define texture properties
-				_Texture1d.PixelLayout = _PixelFormat;
-				_Texture1d._Width = _Image.Width;
+				_Texture1d.DefineExtents(_PixelFormat, _Image.Width, 1, 1, _Level);
 			}
 
 			/// <summary>
@@ -524,24 +522,6 @@ namespace OpenGL
 		#region Texture Overrides
 
 		/// <summary>
-		/// Texture width.
-		/// </summary>
-		public override uint Width { get { return (_Width); } }
-
-		/// <summary>
-		/// Texture height.
-		/// </summary>
-		public override uint Height { get { return (1); } }
-
-		/// <summary>
-		/// Texture depth.
-		/// </summary>
-		/// <remarks>
-		/// Only Texture3d target has a depth. For every else texture target, it is set to 1.
-		/// </remarks>
-		public override uint Depth { get { return (1); } }
-
-		/// <summary>
 		/// Determine the derived Texture target.
 		/// </summary>
 		/// <remarks>
@@ -554,11 +534,6 @@ namespace OpenGL
 		/// Uniform sampler type for managing this Texture.
 		/// </summary>
 		internal override int SamplerType { get { return (Gl.SAMPLER_1D); } }
-
-		/// <summary>
-		/// Texture width.
-		/// </summary>
-		private uint _Width = 0;
 
 		#endregion
 	}
