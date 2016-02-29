@@ -24,13 +24,8 @@ namespace OpenGL
 	/// <summary>
 	/// Cube texture.
 	/// </summary>
-	[DebuggerDisplay("TextureCube [ Pixel:{mPixelFormat} Size:{Width} ]")]
 	public class TextureCube : Texture
 	{
-		#region Constructors
-		
-		#endregion
-
 		#region Create
 
 		/// <summary>
@@ -257,6 +252,21 @@ namespace OpenGL
 		#endregion
 
 		#region Texture Overrides
+
+		/// <summary>
+		/// Texture size, in pixels, of the level 0 of the texture.
+		/// </summary>
+		public override Vertex3ui BaseSize
+		{
+			get
+			{
+				Vertex3ui baseSize = base.BaseSize;
+
+				baseSize.z = 1;
+
+				return (baseSize);
+			}
+		}
 
 		/// <summary>
 		/// Determine the derived Texture target.

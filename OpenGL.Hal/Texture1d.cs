@@ -522,6 +522,22 @@ namespace OpenGL
 		#region Texture Overrides
 
 		/// <summary>
+		/// Texture size, in pixels, of the level 0 of the texture.
+		/// </summary>
+		public override Vertex3ui BaseSize
+		{
+			get
+			{
+				Vertex3ui baseSize = base.BaseSize;
+
+				baseSize.y = 1;
+				baseSize.z = 1;
+
+				return (baseSize);
+			}
+		}
+
+		/// <summary>
 		/// Determine the derived Texture target.
 		/// </summary>
 		/// <remarks>

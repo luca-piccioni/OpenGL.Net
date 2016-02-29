@@ -15,13 +15,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Diagnostics;
 
 namespace OpenGL
 {
 	/// <summary>
 	/// Two dimensional texture using rectangle coordinates.
 	/// </summary>
-	[System.Diagnostics.DebuggerDisplay("TextureRectangle [ Pixel:{mPixelFormat} Width:{Width} Height:{Height} ]")]
+	[DebuggerDisplay("TextureRectangle: Width={Width} Height={Height} Format={PixelLayout}")]
 	public class TextureRectangle : Texture2d
 	{
 		#region Constructors

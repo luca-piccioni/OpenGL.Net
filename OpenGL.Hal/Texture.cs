@@ -53,7 +53,7 @@ namespace OpenGL
 				if (_Mipmaps[MipmapBaseLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return (_Mipmaps[MipmapBaseLevel].PixelFormat);
+				return (_Mipmaps[MipmapBaseLevel].InternalFormat);
 			}
 		}
 
@@ -76,13 +76,16 @@ namespace OpenGL
 					return (_Mipmaps[i].Size * (uint)Math.Pow(2.0, i));
 				}
 
-				throw new InvalidOperationException("undefined mipmap levels");
+				return (Vertex3ui.Zero);
 			}
 		}
 
 		/// <summary>
 		/// Texture size, in pixels, of the base level of the texture.
 		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if the mipmap level specified by <see cref="MipmapBaseLevel"/> is not defined.
+		/// </exception>
 		public Vertex3ui Size
 		{
 			get
@@ -146,7 +149,7 @@ namespace OpenGL
 
 			if (_Mipmaps[lod] == null)
 				_Mipmaps[lod] = new Mipmap();
-			_Mipmaps[lod].PixelFormat = pixelFormat;
+			_Mipmaps[lod].InternalFormat = pixelFormat;
 			_Mipmaps[lod].Size = new Vertex3ui(w, h, z);
 		}
 
@@ -369,7 +372,7 @@ namespace OpenGL
 					if (_Mipmaps[i] == null)
 						return (false);
 					// Same internal format (compare with the base level)
-					if (_Mipmaps[i].PixelFormat != _Mipmaps[mipmapBaseLevel].PixelFormat)
+					if (_Mipmaps[i].InternalFormat != _Mipmaps[mipmapBaseLevel].InternalFormat)
 						return (false);
 					// The dimensions of the images follow the sequence described by GetMipmapSize
 					if (_Mipmaps[i].Size != GetMipmapSize(i))
@@ -388,7 +391,7 @@ namespace OpenGL
 			/// <summary>
 			/// Internal format of the mipmap.
 			/// </summary>
-			public PixelLayout PixelFormat;
+			public PixelLayout InternalFormat;
 
 			/// <summary>
 			/// Size of the mipmap (width, height and depth components).
@@ -540,7 +543,7 @@ namespace OpenGL
 			for (uint i = MipmapBaseLevel + 1; i < MipmapLevels; i++) {
 				if (_Mipmaps[i] == null)
 					_Mipmaps[i] = new Mipmap();
-				_Mipmaps[i].PixelFormat = _Mipmaps[MipmapBaseLevel].PixelFormat;
+				_Mipmaps[i].InternalFormat = _Mipmaps[MipmapBaseLevel].InternalFormat;
 				_Mipmaps[i].Size = GetMipmapSize(i);
 			}
 		}
@@ -1180,8 +1183,9 @@ namespace OpenGL
 		{
 			CheckCurrentContext(ctx);
 
-			// Bind this texture
+			// Let create this texture
 			Gl.BindTexture(TextureTarget, ObjectName);
+			// Bind this texture
 			ctx.Bind(this);
 
 			// In the case of no techniques, texture will exists but it will be undefined

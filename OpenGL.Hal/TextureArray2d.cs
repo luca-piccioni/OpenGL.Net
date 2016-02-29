@@ -25,7 +25,6 @@ namespace OpenGL
 	/// <summary>
 	/// Two dimensional array texture.
 	/// </summary>
-	[DebuggerDisplay("TextureArray2d: Pixel={mPixelFormat} Width={Width} Height={Height}")]
 	public class TextureArray2d : Texture
 	{
 		#region Constructors
