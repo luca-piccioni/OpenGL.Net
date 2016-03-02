@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace OpenGL
 {
@@ -613,39 +614,46 @@ namespace OpenGL
 				if (_RenderContext == IntPtr.Zero)
 					throw new InvalidOperationException(String.Format("unable to create context {0}", version));
 
-				// Allow the creation of a GraphicsContext while another GraphicsContext is currently current to the
-				// calling thread: restore currency after the job get done
-				GraphicsContext prevContext = GetCurrentContext();
-				IDeviceContext prevContextDevice = (prevContext != null) ? prevContext._CurrentDeviceContext : null;
+				if (sharedContext == null) {
 
-				// This will cause OpenGL operation flushed... not too bad
-				MakeCurrent(deviceContext, true);
+					// Allow the creation of a GraphicsContext while another GraphicsContext is currently current to the
+					// calling thread: restore currency after the job get done
+					GraphicsContext prevContext = GetCurrentContext();
+					IDeviceContext prevContextDevice = (prevContext != null) ? prevContext._CurrentDeviceContext : null;
 
-				// Get the current OpenGL implementation supported by this GraphicsContext
-				_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-				// Get the current OpenGL Shading Language implementation supported by this GraphicsContext
-				_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
-				// Query context capabilities
-				_CapsStack.Push(GraphicsCapabilities.Query(this, deviceContext));
+					// Make current on this thread
+					MakeCurrent(deviceContext, true);
 
-				// Determine this GraphicsContext object namespace
-				if (sharedContext != null) {
-					// Sharing same object name space
-					_ObjectNameSpace = sharedContext._ObjectNameSpace;
-				} else {
+					// Get the current OpenGL implementation supported by this GraphicsContext
+					_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+					// Get the current OpenGL Shading Language implementation supported by this GraphicsContext
+					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
+					// Query context capabilities
+					_CapsStack.Push(GraphicsCapabilities.Query(this, deviceContext));
+
 					// Reserved object name space
 					_ObjectNameSpace = Guid.NewGuid();
+					// Create shader include library (GLSL #include support)
+					_ShaderIncludeLibrary = new ShaderIncludeLibrary();
+					_ShaderIncludeLibrary.Create(this);
+					// Support IGraphicsResource Async methods
+					StartResourceThread();
+
+					// Restore previous current context, if any. Otherwise, make uncurrent
+					if (prevContext != null)
+						prevContext.MakeCurrent(prevContextDevice, true);
+					else
+						MakeCurrent(deviceContext, false);
+				} else {
+					// Sharing same object name space
+					_CurrentDeviceContext = sharedContext._CurrentDeviceContext;
+					_ObjectNameSpace = sharedContext._ObjectNameSpace;
+					// Copy references
+					_Version = sharedContext._Version;
+					_ShadingVersion = sharedContext._ShadingVersion;
+					_CapsStack.Push(sharedContext._CapsStack.Peek());
+					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 				}
-
-				// Create shader include library (GLSL #include support)
-				_ShaderIncludeLibrary = new ShaderIncludeLibrary();
-				_ShaderIncludeLibrary.Create(this);
-
-				// Restore previous current context, if any. Otherwise, make uncurrent
-				if (prevContext != null)
-					prevContext.MakeCurrent(prevContextDevice, true);
-				else
-					MakeCurrent(deviceContext, false);
 			} catch {
 				// Rethrow the exception
 				throw;
@@ -925,9 +933,9 @@ namespace OpenGL
 		/// </exception>
 		public void MakeCurrent(bool flag)
 		{
-			if (_CurrentDeviceContext == null)
+			if (_CurrentDeviceContext == null && _DeviceContext == null)
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
-			MakeCurrent(_CurrentDeviceContext, flag);
+			MakeCurrent(_CurrentDeviceContext ?? _DeviceContext, flag);
 		}
 
 		/// <summary>
@@ -956,12 +964,12 @@ namespace OpenGL
 			if (_DeviceContext == null)
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
 
-			int threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+			int threadId = Thread.CurrentThread.ManagedThreadId;
 
 			if (flag) {
 				// Make this context current on device
 				if (deviceContext.MakeCurrent(_RenderContext) == false)
-					throw new InvalidOperationException("context cannot be current because error " + Marshal.GetLastWin32Error());
+					throw new InvalidOperationException(String.Format("cannot make current context, {0}", new System.ComponentModel.Win32Exception(Marshal.GetLastWin32Error()).Message));
 
 				// Cache current device context
 				_CurrentDeviceContext = deviceContext;
@@ -1006,7 +1014,7 @@ namespace OpenGL
 		{
 			get
 			{
-				int threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+				int threadId = Thread.CurrentThread.ManagedThreadId;
 
 				lock (_RenderThreadsLock) {
 					GraphicsContext currentThreadContext;
@@ -1031,7 +1039,7 @@ namespace OpenGL
 		/// </returns>
 		public static GraphicsContext GetCurrentContext()
 		{
-			int threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+			int threadId = Thread.CurrentThread.ManagedThreadId;
 
 			lock (_RenderThreadsLock) {
 				GraphicsContext currentThreadContext;
@@ -1133,6 +1141,132 @@ namespace OpenGL
 
 		#endregion
 
+		#region Asynchronous IGraphicsResource
+
+		/// <summary>
+		/// Execute <see cref="IGraphicsResource.Create(GraphicsContext)"/> on the resource thread.
+		/// </summary>
+		/// <param name="graphicsResource"></param>
+		internal void CreateAsync(IGraphicsResource graphicsResource)
+		{
+			if (graphicsResource == null)
+				throw new ArgumentNullException("graphicsResource");
+
+			lock (_ResourceQueueLock) {
+				_ResourceQueue.Add(graphicsResource);
+				_ResourceQueueSem.Release();
+			}
+		}
+
+		/// <summary>
+		/// Create context to be current on <see cref="_ResourceThread"/>, and start it.
+		/// </summary>
+		private void StartResourceThread()
+		{
+			// Create a GraphicsContext that will be current on the resource thread
+			_ResourceContext = new GraphicsContext(_DeviceContext, this);
+			// Run
+			_ResourceThread = new Thread(ResourceThread);
+			_ResourceThread.Name = "GraphicsContext.ResourceThread";
+			_ResourceThread.Start();
+		}
+
+		/// <summary>
+		/// Release resources.
+		/// </summary>
+		private void StopResourceThread()
+		{
+			if (_ResourceThread == null)
+				return;
+
+			_ResourceThreadStop = true;
+			if (_ResourceThread.Join(_ResourceThreadLatency * 3) == false)
+				_ResourceThread.Abort();
+			_ResourceThread = null;
+		}
+
+		/// <summary>
+		/// Resource thread.
+		/// </summary>
+		private void ResourceThread()
+		{
+			#region Platform Pointers Reload
+
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+				case PlatformID.Win32Windows:
+				case PlatformID.Win32S:
+				case PlatformID.WinCE:
+					Wgl.SyncDelegates();
+					break;
+			}
+
+			#endregion
+
+			// Be current on this thread
+			_ResourceContext.MakeCurrent(true);
+
+			while (_ResourceThreadStop == false) {
+				if (_ResourceQueueSem.Wait(_ResourceThreadLatency) == true) {
+					IGraphicsResource[] graphicResources;
+
+					// Copy current resources
+					lock (_ResourceQueueLock) {
+						graphicResources = _ResourceQueue.ToArray();
+						_ResourceQueue.Clear();
+					}
+
+					// Create all resources
+					foreach (IGraphicsResource graphicsResource in graphicResources) {
+						try {
+							graphicsResource.Create(_ResourceContext);
+						} catch (Exception exception) {
+
+						}
+					}
+				}
+
+				Thread.Sleep(_ResourceThreadLatency);
+			}
+
+			_ResourceContext.Dispose();
+			_ResourceContext = null;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private GraphicsContext _ResourceContext;
+
+		/// <summary>
+		/// Thread used for CPU intensive, I/O bound operations or somewhat OpenGL object management.
+		/// </summary>
+		private Thread _ResourceThread;
+
+		private const int _ResourceThreadLatency = 1000;
+
+		/// <summary>
+		/// Flag used to terminate <see cref="_ResourceThread"/>.
+		/// </summary>
+		private bool _ResourceThreadStop;
+
+		/// <summary>
+		/// Queue of resources to be created on this <see cref="GraphicsContext"/>, in a separate thread.
+		/// </summary>
+		private readonly List<IGraphicsResource> _ResourceQueue = new List<IGraphicsResource>();
+
+		/// <summary>
+		/// Object used for synchronizing accesses to <see cref="_ResourceQueue"/>.
+		/// </summary>
+		private readonly object _ResourceQueueLock = new object();
+
+		/// <summary>
+		/// Semaphore used for synchronizing accesses to <see cref="_ResourceQueue"/>.
+		/// </summary>
+		private readonly SemaphoreSlim _ResourceQueueSem = new SemaphoreSlim(0, 4);
+
+		#endregion
+
 		#region Shader Include Library
 
 		/// <summary>
@@ -1202,6 +1336,8 @@ namespace OpenGL
 					_ShaderIncludeLibrary.Dispose(this);
 					_ShaderIncludeLibrary = null;
 				}
+
+				StopResourceThread();
 
 				// Dispose unmanaged resources
 				if (_RenderContext != IntPtr.Zero) {

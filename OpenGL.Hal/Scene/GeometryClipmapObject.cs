@@ -182,6 +182,11 @@ namespace OpenGL.Scene
 
 			#region Methods
 
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="position"></param>
+			/// <param name="unitScale"></param>
 			public void UpdateGridPosition(Vertex2d position, double unitScale)
 			{
 				double lodUnitScale = Math.Pow(2.0, Lod) * unitScale;
