@@ -51,22 +51,6 @@ namespace OpenGL
 
 			KhronosApi.LogComment("Query OpenGL extensions.");
 
-			#region Platform Extension Reload
-
-			// Since at this point there's a current OpenGL context, it's possible to use
-			// {glx|wgl}GetExtensionsString to retrieve platform specific extensions
-
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32S:
-				case PlatformID.WinCE:
-					// Wgl.SyncDelegates();
-					break;
-			}
-
-			#endregion
-
 			// OpenGL extensions
 			graphicsCapabilities._GlExtensions.Query();
 			// Windows OpenGL extensions
