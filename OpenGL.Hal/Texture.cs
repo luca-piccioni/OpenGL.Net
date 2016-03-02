@@ -314,7 +314,43 @@ namespace OpenGL
 		#region Mipmapping
 
 		/// <summary>
-		/// Get or set the level indicating the base mipmap level.
+		/// Get the level indicating the base mipmap level.
+		/// </summary>
+		public uint BaseLevel
+		{
+			get
+			{
+				return ((uint)Array.FindIndex(_Mipmaps, delegate (Mipmap item) { return (item != null); }));
+			}
+		}
+
+		/// <summary>
+		/// Get the level indicating the maximum mipmap level.
+		/// </summary>
+		public uint MaxLevel
+		{
+			get
+			{
+				return ((uint)Array.FindLastIndex(_Mipmaps, delegate (Mipmap item) { return (item != null); }));
+			}
+		}
+
+		/// <summary>
+		/// Determine whether a specific mipmap level is defined.
+		/// </summary>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the mipmap level to test.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the mipmap level <paramref name="level"/> is defined.
+		/// </returns>
+		public bool HasMipMapLevel(uint level)
+		{
+			return (_Mipmaps[level] != null);
+		}
+
+		/// <summary>
+		/// Get or set the level indicating the base mipmap level used for drawing.
 		/// </summary>
 		public uint MipmapBaseLevel
 		{
@@ -333,7 +369,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get or set the level indicating the maximum mipmap level.
+		/// Get or set the level indicating the maximum mipmap level used for drawing.
 		/// </summary>
 		public uint MipmapMaxLevel
 		{

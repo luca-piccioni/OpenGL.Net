@@ -558,6 +558,47 @@ namespace OpenGL
 
 		#endregion
 
+		#region Create(Image, uint)
+
+		/// <summary>
+		/// Create Texture2d data from a Image instance.
+		/// </summary>
+		/// <param name="image">
+		/// An <see cref="Image"/> holding the texture data.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the texture level to create/update.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception throw if <paramref name="image"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> pixel data is not allocated (i.e. image not defined).
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> width or height are greater than the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="image"/> width or height are
+		/// not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> format (<see cref="Image.PixelFormat"/> is not a supported internal format.
+		/// </exception>
+		public void Create(Image image, uint level)
+		{
+			if (image == null)
+				throw new ArgumentNullException("image");
+
+			// Setup technique for creation
+			SetTechnique(new ImageTechnique(this, TextureTarget, level, image.PixelLayout, image));
+		}
+
+		#endregion
+
 		#region Create(GraphicsContext, Image)
 
 		/// <summary>
