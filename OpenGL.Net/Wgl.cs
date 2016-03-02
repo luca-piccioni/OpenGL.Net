@@ -52,8 +52,6 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			Debug.Assert(GetCurrentContext() != IntPtr.Zero, "no context current on calling thread");
-
 			LogComment("Synchronize WGL delegates.");
 
 			SynchDelegates(_ImportMap, _Delegates);
