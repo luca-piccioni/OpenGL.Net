@@ -42,7 +42,7 @@ namespace HelloNewton
 #if DEBUG
 			_GeometryClipmapObject = new GeometryClipmapObject(9, 7, _BlockUnit);
 #else
-			_GeometryClipmapObject = new GeometryClipmapObject(9, 9, _BlockUnit);
+			_GeometryClipmapObject = new GeometryClipmapObject(9, 8, _BlockUnit);
 #endif
 
 			string workingDir = Directory.GetCurrentDirectory();
@@ -56,7 +56,7 @@ namespace HelloNewton
 
 			// Set projection
 			_GeometryClipmapScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(
-				_ViewFov / 16.0f * 9.0f,
+				_ViewFov / (float)Screen.PrimaryScreen.Bounds.Width * (float)Screen.PrimaryScreen.Bounds.Height,
 				(float)ClientSize.Width / (float)ClientSize.Height,
 				1.0f, _ViewDepth
 			);;
