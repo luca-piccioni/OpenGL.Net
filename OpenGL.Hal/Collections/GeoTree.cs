@@ -151,13 +151,12 @@ namespace OpenGL.Collections
 			/// Select a list of <typeparamref name="T"/> which area intersect with the specified one.
 			/// </summary>
 			/// <param name="area">
-			/// A <see cref="Vertex2d"/> which delimits the <typeparamref name="T"/> instances to be
-			/// selected.
+			/// A <see cref="GeoTreeArea"/> which delimits the <typeparamref name="T"/> instances to be selected.
 			/// </param>
 			/// <param name="selectedNodes">
 			/// A <see cref="Dictionary{Guid,T}"/> that collectes the selected nodes.
 			/// </param>
-			public virtual void Select(Vertex2d area, Dictionary<Guid, T> selectedNodes)
+			public virtual void Select(GeoTreeArea area, Dictionary<Guid, T> selectedNodes)
 			{
 				foreach (GeoTreePartition spacePartition in mPartition) {
 					if ((spacePartition != null) && (spacePartition.Area.Intersect(area)))
@@ -339,13 +338,12 @@ namespace OpenGL.Collections
 			/// Select a list of <typeparamref name="T"/> which area intersect with the specified one.
 			/// </summary>
 			/// <param name="area">
-			/// A <see cref="Vertex2d"/> which delimits the <typeparamref name="T"/> instances to be
-			/// selected.
+			/// A <see cref="GeoTreeArea"/> which delimits the <typeparamref name="T"/> instances to be selected.
 			/// </param>
 			/// <param name="selectedNodes">
 			/// A <see cref="Dictionary{Guid,T}"/> that collectes the selected nodes.
 			/// </param>
-			public override void Select(Vertex2d area, Dictionary<Guid, T> selectedNodes)
+			public override void Select(GeoTreeArea area, Dictionary<Guid, T> selectedNodes)
 			{
 				Debug.Assert(Area.Intersect(area));
 
@@ -410,14 +408,13 @@ namespace OpenGL.Collections
 		/// Select a list of <typeparamref name="T"/> which area intersect with the specified one.
 		/// </summary>
 		/// <param name="area">
-		/// A <see cref="Vertex2d"/> which delimits the <typeparamref name="T"/> instances to be
-		/// selected.
+		/// A <see cref="GeoTreeArea"/> which delimits the <typeparamref name="T"/> instances to be selected.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ICollection{T}"/> containing all <typeparamref name="T"/> instances intersecting
 		/// with <paramref name="area"/>.
 		/// </returns>
-		public ICollection<T> Select(Vertex2d area)
+		public ICollection<T> Select(GeoTreeArea area)
 		{
 			Dictionary<Guid, T> selectedNodes = new Dictionary<Guid, T>();
 

@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL.Collections
@@ -25,6 +24,7 @@ namespace OpenGL.Collections
 	/// <summary>
 	/// Area abstraction specialized for <see cref="GeoTree{T}"/>.
 	/// </summary>
+	[DebuggerDisplay("GeoTreeArea: Position={Centre} Size={LinearWidth}x{LinearHeight} m")]
 	public class GeoTreeArea
 	{
 		#region Constructors
@@ -55,14 +55,42 @@ namespace OpenGL.Collections
 		#region Properties
 
 		/// <summary>
-		/// Position of the centre of the GeoTreeArea, in any unit.
+		/// Position of the centre of the GeoTreeArea, in degrees.
 		/// </summary>
 		public Vertex2d Centre;
 
 		/// <summary>
-		/// Size of the GeoTreeArea, in any unit.
+		/// Size of the GeoTreeArea, in degrees.
 		/// </summary>
 		public Vertex2d Size;
+
+		/// <summary>
+		/// Width of the GeoTreeArea, in meters.
+		/// </summary>
+		public double LinearWidth
+		{
+			get
+			{
+				double w1 = Vincenty.GetDistance(LLCoord, LRCoord);
+				double w2 = Vincenty.GetDistance(ULCoord, URCoord);
+
+				return ((w1 + w2) / 2.0);
+			}
+		}
+
+		/// <summary>
+		/// Height of the GeoTreeArea, in meters.
+		/// </summary>
+		public double LinearHeight
+		{
+			get
+			{
+				double h1 = Vincenty.GetDistance(ULCoord, LLCoord);
+				double h2 = Vincenty.GetDistance(URCoord, LRCoord);
+
+				return ((h1 + h2) / 2.0);
+			}
+		}
 
 		/// <summary>
 		/// Lower-left area coordinate.
