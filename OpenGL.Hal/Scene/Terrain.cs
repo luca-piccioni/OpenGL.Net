@@ -45,62 +45,32 @@ namespace OpenGL.Scene
 
 		#endregion
 
+		#region Database Organization
+
 		/// <summary>
-		/// Query information about a dataset modeling terrain information.
+		/// Terrain block interface.
 		/// </summary>
-		/// <param name="databaseRootPath">
-		/// A <see cref="String"/> that specify the path of the directory containins the terrain information.
-		/// </param>
-		/// /// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="databaseRootPath"/> is null.
-		/// </exception>
-		public static void Query(string databaseRootPath)
+		public interface ITerrainBlock : IGeoTreeNode
 		{
-			if (databaseRootPath == null)
-				throw new ArgumentNullException("databasePath");
+			/// <summary>
+			/// Get the average precision of a dataset textel, in meters.
+			/// </summary>
+			double TextelPrecision { get; }
 
-			string[] datasetFiles = Directory.GetFiles(databaseRootPath, "*.*", SearchOption.AllDirectories);
-
-			foreach (string datasetPath in datasetFiles) {
-				try {
-					using (Dataset dataset = Gdal.OpenShared(datasetPath, Access.GA_ReadOnly)) {
-						GeoElevationTerrainDataset geoElevationTerrainDataset;
-
-						// Determine terrain dataset information and collect it
-						switch (dataset.GetDriver().ShortName) {
-							// Elevation datasets
-							case "EHdr":        // USGS DEM
-								if (datasetPath.ToLowerInvariant().EndsWith(".dem") == false)
-									continue;
-								geoElevationTerrainDataset = new GeoElevationTerrainDataset(datasetPath, dataset);
-								_GeoElevationTree.Insert(geoElevationTerrainDataset.Blocks);
-								break;
-							case "SRTMHGT":		// USGS SRTM
-								geoElevationTerrainDataset = new GeoElevationTerrainDataset(datasetPath, dataset);
-								_GeoElevationTree.Insert(geoElevationTerrainDataset.Blocks);
-								break;
-							default:
-								throw new NotSupportedException(String.Format("driver {0} is not supported"));
-						}
-
-						
-					}
-				} catch (Exception exception) {
-
-				}
-			}
-		}
-
-		public static void GenerateMipmaps(int lod)
-		{
-
+			/// <summary>
+			/// Extract the image corresponding to this geographic dataset, using the specified LOD.
+			/// </summary>
+			/// <returns>
+			/// It returns the <see cref="Image"/> relative to this geographic dataset.
+			/// </returns>
+			Image ExtractImage(uint lod);
 		}
 
 		/// <summary>
 		/// Geographic dataset.
 		/// </summary>
 		[DebuggerDisplay("GeoTerrainDataset: Position={Position} Size={Size}")]
-		class GeoTerrainDataset : IGeoTreeNode
+		class GeoTerrainDataset : ITerrainBlock
 		{
 			#region Constructors
 
@@ -125,27 +95,38 @@ namespace OpenGL.Scene
 					throw new ArgumentNullException("dataset");
 
 				Path = datasetPath;
-
-				ExtractGeoInformation(dataset, new Rectangle(0, 0, dataset.RasterXSize, dataset.RasterYSize));
+				DatasetArea = new Rectangle(0, 0, dataset.RasterXSize, dataset.RasterYSize);
+				ExtractGeoInformation(dataset, DatasetArea);
 				ExtractBlockInformation(dataset);
 			}
 
 			/// <summary>
-			/// Construct a custom GeoTerrainDataset.
+			/// Construct a GeoTerrainDataset defining the database path.
 			/// </summary>
 			/// <param name="parent">
 			/// A <see cref="GeoTerrainDataset"/> that specify the parent dataset creating this instance.
 			/// </param>
+			/// <param name="dataset">
+			/// The <see cref="Dataset"/> corresponding to <paramref name="datasetPath"/>. This parameters is not
+			/// hold by this instance.
+			/// </param>
+			/// <param name="area">
+			/// 
+			/// </param>
 			/// <exception cref="ArgumentNullException">
-			/// Exception thrown if <paramref name="parent"/> is null.
+			/// Exception thrown if <paramref name="parent"/> or <paramref name="dataset"/> are null.
 			/// </exception>
-			protected GeoTerrainDataset(GeoTerrainDataset parent)
+			public GeoTerrainDataset(GeoTerrainDataset parent, Dataset dataset, Rectangle area)
 			{
 				if (parent == null)
 					throw new ArgumentNullException("parent");
+				if (dataset == null)
+					throw new ArgumentNullException("dataset");
 
 				Debug.Assert(parent.Path != null);
 				Path = parent.Path;
+				DatasetArea = area;
+				ExtractGeoInformation(dataset, DatasetArea);
 			}
 
 			#endregion
@@ -156,6 +137,11 @@ namespace OpenGL.Scene
 			/// Dataset path.
 			/// </summary>
 			public readonly string Path;
+
+			/// <summary>
+			/// The <see cref="Rectangle"/> defining the section of the dataset used for loading the relative image.
+			/// </summary>
+			public readonly Rectangle DatasetArea;
 
 			/// <summary>
 			/// Extract all information required from the specified dataset.
@@ -192,13 +178,16 @@ namespace OpenGL.Scene
 				double hp = ((h1 + h2) / 2.0) / (double)area.Height;
 
 				_TextelPrecision = (wp + hp) / 2.0;
-
-				
 			}
 
 			#endregion
 
 			#region Geographic References
+
+			/// <summary>
+			/// Area of the dataset.
+			/// </summary>
+			public GeoTreeArea Area { get { return (new GeoTreeArea(Position, Size));  } }
 
 			/// <summary>
 			/// Position of the center of the dataset, in degrees using geodedic coordinates.
@@ -298,7 +287,7 @@ namespace OpenGL.Scene
 						if (y + hBlock > dataset.RasterYSize)
 							hBlock = dataset.RasterYSize - y;
 
-						_Blocks.Add(new GeoTerrainDatasetBlock(this, dataset, new Rectangle(x, y, wBlock, hBlock)));
+						_Blocks.Add(new GeoTerrainDataset(this, dataset, new Rectangle(x, y, wBlock, hBlock)));
 					}
 				}
 				Debug.Assert(_Blocks.Count > 0);
@@ -321,7 +310,7 @@ namespace OpenGL.Scene
 			/// <summary>
 			/// Get the average precision of a dataset textel, in meters.
 			/// </summary>
-			private double TextelPrecision { get { return (_TextelPrecision); } }
+			public double TextelPrecision { get { return (_TextelPrecision); } }
 
 			/// <summary>
 			/// The average precision of a dataset textel, in meters.
@@ -338,16 +327,10 @@ namespace OpenGL.Scene
 			/// <returns>
 			/// It returns the <see cref="Image"/> relative to this geographic dataset.
 			/// </returns>
-			public virtual Image ExtractImage()
+			public virtual Image ExtractImage(uint lod)
 			{
-				return (ImageCodec.Instance.Load(Path));
+				return (ImageCodec.Instance.Load(Path, new ImageCodecCriteria(DatasetArea)));
 			}
-
-			#endregion
-
-			#region Mipmapping
-
-
 
 			#endregion
 
@@ -371,64 +354,77 @@ namespace OpenGL.Scene
 			#endregion
 		}
 
+		#endregion
+
+		#region Information Query
+
 		/// <summary>
-		/// Geographic dataset block.
+		/// Query information about a dataset modeling terrain information.
 		/// </summary>
-		[DebuggerDisplay("GeoTerrainDatasetBlock: Position={Position} Size={Size} Area={Area}")]
-		class GeoTerrainDatasetBlock : GeoTerrainDataset
+		/// <param name="databaseRootPath">
+		/// A <see cref="String"/> that specify the path of the directory containins the terrain information.
+		/// </param>
+		/// /// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="databaseRootPath"/> is null.
+		/// </exception>
+		public static void Query(string databaseRootPath)
 		{
-			#region Constructors
+			if (databaseRootPath == null)
+				throw new ArgumentNullException("databasePath");
 
-			/// <summary>
-			/// Construct a GeoTerrainDataset defining the database path.
-			/// </summary>
-			/// <param name="parent">
-			/// A <see cref="GeoTerrainDataset"/> that specify the parent dataset creating this instance.
-			/// </param>
-			/// <param name="dataset">
-			/// The <see cref="Dataset"/> corresponding to <paramref name="datasetPath"/>. This parameters is not
-			/// hold by this instance.
-			/// </param>
-			/// <param name="area">
-			/// 
-			/// </param>
-			/// <exception cref="ArgumentNullException">
-			/// Exception thrown if <paramref name="parent"/> or <paramref name="dataset"/> are null.
-			/// </exception>
-			public GeoTerrainDatasetBlock(GeoTerrainDataset parent, Dataset dataset, Rectangle area) : base(parent)
-			{
-				if (dataset == null)
-					throw new ArgumentNullException("dataset");
+			string[] datasetFiles = Directory.GetFiles(databaseRootPath, "*.*", SearchOption.AllDirectories);
 
-				Area = area;
-				ExtractGeoInformation(dataset, area);
+			foreach (string datasetPath in datasetFiles) {
+				try {
+					using (Dataset dataset = Gdal.OpenShared(datasetPath, Access.GA_ReadOnly)) {
+						GeoElevationTerrainDataset geoElevationTerrainDataset;
+
+						// Determine terrain dataset information and collect it
+						switch (dataset.GetDriver().ShortName) {
+							// Elevation datasets
+							case "EHdr":        // USGS DEM
+								if (datasetPath.ToLowerInvariant().EndsWith(".dem") == false)
+									continue;
+								geoElevationTerrainDataset = new GeoElevationTerrainDataset(datasetPath, dataset);
+								_GeoElevationTree.Insert(geoElevationTerrainDataset.Blocks);
+								break;
+							case "SRTMHGT":		// USGS SRTM
+								geoElevationTerrainDataset = new GeoElevationTerrainDataset(datasetPath, dataset);
+								_GeoElevationTree.Insert(geoElevationTerrainDataset.Blocks);
+								break;
+							default:
+								throw new NotSupportedException(String.Format("driver {0} is not supported"));
+						}
+
+						
+					}
+				} catch (Exception exception) {
+
+				}
 			}
+		}
 
-			#endregion
+		#endregion
 
-			#region Dataset Section
+		#region Elevation Queries
 
-			/// <summary>
-			/// The <see cref="Rectangle"/> defining the section of the dataset used for loading the relative image.
-			/// </summary>
-			public readonly Rectangle Area;
+		/// <summary>
+		/// Select terrain elevation blocks from the terrain database.
+		/// </summary>
+		/// <param name="area">
+		/// The <see cref="GeoTreeArea"/> that the returned items must intersect.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="ICollection{ITerrainBlock}"/> that intersect <paramref name="area"/>.
+		/// </returns>
+		public static ICollection<ITerrainBlock> SelectElevationBlocks(GeoTreeArea area)
+		{
+			List<ITerrainBlock> blocks = new List<ITerrainBlock>();
 
-			#endregion
+			foreach (ITerrainBlock block in _GeoElevationTree.Select(area))
+				blocks.Add(block);
 
-			#region GeoTerrainDataset Overrides
-
-			/// <summary>
-			/// Extract the image corresponding to this geographic dataset.
-			/// </summary>
-			/// <returns>
-			/// It returns the <see cref="Image"/> relative to this geographic dataset.
-			/// </returns>
-			public override Image ExtractImage()
-			{
-				return (ImageCodec.Instance.Load(Path, new ImageCodecCriteria(Area)));
-			}
-
-			#endregion
+			return (blocks);
 		}
 
 		/// <summary>
@@ -469,5 +465,7 @@ namespace OpenGL.Scene
 		/// node covers 0.70 x 0.35 degrees. Maybe lower depths have acceptable performances.
 		/// </remarks>
 		private static readonly GeoTree<GeoTerrainDataset> _GeoElevationTree = new GeoTree<GeoTerrainDataset>(8);
+
+		#endregion
 	}
 }
