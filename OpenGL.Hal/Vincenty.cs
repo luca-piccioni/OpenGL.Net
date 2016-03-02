@@ -60,24 +60,23 @@ namespace OpenGL
 			double sinα1 = Math.Sin(α1);
 			double cosα1 = Math.Cos(α1);
 
-			double tanU1 = (1 - f) * Math.Tan(φ1), cosU1 = 1 / Math.Sqrt((1 + tanU1 * tanU1)), sinU1 = tanU1 * cosU1;
+			double tanU1 = (1.0 - f) * Math.Tan(φ1), cosU1 = 1.0 / Math.Sqrt((1.0 + tanU1 * tanU1)), sinU1 = tanU1 * cosU1;
 			double σ1 = Math.Atan2(tanU1, cosα1);
 			double sinα = cosU1 * sinα1;
-			double cosSqα = 1 - sinα * sinα;
+			double cosSqα = 1.0 - sinα * sinα;
 			double uSq = cosSqα * (a * a - b * b) / (b * b);
-			double A = 1 + uSq / 16384 * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq)));
-			double B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)));
+			double A = 1 + uSq / 16384.0 * (4096.0 + uSq * (-768.0 + uSq * (320.0 - 175.0 * uSq)));
+			double B = uSq / 1024.0 * (256.0 + uSq * (-128.0 + uSq * (74.0 - 47.0 * uSq)));
 
 			double cos2σM, sinσ, cosσ, Δσ;
 
 			double σ = s / (b * A), σʹ;
 			int iterations = 0;
 			do {
-				cos2σM = Math.Cos(2 * σ1 + σ);
+				cos2σM = Math.Cos(2.0 * σ1 + σ);
 				sinσ = Math.Sin(σ);
 				cosσ = Math.Cos(σ);
-				Δσ = B * sinσ * (cos2σM + B / 4 * (cosσ * (-1 + 2 * cos2σM * cos2σM) -
-					B / 6 * cos2σM * (-3 + 4 * sinσ * sinσ) * (-3 + 4 * cos2σM * cos2σM)));
+				Δσ = B * sinσ * (cos2σM + B / 4 * (cosσ * (-1.0 + 2.0 * cos2σM * cos2σM) - B / 6.0 * cos2σM * (-3.0 + 4.0 * sinσ * sinσ) * (-3.0 + 4.0 * cos2σM * cos2σM)));
 				σʹ = σ;
 				σ = s / (b * A) + Δσ;
 			} while (Math.Abs(σ - σʹ) > Precision && ++iterations < MaxIterations);
@@ -85,14 +84,14 @@ namespace OpenGL
 			if (iterations >= MaxIterations) throw new Exception("failed to converge"); // not possible?
 
 			double x = sinU1 * sinσ - cosU1 * cosσ * cosα1;
-			double φ2 = Math.Atan2(sinU1 * cosσ + cosU1 * sinσ * cosα1, (1 - f) * Math.Sqrt(sinα * sinα + x * x));
+			double φ2 = Math.Atan2(sinU1 * cosσ + cosU1 * sinσ * cosα1, (1.0 - f) * Math.Sqrt(sinα * sinα + x * x));
 			double λ = Math.Atan2(sinσ * sinα1, cosU1 * cosσ - sinU1 * sinσ * cosα1);
-			double C = f / 16 * cosSqα * (4 + f * (4 - 3 * cosSqα));
-			double L = λ - (1 - C) * f * sinα * (σ + C * sinσ * (cos2σM + C * cosσ * (-1 + 2 * cos2σM * cos2σM)));
-			double λ2 = (λ1 + L + 3 * Math.PI) % (2 * Math.PI) - Math.PI;  // normalise to -180..+180
+			double C = f / 16.0 * cosSqα * (4 + f * (4 - 3 * cosSqα));
+			double L = λ - (1.0 - C) * f * sinα * (σ + C * sinσ * (cos2σM + C * cosσ * (-1.0 + 2.0 * cos2σM * cos2σM)));
+			double λ2 = (λ1 + L + 3.0 * Math.PI) % (2.0 * Math.PI) - Math.PI;  // normalise to -180..+180
 
 			double α2 = Math.Atan2(sinα, -x);
-			α2 = (α2 + 2 * Math.PI) % (2 * Math.PI); // normalise to 0..360
+			α2 = (α2 + 2.0 * Math.PI) % (2.0 * Math.PI); // normalise to 0..360
 
 			v2 = new Vertex2d(Angle.ToDegrees(λ2), Angle.ToDegrees(φ2));
 
@@ -119,8 +118,8 @@ namespace OpenGL
 			double φ2 = Angle.ToRadians(v2.y), λ2 = Angle.ToRadians(v2.x);
 
 			double L = λ2 - λ1;
-			double tanU1 = (1.0 - f) * Math.Tan(φ1), cosU1 = 1 / Math.Sqrt((1.0 + tanU1 * tanU1)), sinU1 = tanU1 * cosU1;
-			double tanU2 = (1.0 - f) * Math.Tan(φ2), cosU2 = 1 / Math.Sqrt((1.0 + tanU2 * tanU2)), sinU2 = tanU2 * cosU2;
+			double tanU1 = (1.0 - f) * Math.Tan(φ1), cosU1 = 1.0 / Math.Sqrt((1.0 + tanU1 * tanU1)), sinU1 = tanU1 * cosU1;
+			double tanU2 = (1.0 - f) * Math.Tan(φ2), cosU2 = 1.0 / Math.Sqrt((1.0 + tanU2 * tanU2)), sinU2 = tanU2 * cosU2;
 
 			double sinλ, cosλ, sinSqσ, sinσ, cosσ, σ, sinα, cosSqα, cos2σM, C;
 
@@ -137,12 +136,12 @@ namespace OpenGL
 				cosσ = sinU1 * sinU2 + cosU1 * cosU2 * cosλ;
 				σ = Math.Atan2(sinσ, cosσ);
 				sinα = cosU1 * cosU2 * sinλ / sinσ;
-				cosSqα = 1 - sinα * sinα;
-				cos2σM = cosσ - 2 * sinU1 * sinU2 / cosSqα;
+				cosSqα = 1.0 - sinα * sinα;
+				cos2σM = cosσ - 2.0 * sinU1 * sinU2 / cosSqα;
 				if (Double.IsNaN(cos2σM)) cos2σM = 0;               // equatorial line: cosSqα=0 (§6)
-				C = f / 16 * cosSqα * (4 + f * (4 - 3 * cosSqα));
+				C = f / 16.0 * cosSqα * (4.0 + f * (4.0 - 3.0 * cosSqα));
 				λʹ = λ;
-				λ = L + (1 - C) * f * sinα * (σ + C * sinσ * (cos2σM + C * cosσ * (-1 + 2 * cos2σM * cos2σM)));
+				λ = L + (1.0 - C) * f * sinα * (σ + C * sinσ * (cos2σM + C * cosσ * (-1.0 + 2.0 * cos2σM * cos2σM)));
 			} while (Math.Abs(λ - λʹ) > Precision && ++iterations < MaxIterations);
 
 			if (iterations >= MaxIterations)
@@ -151,15 +150,15 @@ namespace OpenGL
 			double uSq = cosSqα * (a * a - b * b) / (b * b);
 			double A = 1.0 + uSq / 16384.0 * (4096.0 + uSq * (-768.0 + uSq * (320.0 - 175.0 * uSq)));
 			double B = uSq / 1024.0 * (256.0 + uSq * (-128.0 + uSq * (74.0 - 47.0 * uSq)));
-			double Δσ = B * sinσ * (cos2σM + B / 4 * (cosσ * (-1 + 2 * cos2σM * cos2σM) - B / 6.0 * cos2σM * (-3.0 + 4.0 * sinσ * sinσ) * (-3.0 + 4.0 * cos2σM * cos2σM)));
+			double Δσ = B * sinσ * (cos2σM + B / 4.0 * (cosσ * (-1.0 + 2.0 * cos2σM * cos2σM) - B / 6.0 * cos2σM * (-3.0 + 4.0 * sinσ * sinσ) * (-3.0 + 4.0 * cos2σM * cos2σM)));
 
 			double s = b * A * (σ - Δσ);
 
 			double α1 = Math.Atan2(cosU2 * sinλ, cosU1 * sinU2 - sinU1 * cosU2 * cosλ);
 			double α2 = Math.Atan2(cosU1 * sinλ, -sinU1 * cosU2 + cosU1 * sinU2 * cosλ);
 
-			α1 = (α1 + 2 * Math.PI) % (2 * Math.PI); // normalise to 0..360
-			α2 = (α2 + 2 * Math.PI) % (2 * Math.PI); // normalise to 0..360
+			α1 = (α1 + 2.0 * Math.PI) % (2.0 * Math.PI); // normalise to 0..360
+			α2 = (α2 + 2.0 * Math.PI) % (2.0 * Math.PI); // normalise to 0..360
 
 			rng = s;
 			brg = Angle.ToDegrees(α1);      // Otherwise Angle.ToDegrees(α2)
