@@ -93,6 +93,8 @@ namespace OpenGL
 	{
 		#region Constructors
 
+		#region Static Constructor
+
 		/// <summary>
 		/// Static GraphicsContext constructor.
 		/// </summary>
@@ -238,7 +240,9 @@ namespace OpenGL
 		/// </summary>
 		internal static void Touch() { _CurrentCaps.GetHashCode(); }
 
-		// Constructors using implicit static IDeviceContext
+		#endregion
+
+		#region Constructor Overrides - Constructors using implicit static IDeviceContext
 
 		/// <summary>
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
@@ -345,7 +349,9 @@ namespace OpenGL
 
 		}
 
-		// Constructors specifying IDeviceContext
+		#endregion
+
+		#region Constructor Overrides -  Constructors specifying IDeviceContext
 
 		/// <summary>
 		/// Construct a GraphicsContext.
@@ -443,6 +449,8 @@ namespace OpenGL
 		{
 
 		}
+
+		#endregion
 
 		/// <summary>
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
@@ -624,20 +632,23 @@ namespace OpenGL
 					// Make current on this thread
 					MakeCurrent(deviceContext, true);
 
-					// Get the current OpenGL implementation supported by this GraphicsContext
+					// Get the current OpenGL and Shading Language implementation supported by this GraphicsContext
 					_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-					// Get the current OpenGL Shading Language implementation supported by this GraphicsContext
 					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
 					// Query context capabilities
 					_CapsStack.Push(GraphicsCapabilities.Query(this, deviceContext));
-
 					// Reserved object name space
 					_ObjectNameSpace = Guid.NewGuid();
-					// Create shader include library (GLSL #include support)
+
+					// Texture download
+					_TextureDownloadFramebuffer = new Framebuffer();
+					_TextureDownloadFramebuffer.Create(this);
+
+					// Shader include library (GLSL #include support)
 					_ShaderIncludeLibrary = new ShaderIncludeLibrary();
 					_ShaderIncludeLibrary.Create(this);
-					// Support IGraphicsResource Async methods
-					StartResourceThread();
+					// IGraphicsResource Async methods
+					StartAsyncResourceThread();
 
 					// Restore previous current context, if any. Otherwise, make uncurrent
 					if (prevContext != null)
@@ -645,13 +656,19 @@ namespace OpenGL
 					else
 						MakeCurrent(deviceContext, false);
 				} else {
-					// Sharing same object name space
+					// Not sure if really necessary
 					_CurrentDeviceContext = sharedContext._CurrentDeviceContext;
-					_ObjectNameSpace = sharedContext._ObjectNameSpace;
-					// Copy references
+
+					// Same version
 					_Version = sharedContext._Version;
 					_ShadingVersion = sharedContext._ShadingVersion;
+					// Same context capabilities
 					_CapsStack.Push(sharedContext._CapsStack.Peek());
+					// Sharing same object name space
+					_ObjectNameSpace = sharedContext._ObjectNameSpace;
+					// Texture download
+					_TextureDownloadFramebuffer = sharedContext._TextureDownloadFramebuffer;
+					// Reference shader include library (GLSL #include support)
 					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 				}
 			} catch {
@@ -1161,7 +1178,7 @@ namespace OpenGL
 		/// <summary>
 		/// Create context to be current on <see cref="_ResourceThread"/>, and start it.
 		/// </summary>
-		private void StartResourceThread()
+		private void StartAsyncResourceThread()
 		{
 			// Create a GraphicsContext that will be current on the resource thread
 			_ResourceContext = new GraphicsContext(_DeviceContext, this);
@@ -1264,6 +1281,35 @@ namespace OpenGL
 		/// Semaphore used for synchronizing accesses to <see cref="_ResourceQueue"/>.
 		/// </summary>
 		private readonly SemaphoreSlim _ResourceQueueSem = new SemaphoreSlim(0, 4);
+
+		#endregion
+
+		#region Texture Download
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="texture"></param>
+		/// <param name="layer"></param>
+		internal Image GetTextureImage(TextureArray2d texture, uint layer)
+		{
+			Image textureImage;
+
+			_TextureDownloadFramebuffer.BindDraw(this);
+			_TextureDownloadFramebuffer.DetachColors();
+			_TextureDownloadFramebuffer.AttachColor(0, texture, layer);
+
+			textureImage = _TextureDownloadFramebuffer.ReadColorBuffer(this, 0, 0, 0, texture.Width, texture.Height, texture.PixelLayout);
+
+			_TextureDownloadFramebuffer.UnbindDraw(this);
+
+			return (textureImage);
+		}
+
+		/// <summary>
+		/// Framebuffer used to support layered/3d texture data download.
+		/// </summary>
+		private readonly Framebuffer _TextureDownloadFramebuffer;
 
 		#endregion
 

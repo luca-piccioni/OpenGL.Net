@@ -267,30 +267,35 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for downloading texture data.
 		/// </param>
-		/// <param name="pType">
+		/// <param name="pixelType">
 		/// A <see cref="OpenGL.PixelLayout"/> determining the pixel format of the downloaded data.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="TextureTarget"/> that specify the texture target.
 		/// </param>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the texture level.
+		/// </param>
 		/// <returns>
-		/// 
+		/// It return the <see cref="Image"/> holding the content of this texture.
 		/// </returns>
-		protected Image[] Get(GraphicsContext ctx, PixelLayout pType, TextureTarget target)
+		protected Image Get(GraphicsContext ctx, PixelLayout pixelType, TextureTarget target, uint level)
 		{
+			CheckCurrentContext(ctx);
+
 			// Bind this Texture
 			ctx.Bind(this);
 
 			// Get texture extents
 			int width, height;
 
-			Gl.GetTexLevelParameter(TextureTarget, 0, GetTextureParameter.TextureWidth, out width);
-			Gl.GetTexLevelParameter(TextureTarget, 0, GetTextureParameter.TextureHeight, out height);
+			Gl.GetTexLevelParameter(TextureTarget, (int)level, GetTextureParameter.TextureWidth, out width);
+			Gl.GetTexLevelParameter(TextureTarget, (int)level, GetTextureParameter.TextureHeight, out height);
 			if ((width <= 0) || (height <= 0))
 				throw new InvalidOperationException(String.Format("invalid texture extents {0}x{1}", width, height));
 
 			// Create image
-			Image image = new Image(pType, (uint)width, (uint)height);
+			Image image = new Image(pixelType, (uint)width, (uint)height);
 
 			// Set pixel transfer
 			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
@@ -301,12 +306,12 @@ namespace OpenGL
 			}
 
 			// Download texture contents
-			Gl.GetTexImage(target, 0, Pixel.GetGlFormat(pType), Pixel.GetPixelType(pType), image.ImageBuffer);
+			Gl.GetTexImage(target, (int)level, Pixel.GetGlFormat(pixelType), Pixel.GetPixelType(pixelType), image.ImageBuffer);
 
 			// Unbind this texture
 			ctx.Unbind(this);
 
-			return (new Image[] { image });
+			return (image);
 		}
 
 		#endregion

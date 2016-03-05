@@ -740,14 +740,18 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for downloading texture data.
 		/// </param>
-		/// <param name="pType">
+		/// <param name="pixelFormat">
 		/// A <see cref="PixelLayout"/> determining the pixel format of the downloaded data.
 		/// </param>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the texture level.
+		/// </param>
 		/// <returns>
+		/// It return the <see cref="Image"/> holding the content of this texture.
 		/// </returns>
-		public Image Get(GraphicsContext ctx, PixelLayout pType)
+		public Image Get(GraphicsContext ctx, PixelLayout pixelFormat, uint level)
 		{
-			return (Get(ctx, pType, TextureTarget)[0]);
+			return (Get(ctx, pixelFormat, TextureTarget, level));
 		}
 
 		#endregion
