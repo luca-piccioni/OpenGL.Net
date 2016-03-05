@@ -28,3 +28,8 @@ packages
 /Samples/HelloWorld/Data/TerrainFileList.txt
 /Samples/HelloWorld/Data/dds.cr.usgs.gov
 /.vs/BindingsGen/v14
+/OpenGL.Hal.Plugins/PluginsSdk/*.user
+/OpenGL.Hal.Plugins/OpenGL.Hal.LibTIFF/Debug
+/OpenGL.Hal.Plugins/OpenGL.Hal.LibTIFF/Release
+/OpenGL.Hal.Plugins/PluginsSdk/Release
+/OpenGL.Hal.Plugins/PluginsSdk/Debug
