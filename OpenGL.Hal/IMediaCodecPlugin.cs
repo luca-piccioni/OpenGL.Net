@@ -30,6 +30,9 @@ namespace OpenGL
 	/// <typeparam name="TMediaInfo">
 	/// A <see cref="MediaInfo"/> that stored information about <typeparamref name="TMedia"/>
 	/// </typeparam>
+	/// <typeparam name="TMediaCodecCriteria">
+	/// A <see cref="MediaCodecCriteria"/> that specify codec parameters.
+	/// </typeparam>
 	public interface IMediaCodecPlugin<TMedia, TMediaInfo, TMediaCodecCriteria> : IPlugin
 		where TMedia : IMedia<TMediaInfo>
 		where TMediaInfo : MediaInfo

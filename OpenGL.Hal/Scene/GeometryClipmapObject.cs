@@ -650,6 +650,9 @@ namespace OpenGL.Scene
 				}
 
 				_ElevationFramebuffer.UnbindDraw(ctx);
+
+
+				//ImageCodec.Instance.Save(String.Format("Layer_{0}.png", i), elevationMap, ImageFormat.Png, new ImageCodecCriteria());
 #endif
 			}
 		}
