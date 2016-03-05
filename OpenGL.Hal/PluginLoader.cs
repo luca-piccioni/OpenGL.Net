@@ -179,23 +179,14 @@ namespace OpenGL
 			string[] sharedLibraries = Directory.GetFiles(pluginDir, "*.dll", SearchOption.TopDirectoryOnly);
 
 			sharedLibraries = Array.FindAll(sharedLibraries, delegate(string item) {
-				if (item.EndsWith("Derm.dll"))
+				if (item.EndsWith("OpenGL.Net.dll"))
 					return (false);
-				if (item.EndsWith("Derm.Shaders.dll"))
+				if (item.EndsWith("OpenGL.Hal.dll"))
 					return (false);
-				if (item.EndsWith("Derm.OpenGL.dll"))
-					return (false);
-				if (item.EndsWith("Derm.Platform.dll"))
-					return (false);
-				if (item.EndsWith("Derm.Platform.Unix.dll"))
-					return (false);
-
 				if (item.EndsWith("nunit.framework.dll"))
 					return (false);
-
 				if (item.EndsWith("log4net.dll"))
 					return (false);
-
 				if (item.EndsWith("gdal_csharp.dll"))
 					return (false);
 				if (item.EndsWith("ogr_csharp.dll"))
@@ -207,9 +198,9 @@ namespace OpenGL
 			});
 
 			foreach (string sharedLibrary in sharedLibraries) {
-				IEnumerable<T> plugins = LoadPlugin(sharedLibrary, pluginFactoryType);
-				if (plugins != null)
-					pluginList.AddRange(plugins);
+				T plugin = LoadPlugin(sharedLibrary, pluginFactoryType);
+				if (plugin != null)
+					pluginList.Add(plugin);
 			}
 
 			// Unmanaged plugins on Unix platforms
@@ -217,9 +208,9 @@ namespace OpenGL
 				case PlatformID.Unix:
 					sharedLibraries = Directory.GetFiles(pluginDir, "*.so", SearchOption.TopDirectoryOnly);
 					foreach (string sharedLibrary in sharedLibraries) {
-						IEnumerable<T> plugins = LoadPlugin(sharedLibrary, pluginFactoryType);
-						if (plugins != null)
-							pluginList.AddRange(plugins);
+						T plugin = LoadPlugin(sharedLibrary, pluginFactoryType);
+						if (plugin != null)
+							pluginList.Add(plugin);
 					}
 					break;
 			}
@@ -241,7 +232,7 @@ namespace OpenGL
 		/// <returns>
 		/// The plugin.
 		/// </returns>
-		protected IEnumerable<T> LoadPlugin(string pluginPath, string pluginFactoryType)
+		protected T LoadPlugin(string pluginPath, string pluginFactoryType)
 		{
 			if (pluginPath == null)
 				throw new ArgumentNullException("pluginPath");
@@ -307,7 +298,7 @@ namespace OpenGL
 		/// <exception cref="BadImageFormatException">
 		/// This exception is thrown if the file <paramref name="pluginPath"/> is not a valid assembly.
 		/// </exception>
-		protected virtual IEnumerable<T> LoadManagedPlugin(string pluginPath, string pluginFactoryType)
+		protected virtual T LoadManagedPlugin(string pluginPath, string pluginFactoryType)
 		{
 			if (pluginPath == null)
 				throw new ArgumentNullException("pluginPath");
@@ -336,10 +327,9 @@ namespace OpenGL
 				if (plugInstance == null)
 					throw new InvalidOperationException("plugin factory returned null plugin");
 
-				managedPlugins.Add((T)plugInstance);
-			}
-
-			return (managedPlugins.Count > 0 ? managedPlugins : null);
+				return ((T)plugInstance);
+			} else
+				return (null);
 		}
 
 		/// <summary>
@@ -351,27 +341,15 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// This exception is thrown if the parameter <paramref name="pluginPath"/> is null.
 		/// </exception>
-		protected virtual IEnumerable<T> LoadUnmanagedPlugin(string pluginPath)
+		protected virtual T LoadUnmanagedPlugin(string pluginPath)
 		{
 			if (pluginPath == null)
 				throw new ArgumentNullException("pluginPath");
 
-			// Unmanaged plugins are created by calling a specific constructor, which has a single argument
-			// taking the library path.
-			//
-			// Plugin types not following this convention cannot be loaded using this routine.
+			string unmanagedPluginName = typeof(T).Name.Substring(1);
+			Type unmanagedPluginType = Type.GetType(String.Format("OpenGL.{0}", unmanagedPluginName));
 
-			List<T> unmanagedPlugins = new List<T>();
-
-			try {
-				_Log.Debug("Loading unmanaged plugin from '{0}'.", Path.GetFileName(pluginPath));
-
-				unmanagedPlugins.Add((T)Activator.CreateInstance(typeof(T), pluginPath));
-			} catch (Exception exception) {
-				throw new InvalidOperationException(String.Format("{0} not a valid unmanaged plugin type", typeof(T)), exception);
-			}
-
-			return (unmanagedPlugins.Count > 0 ? unmanagedPlugins : null);
+			return (Activator.CreateInstance(unmanagedPluginType, pluginPath) as T);
 		}
 
 		#endregion

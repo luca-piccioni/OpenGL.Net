@@ -1062,18 +1062,17 @@ namespace OpenGL
 		/// <exception cref="BadImageFormatException">
 		/// This exception is thrown if the file <paramref name="pluginPath"/> is not a valid assembly.
 		/// </exception>
-		protected override IEnumerable<TPlugin> LoadManagedPlugin(string pluginPath, string pluginFactoryType)
+		protected override TPlugin LoadManagedPlugin(string pluginPath, string pluginFactoryType)
 		{
 			// Base implementation
-			IEnumerable<TPlugin> plugins = base.LoadManagedPlugin(pluginPath, pluginFactoryType);
+			TPlugin plugin = base.LoadManagedPlugin(pluginPath, pluginFactoryType);
 
 			// Check media formats on plugin type
-			if (plugins != null) {
-				foreach (TPlugin plugin in plugins)
-					ExtractDescriptions(plugin.GetType());
+			if (plugin != null) {
+				ExtractDescriptions(plugin.GetType());
 			}
 				
-			return (plugins);
+			return (plugin);
 		}
 
 		#endregion

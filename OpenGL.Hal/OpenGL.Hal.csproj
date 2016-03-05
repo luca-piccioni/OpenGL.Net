@@ -113,8 +113,11 @@
     <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
     <Compile Include="IGraphicsResource.Extensions.cs" />
+    <Compile Include="ImageCodecPlugin.cs" />
     <Compile Include="IProjectionMatrix.cs" />
+    <Compile Include="MediaCodecPlugin.cs" />
     <Compile Include="Plane.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
     <Compile Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\GeometryClipmapObject.cs" />
