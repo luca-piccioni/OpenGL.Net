@@ -49,7 +49,7 @@ namespace OpenGL
 			const int MaxIterations = 200;
 			const double Precision = 1e-12;
 
-			const double a = 6378137.0;			// Major axis
+			const double a = 6378137.0;			// Major axisσʹ
 			const double b = 6356752.3142;		// Minor axis
 			const double f = (a - b) / a;		// Flattening
 
@@ -70,16 +70,16 @@ namespace OpenGL
 
 			double cos2σM, sinσ, cosσ, Δσ;
 
-			double σ = s / (b * A), σʹ;
+			double σ = s / (b * A);
 			int iterations = 0;
 			do {
 				cos2σM = Math.Cos(2.0 * σ1 + σ);
 				sinσ = Math.Sin(σ);
 				cosσ = Math.Cos(σ);
 				Δσ = B * sinσ * (cos2σM + B / 4 * (cosσ * (-1.0 + 2.0 * cos2σM * cos2σM) - B / 6.0 * cos2σM * (-3.0 + 4.0 * sinσ * sinσ) * (-3.0 + 4.0 * cos2σM * cos2σM)));
-				σʹ = σ;
+				σ1 = σ;
 				σ = s / (b * A) + Δσ;
-			} while (Math.Abs(σ - σʹ) > Precision && ++iterations < MaxIterations);
+			} while (Math.Abs(σ - σ1) > Precision && ++iterations < MaxIterations);
 
 			if (iterations >= MaxIterations) throw new Exception("failed to converge"); // not possible?
 
@@ -125,7 +125,7 @@ namespace OpenGL
 
 			rng = brg = 0.0; // Suppose coincident points
 
-			double λ = L, λʹ;
+			double λ = L;
 			int iterations = 0;
 			do {
 				sinλ = Math.Sin(λ);
@@ -140,9 +140,9 @@ namespace OpenGL
 				cos2σM = cosσ - 2.0 * sinU1 * sinU2 / cosSqα;
 				if (Double.IsNaN(cos2σM)) cos2σM = 0;               // equatorial line: cosSqα=0 (§6)
 				C = f / 16.0 * cosSqα * (4.0 + f * (4.0 - 3.0 * cosSqα));
-				λʹ = λ;
+				λ1 = λ;
 				λ = L + (1.0 - C) * f * sinα * (σ + C * sinσ * (cos2σM + C * cosσ * (-1.0 + 2.0 * cos2σM * cos2σM)));
-			} while (Math.Abs(λ - λʹ) > Precision && ++iterations < MaxIterations);
+			} while (Math.Abs(λ - λ1) > Precision && ++iterations < MaxIterations);
 
 			if (iterations >= MaxIterations)
 				throw new Exception("failed to converge");
