@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("OpenGL.Net")]
 [assembly: AssemblyDescription("Modern C# bindings for OpenGL.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Luca Piccioni")]
 [assembly: AssemblyProduct("OpenGL.Net")]
-[assembly: AssemblyCopyright("Copyright (C) Luca Piccioni 2015")]
+[assembly: AssemblyCopyright("Copyright (C) Luca Piccioni 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.0.0.1")]
-[assembly: AssemblyFileVersion("0.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
