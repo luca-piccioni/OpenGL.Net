@@ -283,7 +283,6 @@ namespace OpenGL.Scene
 				texturePositionOffset = new Vertex2d(Math.Truncate(texturePositionOffset.x), Math.Truncate(texturePositionOffset.y));
 
 				// Determine the dataset section to load
-				Rectangle datasetSection = new Rectangle(0, 0, (int)_TerrainElevation.Width, (int)_TerrainElevation.Height);
 				Vertex2d rasterPosition = _CurrentTexPosition + (texturePositionOffset * Math.Pow(2.0, Lod));
 
 				double w2 = _TerrainElevation.Width / 2, h2 = _TerrainElevation.Height / 2;
@@ -296,6 +295,7 @@ namespace OpenGL.Scene
 				double x1 = rasterPosition.x - w2, x2 = rasterPosition.x + w2;
 				double y1 = rasterPosition.y - h2, y2 = rasterPosition.y + h2;
 
+				Rectangle datasetSection = new Rectangle();
 				datasetSection.X = (int)Math.Floor(x1);
 				datasetSection.Y = (int)Math.Floor(y1);
 				datasetSection.Width = (int)Math.Floor(x2 - x1);

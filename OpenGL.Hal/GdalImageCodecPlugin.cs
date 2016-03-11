@@ -368,11 +368,10 @@ namespace OpenGL
 				}
 
 				// Read raster
-				CPLErr err = band.ReadRaster(
+				CPLErr err = dataset.ReadRaster(
 					rasterSection.Value.X, rasterSection.Value.Y, rasterSection.Value.Width, rasterSection.Value.Height,
-					image.ImageBuffer,
-					(int)image.Width, (int)image.Height,
-					band.DataType, 0, 0
+					image.ImageBuffer, (int)image.Width, (int)image.Height,
+					band.DataType, 1, new int[] { bandIndex }, 0, 0, 0
 				);
 
 				// Error handling
