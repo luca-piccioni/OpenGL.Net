@@ -18,7 +18,7 @@
       - OpenGL for Windows (WGL) and relative extensions
       - OpenGL for X11 1.4 (XGL) and relative extensions
       - Native Platform Interface 1.5 (EGL) and relative extensions
-      Disclaimer: this binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
+      This binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
     </releaseNotes>
     <copyright>Copyright 2015-2016</copyright>
     <tags>OpenGL GLSL C# .Net</tags>
