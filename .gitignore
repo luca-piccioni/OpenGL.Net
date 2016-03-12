@@ -35,3 +35,4 @@ packages
 /OpenGL.Hal.Plugins/PluginsSdk/Debug
 /*.userprefs
 /*.zip
+/OpenGL.Net/*.nupkg

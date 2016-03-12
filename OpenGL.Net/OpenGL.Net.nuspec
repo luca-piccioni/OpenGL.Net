@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
+    <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>
+      *** Version 0.1.0
+      Binary release for OpenGL.Net. Exposes the following APIs:
+      - OpenGL 4.5 and relative extensions
+      - OpenGL for Windows (WGL) and relative extensions
+      - OpenGL for X11 1.4 (XGL) and relative extensions
+      - Native Platform Interface 1.5 (EGL) and relative extensions
+      Disclaimer: this binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
+    </releaseNotes>
+    <copyright>Copyright 2015-2016</copyright>
+    <tags>OpenGL GLSL C# .Net</tags>
+  </metadata>
+</package>
