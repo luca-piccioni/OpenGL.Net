@@ -36,3 +36,4 @@ packages
 /*.userprefs
 /*.zip
 /OpenGL.Net/*.nupkg
+/.vs
