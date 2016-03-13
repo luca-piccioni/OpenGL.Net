@@ -37,3 +37,4 @@ packages
 /*.zip
 /OpenGL.Net/*.nupkg
 /.vs
+/*.opendb
