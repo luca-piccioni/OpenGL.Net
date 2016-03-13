@@ -245,6 +245,8 @@
 	<type name="EGLDisplay" value="IntPtr" />
 	<type name="EGLImage" value="IntPtr" />
 	<type name="EGLImageKHR" value="IntPtr" />
+	<type name="EGLObjectKHR" value="IntPtr" />
+	<type name="EGLLabelKHR" value="IntPtr" />
 	<type name="EGLOutputLayerEXT" value="IntPtr" />
 	<type name="EGLOutputLayerEXT*" value="IntPtr*" />
 	<type name="EGLOutputPortEXT" value="IntPtr" />
@@ -268,6 +270,7 @@
 	<type name="EGLGetBlobFuncANDROID" value="GetBlobFuncDelegate" />
 	<type name="EGLClientPixmapHI" value="ClientPixmap" />
 	<type name="EGLClientPixmapHI*" value="ClientPixmap*" />
+	<type name="EGLDEBUGPROCKHR" value="DebugProcKHR" />
 
 	<!-- Bad decorators -->
 	<type name="GLfloatconst" value="float" />

@@ -28,11 +28,11 @@ namespace OpenGL
 		public partial class Extensions : ExtensionsCollection
 		{
 			/// <summary>
-			/// Support for extension EGL_KHR_gl_texture_3D_image.
+			/// Support for extension EGL_KHR_gl_renderbuffer_image.
 			/// </summary>
-			[Extension("EGL_KHR_gl_texture_3D_image")]
+			[Extension("EGL_KHR_gl_renderbuffer_image")]
 			[ExtensionSupport("egl")]
-			public bool GlTexture3DImage_KHR;
+			public bool GlRenderbufferImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_wait_sync.
@@ -196,18 +196,18 @@ namespace OpenGL
 			public bool GlTextureCubemapImage_KHR;
 
 			/// <summary>
+			/// Support for extension EGL_KHR_gl_texture_3D_image.
+			/// </summary>
+			[Extension("EGL_KHR_gl_texture_3D_image")]
+			[ExtensionSupport("egl")]
+			public bool GlTexture3DImage_KHR;
+
+			/// <summary>
 			/// Support for extension EGL_KHR_gl_texture_2D_image.
 			/// </summary>
 			[Extension("EGL_KHR_gl_texture_2D_image")]
 			[ExtensionSupport("egl")]
 			public bool GlTexture2DImage_KHR;
-
-			/// <summary>
-			/// Support for extension EGL_KHR_gl_renderbuffer_image.
-			/// </summary>
-			[Extension("EGL_KHR_gl_renderbuffer_image")]
-			[ExtensionSupport("egl")]
-			public bool GlRenderbufferImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_gl_colorspace.
@@ -229,6 +229,20 @@ namespace OpenGL
 			[Extension("EGL_KHR_fence_sync")]
 			[ExtensionSupport("egl")]
 			public bool FenceSync_KHR;
+
+			/// <summary>
+			/// Support for extension EGL_KHR_debug.
+			/// </summary>
+			[Extension("EGL_KHR_debug")]
+			[ExtensionSupport("egl")]
+			public bool Debug_KHR;
+
+			/// <summary>
+			/// Support for extension EGL_KHR_create_context_no_error.
+			/// </summary>
+			[Extension("EGL_KHR_create_context_no_error")]
+			[ExtensionSupport("egl")]
+			public bool CreateContextNoError_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_create_context.
@@ -306,6 +320,18 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_NV_stream_sync")]
 			public bool StreamSync_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_metadata.
+			/// </summary>
+			[Extension("EGL_NV_stream_metadata")]
+			public bool StreamMetadata_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_consumer_gltexture_yuv.
+			/// </summary>
+			[Extension("EGL_NV_stream_consumer_gltexture_yuv")]
+			public bool StreamConsumerGltextureYuv_NV;
 
 			/// <summary>
 			/// Support for extension EGL_NV_post_sub_buffer.
@@ -386,6 +412,12 @@ namespace OpenGL
 			public bool PlatformGbm_MESA;
 
 			/// <summary>
+			/// Support for extension EGL_MESA_image_dma_buf_export.
+			/// </summary>
+			[Extension("EGL_MESA_image_dma_buf_export")]
+			public bool ImageDmaBufExport_MESA;
+
+			/// <summary>
 			/// Support for extension EGL_MESA_drm_image.
 			/// </summary>
 			[Extension("EGL_MESA_drm_image")]
@@ -396,6 +428,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_ANDROID_image_native_buffer")]
 			public bool ImageNativeBuffer_ANDROID;
+
+			/// <summary>
+			/// Support for extension EGL_IMG_image_plane_attribs.
+			/// </summary>
+			[Extension("EGL_IMG_image_plane_attribs")]
+			public bool ImagePlaneAttribs_IMG;
 
 			/// <summary>
 			/// Support for extension EGL_IMG_context_priority.
@@ -414,6 +452,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_HI_clientpixmap")]
 			public bool Clientpixmap_HI;
+
+			/// <summary>
+			/// Support for extension EGL_EXT_yuv_surface.
+			/// </summary>
+			[Extension("EGL_EXT_yuv_surface")]
+			public bool YuvSurface_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_swap_buffers_with_damage.
@@ -488,10 +532,22 @@ namespace OpenGL
 			public bool ImageDmaBufImport_EXT;
 
 			/// <summary>
+			/// Support for extension EGL_EXT_device_query.
+			/// </summary>
+			[Extension("EGL_EXT_device_query")]
+			public bool DeviceQuery_EXT;
+
+			/// <summary>
 			/// Support for extension EGL_EXT_device_openwf.
 			/// </summary>
 			[Extension("EGL_EXT_device_openwf")]
 			public bool DeviceOpenwf_EXT;
+
+			/// <summary>
+			/// Support for extension EGL_EXT_device_enumeration.
+			/// </summary>
+			[Extension("EGL_EXT_device_enumeration")]
+			public bool DeviceEnumeration_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_device_drm.
@@ -546,6 +602,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_ANGLE_query_surface_pointer")]
 			public bool QuerySurfacePointer_ANGLE;
+
+			/// <summary>
+			/// Support for extension EGL_ANGLE_device_d3d.
+			/// </summary>
+			[Extension("EGL_ANGLE_device_d3d")]
+			public bool DeviceD3d_ANGLE;
 
 			/// <summary>
 			/// Support for extension EGL_ANGLE_d3d_share_handle_client_buffer.

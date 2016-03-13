@@ -137,6 +137,17 @@ namespace OpenGL
 		/// <param name="valueSize"></param>
 		public delegate void GetBlobFuncDelegate(IntPtr key, UInt32 keySize, [Out] IntPtr value, UInt32 valueSize);
 
+		/// <summary>
+		/// Delegate corresponding to EGLDEBUGPROCKHR.
+		/// </summary>
+		/// <param name="error"></param>
+		/// <param name="command"></param>
+		/// <param name="messageType"></param>
+		/// <param name="threadLabel"></param>
+		/// <param name="objectLabel"></param>
+		/// <param name="message"></param>
+		public delegate void DebugProcKHR(uint error, string command, int messageType, IntPtr threadLabel, IntPtr objectLabel, string message);
+
 		#endregion
 	}
 }

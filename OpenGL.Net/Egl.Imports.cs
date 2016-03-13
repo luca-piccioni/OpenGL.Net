@@ -139,6 +139,10 @@ namespace OpenGL
 			internal extern static unsafe IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDebugMessageControlKHR", ExactSpelling = true)]
+			internal extern static unsafe int eglDebugMessageControlKHR(DebugProcKHR callback, IntPtr* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglDestroyContext", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglDestroyContext(IntPtr dpy, IntPtr ctx);
 
@@ -173,6 +177,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglDupNativeFenceFDANDROID", ExactSpelling = true)]
 			internal extern static unsafe int eglDupNativeFenceFDANDROID(IntPtr dpy, IntPtr sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglExportDMABUFImageMESA", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglExportDMABUFImageMESA(IntPtr dpy, IntPtr image, int* fds, int* strides, int* offsets);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglExportDMABUFImageQueryMESA", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int* fourcc, int* num_planes, UInt64* modifiers);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglExportDRMImageMESA", ExactSpelling = true)]
@@ -259,6 +271,10 @@ namespace OpenGL
 			internal extern static unsafe IntPtr eglInitialize(IntPtr dpy, int* major, int* minor);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglLabelObjectKHR", ExactSpelling = true)]
+			internal extern static unsafe int eglLabelObjectKHR(IntPtr display, uint objectType, IntPtr @object, IntPtr label);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglLockSurfaceKHR", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
@@ -287,6 +303,10 @@ namespace OpenGL
 			internal extern static unsafe IntPtr eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryDebugKHR", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglQueryDebugKHR(int attribute, IntPtr* value);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryDeviceAttribEXT", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
 
@@ -301,6 +321,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryDisplayAttribEXT", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryDisplayAttribNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglQueryDisplayAttribNV(IntPtr dpy, int attribute, IntPtr* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryNativeDisplayNV", ExactSpelling = true)]
@@ -333,6 +357,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryStreamKHR", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryStreamMetadataNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglQueryStreamMetadataNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglQueryStreamTimeKHR", ExactSpelling = true)]
@@ -375,6 +403,10 @@ namespace OpenGL
 			internal extern static unsafe IntPtr eglSetDamageRegionKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSetStreamMetadataNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglSetStreamMetadataNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglSignalSyncKHR", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
 
@@ -393,6 +425,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglStreamConsumerGLTextureExternalKHR", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglStreamConsumerGLTextureExternalAttribsNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglStreamConsumerGLTextureExternalAttribsNV(IntPtr dpy, IntPtr stream, IntPtr *attrib_list);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglStreamConsumerOutputEXT", ExactSpelling = true)]

@@ -215,7 +215,6 @@
     <Compile Include="Egl.VERSION_1_5.cs" />
     <Compile Include="EglException.cs" />
     <Compile Include="EXT\Egl.EXT_create_context_robustness.cs" />
-    <Compile Include="EXT\Egl.EXT_device_base.cs" />
     <Compile Include="EXT\Egl.EXT_device_drm.cs" />
     <Compile Include="EXT\Egl.EXT_device_openwf.cs" />
     <Compile Include="EXT\Egl.EXT_image_dma_buf_import.cs" />
@@ -629,6 +628,16 @@
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
     <Compile Include="WIN\Gl.WIN_specular_fog.cs" />
     <Compile Include="XServerDeviceContext.cs" />
+    <Compile Include="ANGLE\Egl.ANGLE_device_d3d.cs" />
+    <Compile Include="EXT\Egl.EXT_device_enumeration.cs" />
+    <Compile Include="EXT\Egl.EXT_device_query.cs" />
+    <Compile Include="EXT\Egl.EXT_yuv_surface.cs" />
+    <Compile Include="IMG\Egl.IMG_image_plane_attribs.cs" />
+    <Compile Include="KHR\Egl.KHR_create_context_no_error.cs" />
+    <Compile Include="KHR\Egl.KHR_debug.cs" />
+    <Compile Include="MESA\Egl.MESA_image_dma_buf_export.cs" />
+    <Compile Include="NV\Egl.NV_stream_consumer_gltexture_yuv.cs" />
+    <Compile Include="NV\Egl.NV_stream_metadata.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

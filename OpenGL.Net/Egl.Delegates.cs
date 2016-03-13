@@ -190,6 +190,12 @@ namespace OpenGL
 			internal static eglCreateWindowSurface peglCreateWindowSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int eglDebugMessageControlKHR(DebugProcKHR callback, IntPtr* attrib_list);
+
+			[ThreadStatic]
+			internal static eglDebugMessageControlKHR peglDebugMessageControlKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglDestroyContext(IntPtr dpy, IntPtr ctx);
 
 			[ThreadStatic]
@@ -234,6 +240,18 @@ namespace OpenGL
 
 			[ThreadStatic]
 			internal static eglDupNativeFenceFDANDROID peglDupNativeFenceFDANDROID;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglExportDMABUFImageMESA(IntPtr dpy, IntPtr image, int* fds, int* strides, int* offsets);
+
+			[ThreadStatic]
+			internal static eglExportDMABUFImageMESA peglExportDMABUFImageMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int* fourcc, int* num_planes, UInt64* modifiers);
+
+			[ThreadStatic]
+			internal static eglExportDMABUFImageQueryMESA peglExportDMABUFImageQueryMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglExportDRMImageMESA(IntPtr dpy, IntPtr image, int* name, int* handle, int* stride);
@@ -362,6 +380,12 @@ namespace OpenGL
 			internal static eglInitialize peglInitialize;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int eglLabelObjectKHR(IntPtr display, uint objectType, IntPtr @object, IntPtr label);
+
+			[ThreadStatic]
+			internal static eglLabelObjectKHR peglLabelObjectKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
 			[ThreadStatic]
@@ -404,6 +428,12 @@ namespace OpenGL
 			internal static eglQueryContext peglQueryContext;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglQueryDebugKHR(int attribute, IntPtr* value);
+
+			[ThreadStatic]
+			internal static eglQueryDebugKHR peglQueryDebugKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
 
 			[ThreadStatic]
@@ -424,6 +454,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
 
+			[AliasOf("eglQueryDisplayAttribEXT")]
+			[AliasOf("eglQueryDisplayAttribNV")]
 			[ThreadStatic]
 			internal static eglQueryDisplayAttribEXT peglQueryDisplayAttribEXT;
 
@@ -474,6 +506,12 @@ namespace OpenGL
 
 			[ThreadStatic]
 			internal static eglQueryStreamKHR peglQueryStreamKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglQueryStreamMetadataNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data);
+
+			[ThreadStatic]
+			internal static eglQueryStreamMetadataNV peglQueryStreamMetadataNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
@@ -536,6 +574,12 @@ namespace OpenGL
 			internal static eglSetDamageRegionKHR peglSetDamageRegionKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglSetStreamMetadataNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data);
+
+			[ThreadStatic]
+			internal static eglSetStreamMetadataNV peglSetStreamMetadataNV;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
 
 			[ThreadStatic]
@@ -564,6 +608,12 @@ namespace OpenGL
 
 			[ThreadStatic]
 			internal static eglStreamConsumerGLTextureExternalKHR peglStreamConsumerGLTextureExternalKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglStreamConsumerGLTextureExternalAttribsNV(IntPtr dpy, IntPtr stream, IntPtr *attrib_list);
+
+			[ThreadStatic]
+			internal static eglStreamConsumerGLTextureExternalAttribsNV peglStreamConsumerGLTextureExternalAttribsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglStreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer);

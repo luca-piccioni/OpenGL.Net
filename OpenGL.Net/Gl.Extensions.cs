@@ -3801,6 +3801,12 @@ namespace OpenGL
 			public bool ShaderFramebufferFetch_EXT;
 
 			/// <summary>
+			/// Support for extension GL_EXT_shader_group_vote.
+			/// </summary>
+			[Extension("GL_EXT_shader_group_vote")]
+			public bool ShaderGroupVote_EXT;
+
+			/// <summary>
 			/// Support for extension GL_EXT_shader_implicit_conversions.
 			/// </summary>
 			[Extension("GL_EXT_shader_implicit_conversions")]
@@ -3817,6 +3823,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_shader_pixel_local_storage")]
 			public bool ShaderPixelLocalStorage_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_shader_pixel_local_storage2.
+			/// </summary>
+			[Extension("GL_EXT_shader_pixel_local_storage2")]
+			public bool ShaderPixelLocalStorage2_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_shader_texture_lod.
@@ -3925,6 +3937,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_FJ_shader_binary_GCCSO")]
 			public bool ShaderBinaryGCCSO_FJ;
+
+			/// <summary>
+			/// Support for extension GL_IMG_framebuffer_downsample.
+			/// </summary>
+			[Extension("GL_IMG_framebuffer_downsample")]
+			public bool FramebufferDownsample_IMG;
 
 			/// <summary>
 			/// Support for extension GL_IMG_multisampled_render_to_texture.
