@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,7 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 using BindingsGen.GLSpecs;
@@ -51,6 +53,20 @@ namespace BindingsGen
 		{
 			// Store the class
 			Class = @class;
+			// Set supported APIs
+			List<string> apis = new List<string>();
+
+			apis.Add(Class.ToLower());
+
+			if (Class == "Gl") {
+				// No need to add glcore, since gl is still a superset of glcore
+				// apis.Add("glcore");
+				// Support GS ES 1/2
+				apis.Add("gles1");
+				apis.Add("gles2");
+			}
+
+			SupportedApi = apis.ToArray();
 			// Loads the extension dictionary
 			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");
 			// Loads the words dictionary
@@ -63,9 +79,39 @@ namespace BindingsGen
 		}
 
 		/// <summary>
+		/// Determine whether an API element is supported by the generated class.
+		/// </summary>
+		/// <param name="api">
+		/// A <see cref="String"/> that specify the regular expression of the API element to be evaluated.
+		/// </param>
+		/// <returns>
+		/// It returns true if <paramref name="api"/> specify a supported API.
+		/// </returns>
+		public bool IsSupportedApi(string api)
+		{
+			if (api == null)
+				throw new ArgumentNullException("api");
+
+			string regexApi = String.Format("^{0}$", api);
+
+			foreach (string supportedApi in SupportedApi) {
+				if (Regex.IsMatch(supportedApi, regexApi))
+					return (true);
+			}
+				
+
+			return (false);
+		}
+
+		/// <summary>
 		/// The name of the class to be generated.
 		/// </summary>
 		public readonly string Class;
+
+		/// <summary>
+		/// The set of API supported by generated class.
+		/// </summary>
+		public readonly string[] SupportedApi;
 
 		/// <summary>
 		/// The OpenGL specification registry.

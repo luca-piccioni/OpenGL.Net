@@ -51,15 +51,6 @@ namespace BindingsGen
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
 			}
 
-#if false
-			// OpenGL ES
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gles"); }) >= 0)) {
-				ctx = new RegistryContext("Gles", Path.Combine(BasePath, "GLSpecs/gl.xml"));
-				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
-			}
-#endif
-
 			// OpenGL for Windows
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
 				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
@@ -112,6 +103,8 @@ namespace BindingsGen
 			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Enums.cs", ctx.Class)), null);
 			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Imports.cs", ctx.Class)), null);
 			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Delegates.cs", ctx.Class)), delegate(Command command) {
+				if (command.Alias != null)
+					Console.WriteLine("  Skip command {0}: alias of {1}", command.Prototype.Name, command.Alias.Name);
 				return (command.Alias == null);
 			});
 
@@ -124,8 +117,11 @@ namespace BindingsGen
 				#region Select enumerants and commands
 
 				foreach (FeatureCommand featureCommand in feature.Requirements) {
-					if (featureCommand.Api != null && !Regex.IsMatch(ctx.Class.ToLower(), featureCommand.Api))
+					if (featureCommand.Api != null && !ctx.IsSupportedApi(featureCommand.Api)) {
+						Console.WriteLine("Skip command: API {1} not supported", featureCommand.Api);
 						continue;
+					}
+						
 
 					foreach (FeatureCommand.Item featureCommandItem in featureCommand.Commands) {
 						Command command = ctx.Registry.GetCommand(featureCommandItem.Name);
@@ -301,8 +297,12 @@ namespace BindingsGen
 					sw.WriteLine("/// <summary>");
 					sw.WriteLine("/// Support for extension {0}.", mainFeature.Name);
 					sw.WriteLine("/// </summary>");
-					foreach (IFeature feature in pair.Value)
-						sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+					foreach (IFeature feature in pair.Value) {
+						if (feature.Api != null && feature.Api != ctx.Class.ToLower())
+							sw.WriteLine("[Extension(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+						else
+							sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+					}
 
 					Extension mainExtension = (Extension)mainFeature;
 					if (String.IsNullOrEmpty(mainExtension.Supported) == false)
@@ -319,8 +319,12 @@ namespace BindingsGen
 					sw.WriteLine("/// <summary>");
 					sw.WriteLine("/// Support for extension {0}.", mainFeature.Name);
 					sw.WriteLine("/// </summary>");
-					foreach (IFeature feature in pair.Value)
-						sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+					foreach (IFeature feature in pair.Value) {
+						if (feature.Api != null && feature.Api != ctx.Class.ToLower())
+							sw.WriteLine("[Extension(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+						else
+							sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+					}
 
 					sw.WriteLine("public bool {0};", extensionFieldName);
 					sw.WriteLine();

@@ -161,14 +161,14 @@ namespace BindingsGen.GLSpecs
 		public IEnumerable<IFeature> AllFeatures(RegistryContext ctx)
 		{
 			foreach (Feature feature in Features) {
-				if (feature.Api == ctx.Class.ToLower())
+				if (ctx.IsSupportedApi(feature.Api))
 					yield return feature;
 			}
 
 			List<Extension> extensions = new List<Extension>(Extensions);
 
 			extensions.RemoveAll(delegate(Extension item) {
-				return (item.Supported != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Supported));
+				return (item.Supported != null && !ctx.IsSupportedApi(item.Supported));
 			});
 
 			extensions.Sort(delegate(Extension x, Extension y) {
@@ -219,7 +219,7 @@ namespace BindingsGen.GLSpecs
 
 			// Index required enumerants
 			foreach (Enumerant enumerant in Enumerants) {
-				if ((enumerant.Api == null) || (Regex.IsMatch(ctx.Class.ToUpperInvariant(), enumerant.Api)))
+				if ((enumerant.Api == null) || (ctx.IsSupportedApi(enumerant.Api)))
 					mEnumerantRegistry[enumerant.Name] = enumerant;
 			}
 			// Link enumerant aliases

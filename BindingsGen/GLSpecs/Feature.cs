@@ -104,6 +104,11 @@ namespace BindingsGen.GLSpecs
 		}
 
 		/// <summary>
+		/// Get the name of the API(s) supporting this IFeature.
+		/// </summary>
+		string IFeature.Api { get { return (Api); } }
+
+		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (Requirements); } }

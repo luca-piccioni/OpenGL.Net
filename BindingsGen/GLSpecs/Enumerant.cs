@@ -168,11 +168,11 @@ namespace BindingsGen.GLSpecs
 
 			// Features
 			foreach (Feature feature in ctx.Registry.Features) {
-				if (feature.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), feature.Api))
+				if (feature.Api != null && !ctx.IsSupportedApi(feature.Api))
 					continue;
 
 				int requirementIndex = feature.Requirements.FindIndex(delegate(FeatureCommand item) {
-					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
 						return (false);
 
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
@@ -188,11 +188,11 @@ namespace BindingsGen.GLSpecs
 
 			// Extensions
 			foreach (Extension extension in ctx.Registry.Extensions) {
-				if (extension.Supported != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), extension.Supported))
+				if (extension.Supported != null && !ctx.IsSupportedApi(extension.Supported))
 					continue;
 
 				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
-					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
 						return (false);
 
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
@@ -224,11 +224,11 @@ namespace BindingsGen.GLSpecs
 
 			// Features
 			foreach (Feature feature in ctx.Registry.Features) {
-				if (feature.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), feature.Api))
+				if (feature.Api != null && !ctx.IsSupportedApi(feature.Api))
 					continue;
 
 				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
-					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
 						return (false);
 
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
@@ -279,17 +279,32 @@ namespace BindingsGen.GLSpecs
 
 			RegistryDocumentation.GenerateDocumentation(sw, ctx, this);
 
+			string classDefaultApi = ctx.Class.ToLower();
+
 			foreach (Enumerant aliasOf in AliasOf)
 				sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.Name);
 
-			foreach (IFeature feature in RequiredBy)
-				sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
-			foreach (Enumerant aliasOf in AliasOf) {
-				foreach (IFeature feature in aliasOf.RequiredBy)
+			foreach (IFeature feature in RequiredBy) {
+				if (feature.Api != null && feature.Api != classDefaultApi)
+					sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+				else
 					sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
 			}
-			foreach (IFeature feature in RemovedBy)
-				sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
+
+			foreach (Enumerant aliasOf in AliasOf) {
+				foreach (IFeature feature in aliasOf.RequiredBy) {
+					if (feature.Api != null && feature.Api != classDefaultApi)
+						sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+					else
+						sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+				}
+			}
+			foreach (IFeature feature in RemovedBy) {
+				if (feature.Api != null && feature.Api != classDefaultApi)
+					sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+				else
+					sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
+			}
 
 			// This metadata is used for procedure logging function
 			bool requiresLogAttribute = ParentEnumerantBlock.Type == "bitmask";

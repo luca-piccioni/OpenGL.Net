@@ -9,7 +9,9 @@
 	<word>ARB</word>
 	<word>ARM</word>
 	<word>ATI</word>
+  <word>DMP</word>
 	<word>EXT</word>
+  <word>FG</word>
 	<word>GREMEDY</word>
 	<word>HI</word>
 	<word>HP</word>
@@ -39,5 +41,6 @@
 	<word>SUN</word>
 	<word>SUNX</word>
 	<word>TIZEN</word>
+  <word>VIV</word>
 	<word>WIN</word>
 </words>
