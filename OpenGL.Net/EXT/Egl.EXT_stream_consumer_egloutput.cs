@@ -40,13 +40,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_stream_consumer_egloutput")]
-		public static IntPtr StreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer)
+		public static bool StreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglStreamConsumerOutputEXT != null, "peglStreamConsumerOutputEXT not implemented");
 			retValue = Delegates.peglStreamConsumerOutputEXT(dpy, stream, layer);
-			LogFunction("eglStreamConsumerOutputEXT(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), layer.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglStreamConsumerOutputEXT(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), layer.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

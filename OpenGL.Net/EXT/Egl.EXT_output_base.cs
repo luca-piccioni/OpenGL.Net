@@ -76,9 +76,9 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr GetOutputLayersEXT(IntPtr dpy, IntPtr[] attrib_list, [Out] IntPtr[] layers, int max_layers, [Out] int[] num_layers)
+		public static bool GetOutputLayersEXT(IntPtr dpy, IntPtr[] attrib_list, [Out] IntPtr[] layers, int max_layers, [Out] int[] num_layers)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_attrib_list = attrib_list)
@@ -87,7 +87,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetOutputLayersEXT != null, "peglGetOutputLayersEXT not implemented");
 					retValue = Delegates.peglGetOutputLayersEXT(dpy, p_attrib_list, p_layers, max_layers, p_num_layers);
-					LogFunction("eglGetOutputLayersEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), LogValue(attrib_list), LogValue(layers), max_layers, LogValue(num_layers), retValue.ToString("X8"));
+					LogFunction("eglGetOutputLayersEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), LogValue(attrib_list), LogValue(layers), max_layers, LogValue(num_layers), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -114,9 +114,9 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr GetOutputPortsEXT(IntPtr dpy, IntPtr[] attrib_list, [Out] IntPtr[] ports, int max_ports, [Out] int[] num_ports)
+		public static bool GetOutputPortsEXT(IntPtr dpy, IntPtr[] attrib_list, [Out] IntPtr[] ports, int max_ports, [Out] int[] num_ports)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_attrib_list = attrib_list)
@@ -125,7 +125,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetOutputPortsEXT != null, "peglGetOutputPortsEXT not implemented");
 					retValue = Delegates.peglGetOutputPortsEXT(dpy, p_attrib_list, p_ports, max_ports, p_num_ports);
-					LogFunction("eglGetOutputPortsEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), LogValue(attrib_list), LogValue(ports), max_ports, LogValue(num_ports), retValue.ToString("X8"));
+					LogFunction("eglGetOutputPortsEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), LogValue(attrib_list), LogValue(ports), max_ports, LogValue(num_ports), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -149,13 +149,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr OutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr value)
+		public static bool OutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglOutputLayerAttribEXT != null, "peglOutputLayerAttribEXT not implemented");
 			retValue = Delegates.peglOutputLayerAttribEXT(dpy, layer, attribute, value);
-			LogFunction("eglOutputLayerAttribEXT(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), layer.ToString("X8"), attribute, value.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglOutputLayerAttribEXT(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), layer.ToString("X8"), attribute, value.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -177,16 +177,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr QueryOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr[] value)
+		public static bool QueryOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryOutputLayerAttribEXT != null, "peglQueryOutputLayerAttribEXT not implemented");
 					retValue = Delegates.peglQueryOutputLayerAttribEXT(dpy, layer, attribute, p_value);
-					LogFunction("eglQueryOutputLayerAttribEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), layer.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryOutputLayerAttribEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), layer.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -235,13 +235,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr OutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr value)
+		public static bool OutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglOutputPortAttribEXT != null, "peglOutputPortAttribEXT not implemented");
 			retValue = Delegates.peglOutputPortAttribEXT(dpy, port, attribute, value);
-			LogFunction("eglOutputPortAttribEXT(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), port.ToString("X8"), attribute, value.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglOutputPortAttribEXT(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), port.ToString("X8"), attribute, value.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -263,16 +263,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr QueryOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr[] value)
+		public static bool QueryOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryOutputPortAttribEXT != null, "peglQueryOutputPortAttribEXT not implemented");
 					retValue = Delegates.peglQueryOutputPortAttribEXT(dpy, port, attribute, p_value);
-					LogFunction("eglQueryOutputPortAttribEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), port.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryOutputPortAttribEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), port.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

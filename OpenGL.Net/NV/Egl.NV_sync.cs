@@ -124,13 +124,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_sync")]
-		public static IntPtr DestroySyncNV(IntPtr sync)
+		public static bool DestroySyncNV(IntPtr sync)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglDestroySyncNV != null, "peglDestroySyncNV not implemented");
 			retValue = Delegates.peglDestroySyncNV(sync);
-			LogFunction("eglDestroySyncNV(0x{0}) = {1}", sync.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglDestroySyncNV(0x{0}) = {1}", sync.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -143,13 +143,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_sync")]
-		public static IntPtr FenceNV(IntPtr sync)
+		public static bool FenceNV(IntPtr sync)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglFenceNV != null, "peglFenceNV not implemented");
 			retValue = Delegates.peglFenceNV(sync);
-			LogFunction("eglFenceNV(0x{0}) = {1}", sync.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglFenceNV(0x{0}) = {1}", sync.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -190,13 +190,13 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_sync")]
-		public static IntPtr SignalSyncNV(IntPtr sync, uint mode)
+		public static bool SignalSyncNV(IntPtr sync, uint mode)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglSignalSyncNV != null, "peglSignalSyncNV not implemented");
 			retValue = Delegates.peglSignalSyncNV(sync, mode);
-			LogFunction("eglSignalSyncNV(0x{0}, {1}) = {2}", sync.ToString("X8"), mode, retValue.ToString("X8"));
+			LogFunction("eglSignalSyncNV(0x{0}, {1}) = {2}", sync.ToString("X8"), mode, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -215,16 +215,16 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_sync")]
-		public static IntPtr GetSyncAttribNV(IntPtr sync, int attribute, [Out] int[] value)
+		public static bool GetSyncAttribNV(IntPtr sync, int attribute, [Out] int[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.peglGetSyncAttribNV != null, "peglGetSyncAttribNV not implemented");
 					retValue = Delegates.peglGetSyncAttribNV(sync, attribute, p_value);
-					LogFunction("eglGetSyncAttribNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglGetSyncAttribNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

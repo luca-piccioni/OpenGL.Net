@@ -43,13 +43,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
-		public static IntPtr StreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream)
+		public static bool StreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglStreamConsumerGLTextureExternalKHR != null, "peglStreamConsumerGLTextureExternalKHR not implemented");
 			retValue = Delegates.peglStreamConsumerGLTextureExternalKHR(dpy, stream);
-			LogFunction("eglStreamConsumerGLTextureExternalKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglStreamConsumerGLTextureExternalKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -65,13 +65,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
-		public static IntPtr StreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream)
+		public static bool StreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglStreamConsumerAcquireKHR != null, "peglStreamConsumerAcquireKHR not implemented");
 			retValue = Delegates.peglStreamConsumerAcquireKHR(dpy, stream);
-			LogFunction("eglStreamConsumerAcquireKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglStreamConsumerAcquireKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -87,13 +87,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
-		public static IntPtr StreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream)
+		public static bool StreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglStreamConsumerReleaseKHR != null, "peglStreamConsumerReleaseKHR not implemented");
 			retValue = Delegates.peglStreamConsumerReleaseKHR(dpy, stream);
-			LogFunction("eglStreamConsumerReleaseKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglStreamConsumerReleaseKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

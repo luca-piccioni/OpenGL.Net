@@ -89,7 +89,7 @@ namespace OpenGL
 		/// <summary>
 		/// The opened display.
 		/// </summary>
-		private readonly IntPtr _Display;
+		private IntPtr _Display;
 
 		/// <summary>
 		/// The frame buffer configuration.
@@ -168,7 +168,7 @@ namespace OpenGL
 		/// </exception>
 		public override bool MakeCurrent(IntPtr ctx)
 		{
-			return (Egl.MakeCurrent(_Display, IntPtr.Zero, IntPtr.Zero, ctx) != IntPtr.Zero);
+			return (Egl.MakeCurrent(_Display, IntPtr.Zero, IntPtr.Zero, ctx));
 		}
 
 		/// <summary>
@@ -217,7 +217,7 @@ namespace OpenGL
 		/// </returns>
 		public override bool SwapInterval(int interval)
 		{
-			return (Egl.SwapInterval(_Display, interval) != IntPtr.Zero);
+			return (Egl.SwapInterval(_Display, interval));
 		}
 
 		/// <summary>
@@ -229,7 +229,6 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
 		public override Exception GetPlatformException()
 		{
 			return (null);
@@ -272,7 +271,10 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				
+				if (_Display != IntPtr.Zero) {
+					Egl.Terminate(_Display);
+					_Display = IntPtr.Zero;
+				}
 			}
 		}
 

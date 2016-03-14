@@ -591,9 +591,9 @@ namespace OpenGL
 		/// Returns the number of frame buffer configurations returned.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, int[] num_config)
+		public static bool ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, int[] num_config)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_attrib_list = attrib_list)
@@ -602,7 +602,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglChooseConfig != null, "peglChooseConfig not implemented");
 					retValue = Delegates.peglChooseConfig(dpy, p_attrib_list, p_configs, config_size, p_num_config);
-					LogFunction("eglChooseConfig(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), LogValue(attrib_list), LogValue(configs), config_size, LogValue(num_config), retValue.ToString("X8"));
+					LogFunction("eglChooseConfig(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), LogValue(attrib_list), LogValue(configs), config_size, LogValue(num_config), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -623,13 +623,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr CopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target)
+		public static bool CopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglCopyBuffers != null, "peglCopyBuffers not implemented");
 			retValue = Delegates.peglCopyBuffers(dpy, surface, target);
-			LogFunction("eglCopyBuffers(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), target.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglCopyBuffers(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), target.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -777,13 +777,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr DestroyContext(IntPtr dpy, IntPtr ctx)
+		public static bool DestroyContext(IntPtr dpy, IntPtr ctx)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglDestroyContext != null, "peglDestroyContext not implemented");
 			retValue = Delegates.peglDestroyContext(dpy, ctx);
-			LogFunction("eglDestroyContext(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), ctx.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglDestroyContext(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), ctx.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -799,13 +799,13 @@ namespace OpenGL
 		/// Specifies the EGL surface to be destroyed.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr DestroySurface(IntPtr dpy, IntPtr surface)
+		public static bool DestroySurface(IntPtr dpy, IntPtr surface)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglDestroySurface != null, "peglDestroySurface not implemented");
 			retValue = Delegates.peglDestroySurface(dpy, surface);
-			LogFunction("eglDestroySurface(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglDestroySurface(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -827,16 +827,16 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
+		public static bool GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.peglGetConfigAttrib != null, "peglGetConfigAttrib not implemented");
 					retValue = Delegates.peglGetConfigAttrib(dpy, config, attribute, p_value);
-					LogFunction("eglGetConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglGetConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -860,9 +860,9 @@ namespace OpenGL
 		/// Returns the number of configs returned.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, [Out] int[] num_config)
+		public static bool GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, [Out] int[] num_config)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_configs = configs)
@@ -870,7 +870,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetConfigs != null, "peglGetConfigs not implemented");
 					retValue = Delegates.peglGetConfigs(dpy, p_configs, config_size, p_num_config);
-					LogFunction("eglGetConfigs(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), LogValue(configs), config_size, LogValue(num_config), retValue.ToString("X8"));
+					LogFunction("eglGetConfigs(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), LogValue(configs), config_size, LogValue(num_config), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -927,7 +927,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglGetDisplay != null, "peglGetDisplay not implemented");
 			retValue = Delegates.peglGetDisplay(display_id);
 			LogFunction("eglGetDisplay(0x{0}) = {1}", display_id.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -979,9 +978,9 @@ namespace OpenGL
 		/// Returns the minor version number of the EGL implementation. May be Egl..
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr Initialize(IntPtr dpy, int[] major, int[] minor)
+		public static bool Initialize(IntPtr dpy, int[] major, int[] minor)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_major = major)
@@ -989,7 +988,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglInitialize != null, "peglInitialize not implemented");
 					retValue = Delegates.peglInitialize(dpy, p_major, p_minor);
-					LogFunction("eglInitialize(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), LogValue(major), LogValue(minor), retValue.ToString("X8"));
+					LogFunction("eglInitialize(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), LogValue(major), LogValue(minor), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1013,13 +1012,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr MakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx)
+		public static bool MakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglMakeCurrent != null, "peglMakeCurrent not implemented");
 			retValue = Delegates.peglMakeCurrent(dpy, draw, read, ctx);
-			LogFunction("eglMakeCurrent(0x{0}, 0x{1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), draw.ToString("X8"), read.ToString("X8"), ctx.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglMakeCurrent(0x{0}, 0x{1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), draw.ToString("X8"), read.ToString("X8"), ctx.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1041,16 +1040,16 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
+		public static bool QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryContext != null, "peglQueryContext not implemented");
 					retValue = Delegates.peglQueryContext(dpy, ctx, attribute, p_value);
-					LogFunction("eglQueryContext(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), ctx.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryContext(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), ctx.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1096,16 +1095,16 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr QuerySurface(IntPtr dpy, IntPtr surface, int attribute, int[] value)
+		public static bool QuerySurface(IntPtr dpy, IntPtr surface, int attribute, int[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQuerySurface != null, "peglQuerySurface not implemented");
 					retValue = Delegates.peglQuerySurface(dpy, surface, attribute, p_value);
-					LogFunction("eglQuerySurface(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQuerySurface(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1123,13 +1122,13 @@ namespace OpenGL
 		/// Specifies the EGL drawing surface whose buffers are to be swapped.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr SwapBuffers(IntPtr dpy, IntPtr surface)
+		public static bool SwapBuffers(IntPtr dpy, IntPtr surface)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglSwapBuffers != null, "peglSwapBuffers not implemented");
 			retValue = Delegates.peglSwapBuffers(dpy, surface);
-			LogFunction("eglSwapBuffers(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglSwapBuffers(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1142,13 +1141,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr Terminate(IntPtr dpy)
+		public static bool Terminate(IntPtr dpy)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglTerminate != null, "peglTerminate not implemented");
 			retValue = Delegates.peglTerminate(dpy);
-			LogFunction("eglTerminate(0x{0}) = {1}", dpy.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglTerminate(0x{0}) = {1}", dpy.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1158,13 +1157,13 @@ namespace OpenGL
 		/// Complete GL execution prior to subsequent native rendering calls
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr WaitGL()
+		public static bool WaitGL()
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglWaitGL != null, "peglWaitGL not implemented");
 			retValue = Delegates.peglWaitGL();
-			LogFunction("eglWaitGL() = {0}", retValue.ToString("X8"));
+			LogFunction("eglWaitGL() = {0}", retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1177,13 +1176,13 @@ namespace OpenGL
 		/// Specifies a particular marking engine to be waited on. Must be Egl.CORE_NATIVE_ENGINE.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr WaitNative(int engine)
+		public static bool WaitNative(int engine)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglWaitNative != null, "peglWaitNative not implemented");
 			retValue = Delegates.peglWaitNative(engine);
-			LogFunction("eglWaitNative({0}) = {1}", engine, retValue.ToString("X8"));
+			LogFunction("eglWaitNative({0}) = {1}", engine, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

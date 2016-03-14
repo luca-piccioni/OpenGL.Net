@@ -43,16 +43,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_partial_update")]
-		public static IntPtr SetDamageRegionKHR(IntPtr dpy, IntPtr surface, int[] rects, int n_rects)
+		public static bool SetDamageRegionKHR(IntPtr dpy, IntPtr surface, int[] rects, int n_rects)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_rects = rects)
 				{
 					Debug.Assert(Delegates.peglSetDamageRegionKHR != null, "peglSetDamageRegionKHR not implemented");
 					retValue = Delegates.peglSetDamageRegionKHR(dpy, surface, p_rects, n_rects);
-					LogFunction("eglSetDamageRegionKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue.ToString("X8"));
+					LogFunction("eglSetDamageRegionKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

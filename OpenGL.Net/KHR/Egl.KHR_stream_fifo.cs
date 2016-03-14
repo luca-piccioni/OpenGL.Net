@@ -67,16 +67,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_stream_fifo")]
-		public static IntPtr QueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64[] value)
+		public static bool QueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryStreamTimeKHR != null, "peglQueryStreamTimeKHR not implemented");
 					retValue = Delegates.peglQueryStreamTimeKHR(dpy, stream, attribute, p_value);
-					LogFunction("eglQueryStreamTimeKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryStreamTimeKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

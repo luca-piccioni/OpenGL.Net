@@ -37,16 +37,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_native_query")]
-		public static IntPtr QueryNativeDisplayNV(IntPtr dpy, IntPtr[] display_id)
+		public static bool QueryNativeDisplayNV(IntPtr dpy, IntPtr[] display_id)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_display_id = display_id)
 				{
 					Debug.Assert(Delegates.peglQueryNativeDisplayNV != null, "peglQueryNativeDisplayNV not implemented");
 					retValue = Delegates.peglQueryNativeDisplayNV(dpy, p_display_id);
-					LogFunction("eglQueryNativeDisplayNV(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(display_id), retValue.ToString("X8"));
+					LogFunction("eglQueryNativeDisplayNV(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(display_id), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -67,16 +67,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_native_query")]
-		public static IntPtr QueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr[] window)
+		public static bool QueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr[] window)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_window = window)
 				{
 					Debug.Assert(Delegates.peglQueryNativeWindowNV != null, "peglQueryNativeWindowNV not implemented");
 					retValue = Delegates.peglQueryNativeWindowNV(dpy, surf, p_window);
-					LogFunction("eglQueryNativeWindowNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), LogValue(window), retValue.ToString("X8"));
+					LogFunction("eglQueryNativeWindowNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), LogValue(window), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -97,16 +97,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_native_query")]
-		public static IntPtr QueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr[] pixmap)
+		public static bool QueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr[] pixmap)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_pixmap = pixmap)
 				{
 					Debug.Assert(Delegates.peglQueryNativePixmapNV != null, "peglQueryNativePixmapNV not implemented");
 					retValue = Delegates.peglQueryNativePixmapNV(dpy, surf, p_pixmap);
-					LogFunction("eglQueryNativePixmapNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), LogValue(pixmap), retValue.ToString("X8"));
+					LogFunction("eglQueryNativePixmapNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), LogValue(pixmap), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

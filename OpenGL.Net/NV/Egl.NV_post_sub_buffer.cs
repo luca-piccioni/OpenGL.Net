@@ -55,13 +55,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_post_sub_buffer")]
-		public static IntPtr PostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height)
+		public static bool PostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglPostSubBufferNV != null, "peglPostSubBufferNV not implemented");
 			retValue = Delegates.peglPostSubBufferNV(dpy, surface, x, y, width, height);
-			LogFunction("eglPostSubBufferNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}) = {6}", dpy.ToString("X8"), surface.ToString("X8"), x, y, width, height, retValue.ToString("X8"));
+			LogFunction("eglPostSubBufferNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}) = {6}", dpy.ToString("X8"), surface.ToString("X8"), x, y, width, height, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -62,16 +62,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]
-		public static IntPtr QueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr[] value)
+		public static bool QueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryDeviceAttribEXT != null, "peglQueryDeviceAttribEXT not implemented");
 					retValue = Delegates.peglQueryDeviceAttribEXT(device, attribute, p_value);
-					LogFunction("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -117,16 +117,16 @@ namespace OpenGL
 		[AliasOf("eglQueryDisplayAttribNV")]
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]
-		public static IntPtr QueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr[] value)
+		public static bool QueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryDisplayAttribEXT != null, "peglQueryDisplayAttribEXT not implemented");
 					retValue = Delegates.peglQueryDisplayAttribEXT(dpy, attribute, p_value);
-					LogFunction("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

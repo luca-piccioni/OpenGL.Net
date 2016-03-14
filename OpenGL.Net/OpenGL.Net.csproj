@@ -228,7 +228,7 @@
     <Compile Include="EXT\Gl.EXT_texture_sRGB_R8.cs" />
     <Compile Include="EXT\Gl.EXT_texture_sRGB_RG8.cs" />
     <Compile Include="EXT\Gl.EXT_YUV_target.cs" />
-    <Compile Include="FG\Gl.FJ_shader_binary_GCCSO.cs" />
+    <Compile Include="FJ\Gl.FJ_shader_binary_GCCSO.cs" />
     <Compile Include="Gl.ES_VERSION_2_0.cs" />
     <Compile Include="Gl.ES_VERSION_3_2.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />

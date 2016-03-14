@@ -46,9 +46,9 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
-		public static IntPtr ExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int[] fourcc, int[] num_planes, UInt64[] modifiers)
+		public static bool ExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int[] fourcc, int[] num_planes, UInt64[] modifiers)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_fourcc = fourcc)
@@ -57,7 +57,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDMABUFImageQueryMESA != null, "peglExportDMABUFImageQueryMESA not implemented");
 					retValue = Delegates.peglExportDMABUFImageQueryMESA(dpy, image, p_fourcc, p_num_planes, p_modifiers);
-					LogFunction("eglExportDMABUFImageQueryMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(fourcc), LogValue(num_planes), LogValue(modifiers), retValue.ToString("X8"));
+					LogFunction("eglExportDMABUFImageQueryMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(fourcc), LogValue(num_planes), LogValue(modifiers), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -84,9 +84,9 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
-		public static IntPtr ExportDMABUFImageMESA(IntPtr dpy, IntPtr image, int[] fds, int[] strides, int[] offsets)
+		public static bool ExportDMABUFImageMESA(IntPtr dpy, IntPtr image, int[] fds, int[] strides, int[] offsets)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_fds = fds)
@@ -95,7 +95,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDMABUFImageMESA != null, "peglExportDMABUFImageMESA not implemented");
 					retValue = Delegates.peglExportDMABUFImageMESA(dpy, image, p_fds, p_strides, p_offsets);
-					LogFunction("eglExportDMABUFImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(fds), LogValue(strides), LogValue(offsets), retValue.ToString("X8"));
+					LogFunction("eglExportDMABUFImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(fds), LogValue(strides), LogValue(offsets), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

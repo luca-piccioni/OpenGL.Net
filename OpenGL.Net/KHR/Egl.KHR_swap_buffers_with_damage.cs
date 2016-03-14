@@ -43,16 +43,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_swap_buffers_with_damage")]
-		public static IntPtr SwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int[] rects, int n_rects)
+		public static bool SwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int[] rects, int n_rects)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_rects = rects)
 				{
 					Debug.Assert(Delegates.peglSwapBuffersWithDamageKHR != null, "peglSwapBuffersWithDamageKHR not implemented");
 					retValue = Delegates.peglSwapBuffersWithDamageKHR(dpy, surface, p_rects, n_rects);
-					LogFunction("eglSwapBuffersWithDamageKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue.ToString("X8"));
+					LogFunction("eglSwapBuffersWithDamageKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

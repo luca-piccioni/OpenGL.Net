@@ -316,13 +316,13 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("eglDestroySyncKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
-		public static IntPtr DestroySync(IntPtr dpy, IntPtr sync)
+		public static bool DestroySync(IntPtr dpy, IntPtr sync)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglDestroySync != null, "peglDestroySync not implemented");
 			retValue = Delegates.peglDestroySync(dpy, sync);
-			LogFunction("eglDestroySync(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), sync.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglDestroySync(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), sync.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -373,16 +373,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_5")]
-		public static IntPtr GetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, [Out] IntPtr[] value)
+		public static bool GetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, [Out] IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglGetSyncAttrib != null, "peglGetSyncAttrib not implemented");
 					retValue = Delegates.peglGetSyncAttrib(dpy, sync, attribute, p_value);
-					LogFunction("eglGetSyncAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglGetSyncAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -437,13 +437,13 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("eglDestroyImageKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
-		public static IntPtr DestroyImage(IntPtr dpy, IntPtr image)
+		public static bool DestroyImage(IntPtr dpy, IntPtr image)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglDestroyImage != null, "peglDestroyImage not implemented");
 			retValue = Delegates.peglDestroyImage(dpy, image);
-			LogFunction("eglDestroyImage(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), image.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglDestroyImage(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), image.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -558,13 +558,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_5")]
-		public static IntPtr WaitSync(IntPtr dpy, IntPtr sync, int flags)
+		public static bool WaitSync(IntPtr dpy, IntPtr sync, int flags)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglWaitSync != null, "peglWaitSync not implemented");
 			retValue = Delegates.peglWaitSync(dpy, sync, flags);
-			LogFunction("eglWaitSync(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), flags, retValue.ToString("X8"));
+			LogFunction("eglWaitSync(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), flags, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

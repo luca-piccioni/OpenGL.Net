@@ -117,9 +117,9 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_MESA_drm_image")]
-		public static IntPtr ExportDRMImageMESA(IntPtr dpy, IntPtr image, int[] name, int[] handle, int[] stride)
+		public static bool ExportDRMImageMESA(IntPtr dpy, IntPtr image, int[] name, int[] handle, int[] stride)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_name = name)
@@ -128,7 +128,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDRMImageMESA != null, "peglExportDRMImageMESA not implemented");
 					retValue = Delegates.peglExportDRMImageMESA(dpy, image, p_name, p_handle, p_stride);
-					LogFunction("eglExportDRMImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(name), LogValue(handle), LogValue(stride), retValue.ToString("X8"));
+					LogFunction("eglExportDRMImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(name), LogValue(handle), LogValue(stride), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

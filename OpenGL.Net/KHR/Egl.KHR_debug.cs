@@ -136,16 +136,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_debug")]
-		public static IntPtr QueryKHR(int attribute, IntPtr[] value)
+		public static bool QueryKHR(int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryDebugKHR != null, "peglQueryDebugKHR not implemented");
 					retValue = Delegates.peglQueryDebugKHR(attribute, p_value);
-					LogFunction("eglQueryDebugKHR({0}, {1}) = {2}", attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQueryDebugKHR({0}, {1}) = {2}", attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

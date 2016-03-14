@@ -43,16 +43,16 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NOK_swap_region2")]
-		public static IntPtr SwapBuffersRegion2NOK(IntPtr dpy, IntPtr surface, int numRects, int[] rects)
+		public static bool SwapBuffersRegion2NOK(IntPtr dpy, IntPtr surface, int numRects, int[] rects)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_rects = rects)
 				{
 					Debug.Assert(Delegates.peglSwapBuffersRegion2NOK != null, "peglSwapBuffersRegion2NOK not implemented");
 					retValue = Delegates.peglSwapBuffersRegion2NOK(dpy, surface, numRects, p_rects);
-					LogFunction("eglSwapBuffersRegion2NOK(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), numRects, LogValue(rects), retValue.ToString("X8"));
+					LogFunction("eglSwapBuffersRegion2NOK(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), numRects, LogValue(rects), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

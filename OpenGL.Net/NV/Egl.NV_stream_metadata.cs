@@ -133,13 +133,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
-		public static IntPtr SetStreamNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data)
+		public static bool SetStreamNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglSetStreamMetadataNV != null, "peglSetStreamMetadataNV not implemented");
 			retValue = Delegates.peglSetStreamMetadataNV(dpy, stream, n, offset, size, data);
-			LogFunction("eglSetStreamMetadataNV(0x{0}, 0x{1}, {2}, {3}, {4}, 0x{5}) = {6}", dpy.ToString("X8"), stream.ToString("X8"), n, offset, size, data.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglSetStreamMetadataNV(0x{0}, 0x{1}, {2}, {3}, {4}, 0x{5}) = {6}", dpy.ToString("X8"), stream.ToString("X8"), n, offset, size, data.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -170,13 +170,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
-		public static IntPtr QueryStreamNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data)
+		public static bool QueryStreamNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglQueryStreamMetadataNV != null, "peglQueryStreamMetadataNV not implemented");
 			retValue = Delegates.peglQueryStreamMetadataNV(dpy, stream, name, n, offset, size, data);
-			LogFunction("eglQueryStreamMetadataNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, 0x{6}) = {7}", dpy.ToString("X8"), stream.ToString("X8"), name, n, offset, size, data.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglQueryStreamMetadataNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, 0x{6}) = {7}", dpy.ToString("X8"), stream.ToString("X8"), name, n, offset, size, data.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

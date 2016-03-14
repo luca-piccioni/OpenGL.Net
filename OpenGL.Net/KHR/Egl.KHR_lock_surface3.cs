@@ -199,16 +199,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("EGL_KHR_lock_surface")]
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
-		public static IntPtr LockSurfaceKHR(IntPtr dpy, IntPtr surface, int[] attrib_list)
+		public static bool LockSurfaceKHR(IntPtr dpy, IntPtr surface, int[] attrib_list)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_attrib_list = attrib_list)
 				{
 					Debug.Assert(Delegates.peglLockSurfaceKHR != null, "peglLockSurfaceKHR not implemented");
 					retValue = Delegates.peglLockSurfaceKHR(dpy, surface, p_attrib_list);
-					LogFunction("eglLockSurfaceKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogFunction("eglLockSurfaceKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(attrib_list), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -227,13 +227,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("EGL_KHR_lock_surface")]
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
-		public static IntPtr UnlockSurfaceKHR(IntPtr dpy, IntPtr surface)
+		public static bool UnlockSurfaceKHR(IntPtr dpy, IntPtr surface)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglUnlockSurfaceKHR != null, "peglUnlockSurfaceKHR not implemented");
 			retValue = Delegates.peglUnlockSurfaceKHR(dpy, surface);
-			LogFunction("eglUnlockSurfaceKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglUnlockSurfaceKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -255,16 +255,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_lock_surface3")]
-		public static IntPtr QuerySurfaceKHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr[] value)
+		public static bool QuerySurfaceKHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQuerySurface64KHR != null, "peglQuerySurface64KHR not implemented");
 					retValue = Delegates.peglQuerySurface64KHR(dpy, surface, attribute, p_value);
-					LogFunction("eglQuerySurface64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQuerySurface64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

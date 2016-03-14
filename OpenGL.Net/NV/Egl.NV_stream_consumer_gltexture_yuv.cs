@@ -69,16 +69,21 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
-		public static unsafe IntPtr StreamConsumerGLTextureExternalAttribNV(IntPtr dpy, IntPtr stream, IntPtr *attrib_list)
+		public static bool StreamConsumerGLTextureExternalAttribsNV(IntPtr dpy, IntPtr stream, IntPtr[] attrib_list)
 		{
-			IntPtr retValue;
+			bool retValue;
 
-			Debug.Assert(Delegates.peglStreamConsumerGLTextureExternalAttribsNV != null, "peglStreamConsumerGLTextureExternalAttribsNV not implemented");
-			retValue = Delegates.peglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, attrib_list);
-			LogFunction("eglStreamConsumerGLTextureExternalAttribsNV(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), attrib_list->ToString("X8"), retValue.ToString("X8"));
+			unsafe {
+				fixed (IntPtr* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.peglStreamConsumerGLTextureExternalAttribsNV != null, "peglStreamConsumerGLTextureExternalAttribsNV not implemented");
+					retValue = Delegates.peglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, p_attrib_list);
+					LogFunction("eglStreamConsumerGLTextureExternalAttribsNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), LogValue(attrib_list), retValue);
+				}
+			}
 			DebugCheckErrors(retValue);
 
 			return (retValue);

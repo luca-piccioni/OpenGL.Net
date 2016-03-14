@@ -255,13 +255,13 @@ namespace OpenGL
 		/// Specifies the client API to bind, one of Egl.OPENGL_API, Egl.OPENGL_ES_API, or Egl.OPENVG_API.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_2")]
-		public static IntPtr BindAPI(uint api)
+		public static bool BindAPI(uint api)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglBindAPI != null, "peglBindAPI not implemented");
 			retValue = Delegates.peglBindAPI(api);
-			LogFunction("eglBindAPI({0}) = {1}", api, retValue.ToString("X8"));
+			LogFunction("eglBindAPI({0}) = {1}", api, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -324,13 +324,13 @@ namespace OpenGL
 		/// Release EGL per-thread state
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
-		public static IntPtr ReleaseThread()
+		public static bool ReleaseThread()
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglReleaseThread != null, "peglReleaseThread not implemented");
 			retValue = Delegates.peglReleaseThread();
-			LogFunction("eglReleaseThread() = {0}", retValue.ToString("X8"));
+			LogFunction("eglReleaseThread() = {0}", retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -340,13 +340,13 @@ namespace OpenGL
 		/// Complete client API execution prior to subsequent native rendering calls
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
-		public static IntPtr WaitClient()
+		public static bool WaitClient()
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglWaitClient != null, "peglWaitClient not implemented");
 			retValue = Delegates.peglWaitClient();
-			LogFunction("eglWaitClient() = {0}", retValue.ToString("X8"));
+			LogFunction("eglWaitClient() = {0}", retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -192,13 +192,13 @@ namespace OpenGL
 		/// Specifies the texture image data.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
-		public static IntPtr BindTexImage(IntPtr dpy, IntPtr surface, int buffer)
+		public static bool BindTexImage(IntPtr dpy, IntPtr surface, int buffer)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglBindTexImage != null, "peglBindTexImage not implemented");
 			retValue = Delegates.peglBindTexImage(dpy, surface, buffer);
-			LogFunction("eglBindTexImage(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), buffer, retValue.ToString("X8"));
+			LogFunction("eglBindTexImage(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), buffer, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -217,13 +217,13 @@ namespace OpenGL
 		/// Specifies the texture image data.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
-		public static IntPtr ReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer)
+		public static bool ReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglReleaseTexImage != null, "peglReleaseTexImage not implemented");
 			retValue = Delegates.peglReleaseTexImage(dpy, surface, buffer);
-			LogFunction("eglReleaseTexImage(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), buffer, retValue.ToString("X8"));
+			LogFunction("eglReleaseTexImage(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), buffer, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -245,13 +245,13 @@ namespace OpenGL
 		/// Specifies the attributes required value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
-		public static IntPtr SurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value)
+		public static bool SurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglSurfaceAttrib != null, "peglSurfaceAttrib not implemented");
 			retValue = Delegates.peglSurfaceAttrib(dpy, surface, attribute, value);
-			LogFunction("eglSurfaceAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue.ToString("X8"));
+			LogFunction("eglSurfaceAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -267,13 +267,13 @@ namespace OpenGL
 		/// Specifies the minimum number of video frames that are displayed before a buffer swap will occur.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
-		public static IntPtr SwapInterval(IntPtr dpy, int interval)
+		public static bool SwapInterval(IntPtr dpy, int interval)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglSwapInterval != null, "peglSwapInterval not implemented");
 			retValue = Delegates.peglSwapInterval(dpy, interval);
-			LogFunction("eglSwapInterval(0x{0}, {1}) = {2}", dpy.ToString("X8"), interval, retValue.ToString("X8"));
+			LogFunction("eglSwapInterval(0x{0}, {1}) = {2}", dpy.ToString("X8"), interval, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

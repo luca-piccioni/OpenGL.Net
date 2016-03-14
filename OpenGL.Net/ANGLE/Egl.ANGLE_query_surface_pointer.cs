@@ -43,16 +43,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_ANGLE_query_surface_pointer")]
-		public static IntPtr QuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr[] value)
+		public static bool QuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQuerySurfacePointerANGLE != null, "peglQuerySurfacePointerANGLE not implemented");
 					retValue = Delegates.peglQuerySurfacePointerANGLE(dpy, surface, attribute, p_value);
-					LogFunction("eglQuerySurfacePointerANGLE(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglQuerySurfacePointerANGLE(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

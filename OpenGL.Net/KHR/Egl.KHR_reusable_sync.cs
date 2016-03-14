@@ -77,13 +77,13 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_reusable_sync")]
-		public static IntPtr SignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode)
+		public static bool SignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.peglSignalSyncKHR != null, "peglSignalSyncKHR not implemented");
 			retValue = Delegates.peglSignalSyncKHR(dpy, sync, mode);
-			LogFunction("eglSignalSyncKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), mode, retValue.ToString("X8"));
+			LogFunction("eglSignalSyncKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), mode, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -106,16 +106,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("EGL_KHR_fence_sync")]
 		[RequiredByFeature("EGL_KHR_reusable_sync")]
-		public static IntPtr GetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, [Out] int[] value)
+		public static bool GetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, [Out] int[] value)
 		{
-			IntPtr retValue;
+			bool retValue;
 
 			unsafe {
 				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.peglGetSyncAttribKHR != null, "peglGetSyncAttribKHR not implemented");
 					retValue = Delegates.peglGetSyncAttribKHR(dpy, sync, attribute, p_value);
-					LogFunction("eglGetSyncAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, LogValue(value), retValue.ToString("X8"));
+					LogFunction("eglGetSyncAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
