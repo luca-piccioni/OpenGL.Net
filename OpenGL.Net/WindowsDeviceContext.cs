@@ -412,9 +412,6 @@ namespace OpenGL
 					}
 #endif
 
-					pixelFormat.XFbConfig = IntPtr.Zero;
-					pixelFormat.XVisualInfo = new Glx.XVisualInfo();
-
 					_PixelFormatCache.Add(pixelFormat);
 				}
 
@@ -480,6 +477,6 @@ namespace OpenGL
 		/// </summary>
 		private bool _PixelFormatSet;
 
-#endregion
+		#endregion
 	}
 }

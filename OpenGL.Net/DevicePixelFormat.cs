@@ -66,11 +66,10 @@ namespace OpenGL
 		public bool DoubleBuffer;
 
 		/// <summary>
-		/// Method used for swapping back buffers.
+		/// Method used for swapping back buffers (WGL only).
 		/// </summary>
 		/// <remarks>
-		/// It can assume the values Wgl.SWAP_EXCHANGE, SWAP_COPY, or 
-		/// SWAP_UNDEFINED in the case DoubleBuffer is false.
+		/// It can assume the values Wgl.SWAP_EXCHANGE, SWAP_COPY, or SWAP_UNDEFINED in the case DoubleBuffer is false.
 		/// </remarks>
 		public int SwapMethod;
 
@@ -119,6 +118,11 @@ namespace OpenGL
 		/// This value is obtained by GetVisualFromFBConfig using <see cref="XFbConfig"/>.
 		/// </remarks>
 		public Glx.XVisualInfo XVisualInfo;
+
+		/// <summary>
+		/// EGL configuration (valid only for EGL).
+		/// </summary>
+		public IntPtr EglConfig;
 
 		#endregion
 	}

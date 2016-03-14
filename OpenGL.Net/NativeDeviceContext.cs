@@ -45,9 +45,20 @@ namespace OpenGL
 			if (window == null)
 				throw new ArgumentNullException("window");
 
+			// "Force" handle creation
+			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
+				throw new InvalidOperationException("invalid handle");
+
 			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get display handle");
-			Egl.Initialize(_Display, null, null);
+
+			int[] major = new int[1], minor = new int[1];
+
+			if (Egl.Initialize(_Display, major, minor) == false)
+				throw new InvalidOperationException("unable to initialize the display");
+
+			_NativeWindow = window.Handle;
+			_Version = new KhronosVersion(major[0], minor[0]);
 		}
 
 		#endregion
@@ -87,6 +98,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Native window handle.
+		/// </summary>
+		private IntPtr _NativeWindow;
+
+		/// <summary>
 		/// The opened display.
 		/// </summary>
 		private IntPtr _Display;
@@ -95,6 +111,16 @@ namespace OpenGL
 		/// The frame buffer configuration.
 		/// </summary>
 		private IntPtr _Config;
+
+		/// <summary>
+		/// The EGL surface.
+		/// </summary>
+		private IntPtr _EglSurface;
+
+		/// <summary>
+		/// EGL version implemented.
+		/// </summary>
+		private readonly KhronosVersion _Version;
 
 		#endregion
 
@@ -209,7 +235,7 @@ namespace OpenGL
 		/// Control the the buffers swap of a device.
 		/// </summary>
 		/// <param name="interval">
-		/// A <see cref="System.Int32"/> that specifies the minimum number of video frames that are displayed
+		/// A <see cref="Int32"/> that specifies the minimum number of video frames that are displayed
 		/// before a buffer swap will occur.
 		/// </param>
 		/// <returns>
@@ -241,7 +267,56 @@ namespace OpenGL
 		{
 			get
 			{
-				return (null);
+				// Use cached pixel formats
+				if (_PixelFormatCache != null)
+					return (_PixelFormatCache);
+
+				_PixelFormatCache = new DevicePixelFormatCollection();
+
+				// Get the number of pixel formats
+				int configCount;
+				if (Egl.GetConfigs(_Display, null, 0, out configCount) == false)
+					throw new InvalidOperationException("unable to get configurations count");
+
+				IntPtr[] configs = new IntPtr[configCount];
+				if (Egl.GetConfigs(_Display, configs, configs.Length, out configCount) == false)
+					throw new InvalidOperationException("unable to get configurations");
+				
+				foreach (IntPtr config in configs) {
+					DevicePixelFormat pixelFormat = new DevicePixelFormat();
+					int[] param = new int[1];
+
+					// Defaults to RGBA
+					pixelFormat.RgbaUnsigned = true;
+					pixelFormat.RenderWindow = true;
+					pixelFormat.RenderBuffer = false;
+
+					// Double buffer and swap method can be determined only later, once the pixel format is set
+					pixelFormat.DoubleBuffer = false;
+					pixelFormat.SwapMethod = 0;
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.BUFFER_SIZE, param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter BUFFER_SIZE");
+					pixelFormat.ColorBits = param[0];
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.DEPTH_SIZE, param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter DEPTH_SIZE");
+					pixelFormat.DepthBits = param[0];
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.STENCIL_SIZE, param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter STENCIL_SIZE");
+					pixelFormat.StencilBits = param[0];
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.SAMPLES, param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter SAMPLES");
+					pixelFormat.MultisampleBits = param[0];
+
+					pixelFormat.EglConfig = config;
+
+					_PixelFormatCache.Add(pixelFormat);
+				}
+
+				return (_PixelFormatCache);
 			}
 		}
 
@@ -259,7 +334,7 @@ namespace OpenGL
 			if (pixelFormat == null)
 				throw new ArgumentNullException("pixelFormat");
 
-			
+			_EglSurface = Egl.CreatePlatformWindowSurface(_Display, pixelFormat.EglConfig, _NativeWindow, null);
 		}
 
 		/// <summary>
@@ -277,6 +352,11 @@ namespace OpenGL
 				}
 			}
 		}
+
+		/// <summary>
+		/// Pixel formats available on this DeviceContext (cache).
+		/// </summary>
+		private DevicePixelFormatCollection _PixelFormatCache;
 
 		#endregion
 	}

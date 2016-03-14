@@ -879,6 +879,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return a list of all EGL frame buffer configurations for a display
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="configs">
+		/// Returns a list of configs.
+		/// </param>
+		/// <param name="config_size">
+		/// Specifies the size of the list of configs.
+		/// </param>
+		/// <param name="num_config">
+		/// Returns the number of configs returned.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_0")]
+		public static bool GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, out int num_config)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (IntPtr* p_configs = configs)
+				fixed (int* p_num_config = &num_config)
+				{
+					Debug.Assert(Delegates.peglGetConfigs != null, "peglGetConfigs not implemented");
+					retValue = Delegates.peglGetConfigs(dpy, p_configs, config_size, p_num_config);
+					LogFunction("eglGetConfigs(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), LogValue(configs), config_size, num_config, retValue);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// return the display for the current EGL rendering context
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
