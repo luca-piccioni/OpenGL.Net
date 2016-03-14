@@ -439,6 +439,11 @@ namespace OpenGL
 		ColorBufferBit = Gl.COLOR_BUFFER_BIT,
 
 		/// <summary>
+		/// Strongly typed for value GL_COVERAGE_BUFFER_BIT_NV.
+		/// </summary>
+		CoverageBufferBitNv = Gl.COVERAGE_BUFFER_BIT_NV,
+
+		/// <summary>
 		/// Strongly typed for value GL_DEPTH_BUFFER_BIT.
 		/// </summary>
 		DepthBufferBit = Gl.DEPTH_BUFFER_BIT,
@@ -692,7 +697,7 @@ namespace OpenGL
 	public enum ContextFlagMask : uint
 	{
 		/// <summary>
-		/// Strongly typed for value GL_CONTEXT_FLAG_DEBUG_BIT.
+		/// Strongly typed for value GL_CONTEXT_FLAG_DEBUG_BIT, GL_CONTEXT_FLAG_DEBUG_BIT_KHR.
 		/// </summary>
 		ContextFlagDebugBit = Gl.CONTEXT_FLAG_DEBUG_BIT,
 
@@ -920,7 +925,7 @@ namespace OpenGL
 		Left = Gl.LEFT,
 
 		/// <summary>
-		/// Strongly typed for value GL_NONE.
+		/// Strongly typed for value GL_NONE, GL_NONE_OES.
 		/// </summary>
 		None = Gl.NONE,
 
@@ -1521,7 +1526,8 @@ namespace OpenGL
 		InvalidEnum = Gl.INVALID_ENUM,
 
 		/// <summary>
-		/// Strongly typed for value GL_INVALID_FRAMEBUFFER_OPERATION, GL_INVALID_FRAMEBUFFER_OPERATION_EXT.
+		/// Strongly typed for value GL_INVALID_FRAMEBUFFER_OPERATION, GL_INVALID_FRAMEBUFFER_OPERATION_EXT, 
+		/// GL_INVALID_FRAMEBUFFER_OPERATION_OES.
 		/// </summary>
 		InvalidFramebufferOperation = Gl.INVALID_FRAMEBUFFER_OPERATION,
 
@@ -2138,17 +2144,17 @@ namespace OpenGL
 		AlphaScale = Gl.ALPHA_SCALE,
 
 		/// <summary>
-		/// Strongly typed for value GL_ALPHA_TEST.
+		/// Strongly typed for value GL_ALPHA_TEST, GL_ALPHA_TEST_QCOM.
 		/// </summary>
 		AlphaTest = Gl.ALPHA_TEST,
 
 		/// <summary>
-		/// Strongly typed for value GL_ALPHA_TEST_FUNC.
+		/// Strongly typed for value GL_ALPHA_TEST_FUNC, GL_ALPHA_TEST_FUNC_QCOM.
 		/// </summary>
 		AlphaTestFunc = Gl.ALPHA_TEST_FUNC,
 
 		/// <summary>
-		/// Strongly typed for value GL_ALPHA_TEST_REF.
+		/// Strongly typed for value GL_ALPHA_TEST_REF, GL_ALPHA_TEST_REF_QCOM.
 		/// </summary>
 		AlphaTestRef = Gl.ALPHA_TEST_REF,
 
@@ -2483,7 +2489,7 @@ namespace OpenGL
 		Doublebuffer = Gl.DOUBLEBUFFER,
 
 		/// <summary>
-		/// Strongly typed for value GL_DRAW_BUFFER.
+		/// Strongly typed for value GL_DRAW_BUFFER, GL_DRAW_BUFFER_EXT.
 		/// </summary>
 		DrawBuffer = Gl.DRAW_BUFFER,
 
@@ -3538,7 +3544,7 @@ namespace OpenGL
 		ProjectionStackDepth = Gl.PROJECTION_STACK_DEPTH,
 
 		/// <summary>
-		/// Strongly typed for value GL_READ_BUFFER.
+		/// Strongly typed for value GL_READ_BUFFER, GL_READ_BUFFER_EXT, GL_READ_BUFFER_NV.
 		/// </summary>
 		ReadBuffer = Gl.READ_BUFFER,
 
@@ -4092,7 +4098,7 @@ namespace OpenGL
 		TextureBorder = Gl.TEXTURE_BORDER,
 
 		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_BORDER_COLOR.
+		/// Strongly typed for value GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_BORDER_COLOR_NV.
 		/// </summary>
 		TextureBorderColor = Gl.TEXTURE_BORDER_COLOR,
 
@@ -4341,6 +4347,11 @@ namespace OpenGL
 		BackNormalsHintPgi = Gl.BACK_NORMALS_HINT_PGI,
 
 		/// <summary>
+		/// Strongly typed for value GL_BINNING_CONTROL_HINT_QCOM.
+		/// </summary>
+		BinningControlHintQcom = Gl.BINNING_CONTROL_HINT_QCOM,
+
+		/// <summary>
 		/// Strongly typed for value GL_CLIP_FAR_HINT_PGI.
 		/// </summary>
 		ClipFarHintPgi = Gl.CLIP_FAR_HINT_PGI,
@@ -4371,7 +4382,8 @@ namespace OpenGL
 		FogHint = Gl.FOG_HINT,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB.
+		/// Strongly typed for value GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB, 
+		/// GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES.
 		/// </summary>
 		FragmentShaderDerivativeHint = Gl.FRAGMENT_SHADER_DERIVATIVE_HINT,
 
@@ -5070,17 +5082,17 @@ namespace OpenGL
 		MapCoherentBit = Gl.MAP_COHERENT_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MAP_FLUSH_EXPLICIT_BIT.
+		/// Strongly typed for value GL_MAP_FLUSH_EXPLICIT_BIT, GL_MAP_FLUSH_EXPLICIT_BIT_EXT.
 		/// </summary>
 		MapFlushExplicitBit = Gl.MAP_FLUSH_EXPLICIT_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MAP_INVALIDATE_BUFFER_BIT.
+		/// Strongly typed for value GL_MAP_INVALIDATE_BUFFER_BIT, GL_MAP_INVALIDATE_BUFFER_BIT_EXT.
 		/// </summary>
 		MapInvalidateBufferBit = Gl.MAP_INVALIDATE_BUFFER_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MAP_INVALIDATE_RANGE_BIT.
+		/// Strongly typed for value GL_MAP_INVALIDATE_RANGE_BIT, GL_MAP_INVALIDATE_RANGE_BIT_EXT.
 		/// </summary>
 		MapInvalidateRangeBit = Gl.MAP_INVALIDATE_RANGE_BIT,
 
@@ -5090,17 +5102,17 @@ namespace OpenGL
 		MapPersistentBit = Gl.MAP_PERSISTENT_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MAP_READ_BIT.
+		/// Strongly typed for value GL_MAP_READ_BIT, GL_MAP_READ_BIT_EXT.
 		/// </summary>
 		MapReadBit = Gl.MAP_READ_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MAP_UNSYNCHRONIZED_BIT.
+		/// Strongly typed for value GL_MAP_UNSYNCHRONIZED_BIT, GL_MAP_UNSYNCHRONIZED_BIT_EXT.
 		/// </summary>
 		MapUnsynchronizedBit = Gl.MAP_UNSYNCHRONIZED_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MAP_WRITE_BIT.
+		/// Strongly typed for value GL_MAP_WRITE_BIT, GL_MAP_WRITE_BIT_EXT.
 		/// </summary>
 		MapWriteBit = Gl.MAP_WRITE_BIT,
 
@@ -5503,17 +5515,17 @@ namespace OpenGL
 	public enum PixelCopyType
 	{
 		/// <summary>
-		/// Strongly typed for value GL_COLOR.
+		/// Strongly typed for value GL_COLOR, GL_COLOR_EXT.
 		/// </summary>
 		Color = Gl.COLOR,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH.
+		/// Strongly typed for value GL_DEPTH, GL_DEPTH_EXT.
 		/// </summary>
 		Depth = Gl.DEPTH,
 
 		/// <summary>
-		/// Strongly typed for value GL_STENCIL.
+		/// Strongly typed for value GL_STENCIL, GL_STENCIL_EXT.
 		/// </summary>
 		Stencil = Gl.STENCIL,
 
@@ -5575,7 +5587,7 @@ namespace OpenGL
 		LuminanceAlpha = Gl.LUMINANCE_ALPHA,
 
 		/// <summary>
-		/// Strongly typed for value GL_RED.
+		/// Strongly typed for value GL_RED, GL_RED_EXT.
 		/// </summary>
 		Red = Gl.RED,
 
@@ -6136,7 +6148,7 @@ namespace OpenGL
 		UnpackResampleSgix = Gl.UNPACK_RESAMPLE_SGIX,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNPACK_ROW_LENGTH.
+		/// Strongly typed for value GL_UNPACK_ROW_LENGTH, GL_UNPACK_ROW_LENGTH_EXT.
 		/// </summary>
 		UnpackRowLength = Gl.UNPACK_ROW_LENGTH,
 
@@ -6146,12 +6158,12 @@ namespace OpenGL
 		UnpackSkipImages = Gl.UNPACK_SKIP_IMAGES,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNPACK_SKIP_PIXELS.
+		/// Strongly typed for value GL_UNPACK_SKIP_PIXELS, GL_UNPACK_SKIP_PIXELS_EXT.
 		/// </summary>
 		UnpackSkipPixels = Gl.UNPACK_SKIP_PIXELS,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNPACK_SKIP_ROWS.
+		/// Strongly typed for value GL_UNPACK_SKIP_ROWS, GL_UNPACK_SKIP_ROWS_EXT.
 		/// </summary>
 		UnpackSkipRows = Gl.UNPACK_SKIP_ROWS,
 
@@ -6611,7 +6623,7 @@ namespace OpenGL
 		LineStripAdjacency = Gl.LINE_STRIP_ADJACENCY,
 
 		/// <summary>
-		/// Strongly typed for value GL_PATCHES.
+		/// Strongly typed for value GL_PATCHES, GL_PATCHES_EXT.
 		/// </summary>
 		Patches = Gl.PATCHES,
 
@@ -6626,7 +6638,7 @@ namespace OpenGL
 		Polygon = Gl.POLYGON,
 
 		/// <summary>
-		/// Strongly typed for value GL_QUADS.
+		/// Strongly typed for value GL_QUADS, GL_QUADS_EXT.
 		/// </summary>
 		Quads = Gl.QUADS,
 
@@ -7619,7 +7631,7 @@ namespace OpenGL
 		TextureWrapQSgis = Gl.TEXTURE_WRAP_Q_SGIS,
 
 		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_WRAP_R, GL_TEXTURE_WRAP_R_EXT.
+		/// Strongly typed for value GL_TEXTURE_WRAP_R, GL_TEXTURE_WRAP_R_EXT, GL_TEXTURE_WRAP_R_OES.
 		/// </summary>
 		TextureWrapR = Gl.TEXTURE_WRAP_R,
 
@@ -7676,7 +7688,7 @@ namespace OpenGL
 		Texture2d = Gl.TEXTURE_2D,
 
 		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_3D, GL_TEXTURE_3D_EXT.
+		/// Strongly typed for value GL_TEXTURE_3D, GL_TEXTURE_3D_EXT, GL_TEXTURE_3D_OES.
 		/// </summary>
 		Texture3d = Gl.TEXTURE_3D,
 
@@ -7778,7 +7790,7 @@ namespace OpenGL
 		Clamp = Gl.CLAMP,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER_ARB, GL_CLAMP_TO_BORDER_SGIS.
+		/// Strongly typed for value GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER_ARB, GL_CLAMP_TO_BORDER_NV, GL_CLAMP_TO_BORDER_SGIS.
 		/// </summary>
 		ClampToBorder = Gl.CLAMP_TO_BORDER,
 
@@ -7801,27 +7813,27 @@ namespace OpenGL
 	public enum UseProgramStageMask : uint
 	{
 		/// <summary>
-		/// Strongly typed for value GL_VERTEX_SHADER_BIT.
+		/// Strongly typed for value GL_VERTEX_SHADER_BIT, GL_VERTEX_SHADER_BIT_EXT.
 		/// </summary>
 		VertexShaderBit = Gl.VERTEX_SHADER_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAGMENT_SHADER_BIT.
+		/// Strongly typed for value GL_FRAGMENT_SHADER_BIT, GL_FRAGMENT_SHADER_BIT_EXT.
 		/// </summary>
 		FragmentShaderBit = Gl.FRAGMENT_SHADER_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_GEOMETRY_SHADER_BIT.
+		/// Strongly typed for value GL_GEOMETRY_SHADER_BIT, GL_GEOMETRY_SHADER_BIT_EXT.
 		/// </summary>
 		GeometryShaderBit = Gl.GEOMETRY_SHADER_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_TESS_CONTROL_SHADER_BIT.
+		/// Strongly typed for value GL_TESS_CONTROL_SHADER_BIT, GL_TESS_CONTROL_SHADER_BIT_EXT.
 		/// </summary>
 		TessControlShaderBit = Gl.TESS_CONTROL_SHADER_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_TESS_EVALUATION_SHADER_BIT.
+		/// Strongly typed for value GL_TESS_EVALUATION_SHADER_BIT, GL_TESS_EVALUATION_SHADER_BIT_EXT.
 		/// </summary>
 		TessEvaluationShaderBit = Gl.TESS_EVALUATION_SHADER_BIT,
 
@@ -7831,7 +7843,7 @@ namespace OpenGL
 		ComputeShaderBit = Gl.COMPUTE_SHADER_BIT,
 
 		/// <summary>
-		/// Strongly typed for value GL_ALL_SHADER_BITS.
+		/// Strongly typed for value GL_ALL_SHADER_BITS, GL_ALL_SHADER_BITS_EXT.
 		/// </summary>
 		AllShaderBits = Gl.ALL_SHADER_BITS,
 

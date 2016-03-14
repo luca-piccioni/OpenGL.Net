@@ -31,45 +31,63 @@ namespace OpenGL
 		/// Gl.GetVertexAttrib: params returns a single value that is the frequency divisor used for instanced rendering. See 
 		/// Gl.VertexAttribDivisor. The initial value is 0.
 		/// </summary>
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE")]
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB")]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT")]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV")]
 		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_instanced_arrays")]
+		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR = 0x88FE;
 
 		/// <summary>
 		/// Value of GL_SRC1_COLOR symbol.
 		/// </summary>
+		[AliasOf("GL_SRC1_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_blend_func_extended")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public const int SRC1_COLOR = 0x88F9;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_SRC1_COLOR symbol.
 		/// </summary>
+		[AliasOf("GL_ONE_MINUS_SRC1_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_blend_func_extended")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public const int ONE_MINUS_SRC1_COLOR = 0x88FA;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_SRC1_ALPHA symbol.
 		/// </summary>
+		[AliasOf("GL_ONE_MINUS_SRC1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_blend_func_extended")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public const int ONE_MINUS_SRC1_ALPHA = 0x88FB;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum number of active draw buffers when using dual-source blending. The value 
 		/// must be at least 1. See Gl.BlendFunc and Gl.BlendFuncSeparate.
 		/// </summary>
+		[AliasOf("GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_blend_func_extended")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public const int MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
 		/// <summary>
 		/// Value of GL_ANY_SAMPLES_PASSED symbol.
 		/// </summary>
+		[AliasOf("GL_ANY_SAMPLES_PASSED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_occlusion_query2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_occlusion_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 		public const int ANY_SAMPLES_PASSED = 0x8C2F;
 
 		/// <summary>
@@ -77,14 +95,16 @@ namespace OpenGL
 		/// initial value is 0. See Gl.BindSampler.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public const int SAMPLER_BINDING = 0x8919;
 
 		/// <summary>
 		/// Value of GL_RGB10_A2UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_texture_rgb10_a2ui")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rgb10_a2ui", Api = "gl|glcore")]
 		public const int RGB10_A2UI = 0x906F;
 
 		/// <summary>
@@ -104,7 +124,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
 
@@ -120,7 +141,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
 
@@ -136,7 +158,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
 
@@ -152,7 +175,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_A = 0x8E45;
 
@@ -170,7 +194,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_RGBA = 0x8E46;
 
@@ -179,22 +203,26 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TIME_ELAPSED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_timer_query")]
 		public const int TIME_ELAPSED = 0x88BF;
 
 		/// <summary>
 		/// Gl.Get: data returns a single value, the 64-bit value of the current GL time. See Gl.QueryCounter.
 		/// </summary>
+		[AliasOf("GL_TIMESTAMP_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public const int TIMESTAMP = 0x8E28;
 
 		/// <summary>
 		/// Value of GL_INT_2_10_10_10_REV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public const int INT_2_10_10_10_REV = 0x8D9F;
 
 		/// <summary>
@@ -235,8 +263,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFragDataLocation"/>
 		/// <seealso cref="Gl.GetFragDataIndex"/>
 		/// <seealso cref="Gl.BindFragDataLocation"/>
+		[AliasOf("glBindFragDataLocationIndexedEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_blend_func_extended")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		public static void BindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name)
 		{
 			Debug.Assert(Delegates.pglBindFragDataLocationIndexed != null, "pglBindFragDataLocationIndexed not implemented");
@@ -263,8 +292,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFragDataLocation"/>
 		/// <seealso cref="Gl.BindFragDataLocationIndexed"/>
 		/// <seealso cref="Gl.GetFragDataLocation"/>
+		[AliasOf("glGetFragDataIndexEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_blend_func_extended")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		public static Int32 GetFragDataIndex(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -292,7 +322,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsSampler"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void GenSamplers(UInt32[] samplers)
 		{
 			unsafe {
@@ -318,7 +349,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsSampler"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static UInt32 GenSampler()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -342,7 +374,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		/// <seealso cref="Gl.IsSampler"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void DeleteSamplers(params UInt32[] samplers)
 		{
 			unsafe {
@@ -366,7 +399,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindSampler"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static bool IsSampler(UInt32 sampler)
 		{
 			bool retValue;
@@ -407,7 +441,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void BindSampler(UInt32 unit, UInt32 sampler)
 		{
 			Debug.Assert(Delegates.pglBindSampler != null, "pglBindSampler not implemented");
@@ -448,7 +483,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void SamplerParameter(UInt32 sampler, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameteri != null, "pglSamplerParameteri not implemented");
@@ -489,7 +525,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void SamplerParameter(UInt32 sampler, Int32 pname, Int32[] param)
 		{
 			unsafe {
@@ -535,7 +572,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void SamplerParameter(UInt32 sampler, Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameterf != null, "pglSamplerParameterf not implemented");
@@ -576,7 +614,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void SamplerParameter(UInt32 sampler, Int32 pname, float[] param)
 		{
 			unsafe {
@@ -621,8 +660,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsSampler"/>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glSamplerParameterIivEXT")]
+		[AliasOf("glSamplerParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void SamplerParameterI(UInt32 sampler, Int32 pname, Int32[] param)
 		{
 			unsafe {
@@ -667,8 +709,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsSampler"/>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glSamplerParameterIuivEXT")]
+		[AliasOf("glSamplerParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void SamplerParameterI(UInt32 sampler, Int32 pname, UInt32[] param)
 		{
 			unsafe {
@@ -710,7 +755,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void GetSamplerParameter(UInt32 sampler, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -751,8 +797,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		/// <seealso cref="Gl.SamplerParameter"/>
+		[AliasOf("glGetSamplerParameterIivEXT")]
+		[AliasOf("glGetSamplerParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void GetSamplerParameterI(UInt32 sampler, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -794,7 +843,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void GetSamplerParameter(UInt32 sampler, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -835,8 +885,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		/// <seealso cref="Gl.SamplerParameter"/>
+		[AliasOf("glGetSamplerParameterIuivEXT")]
+		[AliasOf("glGetSamplerParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static void GetSamplerParameterI(UInt32 sampler, Int32 pname, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -879,8 +932,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.Get"/>
+		[AliasOf("glQueryCounterEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		public static void QueryCounter(UInt32 id, Int32 target)
 		{
 			Debug.Assert(Delegates.pglQueryCounter != null, "pglQueryCounter not implemented");
@@ -925,8 +979,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] Int64[] @params)
 		{
 			unsafe {
@@ -976,8 +1031,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, out Int64 @params)
 		{
 			unsafe {
@@ -1027,8 +1083,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
@@ -1078,8 +1135,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, out UInt64 @params)
 		{
 			unsafe {
@@ -1112,7 +1170,12 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		[AliasOf("glVertexAttribDivisorANGLE")]
+		[AliasOf("glVertexAttribDivisorARB")]
+		[AliasOf("glVertexAttribDivisorEXT")]
+		[AliasOf("glVertexAttribDivisorNV")]
 		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void VertexAttribDivisor(UInt32 index, UInt32 divisor)
 		{
 			Debug.Assert(Delegates.pglVertexAttribDivisor != null, "pglVertexAttribDivisor not implemented");
@@ -1155,7 +1218,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP1(UInt32 index, Int32 type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP1ui != null, "pglVertexAttribP1ui not implemented");
@@ -1180,7 +1243,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP1(UInt32 index, Int32 type, bool normalized, UInt32[] value)
 		{
 			unsafe {
@@ -1228,7 +1291,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP2(UInt32 index, Int32 type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP2ui != null, "pglVertexAttribP2ui not implemented");
@@ -1253,7 +1316,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP2(UInt32 index, Int32 type, bool normalized, UInt32[] value)
 		{
 			unsafe {
@@ -1301,7 +1364,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP3(UInt32 index, Int32 type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP3ui != null, "pglVertexAttribP3ui not implemented");
@@ -1326,7 +1389,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP3(UInt32 index, Int32 type, bool normalized, UInt32[] value)
 		{
 			unsafe {
@@ -1374,7 +1437,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP4(UInt32 index, Int32 type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP4ui != null, "pglVertexAttribP4ui not implemented");
@@ -1399,7 +1462,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP4(UInt32 index, Int32 type, bool normalized, UInt32[] value)
 		{
 			unsafe {
@@ -1423,7 +1486,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexP2(Int32 type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP2ui != null, "pglVertexP2ui not implemented");
@@ -1442,7 +1505,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexP2(Int32 type, UInt32[] value)
 		{
 			unsafe {
@@ -1466,7 +1529,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexP3(Int32 type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP3ui != null, "pglVertexP3ui not implemented");
@@ -1485,7 +1548,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexP3(Int32 type, UInt32[] value)
 		{
 			unsafe {
@@ -1509,7 +1572,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexP4(Int32 type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP4ui != null, "pglVertexP4ui not implemented");
@@ -1528,7 +1591,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexP4(Int32 type, UInt32[] value)
 		{
 			unsafe {
@@ -1552,7 +1615,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP1(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP1ui != null, "pglTexCoordP1ui not implemented");
@@ -1571,7 +1634,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP1(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1595,7 +1658,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP2(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP2ui != null, "pglTexCoordP2ui not implemented");
@@ -1614,7 +1677,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP2(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1638,7 +1701,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP3(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP3ui != null, "pglTexCoordP3ui not implemented");
@@ -1657,7 +1720,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP3(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1681,7 +1744,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP4(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP4ui != null, "pglTexCoordP4ui not implemented");
@@ -1700,7 +1763,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void TexCoordP4(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1727,7 +1790,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP1(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP1ui != null, "pglMultiTexCoordP1ui not implemented");
@@ -1749,7 +1812,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP1(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1776,7 +1839,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP2(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP2ui != null, "pglMultiTexCoordP2ui not implemented");
@@ -1798,7 +1861,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP2(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1825,7 +1888,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP3(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP3ui != null, "pglMultiTexCoordP3ui not implemented");
@@ -1847,7 +1910,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP3(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1874,7 +1937,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP4(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP4ui != null, "pglMultiTexCoordP4ui not implemented");
@@ -1896,7 +1959,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void MultiTexCoordP4(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1920,7 +1983,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void NormalP3(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglNormalP3ui != null, "pglNormalP3ui not implemented");
@@ -1939,7 +2002,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void NormalP3(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1963,7 +2026,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void ColorP3(Int32 type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglColorP3ui != null, "pglColorP3ui not implemented");
@@ -1982,7 +2045,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void ColorP3(Int32 type, UInt32[] color)
 		{
 			unsafe {
@@ -2006,7 +2069,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void ColorP4(Int32 type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglColorP4ui != null, "pglColorP4ui not implemented");
@@ -2025,7 +2088,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void ColorP4(Int32 type, UInt32[] color)
 		{
 			unsafe {
@@ -2049,7 +2112,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void SecondaryColorP3(Int32 type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorP3ui != null, "pglSecondaryColorP3ui not implemented");
@@ -2068,7 +2131,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void SecondaryColorP3(Int32 type, UInt32[] color)
 		{
 			unsafe {

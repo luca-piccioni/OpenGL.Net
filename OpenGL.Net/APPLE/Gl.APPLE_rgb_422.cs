@@ -30,13 +30,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGB_422_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_rgb_422")]
+		[RequiredByFeature("GL_APPLE_rgb_422", Api = "gl|gles2")]
 		public const int RGB_422_APPLE = 0x8A1F;
 
 		/// <summary>
 		/// Value of GL_RGB_RAW_422_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_rgb_422")]
+		[RequiredByFeature("GL_APPLE_rgb_422", Api = "gl|gles2")]
 		public const int RGB_RAW_422_APPLE = 0x8A51;
 
 	}

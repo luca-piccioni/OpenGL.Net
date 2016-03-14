@@ -30,13 +30,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_compute_variable_group_size")]
+		[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB = 0x9344;
 
 		/// <summary>
 		/// Value of GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_compute_variable_group_size")]
+		[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB = 0x9345;
 
 		/// <summary>
@@ -60,7 +60,7 @@ namespace OpenGL
 		/// <param name="group_size_z">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_compute_variable_group_size")]
+		[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 		public static void DispatchComputeGroupSizeARB(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z, UInt32 group_size_x, UInt32 group_size_y, UInt32 group_size_z)
 		{
 			Debug.Assert(Delegates.pglDispatchComputeGroupSizeARB != null, "pglDispatchComputeGroupSizeARB not implemented");

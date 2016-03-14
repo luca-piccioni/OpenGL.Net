@@ -30,7 +30,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGetGraphicsResetStatusARB.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static Int32 GetGraphicsResetStatusARB()
 		{
 			Int32 retValue;
@@ -64,7 +64,7 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetnTexImageARB != null, "pglGetnTexImageARB not implemented");
@@ -94,7 +94,7 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
@@ -120,7 +120,7 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetnCompressedTexImageARB != null, "pglGetnCompressedTexImageARB not implemented");
@@ -144,7 +144,7 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
@@ -167,7 +167,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] float[] @params)
 		{
 			unsafe {
@@ -193,7 +193,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -219,7 +219,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -245,7 +245,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] double[] @params)
 		{
 			unsafe {
@@ -271,7 +271,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnMapARB(Int32 target, Int32 query, [Out] double[] v)
 		{
 			unsafe {
@@ -297,7 +297,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnMapARB(Int32 target, Int32 query, [Out] float[] v)
 		{
 			unsafe {
@@ -323,7 +323,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnMapARB(Int32 target, Int32 query, [Out] Int32[] v)
 		{
 			unsafe {
@@ -346,7 +346,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnPixelMapARB(Int32 map, [Out] float[] values)
 		{
 			unsafe {
@@ -369,7 +369,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnPixelMapARB(Int32 map, [Out] UInt32[] values)
 		{
 			unsafe {
@@ -392,7 +392,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnPixelMapARB(Int32 map, [Out] UInt16[] values)
 		{
 			unsafe {
@@ -412,7 +412,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnPolygonStippleARB([Out] byte[] pattern)
 		{
 			unsafe {
@@ -444,7 +444,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetnColorTableARB != null, "pglGetnColorTableARB not implemented");
@@ -471,7 +471,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -500,7 +500,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilterARB != null, "pglGetnConvolutionFilterARB not implemented");
@@ -527,7 +527,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -565,7 +565,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilterARB != null, "pglGetnSeparableFilterARB not implemented");
@@ -601,7 +601,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -637,7 +637,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogramARB != null, "pglGetnHistogramARB not implemented");
@@ -667,7 +667,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
@@ -699,7 +699,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmaxARB != null, "pglGetnMinmaxARB not implemented");
@@ -729,7 +729,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static void GetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);

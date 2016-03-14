@@ -30,7 +30,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_gather")]
+		[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
 		public const int MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB = 0x8F9F;
 
 	}

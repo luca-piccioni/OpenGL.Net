@@ -42,6 +42,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.FrontFace"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CullFace(CullFaceMode mode)
 		{
 			Debug.Assert(Delegates.pglCullFace != null, "pglCullFace not implemented");
@@ -63,6 +65,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.CullFace"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void FrontFace(FrontFaceDirection mode)
 		{
 			Debug.Assert(Delegates.pglFrontFace != null, "pglFrontFace not implemented");
@@ -87,6 +91,8 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if either <paramref name="target"/> or <paramref name="mode"/> is not an accepted value.
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Hint(HintTarget target, HintMode mode)
 		{
 			Debug.Assert(Delegates.pglHint != null, "pglHint not implemented");
@@ -108,6 +114,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void LineWidth(float width)
 		{
 			Debug.Assert(Delegates.pglLineWidth != null, "pglLineWidth not implemented");
@@ -130,6 +138,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.PointParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointSize(float size)
 		{
 			Debug.Assert(Delegates.pglPointSize != null, "pglPointSize not implemented");
@@ -156,6 +165,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LineWidth"/>
 		/// <seealso cref="Gl.PointSize"/>
+		[AliasOf("glPolygonModeNV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void PolygonMode(MaterialFace face, PolygonMode mode)
 		{
@@ -190,6 +200,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Scissor(Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglScissor != null, "pglScissor not implemented");
@@ -277,6 +289,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexParameter(TextureTarget target, TextureParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexParameterf != null, "pglTexParameterf not implemented");
@@ -365,6 +379,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexParameter(TextureTarget target, TextureParameterName pname, float[] @params)
 		{
 			unsafe {
@@ -457,6 +473,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexParameter(TextureTarget target, TextureParameterName pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTexParameteri != null, "pglTexParameteri not implemented");
@@ -545,6 +563,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexParameter(TextureTarget target, TextureParameterName pname, Int32[] @params)
 		{
 			unsafe {
@@ -939,6 +959,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage2D != null, "pglTexImage2D not implemented");
@@ -1090,6 +1112,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -1159,6 +1183,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Scissor"/>
 		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Clear(ClearBufferMask mask)
 		{
 			Debug.Assert(Delegates.pglClear != null, "pglClear not implemented");
@@ -1185,6 +1211,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ClearColor(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglClearColor != null, "pglClearColor not implemented");
@@ -1207,6 +1235,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ClearStencil(Int32 s)
 		{
 			Debug.Assert(Delegates.pglClearStencil != null, "pglClearStencil not implemented");
@@ -1247,6 +1277,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void StencilMask(UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilMask != null, "pglStencilMask not implemented");
@@ -1278,6 +1310,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DepthMask"/>
 		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ColorMask(bool red, bool green, bool blue, bool alpha)
 		{
 			Debug.Assert(Delegates.pglColorMask != null, "pglColorMask not implemented");
@@ -1298,6 +1332,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DepthRange"/>
 		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DepthMask(bool flag)
 		{
 			Debug.Assert(Delegates.pglDepthMask != null, "pglDepthMask not implemented");
@@ -1341,6 +1377,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Disable(EnableCap cap)
 		{
 			Debug.Assert(Delegates.pglDisable != null, "pglDisable not implemented");
@@ -1384,6 +1422,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Enable(EnableCap cap)
 		{
 			Debug.Assert(Delegates.pglEnable != null, "pglEnable not implemented");
@@ -1397,6 +1437,8 @@ namespace OpenGL
 		/// </summary>
 		/// <seealso cref="Gl.Flush"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Finish()
 		{
 			Debug.Assert(Delegates.pglFinish != null, "pglFinish not implemented");
@@ -1410,6 +1452,8 @@ namespace OpenGL
 		/// </summary>
 		/// <seealso cref="Gl.Finish"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Flush()
 		{
 			Debug.Assert(Delegates.pglFlush != null, "pglFlush not implemented");
@@ -1449,6 +1493,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BlendFunc(BlendingFactorSrc sfactor, BlendingFactorDest dfactor)
 		{
 			Debug.Assert(Delegates.pglBlendFunc != null, "pglBlendFunc not implemented");
@@ -1475,6 +1521,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.StencilOp"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LogicOp(LogicOp opcode)
 		{
 			Debug.Assert(Delegates.pglLogicOp != null, "pglLogicOp not implemented");
@@ -1513,6 +1560,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void StencilFunc(StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFunc != null, "pglStencilFunc not implemented");
@@ -1553,6 +1602,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void StencilOp(StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOp != null, "pglStencilOp not implemented");
@@ -1577,6 +1628,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.PolygonOffset"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DepthFunc(DepthFunction func)
 		{
 			Debug.Assert(Delegates.pglDepthFunc != null, "pglDepthFunc not implemented");
@@ -1665,6 +1718,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void PixelStore(PixelStoreParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelStorei != null, "pglPixelStorei not implemented");
@@ -1700,6 +1755,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawBuffer"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void ReadBuffer(ReadBufferMode mode)
 		{
 			Debug.Assert(Delegates.pglReadBuffer != null, "pglReadBuffer not implemented");
@@ -1799,6 +1855,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelStore"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadPixels != null, "pglReadPixels not implemented");
@@ -1851,6 +1909,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(Int32 pname, [Out] bool[] data)
 		{
 			unsafe {
@@ -1908,6 +1968,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(GetPName pname, [Out] bool[] data)
 		{
 			unsafe {
@@ -1965,6 +2027,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(Int32 pname, out bool data)
 		{
 			unsafe {
@@ -2022,6 +2086,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(GetPName pname, out bool data)
 		{
 			unsafe {
@@ -2267,6 +2333,8 @@ namespace OpenGL
 		/// return error information
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static ErrorCode GetError()
 		{
 			Int32 retValue;
@@ -2322,6 +2390,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(Int32 pname, [Out] float[] data)
 		{
 			unsafe {
@@ -2379,6 +2449,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(GetPName pname, [Out] float[] data)
 		{
 			unsafe {
@@ -2436,6 +2508,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(Int32 pname, out float data)
 		{
 			unsafe {
@@ -2493,6 +2567,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(GetPName pname, out float data)
 		{
 			unsafe {
@@ -2550,6 +2626,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(Int32 pname, [Out] Int32[] data)
 		{
 			unsafe {
@@ -2607,6 +2685,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(GetPName pname, [Out] Int32[] data)
 		{
 			unsafe {
@@ -2664,6 +2744,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(Int32 pname, out Int32 data)
 		{
 			unsafe {
@@ -2721,6 +2803,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Get(GetPName pname, out Int32 data)
 		{
 			unsafe {
@@ -2751,6 +2835,8 @@ namespace OpenGL
 		/// <paramref name="name"/>.
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static String GetString(StringName name)
 		{
 			IntPtr retValue;
@@ -3029,6 +3115,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -3086,6 +3174,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -3165,6 +3255,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -3244,6 +3335,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -3323,6 +3415,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, out Int32 @params)
 		{
 			unsafe {
@@ -3355,6 +3448,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Disable"/>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static bool IsEnabled(EnableCap cap)
 		{
 			bool retValue;
@@ -3413,6 +3508,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.DepthRange"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Viewport(Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglViewport != null, "pglViewport not implemented");
@@ -4301,6 +4398,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Color4(float red, float green, float blue, float alpha)
 		{
@@ -4448,6 +4546,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Color4(byte red, byte green, byte blue, byte alpha)
 		{
@@ -4970,6 +5069,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Normal3(float nx, float ny, float nz)
 		{
@@ -7940,6 +8040,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Fog(FogParameter pname, float param)
 		{
@@ -7974,6 +8075,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Fog(FogParameter pname, float[] @params)
 		{
@@ -8092,6 +8194,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Light(LightName light, LightParameter pname, float param)
 		{
@@ -8132,6 +8235,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Light(LightName light, LightParameter pname, float[] @params)
 		{
@@ -8257,6 +8361,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LightModel(LightModelParameter pname, float param)
 		{
@@ -8292,6 +8397,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LightModel(LightModelParameter pname, float[] @params)
 		{
@@ -8436,6 +8542,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Material(MaterialFace face, MaterialParameter pname, float param)
 		{
@@ -8468,6 +8575,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Material(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
@@ -8613,6 +8721,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ShadeModel(ShadingModel mode)
 		{
@@ -8671,6 +8780,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, float param)
 		{
@@ -8725,6 +8835,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, float[] @params)
 		{
@@ -8788,6 +8899,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32 param)
 		{
@@ -8842,6 +8954,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32[] @params)
 		{
@@ -10625,6 +10738,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void AlphaFunc(AlphaFunction func, float @ref)
 		{
@@ -11624,6 +11738,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetLight(LightName light, LightParameter pname, [Out] float[] @params)
 		{
@@ -11830,6 +11945,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] float[] @params)
 		{
@@ -12207,6 +12323,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] float[] @params)
 		{
@@ -12248,6 +12365,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] Int32[] @params)
 		{
@@ -12473,6 +12591,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadIdentity()
 		{
@@ -12500,6 +12619,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadMatrix(float[] m)
 		{
@@ -12570,6 +12690,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MatrixMode(MatrixMode mode)
 		{
@@ -12598,6 +12719,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultMatrix(float[] m)
 		{
@@ -12719,6 +12841,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Translate"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PopMatrix()
 		{
@@ -12756,6 +12879,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Translate"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PushMatrix()
 		{
@@ -12828,6 +12952,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Scale"/>
 		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Rotate(float angle, float x, float y, float z)
 		{
@@ -12894,6 +13019,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Rotate"/>
 		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Scale(float x, float y, float z)
 		{
@@ -12960,6 +13086,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Rotate"/>
 		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Translate(float x, float y, float z)
 		{

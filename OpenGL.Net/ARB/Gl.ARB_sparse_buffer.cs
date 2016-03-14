@@ -30,14 +30,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SPARSE_STORAGE_BIT_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_sparse_buffer")]
+		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]
 		public const int SPARSE_STORAGE_BIT_ARB = 0x0400;
 
 		/// <summary>
 		/// Value of GL_SPARSE_BUFFER_PAGE_SIZE_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_sparse_buffer")]
+		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		public const int SPARSE_BUFFER_PAGE_SIZE_ARB = 0x82F8;
 
 		/// <summary>
@@ -55,7 +55,7 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_sparse_buffer")]
+		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		public static void BufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglBufferPageCommitmentARB != null, "pglBufferPageCommitmentARB not implemented");
@@ -79,7 +79,7 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_sparse_buffer")]
+		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		public static void NamedBufferPageCommitmentEXT(UInt32 buffer, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentEXT != null, "pglNamedBufferPageCommitmentEXT not implemented");
@@ -103,7 +103,7 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_sparse_buffer")]
+		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		public static void NamedBufferPageCommitmentARB(UInt32 buffer, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentARB != null, "pglNamedBufferPageCommitmentARB not implemented");

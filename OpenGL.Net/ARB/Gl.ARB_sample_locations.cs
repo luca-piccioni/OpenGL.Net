@@ -32,7 +32,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int SAMPLE_LOCATION_SUBPIXEL_BITS_ARB = 0x933D;
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB = 0x933E;
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB = 0x933F;
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB = 0x9340;
 
 		/// <summary>
@@ -64,7 +64,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PROGRAMMABLE_SAMPLE_LOCATION_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_ARB = 0x9341;
 
 		/// <summary>
@@ -72,7 +72,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342;
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations")]
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public const int FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB = 0x9343;
 
 		/// <summary>

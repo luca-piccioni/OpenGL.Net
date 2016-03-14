@@ -32,6 +32,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE0_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RequiredByFeature("GL_NV_register_combiners")]
 		public const int TEXTURE0 = 0x84C0;
@@ -41,6 +43,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE1_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RequiredByFeature("GL_NV_register_combiners")]
 		public const int TEXTURE1 = 0x84C1;
@@ -50,6 +54,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE2_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE2 = 0x84C2;
 
@@ -58,6 +64,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE3_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE3 = 0x84C3;
 
@@ -66,6 +74,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE4_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE4 = 0x84C4;
 
@@ -74,6 +84,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE5_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE5 = 0x84C5;
 
@@ -82,6 +94,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE6_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE6 = 0x84C6;
 
@@ -90,6 +104,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE7_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE7 = 0x84C7;
 
@@ -98,6 +114,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE8_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE8 = 0x84C8;
 
@@ -106,6 +124,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE9_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE9 = 0x84C9;
 
@@ -114,6 +134,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE10_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE10 = 0x84CA;
 
@@ -122,6 +144,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE11_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE11 = 0x84CB;
 
@@ -130,6 +154,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE12_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE12 = 0x84CC;
 
@@ -138,6 +164,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE13_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE13 = 0x84CD;
 
@@ -146,6 +174,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE14_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE14 = 0x84CE;
 
@@ -154,6 +184,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE15_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE15 = 0x84CF;
 
@@ -162,6 +194,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE16_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE16 = 0x84D0;
 
@@ -170,6 +204,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE17_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE17 = 0x84D1;
 
@@ -178,6 +214,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE18_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE18 = 0x84D2;
 
@@ -186,6 +224,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE19_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE19 = 0x84D3;
 
@@ -194,6 +234,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE20_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE20 = 0x84D4;
 
@@ -202,6 +244,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE21_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE21 = 0x84D5;
 
@@ -210,6 +254,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE22_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE22 = 0x84D6;
 
@@ -218,6 +264,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE23_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE23 = 0x84D7;
 
@@ -226,6 +274,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE24_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE24 = 0x84D8;
 
@@ -234,6 +284,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE25_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE25 = 0x84D9;
 
@@ -242,6 +294,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE26_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE26 = 0x84DA;
 
@@ -250,6 +304,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE27_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE27 = 0x84DB;
 
@@ -258,6 +314,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE28_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE28 = 0x84DC;
 
@@ -266,6 +324,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE29_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE29 = 0x84DD;
 
@@ -274,6 +334,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE30_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE30 = 0x84DE;
 
@@ -282,6 +344,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE31_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int TEXTURE31 = 0x84DF;
 
@@ -291,6 +355,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		public const int ACTIVE_TEXTURE = 0x84E0;
 
@@ -301,8 +367,10 @@ namespace OpenGL
 		[AliasOf("GL_MULTISAMPLE_EXT")]
 		[AliasOf("GL_MULTISAMPLE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_compatibility", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int MULTISAMPLE = 0x809D;
 
@@ -312,6 +380,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		public const int SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
 
@@ -322,8 +392,10 @@ namespace OpenGL
 		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT")]
 		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_compatibility", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_ALPHA_TO_ONE = 0x809F;
 
@@ -333,6 +405,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		public const int SAMPLE_COVERAGE = 0x80A0;
 
@@ -350,6 +424,8 @@ namespace OpenGL
 		[AliasOf("GL_SAMPLE_BUFFERS_EXT")]
 		[AliasOf("GL_SAMPLE_BUFFERS_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
@@ -368,7 +444,9 @@ namespace OpenGL
 		[AliasOf("GL_SAMPLES_EXT")]
 		[AliasOf("GL_SAMPLES_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		[RequiredByFeature("GL_NV_multisample_coverage")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -381,6 +459,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		public const int SAMPLE_COVERAGE_VALUE = 0x80AA;
 
@@ -390,6 +470,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		public const int SAMPLE_COVERAGE_INVERT = 0x80AB;
 
@@ -404,10 +486,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP = 0x8513;
 
 		/// <summary>
@@ -416,11 +502,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT")]
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_BINDING_CUBE_MAP = 0x8514;
 
 		/// <summary>
@@ -428,9 +517,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_X = 0x8515;
 
 		/// <summary>
@@ -438,9 +530,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_X = 0x8516;
 
 		/// <summary>
@@ -448,9 +543,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Y = 0x8517;
 
 		/// <summary>
@@ -458,9 +556,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x8518;
 
 		/// <summary>
@@ -468,9 +569,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Z = 0x8519;
 
 		/// <summary>
@@ -478,9 +582,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;
 
 		/// <summary>
@@ -500,9 +607,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB")]
 		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT")]
+		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
 
 		/// <summary>
@@ -553,7 +663,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPRESSED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int TEXTURE_COMPRESSED = 0x86A1;
 
@@ -563,6 +674,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
 
@@ -572,6 +685,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int COMPRESSED_TEXTURE_FORMATS = 0x86A3;
 
@@ -579,10 +694,17 @@ namespace OpenGL
 		/// Value of GL_CLAMP_TO_BORDER symbol.
 		/// </summary>
 		[AliasOf("GL_CLAMP_TO_BORDER_ARB")]
+		[AliasOf("GL_CLAMP_TO_BORDER_EXT")]
+		[AliasOf("GL_CLAMP_TO_BORDER_NV")]
 		[AliasOf("GL_CLAMP_TO_BORDER_SGIS")]
+		[AliasOf("GL_CLAMP_TO_BORDER_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_border_clamp")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_texture_border_clamp")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public const int CLAMP_TO_BORDER = 0x812D;
 
 		/// <summary>
@@ -591,6 +713,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CLIENT_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -606,6 +729,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -684,10 +808,12 @@ namespace OpenGL
 		[AliasOf("GL_NORMAL_MAP_ARB")]
 		[AliasOf("GL_NORMAL_MAP_EXT")]
 		[AliasOf("GL_NORMAL_MAP_NV")]
+		[AliasOf("GL_NORMAL_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
 		[RequiredByFeature("GL_NV_texgen_reflection")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -700,10 +826,12 @@ namespace OpenGL
 		[AliasOf("GL_REFLECTION_MAP_ARB")]
 		[AliasOf("GL_REFLECTION_MAP_EXT")]
 		[AliasOf("GL_REFLECTION_MAP_NV")]
+		[AliasOf("GL_REFLECTION_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
 		[RequiredByFeature("GL_NV_texgen_reflection")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -764,6 +892,7 @@ namespace OpenGL
 		[AliasOf("GL_COMBINE_ARB")]
 		[AliasOf("GL_COMBINE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -779,6 +908,7 @@ namespace OpenGL
 		[AliasOf("GL_COMBINE_RGB_ARB")]
 		[AliasOf("GL_COMBINE_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -794,6 +924,7 @@ namespace OpenGL
 		[AliasOf("GL_COMBINE_ALPHA_ARB")]
 		[AliasOf("GL_COMBINE_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -893,6 +1024,7 @@ namespace OpenGL
 		[AliasOf("GL_OPERAND0_RGB_ARB")]
 		[AliasOf("GL_OPERAND0_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -908,6 +1040,7 @@ namespace OpenGL
 		[AliasOf("GL_OPERAND1_RGB_ARB")]
 		[AliasOf("GL_OPERAND1_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -923,6 +1056,7 @@ namespace OpenGL
 		[AliasOf("GL_OPERAND2_RGB_ARB")]
 		[AliasOf("GL_OPERAND2_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -938,6 +1072,7 @@ namespace OpenGL
 		[AliasOf("GL_OPERAND0_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND0_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -953,6 +1088,7 @@ namespace OpenGL
 		[AliasOf("GL_OPERAND1_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -968,6 +1104,7 @@ namespace OpenGL
 		[AliasOf("GL_OPERAND2_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND2_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -983,6 +1120,7 @@ namespace OpenGL
 		[AliasOf("GL_RGB_SCALE_ARB")]
 		[AliasOf("GL_RGB_SCALE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -997,6 +1135,7 @@ namespace OpenGL
 		[AliasOf("GL_ADD_SIGNED_ARB")]
 		[AliasOf("GL_ADD_SIGNED_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -1011,6 +1150,7 @@ namespace OpenGL
 		[AliasOf("GL_INTERPOLATE_ARB")]
 		[AliasOf("GL_INTERPOLATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -1024,6 +1164,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SUBTRACT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1038,9 +1179,10 @@ namespace OpenGL
 		[AliasOf("GL_CONSTANT_EXT")]
 		[AliasOf("GL_CONSTANT_NV")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -1053,7 +1195,8 @@ namespace OpenGL
 		[AliasOf("GL_PRIMARY_COLOR_ARB")]
 		[AliasOf("GL_PRIMARY_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -1068,6 +1211,7 @@ namespace OpenGL
 		[AliasOf("GL_PREVIOUS_ARB")]
 		[AliasOf("GL_PREVIOUS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -1081,6 +1225,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DOT3_RGB_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_dot3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1092,8 +1237,11 @@ namespace OpenGL
 		/// Value of GL_DOT3_RGBA symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_DOT3_RGBA_ARB")]
+		[AliasOf("GL_DOT3_RGBA_IMG")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_dot3")]
+		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -1138,7 +1286,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ActiveTexture(Int32 texture)
 		{
 			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
@@ -1159,7 +1310,10 @@ namespace OpenGL
 		/// </param>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[AliasOf("glSampleCoverageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void SampleCoverage(float value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleCoverage != null, "pglSampleCoverage not implemented");
@@ -1249,7 +1403,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexImage3DARB")]
+		[AliasOf("glCompressedTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
@@ -1339,7 +1496,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexImage3DARB")]
+		[AliasOf("glCompressedTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1433,7 +1593,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
@@ -1525,7 +1688,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1609,6 +1775,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
@@ -1691,6 +1858,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
 		{
@@ -1792,7 +1960,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexSubImage3DARB")]
+		[AliasOf("glCompressedTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
@@ -1891,7 +2062,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexSubImage3DARB")]
+		[AliasOf("glCompressedTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1990,7 +2164,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexSubImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
@@ -2087,7 +2264,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexSubImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2171,6 +2351,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
@@ -2253,6 +2434,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
 		{
@@ -2319,6 +2501,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
@@ -2383,6 +2566,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, Object img)
 		{
@@ -2413,7 +2597,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.EnableClientState"/>
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
+		[AliasOf("glClientActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ClientActiveTexture(Int32 texture)
 		{
@@ -2440,6 +2626,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, double s)
@@ -2465,6 +2652,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, double[] v)
@@ -2497,6 +2685,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, float s)
@@ -2522,6 +2711,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, float[] v)
@@ -2554,6 +2744,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int32 s)
@@ -2579,6 +2770,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int32[] v)
@@ -2611,6 +2803,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int16 s)
@@ -2636,6 +2829,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord1svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int16[] v)
@@ -2672,6 +2866,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, double s, double t)
@@ -2697,6 +2892,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, double[] v)
@@ -2733,6 +2929,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, float s, float t)
@@ -2758,6 +2955,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, float[] v)
@@ -2794,6 +2992,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int32 s, Int32 t)
@@ -2819,6 +3018,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int32[] v)
@@ -2855,6 +3055,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int16 s, Int16 t)
@@ -2880,6 +3081,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord2svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int16[] v)
@@ -2920,6 +3122,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, double s, double t, double r)
@@ -2945,6 +3148,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, double[] v)
@@ -2985,6 +3189,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, float s, float t, float r)
@@ -3010,6 +3215,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, float[] v)
@@ -3050,6 +3256,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int32 s, Int32 t, Int32 r)
@@ -3075,6 +3282,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int32[] v)
@@ -3115,6 +3323,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int16 s, Int16 t, Int16 r)
@@ -3140,6 +3349,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord3svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int16[] v)
@@ -3184,6 +3394,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, double s, double t, double r, double q)
@@ -3209,6 +3420,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, double[] v)
@@ -3253,7 +3465,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, float s, float t, float r, float q)
 		{
@@ -3278,6 +3492,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, float[] v)
@@ -3322,6 +3537,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q)
@@ -3347,6 +3563,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int32[] v)
@@ -3391,6 +3608,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q)
@@ -3416,6 +3634,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[AliasOf("glMultiTexCoord4svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int16[] v)
@@ -3449,6 +3668,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[AliasOf("glLoadTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(float[] m)
@@ -3482,6 +3702,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[AliasOf("glLoadTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(double[] m)
@@ -3514,6 +3735,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LoadTransposeMatrix"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[AliasOf("glMultTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(float[] m)
@@ -3546,6 +3768,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LoadTransposeMatrix"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[AliasOf("glMultTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(double[] m)

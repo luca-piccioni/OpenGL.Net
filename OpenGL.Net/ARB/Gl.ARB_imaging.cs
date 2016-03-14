@@ -28,23 +28,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the blend color. 
-		/// See Gl.BlendColor.
-		/// </summary>
-		[AliasOf("GL_BLEND_COLOR_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_blend_color")]
-		public const int BLEND_COLOR = 0x8005;
-
-		/// <summary>
-		/// Value of GL_BLEND_EQUATION symbol.
-		/// </summary>
-		[AliasOf("GL_BLEND_EQUATION_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_blend_minmax")]
-		public const int BLEND_EQUATION = 0x8009;
-
-		/// <summary>
 		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D convolution is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.ConvolutionFilter1D.
@@ -54,7 +37,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_1D_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_1D = 0x8010;
 
@@ -68,7 +51,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_2D_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_2D = 0x8011;
 
@@ -83,7 +66,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_SEPARABLE_2D_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int SEPARABLE_2D = 0x8012;
 
@@ -91,7 +74,7 @@ namespace OpenGL
 		/// Gl.GetConvolutionParameter: the convolution border mode. See Gl.ConvolutionParameter for a list of border modes.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_BORDER_MODE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_BORDER_MODE = 0x8013;
 
@@ -100,7 +83,7 @@ namespace OpenGL
 		/// which will receive the red, green, blue, and alpha filter scale factors in that order.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FILTER_SCALE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_FILTER_SCALE = 0x8014;
 
@@ -109,7 +92,7 @@ namespace OpenGL
 		/// which will receive the red, green, blue, and alpha filter bias terms in that order.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FILTER_BIAS_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_FILTER_BIAS = 0x8015;
 
@@ -121,7 +104,7 @@ namespace OpenGL
 		/// through Ws-Wf in width and zero through Hs-Hf in height.
 		/// </summary>
 		[AliasOf("GL_REDUCE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int REDUCE = 0x8016;
 
@@ -130,7 +113,7 @@ namespace OpenGL
 		/// Gl.SeparableFilter2D for lists of allowable formats.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FORMAT_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_FORMAT = 0x8017;
 
@@ -138,7 +121,7 @@ namespace OpenGL
 		/// Gl.GetConvolutionParameter: the current filter image width.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_WIDTH_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_WIDTH = 0x8018;
 
@@ -146,7 +129,7 @@ namespace OpenGL
 		/// Gl.GetConvolutionParameter: the current filter image height.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_HEIGHT_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int CONVOLUTION_HEIGHT = 0x8019;
 
@@ -154,7 +137,7 @@ namespace OpenGL
 		/// Gl.GetConvolutionParameter: the maximum acceptable filter image width.
 		/// </summary>
 		[AliasOf("GL_MAX_CONVOLUTION_WIDTH_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int MAX_CONVOLUTION_WIDTH = 0x801A;
 
@@ -162,7 +145,7 @@ namespace OpenGL
 		/// Gl.GetConvolutionParameter: the maximum acceptable filter image height.
 		/// </summary>
 		[AliasOf("GL_MAX_CONVOLUTION_HEIGHT_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int MAX_CONVOLUTION_HEIGHT = 0x801B;
 
@@ -171,7 +154,7 @@ namespace OpenGL
 		/// 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_RED_SCALE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_RED_SCALE = 0x801C;
 
@@ -180,7 +163,7 @@ namespace OpenGL
 		/// is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_GREEN_SCALE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_GREEN_SCALE = 0x801D;
 
@@ -189,7 +172,7 @@ namespace OpenGL
 		/// is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_BLUE_SCALE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_BLUE_SCALE = 0x801E;
 
@@ -198,7 +181,7 @@ namespace OpenGL
 		/// is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_ALPHA_SCALE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_ALPHA_SCALE = 0x801F;
 
@@ -207,7 +190,7 @@ namespace OpenGL
 		/// 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_RED_BIAS_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_RED_BIAS = 0x8020;
 
@@ -216,7 +199,7 @@ namespace OpenGL
 		/// is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_GREEN_BIAS_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_GREEN_BIAS = 0x8021;
 
@@ -225,7 +208,7 @@ namespace OpenGL
 		/// 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_BLUE_BIAS_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_BLUE_BIAS = 0x8022;
 
@@ -234,7 +217,7 @@ namespace OpenGL
 		/// is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_ALPHA_BIAS_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_convolution")]
 		public const int POST_CONVOLUTION_ALPHA_BIAS = 0x8023;
 
@@ -248,7 +231,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM = 0x8024;
 
@@ -256,7 +239,7 @@ namespace OpenGL
 		/// Value of GL_PROXY_HISTOGRAM symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_HISTOGRAM_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int PROXY_HISTOGRAM = 0x8025;
 
@@ -264,7 +247,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_WIDTH symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_WIDTH_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_WIDTH = 0x8026;
 
@@ -272,7 +255,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_FORMAT_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_FORMAT = 0x8027;
 
@@ -280,7 +263,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_RED_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_RED_SIZE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_RED_SIZE = 0x8028;
 
@@ -288,7 +271,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_GREEN_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_GREEN_SIZE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_GREEN_SIZE = 0x8029;
 
@@ -296,7 +279,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_BLUE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_BLUE_SIZE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_BLUE_SIZE = 0x802A;
 
@@ -304,7 +287,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_ALPHA_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_ALPHA_SIZE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_ALPHA_SIZE = 0x802B;
 
@@ -312,7 +295,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_LUMINANCE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_LUMINANCE_SIZE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_LUMINANCE_SIZE = 0x802C;
 
@@ -320,7 +303,7 @@ namespace OpenGL
 		/// Value of GL_HISTOGRAM_SINK symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_SINK_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_SINK = 0x802D;
 
@@ -334,7 +317,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_MINMAX_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int MINMAX = 0x802E;
 
@@ -342,7 +325,7 @@ namespace OpenGL
 		/// Value of GL_MINMAX_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_MINMAX_FORMAT_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int MINMAX_FORMAT = 0x802F;
 
@@ -350,7 +333,7 @@ namespace OpenGL
 		/// Value of GL_MINMAX_SINK symbol.
 		/// </summary>
 		[AliasOf("GL_MINMAX_SINK_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int MINMAX_SINK = 0x8030;
 
@@ -359,7 +342,7 @@ namespace OpenGL
 		/// ignored and has no other side effect than to set the error flag.
 		/// </summary>
 		[AliasOf("GL_TABLE_TOO_LARGE_EXT")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int TABLE_TOO_LARGE = 0x8031;
 
@@ -368,7 +351,7 @@ namespace OpenGL
 		/// the identity matrix. See Gl.PushMatrix.
 		/// </summary>
 		[AliasOf("GL_COLOR_MATRIX_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int COLOR_MATRIX = 0x80B1;
 
@@ -377,7 +360,7 @@ namespace OpenGL
 		/// 2. See Gl.PushMatrix.
 		/// </summary>
 		[AliasOf("GL_COLOR_MATRIX_STACK_DEPTH_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int COLOR_MATRIX_STACK_DEPTH = 0x80B2;
 
@@ -386,7 +369,7 @@ namespace OpenGL
 		/// See Gl.PushMatrix.
 		/// </summary>
 		[AliasOf("GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int MAX_COLOR_MATRIX_STACK_DEPTH = 0x80B3;
 
@@ -395,7 +378,7 @@ namespace OpenGL
 		/// initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_RED_SCALE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_RED_SCALE = 0x80B4;
 
@@ -404,7 +387,7 @@ namespace OpenGL
 		/// The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_GREEN_SCALE = 0x80B5;
 
@@ -413,7 +396,7 @@ namespace OpenGL
 		/// The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_BLUE_SCALE = 0x80B6;
 
@@ -422,7 +405,7 @@ namespace OpenGL
 		/// The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_ALPHA_SCALE = 0x80B7;
 
@@ -431,7 +414,7 @@ namespace OpenGL
 		/// initial value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_RED_BIAS_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_RED_BIAS = 0x80B8;
 
@@ -440,7 +423,7 @@ namespace OpenGL
 		/// The initial value is 0. See Gl.PixelTransfer
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_GREEN_BIAS = 0x80B9;
 
@@ -449,7 +432,7 @@ namespace OpenGL
 		/// initial value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_BLUE_BIAS = 0x80BA;
 
@@ -458,7 +441,7 @@ namespace OpenGL
 		/// The initial value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_ALPHA_BIAS = 0x80BB;
 
@@ -471,7 +454,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE = 0x80D0;
 
@@ -485,7 +468,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_COLOR_TABLE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int POST_CONVOLUTION_COLOR_TABLE = 0x80D1;
 
@@ -500,7 +483,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int POST_COLOR_MATRIX_COLOR_TABLE = 0x80D2;
 
@@ -508,7 +491,7 @@ namespace OpenGL
 		/// Value of GL_PROXY_COLOR_TABLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_COLOR_TABLE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int PROXY_COLOR_TABLE = 0x80D3;
 
@@ -516,7 +499,7 @@ namespace OpenGL
 		/// Value of GL_PROXY_POST_CONVOLUTION_COLOR_TABLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int PROXY_POST_CONVOLUTION_COLOR_TABLE = 0x80D4;
 
@@ -524,7 +507,7 @@ namespace OpenGL
 		/// Value of GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int PROXY_POST_COLOR_MATRIX_COLOR_TABLE = 0x80D5;
 
@@ -532,7 +515,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_SCALE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_SCALE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_SCALE = 0x80D6;
 
@@ -540,7 +523,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_BIAS symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_BIAS_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_BIAS = 0x80D7;
 
@@ -548,7 +531,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_FORMAT_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_FORMAT = 0x80D8;
 
@@ -556,7 +539,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_WIDTH symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_WIDTH_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_WIDTH = 0x80D9;
 
@@ -564,7 +547,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_RED_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_RED_SIZE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_RED_SIZE = 0x80DA;
 
@@ -572,7 +555,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_GREEN_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_GREEN_SIZE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_GREEN_SIZE = 0x80DB;
 
@@ -580,7 +563,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_BLUE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_BLUE_SIZE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_BLUE_SIZE = 0x80DC;
 
@@ -588,7 +571,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_ALPHA_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_ALPHA_SIZE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_ALPHA_SIZE = 0x80DD;
 
@@ -596,7 +579,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_LUMINANCE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_LUMINANCE_SIZE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_LUMINANCE_SIZE = 0x80DE;
 
@@ -604,7 +587,7 @@ namespace OpenGL
 		/// Value of GL_COLOR_TABLE_INTENSITY_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_INTENSITY_SIZE_SGI")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_table")]
 		public const int COLOR_TABLE_INTENSITY_SIZE = 0x80DF;
 
@@ -613,7 +596,7 @@ namespace OpenGL
 		/// the source image were surrounded by pixels with their color specified by the Gl.CONVOLUTION_BORDER_COLOR.
 		/// </summary>
 		[AliasOf("GL_CONSTANT_BORDER_HP")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_HP_convolution_border_modes")]
 		public const int CONSTANT_BORDER = 0x8151;
 
@@ -622,7 +605,7 @@ namespace OpenGL
 		/// the outermost pixel on the border of the source image were replicated.
 		/// </summary>
 		[AliasOf("GL_REPLICATE_BORDER_HP")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_HP_convolution_border_modes")]
 		public const int REPLICATE_BORDER = 0x8153;
 
@@ -631,7 +614,7 @@ namespace OpenGL
 		/// which will receive the red, green, blue, and alpha border colors.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_BORDER_COLOR_HP")]
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_HP_convolution_border_modes")]
 		public const int CONVOLUTION_BORDER_COLOR = 0x8154;
 
@@ -709,7 +692,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glColorTableEXT")]
+		[AliasOf("glColorTableSGI")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ColorTable(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
@@ -792,7 +777,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glColorTableEXT")]
+		[AliasOf("glColorTableSGI")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ColorTable(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -826,7 +813,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glColorTableParameterfvSGI")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ColorTableParameter(Int32 target, Int32 pname, float[] @params)
 		{
 			unsafe {
@@ -863,7 +851,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glColorTableParameterivSGI")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ColorTableParameter(Int32 target, Int32 pname, Int32[] @params)
 		{
 			unsafe {
@@ -921,7 +910,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.ReadPixels"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glCopyColorTableSGI")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void CopyColorTable(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorTable != null, "pglCopyColorTable not implemented");
@@ -991,7 +981,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glGetColorTableEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetColorTable(Int32 target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
@@ -1061,7 +1052,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glGetColorTableEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetColorTable(Int32 target, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -1099,7 +1091,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glGetColorTableParameterfvEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetColorTableParameter(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -1140,7 +1133,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glGetColorTableParameterivEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetColorTableParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -1216,7 +1210,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glColorSubTableEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ColorSubTable(Int32 target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
@@ -1287,7 +1282,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glColorSubTableEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ColorSubTable(Int32 target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1335,7 +1331,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glCopyColorSubTableEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void CopyColorSubTable(Int32 target, Int32 start, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorSubTable != null, "pglCopyColorSubTable not implemented");
@@ -1426,7 +1423,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionFilter1DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
@@ -1517,7 +1515,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionFilter1DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -1618,7 +1617,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionFilter2DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
@@ -1717,7 +1717,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionFilter2DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -1760,7 +1761,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionParameterfEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, float @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
@@ -1801,7 +1803,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionParameterfvEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, float[] @params)
 		{
 			unsafe {
@@ -1847,7 +1850,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionParameteriEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, Int32 @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
@@ -1888,7 +1892,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glConvolutionParameterivEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, Int32[] @params)
 		{
 			unsafe {
@@ -1945,7 +1950,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glCopyConvolutionFilter1DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void CopyConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1D != null, "pglCopyConvolutionFilter1D not implemented");
@@ -2005,7 +2011,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glCopyConvolutionFilter2DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void CopyConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2D != null, "pglCopyConvolutionFilter2D not implemented");
@@ -2077,7 +2084,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetConvolutionFilter(Int32 target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
@@ -2149,7 +2156,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetConvolutionFilter(Int32 target, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -2194,7 +2201,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetConvolutionParameter(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -2242,7 +2249,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetConvolutionParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2324,7 +2331,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetSeparableFilter(Int32 target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
@@ -2401,7 +2408,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetSeparableFilter(Int32 target, PixelFormat format, PixelType type, Object row, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -2511,7 +2518,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glSeparableFilter2DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void SeparableFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
@@ -2615,7 +2623,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glSeparableFilter2DEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void SeparableFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -2693,7 +2702,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Histogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetHistogram(Int32 target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
@@ -2767,7 +2776,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Histogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetHistogram(Int32 target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
@@ -2806,7 +2815,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetHistogramParameter(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -2848,7 +2857,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetHistogramParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2923,7 +2932,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetMinmax(Int32 target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
@@ -2993,7 +3002,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetMinmax(Int32 target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
@@ -3030,7 +3039,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetMinmaxParameter(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -3070,7 +3079,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void GetMinmaxParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -3125,7 +3134,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glHistogramEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void Histogram(Int32 target, Int32 width, Int32 internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
@@ -3165,7 +3175,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetMinmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glMinmaxEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void Minmax(Int32 target, Int32 internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
@@ -3190,7 +3201,8 @@ namespace OpenGL
 		/// corresponding execution of Gl\.End.
 		/// </exception>
 		/// <seealso cref="Gl.Histogram"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glResetHistogramEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ResetHistogram(Int32 target)
 		{
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
@@ -3215,7 +3227,8 @@ namespace OpenGL
 		/// execution of Gl\.End.
 		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
-		[RequiredByFeature("GL_ARB_imaging")]
+		[AliasOf("glResetMinmaxEXT")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		public static void ResetMinmax(Int32 target)
 		{
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");

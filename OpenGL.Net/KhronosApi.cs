@@ -248,6 +248,11 @@ namespace OpenGL
 			/// The name of the extension.
 			/// </summary>
 			public readonly string ExtensionName;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public string Api;
 		}
 
 		/// <summary>
@@ -387,6 +392,11 @@ namespace OpenGL
 			/// The support of the extension.
 			/// </summary>
 			public readonly string Support;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public string Api;
 		}
 
 		/// <summary>

@@ -30,956 +30,956 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PATH_FORMAT_SVG_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FORMAT_SVG_NV = 0x9070;
 
 		/// <summary>
 		/// Value of GL_PATH_FORMAT_PS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FORMAT_PS_NV = 0x9071;
 
 		/// <summary>
 		/// Value of GL_STANDARD_FONT_NAME_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int STANDARD_FONT_NAME_NV = 0x9072;
 
 		/// <summary>
 		/// Value of GL_SYSTEM_FONT_NAME_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SYSTEM_FONT_NAME_NV = 0x9073;
 
 		/// <summary>
 		/// Value of GL_FILE_NAME_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FILE_NAME_NV = 0x9074;
 
 		/// <summary>
 		/// Value of GL_PATH_STROKE_WIDTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STROKE_WIDTH_NV = 0x9075;
 
 		/// <summary>
 		/// Value of GL_PATH_END_CAPS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_END_CAPS_NV = 0x9076;
 
 		/// <summary>
 		/// Value of GL_PATH_INITIAL_END_CAP_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_INITIAL_END_CAP_NV = 0x9077;
 
 		/// <summary>
 		/// Value of GL_PATH_TERMINAL_END_CAP_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_TERMINAL_END_CAP_NV = 0x9078;
 
 		/// <summary>
 		/// Value of GL_PATH_JOIN_STYLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_JOIN_STYLE_NV = 0x9079;
 
 		/// <summary>
 		/// Value of GL_PATH_MITER_LIMIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_MITER_LIMIT_NV = 0x907A;
 
 		/// <summary>
 		/// Value of GL_PATH_DASH_CAPS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_DASH_CAPS_NV = 0x907B;
 
 		/// <summary>
 		/// Value of GL_PATH_INITIAL_DASH_CAP_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_INITIAL_DASH_CAP_NV = 0x907C;
 
 		/// <summary>
 		/// Value of GL_PATH_TERMINAL_DASH_CAP_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_TERMINAL_DASH_CAP_NV = 0x907D;
 
 		/// <summary>
 		/// Value of GL_PATH_DASH_OFFSET_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_DASH_OFFSET_NV = 0x907E;
 
 		/// <summary>
 		/// Value of GL_PATH_CLIENT_LENGTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_CLIENT_LENGTH_NV = 0x907F;
 
 		/// <summary>
 		/// Value of GL_PATH_FILL_MODE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FILL_MODE_NV = 0x9080;
 
 		/// <summary>
 		/// Value of GL_PATH_FILL_MASK_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FILL_MASK_NV = 0x9081;
 
 		/// <summary>
 		/// Value of GL_PATH_FILL_COVER_MODE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FILL_COVER_MODE_NV = 0x9082;
 
 		/// <summary>
 		/// Value of GL_PATH_STROKE_COVER_MODE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STROKE_COVER_MODE_NV = 0x9083;
 
 		/// <summary>
 		/// Value of GL_PATH_STROKE_MASK_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STROKE_MASK_NV = 0x9084;
 
 		/// <summary>
 		/// Value of GL_COUNT_UP_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int COUNT_UP_NV = 0x9088;
 
 		/// <summary>
 		/// Value of GL_COUNT_DOWN_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int COUNT_DOWN_NV = 0x9089;
 
 		/// <summary>
 		/// Value of GL_PATH_OBJECT_BOUNDING_BOX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_OBJECT_BOUNDING_BOX_NV = 0x908A;
 
 		/// <summary>
 		/// Value of GL_CONVEX_HULL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CONVEX_HULL_NV = 0x908B;
 
 		/// <summary>
 		/// Value of GL_BOUNDING_BOX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int BOUNDING_BOX_NV = 0x908D;
 
 		/// <summary>
 		/// Value of GL_TRANSLATE_X_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRANSLATE_X_NV = 0x908E;
 
 		/// <summary>
 		/// Value of GL_TRANSLATE_Y_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRANSLATE_Y_NV = 0x908F;
 
 		/// <summary>
 		/// Value of GL_TRANSLATE_2D_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRANSLATE_2D_NV = 0x9090;
 
 		/// <summary>
 		/// Value of GL_TRANSLATE_3D_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRANSLATE_3D_NV = 0x9091;
 
 		/// <summary>
 		/// Value of GL_AFFINE_2D_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int AFFINE_2D_NV = 0x9092;
 
 		/// <summary>
 		/// Value of GL_AFFINE_3D_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int AFFINE_3D_NV = 0x9094;
 
 		/// <summary>
 		/// Value of GL_TRANSPOSE_AFFINE_2D_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRANSPOSE_AFFINE_2D_NV = 0x9096;
 
 		/// <summary>
 		/// Value of GL_TRANSPOSE_AFFINE_3D_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRANSPOSE_AFFINE_3D_NV = 0x9098;
 
 		/// <summary>
 		/// Value of GL_UTF8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int UTF8_NV = 0x909A;
 
 		/// <summary>
 		/// Value of GL_UTF16_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int UTF16_NV = 0x909B;
 
 		/// <summary>
 		/// Value of GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int BOUNDING_BOX_OF_BOUNDING_BOXES_NV = 0x909C;
 
 		/// <summary>
 		/// Value of GL_PATH_COMMAND_COUNT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_COMMAND_COUNT_NV = 0x909D;
 
 		/// <summary>
 		/// Value of GL_PATH_COORD_COUNT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_COORD_COUNT_NV = 0x909E;
 
 		/// <summary>
 		/// Value of GL_PATH_DASH_ARRAY_COUNT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_DASH_ARRAY_COUNT_NV = 0x909F;
 
 		/// <summary>
 		/// Value of GL_PATH_COMPUTED_LENGTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_COMPUTED_LENGTH_NV = 0x90A0;
 
 		/// <summary>
 		/// Value of GL_PATH_FILL_BOUNDING_BOX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FILL_BOUNDING_BOX_NV = 0x90A1;
 
 		/// <summary>
 		/// Value of GL_PATH_STROKE_BOUNDING_BOX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STROKE_BOUNDING_BOX_NV = 0x90A2;
 
 		/// <summary>
 		/// Value of GL_SQUARE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SQUARE_NV = 0x90A3;
 
 		/// <summary>
 		/// Value of GL_ROUND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ROUND_NV = 0x90A4;
 
 		/// <summary>
 		/// Value of GL_TRIANGULAR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int TRIANGULAR_NV = 0x90A5;
 
 		/// <summary>
 		/// Value of GL_BEVEL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int BEVEL_NV = 0x90A6;
 
 		/// <summary>
 		/// Value of GL_MITER_REVERT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int MITER_REVERT_NV = 0x90A7;
 
 		/// <summary>
 		/// Value of GL_MITER_TRUNCATE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int MITER_TRUNCATE_NV = 0x90A8;
 
 		/// <summary>
 		/// Value of GL_SKIP_MISSING_GLYPH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SKIP_MISSING_GLYPH_NV = 0x90A9;
 
 		/// <summary>
 		/// Value of GL_USE_MISSING_GLYPH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int USE_MISSING_GLYPH_NV = 0x90AA;
 
 		/// <summary>
 		/// Value of GL_PATH_ERROR_POSITION_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_ERROR_POSITION_NV = 0x90AB;
 
 		/// <summary>
 		/// Value of GL_ACCUM_ADJACENT_PAIRS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ACCUM_ADJACENT_PAIRS_NV = 0x90AD;
 
 		/// <summary>
 		/// Value of GL_ADJACENT_PAIRS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ADJACENT_PAIRS_NV = 0x90AE;
 
 		/// <summary>
 		/// Value of GL_FIRST_TO_REST_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FIRST_TO_REST_NV = 0x90AF;
 
 		/// <summary>
 		/// Value of GL_PATH_GEN_MODE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_GEN_MODE_NV = 0x90B0;
 
 		/// <summary>
 		/// Value of GL_PATH_GEN_COEFF_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_GEN_COEFF_NV = 0x90B1;
 
 		/// <summary>
 		/// Value of GL_PATH_GEN_COMPONENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_GEN_COMPONENTS_NV = 0x90B3;
 
 		/// <summary>
 		/// Value of GL_PATH_STENCIL_FUNC_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STENCIL_FUNC_NV = 0x90B7;
 
 		/// <summary>
 		/// Value of GL_PATH_STENCIL_REF_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STENCIL_REF_NV = 0x90B8;
 
 		/// <summary>
 		/// Value of GL_PATH_STENCIL_VALUE_MASK_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STENCIL_VALUE_MASK_NV = 0x90B9;
 
 		/// <summary>
 		/// Value of GL_PATH_STENCIL_DEPTH_OFFSET_FACTOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STENCIL_DEPTH_OFFSET_FACTOR_NV = 0x90BD;
 
 		/// <summary>
 		/// Value of GL_PATH_STENCIL_DEPTH_OFFSET_UNITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_STENCIL_DEPTH_OFFSET_UNITS_NV = 0x90BE;
 
 		/// <summary>
 		/// Value of GL_PATH_COVER_DEPTH_FUNC_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_COVER_DEPTH_FUNC_NV = 0x90BF;
 
 		/// <summary>
 		/// Value of GL_PATH_DASH_OFFSET_RESET_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_DASH_OFFSET_RESET_NV = 0x90B4;
 
 		/// <summary>
 		/// Value of GL_MOVE_TO_RESETS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int MOVE_TO_RESETS_NV = 0x90B5;
 
 		/// <summary>
 		/// Value of GL_MOVE_TO_CONTINUES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int MOVE_TO_CONTINUES_NV = 0x90B6;
 
 		/// <summary>
 		/// Value of GL_CLOSE_PATH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CLOSE_PATH_NV = 0x00;
 
 		/// <summary>
 		/// Value of GL_MOVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int MOVE_TO_NV = 0x02;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_MOVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_MOVE_TO_NV = 0x03;
 
 		/// <summary>
 		/// Value of GL_LINE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int LINE_TO_NV = 0x04;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_LINE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_LINE_TO_NV = 0x05;
 
 		/// <summary>
 		/// Value of GL_HORIZONTAL_LINE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int HORIZONTAL_LINE_TO_NV = 0x06;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_HORIZONTAL_LINE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_HORIZONTAL_LINE_TO_NV = 0x07;
 
 		/// <summary>
 		/// Value of GL_VERTICAL_LINE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int VERTICAL_LINE_TO_NV = 0x08;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_VERTICAL_LINE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_VERTICAL_LINE_TO_NV = 0x09;
 
 		/// <summary>
 		/// Value of GL_QUADRATIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int QUADRATIC_CURVE_TO_NV = 0x0A;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_QUADRATIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_QUADRATIC_CURVE_TO_NV = 0x0B;
 
 		/// <summary>
 		/// Value of GL_CUBIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CUBIC_CURVE_TO_NV = 0x0C;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_CUBIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_CUBIC_CURVE_TO_NV = 0x0D;
 
 		/// <summary>
 		/// Value of GL_SMOOTH_QUADRATIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SMOOTH_QUADRATIC_CURVE_TO_NV = 0x0E;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_SMOOTH_QUADRATIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_SMOOTH_QUADRATIC_CURVE_TO_NV = 0x0F;
 
 		/// <summary>
 		/// Value of GL_SMOOTH_CUBIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SMOOTH_CUBIC_CURVE_TO_NV = 0x10;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_SMOOTH_CUBIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_SMOOTH_CUBIC_CURVE_TO_NV = 0x11;
 
 		/// <summary>
 		/// Value of GL_SMALL_CCW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SMALL_CCW_ARC_TO_NV = 0x12;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_SMALL_CCW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_SMALL_CCW_ARC_TO_NV = 0x13;
 
 		/// <summary>
 		/// Value of GL_SMALL_CW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int SMALL_CW_ARC_TO_NV = 0x14;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_SMALL_CW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_SMALL_CW_ARC_TO_NV = 0x15;
 
 		/// <summary>
 		/// Value of GL_LARGE_CCW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int LARGE_CCW_ARC_TO_NV = 0x16;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_LARGE_CCW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_LARGE_CCW_ARC_TO_NV = 0x17;
 
 		/// <summary>
 		/// Value of GL_LARGE_CW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int LARGE_CW_ARC_TO_NV = 0x18;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_LARGE_CW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_LARGE_CW_ARC_TO_NV = 0x19;
 
 		/// <summary>
 		/// Value of GL_RESTART_PATH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RESTART_PATH_NV = 0xF0;
 
 		/// <summary>
 		/// Value of GL_DUP_FIRST_CUBIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int DUP_FIRST_CUBIC_CURVE_TO_NV = 0xF2;
 
 		/// <summary>
 		/// Value of GL_DUP_LAST_CUBIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int DUP_LAST_CUBIC_CURVE_TO_NV = 0xF4;
 
 		/// <summary>
 		/// Value of GL_RECT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RECT_NV = 0xF6;
 
 		/// <summary>
 		/// Value of GL_CIRCULAR_CCW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CIRCULAR_CCW_ARC_TO_NV = 0xF8;
 
 		/// <summary>
 		/// Value of GL_CIRCULAR_CW_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CIRCULAR_CW_ARC_TO_NV = 0xFA;
 
 		/// <summary>
 		/// Value of GL_CIRCULAR_TANGENT_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CIRCULAR_TANGENT_ARC_TO_NV = 0xFC;
 
 		/// <summary>
 		/// Value of GL_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ARC_TO_NV = 0xFE;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_ARC_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_ARC_TO_NV = 0xFF;
 
 		/// <summary>
 		/// Value of GL_BOLD_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int BOLD_BIT_NV = 0x01;
 
 		/// <summary>
 		/// Value of GL_ITALIC_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int ITALIC_BIT_NV = 0x02;
 
 		/// <summary>
 		/// Value of GL_GLYPH_WIDTH_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_WIDTH_BIT_NV = 0x01;
 
 		/// <summary>
 		/// Value of GL_GLYPH_HEIGHT_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_HEIGHT_BIT_NV = 0x02;
 
 		/// <summary>
 		/// Value of GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_HORIZONTAL_BEARING_X_BIT_NV = 0x04;
 
 		/// <summary>
 		/// Value of GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_HORIZONTAL_BEARING_Y_BIT_NV = 0x08;
 
 		/// <summary>
 		/// Value of GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV = 0x10;
 
 		/// <summary>
 		/// Value of GL_GLYPH_VERTICAL_BEARING_X_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_VERTICAL_BEARING_X_BIT_NV = 0x20;
 
 		/// <summary>
 		/// Value of GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_VERTICAL_BEARING_Y_BIT_NV = 0x40;
 
 		/// <summary>
 		/// Value of GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV = 0x80;
 
 		/// <summary>
 		/// Value of GL_GLYPH_HAS_KERNING_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int GLYPH_HAS_KERNING_BIT_NV = 0x100;
 
 		/// <summary>
 		/// Value of GL_FONT_X_MIN_BOUNDS_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_X_MIN_BOUNDS_BIT_NV = 0x00010000;
 
 		/// <summary>
 		/// Value of GL_FONT_Y_MIN_BOUNDS_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_Y_MIN_BOUNDS_BIT_NV = 0x00020000;
 
 		/// <summary>
 		/// Value of GL_FONT_X_MAX_BOUNDS_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_X_MAX_BOUNDS_BIT_NV = 0x00040000;
 
 		/// <summary>
 		/// Value of GL_FONT_Y_MAX_BOUNDS_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_Y_MAX_BOUNDS_BIT_NV = 0x00080000;
 
 		/// <summary>
 		/// Value of GL_FONT_UNITS_PER_EM_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_UNITS_PER_EM_BIT_NV = 0x00100000;
 
 		/// <summary>
 		/// Value of GL_FONT_ASCENDER_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_ASCENDER_BIT_NV = 0x00200000;
 
 		/// <summary>
 		/// Value of GL_FONT_DESCENDER_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_DESCENDER_BIT_NV = 0x00400000;
 
 		/// <summary>
 		/// Value of GL_FONT_HEIGHT_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_HEIGHT_BIT_NV = 0x00800000;
 
 		/// <summary>
 		/// Value of GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_MAX_ADVANCE_WIDTH_BIT_NV = 0x01000000;
 
 		/// <summary>
 		/// Value of GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_MAX_ADVANCE_HEIGHT_BIT_NV = 0x02000000;
 
 		/// <summary>
 		/// Value of GL_FONT_UNDERLINE_POSITION_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_UNDERLINE_POSITION_BIT_NV = 0x04000000;
 
 		/// <summary>
 		/// Value of GL_FONT_UNDERLINE_THICKNESS_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_UNDERLINE_THICKNESS_BIT_NV = 0x08000000;
 
 		/// <summary>
 		/// Value of GL_FONT_HAS_KERNING_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_HAS_KERNING_BIT_NV = 0x10000000;
 
 		/// <summary>
 		/// Value of GL_ROUNDED_RECT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ROUNDED_RECT_NV = 0xE8;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_ROUNDED_RECT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_ROUNDED_RECT_NV = 0xE9;
 
 		/// <summary>
 		/// Value of GL_ROUNDED_RECT2_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ROUNDED_RECT2_NV = 0xEA;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_ROUNDED_RECT2_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_ROUNDED_RECT2_NV = 0xEB;
 
 		/// <summary>
 		/// Value of GL_ROUNDED_RECT4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ROUNDED_RECT4_NV = 0xEC;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_ROUNDED_RECT4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_ROUNDED_RECT4_NV = 0xED;
 
 		/// <summary>
 		/// Value of GL_ROUNDED_RECT8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int ROUNDED_RECT8_NV = 0xEE;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_ROUNDED_RECT8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_ROUNDED_RECT8_NV = 0xEF;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_RECT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_RECT_NV = 0xF7;
 
 		/// <summary>
 		/// Value of GL_FONT_GLYPHS_AVAILABLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FONT_GLYPHS_AVAILABLE_NV = 0x9368;
 
 		/// <summary>
 		/// Value of GL_FONT_TARGET_UNAVAILABLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FONT_TARGET_UNAVAILABLE_NV = 0x9369;
 
 		/// <summary>
 		/// Value of GL_FONT_UNAVAILABLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FONT_UNAVAILABLE_NV = 0x936A;
 
 		/// <summary>
 		/// Value of GL_FONT_UNINTELLIGIBLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FONT_UNINTELLIGIBLE_NV = 0x936B;
 
 		/// <summary>
 		/// Value of GL_CONIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int CONIC_CURVE_TO_NV = 0x1A;
 
 		/// <summary>
 		/// Value of GL_RELATIVE_CONIC_CURVE_TO_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int RELATIVE_CONIC_CURVE_TO_NV = 0x1B;
 
 		/// <summary>
 		/// Value of GL_FONT_NUM_GLYPH_INDICES_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint FONT_NUM_GLYPH_INDICES_BIT_NV = 0x20000000;
 
 		/// <summary>
 		/// Value of GL_STANDARD_FONT_FORMAT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int STANDARD_FONT_FORMAT_NV = 0x936C;
 
 		/// <summary>
 		/// Value of GL_PATH_FOG_GEN_MODE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_FOG_GEN_MODE_NV = 0x90AC;
 
 		/// <summary>
 		/// Value of GL_PATH_GEN_COLOR_FORMAT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_GEN_COLOR_FORMAT_NV = 0x90B2;
 
 		/// <summary>
 		/// Value of GL_PATH_PROJECTION_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_PROJECTION_NV = 0x1701;
 
 		/// <summary>
 		/// Value of GL_PATH_MODELVIEW_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_MODELVIEW_NV = 0x1700;
 
 		/// <summary>
 		/// Value of GL_PATH_MODELVIEW_STACK_DEPTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_MODELVIEW_STACK_DEPTH_NV = 0x0BA3;
 
 		/// <summary>
 		/// Value of GL_PATH_MODELVIEW_MATRIX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_MODELVIEW_MATRIX_NV = 0x0BA6;
 
 		/// <summary>
 		/// Value of GL_PATH_MAX_MODELVIEW_STACK_DEPTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_MAX_MODELVIEW_STACK_DEPTH_NV = 0x0D36;
 
 		/// <summary>
 		/// Value of GL_PATH_TRANSPOSE_MODELVIEW_MATRIX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_TRANSPOSE_MODELVIEW_MATRIX_NV = 0x84E3;
 
 		/// <summary>
 		/// Value of GL_PATH_PROJECTION_STACK_DEPTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_PROJECTION_STACK_DEPTH_NV = 0x0BA4;
 
 		/// <summary>
 		/// Value of GL_PATH_PROJECTION_MATRIX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_PROJECTION_MATRIX_NV = 0x0BA7;
 
 		/// <summary>
 		/// Value of GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_MAX_PROJECTION_STACK_DEPTH_NV = 0x0D38;
 
 		/// <summary>
 		/// Value of GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int PATH_TRANSPOSE_PROJECTION_MATRIX_NV = 0x84E4;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_INPUT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public const int FRAGMENT_INPUT_NV = 0x936D;
 
 		/// <summary>
@@ -988,7 +988,7 @@ namespace OpenGL
 		/// <param name="range">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static UInt32 GenPathsNV(Int32 range)
 		{
 			UInt32 retValue;
@@ -1010,7 +1010,7 @@ namespace OpenGL
 		/// <param name="range">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void DeletePathsNV(UInt32 path, Int32 range)
 		{
 			Debug.Assert(Delegates.pglDeletePathsNV != null, "pglDeletePathsNV not implemented");
@@ -1025,7 +1025,7 @@ namespace OpenGL
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static bool IsPathNV(UInt32 path)
 		{
 			bool retValue;
@@ -1059,7 +1059,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathCommandsNV(UInt32 path, Int32 numCommands, byte[] commands, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
@@ -1088,7 +1088,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathCommandsNV(UInt32 path, byte[] commands, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			unsafe {
@@ -1117,7 +1117,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathCoordsNV != null, "pglPathCoordsNV not implemented");
@@ -1141,7 +1141,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
@@ -1179,7 +1179,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte[] commands, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
@@ -1214,7 +1214,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, byte[] commands, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			unsafe {
@@ -1246,7 +1246,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathSubCoordsNV != null, "pglPathSubCoordsNV not implemented");
@@ -1273,7 +1273,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
@@ -1299,7 +1299,7 @@ namespace OpenGL
 		/// <param name="pathString">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString)
 		{
 			Debug.Assert(Delegates.pglPathStringNV != null, "pglPathStringNV not implemented");
@@ -1323,7 +1323,7 @@ namespace OpenGL
 		/// <param name="pathString">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathStringNV(UInt32 path, Int32 format, Int32 length, Object pathString)
 		{
 			GCHandle pin_pathString = GCHandle.Alloc(pathString, GCHandleType.Pinned);
@@ -1367,7 +1367,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			Debug.Assert(Delegates.pglPathGlyphsNV != null, "pglPathGlyphsNV not implemented");
@@ -1409,7 +1409,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, Object charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
@@ -1452,7 +1452,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			Debug.Assert(Delegates.pglPathGlyphRangeNV != null, "pglPathGlyphRangeNV not implemented");
@@ -1491,7 +1491,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
@@ -1514,7 +1514,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void WeightPathsNV(UInt32 resultPath, UInt32[] paths, float[] weights)
 		{
 			unsafe {
@@ -1538,7 +1538,7 @@ namespace OpenGL
 		/// <param name="srcPath">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CopyPathNV(UInt32 resultPath, UInt32 srcPath)
 		{
 			Debug.Assert(Delegates.pglCopyPathNV != null, "pglCopyPathNV not implemented");
@@ -1562,7 +1562,7 @@ namespace OpenGL
 		/// <param name="weight">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void InterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight)
 		{
 			Debug.Assert(Delegates.pglInterpolatePathsNV != null, "pglInterpolatePathsNV not implemented");
@@ -1586,7 +1586,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void TransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -1612,7 +1612,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathParameterNV(UInt32 path, Int32 pname, Int32[] value)
 		{
 			unsafe {
@@ -1638,7 +1638,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathParameterNV(UInt32 path, Int32 pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglPathParameteriNV != null, "pglPathParameteriNV not implemented");
@@ -1659,7 +1659,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathParameterNV(UInt32 path, Int32 pname, float[] value)
 		{
 			unsafe {
@@ -1685,7 +1685,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathParameterNV(UInt32 path, Int32 pname, float value)
 		{
 			Debug.Assert(Delegates.pglPathParameterfNV != null, "pglPathParameterfNV not implemented");
@@ -1703,7 +1703,7 @@ namespace OpenGL
 		/// <param name="dashArray">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathDashArrayNV(UInt32 path, float[] dashArray)
 		{
 			unsafe {
@@ -1729,7 +1729,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathStencilFuncNV(StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglPathStencilFuncNV != null, "pglPathStencilFuncNV not implemented");
@@ -1747,7 +1747,7 @@ namespace OpenGL
 		/// <param name="units">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathStencilDepthOffsetNV(float factor, float units)
 		{
 			Debug.Assert(Delegates.pglPathStencilDepthOffsetNV != null, "pglPathStencilDepthOffsetNV not implemented");
@@ -1768,7 +1768,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFillPathNV != null, "pglStencilFillPathNV not implemented");
@@ -1789,7 +1789,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilStrokePathNV != null, "pglStencilStrokePathNV not implemented");
@@ -1825,7 +1825,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -1866,7 +1866,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -1904,7 +1904,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -1945,7 +1945,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -1962,7 +1962,7 @@ namespace OpenGL
 		/// <param name="func">
 		/// A <see cref="T:DepthFunction"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathCoverDepthFuncNV(DepthFunction func)
 		{
 			Debug.Assert(Delegates.pglPathCoverDepthFuncNV != null, "pglPathCoverDepthFuncNV not implemented");
@@ -1980,7 +1980,7 @@ namespace OpenGL
 		/// <param name="coverMode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CoverFillPathNV(UInt32 path, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglCoverFillPathNV != null, "pglCoverFillPathNV not implemented");
@@ -1998,7 +1998,7 @@ namespace OpenGL
 		/// <param name="coverMode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CoverStrokePathNV(UInt32 path, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglCoverStrokePathNV != null, "pglCoverStrokePathNV not implemented");
@@ -2031,7 +2031,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -2069,7 +2069,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -2104,7 +2104,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -2142,7 +2142,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void CoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -2165,7 +2165,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathParameterNV(UInt32 path, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
@@ -2191,7 +2191,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathParameterNV(UInt32 path, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
@@ -2214,7 +2214,7 @@ namespace OpenGL
 		/// <param name="commands">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathCommandsNV(UInt32 path, [Out] byte[] commands)
 		{
 			unsafe {
@@ -2237,7 +2237,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathCoordsNV(UInt32 path, [Out] float[] coords)
 		{
 			unsafe {
@@ -2260,7 +2260,7 @@ namespace OpenGL
 		/// <param name="dashArray">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathDashArrayNV(UInt32 path, [Out] float[] dashArray)
 		{
 			unsafe {
@@ -2298,7 +2298,7 @@ namespace OpenGL
 		/// <param name="metrics">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
 		{
 			unsafe {
@@ -2336,7 +2336,7 @@ namespace OpenGL
 		/// <param name="metrics">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -2365,7 +2365,7 @@ namespace OpenGL
 		/// <param name="metrics">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, [Out] float[] metrics)
 		{
 			unsafe {
@@ -2409,7 +2409,7 @@ namespace OpenGL
 		/// <param name="returnedSpacing">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, [Out] float[] returnedSpacing)
 		{
 			unsafe {
@@ -2453,7 +2453,7 @@ namespace OpenGL
 		/// <param name="returnedSpacing">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, [Out] float[] returnedSpacing)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -2479,7 +2479,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static bool IsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y)
 		{
 			bool retValue;
@@ -2504,7 +2504,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static bool IsPointInStrokePathNV(UInt32 path, float x, float y)
 		{
 			bool retValue;
@@ -2529,7 +2529,7 @@ namespace OpenGL
 		/// <param name="numSegments">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static float GetPathNV(UInt32 path, Int32 startSegment, Int32 numSegments)
 		{
 			float retValue;
@@ -2569,7 +2569,7 @@ namespace OpenGL
 		/// <param name="tangentY">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static bool PointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float[] x, float[] y, float[] tangentX, float[] tangentY)
 		{
 			bool retValue;
@@ -2599,7 +2599,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void MatrixLoad3x2NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
@@ -2622,7 +2622,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void MatrixLoad3NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
@@ -2645,7 +2645,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void MatrixLoadTransposeNV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
@@ -2668,7 +2668,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void MatrixMult3x2NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
@@ -2691,7 +2691,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void MatrixMult3x3NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
@@ -2714,7 +2714,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void MatrixMultTransposeNV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
@@ -2743,7 +2743,7 @@ namespace OpenGL
 		/// <param name="coverMode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglStencilThenCoverFillPathNV != null, "pglStencilThenCoverFillPathNV not implemented");
@@ -2767,7 +2767,7 @@ namespace OpenGL
 		/// <param name="coverMode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglStencilThenCoverStrokePathNV != null, "pglStencilThenCoverStrokePathNV not implemented");
@@ -2806,7 +2806,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -2850,7 +2850,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -2891,7 +2891,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
@@ -2935,7 +2935,7 @@ namespace OpenGL
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
@@ -2967,7 +2967,7 @@ namespace OpenGL
 		/// <param name="baseAndCount">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static Int32 PathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
 		{
 			Int32 retValue;
@@ -3006,7 +3006,7 @@ namespace OpenGL
 		/// <param name="baseAndCount">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static Int32 PathGlyphIndexRangeNV(Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
@@ -3044,7 +3044,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static Int32 PathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			Int32 retValue;
@@ -3084,7 +3084,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static Int32 PathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
@@ -3125,7 +3125,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static Int32 PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			Int32 retValue;
@@ -3168,7 +3168,7 @@ namespace OpenGL
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static Int32 PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, Object fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontData = GCHandle.Alloc(fontData, GCHandleType.Pinned);
@@ -3197,7 +3197,7 @@ namespace OpenGL
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void ProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float[] coeffs)
 		{
 			unsafe {
@@ -3238,7 +3238,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetProgramResourceNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
 		{
 			unsafe {
@@ -3269,7 +3269,7 @@ namespace OpenGL
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float[] coeffs)
 		{
 			unsafe {
@@ -3298,7 +3298,7 @@ namespace OpenGL
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float[] coeffs)
 		{
 			unsafe {
@@ -3318,7 +3318,7 @@ namespace OpenGL
 		/// <param name="genMode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void PathFogGenNV(Int32 genMode)
 		{
 			Debug.Assert(Delegates.pglPathFogGenNV != null, "pglPathFogGenNV not implemented");
@@ -3339,7 +3339,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathColorGenNV(Int32 color, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
@@ -3365,7 +3365,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathColorGenNV(Int32 color, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
@@ -3391,7 +3391,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
@@ -3417,7 +3417,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] float[] value)
 		{
 			unsafe {

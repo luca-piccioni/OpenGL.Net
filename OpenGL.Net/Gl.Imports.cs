@@ -43,6 +43,10 @@ namespace OpenGL
 			internal extern static void glActiveShaderProgram(UInt32 pipeline, UInt32 program);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glActiveShaderProgramEXT", ExactSpelling = true)]
+			internal extern static void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glActiveStencilFaceEXT", ExactSpelling = true)]
 			internal extern static void glActiveStencilFaceEXT(Int32 face);
 
@@ -73,6 +77,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glAlphaFunc", ExactSpelling = true)]
 			internal extern static void glAlphaFunc(Int32 func, float @ref);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAlphaFuncQCOM", ExactSpelling = true)]
+			internal extern static void glAlphaFuncQCOM(Int32 func, float @ref);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAlphaFuncx", ExactSpelling = true)]
+			internal extern static unsafe void glAlphaFuncx(Int32 func, IntPtr @ref);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glAlphaFuncxOES", ExactSpelling = true)]
@@ -164,6 +176,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBeginQueryARB", ExactSpelling = true)]
 			internal extern static void glBeginQueryARB(Int32 target, UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginQueryEXT", ExactSpelling = true)]
+			internal extern static void glBeginQueryEXT(Int32 target, UInt32 id);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBeginQueryIndexed", ExactSpelling = true)]
@@ -258,6 +274,10 @@ namespace OpenGL
 			internal extern static void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindFragDataLocationIndexedEXT", ExactSpelling = true)]
+			internal extern static void glBindFragDataLocationIndexedEXT(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindFragmentShaderATI", ExactSpelling = true)]
 			internal extern static void glBindFragmentShaderATI(UInt32 id);
 
@@ -268,6 +288,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindFramebufferEXT", ExactSpelling = true)]
 			internal extern static void glBindFramebufferEXT(Int32 target, UInt32 framebuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindFramebufferOES", ExactSpelling = true)]
+			internal extern static void glBindFramebufferOES(Int32 target, UInt32 framebuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindImageTexture", ExactSpelling = true)]
@@ -310,12 +334,20 @@ namespace OpenGL
 			internal extern static void glBindProgramPipeline(UInt32 pipeline);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindProgramPipelineEXT", ExactSpelling = true)]
+			internal extern static void glBindProgramPipelineEXT(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindRenderbuffer", ExactSpelling = true)]
 			internal extern static void glBindRenderbuffer(Int32 target, UInt32 renderbuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindRenderbufferEXT", ExactSpelling = true)]
 			internal extern static void glBindRenderbufferEXT(Int32 target, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindRenderbufferOES", ExactSpelling = true)]
+			internal extern static void glBindRenderbufferOES(Int32 target, UInt32 renderbuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindSampler", ExactSpelling = true)]
@@ -364,6 +396,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindVertexArrayAPPLE", ExactSpelling = true)]
 			internal extern static void glBindVertexArrayAPPLE(UInt32 array);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindVertexArrayOES", ExactSpelling = true)]
+			internal extern static void glBindVertexArrayOES(UInt32 array);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBindVertexBuffer", ExactSpelling = true)]
@@ -438,6 +474,10 @@ namespace OpenGL
 			internal extern static unsafe void glBitmapxOES(Int32 width, Int32 height, IntPtr xorig, IntPtr yorig, IntPtr xmove, IntPtr ymove, byte* bitmap);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendBarrier", ExactSpelling = true)]
+			internal extern static void glBlendBarrier();
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendBarrierKHR", ExactSpelling = true)]
 			internal extern static void glBlendBarrierKHR();
 
@@ -470,6 +510,10 @@ namespace OpenGL
 			internal extern static void glBlendEquationIndexedAMD(UInt32 buf, Int32 mode);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquationOES", ExactSpelling = true)]
+			internal extern static void glBlendEquationOES(Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendEquationSeparate", ExactSpelling = true)]
 			internal extern static void glBlendEquationSeparate(Int32 modeRGB, Int32 modeAlpha);
 
@@ -482,6 +526,10 @@ namespace OpenGL
 			internal extern static void glBlendEquationSeparateIndexedAMD(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquationSeparateOES", ExactSpelling = true)]
+			internal extern static void glBlendEquationSeparateOES(Int32 modeRGB, Int32 modeAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendEquationSeparatei", ExactSpelling = true)]
 			internal extern static void glBlendEquationSeparatei(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
 
@@ -490,12 +538,28 @@ namespace OpenGL
 			internal extern static void glBlendEquationSeparateiARB(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquationSeparateiEXT", ExactSpelling = true)]
+			internal extern static void glBlendEquationSeparateiEXT(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquationSeparateiOES", ExactSpelling = true)]
+			internal extern static void glBlendEquationSeparateiOES(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendEquationi", ExactSpelling = true)]
 			internal extern static void glBlendEquationi(UInt32 buf, Int32 mode);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendEquationiARB", ExactSpelling = true)]
 			internal extern static void glBlendEquationiARB(UInt32 buf, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquationiEXT", ExactSpelling = true)]
+			internal extern static void glBlendEquationiEXT(UInt32 buf, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquationiOES", ExactSpelling = true)]
+			internal extern static void glBlendEquationiOES(UInt32 buf, Int32 mode);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendFunc", ExactSpelling = true)]
@@ -522,12 +586,24 @@ namespace OpenGL
 			internal extern static void glBlendFuncSeparateIndexedAMD(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendFuncSeparateOES", ExactSpelling = true)]
+			internal extern static void glBlendFuncSeparateOES(Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendFuncSeparatei", ExactSpelling = true)]
 			internal extern static void glBlendFuncSeparatei(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendFuncSeparateiARB", ExactSpelling = true)]
 			internal extern static void glBlendFuncSeparateiARB(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendFuncSeparateiEXT", ExactSpelling = true)]
+			internal extern static void glBlendFuncSeparateiEXT(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendFuncSeparateiOES", ExactSpelling = true)]
+			internal extern static void glBlendFuncSeparateiOES(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendFunci", ExactSpelling = true)]
@@ -538,6 +614,14 @@ namespace OpenGL
 			internal extern static void glBlendFunciARB(UInt32 buf, Int32 src, Int32 dst);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendFunciEXT", ExactSpelling = true)]
+			internal extern static void glBlendFunciEXT(UInt32 buf, Int32 src, Int32 dst);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendFunciOES", ExactSpelling = true)]
+			internal extern static void glBlendFunciOES(UInt32 buf, Int32 src, Int32 dst);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlendParameteriNV", ExactSpelling = true)]
 			internal extern static void glBlendParameteriNV(Int32 pname, Int32 value);
 
@@ -546,8 +630,16 @@ namespace OpenGL
 			internal extern static void glBlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlitFramebufferANGLE", ExactSpelling = true)]
+			internal extern static void glBlitFramebufferANGLE(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlitFramebufferEXT", ExactSpelling = true)]
 			internal extern static void glBlitFramebufferEXT(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlitFramebufferNV", ExactSpelling = true)]
+			internal extern static void glBlitFramebufferNV(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBlitNamedFramebuffer", ExactSpelling = true)]
@@ -578,6 +670,10 @@ namespace OpenGL
 			internal extern static unsafe void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBufferStorageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBufferStorageEXT(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
 
@@ -604,6 +700,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCheckFramebufferStatusEXT", ExactSpelling = true)]
 			internal extern static Int32 glCheckFramebufferStatusEXT(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCheckFramebufferStatusOES", ExactSpelling = true)]
+			internal extern static Int32 glCheckFramebufferStatusOES(Int32 target);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCheckNamedFramebufferStatus", ExactSpelling = true)]
@@ -670,6 +770,10 @@ namespace OpenGL
 			internal extern static void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearColorx", ExactSpelling = true)]
+			internal extern static unsafe void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClearColorxOES", ExactSpelling = true)]
 			internal extern static unsafe void glClearColorxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
@@ -688,6 +792,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClearDepthfOES", ExactSpelling = true)]
 			internal extern static void glClearDepthfOES(float depth);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearDepthx", ExactSpelling = true)]
+			internal extern static unsafe void glClearDepthx(IntPtr depth);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClearDepthxOES", ExactSpelling = true)]
@@ -730,6 +838,10 @@ namespace OpenGL
 			internal extern static unsafe void glClearNamedFramebufferuiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, UInt32* value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearPixelLocalStorageuiEXT", ExactSpelling = true)]
+			internal extern static unsafe void glClearPixelLocalStorageuiEXT(Int32 offset, Int32 n, UInt32* values);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClearStencil", ExactSpelling = true)]
 			internal extern static void glClearStencil(Int32 s);
 
@@ -762,6 +874,10 @@ namespace OpenGL
 			internal extern static Int32 glClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClientWaitSyncAPPLE", ExactSpelling = true)]
+			internal extern static Int32 glClientWaitSyncAPPLE(Int32 sync, UInt32 flags, UInt64 timeout);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClipControl", ExactSpelling = true)]
 			internal extern static void glClipControl(Int32 origin, Int32 depth);
 
@@ -770,8 +886,24 @@ namespace OpenGL
 			internal extern static unsafe void glClipPlane(Int32 plane, double* equation);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanef", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanef(Int32 p, float* eqn);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanefIMG", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanefIMG(Int32 p, float* eqn);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClipPlanefOES", ExactSpelling = true)]
 			internal extern static unsafe void glClipPlanefOES(Int32 plane, float* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanex", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanex(Int32 plane, IntPtr* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanexIMG", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanexIMG(Int32 p, IntPtr* eqn);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glClipPlanexOES", ExactSpelling = true)]
@@ -962,6 +1094,10 @@ namespace OpenGL
 			internal extern static unsafe void glColor4usv(UInt16* v);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColor4x", ExactSpelling = true)]
+			internal extern static unsafe void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glColor4xOES", ExactSpelling = true)]
 			internal extern static unsafe void glColor4xOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
@@ -996,6 +1132,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glColorMaski", ExactSpelling = true)]
 			internal extern static void glColorMaski(UInt32 index, bool r, bool g, bool b, bool a);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorMaskiEXT", ExactSpelling = true)]
+			internal extern static void glColorMaskiEXT(UInt32 index, bool r, bool g, bool b, bool a);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorMaskiOES", ExactSpelling = true)]
+			internal extern static void glColorMaskiOES(UInt32 index, bool r, bool g, bool b, bool a);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glColorMaterial", ExactSpelling = true)]
@@ -1166,6 +1310,10 @@ namespace OpenGL
 			internal extern static unsafe void glCompressedTexImage3DARB(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexImage3DOES", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexImage3DOES(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCompressedTexSubImage1D", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
 
@@ -1188,6 +1336,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCompressedTexSubImage3DARB", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTexSubImage3DARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexSubImage3DOES", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCompressedTextureImage1DEXT", ExactSpelling = true)]
@@ -1290,6 +1442,10 @@ namespace OpenGL
 			internal extern static unsafe void glCopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyBufferSubDataNV", ExactSpelling = true)]
+			internal extern static unsafe void glCopyBufferSubDataNV(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCopyColorSubTable", ExactSpelling = true)]
 			internal extern static void glCopyColorSubTable(Int32 target, Int32 start, Int32 x, Int32 y, Int32 width);
 
@@ -1326,8 +1482,16 @@ namespace OpenGL
 			internal extern static void glCopyImageSubData(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyImageSubDataEXT", ExactSpelling = true)]
+			internal extern static void glCopyImageSubDataEXT(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCopyImageSubDataNV", ExactSpelling = true)]
 			internal extern static void glCopyImageSubDataNV(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyImageSubDataOES", ExactSpelling = true)]
+			internal extern static void glCopyImageSubDataOES(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCopyMultiTexImage1DEXT", ExactSpelling = true)]
@@ -1402,12 +1566,20 @@ namespace OpenGL
 			internal extern static void glCopyTexSubImage3DEXT(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTexSubImage3DOES", ExactSpelling = true)]
+			internal extern static void glCopyTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCopyTextureImage1DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCopyTextureImage2DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTextureLevelsAPPLE", ExactSpelling = true)]
+			internal extern static void glCopyTextureLevelsAPPLE(UInt32 destinationTexture, UInt32 sourceTexture, Int32 sourceBaseLevel, Int32 sourceLevelCount);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage1D", ExactSpelling = true)]
@@ -1450,12 +1622,20 @@ namespace OpenGL
 			internal extern static void glCoverStrokePathNV(UInt32 path, Int32 coverMode);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverageMaskNV", ExactSpelling = true)]
+			internal extern static void glCoverageMaskNV(bool mask);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCoverageModulationNV", ExactSpelling = true)]
 			internal extern static void glCoverageModulationNV(Int32 components);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCoverageModulationTableNV", ExactSpelling = true)]
 			internal extern static unsafe void glCoverageModulationTableNV(Int32 n, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverageOperationNV", ExactSpelling = true)]
+			internal extern static void glCoverageOperationNV(Int32 operation);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCreateBuffers", ExactSpelling = true)]
@@ -1514,6 +1694,10 @@ namespace OpenGL
 			internal extern static UInt32 glCreateShaderProgramv(Int32 type, Int32 count, String[] strings);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreateShaderProgramvEXT", ExactSpelling = true)]
+			internal extern static UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCreateStatesNV", ExactSpelling = true)]
 			internal extern static unsafe void glCreateStatesNV(Int32 n, UInt32* states);
 
@@ -1550,6 +1734,10 @@ namespace OpenGL
 			internal extern static void glCurrentPaletteMatrixARB(Int32 index);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCurrentPaletteMatrixOES", ExactSpelling = true)]
+			internal extern static void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageCallback", ExactSpelling = true)]
 			internal extern static unsafe void glDebugMessageCallback(IntPtr callback, IntPtr userParam);
 
@@ -1562,12 +1750,20 @@ namespace OpenGL
 			internal extern static unsafe void glDebugMessageCallbackARB(IntPtr callback, IntPtr userParam);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDebugMessageCallbackKHR", ExactSpelling = true)]
+			internal extern static unsafe void glDebugMessageCallbackKHR(IntPtr callback, IntPtr userParam);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageControl", ExactSpelling = true)]
 			internal extern static unsafe void glDebugMessageControl(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, bool enabled);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageControlARB", ExactSpelling = true)]
 			internal extern static unsafe void glDebugMessageControlARB(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, bool enabled);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDebugMessageControlKHR", ExactSpelling = true)]
+			internal extern static unsafe void glDebugMessageControlKHR(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, bool enabled);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageEnableAMD", ExactSpelling = true)]
@@ -1584,6 +1780,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageInsertARB", ExactSpelling = true)]
 			internal extern static void glDebugMessageInsertARB(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDebugMessageInsertKHR", ExactSpelling = true)]
+			internal extern static void glDebugMessageInsertKHR(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeformSGIX", ExactSpelling = true)]
@@ -1634,6 +1834,10 @@ namespace OpenGL
 			internal extern static unsafe void glDeleteFramebuffersEXT(Int32 n, UInt32* framebuffers);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteFramebuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteFramebuffersOES(Int32 n, UInt32* framebuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteLists", ExactSpelling = true)]
 			internal extern static void glDeleteLists(UInt32 list, Int32 range);
 
@@ -1674,6 +1878,10 @@ namespace OpenGL
 			internal extern static unsafe void glDeleteProgramPipelines(Int32 n, UInt32* pipelines);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteProgramPipelinesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteProgramsARB", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteProgramsARB(Int32 n, UInt32* programs);
 
@@ -1690,12 +1898,20 @@ namespace OpenGL
 			internal extern static unsafe void glDeleteQueriesARB(Int32 n, UInt32* ids);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteQueriesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteQueriesEXT(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteRenderbuffers", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteRenderbuffers(Int32 n, UInt32* renderbuffers);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteRenderbuffersEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteRenderbuffersEXT(Int32 n, UInt32* renderbuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteRenderbuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteRenderbuffersOES(Int32 n, UInt32* renderbuffers);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteSamplers", ExactSpelling = true)]
@@ -1712,6 +1928,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteSync", ExactSpelling = true)]
 			internal extern static void glDeleteSync(Int32 sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteSyncAPPLE", ExactSpelling = true)]
+			internal extern static void glDeleteSyncAPPLE(Int32 sync);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteTextures", ExactSpelling = true)]
@@ -1738,6 +1958,10 @@ namespace OpenGL
 			internal extern static unsafe void glDeleteVertexArraysAPPLE(Int32 n, UInt32* arrays);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteVertexArraysOES", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteVertexArraysOES(Int32 n, UInt32* arrays);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDeleteVertexShaderEXT", ExactSpelling = true)]
 			internal extern static void glDeleteVertexShaderEXT(UInt32 id);
 
@@ -1762,12 +1986,20 @@ namespace OpenGL
 			internal extern static void glDepthRange(double near, double far);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangeArrayfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glDepthRangeArrayfvNV(UInt32 first, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDepthRangeArrayv", ExactSpelling = true)]
 			internal extern static unsafe void glDepthRangeArrayv(UInt32 first, Int32 count, double* v);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDepthRangeIndexed", ExactSpelling = true)]
 			internal extern static void glDepthRangeIndexed(UInt32 index, double n, double f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangeIndexedfNV", ExactSpelling = true)]
+			internal extern static void glDepthRangeIndexedfNV(UInt32 index, float n, float f);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDepthRangedNV", ExactSpelling = true)]
@@ -1780,6 +2012,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDepthRangefOES", ExactSpelling = true)]
 			internal extern static void glDepthRangefOES(float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangex", ExactSpelling = true)]
+			internal extern static unsafe void glDepthRangex(IntPtr n, IntPtr f);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDepthRangexOES", ExactSpelling = true)]
@@ -1812,6 +2048,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDisableClientStateiEXT", ExactSpelling = true)]
 			internal extern static void glDisableClientStateiEXT(Int32 array, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableDriverControlQCOM", ExactSpelling = true)]
+			internal extern static void glDisableDriverControlQCOM(UInt32 driverControl);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDisableIndexedEXT", ExactSpelling = true)]
@@ -1850,6 +2090,22 @@ namespace OpenGL
 			internal extern static void glDisablei(Int32 target, UInt32 index);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableiEXT", ExactSpelling = true)]
+			internal extern static void glDisableiEXT(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableiNV", ExactSpelling = true)]
+			internal extern static void glDisableiNV(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableiOES", ExactSpelling = true)]
+			internal extern static void glDisableiOES(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDiscardFramebufferEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDiscardFramebufferEXT(Int32 target, Int32 numAttachments, Int32* attachments);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDispatchCompute", ExactSpelling = true)]
 			internal extern static void glDispatchCompute(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z);
 
@@ -1878,6 +2134,10 @@ namespace OpenGL
 			internal extern static void glDrawArraysInstanced(Int32 mode, Int32 first, Int32 count, Int32 instancecount);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawArraysInstancedANGLE", ExactSpelling = true)]
+			internal extern static void glDrawArraysInstancedANGLE(Int32 mode, Int32 first, Int32 count, Int32 primcount);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawArraysInstancedARB", ExactSpelling = true)]
 			internal extern static void glDrawArraysInstancedARB(Int32 mode, Int32 first, Int32 count, Int32 primcount);
 
@@ -1886,8 +2146,16 @@ namespace OpenGL
 			internal extern static void glDrawArraysInstancedBaseInstance(Int32 mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawArraysInstancedBaseInstanceEXT", ExactSpelling = true)]
+			internal extern static void glDrawArraysInstancedBaseInstanceEXT(Int32 mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawArraysInstancedEXT", ExactSpelling = true)]
 			internal extern static void glDrawArraysInstancedEXT(Int32 mode, Int32 start, Int32 count, Int32 primcount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawArraysInstancedNV", ExactSpelling = true)]
+			internal extern static void glDrawArraysInstancedNV(Int32 mode, Int32 first, Int32 count, Int32 primcount);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawBuffer", ExactSpelling = true)]
@@ -1904,6 +2172,18 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawBuffersATI", ExactSpelling = true)]
 			internal extern static unsafe void glDrawBuffersATI(Int32 n, Int32* bufs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawBuffersEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawBuffersEXT(Int32 n, Int32* bufs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawBuffersIndexedEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawBuffersNV", ExactSpelling = true)]
+			internal extern static unsafe void glDrawBuffersNV(Int32 n, Int32* bufs);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawCommandsAddressNV", ExactSpelling = true)]
@@ -1938,12 +2218,24 @@ namespace OpenGL
 			internal extern static unsafe void glDrawElementsBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsBaseVertexEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsBaseVertexEXT(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsBaseVertexOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsBaseVertexOES(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawElementsIndirect", ExactSpelling = true)]
 			internal extern static unsafe void glDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawElementsInstanced", ExactSpelling = true)]
 			internal extern static unsafe void glDrawElementsInstanced(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedANGLE", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedANGLE(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawElementsInstancedARB", ExactSpelling = true)]
@@ -1954,6 +2246,10 @@ namespace OpenGL
 			internal extern static unsafe void glDrawElementsInstancedBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedBaseInstanceEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedBaseInstanceEXT(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawElementsInstancedBaseVertex", ExactSpelling = true)]
 			internal extern static unsafe void glDrawElementsInstancedBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
 
@@ -1962,8 +2258,24 @@ namespace OpenGL
 			internal extern static unsafe void glDrawElementsInstancedBaseVertexBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedBaseVertexBaseInstanceEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedBaseVertexBaseInstanceEXT(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedBaseVertexEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedBaseVertexEXT(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedBaseVertexOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedBaseVertexOES(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawElementsInstancedEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDrawElementsInstancedEXT(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedNV(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawMeshArraysSUN", ExactSpelling = true)]
@@ -1990,12 +2302,52 @@ namespace OpenGL
 			internal extern static unsafe void glDrawRangeElementsBaseVertex(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawRangeElementsBaseVertexEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawRangeElementsBaseVertexEXT(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawRangeElementsBaseVertexOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawRangeElementsBaseVertexOES(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawRangeElementsEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDrawRangeElementsEXT(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexfOES", ExactSpelling = true)]
+			internal extern static void glDrawTexfOES(float x, float y, float z, float width, float height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexfvOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexfvOES(float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexiOES", ExactSpelling = true)]
+			internal extern static void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexivOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexivOES(Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexsOES", ExactSpelling = true)]
+			internal extern static void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexsvOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexsvOES(Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawTextureNV", ExactSpelling = true)]
 			internal extern static void glDrawTextureNV(UInt32 texture, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexxOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexxvOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexxvOES(IntPtr* coords);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawTransformFeedback", ExactSpelling = true)]
@@ -2016,6 +2368,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDrawTransformFeedbackStreamInstanced", ExactSpelling = true)]
 			internal extern static void glDrawTransformFeedbackStreamInstanced(Int32 mode, UInt32 id, UInt32 stream, Int32 instancecount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEGLImageTargetRenderbufferStorageOES", ExactSpelling = true)]
+			internal extern static unsafe void glEGLImageTargetRenderbufferStorageOES(Int32 target, IntPtr image);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEGLImageTargetTexture2DOES", ExactSpelling = true)]
+			internal extern static unsafe void glEGLImageTargetTexture2DOES(Int32 target, IntPtr image);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glEdgeFlag", ExactSpelling = true)]
@@ -2066,6 +2426,10 @@ namespace OpenGL
 			internal extern static void glEnableClientStateiEXT(Int32 array, UInt32 index);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableDriverControlQCOM", ExactSpelling = true)]
+			internal extern static void glEnableDriverControlQCOM(UInt32 driverControl);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glEnableIndexedEXT", ExactSpelling = true)]
 			internal extern static void glEnableIndexedEXT(Int32 target, UInt32 index);
 
@@ -2100,6 +2464,18 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glEnablei", ExactSpelling = true)]
 			internal extern static void glEnablei(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableiEXT", ExactSpelling = true)]
+			internal extern static void glEnableiEXT(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableiNV", ExactSpelling = true)]
+			internal extern static void glEnableiNV(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableiOES", ExactSpelling = true)]
+			internal extern static void glEnableiOES(Int32 target, UInt32 index);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glEnd", ExactSpelling = true)]
@@ -2146,8 +2522,16 @@ namespace OpenGL
 			internal extern static void glEndQueryARB(Int32 target);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndQueryEXT", ExactSpelling = true)]
+			internal extern static void glEndQueryEXT(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glEndQueryIndexed", ExactSpelling = true)]
 			internal extern static void glEndQueryIndexed(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndTilingQCOM", ExactSpelling = true)]
+			internal extern static void glEndTilingQCOM(UInt32 preserveMask);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glEndTransformFeedback", ExactSpelling = true)]
@@ -2246,6 +2630,55 @@ namespace OpenGL
 			internal extern static unsafe void glExecuteProgramNV(Int32 target, UInt32 id, float* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetBufferPointervQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetBufferPointervQCOM(Int32 target, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetBuffersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetBuffersQCOM(UInt32* buffers, Int32 maxBuffers, Int32* numBuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetFramebuffersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetFramebuffersQCOM(UInt32* framebuffers, Int32 maxFramebuffers, Int32* numFramebuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetProgramBinarySourceQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetProgramBinarySourceQCOM(UInt32 program, Int32 shadertype, String source, Int32* length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetProgramsQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetProgramsQCOM(UInt32* programs, Int32 maxPrograms, Int32* numPrograms);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetRenderbuffersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetRenderbuffersQCOM(UInt32* renderbuffers, Int32 maxRenderbuffers, Int32* numRenderbuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetShadersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetShadersQCOM(UInt32* shaders, Int32 maxShaders, Int32* numShaders);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetTexLevelParameterivQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetTexLevelParameterivQCOM(UInt32 texture, Int32 face, Int32 level, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetTexSubImageQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetTexSubImageQCOM(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr texels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetTexturesQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetTexturesQCOM(UInt32* textures, Int32 maxTextures, Int32* numTextures);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtIsProgramBinaryQCOM", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glExtIsProgramBinaryQCOM(UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtTexObjectStateOverrideiQCOM", ExactSpelling = true)]
+			internal extern static void glExtTexObjectStateOverrideiQCOM(Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glExtractComponentEXT", ExactSpelling = true)]
 			internal extern static void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
 
@@ -2260,6 +2693,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFenceSync", ExactSpelling = true)]
 			internal extern static Int32 glFenceSync(Int32 condition, UInt32 flags);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFenceSyncAPPLE", ExactSpelling = true)]
+			internal extern static Int32 glFenceSyncAPPLE(Int32 condition, UInt32 flags);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFinalCombinerInputNV", ExactSpelling = true)]
@@ -2300,6 +2737,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFlushMappedBufferRangeAPPLE", ExactSpelling = true)]
 			internal extern static unsafe void glFlushMappedBufferRangeAPPLE(Int32 target, IntPtr offset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFlushMappedBufferRangeEXT", ExactSpelling = true)]
+			internal extern static unsafe void glFlushMappedBufferRangeEXT(Int32 target, IntPtr offset, UInt32 length);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFlushMappedNamedBufferRange", ExactSpelling = true)]
@@ -2406,8 +2847,16 @@ namespace OpenGL
 			internal extern static unsafe void glFogiv(Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogx", ExactSpelling = true)]
+			internal extern static unsafe void glFogx(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFogxOES", ExactSpelling = true)]
 			internal extern static unsafe void glFogxOES(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogxv", ExactSpelling = true)]
+			internal extern static unsafe void glFogxv(Int32 pname, IntPtr* param);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFogxvOES", ExactSpelling = true)]
@@ -2490,6 +2939,10 @@ namespace OpenGL
 			internal extern static void glFramebufferParameteri(Int32 target, Int32 pname, Int32 param);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferPixelLocalStorageSizeEXT", ExactSpelling = true)]
+			internal extern static void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferReadBufferEXT", ExactSpelling = true)]
 			internal extern static void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
 
@@ -2500,6 +2953,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferRenderbufferEXT", ExactSpelling = true)]
 			internal extern static void glFramebufferRenderbufferEXT(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferRenderbufferOES", ExactSpelling = true)]
+			internal extern static void glFramebufferRenderbufferOES(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferSampleLocationsfvARB", ExactSpelling = true)]
@@ -2530,12 +2987,32 @@ namespace OpenGL
 			internal extern static void glFramebufferTexture2DEXT(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture2DDownsampleIMG", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture2DDownsampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 xscale, Int32 yscale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture2DMultisampleEXT", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture2DMultisampleEXT(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 samples);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture2DMultisampleIMG", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture2DMultisampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 samples);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture2DOES", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture2DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferTexture3D", ExactSpelling = true)]
 			internal extern static void glFramebufferTexture3D(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferTexture3DEXT", ExactSpelling = true)]
 			internal extern static void glFramebufferTexture3DEXT(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture3DOES", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture3DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferTextureARB", ExactSpelling = true)]
@@ -2566,8 +3043,20 @@ namespace OpenGL
 			internal extern static void glFramebufferTextureLayerEXT(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTextureLayerDownsampleIMG", ExactSpelling = true)]
+			internal extern static void glFramebufferTextureLayerDownsampleIMG(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer, Int32 xscale, Int32 yscale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTextureMultisampleMultiviewOVR", ExactSpelling = true)]
+			internal extern static void glFramebufferTextureMultisampleMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 samples, Int32 baseViewIndex, Int32 numViews);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFramebufferTextureMultiviewOVR", ExactSpelling = true)]
 			internal extern static void glFramebufferTextureMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 baseViewIndex, Int32 numViews);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTextureOES", ExactSpelling = true)]
+			internal extern static void glFramebufferTextureOES(Int32 target, Int32 attachment, UInt32 texture, Int32 level);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFreeObjectBufferATI", ExactSpelling = true)]
@@ -2582,8 +3071,16 @@ namespace OpenGL
 			internal extern static void glFrustum(double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFrustumf", ExactSpelling = true)]
+			internal extern static void glFrustumf(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFrustumfOES", ExactSpelling = true)]
 			internal extern static void glFrustumfOES(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFrustumx", ExactSpelling = true)]
+			internal extern static unsafe void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glFrustumxOES", ExactSpelling = true)]
@@ -2622,6 +3119,10 @@ namespace OpenGL
 			internal extern static unsafe void glGenFramebuffersEXT(Int32 n, UInt32* framebuffers);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenFramebuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glGenFramebuffersOES(Int32 n, UInt32* framebuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenLists", ExactSpelling = true)]
 			internal extern static UInt32 glGenLists(Int32 range);
 
@@ -2646,6 +3147,10 @@ namespace OpenGL
 			internal extern static unsafe void glGenProgramPipelines(Int32 n, UInt32* pipelines);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenProgramPipelinesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenProgramsARB", ExactSpelling = true)]
 			internal extern static unsafe void glGenProgramsARB(Int32 n, UInt32* programs);
 
@@ -2662,12 +3167,20 @@ namespace OpenGL
 			internal extern static unsafe void glGenQueriesARB(Int32 n, UInt32* ids);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenQueriesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGenQueriesEXT(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenRenderbuffers", ExactSpelling = true)]
 			internal extern static unsafe void glGenRenderbuffers(Int32 n, UInt32* renderbuffers);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenRenderbuffersEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGenRenderbuffersEXT(Int32 n, UInt32* renderbuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenRenderbuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glGenRenderbuffersOES(Int32 n, UInt32* renderbuffers);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenSamplers", ExactSpelling = true)]
@@ -2702,6 +3215,10 @@ namespace OpenGL
 			internal extern static unsafe void glGenVertexArraysAPPLE(Int32 n, UInt32* arrays);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenVertexArraysOES", ExactSpelling = true)]
+			internal extern static unsafe void glGenVertexArraysOES(Int32 n, UInt32* arrays);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenVertexShadersEXT", ExactSpelling = true)]
 			internal extern static UInt32 glGenVertexShadersEXT(UInt32 range);
 
@@ -2712,6 +3229,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenerateMipmapEXT", ExactSpelling = true)]
 			internal extern static void glGenerateMipmapEXT(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenerateMipmapOES", ExactSpelling = true)]
+			internal extern static void glGenerateMipmapOES(Int32 target);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGenerateMultiTexMipmapEXT", ExactSpelling = true)]
@@ -2838,6 +3359,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetBufferPointervARB(Int32 target, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetBufferPointervOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetBufferPointervOES(Int32 target, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glGetBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
 
@@ -2850,8 +3375,16 @@ namespace OpenGL
 			internal extern static unsafe void glGetClipPlane(Int32 plane, double* equation);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetClipPlanef", ExactSpelling = true)]
+			internal extern static unsafe void glGetClipPlanef(Int32 plane, float* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetClipPlanefOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetClipPlanefOES(Int32 plane, float* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetClipPlanex", ExactSpelling = true)]
+			internal extern static unsafe void glGetClipPlanex(Int32 plane, IntPtr* equation);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetClipPlanexOES", ExactSpelling = true)]
@@ -2986,6 +3519,10 @@ namespace OpenGL
 			internal extern static unsafe UInt32 glGetDebugMessageLogARB(UInt32 count, Int32 bufSize, Int32* sources, Int32* types, UInt32* ids, Int32* severities, Int32* lengths, String messageLog);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDebugMessageLogKHR", ExactSpelling = true)]
+			internal extern static unsafe UInt32 glGetDebugMessageLogKHR(UInt32 count, Int32 bufSize, Int32* sources, Int32* types, UInt32* ids, Int32* severities, Int32* lengths, String messageLog);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetDetailTexFuncSGIS", ExactSpelling = true)]
 			internal extern static unsafe void glGetDetailTexFuncSGIS(Int32 target, float* points);
 
@@ -3004,6 +3541,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetDoublev", ExactSpelling = true)]
 			internal extern static unsafe void glGetDoublev(Int32 pname, double* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDriverControlStringQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glGetDriverControlStringQCOM(UInt32 driverControl, Int32 bufSize, Int32* length, String driverControlString);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDriverControlsQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glGetDriverControlsQCOM(Int32* num, Int32 size, UInt32* driverControls);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetError", ExactSpelling = true)]
@@ -3026,6 +3571,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetFirstPerfQueryIdINTEL(UInt32* queryId);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFixedv", ExactSpelling = true)]
+			internal extern static unsafe void glGetFixedv(Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetFixedvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetFixedvOES(Int32 pname, IntPtr* @params);
 
@@ -3042,6 +3591,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetFloati_vEXT(Int32 pname, UInt32 index, float* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFloati_vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetFloati_vNV(Int32 target, UInt32 index, float* data);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetFloatv", ExactSpelling = true)]
 			internal extern static unsafe void glGetFloatv(Int32 pname, float* data);
 
@@ -3052,6 +3605,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetFragDataIndex", ExactSpelling = true)]
 			internal extern static Int32 glGetFragDataIndex(UInt32 program, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFragDataIndexEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetFragDataIndexEXT(UInt32 program, String name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetFragDataLocation", ExactSpelling = true)]
@@ -3086,6 +3643,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetFramebufferAttachmentParameterivEXT(Int32 target, Int32 attachment, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFramebufferAttachmentParameterivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetFramebufferAttachmentParameterivOES(Int32 target, Int32 attachment, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetFramebufferParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetFramebufferParameteriv(Int32 target, Int32 pname, Int32* @params);
 
@@ -3094,12 +3655,24 @@ namespace OpenGL
 			internal extern static unsafe void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFramebufferPixelLocalStorageSizeEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatus", ExactSpelling = true)]
 			internal extern static Int32 glGetGraphicsResetStatus();
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatusARB", ExactSpelling = true)]
 			internal extern static Int32 glGetGraphicsResetStatusARB();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatusEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetGraphicsResetStatusEXT();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatusKHR", ExactSpelling = true)]
+			internal extern static Int32 glGetGraphicsResetStatusKHR();
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetHandleARB", ExactSpelling = true)]
@@ -3166,12 +3739,20 @@ namespace OpenGL
 			internal extern static unsafe void glGetInteger64v(Int32 pname, Int64* data);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInteger64vAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glGetInteger64vAPPLE(Int32 pname, Int64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetIntegerIndexedvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetIntegerIndexedvEXT(Int32 target, UInt32 index, Int32* data);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetIntegeri_v", ExactSpelling = true)]
 			internal extern static unsafe void glGetIntegeri_v(Int32 target, UInt32 index, Int32* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetIntegeri_vEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetIntegerui64i_vNV", ExactSpelling = true)]
@@ -3220,6 +3801,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetLightxOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetLightxOES(Int32 light, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetLightxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetLightxvOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetLightxvOES(Int32 light, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetListParameterfvSGIX", ExactSpelling = true)]
@@ -3288,6 +3877,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetMaterialxOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetMaterialxOES(Int32 face, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMaterialxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMaterialxvOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetMaterialxvOES(Int32 face, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetMinmax", ExactSpelling = true)]
@@ -3478,6 +4075,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, Int32* length, String label);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectLabelKHR", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectLabelKHR(Int32 identifier, UInt32 name, Int32 bufSize, Int32* length, String label);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetObjectParameterfvARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetObjectParameterfvARB(UInt32 obj, Int32 pname, float* @params);
 
@@ -3492,6 +4093,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetObjectPtrLabel", ExactSpelling = true)]
 			internal extern static unsafe void glGetObjectPtrLabel(IntPtr ptr, Int32 bufSize, Int32* length, String label);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectPtrLabelKHR", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectPtrLabelKHR(IntPtr ptr, Int32 bufSize, Int32* length, String label);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetOcclusionQueryivNV", ExactSpelling = true)]
@@ -3642,12 +4247,20 @@ namespace OpenGL
 			internal extern static unsafe void glGetPointervEXT(Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPointervKHR", ExactSpelling = true)]
+			internal extern static unsafe void glGetPointervKHR(Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetPolygonStipple", ExactSpelling = true)]
 			internal extern static unsafe void glGetPolygonStipple(byte* mask);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetProgramBinary", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramBinary(UInt32 program, Int32 bufSize, Int32* length, Int32* binaryFormat, IntPtr binary);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramBinaryOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramBinaryOES(UInt32 program, Int32 bufSize, Int32* length, Int32* binaryFormat, IntPtr binary);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterIivNV", ExactSpelling = true)]
@@ -3710,8 +4323,16 @@ namespace OpenGL
 			internal extern static unsafe void glGetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, Int32* length, String infoLog);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramPipelineInfoLogEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, String infoLog);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetProgramPipelineiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramPipelineiv(UInt32 pipeline, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramPipelineivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetProgramResourceIndex", ExactSpelling = true)]
@@ -3724,6 +4345,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetProgramResourceLocationIndex", ExactSpelling = true)]
 			internal extern static Int32 glGetProgramResourceLocationIndex(UInt32 program, Int32 programInterface, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramResourceLocationIndexEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetProgramResourceName", ExactSpelling = true)]
@@ -3802,6 +4427,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetQueryObjectivARB(UInt32 id, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjectivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjectivEXT(UInt32 id, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetQueryObjectui64v", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
 
@@ -3818,12 +4447,20 @@ namespace OpenGL
 			internal extern static unsafe void glGetQueryObjectuivARB(UInt32 id, Int32 pname, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjectuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetQueryiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryiv(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetQueryivARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryivARB(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetRenderbufferParameteriv", ExactSpelling = true)]
@@ -3834,12 +4471,32 @@ namespace OpenGL
 			internal extern static unsafe void glGetRenderbufferParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetRenderbufferParameterivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetRenderbufferParameterivOES(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetSamplerParameterIiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterIivEXT(UInt32 sampler, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterIivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterIivOES(UInt32 sampler, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetSamplerParameterIuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterIuivEXT(UInt32 sampler, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterIuivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterIuivOES(UInt32 sampler, Int32 pname, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetSamplerParameterfv", ExactSpelling = true)]
@@ -3906,6 +4563,10 @@ namespace OpenGL
 			internal extern static unsafe void glGetSynciv(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSyncivAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glGetSyncivAPPLE(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexBumpParameterfvATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexBumpParameterfvATI(Int32 pname, float* param);
 
@@ -3920,6 +4581,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexEnviv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexEnviv(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexEnvxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexEnvxvOES", ExactSpelling = true)]
@@ -3938,8 +4603,16 @@ namespace OpenGL
 			internal extern static unsafe void glGetTexGenfv(Int32 coord, Int32 pname, float* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexGenfvOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexGeniv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexGeniv(Int32 coord, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexGenivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexGenxvOES", ExactSpelling = true)]
@@ -3970,12 +4643,20 @@ namespace OpenGL
 			internal extern static unsafe void glGetTexParameterIivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexParameterIivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexParameterIivOES(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexParameterIuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexParameterIuiv(Int32 target, Int32 pname, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexParameterIuivEXT(Int32 target, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexParameterIuivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexParameterIuivOES(Int32 target, Int32 pname, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexParameterPointervAPPLE", ExactSpelling = true)]
@@ -3988,6 +4669,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexParameteriv(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexParameterxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTexParameterxvOES", ExactSpelling = true)]
@@ -4096,6 +4781,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetTransformFeedbackiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTransformFeedbackiv(UInt32 xfb, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTranslatedShaderSourceANGLE", ExactSpelling = true)]
+			internal extern static unsafe void glGetTranslatedShaderSourceANGLE(UInt32 shader, Int32 bufsize, Int32* length, String source);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetUniformBlockIndex", ExactSpelling = true)]
@@ -4478,6 +5167,14 @@ namespace OpenGL
 			internal extern static unsafe void glGetnUniformfvARB(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformfvEXT(UInt32 program, Int32 location, Int32 bufSize, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformfvKHR", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformfvKHR(UInt32 program, Int32 location, Int32 bufSize, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetnUniformi64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformi64vARB(UInt32 program, Int32 location, Int32 bufSize, Int64* @params);
 
@@ -4490,6 +5187,14 @@ namespace OpenGL
 			internal extern static unsafe void glGetnUniformivARB(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformivEXT(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformivKHR", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformivKHR(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetnUniformui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformui64vARB(UInt32 program, Int32 location, Int32 bufSize, UInt64* @params);
 
@@ -4500,6 +5205,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGetnUniformuivARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformuivARB(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformuivKHR", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformuivKHR(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorbSUN", ExactSpelling = true)]
@@ -4746,6 +5455,21 @@ namespace OpenGL
 			internal extern static bool glIsEnabledi(Int32 target, UInt32 index);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsEnablediEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsEnablediEXT(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsEnablediNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsEnablediNV(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsEnablediOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsEnablediOES(Int32 target, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsFenceAPPLE", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsFenceAPPLE(UInt32 fence);
@@ -4764,6 +5488,11 @@ namespace OpenGL
 			[DllImport(Library, EntryPoint = "glIsFramebufferEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsFramebufferEXT(UInt32 framebuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsFramebufferOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsFramebufferOES(UInt32 framebuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsImageHandleResidentARB", ExactSpelling = true)]
@@ -4841,6 +5570,11 @@ namespace OpenGL
 			internal extern static bool glIsProgramPipeline(UInt32 pipeline);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsProgramPipelineEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsProgramPipelineEXT(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsQuery", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsQuery(UInt32 id);
@@ -4851,6 +5585,11 @@ namespace OpenGL
 			internal extern static bool glIsQueryARB(UInt32 id);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsQueryEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsQueryEXT(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsRenderbuffer", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsRenderbuffer(UInt32 renderbuffer);
@@ -4859,6 +5598,11 @@ namespace OpenGL
 			[DllImport(Library, EntryPoint = "glIsRenderbufferEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsRenderbufferEXT(UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsRenderbufferOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsRenderbufferOES(UInt32 renderbuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsSampler", ExactSpelling = true)]
@@ -4879,6 +5623,11 @@ namespace OpenGL
 			[DllImport(Library, EntryPoint = "glIsSync", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsSync(Int32 sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsSyncAPPLE", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsSyncAPPLE(Int32 sync);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsTexture", ExactSpelling = true)]
@@ -4926,6 +5675,11 @@ namespace OpenGL
 			internal extern static bool glIsVertexArrayAPPLE(UInt32 array);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsVertexArrayOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsVertexArrayOES(UInt32 array);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsVertexAttribEnabledAPPLE", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glIsVertexAttribEnabledAPPLE(UInt32 index, Int32 pname);
@@ -4955,8 +5709,16 @@ namespace OpenGL
 			internal extern static unsafe void glLightModeliv(Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightModelx", ExactSpelling = true)]
+			internal extern static unsafe void glLightModelx(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLightModelxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLightModelxOES(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightModelxv", ExactSpelling = true)]
+			internal extern static unsafe void glLightModelxv(Int32 pname, IntPtr* param);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLightModelxvOES", ExactSpelling = true)]
@@ -4979,8 +5741,16 @@ namespace OpenGL
 			internal extern static unsafe void glLightiv(Int32 light, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightx", ExactSpelling = true)]
+			internal extern static unsafe void glLightx(Int32 light, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLightxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLightxOES(Int32 light, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightxv", ExactSpelling = true)]
+			internal extern static unsafe void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLightxvOES", ExactSpelling = true)]
@@ -4993,6 +5763,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLineWidth", ExactSpelling = true)]
 			internal extern static void glLineWidth(float width);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLineWidthx", ExactSpelling = true)]
+			internal extern static unsafe void glLineWidthx(IntPtr width);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLineWidthxOES", ExactSpelling = true)]
@@ -5047,12 +5821,20 @@ namespace OpenGL
 			internal extern static unsafe void glLoadMatrixf(float* m);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadMatrixx", ExactSpelling = true)]
+			internal extern static unsafe void glLoadMatrixx(IntPtr* m);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLoadMatrixxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLoadMatrixxOES(IntPtr* m);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLoadName", ExactSpelling = true)]
 			internal extern static void glLoadName(UInt32 name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadPaletteFromModelViewMatrixOES", ExactSpelling = true)]
+			internal extern static void glLoadPaletteFromModelViewMatrixOES();
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glLoadProgramNV", ExactSpelling = true)]
@@ -5167,8 +5949,16 @@ namespace OpenGL
 			internal extern static IntPtr glMapBufferARB(Int32 target, Int32 access);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapBufferOES", ExactSpelling = true)]
+			internal extern static IntPtr glMapBufferOES(Int32 target, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMapBufferRange", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glMapBufferRange(Int32 target, IntPtr offset, UInt32 length, UInt32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapBufferRangeEXT", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glMapBufferRangeEXT(Int32 target, IntPtr offset, UInt32 length, UInt32 access);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMapControlPointsNV", ExactSpelling = true)]
@@ -5263,8 +6053,16 @@ namespace OpenGL
 			internal extern static unsafe void glMaterialiv(Int32 face, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMaterialx", ExactSpelling = true)]
+			internal extern static unsafe void glMaterialx(Int32 face, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMaterialxOES", ExactSpelling = true)]
 			internal extern static unsafe void glMaterialxOES(Int32 face, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMaterialxv", ExactSpelling = true)]
+			internal extern static unsafe void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMaterialxvOES", ExactSpelling = true)]
@@ -5277,6 +6075,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMatrixIndexPointerARB", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixIndexPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixIndexPointerOES", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMatrixIndexubvARB", ExactSpelling = true)]
@@ -5415,6 +6217,10 @@ namespace OpenGL
 			internal extern static void glMinSampleShadingARB(float value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMinSampleShadingOES", ExactSpelling = true)]
+			internal extern static void glMinSampleShadingOES(float value);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMinmax", ExactSpelling = true)]
 			internal extern static void glMinmax(Int32 target, Int32 internalformat, bool sink);
 
@@ -5429,6 +6235,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultMatrixf", ExactSpelling = true)]
 			internal extern static unsafe void glMultMatrixf(float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultMatrixx", ExactSpelling = true)]
+			internal extern static unsafe void glMultMatrixx(IntPtr* m);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultMatrixxOES", ExactSpelling = true)]
@@ -5483,6 +6293,10 @@ namespace OpenGL
 			internal extern static unsafe void glMultiDrawArraysIndirectCountARB(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawArraysIndirectEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawArraysIndirectEXT(Int32 mode, IntPtr indirect, Int32 drawcount, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiDrawElementArrayAPPLE", ExactSpelling = true)]
 			internal extern static unsafe void glMultiDrawElementArrayAPPLE(Int32 mode, Int32* first, Int32* count, Int32 primcount);
 
@@ -5493,6 +6307,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiDrawElementsBaseVertex", ExactSpelling = true)]
 			internal extern static unsafe void glMultiDrawElementsBaseVertex(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount, Int32* basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawElementsBaseVertexEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawElementsBaseVertexEXT(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 primcount, Int32* basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawElementsBaseVertexOES", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawElementsBaseVertexOES(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 primcount, Int32* basevertex);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiDrawElementsEXT", ExactSpelling = true)]
@@ -5517,6 +6339,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiDrawElementsIndirectCountARB", ExactSpelling = true)]
 			internal extern static unsafe void glMultiDrawElementsIndirectCountARB(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawElementsIndirectEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawElementsIndirectEXT(Int32 mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiDrawRangeElementArrayAPPLE", ExactSpelling = true)]
@@ -5877,6 +6703,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4svARB", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord4svARB(Int32 target, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4x", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4xOES", ExactSpelling = true)]
@@ -6255,6 +7085,10 @@ namespace OpenGL
 			internal extern static unsafe void glNormal3sv(Int16* v);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormal3x", ExactSpelling = true)]
+			internal extern static unsafe void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glNormal3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glNormal3xOES(IntPtr nx, IntPtr ny, IntPtr nz);
 
@@ -6335,8 +7169,16 @@ namespace OpenGL
 			internal extern static void glObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glObjectLabelKHR", ExactSpelling = true)]
+			internal extern static void glObjectLabelKHR(Int32 identifier, UInt32 name, Int32 length, String label);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glObjectPtrLabel", ExactSpelling = true)]
 			internal extern static unsafe void glObjectPtrLabel(IntPtr ptr, Int32 length, String label);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glObjectPtrLabelKHR", ExactSpelling = true)]
+			internal extern static unsafe void glObjectPtrLabelKHR(IntPtr ptr, Int32 length, String label);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glObjectPurgeableAPPLE", ExactSpelling = true)]
@@ -6351,8 +7193,16 @@ namespace OpenGL
 			internal extern static void glOrtho(double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glOrthof", ExactSpelling = true)]
+			internal extern static void glOrthof(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glOrthofOES", ExactSpelling = true)]
 			internal extern static void glOrthofOES(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glOrthox", ExactSpelling = true)]
+			internal extern static unsafe void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glOrthoxOES", ExactSpelling = true)]
@@ -6385,6 +7235,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPatchParameteri", ExactSpelling = true)]
 			internal extern static void glPatchParameteri(Int32 pname, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPatchParameteriEXT", ExactSpelling = true)]
+			internal extern static void glPatchParameteriEXT(Int32 pname, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPatchParameteriOES", ExactSpelling = true)]
+			internal extern static void glPatchParameteriOES(Int32 pname, Int32 value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPathColorGenNV", ExactSpelling = true)]
@@ -6620,12 +7478,32 @@ namespace OpenGL
 			internal extern static unsafe void glPointParameterivNV(Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterx", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameterx(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterxOES", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameterxOES(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterxv", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameterxv(Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPointParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glPointParameterxvOES(Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPointSize", ExactSpelling = true)]
 			internal extern static void glPointSize(float size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointSizePointerOES", ExactSpelling = true)]
+			internal extern static unsafe void glPointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointSizex", ExactSpelling = true)]
+			internal extern static unsafe void glPointSizex(IntPtr size);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPointSizexOES", ExactSpelling = true)]
@@ -6644,6 +7522,10 @@ namespace OpenGL
 			internal extern static void glPolygonMode(Int32 face, Int32 mode);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPolygonModeNV", ExactSpelling = true)]
+			internal extern static void glPolygonModeNV(Int32 face, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPolygonOffset", ExactSpelling = true)]
 			internal extern static void glPolygonOffset(float factor, float units);
 
@@ -6654,6 +7536,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPolygonOffsetEXT", ExactSpelling = true)]
 			internal extern static void glPolygonOffsetEXT(float factor, float bias);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPolygonOffsetx", ExactSpelling = true)]
+			internal extern static unsafe void glPolygonOffsetx(IntPtr factor, IntPtr units);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPolygonOffsetxOES", ExactSpelling = true)]
@@ -6676,6 +7562,10 @@ namespace OpenGL
 			internal extern static void glPopDebugGroup();
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPopDebugGroupKHR", ExactSpelling = true)]
+			internal extern static void glPopDebugGroupKHR();
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPopGroupMarkerEXT", ExactSpelling = true)]
 			internal extern static void glPopGroupMarkerEXT();
 
@@ -6696,8 +7586,20 @@ namespace OpenGL
 			internal extern static void glPresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, UInt32 key0, Int32 target1, UInt32 fill1, UInt32 key1);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPrimitiveBoundingBox", ExactSpelling = true)]
+			internal extern static void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPrimitiveBoundingBoxARB", ExactSpelling = true)]
 			internal extern static void glPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPrimitiveBoundingBoxEXT", ExactSpelling = true)]
+			internal extern static void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPrimitiveBoundingBoxOES", ExactSpelling = true)]
+			internal extern static void glPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPrimitiveRestartIndex", ExactSpelling = true)]
@@ -6726,6 +7628,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glProgramBinary", ExactSpelling = true)]
 			internal extern static unsafe void glProgramBinary(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramBinaryOES", ExactSpelling = true)]
+			internal extern static unsafe void glProgramBinaryOES(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glProgramBufferParametersIivNV", ExactSpelling = true)]
@@ -7472,6 +8378,10 @@ namespace OpenGL
 			internal extern static void glPushDebugGroup(Int32 source, UInt32 id, Int32 length, String message);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPushDebugGroupKHR", ExactSpelling = true)]
+			internal extern static void glPushDebugGroupKHR(Int32 source, UInt32 id, Int32 length, String message);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPushGroupMarkerEXT", ExactSpelling = true)]
 			internal extern static void glPushGroupMarkerEXT(Int32 length, String marker);
 
@@ -7486,6 +8396,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glQueryCounter", ExactSpelling = true)]
 			internal extern static void glQueryCounter(UInt32 id, Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glQueryCounterEXT", ExactSpelling = true)]
+			internal extern static void glQueryCounterEXT(UInt32 id, Int32 target);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glQueryMatrixxOES", ExactSpelling = true)]
@@ -7624,6 +8538,14 @@ namespace OpenGL
 			internal extern static void glReadBuffer(Int32 src);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReadBufferIndexedEXT", ExactSpelling = true)]
+			internal extern static void glReadBufferIndexedEXT(Int32 src, Int32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReadBufferNV", ExactSpelling = true)]
+			internal extern static void glReadBufferNV(Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glReadInstrumentsSGIX", ExactSpelling = true)]
 			internal extern static void glReadInstrumentsSGIX(Int32 marker);
 
@@ -7638,6 +8560,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glReadnPixelsARB", ExactSpelling = true)]
 			internal extern static unsafe void glReadnPixelsARB(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReadnPixelsEXT", ExactSpelling = true)]
+			internal extern static unsafe void glReadnPixelsEXT(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReadnPixelsKHR", ExactSpelling = true)]
+			internal extern static unsafe void glReadnPixelsKHR(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glRectd", ExactSpelling = true)]
@@ -7704,12 +8634,32 @@ namespace OpenGL
 			internal extern static void glRenderbufferStorageMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleANGLE", ExactSpelling = true)]
+			internal extern static void glRenderbufferStorageMultisampleANGLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleAPPLE", ExactSpelling = true)]
+			internal extern static void glRenderbufferStorageMultisampleAPPLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleCoverageNV", ExactSpelling = true)]
 			internal extern static void glRenderbufferStorageMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glRenderbufferStorageMultisampleEXT(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleIMG", ExactSpelling = true)]
+			internal extern static void glRenderbufferStorageMultisampleIMG(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleNV", ExactSpelling = true)]
+			internal extern static void glRenderbufferStorageMultisampleNV(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRenderbufferStorageOES", ExactSpelling = true)]
+			internal extern static void glRenderbufferStorageOES(Int32 target, Int32 internalformat, Int32 width, Int32 height);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glReplacementCodePointerSUN", ExactSpelling = true)]
@@ -7832,6 +8782,10 @@ namespace OpenGL
 			internal extern static void glResolveDepthValuesNV();
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glResolveMultisampleFramebufferAPPLE", ExactSpelling = true)]
+			internal extern static void glResolveMultisampleFramebufferAPPLE();
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glResumeTransformFeedback", ExactSpelling = true)]
 			internal extern static void glResumeTransformFeedback();
 
@@ -7848,6 +8802,10 @@ namespace OpenGL
 			internal extern static void glRotatef(float angle, float x, float y, float z);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRotatex", ExactSpelling = true)]
+			internal extern static unsafe void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glRotatexOES", ExactSpelling = true)]
 			internal extern static unsafe void glRotatexOES(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 
@@ -7858,6 +8816,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glSampleCoverageARB", ExactSpelling = true)]
 			internal extern static void glSampleCoverageARB(float value, bool invert);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleCoveragex", ExactSpelling = true)]
+			internal extern static void glSampleCoveragex(Int32 value, bool invert);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleCoveragexOES", ExactSpelling = true)]
+			internal extern static void glSampleCoveragexOES(Int32 value, bool invert);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glSampleMapATI", ExactSpelling = true)]
@@ -7892,8 +8858,24 @@ namespace OpenGL
 			internal extern static unsafe void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterIivEXT(UInt32 sampler, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterIivOES", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterIivOES(UInt32 sampler, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glSamplerParameterIuiv", ExactSpelling = true)]
 			internal extern static unsafe void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterIuivEXT(UInt32 sampler, Int32 pname, UInt32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterIuivOES", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterIuivOES(UInt32 sampler, Int32 pname, UInt32* param);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glSamplerParameterf", ExactSpelling = true)]
@@ -7920,6 +8902,10 @@ namespace OpenGL
 			internal extern static void glScalef(float x, float y, float z);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScalex", ExactSpelling = true)]
+			internal extern static unsafe void glScalex(IntPtr x, IntPtr y, IntPtr z);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glScalexOES", ExactSpelling = true)]
 			internal extern static unsafe void glScalexOES(IntPtr x, IntPtr y, IntPtr z);
 
@@ -7932,12 +8918,24 @@ namespace OpenGL
 			internal extern static unsafe void glScissorArrayv(UInt32 first, Int32 count, Int32* v);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScissorArrayvNV", ExactSpelling = true)]
+			internal extern static unsafe void glScissorArrayvNV(UInt32 first, Int32 count, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glScissorIndexed", ExactSpelling = true)]
 			internal extern static void glScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScissorIndexedNV", ExactSpelling = true)]
+			internal extern static void glScissorIndexedNV(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glScissorIndexedv", ExactSpelling = true)]
 			internal extern static unsafe void glScissorIndexedv(UInt32 index, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScissorIndexedvNV", ExactSpelling = true)]
+			internal extern static unsafe void glScissorIndexedvNV(UInt32 index, Int32* v);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glSecondaryColor3b", ExactSpelling = true)]
@@ -8196,6 +9194,10 @@ namespace OpenGL
 			internal extern static void glStartInstrumentsSGIX();
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStartTilingQCOM", ExactSpelling = true)]
+			internal extern static void glStartTilingQCOM(UInt32 x, UInt32 y, UInt32 width, UInt32 height, UInt32 preserveMask);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glStateCaptureNV", ExactSpelling = true)]
 			internal extern static void glStateCaptureNV(UInt32 state, Int32 mode);
 
@@ -8379,8 +9381,20 @@ namespace OpenGL
 			internal extern static void glTexBufferEXT(Int32 target, Int32 internalformat, UInt32 buffer);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexBufferOES", ExactSpelling = true)]
+			internal extern static void glTexBufferOES(Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexBufferRange", ExactSpelling = true)]
 			internal extern static unsafe void glTexBufferRange(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexBufferRangeEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTexBufferRangeEXT(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexBufferRangeOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexBufferRangeOES(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexBumpParameterfvATI", ExactSpelling = true)]
@@ -8739,8 +9753,16 @@ namespace OpenGL
 			internal extern static unsafe void glTexEnviv(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexEnvx", ExactSpelling = true)]
+			internal extern static unsafe void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexEnvxOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexEnvxOES(Int32 target, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexEnvxv", ExactSpelling = true)]
+			internal extern static unsafe void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexEnvxvOES", ExactSpelling = true)]
@@ -8763,16 +9785,32 @@ namespace OpenGL
 			internal extern static void glTexGenf(Int32 coord, Int32 pname, float param);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGenfOES", ExactSpelling = true)]
+			internal extern static void glTexGenfOES(Int32 coord, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexGenfv", ExactSpelling = true)]
 			internal extern static unsafe void glTexGenfv(Int32 coord, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGenfvOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexGenfvOES(Int32 coord, Int32 pname, float* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexGeni", ExactSpelling = true)]
 			internal extern static void glTexGeni(Int32 coord, Int32 pname, Int32 param);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGeniOES", ExactSpelling = true)]
+			internal extern static void glTexGeniOES(Int32 coord, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexGeniv", ExactSpelling = true)]
 			internal extern static unsafe void glTexGeniv(Int32 coord, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGenivOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexGenxOES", ExactSpelling = true)]
@@ -8815,12 +9853,20 @@ namespace OpenGL
 			internal extern static void glTexImage3DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexImage3DOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexImage3DOES(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexImage4DSGIS", ExactSpelling = true)]
 			internal extern static unsafe void glTexImage4DSGIS(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexPageCommitmentARB", ExactSpelling = true)]
 			internal extern static void glTexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexPageCommitmentEXT", ExactSpelling = true)]
+			internal extern static void glTexPageCommitmentEXT(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexParameterIiv", ExactSpelling = true)]
@@ -8831,12 +9877,20 @@ namespace OpenGL
 			internal extern static unsafe void glTexParameterIivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexParameterIivOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexParameterIivOES(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexParameterIuiv", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterIuiv(Int32 target, Int32 pname, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterIuivEXT(Int32 target, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexParameterIuivOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexParameterIuivOES(Int32 target, Int32 pname, UInt32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexParameterf", ExactSpelling = true)]
@@ -8855,8 +9909,16 @@ namespace OpenGL
 			internal extern static unsafe void glTexParameteriv(Int32 target, Int32 pname, Int32* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexParameterx", ExactSpelling = true)]
+			internal extern static unsafe void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexParameterxOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterxOES(Int32 target, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexParameterxv", ExactSpelling = true)]
+			internal extern static unsafe void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexParameterxvOES", ExactSpelling = true)]
@@ -8871,8 +9933,16 @@ namespace OpenGL
 			internal extern static void glTexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexStorage1DEXT", ExactSpelling = true)]
+			internal extern static void glTexStorage1DEXT(Int32 target, Int32 levels, Int32 internalformat, Int32 width);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexStorage2D", ExactSpelling = true)]
 			internal extern static void glTexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexStorage2DEXT", ExactSpelling = true)]
+			internal extern static void glTexStorage2DEXT(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexStorage2DMultisample", ExactSpelling = true)]
@@ -8883,8 +9953,16 @@ namespace OpenGL
 			internal extern static void glTexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexStorage3DEXT", ExactSpelling = true)]
+			internal extern static void glTexStorage3DEXT(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexStorage3DMultisample", ExactSpelling = true)]
 			internal extern static void glTexStorage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexStorage3DMultisampleOES", ExactSpelling = true)]
+			internal extern static void glTexStorage3DMultisampleOES(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexStorageSparseAMD", ExactSpelling = true)]
@@ -8913,6 +9991,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexSubImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTexSubImage3DEXT(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexSubImage3DOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTexSubImage4DSGIS", ExactSpelling = true)]
@@ -9119,6 +10201,14 @@ namespace OpenGL
 			internal extern static void glTextureView(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureViewEXT", ExactSpelling = true)]
+			internal extern static void glTextureViewEXT(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureViewOES", ExactSpelling = true)]
+			internal extern static void glTextureViewOES(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTrackMatrixNV", ExactSpelling = true)]
 			internal extern static void glTrackMatrixNV(Int32 target, UInt32 address, Int32 matrix, Int32 transform);
 
@@ -9161,6 +10251,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTranslatef", ExactSpelling = true)]
 			internal extern static void glTranslatef(float x, float y, float z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTranslatex", ExactSpelling = true)]
+			internal extern static unsafe void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTranslatexOES", ExactSpelling = true)]
@@ -9563,12 +10657,20 @@ namespace OpenGL
 			internal extern static unsafe void glUniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, float* value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix2x3fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix2x3fvNV(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix2x4dv", ExactSpelling = true)]
 			internal extern static unsafe void glUniformMatrix2x4dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix2x4fv", ExactSpelling = true)]
 			internal extern static unsafe void glUniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix2x4fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix2x4fvNV(Int32 location, Int32 count, bool transpose, float* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix3dv", ExactSpelling = true)]
@@ -9591,12 +10693,20 @@ namespace OpenGL
 			internal extern static unsafe void glUniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, float* value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix3x2fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix3x2fvNV(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix3x4dv", ExactSpelling = true)]
 			internal extern static unsafe void glUniformMatrix3x4dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix3x4fv", ExactSpelling = true)]
 			internal extern static unsafe void glUniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix3x4fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix3x4fvNV(Int32 location, Int32 count, bool transpose, float* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix4dv", ExactSpelling = true)]
@@ -9619,12 +10729,20 @@ namespace OpenGL
 			internal extern static unsafe void glUniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, float* value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix4x2fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix4x2fvNV(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix4x3dv", ExactSpelling = true)]
 			internal extern static unsafe void glUniformMatrix4x3dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformMatrix4x3fv", ExactSpelling = true)]
 			internal extern static unsafe void glUniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix4x3fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix4x3fvNV(Int32 location, Int32 count, bool transpose, float* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUniformSubroutinesuiv", ExactSpelling = true)]
@@ -9651,6 +10769,11 @@ namespace OpenGL
 			[DllImport(Library, EntryPoint = "glUnmapBufferARB", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal extern static bool glUnmapBufferARB(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUnmapBufferOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glUnmapBufferOES(Int32 target);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUnmapNamedBuffer", ExactSpelling = true)]
@@ -9685,6 +10808,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUseProgramStages", ExactSpelling = true)]
 			internal extern static void glUseProgramStages(UInt32 pipeline, UInt32 stages, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUseProgramStagesEXT", ExactSpelling = true)]
+			internal extern static void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUseShaderProgramEXT", ExactSpelling = true)]
@@ -9742,6 +10869,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glValidateProgramPipeline", ExactSpelling = true)]
 			internal extern static void glValidateProgramPipeline(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glValidateProgramPipelineEXT", ExactSpelling = true)]
+			internal extern static void glValidateProgramPipelineEXT(UInt32 pipeline);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glVariantArrayObjectATI", ExactSpelling = true)]
@@ -10508,8 +11639,20 @@ namespace OpenGL
 			internal extern static void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribDivisorANGLE", ExactSpelling = true)]
+			internal extern static void glVertexAttribDivisorANGLE(UInt32 index, UInt32 divisor);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glVertexAttribDivisorARB", ExactSpelling = true)]
 			internal extern static void glVertexAttribDivisorARB(UInt32 index, UInt32 divisor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribDivisorEXT", ExactSpelling = true)]
+			internal extern static void glVertexAttribDivisorEXT(UInt32 index, UInt32 divisor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribDivisorNV", ExactSpelling = true)]
+			internal extern static void glVertexAttribDivisorNV(UInt32 index, UInt32 divisor);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glVertexAttribFormat", ExactSpelling = true)]
@@ -11196,16 +12339,32 @@ namespace OpenGL
 			internal extern static unsafe void glViewportArrayv(UInt32 first, Int32 count, float* v);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glViewportArrayvNV", ExactSpelling = true)]
+			internal extern static unsafe void glViewportArrayvNV(UInt32 first, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glViewportIndexedf", ExactSpelling = true)]
 			internal extern static void glViewportIndexedf(UInt32 index, float x, float y, float w, float h);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glViewportIndexedfNV", ExactSpelling = true)]
+			internal extern static void glViewportIndexedfNV(UInt32 index, float x, float y, float w, float h);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glViewportIndexedfv", ExactSpelling = true)]
 			internal extern static unsafe void glViewportIndexedfv(UInt32 index, float* v);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glViewportIndexedfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glViewportIndexedfvNV(UInt32 index, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glWaitSync", ExactSpelling = true)]
 			internal extern static void glWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWaitSyncAPPLE", ExactSpelling = true)]
+			internal extern static void glWaitSyncAPPLE(Int32 sync, UInt32 flags, UInt64 timeout);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glWeightPathsNV", ExactSpelling = true)]
@@ -11214,6 +12373,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glWeightPointerARB", ExactSpelling = true)]
 			internal extern static unsafe void glWeightPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightPointerOES", ExactSpelling = true)]
+			internal extern static unsafe void glWeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glWeightbvARB", ExactSpelling = true)]

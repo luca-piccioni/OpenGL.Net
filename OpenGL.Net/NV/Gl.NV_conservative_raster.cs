@@ -30,25 +30,25 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONSERVATIVE_RASTERIZATION_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster")]
+		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|gles2")]
 		public const int CONSERVATIVE_RASTERIZATION_NV = 0x9346;
 
 		/// <summary>
 		/// Value of GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster")]
+		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|gles2")]
 		public const int SUBPIXEL_PRECISION_BIAS_X_BITS_NV = 0x9347;
 
 		/// <summary>
 		/// Value of GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster")]
+		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|gles2")]
 		public const int SUBPIXEL_PRECISION_BIAS_Y_BITS_NV = 0x9348;
 
 		/// <summary>
 		/// Value of GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster")]
+		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|gles2")]
 		public const int MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
 
 		/// <summary>
@@ -60,7 +60,7 @@ namespace OpenGL
 		/// <param name="ybits">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_conservative_raster")]
+		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|gles2")]
 		public static void SubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits)
 		{
 			Debug.Assert(Delegates.pglSubpixelPrecisionBiasNV != null, "pglSubpixelPrecisionBiasNV not implemented");

@@ -573,6 +573,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[AliasOf("glBindProgramNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void BindProgramARB(Int32 target, UInt32 program)
@@ -589,6 +590,7 @@ namespace OpenGL
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[AliasOf("glDeleteProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void DeleteProgramsARB(UInt32[] programs)
@@ -610,6 +612,7 @@ namespace OpenGL
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[AliasOf("glGenProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GenProgramsARB(UInt32[] programs)
@@ -628,6 +631,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenProgramsARB.
 		/// </summary>
+		[AliasOf("glGenProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static UInt32 GenProgramsARB()
@@ -1056,6 +1060,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[AliasOf("glIsProgramNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static bool IsProgramARB(UInt32 program)

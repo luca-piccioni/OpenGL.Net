@@ -30,13 +30,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_OVERFLOW_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_transform_feedback_overflow_query")]
+		[RequiredByFeature("GL_ARB_transform_feedback_overflow_query", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_OVERFLOW_ARB = 0x82EC;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_transform_feedback_overflow_query")]
+		[RequiredByFeature("GL_ARB_transform_feedback_overflow_query", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_STREAM_OVERFLOW_ARB = 0x82ED;
 
 	}

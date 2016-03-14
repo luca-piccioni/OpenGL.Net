@@ -90,14 +90,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PRIMARY_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
 		public const int PRIMARY_COLOR_NV = 0x852C;
 
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
 		public const int SECONDARY_COLOR_NV = 0x852D;
 

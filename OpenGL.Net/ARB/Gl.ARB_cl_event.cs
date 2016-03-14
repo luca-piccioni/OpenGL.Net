@@ -30,13 +30,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SYNC_CL_EVENT_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_cl_event")]
+		[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 		public const int SYNC_CL_EVENT_ARB = 0x8240;
 
 		/// <summary>
 		/// Value of GL_SYNC_CL_EVENT_COMPLETE_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_cl_event")]
+		[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 		public const int SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;
 
 		/// <summary>
@@ -51,7 +51,7 @@ namespace OpenGL
 		/// <param name="flags">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_cl_event")]
+		[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 		public static Int32 CreateSyncFromCLeventARB(IntPtr context, IntPtr @event, UInt32 flags)
 		{
 			Int32 retValue;

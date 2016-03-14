@@ -36,7 +36,7 @@ namespace OpenGL
 		/// <param name="equation">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_single_precision")]
+		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void ClipPlaneOES(Int32 plane, float[] equation)
 		{
 			unsafe {
@@ -71,7 +71,7 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_single_precision")]
+		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void FrustumOES(float l, float r, float b, float t, float n, float f)
 		{
 			Debug.Assert(Delegates.pglFrustumfOES != null, "pglFrustumfOES not implemented");
@@ -89,7 +89,7 @@ namespace OpenGL
 		/// <param name="equation">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_single_precision")]
+		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void GetClipPlaneOES(Int32 plane, [Out] float[] equation)
 		{
 			unsafe {
@@ -124,7 +124,7 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_single_precision")]
+		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void OrthoOES(float l, float r, float b, float t, float n, float f)
 		{
 			Debug.Assert(Delegates.pglOrthofOES != null, "pglOrthofOES not implemented");

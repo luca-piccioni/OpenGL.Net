@@ -28,22 +28,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PRIMITIVE_BOUNDING_BOX_ARB symbol.
+		/// Value of GL_SHADER_BINARY_DMP symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
-		public const int PRIMITIVE_BOUNDING_BOX_ARB = 0x92BE;
-
-		/// <summary>
-		/// Value of GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
-		public const int MULTISAMPLE_LINE_WIDTH_RANGE_ARB = 0x9381;
-
-		/// <summary>
-		/// Value of GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
-		public const int MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB = 0x9382;
+		[RequiredByFeature("GL_DMP_shader_binary", Api = "gles2")]
+		public const int SHADER_BINARY_DMP = 0x9250;
 
 	}
 

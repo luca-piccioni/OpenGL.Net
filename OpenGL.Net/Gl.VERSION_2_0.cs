@@ -32,8 +32,13 @@ namespace OpenGL
 		/// Gl.FUNC_SUBTRACT, Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN or Gl.MAX. See Gl.BlendEquationSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_RGB_EXT")]
+		[AliasOf("GL_BLEND_EQUATION_RGB_OES")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_blend_equation_separate")]
+		[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
 		public const int BLEND_EQUATION_RGB = 0x8009;
 
 		/// <summary>
@@ -42,6 +47,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;
@@ -52,6 +58,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;
@@ -63,6 +70,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;
@@ -74,6 +82,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;
@@ -89,6 +98,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CURRENT_VERTEX_ATTRIB_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int CURRENT_VERTEX_ATTRIB = 0x8626;
@@ -118,6 +128,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
@@ -128,6 +139,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_FUNC_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_FUNC = 0x8800;
 
@@ -137,6 +149,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_FAIL = 0x8801;
 
@@ -146,6 +159,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;
 
@@ -155,6 +169,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;
 
@@ -164,9 +179,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_DRAW_BUFFERS_ARB")]
 		[AliasOf("GL_MAX_DRAW_BUFFERS_ATI")]
+		[AliasOf("GL_MAX_DRAW_BUFFERS_EXT")]
+		[AliasOf("GL_MAX_DRAW_BUFFERS_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int MAX_DRAW_BUFFERS = 0x8824;
 
 		/// <summary>
@@ -174,9 +194,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER0_ARB")]
 		[AliasOf("GL_DRAW_BUFFER0_ATI")]
+		[AliasOf("GL_DRAW_BUFFER0_EXT")]
+		[AliasOf("GL_DRAW_BUFFER0_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER0 = 0x8825;
 
 		/// <summary>
@@ -184,9 +209,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER1_ARB")]
 		[AliasOf("GL_DRAW_BUFFER1_ATI")]
+		[AliasOf("GL_DRAW_BUFFER1_EXT")]
+		[AliasOf("GL_DRAW_BUFFER1_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER1 = 0x8826;
 
 		/// <summary>
@@ -194,9 +224,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER2_ARB")]
 		[AliasOf("GL_DRAW_BUFFER2_ATI")]
+		[AliasOf("GL_DRAW_BUFFER2_EXT")]
+		[AliasOf("GL_DRAW_BUFFER2_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER2 = 0x8827;
 
 		/// <summary>
@@ -204,9 +239,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER3_ARB")]
 		[AliasOf("GL_DRAW_BUFFER3_ATI")]
+		[AliasOf("GL_DRAW_BUFFER3_EXT")]
+		[AliasOf("GL_DRAW_BUFFER3_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER3 = 0x8828;
 
 		/// <summary>
@@ -214,9 +254,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER4_ARB")]
 		[AliasOf("GL_DRAW_BUFFER4_ATI")]
+		[AliasOf("GL_DRAW_BUFFER4_EXT")]
+		[AliasOf("GL_DRAW_BUFFER4_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER4 = 0x8829;
 
 		/// <summary>
@@ -224,9 +269,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER5_ARB")]
 		[AliasOf("GL_DRAW_BUFFER5_ATI")]
+		[AliasOf("GL_DRAW_BUFFER5_EXT")]
+		[AliasOf("GL_DRAW_BUFFER5_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER5 = 0x882A;
 
 		/// <summary>
@@ -234,9 +284,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER6_ARB")]
 		[AliasOf("GL_DRAW_BUFFER6_ATI")]
+		[AliasOf("GL_DRAW_BUFFER6_EXT")]
+		[AliasOf("GL_DRAW_BUFFER6_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER6 = 0x882B;
 
 		/// <summary>
@@ -244,9 +299,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER7_ARB")]
 		[AliasOf("GL_DRAW_BUFFER7_ATI")]
+		[AliasOf("GL_DRAW_BUFFER7_EXT")]
+		[AliasOf("GL_DRAW_BUFFER7_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER7 = 0x882C;
 
 		/// <summary>
@@ -254,9 +314,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER8_ARB")]
 		[AliasOf("GL_DRAW_BUFFER8_ATI")]
+		[AliasOf("GL_DRAW_BUFFER8_EXT")]
+		[AliasOf("GL_DRAW_BUFFER8_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER8 = 0x882D;
 
 		/// <summary>
@@ -264,9 +329,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER9_ARB")]
 		[AliasOf("GL_DRAW_BUFFER9_ATI")]
+		[AliasOf("GL_DRAW_BUFFER9_EXT")]
+		[AliasOf("GL_DRAW_BUFFER9_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER9 = 0x882E;
 
 		/// <summary>
@@ -274,9 +344,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER10_ARB")]
 		[AliasOf("GL_DRAW_BUFFER10_ATI")]
+		[AliasOf("GL_DRAW_BUFFER10_EXT")]
+		[AliasOf("GL_DRAW_BUFFER10_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER10 = 0x882F;
 
 		/// <summary>
@@ -284,9 +359,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER11_ARB")]
 		[AliasOf("GL_DRAW_BUFFER11_ATI")]
+		[AliasOf("GL_DRAW_BUFFER11_EXT")]
+		[AliasOf("GL_DRAW_BUFFER11_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER11 = 0x8830;
 
 		/// <summary>
@@ -294,9 +374,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER12_ARB")]
 		[AliasOf("GL_DRAW_BUFFER12_ATI")]
+		[AliasOf("GL_DRAW_BUFFER12_EXT")]
+		[AliasOf("GL_DRAW_BUFFER12_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER12 = 0x8831;
 
 		/// <summary>
@@ -304,9 +389,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER13_ARB")]
 		[AliasOf("GL_DRAW_BUFFER13_ATI")]
+		[AliasOf("GL_DRAW_BUFFER13_EXT")]
+		[AliasOf("GL_DRAW_BUFFER13_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER13 = 0x8832;
 
 		/// <summary>
@@ -314,9 +404,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER14_ARB")]
 		[AliasOf("GL_DRAW_BUFFER14_ATI")]
+		[AliasOf("GL_DRAW_BUFFER14_EXT")]
+		[AliasOf("GL_DRAW_BUFFER14_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER14 = 0x8833;
 
 		/// <summary>
@@ -324,9 +419,14 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER15_ARB")]
 		[AliasOf("GL_DRAW_BUFFER15_ATI")]
+		[AliasOf("GL_DRAW_BUFFER15_EXT")]
+		[AliasOf("GL_DRAW_BUFFER15_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER15 = 0x8834;
 
 		/// <summary>
@@ -334,8 +434,13 @@ namespace OpenGL
 		/// Gl.FUNC_SUBTRACT, Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN or Gl.MAX. See Gl.BlendEquationSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_ALPHA_EXT")]
+		[AliasOf("GL_BLEND_EQUATION_ALPHA_OES")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_blend_equation_separate")]
+		[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
 		public const int BLEND_EQUATION_ALPHA = 0x883D;
 
 		/// <summary>
@@ -344,6 +449,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_ATTRIBS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_VERTEX_ATTRIBS = 0x8869;
@@ -355,6 +461,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;
@@ -366,6 +473,7 @@ namespace OpenGL
 		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_fragment_program")]
@@ -376,6 +484,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_fragment_shader")]
 		public const int FRAGMENT_SHADER = 0x8B30;
 
@@ -384,6 +493,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_SHADER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_SHADER = 0x8B31;
 
@@ -393,6 +503,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_fragment_shader")]
 		public const int MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
 
@@ -402,6 +513,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_VERTEX_UNIFORM_COMPONENTS = 0x8B4A;
 
@@ -422,6 +534,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program3")]
 		public const int MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;
@@ -434,6 +547,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;
 
@@ -442,6 +556,7 @@ namespace OpenGL
 		/// geometry shader object, and Gl.FRAGMENT_SHADER if shader is a fragment shader object.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int SHADER_TYPE = 0x8B4F;
 
 		/// <summary>
@@ -449,6 +564,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_VEC2 = 0x8B50;
@@ -458,6 +574,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_VEC3 = 0x8B51;
@@ -467,6 +584,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_VEC4 = 0x8B52;
@@ -476,6 +594,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INT_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int INT_VEC2 = 0x8B53;
 
@@ -484,6 +603,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INT_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int INT_VEC3 = 0x8B54;
 
@@ -492,6 +612,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INT_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int INT_VEC4 = 0x8B55;
 
@@ -500,6 +621,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL = 0x8B56;
 
@@ -508,6 +630,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL_VEC2 = 0x8B57;
 
@@ -516,6 +639,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL_VEC3 = 0x8B58;
 
@@ -524,6 +648,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL_VEC4 = 0x8B59;
 
@@ -532,6 +657,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_MAT2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_MAT2 = 0x8B5A;
@@ -541,6 +667,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_MAT3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_MAT3 = 0x8B5B;
@@ -550,6 +677,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_MAT4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_MAT4 = 0x8B5C;
@@ -567,6 +695,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_2D = 0x8B5E;
 
@@ -574,8 +703,11 @@ namespace OpenGL
 		/// Value of GL_SAMPLER_3D symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_3D_ARB")]
+		[AliasOf("GL_SAMPLER_3D_OES")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public const int SAMPLER_3D = 0x8B5F;
 
 		/// <summary>
@@ -583,6 +715,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_CUBE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_CUBE = 0x8B60;
 
@@ -598,8 +731,11 @@ namespace OpenGL
 		/// Value of GL_SAMPLER_2D_SHADOW symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_SHADOW_ARB")]
+		[AliasOf("GL_SAMPLER_2D_SHADOW_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_EXT_shadow_samplers", Api = "gles2")]
 		public const int SAMPLER_2D_SHADOW = 0x8B62;
 
 		/// <summary>
@@ -611,18 +747,21 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DELETE_STATUS = 0x8B80;
 
 		/// <summary>
 		/// Gl.GetShader: params returns Gl.TRUE if the last compile operation on shader was successful, and Gl.FALSE otherwise.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int COMPILE_STATUS = 0x8B81;
 
 		/// <summary>
 		/// Gl.GetProgram: params returns Gl.TRUE if the last link operation on program was successful, and Gl.FALSE otherwise.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINK_STATUS = 0x8B82;
 
 		/// <summary>
@@ -630,6 +769,7 @@ namespace OpenGL
 		/// otherwise.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int VALIDATE_STATUS = 0x8B83;
 
 		/// <summary>
@@ -645,18 +785,21 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int INFO_LOG_LENGTH = 0x8B84;
 
 		/// <summary>
 		/// Gl.GetProgram: params returns the number of shader objects attached to program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int ATTACHED_SHADERS = 0x8B85;
 
 		/// <summary>
 		/// Gl.GetProgram: params returns the number of active uniform variables for program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int ACTIVE_UNIFORMS = 0x8B86;
 
 		/// <summary>
@@ -665,6 +808,7 @@ namespace OpenGL
 		/// no active uniform variables exist, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int ACTIVE_UNIFORM_MAX_LENGTH = 0x8B87;
 
 		/// <summary>
@@ -673,12 +817,14 @@ namespace OpenGL
 		/// shader source). If no source code exists, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int SHADER_SOURCE_LENGTH = 0x8B88;
 
 		/// <summary>
 		/// Gl.GetProgram: params returns the number of active attribute variables for program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int ACTIVE_ATTRIBUTES = 0x8B89;
 
 		/// <summary>
@@ -687,6 +833,7 @@ namespace OpenGL
 		/// active attributes exist, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B8A;
 
 		/// <summary>
@@ -700,8 +847,11 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB")]
+		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_fragment_shader")]
+		[RequiredByFeature("GL_OES_standard_derivatives", Api = "gles2")]
 		public const int FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
 
 		/// <summary>
@@ -709,6 +859,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SHADING_LANGUAGE_VERSION_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shading_language_100")]
 		public const int SHADING_LANGUAGE_VERSION = 0x8B8C;
 
@@ -717,6 +868,7 @@ namespace OpenGL
 		/// active. See Gl.UseProgram.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int CURRENT_PROGRAM = 0x8B8D;
 
 		/// <summary>
@@ -731,7 +883,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int LOWER_LEFT = 0x8CA1;
 
 		/// <summary>
@@ -739,7 +891,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int UPPER_LEFT = 0x8CA2;
 
 		/// <summary>
@@ -747,6 +899,7 @@ namespace OpenGL
 		/// back-facing polygons. The initial value is 0. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_BACK_REF = 0x8CA3;
 
 		/// <summary>
@@ -754,6 +907,7 @@ namespace OpenGL
 		/// and the stencil buffer value before they are compared. The initial value is all 1's. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_BACK_VALUE_MASK = 0x8CA4;
 
 		/// <summary>
@@ -761,6 +915,7 @@ namespace OpenGL
 		/// initial value is all 1's. See Gl.StencilMaskSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_BACK_WRITEMASK = 0x8CA5;
 
 		/// <summary>
@@ -798,9 +953,11 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_POINT_SPRITE_ARB")]
 		[AliasOf("GL_POINT_SPRITE_NV")]
+		[AliasOf("GL_POINT_SPRITE_OES")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_point_sprite")]
 		[RequiredByFeature("GL_NV_point_sprite")]
+		[RequiredByFeature("GL_OES_point_sprite", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -813,9 +970,11 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COORD_REPLACE_ARB")]
 		[AliasOf("GL_COORD_REPLACE_NV")]
+		[AliasOf("GL_COORD_REPLACE_OES")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_point_sprite")]
 		[RequiredByFeature("GL_NV_point_sprite")]
+		[RequiredByFeature("GL_OES_point_sprite", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -863,7 +1022,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.BlendFuncSeparate"/>
+		[AliasOf("glBlendEquationSeparateEXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
@@ -919,7 +1080,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawBuffers"/>
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
+		[AliasOf("glDrawBuffersARB")]
+		[AliasOf("glDrawBuffersATI")]
+		[AliasOf("glDrawBuffersEXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void DrawBuffers(params Int32[] bufs)
 		{
 			unsafe {
@@ -971,7 +1136,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMask"/>
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOp"/>
+		[AliasOf("glStencilOpSeparateATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void StencilOpSeparate(StencilFaceDirection face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
@@ -1014,6 +1181,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void StencilFuncSeparate(StencilFaceDirection face, StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
@@ -1046,6 +1214,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void StencilMaskSeparate(StencilFaceDirection face, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
@@ -1084,7 +1253,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[AliasOf("glAttachObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void AttachShader(UInt32 program, UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglAttachShader != null, "pglAttachShader not implemented");
@@ -1125,7 +1296,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glBindAttribLocationARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BindAttribLocation(UInt32 program, UInt32 index, String name)
 		{
 			Debug.Assert(Delegates.pglBindAttribLocation != null, "pglBindAttribLocation not implemented");
@@ -1151,7 +1324,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[AliasOf("glCompileShaderARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CompileShader(UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglCompileShader != null, "pglCompileShader not implemented");
@@ -1177,7 +1352,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[AliasOf("glCreateProgramObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static UInt32 CreateProgram()
 		{
 			UInt32 retValue;
@@ -1210,7 +1387,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[AliasOf("glCreateShaderObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static UInt32 CreateShader(Int32 shaderType)
 		{
 			UInt32 retValue;
@@ -1238,6 +1417,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DeleteProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglDeleteProgram != null, "pglDeleteProgram not implemented");
@@ -1262,6 +1442,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DeleteShader(UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglDeleteShader != null, "pglDeleteShader not implemented");
@@ -1295,7 +1476,9 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if <paramref name="shader"/> is not attached to <paramref name="program"/>.
 		/// </exception>
 		/// <seealso cref="Gl.AttachShader"/>
+		[AliasOf("glDetachObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DetachShader(UInt32 program, UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglDetachShader != null, "pglDetachShader not implemented");
@@ -1330,7 +1513,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glDisableVertexAttribArrayARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DisableVertexAttribArray(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribArray != null, "pglDisableVertexAttribArray not implemented");
@@ -1365,7 +1550,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glEnableVertexAttribArrayARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void EnableVertexAttribArray(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribArray != null, "pglEnableVertexAttribArray not implemented");
@@ -1419,7 +1606,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetActiveAttribARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1481,7 +1670,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glGetActiveUniformARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1523,6 +1714,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.AttachShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetAttachedShaders(UInt32 program, out Int32 count, [Out] UInt32[] shaders)
 		{
 			unsafe {
@@ -1561,7 +1753,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetAttribLocationARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static Int32 GetAttribLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -1617,6 +1811,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetProgram(UInt32 program, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -1673,6 +1868,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetProgram(UInt32 program, Int32 pname, out Int32 @params)
 		{
 			unsafe {
@@ -1717,6 +1913,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetProgramInfoLog(UInt32 program, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -1760,6 +1957,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetShader(UInt32 shader, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -1803,6 +2001,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetShader(UInt32 shader, Int32 pname, out Int32 @params)
 		{
 			unsafe {
@@ -1847,6 +2046,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetShaderInfoLog(UInt32 shader, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -1888,7 +2088,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[AliasOf("glGetShaderSourceARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetShaderSource(UInt32 shader, Int32 bufSize, out Int32 length, [Out] StringBuilder source)
 		{
 			unsafe {
@@ -1924,7 +2126,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetUniformLocationARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static Int32 GetUniformLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -1971,7 +2175,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetUniformfvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetUniform(UInt32 program, Int32 location, [Out] float[] @params)
 		{
 			unsafe {
@@ -2019,7 +2225,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetUniformivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetUniform(UInt32 program, Int32 location, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2071,6 +2279,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetVertexAttribdvARB")]
+		[AliasOf("glGetVertexAttribdvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] double[] @params)
 		{
@@ -2123,7 +2333,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetVertexAttribfvARB")]
+		[AliasOf("glGetVertexAttribfvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -2175,7 +2388,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetVertexAttribivARB")]
+		[AliasOf("glGetVertexAttribivNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2227,7 +2443,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetVertexAttribivARB")]
+		[AliasOf("glGetVertexAttribivNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, out Int32 @params)
 		{
 			unsafe {
@@ -2267,7 +2486,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetVertexAttribPointervARB")]
+		[AliasOf("glGetVertexAttribPointervNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, out IntPtr pointer)
 		{
 			unsafe {
@@ -2307,7 +2529,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glGetVertexAttribPointervARB")]
+		[AliasOf("glGetVertexAttribPointervNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -2334,6 +2559,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static bool IsProgram(UInt32 program)
 		{
 			bool retValue;
@@ -2360,6 +2586,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static bool IsShader(UInt32 shader)
 		{
 			bool retValue;
@@ -2399,7 +2626,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[AliasOf("glLinkProgramARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void LinkProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglLinkProgram != null, "pglLinkProgram not implemented");
@@ -2434,7 +2663,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.DeleteShader"/>
+		[AliasOf("glShaderSourceARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ShaderSource(UInt32 shader, String[] @string, Int32[] length)
 		{
 			unsafe {
@@ -2478,7 +2709,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[AliasOf("glUseProgramObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void UseProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseProgram != null, "pglUseProgram not implemented");
@@ -2535,7 +2768,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform1fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform1(Int32 location, float v0)
 		{
 			Debug.Assert(Delegates.pglUniform1f != null, "pglUniform1f not implemented");
@@ -2595,7 +2830,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform2fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform2(Int32 location, float v0, float v1)
 		{
 			Debug.Assert(Delegates.pglUniform2f != null, "pglUniform2f not implemented");
@@ -2658,7 +2895,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform3fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform3(Int32 location, float v0, float v1, float v2)
 		{
 			Debug.Assert(Delegates.pglUniform3f != null, "pglUniform3f not implemented");
@@ -2724,7 +2963,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform4fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform4(Int32 location, float v0, float v1, float v2, float v3)
 		{
 			Debug.Assert(Delegates.pglUniform4f != null, "pglUniform4f not implemented");
@@ -2781,7 +3022,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform1iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform1(Int32 location, Int32 v0)
 		{
 			Debug.Assert(Delegates.pglUniform1i != null, "pglUniform1i not implemented");
@@ -2841,7 +3084,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform2iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform2(Int32 location, Int32 v0, Int32 v1)
 		{
 			Debug.Assert(Delegates.pglUniform2i != null, "pglUniform2i not implemented");
@@ -2904,7 +3149,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform3iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform3(Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
 			Debug.Assert(Delegates.pglUniform3i != null, "pglUniform3i not implemented");
@@ -2970,7 +3217,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform4iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform4(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
 			Debug.Assert(Delegates.pglUniform4i != null, "pglUniform4i not implemented");
@@ -3032,7 +3281,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform1fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform1(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3099,7 +3350,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform1fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform1(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
@@ -3161,7 +3414,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform2fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform2(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3228,7 +3483,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform2fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform2(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
@@ -3290,7 +3547,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform3fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform3(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3357,7 +3616,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform3fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform3(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
@@ -3419,7 +3680,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform4fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform4(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3486,7 +3749,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform4fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform4(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
@@ -3548,7 +3813,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform1ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform1(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -3615,7 +3882,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform1ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform1(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
@@ -3677,7 +3946,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform2ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform2(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -3744,7 +4015,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform2ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform2(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
@@ -3806,7 +4079,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform3ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform3(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -3873,7 +4148,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform3ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform3(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
@@ -3935,7 +4212,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform4ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void Uniform4(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4002,7 +4281,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniform4ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static unsafe void Uniform4(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
@@ -4067,7 +4348,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix2fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void UniformMatrix2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4137,7 +4420,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix3fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void UniformMatrix3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4207,7 +4492,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix4fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void UniformMatrix4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4237,7 +4524,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glValidateProgramARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void ValidateProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglValidateProgram != null, "pglValidateProgram not implemented");
@@ -4270,6 +4559,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib1dARB")]
+		[AliasOf("glVertexAttrib1dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, double x)
 		{
@@ -4302,6 +4593,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib1dvARB")]
+		[AliasOf("glVertexAttrib1dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, double[] v)
 		{
@@ -4340,7 +4633,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib1fARB")]
+		[AliasOf("glVertexAttrib1fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib1(UInt32 index, float x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1f != null, "pglVertexAttrib1f not implemented");
@@ -4372,7 +4668,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib1fvARB")]
+		[AliasOf("glVertexAttrib1fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib1(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -4410,6 +4709,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib1sARB")]
+		[AliasOf("glVertexAttrib1sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, Int16 x)
 		{
@@ -4442,6 +4743,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib1svARB")]
+		[AliasOf("glVertexAttrib1svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, Int16[] v)
 		{
@@ -4483,6 +4786,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib2dARB")]
+		[AliasOf("glVertexAttrib2dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, double x, double y)
 		{
@@ -4515,6 +4820,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib2dvARB")]
+		[AliasOf("glVertexAttrib2dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, double[] v)
 		{
@@ -4556,7 +4863,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib2fARB")]
+		[AliasOf("glVertexAttrib2fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib2(UInt32 index, float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2f != null, "pglVertexAttrib2f not implemented");
@@ -4588,7 +4898,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib2fvARB")]
+		[AliasOf("glVertexAttrib2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib2(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -4629,6 +4942,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib2sARB")]
+		[AliasOf("glVertexAttrib2sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, Int16 x, Int16 y)
 		{
@@ -4661,6 +4976,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib2svARB")]
+		[AliasOf("glVertexAttrib2svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, Int16[] v)
 		{
@@ -4705,6 +5022,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib3dARB")]
+		[AliasOf("glVertexAttrib3dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, double x, double y, double z)
 		{
@@ -4737,6 +5056,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib3dvARB")]
+		[AliasOf("glVertexAttrib3dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, double[] v)
 		{
@@ -4781,7 +5102,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib3fARB")]
+		[AliasOf("glVertexAttrib3fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib3(UInt32 index, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3f != null, "pglVertexAttrib3f not implemented");
@@ -4813,7 +5137,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib3fvARB")]
+		[AliasOf("glVertexAttrib3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib3(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -4857,6 +5184,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib3sARB")]
+		[AliasOf("glVertexAttrib3sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, Int16 x, Int16 y, Int16 z)
 		{
@@ -4889,6 +5218,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib3svARB")]
+		[AliasOf("glVertexAttrib3svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, Int16[] v)
 		{
@@ -4927,6 +5258,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NbvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, sbyte[] v)
 		{
@@ -4965,6 +5297,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, Int32[] v)
 		{
@@ -5003,6 +5336,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NsvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, Int16[] v)
 		{
@@ -5050,6 +5384,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NubARB")]
+		[AliasOf("glVertexAttrib4ubNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, byte x, byte y, byte z, byte w)
 		{
@@ -5082,6 +5418,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NubvARB")]
+		[AliasOf("glVertexAttrib4ubvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, byte[] v)
 		{
@@ -5120,6 +5458,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NuivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, UInt32[] v)
 		{
@@ -5158,6 +5497,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4NusvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, UInt16[] v)
 		{
@@ -5196,6 +5536,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4bvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, sbyte[] v)
 		{
@@ -5243,6 +5584,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4dARB")]
+		[AliasOf("glVertexAttrib4dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, double x, double y, double z, double w)
 		{
@@ -5275,6 +5618,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4dvARB")]
+		[AliasOf("glVertexAttrib4dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, double[] v)
 		{
@@ -5322,7 +5667,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4fARB")]
+		[AliasOf("glVertexAttrib4fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib4(UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4f != null, "pglVertexAttrib4f not implemented");
@@ -5354,7 +5702,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4fvARB")]
+		[AliasOf("glVertexAttrib4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttrib4(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -5392,6 +5743,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int32[] v)
 		{
@@ -5439,6 +5791,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4sARB")]
+		[AliasOf("glVertexAttrib4sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w)
 		{
@@ -5471,6 +5825,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4svARB")]
+		[AliasOf("glVertexAttrib4svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int16[] v)
 		{
@@ -5509,6 +5865,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4ubvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4ub(UInt32 index, byte[] v)
 		{
@@ -5547,6 +5904,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4uivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, UInt32[] v)
 		{
@@ -5585,6 +5943,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[AliasOf("glVertexAttrib4usvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, UInt16[] v)
 		{
@@ -5673,7 +6032,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawArrays"/>
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[AliasOf("glVertexAttribPointerARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
@@ -5756,7 +6117,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawArrays"/>
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[AliasOf("glVertexAttribPointerARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

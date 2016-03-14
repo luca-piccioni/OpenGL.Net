@@ -30,19 +30,17 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT symbol.
 		/// </summary>
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT = 0x8CD4;
-
-		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT = 0x8CD9;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT symbol.
 		/// </summary>
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_FORMATS_OES")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		public const int FRAMEBUFFER_INCOMPLETE_FORMATS_EXT = 0x8CDA;
 
 		/// <summary>

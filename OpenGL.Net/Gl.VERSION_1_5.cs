@@ -32,6 +32,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BUFFER_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int BUFFER_SIZE = 0x8764;
 
@@ -40,6 +42,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BUFFER_USAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int BUFFER_USAGE = 0x8765;
 
@@ -49,8 +53,10 @@ namespace OpenGL
 		/// are useless.
 		/// </summary>
 		[AliasOf("GL_QUERY_COUNTER_BITS_ARB")]
+		[AliasOf("GL_QUERY_COUNTER_BITS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public const int QUERY_COUNTER_BITS = 0x8864;
 
 		/// <summary>
@@ -58,16 +64,24 @@ namespace OpenGL
 		/// is returned. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_CURRENT_QUERY_ARB")]
+		[AliasOf("GL_CURRENT_QUERY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 		public const int CURRENT_QUERY = 0x8865;
 
 		/// <summary>
 		/// Gl.GetQueryObject: params returns the value of the query object's passed samples counter. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_ARB")]
+		[AliasOf("GL_QUERY_RESULT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 		public const int QUERY_RESULT = 0x8866;
 
 		/// <summary>
@@ -76,8 +90,12 @@ namespace OpenGL
 		/// results of all previous queries are available as well.
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_AVAILABLE_ARB")]
+		[AliasOf("GL_QUERY_RESULT_AVAILABLE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 		public const int QUERY_RESULT_AVAILABLE = 0x8867;
 
 		/// <summary>
@@ -85,6 +103,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_ARRAY_BUFFER_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ARRAY_BUFFER = 0x8892;
 
@@ -93,6 +113,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ELEMENT_ARRAY_BUFFER = 0x8893;
 
@@ -102,6 +124,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ARRAY_BUFFER_BINDING = 0x8894;
 
@@ -112,6 +136,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
 
@@ -122,6 +148,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
 
@@ -130,6 +157,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_READ_ONLY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int READ_ONLY = 0x88B8;
 
@@ -137,9 +165,12 @@ namespace OpenGL
 		/// Value of GL_WRITE_ONLY symbol.
 		/// </summary>
 		[AliasOf("GL_WRITE_ONLY_ARB")]
+		[AliasOf("GL_WRITE_ONLY_OES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 		public const int WRITE_ONLY = 0x88B9;
 
 		/// <summary>
@@ -147,6 +178,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_READ_WRITE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int READ_WRITE = 0x88BA;
@@ -158,8 +190,10 @@ namespace OpenGL
 		/// OpenGL Specification.
 		/// </summary>
 		[AliasOf("GL_BUFFER_ACCESS_ARB")]
+		[AliasOf("GL_BUFFER_ACCESS_OES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 		public const int BUFFER_ACCESS = 0x88BB;
 
 		/// <summary>
@@ -167,16 +201,22 @@ namespace OpenGL
 		/// is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_BUFFER_MAPPED_ARB")]
+		[AliasOf("GL_BUFFER_MAPPED_OES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 		public const int BUFFER_MAPPED = 0x88BC;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAP_POINTER symbol.
 		/// </summary>
 		[AliasOf("GL_BUFFER_MAP_POINTER_ARB")]
+		[AliasOf("GL_BUFFER_MAP_POINTER_OES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 		public const int BUFFER_MAP_POINTER = 0x88BD;
 
 		/// <summary>
@@ -184,6 +224,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STREAM_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STREAM_DRAW = 0x88E0;
 
@@ -192,6 +233,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STREAM_READ_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STREAM_READ = 0x88E1;
 
@@ -200,6 +242,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STREAM_COPY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STREAM_COPY = 0x88E2;
 
@@ -208,6 +251,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STATIC_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STATIC_DRAW = 0x88E4;
 
@@ -216,6 +261,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STATIC_READ_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STATIC_READ = 0x88E5;
 
@@ -224,6 +270,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STATIC_COPY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STATIC_COPY = 0x88E6;
 
@@ -232,6 +279,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DYNAMIC_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int DYNAMIC_DRAW = 0x88E8;
 
@@ -240,6 +289,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DYNAMIC_READ_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int DYNAMIC_READ = 0x88E9;
 
@@ -248,6 +298,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DYNAMIC_COPY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int DYNAMIC_COPY = 0x88EA;
 
@@ -266,6 +317,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -280,6 +332,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -294,6 +347,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -323,6 +377,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -375,8 +430,10 @@ namespace OpenGL
 		/// Value of GL_WEIGHT_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_WEIGHT_ARRAY_BUFFER_BINDING_ARB")]
+		[AliasOf("GL_WEIGHT_ARRAY_BUFFER_BINDING_OES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -397,7 +454,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
 		/// <seealso cref="Gl.EndQuery"/>
+		[AliasOf("glGenQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GenQueries(UInt32[] ids)
 		{
 			unsafe {
@@ -422,7 +481,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
 		/// <seealso cref="Gl.EndQuery"/>
+		[AliasOf("glGenQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static UInt32 GenQuery()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -446,7 +507,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
+		[AliasOf("glDeleteQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void DeleteQueries(params UInt32[] ids)
 		{
 			unsafe {
@@ -470,7 +533,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteQueries"/>
 		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
+		[AliasOf("glIsQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static bool IsQuery(UInt32 id)
 		{
 			bool retValue;
@@ -524,7 +589,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[AliasOf("glBeginQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void BeginQuery(Int32 target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQuery != null, "pglBeginQuery not implemented");
@@ -571,7 +638,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[AliasOf("glEndQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void EndQuery(Int32 target)
 		{
 			Debug.Assert(Delegates.pglEndQuery != null, "pglEndQuery not implemented");
@@ -602,7 +671,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[AliasOf("glGetQueryivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetQuery(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -638,7 +709,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[AliasOf("glGetQueryivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetQuery(Int32 target, Int32 pname, out Int32 @params)
 		{
 			unsafe {
@@ -688,6 +761,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjectivARB")]
+		[AliasOf("glGetQueryObjectivEXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] Int32[] @params)
 		{
@@ -738,6 +813,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjectivARB")]
+		[AliasOf("glGetQueryObjectivEXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, out Int32 @params)
 		{
@@ -788,7 +865,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjectuivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -838,7 +917,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[AliasOf("glGetQueryObjectuivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, out UInt32 @params)
 		{
 			unsafe {
@@ -879,7 +960,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.IsBuffer"/>
+		[AliasOf("glBindBufferARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BindBuffer(BufferTargetARB target, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBuffer != null, "pglBindBuffer not implemented");
@@ -902,7 +986,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.GenBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[AliasOf("glDeleteBuffersARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DeleteBuffers(params UInt32[] buffers)
 		{
 			unsafe {
@@ -930,7 +1017,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[AliasOf("glGenBuffersARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GenBuffers(UInt32[] buffers)
 		{
 			unsafe {
@@ -955,7 +1045,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[AliasOf("glGenBuffersARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static UInt32 GenBuffer()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -973,7 +1066,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.GenBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[AliasOf("glIsBufferARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static bool IsBuffer(UInt32 buffer)
 		{
 			bool retValue;
@@ -1034,7 +1130,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage)
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
@@ -1090,7 +1189,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BufferData(BufferTargetARB target, UInt32 size, IntPtr data, BufferUsageARB usage)
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
@@ -1146,7 +1248,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BufferData(Int32 target, UInt32 size, Object data, Int32 usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1205,7 +1310,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BufferData(BufferTargetARB target, UInt32 size, Object data, BufferUsageARB usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1262,7 +1370,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglBufferSubData != null, "pglBufferSubData not implemented");
@@ -1317,7 +1428,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1370,6 +1484,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glGetBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
@@ -1421,6 +1536,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glGetBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
 		{
@@ -1475,6 +1591,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glMapBufferARB")]
+		[AliasOf("glMapBufferOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static IntPtr MapBuffer(BufferTargetARB target, BufferAccessARB access)
 		{
@@ -1515,7 +1633,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
+		[AliasOf("glUnmapBufferARB")]
+		[AliasOf("glUnmapBufferOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static bool UnmapBuffer(BufferTargetARB target)
 		{
 			bool retValue;
@@ -1563,7 +1684,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetBufferPointerv"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glGetBufferParameterivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetBufferParameter(BufferTargetARB target, Int32 value, [Out] Int32[] data)
 		{
 			unsafe {
@@ -1612,7 +1736,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetBufferPointerv"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glGetBufferParameterivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GetBufferParameter(BufferTargetARB target, Int32 value, out Int32 data)
 		{
 			unsafe {
@@ -1654,7 +1781,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.MapBuffer"/>
+		[AliasOf("glGetBufferPointervARB")]
+		[AliasOf("glGetBufferPointervOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetBufferPointer(BufferTargetARB target, Int32 pname, out IntPtr @params)
 		{
 			unsafe {
@@ -1696,7 +1826,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.MapBuffer"/>
+		[AliasOf("glGetBufferPointervARB")]
+		[AliasOf("glGetBufferPointervOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetBufferPointer(BufferTargetARB target, Int32 pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);

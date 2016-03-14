@@ -42,7 +42,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public static void FramebufferSampleLocationNV(Int32 target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -71,7 +71,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public static void NamedFramebufferSampleLocationNV(UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -88,7 +88,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glResolveDepthValuesNV.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
 		public static void ResolveDepthValuesNV()
 		{
 			Debug.Assert(Delegates.pglResolveDepthValuesNV != null, "pglResolveDepthValuesNV not implemented");

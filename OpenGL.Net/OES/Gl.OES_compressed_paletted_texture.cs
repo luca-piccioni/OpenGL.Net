@@ -30,61 +30,61 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PALETTE4_RGB8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE4_RGB8_OES = 0x8B90;
 
 		/// <summary>
 		/// Value of GL_PALETTE4_RGBA8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE4_RGBA8_OES = 0x8B91;
 
 		/// <summary>
 		/// Value of GL_PALETTE4_R5_G6_B5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE4_R5_G6_B5_OES = 0x8B92;
 
 		/// <summary>
 		/// Value of GL_PALETTE4_RGBA4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE4_RGBA4_OES = 0x8B93;
 
 		/// <summary>
 		/// Value of GL_PALETTE4_RGB5_A1_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE4_RGB5_A1_OES = 0x8B94;
 
 		/// <summary>
 		/// Value of GL_PALETTE8_RGB8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE8_RGB8_OES = 0x8B95;
 
 		/// <summary>
 		/// Value of GL_PALETTE8_RGBA8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE8_RGBA8_OES = 0x8B96;
 
 		/// <summary>
 		/// Value of GL_PALETTE8_R5_G6_B5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE8_R5_G6_B5_OES = 0x8B97;
 
 		/// <summary>
 		/// Value of GL_PALETTE8_RGBA4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE8_RGBA4_OES = 0x8B98;
 
 		/// <summary>
 		/// Value of GL_PALETTE8_RGB5_A1_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_paletted_texture")]
+		[RequiredByFeature("GL_OES_compressed_paletted_texture", Api = "gl|gles1|gles2")]
 		public const int PALETTE8_RGB5_A1_OES = 0x8B99;
 
 	}

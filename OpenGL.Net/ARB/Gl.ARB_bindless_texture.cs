@@ -31,7 +31,7 @@ namespace OpenGL
 		/// Value of GL_UNSIGNED_INT64_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT64_NV")]
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5")]
@@ -44,7 +44,7 @@ namespace OpenGL
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static UInt64 GetTextureHandleARB(UInt32 texture)
 		{
 			UInt64 retValue;
@@ -66,7 +66,7 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static UInt64 GetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler)
 		{
 			UInt64 retValue;
@@ -85,7 +85,7 @@ namespace OpenGL
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void MakeTextureHandleResidentARB(UInt64 handle)
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleResidentARB != null, "pglMakeTextureHandleResidentARB not implemented");
@@ -100,7 +100,7 @@ namespace OpenGL
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void MakeTextureHandleNonResidentARB(UInt64 handle)
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleNonResidentARB != null, "pglMakeTextureHandleNonResidentARB not implemented");
@@ -127,7 +127,7 @@ namespace OpenGL
 		/// <param name="format">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static UInt64 GetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format)
 		{
 			UInt64 retValue;
@@ -149,7 +149,7 @@ namespace OpenGL
 		/// <param name="access">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void MakeImageHandleResidentARB(UInt64 handle, Int32 access)
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentARB != null, "pglMakeImageHandleResidentARB not implemented");
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void MakeImageHandleNonResidentARB(UInt64 handle)
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleNonResidentARB != null, "pglMakeImageHandleNonResidentARB not implemented");
@@ -182,7 +182,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void UniformHandleARB(Int32 location, UInt64 value)
 		{
 			Debug.Assert(Delegates.pglUniformHandleui64ARB != null, "pglUniformHandleui64ARB not implemented");
@@ -200,7 +200,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void UniformHandleARB(Int32 location, UInt64[] value)
 		{
 			unsafe {
@@ -226,7 +226,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, UInt64 value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformHandleui64ARB != null, "pglProgramUniformHandleui64ARB not implemented");
@@ -247,7 +247,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, UInt64[] values)
 		{
 			unsafe {
@@ -267,7 +267,7 @@ namespace OpenGL
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static bool IsTextureHandleResidentARB(UInt64 handle)
 		{
 			bool retValue;
@@ -286,7 +286,7 @@ namespace OpenGL
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static bool IsImageHandleResidentARB(UInt64 handle)
 		{
 			bool retValue;
@@ -308,7 +308,7 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void VertexAttribL1ARB(UInt32 index, UInt64 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1ui64ARB != null, "pglVertexAttribL1ui64ARB not implemented");
@@ -326,7 +326,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void VertexAttribL1ARB(UInt32 index, UInt64[] v)
 		{
 			unsafe {
@@ -352,7 +352,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		public static void GetVertexAttribLARB(UInt32 index, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {

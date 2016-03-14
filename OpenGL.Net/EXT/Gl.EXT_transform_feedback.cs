@@ -42,6 +42,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[AliasOf("glBindBufferOffsetNV")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void BindBufferOffsetEXT(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset)
 		{

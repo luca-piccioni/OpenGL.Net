@@ -30,20 +30,20 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_PIPELINE_OBJECT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_debug_label")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
 		public const int PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
 		/// <summary>
 		/// Value of GL_BUFFER_OBJECT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_debug_label")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
 		public const int BUFFER_OBJECT_EXT = 0x9151;
 
 		/// <summary>
 		/// Value of GL_QUERY_OBJECT_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_OBJECT_AMD")]
-		[RequiredByFeature("GL_EXT_debug_label")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int QUERY_OBJECT_EXT = 0x9153;
 
@@ -51,7 +51,7 @@ namespace OpenGL
 		/// Value of GL_VERTEX_ARRAY_OBJECT_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_OBJECT_AMD")]
-		[RequiredByFeature("GL_EXT_debug_label")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int VERTEX_ARRAY_OBJECT_EXT = 0x9154;
 
@@ -70,7 +70,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:String"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_debug_label")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
 		public static void LabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglLabelObjectEXT != null, "pglLabelObjectEXT not implemented");
@@ -97,7 +97,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_debug_label")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
 		public static void GetObjectEXT(Int32 type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {

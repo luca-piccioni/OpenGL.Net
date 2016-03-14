@@ -114,6 +114,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[AliasOf("eglQueryDisplayAttribNV")]
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]
 		public static IntPtr QueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr[] value)

@@ -31,57 +31,77 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_ATTRIB_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED symbol.
 		/// </summary>
+		[AliasOf("GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED_OES")]
 		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED = 0x8221;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BUFFER_BINDING_EXT")]
+		[AliasOf("GL_TEXTURE_BUFFER_BINDING_OES")]
 		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		public const int TEXTURE_BUFFER_BINDING = 0x8C2A;
 
 		/// <summary>
 		/// Value of GL_MAP_PERSISTENT_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_MAP_PERSISTENT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int MAP_PERSISTENT_BIT = 0x0040;
 
 		/// <summary>
 		/// Value of GL_MAP_COHERENT_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_MAP_COHERENT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int MAP_COHERENT_BIT = 0x0080;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_STORAGE_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_DYNAMIC_STORAGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int DYNAMIC_STORAGE_BIT = 0x0100;
 
 		/// <summary>
 		/// Value of GL_CLIENT_STORAGE_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_CLIENT_STORAGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int CLIENT_STORAGE_BIT = 0x0200;
 
 		/// <summary>
 		/// Value of GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x00004000;
 
@@ -89,8 +109,10 @@ namespace OpenGL
 		/// Gl.GetBufferParameter: params returns a boolean flag indicating whether the buffer object is immutable. The initial 
 		/// value is Gl.FALSE.
 		/// </summary>
+		[AliasOf("GL_BUFFER_IMMUTABLE_STORAGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		public const int BUFFER_IMMUTABLE_STORAGE = 0x821F;
 
 		/// <summary>
@@ -99,36 +121,38 @@ namespace OpenGL
 		/// If the data store was established with glBufferData, the value will be Gl.MAP_READ_BIT | Gl.MAP_WRITE_BIT | 
 		/// Gl.DYNAMIC_STORAGE_BIT | Gl.MAP_WRITE_BIT. The initial value is zero.
 		/// </summary>
+		[AliasOf("GL_BUFFER_STORAGE_FLAGS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		public const int BUFFER_STORAGE_FLAGS = 0x8220;
 
 		/// <summary>
 		/// Value of GL_CLEAR_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_clear_texture")]
+		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		public const int CLEAR_TEXTURE = 0x9365;
 
 		/// <summary>
 		/// Value of GL_LOCATION_COMPONENT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_enhanced_layouts")]
+		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
 		public const int LOCATION_COMPONENT = 0x934A;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_enhanced_layouts")]
+		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_INDEX = 0x934B;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_enhanced_layouts")]
+		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
 
 		/// <summary>
@@ -136,7 +160,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_QUERY_BUFFER_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		public const int QUERY_BUFFER = 0x9192;
 
@@ -144,7 +168,7 @@ namespace OpenGL
 		/// Value of GL_QUERY_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]
 		public const uint QUERY_BUFFER_BARRIER_BIT = 0x00008000;
 
@@ -153,7 +177,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_QUERY_BUFFER_BINDING_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		public const int QUERY_BUFFER_BINDING = 0x9193;
 
@@ -164,7 +188,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		public const int QUERY_RESULT_NO_WAIT = 0x9194;
 
@@ -174,7 +198,7 @@ namespace OpenGL
 		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_ATI")]
 		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_texture_mirror_clamp_to_edge")]
+		[RequiredByFeature("GL_ARB_texture_mirror_clamp_to_edge", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ATI_texture_mirror_once")]
 		[RequiredByFeature("GL_EXT_texture_mirror_clamp")]
 		public const int MIRROR_CLAMP_TO_EDGE = 0x8743;
@@ -236,8 +260,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		public static void BufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
@@ -303,8 +328,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_buffer_storage")]
+		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		public static void BufferStorage(Int32 target, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -380,7 +406,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_clear_texture")]
+		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
@@ -454,7 +480,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_clear_texture")]
+		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -549,7 +575,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_clear_texture")]
+		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
@@ -642,7 +668,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_clear_texture")]
+		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -689,7 +715,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_multi_bind")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindBuffersBase(Int32 target, UInt32 first, UInt32[] buffers)
 		{
 			unsafe {
@@ -753,7 +779,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_multi_bind")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindBuffersRange(Int32 target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
@@ -801,7 +827,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexBuffer"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_multi_bind")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindTextures(UInt32 first, params UInt32[] textures)
 		{
 			unsafe {
@@ -844,7 +870,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_multi_bind")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindSamplers(UInt32 first, params UInt32[] samplers)
 		{
 			unsafe {
@@ -900,7 +926,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexBuffer"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_multi_bind")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindImageTextures(UInt32 first, params UInt32[] textures)
 		{
 			unsafe {
@@ -953,7 +979,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_multi_bind")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindVertexBuffers(UInt32 first, UInt32[] buffers, IntPtr[] offsets, params Int32[] strides)
 		{
 			unsafe {

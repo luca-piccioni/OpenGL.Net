@@ -31,6 +31,8 @@ namespace OpenGL
 		/// Gl.Clear: indicates the depth buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint DEPTH_BUFFER_BIT = 0x00000100;
 
@@ -38,6 +40,8 @@ namespace OpenGL
 		/// Gl.Clear: indicates the stencil buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint STENCIL_BUFFER_BIT = 0x00000400;
 
@@ -45,6 +49,8 @@ namespace OpenGL
 		/// Gl.Clear: indicates the buffers currently enabled for color writing.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint COLOR_BUFFER_BIT = 0x00004000;
 
@@ -52,18 +58,24 @@ namespace OpenGL
 		/// Value of GL_FALSE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int FALSE = 0;
 
 		/// <summary>
 		/// Value of GL_TRUE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TRUE = 1;
 
 		/// <summary>
 		/// Gl.Begin: treats each vertex as a single point. Vertex n defines point n. N points are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int POINTS = 0x0000;
 
 		/// <summary>
@@ -71,6 +83,8 @@ namespace OpenGL
 		/// are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINES = 0x0001;
 
 		/// <summary>
@@ -78,6 +92,8 @@ namespace OpenGL
 		/// and n+1 define line n. The last line, however, is defined by vertices N and 1. N lines are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINE_LOOP = 0x0002;
 
 		/// <summary>
@@ -85,6 +101,8 @@ namespace OpenGL
 		/// N-1 lines are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINE_STRIP = 0x0003;
 
 		/// <summary>
@@ -92,7 +110,12 @@ namespace OpenGL
 		/// N3 triangles are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_tessellation_shader")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int TRIANGLES = 0x0004;
 
 		/// <summary>
@@ -101,6 +124,8 @@ namespace OpenGL
 		/// N-2 triangles are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TRIANGLE_STRIP = 0x0005;
 
 		/// <summary>
@@ -108,15 +133,22 @@ namespace OpenGL
 		/// vertices. Vertices 1, n+1, and n+2 define triangle n. N-2 triangles are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TRIANGLE_FAN = 0x0006;
 
 		/// <summary>
 		/// Gl.Begin: treats each group of four vertices as an independent quadrilateral. Vertices 4⁢n-3, 4⁢n-2, 4⁢n-1, and 4⁢n 
 		/// define quadrilateral n. N4 quadrilaterals are drawn.
 		/// </summary>
+		[AliasOf("GL_QUADS_EXT")]
+		[AliasOf("GL_QUADS_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_tessellation_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -135,6 +167,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int NEVER = 0x0200;
 
 		/// <summary>
@@ -149,6 +183,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LESS = 0x0201;
 
 		/// <summary>
@@ -163,7 +199,12 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_tessellation_shader")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int EQUAL = 0x0202;
 
 		/// <summary>
@@ -178,6 +219,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LEQUAL = 0x0203;
 
 		/// <summary>
@@ -192,6 +235,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int GREATER = 0x0204;
 
 		/// <summary>
@@ -206,6 +251,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int NOTEQUAL = 0x0205;
 
 		/// <summary>
@@ -220,6 +267,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int GEQUAL = 0x0206;
 
 		/// <summary>
@@ -234,6 +283,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int ALWAYS = 0x0207;
 
 		/// <summary>
@@ -245,68 +296,114 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ZERO = 0;
 
 		/// <summary>
 		/// Value of GL_ONE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ONE = 1;
 
 		/// <summary>
 		/// Value of GL_SRC_COLOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int SRC_COLOR = 0x0300;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_SRC_COLOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ONE_MINUS_SRC_COLOR = 0x0301;
 
 		/// <summary>
 		/// Value of GL_SRC_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int SRC_ALPHA = 0x0302;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_SRC_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ONE_MINUS_SRC_ALPHA = 0x0303;
 
 		/// <summary>
 		/// Value of GL_DST_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int DST_ALPHA = 0x0304;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_DST_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ONE_MINUS_DST_ALPHA = 0x0305;
 
 		/// <summary>
 		/// Value of GL_DST_COLOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int DST_COLOR = 0x0306;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_DST_COLOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ONE_MINUS_DST_COLOR = 0x0307;
 
 		/// <summary>
 		/// Value of GL_SRC_ALPHA_SATURATE symbol.
 		/// </summary>
+		[AliasOf("GL_SRC_ALPHA_SATURATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public const int SRC_ALPHA_SATURATE = 0x0308;
 
 		/// <summary>
@@ -317,10 +414,13 @@ namespace OpenGL
 		/// Gl.DrawBuffers: the fragment shader output value is not written into any color buffer.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_NONE_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_context_flush_control")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		public const int NONE = 0;
 
 		/// <summary>
@@ -372,6 +472,8 @@ namespace OpenGL
 		/// only the front left color buffer is written.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int FRONT = 0x0404;
 
 		/// <summary>
@@ -380,7 +482,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_ES3_1_compatibility")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_1_compatibility", Api = "gl|glcore")]
 		public const int BACK = 0x0405;
 
 		/// <summary>
@@ -404,6 +508,8 @@ namespace OpenGL
 		/// only the front left color buffer is written.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int FRONT_AND_BACK = 0x0408;
 
 		/// <summary>
@@ -416,8 +522,12 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_robustness")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int NO_ERROR = 0;
 
 		/// <summary>
@@ -425,6 +535,8 @@ namespace OpenGL
 		/// other side effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int INVALID_ENUM = 0x0500;
 
 		/// <summary>
@@ -432,6 +544,8 @@ namespace OpenGL
 		/// set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int INVALID_VALUE = 0x0501;
 
 		/// <summary>
@@ -439,6 +553,8 @@ namespace OpenGL
 		/// other side effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int INVALID_OPERATION = 0x0502;
 
 		/// <summary>
@@ -446,26 +562,39 @@ namespace OpenGL
 		/// state of the error flags, after this error is recorded.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int OUT_OF_MEMORY = 0x0505;
 
 		/// <summary>
 		/// Value of GL_CW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_tessellation_shader")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int CW = 0x0900;
 
 		/// <summary>
 		/// Value of GL_CCW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_tessellation_shader")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int CCW = 0x0901;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the point size as specified by Gl.PointSize. The initial value is 1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int POINT_SIZE = 0x0B11;
 
 		/// <summary>
@@ -492,12 +621,15 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int LINE_SMOOTH = 0x0B20;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the line width as specified with Gl.LineWidth. The initial value is 1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINE_WIDTH = 0x0B21;
 
 		/// <summary>
@@ -517,7 +649,9 @@ namespace OpenGL
 		/// Gl.Get: params returns two values: symbolic constants indicating whether front-facing and back-facing polygons are 
 		/// rasterized as points, lines, or filled polygons. The initial value is Gl.FILL. See Gl.PolygonMode.
 		/// </summary>
+		[AliasOf("GL_POLYGON_MODE_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int POLYGON_MODE = 0x0B40;
 
 		/// <summary>
@@ -543,6 +677,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int CULL_FACE = 0x0B44;
 
 		/// <summary>
@@ -550,6 +686,8 @@ namespace OpenGL
 		/// is Gl.BACK. See Gl.CullFace.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int CULL_FACE_MODE = 0x0B45;
 
 		/// <summary>
@@ -557,6 +695,8 @@ namespace OpenGL
 		/// is treated as front-facing. The initial value is Gl.CCW. See Gl.FrontFace.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int FRONT_FACE = 0x0B46;
 
 		/// <summary>
@@ -566,7 +706,10 @@ namespace OpenGL
 		/// Gl.DepthRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 		public const int DEPTH_RANGE = 0x0B70;
 
 		/// <summary>
@@ -581,6 +724,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DEPTH_TEST = 0x0B71;
 
 		/// <summary>
@@ -588,6 +733,8 @@ namespace OpenGL
 		/// Gl.TRUE. See Gl.DepthMask.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DEPTH_WRITEMASK = 0x0B72;
 
 		/// <summary>
@@ -597,6 +744,8 @@ namespace OpenGL
 		/// Gl.ClearDepth.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DEPTH_CLEAR_VALUE = 0x0B73;
 
 		/// <summary>
@@ -604,6 +753,8 @@ namespace OpenGL
 		/// Gl.LESS. See Gl.DepthFunc.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DEPTH_FUNC = 0x0B74;
 
 		/// <summary>
@@ -616,6 +767,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_TEST = 0x0B90;
 
 		/// <summary>
@@ -623,6 +776,8 @@ namespace OpenGL
 		/// Gl.ClearStencil.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_CLEAR_VALUE = 0x0B91;
 
 		/// <summary>
@@ -631,6 +786,8 @@ namespace OpenGL
 		/// non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_FUNC = 0x0B92;
 
 		/// <summary>
@@ -639,6 +796,8 @@ namespace OpenGL
 		/// non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_VALUE_MASK = 0x0B93;
 
 		/// <summary>
@@ -647,6 +806,8 @@ namespace OpenGL
 		/// Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_FAIL = 0x0B94;
 
 		/// <summary>
@@ -655,6 +816,8 @@ namespace OpenGL
 		/// front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_PASS_DEPTH_FAIL = 0x0B95;
 
 		/// <summary>
@@ -663,6 +826,8 @@ namespace OpenGL
 		/// front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_PASS_DEPTH_PASS = 0x0B96;
 
 		/// <summary>
@@ -671,6 +836,8 @@ namespace OpenGL
 		/// Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_REF = 0x0B97;
 
 		/// <summary>
@@ -679,6 +846,8 @@ namespace OpenGL
 		/// separate stencil state. See Gl.StencilMaskSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int STENCIL_WRITEMASK = 0x0B98;
 
 		/// <summary>
@@ -691,7 +860,10 @@ namespace OpenGL
 		/// the GL will do its rendering. See Gl.ViewportIndexedf.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 		public const int VIEWPORT = 0x0BA2;
 
 		/// <summary>
@@ -704,18 +876,22 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DITHER = 0x0BD0;
 
 		/// <summary>
 		/// Value of GL_BLEND_DST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int BLEND_DST = 0x0BE0;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int BLEND_SRC = 0x0BE1;
 
 		/// <summary>
@@ -728,6 +904,10 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int BLEND = 0x0BE2;
 
 		/// <summary>
@@ -735,6 +915,7 @@ namespace OpenGL
 		/// Gl.COPY. See Gl.LogicOp.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int LOGIC_OP_MODE = 0x0BF0;
 
 		/// <summary>
@@ -748,6 +929,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int COLOR_LOGIC_OP = 0x0BF2;
 
 		/// <summary>
@@ -761,14 +943,21 @@ namespace OpenGL
 		/// it is Gl.FRONT. The initial values of draw buffers for all other output colors is Gl.NONE.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_DRAW_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER = 0x0C01;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, a symbolic constant indicating which color buffer is selected for reading. The initial 
 		/// value is Gl.BACK if there is a back buffer, otherwise it is Gl.FRONT. See Gl.ReadPixels.
 		/// </summary>
+		[AliasOf("GL_READ_BUFFER_EXT")]
+		[AliasOf("GL_READ_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
 		public const int READ_BUFFER = 0x0C02;
 
 		/// <summary>
@@ -777,7 +966,10 @@ namespace OpenGL
 		/// Gl.Scissor.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 		public const int SCISSOR_BOX = 0x0C10;
 
 		/// <summary>
@@ -790,7 +982,10 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 		public const int SCISSOR_TEST = 0x0C11;
 
 		/// <summary>
@@ -800,6 +995,8 @@ namespace OpenGL
 		/// is (0, 0, 0, 0). See Gl.ClearColor.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int COLOR_CLEAR_VALUE = 0x0C22;
 
 		/// <summary>
@@ -807,6 +1004,10 @@ namespace OpenGL
 		/// initial value is (Gl.TRUE, Gl.TRUE, Gl.TRUE, Gl.TRUE). See Gl.ColorMask.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int COLOR_WRITEMASK = 0x0C23;
 
 		/// <summary>
@@ -844,6 +1045,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int LINE_SMOOTH_HINT = 0x0C52;
 
 		/// <summary>
@@ -904,14 +1106,20 @@ namespace OpenGL
 		/// depth. Storage format Gl.RGB, for example, has three components per pixel: first red, then green, and finally blue.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_UNPACK_ROW_LENGTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		public const int UNPACK_ROW_LENGTH = 0x0CF2;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the number of rows of pixel locations skipped before the first pixel is read from 
 		/// memory. The initial value is 0. See Gl.PixelStore.
 		/// </summary>
+		[AliasOf("GL_UNPACK_SKIP_ROWS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		public const int UNPACK_SKIP_ROWS = 0x0CF3;
 
 		/// <summary>
@@ -928,7 +1136,10 @@ namespace OpenGL
 		/// Gl.UNPACK_ROW_LENGTH section.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_UNPACK_SKIP_PIXELS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		public const int UNPACK_SKIP_PIXELS = 0x0CF4;
 
 		/// <summary>
@@ -943,6 +1154,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int UNPACK_ALIGNMENT = 0x0CF5;
 
 		/// <summary>
@@ -991,6 +1204,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int PACK_ROW_LENGTH = 0x0D02;
 
 		/// <summary>
@@ -998,6 +1212,7 @@ namespace OpenGL
 		/// memory. The initial value is 0. See Gl.PixelStore.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int PACK_SKIP_ROWS = 0x0D03;
 
 		/// <summary>
@@ -1016,6 +1231,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int PACK_SKIP_PIXELS = 0x0D04;
 
 		/// <summary>
@@ -1030,6 +1246,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int PACK_ALIGNMENT = 0x0D05;
 
 		/// <summary>
@@ -1038,6 +1256,8 @@ namespace OpenGL
 		/// if a texture is too large. See Gl.TexImage1D and Gl.TexImage2D.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int MAX_TEXTURE_SIZE = 0x0D33;
 
 		/// <summary>
@@ -1045,6 +1265,8 @@ namespace OpenGL
 		/// as the visible dimensions of the display being rendered to. See Gl.Viewport.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int MAX_VIEWPORT_DIMS = 0x0D3A;
 
 		/// <summary>
@@ -1052,6 +1274,8 @@ namespace OpenGL
 		/// rasterized geometry in window coordinates. The value must be at least 4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int SUBPIXEL_BITS = 0x0D50;
 
 		/// <summary>
@@ -1065,7 +1289,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_1D = 0x0DE0;
 
 		/// <summary>
@@ -1079,7 +1303,10 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public const int TEXTURE_2D = 0x0DE1;
 
 		/// <summary>
@@ -1087,6 +1314,8 @@ namespace OpenGL
 		/// value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int POLYGON_OFFSET_UNITS = 0x2A00;
 
 		/// <summary>
@@ -1099,7 +1328,9 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_POLYGON_OFFSET_POINT_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int POLYGON_OFFSET_POINT = 0x2A01;
 
 		/// <summary>
@@ -1112,7 +1343,9 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_POLYGON_OFFSET_LINE_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int POLYGON_OFFSET_LINE = 0x2A02;
 
 		/// <summary>
@@ -1126,6 +1359,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int POLYGON_OFFSET_FILL = 0x8037;
 
 		/// <summary>
@@ -1134,6 +1369,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_POLYGON_OFFSET_FACTOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_polygon_offset")]
 		public const int POLYGON_OFFSET_FACTOR = 0x8038;
 
@@ -1143,7 +1380,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public const int TEXTURE_BINDING_1D = 0x8068;
 
 		/// <summary>
@@ -1152,25 +1389,30 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public const int TEXTURE_BINDING_2D = 0x8069;
 
 		/// <summary>
 		/// Gl.GetTexLevelParameter: params returns a single value, the width of the texture image. The initial value is 0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int TEXTURE_WIDTH = 0x1000;
 
 		/// <summary>
 		/// Gl.GetTexLevelParameter: params returns a single value, the height of the texture image. The initial value is 0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int TEXTURE_HEIGHT = 0x1001;
 
 		/// <summary>
 		/// Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int TEXTURE_INTERNAL_FORMAT = 0x1003;
 
 		/// <summary>
@@ -1204,7 +1446,14 @@ namespace OpenGL
 		/// glTexParameterfv, they are stored unmodified as floating-point values.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BORDER_COLOR_EXT")]
+		[AliasOf("GL_TEXTURE_BORDER_COLOR_NV")]
+		[AliasOf("GL_TEXTURE_BORDER_COLOR_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public const int TEXTURE_BORDER_COLOR = 0x1004;
 
 		/// <summary>
@@ -1214,6 +1463,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int TEXTURE_RED_SIZE = 0x805C;
 
@@ -1222,6 +1472,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_GREEN_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int TEXTURE_GREEN_SIZE = 0x805D;
 
@@ -1230,6 +1481,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BLUE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int TEXTURE_BLUE_SIZE = 0x805E;
 
@@ -1238,6 +1490,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_ALPHA_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int TEXTURE_ALPHA_SIZE = 0x805F;
 
@@ -1245,78 +1498,108 @@ namespace OpenGL
 		/// Gl.Hint: no preference.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DONT_CARE = 0x1100;
 
 		/// <summary>
 		/// Gl.Hint: the most efficient option should be chosen.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int FASTEST = 0x1101;
 
 		/// <summary>
 		/// Gl.Hint: the most correct, or highest quality, option should be chosen.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int NICEST = 0x1102;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of signed bytes, each in the range -128 through 127.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public const int BYTE = 0x1400;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of unsigned bytes, each in the range 0 through 255.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int UNSIGNED_BYTE = 0x1401;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of signed two-byte integers, each in the range -32768 through 32767.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
 		public const int SHORT = 0x1402;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of unsigned two-byte integers, each in the range 0 through 65535.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_depth_texture", Api = "gles2")]
 		public const int UNSIGNED_SHORT = 0x1403;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of signed four-byte integers.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int INT = 0x1404;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of unsigned four-byte integers.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_element_index_uint", Api = "gles1|gles2")]
 		public const int UNSIGNED_INT = 0x1405;
 
 		/// <summary>
 		/// Gl.CallLists: lists is treated as an array of four-byte floating-point values.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_OES_texture_float", Api = "gles2")]
 		public const int FLOAT = 0x1406;
 
 		/// <summary>
 		/// Value of GL_DOUBLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public const int DOUBLE = 0x140A;
 
 		/// <summary>
 		/// Gl.GetError: an attempt has been made to perform an operation that would cause an internal stack to overflow.
 		/// </summary>
+		[AliasOf("GL_STACK_OVERFLOW_KHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -1326,9 +1609,13 @@ namespace OpenGL
 		/// <summary>
 		/// Gl.GetError: an attempt has been made to perform an operation that would cause an internal stack to underflow.
 		/// </summary>
+		[AliasOf("GL_STACK_UNDERFLOW_KHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -1339,36 +1626,42 @@ namespace OpenGL
 		/// Value of GL_CLEAR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int CLEAR = 0x1500;
 
 		/// <summary>
 		/// Value of GL_AND symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int AND = 0x1501;
 
 		/// <summary>
 		/// Value of GL_AND_REVERSE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int AND_REVERSE = 0x1502;
 
 		/// <summary>
 		/// Value of GL_COPY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int COPY = 0x1503;
 
 		/// <summary>
 		/// Value of GL_AND_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int AND_INVERTED = 0x1504;
 
 		/// <summary>
 		/// Value of GL_NOOP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int NOOP = 0x1505;
 
 		/// <summary>
@@ -1376,25 +1669,29 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_XOR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		public const int XOR = 0x1506;
 
 		/// <summary>
 		/// Value of GL_OR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int OR = 0x1507;
 
 		/// <summary>
 		/// Value of GL_NOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int NOR = 0x1508;
 
 		/// <summary>
 		/// Value of GL_EQUIV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int EQUIV = 0x1509;
 
 		/// <summary>
@@ -1406,43 +1703,52 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		public const int INVERT = 0x150A;
 
 		/// <summary>
 		/// Value of GL_OR_REVERSE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int OR_REVERSE = 0x150B;
 
 		/// <summary>
 		/// Value of GL_COPY_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int COPY_INVERTED = 0x150C;
 
 		/// <summary>
 		/// Value of GL_OR_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int OR_INVERTED = 0x150D;
 
 		/// <summary>
 		/// Value of GL_NAND symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int NAND = 0x150E;
 
 		/// <summary>
 		/// Value of GL_SET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int SET = 0x150F;
 
 		/// <summary>
 		/// Gl.MatrixMode: applies subsequent matrix operations to the texture matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TEXTURE = 0x1702;
 
 		/// <summary>
@@ -1471,7 +1777,10 @@ namespace OpenGL
 		/// Gl.MatrixMode: applies subsequent matrix operations to the color matrix stack.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 		public const int COLOR = 0x1800;
 
 		/// <summary>
@@ -1484,7 +1793,10 @@ namespace OpenGL
 		/// polygons. Texture mapping, fog, and all the fragment operations are applied before the fragments are written to the 
 		/// frame buffer.
 		/// </summary>
+		[AliasOf("GL_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 		public const int DEPTH = 0x1801;
 
 		/// <summary>
@@ -1498,15 +1810,22 @@ namespace OpenGL
 		/// the jth row is written to location xr+iyr+j, where xryr is the current raster position. Only the pixel ownership test, 
 		/// the scissor test, and the stencil writemask affect these write operations.
 		/// </summary>
+		[AliasOf("GL_STENCIL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 		public const int STENCIL = 0x1802;
 
 		/// <summary>
 		/// Gl.ReadPixels: stencil values are read from the stencil buffer.
 		/// </summary>
+		[AliasOf("GL_STENCIL_INDEX_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ARB_texture_stencil8")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_stencil8", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_texture_stencil8", Api = "gles2")]
 		public const int STENCIL_INDEX = 0x1901;
 
 		/// <summary>
@@ -1522,6 +1841,9 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_depth_texture", Api = "gles2")]
 		public const int DEPTH_COMPONENT = 0x1902;
 
 		/// <summary>
@@ -1541,10 +1863,13 @@ namespace OpenGL
 		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_RED_EXT")]
 		[AliasOf("GL_RED_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		public const int RED = 0x1903;
 
 		/// <summary>
@@ -1574,8 +1899,9 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_GREEN_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		public const int GREEN = 0x1904;
 
 		/// <summary>
@@ -1605,8 +1931,9 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLUE_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		public const int BLUE = 0x1905;
 
 		/// <summary>
@@ -1635,6 +1962,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int ALPHA = 0x1906;
 
@@ -1653,6 +1982,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int RGB = 0x1907;
 
 		/// <summary>
@@ -1667,6 +1998,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int RGBA = 0x1908;
 
 		/// <summary>
@@ -1674,7 +2007,9 @@ namespace OpenGL
 		/// such as Gl.POINT_SIZE and Gl.POINT_SMOOTH control the rasterization of the points. Polygon rasterization attributes 
 		/// other than Gl.POLYGON_MODE have no effect.
 		/// </summary>
+		[AliasOf("GL_POINT_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int POINT = 0x1B00;
 
 		/// <summary>
@@ -1682,14 +2017,18 @@ namespace OpenGL
 		/// Gl.LINE_SMOOTH control the rasterization of the lines. Polygon rasterization attributes other than Gl.POLYGON_MODE have 
 		/// no effect.
 		/// </summary>
+		[AliasOf("GL_LINE_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int LINE = 0x1B01;
 
 		/// <summary>
 		/// Gl.PolygonMode: the interior of the polygon is filled. Polygon attributes such as Gl.POLYGON_SMOOTH control the 
 		/// rasterization of the polygon.
 		/// </summary>
+		[AliasOf("GL_FILL_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int FILL = 0x1B02;
 
 		/// <summary>
@@ -1701,6 +2040,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int KEEP = 0x1E00;
 
 		/// <summary>
@@ -1712,6 +2053,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int REPLACE = 0x1E01;
 
 		/// <summary>
@@ -1723,6 +2066,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int INCR = 0x1E02;
 
 		/// <summary>
@@ -1734,6 +2079,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int DECR = 0x1E03;
 
 		/// <summary>
@@ -1741,6 +2088,8 @@ namespace OpenGL
 		/// release.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int VENDOR = 0x1F00;
 
 		/// <summary>
@@ -1748,54 +2097,72 @@ namespace OpenGL
 		/// hardware platform. It does not change from release to release.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int RENDERER = 0x1F01;
 
 		/// <summary>
 		/// Gl.GetString: returns a version or release number.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int VERSION = 0x1F02;
 
 		/// <summary>
 		/// Gl.GetString: for glGetStringi only, returns the extension string supported by the implementation at index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int EXTENSIONS = 0x1F03;
 
 		/// <summary>
 		/// Value of GL_NEAREST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int NEAREST = 0x2600;
 
 		/// <summary>
 		/// Value of GL_LINEAR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINEAR = 0x2601;
 
 		/// <summary>
 		/// Value of GL_NEAREST_MIPMAP_NEAREST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int NEAREST_MIPMAP_NEAREST = 0x2700;
 
 		/// <summary>
 		/// Value of GL_LINEAR_MIPMAP_NEAREST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINEAR_MIPMAP_NEAREST = 0x2701;
 
 		/// <summary>
 		/// Value of GL_NEAREST_MIPMAP_LINEAR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int NEAREST_MIPMAP_LINEAR = 0x2702;
 
 		/// <summary>
 		/// Value of GL_LINEAR_MIPMAP_LINEAR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int LINEAR_MIPMAP_LINEAR = 0x2703;
 
 		/// <summary>
@@ -1829,6 +2196,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TEXTURE_MAG_FILTER = 0x2800;
 
 		/// <summary>
@@ -1901,6 +2270,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TEXTURE_MIN_FILTER = 0x2801;
 
 		/// <summary>
@@ -1939,6 +2310,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TEXTURE_WRAP_S = 0x2802;
 
 		/// <summary>
@@ -1962,6 +2335,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int TEXTURE_WRAP_T = 0x2803;
 
 		/// <summary>
@@ -1984,6 +2359,8 @@ namespace OpenGL
 		/// Value of GL_REPEAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public const int REPEAT = 0x2901;
 
 		/// <summary>
@@ -2012,8 +2389,12 @@ namespace OpenGL
 		/// Value of GL_RGB8 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB8_EXT")]
+		[AliasOf("GL_RGB8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2")]
 		public const int RGB8 = 0x8051;
 
 		/// <summary>
@@ -2022,6 +2403,8 @@ namespace OpenGL
 		[AliasOf("GL_RGB10_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		public const int RGB10 = 0x8052;
 
 		/// <summary>
@@ -2038,6 +2421,7 @@ namespace OpenGL
 		[AliasOf("GL_RGB16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
 		public const int RGB16 = 0x8054;
 
 		/// <summary>
@@ -2052,24 +2436,36 @@ namespace OpenGL
 		/// Value of GL_RGBA4 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA4_EXT")]
+		[AliasOf("GL_RGBA4_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		public const int RGBA4 = 0x8056;
 
 		/// <summary>
 		/// Value of GL_RGB5_A1 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB5_A1_EXT")]
+		[AliasOf("GL_RGB5_A1_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		public const int RGB5_A1 = 0x8057;
 
 		/// <summary>
 		/// Value of GL_RGBA8 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA8_EXT")]
+		[AliasOf("GL_RGBA8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2")]
 		public const int RGBA8 = 0x8058;
 
 		/// <summary>
@@ -2077,7 +2473,10 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_RGB10_A2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		public const int RGB10_A2 = 0x8059;
 
 		/// <summary>
@@ -2094,6 +2493,7 @@ namespace OpenGL
 		[AliasOf("GL_RGBA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
 		public const int RGBA16 = 0x805B;
 
 		/// <summary>
@@ -2403,6 +2803,7 @@ namespace OpenGL
 		/// Gl.Accum: adds value to each R, G, B, and A in the accumulation buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -2583,6 +2984,7 @@ namespace OpenGL
 		/// Value of GL_EXP symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -2593,6 +2995,7 @@ namespace OpenGL
 		/// Value of GL_EXP2 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -2743,6 +3146,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -2755,6 +3159,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -2767,6 +3172,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -2791,6 +3197,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -2837,6 +3244,7 @@ namespace OpenGL
 		/// 1, 1). See Gl.Color.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -2860,6 +3268,7 @@ namespace OpenGL
 		/// Gl.Normal.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -2871,6 +3280,7 @@ namespace OpenGL
 		/// See Gl.MultiTexCoord.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -2955,6 +3365,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3080,6 +3491,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3121,6 +3533,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3142,6 +3555,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3153,6 +3567,7 @@ namespace OpenGL
 		/// value is Gl.SMOOTH. See Gl.ShadeModel.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3191,6 +3606,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3207,6 +3623,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_NV_register_combiners")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3240,6 +3657,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3256,6 +3674,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3272,6 +3691,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3290,6 +3710,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3311,6 +3732,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3335,6 +3757,7 @@ namespace OpenGL
 		/// matrix operations. The initial value is Gl.MODELVIEW. See Gl.MatrixMode.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3352,6 +3775,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3363,6 +3787,7 @@ namespace OpenGL
 		/// Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3374,6 +3799,7 @@ namespace OpenGL
 		/// Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3385,6 +3811,7 @@ namespace OpenGL
 		/// Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3396,6 +3823,7 @@ namespace OpenGL
 		/// matrix is the identity matrix. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3407,6 +3835,7 @@ namespace OpenGL
 		/// matrix is the identity matrix. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3418,6 +3847,7 @@ namespace OpenGL
 		/// is the identity matrix. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3455,7 +3885,10 @@ namespace OpenGL
 		/// Gl.Enable: if enabled, do alpha testing. See Gl.AlphaFunc.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_ALPHA_TEST_QCOM")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3465,7 +3898,10 @@ namespace OpenGL
 		/// <summary>
 		/// Gl.Get: the symbolic name of the alpha test function. The initial value is Gl.ALWAYS. See Gl.AlphaFunc.
 		/// </summary>
+		[AliasOf("GL_ALPHA_TEST_FUNC_QCOM")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3477,7 +3913,10 @@ namespace OpenGL
 		/// integer value, if requested, is linearly mapped from the internal floating-point representation such that 1.0 returns 
 		/// the most positive representable integer value, and -1.0 returns the most negative representable integer value.
 		/// </summary>
+		[AliasOf("GL_ALPHA_TEST_REF_QCOM")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3588,6 +4027,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3605,6 +4045,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3622,6 +4063,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3945,6 +4387,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -3999,6 +4442,7 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the maximum number of lights. The value must be at least 8. See Gl.Light.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4009,7 +4453,10 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the maximum number of application-defined clipping planes. The value must be at least 
 		/// 6. See Gl.ClipPlane.
 		/// </summary>
+		[AliasOf("GL_MAX_CLIP_PLANES_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4043,6 +4490,7 @@ namespace OpenGL
 		/// 32. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4065,6 +4513,7 @@ namespace OpenGL
 		/// 2. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4076,6 +4525,7 @@ namespace OpenGL
 		/// See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4107,6 +4557,8 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the number of red bitplanes in each color buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4117,6 +4569,8 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the number of green bitplanes in each color buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4127,6 +4581,8 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the number of blue bitplanes in each color buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4137,6 +4593,8 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the number of alpha bitplanes in each color buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4147,6 +4605,8 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the number of bitplanes in the depth buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4157,6 +4617,8 @@ namespace OpenGL
 		/// Gl.Get: params returns one value, the number of bitplanes in the stencil buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4701,10 +5163,14 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_EXT")]
+		[AliasOf("GL_VERTEX_ARRAY_KHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -4724,6 +5190,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4744,6 +5211,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4784,6 +5252,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4817,6 +5286,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4830,6 +5300,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4843,6 +5314,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4856,6 +5328,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4869,6 +5342,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4882,6 +5356,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4895,6 +5370,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4908,6 +5384,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4947,6 +5424,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4960,6 +5438,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4973,6 +5452,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -5099,6 +5579,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5134,6 +5615,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5169,6 +5651,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5194,6 +5677,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5218,6 +5702,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5240,6 +5725,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5261,6 +5747,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5278,6 +5765,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5295,6 +5783,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5316,6 +5805,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5349,7 +5839,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_2_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5363,7 +5853,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_3_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5378,7 +5868,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_4_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5401,6 +5891,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5420,6 +5911,7 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5431,6 +5923,7 @@ namespace OpenGL
 		/// Gl.DIFFUSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5461,6 +5954,7 @@ namespace OpenGL
 		/// Gl.MatrixMode: applies subsequent matrix operations to the modelview matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5471,6 +5965,7 @@ namespace OpenGL
 		/// Gl.MatrixMode: applies subsequent matrix operations to the projection matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5559,6 +6054,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5608,6 +6105,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5678,6 +6177,7 @@ namespace OpenGL
 		/// Value of GL_FLAT symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5688,6 +6188,7 @@ namespace OpenGL
 		/// Value of GL_SMOOTH symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5738,6 +6239,7 @@ namespace OpenGL
 		/// Value of GL_MODULATE symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5748,6 +6250,7 @@ namespace OpenGL
 		/// Value of GL_DECAL symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5759,6 +6262,7 @@ namespace OpenGL
 		/// Gl.MODULATE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5772,6 +6276,7 @@ namespace OpenGL
 		/// 0, 0, 0).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5782,6 +6287,7 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_ENV symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5793,7 +6299,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_EYE_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5805,7 +6311,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_OBJECT_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5826,7 +6332,9 @@ namespace OpenGL
 		/// Gl.GetTexGen: params returns the single-valued texture generation function, a symbolic constant. The initial value is 
 		/// Gl.EYE_LINEAR.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_GEN_MODE_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5884,8 +6392,11 @@ namespace OpenGL
 		/// Value of GL_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_ALPHA8_EXT")]
+		[AliasOf("GL_ALPHA8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5932,8 +6443,11 @@ namespace OpenGL
 		/// Value of GL_LUMINANCE8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE8_EXT")]
+		[AliasOf("GL_LUMINANCE8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5968,8 +6482,10 @@ namespace OpenGL
 		/// Value of GL_LUMINANCE4_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE4_ALPHA4_EXT")]
+		[AliasOf("GL_LUMINANCE4_ALPHA4_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5992,8 +6508,11 @@ namespace OpenGL
 		/// Value of GL_LUMINANCE8_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE8_ALPHA8_EXT")]
+		[AliasOf("GL_LUMINANCE8_ALPHA8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6256,7 +6775,10 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLIP_PLANE0 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIP_PLANE0_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6266,7 +6788,10 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLIP_PLANE1 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIP_PLANE1_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6276,7 +6801,10 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLIP_PLANE2 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIP_PLANE2_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6286,7 +6814,10 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLIP_PLANE3 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIP_PLANE3_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6296,7 +6827,10 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLIP_PLANE4 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIP_PLANE4_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6306,7 +6840,10 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLIP_PLANE5 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIP_PLANE5_IMG")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6317,6 +6854,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT0 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6327,6 +6865,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT1 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6337,6 +6876,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT2 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6347,6 +6887,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT3 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6357,6 +6898,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT4 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6367,6 +6909,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT5 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6377,6 +6920,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT6 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6387,6 +6931,7 @@ namespace OpenGL
 		/// Value of GL_LIGHT7 symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6426,7 +6971,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[AliasOf("glDrawArraysEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DrawArrays(PrimitiveType mode, Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawArrays != null, "pglDrawArrays not implemented");
@@ -6474,6 +7022,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
@@ -6521,6 +7071,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -6546,9 +7098,13 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
+		[AliasOf("glGetPointervEXT")]
+		[AliasOf("glGetPointervKHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, out IntPtr @params)
 		{
@@ -6578,9 +7134,13 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
+		[AliasOf("glGetPointervEXT")]
+		[AliasOf("glGetPointervKHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, Object @params)
 		{
@@ -6606,6 +7166,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void PolygonOffset(float factor, float units)
 		{
 			Debug.Assert(Delegates.pglPolygonOffset != null, "pglPolygonOffset not implemented");
@@ -6676,6 +7238,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCopyTexImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
 		{
@@ -6754,7 +7317,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glCopyTexImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CopyTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2D != null, "pglCopyTexImage2D not implemented");
@@ -6833,6 +7399,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[AliasOf("glCopyTexSubImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
 		{
@@ -6928,7 +7495,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[AliasOf("glCopyTexSubImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void CopyTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage2D != null, "pglCopyTexSubImage2D not implemented");
@@ -7040,6 +7610,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[AliasOf("glTexSubImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
@@ -7152,6 +7723,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[AliasOf("glTexSubImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
@@ -7276,7 +7848,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glTexSubImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage2D != null, "pglTexSubImage2D not implemented");
@@ -7398,7 +7973,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glTexSubImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -7444,7 +8022,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3DMultisample"/>
 		/// <seealso cref="Gl.TexBuffer"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glBindTextureEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void BindTexture(TextureTarget target, UInt32 texture)
 		{
 			Debug.Assert(Delegates.pglBindTexture != null, "pglBindTexture not implemented");
@@ -7474,6 +8055,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void DeleteTextures(params UInt32[] textures)
 		{
 			unsafe {
@@ -7509,6 +8092,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void GenTextures(UInt32[] textures)
 		{
 			unsafe {
@@ -7541,6 +8126,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static UInt32 GenTexture()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -7566,6 +8153,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static bool IsTexture(UInt32 texture)
 		{
 			bool retValue;
@@ -7606,6 +8195,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SecondaryColorPointer"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[AliasOf("glArrayElementEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ArrayElement(Int32 i)
@@ -7665,6 +8255,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
@@ -7724,6 +8315,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
 		{
@@ -7766,6 +8358,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void DisableClientState(EnableCap array)
 		{
@@ -7900,6 +8493,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void EnableClientState(EnableCap array)
 		{
@@ -8153,6 +8747,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void NormalPointer(NormalPointerType type, Int32 stride, IntPtr pointer)
 		{
@@ -8206,6 +8801,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void NormalPointer(NormalPointerType type, Int32 stride, Object pointer)
 		{
@@ -8269,6 +8865,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, IntPtr pointer)
 		{
@@ -8330,6 +8927,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
 		{
@@ -8391,6 +8989,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, IntPtr pointer)
 		{
@@ -8450,6 +9049,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, Object pointer)
 		{
@@ -8538,6 +9138,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[AliasOf("glPrioritizeTexturesEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PrioritizeTextures(UInt32[] textures, params float[] priorities)

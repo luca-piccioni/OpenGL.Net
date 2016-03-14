@@ -33,6 +33,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_PACK_BUFFER_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_PACK_BUFFER = 0x88EB;
@@ -43,6 +44,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
@@ -54,6 +56,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
@@ -65,6 +68,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_UNPACK_BUFFER_BINDING = 0x88EF;
@@ -72,37 +76,55 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2x3 symbol.
 		/// </summary>
+		[AliasOf("GL_FLOAT_MAT2x3_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public const int FLOAT_MAT2x3 = 0x8B65;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2x4 symbol.
 		/// </summary>
+		[AliasOf("GL_FLOAT_MAT2x4_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public const int FLOAT_MAT2x4 = 0x8B66;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3x2 symbol.
 		/// </summary>
+		[AliasOf("GL_FLOAT_MAT3x2_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public const int FLOAT_MAT3x2 = 0x8B67;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3x4 symbol.
 		/// </summary>
+		[AliasOf("GL_FLOAT_MAT3x4_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public const int FLOAT_MAT3x4 = 0x8B68;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4x2 symbol.
 		/// </summary>
+		[AliasOf("GL_FLOAT_MAT4x2_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public const int FLOAT_MAT4x2 = 0x8B69;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4x3 symbol.
 		/// </summary>
+		[AliasOf("GL_FLOAT_MAT4x3_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public const int FLOAT_MAT4x3 = 0x8B6A;
 
 		/// <summary>
@@ -110,6 +132,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB = 0x8C40;
 
@@ -117,8 +141,11 @@ namespace OpenGL
 		/// Value of GL_SRGB8 symbol.
 		/// </summary>
 		[AliasOf("GL_SRGB8_EXT")]
+		[AliasOf("GL_SRGB8_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		public const int SRGB8 = 0x8C41;
 
 		/// <summary>
@@ -126,6 +153,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB_ALPHA = 0x8C42;
 
@@ -134,6 +162,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB8_ALPHA8_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB8_ALPHA8 = 0x8C43;
 
@@ -170,8 +200,10 @@ namespace OpenGL
 		/// Value of GL_SLUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE_ALPHA_EXT")]
+		[AliasOf("GL_SLUMINANCE_ALPHA_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -182,8 +214,10 @@ namespace OpenGL
 		/// Value of GL_SLUMINANCE8_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE8_ALPHA8_EXT")]
+		[AliasOf("GL_SLUMINANCE8_ALPHA8_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -194,8 +228,10 @@ namespace OpenGL
 		/// Value of GL_SLUMINANCE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE_EXT")]
+		[AliasOf("GL_SLUMINANCE_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -206,8 +242,10 @@ namespace OpenGL
 		/// Value of GL_SLUMINANCE8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE8_EXT")]
+		[AliasOf("GL_SLUMINANCE8_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -294,7 +332,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix2x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -364,7 +404,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix3x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -434,7 +476,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix2x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -504,7 +548,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix4x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -574,7 +620,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix3x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -644,7 +692,9 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glUniformMatrix4x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {

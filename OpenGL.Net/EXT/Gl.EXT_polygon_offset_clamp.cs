@@ -30,7 +30,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_POLYGON_OFFSET_CLAMP_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_polygon_offset_clamp")]
+		[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|gles2")]
 		public const int POLYGON_OFFSET_CLAMP_EXT = 0x8E1B;
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace OpenGL
 		/// <param name="clamp">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_polygon_offset_clamp")]
+		[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|gles2")]
 		public static void PolygonOffsetClampEXT(float factor, float units, float clamp)
 		{
 			Debug.Assert(Delegates.pglPolygonOffsetClampEXT != null, "pglPolygonOffsetClampEXT not implemented");

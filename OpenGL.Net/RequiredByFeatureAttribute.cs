@@ -48,5 +48,10 @@ namespace OpenGL
 		/// The name of the feature.
 		/// </summary>
 		public readonly string FeatureName;
+
+		/// <summary>
+		/// The name of the featuring API. Defaults to "gl".
+		/// </summary>
+		public string Api = "gl";
 	}
 }

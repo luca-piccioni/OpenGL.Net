@@ -286,6 +286,7 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[AliasOf("eglCreateSync64KHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public static IntPtr CreateSync(IntPtr dpy, uint type, IntPtr[] attrib_list)
 		{
@@ -313,6 +314,7 @@ namespace OpenGL
 		/// <param name="sync">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[AliasOf("eglDestroySyncKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public static IntPtr DestroySync(IntPtr dpy, IntPtr sync)
 		{
@@ -341,6 +343,7 @@ namespace OpenGL
 		/// <param name="timeout">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[AliasOf("eglClientWaitSyncKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public static int ClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout)
 		{
@@ -432,6 +435,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[AliasOf("eglDestroyImageKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public static IntPtr DestroyImage(IntPtr dpy, IntPtr image)
 		{

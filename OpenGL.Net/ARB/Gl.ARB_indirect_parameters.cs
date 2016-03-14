@@ -30,13 +30,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PARAMETER_BUFFER_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_indirect_parameters")]
+		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public const int PARAMETER_BUFFER_ARB = 0x80EE;
 
 		/// <summary>
 		/// Value of GL_PARAMETER_BUFFER_BINDING_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_indirect_parameters")]
+		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public const int PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
 
 		/// <summary>
@@ -57,7 +57,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_indirect_parameters")]
+		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public static void MultiDrawArraysIndirectARB(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectCountARB != null, "pglMultiDrawArraysIndirectCountARB not implemented");
@@ -87,7 +87,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_indirect_parameters")]
+		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public static void MultiDrawElementsIndirectARB(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCountARB != null, "pglMultiDrawElementsIndirectCountARB not implemented");

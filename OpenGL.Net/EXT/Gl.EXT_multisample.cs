@@ -128,6 +128,7 @@ namespace OpenGL
 		/// <param name="invert">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[AliasOf("glSampleMaskSGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		public static void SampleMaskEXT(float value, bool invert)
 		{
@@ -143,6 +144,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[AliasOf("glSamplePatternSGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		public static void SamplePatternEXT(Int32 pattern)
 		{

@@ -30,61 +30,61 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTICES_SUBMITTED_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int VERTICES_SUBMITTED_ARB = 0x82EE;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVES_SUBMITTED_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int PRIMITIVES_SUBMITTED_ARB = 0x82EF;
 
 		/// <summary>
 		/// Value of GL_VERTEX_SHADER_INVOCATIONS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int VERTEX_SHADER_INVOCATIONS_ARB = 0x82F0;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SHADER_PATCHES_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int TESS_CONTROL_SHADER_PATCHES_ARB = 0x82F1;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SHADER_INVOCATIONS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_SHADER_INVOCATIONS_ARB = 0x82F2;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB = 0x82F3;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER_INVOCATIONS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int FRAGMENT_SHADER_INVOCATIONS_ARB = 0x82F4;
 
 		/// <summary>
 		/// Value of GL_COMPUTE_SHADER_INVOCATIONS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int COMPUTE_SHADER_INVOCATIONS_ARB = 0x82F5;
 
 		/// <summary>
 		/// Value of GL_CLIPPING_INPUT_PRIMITIVES_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int CLIPPING_INPUT_PRIMITIVES_ARB = 0x82F6;
 
 		/// <summary>
 		/// Value of GL_CLIPPING_OUTPUT_PRIMITIVES_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_pipeline_statistics_query")]
+		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]
 		public const int CLIPPING_OUTPUT_PRIMITIVES_ARB = 0x82F7;
 
 	}

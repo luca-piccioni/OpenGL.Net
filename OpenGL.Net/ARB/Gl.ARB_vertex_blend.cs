@@ -30,7 +30,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_UNITS_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_VERTEX_UNITS_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int MAX_VERTEX_UNITS_ARB = 0x86A4;
 
 		/// <summary>
@@ -60,31 +62,41 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_TYPE_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_WEIGHT_ARRAY_TYPE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_TYPE_ARB = 0x86A9;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_STRIDE_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_WEIGHT_ARRAY_STRIDE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_STRIDE_ARB = 0x86AA;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_SIZE_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_WEIGHT_ARRAY_SIZE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_SIZE_ARB = 0x86AB;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_POINTER_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_WEIGHT_ARRAY_POINTER_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_POINTER_ARB = 0x86AC;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_WEIGHT_ARRAY_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_ARB = 0x86AD;
 
 		/// <summary>

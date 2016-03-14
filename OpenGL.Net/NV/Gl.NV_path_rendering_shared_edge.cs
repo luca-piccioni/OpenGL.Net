@@ -30,7 +30,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SHARED_EDGE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering_shared_edge")]
+		[RequiredByFeature("GL_NV_path_rendering_shared_edge", Api = "gl|gles2")]
 		public const int SHARED_EDGE_NV = 0xC0;
 
 	}

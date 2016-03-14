@@ -30,19 +30,19 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_SRGB_DECODE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_sRGB_decode")]
+		[RequiredByFeature("GL_EXT_texture_sRGB_decode", Api = "gl|gles2")]
 		public const int TEXTURE_SRGB_DECODE_EXT = 0x8A48;
 
 		/// <summary>
 		/// Value of GL_DECODE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_sRGB_decode")]
+		[RequiredByFeature("GL_EXT_texture_sRGB_decode", Api = "gl|gles2")]
 		public const int DECODE_EXT = 0x8A49;
 
 		/// <summary>
 		/// Value of GL_SKIP_DECODE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_sRGB_decode")]
+		[RequiredByFeature("GL_EXT_texture_sRGB_decode", Api = "gl|gles2")]
 		public const int SKIP_DECODE_EXT = 0x8A4A;
 
 	}

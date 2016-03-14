@@ -7156,6 +7156,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width)
 		{
 			Debug.Assert(Delegates.pglTextureStorage1DEXT != null, "pglTextureStorage1DEXT not implemented");
@@ -7186,6 +7187,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2DEXT != null, "pglTextureStorage2DEXT not implemented");
@@ -7219,6 +7221,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3DEXT != null, "pglTextureStorage3DEXT not implemented");

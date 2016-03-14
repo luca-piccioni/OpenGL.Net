@@ -43,70 +43,80 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_RGB8_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_RGB8_ETC2 = 0x9274;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_SRGB8_ETC2 = 0x9275;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9276;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9277;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA8_ETC2_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_RGBA8_ETC2_EAC = 0x9278;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ETC2_EAC = 0x9279;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_R11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_R11_EAC = 0x9270;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SIGNED_R11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_SIGNED_R11_EAC = 0x9271;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RG11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_RG11_EAC = 0x9272;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SIGNED_RG11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int COMPRESSED_SIGNED_RG11_EAC = 0x9273;
 
 		/// <summary>
@@ -116,14 +126,18 @@ namespace OpenGL
 		/// Gl.UNSIGNED_BYTE, 16 for Gl.UNSIGNED_SHORT and 32 for Gl.UNSIGNED_INT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
 
 		/// <summary>
 		/// Value of GL_ANY_SAMPLES_PASSED_CONSERVATIVE symbol.
 		/// </summary>
+		[AliasOf("GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 		public const int ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
 
 		/// <summary>
@@ -131,14 +145,16 @@ namespace OpenGL
 		/// attributes to the GL.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		public const int MAX_ELEMENT_INDEX = 0x8D6B;
 
 		/// <summary>
 		/// Value of GL_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int COMPUTE_SHADER = 0x91B9;
 
 		/// <summary>
@@ -146,7 +162,8 @@ namespace OpenGL
 		/// See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_UNIFORM_BLOCKS = 0x91BB;
 
 		/// <summary>
@@ -154,21 +171,24 @@ namespace OpenGL
 		/// the compute shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_TEXTURE_IMAGE_UNITS = 0x91BC;
 
 		/// <summary>
 		/// Value of GL_MAX_COMPUTE_IMAGE_UNIFORMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_IMAGE_UNIFORMS = 0x91BD;
 
 		/// <summary>
 		/// Value of GL_MAX_COMPUTE_SHARED_MEMORY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_SHARED_MEMORY_SIZE = 0x8262;
 
 		/// <summary>
@@ -176,7 +196,8 @@ namespace OpenGL
 		/// held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_UNIFORM_COMPONENTS = 0x8263;
 
 		/// <summary>
@@ -184,14 +205,16 @@ namespace OpenGL
 		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS = 0x8264;
 
 		/// <summary>
 		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_ATOMIC_COUNTERS = 0x8265;
 
 		/// <summary>
@@ -199,7 +222,8 @@ namespace OpenGL
 		/// (including default). The value must be at least 1. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS = 0x8266;
 
 		/// <summary>
@@ -207,7 +231,8 @@ namespace OpenGL
 		/// dimensions) that may be dispatched to a compute shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_WORK_GROUP_INVOCATIONS = 0x90EB;
 
 		/// <summary>
@@ -215,7 +240,8 @@ namespace OpenGL
 		/// compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_WORK_GROUP_COUNT = 0x91BE;
 
 		/// <summary>
@@ -223,7 +249,8 @@ namespace OpenGL
 		/// compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_WORK_GROUP_SIZE = 0x91BF;
 
 		/// <summary>
@@ -232,28 +259,30 @@ namespace OpenGL
 		/// successfully and contains a binary for the compute shader stage.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int COMPUTE_WORK_GROUP_SIZE = 0x8267;
 
 		/// <summary>
 		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER = 0x90EC;
 
 		/// <summary>
 		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER = 0x90ED;
 
 		/// <summary>
 		/// Value of GL_DISPATCH_INDIRECT_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
 		/// <summary>
@@ -262,14 +291,16 @@ namespace OpenGL
 		/// Gl.BindBuffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
 
 		/// <summary>
 		/// Value of GL_COMPUTE_SHADER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]
 		public const uint COMPUTE_SHADER_BIT = 0x00000020;
 
@@ -280,27 +311,36 @@ namespace OpenGL
 		/// Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB")]
+		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 		/// <summary>
 		/// Value of GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB")]
+		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
 
 		/// <summary>
 		/// Gl.GetPointer: returns the current callback function set with the callback argument of Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
+		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
 
 		/// <summary>
@@ -308,117 +348,156 @@ namespace OpenGL
 		/// Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
+		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_CALLBACK_USER_PARAM = 0x8245;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_API symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_API_ARB")]
+		[AliasOf("GL_DEBUG_SOURCE_API_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_API = 0x8246;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_WINDOW_SYSTEM symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB")]
+		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_WINDOW_SYSTEM = 0x8247;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_SHADER_COMPILER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_ARB")]
+		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_SHADER_COMPILER = 0x8248;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_THIRD_PARTY symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_ARB")]
+		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_THIRD_PARTY = 0x8249;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_APPLICATION symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_ARB")]
+		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_APPLICATION = 0x824A;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_OTHER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_OTHER_ARB")]
+		[AliasOf("GL_DEBUG_SOURCE_OTHER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_OTHER = 0x824B;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_ERROR symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_ERROR_ARB")]
+		[AliasOf("GL_DEBUG_TYPE_ERROR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_ERROR = 0x824C;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB")]
+		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_DEPRECATED_BEHAVIOR = 0x824D;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB")]
+		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_UNDEFINED_BEHAVIOR = 0x824E;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_PORTABILITY symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_ARB")]
+		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_PORTABILITY = 0x824F;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_PERFORMANCE symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_ARB")]
+		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_PERFORMANCE = 0x8250;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_OTHER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_OTHER_ARB")]
+		[AliasOf("GL_DEBUG_TYPE_OTHER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_OTHER = 0x8251;
 
 		/// <summary>
@@ -426,10 +505,13 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_AMD")]
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB")]
+		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_DEBUG_MESSAGE_LENGTH = 0x9143;
 
 		/// <summary>
@@ -437,10 +519,13 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_AMD")]
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB")]
+		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_DEBUG_LOGGED_MESSAGES = 0x9144;
 
 		/// <summary>
@@ -448,10 +533,13 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_AMD")]
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB")]
+		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_LOGGED_MESSAGES = 0x9145;
 
 		/// <summary>
@@ -459,10 +547,13 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_HIGH_AMD")]
 		[AliasOf("GL_DEBUG_SEVERITY_HIGH_ARB")]
+		[AliasOf("GL_DEBUG_SEVERITY_HIGH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_HIGH = 0x9146;
 
 		/// <summary>
@@ -470,10 +561,13 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_AMD")]
 		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_ARB")]
+		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_MEDIUM = 0x9147;
 
 		/// <summary>
@@ -481,118 +575,166 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_LOW_AMD")]
 		[AliasOf("GL_DEBUG_SEVERITY_LOW_ARB")]
+		[AliasOf("GL_DEBUG_SEVERITY_LOW_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_LOW = 0x9148;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_MARKER symbol.
 		/// </summary>
+		[AliasOf("GL_DEBUG_TYPE_MARKER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_MARKER = 0x8268;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_PUSH_GROUP symbol.
 		/// </summary>
+		[AliasOf("GL_DEBUG_TYPE_PUSH_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_PUSH_GROUP = 0x8269;
 
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_POP_GROUP symbol.
 		/// </summary>
+		[AliasOf("GL_DEBUG_TYPE_POP_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_POP_GROUP = 0x826A;
 
 		/// <summary>
 		/// Value of GL_DEBUG_SEVERITY_NOTIFICATION symbol.
 		/// </summary>
+		[AliasOf("GL_DEBUG_SEVERITY_NOTIFICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_NOTIFICATION = 0x826B;
 
 		/// <summary>
 		/// Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
 		/// </summary>
+		[AliasOf("GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_DEBUG_GROUP_STACK_DEPTH = 0x826C;
 
 		/// <summary>
 		/// Gl.Get: data returns a single value, the current depth of the debug message group stack.
 		/// </summary>
+		[AliasOf("GL_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_GROUP_STACK_DEPTH = 0x826D;
 
 		/// <summary>
 		/// Value of GL_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_BUFFER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int BUFFER = 0x82E0;
 
 		/// <summary>
 		/// Value of GL_SHADER symbol.
 		/// </summary>
+		[AliasOf("GL_SHADER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int SHADER = 0x82E1;
 
 		/// <summary>
 		/// Value of GL_PROGRAM symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int PROGRAM = 0x82E2;
 
 		/// <summary>
 		/// Value of GL_QUERY symbol.
 		/// </summary>
+		[AliasOf("GL_QUERY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int QUERY = 0x82E3;
 
 		/// <summary>
 		/// Value of GL_PROGRAM_PIPELINE symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_PIPELINE_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int PROGRAM_PIPELINE = 0x82E4;
 
 		/// <summary>
 		/// Value of GL_SAMPLER symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_EXT_debug_label")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int SAMPLER = 0x82E6;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum length of a label that may be assigned to an object. See Gl.ObjectLabel and 
 		/// Gl.ObjectPtrLabel.
 		/// </summary>
+		[AliasOf("GL_MAX_LABEL_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_LABEL_LENGTH = 0x82E8;
 
 		/// <summary>
 		/// Gl.Enable: if enabled, debug messages are produced by a debug context. When disabled, the debug message log is silenced. 
 		/// Note that in a non-debug context, very few, if any messages might be produced, even when Gl.DEBUG_OUTPUT is enabled.
 		/// </summary>
+		[AliasOf("GL_DEBUG_OUTPUT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_OUTPUT = 0x92E0;
 
 		/// <summary>
 		/// Value of GL_CONTEXT_FLAG_DEBUG_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_CONTEXT_FLAG_DEBUG_BIT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_DEBUG_BIT = 0x00000002;
 
@@ -601,7 +743,8 @@ namespace OpenGL
 		/// 1024.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_explicit_uniform_location")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_explicit_uniform_location", Api = "gl|glcore")]
 		public const int MAX_UNIFORM_LOCATIONS = 0x826E;
 
 		/// <summary>
@@ -616,7 +759,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_DEFAULT_WIDTH = 0x9310;
 
 		/// <summary>
@@ -631,7 +775,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_DEFAULT_HEIGHT = 0x9311;
 
 		/// <summary>
@@ -645,8 +790,13 @@ namespace OpenGL
 		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_LAYERS for the framebuffer object.
 		/// </para>
 		/// </summary>
+		[AliasOf("GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT")]
+		[AliasOf("GL_FRAMEBUFFER_DEFAULT_LAYERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int FRAMEBUFFER_DEFAULT_LAYERS = 0x9312;
 
 		/// <summary>
@@ -661,7 +811,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_DEFAULT_SAMPLES = 0x9313;
 
 		/// <summary>
@@ -676,7 +827,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS = 0x9314;
 
 		/// <summary>
@@ -684,7 +836,8 @@ namespace OpenGL
 		/// 16384. See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int MAX_FRAMEBUFFER_WIDTH = 0x9315;
 
 		/// <summary>
@@ -692,15 +845,21 @@ namespace OpenGL
 		/// 16384. See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int MAX_FRAMEBUFFER_HEIGHT = 0x9316;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum number of layers for a framebuffer that has no attachments, which must be at 
 		/// least 2048. See Gl.FramebufferParameter.
 		/// </summary>
+		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_EXT")]
+		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int MAX_FRAMEBUFFER_LAYERS = 0x9317;
 
 		/// <summary>
@@ -708,693 +867,694 @@ namespace OpenGL
 		/// See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public const int MAX_FRAMEBUFFER_SAMPLES = 0x9318;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_SUPPORTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_SUPPORTED = 0x826F;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_PREFERRED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_PREFERRED = 0x8270;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_RED_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_RED_SIZE = 0x8271;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_GREEN_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_GREEN_SIZE = 0x8272;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_BLUE_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_BLUE_SIZE = 0x8273;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_ALPHA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_ALPHA_SIZE = 0x8274;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_DEPTH_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_DEPTH_SIZE = 0x8275;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_STENCIL_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_STENCIL_SIZE = 0x8276;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_SHARED_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_SHARED_SIZE = 0x8277;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_RED_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_RED_TYPE = 0x8278;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_GREEN_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_GREEN_TYPE = 0x8279;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_BLUE_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_BLUE_TYPE = 0x827A;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_ALPHA_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_ALPHA_TYPE = 0x827B;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_DEPTH_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_DEPTH_TYPE = 0x827C;
 
 		/// <summary>
 		/// Value of GL_INTERNALFORMAT_STENCIL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_STENCIL_TYPE = 0x827D;
 
 		/// <summary>
 		/// Value of GL_MAX_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_WIDTH = 0x827E;
 
 		/// <summary>
 		/// Value of GL_MAX_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_HEIGHT = 0x827F;
 
 		/// <summary>
 		/// Value of GL_MAX_DEPTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_DEPTH = 0x8280;
 
 		/// <summary>
 		/// Value of GL_MAX_LAYERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_LAYERS = 0x8281;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_DIMENSIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_COMBINED_DIMENSIONS = 0x8282;
 
 		/// <summary>
 		/// Value of GL_COLOR_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COLOR_COMPONENTS = 0x8283;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int DEPTH_COMPONENTS = 0x8284;
 
 		/// <summary>
 		/// Value of GL_STENCIL_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int STENCIL_COMPONENTS = 0x8285;
 
 		/// <summary>
 		/// Value of GL_COLOR_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COLOR_RENDERABLE = 0x8286;
 
 		/// <summary>
 		/// Value of GL_DEPTH_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int DEPTH_RENDERABLE = 0x8287;
 
 		/// <summary>
 		/// Value of GL_STENCIL_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int STENCIL_RENDERABLE = 0x8288;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_RENDERABLE = 0x8289;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_RENDERABLE_LAYERED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_RENDERABLE_LAYERED = 0x828A;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_BLEND symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_BLEND = 0x828B;
 
 		/// <summary>
 		/// Value of GL_READ_PIXELS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int READ_PIXELS = 0x828C;
 
 		/// <summary>
 		/// Value of GL_READ_PIXELS_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int READ_PIXELS_FORMAT = 0x828D;
 
 		/// <summary>
 		/// Value of GL_READ_PIXELS_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int READ_PIXELS_TYPE = 0x828E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_IMAGE_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_IMAGE_FORMAT = 0x828F;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_IMAGE_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_IMAGE_TYPE = 0x8290;
 
 		/// <summary>
 		/// Value of GL_GET_TEXTURE_IMAGE_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int GET_TEXTURE_IMAGE_FORMAT = 0x8291;
 
 		/// <summary>
 		/// Value of GL_GET_TEXTURE_IMAGE_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int GET_TEXTURE_IMAGE_TYPE = 0x8292;
 
 		/// <summary>
 		/// Value of GL_MIPMAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MIPMAP = 0x8293;
 
 		/// <summary>
 		/// Value of GL_MANUAL_GENERATE_MIPMAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MANUAL_GENERATE_MIPMAP = 0x8294;
 
 		/// <summary>
 		/// Value of GL_AUTO_GENERATE_MIPMAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int AUTO_GENERATE_MIPMAP = 0x8295;
 
 		/// <summary>
 		/// Value of GL_COLOR_ENCODING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COLOR_ENCODING = 0x8296;
 
 		/// <summary>
 		/// Value of GL_SRGB_READ symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SRGB_READ = 0x8297;
 
 		/// <summary>
 		/// Value of GL_SRGB_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SRGB_WRITE = 0x8298;
 
 		/// <summary>
 		/// Value of GL_FILTER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FILTER = 0x829A;
 
 		/// <summary>
 		/// Value of GL_VERTEX_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VERTEX_TEXTURE = 0x829B;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TESS_CONTROL_TEXTURE = 0x829C;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_TEXTURE = 0x829D;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int GEOMETRY_TEXTURE = 0x829E;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAGMENT_TEXTURE = 0x829F;
 
 		/// <summary>
 		/// Value of GL_COMPUTE_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COMPUTE_TEXTURE = 0x82A0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_SHADOW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_SHADOW = 0x82A1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_GATHER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_GATHER = 0x82A2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_GATHER_SHADOW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_GATHER_SHADOW = 0x82A3;
 
 		/// <summary>
 		/// Value of GL_SHADER_IMAGE_LOAD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SHADER_IMAGE_LOAD = 0x82A4;
 
 		/// <summary>
 		/// Value of GL_SHADER_IMAGE_STORE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SHADER_IMAGE_STORE = 0x82A5;
 
 		/// <summary>
 		/// Value of GL_SHADER_IMAGE_ATOMIC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SHADER_IMAGE_ATOMIC = 0x82A6;
 
 		/// <summary>
 		/// Value of GL_IMAGE_TEXEL_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_TEXEL_SIZE = 0x82A7;
 
 		/// <summary>
 		/// Value of GL_IMAGE_COMPATIBILITY_CLASS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_COMPATIBILITY_CLASS = 0x82A8;
 
 		/// <summary>
 		/// Value of GL_IMAGE_PIXEL_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_PIXEL_FORMAT = 0x82A9;
 
 		/// <summary>
 		/// Value of GL_IMAGE_PIXEL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_PIXEL_TYPE = 0x82AA;
 
 		/// <summary>
 		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST = 0x82AC;
 
 		/// <summary>
 		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST = 0x82AD;
 
 		/// <summary>
 		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE = 0x82AE;
 
 		/// <summary>
 		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE = 0x82AF;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED_BLOCK_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_COMPRESSED_BLOCK_WIDTH = 0x82B1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_COMPRESSED_BLOCK_HEIGHT = 0x82B2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED_BLOCK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_COMPRESSED_BLOCK_SIZE = 0x82B3;
 
 		/// <summary>
 		/// Value of GL_CLEAR_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int CLEAR_BUFFER = 0x82B4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_VIEW = 0x82B5;
 
 		/// <summary>
 		/// Value of GL_VIEW_COMPATIBILITY_CLASS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_COMPATIBILITY_CLASS = 0x82B6;
 
 		/// <summary>
 		/// Value of GL_FULL_SUPPORT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FULL_SUPPORT = 0x82B7;
 
 		/// <summary>
 		/// Value of GL_CAVEAT_SUPPORT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int CAVEAT_SUPPORT = 0x82B8;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_4_X_32 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_4_X_32 = 0x82B9;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_2_X_32 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_2_X_32 = 0x82BA;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_1_X_32 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_1_X_32 = 0x82BB;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_4_X_16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_4_X_16 = 0x82BC;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_2_X_16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_2_X_16 = 0x82BD;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_1_X_16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_1_X_16 = 0x82BE;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_4_X_8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_4_X_8 = 0x82BF;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_2_X_8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_2_X_8 = 0x82C0;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_1_X_8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_1_X_8 = 0x82C1;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_11_11_10 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_11_11_10 = 0x82C2;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CLASS_10_10_10_2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_10_10_10_2 = 0x82C3;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_128_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_128_BITS = 0x82C4;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_96_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_96_BITS = 0x82C5;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_64_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_64_BITS = 0x82C6;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_48_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_48_BITS = 0x82C7;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_32_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_32_BITS = 0x82C8;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_24_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_24_BITS = 0x82C9;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_16_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_16_BITS = 0x82CA;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_8_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_8_BITS = 0x82CB;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_S3TC_DXT1_RGB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT1_RGB = 0x82CC;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_S3TC_DXT1_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT1_RGBA = 0x82CD;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_S3TC_DXT3_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT3_RGBA = 0x82CE;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_S3TC_DXT5_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT5_RGBA = 0x82CF;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_RGTC1_RED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_RGTC1_RED = 0x82D0;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_RGTC2_RG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_RGTC2_RG = 0x82D1;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_BPTC_UNORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_BPTC_UNORM = 0x82D2;
 
 		/// <summary>
 		/// Value of GL_VIEW_CLASS_BPTC_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_BPTC_FLOAT = 0x82D3;
 
 		/// <summary>
@@ -1409,7 +1569,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int UNIFORM = 0x92E1;
 
 		/// <summary>
@@ -1424,7 +1585,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int UNIFORM_BLOCK = 0x92E2;
 
 		/// <summary>
@@ -1445,7 +1607,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int PROGRAM_INPUT = 0x92E3;
 
 		/// <summary>
@@ -1466,7 +1629,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int PROGRAM_OUTPUT = 0x92E4;
 
 		/// <summary>
@@ -1481,7 +1645,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int BUFFER_VARIABLE = 0x92E5;
 
 		/// <summary>
@@ -1496,7 +1661,8 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int SHADER_STORAGE_BLOCK = 0x92E6;
 
 		/// <summary>
@@ -1514,42 +1680,42 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int VERTEX_SUBROUTINE = 0x92E8;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_CONTROL_SUBROUTINE = 0x92E9;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_SUBROUTINE = 0x92EA;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int GEOMETRY_SUBROUTINE = 0x92EB;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int FRAGMENT_SUBROUTINE = 0x92EC;
 
 		/// <summary>
 		/// Value of GL_COMPUTE_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int COMPUTE_SUBROUTINE = 0x92ED;
 
 		/// <summary>
@@ -1567,42 +1733,42 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int VERTEX_SUBROUTINE_UNIFORM = 0x92EE;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_CONTROL_SUBROUTINE_UNIFORM = 0x92EF;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_SUBROUTINE_UNIFORM = 0x92F0;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int GEOMETRY_SUBROUTINE_UNIFORM = 0x92F1;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int FRAGMENT_SUBROUTINE_UNIFORM = 0x92F2;
 
 		/// <summary>
 		/// Value of GL_COMPUTE_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int COMPUTE_SUBROUTINE_UNIFORM = 0x92F3;
 
 		/// <summary>
@@ -1620,210 +1786,256 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_VARYING = 0x92F4;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_RESOURCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int ACTIVE_RESOURCES = 0x92F5;
 
 		/// <summary>
 		/// Value of GL_MAX_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int MAX_NAME_LENGTH = 0x92F6;
 
 		/// <summary>
 		/// Value of GL_MAX_NUM_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int MAX_NUM_ACTIVE_VARIABLES = 0x92F7;
 
 		/// <summary>
 		/// Value of GL_MAX_NUM_COMPATIBLE_SUBROUTINES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int MAX_NUM_COMPATIBLE_SUBROUTINES = 0x92F8;
 
 		/// <summary>
 		/// Value of GL_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int NAME_LENGTH = 0x92F9;
 
 		/// <summary>
 		/// Value of GL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TYPE = 0x92FA;
 
 		/// <summary>
 		/// Value of GL_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int ARRAY_SIZE = 0x92FB;
 
 		/// <summary>
 		/// Value of GL_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int OFFSET = 0x92FC;
 
 		/// <summary>
 		/// Value of GL_BLOCK_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int BLOCK_INDEX = 0x92FD;
 
 		/// <summary>
 		/// Value of GL_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int ARRAY_STRIDE = 0x92FE;
 
 		/// <summary>
 		/// Value of GL_MATRIX_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int MATRIX_STRIDE = 0x92FF;
 
 		/// <summary>
 		/// Value of GL_IS_ROW_MAJOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int IS_ROW_MAJOR = 0x9300;
 
 		/// <summary>
 		/// Value of GL_ATOMIC_COUNTER_BUFFER_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_INDEX = 0x9301;
 
 		/// <summary>
 		/// Value of GL_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int BUFFER_BINDING = 0x9302;
 
 		/// <summary>
 		/// Value of GL_BUFFER_DATA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int BUFFER_DATA_SIZE = 0x9303;
 
 		/// <summary>
 		/// Value of GL_NUM_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int NUM_ACTIVE_VARIABLES = 0x9304;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int ACTIVE_VARIABLES = 0x9305;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_VERTEX_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int REFERENCED_BY_VERTEX_SHADER = 0x9306;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
 		/// </summary>
+		[AliasOf("GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT")]
+		[AliasOf("GL_REFERENCED_BY_TESS_CONTROL_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int REFERENCED_BY_TESS_CONTROL_SHADER = 0x9307;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
+		[AliasOf("GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT")]
+		[AliasOf("GL_REFERENCED_BY_TESS_EVALUATION_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int REFERENCED_BY_TESS_EVALUATION_SHADER = 0x9308;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_GEOMETRY_SHADER symbol.
 		/// </summary>
+		[AliasOf("GL_REFERENCED_BY_GEOMETRY_SHADER_EXT")]
+		[AliasOf("GL_REFERENCED_BY_GEOMETRY_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int REFERENCED_BY_GEOMETRY_SHADER = 0x9309;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_FRAGMENT_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int REFERENCED_BY_FRAGMENT_SHADER = 0x930A;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int REFERENCED_BY_COMPUTE_SHADER = 0x930B;
 
 		/// <summary>
 		/// Value of GL_TOP_LEVEL_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TOP_LEVEL_ARRAY_SIZE = 0x930C;
 
 		/// <summary>
 		/// Value of GL_TOP_LEVEL_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TOP_LEVEL_ARRAY_STRIDE = 0x930D;
 
 		/// <summary>
 		/// Value of GL_LOCATION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int LOCATION = 0x930E;
 
 		/// <summary>
 		/// Value of GL_LOCATION_INDEX symbol.
 		/// </summary>
+		[AliasOf("GL_LOCATION_INDEX_EXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public const int LOCATION_INDEX = 0x930F;
 
 		/// <summary>
 		/// Value of GL_IS_PER_PATCH symbol.
 		/// </summary>
+		[AliasOf("GL_IS_PER_PATCH_EXT")]
+		[AliasOf("GL_IS_PER_PATCH_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int IS_PER_PATCH = 0x92E7;
 
 		/// <summary>
 		/// Value of GL_SHADER_STORAGE_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int SHADER_STORAGE_BUFFER = 0x90D2;
 
 		/// <summary>
@@ -1834,7 +2046,8 @@ namespace OpenGL
 		/// See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
 		/// <summary>
@@ -1843,7 +2056,8 @@ namespace OpenGL
 		/// Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int SHADER_STORAGE_BUFFER_START = 0x90D4;
 
 		/// <summary>
@@ -1852,7 +2066,8 @@ namespace OpenGL
 		/// Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int SHADER_STORAGE_BUFFER_SIZE = 0x90D5;
 
 		/// <summary>
@@ -1860,31 +2075,47 @@ namespace OpenGL
 		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int MAX_VERTEX_SHADER_STORAGE_BLOCKS = 0x90D6;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a geometry 
 		/// shader.
 		/// </summary>
+		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT")]
+		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int MAX_GEOMETRY_SHADER_STORAGE_BLOCKS = 0x90D7;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
 		/// tessellation control shader.
 		/// </summary>
+		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT")]
+		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS = 0x90D8;
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
 		/// tessellation evaluation shader.
 		/// </summary>
+		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT")]
+		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public const int MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS = 0x90D9;
 
 		/// <summary>
@@ -1892,7 +2123,8 @@ namespace OpenGL
 		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int MAX_FRAGMENT_SHADER_STORAGE_BLOCKS = 0x90DA;
 
 		/// <summary>
@@ -1900,7 +2132,8 @@ namespace OpenGL
 		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_SHADER_STORAGE_BLOCKS = 0x90DB;
 
 		/// <summary>
@@ -1908,7 +2141,8 @@ namespace OpenGL
 		/// active shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int MAX_COMBINED_SHADER_STORAGE_BLOCKS = 0x90DC;
 
 		/// <summary>
@@ -1916,14 +2150,16 @@ namespace OpenGL
 		/// at least 8.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int MAX_SHADER_STORAGE_BUFFER_BINDINGS = 0x90DD;
 
 		/// <summary>
 		/// Value of GL_MAX_SHADER_STORAGE_BLOCK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int MAX_SHADER_STORAGE_BLOCK_SIZE = 0x90DE;
 
 		/// <summary>
@@ -1931,14 +2167,16 @@ namespace OpenGL
 		/// initial value is 1. See Gl.ShaderStorateBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public const int SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT = 0x90DF;
 
 		/// <summary>
 		/// Value of GL_SHADER_STORAGE_BARRIER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
@@ -1956,82 +2194,119 @@ namespace OpenGL
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_stencil_texturing")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_stencil_texturing", Api = "gl|glcore")]
 		public const int DEPTH_STENCIL_TEXTURE_MODE = 0x90EA;
 
 		/// <summary>
 		/// Gl.GetTexLevelParameter: params returns a single integer value, the offset into the data store of the buffer bound to a 
 		/// buffer texture. Gl.TexBufferRange.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_EXT")]
+		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_buffer_range")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		public const int TEXTURE_BUFFER_OFFSET = 0x919D;
 
 		/// <summary>
 		/// Gl.GetTexLevelParameter: params returns a single integer value, the size of the range of a data store of the buffer 
 		/// bound to a buffer texture. Gl.TexBufferRange.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BUFFER_SIZE_EXT")]
+		[AliasOf("GL_TEXTURE_BUFFER_SIZE_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_buffer_range")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		public const int TEXTURE_BUFFER_SIZE = 0x919E;
 
 		/// <summary>
 		/// Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The initial 
 		/// value is 1. See Gl.UniformBlockBinding.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT")]
+		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_buffer_range")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		public const int TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
 		/// <summary>
 		/// Gl.GetTexParameter: returns a single-valued base level of a texture view relative to its parent. The initial value is 0. 
 		/// See Gl.TextureView.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_VIEW_MIN_LEVEL_EXT")]
+		[AliasOf("GL_TEXTURE_VIEW_MIN_LEVEL_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_view")]
+		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 		public const int TEXTURE_VIEW_MIN_LEVEL = 0x82DB;
 
 		/// <summary>
 		/// Gl.GetTexParameter: returns a single-valued number of levels of detail of a texture view. See Gl.TextureView.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_VIEW_NUM_LEVELS_EXT")]
+		[AliasOf("GL_TEXTURE_VIEW_NUM_LEVELS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_view")]
+		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 		public const int TEXTURE_VIEW_NUM_LEVELS = 0x82DC;
 
 		/// <summary>
 		/// Gl.GetTexParameter: returns a single-valued first level of a texture array view relative to its parent. See 
 		/// Gl.TextureView.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_VIEW_MIN_LAYER_EXT")]
+		[AliasOf("GL_TEXTURE_VIEW_MIN_LAYER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_view")]
+		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 		public const int TEXTURE_VIEW_MIN_LAYER = 0x82DD;
 
 		/// <summary>
 		/// Gl.GetTexParameter: returns a single-valued number of layers in a texture array view. See Gl.TextureView.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_VIEW_NUM_LAYERS_EXT")]
+		[AliasOf("GL_TEXTURE_VIEW_NUM_LAYERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_view")]
+		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 		public const int TEXTURE_VIEW_NUM_LAYERS = 0x82DE;
 
 		/// <summary>
 		/// Gl.GetTexParameter: returns a single-valued number of immutable texture levels in a texture view. See Gl.TextureView.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_view")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 		public const int TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int VERTEX_ATTRIB_BINDING = 0x82D4;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_RELATIVE_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D5;
 
 		/// <summary>
@@ -2039,7 +2314,8 @@ namespace OpenGL
 		/// first element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int VERTEX_BINDING_DIVISOR = 0x82D6;
 
 		/// <summary>
@@ -2047,7 +2323,8 @@ namespace OpenGL
 		/// element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int VERTEX_BINDING_OFFSET = 0x82D7;
 
 		/// <summary>
@@ -2055,34 +2332,38 @@ namespace OpenGL
 		/// start of each element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int VERTEX_BINDING_STRIDE = 0x82D8;
 
 		/// <summary>
 		/// Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex binding offset.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9;
 
 		/// <summary>
 		/// Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public const int MAX_VERTEX_ATTRIB_BINDINGS = 0x82DA;
 
 		/// <summary>
 		/// Value of GL_VERTEX_BINDING_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int VERTEX_BINDING_BUFFER = 0x8F4F;
 
 		/// <summary>
 		/// Value of GL_DISPLAY_LIST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DISPLAY_LIST = 0x82E7;
 
 		/// <summary>
@@ -2132,7 +2413,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_clear_buffer_object")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferData(Int32 target, Int32 internalformat, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferData != null, "pglClearBufferData not implemented");
@@ -2188,7 +2469,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_clear_buffer_object")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferData(Int32 target, Int32 internalformat, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2262,7 +2543,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_clear_buffer_object")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferSubData(Int32 target, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferSubData != null, "pglClearBufferSubData not implemented");
@@ -2334,7 +2615,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_clear_buffer_object")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferSubData(Int32 target, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2368,7 +2649,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.DispatchComputeIndirect"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public static void DispatchCompute(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z)
 		{
 			Debug.Assert(Delegates.pglDispatchCompute != null, "pglDispatchCompute not implemented");
@@ -2398,7 +2680,8 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.DispatchCompute"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_compute_shader")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public static void DispatchComputeIndirect(IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDispatchComputeIndirect != null, "pglDispatchComputeIndirect not implemented");
@@ -2489,8 +2772,11 @@ namespace OpenGL
 		/// constraints of the format.
 		/// </exception>
 		/// <seealso cref="Gl.DispatchComputeIndirect"/>
+		[AliasOf("glCopyImageSubDataEXT")]
+		[AliasOf("glCopyImageSubDataOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_copy_image")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
 		public static void CopyImageSubData(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
 		{
 			Debug.Assert(Delegates.pglCopyImageSubData != null, "pglCopyImageSubData not implemented");
@@ -2548,7 +2834,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenFramebuffers"/>
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public static void FramebufferParameter(Int32 target, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFramebufferParameteri != null, "pglFramebufferParameteri not implemented");
@@ -2590,7 +2877,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferParameteri"/>
 		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 		public static void GetFramebufferParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2638,7 +2926,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public static void GetInternalformat(Int32 target, Int32 internalformat, Int32 pname, [Out] Int64[] @params)
 		{
 			unsafe {
@@ -2703,7 +2991,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglInvalidateTexSubImage != null, "pglInvalidateTexSubImage not implemented");
@@ -2741,7 +3029,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateTexImage(UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglInvalidateTexImage != null, "pglInvalidateTexImage not implemented");
@@ -2780,7 +3068,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateBufferSubData(UInt32 buffer, IntPtr offset, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglInvalidateBufferSubData != null, "pglInvalidateBufferSubData not implemented");
@@ -2809,7 +3097,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateBufferData(UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglInvalidateBufferData != null, "pglInvalidateBufferData not implemented");
@@ -2854,7 +3142,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateFramebuffer(Int32 target, params Int32[] attachments)
 		{
 			unsafe {
@@ -2917,7 +3206,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateSubFramebuffer(Int32 target, Int32[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			unsafe {
@@ -2976,8 +3266,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.MultiDrawElementsIndirect"/>
+		[AliasOf("glMultiDrawArraysIndirectAMD")]
+		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		public static void MultiDrawArraysIndirect(Int32 mode, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirect != null, "pglMultiDrawArraysIndirect not implemented");
@@ -3031,8 +3323,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.MultiDrawElementsIndirect"/>
+		[AliasOf("glMultiDrawArraysIndirectAMD")]
+		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		public static void MultiDrawArraysIndirect(Int32 mode, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -3096,8 +3390,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsIndirect"/>
 		/// <seealso cref="Gl.MultiDrawArraysIndirect"/>
+		[AliasOf("glMultiDrawElementsIndirectAMD")]
+		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		public static void MultiDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirect != null, "pglMultiDrawElementsIndirect not implemented");
@@ -3159,8 +3455,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsIndirect"/>
 		/// <seealso cref="Gl.MultiDrawArraysIndirect"/>
+		[AliasOf("glMultiDrawElementsIndirectAMD")]
+		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		public static void MultiDrawElementsIndirect(Int32 mode, Int32 type, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -3216,7 +3514,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectLabel"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static void GetProgramInterface(UInt32 program, Int32 programInterface, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -3262,7 +3561,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static UInt32 GetProgramResourceIndex(UInt32 program, Int32 programInterface, String name)
 		{
 			UInt32 retValue;
@@ -3318,7 +3618,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static void GetProgramResourceName(UInt32 program, Int32 programInterface, UInt32 index, Int32 bufSize, out Int32 length, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -3374,7 +3675,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static void GetProgramResource(UInt32 program, Int32 programInterface, UInt32 index, Int32[] props, out Int32 length, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -3419,7 +3721,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetGetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static Int32 GetProgramResourceLocation(UInt32 program, Int32 programInterface, String name)
 		{
 			Int32 retValue;
@@ -3461,7 +3764,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetGetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static Int32 GetProgramResourceLocationIndex(UInt32 program, Int32 programInterface, String name)
 		{
 			Int32 retValue;
@@ -3500,7 +3803,7 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if no vertex array object is bound.
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 		public static void ShaderStorageBlockBinding(UInt32 program, UInt32 storageBlockIndex, UInt32 storageBlockBinding)
 		{
 			Debug.Assert(Delegates.pglShaderStorageBlockBinding != null, "pglShaderStorageBlockBinding not implemented");
@@ -3558,8 +3861,11 @@ namespace OpenGL
 		/// Gl.TEXTURE_BUFFER_OFFSET_ALIGNMENT.
 		/// </exception>
 		/// <seealso cref="Gl.TexBuffer"/>
+		[AliasOf("glTexBufferRangeEXT")]
+		[AliasOf("glTexBufferRangeOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_buffer_range")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
 		public static void TexBufferRange(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglTexBufferRange != null, "pglTexBufferRange not implemented");
@@ -3627,7 +3933,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_storage_multisample")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
 		public static void TexStorage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexStorage2DMultisample != null, "pglTexStorage2DMultisample not implemented");
@@ -3702,8 +4009,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2DMultisample"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
+		[AliasOf("glTexStorage3DMultisampleOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_storage_multisample")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
 		public static void TexStorage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexStorage3DMultisample != null, "pglTexStorage3DMultisample not implemented");
@@ -3784,8 +4093,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		/// <seealso cref="Gl.GetTexParameter"/>
+		[AliasOf("glTextureViewEXT")]
+		[AliasOf("glTextureViewOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_texture_view")]
+		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		public static void Texture(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers)
 		{
 			Debug.Assert(Delegates.pglTextureView != null, "pglTextureView not implemented");
@@ -3835,7 +4146,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void BindVertexBuffer(UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglBindVertexBuffer != null, "pglBindVertexBuffer not implemented");
@@ -3905,7 +4217,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void VertexAttribFormat(UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribFormat != null, "pglVertexAttribFormat not implemented");
@@ -3972,7 +4285,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void VertexAttribIFormat(UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIFormat != null, "pglVertexAttribIFormat not implemented");
@@ -4039,7 +4353,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void VertexAttribLFormat(UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormat != null, "pglVertexAttribLFormat not implemented");
@@ -4079,7 +4393,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void VertexAttribBinding(UInt32 attribindex, UInt32 bindingindex)
 		{
 			Debug.Assert(Delegates.pglVertexAttribBinding != null, "pglVertexAttribBinding not implemented");
@@ -4116,7 +4431,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void VertexBindingDivisor(UInt32 bindingindex, UInt32 divisor)
 		{
 			Debug.Assert(Delegates.pglVertexBindingDivisor != null, "pglVertexBindingDivisor not implemented");
@@ -4159,8 +4475,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[AliasOf("glDebugMessageControlARB")]
+		[AliasOf("glDebugMessageControlKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageControl(Int32 source, Int32 type, Int32 severity, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -4207,8 +4526,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[AliasOf("glDebugMessageInsertARB")]
+		[AliasOf("glDebugMessageInsertKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsert != null, "pglDebugMessageInsert not implemented");
@@ -4229,8 +4551,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[AliasOf("glDebugMessageCallbackARB")]
+		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageCallback(IntPtr callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallback != null, "pglDebugMessageCallback not implemented");
@@ -4251,8 +4576,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[AliasOf("glDebugMessageCallbackARB")]
+		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageCallback(IntPtr callback, Object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
@@ -4295,8 +4623,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		/// <seealso cref="Gl.DebugMessageControl"/>
+		[AliasOf("glGetDebugMessageLogARB")]
+		[AliasOf("glGetDebugMessageLogKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static UInt32 GetDebugMessageLog(Int32 bufSize, [Out] Int32[] sources, [Out] Int32[] types, [Out] UInt32[] ids, [Out] Int32[] severities, [Out] Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;
@@ -4346,8 +4677,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.ObjectPtrLabel"/>
+		[AliasOf("glPushDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void PushDebugGroup(Int32 source, UInt32 id, Int32 length, String message)
 		{
 			Debug.Assert(Delegates.pglPushDebugGroup != null, "pglPushDebugGroup not implemented");
@@ -4367,8 +4700,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.ObjectPtrLabel"/>
+		[AliasOf("glPopDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void PopDebugGroup()
 		{
 			Debug.Assert(Delegates.pglPopDebugGroup != null, "pglPopDebugGroup not implemented");
@@ -4408,8 +4743,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectPtrLabel"/>
+		[AliasOf("glObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void Object(Int32 identifier, UInt32 name, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectLabel != null, "pglObjectLabel not implemented");
@@ -4456,8 +4793,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectPtrLabel"/>
+		[AliasOf("glGetObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void GetObject(Int32 identifier, UInt32 name, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -4495,8 +4834,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
+		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void Object(IntPtr ptr, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectPtrLabel != null, "pglObjectPtrLabel not implemented");
@@ -4529,8 +4870,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
+		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void Object(Object ptr, Int32 length, String label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
@@ -4575,8 +4918,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectLabel"/>
+		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void GetObject(IntPtr ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -4624,8 +4969,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectLabel"/>
+		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void GetObject(Object ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);

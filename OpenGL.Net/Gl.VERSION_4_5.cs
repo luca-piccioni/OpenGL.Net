@@ -30,78 +30,81 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONTEXT_LOST symbol.
 		/// </summary>
+		[AliasOf("GL_CONTEXT_LOST_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_LOST = 0x0507;
 
 		/// <summary>
 		/// Value of GL_NEGATIVE_ONE_TO_ONE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int NEGATIVE_ONE_TO_ONE = 0x935E;
 
 		/// <summary>
 		/// Value of GL_ZERO_TO_ONE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int ZERO_TO_ONE = 0x935F;
 
 		/// <summary>
 		/// Value of GL_CLIP_ORIGIN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int CLIP_ORIGIN = 0x935C;
 
 		/// <summary>
 		/// Value of GL_CLIP_DEPTH_MODE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int CLIP_DEPTH_MODE = 0x935D;
 
 		/// <summary>
 		/// Value of GL_QUERY_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_conditional_render_inverted")]
+		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_WAIT_INVERTED = 0x8E17;
 
 		/// <summary>
 		/// Value of GL_QUERY_NO_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_conditional_render_inverted")]
+		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_NO_WAIT_INVERTED = 0x8E18;
 
 		/// <summary>
 		/// Value of GL_QUERY_BY_REGION_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_conditional_render_inverted")]
+		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_BY_REGION_WAIT_INVERTED = 0x8E19;
 
 		/// <summary>
 		/// Value of GL_QUERY_BY_REGION_NO_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_conditional_render_inverted")]
+		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_BY_REGION_NO_WAIT_INVERTED = 0x8E1A;
 
 		/// <summary>
 		/// Value of GL_MAX_CULL_DISTANCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_cull_distance")]
+		[RequiredByFeature("GL_ARB_cull_distance", Api = "gl|glcore")]
 		public const int MAX_CULL_DISTANCES = 0x82F9;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_cull_distance")]
+		[RequiredByFeature("GL_ARB_cull_distance", Api = "gl|glcore")]
 		public const int MAX_COMBINED_CLIP_AND_CULL_DISTANCES = 0x82FA;
 
 		/// <summary>
@@ -110,68 +113,98 @@ namespace OpenGL
 		/// created, or the value of the target parameter to the call to glCreateTextures which created the texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public const int TEXTURE_TARGET = 0x1006;
 
 		/// <summary>
 		/// Value of GL_QUERY_TARGET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public const int QUERY_TARGET = 0x82EA;
 
 		/// <summary>
 		/// Gl.GetGraphicsResetStatus: indicates that a reset has been detected that is attributable to the current GL context.
 		/// </summary>
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
+		[AliasOf("GL_GUILTY_CONTEXT_RESET_EXT")]
+		[AliasOf("GL_GUILTY_CONTEXT_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
 
 		/// <summary>
 		/// Gl.GetGraphicsResetStatus: indicates a reset has been detected that is not attributable to the current GL context.
 		/// </summary>
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
+		[AliasOf("GL_INNOCENT_CONTEXT_RESET_EXT")]
+		[AliasOf("GL_INNOCENT_CONTEXT_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
 
 		/// <summary>
 		/// Gl.GetGraphicsResetStatus: indicates a detected graphics reset whose cause is unknown.
 		/// </summary>
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
+		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_EXT")]
+		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
 
 		/// <summary>
 		/// Value of GL_RESET_NOTIFICATION_STRATEGY symbol.
 		/// </summary>
 		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB")]
+		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_EXT")]
+		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int RESET_NOTIFICATION_STRATEGY = 0x8256;
 
 		/// <summary>
 		/// Value of GL_LOSE_CONTEXT_ON_RESET symbol.
 		/// </summary>
 		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB")]
+		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_EXT")]
+		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int LOSE_CONTEXT_ON_RESET = 0x8252;
 
 		/// <summary>
 		/// Value of GL_NO_RESET_NOTIFICATION symbol.
 		/// </summary>
 		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB")]
+		[AliasOf("GL_NO_RESET_NOTIFICATION_EXT")]
+		[AliasOf("GL_NO_RESET_NOTIFICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int NO_RESET_NOTIFICATION = 0x8261;
 
 		/// <summary>
@@ -179,22 +212,27 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_ROBUST_ACCESS_BIT = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_CONTEXT_RELEASE_BEHAVIOR symbol.
 		/// </summary>
+		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_context_flush_control")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
 
 		/// <summary>
 		/// Value of GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH symbol.
 		/// </summary>
+		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_context_flush_control")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x82FC;
 
 		/// <summary>
@@ -219,7 +257,7 @@ namespace OpenGL
 		/// <seealso cref="Gl._FrontFacing"/>
 		/// <seealso cref="Gl.DepthRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public static void ClipControl(Int32 origin, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglClipControl != null, "pglClipControl not implemented");
@@ -251,7 +289,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateTransformFeedbacks(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -293,7 +331,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBufferBase"/>
 		/// <seealso cref="Gl.TransformFeedbackBufferRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TransformFeedbackBufferBase(UInt32 xfb, UInt32 index, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackBufferBase != null, "pglTransformFeedbackBufferBase not implemented");
@@ -345,7 +383,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBufferBase"/>
 		/// <seealso cref="Gl.TransformFeedbackBufferBase"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TransformFeedbackBufferRange(UInt32 xfb, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackBufferRange != null, "pglTransformFeedbackBufferRange not implemented");
@@ -397,7 +435,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffersRange"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTransformFeedback(UInt32 xfb, Int32 pname, [Out] Int32[] param)
 		{
 			unsafe {
@@ -457,7 +495,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffersRange"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTransformFeedback(UInt32 xfb, Int32 pname, UInt32 index, [Out] Int32[] param)
 		{
 			unsafe {
@@ -517,7 +555,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffersRange"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTransformFeedback(UInt32 xfb, Int32 pname, UInt32 index, [Out] Int64[] param)
 		{
 			unsafe {
@@ -554,7 +592,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.IsBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateBuffers(Int32 n, UInt32[] buffers)
 		{
 			unsafe {
@@ -624,8 +662,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorage != null, "pglNamedBufferStorage not implemented");
@@ -690,8 +729,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferStorage(UInt32 buffer, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -749,7 +789,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage)
 		{
 			Debug.Assert(Delegates.pglNamedBufferData != null, "pglNamedBufferData not implemented");
@@ -805,7 +845,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferData(UInt32 buffer, UInt32 size, Object data, Int32 usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -861,8 +901,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglNamedBufferSubData != null, "pglNamedBufferSubData not implemented");
@@ -916,8 +957,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -985,7 +1027,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CopyNamedBufferSubData(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglCopyNamedBufferSubData != null, "pglCopyNamedBufferSubData not implemented");
@@ -1040,7 +1082,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferData != null, "pglClearNamedBufferData not implemented");
@@ -1095,7 +1137,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1168,7 +1210,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferSubData != null, "pglClearNamedBufferSubData not implemented");
@@ -1239,7 +1281,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1293,7 +1335,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static IntPtr MapNamedBuffer(UInt32 buffer, Int32 access)
 		{
 			IntPtr retValue;
@@ -1356,7 +1398,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.BufferStorage"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static IntPtr MapNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access)
 		{
 			IntPtr retValue;
@@ -1396,7 +1438,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static bool UnmapNamedBuffer(UInt32 buffer)
 		{
 			bool retValue;
@@ -1446,7 +1488,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void FlushMappedNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglFlushMappedNamedBufferRange != null, "pglFlushMappedNamedBufferRange not implemented");
@@ -1490,7 +1532,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferParameter(UInt32 buffer, Int32 value, [Out] Int32[] data)
 		{
 			unsafe {
@@ -1539,7 +1581,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferParameter(UInt32 buffer, Int32 value, [Out] Int64[] data)
 		{
 			unsafe {
@@ -1581,7 +1623,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferPointer(UInt32 buffer, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
@@ -1637,7 +1679,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferSubData != null, "pglGetNamedBufferSubData not implemented");
@@ -1688,7 +1730,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1725,7 +1767,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateFramebuffers(Int32 n, UInt32[] framebuffers)
 		{
 			unsafe {
@@ -1785,7 +1827,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture2D"/>
 		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferRenderbuffer != null, "pglNamedFramebufferRenderbuffer not implemented");
@@ -1843,7 +1885,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenFramebuffers"/>
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferParameter(UInt32 framebuffer, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferParameteri != null, "pglNamedFramebufferParameteri not implemented");
@@ -1911,7 +1953,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture2D"/>
 		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTexture != null, "pglNamedFramebufferTexture not implemented");
@@ -1980,7 +2022,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture"/>
 		/// <seealso cref="Gl.FramebufferTextureFace"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferTextureLayer(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTextureLayer != null, "pglNamedFramebufferTextureLayer not implemented");
@@ -2026,7 +2068,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferDrawBuffer(UInt32 framebuffer, Int32 buf)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferDrawBuffer != null, "pglNamedFramebufferDrawBuffer not implemented");
@@ -2089,7 +2131,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferDrawBuffers(UInt32 framebuffer, Int32 n, Int32[] bufs)
 		{
 			unsafe {
@@ -2133,7 +2175,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawBuffer"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferReadBuffer(UInt32 framebuffer, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferReadBuffer != null, "pglNamedFramebufferReadBuffer not implemented");
@@ -2181,7 +2223,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void InvalidateNamedFramebufferData(UInt32 framebuffer, Int32 numAttachments, Int32[] attachments)
 		{
 			unsafe {
@@ -2247,7 +2289,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void InvalidateNamedFramebufferSubData(UInt32 framebuffer, Int32 numAttachments, Int32[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			unsafe {
@@ -2311,7 +2353,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearStencil"/>
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, Int32[] value)
 		{
 			unsafe {
@@ -2375,7 +2417,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearStencil"/>
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, UInt32[] value)
 		{
 			unsafe {
@@ -2439,7 +2481,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearStencil"/>
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float[] value)
 		{
 			unsafe {
@@ -2506,7 +2548,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearStencil"/>
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil)
 		{
 			Debug.Assert(Delegates.pglClearNamedFramebufferfi != null, "pglClearNamedFramebufferfi not implemented");
@@ -2596,7 +2638,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void BlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter)
 		{
 			Debug.Assert(Delegates.pglBlitNamedFramebuffer != null, "pglBlitNamedFramebuffer not implemented");
@@ -2629,7 +2671,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static Int32 CheckNamedFramebufferStatus(UInt32 framebuffer, Int32 target)
 		{
 			Int32 retValue;
@@ -2675,7 +2717,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferParameteri"/>
 		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedFramebufferParameter(UInt32 framebuffer, Int32 pname, [Out] Int32[] param)
 		{
 			unsafe {
@@ -2738,7 +2780,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, Int32 attachment, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2773,7 +2815,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorage"/>
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateRenderbuffers(Int32 n, UInt32[] renderbuffers)
 		{
 			unsafe {
@@ -2829,7 +2871,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedRenderbufferStorage(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorage != null, "pglNamedRenderbufferStorage not implemented");
@@ -2891,7 +2933,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorageMultisample != null, "pglNamedRenderbufferStorageMultisample not implemented");
@@ -2933,7 +2975,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorage"/>
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2981,7 +3023,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3DMultisample"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateTextures(Int32 target, Int32 n, UInt32[] textures)
 		{
 			unsafe {
@@ -3036,7 +3078,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureBuffer(UInt32 texture, Int32 internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTextureBuffer != null, "pglTextureBuffer not implemented");
@@ -3095,7 +3137,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.TexBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureBufferRange(UInt32 texture, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglTextureBufferRange != null, "pglTextureBufferRange not implemented");
@@ -3146,7 +3188,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage1D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width)
 		{
 			Debug.Assert(Delegates.pglTextureStorage1D != null, "pglTextureStorage1D not implemented");
@@ -3206,7 +3248,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage2D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2D != null, "pglTextureStorage2D not implemented");
@@ -3270,7 +3312,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage3D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3D != null, "pglTextureStorage3D not implemented");
@@ -3338,7 +3380,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage2DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2DMultisample != null, "pglTextureStorage2DMultisample not implemented");
@@ -3414,7 +3456,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage2DMultisample"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage3DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3DMultisample != null, "pglTextureStorage3DMultisample not implemented");
@@ -3528,7 +3570,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage1D != null, "pglTextureSubImage1D not implemented");
@@ -3642,7 +3684,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -3766,7 +3808,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage2D != null, "pglTextureSubImage2D not implemented");
@@ -3888,7 +3930,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -4020,7 +4062,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage3D != null, "pglTextureSubImage3D not implemented");
@@ -4150,7 +4192,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -4235,7 +4277,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage1D != null, "pglCompressedTextureSubImage1D not implemented");
@@ -4318,7 +4360,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -4416,7 +4458,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage2D != null, "pglCompressedTextureSubImage2D not implemented");
@@ -4512,7 +4554,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -4613,7 +4655,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage3D != null, "pglCompressedTextureSubImage3D not implemented");
@@ -4712,7 +4754,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -4794,7 +4836,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CopyTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyTextureSubImage1D != null, "pglCopyTextureSubImage1D not implemented");
@@ -4887,7 +4929,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CopyTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTextureSubImage2D != null, "pglCopyTextureSubImage2D not implemented");
@@ -4980,7 +5022,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CopyTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTextureSubImage3D != null, "pglCopyTextureSubImage3D not implemented");
@@ -5066,7 +5108,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureParameter(UInt32 texture, Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglTextureParameterf != null, "pglTextureParameterf not implemented");
@@ -5152,7 +5194,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureParameter(UInt32 texture, Int32 pname, float[] param)
 		{
 			unsafe {
@@ -5243,7 +5285,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureParameter(UInt32 texture, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTextureParameteri != null, "pglTextureParameteri not implemented");
@@ -5330,7 +5372,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureParameterI(UInt32 texture, Int32 pname, Int32[] @params)
 		{
 			unsafe {
@@ -5422,7 +5464,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureParameterI(UInt32 texture, Int32 pname, UInt32[] @params)
 		{
 			unsafe {
@@ -5513,7 +5555,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureParameter(UInt32 texture, Int32 pname, Int32[] param)
 		{
 			unsafe {
@@ -5551,7 +5593,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.GenTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GenerateTextureMipmap(UInt32 texture)
 		{
 			Debug.Assert(Delegates.pglGenerateTextureMipmap != null, "pglGenerateTextureMipmap not implemented");
@@ -5588,7 +5630,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexBuffer"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void BindTextureUnit(UInt32 unit, UInt32 texture)
 		{
 			Debug.Assert(Delegates.pglBindTextureUnit != null, "pglBindTextureUnit not implemented");
@@ -5698,7 +5740,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetTextureImage != null, "pglGetTextureImage not implemented");
@@ -5808,7 +5850,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -5875,7 +5917,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetCompressedTextureImage != null, "pglGetCompressedTextureImage not implemented");
@@ -5940,7 +5982,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -6010,7 +6052,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -6083,7 +6125,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -6139,7 +6181,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameter(UInt32 texture, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -6195,7 +6237,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameterI(UInt32 texture, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -6251,7 +6293,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameterI(UInt32 texture, Int32 pname, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -6307,7 +6349,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameter(UInt32 texture, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -6342,7 +6384,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsVertexArray"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateVertexArrays(Int32 n, UInt32[] arrays)
 		{
 			unsafe {
@@ -6386,7 +6428,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void DisableVertexArrayAttrib(UInt32 vaobj, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisableVertexArrayAttrib != null, "pglDisableVertexArrayAttrib not implemented");
@@ -6425,7 +6467,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void EnableVertexArrayAttrib(UInt32 vaobj, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnableVertexArrayAttrib != null, "pglEnableVertexArrayAttrib not implemented");
@@ -6455,7 +6497,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.GetVertexArrayiv"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayElementBuffer(UInt32 vaobj, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglVertexArrayElementBuffer != null, "pglVertexArrayElementBuffer not implemented");
@@ -6508,7 +6550,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayVertexBuffer(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexBuffer != null, "pglVertexArrayVertexBuffer not implemented");
@@ -6562,7 +6604,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayVertexBuffers(UInt32 vaobj, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, Int32[] strides)
 		{
 			unsafe {
@@ -6612,7 +6654,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribBinding(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribBinding != null, "pglVertexArrayAttribBinding not implemented");
@@ -6685,7 +6727,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribFormat != null, "pglVertexArrayAttribFormat not implemented");
@@ -6755,7 +6797,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribIFormat != null, "pglVertexArrayAttribIFormat not implemented");
@@ -6825,7 +6867,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribLFormat != null, "pglVertexArrayAttribLFormat not implemented");
@@ -6865,7 +6907,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayBindingDivisor(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor)
 		{
 			Debug.Assert(Delegates.pglVertexArrayBindingDivisor != null, "pglVertexArrayBindingDivisor not implemented");
@@ -6887,7 +6929,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetVertexArray(UInt32 vaobj, Int32 pname, [Out] Int32[] param)
 		{
 			unsafe {
@@ -6938,7 +6980,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribLPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, Int32 pname, [Out] Int32[] param)
 		{
 			unsafe {
@@ -6989,7 +7031,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribLPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, Int32 pname, [Out] Int64[] param)
 		{
 			unsafe {
@@ -7027,7 +7069,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSamplerParameter"/>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateSamplers(Int32 n, UInt32[] samplers)
 		{
 			unsafe {
@@ -7064,7 +7106,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.IsProgramPipeline"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateProgramPipelines(Int32 n, UInt32[] pipelines)
 		{
 			unsafe {
@@ -7107,7 +7149,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateQueries(Int32 target, Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -7137,7 +7179,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetQueryBufferObject64i(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjecti64v != null, "pglGetQueryBufferObjecti64v not implemented");
@@ -7162,7 +7204,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetQueryBufferObject32i(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectiv != null, "pglGetQueryBufferObjectiv not implemented");
@@ -7187,7 +7229,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetQueryBufferObject64ui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectui64v != null, "pglGetQueryBufferObjectui64v not implemented");
@@ -7212,7 +7254,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetQueryBufferObject32ui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectuiv != null, "pglGetQueryBufferObjectuiv not implemented");
@@ -7240,7 +7282,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.FlushMappedBufferRange"/>
 		/// <seealso cref="Gl.moryBarrier"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_ES3_1_compatibility")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_1_compatibility", Api = "gl|glcore")]
 		public static void MemoryBarrierByRegion(UInt32 barriers)
 		{
 			Debug.Assert(Delegates.pglMemoryBarrierByRegion != null, "pglMemoryBarrierByRegion not implemented");
@@ -7334,7 +7377,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_get_texture_sub_image")]
+		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetTextureSubImage != null, "pglGetTextureSubImage not implemented");
@@ -7428,7 +7471,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_get_texture_sub_image")]
+		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -7528,7 +7571,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetCompressedTextureImage"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_get_texture_sub_image")]
+		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetCompressedTextureSubImage != null, "pglGetCompressedTextureSubImage not implemented");
@@ -7626,7 +7669,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetCompressedTextureImage"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_get_texture_sub_image")]
+		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -7644,8 +7687,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetIntegerv"/>
 		/// <seealso cref="Gl.GetQueryObjectuiv"/>
 		/// <seealso cref="Gl.GetSynciv"/>
+		[AliasOf("glGetGraphicsResetStatusKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public static Int32 GetGraphicsResetStatus()
 		{
 			Int32 retValue;
@@ -8110,8 +8155,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetnUniformfvKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] float[] @params)
 		{
 			unsafe {
@@ -8162,8 +8209,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetnUniformivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -8214,8 +8263,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetnUniformuivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -8322,8 +8373,12 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.PixelStore"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
+		[AliasOf("glReadnPixelsARB")]
+		[AliasOf("glReadnPixelsEXT")]
+		[AliasOf("glReadnPixelsKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadnPixels != null, "pglReadnPixels not implemented");
@@ -8844,7 +8899,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.MemoryBarrier"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_texture_barrier")]
+		[RequiredByFeature("GL_ARB_texture_barrier", Api = "gl|glcore")]
 		public static void TextureBarrier()
 		{
 			Debug.Assert(Delegates.pglTextureBarrier != null, "pglTextureBarrier not implemented");

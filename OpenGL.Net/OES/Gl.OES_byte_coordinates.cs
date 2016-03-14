@@ -36,7 +36,7 @@ namespace OpenGL
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord1OES(Int32 texture, sbyte s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1bOES != null, "pglMultiTexCoord1bOES not implemented");
@@ -54,7 +54,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord1OES(Int32 texture, sbyte[] coords)
 		{
 			unsafe {
@@ -80,7 +80,7 @@ namespace OpenGL
 		/// <param name="t">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord2OES(Int32 texture, sbyte s, sbyte t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2bOES != null, "pglMultiTexCoord2bOES not implemented");
@@ -98,7 +98,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord2OES(Int32 texture, sbyte[] coords)
 		{
 			unsafe {
@@ -127,7 +127,7 @@ namespace OpenGL
 		/// <param name="r">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord3OES(Int32 texture, sbyte s, sbyte t, sbyte r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3bOES != null, "pglMultiTexCoord3bOES not implemented");
@@ -145,7 +145,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord3OES(Int32 texture, sbyte[] coords)
 		{
 			unsafe {
@@ -177,7 +177,7 @@ namespace OpenGL
 		/// <param name="q">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord4OES(Int32 texture, sbyte s, sbyte t, sbyte r, sbyte q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4bOES != null, "pglMultiTexCoord4bOES not implemented");
@@ -195,7 +195,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void MultiTexCoord4OES(Int32 texture, sbyte[] coords)
 		{
 			unsafe {
@@ -215,7 +215,7 @@ namespace OpenGL
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord1OES(sbyte s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1bOES != null, "pglTexCoord1bOES not implemented");
@@ -230,7 +230,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord1OES(sbyte[] coords)
 		{
 			unsafe {
@@ -253,7 +253,7 @@ namespace OpenGL
 		/// <param name="t">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord2OES(sbyte s, sbyte t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2bOES != null, "pglTexCoord2bOES not implemented");
@@ -268,7 +268,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord2OES(sbyte[] coords)
 		{
 			unsafe {
@@ -294,7 +294,7 @@ namespace OpenGL
 		/// <param name="r">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord3OES(sbyte s, sbyte t, sbyte r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3bOES != null, "pglTexCoord3bOES not implemented");
@@ -309,7 +309,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord3OES(sbyte[] coords)
 		{
 			unsafe {
@@ -338,7 +338,7 @@ namespace OpenGL
 		/// <param name="q">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord4OES(sbyte s, sbyte t, sbyte r, sbyte q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4bOES != null, "pglTexCoord4bOES not implemented");
@@ -353,7 +353,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void TexCoord4OES(sbyte[] coords)
 		{
 			unsafe {
@@ -376,7 +376,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void Vertex2OES(sbyte x, sbyte y)
 		{
 			Debug.Assert(Delegates.pglVertex2bOES != null, "pglVertex2bOES not implemented");
@@ -391,7 +391,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void Vertex2OES(sbyte[] coords)
 		{
 			unsafe {
@@ -417,7 +417,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void Vertex3OES(sbyte x, sbyte y, sbyte z)
 		{
 			Debug.Assert(Delegates.pglVertex3bOES != null, "pglVertex3bOES not implemented");
@@ -432,7 +432,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void Vertex3OES(sbyte[] coords)
 		{
 			unsafe {
@@ -461,7 +461,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void Vertex4OES(sbyte x, sbyte y, sbyte z, sbyte w)
 		{
 			Debug.Assert(Delegates.pglVertex4bOES != null, "pglVertex4bOES not implemented");
@@ -476,7 +476,7 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_OES_byte_coordinates")]
+		[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 		public static void Vertex4OES(sbyte[] coords)
 		{
 			unsafe {

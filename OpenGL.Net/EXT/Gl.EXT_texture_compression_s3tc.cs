@@ -30,25 +30,31 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB_S3TC_DXT1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_s3tc")]
+		[RequiredByFeature("GL_EXT_texture_compression_dxt1", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|gles2")]
 		public const int COMPRESSED_RGB_S3TC_DXT1_EXT = 0x83F0;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_s3tc")]
+		[RequiredByFeature("GL_EXT_texture_compression_dxt1", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|gles2")]
 		public const int COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT3_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_s3tc")]
+		[AliasOf("GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|gles2")]
+		[RequiredByFeature("GL_ANGLE_texture_compression_dxt3", Api = "gles2")]
 		public const int COMPRESSED_RGBA_S3TC_DXT3_EXT = 0x83F2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT5_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_s3tc")]
+		[AliasOf("GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|gles2")]
+		[RequiredByFeature("GL_ANGLE_texture_compression_dxt5", Api = "gles2")]
 		public const int COMPRESSED_RGBA_S3TC_DXT5_EXT = 0x83F3;
 
 	}

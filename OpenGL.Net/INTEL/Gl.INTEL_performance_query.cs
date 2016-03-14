@@ -30,123 +30,123 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PERFQUERY_SINGLE_CONTEXT_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint PERFQUERY_SINGLE_CONTEXT_INTEL = 0x00000000;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_GLOBAL_CONTEXT_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint PERFQUERY_GLOBAL_CONTEXT_INTEL = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_WAIT_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_WAIT_INTEL = 0x83FB;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_FLUSH_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_FLUSH_INTEL = 0x83FA;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_DONOT_FLUSH_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_DONOT_FLUSH_INTEL = 0x83F9;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_EVENT_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_EVENT_INTEL = 0x94F0;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DURATION_NORM_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DURATION_NORM_INTEL = 0x94F1;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DURATION_RAW_INTEL = 0x94F2;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_THROUGHPUT_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_THROUGHPUT_INTEL = 0x94F3;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_RAW_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_RAW_INTEL = 0x94F4;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_TIMESTAMP_INTEL = 0x94F5;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_UINT32_INTEL = 0x94F8;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_UINT64_INTEL = 0x94F9;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_FLOAT_INTEL = 0x94FA;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_DOUBLE_INTEL = 0x94FB;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_BOOL32_INTEL = 0x94FC;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL = 0x94FD;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL = 0x94FE;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL = 0x94FF;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public const int PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL = 0x9500;
 
 		/// <summary>
@@ -155,7 +155,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void BeginPerfQueryINTEL(UInt32 queryHandle)
 		{
 			Debug.Assert(Delegates.pglBeginPerfQueryINTEL != null, "pglBeginPerfQueryINTEL not implemented");
@@ -173,7 +173,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void CreatePerfQueryINTEL(UInt32 queryId, UInt32[] queryHandle)
 		{
 			unsafe {
@@ -193,7 +193,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void DeletePerfQueryINTEL(UInt32 queryHandle)
 		{
 			Debug.Assert(Delegates.pglDeletePerfQueryINTEL != null, "pglDeletePerfQueryINTEL not implemented");
@@ -208,7 +208,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void EndPerfQueryINTEL(UInt32 queryHandle)
 		{
 			Debug.Assert(Delegates.pglEndPerfQueryINTEL != null, "pglEndPerfQueryINTEL not implemented");
@@ -223,7 +223,7 @@ namespace OpenGL
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetFirstPerfQueryIdINTEL([Out] UInt32[] queryId)
 		{
 			unsafe {
@@ -246,7 +246,7 @@ namespace OpenGL
 		/// <param name="nextQueryId">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetNextPerfQueryIdINTEL(UInt32 queryId, [Out] UInt32[] nextQueryId)
 		{
 			unsafe {
@@ -296,7 +296,7 @@ namespace OpenGL
 		/// <param name="rawCounterMaxValue">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetPerfCounterInfoINTEL(UInt32 queryId, UInt32 counterId, UInt32 counterNameLength, String counterName, UInt32 counterDescLength, String counterDesc, [Out] UInt32[] counterOffset, [Out] UInt32[] counterDataSize, [Out] UInt32[] counterTypeEnum, [Out] UInt32[] counterDataTypeEnum, [Out] UInt64[] rawCounterMaxValue)
 		{
 			unsafe {
@@ -332,7 +332,7 @@ namespace OpenGL
 		/// <param name="bytesWritten">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, IntPtr data, [Out] UInt32[] bytesWritten)
 		{
 			unsafe {
@@ -364,7 +364,7 @@ namespace OpenGL
 		/// <param name="bytesWritten">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, Object data, [Out] UInt32[] bytesWritten)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -384,7 +384,7 @@ namespace OpenGL
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetPerfQueryIdByNameINTEL(String queryName, [Out] UInt32[] queryId)
 		{
 			unsafe {
@@ -422,7 +422,7 @@ namespace OpenGL
 		/// <param name="capsMask">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_INTEL_performance_query")]
+		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		public static void GetPerfQueryInfoINTEL(UInt32 queryId, UInt32 queryNameLength, String queryName, [Out] UInt32[] dataSize, [Out] UInt32[] noCounters, [Out] UInt32[] noInstances, [Out] UInt32[] capsMask)
 		{
 			unsafe {

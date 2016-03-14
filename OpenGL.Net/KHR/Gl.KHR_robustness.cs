@@ -30,7 +30,11 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONTEXT_ROBUST_ACCESS symbol.
 		/// </summary>
-		[RequiredByFeature("GL_KHR_robustness")]
+		[AliasOf("GL_CONTEXT_ROBUST_ACCESS_EXT")]
+		[AliasOf("GL_CONTEXT_ROBUST_ACCESS_KHR")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_ROBUST_ACCESS = 0x90F3;
 
 	}

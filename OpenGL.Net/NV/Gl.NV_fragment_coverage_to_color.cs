@@ -30,13 +30,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAGMENT_COVERAGE_TO_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_coverage_to_color")]
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|gles2")]
 		public const int FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_COVERAGE_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_coverage_to_color")]
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|gles2")]
 		public const int FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_fragment_coverage_to_color")]
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|gles2")]
 		public static void FragmentCoverageColorNV(UInt32 color)
 		{
 			Debug.Assert(Delegates.pglFragmentCoverageColorNV != null, "pglFragmentCoverageColorNV not implemented");
