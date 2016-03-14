@@ -101,4 +101,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(SolutionDir)Libs\ANGLE" "$(TargetDir)ANGLE\" /E /H /C /R /Q /Y &gt; NUL</PostBuildEvent>
+  </PropertyGroup>
 </Project>

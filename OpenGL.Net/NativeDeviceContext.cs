@@ -45,7 +45,8 @@ namespace OpenGL
 			if (window == null)
 				throw new ArgumentNullException("window");
 
-			_Display = Egl.GetDisplay(IntPtr.Zero);
+			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to get display handle");
 			Egl.Initialize(_Display, null, null);
 		}
 

@@ -48,16 +48,20 @@ namespace OpenGL
 			if (window.Handle == IntPtr.Zero)
 				throw new ArgumentException("handle not created", "window");
 
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32S:
-				case PlatformID.Win32NT:
-				case PlatformID.WinCE:
-					return (new WindowsDeviceContext(window));
-				case PlatformID.Unix:
-					return (new XServerDeviceContext(window));
-				default:
-					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+			if (Egl.IsAvailable == false) {
+				switch (Environment.OSVersion.Platform) {
+					case PlatformID.Win32Windows:
+					case PlatformID.Win32S:
+					case PlatformID.Win32NT:
+					case PlatformID.WinCE:
+						return (new WindowsDeviceContext(window));
+					case PlatformID.Unix:
+						return (new XServerDeviceContext(window));
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+				}
+			} else {
+				return (new NativeDeviceContext(window));
 			}
 		}
 	}

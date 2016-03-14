@@ -43,8 +43,14 @@ namespace OpenGL.Test
 				Form = new TestForm(this);
 				// Create device context
 				_DeviceContext = DeviceContextFactory.Create(Form);
+
 				// Set pixel format
-				SetPixelFormatWgl();
+				if      (_DeviceContext is WindowsDeviceContext)
+					SetPixelFormatWgl();
+				else if (_DeviceContext is NativeDeviceContext)
+					SetPixelFormatEgl();
+				else
+					throw new NotImplementedException("platform not supported");
 			} catch {
 				// Release resources manually
 				FixtureTearDown();
@@ -86,6 +92,14 @@ namespace OpenGL.Test
 			Wgl.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
 			// Set pixel format before creating OpenGL context
 			Wgl.SetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
+		}
+
+		/// <summary>
+		/// Set the pixel format on EGL platform.
+		/// </summary>
+		private void SetPixelFormatEgl()
+		{
+			
 		}
 
 		/// <summary>

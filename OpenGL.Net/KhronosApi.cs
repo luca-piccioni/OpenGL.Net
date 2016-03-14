@@ -69,27 +69,49 @@ namespace OpenGL
 		/// <param name="type">
 		/// A <see cref="System.Type"/> that specifies the type used for detecting import declarations and delegates fields.
 		/// </param>
-		/// <param name="sImportMap">
+		/// <param name="importMap">
 		/// A <see cref="T:SortedList{String, MethodInfo}"/> mapping a <see cref="MethodInfo"/> with the relative function name.
 		/// </param>
-		/// <param name="sDelegates">
+		/// <param name="delegates">
 		/// A <see cref="T:List{FieldInfo}"/> listing <see cref="FieldInfo"/> related to function delegates.
 		/// </param>
-		protected static void LinkOpenGLProcImports(Type type, out SortedList<string, MethodInfo> sImportMap, out List<FieldInfo> sDelegates)
+		protected static void LinkOpenGLProcImports(Type type, out SortedList<string, MethodInfo> importMap, out List<FieldInfo> delegates)
 		{
 			LinkProcAddressImports(null, type, delegate(string libpath, string function) {
 				return (GetProcAddress.GetOpenGLAddress(function));
-			}, out sImportMap, out sDelegates);
+			}, out importMap, out delegates);
 		}
 
 		/// <summary>
 		/// Link delegates fields using import declarations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specifies the assembly file path containing the import functions.
+		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="System.Type"/> that specifies the type used for detecting import declarations and delegates fields.
+		/// </param>
+		/// <param name="importMap">
+		/// A <see cref="T:SortedList{String, MethodInfo}"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// </param>
+		/// <param name="delegates">
+		/// A <see cref="T:List{FieldInfo}"/> listing <see cref="FieldInfo"/> related to function delegates.
+		/// </param>
+		protected static void LinkOpenGLProcImports(string path, Type type, out SortedList<string, MethodInfo> importMap, out List<FieldInfo> delegates)
+		{
+			LinkProcAddressImports(path, type, delegate(string libpath, string function) {
+				return (GetProcAddress.GetAddress(libpath, function));
+			}, out importMap, out delegates);
+		}
+
+		/// <summary>
+		/// Link delegates fields using import declarations.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="Type"/> that specifies the type used for detecting import declarations and delegates fields.
 		/// </param>
 		/// <param name="getAddress">
 		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.

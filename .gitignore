@@ -38,3 +38,8 @@ packages
 /OpenGL.Net/*.nupkg
 /.vs
 /*.opendb
+/Libs/ANGLE/winrt10/arm/*.pdb
+/Libs/ANGLE/winrt10/x64/*.pdb
+/Libs/ANGLE/winrt10/x86/*.pdb
+/Libs/ANGLE/winrt10d/x64/*.pdb
+/Libs/ANGLE/winrt10d/x86/*.pdb

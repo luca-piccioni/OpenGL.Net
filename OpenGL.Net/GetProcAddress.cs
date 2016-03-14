@@ -48,13 +48,13 @@ namespace OpenGL
 
 				// Distinguish between Unix and Mac OS X kernels.
 				switch (pIdString) {
-				case "Unix":
-				case "Linux":
-					_GetProcAddress = new GetProcAddressX11();
-					break;
-				case "Darwin":
-					_GetProcAddress = new GetProcAddressOSX();
-					break;
+					case "Unix":
+					case "Linux":
+						_GetProcAddress = new GetProcAddressX11();
+						break;
+					case "Darwin":
+						_GetProcAddress = new GetProcAddressOSX();
+						break;
 				}
 			}
 		}
@@ -62,6 +62,20 @@ namespace OpenGL
 		#endregion
 
 		#region Static Implementation of IGetProcAddress
+
+		/// <summary>
+		/// Add a path of a directory as additional path for searching libraries.
+		/// </summary>
+		/// <param name="libraryDirPath">
+		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// <see cref="GetProcAddress(string, string)"/> method.
+		/// </param>
+		public static void AddLibraryDirectory(string libraryDirPath)
+		{
+			if (_GetProcAddress == null)
+				throw new PlatformNotSupportedException();
+			_GetProcAddress.AddLibraryDirectory(libraryDirPath);
+		}
 
 		/// <summary>
 		/// Retrieves the entry point for a dynamically exported function from any valid assembly.
@@ -78,9 +92,9 @@ namespace OpenGL
 		/// </returns>
 		public static IntPtr GetAddress(string path, string function)
 		{
-            if (_GetProcAddress == null)
-                throw new PlatformNotSupportedException();
-            return (_GetProcAddress.GetProcAddress(path, function));
+			if (_GetProcAddress == null)
+				throw new PlatformNotSupportedException();
+			return (_GetProcAddress.GetProcAddress(path, function));
 		}
 
 
@@ -154,6 +168,15 @@ namespace OpenGL
 	interface IGetProcAddress
 	{
 		/// <summary>
+		/// Add a path of a directory as additional path for searching libraries.
+		/// </summary>
+		/// <param name="libraryDirPath">
+		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// <see cref="GetProcAddress(string, string)"/> method.
+		/// </param>
+		void AddLibraryDirectory(string libraryDirPath);
+
+		/// <summary>
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
@@ -200,10 +223,38 @@ namespace OpenGL
 	{
 		#region Windows Platform Imports
 
+		private enum LoadLibraryExFlags : uint
+		{
+			DONT_RESOLVE_DLL_REFERENCES =			0x00000001,
+
+			LOAD_IGNORE_CODE_AUTHZ_LEVEL =			0x00000010,
+
+			LOAD_LIBRARY_AS_DATAFILE =				0x00000002,
+
+			LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE =	0x00000040,
+
+			LOAD_LIBRARY_AS_IMAGE_RESOURCE =		0x00000020,
+
+			LOAD_LIBRARY_SEARCH_APPLICATION_DIR =	0x00000200,
+
+			LOAD_LIBRARY_SEARCH_DEFAULT_DIRS =		0x00001000,
+
+			LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR =		0x00000100,
+
+			LOAD_LIBRARY_SEARCH_SYSTEM32 =			0x00000800,
+
+			LOAD_LIBRARY_SEARCH_USER_DIRS =			0x00000400,
+
+			LOAD_WITH_ALTERED_SEARCH_PATH =			0x00000008,
+		}
+
 		unsafe static class UnsafeNativeMethods
 		{
 			[DllImport("Kernel32.dll", SetLastError = true)]
 			public static extern IntPtr LoadLibrary(String lpFileName);
+
+			[DllImport("Kernel32.dll", SetLastError = true)]
+			public static extern IntPtr LoadLibraryEx(String lpFilename, IntPtr hFile, LoadLibraryExFlags dwFlags);
 
 			[DllImport("Kernel32.dll", SetLastError = true)]
 			public static extern void FreeLibrary(IntPtr hModule);
@@ -218,6 +269,20 @@ namespace OpenGL
 		#endregion
 
 		#region IGetProceAddress Implementation
+
+		/// <summary>
+		/// Add a path of a directory as additional path for searching libraries.
+		/// </summary>
+		/// <param name="libraryDirPath">
+		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// <see cref="GetProcAddress(string, string)"/> method.
+		/// </param>
+		public void AddLibraryDirectory(string libraryDirPath)
+		{
+			string path = Environment.GetEnvironmentVariable("PATH");
+
+			Environment.SetEnvironmentVariable("PATH", String.Format("{0};{1}", path, libraryDirPath), EnvironmentVariableTarget.Process);
+		}
 
 		/// <summary>
 		/// Get a function pointer from a library, specified by path.
@@ -287,11 +352,21 @@ namespace OpenGL
 				return (procAddress);
 		}
 
+		/// <summary>
+		/// Get the handle relative to the specified library.
+		/// </summary>
+		/// <param name="libraryPath">
+		/// A <see cref="String"/> that specify the path of the library to load.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IntPtr"/> that represents the handle of the library loaded from <paramref name="libraryPath"/>.
+		/// </returns>
 		private IntPtr GetLibraryHandle(string libraryPath)
 		{
 			IntPtr libraryHandle;
 
 			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
+				// Load library
 				libraryHandle = UnsafeNativeMethods.LoadLibrary(libraryPath);
 #if PLATFORM_LOG_ENABLED
 				KhronosApi.LogFunction("LoadLibrary({0}) = 0x{1}", libraryPath, libraryHandle.ToString("X8"));
@@ -316,7 +391,7 @@ namespace OpenGL
 		/// </summary>
 		private static readonly Dictionary<string, IntPtr> _LibraryHandles = new Dictionary<string,IntPtr>();
 
-#endregion
+		#endregion
 	}
 
 	/// <summary>
@@ -324,7 +399,7 @@ namespace OpenGL
 	/// </summary>
 	class GetProcAddressX11 : IGetProcAddress
 	{
-#region X11 Platform Imports
+		#region X11 Platform Imports
 
 		unsafe static class UnsafeNativeMethods
 		{
@@ -340,9 +415,21 @@ namespace OpenGL
 			public static extern IntPtr glxGetProcAddress([MarshalAs(UnmanagedType.LPTStr)] string procName);
 		}
 
-#endregion
+		#endregion
 
-#region IGetProcAdress Imports
+		#region IGetProcAdress Imports
+
+		/// <summary>
+		/// Add a path of a directory as additional path for searching libraries.
+		/// </summary>
+		/// <param name="libraryDirPath">
+		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// <see cref="GetProcAddress(string, string)"/> method.
+		/// </param>
+		public void AddLibraryDirectory(string libraryDirPath)
+		{
+			
+		}
 
 		/// <summary>
 		/// Get a function pointer from a library, specified by path.
@@ -424,7 +511,7 @@ namespace OpenGL
 		/// </summary>
 		private static readonly Dictionary<string, IntPtr> sLibraryHandles = new Dictionary<string,IntPtr>();
 
-#endregion
+		#endregion
 	}
 
 	/// <summary>
@@ -432,7 +519,7 @@ namespace OpenGL
 	/// </summary>
 	class GetProcAddressOSX : IGetProcAddress
 	{
-#region OSX Platform Imports
+		#region OSX Platform Imports
 
 		unsafe static class UnsafeNativeMethods
 		{
@@ -446,9 +533,21 @@ namespace OpenGL
 			public static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
 		}
 
-#endregion
+		#endregion
 
-#region IGetProcAddress Implementation
+		#region IGetProcAddress Implementation
+
+		/// <summary>
+		/// Add a path of a directory as additional path for searching libraries.
+		/// </summary>
+		/// <param name="libraryDirPath">
+		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// <see cref="GetProcAddress(string, string)"/> method.
+		/// </param>
+		public void AddLibraryDirectory(string libraryDirPath)
+		{
+			
+		}
 
 		/// <summary>
 		/// Get a function pointer from a library, specified by path.
@@ -511,6 +610,6 @@ namespace OpenGL
 		/// </summary>
 		private const string Library = "libdl.dylib";
 
-#endregion
+		#endregion
 	}
 }

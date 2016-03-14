@@ -21,9 +21,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace OpenGL
 {
@@ -39,7 +39,31 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
-			LinkOpenGLProcImports(typeof(Gl), out sImportMap, out sDelegates);
+			// Before linking procedures, append ANGLE directory in path
+			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
+			string anglePath = null;
+
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+#if DEBUG
+					if (IntPtr.Size == 8)
+						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x64");
+					else
+						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x86");
+#else
+					if (IntPtr.Size == 8)
+						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x64");
+					else
+						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x86");
+#endif
+					break;
+			}
+
+			// Include ANGLE path, if any
+			if (anglePath != null && Directory.Exists(anglePath))
+				OpenGL.GetProcAddress.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+			
+			LinkOpenGLProcImports(Library, typeof(Egl), out _ImportMap, out _Delegates);
 		}
 
 		#endregion
@@ -51,23 +75,23 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			SynchDelegates(sImportMap, sDelegates);
+			SynchDelegates(_ImportMap, _Delegates);
 		}
 
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		private const string Library = "opengl32.dll";
+		private const string Library = "libEGL.dll";
 
 		/// <summary>
 		/// Imported functions delegates.
 		/// </summary>
-		private static List<FieldInfo> sDelegates;
+		private static List<FieldInfo> _Delegates;
 
 		/// <summary>
 		/// Build a string->MethodInfo map to speed up extension loading.
 		/// </summary>
-		internal static SortedList<string, MethodInfo> sImportMap = null;
+		internal static SortedList<string, MethodInfo> _ImportMap = null;
 
 		#endregion
 
