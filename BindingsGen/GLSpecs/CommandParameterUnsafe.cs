@@ -64,7 +64,7 @@ namespace BindingsGen.GLSpecs
 
 		internal static bool IsCompatible(RegistryContext ctx, Command command, CommandParameter param)
 		{
-			// Pointer types ands with an '*'
+			// Pointer types ends with an '*'
 			return (param.ImportType.EndsWith("*"));
 		}
 

@@ -1394,7 +1394,7 @@
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerGLTextureExternalAttribsNV</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
-            <param><ptype>EGLAttrib</ptype> <name>*attrib_list</name></param>
+            <param><ptype>EGLAttrib*</ptype> <name>attrib_list</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerOutputEXT</name></proto>

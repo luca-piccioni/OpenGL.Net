@@ -113,6 +113,11 @@ namespace OpenGL
 		private IntPtr _Config;
 
 		/// <summary>
+		/// The graphics context.
+		/// </summary>
+		private IntPtr _Context;
+
+		/// <summary>
 		/// The EGL surface.
 		/// </summary>
 		private IntPtr _EglSurface;
@@ -267,6 +272,8 @@ namespace OpenGL
 		{
 			get
 			{
+				return (_PixelFormatCache);
+
 				// Use cached pixel formats
 				if (_PixelFormatCache != null)
 					return (_PixelFormatCache);
@@ -284,7 +291,13 @@ namespace OpenGL
 				
 				foreach (IntPtr config in configs) {
 					DevicePixelFormat pixelFormat = new DevicePixelFormat();
-					int[] param = new int[1];
+					int param;
+					bool version12 = _Version >= new KhronosVersion(1, 2);
+					bool version13 = _Version >= new KhronosVersion(1, 3);
+					bool version14 = _Version >= new KhronosVersion(1, 4);
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.CONFIG_ID, out pixelFormat.FormatIndex) == false)
+						throw new InvalidOperationException("unable to get configuration parameter CONFIG_ID");
 
 					// Defaults to RGBA
 					pixelFormat.RgbaUnsigned = true;
@@ -295,23 +308,111 @@ namespace OpenGL
 					pixelFormat.DoubleBuffer = false;
 					pixelFormat.SwapMethod = 0;
 
-					if (Egl.GetConfigAttrib(_Display, config, Egl.BUFFER_SIZE, param) == false)
+					if (Egl.GetConfigAttrib(_Display, config, Egl.BUFFER_SIZE, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter BUFFER_SIZE");
-					pixelFormat.ColorBits = param[0];
+					pixelFormat.ColorBits = param;
 
-					if (Egl.GetConfigAttrib(_Display, config, Egl.DEPTH_SIZE, param) == false)
+					if (Egl.GetConfigAttrib(_Display, config, Egl.RED_SIZE, out pixelFormat.RedBits) == false)
+						throw new InvalidOperationException("unable to get configuration parameter RED_SIZE");
+					if (Egl.GetConfigAttrib(_Display, config, Egl.GREEN_SIZE, out pixelFormat.GreenBits) == false)
+						throw new InvalidOperationException("unable to get configuration parameter GREEN_SIZE");
+					if (Egl.GetConfigAttrib(_Display, config, Egl.BLUE_SIZE, out pixelFormat.BlueBits) == false)
+						throw new InvalidOperationException("unable to get configuration parameter BLUE_SIZE");
+					if (Egl.GetConfigAttrib(_Display, config, Egl.ALPHA_SIZE, out pixelFormat.AlphaBits) == false)
+						throw new InvalidOperationException("unable to get configuration parameter ALPHA_SIZE");
+					if (Egl.GetConfigAttrib(_Display, config, Egl.ALPHA_MASK_SIZE, out param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter ALPHA_MASK_SIZE");
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.DEPTH_SIZE, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter DEPTH_SIZE");
-					pixelFormat.DepthBits = param[0];
+					pixelFormat.DepthBits = param;
 
-					if (Egl.GetConfigAttrib(_Display, config, Egl.STENCIL_SIZE, param) == false)
+					if (Egl.GetConfigAttrib(_Display, config, Egl.STENCIL_SIZE, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter STENCIL_SIZE");
-					pixelFormat.StencilBits = param[0];
+					pixelFormat.StencilBits = param;
 
-					if (Egl.GetConfigAttrib(_Display, config, Egl.SAMPLES, param) == false)
+					if (Egl.GetConfigAttrib(_Display, config, Egl.SAMPLES, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter SAMPLES");
-					pixelFormat.MultisampleBits = param[0];
+					pixelFormat.MultisampleBits = param;
 
-					pixelFormat.EglConfig = config;
+					if (Egl.GetConfigAttrib(_Display, config, Egl.CONFIG_CAVEAT, out param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter CONFIG_CAVEAT");
+					switch (param) {
+						case Egl.SLOW_CONFIG:
+							// Skip software implementations?
+							continue;
+					}
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.NATIVE_RENDERABLE, out param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter NATIVE_RENDERABLE");
+					switch (param) {
+						case Egl.TRUE:
+							continue;
+						case Egl.FALSE:
+							break;
+					}
+
+					if (version12) {
+						if (Egl.GetConfigAttrib(_Display, config, Egl.COLOR_BUFFER_TYPE, out param) == false)
+							throw new InvalidOperationException("unable to get configuration parameter COLOR_BUFFER_TYPE");
+						switch (param) {
+							case Egl.RGB_BUFFER:
+								break;
+							case Egl.LUMINANCE_BUFFER:
+								if (Egl.GetConfigAttrib(_Display, config, Egl.LUMINANCE_SIZE, out param) == false)
+									throw new InvalidOperationException("unable to get configuration parameter LUMINANCE_SIZE");
+								// Overrides color bits
+								pixelFormat.ColorBits = param;
+
+								// ATM do not support luminance buffers
+								continue;
+						}
+					}
+
+					if (Egl.GetConfigAttrib(_Display, config, Egl.MAX_SWAP_INTERVAL, out param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter MAX_SWAP_INTERVAL");
+					if (Egl.GetConfigAttrib(_Display, config, Egl.MIN_SWAP_INTERVAL, out param) == false)
+						throw new InvalidOperationException("unable to get configuration parameter MIN_SWAP_INTERVAL");
+
+					// EGL 1.3 attributes
+					if (version13) {
+						if (Egl.GetConfigAttrib(_Display, config, Egl.CONFORMANT, out param) == false)
+							throw new InvalidOperationException("unable to get configuration parameter CONFORMANT");
+
+						if ((param & Egl.OPENGL_ES2_BIT) != 0) {
+
+						} else
+							continue;
+
+						if ((param & Egl.OPENGL_ES_BIT) != 0) {
+
+						}
+
+						if ((param & Egl.OPENVG_BIT) != 0) {
+
+						}
+
+						if (version14 && (param & Egl.OPENGL_BIT) != 0) {
+
+						}
+
+						// Not implemented by ANGLE
+						//if (Egl.GetConfigAttrib(_Display, config, Egl.MATCH_NATIVE_PIXMAP, param) == false)
+						//	throw new InvalidOperationException("unable to get configuration parameter MATCH_NATIVE_PIXMAP");
+					}
+
+					if (version14) {
+						if (Egl.GetConfigAttrib(_Display, config, Egl.SURFACE_TYPE, out param) == false)
+							throw new InvalidOperationException("unable to get configuration parameter SURFACE_TYPE");
+
+						if ((param & Egl.MULTISAMPLE_RESOLVE_BOX_BIT) != 0) { }
+						if ((param & Egl.PBUFFER_BIT) != 0) { }
+						if ((param & Egl.PIXMAP_BIT) != 0) { }
+						if ((param & Egl.SWAP_BEHAVIOR_PRESERVED_BIT) != 0) { }
+						if ((param & Egl.VG_ALPHA_FORMAT_PRE_BIT) != 0) { }
+						if ((param & Egl.VG_COLORSPACE_LINEAR_BIT) != 0) { }
+						if ((param & Egl.WINDOW_BIT) != 0) { }
+					}
 
 					_PixelFormatCache.Add(pixelFormat);
 				}
@@ -331,10 +432,40 @@ namespace OpenGL
 		/// </exception>
 		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
 		{
-			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+			//if (pixelFormat == null)
+			//	throw new ArgumentNullException("pixelFormat");
 
-			_EglSurface = Egl.CreatePlatformWindowSurface(_Display, pixelFormat.EglConfig, _NativeWindow, null);
+			int[] configAttribs = new int[3] {
+				Egl.CONFIG_ID, 10,
+				Gl.NONE
+			};
+			int[] configCount = new int[1];
+			IntPtr[] configs = new IntPtr[1];
+
+			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
+				throw new InvalidOperationException("no ES API");
+
+			if (Egl.ChooseConfig(_Display, configAttribs, configs, 1, configCount) == false)
+				throw new InvalidOperationException("unable to choose configuration");
+
+			IntPtr config = configs[0];
+			int[] contextAttribs = new int[1] {
+				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+				Gl.NONE
+			};
+
+			if ((_Context = Egl.CreateContext(_Display, config, IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create context");
+
+			int[] surfaceAttribs = new int[1] {
+				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+				Gl.NONE
+			};
+
+			if ((_EglSurface = Egl.CreateWindowSurface(_Display, config, _NativeWindow, surfaceAttribs)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create window surface");
+
+			_Config = config;
 		}
 
 		/// <summary>

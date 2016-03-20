@@ -845,6 +845,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return information about an EGL frame buffer configuration
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="config">
+		/// Specifies the EGL frame buffer configuration to be queried.
+		/// </param>
+		/// <param name="attribute">
+		/// Specifies the EGL rendering context attribute to be returned.
+		/// </param>
+		/// <param name="value">
+		/// Returns the requested value.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_0")]
+		public static bool GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, out int value)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (int* p_value = &value)
+				{
+					Debug.Assert(Delegates.peglGetConfigAttrib != null, "peglGetConfigAttrib not implemented");
+					retValue = Delegates.peglGetConfigAttrib(dpy, config, attribute, p_value);
+					LogFunction("eglGetConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// return a list of all EGL frame buffer configurations for a display
 		/// </summary>
 		/// <param name="dpy">

@@ -84,6 +84,26 @@ namespace OpenGL
 		public int ColorBits;
 
 		/// <summary>
+		/// Red bits.
+		/// </summary>
+		public int RedBits;
+
+		/// <summary>
+		/// Green bits.
+		/// </summary>
+		public int GreenBits;
+
+		/// <summary>
+		/// Blue bits.
+		/// </summary>
+		public int BlueBits;
+
+		/// <summary>
+		/// Alpha bits.
+		/// </summary>
+		public int AlphaBits;
+
+		/// <summary>
 		/// Depth buffer bits.
 		/// </summary>
 		public int DepthBits;
@@ -118,11 +138,6 @@ namespace OpenGL
 		/// This value is obtained by GetVisualFromFBConfig using <see cref="XFbConfig"/>.
 		/// </remarks>
 		public Glx.XVisualInfo XVisualInfo;
-
-		/// <summary>
-		/// EGL configuration (valid only for EGL).
-		/// </summary>
-		public IntPtr EglConfig;
 
 		#endregion
 	}

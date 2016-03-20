@@ -302,5 +302,15 @@
 		<!-- Generate "out" overloads -->
 		<flags>OutParamLast</flags>
 	</command>
+
+  <!-- EGL -->
+
+  <command name="^eglGetDisplay$">
+    <flags>NoGetError</flags>
+  </command>
+
+	<command name="^eglGetConfig(s|Attrib)$">
+		<flags>OutParamLast</flags>
+	</command>
 	
 </command_overrides>

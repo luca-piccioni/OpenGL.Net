@@ -230,7 +230,7 @@
 	<type name="EGLNativePixmapType*" value="IntPtr*" />
 	<type name="EGLint" value="int" />
 	<type name="EGLint*" value="int*" />
-	<type name="EGLBoolean" value="IntPtr" />
+	<type name="EGLBoolean" value="bool" />												<!-- 'unsigned int' -->
 	<type name="EGLenum" value="uint" />
 	<type name="EGLAttribKHR" value="IntPtr" />
 	<type name="EGLAttribKHR*" value="IntPtr*" />
@@ -242,7 +242,7 @@
 	<type name="EGLContext" value="IntPtr" />
 	<type name="EGLDeviceEXT" value="IntPtr" />
 	<type name="EGLDeviceEXT*" value="IntPtr*" />
-	<type name="EGLDisplay" value="IntPtr" />
+	<type name="EGLDisplay" value="IntPtr" />											<!-- 'void*' -->
 	<type name="EGLImage" value="IntPtr" />
 	<type name="EGLImageKHR" value="IntPtr" />
 	<type name="EGLObjectKHR" value="IntPtr" />
