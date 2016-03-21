@@ -116,19 +116,14 @@ namespace OpenGL
 			// Create basic OpenGL context
 			IntPtr rContext;
 
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-				case PlatformID.Win32S:
-				case PlatformID.Win32Windows:
-				case PlatformID.WinCE:
-					rContext = CreateWinSimpleContext(_HiddenWindowDevice);
-					break;
-				case PlatformID.Unix:
-					rContext = CreateX11SimpleContext(_HiddenWindowDevice);
-					break;
-				default:
-					throw new NotSupportedException("unable to create OpenGL context on platform " + Environment.OSVersion.ToString());
-			}
+			if      (_HiddenWindowDevice is WindowsDeviceContext)
+				rContext = CreateWinSimpleContext(_HiddenWindowDevice);
+			else if (_HiddenWindowDevice is XServerDeviceContext)
+				rContext = CreateX11SimpleContext(_HiddenWindowDevice);
+			else if (_HiddenWindowDevice is NativeDeviceContext)
+				rContext = CreateEglSimpleContext(_HiddenWindowDevice);
+			else
+				throw new NotImplementedException(String.Format("{0} is not a supported device context", _HiddenWindowDevice.GetType()));
 
 			// Query OpenGL informations
 			if (_HiddenWindowDevice.MakeCurrent(rContext) == false)
@@ -155,7 +150,7 @@ namespace OpenGL
 		/// Creates an OpenGL context from a Windows platform.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="IntPtr"/>
+		/// A <see cref="IDeviceContext"/> that specify the device context.
 		/// </returns>
 		private static IntPtr CreateWinSimpleContext(IDeviceContext rDevice)
 		{
@@ -189,10 +184,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Creates an OpenGL context from a Windows platform.
+		/// Creates an OpenGL context from a Unix/Linux platform.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="IntPtr"/>
+		/// A <see cref="IDeviceContext"/> that specify the device context.
 		/// </returns>
 		private static IntPtr CreateX11SimpleContext(IDeviceContext rDevice)
 		{
@@ -233,6 +228,53 @@ namespace OpenGL
 
 				return (rContext);
 			}
+		}
+
+		/// <summary>
+		/// Creates an OpenGL context from a Unix/Linux platform.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IDeviceContext"/> that specify the device context.
+		/// </returns>
+		private static IntPtr CreateEglSimpleContext(IDeviceContext rDevice)
+		{
+			NativeDeviceContext eglDeviceCtx = (NativeDeviceContext)rDevice;
+			IntPtr ctx;
+
+			int[] configAttribs = new int[] {
+				Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT,
+				Egl.RED_SIZE, 8,
+				Egl.GREEN_SIZE, 8,
+				Egl.BLUE_SIZE, 8,
+				Egl.NONE
+			};
+			int[] configCount = new int[1];
+			IntPtr[] configs = new IntPtr[8];
+
+			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
+				throw new InvalidOperationException("no ES API");
+
+			if (Egl.ChooseConfig(eglDeviceCtx.Display, configAttribs, configs, configs.Length, configCount) == false)
+				throw new InvalidOperationException("unable to choose configuration");
+			if (configCount[0] == 0)
+				throw new InvalidOperationException("no available configuration");
+
+			int[] contextAttribs = new int[] {
+				Egl.CONTEXT_CLIENT_VERSION, 2,
+				Egl.NONE
+			};
+
+			if ((ctx = Egl.CreateContext(eglDeviceCtx.Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create context");
+
+			int[] surfaceAttribs = new int[1] {
+				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+				Egl.NONE
+			};
+
+			eglDeviceCtx.Surface = Egl.CreateWindowSurface(eglDeviceCtx.Display, configs[configs.Length - 1], eglDeviceCtx.NativeWindow, surfaceAttribs);
+
+			return (ctx);
 		}
 
 		/// <summary>

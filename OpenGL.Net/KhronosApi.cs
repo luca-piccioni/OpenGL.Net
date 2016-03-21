@@ -45,63 +45,52 @@ namespace OpenGL
 		#region Import Function Linkage
 
 		/// <summary>
-		/// Link delegates fields using import declarations.
+		/// Delegate used for getting a procedure address.
 		/// </summary>
-		/// <param name="path">
-		/// A <see cref="System.String"/> that specifies the assembly file path containing the import functions.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies the type used for detecting import declarations and delegates fields.
-		/// </param>
-		protected static void LinkLibraryProcImports(string path, Type type)
-		{
-			SortedList<string, MethodInfo> sImportMap;
-			List<FieldInfo> sDelegates;
-
-			LinkProcAddressImports(path, type, delegate(string libpath, string function) {
-				return (GetProcAddress.GetAddress(libpath, function));
-			}, out sImportMap, out sDelegates);
-		}
+		/// <param name="path"></param>
+		/// <param name="function"></param>
+		/// <returns></returns>
+		private delegate IntPtr GetAddressDelegate(string path, string function);
 
 		/// <summary>
-		/// Link delegates fields using import declarations.
+		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
 		/// </summary>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies the type used for detecting import declarations and delegates fields.
-		/// </param>
-		/// <param name="importMap">
-		/// A <see cref="T:SortedList{String, MethodInfo}"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// <param name="imports">
+		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
 		/// </param>
 		/// <param name="delegates">
-		/// A <see cref="T:List{FieldInfo}"/> listing <see cref="FieldInfo"/> related to function delegates.
+		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
 		/// </param>
-		protected static void LinkOpenGLProcImports(Type type, out SortedList<string, MethodInfo> importMap, out List<FieldInfo> delegates)
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
+		/// </exception>
+		protected static void LoadProcDelegates(ImportMap imports, DelegateList delegates)
 		{
-			LinkProcAddressImports(null, type, delegate(string libpath, string function) {
+			LoadProcDelegates(String.Empty, imports, delegates, delegate(string libpath, string function) {
 				return (GetProcAddress.GetOpenGLAddress(function));
-			}, out importMap, out delegates);
+			});
 		}
 
 		/// <summary>
-		/// Link delegates fields using import declarations.
+		/// Link delegates fields using import declarations, using platform standard method for determining procesures addresses.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
-		/// <param name="type">
-		/// A <see cref="System.Type"/> that specifies the type used for detecting import declarations and delegates fields.
-		/// </param>
-		/// <param name="importMap">
-		/// A <see cref="T:SortedList{String, MethodInfo}"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// <param name="imports">
+		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
 		/// </param>
 		/// <param name="delegates">
-		/// A <see cref="T:List{FieldInfo}"/> listing <see cref="FieldInfo"/> related to function delegates.
+		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
 		/// </param>
-		protected static void LinkOpenGLProcImports(string path, Type type, out SortedList<string, MethodInfo> importMap, out List<FieldInfo> delegates)
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/> or <paramref name="delegates"/> is null.
+		/// </exception>
+		protected static void LoadProcDelegates(string path, ImportMap imports, DelegateList delegates)
 		{
-			LinkProcAddressImports(path, type, delegate(string libpath, string function) {
+			LoadProcDelegates(path, imports, delegates, delegate(string libpath, string function) {
 				return (GetProcAddress.GetAddress(libpath, function));
-			}, out importMap, out delegates);
+			});
 		}
 
 		/// <summary>
@@ -110,63 +99,99 @@ namespace OpenGL
 		/// <param name="path">
 		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
-		/// <param name="type">
-		/// A <see cref="Type"/> that specifies the type used for detecting import declarations and delegates fields.
+		/// <param name="imports">
+		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// </param>
+		/// <param name="delegates">
+		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
 		/// </param>
 		/// <param name="getAddress">
 		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
 		/// </param>
-		/// <param name="sImportMap">
-		/// A <see cref="T:SortedList{String, MethodIndo}"/> mapping a <see cref="MethodInfo"/> with the relative function name.
-		/// </param>
-		/// <param name="sDelegates">
-		/// A <see cref="T:List{FieldInfo}"/> listing <see cref="FieldInfo"/> related to function delegates.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// The type <paramref name="type"/> shall have defined a nested class named "UnsafeNativeMethods" specifying the import declarations and a nested
-		/// class named "Delagates" specifying the delegate fields.
-		/// </para>
-		/// </remarks>
-		private static void LinkProcAddressImports(string path, Type type, GetAddressDelegate getAddress, out SortedList<string, MethodInfo> sImportMap, out List<FieldInfo> sDelegates)
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/>, <paramref name="delegates"/> or <paramref name="getAddress"/> is null.
+		/// </exception>
+		private static void LoadProcDelegates(string path, ImportMap imports, DelegateList delegates, GetAddressDelegate getAddress)
 		{
-			Type impClass = type.GetNestedType("UnsafeNativeMethods", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
-			Debug.Assert(impClass != null);
+			if (path == null)
+				throw new ArgumentNullException("path");
+			if (imports == null)
+				throw new ArgumentNullException("importMap");
+			if (delegates == null)
+				throw new ArgumentNullException("delegates");
+			if (getAddress == null)
+				throw new ArgumentNullException("getAddress");
 
-			Type delClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(delClass != null);
+			foreach (FieldInfo fi in delegates) {
+				string importName = fi.Name.Substring(1);			// Delegate name always prefixes with 'p'
+				IntPtr importAddr = getAddress(path, importName);
 
-			// Query imports declarations
-			MethodInfo[] iMethods = impClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
+				if (importAddr != IntPtr.Zero) {
+					Delegate delegatePtr;
 
-			sImportMap = new SortedList<string, MethodInfo>(iMethods.Length);
-			foreach (MethodInfo m in iMethods)
-				sImportMap.Add(m.Name, m);
-
-			// Query delegates declarations
-			sDelegates = new List<FieldInfo>(delClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic));
-
-			foreach (FieldInfo fi in sDelegates) {
-				Delegate pDelegate = null;
-				string pImportName = fi.Name.Substring(1);
-				IntPtr mAddr = getAddress(path, pImportName);
-
-				if (mAddr != IntPtr.Zero) {
 					// Try to load external symbol
-					if ((pDelegate = Marshal.GetDelegateForFunctionPointer(mAddr, fi.FieldType)) == null) {
-						MethodInfo mInfo;
+					if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddr, fi.FieldType)) == null) {
+						MethodInfo methodInfo;
 
-						if (sImportMap.TryGetValue(pImportName, out mInfo) == true)
-							pDelegate = Delegate.CreateDelegate(fi.FieldType, mInfo);
+						if (imports.TryGetValue(importName, out methodInfo) == true)
+							delegatePtr = Delegate.CreateDelegate(fi.FieldType, methodInfo);
 					}
 
-					if (pDelegate != null)
-						fi.SetValue(null, pDelegate);
+					if (delegatePtr != null)
+						fi.SetValue(null, delegatePtr);
 				}
 			}
 		}
 
-		private delegate IntPtr GetAddressDelegate(string path, string function);
+		/// <summary>
+		/// Get the import methods map for the specified type.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="Type"/> that specifies the type used for detecting import declarations.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="ImportMap"/> for <paramref name="type"/>.
+		/// </returns>
+		protected static ImportMap GetImportMap(Type type)
+		{
+			if (type == null)
+				throw new ArgumentNullException("type");
+
+			Type unsafeClass = type.GetNestedType("UnsafeNativeMethods", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+			Debug.Assert(unsafeClass != null);
+			if (unsafeClass == null)
+				throw new NotImplementedException("missing UnsafeNativeMethods class");
+
+			MethodInfo[] methods = unsafeClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
+
+			ImportMap importMap = new ImportMap(methods.Length);
+			foreach (MethodInfo m in methods)
+				importMap.Add(m.Name, m);
+
+			return (importMap);
+		}
+
+		/// <summary>
+		/// Get the delegates methods for the specified type.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="Type"/> that specifies the type used for detecting delegates declarations.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="DelegateList"/> for <paramref name="type"/>.
+		/// </returns>
+		protected static DelegateList GetDelegateList(Type type)
+		{
+			if (type == null)
+				throw new ArgumentNullException("type");
+
+			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
+		}
 
 		#endregion
 

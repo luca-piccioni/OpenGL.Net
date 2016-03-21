@@ -37,7 +37,11 @@ namespace OpenGL
 		/// </summary>
 		static Glx()
 		{
-			LinkOpenGLProcImports(typeof(Glx), out sImportMap, out sDelegates);
+			// Cache imports & delegates
+			_Delegates = GetDelegateList(typeof(Glx));
+			_ImportMap = GetImportMap(typeof(Glx));
+			// Load procedures
+			LoadProcDelegates(Library, _ImportMap, _Delegates);
 		}
 
 		#endregion
@@ -49,7 +53,7 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			SynchDelegates(sImportMap, sDelegates);
+			SynchDelegates(_ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -60,12 +64,12 @@ namespace OpenGL
 		/// <summary>
 		/// Imported functions delegates.
 		/// </summary>
-		private static List<FieldInfo> sDelegates = null;
+		private static List<FieldInfo> _Delegates;
 
 		/// <summary>
 		/// Build a string->MethodInfo map to speed up extension loading.
 		/// </summary>
-		private static readonly SortedList<string, MethodInfo> sImportMap;
+		private static readonly SortedList<string, MethodInfo> _ImportMap;
 
 		#endregion
 

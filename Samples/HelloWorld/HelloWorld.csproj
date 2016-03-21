@@ -116,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OpenGL.Hal\OpenGL.Hal.csproj">
+      <Project>{b1656959-9aee-45f3-a382-1bd0eac86918}</Project>
+      <Name>OpenGL.Hal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.csproj">
       <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>
       <Name>OpenGL.Net</Name>
@@ -126,7 +130,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>IF $(ConfigurationName) == "x64" (
+    <PostBuildEvent>xcopy "$(SolutionDir)Libs\ANGLE" "$(TargetDir)ANGLE\" /E /H /C /R /Q /Y &gt; NUL
+IF $(ConfigurationName) == "x64" (
   copy "$(SolutionDir)Libs\gdal-x64\*.dll" "$(TargetDir)"
   copy "$(SolutionDir)Libs\gdal-csharp\*.dll" "$(TargetDir)"
 ) ELSE (

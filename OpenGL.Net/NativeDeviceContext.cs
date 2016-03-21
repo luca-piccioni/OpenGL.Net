@@ -66,6 +66,14 @@ namespace OpenGL
 		#region Device Information
 
 		/// <summary>
+		/// Native window handle.
+		/// </summary>
+		public IntPtr NativeWindow
+		{
+			get { return (_NativeWindow); }
+		}
+
+		/// <summary>
 		/// The opened display.
 		/// </summary>
 		public IntPtr Display
@@ -73,27 +81,37 @@ namespace OpenGL
 			get
 			{
 				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
+					throw new ObjectDisposedException("NativeDeviceContext");
 				return (_Display);
 			}
 		}
 
 		/// <summary>
-		/// The frame buffer configuration index.
+		/// The EGL surface.
 		/// </summary>
-		public IntPtr Config
+		public IntPtr Surface
+		{
+			get { return (_EglSurface); }
+			set
+			{
+				if (value == IntPtr.Zero)
+					throw new InvalidOperationException("invalid value");
+				if (_EglSurface != IntPtr.Zero)
+					throw new InvalidOperationException("already allocated");
+				_EglSurface = value;
+			}
+		}
+
+		/// <summary>
+		/// The context version.
+		/// </summary>
+		public KhronosVersion Version
 		{
 			get
 			{
 				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				return (_Config);
-			}
-			set
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				_Config = value;
+					throw new ObjectDisposedException("NativeDeviceContext");
+				return (_Version);
 			}
 		}
 
@@ -199,7 +217,16 @@ namespace OpenGL
 		/// </exception>
 		public override bool MakeCurrent(IntPtr ctx)
 		{
-			return (Egl.MakeCurrent(_Display, IntPtr.Zero, IntPtr.Zero, ctx));
+			if (ctx != IntPtr.Zero) {
+				bool current = Egl.MakeCurrent(_Display, _EglSurface, _EglSurface, ctx);
+
+				// Link OpenGL ES procedures on Gl
+				if (ctx != IntPtr.Zero && current == true)
+					Gl.SyncEsDelegates();
+
+				return (current);
+			} else
+				return (Egl.MakeCurrent(_Display, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero));
 		}
 
 		/// <summary>
@@ -437,13 +464,10 @@ namespace OpenGL
 
 			int[] configAttribs = new int[3] {
 				Egl.CONFIG_ID, 10,
-				Gl.NONE
+				Egl.NONE
 			};
 			int[] configCount = new int[1];
-			IntPtr[] configs = new IntPtr[1];
-
-			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
-				throw new InvalidOperationException("no ES API");
+			IntPtr[] configs = new IntPtr[1024];
 
 			if (Egl.ChooseConfig(_Display, configAttribs, configs, 1, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");

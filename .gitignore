@@ -43,3 +43,4 @@ packages
 /Libs/ANGLE/winrt10/x86/*.pdb
 /Libs/ANGLE/winrt10d/x64/*.pdb
 /Libs/ANGLE/winrt10d/x86/*.pdb
+/OpenGL.Net.Test/*.user

@@ -40,7 +40,11 @@ namespace OpenGL
 		/// </summary>
 		static Wgl()
 		{
-			LinkOpenGLProcImports(typeof(Wgl), out _ImportMap, out _Delegates);
+			// Cache imports & delegates
+			_Delegates = GetDelegateList(typeof(Wgl));
+			_ImportMap = GetImportMap(typeof(Wgl));
+			// Load procedures
+			LoadProcDelegates(_ImportMap, _Delegates);
 		}
 
 		#endregion

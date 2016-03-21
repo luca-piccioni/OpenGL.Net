@@ -87,12 +87,16 @@ namespace OpenGL
 							obj = Activator.CreateInstance(field.FieldType);
 						else
 							obj = Array.CreateInstance(field.FieldType.GetElementType(), graphicsLimitAttribute.ArrayLenght);
-						object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };
+						
 
 						try {
+							object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };
+
 							getMethod.Invoke(null, @params);
 
 							field.SetValue(graphicsLimits, @params[1]);
+						} catch (GlException) {
+
 						} catch (Exception) {
 
 						}
@@ -102,6 +106,8 @@ namespace OpenGL
 							string s = (string)getMethod.Invoke(null, new object[] { graphicsLimitAttribute.EnumValue });
 
 							field.SetValue(graphicsLimits, s);
+						} catch (GlException) {
+
 						} catch (Exception) {
 							
 						}

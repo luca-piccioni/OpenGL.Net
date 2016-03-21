@@ -62,8 +62,12 @@ namespace OpenGL
 			// Include ANGLE path, if any
 			if (anglePath != null && Directory.Exists(anglePath))
 				OpenGL.GetProcAddress.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
-			
-			LinkOpenGLProcImports(Library, typeof(Egl), out _ImportMap, out _Delegates);
+
+			// Cache imports & delegates
+			_Delegates = GetDelegateList(typeof(Egl));
+			_ImportMap = GetImportMap(typeof(Egl));
+			// Load procesdures
+			LoadProcDelegates(Library, _ImportMap, _Delegates);
 		}
 
 		#endregion
@@ -91,7 +95,7 @@ namespace OpenGL
 		/// <summary>
 		/// Build a string->MethodInfo map to speed up extension loading.
 		/// </summary>
-		internal static SortedList<string, MethodInfo> _ImportMap = null;
+		internal static SortedList<string, MethodInfo> _ImportMap;
 
 		#endregion
 

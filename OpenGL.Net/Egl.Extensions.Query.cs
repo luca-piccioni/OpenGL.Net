@@ -30,13 +30,16 @@ namespace OpenGL
 			/// <summary>
 			/// Query the extensions supported by current platform.
 			/// </summary>
-			public void Query(KhronosVersion version, IntPtr display)
+			/// <param name="deviceContext">
+			/// A <see cref="NativeDeviceContext"/> that specifies the device context to query extensions for.
+			/// </param>
+			public void Query(NativeDeviceContext deviceContext)
 			{
 				LogComment("Query EGL extensions.");
 
-				string eglExtensions = QueryString(display, Egl.EXTENSIONS);
+				string eglExtensions = QueryString(deviceContext.Display, Egl.EXTENSIONS);
 
-				Query(version, eglExtensions ?? String.Empty);
+				Query(deviceContext.Version, eglExtensions ?? String.Empty);
 			}
 
 			/// <summary>

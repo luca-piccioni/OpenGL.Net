@@ -40,7 +40,11 @@ namespace OpenGL
 		/// </summary>
 		static Gl()
 		{
-			LinkOpenGLProcImports(typeof(Gl), out sImportMap, out sDelegates);
+			// Cache imports & delegates
+			_Delegates = GetDelegateList(typeof(Gl));
+			_ImportMap = GetImportMap(typeof(Gl));
+			// Load procedures (OpenGL desktop by default) @todo Really necessary?
+			LoadProcDelegates(_ImportMap, _Delegates);
 		}
 
 		#endregion
@@ -52,7 +56,15 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			SynchDelegates(sImportMap, sDelegates);
+			LoadProcDelegates(_ImportMap, _Delegates);
+		}
+
+		/// <summary>
+		/// Synchronize OpenGL ES delegates.
+		/// </summary>
+		public static void SyncEsDelegates()
+		{
+			LoadProcDelegates(LibraryEs, _ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -61,14 +73,19 @@ namespace OpenGL
 		private const string Library = "opengl32.dll";
 
 		/// <summary>
+		/// Default import library.
+		/// </summary>
+		private const string LibraryEs = "libGLESv2.dll";
+
+		/// <summary>
 		/// Imported functions delegates.
 		/// </summary>
-		private static List<FieldInfo> sDelegates;
+		private static List<FieldInfo> _Delegates;
 
 		/// <summary>
 		/// Build a string->MethodInfo map to speed up extension loading.
 		/// </summary>
-		internal static SortedList<string, MethodInfo> sImportMap = null;
+		internal static SortedList<string, MethodInfo> _ImportMap;
 
 		#endregion
 

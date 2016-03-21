@@ -61,6 +61,10 @@ namespace OpenGL
 			XServerDeviceContext xserverDeviceContext = deviceContext as XServerDeviceContext;
 			if (xserverDeviceContext != null)
 				graphicsCapabilities._GlxExtensions.Query(xserverDeviceContext);
+			// EGL OpenGL extensions
+			NativeDeviceContext nativeDeviceContext = deviceContext as NativeDeviceContext;
+			if (nativeDeviceContext != null)
+				graphicsCapabilities._EglExtensions.Query(nativeDeviceContext);
 
 			// Query implementation limits
 			graphicsCapabilities._GraphicsLimits = GraphicsLimits.Query(graphicsCapabilities._GlExtensions);
@@ -197,6 +201,16 @@ namespace OpenGL
 		/// GLX OpenGL extensions support.
 		/// </summary>
 		private Glx.Extensions _GlxExtensions = new Glx.Extensions();
+
+		/// <summary>
+		/// Get  EGL OpenGL extensions support.
+		/// </summary>
+		public Egl.Extensions EglExtensions { get { return (_EglExtensions); } }
+
+		/// <summary>
+		/// EGL OpenGL extensions support.
+		/// </summary>
+		private Egl.Extensions _EglExtensions = new Egl.Extensions();
 
 		/// <summary>
 		/// Get platform extensions (WGL and GLX common extensions).
