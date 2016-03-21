@@ -194,17 +194,13 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		internal void Link(RegistryContext ctx)
 		{
-			foreach (EnumerantBlock enumerantBlock in Enums)
-				enumerantBlock.Link(ctx);
-			foreach (CommandBlock commandBlock in CommandBlocks)
-				commandBlock.Link(ctx);
-
 			// Index enumeration groups
 			foreach (EnumerantGroup enumerantGroup in Groups)
 				mEnumerantGroupRegistry.Add(enumerantGroup.Name, enumerantGroup);
 			// Index commands
 			foreach (Command command in Commands)
 				mCommandRegistry.Add(command.Prototype.Name, command);
+
 			// Link command aliases
 			foreach (Command command in Commands) {
 				if (command.Alias == null)
@@ -216,6 +212,11 @@ namespace BindingsGen.GLSpecs
 				else
 					Console.WriteLine("Command {0} has an undefined alias {1}.", command.Prototype.Name, command.Alias.Name);
 			}
+
+			foreach (EnumerantBlock enumerantBlock in Enums)
+				enumerantBlock.Link(ctx);
+			foreach (CommandBlock commandBlock in CommandBlocks)
+				commandBlock.Link(ctx);
 
 			// Index required enumerants
 			foreach (Enumerant enumerant in Enumerants) {

@@ -1215,6 +1215,10 @@ namespace BindingsGen.GLSpecs
 						return (false);
 
 					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
+						foreach (Command commandAlias in Aliases)
+							if (subitem.Name == commandAlias.Prototype.Name)
+								return (true);
+
 						return (subitem.Name == Prototype.Name);
 					});
 
