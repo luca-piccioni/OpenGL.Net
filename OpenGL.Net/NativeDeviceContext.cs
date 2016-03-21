@@ -319,9 +319,9 @@ namespace OpenGL
 				foreach (IntPtr config in configs) {
 					DevicePixelFormat pixelFormat = new DevicePixelFormat();
 					int param;
-					bool version12 = _Version >= new KhronosVersion(1, 2, KhronosVersion.ApiEgl);
-					bool version13 = _Version >= new KhronosVersion(1, 3, KhronosVersion.ApiEgl);
-					bool version14 = _Version >= new KhronosVersion(1, 4, KhronosVersion.ApiEgl);
+					bool version12 = _Version >= Egl.Version_120;
+					bool version13 = _Version >= Egl.Version_130;
+					bool version14 = _Version >= Egl.Version_140;
 
 					if (Egl.GetConfigAttrib(_Display, config, Egl.CONFIG_ID, out pixelFormat.FormatIndex) == false)
 						throw new InvalidOperationException("unable to get configuration parameter CONFIG_ID");
