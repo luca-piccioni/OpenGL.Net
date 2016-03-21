@@ -1025,6 +1025,7 @@ namespace OpenGL
 		[AliasOf("glBlendEquationSeparateEXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_equation_separate")]
 		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
@@ -1085,6 +1086,9 @@ namespace OpenGL
 		[AliasOf("glDrawBuffersEXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
 		public static void DrawBuffers(params Int32[] bufs)
 		{
 			unsafe {
@@ -1139,6 +1143,7 @@ namespace OpenGL
 		[AliasOf("glStencilOpSeparateATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public static void StencilOpSeparate(StencilFaceDirection face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
@@ -1256,6 +1261,7 @@ namespace OpenGL
 		[AliasOf("glAttachObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void AttachShader(UInt32 program, UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglAttachShader != null, "pglAttachShader not implemented");
@@ -1299,6 +1305,7 @@ namespace OpenGL
 		[AliasOf("glBindAttribLocationARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void BindAttribLocation(UInt32 program, UInt32 index, String name)
 		{
 			Debug.Assert(Delegates.pglBindAttribLocation != null, "pglBindAttribLocation not implemented");
@@ -1327,6 +1334,7 @@ namespace OpenGL
 		[AliasOf("glCompileShaderARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void CompileShader(UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglCompileShader != null, "pglCompileShader not implemented");
@@ -1355,6 +1363,7 @@ namespace OpenGL
 		[AliasOf("glCreateProgramObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static UInt32 CreateProgram()
 		{
 			UInt32 retValue;
@@ -1390,6 +1399,7 @@ namespace OpenGL
 		[AliasOf("glCreateShaderObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static UInt32 CreateShader(Int32 shaderType)
 		{
 			UInt32 retValue;
@@ -1479,6 +1489,7 @@ namespace OpenGL
 		[AliasOf("glDetachObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void DetachShader(UInt32 program, UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglDetachShader != null, "pglDetachShader not implemented");
@@ -1516,6 +1527,8 @@ namespace OpenGL
 		[AliasOf("glDisableVertexAttribArrayARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void DisableVertexAttribArray(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribArray != null, "pglDisableVertexAttribArray not implemented");
@@ -1553,6 +1566,8 @@ namespace OpenGL
 		[AliasOf("glEnableVertexAttribArrayARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void EnableVertexAttribArray(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribArray != null, "pglEnableVertexAttribArray not implemented");
@@ -1609,6 +1624,7 @@ namespace OpenGL
 		[AliasOf("glGetActiveAttribARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1673,6 +1689,7 @@ namespace OpenGL
 		[AliasOf("glGetActiveUniformARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1756,6 +1773,7 @@ namespace OpenGL
 		[AliasOf("glGetAttribLocationARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static Int32 GetAttribLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -2091,6 +2109,7 @@ namespace OpenGL
 		[AliasOf("glGetShaderSourceARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetShaderSource(UInt32 shader, Int32 bufSize, out Int32 length, [Out] StringBuilder source)
 		{
 			unsafe {
@@ -2129,6 +2148,7 @@ namespace OpenGL
 		[AliasOf("glGetUniformLocationARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static Int32 GetUniformLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -2178,6 +2198,7 @@ namespace OpenGL
 		[AliasOf("glGetUniformfvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniform(UInt32 program, Int32 location, [Out] float[] @params)
 		{
 			unsafe {
@@ -2228,6 +2249,7 @@ namespace OpenGL
 		[AliasOf("glGetUniformivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniform(UInt32 program, Int32 location, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2282,6 +2304,9 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribdvARB")]
 		[AliasOf("glGetVertexAttribdvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] double[] @params)
 		{
 			unsafe {
@@ -2337,6 +2362,9 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribfvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -2392,6 +2420,9 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribivNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -2447,6 +2478,9 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribivNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, out Int32 @params)
 		{
 			unsafe {
@@ -2490,6 +2524,9 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribPointervNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, out IntPtr pointer)
 		{
 			unsafe {
@@ -2533,6 +2570,9 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribPointervNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -2629,6 +2669,7 @@ namespace OpenGL
 		[AliasOf("glLinkProgramARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void LinkProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglLinkProgram != null, "pglLinkProgram not implemented");
@@ -2666,6 +2707,7 @@ namespace OpenGL
 		[AliasOf("glShaderSourceARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void ShaderSource(UInt32 shader, String[] @string, Int32[] length)
 		{
 			unsafe {
@@ -2712,6 +2754,7 @@ namespace OpenGL
 		[AliasOf("glUseProgramObjectARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UseProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseProgram != null, "pglUseProgram not implemented");
@@ -2771,6 +2814,7 @@ namespace OpenGL
 		[AliasOf("glUniform1fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1(Int32 location, float v0)
 		{
 			Debug.Assert(Delegates.pglUniform1f != null, "pglUniform1f not implemented");
@@ -2833,6 +2877,7 @@ namespace OpenGL
 		[AliasOf("glUniform2fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2(Int32 location, float v0, float v1)
 		{
 			Debug.Assert(Delegates.pglUniform2f != null, "pglUniform2f not implemented");
@@ -2898,6 +2943,7 @@ namespace OpenGL
 		[AliasOf("glUniform3fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3(Int32 location, float v0, float v1, float v2)
 		{
 			Debug.Assert(Delegates.pglUniform3f != null, "pglUniform3f not implemented");
@@ -2966,6 +3012,7 @@ namespace OpenGL
 		[AliasOf("glUniform4fARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4(Int32 location, float v0, float v1, float v2, float v3)
 		{
 			Debug.Assert(Delegates.pglUniform4f != null, "pglUniform4f not implemented");
@@ -3025,6 +3072,7 @@ namespace OpenGL
 		[AliasOf("glUniform1iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1(Int32 location, Int32 v0)
 		{
 			Debug.Assert(Delegates.pglUniform1i != null, "pglUniform1i not implemented");
@@ -3087,6 +3135,7 @@ namespace OpenGL
 		[AliasOf("glUniform2iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2(Int32 location, Int32 v0, Int32 v1)
 		{
 			Debug.Assert(Delegates.pglUniform2i != null, "pglUniform2i not implemented");
@@ -3152,6 +3201,7 @@ namespace OpenGL
 		[AliasOf("glUniform3iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3(Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
 			Debug.Assert(Delegates.pglUniform3i != null, "pglUniform3i not implemented");
@@ -3220,6 +3270,7 @@ namespace OpenGL
 		[AliasOf("glUniform4iARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
 			Debug.Assert(Delegates.pglUniform4i != null, "pglUniform4i not implemented");
@@ -3284,6 +3335,7 @@ namespace OpenGL
 		[AliasOf("glUniform1fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3353,6 +3405,7 @@ namespace OpenGL
 		[AliasOf("glUniform1fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform1(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
@@ -3417,6 +3470,7 @@ namespace OpenGL
 		[AliasOf("glUniform2fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3486,6 +3540,7 @@ namespace OpenGL
 		[AliasOf("glUniform2fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform2(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
@@ -3550,6 +3605,7 @@ namespace OpenGL
 		[AliasOf("glUniform3fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3619,6 +3675,7 @@ namespace OpenGL
 		[AliasOf("glUniform3fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform3(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
@@ -3683,6 +3740,7 @@ namespace OpenGL
 		[AliasOf("glUniform4fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3752,6 +3810,7 @@ namespace OpenGL
 		[AliasOf("glUniform4fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform4(Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
@@ -3816,6 +3875,7 @@ namespace OpenGL
 		[AliasOf("glUniform1ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -3885,6 +3945,7 @@ namespace OpenGL
 		[AliasOf("glUniform1ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform1(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
@@ -3949,6 +4010,7 @@ namespace OpenGL
 		[AliasOf("glUniform2ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4018,6 +4080,7 @@ namespace OpenGL
 		[AliasOf("glUniform2ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform2(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
@@ -4082,6 +4145,7 @@ namespace OpenGL
 		[AliasOf("glUniform3ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4151,6 +4215,7 @@ namespace OpenGL
 		[AliasOf("glUniform3ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform3(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
@@ -4215,6 +4280,7 @@ namespace OpenGL
 		[AliasOf("glUniform4ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4284,6 +4350,7 @@ namespace OpenGL
 		[AliasOf("glUniform4ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static unsafe void Uniform4(Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
@@ -4351,6 +4418,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix2fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4423,6 +4491,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix3fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4495,6 +4564,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix4fvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4527,6 +4597,7 @@ namespace OpenGL
 		[AliasOf("glValidateProgramARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void ValidateProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglValidateProgram != null, "pglValidateProgram not implemented");
@@ -4562,6 +4633,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib1dARB")]
 		[AliasOf("glVertexAttrib1dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, double x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1d != null, "pglVertexAttrib1d not implemented");
@@ -4596,6 +4670,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib1dvARB")]
 		[AliasOf("glVertexAttrib1dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -4637,6 +4714,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib1fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, float x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1f != null, "pglVertexAttrib1f not implemented");
@@ -4672,6 +4752,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib1fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -4712,6 +4795,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib1sARB")]
 		[AliasOf("glVertexAttrib1sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, Int16 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1s != null, "pglVertexAttrib1s not implemented");
@@ -4746,6 +4832,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib1svARB")]
 		[AliasOf("glVertexAttrib1svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -4789,6 +4878,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib2dARB")]
 		[AliasOf("glVertexAttrib2dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2d != null, "pglVertexAttrib2d not implemented");
@@ -4823,6 +4915,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib2dvARB")]
 		[AliasOf("glVertexAttrib2dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -4867,6 +4962,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib2fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2f != null, "pglVertexAttrib2f not implemented");
@@ -4902,6 +5000,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -4945,6 +5046,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib2sARB")]
 		[AliasOf("glVertexAttrib2sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2s != null, "pglVertexAttrib2s not implemented");
@@ -4979,6 +5083,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib2svARB")]
 		[AliasOf("glVertexAttrib2svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -5025,6 +5132,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib3dARB")]
 		[AliasOf("glVertexAttrib3dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3d != null, "pglVertexAttrib3d not implemented");
@@ -5059,6 +5169,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib3dvARB")]
 		[AliasOf("glVertexAttrib3dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5106,6 +5219,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib3fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3f != null, "pglVertexAttrib3f not implemented");
@@ -5141,6 +5257,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -5187,6 +5306,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib3sARB")]
 		[AliasOf("glVertexAttrib3sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3s != null, "pglVertexAttrib3s not implemented");
@@ -5221,6 +5343,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib3svARB")]
 		[AliasOf("glVertexAttrib3svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -5260,6 +5385,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4NbvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -5299,6 +5426,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4NivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -5338,6 +5467,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4NsvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -5387,6 +5518,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4NubARB")]
 		[AliasOf("glVertexAttrib4ubNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4N(UInt32 index, byte x, byte y, byte z, byte w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nub != null, "pglVertexAttrib4Nub not implemented");
@@ -5421,6 +5555,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4NubvARB")]
 		[AliasOf("glVertexAttrib4ubvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4N(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -5460,6 +5597,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4NuivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -5499,6 +5638,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4NusvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -5538,6 +5679,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4bvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -5587,6 +5730,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4dARB")]
 		[AliasOf("glVertexAttrib4dNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4d != null, "pglVertexAttrib4d not implemented");
@@ -5621,6 +5767,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4dvARB")]
 		[AliasOf("glVertexAttrib4dvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5671,6 +5820,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4fNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4f != null, "pglVertexAttrib4f not implemented");
@@ -5706,6 +5858,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -5745,6 +5900,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4ivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -5794,6 +5951,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4sARB")]
 		[AliasOf("glVertexAttrib4sNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4s != null, "pglVertexAttrib4s not implemented");
@@ -5828,6 +5988,9 @@ namespace OpenGL
 		[AliasOf("glVertexAttrib4svARB")]
 		[AliasOf("glVertexAttrib4svNV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -5867,6 +6030,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4ubvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ub(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -5906,6 +6071,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4uivARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -5945,6 +6112,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttrib4usvARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -6035,6 +6204,8 @@ namespace OpenGL
 		[AliasOf("glVertexAttribPointerARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
@@ -6120,6 +6291,8 @@ namespace OpenGL
 		[AliasOf("glVertexAttribPointerARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

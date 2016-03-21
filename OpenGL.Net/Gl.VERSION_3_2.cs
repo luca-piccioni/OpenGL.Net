@@ -735,6 +735,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsBaseVertex != null, "pglDrawElementsBaseVertex not implemented");
@@ -790,6 +792,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -856,6 +860,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertex != null, "pglDrawRangeElementsBaseVertex not implemented");
@@ -920,6 +926,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -980,6 +988,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertex != null, "pglDrawElementsInstancedBaseVertex not implemented");
@@ -1038,6 +1048,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 primcount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -1092,6 +1104,8 @@ namespace OpenGL
 		[AliasOf("glMultiDrawElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 		public static void MultiDrawElementsBaseVertex(Int32 mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
 		{
 			unsafe {
@@ -1121,6 +1135,7 @@ namespace OpenGL
 		[AliasOf("glProvokingVertexEXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public static void ProvokingVertex(Int32 provokeMode)
 		{
 			Debug.Assert(Delegates.pglProvokingVertex != null, "pglProvokingVertex not implemented");
@@ -1159,6 +1174,7 @@ namespace OpenGL
 		[AliasOf("glFenceSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static Int32 FenceSync(Int32 condition, UInt32 flags)
 		{
@@ -1185,6 +1201,7 @@ namespace OpenGL
 		[AliasOf("glIsSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static bool IsSync(Int32 sync)
 		{
@@ -1215,6 +1232,7 @@ namespace OpenGL
 		[AliasOf("glDeleteSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static void DeleteSync(Int32 sync)
 		{
@@ -1251,6 +1269,7 @@ namespace OpenGL
 		[AliasOf("glClientWaitSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static Int32 ClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout)
 		{
@@ -1293,6 +1312,7 @@ namespace OpenGL
 		[AliasOf("glWaitSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static void WaitSync(Int32 sync, UInt32 flags, UInt64 timeout)
 		{
@@ -1348,6 +1368,7 @@ namespace OpenGL
 		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static void Get(Int32 pname, [Out] Int64[] data)
 		{
@@ -1408,6 +1429,7 @@ namespace OpenGL
 		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static void Get(Int32 pname, out Int64 data)
 		{
@@ -1451,6 +1473,7 @@ namespace OpenGL
 		[AliasOf("glGetSyncivAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static void GetSync(Int32 sync, Int32 pname, out Int32 length, [Out] Int32[] values)
 		{
@@ -1701,6 +1724,10 @@ namespace OpenGL
 		[AliasOf("glFramebufferTextureOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public static void FramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture != null, "pglFramebufferTexture not implemented");
@@ -1855,6 +1882,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public static void GetMultisample(Int32 pname, UInt32 index, [Out] float[] val)
 		{
 			unsafe {

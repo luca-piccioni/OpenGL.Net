@@ -90,6 +90,7 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("glFramebufferTextureFaceEXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, TextureTarget face)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureFaceARB != null, "pglFramebufferTextureFaceARB not implemented");

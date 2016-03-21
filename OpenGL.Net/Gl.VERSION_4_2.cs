@@ -1083,6 +1083,7 @@ namespace OpenGL
 		[AliasOf("glDrawArraysInstancedBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 		public static void DrawArraysInstancedBaseInstance(PrimitiveType mode, Int32 first, Int32 count, Int32 primcount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstance != null, "pglDrawArraysInstancedBaseInstance not implemented");
@@ -1137,6 +1138,7 @@ namespace OpenGL
 		[AliasOf("glDrawElementsInstancedBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
@@ -1191,6 +1193,7 @@ namespace OpenGL
 		[AliasOf("glDrawElementsInstancedBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 primcount, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -1252,6 +1255,7 @@ namespace OpenGL
 		[AliasOf("glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
@@ -1311,6 +1315,7 @@ namespace OpenGL
 		[AliasOf("glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -1498,6 +1503,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public static void MemoryBarrier(UInt32 barriers)
 		{
 			Debug.Assert(Delegates.pglMemoryBarrier != null, "pglMemoryBarrier not implemented");
@@ -1550,6 +1556,7 @@ namespace OpenGL
 		[AliasOf("glTexStorage1DEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width)
 		{
 			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
@@ -1613,6 +1620,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
@@ -1680,6 +1688,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");

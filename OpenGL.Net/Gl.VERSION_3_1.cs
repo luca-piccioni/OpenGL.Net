@@ -657,6 +657,11 @@ namespace OpenGL
 		[AliasOf("glDrawArraysInstancedNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_draw_instanced")]
+		[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 		public static void DrawArraysInstanced(PrimitiveType mode, Int32 first, Int32 count, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstanced != null, "pglDrawArraysInstanced not implemented");
@@ -711,6 +716,11 @@ namespace OpenGL
 		[AliasOf("glDrawElementsInstancedNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_draw_instanced")]
+		[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstanced != null, "pglDrawElementsInstanced not implemented");
@@ -765,6 +775,11 @@ namespace OpenGL
 		[AliasOf("glDrawElementsInstancedNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_draw_instanced")]
+		[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -820,6 +835,10 @@ namespace OpenGL
 		[AliasOf("glTexBufferOES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_object")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_buffer_object")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		public static void TexBuffer(TextureTarget target, Int32 internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTexBuffer != null, "pglTexBuffer not implemented");
@@ -907,6 +926,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
 		public static void CopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");

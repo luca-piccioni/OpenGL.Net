@@ -797,6 +797,8 @@ namespace OpenGL
 		[AliasOf("glBlendFuncSeparateINGR")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_func_separate")]
+		[RequiredByFeature("GL_INGR_blend_func_separate")]
 		public static void BlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
@@ -838,6 +840,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glMultiDrawArraysEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
 		public static void MultiDrawArrays(PrimitiveType mode, Int32[] first, Int32[] count, Int32 drawcount)
 		{
 			unsafe {
@@ -889,6 +892,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glMultiDrawElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
 		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount)
 		{
 			unsafe {
@@ -927,6 +931,9 @@ namespace OpenGL
 		[AliasOf("glPointParameterfSGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		public static void PointParameter(Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
@@ -960,6 +967,9 @@ namespace OpenGL
 		[AliasOf("glPointParameterfvSGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		public static void PointParameter(Int32 pname, float[] @params)
 		{
 			unsafe {
@@ -994,6 +1004,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameteriNV")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_NV_point_sprite")]
 		public static void PointParameter(Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
@@ -1024,6 +1035,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterivNV")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_NV_point_sprite")]
 		public static void PointParameter(Int32 pname, Int32[] @params)
 		{
 			unsafe {
@@ -1048,6 +1060,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoordfEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float coord)
 		{
@@ -1067,6 +1080,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoordfvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float[] coord)
 		{
@@ -1092,6 +1106,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoorddEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double coord)
 		{
@@ -1111,6 +1126,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoorddvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double[] coord)
 		{
@@ -1170,6 +1186,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glFogCoordPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
 		{
@@ -1224,6 +1241,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glFogCoordPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, Object pointer)
 		{
@@ -1253,6 +1271,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3bEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte red, sbyte green, sbyte blue)
 		{
@@ -1273,6 +1292,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3bvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte[] v)
 		{
@@ -1305,6 +1325,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3dEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double red, double green, double blue)
 		{
@@ -1325,6 +1346,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3dvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double[] v)
 		{
@@ -1357,6 +1379,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3fEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float red, float green, float blue)
 		{
@@ -1377,6 +1400,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3fvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float[] v)
 		{
@@ -1409,6 +1433,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3iEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32 red, Int32 green, Int32 blue)
 		{
@@ -1429,6 +1454,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3ivEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32[] v)
 		{
@@ -1461,6 +1487,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3sEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16 red, Int16 green, Int16 blue)
 		{
@@ -1481,6 +1508,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3svEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16[] v)
 		{
@@ -1513,6 +1541,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3ubEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte red, byte green, byte blue)
 		{
@@ -1533,6 +1562,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3ubvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte[] v)
 		{
@@ -1565,6 +1595,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3uiEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32 red, UInt32 green, UInt32 blue)
 		{
@@ -1585,6 +1616,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3uivEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32[] v)
 		{
@@ -1617,6 +1649,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3usEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16 red, UInt16 green, UInt16 blue)
 		{
@@ -1637,6 +1670,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3usvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16[] v)
 		{
@@ -1702,6 +1736,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glSecondaryColorPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
@@ -1762,6 +1797,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glSecondaryColorPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
 		{
@@ -1802,6 +1838,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2dARB")]
 		[AliasOf("glWindowPos2dMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double x, double y)
 		{
@@ -1837,6 +1875,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2dvARB")]
 		[AliasOf("glWindowPos2dvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double[] v)
 		{
@@ -1880,6 +1920,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2fARB")]
 		[AliasOf("glWindowPos2fMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float x, float y)
 		{
@@ -1915,6 +1957,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2fvARB")]
 		[AliasOf("glWindowPos2fvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float[] v)
 		{
@@ -1958,6 +2002,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2iARB")]
 		[AliasOf("glWindowPos2iMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32 x, Int32 y)
 		{
@@ -1993,6 +2039,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2ivARB")]
 		[AliasOf("glWindowPos2ivMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32[] v)
 		{
@@ -2036,6 +2084,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2sARB")]
 		[AliasOf("glWindowPos2sMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16 x, Int16 y)
 		{
@@ -2071,6 +2121,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos2svARB")]
 		[AliasOf("glWindowPos2svMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16[] v)
 		{
@@ -2117,6 +2169,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3dARB")]
 		[AliasOf("glWindowPos3dMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double x, double y, double z)
 		{
@@ -2152,6 +2206,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3dvARB")]
 		[AliasOf("glWindowPos3dvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double[] v)
 		{
@@ -2198,6 +2254,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3fARB")]
 		[AliasOf("glWindowPos3fMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float x, float y, float z)
 		{
@@ -2233,6 +2291,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3fvARB")]
 		[AliasOf("glWindowPos3fvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float[] v)
 		{
@@ -2279,6 +2339,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3iARB")]
 		[AliasOf("glWindowPos3iMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32 x, Int32 y, Int32 z)
 		{
@@ -2314,6 +2376,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3ivARB")]
 		[AliasOf("glWindowPos3ivMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32[] v)
 		{
@@ -2360,6 +2424,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3sARB")]
 		[AliasOf("glWindowPos3sMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16 x, Int16 y, Int16 z)
 		{
@@ -2395,6 +2461,8 @@ namespace OpenGL
 		[AliasOf("glWindowPos3svARB")]
 		[AliasOf("glWindowPos3svMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_window_pos")]
+		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16[] v)
 		{
@@ -2432,6 +2500,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		public static void BlendColor(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglBlendColor != null, "pglBlendColor not implemented");
@@ -2464,6 +2533,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
 		public static void BlendEquation(Int32 mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");

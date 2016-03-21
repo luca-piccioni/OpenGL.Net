@@ -2459,6 +2459,9 @@ namespace OpenGL
 		[AliasOf("glColorMaskiOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void ColorMask(UInt32 buf, bool red, bool green, bool blue, bool alpha)
 		{
 			Debug.Assert(Delegates.pglColorMaski != null, "pglColorMaski not implemented");
@@ -2516,6 +2519,8 @@ namespace OpenGL
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, [Out] bool[] data)
 		{
 			unsafe {
@@ -2578,6 +2583,8 @@ namespace OpenGL
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, out bool data)
 		{
 			unsafe {
@@ -2642,6 +2649,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, [Out] Int32[] data)
 		{
 			unsafe {
@@ -2706,6 +2715,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, out Int32 data)
 		{
 			unsafe {
@@ -2762,6 +2773,11 @@ namespace OpenGL
 		[AliasOf("glEnableiOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void Enable(Int32 cap, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnablei != null, "pglEnablei not implemented");
@@ -2813,6 +2829,11 @@ namespace OpenGL
 		[AliasOf("glDisableiOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void Disable(Int32 cap, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisablei != null, "pglDisablei not implemented");
@@ -2848,6 +2869,11 @@ namespace OpenGL
 		[AliasOf("glIsEnablediOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static bool IsEnabled(Int32 cap, UInt32 index)
 		{
 			bool retValue;
@@ -2895,6 +2921,8 @@ namespace OpenGL
 		[AliasOf("glBeginTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BeginTransformFeedback(Int32 primitiveMode)
 		{
 			Debug.Assert(Delegates.pglBeginTransformFeedback != null, "pglBeginTransformFeedback not implemented");
@@ -2934,6 +2962,8 @@ namespace OpenGL
 		[AliasOf("glEndTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void EndTransformFeedback()
 		{
 			Debug.Assert(Delegates.pglEndTransformFeedback != null, "pglEndTransformFeedback not implemented");
@@ -2991,6 +3021,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferRange(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglBindBufferRange != null, "pglBindBufferRange not implemented");
@@ -3038,6 +3070,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferBase(Int32 target, UInt32 index, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBufferBase != null, "pglBindBufferBase not implemented");
@@ -3075,6 +3109,7 @@ namespace OpenGL
 		[AliasOf("glTransformFeedbackVaryingsEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void TransformFeedbackVaryings(UInt32 program, String[] varyings, Int32 bufferMode)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackVaryings != null, "pglTransformFeedbackVaryings not implemented");
@@ -3127,6 +3162,7 @@ namespace OpenGL
 		[AliasOf("glGetTransformFeedbackVaryingEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void GetTransformFeedbackVarying(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -3161,6 +3197,7 @@ namespace OpenGL
 		/// </exception>
 		[AliasOf("glClampColorARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_color_buffer_float")]
 		public static void ClampColor(Int32 target, Int32 clamp)
 		{
 			Debug.Assert(Delegates.pglClampColor != null, "pglClampColor not implemented");
@@ -3203,6 +3240,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginQuery"/>
 		[AliasOf("glBeginConditionalRenderNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_conditional_render", Api = "gl|gles2")]
 		public static void BeginConditionalRender(UInt32 id, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRender != null, "pglBeginConditionalRender not implemented");
@@ -3239,6 +3277,8 @@ namespace OpenGL
 		[AliasOf("glEndConditionalRenderNV")]
 		[AliasOf("glEndConditionalRenderNVX")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NVX_conditional_render")]
+		[RequiredByFeature("GL_NV_conditional_render", Api = "gl|gles2")]
 		public static void EndConditionalRender()
 		{
 			Debug.Assert(Delegates.pglEndConditionalRender != null, "pglEndConditionalRender not implemented");
@@ -3320,6 +3360,7 @@ namespace OpenGL
 		[AliasOf("glVertexAttribIPointerEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIPointer != null, "pglVertexAttribIPointer not implemented");
@@ -3401,6 +3442,7 @@ namespace OpenGL
 		[AliasOf("glVertexAttribIPointerEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -3452,6 +3494,7 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribIivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void GetVertexAttribI(UInt32 index, Int32 pname, out Int32 @params)
 		{
 			unsafe {
@@ -3506,6 +3549,7 @@ namespace OpenGL
 		[AliasOf("glGetVertexAttribIuivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void GetVertexAttribI(UInt32 index, Int32 pname, out UInt32 @params)
 		{
 			unsafe {
@@ -3544,6 +3588,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(UInt32 index, Int32 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1i != null, "pglVertexAttribI1i not implemented");
@@ -3580,6 +3625,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(UInt32 index, Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2i != null, "pglVertexAttribI2i not implemented");
@@ -3619,6 +3665,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(UInt32 index, Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3i != null, "pglVertexAttribI3i not implemented");
@@ -3662,6 +3709,7 @@ namespace OpenGL
 		[AliasOf("glVertexAttribI4iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4i != null, "pglVertexAttribI4i not implemented");
@@ -3695,6 +3743,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(UInt32 index, UInt32 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1ui != null, "pglVertexAttribI1ui not implemented");
@@ -3731,6 +3780,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(UInt32 index, UInt32 x, UInt32 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2ui != null, "pglVertexAttribI2ui not implemented");
@@ -3770,6 +3820,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(UInt32 index, UInt32 x, UInt32 y, UInt32 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3ui != null, "pglVertexAttribI3ui not implemented");
@@ -3813,6 +3864,7 @@ namespace OpenGL
 		[AliasOf("glVertexAttribI4uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4ui != null, "pglVertexAttribI4ui not implemented");
@@ -3847,6 +3899,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -3886,6 +3939,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -3925,6 +3979,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -3965,6 +4020,7 @@ namespace OpenGL
 		[AliasOf("glVertexAttribI4ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -4004,6 +4060,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -4043,6 +4100,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -4082,6 +4140,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -4122,6 +4181,7 @@ namespace OpenGL
 		[AliasOf("glVertexAttribI4uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -4161,6 +4221,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4bvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -4200,6 +4261,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4svEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -4239,6 +4301,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4ubvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -4278,6 +4341,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4usvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -4328,6 +4392,7 @@ namespace OpenGL
 		[AliasOf("glGetUniformuivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void GetUniform(UInt32 program, Int32 location, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -4368,6 +4433,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFragDataLocation"/>
 		[AliasOf("glBindFragDataLocationEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void BindFragDataLocation(UInt32 program, UInt32 color, String name)
 		{
 			Debug.Assert(Delegates.pglBindFragDataLocation != null, "pglBindFragDataLocation not implemented");
@@ -4395,6 +4462,7 @@ namespace OpenGL
 		[AliasOf("glGetFragDataLocationEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static Int32 GetFragDataLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -4458,6 +4526,7 @@ namespace OpenGL
 		[AliasOf("glUniform1uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform1(Int32 location, UInt32 v0)
 		{
 			Debug.Assert(Delegates.pglUniform1ui != null, "pglUniform1ui not implemented");
@@ -4520,6 +4589,7 @@ namespace OpenGL
 		[AliasOf("glUniform2uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform2(Int32 location, UInt32 v0, UInt32 v1)
 		{
 			Debug.Assert(Delegates.pglUniform2ui != null, "pglUniform2ui not implemented");
@@ -4585,6 +4655,7 @@ namespace OpenGL
 		[AliasOf("glUniform3uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform3(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
 			Debug.Assert(Delegates.pglUniform3ui != null, "pglUniform3ui not implemented");
@@ -4653,6 +4724,7 @@ namespace OpenGL
 		[AliasOf("glUniform4uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform4(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
 			Debug.Assert(Delegates.pglUniform4ui != null, "pglUniform4ui not implemented");
@@ -4717,6 +4789,7 @@ namespace OpenGL
 		[AliasOf("glUniform1uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform1(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -4786,6 +4859,7 @@ namespace OpenGL
 		[AliasOf("glUniform1uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static unsafe void Uniform1(Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglUniform1uiv != null, "pglUniform1uiv not implemented");
@@ -4850,6 +4924,7 @@ namespace OpenGL
 		[AliasOf("glUniform2uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform2(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -4919,6 +4994,7 @@ namespace OpenGL
 		[AliasOf("glUniform2uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static unsafe void Uniform2(Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglUniform2uiv != null, "pglUniform2uiv not implemented");
@@ -4983,6 +5059,7 @@ namespace OpenGL
 		[AliasOf("glUniform3uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform3(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -5052,6 +5129,7 @@ namespace OpenGL
 		[AliasOf("glUniform3uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static unsafe void Uniform3(Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglUniform3uiv != null, "pglUniform3uiv not implemented");
@@ -5116,6 +5194,7 @@ namespace OpenGL
 		[AliasOf("glUniform4uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform4(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -5185,6 +5264,7 @@ namespace OpenGL
 		[AliasOf("glUniform4uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static unsafe void Uniform4(Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglUniform4uiv != null, "pglUniform4uiv not implemented");
@@ -5276,6 +5356,9 @@ namespace OpenGL
 		[AliasOf("glTexParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void TexParameterI(TextureTarget target, TextureParameterName pname, Int32[] @params)
 		{
 			unsafe {
@@ -5372,6 +5455,9 @@ namespace OpenGL
 		[AliasOf("glTexParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void TexParameterI(TextureTarget target, TextureParameterName pname, UInt32[] @params)
 		{
 			unsafe {
@@ -5432,6 +5518,9 @@ namespace OpenGL
 		[AliasOf("glGetTexParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -5492,6 +5581,9 @@ namespace OpenGL
 		[AliasOf("glGetTexParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -5794,6 +5886,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static bool IsRenderbuffer(UInt32 renderbuffer)
 		{
 			bool retValue;
@@ -5859,6 +5952,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void DeleteRenderbuffers(params UInt32[] renderbuffers)
 		{
 			unsafe {
@@ -5889,6 +5983,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenRenderbuffers(UInt32[] renderbuffers)
 		{
 			unsafe {
@@ -5916,6 +6011,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static UInt32 GenRenderbuffer()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -5968,6 +6064,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void RenderbufferStorage(Int32 target, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorage != null, "pglRenderbufferStorage not implemented");
@@ -6013,6 +6110,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GetRenderbufferParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -6039,6 +6137,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static bool IsFramebuffer(UInt32 framebuffer)
 		{
 			bool retValue;
@@ -6109,6 +6208,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void DeleteFramebuffers(params UInt32[] framebuffers)
 		{
 			unsafe {
@@ -6139,6 +6239,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenFramebuffers(UInt32[] framebuffers)
 		{
 			unsafe {
@@ -6166,6 +6267,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static UInt32 GenFramebuffer()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -6197,6 +6299,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static Int32 CheckFramebufferStatus(Int32 target)
 		{
 			Int32 retValue;
@@ -6274,6 +6377,7 @@ namespace OpenGL
 		[AliasOf("glFramebufferTexture1DEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferTexture1D(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture1D != null, "pglFramebufferTexture1D not implemented");
@@ -6348,6 +6452,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferTexture2D(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2D != null, "pglFramebufferTexture2D not implemented");
@@ -6425,6 +6530,8 @@ namespace OpenGL
 		[AliasOf("glFramebufferTexture3DOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void FramebufferTexture3D(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture3D != null, "pglFramebufferTexture3D not implemented");
@@ -6482,6 +6589,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferRenderbuffer(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglFramebufferRenderbuffer != null, "pglFramebufferRenderbuffer not implemented");
@@ -6542,6 +6650,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GetFramebufferAttachmentParameter(Int32 target, Int32 attachment, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -6584,6 +6693,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenerateMipmap(Int32 target)
 		{
 			Debug.Assert(Delegates.pglGenerateMipmap != null, "pglGenerateMipmap not implemented");
@@ -6671,6 +6781,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_blit")]
+		[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
 		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, Int32 filter)
 		{
 			Debug.Assert(Delegates.pglBlitFramebuffer != null, "pglBlitFramebuffer not implemented");
@@ -6736,6 +6848,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_NV_framebuffer_multisample", Api = "gles2")]
 		public static void RenderbufferStorageMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisample != null, "pglRenderbufferStorageMultisample not implemented");
@@ -6808,6 +6923,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_texture_array")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureLayer(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureLayer != null, "pglFramebufferTextureLayer not implemented");
@@ -6870,6 +6988,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		public static IntPtr MapBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length, UInt32 access)
 		{
 			IntPtr retValue;
@@ -6923,7 +7042,9 @@ namespace OpenGL
 		[AliasOf("glFlushMappedBufferRangeEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		public static void FlushMappedBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglFlushMappedBufferRange != null, "pglFlushMappedBufferRange not implemented");
@@ -6953,6 +7074,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 		public static void BindVertexArray(UInt32 array)
 		{
 			Debug.Assert(Delegates.pglBindVertexArray != null, "pglBindVertexArray not implemented");
@@ -6979,7 +7101,9 @@ namespace OpenGL
 		[AliasOf("glDeleteVertexArraysOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 		public static void DeleteVertexArrays(params UInt32[] arrays)
 		{
 			unsafe {
@@ -7010,7 +7134,9 @@ namespace OpenGL
 		[AliasOf("glGenVertexArraysOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 		public static void GenVertexArrays(UInt32[] arrays)
 		{
 			unsafe {
@@ -7038,7 +7164,9 @@ namespace OpenGL
 		[AliasOf("glGenVertexArraysOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 		public static UInt32 GenVertexArray()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -7059,7 +7187,9 @@ namespace OpenGL
 		[AliasOf("glIsVertexArrayOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 		public static bool IsVertexArray(UInt32 array)
 		{
 			bool retValue;

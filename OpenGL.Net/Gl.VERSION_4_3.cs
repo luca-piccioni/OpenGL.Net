@@ -2777,6 +2777,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
+		[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
 		public static void CopyImageSubData(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
 		{
 			Debug.Assert(Delegates.pglCopyImageSubData != null, "pglCopyImageSubData not implemented");
@@ -3269,7 +3271,9 @@ namespace OpenGL
 		[AliasOf("glMultiDrawArraysIndirectAMD")]
 		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 		public static void MultiDrawArraysIndirect(Int32 mode, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirect != null, "pglMultiDrawArraysIndirect not implemented");
@@ -3326,7 +3330,9 @@ namespace OpenGL
 		[AliasOf("glMultiDrawArraysIndirectAMD")]
 		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 		public static void MultiDrawArraysIndirect(Int32 mode, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -3393,7 +3399,9 @@ namespace OpenGL
 		[AliasOf("glMultiDrawElementsIndirectAMD")]
 		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 		public static void MultiDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirect != null, "pglMultiDrawElementsIndirect not implemented");
@@ -3458,7 +3466,9 @@ namespace OpenGL
 		[AliasOf("glMultiDrawElementsIndirectAMD")]
 		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 		public static void MultiDrawElementsIndirect(Int32 mode, Int32 type, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -3866,6 +3876,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		public static void TexBufferRange(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglTexBufferRange != null, "pglTexBufferRange not implemented");
@@ -4013,6 +4025,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
 		public static void TexStorage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexStorage3DMultisample != null, "pglTexStorage3DMultisample not implemented");
@@ -4097,6 +4110,8 @@ namespace OpenGL
 		[AliasOf("glTextureViewOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 		public static void Texture(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers)
 		{
 			Debug.Assert(Delegates.pglTextureView != null, "pglTextureView not implemented");
@@ -4479,6 +4494,7 @@ namespace OpenGL
 		[AliasOf("glDebugMessageControlKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageControl(Int32 source, Int32 type, Int32 severity, UInt32[] ids, bool enabled)
 		{
@@ -4530,6 +4546,7 @@ namespace OpenGL
 		[AliasOf("glDebugMessageInsertKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf)
 		{
@@ -4555,6 +4572,7 @@ namespace OpenGL
 		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageCallback(IntPtr callback, IntPtr userParam)
 		{
@@ -4580,6 +4598,7 @@ namespace OpenGL
 		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static void DebugMessageCallback(IntPtr callback, Object userParam)
 		{
@@ -4627,6 +4646,7 @@ namespace OpenGL
 		[AliasOf("glGetDebugMessageLogKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public static UInt32 GetDebugMessageLog(Int32 bufSize, [Out] Int32[] sources, [Out] Int32[] types, [Out] UInt32[] ids, [Out] Int32[] severities, [Out] Int32[] lengths, [Out] StringBuilder messageLog)
 		{

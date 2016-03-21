@@ -167,6 +167,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPolygonModeNV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public static void PolygonMode(MaterialFace face, PolygonMode mode)
 		{
 			Debug.Assert(Delegates.pglPolygonMode != null, "pglPolygonMode not implemented");

@@ -130,6 +130,7 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("glSampleMaskSGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SampleMaskEXT(float value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleMaskEXT != null, "pglSampleMaskEXT not implemented");
@@ -146,6 +147,7 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("glSamplePatternSGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SamplePatternEXT(Int32 pattern)
 		{
 			Debug.Assert(Delegates.pglSamplePatternEXT != null, "pglSamplePatternEXT not implemented");

@@ -1290,6 +1290,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void ActiveTexture(Int32 texture)
 		{
 			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
@@ -1314,6 +1315,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_multisample")]
 		public static void SampleCoverage(float value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleCoverage != null, "pglSampleCoverage not implemented");
@@ -1407,6 +1409,8 @@ namespace OpenGL
 		[AliasOf("glCompressedTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
@@ -1500,6 +1504,8 @@ namespace OpenGL
 		[AliasOf("glCompressedTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1597,6 +1603,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
@@ -1692,6 +1699,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1777,6 +1785,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
@@ -1860,6 +1869,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1964,6 +1974,8 @@ namespace OpenGL
 		[AliasOf("glCompressedTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
@@ -2066,6 +2078,8 @@ namespace OpenGL
 		[AliasOf("glCompressedTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2168,6 +2182,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
@@ -2268,6 +2283,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2353,6 +2369,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage1D != null, "pglCompressedTexSubImage1D not implemented");
@@ -2436,6 +2453,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2503,6 +2521,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetCompressedTexImage != null, "pglGetCompressedTexImage not implemented");
@@ -2568,6 +2587,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
@@ -2600,6 +2620,7 @@ namespace OpenGL
 		[AliasOf("glClientActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ClientActiveTexture(Int32 texture)
 		{
@@ -2628,6 +2649,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, double s)
 		{
@@ -2654,6 +2676,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, double[] v)
 		{
@@ -2687,6 +2710,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, float s)
 		{
@@ -2713,6 +2737,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, float[] v)
 		{
@@ -2746,6 +2771,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int32 s)
 		{
@@ -2772,6 +2798,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int32[] v)
 		{
@@ -2805,6 +2832,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int16 s)
 		{
@@ -2831,6 +2859,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(Int32 target, Int16[] v)
 		{
@@ -2868,6 +2897,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, double s, double t)
 		{
@@ -2894,6 +2924,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, double[] v)
 		{
@@ -2931,6 +2962,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, float s, float t)
 		{
@@ -2957,6 +2989,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, float[] v)
 		{
@@ -2994,6 +3027,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int32 s, Int32 t)
 		{
@@ -3020,6 +3054,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int32[] v)
 		{
@@ -3057,6 +3092,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int16 s, Int16 t)
 		{
@@ -3083,6 +3119,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(Int32 target, Int16[] v)
 		{
@@ -3124,6 +3161,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, double s, double t, double r)
 		{
@@ -3150,6 +3188,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, double[] v)
 		{
@@ -3191,6 +3230,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, float s, float t, float r)
 		{
@@ -3217,6 +3257,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, float[] v)
 		{
@@ -3258,6 +3299,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int32 s, Int32 t, Int32 r)
 		{
@@ -3284,6 +3326,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int32[] v)
 		{
@@ -3325,6 +3368,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int16 s, Int16 t, Int16 r)
 		{
@@ -3351,6 +3395,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(Int32 target, Int16[] v)
 		{
@@ -3396,6 +3441,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, double s, double t, double r, double q)
 		{
@@ -3422,6 +3468,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, double[] v)
 		{
@@ -3468,6 +3515,7 @@ namespace OpenGL
 		[AliasOf("glMultiTexCoord4fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, float s, float t, float r, float q)
 		{
@@ -3494,6 +3542,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, float[] v)
 		{
@@ -3539,6 +3588,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q)
 		{
@@ -3565,6 +3615,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int32[] v)
 		{
@@ -3610,6 +3661,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q)
 		{
@@ -3636,6 +3688,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, Int16[] v)
 		{
@@ -3670,6 +3723,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glLoadTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(float[] m)
 		{
@@ -3704,6 +3758,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glLoadTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(double[] m)
 		{
@@ -3737,6 +3792,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glMultTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(float[] m)
 		{
@@ -3770,6 +3826,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glMultTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(double[] m)
 		{

@@ -44,6 +44,7 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("glBindBufferOffsetNV")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferOffsetEXT(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglBindBufferOffsetEXT != null, "pglBindBufferOffsetEXT not implemented");

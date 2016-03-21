@@ -335,6 +335,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix2x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -407,6 +408,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix3x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -479,6 +481,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix2x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -551,6 +554,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix4x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -623,6 +627,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix3x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -695,6 +700,7 @@ namespace OpenGL
 		[AliasOf("glUniformMatrix4x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {

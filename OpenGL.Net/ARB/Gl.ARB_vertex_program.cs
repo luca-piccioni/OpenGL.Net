@@ -576,6 +576,7 @@ namespace OpenGL
 		[AliasOf("glBindProgramNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void BindProgramARB(Int32 target, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglBindProgramARB != null, "pglBindProgramARB not implemented");
@@ -593,6 +594,7 @@ namespace OpenGL
 		[AliasOf("glDeleteProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void DeleteProgramsARB(UInt32[] programs)
 		{
 			unsafe {
@@ -615,6 +617,7 @@ namespace OpenGL
 		[AliasOf("glGenProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GenProgramsARB(UInt32[] programs)
 		{
 			unsafe {
@@ -634,6 +637,7 @@ namespace OpenGL
 		[AliasOf("glGenProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static UInt32 GenProgramsARB()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -1063,6 +1067,7 @@ namespace OpenGL
 		[AliasOf("glIsProgramNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public static bool IsProgramARB(UInt32 program)
 		{
 			bool retValue;

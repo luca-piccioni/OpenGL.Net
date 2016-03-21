@@ -266,6 +266,7 @@ namespace OpenGL
 		[AliasOf("glBindFragDataLocationIndexedEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public static void BindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name)
 		{
 			Debug.Assert(Delegates.pglBindFragDataLocationIndexed != null, "pglBindFragDataLocationIndexed not implemented");
@@ -295,6 +296,7 @@ namespace OpenGL
 		[AliasOf("glGetFragDataIndexEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		public static Int32 GetFragDataIndex(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -665,6 +667,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void SamplerParameterI(UInt32 sampler, Int32 pname, Int32[] param)
 		{
 			unsafe {
@@ -714,6 +718,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void SamplerParameterI(UInt32 sampler, Int32 pname, UInt32[] param)
 		{
 			unsafe {
@@ -802,6 +808,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void GetSamplerParameterI(UInt32 sampler, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -890,6 +898,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		public static void GetSamplerParameterI(UInt32 sampler, Int32 pname, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -935,6 +945,7 @@ namespace OpenGL
 		[AliasOf("glQueryCounterEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static void QueryCounter(UInt32 id, Int32 target)
 		{
 			Debug.Assert(Delegates.pglQueryCounter != null, "pglQueryCounter not implemented");
@@ -982,6 +993,8 @@ namespace OpenGL
 		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] Int64[] @params)
 		{
 			unsafe {
@@ -1034,6 +1047,8 @@ namespace OpenGL
 		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, out Int64 @params)
 		{
 			unsafe {
@@ -1086,6 +1101,8 @@ namespace OpenGL
 		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
@@ -1138,6 +1155,8 @@ namespace OpenGL
 		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public static void GetQueryObject(UInt32 id, Int32 pname, out UInt64 @params)
 		{
 			unsafe {
@@ -1176,6 +1195,10 @@ namespace OpenGL
 		[AliasOf("glVertexAttribDivisorNV")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_instanced_arrays")]
+		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 		public static void VertexAttribDivisor(UInt32 index, UInt32 divisor)
 		{
 			Debug.Assert(Delegates.pglVertexAttribDivisor != null, "pglVertexAttribDivisor not implemented");

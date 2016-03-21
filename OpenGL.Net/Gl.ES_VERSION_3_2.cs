@@ -491,6 +491,8 @@ namespace OpenGL
 		[AliasOf("glBlendBarrierKHR")]
 		[AliasOf("glBlendBarrierNV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
 		public static void BlendBarrier()
 		{
 			Debug.Assert(Delegates.pglBlendBarrier != null, "pglBlendBarrier not implemented");
@@ -530,6 +532,9 @@ namespace OpenGL
 		[AliasOf("glPrimitiveBoundingBoxEXT")]
 		[AliasOf("glPrimitiveBoundingBoxOES")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+		[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
+		[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 		public static void Primitive(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW)
 		{
 			Debug.Assert(Delegates.pglPrimitiveBoundingBox != null, "pglPrimitiveBoundingBox not implemented");

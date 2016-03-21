@@ -695,6 +695,8 @@ namespace OpenGL
 		[AliasOf("glColorTableEXT")]
 		[AliasOf("glColorTableSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_paletted_texture")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTable(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
@@ -780,6 +782,8 @@ namespace OpenGL
 		[AliasOf("glColorTableEXT")]
 		[AliasOf("glColorTableSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_paletted_texture")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTable(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -815,6 +819,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glColorTableParameterfvSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableParameter(Int32 target, Int32 pname, float[] @params)
 		{
 			unsafe {
@@ -853,6 +858,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glColorTableParameterivSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableParameter(Int32 target, Int32 pname, Int32[] @params)
 		{
 			unsafe {
@@ -912,6 +918,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ReadPixels"/>
 		[AliasOf("glCopyColorTableSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void CopyColorTable(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorTable != null, "pglCopyColorTable not implemented");
@@ -983,6 +990,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTable(Int32 target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
@@ -1054,6 +1062,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTable(Int32 target, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -1093,6 +1102,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableParameterfvEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTableParameter(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -1135,6 +1145,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableParameterivEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTableParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -1212,6 +1223,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glColorSubTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void ColorSubTable(Int32 target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
@@ -1284,6 +1296,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glColorSubTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void ColorSubTable(Int32 target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1333,6 +1346,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glCopyColorSubTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void CopyColorSubTable(Int32 target, Int32 start, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorSubTable != null, "pglCopyColorSubTable not implemented");
@@ -1425,6 +1439,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
@@ -1517,6 +1532,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -1619,6 +1635,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
@@ -1719,6 +1736,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -1763,6 +1781,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameterfEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, float @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
@@ -1805,6 +1824,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameterfvEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, float[] @params)
 		{
 			unsafe {
@@ -1852,6 +1872,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameteriEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, Int32 @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
@@ -1894,6 +1915,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameterivEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameter(Int32 target, Int32 pname, Int32[] @params)
 		{
 			unsafe {
@@ -1952,6 +1974,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glCopyConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void CopyConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1D != null, "pglCopyConvolutionFilter1D not implemented");
@@ -2013,6 +2036,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glCopyConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void CopyConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2D != null, "pglCopyConvolutionFilter2D not implemented");
@@ -2520,6 +2544,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glSeparableFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void SeparableFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
@@ -2625,6 +2650,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glSeparableFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void SeparableFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -3136,6 +3162,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ResetHistogram"/>
 		[AliasOf("glHistogramEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void Histogram(Int32 target, Int32 width, Int32 internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
@@ -3177,6 +3204,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ResetMinmax"/>
 		[AliasOf("glMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void Minmax(Int32 target, Int32 internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
@@ -3203,6 +3231,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Histogram"/>
 		[AliasOf("glResetHistogramEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetHistogram(Int32 target)
 		{
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
@@ -3229,6 +3258,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		[AliasOf("glResetMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetMinmax(Int32 target)
 		{
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");

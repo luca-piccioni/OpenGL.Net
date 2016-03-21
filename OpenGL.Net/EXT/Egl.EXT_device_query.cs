@@ -117,6 +117,7 @@ namespace OpenGL
 		[AliasOf("eglQueryDisplayAttribNV")]
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]
+		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public static bool QueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr[] value)
 		{
 			bool retValue;

@@ -857,6 +857,8 @@ namespace OpenGL
 		[AliasOf("glMinSampleShadingOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_sample_shading", Api = "gles2")]
 		public static void MinSampleShading(float value)
 		{
 			Debug.Assert(Delegates.pglMinSampleShading != null, "pglMinSampleShading not implemented");
@@ -894,6 +896,10 @@ namespace OpenGL
 		[AliasOf("glBlendEquationiOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void BlendEquation(UInt32 buf, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationi != null, "pglBlendEquationi not implemented");
@@ -936,6 +942,10 @@ namespace OpenGL
 		[AliasOf("glBlendEquationSeparateiOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void BlendEquationSeparatei(UInt32 buf, Int32 modeRGB, Int32 modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparatei != null, "pglBlendEquationSeparatei not implemented");
@@ -980,6 +990,10 @@ namespace OpenGL
 		[AliasOf("glBlendFunciOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void BlendFunci(UInt32 buf, Int32 src, Int32 dst)
 		{
 			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
@@ -1029,6 +1043,10 @@ namespace OpenGL
 		[AliasOf("glBlendFuncSeparateiOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public static void BlendFuncSeparatei(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparatei != null, "pglBlendFuncSeparatei not implemented");
@@ -2225,6 +2243,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		public static void PatchParameter(Int32 pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglPatchParameteri != null, "pglPatchParameteri not implemented");
@@ -2330,6 +2350,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void DeleteTransformFeedbacks(params UInt32[] ids)
 		{
 			unsafe {
@@ -2360,6 +2381,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void GenTransformFeedbacks(UInt32[] ids)
 		{
 			unsafe {
@@ -2387,6 +2409,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static UInt32 GenTransformFeedback()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -2407,6 +2430,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static bool IsTransformFeedback(UInt32 id)
 		{
 			bool retValue;
@@ -2437,6 +2461,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void PauseTransformFeedback()
 		{
 			Debug.Assert(Delegates.pglPauseTransformFeedback != null, "pglPauseTransformFeedback not implemented");
@@ -2463,6 +2488,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void ResumeTransformFeedback()
 		{
 			Debug.Assert(Delegates.pglResumeTransformFeedback != null, "pglResumeTransformFeedback not implemented");
@@ -2513,6 +2539,7 @@ namespace OpenGL
 		[AliasOf("glDrawTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void DrawTransformFeedback(PrimitiveType mode, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedback != null, "pglDrawTransformFeedback not implemented");

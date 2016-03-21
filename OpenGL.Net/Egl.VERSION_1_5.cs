@@ -288,6 +288,7 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("eglCreateSync64KHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[RequiredByFeature("EGL_KHR_cl_event2")]
 		public static IntPtr CreateSync(IntPtr dpy, uint type, IntPtr[] attrib_list)
 		{
 			IntPtr retValue;
@@ -316,6 +317,8 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("eglDestroySyncKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[RequiredByFeature("EGL_KHR_fence_sync")]
+		[RequiredByFeature("EGL_KHR_reusable_sync")]
 		public static bool DestroySync(IntPtr dpy, IntPtr sync)
 		{
 			bool retValue;
@@ -345,6 +348,8 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("eglClientWaitSyncKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[RequiredByFeature("EGL_KHR_fence_sync")]
+		[RequiredByFeature("EGL_KHR_reusable_sync")]
 		public static int ClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout)
 		{
 			int retValue;
@@ -437,6 +442,8 @@ namespace OpenGL
 		/// </param>
 		[AliasOf("eglDestroyImageKHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[RequiredByFeature("EGL_KHR_image")]
+		[RequiredByFeature("EGL_KHR_image_base")]
 		public static bool DestroyImage(IntPtr dpy, IntPtr image)
 		{
 			bool retValue;
