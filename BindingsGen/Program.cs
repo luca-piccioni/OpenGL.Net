@@ -378,15 +378,30 @@ namespace BindingsGen
 
 					int versionValue = versionMajor * 100 + versionMinor * 10 + versionRev;
 
-					// Determine version name
+					// Determine version/api name
 					string versionName = String.Format("Version_{0}", versionValue);
-					if (featureVersion.IsEsVersion)
-						versionName = String.Format("Version_{0}ES", versionValue);
+					string api = ctx.Class;
+
+					if (featureVersion.IsEsVersion) {
+						versionName = String.Format("Version_{0}_ES", versionValue);
+						switch (versionMajor) {
+							case 1:
+								api = "Gles1";
+								break;
+							case 2:
+							default:
+								api = "Gles2";
+								break;
+						}
+					}
 
 					sw.WriteLine("/// <summary>");
 					sw.WriteLine("/// Version for {0} API.", SpecificationStyle.GetKhronosVersionHumanReadable(featureVersion.Name));
 					sw.WriteLine("/// </summary>");
-					sw.WriteLine("public const int {0} = {1};", versionName, versionValue);
+					if (versionRev != 0)
+						sw.WriteLine("public static readonly KhronosVersion {0} = new KhronosVersion({1}, {2}, {3}, KhronosVersion.Api{4});", versionName, versionMajor, versionMinor, versionRev, api);
+					else
+						sw.WriteLine("public static readonly KhronosVersion {0} = new KhronosVersion({1}, {2}, KhronosVersion.Api{3});", versionName, versionMajor, versionMinor, api);
 					sw.WriteLine();
 				}
 
