@@ -25,7 +25,7 @@ namespace OpenGL
 		/// <summary>
 		/// Version for OpenGL 1.0 API.
 		/// </summary>
-		public const int Version_100 = 100;
+		public static readonly KhronosVersion Version_100 = new KhronosVersion(1, 0, KhronosVersion.ApiWgl);
 
 		#endregion
 

@@ -119,11 +119,6 @@ namespace OpenGL
 		public const string ApiEgl = "egl";
 
 		/// <summary>
-		/// OpenGL Forward Compatibility API.
-		/// </summary>
-		public const string ApiGlCore = "glcore";
-
-		/// <summary>
 		/// OpenGL ES 1.x API.
 		/// </summary>
 		public const string ApiGles1 = "gles1";

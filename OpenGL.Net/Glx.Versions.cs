@@ -25,27 +25,27 @@ namespace OpenGL
 		/// <summary>
 		/// Version for GLX_VERSION_1_0 API.
 		/// </summary>
-		public const int Version_100 = 100;
+		public static readonly KhronosVersion Version_100 = new KhronosVersion(1, 0, KhronosVersion.ApiGlx);
 
 		/// <summary>
 		/// Version for GLX_VERSION_1_1 API.
 		/// </summary>
-		public const int Version_110 = 110;
+		public static readonly KhronosVersion Version_110 = new KhronosVersion(1, 1, KhronosVersion.ApiGlx);
 
 		/// <summary>
 		/// Version for GLX_VERSION_1_2 API.
 		/// </summary>
-		public const int Version_120 = 120;
+		public static readonly KhronosVersion Version_120 = new KhronosVersion(1, 2, KhronosVersion.ApiGlx);
 
 		/// <summary>
 		/// Version for GLX_VERSION_1_3 API.
 		/// </summary>
-		public const int Version_130 = 130;
+		public static readonly KhronosVersion Version_130 = new KhronosVersion(1, 3, KhronosVersion.ApiGlx);
 
 		/// <summary>
 		/// Version for GLX_VERSION_1_4 API.
 		/// </summary>
-		public const int Version_140 = 140;
+		public static readonly KhronosVersion Version_140 = new KhronosVersion(1, 4, KhronosVersion.ApiGlx);
 
 		#endregion
 

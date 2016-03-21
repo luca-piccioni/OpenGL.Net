@@ -25,117 +25,117 @@ namespace OpenGL
 		/// <summary>
 		/// Version for OpenGL 1.0 API.
 		/// </summary>
-		public const int Version_100 = 100;
+		public static readonly KhronosVersion Version_100 = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 1.1 API.
 		/// </summary>
-		public const int Version_110 = 110;
+		public static readonly KhronosVersion Version_110 = new KhronosVersion(1, 1, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 1.2 API.
 		/// </summary>
-		public const int Version_120 = 120;
+		public static readonly KhronosVersion Version_120 = new KhronosVersion(1, 2, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 1.3 API.
 		/// </summary>
-		public const int Version_130 = 130;
+		public static readonly KhronosVersion Version_130 = new KhronosVersion(1, 3, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 1.4 API.
 		/// </summary>
-		public const int Version_140 = 140;
+		public static readonly KhronosVersion Version_140 = new KhronosVersion(1, 4, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 1.5 API.
 		/// </summary>
-		public const int Version_150 = 150;
+		public static readonly KhronosVersion Version_150 = new KhronosVersion(1, 5, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 2.0 API.
 		/// </summary>
-		public const int Version_200 = 200;
+		public static readonly KhronosVersion Version_200 = new KhronosVersion(2, 0, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 2.1 API.
 		/// </summary>
-		public const int Version_210 = 210;
+		public static readonly KhronosVersion Version_210 = new KhronosVersion(2, 1, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 3.0 API.
 		/// </summary>
-		public const int Version_300 = 300;
+		public static readonly KhronosVersion Version_300 = new KhronosVersion(3, 0, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 3.1 API.
 		/// </summary>
-		public const int Version_310 = 310;
+		public static readonly KhronosVersion Version_310 = new KhronosVersion(3, 1, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 3.2 API.
 		/// </summary>
-		public const int Version_320 = 320;
+		public static readonly KhronosVersion Version_320 = new KhronosVersion(3, 2, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 3.3 API.
 		/// </summary>
-		public const int Version_330 = 330;
+		public static readonly KhronosVersion Version_330 = new KhronosVersion(3, 3, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 4.0 API.
 		/// </summary>
-		public const int Version_400 = 400;
+		public static readonly KhronosVersion Version_400 = new KhronosVersion(4, 0, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 4.1 API.
 		/// </summary>
-		public const int Version_410 = 410;
+		public static readonly KhronosVersion Version_410 = new KhronosVersion(4, 1, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 4.2 API.
 		/// </summary>
-		public const int Version_420 = 420;
+		public static readonly KhronosVersion Version_420 = new KhronosVersion(4, 2, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 4.3 API.
 		/// </summary>
-		public const int Version_430 = 430;
+		public static readonly KhronosVersion Version_430 = new KhronosVersion(4, 3, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 4.4 API.
 		/// </summary>
-		public const int Version_440 = 440;
+		public static readonly KhronosVersion Version_440 = new KhronosVersion(4, 4, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL 4.5 API.
 		/// </summary>
-		public const int Version_450 = 450;
+		public static readonly KhronosVersion Version_450 = new KhronosVersion(4, 5, KhronosVersion.ApiGl);
 
 		/// <summary>
 		/// Version for OpenGL ES 1.0 API.
 		/// </summary>
-		public const int Version_100ES = 100;
+		public static readonly KhronosVersion Version_100_ES = new KhronosVersion(1, 0, KhronosVersion.ApiGles1);
 
 		/// <summary>
 		/// Version for OpenGL ES 2.0 API.
 		/// </summary>
-		public const int Version_200ES = 200;
+		public static readonly KhronosVersion Version_200_ES = new KhronosVersion(2, 0, KhronosVersion.ApiGles2);
 
 		/// <summary>
 		/// Version for OpenGL ES 3.0 API.
 		/// </summary>
-		public const int Version_300ES = 300;
+		public static readonly KhronosVersion Version_300_ES = new KhronosVersion(3, 0, KhronosVersion.ApiGles2);
 
 		/// <summary>
 		/// Version for OpenGL ES 3.1 API.
 		/// </summary>
-		public const int Version_310ES = 310;
+		public static readonly KhronosVersion Version_310_ES = new KhronosVersion(3, 1, KhronosVersion.ApiGles2);
 
 		/// <summary>
 		/// Version for OpenGL ES 3.2 API.
 		/// </summary>
-		public const int Version_320ES = 320;
+		public static readonly KhronosVersion Version_320_ES = new KhronosVersion(3, 2, KhronosVersion.ApiGles2);
 
 		#endregion
 
