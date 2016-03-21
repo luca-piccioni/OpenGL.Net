@@ -141,15 +141,6 @@ namespace OpenGL
 		/// This is the main discriminant of the KhronosVersion instances. Two KhronoVersion instances
 		/// are not comparable if their API doesn't match.
 		/// </para>
-		/// <para>
-		/// The default value is an empty string. This value cannot be null.
-		/// </para>
-		/// <para>
-		/// An example of usage (and maybe the only one) is the OpenGL ES versioning: altought the OpenGL
-		/// ES version numbers match the OpenGL version numbers, their must be discriminated and it is
-		/// not meaninfull to compare those versions.
-		/// </para>
-		/// </remarks>
 		public readonly string Api;
 
 		#endregion
@@ -365,8 +356,17 @@ namespace OpenGL
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
 			string api = null;
 
-			if (Regex.IsMatch(input, "(OpenGL ES)"))
-				api = "gles";
+			if (Regex.IsMatch(input, "(OpenGL ES)")) {
+				switch (versionMajor) {
+					case 1:
+						api = ApiGles1;
+						break;
+					case 2:
+					default:
+						api = ApiGles2;
+						break;
+				}
+			}
 
 			return (new KhronosVersion(versionMajor, versionMinor, versionRev, api));
 		}
