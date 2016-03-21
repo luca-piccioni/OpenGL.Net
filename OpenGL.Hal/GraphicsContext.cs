@@ -958,7 +958,7 @@ namespace OpenGL
 		{
 			GraphicsResource.CheckCurrentContext(this);
 
-			if ((Caps.GlExtensions.VertexShader_ARB || Version >= new KhronosVersion(2, 0)) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
+			if ((Caps.GlExtensions.VertexShader_ARB || Version >= new KhronosVersion(2, 0, KhronosVersion.ApiGl)) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
 				Gl.UseProgram(GraphicsResource.InvalidObjectName);
 				_BoundObjects.Remove(Gl.CURRENT_PROGRAM);
 			}

@@ -50,7 +50,7 @@ namespace OpenGL
 						glxExtensions = Glx.QueryExtensionsString(deviceContext.Display, 0);
 				}
 
-				Query(new KhronosVersion(majorArg[0], minorArg[1]), glxExtensions ?? String.Empty);
+				Query(new KhronosVersion(majorArg[0], minorArg[1], KhronosVersion.ApiGlx), glxExtensions ?? String.Empty);
 			}
 
 			/// <summary>

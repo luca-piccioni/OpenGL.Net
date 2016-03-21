@@ -51,7 +51,7 @@ namespace OpenGL
 					wglExtensions = GetExtensionsStringEXT();
 				}
 
-				Query(new KhronosVersion(1, 0), wglExtensions ?? String.Empty);
+				Query(new KhronosVersion(1, 0, KhronosVersion.ApiWgl), wglExtensions ?? String.Empty);
 			}
 
 			/// <summary>

@@ -302,7 +302,7 @@ namespace OpenGL
 	
 				Glx.QueryVersion(Display, majorArg, minorArg);
 
-				_GlxVersion = new KhronosVersion(majorArg[0], minorArg[0]);
+				_GlxVersion = new KhronosVersion(majorArg[0], minorArg[0], KhronosVersion.ApiGlx);
 			}
 		}
 		

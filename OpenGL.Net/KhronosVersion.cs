@@ -63,46 +63,6 @@ namespace OpenGL
 		/// <param name="minor">
 		/// A <see cref="Int32"/> that specifies that minor version number.
 		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
-		/// </exception>
-		public KhronosVersion(int major, int minor) :
-			this(major, minor, 0, String.Empty)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a KhronosVersion specifying the version numbers.
-		/// </summary>
-		/// <param name="major">
-		/// A <see cref="Int32"/> that specifies that major version number.
-		/// </param>
-		/// <param name="minor">
-		/// A <see cref="Int32"/> that specifies that minor version number.
-		/// </param>
-		/// <param name="revision">
-		/// A <see cref="Int32"/> that specifies that revision version number.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
-		/// <paramref name="revision"/> are less than 0.
-		/// </exception>
-		public KhronosVersion(int major, int minor, int revision) :
-			this(major, minor, revision, String.Empty)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a KhronosVersion specifying the version numbers.
-		/// </summary>
-		/// <param name="major">
-		/// A <see cref="Int32"/> that specifies that major version number.
-		/// </param>
-		/// <param name="minor">
-		/// A <see cref="Int32"/> that specifies that minor version number.
-		/// </param>
 		/// <param name="revision">
 		/// A <see cref="Int32"/> that specifies that revision version number.
 		/// </param>
@@ -137,6 +97,41 @@ namespace OpenGL
 		#endregion
 
 		#region API Description
+
+		/// <summary>
+		/// OpenGL API.
+		/// </summary>
+		public const string ApiGl = "gl";
+
+		/// <summary>
+		/// OpenGL for Windows API.
+		/// </summary>
+		public const string ApiWgl = "wgl";
+
+		/// <summary>
+		/// OpenGL on X11 API.
+		/// </summary>
+		public const string ApiGlx = "glx";
+
+		/// <summary>
+		/// OpenGL on EGL API.
+		/// </summary>
+		public const string ApiEgl = "egl";
+
+		/// <summary>
+		/// OpenGL Forward Compatibility API.
+		/// </summary>
+		public const string ApiGlCore = "glcore";
+
+		/// <summary>
+		/// OpenGL ES 1.x API.
+		/// </summary>
+		public const string ApiGles1 = "gles1";
+
+		/// <summary>
+		/// OpenGL ES 2.x API.
+		/// </summary>
+		public const string ApiGles2 = "gles2";
 
 		/// <summary>
 		/// The Khronos API description.
@@ -368,8 +363,12 @@ namespace OpenGL
 			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
+			string api = null;
 
-			return (new KhronosVersion(versionMajor, versionMinor, versionRev));
+			if (Regex.IsMatch(input, "(OpenGL ES)"))
+				api = "gles";
+
+			return (new KhronosVersion(versionMajor, versionMinor, versionRev, api));
 		}
 
 		#endregion

@@ -91,7 +91,7 @@ namespace OpenGL
 			int major = Int32.Parse(versionMatch.Groups["Major"].Value);
 			int minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 
-			return (new KhronosVersion(major, minor));
+			return (new KhronosVersion(major, minor, KhronosVersion.ApiGl));
 		}
 
 		#endregion

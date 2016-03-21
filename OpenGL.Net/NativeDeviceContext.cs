@@ -58,7 +58,7 @@ namespace OpenGL
 				throw new InvalidOperationException("unable to initialize the display");
 
 			_NativeWindow = window.Handle;
-			_Version = new KhronosVersion(major[0], minor[0]);
+			_Version = new KhronosVersion(major[0], minor[0], KhronosVersion.ApiEgl);
 		}
 
 		#endregion
@@ -319,9 +319,9 @@ namespace OpenGL
 				foreach (IntPtr config in configs) {
 					DevicePixelFormat pixelFormat = new DevicePixelFormat();
 					int param;
-					bool version12 = _Version >= new KhronosVersion(1, 2);
-					bool version13 = _Version >= new KhronosVersion(1, 3);
-					bool version14 = _Version >= new KhronosVersion(1, 4);
+					bool version12 = _Version >= new KhronosVersion(1, 2, KhronosVersion.ApiEgl);
+					bool version13 = _Version >= new KhronosVersion(1, 3, KhronosVersion.ApiEgl);
+					bool version14 = _Version >= new KhronosVersion(1, 4, KhronosVersion.ApiEgl);
 
 					if (Egl.GetConfigAttrib(_Display, config, Egl.CONFIG_ID, out pixelFormat.FormatIndex) == false)
 						throw new InvalidOperationException("unable to get configuration parameter CONFIG_ID");
@@ -364,27 +364,18 @@ namespace OpenGL
 
 					if (Egl.GetConfigAttrib(_Display, config, Egl.CONFIG_CAVEAT, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter CONFIG_CAVEAT");
-					switch (param) {
-						case Egl.SLOW_CONFIG:
-							// Skip software implementations?
-							continue;
-					}
+					if (param == Egl.SLOW_CONFIG)		// Skip software implementations?
+						continue;
 
 					if (Egl.GetConfigAttrib(_Display, config, Egl.NATIVE_RENDERABLE, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter NATIVE_RENDERABLE");
-					switch (param) {
-						case Egl.TRUE:
-							continue;
-						case Egl.FALSE:
-							break;
-					}
+					if (param == Egl.TRUE)
+						continue;
 
 					if (version12) {
 						if (Egl.GetConfigAttrib(_Display, config, Egl.COLOR_BUFFER_TYPE, out param) == false)
 							throw new InvalidOperationException("unable to get configuration parameter COLOR_BUFFER_TYPE");
 						switch (param) {
-							case Egl.RGB_BUFFER:
-								break;
 							case Egl.LUMINANCE_BUFFER:
 								if (Egl.GetConfigAttrib(_Display, config, Egl.LUMINANCE_SIZE, out param) == false)
 									throw new InvalidOperationException("unable to get configuration parameter LUMINANCE_SIZE");

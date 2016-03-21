@@ -45,24 +45,24 @@ namespace OpenGL.Hal.Test
 			{
 				List<KhronosVersion> knownVersions = new List<KhronosVersion>();
 
-				knownVersions.Add(new KhronosVersion(1, 0));
-				knownVersions.Add(new KhronosVersion(1, 1));
-				knownVersions.Add(new KhronosVersion(1, 2));
-				knownVersions.Add(new KhronosVersion(1, 3));
-				knownVersions.Add(new KhronosVersion(1, 4));
-				knownVersions.Add(new KhronosVersion(1, 5));
-				knownVersions.Add(new KhronosVersion(2, 0));
-				knownVersions.Add(new KhronosVersion(2, 1));
-				knownVersions.Add(new KhronosVersion(3, 0));
-				knownVersions.Add(new KhronosVersion(3, 1));
-				knownVersions.Add(new KhronosVersion(3, 2));
-				knownVersions.Add(new KhronosVersion(3, 3));
-				knownVersions.Add(new KhronosVersion(4, 0));
-				knownVersions.Add(new KhronosVersion(4, 1));
-				knownVersions.Add(new KhronosVersion(4, 2));
-				knownVersions.Add(new KhronosVersion(4, 3));
-				knownVersions.Add(new KhronosVersion(4, 4));
-				knownVersions.Add(new KhronosVersion(4, 5));
+				knownVersions.Add(new KhronosVersion(1, 0, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(1, 1, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(1, 2, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(1, 3, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(1, 4, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(1, 5, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(2, 0, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(2, 1, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(3, 0, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(3, 1, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(3, 2, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(3, 3, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(4, 0, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(4, 1, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(4, 2, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(4, 3, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(4, 4, KhronosVersion.ApiGl));
+				knownVersions.Add(new KhronosVersion(4, 5, KhronosVersion.ApiGl));
 
 				return (knownVersions.ToArray());
 			}

@@ -167,7 +167,7 @@ namespace OpenGL.Test
 		/// </returns>
 		protected bool HasVersion(int major, int minor, int revision)
 		{
-			return (_Version >= new KhronosVersion(major, minor, revision));
+			return (_Version >= new KhronosVersion(major, minor, revision, KhronosVersion.ApiGl));
 		}
 
 		/// <summary>
