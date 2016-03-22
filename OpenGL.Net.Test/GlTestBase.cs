@@ -53,15 +53,18 @@ namespace OpenGL.Test
 				// Get OpenGL extensions
 				_GlExtensions.Query();
 				// Get OpenGL window system extensions
-				switch (Environment.OSVersion.Platform) {
-					case PlatformID.Win32Windows:
-					case PlatformID.Win32NT:
-						_WglExtensions.Query((WindowsDeviceContext)_DeviceContext);
-						break;
-					case PlatformID.Unix:
-						_GlxExtensions.Query((XServerDeviceContext)_DeviceContext);
-						break;
-				}
+				// Windows OpenGL extensions
+				WindowsDeviceContext windowsDeviceContext = _DeviceContext as WindowsDeviceContext;
+				if (windowsDeviceContext != null)
+					_WglExtensions.Query(windowsDeviceContext);
+				// GLX OpenGL extensions
+				XServerDeviceContext xserverDeviceContext = _DeviceContext as XServerDeviceContext;
+				if (xserverDeviceContext != null)
+					_GlxExtensions.Query(xserverDeviceContext);
+				// EGL OpenGL extensions
+				NativeDeviceContext nativeDeviceContext = _DeviceContext as NativeDeviceContext;
+				if (nativeDeviceContext != null)
+					_EglExtensions.Query(nativeDeviceContext);
 				
 			} catch {
 				// Release resources manually
@@ -167,7 +170,31 @@ namespace OpenGL.Test
 		/// </returns>
 		protected bool HasVersion(int major, int minor, int revision)
 		{
-			return (_Version >= new KhronosVersion(major, minor, revision, KhronosVersion.ApiGl));
+			return (_Version.Api == KhronosVersion.ApiGl && _Version >= new KhronosVersion(major, minor, revision, KhronosVersion.ApiGl));
+		}
+
+		/// <summary>
+		/// Check whether a specific OpenGL ES version is supported.
+		/// </summary>
+		/// <param name="major">
+		/// A <see cref="Int32"/> that specifies the major OpenGL version to test for support.
+		/// </param>
+		/// <param name="minor">
+		/// A <see cref="Int32"/> that specifies the minor OpenGL version to test for support.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the specified OpenGL version is supported.
+		/// </returns>
+		protected bool HasEsVersion(int major, int minor)
+		{
+			switch (_Version.Api) {
+				case KhronosVersion.ApiGles1:
+					return (_Version >= new KhronosVersion(major, minor, 0, KhronosVersion.ApiGles1));
+				case KhronosVersion.ApiGles2:
+					return (_Version >= new KhronosVersion(major, minor, 0, KhronosVersion.ApiGles2));
+				default:
+					return (false);
+			}
 		}
 
 		/// <summary>
@@ -248,6 +275,11 @@ namespace OpenGL.Test
 		/// Windows OpenGL extensions support.
 		/// </summary>
 		private readonly Glx.Extensions _GlxExtensions = new Glx.Extensions();
+
+		/// <summary>
+		/// Windows OpenGL extensions support.
+		/// </summary>
+		private readonly Egl.Extensions _EglExtensions = new Egl.Extensions();
 
 		#endregion
 	}

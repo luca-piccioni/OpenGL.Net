@@ -122,8 +122,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGenTexture()
 		{
-			if (!HasVersion(1, 1))
-				Assert.Inconclusive("OpenGL 1.1");
+			if (!HasVersion(1, 1) && !HasEsVersion(1, 0))
+				Assert.Inconclusive("OpenGL 1.1 or OpenGL ES 1.0");
 
 			uint[] textureObjects = new uint[3];
 			uint textureObject;

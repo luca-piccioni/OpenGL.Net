@@ -342,7 +342,8 @@ namespace BindingsGen.GLSpecs
 
 			// Required on Windows platform: different threads can bind different OpenGL context, which can have different
 			// entry points
-			sw.WriteLine("[ThreadStatic]");
+			if (ctx.Class == "Gl" || ctx.Class == "Wgl")
+				sw.WriteLine("[ThreadStatic]");
 
 			// Delegate field
 			sw.WriteLine("internal static {0} {1};", ImportName, DelegateName);

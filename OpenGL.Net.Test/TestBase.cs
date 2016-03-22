@@ -102,9 +102,9 @@ namespace OpenGL.Test
 			NativeDeviceContext eglDeviceContext = (NativeDeviceContext)_DeviceContext;
 
 			// Require the pixel formats
-			//DevicePixelFormatCollection pixelFormats = eglDeviceContext.PixelsFormats;
+			DevicePixelFormatCollection pixelFormats = eglDeviceContext.PixelsFormats;
 
-			eglDeviceContext.SetPixelFormat(null);
+			eglDeviceContext.SetPixelFormat(pixelFormats[0]);
 		}
 
 		/// <summary>

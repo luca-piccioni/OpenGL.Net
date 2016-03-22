@@ -49,8 +49,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestCreateProgram()
 		{
-			if (!HasVersion(2, 0))
-				Assert.Inconclusive("OpenGL 2.0");
+			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
+				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
 			uint program = Gl.CreateProgram();
 			Assert.AreNotEqual(0, program, "Gl.CreateProgram failure");
@@ -71,8 +71,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestCreateShader()
 		{
-			if (!HasVersion(2, 0))
-				Assert.Inconclusive("OpenGL 2.0");
+			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
+				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
 			uint shader = Gl.CreateShader(Gl.VERTEX_SHADER);
 			try {

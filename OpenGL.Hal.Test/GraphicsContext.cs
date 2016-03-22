@@ -45,24 +45,24 @@ namespace OpenGL.Hal.Test
 			{
 				List<KhronosVersion> knownVersions = new List<KhronosVersion>();
 
-				knownVersions.Add(new KhronosVersion(1, 0, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(1, 1, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(1, 2, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(1, 3, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(1, 4, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(1, 5, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(2, 0, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(2, 1, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(3, 0, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(3, 1, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(3, 2, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(3, 3, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(4, 0, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(4, 1, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(4, 2, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(4, 3, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(4, 4, KhronosVersion.ApiGl));
-				knownVersions.Add(new KhronosVersion(4, 5, KhronosVersion.ApiGl));
+				knownVersions.Add(Gl.Version_100);
+				knownVersions.Add(Gl.Version_110);
+				knownVersions.Add(Gl.Version_120);
+				knownVersions.Add(Gl.Version_130);
+				knownVersions.Add(Gl.Version_140);
+				knownVersions.Add(Gl.Version_150);
+				knownVersions.Add(Gl.Version_200);
+				knownVersions.Add(Gl.Version_210);
+				knownVersions.Add(Gl.Version_300);
+				knownVersions.Add(Gl.Version_310);
+				knownVersions.Add(Gl.Version_320);
+				knownVersions.Add(Gl.Version_330);
+				knownVersions.Add(Gl.Version_400);
+				knownVersions.Add(Gl.Version_410);
+				knownVersions.Add(Gl.Version_420);
+				knownVersions.Add(Gl.Version_430);
+				knownVersions.Add(Gl.Version_440);
+				knownVersions.Add(Gl.Version_450);
 
 				return (knownVersions.ToArray());
 			}

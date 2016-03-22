@@ -34,8 +34,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGenBuffer()
 		{
-			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported");
+			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object") && !HasEsVersion(1, 0))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported or OpenGL ES 1.0");
 
 			uint arrayBuffer = Gl.GenBuffer();
 			try {
@@ -61,8 +61,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestBufferData()
 		{
-			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported");
+			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object") && !HasEsVersion(1, 0))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported or OpenGL ES 1.0");
 
 			int arrayBufferGet;
 
@@ -89,9 +89,11 @@ namespace OpenGL.Test
 				Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
 				Assert.AreEqual((int)BufferUsageARB.StaticDraw, arrayBufferDataParam);
 
-				Gl.GetBufferSubData(BufferTargetARB.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
-				for (int i = 0; i < arrayBufferDataGet.Length; i++)
-					Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
+				if (HasVersion(1, 5) || IsGlExtensionSupported("GL_ARB_vertex_buffer_object")) {
+					Gl.GetBufferSubData(BufferTargetARB.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
+					for (int i = 0; i < arrayBufferDataGet.Length; i++)
+						Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
+				}
 			} finally {
 				if (arrayBuffer != 0) {
 					Gl.DeleteBuffers(arrayBuffer);
@@ -106,8 +108,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestMapBuffer()
 		{
-			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported");
+			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object") && !IsGlExtensionSupported("GL_OES_mapbuffer"))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object or GL_OES_mapbuffer not supported");
 
 			int arrayBufferGet;
 
@@ -129,7 +131,7 @@ namespace OpenGL.Test
 					arrayBufferData[i] = (Byte)random.Next(Byte.MaxValue);
 				Gl.BufferData(BufferTargetARB.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsageARB.StaticDraw);
 
-				IntPtr arrayBufferPtr = Gl.MapBuffer(BufferTargetARB.ArrayBuffer, BufferAccessARB.ReadOnly);
+				IntPtr arrayBufferPtr = Gl.MapBuffer(BufferTargetARB.ArrayBuffer, BufferAccessARB.WriteOnly);
 				Assert.AreNotEqual(IntPtr.Zero, arrayBufferPtr);
 				try {
 					IntPtr arrayBufferPtrGet;
@@ -138,7 +140,7 @@ namespace OpenGL.Test
 					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAPPED, out arrayBufferPtrParam);
 					Assert.AreEqual(Gl.TRUE, arrayBufferPtrParam);
 					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_ACCESS, out arrayBufferPtrParam);
-					Assert.AreEqual((int)BufferAccessARB.ReadOnly, arrayBufferPtrParam);
+					Assert.AreEqual((int)BufferAccessARB.WriteOnly, arrayBufferPtrParam);
 
 					Gl.GetBufferPointer(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAP_POINTER, out arrayBufferPtrGet);
 					Assert.AreEqual(arrayBufferPtr, arrayBufferPtrGet);

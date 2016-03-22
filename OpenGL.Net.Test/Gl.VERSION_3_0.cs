@@ -34,8 +34,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetStringi()
 		{
-			if (!HasVersion(3, 0))
-				Assert.Inconclusive("OpenGL 3.0");
+			if (!HasVersion(3, 0) && !HasEsVersion(3, 0))
+				Assert.Inconclusive("OpenGL 3.0 or OpenGL ES 3.0");
 
 			#region Gl.EXTENSIONS
 

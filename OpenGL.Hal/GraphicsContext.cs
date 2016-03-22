@@ -241,38 +241,43 @@ namespace OpenGL
 			NativeDeviceContext eglDeviceCtx = (NativeDeviceContext)rDevice;
 			IntPtr ctx;
 
-			int[] configAttribs = new int[] {
-				Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT,
+			List<int> configAttribs = new List<int>();
+
+			if (eglDeviceCtx.Version >= Egl.Version_120)
+				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+			configAttribs.AddRange(new int[] {
 				Egl.RED_SIZE, 8,
 				Egl.GREEN_SIZE, 8,
 				Egl.BLUE_SIZE, 8,
-				Egl.NONE
-			};
+			});
+			configAttribs.Add(Egl.NONE);
+
 			int[] configCount = new int[1];
 			IntPtr[] configs = new IntPtr[8];
 
 			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
 				throw new InvalidOperationException("no ES API");
 
-			if (Egl.ChooseConfig(eglDeviceCtx.Display, configAttribs, configs, configs.Length, configCount) == false)
+			if (Egl.ChooseConfig(eglDeviceCtx.Display, configAttribs.ToArray(), configs, configs.Length, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");
 			if (configCount[0] == 0)
 				throw new InvalidOperationException("no available configuration");
 
-			int[] contextAttribs = new int[] {
-				Egl.CONTEXT_CLIENT_VERSION, 2,
-				Egl.NONE
-			};
+			List<int> contextAttribs = new List<int>();
 
-			if ((ctx = Egl.CreateContext(eglDeviceCtx.Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
+			if (eglDeviceCtx.Version >= Egl.Version_130)
+				contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+			contextAttribs.Add(Egl.NONE);
+
+			if ((ctx = Egl.CreateContext(eglDeviceCtx.Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
 
-			int[] surfaceAttribs = new int[1] {
-				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-				Egl.NONE
-			};
+			List<int> surfaceAttribs = new List<int>();
 
-			eglDeviceCtx.Surface = Egl.CreateWindowSurface(eglDeviceCtx.Display, configs[configs.Length - 1], eglDeviceCtx.NativeWindow, surfaceAttribs);
+			surfaceAttribs.Add(Egl.NONE);
+			// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+
+			eglDeviceCtx.Surface = Egl.CreateWindowSurface(eglDeviceCtx.Display, configs[configs.Length - 1], eglDeviceCtx.NativeWindow, surfaceAttribs.ToArray());
 
 			return (ctx);
 		}
@@ -958,7 +963,7 @@ namespace OpenGL
 		{
 			GraphicsResource.CheckCurrentContext(this);
 
-			if ((Caps.GlExtensions.VertexShader_ARB || Version >= new KhronosVersion(2, 0, KhronosVersion.ApiGl)) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
+			if ((Caps.GlExtensions.VertexShader_ARB || Version >= Gl.Version_200) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
 				Gl.UseProgram(GraphicsResource.InvalidObjectName);
 				_BoundObjects.Remove(Gl.CURRENT_PROGRAM);
 			}
