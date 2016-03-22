@@ -22,7 +22,8 @@ using System.Windows.Forms;
 
 using NUnit.Framework;
 
-[assembly : Apartment(System.Threading.ApartmentState.STA)]
+[assembly: Apartment(System.Threading.ApartmentState.STA)]
+[assembly: Parallelizable(ParallelScope.None)]
 
 namespace OpenGL.Test
 {

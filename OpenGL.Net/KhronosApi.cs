@@ -825,7 +825,7 @@ namespace OpenGL
 
 			return (logContext);
 		}
-		
+
 		#endregion
 	}
 }
