@@ -139,7 +139,7 @@ IF $(ConfigurationName) == "x64" (
   copy "$(SolutionDir)Libs\gdal-csharp\*.dll" "$(TargetDir)"
 )
 
-copy "$(SolutionDir)\OpenGL.Hal.Plugins\OpenGL.Hal.LibTiff\$(ConfigurationName)\$(PlatformName)\*.dll" "$(TargetDir)" &gt; NUL</PostBuildEvent>
+rem copy "$(SolutionDir)\OpenGL.Hal.Plugins\OpenGL.Hal.LibTiff\$(ConfigurationName)\$(PlatformName)\*.dll" "$(TargetDir)" &gt; NUL</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
