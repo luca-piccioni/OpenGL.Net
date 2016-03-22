@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -166,7 +167,24 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			return (Egl.CreateContext(_Display, _Config, sharedContext, null));
+			List<int> contextAttribs = new List<int>();
+
+			if (Version >= Egl.Version_130)
+				contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+			contextAttribs.Add(Egl.NONE);
+
+			if ((_Context = Egl.CreateContext(_Display, _Config, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create context");
+
+			int[] surfaceAttribs = new int[1] {
+				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+				Egl.NONE
+			};
+
+			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _NativeWindow, surfaceAttribs)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create window surface");
+
+			return (_Context);
 		}
 
 		/// <summary>
@@ -299,8 +317,6 @@ namespace OpenGL
 		{
 			get
 			{
-				return (_PixelFormatCache);
-
 				// Use cached pixel formats
 				if (_PixelFormatCache != null)
 					return (_PixelFormatCache);
@@ -450,35 +466,27 @@ namespace OpenGL
 		/// </exception>
 		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
 		{
-			//if (pixelFormat == null)
-			//	throw new ArgumentNullException("pixelFormat");
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
 
-			int[] configAttribs = new int[3] {
-				Egl.CONFIG_ID, 10,
-				Egl.NONE
-			};
+			List<int> configAttribs = new List<int>();
+
+			if (Version >= Egl.Version_120)
+				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+			configAttribs.AddRange(new int[] {
+				Egl.CONFIG_ID, pixelFormat.FormatIndex,
+			});
+			configAttribs.Add(Egl.NONE);
+
 			int[] configCount = new int[1];
-			IntPtr[] configs = new IntPtr[1024];
+			IntPtr[] configs = new IntPtr[1];
 
-			if (Egl.ChooseConfig(_Display, configAttribs, configs, 1, configCount) == false)
+			if (Egl.ChooseConfig(_Display, configAttribs.ToArray(), configs, 1, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");
+			if (configCount[0] == 0)
+				throw new InvalidOperationException("no available configuration");
 
 			IntPtr config = configs[0];
-			int[] contextAttribs = new int[1] {
-				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-				Gl.NONE
-			};
-
-			if ((_Context = Egl.CreateContext(_Display, config, IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create context");
-
-			int[] surfaceAttribs = new int[1] {
-				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-				Gl.NONE
-			};
-
-			if ((_EglSurface = Egl.CreateWindowSurface(_Display, config, _NativeWindow, surfaceAttribs)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create window surface");
 
 			_Config = config;
 		}
@@ -492,6 +500,10 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
+				//if (_EglSurface != IntPtr.Zero) {
+				//	Egl.DestroySurface(_Display, _EglSurface);
+				//	_EglSurface = IntPtr.Zero;
+				//}
 				if (_Display != IntPtr.Zero) {
 					Egl.Terminate(_Display);
 					_Display = IntPtr.Zero;

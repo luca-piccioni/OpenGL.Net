@@ -123,23 +123,34 @@ namespace OpenGL
 				throw new ArgumentNullException("getAddress");
 
 			foreach (FieldInfo fi in delegates) {
-				string importName = fi.Name.Substring(1);			// Delegate name always prefixes with 'p'
-				IntPtr importAddr = getAddress(path, importName);
+				Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(fi, typeof(AliasOfAttribute));
+				string importName = fi.Name.Substring(1);           // Delegate name always prefixes with 'p'
+				IntPtr importAddress = IntPtr.Zero;
 
-				if (importAddr != IntPtr.Zero) {
-					Delegate delegatePtr;
-
-					// Try to load external symbol
-					if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddr, fi.FieldType)) == null) {
-						MethodInfo methodInfo;
-
-						if (imports.TryGetValue(importName, out methodInfo) == true)
-							delegatePtr = Delegate.CreateDelegate(fi.FieldType, methodInfo);
+				if (aliasOfAttributes.Length > 0) {
+					for (int i = 0; i < aliasOfAttributes.Length; i++) {
+						if ((importAddress = getAddress(path, ((AliasOfAttribute)aliasOfAttributes[i]).SymbolName)) != IntPtr.Zero)
+							break;
 					}
+				} else
+					importAddress = getAddress(path, importName);
 
-					if (delegatePtr != null)
-						fi.SetValue(null, delegatePtr);
+				// Is function implemented?
+				if (importAddress == IntPtr.Zero)
+					continue;
+
+				Delegate delegatePtr;
+
+				// Try to load external symbol
+				if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, fi.FieldType)) == null) {
+					MethodInfo methodInfo;
+
+					if (imports.TryGetValue(importName, out methodInfo) == true)
+						delegatePtr = Delegate.CreateDelegate(fi.FieldType, methodInfo);
 				}
+
+				if (delegatePtr != null)
+					fi.SetValue(null, delegatePtr);
 			}
 		}
 
@@ -347,7 +358,7 @@ namespace OpenGL
 			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
 			/// </exception>
 			public CoreExtensionAttribute(int major, int minor) :
-				this(major, minor, 0, String.Empty)
+				this(major, minor, 0, KhronosVersion.ApiGl)
 			{
 
 			}
@@ -369,7 +380,7 @@ namespace OpenGL
 			/// <paramref name="revision"/> are less than 0.
 			/// </exception>
 			public CoreExtensionAttribute(int major, int minor, int revision) :
-				this(major, minor, revision, String.Empty)
+				this(major, minor, revision, KhronosVersion.ApiGl)
 			{
 
 			}
@@ -528,7 +539,7 @@ namespace OpenGL
 					Attribute[] coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
 					if ((coreAttributes != null) && (coreAttributes.Length > 0)) {
 						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
-							if (version >= coreAttribute.Version) {
+							if (version.Api == coreAttribute.Version.Api && version >= coreAttribute.Version) {
 								support |= true;
 								break;
 							}
