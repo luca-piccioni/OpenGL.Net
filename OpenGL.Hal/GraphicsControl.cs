@@ -184,6 +184,9 @@ namespace OpenGL
 				try {
 					GraphicsContextCreated(this, args);
 				} catch (Exception exception) {
+#if DEBUG
+					System.Diagnostics.Debugger.Break();
+#endif
 					sLog.Error("Unable to create resources.", exception);
 				}
 			}
@@ -244,6 +247,9 @@ namespace OpenGL
 				try {
 					Render(this, args);
 				} catch (Exception exception) {
+#if DEBUG
+					System.Diagnostics.Debugger.Break();
+#endif
 					sLog.Error("RenderControl.Render exception caught", exception);
 				}
 			}

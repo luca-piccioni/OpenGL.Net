@@ -53,7 +53,8 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			SynchDelegates(_ImportMap, _Delegates);
+			// Load procedures
+			LoadProcDelegates(Library, _ImportMap, _Delegates);
 		}
 
 		/// <summary>

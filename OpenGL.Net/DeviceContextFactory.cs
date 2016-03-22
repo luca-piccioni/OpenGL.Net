@@ -48,7 +48,7 @@ namespace OpenGL
 			if (window.Handle == IntPtr.Zero)
 				throw new ArgumentException("handle not created", "window");
 
-			if (Egl.IsAvailable == false) {
+			if (Egl.IsRequired == false) {
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Win32Windows:
 					case PlatformID.Win32S:
@@ -60,9 +60,8 @@ namespace OpenGL
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
-			} else {
+			} else
 				return (new NativeDeviceContext(window));
-			}
 		}
 	}
 }

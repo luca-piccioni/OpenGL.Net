@@ -34,7 +34,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create a an OpenGL context, and get the OpenGL extensions supported.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public new void FixtureSetUp()
 		{
 			try {
@@ -88,13 +88,12 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public new void FixtureTearDown()
 		{
 			// Detroy context
-			WindowsDeviceContext winDeviceContext = _DeviceContext as WindowsDeviceContext;
-			if ((winDeviceContext != null) && (Wgl.DeleteContext(_Context) == false))
-				throw new InvalidOperationException("unable to delete OpenGL context");
+			if (_Context != IntPtr.Zero)
+				_DeviceContext.DeleteContext(_Context);
 			_Context = IntPtr.Zero;
 		}
 

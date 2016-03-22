@@ -22,12 +22,14 @@ using System.Windows.Forms;
 
 using NUnit.Framework;
 
+[assembly : Apartment(System.Threading.ApartmentState.STA)]
+
 namespace OpenGL.Test
 {
 	/// <summary>
 	/// Abstract base test creating a device context used for testing.
 	/// </summary>
-	[TestFixture, RequiresSTA]
+	[TestFixture]
 	abstract class TestBase
 	{
 		#region Setup & Tear Down
@@ -35,10 +37,13 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create a window, create the device context and set a basic pixel format.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			try {
+				// Support ES tests
+				Egl.IsRequired = IsEsTest;
+
 				// Create window
 				Form = new TestForm(this);
 				// Create device context
@@ -62,7 +67,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			// Dispose device context
@@ -105,6 +110,14 @@ namespace OpenGL.Test
 			DevicePixelFormatCollection pixelFormats = eglDeviceContext.PixelsFormats;
 
 			eglDeviceContext.SetPixelFormat(pixelFormats[0]);
+		}
+
+		/// <summary>
+		/// Determine whether this test is testing OpenGL ES API.
+		/// </summary>
+		protected virtual bool IsEsTest
+		{
+			get { return (false); }
 		}
 
 		/// <summary>

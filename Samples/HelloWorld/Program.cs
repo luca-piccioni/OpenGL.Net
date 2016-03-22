@@ -35,15 +35,15 @@ namespace HelloNewton
 		{
 			Log.ConfigureLogFile("Log.config");
 
-			//OpenGL.Scene.Terrain.Query(@"D:\__dds.cr.usgs.gov\srtm\version2_1\SRTM30\w180s10");
+#if DEBUG
+			Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
+#endif
 
 			// UI initialization (before accessing GraphicsContext and others)
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-#if DEBUG
-			Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
-#endif
+			OpenGL.Scene.Terrain.Query(@"D:\__dds.cr.usgs.gov\srtm\version2_1\SRTM30\w180s10");
 
 			// Check requirements
 			StringBuilder missingReq = new StringBuilder();

@@ -38,7 +38,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create required resources for tests defined in this class.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public new void FixtureSetUp()
 		{
 
@@ -47,7 +47,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public new void FixtureTearDown()
 		{
 			

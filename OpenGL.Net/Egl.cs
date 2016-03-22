@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -75,14 +75,6 @@ namespace OpenGL
 		#region Imports/Delegates Management
 
 		/// <summary>
-		/// Synchronize OpenGL delegates.
-		/// </summary>
-		public static void SyncDelegates()
-		{
-			SynchDelegates(_ImportMap, _Delegates);
-		}
-
-		/// <summary>
 		/// Default import library.
 		/// </summary>
 		private const string Library = "libEGL.dll";
@@ -102,15 +94,24 @@ namespace OpenGL
 		#region Availability
 
 		/// <summary>
-		/// Determine whether EGL layer is avaialble.
+		/// Determine whether EGL layer is avaialable.
 		/// </summary>
-		public static bool IsAvailable
+		public static bool IsAvailable { get { return (Delegates.peglInitialize != null); } }
+
+		/// <summary>
+		/// Get or set whether <see cref="DeviceContextFactory"/> should create an EGL device
+		/// context, if available..
+		/// </summary>
+		public static bool IsRequired
 		{
-			get
-			{
-				return (Delegates.peglInitialize != null);
-			}
+			get { return (_RequiresEgl && IsAvailable); }
+			set { _RequiresEgl = value; }
 		}
+
+		/// <summary>
+		/// Flag for requesting an EGL device context, if available.
+		/// </summary>
+		private static bool _RequiresEgl;
 
 		#endregion
 

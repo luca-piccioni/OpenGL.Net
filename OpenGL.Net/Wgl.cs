@@ -57,8 +57,8 @@ namespace OpenGL
 		public static void SyncDelegates()
 		{
 			LogComment("Synchronize WGL delegates.");
-
-			SynchDelegates(_ImportMap, _Delegates);
+			// Load procedures
+			LoadProcDelegates(_ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -131,6 +131,10 @@ namespace OpenGL
 		/// </remarks>
 		public static bool MakeCurrent(IntPtr hDc, IntPtr newContext)
 		{
+			// Automatically load procedures in the case in this thread procedures pointers are not loaded yet
+			if (Delegates.pwglMakeCurrent == null)
+				SyncDelegates();
+
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
@@ -138,7 +142,8 @@ namespace OpenGL
 				// actual implementation
 				Gl.SyncDelegates();
 
-				// Get WGL functions pointers
+				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using
+				// wglGetprocAddress)
 				SyncDelegates();
 			}
 

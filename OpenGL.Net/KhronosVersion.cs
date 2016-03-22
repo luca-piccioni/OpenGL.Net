@@ -349,7 +349,7 @@ namespace OpenGL
 			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
-			string api = null;
+			string api = ApiGl;
 
 			if (Regex.IsMatch(input, "(OpenGL ES)")) {
 				switch (versionMajor) {
