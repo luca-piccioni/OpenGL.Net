@@ -39,6 +39,9 @@ namespace OpenGL.Hal.Test
 		public void FixtureSetUp()
 		{
 			try {
+				// Support ES tests
+				Egl.IsRequired = IsEsTest;
+
 #if GL_LOG_ENABLED
 				// Set logging
 				Gl.QueryLogContext();
@@ -54,8 +57,8 @@ namespace OpenGL.Hal.Test
 				// Define window buffers
 				GraphicsBuffersFormat graphicsBuffersFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
 
-				graphicsBuffersFormat.DefineDepthBuffer(24, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-				graphicsBuffersFormat.DefineDoubleBuffers(GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
+				//graphicsBuffersFormat.DefineDepthBuffer(24, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
+				//graphicsBuffersFormat.DefineDoubleBuffers(GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
 
 				_Window.Create(graphicsBuffersFormat);
 				// Create graphics context
@@ -90,6 +93,14 @@ namespace OpenGL.Hal.Test
 				_Window.Dispose();
 				_Window = null;
 			}
+		}
+
+		/// <summary>
+		/// Determine whether this test is testing OpenGL ES API.
+		/// </summary>
+		protected virtual bool IsEsTest
+		{
+			get { return (false); }
 		}
 
 		/// <summary>
