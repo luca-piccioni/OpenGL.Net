@@ -117,7 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OpenGL.Hal\OpenGL.Hal.csproj">
-      <Project>{b1656959-9aee-45f3-a382-1bd0eac86918}</Project>
+      <Project>{B1656959-9AEE-45F3-A382-1BD0EAC86918}</Project>
       <Name>OpenGL.Hal</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.csproj">

@@ -31,7 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
-    <OutputPath>.\</OutputPath>
+    <OutputPath>.</OutputPath>
     <OutDir>$(ProjectDir)$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)/$(Platform)/</IntDir>
   </PropertyGroup>
@@ -41,7 +41,7 @@
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <OutputPath>.\</OutputPath>
+    <OutputPath>.</OutputPath>
     <OutDir>$(ProjectDir)$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)/$(Platform)/</IntDir>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
-    <OutputPath>.\</OutputPath>
+    <OutputPath>.</OutputPath>
     <OutDir>$(ProjectDir)$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)/$(Platform)/</IntDir>
   </PropertyGroup>
@@ -60,7 +60,7 @@
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <OutputPath>.\</OutputPath>
+    <OutputPath>.</OutputPath>
     <OutDir>$(ProjectDir)$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)/$(Platform)/</IntDir>
   </PropertyGroup>
