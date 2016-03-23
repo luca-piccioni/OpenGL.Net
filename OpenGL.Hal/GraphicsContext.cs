@@ -569,7 +569,7 @@ namespace OpenGL
 				// Set flags
 				_ContextFlags = flags;
 
-				if ((CurrentCaps.PlatformExtensions.CreateContext_ARB || CurrentCaps.PlatformExtensions.CreateContextProfile_ARB) && (version.Major >= 3)) {
+				if ((version.Api == KhronosVersion.ApiGl) && (version >= Gl.Version_300) && (CurrentCaps.PlatformExtensions.CreateContext_ARB || CurrentCaps.PlatformExtensions.CreateContextProfile_ARB)) {
 					List<int> cAttributes = new List<int>();
 
 					#region Context Version
@@ -694,8 +694,8 @@ namespace OpenGL
 					// Shader include library (GLSL #include support)
 					_ShaderIncludeLibrary = new ShaderIncludeLibrary();
 					_ShaderIncludeLibrary.Create(this);
-					// IGraphicsResource Async methods
-					StartAsyncResourceThread();
+					// IGraphicsResource Async methods @todo ANGLE?
+					// StartAsyncResourceThread();
 
 					// Restore previous current context, if any. Otherwise, make uncurrent
 					if (prevContext != null)
@@ -1041,19 +1041,6 @@ namespace OpenGL
 				lock (_RenderThreadsLock) {
 					_RenderThreads[threadId] = this;
 				}
-
-				switch (Environment.OSVersion.Platform) {
-					case PlatformID.Unix:
-						using (Glx.XLock xLock = new Glx.XLock(((XServerDeviceContext)deviceContext).Display)) {
-							Gl.SyncDelegates();
-						}
-						break;
-					default:
-						Gl.SyncDelegates();
-						break;
-				}
-
-
 			} else {
 				// Make this context uncurrent on device
 				bool res = deviceContext.MakeCurrent(IntPtr.Zero);
@@ -1439,7 +1426,7 @@ namespace OpenGL
 					_RenderContext = IntPtr.Zero;
 				}
 
-				if (_DeviceContextThreadId != System.Threading.Thread.CurrentThread.ManagedThreadId)
+				if (_DeviceContextThreadId != Thread.CurrentThread.ManagedThreadId)
 					throw new InvalidOperationException("disposing on a different thread context");
 				_DeviceContext.DecRef();
 				_DeviceContext = null;
