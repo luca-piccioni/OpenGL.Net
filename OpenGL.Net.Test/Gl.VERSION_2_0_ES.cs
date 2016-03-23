@@ -29,6 +29,9 @@ namespace OpenGL.Test
 	[TestFixture]
 	class Gl_VERSION_2_0_ES : Gl_VERSION_2_0
 	{
+		[Test]
+		public void TestEglAvailable() { Assert.IsTrue(Egl.IsAvailable); }
+
 		/// <summary>
 		/// Determine whether this test is testing OpenGL ES API.
 		/// </summary>

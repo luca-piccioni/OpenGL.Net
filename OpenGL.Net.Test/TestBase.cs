@@ -22,9 +22,6 @@ using System.Windows.Forms;
 
 using NUnit.Framework;
 
-[assembly: Apartment(System.Threading.ApartmentState.STA)]
-[assembly: Parallelizable(ParallelScope.None)]
-
 namespace OpenGL.Test
 {
 	/// <summary>
@@ -38,7 +35,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create a window, create the device context and set a basic pixel format.
 		/// </summary>
-		[OneTimeSetUp]
+		[TestFixtureSetUp]
 		public void FixtureSetUp()
 		{
 			try {
@@ -68,7 +65,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[OneTimeTearDown]
+		[TestFixtureTearDown]
 		public void FixtureTearDown()
 		{
 			// Dispose device context

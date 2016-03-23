@@ -34,7 +34,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create a an OpenGL context, and get the OpenGL extensions supported.
 		/// </summary>
-		[OneTimeSetUp]
+		[TestFixtureSetUp]
 		public new void FixtureSetUp()
 		{
 			try {
@@ -88,7 +88,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[OneTimeTearDown]
+		[TestFixtureTearDown]
 		public new void FixtureTearDown()
 		{
 			// Detroy context
