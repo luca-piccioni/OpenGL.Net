@@ -136,8 +136,10 @@ namespace OpenGL
 					importAddress = getAddress(path, importName);
 
 				// Is function implemented?
-				if (importAddress == IntPtr.Zero)
+				if (importAddress == IntPtr.Zero) {
+					fi.SetValue(null, null);
 					continue;
+				}
 
 				Delegate delegatePtr;
 
