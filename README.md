@@ -1,4 +1,4 @@
-# OpenGL.Net
+# OpenGL.Net    [![Build Status](https://travis-ci.org/luca-piccioni/OpenGL.Net.svg?branch=master)](https://travis-ci.org/luca-piccioni/OpenGL.Net)
 
 Modern OpenGL binding for C#.
 
@@ -16,6 +16,8 @@ Generated from the lastest official XML specification, OpenGL.Net provides:
   documentation integrated with your IDE will be of great help.
 - Integrated entry points call logging: every OpenGL call could be logged for debugging. Additionally every OpenGL command is
   checked for errors, to catch a soon as possible OpenGL errors.
-- OpenGL feature-oriented design: it is possible to build a subset of the OpenGL.Net binding simply excluding specific modules.
 
-At this moment the project is in alpha status.
+Currently implemented API are:
+- [OpenGL 4.5](https://www.opengl.org/registry/), including compatibility profile
+- [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0
+- WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.
