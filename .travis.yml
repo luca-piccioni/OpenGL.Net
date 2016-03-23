@@ -5,4 +5,5 @@ install:
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release OpenGL.Net.sln
+  - glxinfo
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./OpenGL.Net.Test/bin/Release/OpenGL.Net.Test.dll

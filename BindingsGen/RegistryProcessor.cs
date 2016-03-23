@@ -157,8 +157,8 @@ namespace BindingsGen
 				GenerateLicensePreamble(sw);
 
 				// Warning CS1734  XML comment on 'method' has a paramref tag for 'param', but there is no parameter by that name
-				sw.WriteLine("#pragma warning disable 1734");
-				sw.WriteLine();
+				// sw.WriteLine("#pragma warning disable 1734");
+				// sw.WriteLine();
 
 				sw.WriteLine("using System;");
 				sw.WriteLine("using System.Diagnostics;");

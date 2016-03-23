@@ -16,8 +16,6 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#pragma warning disable 1734
-
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
