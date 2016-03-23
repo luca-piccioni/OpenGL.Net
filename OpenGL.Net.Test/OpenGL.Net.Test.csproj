@@ -106,6 +106,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)Libs\ANGLE" "$(TargetDir)ANGLE\" /E /H /C /R /Q /Y &gt; NUL</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
