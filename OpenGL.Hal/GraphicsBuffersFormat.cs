@@ -92,11 +92,11 @@ namespace OpenGL
 			/// <summary>
 			/// Surface has color buffer. 
 			/// </summary>
-			Color =				0x8001,
+			Color =				0x8000,
 			/// <summary>
 			/// Surface has color buffer, but encoded in sRGB color space.
 			/// </summary>
-			ColorSRGB =			0x8000,
+			ColorSRGB =			0x8001,
 			/// <summary>
 			/// Surface has depth buffer.
 			/// </summary>
@@ -298,7 +298,7 @@ namespace OpenGL
 		/// that buffer type is required, and its format could be degraded
 		/// to achieve RenderSurface creation. 
 		/// </remarks>
-		private BufferType mDegradableSurfaceBuffers = BufferType.Color;
+		private BufferType mDegradableSurfaceBuffers = BufferType.Color | BufferType.Double;
 
 		#endregion
 		
@@ -944,7 +944,7 @@ namespace OpenGL
 				bool degradable = IsDegradableBuffer(BufferType.Double);
 
 				pFormats.RemoveAll(delegate(DevicePixelFormat match) {
-					return (!match.DoubleBuffer /* && !degradable */);
+					return (!match.DoubleBuffer && !degradable);
 				});
 			} else {
 				pFormats.RemoveAll(delegate(DevicePixelFormat match) {
