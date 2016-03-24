@@ -174,16 +174,16 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for clearing buffers.
 		/// </param>
 		/// <param name="bufferMask">
-		/// A <see cref="GraphicsBuffersFormat.BufferType"/> indicating which buffers to clear.
+		/// A <see cref="GraphicsBuffersFormat.GraphicsBufferType"/> indicating which buffers to clear.
 		/// </param>
-		public void Clear(GraphicsContext ctx, GraphicsBuffersFormat.BufferType bufferMask)
+		public void Clear(GraphicsContext ctx, GraphicsBufferType bufferMask)
 		{
 			// Update clear values (only what is necessary)
-			if ((bufferMask & GraphicsBuffersFormat.BufferType.Color) != 0)
+			if ((bufferMask & GraphicsBufferType.Color) != 0)
 				Gl.ClearColor(mClearColor.Red, mClearColor.Green, mClearColor.Blue, mClearColor.Alpha);
-			if ((bufferMask & GraphicsBuffersFormat.BufferType.Depth) != 0)
+			if ((bufferMask & GraphicsBufferType.Depth) != 0)
 				Gl.ClearDepth(mClearDepth);
-			if ((bufferMask & GraphicsBuffersFormat.BufferType.Stencil) != 0)
+			if ((bufferMask & GraphicsBufferType.Stencil) != 0)
 				Gl.ClearStencil(mClearStencil);
 			
 			// Clear
@@ -229,15 +229,15 @@ namespace OpenGL
 			mClearStencil = stencil;
 		}
 
-		private static ClearBufferMask GetClearFlags(GraphicsBuffersFormat.BufferType bufferMask)
+		private static ClearBufferMask GetClearFlags(GraphicsBufferType bufferMask)
 		{
 			ClearBufferMask clearFlags = 0;
 
-			if ((bufferMask & GraphicsBuffersFormat.BufferType.Color) != 0)
+			if ((bufferMask & GraphicsBufferType.Color) != 0)
 				clearFlags |= ClearBufferMask.ColorBufferBit;
-			if ((bufferMask & GraphicsBuffersFormat.BufferType.Depth) != 0)
+			if ((bufferMask & GraphicsBufferType.Depth) != 0)
 				clearFlags |= ClearBufferMask.DepthBufferBit;
-			if ((bufferMask & GraphicsBuffersFormat.BufferType.Stencil) != 0)
+			if ((bufferMask & GraphicsBufferType.Stencil) != 0)
 				clearFlags |= ClearBufferMask.StencilBufferBit;
 
 			return (clearFlags);
@@ -276,7 +276,7 @@ namespace OpenGL
 		/// </remarks>
 		protected void EnableSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
 		{
-			if (surfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.ColorSRGB) == false)
+			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
 				throw new InvalidOperationException("surface has no sRGB buffer");
 			if ((ctx.Caps.GlExtensions.FramebufferSRGB_ARB == false) && (ctx.Caps.GlExtensions.FramebufferSRGB_EXT == false))
 				throw new InvalidOperationException("no framebuffer sRGB extension supported");
@@ -295,7 +295,7 @@ namespace OpenGL
 		/// </param>
 		protected void DisableSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
 		{
-			if (surfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.ColorSRGB) == false)
+			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
 				throw new InvalidOperationException("surface has no sRGB buffer");
 			if ((ctx.Caps.GlExtensions.FramebufferSRGB_ARB == false) && (ctx.Caps.GlExtensions.FramebufferSRGB_EXT == false))
 				throw new InvalidOperationException("no framebuffer sRGB extension supported");
@@ -317,7 +317,7 @@ namespace OpenGL
 		/// </returns>
 		protected bool IsEnabledSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
 		{
-			if (surfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.ColorSRGB) == false)
+			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
 				throw new InvalidOperationException("surface has no sRGB buffer");
 			if ((ctx.Caps.GlExtensions.FramebufferSRGB_ARB == false) && (ctx.Caps.GlExtensions.FramebufferSRGB_EXT == false))
 				throw new InvalidOperationException("no framebuffer sRGB extension supported");

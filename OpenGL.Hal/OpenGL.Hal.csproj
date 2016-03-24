@@ -103,6 +103,7 @@
     <Compile Include="Collections\IGeoTreeNode.cs" />
     <Compile Include="Collections\IGraphNode.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
+    <Compile Include="GraphicsBufferType.cs" />
     <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
     <Compile Include="IGraphicsResource.Extensions.cs" />

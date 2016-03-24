@@ -1,5 +1,5 @@
-
-// Copyright (C) 2009-2016 Luca Piccioni
+﻿
+// Copyright (C) 2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,17 +17,47 @@
 // USA
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace OpenGL
 {
 	/// <summary>
-	/// List of pixel format descriptions.
+	/// Graphic buffer type.
 	/// </summary>
-	[DebuggerDisplay("DevicePixelFormatCollection: Count={Count}")]
-	public class DevicePixelFormatCollection : List<DevicePixelFormat>
+	/// <remarks>
+	/// This enumeration specify surface buffers available of each RenderSurface, or duplication
+	/// of defined buffers for double buffering or stereoscopic buffers.
+	/// </remarks>
+	[Flags]
+	public enum GraphicsBufferType
 	{
-		
+		/// <summary>
+		/// Color buffer. 
+		/// </summary>
+		Color =				0x8000,
+
+		/// <summary>
+		/// Color buffer, but encoded in sRGB color space.
+		/// </summary>
+		ColorSRGB =			0x8001,
+
+		/// <summary>
+		/// Depth buffer.
+		/// </summary>
+		Depth =				0x0002,
+
+		/// <summary>
+		/// Stencil buffer.
+		/// </summary>
+		Stencil =			0x0004,
+
+		/// <summary>
+		/// Multisample buffer.
+		/// </summary>
+		Multisample =		0x0008,
+
+		/// <summary>
+		/// Double buffer.
+		/// </summary>
+		Double =			0x0010,
 	}
 }

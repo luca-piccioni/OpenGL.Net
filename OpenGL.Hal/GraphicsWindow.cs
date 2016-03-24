@@ -546,7 +546,7 @@ namespace OpenGL
 		/// </summary>
 		public override bool Swappable
 		{
-			get { return (_SurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double)); }
+			get { return (_SurfaceFormat.DoubleBuffers); }
 		}
 		
 		/// <summary>
@@ -598,7 +598,7 @@ namespace OpenGL
 			if (_DeviceContext == null)
 				throw new InvalidOperationException();
 
-			if (_SurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double))
+			if (_SurfaceFormat.DoubleBuffers)
 				_DeviceContext.SwapBuffers();
 		}
 
@@ -744,7 +744,7 @@ namespace OpenGL
 		/// <summary>
 		/// Window surface buffers format.
 		/// </summary>
-		private GraphicsBuffersFormat _SurfaceFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
+		internal GraphicsBuffersFormat _SurfaceFormat = new GraphicsBuffersFormat();
 
 		/// <summary>
 		/// The device format.

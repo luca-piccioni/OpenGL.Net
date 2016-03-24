@@ -38,7 +38,7 @@
 			// 
 			// SampleGraphicsControl
 			// 
-			this.SampleGraphicsControl.DepthBits = ((uint)(0u));
+			this.SampleGraphicsControl.DepthBits = ((uint)(24u));
 			this.SampleGraphicsControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.SampleGraphicsControl.Location = new System.Drawing.Point(0, 24);
 			this.SampleGraphicsControl.MultisampleBits = ((uint)(0u));

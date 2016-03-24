@@ -61,11 +61,8 @@ namespace OpenGL
 		[DefaultValue(PixelLayout.RGB24)]
 		public PixelLayout ColorFormat
 		{
-			get { return (SurfaceFormat.ColorType); }
-			set
-			{
-				SurfaceFormat.DefineColorBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-			}
+			get { return (_SurfaceFormat.ColorType); }
+			set { _SurfaceFormat.ColorType = value; }
 		}
 
 		/// <summary>
@@ -76,14 +73,8 @@ namespace OpenGL
 		[DefaultValue(24)]
 		public uint DepthBits
 		{
-			get { return (SurfaceFormat.DepthBits); }
-			set
-			{
-				if (value > 0)
-					SurfaceFormat.DefineDepthBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-				else
-					SurfaceFormat.UndefineDepthBuffer();
-			}
+			get { return (_SurfaceFormat.DepthBits); }
+			set { _SurfaceFormat.DepthBits = value; }
 		}
 
 		/// <summary>
@@ -94,14 +85,8 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public uint StencilBits
 		{
-			get { return (SurfaceFormat.StencilBits); }
-			set
-			{
-				if (value > 0)
-					SurfaceFormat.DefineStencilBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-				else
-					SurfaceFormat.UndefineStencilBuffer();
-			}
+			get { return (_SurfaceFormat.StencilBits); }
+			set { _SurfaceFormat.StencilBits = value; }
 		}
 
 		/// <summary>
@@ -112,14 +97,8 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public uint MultisampleBits
 		{
-			get { return (SurfaceFormat.MultisampleBits); }
-			set
-			{
-				if (value > 0)
-					SurfaceFormat.DefineMultisampleBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-				else
-					SurfaceFormat.UndefineMultisampleBuffer();
-			}
+			get { return (_SurfaceFormat.MultisampleBits); }
+			set { _SurfaceFormat.MultisampleBits = value; }
 		}
 
 		/// <summary>
@@ -130,14 +109,8 @@ namespace OpenGL
 		[DefaultValue(true)]
 		public bool DoubleBuffer
 		{
-			get { return (SurfaceFormat.DoubleBuffers); }
-			set
-			{
-				if (value)
-					SurfaceFormat.DefineDoubleBuffers(GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-				else
-					SurfaceFormat.UndefineDoubleBuffers();
-			}
+			get { return (_SurfaceFormat.DoubleBuffers); }
+			set { _SurfaceFormat.DoubleBuffers = value; }
 		}
 		
 		/// <summary>
@@ -155,7 +128,7 @@ namespace OpenGL
 		/// <summary>
 		/// The surface format used for creating OpenGL visual.
 		/// </summary>
-		private readonly GraphicsBuffersFormat SurfaceFormat = new GraphicsBuffersFormat();
+		private readonly GraphicsBuffersFormat _SurfaceFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
 
 		#endregion
 
@@ -289,13 +262,15 @@ namespace OpenGL
 			_RenderWindow = new GraphicsWindow(this);
 			_RenderWindow.Width = (uint)base.ClientSize.Width;
 			_RenderWindow.Height = (uint)base.ClientSize.Height;
+			// Set pixel format
+			_RenderWindow._SurfaceFormat = _SurfaceFormat;
 			// OVerride default swap interval
 			_RenderWindow.SwapInterval = SwapInterval;
 
 			// "Select" device pixel format before creating control handle
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Unix:
-					_RenderWindow.PreCreateObjectX11(SurfaceFormat);
+					_RenderWindow.PreCreateObjectX11(_SurfaceFormat);
 					break;
 			}
 			// Base implementation
