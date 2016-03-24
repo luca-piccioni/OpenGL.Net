@@ -39,6 +39,9 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
+			if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
+				return;
+
 			// Before linking procedures, append ANGLE directory in path
 			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
 			string anglePath = null;
@@ -67,7 +70,9 @@ namespace OpenGL
 			_Delegates = GetDelegateList(typeof(Egl));
 			_ImportMap = GetImportMap(typeof(Egl));
 			// Load procesdures
-			LoadProcDelegates(Library, _ImportMap, _Delegates);
+			try {
+				LoadProcDelegates(Library, _ImportMap, _Delegates);
+			} catch { /* Fail-safe: complict with Designer */ }
 		}
 
 		#endregion
