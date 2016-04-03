@@ -54,6 +54,23 @@ namespace OpenGL
 		#region Design Properties
 
 		/// <summary>
+		/// OpenGL context flags.
+		/// </summary>
+		[Browsable(true)]
+		[Description("The graphics context flags.")]
+		[DefaultValue(GraphicsContextFlags.None)]
+		public GraphicsContextFlags ContextFlags
+		{
+			get { return (_ContextFlags); }
+			set { _ContextFlags = value; }
+		}
+
+		/// <summary>
+		/// Graphics context flags.
+		/// </summary>
+		private GraphicsContextFlags _ContextFlags = GraphicsContextFlags.None;
+
+		/// <summary>
 		/// OpenGL color buffer format, using <see cref="PixelLayout"/> notation.
 		/// </summary>
 		[Browsable(true)]
@@ -293,7 +310,7 @@ namespace OpenGL
 				// - Setup swap interval, if supported
 				_RenderWindow.Create((GraphicsContext)null);
 				// Create the render context (before event handling)
-				_RenderContext = new GraphicsContext(_RenderWindow.GetDeviceContext());
+				_RenderContext = new GraphicsContext(_RenderWindow.GetDeviceContext(), null, null, _ContextFlags);
 			}
 			// Base implementation
 			base.OnHandleCreated(e);
