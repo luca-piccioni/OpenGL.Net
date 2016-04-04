@@ -128,6 +128,16 @@
     <Compile Include="State\UniformColorState.cs" />
     <Compile Include="Technique.cs" />
     <Compile Include="TextureArray2d.cs" />
+    <Compile Include="Vertex3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vertex3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vertex3Ref.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vertex3Ref.tt</DependentUpon>
+    </Compile>
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
@@ -271,7 +281,6 @@
     <Compile Include="UniformBufferObject.cs" />
     <Compile Include="Vertex.cs" />
     <Compile Include="Vertex2.cs" />
-    <Compile Include="Vertex3.cs" />
     <Compile Include="Vertex4.cs" />
     <Compile Include="VertexArrayObject.Arrays.cs" />
     <Compile Include="VertexArrayObject.cs" />
@@ -318,6 +327,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Shaders\GeometryClipmap\DefaultElevationBanding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vertex3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vertex3.cs</LastGenOutput>
+    </Content>
+    <Content Include="Vertex3Ref.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vertex3Ref.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

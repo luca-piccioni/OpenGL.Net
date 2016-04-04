@@ -1,0 +1,891 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Runtime.InteropServices" #>
+
+// Copyright (C) 2009-2016 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+namespace OpenGL
+{
+<#
+	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
+	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
+	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
+	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     null };
+	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
+	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
+	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
+
+	for (int i = 0; i < underlyingType.Length; i++) {
+		string className = String.Format("Vertex3{0}", postfixes[i]);
+		string baseType = underlyingType[i];
+#>
+	/// <summary>
+	/// Vertex value type (<#= baseType #> coordinates).
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 3)]
+	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z}")]
+	public struct <#= className #> : IVertex3, IEquatable<IVertex3>
+	{
+		#region Constructors
+
+		/// <summary>
+		/// <#= className #> constructor.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="<#= baseType #>"/> that specify the value of every component.
+		/// </param>
+		public <#= className #>(<#= baseType #> v) : this(v, v, v) { }
+
+		/// <summary>
+		/// <#= className #> constructor.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="<#= baseType #>[]"/> that specify the value of every component.
+		/// </param>
+		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1], v[2]) { }
+
+		/// <summary>
+		/// <#= className #> constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="<#= baseType #>"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="<#= baseType #>"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="<#= baseType #>"/> that specify the Z coordinate.
+		/// </param>
+		public <#= className #>(<#= baseType #> x, <#= baseType #> y, <#= baseType #> z)
+		{
+			this.x = x;
+			this.y = y;
+			this.z = z;
+		}
+
+		/// <summary>
+		/// <#= className #> constructor.
+		/// </summary>
+		/// <param name="other">
+		/// A <see cref="<#= className #>"/> that specify the vertex to be copied.
+		/// </param>
+		public <#= className #>(<#= className #> other) : this(other.x, other.y, other.z) { }
+
+		#endregion
+
+		#region Structure
+
+		/// <summary>
+		/// X coordinate for tridimensional vertex.
+		/// </summary>
+		public <#= baseType #> x;
+
+		/// <summary>
+		/// Y coordinate for tridimensional vertex.
+		/// </summary>
+		public <#= baseType #> y;
+
+		/// <summary>
+		/// Z coordinate for tridimensional vertex.
+		/// </summary>
+		public <#= baseType #> z;
+
+		#endregion
+
+		#region Arithmetic Operators
+
+<#
+		if (signedType[i] != 0) {
+#>
+		/// <summary>
+		/// Negate operator.
+		/// </summary>
+		/// <param name="v">
+		/// The <#= className #> to negate.
+		/// </param>
+		/// <returns>
+		/// It returns the negate of <paramref name="v"/>.
+		/// </returns>
+		public static <#= className #> operator -(<#= className #> v)
+		{
+			return (new <#= className #>((<#= baseType #>)(-v.x), (<#= baseType #>)(-v.y), (<#= baseType #>)(-v.z)));
+		}
+
+<#
+		}
+#>
+		/// <summary>
+		/// Add operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="<#= className #>"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the addition of <paramref name="v1"/> and <paramref name="v2"/>.
+		/// </returns>
+		public static <#= className #> operator +(<#= className #> v1, <#= className #> v2)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x + v2.x);
+			v.y = (<#= baseType #>)(v1.y + v2.y);
+			v.z = (<#= baseType #>)(v1.z + v2.z);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Subtract operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="<#= className #>"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the subtraction of <paramref name="v1"/> and <paramref name="v2"/>.
+		/// </returns>
+		public static <#= className #> operator -(<#= className #> v1, <#= className #> v2)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x - v2.x);
+			v.y = (<#= baseType #>)(v1.y - v2.y);
+			v.z = (<#= baseType #>)(v1.z - v2.z);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator *(<#= className #> v1, float scalar)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x * scalar);
+			v.y = (<#= baseType #>)(v1.y * scalar);
+			v.z = (<#= baseType #>)(v1.z * scalar);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator *(<#= className #> v1, double scalar)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x * scalar);
+			v.y = (<#= baseType #>)(v1.y * scalar);
+			v.z = (<#= baseType #>)(v1.z * scalar);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar divide operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator /(<#= className #> v1, float scalar)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x / scalar);
+			v.y = (<#= baseType #>)(v1.y / scalar);
+			v.z = (<#= baseType #>)(v1.z / scalar);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar divide operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Double"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator /(<#= className #> v1, double scalar)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x / scalar);
+			v.y = (<#= baseType #>)(v1.y / scalar);
+			v.z = (<#= baseType #>)(v1.z / scalar);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Dot product operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> representing the left dot product operand.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="<#= className #>"/> representing the right dot product operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing the dot product between <paramref name="v1"/> and
+		/// <paramref name="v2"/>.
+		/// </returns>
+		public static float operator *(<#= className #> v1, <#= className #> v2)
+		{
+			return (float)(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+		}
+
+		/// <summary>
+		/// Cross product operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> representing the left cross product operand.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="<#= className #>"/> representing the right cross product operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing the cross product between <paramref name="v1"/> and
+		/// <paramref name="v2"/>.
+		/// </returns>
+		public static Vertex3f operator ^(<#= className #> v1, <#= className #> v2)
+		{
+			Vertex3f v;
+
+			v.x = (float)(v1.y * v2.z - v1.z * v2.y);
+			v.y = (float)(v1.z * v2.x - v1.x * v2.z);
+			v.z = (float)(v1.x * v2.y - v1.y * v2.x);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Vertex and matrix multiplication.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="<#= className #>"/> representing the vertex to be transformed.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
+		/// </returns>
+		public static Vertex3f operator *(<#= className #> v, Matrix4x4 m)
+		{
+			Vertex3f r;
+
+			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
+			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
+			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
+
+			return (r);
+		}
+
+<#
+		if (integerType[i] != 0) {
+#>
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="<#= baseType #>"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator *(<#= className #> v1, <#= baseType #> scalar)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x * scalar);
+			v.y = (<#= baseType #>)(v1.y * scalar);
+			v.z = (<#= baseType #>)(v1.z * scalar);
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Scalar divide operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="<#= baseType #>"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator /(<#= className #> v1, <#= baseType #> scalar)
+		{
+			<#= className #> v;
+
+			v.x = (<#= baseType #>)(v1.x / scalar);
+			v.y = (<#= baseType #>)(v1.y / scalar);
+			v.z = (<#= baseType #>)(v1.z / scalar);
+
+			return (v);
+		}
+<#
+		}
+#>
+
+		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(<#= className #> v1, <#= className #> v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(<#= className #> v1, <#= className #> v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to <#= baseType #>[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= baseType #>[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator <#= baseType #>[](<#= className #> a)
+		{
+			<#= baseType #>[] v = new <#= baseType #>[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex2f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3f"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
+		/// </returns>
+		public static explicit operator Vertex2f(<#= className #> v)
+		{
+			return (new Vertex2f(v.X, v.Y));
+		}
+
+<#
+		string castModifier_f = "implicit";
+
+		// Vertex3f from Vertex3d/Vertex3i/Vertex3ui requires explicit cast
+		if (className == "Vertex3d" || className == "Vertex3i" || className == "Vertex3ui")
+			castModifier_f = "explicit";
+#><#
+		if (className != "Vertex3f") {
+#>
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3f"/> initialized with the vector components.
+		/// </returns>
+		public static <#= castModifier_f #> operator Vertex3f(<#= className #> v)
+		{
+			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+<#
+		} else if (className != "Vertex3d") {
+#>
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(<#= className #> v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
+		}
+
+<#
+		}
+#>
+		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A normalized <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
+		{
+			return (new Vertex4f(v.X, v.Y, v.Z, 1.0f));
+		}
+
+		/// <summary>
+		/// Cast to Vertex4d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A normalized <see cref="Vertex4d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4d(<#= className #> v)
+		{
+			return (new Vertex4d(v.X, v.Y, v.Z, 1.0f));
+		}
+
+		#endregion
+
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute tridimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+			float z2 = (float)(z * z);
+
+			return ((float)Math.Sqrt(x2 + y2 + z2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public <#= className #> Normalized
+		{
+			get
+			{
+				<#= className #> normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		#endregion
+<#
+		string zero = zeroes[i], one = ones[i];
+
+		if (zero != null && one != null) {
+#>
+
+		#region Notable Vertex
+
+		/// <summary>
+		/// Origin vertex.
+		/// </summary>
+		public static readonly <#= className #> Zero = new <#= className #>(<#= zero #>);
+
+		/// <summary>
+		/// Unit vertex along all axes.
+		/// </summary>
+		public static readonly <#= className #> One = new <#= className #>(<#= one #>);
+
+		/// <summary>
+		/// Unit vertex along X axis.
+		/// </summary>
+		public static readonly <#= className #> UnitX = new <#= className #>(<#= one #>, <#= zero #>, <#= zero #>);
+
+		/// <summary>
+		/// Unit vertex along Y axis.
+		/// </summary>
+		public static readonly <#= className #> UnitY = new <#= className #>(<#= zero #>, <#= one #>, <#= zero #>);
+
+		/// <summary>
+		/// Unit vertex along Z axis.
+		/// </summary>
+		public static readonly <#= className #> UnitZ = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>);
+
+		#endregion
+
+<#
+		}
+#>
+		#region IVertex3 Implementation
+
+<#
+		if (integerType[i] != 0 && signedType[i] == 0) {
+#>
+		/// <summary>
+		/// Vertex coordinate X, normalized in range [0.0, 1.0].
+		/// </summary>
+		public float X
+		{
+			get { return ((float)x / (float)<#= baseType #>.MaxValue); }
+			set
+			{
+				if (value < 0.0f || value > 1.0)
+					throw new InvalidOperationException("value out of range");
+				x = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
+			}
+		}
+
+		/// <summary>
+		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
+		/// </summary>
+		public float Y
+		{
+			get { return ((float)y / (float)<#= baseType #>.MaxValue); }
+			set
+			{
+				if (value < 0.0f || value > 1.0)
+					throw new InvalidOperationException("value out of range");
+				y = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
+			}
+		}
+
+		/// <summary>
+		/// Vertex coordinate Z, normalized in range [0.0, 1.0].
+		/// </summary>
+		public float Z
+		{
+			get { return ((float)z / (float)<#= baseType #>.MaxValue); }
+			set
+			{
+				if (value < 0.0f || value > 1.0)
+					throw new InvalidOperationException("value out of range");
+				z = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
+			}
+		}
+<#
+		} else if (integerType[i] != 0 && signedType[i] != 0) {
+#>
+		/// <summary>
+		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
+		/// </summary>
+		public float X
+		{
+			get { return ((float)(x - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
+			set
+			{
+				if (value < -1.0f || value > +1.0)
+					throw new InvalidOperationException("value out of range");
+				x = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
+			}
+		}
+
+		/// <summary>
+		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
+		/// </summary>
+		public float Y
+		{
+			get { return ((float)(y - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
+			set
+			{
+				if (value < -1.0f || value > +1.0)
+					throw new InvalidOperationException("value out of range");
+				y = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
+			}
+		}
+
+		/// <summary>
+		/// Vertex coordinate Z, normalized in range [-1.0, +1.0]..
+		/// </summary>
+		public float Z
+		{
+			get { return ((float)(z - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
+			set
+			{
+				if (value < -1.0f || value > +1.0)
+					throw new InvalidOperationException("value out of range");
+				z = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
+			}
+		}
+<#
+		} else {
+#>
+		/// <summary>
+		/// Vertex coordinate X, unclamped range.
+		/// </summary>
+		public float X
+		{
+			get { return ((float)x); }
+			set { x = (<#= baseType #>)value; }
+		}
+
+		/// <summary>
+		/// Vertex coordinate Y, unclamped range.
+		/// </summary>
+		public float Y
+		{
+			get { return ((float)y); }
+			set { y = (<#= baseType #>)value; }
+		}
+
+		/// <summary>
+		/// Vertex coordinate Z, unclamped range.
+		/// </summary>
+		public float Z
+		{
+			get { return ((float)z); }
+			set { z = (<#= baseType #>)value; }
+		}
+<#
+		}
+#>
+
+		#endregion
+
+		#region IVertex Implementation
+
+		/// <summary>
+		/// Vertex components indexer.
+		/// </summary>
+		/// <param name="idx">
+		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
+		/// </param>
+		/// <remarks>
+		/// <para>
+		/// This indexer returns a single-precision floating-point representation of the vertex component value.
+		/// </para>
+		/// </remarks>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if the set value is outside the representable range of the underlying type.
+		/// </exception>s
+		public float this[uint idx]
+		{
+			get
+			{
+				switch (idx) {
+					case 0: return (X);
+					case 1: return (Y);
+					case 2: return (Z);
+					default:
+						throw new ArgumentOutOfRangeException("idx");
+				}
+			}
+			set
+			{
+				switch (idx) {
+					case 0: X = value; break;
+					case 1: Y = value; break;
+					case 2: Z = value; break;
+					default:
+						throw new ArgumentOutOfRangeException("idx");
+				}
+			}
+		}
+
+		#endregion
+
+		#region IEquatable<IVertex3> Implementation
+
+		/// <summary>
+		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(IVertex3 other)
+		{
+			const float Epsilon = 1e-6f;
+
+			if (ReferenceEquals(null, other))
+				return false;
+
+			if (Math.Abs(X - other.X) >= Epsilon)
+				return (false);
+			if (Math.Abs(Y - other.Y) >= Epsilon)
+				return (false);
+			if (Math.Abs(Z - other.Z) >= Epsilon)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType().GetInterface("IVertex") == null)
+				return (false);
+
+			return (Equals((IVertex3)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = x.GetHashCode();
+				result = (result * 397) ^ y.GetHashCode();
+				result = (result * 397) ^ z.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+<#
+		if (integerType[i] != 0) {
+#>
+		/// <summary>
+		/// Stringify this <#= className #>.
+		/// </summary>
+		/// <returns>
+		/// Returns a <see cref="String"/> that represents this <#= className #>.
+		/// </returns>
+		public override string ToString()
+		{
+			return (String.Format("|{0}, {1}, {2}|", x, y, z));
+		}
+<#
+		} else {
+#>
+		/// <summary>
+		/// Stringify this <#= className #>.
+		/// </summary>
+		/// <returns>
+		/// Returns a <see cref="String"/> that represents this <#= className #>.
+		/// </returns>
+		public override string ToString()
+		{
+			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
+		}
+<#
+		}
+#>
+
+		#endregion
+	}
+<#
+}
+#>
+}
