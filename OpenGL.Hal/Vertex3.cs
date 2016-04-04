@@ -401,7 +401,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -423,6 +423,20 @@ namespace OpenGL
 		public static implicit operator Vertex3f(Vertex3ub v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3ub"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3ub v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -663,7 +677,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -1097,7 +1111,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -1119,6 +1133,20 @@ namespace OpenGL
 		public static implicit operator Vertex3f(Vertex3b v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3b"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3b v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -1359,7 +1387,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -1779,7 +1807,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -1801,6 +1829,20 @@ namespace OpenGL
 		public static implicit operator Vertex3f(Vertex3us v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3us"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3us v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -2041,7 +2083,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -2475,7 +2517,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -2497,6 +2539,20 @@ namespace OpenGL
 		public static implicit operator Vertex3f(Vertex3s v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3s"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3s v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -2737,7 +2793,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -3157,7 +3213,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -3179,6 +3235,20 @@ namespace OpenGL
 		public static explicit operator Vertex3f(Vertex3ui v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3ui"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3ui v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -3419,7 +3489,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -3853,7 +3923,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -3875,6 +3945,20 @@ namespace OpenGL
 		public static explicit operator Vertex3f(Vertex3i v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3i"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3i v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -4115,7 +4199,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -4751,7 +4835,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -5140,7 +5224,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3d"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -5387,7 +5471,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -5776,7 +5860,7 @@ namespace OpenGL
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
+		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
@@ -5798,6 +5882,20 @@ namespace OpenGL
 		public static implicit operator Vertex3f(Vertex3hf v)
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3hf"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3hf v)
+		{
+			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
 
 		/// <summary>
@@ -5993,7 +6091,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex") == null)
+			if (obj.GetType().GetInterface("IVertex3") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));

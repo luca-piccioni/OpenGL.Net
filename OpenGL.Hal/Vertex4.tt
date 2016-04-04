@@ -39,16 +39,17 @@ namespace OpenGL
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
 
 	for (int i = 0; i < underlyingType.Length; i++) {
-		string className = String.Format("Vertex3{0}", postfixes[i]);
+		string className = String.Format("Vertex4{0}", postfixes[i]);
+		string vertex3Name = String.Format("Vertex3{0}", postfixes[i]);
 		string baseType = underlyingType[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 3)]
-	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z}")]
-	public struct <#= className #> : IVertex3, IEquatable<IVertex3>
+	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 4)]
+	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z} W={w}")]
+	public struct <#= className #> : IVertex4, IEquatable<IVertex4>
 	{
 		#region Constructors
 
@@ -58,7 +59,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="<#= baseType #>"/> that specify the value of every component.
 		/// </param>
-		public <#= className #>(<#= baseType #> v) : this(v, v, v) { }
+		public <#= className #>(<#= baseType #> v) : this(v, v, v, v) { }
 
 		/// <summary>
 		/// <#= className #> constructor.
@@ -66,7 +67,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="<#= baseType #>[]"/> that specify the value of every component.
 		/// </param>
-		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1], v[2]) { }
+		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1], v[2], v[3]) { }
 
 		/// <summary>
 		/// <#= className #> constructor.
@@ -80,11 +81,15 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="<#= baseType #>"/> that specify the Z coordinate.
 		/// </param>
-		public <#= className #>(<#= baseType #> x, <#= baseType #> y, <#= baseType #> z)
+		/// <param name="w">
+		/// A <see cref="<#= baseType #>"/> that specify the W coordinate.
+		/// </param>
+		public <#= className #>(<#= baseType #> x, <#= baseType #> y, <#= baseType #> z, <#= baseType #> w)
 		{
 			this.x = x;
 			this.y = y;
 			this.z = z;
+			this.w = w;
 		}
 
 		/// <summary>
@@ -93,7 +98,7 @@ namespace OpenGL
 		/// <param name="other">
 		/// A <see cref="<#= className #>"/> that specify the vertex to be copied.
 		/// </param>
-		public <#= className #>(<#= className #> other) : this(other.x, other.y, other.z) { }
+		public <#= className #>(<#= className #> other) : this(other.x, other.y, other.z, other.w) { }
 
 		#endregion
 
@@ -114,6 +119,11 @@ namespace OpenGL
 		/// </summary>
 		public <#= baseType #> z;
 
+		/// <summary>
+		/// W coordinate for tridimensional vertex.
+		/// </summary>
+		public <#= baseType #> w;
+
 		#endregion
 
 		#region Arithmetic Operators
@@ -132,12 +142,13 @@ namespace OpenGL
 		/// </returns>
 		public static <#= className #> operator -(<#= className #> v)
 		{
-			return (new <#= className #>((<#= baseType #>)(-v.x), (<#= baseType #>)(-v.y), (<#= baseType #>)(-v.z)));
+			return (new <#= className #>((<#= baseType #>)(-v.x), (<#= baseType #>)(-v.y), (<#= baseType #>)(-v.z), (<#= baseType #>)(-v.w)));
 		}
 
 <#
 		}
 #>
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -157,6 +168,7 @@ namespace OpenGL
 			v.x = (<#= baseType #>)(v1.x + v2.x);
 			v.y = (<#= baseType #>)(v1.y + v2.y);
 			v.z = (<#= baseType #>)(v1.z + v2.z);
+			v.w = (<#= baseType #>)(v1.w + v2.w);
 
 			return (v);
 		}
@@ -180,6 +192,7 @@ namespace OpenGL
 			v.x = (<#= baseType #>)(v1.x - v2.x);
 			v.y = (<#= baseType #>)(v1.y - v2.y);
 			v.z = (<#= baseType #>)(v1.z - v2.z);
+			v.w = (<#= baseType #>)(v1.w - v2.w);
 
 			return (v);
 		}
@@ -203,6 +216,7 @@ namespace OpenGL
 			v.x = (<#= baseType #>)(v1.x * scalar);
 			v.y = (<#= baseType #>)(v1.y * scalar);
 			v.z = (<#= baseType #>)(v1.z * scalar);
+			v.w = (<#= baseType #>)(v1.w * scalar);
 
 			return (v);
 		}
@@ -226,6 +240,7 @@ namespace OpenGL
 			v.x = (<#= baseType #>)(v1.x * scalar);
 			v.y = (<#= baseType #>)(v1.y * scalar);
 			v.z = (<#= baseType #>)(v1.z * scalar);
+			v.w = (<#= baseType #>)(v1.w * scalar);
 
 			return (v);
 		}
@@ -249,6 +264,7 @@ namespace OpenGL
 			v.x = (<#= baseType #>)(v1.x / scalar);
 			v.y = (<#= baseType #>)(v1.y / scalar);
 			v.z = (<#= baseType #>)(v1.z / scalar);
+			v.w = (<#= baseType #>)(v1.w / scalar);
 
 			return (v);
 		}
@@ -272,126 +288,34 @@ namespace OpenGL
 			v.x = (<#= baseType #>)(v1.x / scalar);
 			v.y = (<#= baseType #>)(v1.y / scalar);
 			v.z = (<#= baseType #>)(v1.z / scalar);
+			v.w = (<#= baseType #>)(v1.w / scalar);
 
 			return (v);
 		}
 
 		/// <summary>
-		/// Dot product operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="<#= className #>"/> representing the left dot product operand.
-		/// </param>
-		/// <param name="v2">
-		/// A <see cref="<#= className #>"/> representing the right dot product operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="<#= className #>"/> representing the dot product between <paramref name="v1"/> and
-		/// <paramref name="v2"/>.
-		/// </returns>
-		public static float operator *(<#= className #> v1, <#= className #> v2)
-		{
-			return (float)(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
-		}
-
-		/// <summary>
-		/// Cross product operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="<#= className #>"/> representing the left cross product operand.
-		/// </param>
-		/// <param name="v2">
-		/// A <see cref="<#= className #>"/> representing the right cross product operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="<#= className #>"/> representing the cross product between <paramref name="v1"/> and
-		/// <paramref name="v2"/>.
-		/// </returns>
-		public static Vertex3f operator ^(<#= className #> v1, <#= className #> v2)
-		{
-			Vertex3f v;
-
-			v.x = (float)(v1.y * v2.z - v1.z * v2.y);
-			v.y = (float)(v1.z * v2.x - v1.x * v2.z);
-			v.z = (float)(v1.x * v2.y - v1.y * v2.x);
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Vertex and matrix multiplication.
+		/// Transform vertex using transformation matrix.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="<#= className #>"/> representing the vertex to be transformed.
+		/// A <see cref="<#= className #>"/> that specify the vertex to be transformed.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
+		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
+		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
 		/// </returns>
-		public static Vertex3f operator *(<#= className #> v, Matrix4x4 m)
+		public static Vertex4f operator *(<#= className #> v, Matrix4x4 m)
 		{
-			Vertex3f r;
+			Vertex4f r;
 
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
+			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
+			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
+			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
+			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
 
 			return (r);
 		}
-
-<#
-		if (integerType[i] != 0) {
-#>
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="<#= className #>"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="<#= baseType #>"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static <#= className #> operator *(<#= className #> v1, <#= baseType #> scalar)
-		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x * scalar);
-			v.y = (<#= baseType #>)(v1.y * scalar);
-			v.z = (<#= baseType #>)(v1.z * scalar);
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="<#= className #>"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="<#= baseType #>"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="<#= className #>"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static <#= className #> operator /(<#= className #> v1, <#= baseType #> scalar)
-		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x / scalar);
-			v.y = (<#= baseType #>)(v1.y / scalar);
-			v.z = (<#= baseType #>)(v1.z / scalar);
-
-			return (v);
-		}
-<#
-		}
-#>
 
 		#endregion
 
@@ -434,20 +358,59 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator <#= baseType #>[](<#= className #> a)
 		{
-			<#= baseType #>[] v = new <#= baseType #>[3];
+			<#= baseType #>[] v = new <#= baseType #>[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
 			v[2] = a.z;
+			v[3] = a.w;
 
 			return (v);
 		}
 
 <#
+		if (className != "Vertex4d") {
+#>
+		/// <summary>
+		/// Cast to <#= vertex3Name #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= vertex3Name #>"/> initialized with the vector components, after normalizing homogeneous coordinate.
+		/// </returns>
+		public static explicit operator <#= vertex3Name #>(<#= className #> v)
+		{
+			return (new <#= vertex3Name #>(
+				(<#= baseType #>)((float)v.x / (float)v.w),
+				(<#= baseType #>)((float)v.y / (float)v.w),
+				(<#= baseType #>)((float)v.z / (float)v.w)
+			));
+		}
+<#
+		} else {
+#>
+		/// <summary>
+		/// Cast to <#= vertex3Name #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= vertex3Name #>"/> initialized with the vector components, after normalizing homogeneous coordinate.
+		/// </returns>
+		public static explicit operator <#= vertex3Name #>(<#= className #> v)
+		{
+			return (new <#= vertex3Name #>(v.x / v.w, v.y / v.w, v.z / v.w));
+		}
+<#
+		}
+#><#
 		string castModifier_f = "implicit";
 
-		// Vertex3f from Vertex3d/Vertex3i/Vertex3ui requires explicit cast
-		if (className == "Vertex3d" || className == "Vertex3i" || className == "Vertex3ui")
+		// Vertex4f from Vertex4d/Vertex4i/Vertex4ui requires explicit cast
+		if (className == "Vertex4d" || className == "Vertex4i" || className == "Vertex4ui")
 			castModifier_f = "explicit";
 #>
 		/// <summary>
@@ -457,15 +420,17 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
+		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator Vertex2f(<#= className #> v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
+
+			return (new Vertex2f(v3.X, v3.Y));
 		}
 
 <#
-		if (className != "Vertex3f") {
+		if (className != "Vertex4f") {
 #>
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -476,15 +441,31 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex3f"/> initialized with the vector components.
 		/// </returns>
-		public static <#= castModifier_f #> operator Vertex3f(<#= className #> v)
+		public static explicit operator Vertex3f(<#= className #> v)
 		{
-			return (new Vertex3f(v.X, v.Y, v.Z));
+			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
+
+			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
+		{
+			return (new Vertex4f(v.X, v.Y, v.X, v.W));
 		}
 
 <#
 		}
-		
-		if (className != "Vertex3d") {
+
+		if (className != "Vertex4d") {
 #>
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -493,28 +474,13 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
+		/// A <see cref="Vertex4d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex3d(<#= className #> v)
+		public static explicit operator Vertex3d(<#= className #> v)
 		{
-			return (new Vertex3d(v.X, v.Y, v.Z));
-		}
+			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-<#
-		}
-#>
-		/// <summary>
-		/// Cast to Vertex4f operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A normalized <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
-		{
-			return (new Vertex4f(v.X, v.Y, v.Z, 1.0f));
+			return (new Vertex3d(v3.X, v3.Y, v3.Z));
 		}
 
 		/// <summary>
@@ -524,13 +490,16 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A normalized <see cref="Vertex4d"/> initialized with the vector components.
+		/// A <see cref="Vertex4d"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4d(<#= className #> v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, 1.0f));
+			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
 		}
 
+<#
+		}
+#>
 		#endregion
 
 		#region Vertex Methods
@@ -541,26 +510,18 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module()
-		{
-			float x2 = (float)(x * x);
-			float y2 = (float)(y * y);
-			float z2 = (float)(z * z);
-
-			return ((float)Math.Sqrt(x2 + y2 + z2));
-		}
+		public float Module() { return (((<#= vertex3Name #>)this).Module()); }
 
 		/// <summary>
 		/// Normalize vertex coordinates.
 		/// </summary>
 		public void Normalize()
 		{
-			float length = Module();
-
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			<#= vertex3Name #> v = ((<#= vertex3Name #>)this).Normalized;
+			x = v.x;
+			y = v.y;
+			z = v.z;
+			w = (<#= baseType #>)1;
 		}
 
 		/// <summary>
@@ -579,7 +540,7 @@ namespace OpenGL
 		}
 
 		#endregion
-<#
+		<#
 		string zero = zeroes[i], one = ones[i];
 
 		if (zero != null && one != null) {
@@ -600,24 +561,24 @@ namespace OpenGL
 		/// <summary>
 		/// Unit vertex along X axis.
 		/// </summary>
-		public static readonly <#= className #> UnitX = new <#= className #>(<#= one #>, <#= zero #>, <#= zero #>);
+		public static readonly <#= className #> UnitX = new <#= className #>(<#= one #>, <#= zero #>, <#= zero #>, <#= one #>);
 
 		/// <summary>
 		/// Unit vertex along Y axis.
 		/// </summary>
-		public static readonly <#= className #> UnitY = new <#= className #>(<#= zero #>, <#= one #>, <#= zero #>);
+		public static readonly <#= className #> UnitY = new <#= className #>(<#= zero #>, <#= one #>, <#= zero #>, <#= one #>);
 
 		/// <summary>
 		/// Unit vertex along Z axis.
 		/// </summary>
-		public static readonly <#= className #> UnitZ = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>);
+		public static readonly <#= className #> UnitZ = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>, <#= one #>);
 
 		#endregion
-
 <#
 		}
 #>
-		#region IVertex3 Implementation
+
+		#region IVertex4 Implementation
 
 <#
 		if (integerType[i] != 0 && signedType[i] == 0) {
@@ -661,6 +622,20 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0)
 					throw new InvalidOperationException("value out of range");
 				z = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
+			}
+		}
+
+		/// <summary>
+		/// Vertex coordinate W, normalized in range [0.0, 1.0].
+		/// </summary>
+		public float W
+		{
+			get { return ((float)w / (float)<#= baseType #>.MaxValue); }
+			set
+			{
+				if (value < 0.0f || value > 1.0)
+					throw new InvalidOperationException("value out of range");
+				w = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
 			}
 		}
 <#
@@ -707,6 +682,20 @@ namespace OpenGL
 				z = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
 			}
 		}
+
+		/// <summary>
+		/// Vertex coordinate W, normalized in range [-1.0, +1.0]..
+		/// </summary>
+		public float W
+		{
+			get { return ((float)(w - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
+			set
+			{
+				if (value < -1.0f || value > +1.0)
+					throw new InvalidOperationException("value out of range");
+				w = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
+			}
+		}
 <#
 		} else {
 #>
@@ -735,6 +724,15 @@ namespace OpenGL
 		{
 			get { return ((float)z); }
 			set { z = (<#= baseType #>)value; }
+		}
+
+		/// <summary>
+		/// Vertex coordinate W, unclamped range.
+		/// </summary>
+		public float W
+		{
+			get { return ((float)w); }
+			set { w = (<#= baseType #>)value; }
 		}
 <#
 		}
@@ -769,6 +767,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (W);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -779,6 +778,7 @@ namespace OpenGL
 					case 0: X = value; break;
 					case 1: Y = value; break;
 					case 2: Z = value; break;
+					case 3: W = value; break;
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -787,10 +787,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable<IVertex4> Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -798,7 +798,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex3 other)
+		public bool Equals(IVertex4 other)
 		{
 			const float Epsilon = 1e-6f;
 
@@ -810,6 +810,8 @@ namespace OpenGL
 			if (Math.Abs(Y - other.Y) >= Epsilon)
 				return (false);
 			if (Math.Abs(Z - other.Z) >= Epsilon)
+				return (false);
+			if (Math.Abs(W - other.W) >= Epsilon)
 				return (false);
 
 			return (true);
@@ -828,7 +830,7 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex3") == null)
+			if (obj.GetType().GetInterface("IVertex4") == null)
 				return (false);
 
 			return (Equals((IVertex3)obj));
@@ -847,6 +849,7 @@ namespace OpenGL
 				int result = x.GetHashCode();
 				result = (result * 397) ^ y.GetHashCode();
 				result = (result * 397) ^ z.GetHashCode();
+				result = (result * 397) ^ w.GetHashCode();
 
 				return result;
 			}
@@ -867,7 +870,7 @@ namespace OpenGL
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("|{0}, {1}, {2}|", x, y, z));
+			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 <#
 		} else {
@@ -880,7 +883,7 @@ namespace OpenGL
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
+			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 <#
 		}
@@ -888,6 +891,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 <#
 }
 #>

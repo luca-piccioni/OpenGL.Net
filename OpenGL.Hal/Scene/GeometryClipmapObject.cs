@@ -611,7 +611,7 @@ namespace OpenGL.Scene
 			if (PositionCorrection == false)
 				return;
 
-			Vertex3d viewPosition = ctxScene.CurrentView.LocalModel.Position;
+			Vertex3d viewPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
 
 			for (int i = ClipmapLevels - 1; i >= 0; i--) {
 				if (_TerrainElevationSources[i] == null)
@@ -1304,7 +1304,7 @@ namespace OpenGL.Scene
 			if (ctxScene.CurrentView == null)
 				throw new ArgumentException("no view defined",  "ctxScene");
 
-			Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
+			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
 
 			// Compute visible clipmap levels
 			const float HeightGain = 2.5f;
@@ -1439,12 +1439,12 @@ namespace OpenGL.Scene
 				return;
 
 			Vertex2f[] gridOffsets = new Vertex2f[ClipmapLevels];
-			Vertex3d currentPosition = ctxScene.CurrentView.LocalModel.Position;
+			Vertex3d currentPosition = (Vertex3d)ctxScene.CurrentView.LocalModel.Position;
 			Vertex2d gridOffset = new Vertex2d(currentPosition.x, currentPosition.z);
 
 			for (int i = 0; i < ClipmapLevels; i++) {
 				_ClipmapLevels[i].UpdateGridPosition(gridOffset, BlockQuadUnit);
-				gridOffsets[i] = _ClipmapLevels[i].GridPosition;
+				gridOffsets[i] = (Vertex2f)_ClipmapLevels[i].GridPosition;
 			}
 
 #if DEBUG
