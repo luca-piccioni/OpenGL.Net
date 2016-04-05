@@ -130,9 +130,9 @@ namespace OpenGL
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRAHF:
-				case PixelLayout.GRAYF:
-				case PixelLayout.GRAYHF:
-				case PixelLayout.GRAYAF:
+				case PixelLayout.RF:
+				case PixelLayout.RHF:
+				//case PixelLayout.GRAYAF:
 					return (false);
 				default:
 					return (true);
@@ -371,7 +371,7 @@ namespace OpenGL
 						equivalentColorSpace.Add(pType);	// Equivalent colorspace (sRGB <-> RGB)
 					else if ((srcSpace == PixelSpace.sBgr) && (dstSpace == PixelSpace.Rgb))
 						equivalentColorSpace.Add(pType);	// Equivalent colorspace (sBGR <-> RGB)
-					else if ((srcSpace == PixelSpace.Gray) && ((dstSpace == PixelSpace.Rgb) || (dstSpace == PixelSpace.Bgr)))
+					else if ((srcSpace == PixelSpace.Red) && ((dstSpace == PixelSpace.Rgb) || (dstSpace == PixelSpace.Bgr)))
 						equivalentColorSpace.Add(pType);	// Equivalent colorspace (GRAY -> RGB or GRAY -> BGR)
 					else if ((srcSpace == PixelSpace.CMY) && ((dstSpace == PixelSpace.Rgb) || (dstSpace == PixelSpace.Bgr)))
 						equivalentColorSpace.Add(pType);	// Equivalent colorspace (CMY -> RGB or CMY -> BGR)
@@ -1293,7 +1293,7 @@ namespace OpenGL
 
 				case PixelLayout.RGB8:
 				case PixelLayout.RGB16:
-				case PixelLayout.RGB30A2:
+				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
 					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.RGB24:
@@ -1325,7 +1325,7 @@ namespace OpenGL
 
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
-				case PixelLayout.BGR30A2:
+				//case PixelLayout.BGR30A2:
 					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.BGR15:
 					return (caps.GlExtensions.PackedPixels_EXT && caps.GlExtensions.TextureSwizzle_ARB);
@@ -1345,22 +1345,22 @@ namespace OpenGL
 
 				#region GRAY Formats
 
-				case PixelLayout.GRAY8:
-				case PixelLayout.GRAY16:
+				case PixelLayout.R8:
+				case PixelLayout.R16:
 					return (caps.GlExtensions.TextureSwizzle_ARB);
 				case PixelLayout.GRAY16S:
 					return (caps.GlExtensions.TextureSnorm_EXT);
-				case PixelLayout.GRAYF:
+				case PixelLayout.RF:
 					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
-				case PixelLayout.GRAYHF:
+				case PixelLayout.RHF:
 					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
 				#region GRAY Formats
 
-				case PixelLayout.GRAYAF:
-					return (caps.GlExtensions.TextureRg_ARB && caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
+				//case PixelLayout.GRAYAF:
+				//	return (caps.GlExtensions.TextureRg_ARB && caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
 
 				#endregion
 
@@ -1494,7 +1494,7 @@ namespace OpenGL
 
 				case PixelLayout.RGB8:
 				case PixelLayout.RGB16:
-				case PixelLayout.RGB30A2:
+				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
 					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.RGB24:
@@ -1525,7 +1525,7 @@ namespace OpenGL
 
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
-				case PixelLayout.BGR30A2:
+				//case PixelLayout.BGR30A2:
 					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.BGR15:
 					return (caps.GlExtensions.PackedPixels_EXT && caps.GlExtensions.TextureSwizzle_ARB);
@@ -1545,21 +1545,21 @@ namespace OpenGL
 
 				#region GRAY Formats
 
-				case PixelLayout.GRAY8:
-				case PixelLayout.GRAY16:
+				case PixelLayout.R8:
+				case PixelLayout.R16:
 				case PixelLayout.GRAY16S:
-				case PixelLayout.GRAYF:
+				//case PixelLayout.GRAYF:
 					return (true);
 				
-				case PixelLayout.GRAYHF:
+				case PixelLayout.RHF:
 					return (caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
 				#region GRAYA Formats
 
-				case PixelLayout.GRAYAF:
-					return (caps.GlExtensions.TextureRg_ARB);
+				//case PixelLayout.GRAYAF:
+				//	return (caps.GlExtensions.TextureRg_ARB);
 
 				#endregion
 
@@ -1866,8 +1866,8 @@ namespace OpenGL
 
 				#region RGBA/BGRA Formats
 
-				case PixelLayout.RGB30A2:
-				case PixelLayout.BGR30A2:
+				//case PixelLayout.RGB30A2:
+				//case PixelLayout.BGR30A2:
 				case PixelLayout.RGBA32:
 				case PixelLayout.BGRA32:
 					return (Gl.RGBA);
@@ -1891,18 +1891,18 @@ namespace OpenGL
 
 				#region GRAY Internal Formats
 
-				case PixelLayout.GRAY8:
+				case PixelLayout.R8:
 					return (Gl.R8);
-				case PixelLayout.GRAY16:
+				case PixelLayout.R16:
 					return (Gl.R16);
 				case PixelLayout.GRAY16S:
 					return (Gl.R16_SNORM);
-				case PixelLayout.GRAYF:
+				case PixelLayout.RF:
 					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.R32F);
 					else
 						return (Gl.RED);
-				case PixelLayout.GRAYHF:
+				case PixelLayout.RHF:
 					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.R16F);
 					else
@@ -1912,8 +1912,8 @@ namespace OpenGL
 
 				#region GRAYA Formats
 
-				case PixelLayout.GRAYAF:
-					return (Gl.RG32F);
+				//case PixelLayout.GRAYAF:
+				//	return (Gl.RG32F);
 
 				#endregion
 
@@ -2005,7 +2005,7 @@ namespace OpenGL
 
 				#region RGBA Internal Formats
 
-				case PixelLayout.RGB30A2:
+				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGBA32:
 				case PixelLayout.RGBA64:
 				case PixelLayout.RGBAF:
@@ -2031,8 +2031,8 @@ namespace OpenGL
 
 				#region BGRA
 
-				case PixelLayout.BGR30A2:           // Uses Gl.UNSIGNED_INT_2_10_10_10_REV as data type
-					return (PixelFormat.Rgba);
+				//case PixelLayout.BGR30A2:           // Uses Gl.UNSIGNED_INT_2_10_10_10_REV as data type
+				//	return (PixelFormat.Rgba);
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
 				case PixelLayout.BGRAF:
@@ -2043,19 +2043,19 @@ namespace OpenGL
 
 				#region GRAY
 
-				case PixelLayout.GRAY8:
-				case PixelLayout.GRAY16:
+				case PixelLayout.R8:
+				case PixelLayout.R16:
 				case PixelLayout.GRAY16S:
-				case PixelLayout.GRAYF:
-				case PixelLayout.GRAYHF:
+				case PixelLayout.RF:
+				case PixelLayout.RHF:
 					return (PixelFormat.Red);
 
 				#endregion
 
 				#region GRAYA Formats
 
-				case PixelLayout.GRAYAF:
-					return (PixelFormat.Rg);
+				//case PixelLayout.GRAYAF:
+				//	return (PixelFormat.Rg);
 
 				#endregion
 
@@ -2144,8 +2144,8 @@ namespace OpenGL
 
 				#region RGBA Data Types
 
-				case PixelLayout.RGB30A2:
-					return (PixelType.UnsignedInt1010102);
+				//case PixelLayout.RGB30A2:
+				//	return (PixelType.UnsignedInt1010102);
 				case PixelLayout.RGBA32:
 					return (PixelType.UnsignedInt8888);
 				case PixelLayout.RGBA64:
@@ -2178,8 +2178,8 @@ namespace OpenGL
 
 				#region BGRA Data Types
 
-				case PixelLayout.BGR30A2:
-					return (PixelType.UnsignedInt2101010Rev);
+				//case PixelLayout.BGR30A2:
+				//	return (PixelType.UnsignedInt2101010Rev);
 				case PixelLayout.BGRA32:
 					return (PixelType.UnsignedByte);
 				case PixelLayout.BGRA64:
@@ -2193,23 +2193,23 @@ namespace OpenGL
 
 				#region GRAY Data Types
 
-				case PixelLayout.GRAY8:
+				case PixelLayout.R8:
 					return (PixelType.UnsignedByte);
-				case PixelLayout.GRAY16:
+				case PixelLayout.R16:
 					return (PixelType.UnsignedShort);
 				case PixelLayout.GRAY16S:
 					return (PixelType.Short);
-				case PixelLayout.GRAYF:
+				case PixelLayout.RF:
 					return (PixelType.Float);
-				case PixelLayout.GRAYHF:
+				case PixelLayout.RHF:
 					return (PixelType.HalfFloat);
 
 				#endregion
 
 				#region GRAYA Data Types
 
-				case PixelLayout.GRAYAF:
-					return (PixelType.Float);
+				//case PixelLayout.GRAYAF:
+				//	return (PixelType.Float);
 
 				#endregion
 
@@ -2291,9 +2291,9 @@ namespace OpenGL
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRAHF:
-				case PixelLayout.GRAYF:
-				case PixelLayout.GRAYHF:
-				case PixelLayout.GRAYAF:
+				case PixelLayout.RF:
+				case PixelLayout.RHF:
+				//case PixelLayout.GRAYAF:
 					return (true);
 				default:
 					return (false);

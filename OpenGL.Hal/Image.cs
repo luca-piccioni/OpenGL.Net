@@ -84,12 +84,12 @@ namespace OpenGL
 
 			switch (format) {
 				// Single plane formats
-				case PixelLayout.GRAY8:
-				case PixelLayout.GRAY16:
+				case PixelLayout.R8:
+				case PixelLayout.R16:
 				case PixelLayout.GRAY16S:
-				case PixelLayout.GRAYF:
-				case PixelLayout.GRAYHF:
-				case PixelLayout.GRAYAF:
+				case PixelLayout.RF:
+				case PixelLayout.RHF:
+				//case PixelLayout.GRAYAF:
 				case PixelLayout.RGB8:
 				case PixelLayout.RGB15:
 				case PixelLayout.RGB16:
@@ -100,7 +100,7 @@ namespace OpenGL
 				case PixelLayout.RGBD:
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-				case PixelLayout.RGB30A2:
+				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGBA32:
 				case PixelLayout.RGBA64:
 				case PixelLayout.RGBAF:
@@ -112,7 +112,7 @@ namespace OpenGL
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRF:
 				case PixelLayout.BGRHF:
-				case PixelLayout.BGR30A2:
+				//case PixelLayout.BGR30A2:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
 				case PixelLayout.BGRAF:
@@ -341,12 +341,12 @@ namespace OpenGL
 		{
 			switch (PixelLayout) {
 				// Single plane formats
-				case PixelLayout.GRAY8:
-				case PixelLayout.GRAY16:
+				case PixelLayout.R8:
+				case PixelLayout.R16:
 				case PixelLayout.GRAY16S:
-				case PixelLayout.GRAYF:
-				case PixelLayout.GRAYHF:
-				case PixelLayout.GRAYAF:
+				//case PixelLayout.GRAYF:
+				case PixelLayout.RHF:
+				//case PixelLayout.GRAYAF:
 				case PixelLayout.RGB8:
 				case PixelLayout.RGB15:
 				case PixelLayout.RGB16:
@@ -357,7 +357,7 @@ namespace OpenGL
 				case PixelLayout.RGBD:
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-				case PixelLayout.RGB30A2:
+				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGBA32:
 				case PixelLayout.RGBA64:
 				case PixelLayout.RGBAF:
@@ -369,7 +369,7 @@ namespace OpenGL
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRF:
 				case PixelLayout.BGRHF:
-				case PixelLayout.BGR30A2:
+				//case PixelLayout.BGR30A2:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
 				case PixelLayout.BGRAF:

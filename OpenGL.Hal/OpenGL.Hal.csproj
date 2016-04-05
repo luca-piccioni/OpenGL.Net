@@ -102,6 +102,32 @@
     <Compile Include="Collections\Graph.cs" />
     <Compile Include="Collections\IGeoTreeNode.cs" />
     <Compile Include="Collections\IGraphNode.cs" />
+    <Compile Include="ColorBGR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorBGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColorBGRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorBGRA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColorR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColorRGB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorRGB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColorRGBA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorRGBA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColorSRGB.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="GraphicsBufferType.cs" />
     <Compile Include="IBindingResource.cs" />
@@ -151,8 +177,7 @@
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
-    <Compile Include="Color.cs" />
-    <Compile Include="ColorRGBA.cs" />
+    <Compile Include="ColorRGBARef.cs" />
     <Compile Include="CoreImageCodecPlugin.cs" />
     <Compile Include="CpuInformation.cs" />
     <Compile Include="ElementBufferObject.cs" />
@@ -337,6 +362,26 @@
     <EmbeddedResource Include="Shaders\GeometryClipmap\DefaultElevationBanding.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ColorBGR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorBGR.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorBGRA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorBGRA.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorR.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorRGB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorRGB.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorRGBA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorRGBA.cs</LastGenOutput>
+    </Content>
     <Content Include="Vertex2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Vertex2.cs</LastGenOutput>

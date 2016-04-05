@@ -126,10 +126,10 @@ namespace OpenGL
 					case System.Drawing.Imaging.PixelFormat.Format1bppIndexed:
 					case System.Drawing.Imaging.PixelFormat.Format4bppIndexed:
 					case System.Drawing.Imaging.PixelFormat.Format8bppIndexed:
-						to = PixelLayout.GRAY8;
+						to = PixelLayout.R8;
 						break;
 					case System.Drawing.Imaging.PixelFormat.Format16bppGrayScale:
-						to = PixelLayout.GRAY16;
+						to = PixelLayout.R16;
 						break;
 					case System.Drawing.Imaging.PixelFormat.Format32bppArgb:
 						to = PixelLayout.BGRA32;
@@ -173,7 +173,7 @@ namespace OpenGL
 					to = PixelLayout.BGR15;
 					break;
 				case System.Drawing.Imaging.PixelFormat.Format16bppGrayScale:
-					to = PixelLayout.GRAY16;
+					to = PixelLayout.R16;
 					break;
 				case System.Drawing.Imaging.PixelFormat.Format48bppRgb:
 					to = PixelLayout.BGR48;
@@ -196,11 +196,11 @@ namespace OpenGL
 		static void ConvertPixelFormat(PixelLayout from, out System.Drawing.Imaging.PixelFormat to, out int flags)
 		{
 			switch (from) {
-				case PixelLayout.GRAY8:
+				case PixelLayout.R8:
 					to = System.Drawing.Imaging.PixelFormat.Format8bppIndexed;
 					flags = (int)ImageFlags.ColorSpaceGray;
 					break;
-				case PixelLayout.GRAY16:
+				case PixelLayout.R16:
 					to = System.Drawing.Imaging.PixelFormat.Format16bppGrayScale;
 					flags = (int)ImageFlags.ColorSpaceGray;
 					break;

@@ -26,7 +26,7 @@ namespace OpenGL
 	public interface IColor : IFragment
 	{
 		/// <summary>
-		/// PixelLayout of this IFragment.
+		/// Get the correponding PixelLayout of this IColor.
 		/// </summary>
 		PixelLayout PixelType { get; }
 
@@ -34,16 +34,43 @@ namespace OpenGL
 		/// Color component access.
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="Int32"/> indicating the color component index (0 based).
+		/// A <see cref="Int32"/> indicating the color component index.
 		/// </param>
 		/// <returns>
-		/// The color component is converted to/from a normalized floating point number,
-		/// where 0.0f indicates lowest intensity, while 1.0f indicated highest intensity.
+		/// The color component is converted to/from a normalized floating point number.
 		/// </returns>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components
-		/// of IColor implementor.
-		/// </exception>
 		Single this[int c] { get; set; }
+	}
+
+	/// <summary>
+	/// RGB color interface.
+	/// </summary>
+	public interface IColorRGB<T> : IColor
+	{
+		/// <summary>
+		/// Red component property.
+		/// </summary>
+		T Red { get; set; }
+		
+		/// <summary>
+		/// Green component property.
+		/// </summary>
+		T Green { get; set; }
+		
+		/// <summary>
+		/// Blue component property.
+		/// </summary>
+		T Blue { get; set; }
+	}
+
+	/// <summary>
+	/// RGBA color interface.
+	/// </summary>
+	public interface IColorRGBA<T> : IColorRGB<T>
+	{
+		/// <summary>
+		/// Alpha component property. 
+		/// </summary>
+		T Alpha { get; set; }
 	}
 }

@@ -850,11 +850,11 @@ namespace OpenGL
 
 					#region GRAY Internal Formats
 
-					case PixelLayout.GRAY8:
-					case PixelLayout.GRAY16:
+					case PixelLayout.R8:
+					case PixelLayout.R16:
 					case PixelLayout.GRAY16S:
-					case PixelLayout.GRAYF:
-					case PixelLayout.GRAYHF:
+					case PixelLayout.RF:
+					case PixelLayout.RHF:
 						// Emulated Gl.LUMINANCE textel format
 						_TextelSwizzleRGBA = new int[] {
 							Gl.RED,

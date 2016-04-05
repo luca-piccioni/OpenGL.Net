@@ -23,15 +23,15 @@ using System.Runtime.InteropServices;
 namespace OpenGL
 {
 	/// <summary>
-	/// RGB color.
+	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA32 : IColorRGBA<byte>
+	public struct ColorBGRA32 : IColorRGBA<byte>
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a ColorRGBA32 specifying RGB components.
+		/// Construct a ColorBGRA32 specifying BGR components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="byte"/> that specify the red component.
@@ -42,14 +42,14 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="byte"/> that specify the blue component.
 		/// </param>
-		public ColorRGBA32(byte r, byte g, byte b) :
+		public ColorBGRA32(byte r, byte g, byte b) :
 			this(r, g, b, byte.MaxValue)
 		{
 
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBA32 specifying RGB components.
+		/// Construct a ColorBGRA32 specifying BGRA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="byte"/> that specify the red component.
@@ -63,7 +63,7 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="byte"/> that specify the alpha component.
 		/// </param>
-		public ColorRGBA32(byte r, byte g, byte b, byte a)
+		public ColorBGRA32(byte r, byte g, byte b, byte a)
 		{
 			// Setup RGBA components
 			this.r = r;
@@ -77,9 +77,9 @@ namespace OpenGL
 		#region Structure
 
 		/// <summary>
-		/// Red color components.
+		/// Blue color components.
 		/// </summary>
-		public byte r;
+		public byte b;
 
 		/// <summary>
 		/// Green color components.
@@ -87,9 +87,9 @@ namespace OpenGL
 		public byte g;
 
 		/// <summary>
-		/// Blue color components.
+		/// Red color components.
 		/// </summary>
-		public byte b;
+		public byte r;
 
 		/// <summary>
 		/// Alpha color components.
@@ -143,7 +143,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBA32); } }
+		public PixelLayout PixelType { get { return (PixelLayout.BGRA32); } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -162,9 +162,9 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / byte.MaxValue);
+					case 2: return ((float)Red   / byte.MaxValue);
 					case 1: return ((float)Green / byte.MaxValue);
-					case 2: return ((float)Blue  / byte.MaxValue);
+					case 0: return ((float)Blue  / byte.MaxValue);
 					case 3: return ((float)Alpha / byte.MaxValue);
 					default:
 						throw new IndexOutOfRangeException();
@@ -175,9 +175,9 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (byte)(value * byte.MaxValue); break;
+					case 2: Red =   (byte)(value * byte.MaxValue); break;
 					case 1: Green = (byte)(value * byte.MaxValue); break;
-					case 2: Blue =  (byte)(value * byte.MaxValue); break;
+					case 0: Blue =  (byte)(value * byte.MaxValue); break;
 					case 3: Alpha = (byte)(value * byte.MaxValue); break;
 					default:
 						throw new IndexOutOfRangeException();
@@ -189,15 +189,15 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// RGB color.
+	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA64 : IColorRGBA<ushort>
+	public struct ColorBGRA64 : IColorRGBA<ushort>
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a ColorRGBA64 specifying RGB components.
+		/// Construct a ColorBGRA64 specifying BGR components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="ushort"/> that specify the red component.
@@ -208,14 +208,14 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="ushort"/> that specify the blue component.
 		/// </param>
-		public ColorRGBA64(ushort r, ushort g, ushort b) :
+		public ColorBGRA64(ushort r, ushort g, ushort b) :
 			this(r, g, b, ushort.MaxValue)
 		{
 
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBA64 specifying RGB components.
+		/// Construct a ColorBGRA64 specifying BGRA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="ushort"/> that specify the red component.
@@ -229,7 +229,7 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="ushort"/> that specify the alpha component.
 		/// </param>
-		public ColorRGBA64(ushort r, ushort g, ushort b, ushort a)
+		public ColorBGRA64(ushort r, ushort g, ushort b, ushort a)
 		{
 			// Setup RGBA components
 			this.r = r;
@@ -243,9 +243,9 @@ namespace OpenGL
 		#region Structure
 
 		/// <summary>
-		/// Red color components.
+		/// Blue color components.
 		/// </summary>
-		public ushort r;
+		public ushort b;
 
 		/// <summary>
 		/// Green color components.
@@ -253,9 +253,9 @@ namespace OpenGL
 		public ushort g;
 
 		/// <summary>
-		/// Blue color components.
+		/// Red color components.
 		/// </summary>
-		public ushort b;
+		public ushort r;
 
 		/// <summary>
 		/// Alpha color components.
@@ -309,7 +309,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBA64); } }
+		public PixelLayout PixelType { get { return (PixelLayout.BGRA64); } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -328,9 +328,9 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / ushort.MaxValue);
+					case 2: return ((float)Red   / ushort.MaxValue);
 					case 1: return ((float)Green / ushort.MaxValue);
-					case 2: return ((float)Blue  / ushort.MaxValue);
+					case 0: return ((float)Blue  / ushort.MaxValue);
 					case 3: return ((float)Alpha / ushort.MaxValue);
 					default:
 						throw new IndexOutOfRangeException();
@@ -341,9 +341,9 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (ushort)(value * ushort.MaxValue); break;
+					case 2: Red =   (ushort)(value * ushort.MaxValue); break;
 					case 1: Green = (ushort)(value * ushort.MaxValue); break;
-					case 2: Blue =  (ushort)(value * ushort.MaxValue); break;
+					case 0: Blue =  (ushort)(value * ushort.MaxValue); break;
 					case 3: Alpha = (ushort)(value * ushort.MaxValue); break;
 					default:
 						throw new IndexOutOfRangeException();
@@ -355,15 +355,15 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// RGB color.
+	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAF : IColorRGBA<float>
+	public struct ColorBGRAF : IColorRGBA<float>
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a ColorRGBAF specifying RGB components.
+		/// Construct a ColorBGRAF specifying BGR components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="float"/> that specify the red component.
@@ -374,14 +374,14 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="float"/> that specify the blue component.
 		/// </param>
-		public ColorRGBAF(float r, float g, float b) :
+		public ColorBGRAF(float r, float g, float b) :
 			this(r, g, b, 1.0f)
 		{
 
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBAF specifying RGB components.
+		/// Construct a ColorBGRAF specifying BGRA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="float"/> that specify the red component.
@@ -395,7 +395,7 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="float"/> that specify the alpha component.
 		/// </param>
-		public ColorRGBAF(float r, float g, float b, float a)
+		public ColorBGRAF(float r, float g, float b, float a)
 		{
 			// Setup RGBA components
 			this.r = r;
@@ -409,9 +409,9 @@ namespace OpenGL
 		#region Structure
 
 		/// <summary>
-		/// Red color components.
+		/// Blue color components.
 		/// </summary>
-		public float r;
+		public float b;
 
 		/// <summary>
 		/// Green color components.
@@ -419,9 +419,9 @@ namespace OpenGL
 		public float g;
 
 		/// <summary>
-		/// Blue color components.
+		/// Red color components.
 		/// </summary>
-		public float b;
+		public float r;
 
 		/// <summary>
 		/// Alpha color components.
@@ -475,7 +475,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBAF); } }
+		public PixelLayout PixelType { get { return (PixelLayout.BGRAF); } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -494,9 +494,9 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (Red);
+					case 2: return (Red);
 					case 1: return (Green);
-					case 2: return (Blue);
+					case 0: return (Blue);
 					case 3: return (Alpha);
 					default:
 						throw new IndexOutOfRangeException();
@@ -507,9 +507,9 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (float)value; break;
+					case 2: Red =   (float)value; break;
 					case 1: Green = (float)value; break;
-					case 2: Blue =  (float)value; break;
+					case 0: Blue =  (float)value; break;
 					case 3: Alpha = (float)value; break;
 					default:
 						throw new IndexOutOfRangeException();
@@ -521,15 +521,15 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// RGB color.
+	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAHF : IColorRGBA<HalfFloat>
+	public struct ColorBGRAHF : IColorRGBA<HalfFloat>
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a ColorRGBAHF specifying RGB components.
+		/// Construct a ColorBGRAHF specifying BGR components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="HalfFloat"/> that specify the red component.
@@ -540,14 +540,14 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="HalfFloat"/> that specify the blue component.
 		/// </param>
-		public ColorRGBAHF(HalfFloat r, HalfFloat g, HalfFloat b) :
+		public ColorBGRAHF(HalfFloat r, HalfFloat g, HalfFloat b) :
 			this(r, g, b, (HalfFloat)1.0f)
 		{
 
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBAHF specifying RGB components.
+		/// Construct a ColorBGRAHF specifying BGRA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="HalfFloat"/> that specify the red component.
@@ -561,7 +561,7 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="HalfFloat"/> that specify the alpha component.
 		/// </param>
-		public ColorRGBAHF(HalfFloat r, HalfFloat g, HalfFloat b, HalfFloat a)
+		public ColorBGRAHF(HalfFloat r, HalfFloat g, HalfFloat b, HalfFloat a)
 		{
 			// Setup RGBA components
 			this.r = r;
@@ -575,9 +575,9 @@ namespace OpenGL
 		#region Structure
 
 		/// <summary>
-		/// Red color components.
+		/// Blue color components.
 		/// </summary>
-		public HalfFloat r;
+		public HalfFloat b;
 
 		/// <summary>
 		/// Green color components.
@@ -585,9 +585,9 @@ namespace OpenGL
 		public HalfFloat g;
 
 		/// <summary>
-		/// Blue color components.
+		/// Red color components.
 		/// </summary>
-		public HalfFloat b;
+		public HalfFloat r;
 
 		/// <summary>
 		/// Alpha color components.
@@ -641,7 +641,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBAHF); } }
+		public PixelLayout PixelType { get { return (PixelLayout.BGRAHF); } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -660,9 +660,9 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (Red);
+					case 2: return (Red);
 					case 1: return (Green);
-					case 2: return (Blue);
+					case 0: return (Blue);
 					case 3: return (Alpha);
 					default:
 						throw new IndexOutOfRangeException();
@@ -673,9 +673,9 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (HalfFloat)value; break;
+					case 2: Red =   (HalfFloat)value; break;
 					case 1: Green = (HalfFloat)value; break;
-					case 2: Blue =  (HalfFloat)value; break;
+					case 0: Blue =  (HalfFloat)value; break;
 					case 3: Alpha = (HalfFloat)value; break;
 					default:
 						throw new IndexOutOfRangeException();

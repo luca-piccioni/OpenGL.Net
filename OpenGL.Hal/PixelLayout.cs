@@ -45,60 +45,76 @@ namespace OpenGL
 		/// </summary>
 		None,
 
-		#region Grayscale Pixel Types
+		#region Red Pixel Types
 
 		/// <summary>
 		/// Grayscale composed by 8 bits.
 		/// </summary>
-		[PixelColorspace(PixelSpace.Gray)]
+		[PixelColorspace(PixelSpace.Red)]
 		[PixelComponents(1)]
 		[PixelPrecision(8)]
-		[PixelStructure(typeof(ColorGRAY8))]
-		GRAY8,
+		[PixelStructure(typeof(ColorR8))]
+		R8,
 		/// <summary>
 		/// Grayscale composed by 16 bits.
 		/// </summary>
-		[PixelColorspace(PixelSpace.Gray)]
+		[PixelColorspace(PixelSpace.Red)]
 		[PixelComponents(1)]
 		[PixelPrecision(16)]
-		[PixelStructure(typeof(ColorGRAY16))]
-		GRAY16,
+		[PixelStructure(typeof(ColorR16))]
+		R16,
 		/// <summary>
 		/// Grayscale composed by 16 bits.
 		/// </summary>
-		[PixelColorspace(PixelSpace.Gray)]
+		[PixelColorspace(PixelSpace.Red)]
+		[PixelComponents(1)]
+		[PixelPrecision(32)]
+		[PixelStructure(typeof(ColorR32))]
+		R32,
+		/// <summary>
+		/// Grayscale composed by 16 bits.
+		/// </summary>
+		[PixelColorspace(PixelSpace.Red)]
 		[PixelComponents(1)]
 		[PixelPrecision(16)]
 		GRAY16S,
 		/// <summary>
 		/// Grayscale composed by floating point number (32 bit IEEE floating point).
 		/// </summary>
-		[PixelColorspace(PixelSpace.Gray)]
+		[PixelColorspace(PixelSpace.Red)]
 		[PixelComponents(1)]
 		[PixelPrecision(Single.Epsilon, 32)]
-		[PixelStructure(typeof(ColorGRAYF))]
-		GRAYF,
+		[PixelStructure(typeof(ColorRF))]
+		RF,
+		/// <summary>
+		/// Grayscale composed by floating point number (64 bit IEEE floating point).
+		/// </summary>
+		[PixelColorspace(PixelSpace.Red)]
+		[PixelComponents(1)]
+		[PixelPrecision(Double.Epsilon, 64)]
+		[PixelStructure(typeof(ColorRD))]
+		RD,
 		/// <summary>
 		/// Grayscale composed by half floating point number (16 bit IEEE floating point).
 		/// </summary>
-		[PixelColorspace(PixelSpace.Gray)]
+		[PixelColorspace(PixelSpace.Red)]
 		[PixelComponents(1)]
 		[PixelPrecision(HalfFloat.Epsilon, 16)]
-		[PixelStructure(typeof(ColorGRAYHF))]
-		GRAYHF,
+		[PixelStructure(typeof(ColorRHF))]
+		RHF,
 
 		#endregion
 
 		#region Grayscale and Alpha Pixel Types
 
-		/// <summary>
-		/// Grayscale and alpha composed by floating point number (32 bit IEEE floating point).
-		/// </summary>
-		[PixelColorspace(PixelSpace.GrayAlpha)]
-		[PixelComponents(2)]
-		[PixelPrecision(Single.Epsilon, 32, 32)]
-		[PixelStructure(typeof(ColorGRAYAF))]
-		GRAYAF,
+		///// <summary>
+		///// Grayscale and alpha composed by floating point number (32 bit IEEE floating point).
+		///// </summary>
+		//[PixelColorspace(PixelSpace.GrayAlpha)]
+		//[PixelComponents(2)]
+		//[PixelPrecision(Single.Epsilon, 32, 32)]
+		//[PixelStructure(typeof(ColorGRAYAF))]
+		//GRAYAF,
 
 		#endregion
 
@@ -144,6 +160,14 @@ namespace OpenGL
 		[PixelPrecision(16, 16, 16)]
 		[PixelStructure(typeof(ColorRGB48))]
 		RGB48,
+		/// <summary>
+		/// RGB composed by 96 bits (32 bit per component).
+		/// </summary>
+		[PixelColorspace(PixelSpace.Rgb)]
+		[PixelComponents(3)]
+		[PixelPrecision(32, 32, 32)]
+		[PixelStructure(typeof(ColorRGB96))]
+		RGB96,
 		/// <summary>
 		/// RGB composed by 3 single-precision floating-point.
 		/// </summary>
@@ -196,14 +220,14 @@ namespace OpenGL
 
 		#region RGBA Pixel Types
 
-		/// <summary>
-		/// RGBA composed by 32 bits (30 bit per RGB components, 2 bit per A component).
-		/// </summary>
-		[PixelColorspace(PixelSpace.Rgba)]
-		[PixelComponents(4)]
-		[PixelPrecision(10, 10, 10, 2)]
-		[PixelStructure(typeof(ColorRGB30A2))]
-		RGB30A2,
+		///// <summary>
+		///// RGBA composed by 32 bits (30 bit per RGB components, 2 bit per A component).
+		///// </summary>
+		//[PixelColorspace(PixelSpace.Rgba)]
+		//[PixelComponents(4)]
+		//[PixelPrecision(10, 10, 10, 2)]
+		//[PixelStructure(typeof(ColorRGB30A2))]
+		//RGB30A2,
 		/// <summary>
 		/// RGBA composed by 32 bits (8 bit per component).
 		/// </summary>
@@ -302,14 +326,14 @@ namespace OpenGL
 
 		#region BGRA Pixel Types
 
-		/// <summary>
-		/// BGRA composed by 32 bits (30 bit per RGB components, 2 bit per A component).
-		/// </summary>
-		[PixelColorspace(PixelSpace.Bgra)]
-		[PixelComponents(4)]
-		[PixelPrecision(10, 10, 10, 2)]
-		[PixelStructure(typeof(ColorBGR30A2))]
-		BGR30A2,
+		///// <summary>
+		///// BGRA composed by 32 bits (30 bit per RGB components, 2 bit per A component).
+		///// </summary>
+		//[PixelColorspace(PixelSpace.Bgra)]
+		//[PixelComponents(4)]
+		//[PixelPrecision(10, 10, 10, 2)]
+		//[PixelStructure(typeof(ColorBGR30A2))]
+		//BGR30A2,
 		/// <summary>
 		/// BGRA composed by 32 bits (8 bit per component).
 		/// </summary>

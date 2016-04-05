@@ -345,13 +345,13 @@ namespace OpenGL
 				if (image == null) {
 					switch (band.DataType) {
 						case OSGeo.GDAL.DataType.GDT_Byte:
-							image = new Image(PixelLayout.GRAY8, width, height);
+							image = new Image(PixelLayout.R8, width, height);
 							break;
 						case OSGeo.GDAL.DataType.GDT_Int16:
 							image = new Image(PixelLayout.GRAY16S, width, height);
 							break;
 						case OSGeo.GDAL.DataType.GDT_Float32:
-							image = new Image(PixelLayout.GRAYF, width, height);
+							image = new Image(PixelLayout.RF, width, height);
 							break;
 						default:
 							throw new NotSupportedException();

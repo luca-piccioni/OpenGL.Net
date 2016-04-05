@@ -26,9 +26,9 @@ namespace OpenGL
 	public enum PixelSpace
 	{
 		/// <summary>
-		/// Gray scale.
+		/// Grayscale.
 		/// </summary>
-		Gray,
+		Red,
 		/// <summary>
 		/// Gray scale and Alpha.
 		/// </summary>

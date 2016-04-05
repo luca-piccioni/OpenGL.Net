@@ -164,7 +164,7 @@ namespace OpenGL.Hal.Test.Shaders
 
 						vao.Draw(_Context);
 
-						feedbackImageFixed = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.GRAY8);
+						feedbackImageFixed = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.R8);
 						ImageCodec.Instance.Save(
 							Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LineProgram.Fixed.png"),
 							feedbackImageFixed, ImageFormat.Png, null
@@ -185,7 +185,7 @@ namespace OpenGL.Hal.Test.Shaders
 
 						vao.Draw(_Context, shaderProgram);
 
-						feedbackImageShader = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.GRAY8);
+						feedbackImageShader = _Framebuffer.ReadColorBuffer(_Context, 0, 0, 0, _Framebuffer.Width, _Framebuffer.Height, PixelLayout.R8);
 						ImageCodec.Instance.Save(
 							Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LineProgram.Shader.png"),
 							feedbackImageShader, ImageFormat.Png, null
