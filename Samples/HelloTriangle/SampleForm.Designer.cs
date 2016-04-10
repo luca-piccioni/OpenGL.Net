@@ -27,29 +27,29 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.Graphics = new OpenGL.GraphicsControl();
+			this.RenderControl = new OpenGL.GlControl();
 			this.SuspendLayout();
 			// 
-			// Graphics
+			// RenderControl
 			// 
-			this.Graphics.ContextFlags = OpenGL.GraphicsContextFlags.CompatibilityProfile;
-			this.Graphics.DepthBits = ((uint)(0u));
-			this.Graphics.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Graphics.Location = new System.Drawing.Point(0, 0);
-			this.Graphics.MultisampleBits = ((uint)(0u));
-			this.Graphics.Name = "Graphics";
-			this.Graphics.Size = new System.Drawing.Size(604, 428);
-			this.Graphics.StencilBits = ((uint)(0u));
-			this.Graphics.TabIndex = 0;
-			this.Graphics.GraphicsContextCreated += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.Graphics_GraphicsContextCreated);
-			this.Graphics.Render += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.Graphics_Render);
+			this.RenderControl.BackColor = System.Drawing.Color.DimGray;
+			this.RenderControl.ColorBits = ((uint)(24u));
+			this.RenderControl.DepthBits = ((uint)(0u));
+			this.RenderControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.RenderControl.Location = new System.Drawing.Point(0, 0);
+			this.RenderControl.MultisampleBits = ((uint)(0u));
+			this.RenderControl.Name = "RenderControl";
+			this.RenderControl.Size = new System.Drawing.Size(604, 428);
+			this.RenderControl.StencilBits = ((uint)(0u));
+			this.RenderControl.TabIndex = 0;
+			this.RenderControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_Render);
 			// 
 			// SampleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(604, 428);
-			this.Controls.Add(this.Graphics);
+			this.Controls.Add(this.RenderControl);
 			this.Name = "SampleForm";
 			this.Text = "Hello triangle";
 			this.ResumeLayout(false);
@@ -58,7 +58,7 @@
 
 		#endregion
 
-		private OpenGL.GraphicsControl Graphics;
+		private OpenGL.GlControl RenderControl;
 	}
 }
 

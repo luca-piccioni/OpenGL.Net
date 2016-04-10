@@ -36,12 +36,7 @@ namespace HelloTriangle
 			InitializeComponent();
 		}
 
-		private void Graphics_GraphicsContextCreated(object sender, GraphicsControlEventArgs e)
-		{
-			e.Framebuffer.SetClearColor(new ColorRGBAF(0.2f, 0.2f, 0.2f));
-		}
-
-		private void Graphics_Render(object sender, GraphicsControlEventArgs e)
+		private void RenderControl_Render(object sender, GlControlEventArgs e)
 		{
 			// Old school OpenGL
 			Gl.MatrixMode(MatrixMode.Projection);
