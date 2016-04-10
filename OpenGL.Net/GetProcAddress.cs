@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -38,24 +39,33 @@ namespace OpenGL
 		/// </summary>
 		static GetProcAddress()
 		{
-			PlatformID pId = Environment.OSVersion.Platform;
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+				case PlatformID.Win32Windows:
+				case PlatformID.Win32S:
+				case PlatformID.WinCE:
+					_GetProcAddress = new GetProcAddressWindows();
+					break;
+				case PlatformID.Unix:
+					string unixName = DetectUnixKernel();
 
-			// Determine GetOpenGLProcAddress implementation
-			if ((pId == PlatformID.Win32NT) || (pId == PlatformID.Win32S) || (pId == PlatformID.Win32Windows) || (pId == PlatformID.WinCE)) {
-				_GetProcAddress = new GetProcAddressWindows();
-			} else if ((pId == PlatformID.Unix) || (pId == (PlatformID)4)) {
-				string pIdString = DetectUnixKernel();
-
-				// Distinguish between Unix and Mac OS X kernels.
-				switch (pIdString) {
-					case "Unix":
-					case "Linux":
-						_GetProcAddress = new GetProcAddressX11();
-						break;
-					case "Darwin":
-						_GetProcAddress = new GetProcAddressOSX();
-						break;
-				}
+					// Distinguish between Unix and Mac OS X kernels.
+					switch (unixName) {
+						case "Unix":
+						case "Linux":
+							_GetProcAddress = new GetProcAddressX11();
+							break;
+						case "Darwin":
+							_GetProcAddress = new GetProcAddressOSX();
+							break;
+						case null:
+							throw new NotSupportedException(String.Format("Unix platform not detected"));
+						default:
+							throw new NotSupportedException(String.Format("Unix platform {0} not supported", unixName));
+					}
+					break;
+				default:
+					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion.Platform));
 			}
 		}
 
@@ -133,14 +143,16 @@ namespace OpenGL
 			startInfo.UseShellExecute = false;
 
 			foreach (string unameprog in new string[] { "/usr/bin/uname", "/bin/uname", "uname" }) {
+				// Avoid exception handling
+				if (File.Exists(unameprog) == false)
+					continue;
+
 				try {
-
 					startInfo.FileName = unameprog;
-
 					using (Process uname = Process.Start(startInfo)) {
 						return uname.StandardOutput.ReadLine().Trim();
 					}
-				} catch (System.IO.FileNotFoundException) {
+				} catch (FileNotFoundException) {
 					// The requested executable doesn't exist, try next one.
 					continue;
 				} catch (System.ComponentModel.Win32Exception) {
@@ -154,9 +166,6 @@ namespace OpenGL
 		/// <summary>
 		/// Interface for loading external symbols.
 		/// </summary>
-		/// <remarks>
-		/// 
-		/// </remarks>
 		private static IGetProcAddress _GetProcAddress;
 
 		#endregion
