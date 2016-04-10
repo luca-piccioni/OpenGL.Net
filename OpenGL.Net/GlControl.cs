@@ -32,6 +32,9 @@ namespace OpenGL
 	{
 		#region Constructors
 
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
 		static GlControl()
 		{
 			Gl.Initialize();
@@ -164,18 +167,17 @@ namespace OpenGL
 		private void DrawDesign(PaintEventArgs e)
 		{
 			Size clientSize = ClientSize;
+			RectangleF clientRect = new RectangleF(PointF.Empty, clientSize);
 
+			e.Graphics.SetClip(clientRect);
 			e.Graphics.Clear(BackColor);
-			e.Graphics.DrawLines(_DesignPen, new Point[] {
-				new Point(0, 0), new Point(clientSize.Width, clientSize.Height),
-				new Point(0, clientSize.Height), new Point(clientSize.Width, 0),
-			});
 
 			StringBuilder sysinfo = new StringBuilder();
 
-			sysinfo.AppendFormat("Running on OpenGL {0}, GLSL {1}", Gl.CurrentVersion, Gl.CurrentShadingVersion);
+			sysinfo.AppendFormat("Running on OpenGL {0}\n", Gl.CurrentVersion);
+			sysinfo.AppendFormat("  - OpenGL Shading Language {0}\n", Gl.CurrentShadingVersion);
 
-			e.Graphics.DrawString(sysinfo.ToString(), _FailureFont, _FailureBrush, new RectangleF(PointF.Empty, clientSize));
+			e.Graphics.DrawString(sysinfo.ToString(), _DesignFont, _DesignBrush, clientRect);
 		}
 
 		/// <summary>
@@ -196,7 +198,7 @@ namespace OpenGL
 				exceptionMessage.AppendFormat("Exception of type {0}: {1}\n", exception.GetType().Name, exception.Message);
 				exceptionMessage.AppendFormat("Exception stacktrace: {0}\n", exception.StackTrace);
 
-				e.Graphics.DrawString(exceptionMessage.ToString(), _FailureFont, _FailureBrush, new RectangleF(PointF.Empty, clientSize));
+				e.Graphics.DrawString(exceptionMessage.ToString(), _DesignFont, _FailureBrush, new RectangleF(PointF.Empty, clientSize));
 			} else {
 				e.Graphics.DrawLines(_FailurePen, new Point[] {
 					new Point(0, 0), new Point(clientSize.Width, clientSize.Height),
@@ -206,24 +208,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Pen used for drawing in the case the UserControl at design time.
+		/// Pen used for drawing the UserControl at design time.
 		/// </summary>
 		private readonly Pen _DesignPen = new Pen(Color.Black, 1.5f);
 
 		/// <summary>
-		/// Pen used for drawing in the case of failures.
+		/// Brush used for drawing the UserControl at design time.
+		/// </summary>
+		private readonly Brush _DesignBrush = new SolidBrush(Color.Black);
+
+		/// <summary>
+		/// Font used for drawing  the UserControl in the case of failures.
+		/// </summary>
+		private readonly Font _DesignFont = new Font(FontFamily.GenericMonospace, 9.0f);
+
+		/// <summary>
+		/// Pen used for drawing  the UserControl in the case of failures.
 		/// </summary>
 		private readonly Pen _FailurePen = new Pen(Color.Red, 1.5f);
 
 		/// <summary>
-		/// Brush used for drawing in the case of failures.
+		/// Brush used for drawing the UserControl in the case of failures.
 		/// </summary>
 		private readonly Brush _FailureBrush = new SolidBrush(Color.Red);
-
-		/// <summary>
-		/// Font used for drawing in the case of failures.
-		/// </summary>
-		private readonly Font _FailureFont = new Font(FontFamily.GenericMonospace, 9.0f);
 
 		#endregion
 
