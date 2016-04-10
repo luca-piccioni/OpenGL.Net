@@ -27,12 +27,16 @@ namespace OpenGL
 	[DebuggerDisplay("DevicePixelFormat: Idx={FormatIndex} Color={ColorBits} Depth={DepthBits} Stencil={StencilBits} Ms={MultisampleBits} sRGB={SRGBCapable} DB={DoubleBuffer}")]
 	public sealed class DevicePixelFormat
 	{
-		#region Pixel Format Information
+		#region Format Identification
 
 		/// <summary>
 		/// Pixel format index.
 		/// </summary>
 		public int FormatIndex;
+
+		#endregion
+
+		#region Pixel Type
 
 		/// <summary>
 		/// Flag indicating whether this pixel format provide canonical (normalized) unsigned integer RGBA color.
@@ -43,6 +47,10 @@ namespace OpenGL
 		/// Flag indicating whether this pixel format provide RGBA color composed by single-precision floating-point.
 		/// </summary>
 		public bool RgbaFloat;
+
+		#endregion
+
+		#region Surfaces
 
 		/// <summary>
 		/// Pixel format can be used for rendering on windows.
@@ -58,6 +66,10 @@ namespace OpenGL
 		/// Pixel format can be used for rendering on pixel buffer objects.
 		/// </summary>
 		public bool RenderPBuffer;
+
+		#endregion
+
+		#region Double Buffering
 
 		/// <summary>
 		/// Pixel format support double buffering.
@@ -76,6 +88,10 @@ namespace OpenGL
 		/// Pixel format support stereo buffering.
 		/// </summary>
 		public bool StereoBuffer;
+
+		#endregion
+
+		#region Buffers bits
 
 		/// <summary>
 		/// Color bits (without alpha).
@@ -122,6 +138,10 @@ namespace OpenGL
 		/// </summary>
 		public bool SRGBCapable;
 
+		#endregion
+
+		#region Platform Specific
+
 		/// <summary>
 		/// GLX framebuffer configuration (valid only for X11).
 		/// </summary>
@@ -137,6 +157,23 @@ namespace OpenGL
 		/// This value is obtained by GetVisualFromFBConfig using <see cref="XFbConfig"/>.
 		/// </remarks>
 		public Glx.XVisualInfo XVisualInfo;
+
+		#endregion
+
+		#region Copy
+
+		/// <summary>
+		/// Copy this DevicePixelFormat
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="DevicePixelFormat"/> equals to this DevicePixelFormat.
+		/// </returns>
+		public DevicePixelFormat Copy()
+		{
+			DevicePixelFormat copy = (DevicePixelFormat)MemberwiseClone();
+
+			return (copy);
+		}
 
 		#endregion
 	}
