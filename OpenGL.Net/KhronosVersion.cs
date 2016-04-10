@@ -18,6 +18,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace OpenGL
@@ -364,6 +365,29 @@ namespace OpenGL
 			}
 
 			return (new KhronosVersion(versionMajor, versionMinor, versionRev, api));
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		///<summary>
+		/// Converts this PIXELFORMATDESCRIPTOR into a human-legible string representation.
+		///</summary>
+		///<returns>
+		/// The string representation of this instance.
+		///</returns>
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.AppendFormat("{0}.{1}", Major, Minor);
+			if (Revision != 0)
+				sb.AppendFormat("{0}", Revision);
+			if (String.IsNullOrEmpty(Api) == false)
+				sb.AppendFormat(" API={0}", Api);
+
+			return (sb.ToString());
 		}
 
 		#endregion
