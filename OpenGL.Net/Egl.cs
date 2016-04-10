@@ -75,6 +75,16 @@ namespace OpenGL
 			} catch { /* Fail-safe: complict with Designer */ }
 		}
 
+		/// <summary>
+		/// OpenGL extension support.
+		/// </summary>
+		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
+
+		/// <summary>
+		/// OpenGL extension support.
+		/// </summary>
+		internal static Extensions _CurrentExtensions;
+
 		#endregion
 
 		#region Imports/Delegates Management

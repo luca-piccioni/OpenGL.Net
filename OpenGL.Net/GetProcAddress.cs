@@ -64,6 +64,9 @@ namespace OpenGL
 							throw new NotSupportedException(String.Format("Unix platform {0} not supported", unixName));
 					}
 					break;
+				case PlatformID.MacOSX:
+					_GetProcAddress = new GetProcAddressOSX();
+					break;
 				default:
 					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion.Platform));
 			}

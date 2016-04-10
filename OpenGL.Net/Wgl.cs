@@ -21,7 +21,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -46,6 +45,16 @@ namespace OpenGL
 			// Load procedures
 			LoadProcDelegates(_ImportMap, _Delegates);
 		}
+
+		/// <summary>
+		/// OpenGL extension support.
+		/// </summary>
+		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
+
+		/// <summary>
+		/// OpenGL extension support.
+		/// </summary>
+		internal static Extensions _CurrentExtensions;
 
 		#endregion
 
