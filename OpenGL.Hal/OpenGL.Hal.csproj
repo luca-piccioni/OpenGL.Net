@@ -196,8 +196,6 @@
     <Compile Include="GraphicsGarbageService.cs" />
     <Compile Include="GraphicsInfoAttribute.cs" />
     <Compile Include="GraphicsKernelService.cs" />
-    <Compile Include="GraphicsLimitAttribute.cs" />
-    <Compile Include="GraphicsLimits.cs" />
     <Compile Include="GraphicsResource.cs" />
     <Compile Include="GraphicsScreen.cs" />
     <Compile Include="GraphicsSurface.cs" />

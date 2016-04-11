@@ -110,7 +110,7 @@ namespace OpenGL
 			// Obtain current OpenGL implementation
 			_CurrentVersion = Gl.CurrentVersion;
 			_CurrentShadingVersion = Gl.CurrentShadingVersion;
-			_CurrentCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
+			_CurrentCaps = GraphicsCapabilities.Query();
 		}
 
 		#endregion
@@ -509,7 +509,7 @@ namespace OpenGL
 					_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
 					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
 					// Query context capabilities
-					_CapsStack.Push(GraphicsCapabilities.Query(this, deviceContext));
+					_CapsStack.Push(GraphicsCapabilities.Query());
 					// Reserved object name space
 					_ObjectNameSpace = Guid.NewGuid();
 

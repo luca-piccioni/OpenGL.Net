@@ -45,29 +45,27 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="ctx"></param>
 		/// <returns></returns>
-		public static GraphicsCapabilities Query(GraphicsContext ctx, IDeviceContext deviceContext)
+		internal static GraphicsCapabilities Query()
 		{
 			GraphicsCapabilities graphicsCapabilities = new GraphicsCapabilities();
 
-			KhronosApi.LogComment("Query OpenGL extensions.");
-
 			// OpenGL extensions
 			graphicsCapabilities._GlExtensions = Gl.CurrentExtensions;
-			// Windows OpenGL extensions
-			WindowsDeviceContext windowsDeviceContext = deviceContext as WindowsDeviceContext;
-			if (windowsDeviceContext != null)
-				graphicsCapabilities._WglExtensions = Wgl.CurrentExtensions;
-			// GLX OpenGL extensions
-			XServerDeviceContext xserverDeviceContext = deviceContext as XServerDeviceContext;
-			if (xserverDeviceContext != null)
-				graphicsCapabilities._GlxExtensions = Glx.CurrentExtensions;
-			// EGL OpenGL extensions
-			NativeDeviceContext nativeDeviceContext = deviceContext as NativeDeviceContext;
-			if (nativeDeviceContext != null)
-				graphicsCapabilities._EglExtensions = Egl.CurrentExtensions;
-
+			// Platform OpenGL extensions
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+					graphicsCapabilities._WglExtensions = Wgl.CurrentExtensions;
+					graphicsCapabilities._EglExtensions = Egl.CurrentExtensions;
+					break;
+				case PlatformID.Unix:
+					graphicsCapabilities._GlxExtensions = Glx.CurrentExtensions;
+					break;
+				case PlatformID.MacOSX:
+					graphicsCapabilities._EglExtensions = Egl.CurrentExtensions;
+					break;
+			}
 			// Query implementation limits
-			graphicsCapabilities._GraphicsLimits = GraphicsLimits.Query(graphicsCapabilities._GlExtensions);
+			graphicsCapabilities._GraphicsLimits = Gl.CurrentLimits;
 
 			return (graphicsCapabilities);
 		}
@@ -229,12 +227,12 @@ namespace OpenGL
 		/// <summary>
 		/// Get the OpenGL implementation limits.
 		/// </summary>
-		public GraphicsLimits Limits { get { return (_GraphicsLimits); } }
+		public Gl.Limits Limits { get { return (_GraphicsLimits); } }
 
 		/// <summary>
 		/// OpenGL implementation limits.
 		/// </summary>
-		private GraphicsLimits _GraphicsLimits;
+		private Gl.Limits _GraphicsLimits;
 
 		#endregion
 

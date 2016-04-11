@@ -422,12 +422,12 @@ namespace OpenGL
 		/// <summary>
 		/// Pen used for drawing in the case of failures.
 		/// </summary>
-		private static readonly Pen _FailurePen = new Pen(Color.Red, 1.5f);
+		private readonly Pen _FailurePen = new Pen(Color.Red, 1.5f);
 
 		/// <summary>
 		/// Pen used for drawing in the case the UserControl at design time.
 		/// </summary>
-		private static readonly Pen _DesignPen = new Pen(Color.Green, 1.0f);
+		private readonly Pen _DesignPen = new Pen(Color.Green, 1.0f);
 
 		#endregion
 	}
