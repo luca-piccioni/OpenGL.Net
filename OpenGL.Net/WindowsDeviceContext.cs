@@ -441,7 +441,7 @@ namespace OpenGL
 			// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
 			// window's pixel format is set, it cannot be changed.
 
-			if (Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor)) {
+			if (Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor) == false) {
 				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
 				throw new InvalidOperationException(String.Format("unable to describe pixel format, {0}", innerException.Message), innerException);
 			}
