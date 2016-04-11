@@ -34,6 +34,7 @@ namespace OpenGL
 	string[] interfaceTypes =	new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] pixelTypes =		new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
 	string[] structType =		new[] { "byte",   "ushort", "float", "HalfFloat" };
+	string[] vertexBaseType =	new[] { "UByte",  "UShort", "Float", "Half" };
 	int[] structMembersCount =	new[] {  4,        4,        4,       4          };
 	string[] ones =				new[] { null,     null,     "1.0f",  "(HalfFloat)1.0f"};
 	int[][] bitss =				new[] {  new[] { 1 },    null,     null,     null,      };
@@ -53,6 +54,7 @@ namespace OpenGL
 	/// RGB color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 4)]
 	public struct <#= className #> : IColorRGBA<<#= interfaceType #>>
 	{
 		#region Constructors

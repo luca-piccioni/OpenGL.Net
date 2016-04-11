@@ -26,6 +26,7 @@ namespace OpenGL
 	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.UByte, 4)]
 	public struct ColorBGRA32 : IColorRGBA<byte>
 	{
 		#region Constructors
@@ -192,6 +193,7 @@ namespace OpenGL
 	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.UShort, 4)]
 	public struct ColorBGRA64 : IColorRGBA<ushort>
 	{
 		#region Constructors
@@ -358,6 +360,7 @@ namespace OpenGL
 	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.Float, 4)]
 	public struct ColorBGRAF : IColorRGBA<float>
 	{
 		#region Constructors
@@ -524,6 +527,7 @@ namespace OpenGL
 	/// BGRA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.Half, 4)]
 	public struct ColorBGRAHF : IColorRGBA<HalfFloat>
 	{
 		#region Constructors

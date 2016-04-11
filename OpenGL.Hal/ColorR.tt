@@ -34,6 +34,7 @@ namespace OpenGL
 	string[] interfaceTypes =	new[] { "byte", "byte",   "byte", "float", "double", "HalfFloat" };
 	string[] pixelTypes =		new[] { "R8",   "R16",    "R32",  "RF",    "RD",     "RHF"     };
 	string[] structType =		new[] { "byte", "ushort", "uint", "float", "double", "HalfFloat" };
+	string[] vertexBaseType =	new[] { "Byte", "UShort", "UInt", "Float", "Double", "Half" };
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorR{0}", postfixes[i]);
@@ -45,6 +46,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 1)]
 	public struct <#= className #> : IColor
 	{
 		#region Constructors

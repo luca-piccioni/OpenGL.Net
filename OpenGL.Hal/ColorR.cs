@@ -26,6 +26,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.Byte, 1)]
 	public struct ColorR8 : IColor
 	{
 		#region Constructors
@@ -101,6 +102,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.UShort, 1)]
 	public struct ColorR16 : IColor
 	{
 		#region Constructors
@@ -176,6 +178,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.UInt, 1)]
 	public struct ColorR32 : IColor
 	{
 		#region Constructors
@@ -251,6 +254,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.Float, 1)]
 	public struct ColorRF : IColor
 	{
 		#region Constructors
@@ -326,6 +330,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.Double, 1)]
 	public struct ColorRD : IColor
 	{
 		#region Constructors
@@ -401,6 +406,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
+	[ArrayBufferItem(VertexBaseType.Half, 1)]
 	public struct ColorRHF : IColor
 	{
 		#region Constructors
