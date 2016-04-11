@@ -79,6 +79,8 @@ namespace OpenGL
 			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
 			_CurrentExtensions = new Extensions();
 			_CurrentExtensions.Query();
+			// Query OpenGL limits
+			_CurrentLimits = Limits.Query(_CurrentExtensions);
 
 			if        (_HiddenWindowDevice is WindowsDeviceContext) {
 				Wgl._CurrentExtensions = new Wgl.Extensions();
@@ -144,6 +146,16 @@ namespace OpenGL
 		/// OpenGL extension support.
 		/// </summary>
 		private static Extensions _CurrentExtensions;
+
+		/// <summary>
+		/// OpenGL limits.
+		/// </summary>
+		public static Limits CurrentLimits { get { return (_CurrentLimits); } }
+
+		/// <summary>
+		/// OpenGL limits.
+		/// </summary>
+		private static Limits _CurrentLimits;
 
 		/// <summary>
 		/// Creates an OpenGL context from a Windows platform.
