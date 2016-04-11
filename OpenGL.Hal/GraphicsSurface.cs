@@ -38,17 +38,6 @@ namespace OpenGL
 	public abstract class GraphicsSurface : GraphicsResource
 	{
 		#region Constructors
-		
-		/// <summary>
-		/// Render surface static constructor.
-		/// </summary>
-		static GraphicsSurface()
-		{
-			// This (internal) routine is used to force the execution of the GraphicsContext
-			// static constructor. Once accessing to GraphicsSurface instances, the GraphicsContext
-			// capabilities shall be known.
-			GraphicsContext.Touch();
-		}
 
 		/// <summary>
 		/// GraphicsSurface constructor (zero size).

@@ -52,19 +52,19 @@ namespace OpenGL
 			KhronosApi.LogComment("Query OpenGL extensions.");
 
 			// OpenGL extensions
-			graphicsCapabilities._GlExtensions.Query();
+			graphicsCapabilities._GlExtensions = Gl.CurrentExtensions;
 			// Windows OpenGL extensions
 			WindowsDeviceContext windowsDeviceContext = deviceContext as WindowsDeviceContext;
 			if (windowsDeviceContext != null)
-				graphicsCapabilities._WglExtensions.Query(windowsDeviceContext);
+				graphicsCapabilities._WglExtensions = Wgl.CurrentExtensions;
 			// GLX OpenGL extensions
 			XServerDeviceContext xserverDeviceContext = deviceContext as XServerDeviceContext;
 			if (xserverDeviceContext != null)
-				graphicsCapabilities._GlxExtensions.Query(xserverDeviceContext);
+				graphicsCapabilities._GlxExtensions = Glx.CurrentExtensions;
 			// EGL OpenGL extensions
 			NativeDeviceContext nativeDeviceContext = deviceContext as NativeDeviceContext;
 			if (nativeDeviceContext != null)
-				graphicsCapabilities._EglExtensions.Query(nativeDeviceContext);
+				graphicsCapabilities._EglExtensions = Egl.CurrentExtensions;
 
 			// Query implementation limits
 			graphicsCapabilities._GraphicsLimits = GraphicsLimits.Query(graphicsCapabilities._GlExtensions);

@@ -37,14 +37,6 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// Static constructor.
-		/// </summary>
-		static GraphicsWindow()
-		{
-			GraphicsContext.Touch();
-		}
-
-		/// <summary>
 		/// Construct a GraphicsWindow.
 		/// </summary>
 		public GraphicsWindow() :
