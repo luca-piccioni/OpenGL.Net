@@ -103,7 +103,7 @@ namespace OpenGL
 		/// <summary>
 		/// Initialize OpenGL namespace static environment. This method shall be called before any other classes methods.
 		/// </summary>
-		internal static void Initialize() { }
+		public static void Initialize() { }
 
 		/// <summary>
 		/// OpenGL version currently implemented.
