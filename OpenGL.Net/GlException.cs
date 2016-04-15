@@ -33,8 +33,8 @@ namespace OpenGL
 		/// <param name="errorCode">
 		/// A <see cref="ErrorCode"/> that specifies the error code.
 		/// </param>
-		public GlException(ErrorCode errorCode) :
-			base((int)errorCode, GetErrorMessage((int)errorCode))
+		internal GlException(ErrorCode errorCode) :
+			base((int)errorCode, GetErrorMessage(errorCode))
 		{
 
 		}
@@ -48,7 +48,7 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="String"/> that specifies the exception message.
 		/// </param>
-		public GlException(ErrorCode errorCode, String message) :
+		internal GlException(ErrorCode errorCode, String message) :
 			base((int)errorCode, message)
 		{
 
@@ -66,8 +66,8 @@ namespace OpenGL
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.
 		/// </param>
-		public GlException(ErrorCode errorCode, String message, Exception innerException) :
-			base((int)errorCode, message, innerException)
+		internal GlException(ErrorCode errorCode, String message, Exception innerException) :
+			base((int)errorCode, GetErrorMessage(errorCode) + message, innerException)
 		{
 
 		}
@@ -86,34 +86,34 @@ namespace OpenGL
 		/// It returns a description of <paramref name="errorCode"/>, asssuming that is a value returned
 		/// by <see cref="Egl.GetError"/>.
 		/// </returns>
-		private static string GetErrorMessage(int errorCode)
+		private static string GetErrorMessage(ErrorCode errorCode)
 		{
 			switch (errorCode) {
 
 				default:
 					return (String.Format("unknown error code 0x{0}", errorCode.ToString("X8")));
-				case Gl.NO_ERROR:
+				case ErrorCode.NoError:
 					return ("no error");
-				case Gl.INVALID_ENUM:
+				case ErrorCode.InvalidEnum:
 					return ("invalid enumeration");
-				case Gl.INVALID_FRAMEBUFFER_OPERATION:
+				case ErrorCode.InvalidFramebufferOperation:
 					return ("invalid framebuffer operation");
-				case Gl.INVALID_OPERATION:
+				case ErrorCode.InvalidOperation:
 					return ("invalid operation");
-				case Gl.INVALID_VALUE:
+				case ErrorCode.InvalidValue:
 					return ("invalid value");
-				case Gl.OUT_OF_MEMORY:
+				case ErrorCode.OutOfMemory:
 					return ("out of memory");
-				case Gl.STACK_OVERFLOW:
+				case ErrorCode.StackOverflow:
 					return ("stack overflow");
-				case Gl.STACK_UNDERFLOW:
+				case ErrorCode.StackUnderflow:
 					return ("stack underflow");
 
 				// GL_ARB_imaging
-				case Gl.TABLE_TOO_LARGE:
+				case ErrorCode.TableTooLarge:
 					return ("table too large");
 				// GL_EXT_texture
-				case Gl.TEXTURE_TOO_LARGE_EXT:
+				case ErrorCode.TextureTooLargeExt:
 					return ("texture too large");
 			}
 		}
