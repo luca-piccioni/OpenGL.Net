@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package >
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>$id$</id>
-		<version>$version$</version>
+		<version>0.2.1</version>
 		<title>$title$</title>
 		<authors>$author$</authors>
 		<owners>$author$</owners>
@@ -13,7 +13,7 @@
 		<summary>Modern OpenGL bindings for C#.</summary>
 		<description>
 			Modern OpenGL bindings for C#.
-			
+
 			It supports the following APIs:
 			- OpenGL 4.5 and relative extensions
 			- OpenGL ES 3.2 and relative extensions
@@ -21,16 +21,27 @@
 			- OpenGL for X11 1.4 (XGL) and relative extensions
 			- Native Platform Interface 1.5 (EGL) and relative extensions
 
+			This package includes the ANGLE libraries that allow binding OpenGL ES API onto Windows platforms. For more
+			information see https://github.com/google/angle.
+
 		</description>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Windows.Forms" />
+		</frameworkAssemblies>
 		<releaseNotes>
+			*** Version 0.2.1
+			- Added OpenGL.GlControl, a System.Windows.Forms.UserControl allowing rendering.
+			- OpenGL.Gl static initialization automatically probe versions, extensions and limits of the platform (see Gl.Current*).
+			- Included ANGLE precompiled libraries.
+
 			*** Version 0.2.0
-			Binary release for OpenGL.Net. Exposes the following additional APIs:
+			Exposes the following additional APIs:
 			- OpenGL ES 3.2 and relative extensions
 			- Native Platform Interface 1.5 (EGL) and relative extensions
 			OpenGL ES and EGL APIs has been tested using ANGLE project on Windows platforms.
 
 			*** Version 0.1.0
-			Binary release for OpenGL.Net. Exposes the following APIs:
+			Exposes the following APIs:
 			- OpenGL 4.5 and relative extensions
 			- OpenGL for Windows (WGL) and relative extensions
 			- OpenGL for X11 1.4 (XGL) and relative extensions
@@ -38,6 +49,14 @@
 			This binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
 		</releaseNotes>
 		<copyright>Copyright 2015-2016</copyright>
-		<tags>OpenGL GLSL C# .Net</tags>
+		<tags>OpenGL ES GLSL GLES C# .Net Graphics 3D</tags>
 	</metadata>
+	<files>
+		<file src="bin\Release\OpenGL.Net.dll" target="lib" />
+		<file src="bin\Release\OpenGL.Net.xml" target="lib" />
+		<file src="..\Libs\ANGLE\winrt10\arm\*.dll" target="build\ANGLE\winrt10\arm" />
+		<file src="..\Libs\ANGLE\winrt10\x86\*.dll" target="build\ANGLE\winrt10\x86" />
+		<file src="..\Libs\ANGLE\winrt10\x64\*.dll" target="build\ANGLE\winrt10\x64" />
+		<file src="..\Libs\ANGLE\README.md" target="build\ANGLE" />
+	</files>
 </package>
