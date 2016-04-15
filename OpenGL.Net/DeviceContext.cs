@@ -25,6 +25,19 @@ namespace OpenGL
 	/// </summary>
 	public abstract class DeviceContext : IDeviceContext
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static DeviceContext()
+		{
+			// Required for correct static initialization sequences
+			Gl.Initialize();
+		}
+
+		#endregion
+
 		#region IDeviceContext Implementation
 
 		/// <summary>

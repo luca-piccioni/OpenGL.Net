@@ -38,8 +38,9 @@ namespace OpenGL.Test
 		public new void FixtureSetUp()
 		{
 			try {
-				// Create context
-				_Context = CreateContext();
+				// Create compatibility profile context
+				if ((_Context = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create compatibility profile OpenGL context");
 
 				// Make OpenGL context current
 				if (_DeviceContext.MakeCurrent(_Context) == false)

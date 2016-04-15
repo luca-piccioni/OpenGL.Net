@@ -108,7 +108,11 @@ namespace OpenGL.Test
 		[Test]
 		public void TestMapBuffer()
 		{
-			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object") && !IsGlExtensionSupported("GL_OES_mapbuffer"))
+			if (
+				Gl.CurrentVersion < Gl.Version_150 &&
+				!Gl.CurrentExtensions.VertexBufferObject_ARB &&
+				!Gl.CurrentExtensions.Mapbuffer_OES
+				)
 				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object or GL_OES_mapbuffer not supported");
 
 			int arrayBufferGet;
@@ -117,7 +121,7 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(0U, arrayBuffer, "Gl.GenBuffer failure");
 
 			try {
-				//Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
+				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
 				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
 				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
