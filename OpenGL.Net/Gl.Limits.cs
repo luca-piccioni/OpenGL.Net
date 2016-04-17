@@ -89,24 +89,19 @@ namespace OpenGL
 								obj = Activator.CreateInstance(field.FieldType);
 							else
 								obj = Array.CreateInstance(field.FieldType.GetElementType(), graphicsLimitAttribute.ArrayLenght);
-						
 
 							try {
 								object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };
-
 								getMethod.Invoke(null, @params);
-
 								field.SetValue(graphicsLimits, @params[1]);
 							} catch (GlException) {
 
-							} catch (Exception) {
-
+							} catch (Exception exception) {
+								
 							}
-						
 						} else {
 							try {
 								string s = (string)getMethod.Invoke(null, new object[] { graphicsLimitAttribute.EnumValue });
-
 								field.SetValue(graphicsLimits, s);
 							} catch (GlException) {
 
@@ -116,24 +111,6 @@ namespace OpenGL
 						}
 					} else
 						throw new InvalidOperationException("GraphicsLimits field " + field.Name + " doesn't have a OpenGL compatible type");
-
-					string fieldValueString;
-					object fieldValue = field.GetValue(graphicsLimits);
-
-					if (fieldValue is Array) {
-						StringBuilder sb = new StringBuilder();
-
-						sb.Append("{ ");
-						if (((Array)fieldValue).Length > 0) {
-							foreach (object arrayItem in (Array)fieldValue)
-								sb.AppendFormat("{0}, ", arrayItem);
-							sb.Remove(sb.Length - 2, 2);
-						}
-						sb.Append(" }");
-
-						fieldValueString = sb.ToString();
-					} else
-						fieldValueString = fieldValue.ToString();
 				}
 
 				return (graphicsLimits);
