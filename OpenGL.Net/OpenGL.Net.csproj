@@ -241,6 +241,7 @@
     <Compile Include="GlControl.Designer.cs">
       <DependentUpon>GlControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="IControl.cs" />
     <Compile Include="IMG\Gl.IMG_framebuffer_downsample.cs" />
     <Compile Include="IMG\Gl.IMG_multisampled_render_to_texture.cs" />
     <Compile Include="IMG\Gl.IMG_program_binary.cs" />

@@ -33,7 +33,7 @@ namespace OpenGL
 		/// Initializes a new instance of the <see cref="NativeDeviceContext"/> class.
 		/// </summary>
 		/// <param name='window'>
-		/// Window.
+		/// A <see cref="IControl"/> which handle is used to create the device context.
 		/// </param>
 		/// <exception cref='ArgumentNullException'>
 		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
@@ -41,14 +41,16 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public NativeDeviceContext(Control window)
+		public NativeDeviceContext(IControl window)
 		{
 			if (window == null)
 				throw new ArgumentNullException("window");
 
+#if false
 			// "Force" handle creation
 			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
 				throw new InvalidOperationException("invalid handle");
+#endif
 
 			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get display handle");
