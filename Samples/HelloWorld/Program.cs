@@ -43,7 +43,7 @@ namespace HelloNewton
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			OpenGL.Scene.Terrain.Query(@"D:\__dds.cr.usgs.gov\srtm\version2_1\SRTM30\w180s10");
+			//OpenGL.Scene.Terrain.Query(@"D:\__dds.cr.usgs.gov\srtm\version2_1\SRTM30\w180s10");
 
 			// Check requirements
 			StringBuilder missingReq = new StringBuilder();
@@ -55,7 +55,8 @@ namespace HelloNewton
 			if (!GraphicsContext.CurrentCaps.GlExtensions.InstancedArrays)
 				missingReq.Append("- GL_ARB_instanced_arrays or OpenGL 3.2\n");
 
-			if (missingReq.Length > 0) {
+			if (missingReq.Length > 0)
+			{
 				MessageBox.Show(
 					String.Format("Unable to run sample. The following required extensions are not implemented:\n {0}", missingReq.ToString()),
 					"Error...", MessageBoxButtons.OK, MessageBoxIcon.Error

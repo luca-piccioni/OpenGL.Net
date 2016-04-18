@@ -75,11 +75,16 @@ namespace OpenGL.Hal.Test
 
 		private static Array CreateTestArray()
 		{
-			if (typeof(T) == typeof(ArrayBufferObject)) {
+			if (typeof(T) == typeof(ArrayBufferObject))
+			{
 				return (new float[16]);
-			} else if (typeof(T) == typeof(ElementBufferObject)) {
+			}
+			else if (typeof(T) == typeof(ElementBufferObject))
+			{
 				return (new uint[16]);
-			} else if ((typeof(T) == typeof(ArrayBufferObjectInterleaved)) || (typeof(T) == typeof(ArrayBufferObjectPacked))) {
+			}
+			else if ((typeof(T) == typeof(ArrayBufferObjectInterleaved)) || (typeof(T) == typeof(ArrayBufferObjectPacked)))
+			{
 				return (new ComplexVertexElement[16]);
 			}
 
@@ -119,7 +124,8 @@ namespace OpenGL.Hal.Test
 
 			ArrayBufferObjectBase arrayBufferRef = null;
 
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
+			using (ArrayBufferObjectBase arrayBuffer = CreateInstance())
+			{
 				ConstructionDefaulValues(arrayBuffer);
 
 				// Create client buffer
@@ -189,12 +195,15 @@ namespace OpenGL.Hal.Test
 		public void CreateCount_NoExtension()
 		{
 			_Context.PushCaps();
-			try {
+			try
+			{
 				// Disable GL_ARB_vertex_array_object
 				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
 
 				CreateCount_Core();
-			} finally {
+			}
+			finally
+			{
 				_Context.PopCaps();
 			}
 		}
@@ -202,12 +211,10 @@ namespace OpenGL.Hal.Test
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentException))]
+		[Test]
 		public void CreateCount_Exception1()
 		{
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create(0);
-			}
+			Assert.Throws<ArgumentException>(() => CreateInstance().Create(0));
 		}
 
 		#endregion
@@ -223,7 +230,8 @@ namespace OpenGL.Hal.Test
 
 			ArrayBufferObjectBase arrayBufferRef = null;
 
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
+			using (ArrayBufferObjectBase arrayBuffer = CreateInstance())
+			{
 				ConstructionDefaulValues(arrayBuffer);
 
 				// Create GPU memory
@@ -249,7 +257,8 @@ namespace OpenGL.Hal.Test
 				arrayBufferRef = arrayBuffer;
 			}
 
-			if (arrayBufferRef != null) {
+			if (arrayBufferRef != null)
+			{
 				Assert.AreEqual(0, arrayBufferRef.ItemCount);
 				Assert.AreEqual(0, arrayBufferRef.ClientItemCount);
 			}
@@ -271,12 +280,15 @@ namespace OpenGL.Hal.Test
 		public void CreateCtxCount_NoExtension()
 		{
 			_Context.PushCaps();
-			try {
+			try
+			{
 				// Disable GL_ARB_vertex_array_object
 				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
 
 				CreateCtxCount_Core();
-			} finally {
+			}
+			finally
+			{
 				_Context.PopCaps();
 			}
 		}
@@ -284,36 +296,30 @@ namespace OpenGL.Hal.Test
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(GraphicsContext, uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentNullException))]
+		[Test]
 		public void CreateCtxCount_Exception1()
 		{
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create((GraphicsContext)null, 0);
-			}
+			Assert.Throws<ArgumentNullException>(() => CreateInstance().Create((GraphicsContext)null, 0));
 		}
 
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(GraphicsContext, uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentException))]
+		[Test]
 		public void CreateCtxCount_Exception2()
 		{
 			_Context.MakeCurrent(false);
 
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create(_Context, 0);
-			}
+			Assert.Throws<ArgumentException>(() => CreateInstance().Create(_Context, 0));
 		}
 
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(GraphicsContext, uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentException))]
+		[Test]
 		public void CreateCtxCount_Exception3()
 		{
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create(_Context, 0);
-			}
+			Assert.Throws<ArgumentException>(() => CreateInstance().Create(_Context, 0));
 		}
 
 		#endregion
@@ -329,7 +335,8 @@ namespace OpenGL.Hal.Test
 
 			ArrayBufferObjectBase arrayBufferRef = null;
 
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
+			using (ArrayBufferObjectBase arrayBuffer = CreateInstance())
+			{
 				ConstructionDefaulValues(arrayBuffer);
 
 				// Create client memory
@@ -373,12 +380,15 @@ namespace OpenGL.Hal.Test
 		public void CreateArray_NoExtension()
 		{
 			_Context.PushCaps();
-			try {
+			try
+			{
 				// Disable GL_ARB_vertex_array_object
 				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
 
 				CreateArray_Core();
-			} finally {
+			}
+			finally
+			{
 				_Context.PopCaps();
 			}
 		}
@@ -394,7 +404,8 @@ namespace OpenGL.Hal.Test
 		{
 			ArrayBufferObjectBase arrayBufferRef = null;
 
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
+			using (ArrayBufferObjectBase arrayBuffer = CreateInstance())
+			{
 				ConstructionDefaulValues(arrayBuffer);
 
 				// Create GPU memory
@@ -438,12 +449,15 @@ namespace OpenGL.Hal.Test
 		public void CreateCtxArray_NoExtension()
 		{
 			_Context.PushCaps();
-			try {
+			try
+			{
 				// Disable GL_ARB_vertex_array_object
 				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
 
 				CreateCtxArray_Core();
-			} finally {
+			}
+			finally
+			{
 				_Context.PopCaps();
 			}
 		}
@@ -451,36 +465,30 @@ namespace OpenGL.Hal.Test
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(GraphicsContext, uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentNullException))]
+		[Test]
 		public void CreateCtxArray_Exception1()
 		{
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create((GraphicsContext)null, 0);
-			}
+			Assert.Throws<ArgumentNullException>(() => CreateInstance().Create((GraphicsContext)null, 0));
 		}
 
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(GraphicsContext, uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentException))]
+		[Test]
 		public void CreateCtxArray_Exception2()
 		{
 			_Context.MakeCurrent(false);
 
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create(_Context, 0);
-			}
+			Assert.Throws<ArgumentException>(() => CreateInstance().Create(_Context, 0));
 		}
 
 		/// <summary>
 		/// Test execptions on <see cref="ArrayBufferObject.Create(GraphicsContext, uint)"/>
 		/// </summary>
-		[Test, ExpectedException(typeof(ArgumentException))]
+		[Test]
 		public void CreateCtxArray_Exception3()
 		{
-			using (ArrayBufferObjectBase arrayBuffer = CreateInstance()) {
-				arrayBuffer.Create(_Context, 0);
-			}
+			Assert.Throws<ArgumentException>(() => CreateInstance().Create(_Context, 0));
 		}
 
 		#endregion
