@@ -30,7 +30,7 @@ namespace OpenGL
 		/// Create the specified window.
 		/// </summary>
 		/// <param name='window'>
-		/// A <see cref="IControl"/> which handle is used to create the device context.
+		/// A <see cref="Control"/> which handle is used to create the device context.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="window"/> is null.
@@ -41,7 +41,7 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static IDeviceContext Create(IControl window)
+		public static IDeviceContext Create(Control window)
 		{
 			if (window == null)
 				throw new ArgumentNullException("window");

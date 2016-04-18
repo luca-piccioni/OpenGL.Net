@@ -47,7 +47,7 @@ namespace OpenGL
 		/// Initializes a new instance of the <see cref="WindowsDeviceContext"/> class.
 		/// </summary>
 		/// <param name='window'>
-		/// A <see cref="IControl"/> which handle is used to create the device context.
+		/// A <see cref="Control"/> which handle is used to create the device context.
 		/// </param>
 		/// <exception cref='ArgumentNullException'>
 		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
@@ -55,7 +55,7 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public WindowsDeviceContext(IControl window)
+		public WindowsDeviceContext(Control window)
 		{
 			if (window == null)
 				throw new ArgumentNullException("window");
