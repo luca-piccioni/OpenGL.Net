@@ -187,7 +187,7 @@ namespace OpenGL.Scene
 			/// <summary>
 			/// Area of the dataset.
 			/// </summary>
-			public GeoTreeArea Area { get { return (new GeoTreeArea(Position, Size));  } }
+			public GeoTreeArea Area { get { return (new GeoTreeArea(Position, Size)); } }
 
 			/// <summary>
 			/// Position of the center of the dataset, in degrees using geodedic coordinates.
@@ -261,11 +261,13 @@ namespace OpenGL.Scene
 					throw new ArgumentNullException("dataset");
 
 				// Block size
-				using (Band datasetBand = dataset.GetRasterBand(1)) {
+				using (Band datasetBand = dataset.GetRasterBand(1))
+				{
 					datasetBand.GetBlockSize(out _BlockSize.x, out _BlockSize.y);
 
 					// Do not expose "rows": find a suitable block size
-					if (_BlockSize.x == 1 || _BlockSize.y == 1) {
+					if (_BlockSize.x == 1 || _BlockSize.y == 1)
+					{
 						const int DefaultBlockSize = 2048;
 
 						int blockSize = Math.Min(DefaultBlockSize, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
@@ -278,8 +280,10 @@ namespace OpenGL.Scene
 				}
 
 				// Cache blocks definitions
-				for (int x = 0; x < dataset.RasterXSize; x += _BlockSize.x) {
-					for (int y = 0; y < dataset.RasterYSize; y += _BlockSize.y) {
+				for (int x = 0; x < dataset.RasterXSize; x += _BlockSize.x)
+				{
+					for (int y = 0; y < dataset.RasterYSize; y += _BlockSize.y)
+					{
 						int wBlock = _BlockSize.x, hBlock = _BlockSize.y;
 
 						if (x + wBlock > dataset.RasterXSize)
@@ -374,14 +378,18 @@ namespace OpenGL.Scene
 
 			string[] datasetFiles = Directory.GetFiles(databaseRootPath, "*.*", SearchOption.AllDirectories);
 
-			foreach (string datasetPath in datasetFiles) {
-				try {
-					using (Dataset dataset = Gdal.OpenShared(datasetPath, Access.GA_ReadOnly)) {
+			foreach (string datasetPath in datasetFiles)
+			{
+				try
+				{
+					using (Dataset dataset = Gdal.OpenShared(datasetPath, Access.GA_ReadOnly))
+					{
 						GeoElevationTerrainDataset geoElevationTerrainDataset;
 
 						// Determine terrain dataset information and collect it
-						switch (dataset.GetDriver().ShortName) {
-							// Elevation datasets
+						switch (dataset.GetDriver().ShortName)
+						{
+						// Elevation datasets
 							case "EHdr":        // USGS DEM
 								if (datasetPath.ToLowerInvariant().EndsWith(".dem") == false)
 									continue;
@@ -398,7 +406,9 @@ namespace OpenGL.Scene
 
 						
 					}
-				} catch (Exception exception) {
+				}
+				catch (Exception exception)
+				{
 
 				}
 			}
@@ -447,8 +457,8 @@ namespace OpenGL.Scene
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="datasetPath"/> or <paramref name="dataset"/> are null.
 			/// </exception>
-			public GeoElevationTerrainDataset(string datasetPath, Dataset dataset) :
-				base(datasetPath, dataset)
+			public GeoElevationTerrainDataset(string datasetPath, Dataset dataset)
+				: base(datasetPath, dataset)
 			{
 				
 			}
