@@ -21,7 +21,7 @@ using System;
 namespace OpenGL
 {
 	/// <summary>
-	/// Render surface interface. 
+	/// Graphics surface interface. 
 	/// </summary>
 	/// <remarks>
 	/// <para>

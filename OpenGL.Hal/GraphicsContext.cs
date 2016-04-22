@@ -115,115 +115,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Constructor Overrides - Constructors using implicit static IDeviceContext
-
-		/// <summary>
-		/// Construct a GraphicsContext specifying the implemented OpenGL version.
-		/// </summary>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		public GraphicsContext() :
-			this(_HiddenWindowDevice)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GraphicsContext specifying the implemented OpenGL version.
-		/// </summary>
-		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
-		/// this Render context (to share resource with it).
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
-		/// </exception>
-		public GraphicsContext(GraphicsContext sharedContext) :
-			this(_HiddenWindowDevice, sharedContext)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GraphicsContext specifying the implemented OpenGL version.
-		/// </summary>
-		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
-		/// this Render context (to share resource with it).
-		/// </param>
-		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
-		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
-		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
-		/// are not implemented.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
-		/// </exception>
-		public GraphicsContext(GraphicsContext sharedContext, KhronosVersion version) :
-			this(_HiddenWindowDevice, sharedContext, version)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GraphicsContext specifying the implemented OpenGL version.
-		/// </summary>
-		/// <param name="sharedContext">
-		/// A <see cref="GraphicsContext"/> that specify the render context which has to be linked this
-		/// this Render context (to share resource with it).
-		/// </param>
-		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specify the minimum OpenGL version required to implement.
-		/// </param>
-		/// <param name="flags">
-		/// A <see cref="GraphicsContextFlags"/> that specify special features to enable in the case they are supported.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
-		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown in the case <paramref name="version"/> specify a forward compatible version (greater than or equal to
-		/// <see cref="GLVersion.Version_3_2"/>), and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context
-		/// are not implemented.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it was created by a thread different from the calling one.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
-		/// </exception>
-		public GraphicsContext(GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags) :
-			this(_HiddenWindowDevice, sharedContext, version, flags)
-		{
-
-		}
-
-		#endregion
-
 		#region Constructor Overrides -  Constructors specifying IDeviceContext
 
 		/// <summary>
@@ -342,6 +233,9 @@ namespace OpenGL
 		/// <param name="flags">
 		/// A <see cref="GraphicsContextFlags"/> that specify special features to enable in the case they are supported.
 		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="deviceContext"/> is null.
+		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown in the case <paramref name="version"/> is different from the currently implemented by the derive,
 		/// and the OpenGL extension WGL_ARB_create_context_profile or WGL_ARB_create_context are not implemented.
@@ -941,16 +835,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Common (hidden) window used for getting device context without creating a new window.
-		/// </summary>
-		private static System.Windows.Forms.Form _HiddenWindow;
-
-		/// <summary>
-		/// Device context handle created from <see cref="_HiddenWindow"/>.
-		/// </summary>
-		private static IDeviceContext _HiddenWindowDevice;
-
-		/// <summary>
 		/// Device context handle referred by GraphicsContext at construction time.
 		/// </summary>
 		private IDeviceContext _DeviceContext;
@@ -968,6 +852,16 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		private IDeviceContext _CurrentDeviceContext;
+
+		/// <summary>
+		/// Get the underlying render context handle.
+		/// </summary>
+		public IntPtr Handle { get { return (_RenderContext); } }
+
+		/// <summary>
+		/// Rendering context handle.
+		/// </summary>
+		private IntPtr _RenderContext = IntPtr.Zero;
 
 		/// <summary>
 		/// Flag indicating whether <see cref="_DeviceContext"/> is a device context for the entire screen. This means that
@@ -995,11 +889,6 @@ namespace OpenGL
 		/// by the same thread. This would avoid an InvalidOperationException caused by constructors.
 		/// </remarks>
 		private int _RenderContextThreadId;
-
-		/// <summary>
-		/// Rendering context handle.
-		/// </summary>
-		private IntPtr _RenderContext = IntPtr.Zero;
 
 		/// <summary>
 		/// Unique identifier of this GraphicsContext.
@@ -1067,19 +956,6 @@ namespace OpenGL
 		/// </summary>
 		private void ResourceThread()
 		{
-			#region Platform Pointers Reload
-
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32S:
-				case PlatformID.WinCE:
-					Wgl.SyncDelegates();
-					break;
-			}
-
-			#endregion
-
 			// Be current on this thread
 			_ResourceContext.MakeCurrent(true);
 
@@ -1102,8 +978,6 @@ namespace OpenGL
 						}
 					}
 				}
-
-				Thread.Sleep(_ResourceThreadLatency);
 			}
 
 			_ResourceContext.Dispose();
