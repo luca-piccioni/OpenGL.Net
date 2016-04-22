@@ -45,6 +45,17 @@ namespace OpenGL
 		/// </summary>
 		public GlControl()
 		{
+			// No need to erase window background
+			SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+			// No need to draw window background
+			SetStyle(ControlStyles.Opaque, true);
+			// Buffer control
+			SetStyle(ControlStyles.DoubleBuffer, false);
+			// Redraw window on resize
+			SetStyle(ControlStyles.ResizeRedraw, false);
+			// Painting handled by user
+			SetStyle(ControlStyles.UserPaint, true);
+
 			InitializeComponent();
 		}
 
@@ -164,7 +175,7 @@ namespace OpenGL
 		/// <param name="e">
 		/// A <see cref="PaintEventArgs"/> that specify the event arguments.
 		/// </param>
-		private void DrawDesign(PaintEventArgs e)
+		protected void DrawDesign(PaintEventArgs e)
 		{
 			Size clientSize = ClientSize;
 			RectangleF clientRect = new RectangleF(PointF.Empty, clientSize);
@@ -186,7 +197,7 @@ namespace OpenGL
 		/// <param name="e">
 		/// A <see cref="PaintEventArgs"/> that specify the event arguments.
 		/// </param>
-		private void DrawFailure(PaintEventArgs e, Exception exception)
+		protected void DrawFailure(PaintEventArgs e, Exception exception)
 		{
 			Size clientSize = ClientSize;
 
@@ -237,19 +248,77 @@ namespace OpenGL
 		#region Device Context
 
 		/// <summary>
+		/// Create the device context and set the pixel format.
+		/// </summary>
+		protected void CreateDeviceContext()
+		{
+			// Create device context
+			_DeviceContext = DeviceContextFactory.Create(this);
+			_DeviceContext.IncRef();
+
+			// Set pixel format
+			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
+			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
+			controlReqFormat.ColorBits = (int)ColorBits;
+			controlReqFormat.DepthBits = (int)DepthBits;
+			controlReqFormat.StencilBits = (int)StencilBits;
+			controlReqFormat.MultisampleBits = (int)MultisampleBits;
+			controlReqFormat.DoubleBuffer = DoubleBuffer;
+
+			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
+			if (matchingPixelFormats.Count == 0)
+				throw new InvalidOperationException("unable to find a suitable pixel format");
+
+			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
+		}
+
+		/// <summary>
+		/// Create the GlControl context.
+		/// </summary>
+		protected virtual void CreateContext()
+		{
+			if (_RenderContext != IntPtr.Zero)
+				throw new InvalidOperationException("context already created");
+
+			// Create OpenGL context
+			if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create render context");
+		}
+
+		/// <summary>
+		/// Make the GlControl context current.
+		/// </summary>
+		protected virtual void MakeCurrentContext()
+		{
+			// Make context current
+			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
+				throw new InvalidOperationException("unable to make context current");
+		}
+
+		/// <summary>
+		/// Delete the GlControl context.
+		/// </summary>
+		protected virtual void DeleteContext()
+		{
+			// Delete OpenGL context
+			_DeviceContext.DeleteContext(_RenderContext);
+			_RenderContext = IntPtr.Zero;
+		}
+
+		/// <summary>
 		/// The <see cref="DeviceContext"/> created on this GlControl.
 		/// </summary>
-		private IDeviceContext _DeviceContext;
+		protected IDeviceContext _DeviceContext;
 
 		/// <summary>
 		/// The OpenGL context created on this GlControl.
 		/// </summary>
-		private IntPtr _RenderContext;
+		protected IntPtr _RenderContext;
 
 		/// <summary>
 		/// Exception caught while creating device context and render context.
 		/// </summary>
-		private Exception _FailureException;
+		protected Exception _FailureException;
 
 		#endregion
 
@@ -286,7 +355,6 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control render time, allow user to draw on control.
 		/// </summary>
-		[Browsable(true)]
 		public event EventHandler<GlControlEventArgs> Render;
 
 		/// <summary>
@@ -294,7 +362,7 @@ namespace OpenGL
 		/// </summary>
 		protected virtual void OnRender()
 		{
-			if (Render != null)
+			if (Render != null && _RenderContext != IntPtr.Zero)
 				Render(this, new GlControlEventArgs(_DeviceContext, _RenderContext));
 		}
 
@@ -326,30 +394,14 @@ namespace OpenGL
 		{
 			if (DesignMode == false) {
 				try {
-					// Create device context
-					_DeviceContext = DeviceContextFactory.Create(this);
-					// Set pixel format
-					DevicePixelFormat controlReqFormat = new DevicePixelFormat();
-					controlReqFormat.ColorBits = (int)ColorBits;
-					controlReqFormat.DepthBits = (int)DepthBits;
-					controlReqFormat.StencilBits = (int)StencilBits;
-					controlReqFormat.MultisampleBits = (int)MultisampleBits;
-					controlReqFormat.DoubleBuffer = DoubleBuffer;
+					// Create device/render context
+					CreateDeviceContext();
+					CreateContext();
 
-					DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
-					List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
+					// The context is made current unconditionally: it will be current also on OnPaint, avoiding
+					// rendundant calls to glMakeCurrent ini nominal implementations
+					MakeCurrentContext();
 
-					if (matchingPixelFormats.Count == 0)
-						throw new InvalidOperationException("unable to find a suitable pixel format");
-
-					_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
-
-					// Create OpenGL context
-					if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-						throw new InvalidOperationException("unable to create render context");
-					// Make context current
-					if (_DeviceContext.MakeCurrent(_RenderContext) == false)
-						throw new InvalidOperationException("unable to make current render context");
 					// Event handling
 					OnContextCreated();
 				} catch (Exception exception) {
@@ -373,10 +425,11 @@ namespace OpenGL
 					// Event handling
 					OnContextDestroying();
 					// Destroy context
-					_DeviceContext.DeleteContext(_RenderContext);
+					DeleteContext();
 				}
 				// Destroy device context
-				_DeviceContext.Dispose();
+				_DeviceContext.DecRef();
+				_DeviceContext = null;
 			}
 			// Base implementation
 			base.OnHandleDestroyed(e);
@@ -391,7 +444,7 @@ namespace OpenGL
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			if (DesignMode == false) {
-				if (_RenderContext != IntPtr.Zero) {
+				if (_FailureException == null) {
 					try {
 						// Event handling
 						OnRender();

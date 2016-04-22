@@ -45,11 +45,11 @@ namespace OpenGL
 		/// <summary>
 		/// In the case the limit is composed by an array, this property specify the array length.
 		/// </summary>
-		public uint ArrayLenght { get { return (mArrayLength); } set { mArrayLength = value; } }
+		public uint ArrayLenght { get { return (_ArrayLength); } set { _ArrayLength = value; } }
 
 		/// <summary>
 		/// In the case the limit is composed by an array, this field specify the array length.
 		/// </summary>
-		private uint mArrayLength = 0;
+		private uint _ArrayLength;
 	}
 }
