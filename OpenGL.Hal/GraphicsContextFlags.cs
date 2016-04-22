@@ -15,6 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.ComponentModel;
+using System.Drawing.Design;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace OpenGL
 {
@@ -99,6 +103,75 @@ namespace OpenGL
 		/// - WGL_ARB_create_context_profile and WGL_EXT_create_context_es_profile/WGL_EXT_create_context_es2_profile
 		/// </remarks>
 		EmbeddedProfile =		0x0400
+
+		#endregion
+	}
+
+	/// <summary>
+	/// The <see cref="UITypeEditor"/> for editing <see cref="GraphicsContextFlags"/> on designer.
+	/// </summary>
+	internal class GraphicsContextFlagsEditor : UITypeEditor
+	{
+		#region UITypeEditor Overrides
+
+		public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+		{
+			return (UITypeEditorEditStyle.DropDown);
+		}
+
+		public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+		{
+			IWindowsFormsEditorService editorService = null;
+			if (provider != null)
+				editorService = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
+
+			if (editorService != null) {
+				UserControl userControl = new UserControl();
+
+				userControl.BackColor = System.Drawing.SystemColors.Window;
+
+				// Button
+				Button button = new Button();
+
+				button.Dock = DockStyle.Bottom;
+				button.Text = "OK";
+				button.Click += delegate (object sender, EventArgs e) {
+					editorService.CloseDropDown();
+				};
+
+				userControl.Controls.Add(button);
+
+				// CheckedListBox
+				CheckedListBox checkedListBox = new CheckedListBox();
+				GraphicsContextFlags currentValue = (GraphicsContextFlags)value;
+
+				checkedListBox.CheckOnClick = true;
+				checkedListBox.Dock = DockStyle.Fill;
+				foreach (GraphicsContextFlags flag in Enum.GetValues(typeof(GraphicsContextFlags)))
+					checkedListBox.Items.Add(flag, (currentValue & flag) != 0);
+
+				checkedListBox.ItemCheck += delegate (object sender, ItemCheckEventArgs e) {
+					GraphicsContextFlags checkedValue = (GraphicsContextFlags)checkedListBox.Items[e.Index];
+
+					// Update current value
+					switch (e.NewValue) {
+						case CheckState.Checked:
+							currentValue |= checkedValue;
+							value = currentValue;
+							break;
+						case CheckState.Unchecked:
+							currentValue &= ~checkedValue;
+							value = currentValue;
+							break;
+					}
+				};
+				userControl.Controls.Add(checkedListBox);
+
+				editorService.DropDownControl(userControl);
+			}
+
+			return (value);
+		}
 
 		#endregion
 	}

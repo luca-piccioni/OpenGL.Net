@@ -18,34 +18,21 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
 	/// <summary>
-	/// Control able to render using OpenGL.
+	/// Basic <see cref="GlControl"/> for rendering.
 	/// </summary>
-	public partial class GraphicsControl : UserControl
+	public partial class GraphicsControl : GlControl, IGraphicsSurface
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a RenderControl.
+		/// Construct a GraphicsControl.
 		/// </summary>
 		public GraphicsControl()
 		{
-			// No need to erase window background
-			SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-			// No need to draw window background
-			SetStyle(ControlStyles.Opaque, true);
-			// Buffer control
-			SetStyle(ControlStyles.DoubleBuffer, false);
-			// Redraw window on resize
-			SetStyle(ControlStyles.ResizeRedraw, false);
-			// Painting handled by user
-			SetStyle(ControlStyles.UserPaint, true);
-
 			InitializeComponent();
 		}
 
@@ -59,6 +46,7 @@ namespace OpenGL
 		[Browsable(true)]
 		[Description("The graphics context flags.")]
 		[DefaultValue(GraphicsContextFlags.None)]
+		[Editor(typeof(GraphicsContextFlagsEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		public GraphicsContextFlags ContextFlags
 		{
 			get { return (_ContextFlags); }
@@ -70,195 +58,65 @@ namespace OpenGL
 		/// </summary>
 		private GraphicsContextFlags _ContextFlags = GraphicsContextFlags.None;
 
-		/// <summary>
-		/// OpenGL color buffer format, using <see cref="PixelLayout"/> notation.
-		/// </summary>
-		[Browsable(true)]
-		[Description("The type of the color buffer.")]
-		[DefaultValue(PixelLayout.RGB24)]
-		public PixelLayout ColorFormat
-		{
-			get { return (_SurfaceFormat.ColorType); }
-			set { _SurfaceFormat.ColorType = value; }
-		}
-
-		/// <summary>
-		/// OpenGL depth buffer bits.
-		/// </summary>
-		[Browsable(true)]
-		[Description("Number of bits of the depth buffer.")]
-		[DefaultValue(24)]
-		public uint DepthBits
-		{
-			get { return (_SurfaceFormat.DepthBits); }
-			set { _SurfaceFormat.DepthBits = value; }
-		}
-
-		/// <summary>
-		/// OpenGL stencil buffer bits.
-		/// </summary>
-		[Browsable(true)]
-		[Description("Number of bits of the stencil buffer.")]
-		[DefaultValue(0)]
-		public uint StencilBits
-		{
-			get { return (_SurfaceFormat.StencilBits); }
-			set { _SurfaceFormat.StencilBits = value; }
-		}
-
-		/// <summary>
-		/// OpenGL multisample buffer "bits".
-		/// </summary>
-		[Browsable(true)]
-		[Description("Number of bits of the multisample buffer.")]
-		[DefaultValue(0)]
-		public uint MultisampleBits
-		{
-			get { return (_SurfaceFormat.MultisampleBits); }
-			set { _SurfaceFormat.MultisampleBits = value; }
-		}
-
-		/// <summary>
-		/// OpenGL double buffering flag.
-		/// </summary>
-		[Browsable(true)]
-		[Description("Flag indicating whether double buffering is enabled.")]
-		[DefaultValue(true)]
-		public bool DoubleBuffer
-		{
-			get { return (_SurfaceFormat.DoubleBuffers); }
-			set { _SurfaceFormat.DoubleBuffers = value; }
-		}
-		
-		/// <summary>
-		/// OpenGL swap buffers interval.
-		/// </summary>
-		[Browsable(true)]
-		[Description("Integer specifing the minimum number of video frames that are displayed before a buffer swap will occur.")]
-		[DefaultValue(1)]
-		public int SwapInterval
-		{
-			get { return (_SwapInterval); }
-			set { _SwapInterval = value; }
-		}
-
-		/// <summary>
-		/// The surface format used for creating OpenGL visual.
-		/// </summary>
-		private readonly GraphicsBuffersFormat _SurfaceFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
-
 		#endregion
 
 		#region Graphics Context
-		
+
 		/// <summary>
 		/// The render context used for rendering on this UserControl.
 		/// </summary>
-		public GraphicsContext Context { get { return (_RenderContext); } }
-		
+		private GraphicsContext _GraphicsContext;
+
+		#endregion
+
+		#region Events
+
 		/// <summary>
-		/// Event raised on control paint time, when a <see cref="GraphicsContext"/> is current.
+		/// Event raised on control creation time, allow user to allocate resource on control.
 		/// </summary>
-		[Browsable(true)]
 		public event EventHandler<GraphicsControlEventArgs> GraphicsContextCreated;
 
 		/// <summary>
-		/// Method for raising <see cref="GraphicsContextCreated"/>
+		/// Raise the event <see cref="GraphicsContextCreated"/>.
 		/// </summary>
-		/// <param name="args">
-		/// The <see cref="GraphicsControlEventArgs"/> that specify the event arguments.
-		/// </param>
-		protected void RaiseGraphicsContextCreated(GraphicsControlEventArgs args)
+		protected virtual void OnGraphicsContextCreated()
 		{
 			if (GraphicsContextCreated != null) {
-				try {
-					GraphicsContextCreated(this, args);
-				} catch (Exception exception) {
-#if DEBUG
-					System.Diagnostics.Debugger.Break();
-#endif
-					sLog.Error("Unable to create resources.", exception);
-				}
+				MakeCurrentContext();
+				GraphicsContextCreated(this, new GraphicsControlEventArgs(_GraphicsContext, this));
 			}
 		}
 
 		/// <summary>
-		/// Event raised on control paint time, when a <see cref="GraphicsContext"/> is current.
+		/// Event raised on control disposition time, allow user to dispose resources on control.
 		/// </summary>
-		[Browsable(true)]
-		public event EventHandler<GraphicsControlEventArgs> GraphicsContextDestroyed;
+		public event EventHandler<GraphicsControlEventArgs> GraphicsContextDestroying;
 
 		/// <summary>
-		/// Method for raising <see cref="GraphicsContextDestroyed"/>
+		/// Raise the event <see cref="GraphicsContextDestroying"/>.
 		/// </summary>
-		/// <param name="args">
-		/// The <see cref="GraphicsControlEventArgs"/> that specify the event arguments.
-		/// </param>
-		protected void RaiseGraphicsContextDestroyed(GraphicsControlEventArgs args)
+		protected void OnGraphicsContextDestroying()
 		{
-			if (GraphicsContextDestroyed != null)
-				GraphicsContextDestroyed(this, args);
+			if (GraphicsContextDestroying != null)
+				GraphicsContextDestroying(this, new GraphicsControlEventArgs(_GraphicsContext, this));
 		}
 
 		/// <summary>
-		/// A RenderWindow (bound to this UserControl) used for instancing a render context.
+		/// Event raised on control render time, allow user to draw on control.
 		/// </summary>
-		private GraphicsWindow _RenderWindow;
+		public event EventHandler<GraphicsControlEventArgs> Draw;
 
 		/// <summary>
-		/// The swap interval.
+		/// Raise the event <see cref="Draw"/>.
 		/// </summary>
-		private int _SwapInterval = 1;
-
-		/// <summary>
-		/// The render context used for rendering on this UserControl.
-		/// </summary>
-		private GraphicsContext _RenderContext;
-
-		#endregion
-
-		#region Control Rendering
-
-		/// <summary>
-		/// Event raised on control paint time, when a <see cref="GraphicsContext"/> is current.
-		/// </summary>
-		[Browsable(true)]
-		public event EventHandler<GraphicsControlEventArgs> Render;
-
-		/// <summary>
-		/// Method for raising <see cref="Render"/>
-		/// </summary>
-		/// <param name="args">
-		/// The <see cref="GraphicsControlEventArgs"/> that specify the event arguments.
-		/// </param>
-		protected void RaiseRenderEvent(GraphicsControlEventArgs args)
+		protected virtual void OnDraw()
 		{
-			if (Render != null) {
-				try {
-					Render(this, args);
-				} catch (Exception exception) {
-#if DEBUG
-					System.Diagnostics.Debugger.Break();
-#endif
-					sLog.Error("RenderControl.Render exception caught", exception);
-				}
-			}
-				
-		}
-
-		/// <summary>
-		/// Render on this UserControl.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for rendering this UserControl.
-		/// </param>
-		protected virtual void RenderThis(GraphicsContext ctx)
-		{
-			
+			if (Draw != null)
+				Draw(this, new GraphicsControlEventArgs(_GraphicsContext, this));
 		}
 
 		#endregion
-		
+
 		#region Logging
 
 		/// <summary>
@@ -268,166 +126,91 @@ namespace OpenGL
 
 		#endregion
 
-		#region UserControl Overrides
+		#region GlControl Overrides
 
 		/// <summary>
-		/// Creates a handle for the control.
+		/// Create the GlControl context.
 		/// </summary>
-		protected override void CreateHandle()
+		protected override void CreateContext()
 		{
-			// Create the render window
-			_RenderWindow = new GraphicsWindow(this);
-			_RenderWindow.Width = (uint)base.ClientSize.Width;
-			_RenderWindow.Height = (uint)base.ClientSize.Height;
-			// Set pixel format
-			_RenderWindow._SurfaceFormat = _SurfaceFormat;
-			// OVerride default swap interval
-			_RenderWindow.SwapInterval = SwapInterval;
+			if (_GraphicsContext != null)
+				throw new InvalidOperationException("context already created");
 
-			// "Select" device pixel format before creating control handle
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Unix:
-					_RenderWindow.PreCreateObjectX11(_SurfaceFormat);
-					break;
-			}
+			// Create OpenGL context
+			_GraphicsContext = new GraphicsContext(_DeviceContext, null, null, _ContextFlags);
+			// Emulates GlControl behaviour
+			_RenderContext = _GraphicsContext.Handle;
+		}
+
+		/// <summary>
+		/// Make the GlControl context current.
+		/// </summary>
+		protected override void MakeCurrentContext()
+		{
+			// Make context current
+			_GraphicsContext.MakeCurrent(true);
+		}
+
+		/// <summary>
+		/// Delete the GlControl context.
+		/// </summary>
+		protected override void DeleteContext()
+		{
+			// Event handling
+			OnGraphicsContextDestroying();
+			// Delete OpenGL context
+			_GraphicsContext.Dispose();
+			_GraphicsContext = null;
+			// Emulates GlControl behaviour
+			_RenderContext = IntPtr.Zero;
+		}
+
+		/// <summary>
+		/// Raise the event <see cref="ContextCreated"/>.
+		/// </summary>
+		protected override void OnContextCreated()
+		{
+			// Own event arguments
+			OnGraphicsContextCreated();
 			// Base implementation
-			base.CreateHandle();
+			base.OnContextCreated();
 		}
-		
+
 		/// <summary>
-		/// Raises the <see cref="E:System.Windows.Forms.Control.HandleCreated"/> event.
+		/// Raise the event <see cref="ContextDestroying"/>.
 		/// </summary>
-		/// <param name="e">
-		/// An <see cref="T:System.EventArgs"/> that contains the event data.
-		/// </param>
-		protected override void OnHandleCreated(EventArgs e)
+		protected override void OnContextDestroying()
 		{
-			if (DesignMode == false) {
-				// Finalize control handle creation
-				// - WGL: SetPixelFormat
-				// - GLX: store FBConfig and XVisualInfo selected in CreateHandle()
-				// ...
-				// - Setup swap interval, if supported
-				_RenderWindow.Create((GraphicsContext)null);
-				// Create the render context (before event handling)
-				_RenderContext = new GraphicsContext(_RenderWindow.GetDeviceContext(), null, null, _ContextFlags);
-			}
+			// Own event arguments
+			OnGraphicsContextDestroying();
 			// Base implementation
-			base.OnHandleCreated(e);
-			// Raise CreateContext event
-			if (DesignMode == false) {
-				// It should remains current on the current UI thread
-				_RenderContext.MakeCurrent(true);
-				RaiseGraphicsContextCreated(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
-			}
+			base.OnContextDestroying();
 		}
 
 		/// <summary>
-		/// Raises the <see cref="E:System.Windows.Forms.Control.HandleDestroyed"/> event.
+		/// Raise the event <see cref="Render"/>.
 		/// </summary>
-		/// <param name="e">
-		/// An <see cref="T:System.EventArgs"/> that contains the event data.
-		/// </param>
-		protected override void OnHandleDestroyed(EventArgs e)
+		protected override void OnRender()
 		{
-			if (DesignMode == false) {
-				if (_RenderContext != null) {
-					// Raise DestroyContext event
-					_RenderContext.MakeCurrent(true);
-					RaiseGraphicsContextDestroyed(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
-					_RenderContext.MakeCurrent(false);
-					// Dispose the renderer context
-					_RenderContext.Dispose();
-					_RenderContext = null;
-				}
-				// Dispose the renderer window
-				if (_RenderWindow != null) {
-					_RenderWindow.Dispose();
-					_RenderWindow = null;
-				}
-			}
+			// Own event arguments
+			OnDraw();
 			// Base implementation
-			base.OnHandleDestroyed(e);
+			base.OnRender();
 		}
 
-		/// <summary>
-		/// Raises the Paint event.
-		/// </summary>
-		/// <param name="e">
-		/// A <see cref="PaintEventArgs"/> that contains the event data.
-		/// </param>
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			if (DesignMode == false) {
-				if (_RenderContext != null) {
-					// Render the UserControl
-					if (_RenderContext.IsCurrent == false)
-						_RenderContext.MakeCurrent(true);
-					// Define viewport
-					Gl.Viewport(0, 0, ClientSize.Width, ClientSize.Height);
-					// Clear
-					_RenderWindow.Clear(_RenderContext);
+		#endregion
 
-					// Derived class implementation
-					RenderThis(_RenderContext);
-					// Render event
-					RaiseRenderEvent(new GraphicsControlEventArgs(_RenderContext, _RenderWindow));
-
-					// Swap buffers if double-buffering
-					_RenderWindow.SwapSurface();
-
-					// Base implementation (overlay GDI graphics)
-					base.OnPaint(e);
-				} else {
-					e.Graphics.DrawLines(_FailurePen, new Point[] {
-						new Point(0, 0), new Point(ClientSize.Width, ClientSize.Height),
-						new Point(0, ClientSize.Height), new Point(ClientSize.Width, 0),
-					});
-
-					// Base implementation
-					base.OnPaint(e);
-				}
-			} else {
-				e.Graphics.Clear(Color.Black);
-				e.Graphics.DrawLines(_DesignPen, new Point[] {
-					new Point(0, 0), new Point(ClientSize.Width, ClientSize.Height),
-					new Point(0, ClientSize.Height), new Point(ClientSize.Width, 0),
-				});
-
-				// Base implementation
-				base.OnPaint(e);
-			}
-		}
-
-		/// <summary> 
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">
-		/// true if managed resources should be disposed; otherwise, false.
-		/// </param>
-		protected override void Dispose(bool disposing)
-		{
-			// Dispose designer components
-			if (disposing && (components != null))
-				components.Dispose();
-
-			// Dispose pens
-			_FailurePen.Dispose();
-			_DesignPen.Dispose();
-
-			// Base implementation
-			base.Dispose(disposing);
-		}
+		#region IGraphicsSurface Implementation
 
 		/// <summary>
-		/// Pen used for drawing in the case of failures.
+		/// The width of the surface, in pixels.
 		/// </summary>
-		private readonly Pen _FailurePen = new Pen(Color.Red, 1.5f);
+		uint IGraphicsSurface.Width { get { return ((uint)ClientSize.Width); } }
 
 		/// <summary>
-		/// Pen used for drawing in the case the UserControl at design time.
+		/// The width of the surface, in pixels.
 		/// </summary>
-		private readonly Pen _DesignPen = new Pen(Color.Green, 1.0f);
+		uint IGraphicsSurface.Height { get { return ((uint)ClientSize.Height); } }
 
 		#endregion
 	}
@@ -446,9 +229,9 @@ namespace OpenGL
 		/// The <see cref="GraphicsContext"/> used for the <see cref="GraphicsControl"/>.
 		/// </param>
 		/// <param name="framebuffer">
-		/// The <see cref="GraphicsSurface"/> displaying the rendering result.
+		/// The <see cref="IGraphicsSurface"/> holding the drawing operation result.
 		/// </param>
-		public GraphicsControlEventArgs(GraphicsContext ctx, GraphicsSurface framebuffer)
+		public GraphicsControlEventArgs(GraphicsContext ctx, IGraphicsSurface framebuffer)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -464,14 +247,14 @@ namespace OpenGL
 		#region Event Arguments
 
 		/// <summary>
-		/// The render context used for rendering.
+		/// The graphics context used for rendering.
 		/// </summary>
 		public readonly GraphicsContext Context;
 
 		/// <summary>
 		/// The actual surface used for rendering.
 		/// </summary>
-		public readonly GraphicsSurface Framebuffer;
+		public readonly IGraphicsSurface Framebuffer;
 
 		#endregion
 	}

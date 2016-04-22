@@ -133,6 +133,7 @@
     <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
     <Compile Include="IGraphicsResource.Extensions.cs" />
+    <Compile Include="IGraphicsSurface.cs" />
     <Compile Include="ImageCodecPlugin.cs" />
     <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="MediaCodecPlugin.cs" />
