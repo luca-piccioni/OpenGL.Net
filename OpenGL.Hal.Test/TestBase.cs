@@ -106,7 +106,7 @@ namespace OpenGL.Hal.Test
 		/// <summary>
 		/// The device context.
 		/// </summary>
-		protected GraphicsWindow _Window;
+		protected IGraphicsSurface _Window;
 
 		/// <summary>
 		/// The graphics context.

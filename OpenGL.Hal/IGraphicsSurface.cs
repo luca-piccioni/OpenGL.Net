@@ -16,12 +16,14 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
+
 namespace OpenGL
 {
 	/// <summary>
 	/// Graphics surface interface.
 	/// </summary>
-	public interface IGraphicsSurface
+	public interface IGraphicsSurface : IDisposable
 	{
 		#region Viewport
 

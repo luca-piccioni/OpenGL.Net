@@ -35,7 +35,7 @@ namespace OpenGL
 	/// formats for data storage. 
 	/// </para>
 	/// </remarks>
-	public abstract class GraphicsSurface : GraphicsResource
+	public abstract class GraphicsSurface : GraphicsResource, IGraphicsSurface
 	{
 		#region Constructors
 
@@ -484,6 +484,20 @@ namespace OpenGL
 			// Reset read configuration
 			Gl.ReadBuffer(Gl.NONE);
 		}
+
+		#endregion
+
+		#region IGraphicsSurface Implementation
+
+		/// <summary>
+		/// The width of the surface, in pixels.
+		/// </summary>
+		uint IGraphicsSurface.Width { get { return (_Width); } }
+
+		/// <summary>
+		/// The width of the surface, in pixels.
+		/// </summary>
+		uint IGraphicsSurface.Height { get { return (_Height); } }
 
 		#endregion
 	}

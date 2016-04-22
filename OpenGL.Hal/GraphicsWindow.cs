@@ -32,7 +32,7 @@ namespace OpenGL
 	/// of some rendering operation.
 	/// </para>
 	/// </remarks>
-	class GraphicsWindow : GraphicsSurface
+	public class GraphicsWindow : GraphicsSurface
 	{
 		#region Constructors
 

@@ -46,3 +46,5 @@ packages
 /OpenGL.Net.Test/*.user
 /Samples/HelloTriangle/bin
 /Samples/HelloTriangle/obj
+/Samples/HelloTriangle.Hal/obj
+/Samples/HelloTriangle.Hal/bin
