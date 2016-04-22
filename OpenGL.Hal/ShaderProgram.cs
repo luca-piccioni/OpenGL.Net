@@ -30,13 +30,6 @@ namespace OpenGL
 	/// <summary>
 	/// Shader program.
 	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// ShaderProgram automatically determine the text of the program using the
-	/// shader objects attached (and their dependencies). The text shall be compiled
-	/// and then linked all toghether to obtain an effective ShaderProgram instance.
-	/// </para>
-	/// </remarks>
 	public partial class ShaderProgram : GraphicsResource, IBindingResource
 	{
 		#region Constructors
@@ -533,7 +526,7 @@ namespace OpenGL
 		/// <summary>
 		/// Validate this shader program.
 		/// </summary>
-		/// <exception cref="Exception">
+		/// <exception cref="InvalidOperationException">
 		/// Throw an Exception in the case the validation has failed.
 		/// </exception>
 		[Conditional("DEBUG")]

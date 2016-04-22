@@ -281,7 +281,7 @@ namespace OpenGL
 			string[] shaderSourceStrings = _SourceStrings.ToArray();
 
 			if (_SourcePath != null)
-				sLog.Debug("Generate shader source for '{0}'.", _SourcePath);
+				_Log.Debug("Generate shader source for '{0}'.", _SourcePath);
 
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
@@ -293,9 +293,8 @@ namespace OpenGL
 
 			// Append required #define statments
 			if (cctx.Defines != null) {
-				foreach (string def in cctx.Defines) {
+				foreach (string def in cctx.Defines)
 					shaderSource.Add(String.Format("#define {0}\n", def));
-				}
 			}
 
 			// Append specific source for composing shader essence
@@ -304,17 +303,17 @@ namespace OpenGL
 			// Log shader source
 			uint sourcelineNo;
 
-			sLog.Verbose("Original source code for shader '{0}' (comments hidden).", _SourcePath);
-			sLog.Verbose("--------------------------------------------------------------------------------");
+			_Log.Verbose("Original source code for shader '{0}' (comments hidden).", _SourcePath);
+			_Log.Verbose("--------------------------------------------------------------------------------");
 			sourcelineNo = 0;
 			foreach (string sourceline in shaderSource) {
 				++sourcelineNo;
 
 				if (ShaderSourcePreprocessor.IsCommentLine(sourceline))
 					continue;
-				sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
+				_Log.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
 			}
-			sLog.Verbose("--------------------------------------------------------------------------------");
+			_Log.Verbose("--------------------------------------------------------------------------------");
 
 			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
 			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == false)
@@ -323,12 +322,12 @@ namespace OpenGL
 			// Remove comment lines
 			shaderSource.RemoveAll(delegate(string item) { return (ShaderSourcePreprocessor.IsCommentLine(item)); });
 
-			sLog.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", _SourcePath);
-			sLog.Verbose("--------------------------------------------------------------------------------");
+			_Log.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", _SourcePath);
+			_Log.Verbose("--------------------------------------------------------------------------------");
 			sourcelineNo = 0;
 			foreach (string sourceline in shaderSource)
-				sLog.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
-			sLog.Verbose("--------------------------------------------------------------------------------");
+				_Log.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
+			_Log.Verbose("--------------------------------------------------------------------------------");
 
 			return (shaderSource);
 		}
@@ -472,7 +471,7 @@ namespace OpenGL
 		/// </summary>
 		private readonly Dictionary<string, ShaderExtension> _Extensions = new Dictionary<string, ShaderExtension>();
 		
-#endregion
+		#endregion
 
 		#region Source Code Compilation
 		
@@ -620,7 +619,7 @@ namespace OpenGL
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
-		private static readonly ILogger sLog = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+		private static readonly ILogger _Log = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 
@@ -716,7 +715,7 @@ namespace OpenGL
 			// instance and the attached ShaderObject instances
 			ShaderCompilerContext cctx = new ShaderCompilerContext(_CompilationParams);
 
-			sLog.Debug("Compilation of shader object '{0}'.", _SourcePath);
+			_Log.Debug("Compilation of shader object '{0}'.", _SourcePath);
 
 			List<string> source = GenerateSource(ctx, cctx);        // Source generation!
 
@@ -744,22 +743,22 @@ namespace OpenGL
 				StringBuilder sb = GetInfoLog();
 
 				// Stop compilation process
-				sLog.Error("Shader object \"{0}\" compilation failed:\n{1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
+				_Log.Error("Shader object \"{0}\" compilation failed:\n{1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
 
 				// Log the source code referred to the shader log
-				sLog.Error("Source code for shader '{0}' that has generated the compiler error.", _SourcePath);
-				sLog.Error("--------------------------------------------------------------------------------");
+				_Log.Error("Source code for shader '{0}' that has generated the compiler error.", _SourcePath);
+				_Log.Error("--------------------------------------------------------------------------------");
 				uint sourcelineNo = 0;
 				foreach (string sourceline in source)
-					sLog.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
-				sLog.Error("--------------------------------------------------------------------------------");
+					_Log.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
+				_Log.Error("--------------------------------------------------------------------------------");
 
 				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", _SourcePath, sb.ToString());
 			} else {
 				StringBuilder sb = GetInfoLog();
 
 				if (sb.Length > 0)
-					sLog.Warn("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
+					_Log.Warn("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
 			}
 
 			_Compiled = true;

@@ -718,6 +718,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (sbyte coordinates).
 	/// </summary>
@@ -1428,6 +1429,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (ushort coordinates).
 	/// </summary>
@@ -2124,6 +2126,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (short coordinates).
 	/// </summary>
@@ -2834,6 +2837,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (uint coordinates).
 	/// </summary>
@@ -3530,6 +3534,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (int coordinates).
 	/// </summary>
@@ -4240,6 +4245,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (float coordinates).
 	/// </summary>
@@ -4876,6 +4882,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (double coordinates).
 	/// </summary>
@@ -5512,6 +5519,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 	/// <summary>
 	/// Vertex value type (HalfFloat coordinates).
 	/// </summary>
@@ -6132,4 +6140,5 @@ namespace OpenGL
 
 		#endregion
 	}
+
 }

@@ -49,6 +49,10 @@ void main()
 {
 	// Compute transformed vertex position
 	gl_Position = hal_ModelViewProjection * hal_Position;
+	// Vertex color "as is"
+	hal_VertexColor = hal_Color;
+	// Position is required for lighting
+	hal_VertexPosition = hal_ModelView * hal_Position;
 	// Normal is required for lighting
 	hal_VertexNormal = hal_NormalMatrix * normalize(hal_Normal);
 	// Normal (model) is required for environment mapping
@@ -70,18 +74,6 @@ void main()
 
 	// Vertex color
 	hal_VertexColor = ComputeLightShading(fragmentMaterial, hal_ModelView * hal_Position, hal_NormalMatrix * normalize(ds_Normal));
-
-#elif defined(HAL_LIGHTING_PER_FRAGMENT)
-
-	// Position is required for lighting
-	hal_VertexPosition = hal_ModelView * hal_Position;
-	// Vertex color "as is"
-	hal_VertexColor = hal_Color;
-
-#elif defined(HAL_COLOR_PER_VERTEX)
-
-	// Vertex color "as is"
-	hal_VertexColor = hal_Color;
 
 #endif
 }

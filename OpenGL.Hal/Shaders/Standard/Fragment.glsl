@@ -32,18 +32,16 @@ uniform int hal_TransparentTexCoord = -1;
 // Trasparency factor for modulating destination blend factor texture fragment
 uniform float hal_Transparency = 1.0;
 
-BEGIN_INPUT_BLOCK(hal_PerVertex)
-	// Fragment color
-	SHADER_IN vec4 hal_VertexColor;
-	// Fragment vertex position (model space)
-	SHADER_IN vec4 hal_VertexPosition;
-	// Fragment normal (view space)
-	SHADER_IN vec3 hal_VertexNormal;
-	// Fragment normal (model space)
-	SHADER_IN vec3 hal_VertexNormalModel;
-	// Fragment texture coordinates
-	SHADER_IN vec2 hal_VertexTexCoord[3];
-END_INPUT_BLOCK()
+// Fragment color
+SHADER_IN vec4 hal_VertexColor;
+// Fragment vertex position (model space)
+SHADER_IN vec4 hal_VertexPosition;
+// Fragment normal (view space)
+SHADER_IN vec3 hal_VertexNormal;
+// Fragment normal (model space)
+SHADER_IN vec3 hal_VertexNormalModel;
+// Fragment texture coordinates
+SHADER_IN vec2 hal_VertexTexCoord[3];
 
 // Fragment color
 OUT vec4		hal_FragColor;

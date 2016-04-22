@@ -72,6 +72,18 @@
 			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="Fragment" />
 			<Attribute Name="hal_Position" Semantic="Position" />
 		</Program>
+
+		<!-- Standard+Color -->
+		<Program Id="OpenGL.Standard+Color">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="Fragment">
+				<Symbols>
+					<Symbol>HAL_COLOR_PER_VERTEX</Symbol>
+				</Symbols>
+			</Object>
+			<Attribute Name="hal_Position" Semantic="Position" />
+			<Attribute Name="hal_Color" Semantic="Color" />
+		</Program>
 		
 		<!-- Line -->
 		<Program Id="OpenGL.Line">
