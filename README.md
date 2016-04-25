@@ -82,3 +82,5 @@ private void RenderControl_ContextDestroying(object sender, GlControlEventArgs e
     // Here you can dispose resources allocated in RenderControl_ContextCreated
 }
 ```
+
+The GlControl implementation allow to control the OpenGL context attributes, in the case the driver implements OpenGL 3.1 or *WGL_ARB_create_context* extension is supported; this will allow you to set a specific OpenGL version, debug and forwward compatibility flags; moreover, if *WGL_ARB_create_context_profile* extension is supported, it is possible to request a specific OpenGL profile to be implemented.
