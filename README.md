@@ -47,40 +47,12 @@ Open the [Package Manager Console](https://docs.nuget.org/consume/package-manage
 
 or just download the [nuget binary package](https://www.nuget.org/packages/OpenGL.Net/)
 
-# Using the Forms control
+# Documentation
 
-OpenGL.Net comes with a *System.Windows.Forms* control that allow to draw using OpenGL.Net without much hassle. You need to just design the control instance in you application, and handle the relevant events to manage the drawing operations.
+- Project [introduction](https://github.com/luca-piccioni/OpenGL.Net/wiki)
+- Using the [OpenGL.GlControl](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL.GlControl)
+- [Procedures and extensions query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Procedures-and-extensions-query)
+- [Update OpenGL bindings](https://github.com/luca-piccioni/OpenGL.Net/wiki/Generate-an-updated-OpenGL.Net-(API-update)) from Khronos registry
 
-```C#
-private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
-{
-	// Here you can allocate resources or initialize state
-    Gl.MatrixMode(MatrixMode.Projection);
-    Gl.LoadIdentity();
-    Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
 
-    Gl.MatrixMode(MatrixMode.Modelview);
-    Gl.LoadIdentity();
-}
 
-private void RenderControl_Render(object sender, GlControlEventArgs e)
-{
-    Control senderControl = (Control)sender;
-
-	Gl.Viewport(0, 0, senderControl.ClientSize.Width, senderControl.ClientSize.Height);
-	Gl.Clear(ClearBufferMask.ColorBufferBit);
-
-	Gl.Begin(PrimitiveType.Triangles);
-	Gl.Color3(1.0f, 0.0f, 0.0f); Gl.Vertex2(0.0f, 0.0f);
-	Gl.Color3(0.0f, 1.0f, 0.0f); Gl.Vertex2(0.5f, 1.0f);
-	Gl.Color3(0.0f, 0.0f, 1.0f); Gl.Vertex2(1.0f, 0.0f);
-	Gl.End();
-}
-
-private void RenderControl_ContextDestroying(object sender, GlControlEventArgs e)
-{
-    // Here you can dispose resources allocated in RenderControl_ContextCreated
-}
-```
-
-The GlControl implementation allow to control the OpenGL context attributes, in the case the driver implements OpenGL 3.1 or *WGL_ARB_create_context* extension is supported; this will allow you to set a specific OpenGL version, debug and forwward compatibility flags; moreover, if *WGL_ARB_create_context_profile* extension is supported, it is possible to request a specific OpenGL profile to be implemented.
