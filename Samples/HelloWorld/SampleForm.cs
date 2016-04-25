@@ -37,7 +37,7 @@ namespace HelloNewton
 		private void SampleGraphicsControl_GraphicsContextCreated(object sender, GraphicsControlEventArgs e)
 		{
 			GraphicsContext ctx = e.Context;
-			GraphicsSurface framebuffer = e.Framebuffer;
+			IGraphicsSurface framebuffer = e.Framebuffer;
 
 #if DEBUG
 			_GeometryClipmapObject = new GeometryClipmapObject(9, 7, _BlockUnit);
@@ -62,13 +62,13 @@ namespace HelloNewton
 			);;
 
 			// Clear color
-			framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
+			// framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
 		}
 
 		private void SampleGraphicsControl_Render(object sender, GraphicsControlEventArgs e)
 		{
 			GraphicsContext ctx = e.Context;
-			GraphicsSurface framebuffer = e.Framebuffer;
+			IGraphicsSurface framebuffer = e.Framebuffer;
 
 			// Update position
 			KeyTimer_Tick();

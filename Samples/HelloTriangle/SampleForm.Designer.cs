@@ -43,6 +43,7 @@
 			this.RenderControl.StencilBits = ((uint)(0u));
 			this.RenderControl.TabIndex = 0;
 			this.RenderControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextCreated);
+			this.RenderControl.ContextDestroying += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextDestroying);
 			this.RenderControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_Render);
 			// 
 			// SampleForm

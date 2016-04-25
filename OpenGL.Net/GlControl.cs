@@ -19,7 +19,9 @@
 using System;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Text;
 using System.Windows.Forms;
 
@@ -61,12 +63,150 @@ namespace OpenGL
 
 		#endregion
 
-		#region Design Properties
+		#region Design Properties - Context Attributes
 
 		/// <summary>
-		/// Get or set the OpenGL color buffer bits.
+		/// Get or set the version to be requested to the OpenGL driver.
 		/// </summary>
 		[Browsable(true)]
+		[Category("Context")]
+		[Description("The version to be implemented by the context created by this GlControl. If null, a compatibility profile is created.")]
+		[DefaultValue(null)]
+		[TypeConverter(typeof(KhronosVersionConverter))]
+		public KhronosVersion Version
+		{
+			get { return (_Version); }
+			set { _Version = value; }
+		}
+
+		/// <summary>
+		/// Version to be requested to the OpenGL driver.
+		/// </summary>
+		private KhronosVersion _Version;
+
+		/// <summary>
+		/// Profile permission.
+		/// </summary>
+		public enum ProfileType
+		{
+			/// <summary>
+			/// Requires the core profile
+			/// </summary>
+			Core,
+
+			/// <summary>
+			/// Requires the compatibility profile.
+			/// </summary>
+			Compatibility,
+		}
+
+		/// <summary>
+		/// Get or set the permission to create a debug context.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Context")]
+		[Description("The actual context profile implemented.")]
+		[DefaultValue(ProfileType.Compatibility)]
+		public ProfileType ContextProfile
+		{
+			get { return (_ProfileType); }
+			set { _ProfileType = value; }
+		}
+
+		/// <summary>
+		/// The permission to create a debug context.
+		/// </summary>
+		private ProfileType _ProfileType = ProfileType.Compatibility;
+
+		/// <summary>
+		/// Attribute permission.
+		/// </summary>
+		public enum AttributePermission
+		{
+			/// <summary>
+			/// Requires the attribute. Throw an error is not supported.
+			/// </summary>
+			Required,
+
+			/// <summary>
+			/// Enable the attribute to be set, if supported.
+			/// </summary>
+			Enabled,
+
+			/// <summary>
+			/// Requires the attrbute to be set, but only when a debugger is attached.
+			/// </summary>
+			EnabledInDebugger,
+
+			/// <summary>
+			/// Do not specify the attribute.
+			/// </summary>
+			DonCare
+		}
+
+		/// <summary>
+		/// Get or set the permission to create a debug context.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Context")]
+		[Description("Permission to create a debug context.")]
+		[DefaultValue(AttributePermission.EnabledInDebugger)]
+		public AttributePermission DebugContext
+		{
+			get { return (_DebugContextBit); }
+			set { _DebugContextBit = value; }
+		}
+
+		/// <summary>
+		/// The permission to create a debug context.
+		/// </summary>
+		private AttributePermission _DebugContextBit = AttributePermission.EnabledInDebugger;
+
+		/// <summary>
+		/// Get or set the permission to create a forward compatible context.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Context")]
+		[Description("Permission to create a forward compatible context.")]
+		[DefaultValue(AttributePermission.DonCare)]
+		public AttributePermission ForwardCompatibleContext
+		{
+			get { return (_ForwardCompatibleContextBit); }
+			set { _ForwardCompatibleContextBit = value; }
+		}
+
+		/// <summary>
+		/// The permission to create a debug context.
+		/// </summary>
+		private AttributePermission _ForwardCompatibleContextBit = AttributePermission.DonCare;
+
+		/// <summary>
+		/// Get or set the permission to create a context with the compatibility profile.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Context")]
+		[Description("Permission to create a context with the compatibility profile.")]
+		[DefaultValue(AttributePermission.DonCare)]
+		public AttributePermission RobustContext
+		{
+			get { return (_RobustContextBit); }
+			set { _RobustContextBit = value; }
+		}
+
+		/// <summary>
+		/// The permission to create a robust context.
+		/// </summary>
+		private AttributePermission _RobustContextBit = AttributePermission.DonCare;
+
+		#endregion
+
+		#region Design Properties - Framebuffer
+
+		/// <summary>
+		/// Get or set the OpenGL minimum color buffer bits.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Framebuffer")]
 		[Description("Number of bits of the color buffer.")]
 		[DefaultValue(24)]
 		public uint ColorBits
@@ -81,9 +221,10 @@ namespace OpenGL
 		private uint _ColorBits = 24;
 
 		/// <summary>
-		/// Get or set the OpenGL depth buffer bits.
+		/// Get or set the OpenGL minimum depth buffer bits.
 		/// </summary>
 		[Browsable(true)]
+		[Category("Framebuffer")]
 		[Description("Number of bits of the depth buffer.")]
 		[DefaultValue(0)]
 		public uint DepthBits
@@ -95,12 +236,13 @@ namespace OpenGL
 		/// <summary>
 		/// The OpenGL depth buffer bits.
 		/// </summary>
-		private uint _DepthBits = 0;
+		private uint _DepthBits;
 
 		/// <summary>
-		/// Get or set the OpenGL stencil buffer bits.
+		/// Get or set the OpenGL minimum stencil buffer bits.
 		/// </summary>
 		[Browsable(true)]
+		[Category("Framebuffer")]
 		[Description("Number of bits of the stencil buffer.")]
 		[DefaultValue(0)]
 		public uint StencilBits
@@ -112,12 +254,13 @@ namespace OpenGL
 		/// <summary>
 		/// The OpenGL stencil buffer bits.
 		/// </summary>
-		private uint _StencilBits = 0;
+		private uint _StencilBits;
 
 		/// <summary>
-		/// Get or set the OpenGL multisample buffer "bits".
+		/// Get or set the OpenGL minimum multisample buffer "bits".
 		/// </summary>
 		[Browsable(true)]
+		[Category("Framebuffer")]
 		[Description("Number of bits of the multisample buffer.")]
 		[DefaultValue(0)]
 		public uint MultisampleBits
@@ -129,12 +272,13 @@ namespace OpenGL
 		/// <summary>
 		/// The OpenGL multisample buffer bits.
 		/// </summary>
-		private uint _MultisampleBits = 0;
+		private uint _MultisampleBits;
 
 		/// <summary>
 		/// Get or set the OpenGL double buffering flag.
 		/// </summary>
 		[Browsable(true)]
+		[Category("Framebuffer")]
 		[Description("Flag indicating whether double buffering is enabled.")]
 		[DefaultValue(true)]
 		public bool DoubleBuffer
@@ -152,6 +296,7 @@ namespace OpenGL
 		/// Get or set the OpenGL swap buffers interval.
 		/// </summary>
 		[Browsable(true)]
+		[Category("Framebuffer")]
 		[Description("Integer specifing the minimum number of video frames that are displayed before a buffer swap will occur.")]
 		[DefaultValue(1)]
 		public int SwapInterval
@@ -280,9 +425,113 @@ namespace OpenGL
 			if (_RenderContext != IntPtr.Zero)
 				throw new InvalidOperationException("context already created");
 
-			// Create OpenGL context
-			if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create render context");
+			KhronosVersion currentVersion = Gl.CurrentVersion;
+			Gl.Extensions currentExtensions = Gl.CurrentExtensions;
+			
+			bool hasCreateContext = true;
+			bool hasCreateContextProfile = true;
+			bool hasCreateContextRobustness = true;
+
+			hasCreateContextProfile &= currentVersion.Api == KhronosVersion.ApiGl && currentVersion >= Gl.Version_300;
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+					Wgl.Extensions currentWglExtensions = Wgl.CurrentExtensions;
+					hasCreateContext &= currentWglExtensions.CreateContext_ARB || currentWglExtensions.CreateContextProfile_ARB;
+					hasCreateContextProfile &= currentWglExtensions.CreateContextProfile_ARB;
+					hasCreateContextRobustness = currentWglExtensions.CreateContextRobustness_ARB;
+					break;
+				case PlatformID.Unix:
+					Glx.Extensions currentGlxExtensions = Glx.CurrentExtensions;
+					hasCreateContext &= currentGlxExtensions.CreateContext_ARB;
+					hasCreateContextProfile &= currentGlxExtensions.CreateContextProfile_ARB;
+					hasCreateContextRobustness = currentGlxExtensions.CreateContextRobustness_ARB;
+					break;
+			}
+
+			if (hasCreateContext) {
+				List<int> attributes = new List<int>();
+				uint contextProfile = 0, contextFlags = 0;
+				bool debuggerAttached = Debugger.IsAttached;
+
+				#region WGL_ARB_create_context|GLX_ARB_create_context
+
+				// The default values for WGL_CONTEXT_MAJOR_VERSION_ARB and WGL_CONTEXT_MINOR_VERSION_ARB are 1 and 0 respectively. In this
+				// case, implementations will typically return the most recent version of OpenGL they support which is backwards compatible with OpenGL 1.0
+				// (e.g. 3.0, 3.1 + GL_ARB_compatibility, or 3.2 compatibility profile) [from WGL_ARB_create_context spec]
+				Debug.Assert(Wgl.CONTEXT_MAJOR_VERSION_ARB == Glx.CONTEXT_MAJOR_VERSION_ARB);
+				Debug.Assert(Wgl.CONTEXT_MINOR_VERSION_ARB == Glx.CONTEXT_MINOR_VERSION_ARB);
+				if (Version != null) {
+					attributes.AddRange(new int[] {
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, Version.Major,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, Version.Minor
+					});
+				} else {
+					attributes.AddRange(new int[] {
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, currentVersion.Major,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, currentVersion.Minor
+					});
+				}
+
+				if ((_DebugContextBit == AttributePermission.Enabled) || (debuggerAttached && _DebugContextBit == AttributePermission.EnabledInDebugger)) {
+					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
+					contextFlags |= Wgl.CONTEXT_DEBUG_BIT_ARB;
+				}
+
+				if ((_ForwardCompatibleContextBit == AttributePermission.Enabled) || (debuggerAttached && _ForwardCompatibleContextBit == AttributePermission.EnabledInDebugger)) {
+					Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
+					contextFlags |= Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
+				}
+
+				#endregion
+
+				#region WGL_ARB_create_context_profile|GLX_ARB_create_context_profile
+
+				if (hasCreateContextProfile) {
+
+					switch (_ProfileType) {
+						case ProfileType.Core:
+							Debug.Assert(Wgl.CONTEXT_CORE_PROFILE_BIT_ARB == Glx.CONTEXT_CORE_PROFILE_BIT_ARB);
+							contextProfile |= Wgl.CONTEXT_CORE_PROFILE_BIT_ARB;
+							break;
+						case ProfileType.Compatibility:
+							Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
+							contextProfile |= Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
+							break;
+					}
+				}
+
+				#endregion
+
+				#region WGL_ARB_create_context_robustness|GLX_ARB_create_context_robustness
+
+				if (hasCreateContextRobustness) {
+
+					if ((_RobustContextBit == AttributePermission.Enabled) || (debuggerAttached && _RobustContextBit == AttributePermission.EnabledInDebugger)) {
+						Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
+						contextFlags |= Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB;
+					}
+
+				}
+
+				#endregion
+
+				Debug.Assert(Wgl.CONTEXT_FLAGS_ARB == Glx.CONTEXT_FLAGS_ARB);
+				if (contextFlags != 0)
+					attributes.AddRange(new int[] { Wgl.CONTEXT_FLAGS_ARB, unchecked((int)contextFlags) });
+
+				Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
+				if (contextProfile != 0)
+					attributes.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile) });
+
+				attributes.Add(0);
+
+				if ((_RenderContext = _DeviceContext.CreateContextAttrib(IntPtr.Zero, attributes.ToArray())) == IntPtr.Zero)
+					throw new InvalidOperationException(String.Format("unable to create render context ({0})", Gl.GetError()));
+			} else {
+				// Create OpenGL context using compatibility profile
+				if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create render context");
+			}
 		}
 
 		/// <summary>
@@ -327,15 +576,34 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control creation time, allow user to allocate resource on control.
 		/// </summary>
-		public event EventHandler<GlControlEventArgs> ContextCreated;
+		public event EventHandler<GlControlEventArgs> ContextCreated
+		{
+			add { _ContextCreated += value; }
+			remove { _ContextCreated -= value; }
+		}
+
+		/// <summary>
+		/// Underlying EventHandler for <see cref="ContextCreated"/>.
+		/// </summary>
+		private EventHandler<GlControlEventArgs> _ContextCreated;
 
 		/// <summary>
 		/// Raise the event <see cref="ContextCreated"/>.
 		/// </summary>
 		protected virtual void OnContextCreated()
 		{
-			if (ContextCreated != null)
-				ContextCreated(this, new GlControlEventArgs(_DeviceContext, _RenderContext));
+			if (_ContextCreated != null) {
+				GlControlEventArgs glControlEventArgs = new GlControlEventArgs(_DeviceContext, _RenderContext);
+
+				foreach(EventHandler<GlControlEventArgs> handler in _ContextCreated.GetInvocationList()) {
+					try {
+						handler(this, glControlEventArgs);
+					} catch (Exception) {
+						// Fail-safe
+					}
+				}
+			}
+				
 		}
 
 		/// <summary>

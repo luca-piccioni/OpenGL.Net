@@ -34,7 +34,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC9954B5-DF60-43BC-9F04-3FBB2D7DE8E8}"
 	ProjectSection(SolutionItems) = preProject
 		.travis.yml = .travis.yml
+		LICENSE = LICENSE
 		OpenGL.Net\OpenGL.Net.nuspec = OpenGL.Net\OpenGL.Net.nuspec
+		README.md = README.md
+		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle", "Samples\HelloTriangle\HelloTriangle.csproj", "{4A366686-E6AF-4AF0-9199-8BE691A5A392}"

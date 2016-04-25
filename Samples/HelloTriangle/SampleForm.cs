@@ -38,7 +38,13 @@ namespace HelloTriangle
 
 		private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
 		{
-			
+			// Here you can allocate resources or initialize state
+			Gl.MatrixMode(MatrixMode.Projection);
+			Gl.LoadIdentity();
+			Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
+
+			Gl.MatrixMode(MatrixMode.Modelview);
+			Gl.LoadIdentity();
 		}
 
 		private void RenderControl_Render(object sender, GlControlEventArgs e)
@@ -46,18 +52,10 @@ namespace HelloTriangle
 			Control senderControl = (Control)sender;
 
 			Gl.Viewport(0, 0, senderControl.ClientSize.Width, senderControl.ClientSize.Height);
+			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
 			if (Gl.CurrentVersion >= Gl.Version_110) {
 				// Old school OpenGL 1.1
-				Gl.MatrixMode(MatrixMode.Projection);
-				Gl.LoadIdentity();
-				Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
-
-				Gl.MatrixMode(MatrixMode.Modelview);
-				Gl.LoadIdentity();
-
-				Gl.Clear(ClearBufferMask.ColorBufferBit);
-
 				// Setup & enable client states to specify vertex arrays, and use Gl.DrawArrays instead of Gl.Begin/End paradigm
 				using (MemoryLock vertexArrayLock = new MemoryLock(_ArrayPosition)) 
 				using (MemoryLock vertexColorLock = new MemoryLock(_ArrayColor))
@@ -75,21 +73,17 @@ namespace HelloTriangle
 				}
 			} else {
 				// Old school OpenGL
-				Gl.MatrixMode(MatrixMode.Projection);
-				Gl.LoadIdentity();
-				Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
-
-				Gl.MatrixMode(MatrixMode.Modelview);
-				Gl.LoadIdentity();
-
-				Gl.Clear(ClearBufferMask.ColorBufferBit);
-
 				Gl.Begin(PrimitiveType.Triangles);
 				Gl.Color3(1.0f, 0.0f, 0.0f); Gl.Vertex2(0.0f, 0.0f);
 				Gl.Color3(0.0f, 1.0f, 0.0f); Gl.Vertex2(0.5f, 1.0f);
 				Gl.Color3(0.0f, 0.0f, 1.0f); Gl.Vertex2(1.0f, 0.0f);
 				Gl.End();
 			}
+		}
+
+		private void RenderControl_ContextDestroying(object sender, GlControlEventArgs e)
+		{
+			// Here you can dispose resources allocated in RenderControl_ContextCreated
 		}
 
 		/// <summary>
