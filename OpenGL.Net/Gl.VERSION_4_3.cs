@@ -4572,11 +4572,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void DebugMessageCallback(IntPtr callback, IntPtr userParam)
+		public static void DebugMessageCallback(Gl.DebugProc callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallback != null, "pglDebugMessageCallback not implemented");
 			Delegates.pglDebugMessageCallback(callback, userParam);
-			LogFunction("glDebugMessageCallback(0x{0}, 0x{1})", callback.ToString("X8"), userParam.ToString("X8"));
+			LogFunction("glDebugMessageCallback({0}, 0x{1})", callback, userParam.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -4598,7 +4598,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void DebugMessageCallback(IntPtr callback, Object userParam)
+		public static void DebugMessageCallback(Gl.DebugProc callback, Object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
 			try {

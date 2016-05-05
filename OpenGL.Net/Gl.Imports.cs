@@ -1739,19 +1739,19 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageCallback", ExactSpelling = true)]
-			internal extern static unsafe void glDebugMessageCallback(IntPtr callback, IntPtr userParam);
+			internal extern static unsafe void glDebugMessageCallback(Gl.DebugProc callback, IntPtr userParam);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageCallbackAMD", ExactSpelling = true)]
-			internal extern static unsafe void glDebugMessageCallbackAMD(IntPtr callback, IntPtr userParam);
+			internal extern static unsafe void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageCallbackARB", ExactSpelling = true)]
-			internal extern static unsafe void glDebugMessageCallbackARB(IntPtr callback, IntPtr userParam);
+			internal extern static unsafe void glDebugMessageCallbackARB(Gl.DebugProc callback, IntPtr userParam);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageCallbackKHR", ExactSpelling = true)]
-			internal extern static unsafe void glDebugMessageCallbackKHR(IntPtr callback, IntPtr userParam);
+			internal extern static unsafe void glDebugMessageCallbackKHR(Gl.DebugProc callback, IntPtr userParam);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glDebugMessageControl", ExactSpelling = true)]

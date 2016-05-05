@@ -133,17 +133,17 @@ namespace OpenGL
 		/// Binding for glDebugMessageCallbackAMD.
 		/// </summary>
 		/// <param name="callback">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Gl.DebugProc"/>.
 		/// </param>
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static void DebugMessageCallbackAMD(IntPtr callback, IntPtr userParam)
+		public static void DebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackAMD != null, "pglDebugMessageCallbackAMD not implemented");
 			Delegates.pglDebugMessageCallbackAMD(callback, userParam);
-			LogFunction("glDebugMessageCallbackAMD(0x{0}, 0x{1})", callback.ToString("X8"), userParam.ToString("X8"));
+			LogFunction("glDebugMessageCallbackAMD({0}, 0x{1})", callback, userParam.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

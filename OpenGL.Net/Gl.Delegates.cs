@@ -2207,7 +2207,7 @@ namespace OpenGL
 			internal static glCurrentPaletteMatrixOES pglCurrentPaletteMatrixOES;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageCallback(IntPtr callback, IntPtr userParam);
+			internal unsafe delegate void glDebugMessageCallback(Gl.DebugProc callback, IntPtr userParam);
 
 			[AliasOf("glDebugMessageCallback")]
 			[AliasOf("glDebugMessageCallbackARB")]
@@ -2216,7 +2216,7 @@ namespace OpenGL
 			internal static glDebugMessageCallback pglDebugMessageCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageCallbackAMD(IntPtr callback, IntPtr userParam);
+			internal unsafe delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
 
 			[ThreadStatic]
 			internal static glDebugMessageCallbackAMD pglDebugMessageCallbackAMD;

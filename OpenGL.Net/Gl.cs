@@ -453,6 +453,146 @@ namespace OpenGL
 		#region Hand-crafted Bindings
 
 		/// <summary>
+		/// The source of the generated debug messages.
+		/// </summary>
+		public enum DebugSource : int
+		{
+			/// <summary>
+			/// The source of the generated message is the OpenGL API.
+			/// </summary>
+			Api =					Gl.DEBUG_SOURCE_API,
+
+			/// <summary>
+			/// The source of the generated message is the window system API.
+			/// </summary>
+			WindowSystem =			Gl.DEBUG_SOURCE_WINDOW_SYSTEM,
+
+			/// <summary>
+			/// The source of the generated message is a compiler for the shader language.
+			/// </summary>
+			ShaderCompiler =		Gl.DEBUG_SOURCE_SHADER_COMPILER,
+
+			/// <summary>
+			/// The source of the generated message is a third party component.
+			/// </summary>
+			ThirdParty =			Gl.DEBUG_SOURCE_THIRD_PARTY,
+
+			/// <summary>
+			/// The source of the generated message is the application itself.
+			/// </summary>
+			Application =			Gl.DEBUG_SOURCE_APPLICATION,
+
+			/// <summary>
+			/// The source of the generated message is not any source not listed in enumeration.
+			/// </summary>
+			Other =					Gl.DEBUG_SOURCE_OTHER,
+		}
+
+		/// <summary>
+		/// The type of the generated debug messages.
+		/// </summary>
+		public enum DebugType : int
+		{
+			/// <summary>
+			/// An error, typically from the API.
+			/// </summary>
+			Error =					Gl.DEBUG_TYPE_ERROR,
+
+			/// <summary>
+			/// Some behavior marked deprecated has been used.
+			/// </summary>
+			DeprecatedBehavior =	Gl.DEBUG_TYPE_DEPRECATED_BEHAVIOR,
+
+			/// <summary>
+			/// Something has invoked undefined behavior.
+			/// </summary>
+			UndefinedBehavior =		Gl.DEBUG_TYPE_UNDEFINED_BEHAVIOR,
+
+			/// <summary>
+			/// Some functionality the user relies upon is not portable.
+			/// </summary>
+			Portability =			Gl.DEBUG_TYPE_PORTABILITY,
+
+			/// <summary>
+			/// Code has triggered possible performance issues.
+			/// </summary>
+			Performance =			Gl.DEBUG_TYPE_PERFORMANCE,
+
+			/// <summary>
+			/// Command stream annotation.
+			/// </summary>
+			Marker =				Gl.DEBUG_TYPE_MARKER,
+
+			/// <summary>
+			/// Scoped group push.
+			/// </summary>
+			PushGroup =				Gl.DEBUG_TYPE_PUSH_GROUP,
+
+			/// <summary>
+			/// Scoped group pop.
+			/// </summary>
+			PopGroup =				Gl.DEBUG_TYPE_POP_GROUP,
+
+			/// <summary>
+			/// The type of the generated message is not any type not listed in enumeration.
+			/// </summary>
+			Other =					Gl.DEBUG_TYPE_OTHER,
+		}
+
+		/// <summary>
+		/// The severity of the generated debug messages.
+		/// </summary>
+		public enum DebugSeverity : int
+		{
+			/// <summary>
+			/// All OpenGL Errors, shader compilation/linking errors, or highly-dangerous undefined behavior.
+			/// </summary>
+			High =					Gl.DEBUG_SEVERITY_HIGH,
+
+			/// <summary>
+			/// Major performance warnings, shader compilation/linking warnings, or the use of deprecated functionality.
+			/// </summary>
+			Medium =				Gl.DEBUG_SEVERITY_MEDIUM,
+
+			/// <summary>
+			/// Redundant state change performance warning, or unimportant undefined behavior.
+			/// </summary>
+			Low =					Gl.DEBUG_SEVERITY_LOW,
+
+			/// <summary>
+			/// Anything that isn't an error or performance issue.
+			/// </summary>
+			Notification =			Gl.DEBUG_SEVERITY_NOTIFICATION,
+		}
+
+		/// <summary>
+		/// Specify a callback to receive debugging messages from the GL.
+		/// </summary>
+		/// <param name="source">
+		/// A <see cref="DebugSource"/> that specify the source of the message.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="DebugType"/> that specify the type of the message.
+		/// </param>
+		/// <param name="id">
+		/// A <see cref="UInt32"/> that specify the identifier of the message.
+		/// </param>
+		/// <param name="severity">
+		/// A <see cref="DebugSeverity"/> that specify the severity of the message.
+		/// </param>
+		/// <param name="length">
+		/// The length of the message.
+		/// </param>
+		/// <param name="message">
+		/// A <see cref="IntPtr"/> that specify a pointer to a null-terminated ASCII C string, representing the content of the message.
+		/// </param>
+		/// <param name="userParam">
+		/// A <see cref="IntPtr"/> that specify the user-specified parameter.
+		/// </param>
+		[UnmanagedFunctionPointer(CallingConvention.Winapi)]
+		public delegate void DebugProc(DebugSource source, DebugType type, uint id, DebugSeverity severity, int length, IntPtr message, IntPtr userParam);
+
+		/// <summary>
 		/// specify values to record in transform feedback buffers
 		/// </summary>
 		/// <param name="program">

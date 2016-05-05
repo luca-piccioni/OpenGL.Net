@@ -161,10 +161,10 @@
 	<!-- Various -->
 	<type name="GLvdpauSurfaceNV" value="IntPtr" />
 	<type name="GLvdpauSurfaceNV*" value="IntPtr*" />
-	<type name="GLDEBUGPROC" value="IntPtr" />
-	<type name="GLDEBUGPROCKHR" value="IntPtr" />
-	<type name="GLDEBUGPROCARB" value="IntPtr" />
-	<type name="GLDEBUGPROCAMD" value="IntPtr" />
+	<type name="GLDEBUGPROC" value="Gl.DebugProc" />
+	<type name="GLDEBUGPROCKHR" value="Gl.DebugProc" />
+	<type name="GLDEBUGPROCARB" value="Gl.DebugProc" />
+	<type name="GLDEBUGPROCAMD" value="Gl.DebugProc" />
 
 	<!-- GLX types -->
 	<type name="Void" value="void" />
