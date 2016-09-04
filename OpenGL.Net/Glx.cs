@@ -70,7 +70,7 @@ namespace OpenGL
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		private const string Library = "libGL";
+		private const string Library = "libGL.so.1";
 
 		/// <summary>
 		/// Imported functions delegates.

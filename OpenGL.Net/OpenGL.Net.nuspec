@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-		<id>$id$</id>
-		<version>0.2.1</version>
-		<title>$title$</title>
-		<authors>$author$</authors>
-		<owners>$author$</owners>
+		<id>OpenGL.Net</id>
+		<version>0.2.2</version>
+		<title>OpenGL for .Net</title>
+		<authors>Luca Piccioni</authors>
+		<owners>Luca Piccioni</owners>
 		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
 		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
 		<!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
@@ -29,6 +29,11 @@
 			<frameworkAssembly assemblyName="System.Windows.Forms" />
 		</frameworkAssemblies>
 		<releaseNotes>
+			*** Version 0.2.2
+			- Fixed the missing GlControl implementation.
+			- Compiled with Mono 4.2
+			- Removed ANGLE precompiled libraries.
+
 			*** Version 0.2.1
 			- Added OpenGL.GlControl, a System.Windows.Forms.UserControl allowing rendering.
 			- OpenGL.Gl static initialization automatically probe versions, extensions and limits of the platform (see Gl.Current*).
@@ -49,14 +54,10 @@
 			This binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
 		</releaseNotes>
 		<copyright>Copyright 2015-2016</copyright>
-		<tags>OpenGL ES GLSL GLES C# .Net Graphics 3D</tags>
+		<tags>OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>
 	</metadata>
 	<files>
-		<file src="bin\Release\OpenGL.Net.dll" target="lib" />
-		<file src="bin\Release\OpenGL.Net.xml" target="lib" />
-		<file src="..\Libs\ANGLE\winrt10\arm\*.dll" target="build\ANGLE\winrt10\arm" />
-		<file src="..\Libs\ANGLE\winrt10\x86\*.dll" target="build\ANGLE\winrt10\x86" />
-		<file src="..\Libs\ANGLE\winrt10\x64\*.dll" target="build\ANGLE\winrt10\x64" />
-		<file src="..\Libs\ANGLE\README.md" target="build\ANGLE" />
+		<file src="bin/Release/OpenGL.Net.dll" target="lib" />
+		<file src="bin/Release/OpenGL.Net.xml" target="lib" />
 	</files>
 </package>

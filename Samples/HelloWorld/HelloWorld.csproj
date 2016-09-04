@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ReleaseVersion>0.2.2</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -139,7 +140,7 @@ IF $(ConfigurationName) == "x64" (
 )
 
 rem copy "$(SolutionDir)\OpenGL.Hal.Plugins\OpenGL.Hal.LibTiff\$(ConfigurationName)\$(PlatformName)\*.dll" "$(TargetDir)" &gt; NUL</PostBuildEvent>
-	<PostBuildEvent Condition=" '$(OS)' == 'Unix' ">bash "$(SolutionDir)Scripts/postbuild.sh" "$(SolutionDir)" "$(TargetDir)" "$(ConfigurationName)"</PostBuildEvent>
+    <PostBuildEvent Condition=" '$(OS)' == 'Unix' ">bash "$(SolutionDir)Scripts/postbuild.sh" "$(SolutionDir)" "$(TargetDir)" "$(ConfigurationName)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

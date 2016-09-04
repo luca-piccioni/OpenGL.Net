@@ -29,6 +29,10 @@ namespace HelloTriangle
 		[STAThread]
 		static void Main()
 		{
+			OpenGL.KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
+				Console.WriteLine(format, args);
+			});
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new SampleForm());
