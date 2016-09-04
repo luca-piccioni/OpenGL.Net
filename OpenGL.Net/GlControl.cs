@@ -21,7 +21,6 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Text;
 using System.Windows.Forms;
 
@@ -398,7 +397,7 @@ namespace OpenGL
 		protected void CreateDeviceContext()
 		{
 			// Create device context
-			_DeviceContext = DeviceContextFactory.Create(this);
+			_DeviceContext = DeviceContext.Create(this);
 			_DeviceContext.IncRef();
 
 			// Set pixel format
@@ -667,7 +666,7 @@ namespace OpenGL
 					CreateContext();
 
 					// The context is made current unconditionally: it will be current also on OnPaint, avoiding
-					// rendundant calls to glMakeCurrent ini nominal implementations
+					// rendundant calls to glMakeCurrent in nominal implementations
 					MakeCurrentContext();
 
 					// Event handling

@@ -34,7 +34,7 @@ namespace OpenGL.Hal.Test
 			if (version > GraphicsContext.CurrentVersion)
 				Assert.Inconclusive();
 
-			using (GraphicsContext ctx = new GraphicsContext(null, version)) {
+			using (GraphicsContext ctx = new GraphicsContext(_Window.GetDeviceContext(), null, version)) {
 				Assert.IsTrue(ctx.Version >= version);
 			}
 		}

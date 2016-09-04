@@ -543,6 +543,26 @@ namespace OpenGL
 		public static void RegisterApplicationLogDelegate(ProcedureLogDelegate callback)
 		{
 			_ProcLogCallbacks.Add(callback);
+
+			// Automatically query information for corner cases
+			if (_ProcLogCallbacks.Count == 1) {
+                QueryLogContext(typeof(Gl));
+				if (Egl.IsRequired == false) {
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							QueryLogContext(typeof(Wgl));
+							break;
+						case PlatformID.Unix:
+							QueryLogContext(typeof(Glx));
+							break;
+					}
+				} else {
+					QueryLogContext(typeof(Egl));
+				}
+
+				// Automatically enable logging
+				_ProcLogEnabled = true;
+			}
 		}
 
 		/// <summary>
@@ -558,7 +578,35 @@ namespace OpenGL
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
-		protected static bool _ProcLogEnabled = true;
+		protected static bool _ProcLogEnabled;
+
+		/// <summary>
+		/// Log a procedure call.
+		/// </summary>
+		/// <param name="format">
+		/// A <see cref="String"/> that specifies the format string.
+		/// </param>
+		/// <param name="args">
+		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
+		/// </param>
+		[Conditional("DEBUG")]
+		protected internal static void LogFunction(string format, params object[] args)
+		{
+			if (format == null)
+				throw new ArgumentNullException("format");
+
+			// Global flag
+			if (_ProcLogEnabled == false)
+				return;
+
+			foreach (ProcedureLogDelegate logDelegate in _ProcLogCallbacks) {
+				try {
+					logDelegate(format, args);
+				} catch {
+					// Ignore exceptions
+				}
+			}
+		}
 
 		/// <summary>
 		/// Log a comment.
@@ -577,32 +625,6 @@ namespace OpenGL
 
 			// Write a comment line
 			LogFunction(String.Format("// " + format, args));
-		}
-
-		/// <summary>
-		/// Log a procedure call.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="String"/> that specifies the format string.
-		/// </param>
-		/// <param name="args">
-		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
-		/// </param>
-		protected internal static void LogFunction(string format, params object[] args)
-		{
-			if (format == null)
-				throw new ArgumentNullException("format");
-			
-			// Write on app
-			if (_ProcLogCallbacks.Count > 0) {
-				foreach (ProcedureLogDelegate logDelegate in _ProcLogCallbacks) {
-					try {
-						logDelegate(format, args);
-					} catch {
-						// Ignore exceptions
-					}
-				}
-			}
 		}
 
 		/// <summary>

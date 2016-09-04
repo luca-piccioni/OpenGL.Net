@@ -255,7 +255,6 @@
     <Compile Include="LimitAttribute.cs" />
     <Compile Include="LogAttribute.cs" />
     <Compile Include="DeviceContext.cs" />
-    <Compile Include="DeviceContextFactory.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="Egl.cs" />

@@ -49,7 +49,7 @@ namespace OpenGL
 			// Create common hidden window
 			_HiddenWindow = new System.Windows.Forms.Form();
 			// Create device context
-			_HiddenWindowDevice = DeviceContextFactory.Create(_HiddenWindow);
+			_HiddenWindowDevice = DeviceContext.Create(_HiddenWindow);
 			_HiddenWindowDevice.IncRef();
 
 			// Create basic OpenGL context

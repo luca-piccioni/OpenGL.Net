@@ -18,7 +18,6 @@
 
 using System;
 using System.Reflection;
-using System.Text;
 
 namespace OpenGL
 {
@@ -49,7 +48,7 @@ namespace OpenGL
 				if (glExtensions == null)
 					throw new ArgumentNullException("glExtensions");
 
-				LogComment("Query OpenGL implementation imits.");
+				LogComment("Query OpenGL implementation limits.");
 
 				Limits graphicsLimits = new Limits();
 				FieldInfo[] graphicsLimitsFields = typeof(Limits).GetFields(BindingFlags.Public | BindingFlags.Instance);
@@ -96,7 +95,7 @@ namespace OpenGL
 								field.SetValue(graphicsLimits, @params[1]);
 							} catch (GlException) {
 
-							} catch (Exception exception) {
+							} catch (Exception) {
 								
 							}
 						} else {
