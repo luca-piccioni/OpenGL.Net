@@ -74,7 +74,6 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
-				string typeDecorator = Definition != null ? Definition.Trim() : null;
 				string delegateReturnType = ReturnTypeCore;
 
 				if ((delegateReturnType == "string") || ((Group != null) && (Group == "String")))
