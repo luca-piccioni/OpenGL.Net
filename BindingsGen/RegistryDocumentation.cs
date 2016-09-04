@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -117,8 +117,6 @@ namespace BindingsGen
 		/// <param name="fail"></param>
 		public static void GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant)
 		{
-			StringBuilder sb = new StringBuilder();
-
 			// GL4 documentation
 			if (GenerateDocumentation_GL4(sw, ctx, enumerant))
 				return;
@@ -243,9 +241,9 @@ namespace BindingsGen
 #endif
 		}
 
-#endregion
+		#endregion
 
-#region Command Documentation
+		#region Command Documentation
 
 		/// <summary>
 		/// Generate a <see cref="Command"/> documentation, sourced from OpenGL 2 manual, OpenGL 4 manual or a generic one.
@@ -750,9 +748,9 @@ namespace BindingsGen
 			return (true);
 		}
 
-#endregion
+		#endregion
 
-#region Text Processing
+		#region Text Processing
 
 		/// <summary>
 		/// Translate the XHTML documentation using a <see cref="XslCompiledTransform"/>.
@@ -926,9 +924,9 @@ namespace BindingsGen
 			return (new List<string>(periods));
 		}
 
-#endregion
+		#endregion
 
-#region Documentation Scanning
+		#region Documentation Scanning
 
 		/// <summary>
 		/// Index all documented OpenGL commands the the OpenGL 2 manual.
@@ -973,7 +971,8 @@ namespace BindingsGen
 									XmlDocument xml = new XmlDocument();
 									XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
 
-									xmlReaderSettings.ProhibitDtd = false;
+									xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
+									// xmlReaderSettings.ProhibitDtd = false;
 									xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(Path.Combine(Program.BasePath, "GLMan/DTD"));
 
 									using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings)) {
@@ -1064,7 +1063,8 @@ namespace BindingsGen
 						XmlParserContext context = new XmlParserContext(null, nsmgr, null, XmlSpace.Default);
 						XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
 
-						xmlReaderSettings.ProhibitDtd = false;
+						xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
+						// xmlReaderSettings.ProhibitDtd = false;
 						xmlReaderSettings.ConformanceLevel = ConformanceLevel.Auto;
 						xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(documentationFile);
 						xmlReaderSettings.IgnoreComments = true;
@@ -1133,7 +1133,7 @@ namespace BindingsGen
 						}
 #endif
 					}
-				} catch (Exception) {
+				} catch (Exception e) {
 					continue;
 				}
 			}
@@ -1164,7 +1164,8 @@ namespace BindingsGen
 						XmlParserContext context = new XmlParserContext(null, nsmgr, null, XmlSpace.Default);
 						XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
 
-						xmlReaderSettings.ProhibitDtd = false;
+						xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
+						// xmlReaderSettings.ProhibitDtd = false;
 						xmlReaderSettings.ConformanceLevel = ConformanceLevel.Auto;
 						xmlReaderSettings.XmlResolver = null;
 						xmlReaderSettings.IgnoreComments = true;
@@ -1377,12 +1378,11 @@ namespace BindingsGen
 
 			private static readonly Dictionary<string, string> LocalDtdRelPaths = new Dictionary<string, string>();
 
-
 			private static string mDtdPath;
 
 			public override Uri ResolveUri(Uri baseUri, string relativeUri)
 			{
-				lock (sSyncObject) {
+				lock (_SyncObject) {
 					return KnownUris.ContainsKey(relativeUri) ?
 						new Uri(KnownUris[relativeUri]) :
 						base.ResolveUri(baseUri, relativeUri)
@@ -1395,7 +1395,10 @@ namespace BindingsGen
 				if (absoluteUri == null)
 					throw new ArgumentNullException("absoluteUri");
 
-				lock (sSyncObject) {
+				lock (_SyncObject) {
+
+					if (_FailedEntities.ContainsKey(absoluteUri))
+						return (null);
 
 					//resolve resources from cache (if possible)
 					if ((absoluteUri.Scheme == "http") && (ofObjectToReturn == null || ofObjectToReturn == typeof(Stream))) {
@@ -1416,6 +1419,7 @@ namespace BindingsGen
 
 							WebRequest webRequest;
 							WebResponse webResponse = null;
+							Exception webException = null;
 							int tries = 0;
 							bool done = false;
 
@@ -1427,9 +1431,10 @@ namespace BindingsGen
 									webResponse = webRequest.GetResponse();
 									done = true;
 									Console.WriteLine(". done!");
-								} catch (Exception) {
+								} catch (Exception e) {
 									Console.Write(".");
 									tries++;
+									webException = e;
 								}
 							} while ((done == false) && (tries < 3));
 
@@ -1448,8 +1453,11 @@ namespace BindingsGen
 
 								LocalDtdPaths[absoluteUri.OriginalString] = localPath;
 							} else {
-								Console.WriteLine("not done");
-								return null;
+								_FailedEntities.Add(absoluteUri, webException);
+
+								Console.WriteLine("not done ({0})", webException != null ? webException.Message : "no exception");
+
+								return (null);
 							}
 						}
 
@@ -1465,12 +1473,17 @@ namespace BindingsGen
 				}
 			}
 
-			private static readonly object sSyncObject = new object();
+			/// <summary>
+			/// Entities indexed by URI which has caused exception in <see cref="GetEntity"/>.
+			/// </summary>
+			private static readonly Dictionary<Uri, Exception> _FailedEntities = new Dictionary<Uri, Exception>();
+
+			private static readonly object _SyncObject = new object();
 		}
 
-#endregion
+		#endregion
 
-#region Logging
+		#region Logging
 
 		public static void CreateLog()
 		{
@@ -1488,6 +1501,6 @@ namespace BindingsGen
 		/// </summary>
 		private static StreamWriter mWarningLog;
 
-#endregion
+		#endregion
 	}
 }

@@ -100,9 +100,9 @@ namespace BindingsGen
 			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>();
 			Dictionary<string, bool> serializedEnums = new Dictionary<string, bool>();
 
-			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Enums.cs", ctx.Class)), null);
-			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Imports.cs", ctx.Class)), null);
-			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Delegates.cs", ctx.Class)), delegate(Command command) {
+			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Enums.cs", ctx.Class)), null);
+			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Imports.cs", ctx.Class)), null);
+			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Delegates.cs", ctx.Class)), delegate(Command command) {
 				if (command.Alias != null)
 					Console.WriteLine("  Skip command {0}: alias of {1}", command.Prototype.Name, command.Alias.Name);
 				return (command.Alias == null);
@@ -431,7 +431,7 @@ namespace BindingsGen
 		/// </returns>
 		private static string GetFeatureFilePath(IFeature feature, RegistryContext ctx)
 		{
-			string path = String.Format("OpenGL.NET/{0}.{1}.cs", ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
+			string path = String.Format("OpenGL.Net/{0}.{1}.cs", ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
 			string featureName = feature.Name.Substring(ctx.Class.Length + 1);
 			int separatorIndex = featureName.IndexOf('_');
 
@@ -442,7 +442,7 @@ namespace BindingsGen
 					string extensionDir = Path.Combine(BasePath, String.Format("OpenGL.NET/{0}", ext));
 					if (!Directory.Exists(extensionDir))
 						Directory.CreateDirectory(extensionDir);
-					path = String.Format("OpenGL.NET/{2}/{0}.{1}.cs", ctx.Class, featureName, ext);
+					path = String.Format("OpenGL.Net/{2}/{0}.{1}.cs", ctx.Class, featureName, ext);
 				}
 			}
 
