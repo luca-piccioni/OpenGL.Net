@@ -764,14 +764,21 @@ namespace OpenGL
 		{
 			get
 			{
+				// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
+				if (GraphicsContext.CurrentCaps.GlExtensions.VertexArrayObject_ARB == false)
+					return (0);
+				
 				// All-in-one implementation for all targets
 				switch (BufferType) {
-					//case BufferTargetARB.ArrayBuffer:
-					//	return (Gl.ARRAY_BUFFER_BINDING);
-					//case BufferTargetARB.TransformFeedbackBuffer:
-					//	return (Gl.TRANSFORM_FEEDBACK_BINDING);
+					case BufferTargetARB.ArrayBuffer:
+						return (Gl.ARRAY_BUFFER_BINDING);
+					case BufferTargetARB.ElementArrayBuffer:
+						return (Gl.ELEMENT_ARRAY_BUFFER_BINDING);
+					case BufferTargetARB.TransformFeedbackBuffer:
+						return (Gl.TRANSFORM_FEEDBACK_BINDING);
+
 					default:
-						return (0);
+						throw new NotSupportedException(String.Format("buffer target 0x{0:X2} not supported", (int)BufferType));
 				}
 			}
 		}
@@ -795,10 +802,8 @@ namespace OpenGL
 		/// </param>
 		protected virtual void BindCore(GraphicsContext ctx)
 		{
-			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB) {
-				CheckThisExistence(ctx);
+			if (ctx.Caps.GlExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, ObjectName);
-			}
 		}
 
 		/// <summary>
@@ -838,7 +843,8 @@ namespace OpenGL
 		bool IBindingResource.IsBound(GraphicsContext ctx)
 		{
 			int currentBufferObject;
-			
+
+			Debug.Assert(((IBindingResource)this).BindingTarget != 0);
 			Gl.Get(((IBindingResource)this).BindingTarget, out currentBufferObject);
 
 			return (currentBufferObject == (int)ObjectName);

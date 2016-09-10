@@ -449,6 +449,8 @@ namespace OpenGL
 		/// </exception>
 		public virtual void Create(GraphicsContext ctx)
 		{
+			CheckCurrentContext(ctx);
+
 			if (_Object != InvalidObjectName && _ObjectNameSpace != ctx.ObjectNameSpace)
 				throw new InvalidOperationException("cross-context resource leak");
 
@@ -457,22 +459,23 @@ namespace OpenGL
 				// The a fake name for this object
 				if (_Object == InvalidObjectName)
 					_Object = GetFakeObjectName(ObjectClass);
-				if (_Object == InvalidObjectName)
-					throw new InvalidOperationException("unable to create name for " + GetType().Name);
-				// Store object name space to check on deletion
-				if (ctx != null)
-					_ObjectNameSpace = ctx.ObjectNameSpace;
+				Debug.Assert(_Object != InvalidObjectName);
 			} else {
 				CheckCurrentContext(ctx);
 
 				// Create a name for this resource
 				if (ObjectName == InvalidObjectName)
 					_Object = CreateName(ctx);
+				Debug.Assert(_Object != InvalidObjectName);
+
+				// Run-time check
 				if (_Object == InvalidObjectName)
 					throw new InvalidOperationException("unable to create name for " + GetType().Name);
-				// Store object name space to check on deletion
-				_ObjectNameSpace = ctx.ObjectNameSpace;
 			}
+
+			// Store object name space to check on deletion
+			_ObjectNameSpace = ctx.ObjectNameSpace;
+
 			// Create object
 			CreateObject(ctx);
 		}

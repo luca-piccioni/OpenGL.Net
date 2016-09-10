@@ -1290,7 +1290,7 @@ namespace OpenGL
 
 					case Gl.TEXTURE_2D_MULTISAMPLE:
 						return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
-						case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
+					case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
 						return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
 
 					default:
@@ -1340,7 +1340,8 @@ namespace OpenGL
 		bool IBindingResource.IsBound(GraphicsContext ctx)
 		{
 			int currentTexture;
-			
+
+			Debug.Assert(((IBindingResource)this).BindingTarget != 0);
 			Gl.Get(((IBindingResource)this).BindingTarget, out currentTexture);
 
 			return (currentTexture == (int)ObjectName);

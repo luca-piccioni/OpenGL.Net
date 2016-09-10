@@ -38,7 +38,7 @@ namespace OpenGL
 	/// the rendering result of the collected arrays.
 	/// </para>
 	/// </remarks>
-	public partial class VertexArrayObject : GraphicsResource
+	public partial class VertexArrayObject : GraphicsResource, IBindingResource
 	{
 		#region Draw
 
@@ -104,17 +104,15 @@ namespace OpenGL
 		/// </param>
 		protected void SetVertexArrayState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
+			CheckThisExistence(ctx);
 
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
-				// Bind this vertex array
-				Gl.BindVertexArray(ObjectName);
-				// Short path?
-				if (!_VertexArrayDirty) {
-					// CheckVertexAttributes(ctx, shaderProgram);
-					return;
-				}
+			ctx.Bind(this);
+
+			// Note: when the GL_ARB_vertex_array_object is supported, there's no need
+			// to define vertex attribute each time
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
+				// CheckVertexAttributes(ctx, shaderProgram);
+				return;
 			}
 
 			if (shaderProgram != null) {
@@ -375,12 +373,7 @@ namespace OpenGL
 		/// </exception>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current");
-			if (Exists(ctx) == false)
-				throw new InvalidOperationException("not existing");
+			CheckThisExistence(ctx);
 
 			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
 
@@ -409,10 +402,7 @@ namespace OpenGL
 		/// </exception>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+			CheckCurrentContext(ctx);
 
 			// Validate vertex array object
 			Validate();
@@ -428,6 +418,8 @@ namespace OpenGL
 			// Create feedback buffer
 			if (_FeedbackBuffer != null)
 				_FeedbackBuffer.Create(ctx);
+
+			ctx.Bind(this);
 		}
 
 		/// <summary>
@@ -450,6 +442,70 @@ namespace OpenGL
 				foreach (Element vertexIndices in _Elements)
 					vertexIndices.Dispose();
 			}
+		}
+
+		#endregion
+
+		#region IBindingResource Implementation
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		int IBindingResource.BindingTarget
+		{
+			get
+			{
+				// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
+				if (GraphicsContext.CurrentCaps.GlExtensions.VertexArrayObject_ARB == false)
+					return (0);
+
+				return (Gl.VERTEX_ARRAY_BINDING);
+			}
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Bind(GraphicsContext ctx)
+		{
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB)
+				Gl.BindVertexArray(ObjectName);
+		}
+
+		/// <summary>
+		/// Bind this IBindingResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		void IBindingResource.Unbind(GraphicsContext ctx)
+		{
+			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+				CheckThisExistence(ctx);
+				Gl.BindVertexArray(InvalidObjectName);
+			}
+		}
+
+		/// <summary>
+		/// Check whether this IBindingResource is currently bound on the specified graphics context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for querying the current binding state.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this IBindingResource is currently bound on <paramref name="ctx"/>.
+		/// </returns>
+		bool IBindingResource.IsBound(GraphicsContext ctx)
+		{
+			int currentBufferObject;
+
+			Debug.Assert(((IBindingResource)this).BindingTarget != 0);
+			Gl.Get(((IBindingResource)this).BindingTarget, out currentBufferObject);
+
+			return (currentBufferObject == (int)ObjectName);
 		}
 
 		#endregion

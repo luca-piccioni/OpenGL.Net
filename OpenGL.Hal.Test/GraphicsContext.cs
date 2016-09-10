@@ -28,16 +28,6 @@ namespace OpenGL.Hal.Test
 	[TestFixture]
 	class GraphicsContextTest : TestBase
 	{
-		[Test, TestCaseSource("KnownVersions")]
-		public void TestConstructionByVersion(KhronosVersion version)
-		{
-			if (version > GraphicsContext.CurrentVersion)
-				Assert.Inconclusive();
-
-			using (GraphicsContext ctx = new GraphicsContext(null, version)) {
-				Assert.IsTrue(ctx.Version >= version);
-			}
-		}
 
 		private KhronosVersion[] KnownVersions
 		{
