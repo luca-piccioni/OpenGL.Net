@@ -41,17 +41,8 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public NativeDeviceContext(Control window)
+		public NativeDeviceContext(IntPtr handle)
 		{
-			if (window == null)
-				throw new ArgumentNullException("window");
-
-#if false
-			// "Force" handle creation
-			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
-				throw new InvalidOperationException("invalid handle");
-#endif
-
 			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get display handle");
 
@@ -60,7 +51,7 @@ namespace OpenGL
 			if (Egl.Initialize(_Display, major, minor) == false)
 				throw new InvalidOperationException("unable to initialize the display");
 
-			_NativeWindow = window.Handle;
+			_NativeWindow = handle;
 			_Version = new KhronosVersion(major[0], minor[0], KhronosVersion.ApiEgl);
 		}
 

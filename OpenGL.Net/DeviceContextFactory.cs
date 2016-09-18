@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -41,27 +40,22 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static IDeviceContext Create(Control window)
+		public static IDeviceContext Create(IntPtr windowHandle)
 		{
-			if (window == null)
-				throw new ArgumentNullException("window");
-			if (window.Handle == IntPtr.Zero)
-				throw new ArgumentException("handle not created", "window");
-
 			if (Egl.IsRequired == false) {
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Win32Windows:
 					case PlatformID.Win32S:
 					case PlatformID.Win32NT:
 					case PlatformID.WinCE:
-						return (new WindowsDeviceContext(window));
+						return (new WindowsDeviceContext(windowHandle));
 					case PlatformID.Unix:
-						return (new XServerDeviceContext(window));
+						return (new XServerDeviceContext(windowHandle));
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
 			} else
-				return (new NativeDeviceContext(window));
+				return (new NativeDeviceContext(windowHandle));
 		}
 	}
 }
