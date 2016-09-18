@@ -28,8 +28,8 @@ namespace OpenGL
 		/// <summary>
 		/// Create the specified window.
 		/// </summary>
-		/// <param name='window'>
-		/// A <see cref="Control"/> which handle is used to create the device context.
+		/// <param name='windowHandle'>
+		///  Which handle is used to create the device context.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="window"/> is null.
