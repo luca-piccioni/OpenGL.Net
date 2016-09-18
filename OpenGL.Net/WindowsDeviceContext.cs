@@ -32,7 +32,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -55,19 +54,10 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public WindowsDeviceContext(Control window)
+		public WindowsDeviceContext(IntPtr handle)
 		{
-			if (window == null)
-				throw new ArgumentNullException("window");
-
-#if false
-			// "Force" handle creation
-			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
-				throw new InvalidOperationException("invalid handle");
-#endif
-
-			_WindowHandle = window.Handle;
-			_DeviceContext = Wgl.GetDC(window.Handle);
+			_WindowHandle = handle;
+			_DeviceContext = Wgl.GetDC(handle);
 
 			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get any video device context");

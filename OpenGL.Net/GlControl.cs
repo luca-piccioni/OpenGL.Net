@@ -398,7 +398,7 @@ namespace OpenGL
 		protected void CreateDeviceContext()
 		{
 			// Create device context
-			_DeviceContext = DeviceContextFactory.Create(this);
+			_DeviceContext = DeviceContextFactory.Create(this.Handle);
 			_DeviceContext.IncRef();
 
 			// Set pixel format
