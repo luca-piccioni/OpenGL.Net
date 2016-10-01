@@ -17,37 +17,21 @@
 // USA
 
 using System;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
 	/// <summary>
-	/// Platform control.
+	/// Native window interface.
 	/// </summary>
-	public interface IControl
+	public interface INativeWindow : IDisposable
 	{
+		#region Properties
+
 		/// <summary>
-		/// 
+		/// Get the native window handle.
 		/// </summary>
 		IntPtr Handle { get; }
-	}
 
-	static class IControlFactory
-	{
-		public static IControl Create(Control control)
-		{
-			if (control == null)
-				throw new ArgumentNullException("control");
-			return (new IControlControl(control));
-		}
-
-		private class IControlControl : IControl
-		{
-			public IControlControl(Control control) { _Control = control; }
-
-			private readonly Control _Control;
-
-			public IntPtr Handle { get { return (_Control.Handle); } }
-		}
+		#endregion
 	}
 }

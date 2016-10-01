@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -18,8 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -38,7 +36,8 @@ namespace OpenGL
 			// Be notified about XServer errors
 			Glx.UnsafeNativeMethods.XSetErrorHandler(XServerErrorHandler);
 		}
-		
+
+#if false
 		/// <summary>
 		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class that opens the local display.
 		/// </summary>
@@ -84,18 +83,16 @@ namespace OpenGL
 			// Query GLX extensions
 			QueryVersion();
 		}
+#endif
 
 		/// <summary>
 		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class, initialized with the display of a control.
 		/// </summary>
-		/// <param name="control">
-		/// Control.
+		/// <param name='windowHandle'>
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="control"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="control"/> handle is not created.
+		/// <exception cref='ArgumentException'>
+		/// Is thrown when <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref="PlatformNotSupportedException">
 		/// Exception thrown if the current assembly is not executed by a (supported) Mono runtime.
@@ -103,17 +100,13 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if the current Mono runtime has not yet opened a display connection.
 		/// </exception>
-		public XServerDeviceContext(Control control)
+		public XServerDeviceContext(IntPtr windowHandle)
 		{
-			if (control == null)
-				throw new ArgumentNullException("control");
-
-			IntPtr controlHandle = control.Handle;
-			if (control.IsHandleCreated == false)
-				throw new ArgumentException("handle not created", "control");
+			if (windowHandle == IntPtr.Zero)
+				throw new ArgumentException("null handle", "windowHandle");
 
 			Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
-        
+			
 			if (xplatui == null)
 				throw new PlatformNotSupportedException("mono runtime version no supported");
 			
@@ -128,7 +121,7 @@ namespace OpenGL
 			KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
 
 			// Window handle
-			_WindowHandle = controlHandle;
+			_WindowHandle = windowHandle;
 			
 			// Query GLX extensions
 			QueryVersion();

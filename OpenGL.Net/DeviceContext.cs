@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -39,60 +38,66 @@ namespace OpenGL
 
         #endregion
 
-        #region Factory
+		#region Factory
 
-        /// <summary>
-		/// Create the specified window.
+		/// <summary>
+		/// Create a native window.
 		/// </summary>
-		/// <param name='window'>
-		/// A <see cref="Control"/> which handle is used to create the device context.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="window"/> is null.
+		/// <returns>
+		/// It returns a <see cref="INativeWindow"/> that implements a native window on the underlying platform.
+		/// </returns>
+		/// <exception cref='NotSupportedException'>
+		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the handle of <see cref="window"/> is not created.
+		public static INativeWindow CreateWindow()
+		{
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+					return (new WindowsDeviceContext.NativeWindow());
+				default:
+					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+			}
+		}
+
+		/// <summary>
+		/// Create a device context on the specified window.
+		/// </summary>
+		/// <param name='windowHandle'>
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
+		/// </param>
+		/// <exception cref='ArgumentException'>
+		/// Is thrown when <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static IDeviceContext Create(Control window)
-        {
-            if (window == null)
-                throw new ArgumentNullException("window");
-            if (window.Handle == IntPtr.Zero)
-                throw new ArgumentException("handle not created", "window");
+		public static IDeviceContext Create(IntPtr windowHandle)
+		{
+			if (Egl.IsRequired == false) {
+				switch (Environment.OSVersion.Platform) {
+					case PlatformID.Win32NT:
+						return (new WindowsDeviceContext(windowHandle));
+					case PlatformID.Unix:
+						return (new XServerDeviceContext(windowHandle));
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+				}
+			}
+			else
+				return (new NativeDeviceContext(windowHandle));
+		}
 
-            if (Egl.IsRequired == false)
-            {
-                switch (Environment.OSVersion.Platform)
-                {
-                    case PlatformID.Win32Windows:
-                    case PlatformID.Win32S:
-                    case PlatformID.Win32NT:
-                    case PlatformID.WinCE:
-                        return (new WindowsDeviceContext(window));
-                    case PlatformID.Unix:
-                        return (new XServerDeviceContext(window));
-                    default:
-                        throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
-                }
-            }
-            else
-                return (new NativeDeviceContext(window));
-        }
+		#endregion
 
-        #endregion
+		#region IDeviceContext Implementation
 
-        #region IDeviceContext Implementation
-
-        /// <summary>
-        /// Number of shared instances of this IRenderResource.
-        /// </summary>
-        /// <remarks>
-        /// The reference count shall be initially 0 on new instances.
-        /// </remarks>
-        public uint RefCount { get { return (_RefCount); } }
+		/// <summary>
+		/// Number of shared instances of this IRenderResource.
+		/// </summary>
+		/// <remarks>
+		/// The reference count shall be initially 0 on new instances.
+		/// </remarks>
+		public uint RefCount { get { return (_RefCount); } }
 
 		/// <summary>
 		/// Increment the shared IRenderResource reference count.

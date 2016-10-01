@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -46,58 +46,59 @@ namespace OpenGL
 			// Load procedures (OpenGL desktop by default) @todo Really necessary?
 			LoadProcDelegates(_ImportMap, _Delegates);
 
-			// Create common hidden window
-			_HiddenWindow = new System.Windows.Forms.Form();
-			// Create device context
-			_HiddenWindowDevice = DeviceContext.Create(_HiddenWindow);
-			_HiddenWindowDevice.IncRef();
+			// Create temporary context for getting preliminary information on desktop systems
+			using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
+				// Create device context
+				_HiddenWindowDevice = DeviceContext.Create(nativeWindow.Handle);
+				_HiddenWindowDevice.IncRef();
 
-			// Create basic OpenGL context
-			IntPtr renderContext;
+				// Create basic OpenGL context
+				IntPtr renderContext;
 
-			if      (_HiddenWindowDevice is WindowsDeviceContext)
-				renderContext = CreateWinSimpleContext(_HiddenWindowDevice);
-			else if (_HiddenWindowDevice is XServerDeviceContext)
-				renderContext = CreateX11SimpleContext(_HiddenWindowDevice);
-			else if (_HiddenWindowDevice is NativeDeviceContext)
-				renderContext = CreateEglSimpleContext(_HiddenWindowDevice);
-			else
-				throw new NotImplementedException(String.Format("{0} is not a supported device context", _HiddenWindowDevice.GetType()));
+				if      (_HiddenWindowDevice is WindowsDeviceContext)
+					renderContext = CreateWinSimpleContext(_HiddenWindowDevice);
+				else if (_HiddenWindowDevice is XServerDeviceContext)
+					renderContext = CreateX11SimpleContext(_HiddenWindowDevice);
+				else if (_HiddenWindowDevice is NativeDeviceContext)
+					renderContext = CreateEglSimpleContext(_HiddenWindowDevice);
+				else
+					throw new NotImplementedException(String.Format("{0} is not a supported device context", _HiddenWindowDevice.GetType()));
 
-			// Query OpenGL informations
-			if (_HiddenWindowDevice.MakeCurrent(renderContext) == false)
-				throw new InvalidOperationException("unable to make current");
+				// Query OpenGL informations
+				if (_HiddenWindowDevice.MakeCurrent(renderContext) == false)
+					throw new InvalidOperationException("unable to make current");
 
-			// Obtain current OpenGL implementation
-			string glVersion = Gl.GetString(StringName.Version);
-			_CurrentVersion = KhronosVersion.Parse(glVersion);
+				// Obtain current OpenGL implementation
+				string glVersion = Gl.GetString(StringName.Version);
+				_CurrentVersion = KhronosVersion.Parse(glVersion);
 
-			// Obtain current OpenGL Shading Language version
-			string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
-			_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+				// Obtain current OpenGL Shading Language version
+				string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+				_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
 
-			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-			_CurrentExtensions = new Extensions();
-			_CurrentExtensions.Query();
-			// Query OpenGL limits
-			_CurrentLimits = Limits.Query(_CurrentExtensions);
+				// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
+				_CurrentExtensions = new Extensions();
+				_CurrentExtensions.Query();
+				// Query OpenGL limits
+				_CurrentLimits = Limits.Query(_CurrentExtensions);
 
-			if        (_HiddenWindowDevice is WindowsDeviceContext) {
-				Wgl._CurrentExtensions = new Wgl.Extensions();
-				Wgl._CurrentExtensions.Query((WindowsDeviceContext)_HiddenWindowDevice);
-			} else if (_HiddenWindowDevice is XServerDeviceContext) {
-				Glx._CurrentExtensions = new Glx.Extensions();
-				Glx._CurrentExtensions.Query((XServerDeviceContext)_HiddenWindowDevice);
-			} else if (_HiddenWindowDevice is NativeDeviceContext) {
-				Egl._CurrentExtensions = new Egl.Extensions();
-				Egl._CurrentExtensions.Query((NativeDeviceContext)_HiddenWindowDevice);
+				if        (_HiddenWindowDevice is WindowsDeviceContext) {
+					Wgl._CurrentExtensions = new Wgl.Extensions();
+					Wgl._CurrentExtensions.Query((WindowsDeviceContext)_HiddenWindowDevice);
+				} else if (_HiddenWindowDevice is XServerDeviceContext) {
+					Glx._CurrentExtensions = new Glx.Extensions();
+					Glx._CurrentExtensions.Query((XServerDeviceContext)_HiddenWindowDevice);
+				} else if (_HiddenWindowDevice is NativeDeviceContext) {
+					Egl._CurrentExtensions = new Egl.Extensions();
+					Egl._CurrentExtensions.Query((NativeDeviceContext)_HiddenWindowDevice);
+				}
+
+				// Before deletion, make uncurrent
+				_HiddenWindowDevice.MakeCurrent(IntPtr.Zero);
+				// Detroy context
+				if (_HiddenWindowDevice.DeleteContext(renderContext) == false)
+					throw new InvalidOperationException("unable to delete OpenGL context");
 			}
-
-			// Before deletion, make uncurrent
-			_HiddenWindowDevice.MakeCurrent(IntPtr.Zero);
-			// Detroy context
-			if (_HiddenWindowDevice.DeleteContext(renderContext) == false)
-				throw new InvalidOperationException("unable to delete OpenGL context");
 		}
 
 		/// <summary>
@@ -292,11 +293,6 @@ namespace OpenGL
 
 			return (ctx);
 		}
-
-		/// <summary>
-		/// Common (hidden) window used for getting device context without creating a new window.
-		/// </summary>
-		private static System.Windows.Forms.Form _HiddenWindow;
 
 		/// <summary>
 		/// Device context handle created from <see cref="_HiddenWindow"/>.

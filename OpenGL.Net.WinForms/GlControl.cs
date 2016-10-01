@@ -397,7 +397,7 @@ namespace OpenGL
 		protected void CreateDeviceContext()
 		{
 			// Create device context
-			_DeviceContext = DeviceContext.Create(this);
+			_DeviceContext = DeviceContext.Create(this.Handle);
 			_DeviceContext.IncRef();
 
 			// Set pixel format
@@ -791,5 +791,60 @@ namespace OpenGL
 		public readonly IntPtr RenderContext;
 
 		#endregion
+	}
+
+	/// <summary>
+	/// Designer converter for <see cref="KhronosVersion"/> properties.
+	/// </summary>
+	internal class KhronosVersionConverter : TypeConverter
+	{
+		public override bool CanConvertFrom(ITypeDescriptorContext context, Type destinationType)
+		{
+			return (destinationType == typeof(string) || base.CanConvertTo(context, destinationType));
+		}
+
+		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+		{
+			if (Object.ReferenceEquals(value, null))
+				return base.ConvertFrom(context, culture, value);
+			
+			Type valueType = value.GetType();
+
+			if (valueType == typeof(string)) {
+				try {
+					string valueString = (string)value;
+
+					if (valueString == String.Empty)
+						return (null);
+
+					return (KhronosVersion.Parse(valueString));
+				} catch (Exception exception) {
+					throw new NotSupportedException("unable to parse the value", exception);
+				}
+			}
+
+			// Base implementation
+			return base.ConvertFrom(context, culture, value);
+		}
+
+		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+		{
+			return (destinationType == typeof(string) || base.CanConvertTo(context, destinationType));
+		}
+
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+		{
+			if (destinationType == typeof(string)) {
+				KhronosVersion version = (KhronosVersion)value;
+
+				if (version == null)
+					return ("Current");
+
+				return (version.ToString());
+			}
+
+			// Base implementation
+			return base.ConvertTo(context, culture, value, destinationType);
+		}
 	}
 }

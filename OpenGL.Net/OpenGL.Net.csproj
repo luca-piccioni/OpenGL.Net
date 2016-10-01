@@ -80,10 +80,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
@@ -236,13 +233,6 @@
     <Compile Include="Gl.ES_VERSION_3_2.cs" />
     <Compile Include="Gl.Limits.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />
-    <Compile Include="GlControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GlControl.Designer.cs">
-      <DependentUpon>GlControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IControl.cs" />
     <Compile Include="IMG\Gl.IMG_framebuffer_downsample.cs" />
     <Compile Include="IMG\Gl.IMG_multisampled_render_to_texture.cs" />
     <Compile Include="IMG\Gl.IMG_program_binary.cs" />
@@ -252,6 +242,7 @@
     <Compile Include="IMG\Gl.IMG_texture_env_enhanced_fixed_function.cs" />
     <Compile Include="IMG\Gl.IMG_texture_filter_cubic.cs" />
     <Compile Include="IMG\Gl.IMG_user_clip_plane.cs" />
+    <Compile Include="INativeWindow.cs" />
     <Compile Include="LimitAttribute.cs" />
     <Compile Include="LogAttribute.cs" />
     <Compile Include="DeviceContext.cs" />
@@ -730,11 +721,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="GlControl.resx">
-      <DependentUpon>GlControl.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -32,7 +32,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -46,28 +45,22 @@ namespace OpenGL
 		/// <summary>
 		/// Initializes a new instance of the <see cref="WindowsDeviceContext"/> class.
 		/// </summary>
-		/// <param name='window'>
-		/// A <see cref="Control"/> which handle is used to create the device context.
+		/// <param name='windowHandle'>
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
 		/// </param>
-		/// <exception cref='ArgumentNullException'>
-		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
+		/// <exception cref='ArgumentException'>
+		/// Is thrown when <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public WindowsDeviceContext(Control window)
+		public WindowsDeviceContext(IntPtr windowHandle)
 		{
-			if (window == null)
-				throw new ArgumentNullException("window");
+			if (windowHandle == IntPtr.Zero)
+				throw new ArgumentException("null handle", "windowHandle");
 
-#if false
-			// "Force" handle creation
-			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
-				throw new InvalidOperationException("invalid handle");
-#endif
-
-			_WindowHandle = window.Handle;
-			_DeviceContext = Wgl.GetDC(window.Handle);
+			_WindowHandle = windowHandle;
+			_DeviceContext = Wgl.GetDC(windowHandle);
 
 			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get any video device context");
@@ -112,6 +105,150 @@ namespace OpenGL
 		/// The device context of the control.
 		/// </summary>
 		private readonly IntPtr _DeviceContext;
+
+		#endregion
+
+		#region Window Factory
+
+		/// <summary>
+		/// Native window implementation for Windows.
+		/// </summary>
+		internal class NativeWindow : INativeWindow
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Default constructor.
+			/// </summary>
+			public NativeWindow()
+			{
+				// Register window class
+				WNDCLASSEX windowClass = new WNDCLASSEX();
+				const string DefaultWindowClass = "OpenGL.Net2";
+
+				windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
+				windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
+				windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
+				windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
+				windowClass.lpszClassName = DefaultWindowClass;
+
+				if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
+					throw new Win32Exception(Marshal.GetLastWin32Error());
+
+				// Create window
+				const uint DefaultWindowStyleEx = UnsafeNativeMethods.WS_EX_APPWINDOW | UnsafeNativeMethods.WS_EX_WINDOWEDGE;
+				const uint DefaultWindowStyle = UnsafeNativeMethods.WS_OVERLAPPED | UnsafeNativeMethods.WS_CLIPCHILDREN | UnsafeNativeMethods.WS_CLIPSIBLINGS;
+
+				_Handle = UnsafeNativeMethods.CreateWindowEx(
+					DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, DefaultWindowStyle,
+					1, 1, 64, 64,
+					IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
+				);
+
+				if (_Handle == IntPtr.Zero)
+					throw new Win32Exception(Marshal.GetLastWin32Error());
+			}
+
+			#endregion
+
+			#region P/Invoke
+
+			[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+			private struct WNDCLASSEX {
+				public int cbSize;
+				public int style;
+				public IntPtr lpfnWndProc; 
+				public int cbClsExtra;
+				public int cbWndExtra;
+				public IntPtr hInstance;
+				public IntPtr hIcon;
+				public IntPtr hCursor;
+				public IntPtr hbrBackground;
+				[MarshalAs(UnmanagedType.LPTStr)]
+				public string lpszMenuName;
+				[MarshalAs(UnmanagedType.LPTStr)]
+				public string lpszClassName;
+				public IntPtr hIconSm;
+			}
+
+			private unsafe static partial class UnsafeNativeMethods
+			{
+				// CLASS STYLE
+				public const UInt32 CS_VREDRAW =	0x0001;
+				public const UInt32 CS_HREDRAW =	0x0002;
+				public const UInt32 CS_OWNDC =		0x0020;
+
+				// WINDOWS STYLE
+				public const UInt32 WS_CLIPCHILDREN =			0x2000000;
+				public const UInt32 WS_CLIPSIBLINGS =			0x4000000;
+				public const UInt32 WS_OVERLAPPED =				0x0;
+
+				// WINDOWS STYLE EX
+				public const UInt32 WS_EX_APPWINDOW =			0x00040000;
+				public const UInt32 WS_EX_WINDOWEDGE =			0x00000100;
+
+				internal delegate IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
+
+				[DllImport("user32.dll", EntryPoint = "DefWindowProc", SetLastError = true)]
+				internal static extern IntPtr DefWindowProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
+
+				[DllImport("user32.dll", EntryPoint = "RegisterClassExW", SetLastError = true)]
+				internal static extern UInt16 RegisterClassEx([In] ref WNDCLASSEX lpWndClass);
+
+				[DllImport("user32.dll", EntryPoint = "UnregisterClass", SetLastError = true)]
+				public static extern bool UnregisterClass(UInt16 lpClassAtom, IntPtr hInstance);
+
+				[DllImport("user32.dll", EntryPoint = "CreateWindowExW", SetLastError = true, CharSet = CharSet.Auto)]
+				internal static extern IntPtr CreateWindowEx(uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
+
+				[DllImport("user32.dll", SetLastError = true)]
+				internal static extern bool DestroyWindow(IntPtr hWnd);
+			}
+
+			private static IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+			{
+				return (UnsafeNativeMethods.DefWindowProc(hWnd, msg, wParam, lParam));
+			}
+
+			private static readonly UnsafeNativeMethods.WndProc _WindowsWndProc = new UnsafeNativeMethods.WndProc(WindowsWndProc);
+
+			#endregion
+
+			#region INativeWindow Implementation
+
+			/// <summary>
+			/// Get the native window handle.
+			/// </summary>
+			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+
+			/// <summary>
+			/// The native window handle.
+			/// </summary>
+			private IntPtr _Handle;
+
+			/// <summary>
+			/// The atom associated to the window class.
+			/// </summary>
+			private UInt16 _ClassAtom;
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			void IDisposable.Dispose()
+			{
+				if (_Handle != IntPtr.Zero) {
+					UnsafeNativeMethods.DestroyWindow(_Handle);
+					_Handle = IntPtr.Zero;
+				}
+
+				if (_ClassAtom != 0) {
+					UnsafeNativeMethods.UnregisterClass(_ClassAtom, Marshal.GetHINSTANCE(typeof(Gl).Module));
+					_ClassAtom = 0;
+				}
+			}
+
+			#endregion
+		}
 
 		#endregion
 

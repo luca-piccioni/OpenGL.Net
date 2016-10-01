@@ -48,3 +48,5 @@ packages
 /Samples/HelloTriangle/obj
 /Samples/HelloTriangle.Hal/obj
 /Samples/HelloTriangle.Hal/bin
+/OpenGL.Net.WinForms/obj
+/OpenGL.Net.WinForms/bin

@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2012-2015 Luca Piccioni
+// Copyright (C) 2012-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -32,25 +31,19 @@ namespace OpenGL
 		/// <summary>
 		/// Initializes a new instance of the <see cref="NativeDeviceContext"/> class.
 		/// </summary>
-		/// <param name='window'>
-		/// A <see cref="Control"/> which handle is used to create the device context.
+		/// <param name='windowHandle'>
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
 		/// </param>
-		/// <exception cref='ArgumentNullException'>
-		/// Is thrown when an argument passed to a method is invalid because it is <see langword="null" /> .
+		/// <exception cref='ArgumentException'>
+		/// Is thrown when <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public NativeDeviceContext(Control window)
+		public NativeDeviceContext(IntPtr windowHandle)
 		{
-			if (window == null)
-				throw new ArgumentNullException("window");
-
-#if false
-			// "Force" handle creation
-			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
-				throw new InvalidOperationException("invalid handle");
-#endif
+			if (windowHandle == IntPtr.Zero)
+				throw new ArgumentException("null handle", "windowHandle");
 
 			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get display handle");
@@ -60,7 +53,7 @@ namespace OpenGL
 			if (Egl.Initialize(_Display, major, minor) == false)
 				throw new InvalidOperationException("unable to initialize the display");
 
-			_NativeWindow = window.Handle;
+			_NativeWindow = windowHandle;
 			_Version = new KhronosVersion(major[0], minor[0], KhronosVersion.ApiEgl);
 		}
 
