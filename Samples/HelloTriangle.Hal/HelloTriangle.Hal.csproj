@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -80,11 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OpenGL.Hal\OpenGL.Hal.csproj">
-      <Project>{b1656959-9aee-45f3-a382-1bd0eac86918}</Project>
+      <Project>{B1656959-9AEE-45F3-A382-1BD0EAC86918}</Project>
       <Name>OpenGL.Hal</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.csproj">
-      <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
+      <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>
       <Name>OpenGL.Net</Name>
     </ProjectReference>
   </ItemGroup>

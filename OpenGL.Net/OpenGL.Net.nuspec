@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net</id>
-		<version>0.2.2</version>
+		<version>0.2.3</version>
 		<title>OpenGL for .Net</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -20,15 +20,14 @@
 			- OpenGL for Windows (WGL) and relative extensions
 			- OpenGL for X11 1.4 (XGL) and relative extensions
 			- Native Platform Interface 1.5 (EGL) and relative extensions
-
-			This package includes the ANGLE libraries that allow binding OpenGL ES API onto Windows platforms. For more
-			information see https://github.com/google/angle.
-
 		</description>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Windows.Forms" />
 		</frameworkAssemblies>
 		<releaseNotes>
+			*** Version 0.2.3
+			- Fixed GLX device context implementation. Now it runs on Linux. Need to configure the application configuration file.
+
 			*** Version 0.2.2
 			- Fixed the missing GlControl implementation.
 			- Compiled with Mono 4.2
