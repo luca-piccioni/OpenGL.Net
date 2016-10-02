@@ -16,7 +16,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // 
 
-#include </OpenGL/Light/MaterialState>
+#include </OpenGL/Light/MaterialState.glsl>
 
 // The light model applied
 struct hal_LightModelType

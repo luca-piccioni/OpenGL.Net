@@ -667,7 +667,7 @@ namespace OpenGL
 			sLog.Info("Create rendering window '{0}'.", _RenderForm != null ? _RenderForm.Text : "untitled");
 
 			// Obtain device context (relative to window)
-			_DeviceContext = DeviceContext.Create(_RenderControl);
+			_DeviceContext = DeviceContext.Create(_RenderControl.Handle);
 			_DeviceContext.IncRef();
 
 			// Choose "best" pixel format matching with surface configuration

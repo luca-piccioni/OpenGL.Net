@@ -16,8 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#include </OpenGL/Light/LightState>
-#include </OpenGL/Light/MaterialState>
+#include </OpenGL/Light/LightState.glsl>
+#include </OpenGL/Light/MaterialState.glsl>
 
 vec4 ComputeLightShading(hal_MaterialType material, vec4 eyePosition, vec3 normal)
 {

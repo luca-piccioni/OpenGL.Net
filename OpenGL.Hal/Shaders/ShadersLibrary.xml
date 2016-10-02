@@ -22,6 +22,9 @@
 		<Include Id="/OpenGL/Light/LightState.glsl">
 			<Path>OpenGL.Shaders.Light.LightState.glsl</Path>
 		</Include>
+		<Include Id="/OpenGL/Light/ILightShading.glsl">
+			<Path>OpenGL.Shaders.Light.ILightShading.glsl</Path>
+		</Include>
 	</Includes>
 	
 	<!-- Program Objects -->

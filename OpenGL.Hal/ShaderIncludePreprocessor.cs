@@ -217,12 +217,12 @@ namespace OpenGL
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex _RegexInclude = new Regex("#include *[<\"].*[>\"]", RegexOptions.Compiled);
+		private static readonly Regex _RegexInclude = new Regex("^\\s*#include *[<\"].*[>\"]", RegexOptions.Compiled);
 
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex _RegexIncludeAngular = new Regex("#include *[<\"].*[>\"]", RegexOptions.Compiled);
+		private static readonly Regex _RegexIncludeAngular = new Regex("^\\s*#include *[<\"].*[>\"]", RegexOptions.Compiled);
 
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
