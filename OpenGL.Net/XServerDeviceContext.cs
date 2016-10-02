@@ -242,6 +242,79 @@ namespace OpenGL
 		private Glx.XVisualInfo _VisualInfo;
 		
 		#endregion
+
+		#region Window Factory
+
+		/// <summary>
+		/// Native window implementation for Windows.
+		/// </summary>
+		internal class NativeWindow : INativeWindow
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Default constructor.
+			/// </summary>
+			public NativeWindow()
+			{
+				try {
+					// Open display
+					if ((_Display = Glx.UnsafeNativeMethods.XOpenDisplay(IntPtr.Zero)) == IntPtr.Zero)
+						throw new InvalidOperationException("unable to connect to X server");
+
+					// Choose basic visual
+					int[] visualAttrs = new int[] { Glx.RGBA, Glx.DEPTH_SIZE, 24, Glx.DOUBLEBUFFER, 0 };
+
+					Glx.XVisualInfo visual = Glx.ChooseVisual(_Display, 0, visualAttrs);
+					Glx.XSetWindowAttributes setWindowAttrs = new Glx.XSetWindowAttributes();
+
+					if ((_Handle = Glx.UnsafeNativeMethods.XCreateWindow(_Display, IntPtr.Zero, 0, 0, 64, 64, 0, visual.depth, /* InputOutput */ 0, visual.visual, UIntPtr.Zero, ref setWindowAttrs)) == IntPtr.Zero)
+						throw new InvalidOperationException("unable to create window");
+				} catch {
+					Dispose();
+					throw;
+				}
+			}
+
+			#endregion
+
+			#region INativeWindow Implementation
+
+			/// <summary>
+			/// Get the native window handle.
+			/// </summary>
+			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+
+			/// <summary>
+			/// The native window handle.
+			/// </summary>
+			private IntPtr _Display;
+
+			/// <summary>
+			/// The native window handle.
+			/// </summary>
+			private IntPtr _Handle;
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public void Dispose()
+			{
+				if (_Handle != IntPtr.Zero) {
+					Glx.UnsafeNativeMethods.XDestroyWindow(_Display, _Handle);
+					_Handle = IntPtr.Zero;
+				}
+
+				if (_Display != IntPtr.Zero) {
+					Glx.UnsafeNativeMethods.XCloseDisplay(_Display);
+					_Display = IntPtr.Zero;
+				}
+			}
+
+			#endregion
+		}
+
+		#endregion
 		
 		#region Multithreading Support
 		
@@ -307,6 +380,53 @@ namespace OpenGL
 		#endregion
 
 		#region DeviceContext Overrides
+
+		/// <summary>
+		/// Create a simple context.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		internal override IntPtr CreateSimpleContext()
+		{
+			IntPtr rContext;
+
+			using (Glx.XLock xLock = new Glx.XLock(Display)) {
+				int[] attributes = new int[] {
+					Glx.RENDER_TYPE, (int)Glx.RGBA_BIT,
+					0
+				};
+
+				// Get basic visual
+				unsafe {
+					int[] choosenConfigCount = new int[1];
+					IntPtr* choosenConfigs = Glx.ChooseFBConfig(Display, Screen, attributes, choosenConfigCount);
+
+					if (choosenConfigCount[0] == 0)
+						throw new InvalidOperationException("unable to find basic visual");
+
+					IntPtr choosenConfig = *choosenConfigs;
+
+					XVisualInfo = Glx.GetVisualFromFBConfig(Display, choosenConfig);
+					FBConfig = choosenConfig;
+
+					Glx.UnsafeNativeMethods.XFree((IntPtr)choosenConfigs);
+				}
+
+				// Create direct context
+				rContext = CreateContext(IntPtr.Zero);
+				if (rContext == IntPtr.Zero) {
+					// Fallback to not direct context
+					rContext = Glx.CreateContext(Display, XVisualInfo, IntPtr.Zero, false);
+				}
+
+				if (rContext == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create context");
+
+				return (rContext);
+			}
+		}
 
 		/// <summary>
 		/// Creates a context.
@@ -450,6 +570,15 @@ namespace OpenGL
 				else
 					throw new InvalidOperationException("binding point SwapInterval{EXT|SGI} cannot be found");
 			}
+		}
+
+		/// <summary>
+		/// Query platform extensions available.
+		/// </summary>
+		internal override void QueryPlatformExtensions()
+		{
+			Glx._CurrentExtensions = new Glx.Extensions();
+			Glx._CurrentExtensions.Query(this);
 		}
 
 		/// <summary>

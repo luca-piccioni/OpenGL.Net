@@ -415,7 +415,6 @@
     <Compile Include="IBM\Gl.IBM_rasterpos_clip.cs" />
     <Compile Include="IBM\Gl.IBM_static_data.cs" />
     <Compile Include="IBM\Gl.IBM_vertex_array_lists.cs" />
-    <Compile Include="IDeviceContext.cs" />
     <Compile Include="IMG\Egl.IMG_context_priority.cs" />
     <Compile Include="INGR\Gl.INGR_color_clamp.cs" />
     <Compile Include="INGR\Gl.INGR_interlace_read.cs" />

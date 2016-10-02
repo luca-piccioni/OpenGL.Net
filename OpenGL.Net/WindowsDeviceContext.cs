@@ -122,31 +122,36 @@ namespace OpenGL
 			/// </summary>
 			public NativeWindow()
 			{
-				// Register window class
-				WNDCLASSEX windowClass = new WNDCLASSEX();
-				const string DefaultWindowClass = "OpenGL.Net2";
+				try {
+					// Register window class
+					WNDCLASSEX windowClass = new WNDCLASSEX();
+					const string DefaultWindowClass = "OpenGL.Net2";
 
-				windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
-				windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
-				windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
-				windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
-				windowClass.lpszClassName = DefaultWindowClass;
+					windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
+					windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
+					windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
+					windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
+					windowClass.lpszClassName = DefaultWindowClass;
 
-				if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
-					throw new Win32Exception(Marshal.GetLastWin32Error());
+					if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
+						throw new Win32Exception(Marshal.GetLastWin32Error());
 
-				// Create window
-				const uint DefaultWindowStyleEx = UnsafeNativeMethods.WS_EX_APPWINDOW | UnsafeNativeMethods.WS_EX_WINDOWEDGE;
-				const uint DefaultWindowStyle = UnsafeNativeMethods.WS_OVERLAPPED | UnsafeNativeMethods.WS_CLIPCHILDREN | UnsafeNativeMethods.WS_CLIPSIBLINGS;
+					// Create window
+					const uint DefaultWindowStyleEx = UnsafeNativeMethods.WS_EX_APPWINDOW | UnsafeNativeMethods.WS_EX_WINDOWEDGE;
+					const uint DefaultWindowStyle = UnsafeNativeMethods.WS_OVERLAPPED | UnsafeNativeMethods.WS_CLIPCHILDREN | UnsafeNativeMethods.WS_CLIPSIBLINGS;
 
-				_Handle = UnsafeNativeMethods.CreateWindowEx(
-					DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, DefaultWindowStyle,
-					1, 1, 64, 64,
-					IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
-				);
+					_Handle = UnsafeNativeMethods.CreateWindowEx(
+						DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, DefaultWindowStyle,
+						1, 1, 64, 64,
+						IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
+					);
 
-				if (_Handle == IntPtr.Zero)
-					throw new Win32Exception(Marshal.GetLastWin32Error());
+					if (_Handle == IntPtr.Zero)
+						throw new Win32Exception(Marshal.GetLastWin32Error());
+				} catch {
+					Dispose();
+					throw;
+				}
 			}
 
 			#endregion
@@ -234,7 +239,7 @@ namespace OpenGL
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 			/// </summary>
-			void IDisposable.Dispose()
+			public void Dispose()
 			{
 				if (_Handle != IntPtr.Zero) {
 					UnsafeNativeMethods.DestroyWindow(_Handle);
@@ -253,6 +258,43 @@ namespace OpenGL
 		#endregion
 
 		#region DeviceContext Overrides
+
+		/// <summary>
+		/// Create a simple context.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		internal override IntPtr CreateSimpleContext()
+		{
+			IntPtr rContext;
+
+			// Define most compatible pixel format
+			Wgl.PIXELFORMATDESCRIPTOR pfd = new Wgl.PIXELFORMATDESCRIPTOR(24);
+			int pFormat;
+			bool res;
+
+			// Find pixel format match
+			pfd.dwFlags |= Wgl.PixelFormatDescriptorFlags.DepthDontCare | Wgl.PixelFormatDescriptorFlags.DoublebufferDontCare | Wgl.PixelFormatDescriptorFlags.StereoDontCare;
+
+			pFormat = Wgl.ChoosePixelFormat(DeviceContext, ref pfd);
+			Debug.Assert(pFormat != 0);
+
+			// Get exact description of the pixel format
+			res = Wgl.DescribePixelFormat(DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
+			Debug.Assert(res);
+
+			// Set pixel format before creating OpenGL context
+			res = Wgl.SetPixelFormat(DeviceContext, pFormat, ref pfd);
+			Debug.Assert(res);
+
+			// Create a dummy OpenGL context to retrieve initial informations.
+			rContext = CreateContext(IntPtr.Zero);
+			Debug.Assert(rContext != IntPtr.Zero);
+
+			return (rContext);
+		}
 
 		/// <summary>
 		/// Creates a context.
@@ -387,6 +429,15 @@ namespace OpenGL
 		public override bool SwapInterval(int interval)
 		{
 			return (Wgl.SwapIntervalEXT(interval));
+		}
+
+		/// <summary>
+		/// Query platform extensions available.
+		/// </summary>
+		internal override void QueryPlatformExtensions()
+		{
+			Wgl._CurrentExtensions = new Wgl.Extensions();
+			Wgl._CurrentExtensions.Query(this);
 		}
 
 		/// <summary>

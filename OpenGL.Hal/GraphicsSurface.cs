@@ -68,9 +68,9 @@ namespace OpenGL
 		/// Obtain device context associated with this GraphicsSurface. 
 		/// </summary>
 		/// <returns>
-		/// A <see cref="IDeviceContext"/>
+		/// A <see cref="DeviceContext"/>
 		/// </returns>
-		public abstract IDeviceContext GetDeviceContext();
+		public abstract DeviceContext GetDeviceContext();
 		
 		#endregion
 		

@@ -23,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Device context.
 	/// </summary>
-	public abstract class DeviceContext : IDeviceContext
+	public abstract class DeviceContext : IDisposable
 	{
 		#region Constructors
 
@@ -49,11 +49,13 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static INativeWindow CreateWindow()
+		internal static INativeWindow CreateWindow()
 		{
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Win32NT:
 					return (new WindowsDeviceContext.NativeWindow());
+				case PlatformID.Unix:
+					return (new XServerDeviceContext.NativeWindow());
 				default:
 					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 			}
@@ -71,7 +73,7 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static IDeviceContext Create(IntPtr windowHandle)
+		public static DeviceContext Create(IntPtr windowHandle)
 		{
 			if (Egl.IsRequired == false) {
 				switch (Environment.OSVersion.Platform) {
@@ -89,7 +91,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region IDeviceContext Implementation
+		#region Referenceable Instance
 
 		/// <summary>
 		/// Number of shared instances of this IRenderResource.
@@ -146,6 +148,19 @@ namespace OpenGL
 		/// The count of references for this RenderResource.
 		/// </summary>
 		private uint _RefCount;
+
+		#endregion
+
+		#region Platform Methods
+
+		/// <summary>
+		/// Create a simple context.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		internal abstract IntPtr CreateSimpleContext();
 
 		/// <summary>
 		/// Creates a context.
@@ -236,6 +251,11 @@ namespace OpenGL
 		/// It returns a boolean value indicating whether the operation was successful.
 		/// </returns>
 		public abstract bool SwapInterval(int interval);
+
+		/// <summary>
+		/// Query platform extensions available.
+		/// </summary>
+		internal abstract void QueryPlatformExtensions();
 
 		/// <summary>
 		/// Gets the platform exception relative to the last operation performed.

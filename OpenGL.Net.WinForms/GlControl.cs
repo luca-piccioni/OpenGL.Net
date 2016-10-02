@@ -556,7 +556,7 @@ namespace OpenGL
 		/// <summary>
 		/// The <see cref="DeviceContext"/> created on this GlControl.
 		/// </summary>
-		protected IDeviceContext _DeviceContext;
+		protected DeviceContext _DeviceContext;
 
 		/// <summary>
 		/// The OpenGL context created on this GlControl.
@@ -760,12 +760,12 @@ namespace OpenGL
 		/// Construct a GlControlEventArgs.
 		/// </summary>
 		/// <param name="ctx">
-		/// The <see cref="IDeviceContext"/> used for the underlying <see cref="GlControl"/>.
+		/// The <see cref="DeviceContext"/> used for the underlying <see cref="GlControl"/>.
 		/// </param>
 		/// <param name="renderContext">
 		/// The OpenGL context used for rendering.
 		/// </param>
-		public GlControlEventArgs(IDeviceContext deviceContext, IntPtr renderContext)
+		public GlControlEventArgs(DeviceContext deviceContext, IntPtr renderContext)
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");
@@ -781,9 +781,9 @@ namespace OpenGL
 		#region Event Arguments
 
 		/// <summary>
-		/// The <see cref="IDeviceContext"/> used for the underlying <see cref="GlControl"/>.
+		/// The <see cref="DeviceContext"/> used for the underlying <see cref="GlControl"/>.
 		/// </summary>
-		public readonly IDeviceContext DeviceContext;
+		public readonly DeviceContext DeviceContext;
 
 		/// <summary>
 		/// The OpenGL context used for rendering.

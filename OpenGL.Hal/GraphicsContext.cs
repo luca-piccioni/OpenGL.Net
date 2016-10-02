@@ -115,13 +115,13 @@ namespace OpenGL
 
 		#endregion
 
-		#region Constructor Overrides -  Constructors specifying IDeviceContext
+		#region Constructor Overrides -  Constructors specifying DeviceContext
 
 		/// <summary>
 		/// Construct a GraphicsContext.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
+		/// A <see cref="DeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="version">
@@ -138,7 +138,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
 		/// </exception>
-		public GraphicsContext(IDeviceContext deviceContext) :
+		public GraphicsContext(DeviceContext deviceContext) :
 			this(deviceContext, null)
 		{
 
@@ -148,7 +148,7 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
+		/// A <see cref="DeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="sharedContext">
@@ -167,7 +167,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext sharedContext) :
+		public GraphicsContext(DeviceContext deviceContext, GraphicsContext sharedContext) :
 			this(deviceContext, sharedContext, _CurrentVersion, GraphicsContextFlags.None)
 		{
 
@@ -177,7 +177,7 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
+		/// A <see cref="DeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="sharedContext">
@@ -208,7 +208,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version) :
+		public GraphicsContext(DeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version) :
 			this(deviceContext, sharedContext, version, GraphicsContextFlags.None)
 		{
 
@@ -220,7 +220,7 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specify the device context which has to be linked this
+		/// A <see cref="DeviceContext"/> that specify the device context which has to be linked this
 		/// this Render context.
 		/// </param>
 		/// <param name="sharedContext">
@@ -257,7 +257,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags)
+		public GraphicsContext(DeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags)
 		{
 			try {
 				IntPtr sharedContextHandle = (sharedContext != null) ? sharedContext._RenderContext : IntPtr.Zero;
@@ -394,7 +394,7 @@ namespace OpenGL
 					// Allow the creation of a GraphicsContext while another GraphicsContext is currently current to the
 					// calling thread: restore currency after the job get done
 					GraphicsContext prevContext = GetCurrentContext();
-					IDeviceContext prevContextDevice = (prevContext != null) ? prevContext._CurrentDeviceContext : null;
+					DeviceContext prevContextDevice = (prevContext != null) ? prevContext._CurrentDeviceContext : null;
 
 					// Make current on this thread
 					MakeCurrent(deviceContext, true);
@@ -726,7 +726,7 @@ namespace OpenGL
 		/// Set this GraphicsContext current/uncurrent on device different from the one specified at construction time.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> that specify the device context involved.
+		/// A <see cref="DeviceContext"/> that specify the device context involved.
 		/// </param>
 		/// <param name="flag">
 		/// A <see cref="Boolean"/> that specify the currency of this GraphicsContext on the
@@ -741,7 +741,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception throw if this GraphicsContext cannot be made current/uncurrent on the device context specified by <paramref name="rDevice"/>.
 		/// </exception>
-		public void MakeCurrent(IDeviceContext deviceContext, bool flag)
+		public void MakeCurrent(DeviceContext deviceContext, bool flag)
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");
@@ -837,7 +837,7 @@ namespace OpenGL
 		/// <summary>
 		/// Device context handle referred by GraphicsContext at construction time.
 		/// </summary>
-		private IDeviceContext _DeviceContext;
+		private DeviceContext _DeviceContext;
 
 		/// <summary>
 		/// Device context handle referred by GraphicsContext when has became current.
@@ -851,7 +851,7 @@ namespace OpenGL
 		/// If its value is <see cref="IntPtr.Zero"/>, it means that this GraphicsContext has never been current on a thread.
 		/// </para>
 		/// </remarks>
-		private IDeviceContext _CurrentDeviceContext;
+		private DeviceContext _CurrentDeviceContext;
 
 		/// <summary>
 		/// Get the underlying render context handle.

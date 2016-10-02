@@ -488,9 +488,9 @@ namespace OpenGL
 		/// Get the device context associated to this GraphicsWindow. 
 		/// </summary>
 		/// <returns>
-		/// A <see cref="OpenGL.IDeviceContext"/> representing the device context related to this GraphicsWindow.
+		/// A <see cref="OpenGL.DeviceContext"/> representing the device context related to this GraphicsWindow.
 		/// </returns>
-		public override IDeviceContext GetDeviceContext()
+		public override DeviceContext GetDeviceContext()
 		{
 			return (_DeviceContext);
 		}
@@ -618,7 +618,7 @@ namespace OpenGL
 		/// <summary>
 		/// Device context associated to mRenderWindow. 
 		/// </summary>
-		private IDeviceContext _DeviceContext;
+		private DeviceContext _DeviceContext;
 		
 		/// <summary>
 		/// The swap interval.

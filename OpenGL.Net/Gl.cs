@@ -49,55 +49,40 @@ namespace OpenGL
 			// Create temporary context for getting preliminary information on desktop systems
 			using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
 				// Create device context
-				_HiddenWindowDevice = DeviceContext.Create(nativeWindow.Handle);
-				_HiddenWindowDevice.IncRef();
+				using (DeviceContext windowDevice = DeviceContext.Create(nativeWindow.Handle)) {
+					// Create basic OpenGL context
+					IntPtr renderContext = windowDevice.CreateSimpleContext();
+					if (renderContext == IntPtr.Zero)
+						throw new NotImplementedException("unable to create a simple context");
 
-				// Create basic OpenGL context
-				IntPtr renderContext;
+					// Query OpenGL informations
+					if (windowDevice.MakeCurrent(renderContext) == false)
+						throw new InvalidOperationException("unable to make current");
 
-				if      (_HiddenWindowDevice is WindowsDeviceContext)
-					renderContext = CreateWinSimpleContext(_HiddenWindowDevice);
-				else if (_HiddenWindowDevice is XServerDeviceContext)
-					renderContext = CreateX11SimpleContext(_HiddenWindowDevice);
-				else if (_HiddenWindowDevice is NativeDeviceContext)
-					renderContext = CreateEglSimpleContext(_HiddenWindowDevice);
-				else
-					throw new NotImplementedException(String.Format("{0} is not a supported device context", _HiddenWindowDevice.GetType()));
+					// Obtain current OpenGL implementation
+					string glVersion = Gl.GetString(StringName.Version);
+					_CurrentVersion = KhronosVersion.Parse(glVersion);
 
-				// Query OpenGL informations
-				if (_HiddenWindowDevice.MakeCurrent(renderContext) == false)
-					throw new InvalidOperationException("unable to make current");
+					// Obtain current OpenGL Shading Language version
+					string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+					_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
 
-				// Obtain current OpenGL implementation
-				string glVersion = Gl.GetString(StringName.Version);
-				_CurrentVersion = KhronosVersion.Parse(glVersion);
+					// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
+					_CurrentExtensions = new Extensions();
+					_CurrentExtensions.Query();
 
-				// Obtain current OpenGL Shading Language version
-				string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
-				_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+					// Query OpenGL limits
+					_CurrentLimits = Limits.Query(_CurrentExtensions);
 
-				// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-				_CurrentExtensions = new Extensions();
-				_CurrentExtensions.Query();
-				// Query OpenGL limits
-				_CurrentLimits = Limits.Query(_CurrentExtensions);
+					// Query platform extensions
+					windowDevice.QueryPlatformExtensions();
 
-				if        (_HiddenWindowDevice is WindowsDeviceContext) {
-					Wgl._CurrentExtensions = new Wgl.Extensions();
-					Wgl._CurrentExtensions.Query((WindowsDeviceContext)_HiddenWindowDevice);
-				} else if (_HiddenWindowDevice is XServerDeviceContext) {
-					Glx._CurrentExtensions = new Glx.Extensions();
-					Glx._CurrentExtensions.Query((XServerDeviceContext)_HiddenWindowDevice);
-				} else if (_HiddenWindowDevice is NativeDeviceContext) {
-					Egl._CurrentExtensions = new Egl.Extensions();
-					Egl._CurrentExtensions.Query((NativeDeviceContext)_HiddenWindowDevice);
+					// Before deletion, make uncurrent
+					windowDevice.MakeCurrent(IntPtr.Zero);
+					// Detroy context
+					if (windowDevice.DeleteContext(renderContext) == false)
+						throw new InvalidOperationException("unable to delete OpenGL context");
 				}
-
-				// Before deletion, make uncurrent
-				_HiddenWindowDevice.MakeCurrent(IntPtr.Zero);
-				// Detroy context
-				if (_HiddenWindowDevice.DeleteContext(renderContext) == false)
-					throw new InvalidOperationException("unable to delete OpenGL context");
 			}
 		}
 
@@ -157,147 +142,6 @@ namespace OpenGL
 		/// OpenGL limits.
 		/// </summary>
 		private static Limits _CurrentLimits;
-
-		/// <summary>
-		/// Creates an OpenGL context from a Windows platform.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="IDeviceContext"/> that specify the device context.
-		/// </returns>
-		private static IntPtr CreateWinSimpleContext(IDeviceContext rDevice)
-		{
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)rDevice;
-			IntPtr rContext;
-
-			// Define most compatible pixel format
-			Wgl.PIXELFORMATDESCRIPTOR pfd = new Wgl.PIXELFORMATDESCRIPTOR(24);
-			int pFormat;
-			bool res;
-
-			// Find pixel format match
-			pfd.dwFlags |= Wgl.PixelFormatDescriptorFlags.DepthDontCare | Wgl.PixelFormatDescriptorFlags.DoublebufferDontCare | Wgl.PixelFormatDescriptorFlags.StereoDontCare;
-
-			pFormat = Wgl.ChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
-			Debug.Assert(pFormat != 0);
-
-			// Get exact description of the pixel format
-			res = Wgl.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
-			Debug.Assert(res);
-
-			// Set pixel format before creating OpenGL context
-			res = Wgl.SetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
-			Debug.Assert(res);
-
-			// Create a dummy OpenGL context to retrieve initial informations.
-			rContext = winDeviceContext.CreateContext(IntPtr.Zero);
-			Debug.Assert(rContext != IntPtr.Zero);
-
-			return (rContext);
-		}
-
-		/// <summary>
-		/// Creates an OpenGL context from a Unix/Linux platform.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="IDeviceContext"/> that specify the device context.
-		/// </returns>
-		private static IntPtr CreateX11SimpleContext(IDeviceContext rDevice)
-		{
-			XServerDeviceContext x11DeviceCtx = (XServerDeviceContext)rDevice;
-			IntPtr rContext;
-
-			using (Glx.XLock xLock = new Glx.XLock(x11DeviceCtx.Display)) {
-				int[] attributes = new int[] {
-					Glx.RENDER_TYPE, (int)Glx.RGBA_BIT,
-					0
-				};
-
-				// Get basic visual
-				unsafe {
-					int[] choosenConfigCount = new int[1];
-					IntPtr* choosenConfigs = Glx.ChooseFBConfig(x11DeviceCtx.Display, x11DeviceCtx.Screen, attributes, choosenConfigCount);
-
-					if (choosenConfigCount[0] == 0)
-						throw new InvalidOperationException("unable to find basic visual");
-
-					IntPtr choosenConfig = *choosenConfigs;
-
-					x11DeviceCtx.XVisualInfo = Glx.GetVisualFromFBConfig(x11DeviceCtx.Display, choosenConfig);
-					x11DeviceCtx.FBConfig = choosenConfig;
-
-					Glx.UnsafeNativeMethods.XFree((IntPtr)choosenConfigs);
-				}
-
-				// Create direct context
-				rContext = x11DeviceCtx.CreateContext(IntPtr.Zero);
-				if (rContext == IntPtr.Zero) {
-					// Fallback to not direct context
-					rContext = Glx.CreateContext(x11DeviceCtx.Display, x11DeviceCtx.XVisualInfo, IntPtr.Zero, false);
-				}
-
-				if (rContext == IntPtr.Zero)
-					throw new InvalidOperationException("unable to create context");
-
-				return (rContext);
-			}
-		}
-
-		/// <summary>
-		/// Creates an OpenGL context from a Unix/Linux platform.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="IDeviceContext"/> that specify the device context.
-		/// </returns>
-		private static IntPtr CreateEglSimpleContext(IDeviceContext rDevice)
-		{
-			NativeDeviceContext eglDeviceCtx = (NativeDeviceContext)rDevice;
-			IntPtr ctx;
-
-			List<int> configAttribs = new List<int>();
-
-			if (eglDeviceCtx.Version >= Egl.Version_120)
-				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
-			configAttribs.AddRange(new int[] {
-				Egl.RED_SIZE, 8,
-				Egl.GREEN_SIZE, 8,
-				Egl.BLUE_SIZE, 8,
-			});
-			configAttribs.Add(Egl.NONE);
-
-			int[] configCount = new int[1];
-			IntPtr[] configs = new IntPtr[8];
-
-			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
-				throw new InvalidOperationException("no ES API");
-
-			if (Egl.ChooseConfig(eglDeviceCtx.Display, configAttribs.ToArray(), configs, configs.Length, configCount) == false)
-				throw new InvalidOperationException("unable to choose configuration");
-			if (configCount[0] == 0)
-				throw new InvalidOperationException("no available configuration");
-
-			List<int> contextAttribs = new List<int>();
-
-			if (eglDeviceCtx.Version >= Egl.Version_130)
-				contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
-			contextAttribs.Add(Egl.NONE);
-
-			if ((ctx = Egl.CreateContext(eglDeviceCtx.Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create context");
-
-			List<int> surfaceAttribs = new List<int>();
-
-			surfaceAttribs.Add(Egl.NONE);
-			// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-
-			eglDeviceCtx.Surface = Egl.CreateWindowSurface(eglDeviceCtx.Display, configs[configs.Length - 1], eglDeviceCtx.NativeWindow, surfaceAttribs.ToArray());
-
-			return (ctx);
-		}
-
-		/// <summary>
-		/// Device context handle created from <see cref="_HiddenWindow"/>.
-		/// </summary>
-		private static IDeviceContext _HiddenWindowDevice;
 
 		#endregion
 

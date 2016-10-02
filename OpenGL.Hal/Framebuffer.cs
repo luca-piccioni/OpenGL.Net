@@ -850,7 +850,7 @@ namespace OpenGL
 		/// It always returns <see cref="IntPtr.Zero"/>, since no device context is related to this render
 		/// surface.
 		/// </returns>
-		public override IDeviceContext GetDeviceContext()
+		public override DeviceContext GetDeviceContext()
 		{
 			return (null);
 		}

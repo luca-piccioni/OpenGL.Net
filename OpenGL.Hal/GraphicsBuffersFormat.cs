@@ -234,7 +234,7 @@ namespace OpenGL
 		/// These pixel formats are fetched during the static constructor of <see cref="GraphicsContext"/>,
 		/// and this routine selects one of the available pixel format.
 		/// </remarks>
-		public DevicePixelFormat ChoosePixelFormat(IDeviceContext deviceContext)
+		public DevicePixelFormat ChoosePixelFormat(DeviceContext deviceContext)
 		{
 			return (ChoosePixelFormat(deviceContext, null));
 		}
@@ -243,7 +243,7 @@ namespace OpenGL
 		/// Obtain best macthing surface configuration supported by actual implementation.
 		/// </summary>
 		/// <param name="deviceContext">
-		/// A <see cref="IDeviceContext"/> used for selecting the surface pixel format.
+		/// A <see cref="DeviceContext"/> used for selecting the surface pixel format.
 		/// </param>
 		/// <param name="formatFilter">
 		/// Delegate used for filtering pixel formats.
@@ -263,7 +263,7 @@ namespace OpenGL
 		/// These pixel formats are fetched during the static constructor of <see cref="GraphicsContext"/>,
 		/// and this routine selects one of the available pixel format.
 		/// </remarks>
-		public DevicePixelFormat ChoosePixelFormat(IDeviceContext deviceContext, ValidBuffersFormatDelegate formatFilter)
+		public DevicePixelFormat ChoosePixelFormat(DeviceContext deviceContext, ValidBuffersFormatDelegate formatFilter)
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");

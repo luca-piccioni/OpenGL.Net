@@ -23,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Native window interface.
 	/// </summary>
-	public interface INativeWindow : IDisposable
+	internal interface INativeWindow : IDisposable
 	{
 		#region Properties
 

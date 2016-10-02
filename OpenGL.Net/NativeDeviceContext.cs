@@ -53,21 +53,13 @@ namespace OpenGL
 			if (Egl.Initialize(_Display, major, minor) == false)
 				throw new InvalidOperationException("unable to initialize the display");
 
-			_NativeWindow = windowHandle;
+			_WindowHandle = windowHandle;
 			_Version = new KhronosVersion(major[0], minor[0], KhronosVersion.ApiEgl);
 		}
 
 		#endregion
 
 		#region Device Information
-
-		/// <summary>
-		/// Native window handle.
-		/// </summary>
-		public IntPtr NativeWindow
-		{
-			get { return (_NativeWindow); }
-		}
 
 		/// <summary>
 		/// The opened display.
@@ -112,9 +104,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the native window handle.
+		/// </summary>
+		internal IntPtr WindowHandle
+		{
+			get { return (_WindowHandle); }
+		}
+
+		/// <summary>
 		/// Native window handle.
 		/// </summary>
-		private IntPtr _NativeWindow;
+		private IntPtr _WindowHandle;
 
 		/// <summary>
 		/// The opened display.
@@ -143,7 +143,108 @@ namespace OpenGL
 
 		#endregion
 
+		#region Window Factory
+
+		/// <summary>
+		/// Native window implementation for Windows.
+		/// </summary>
+		internal class NativeWindow : INativeWindow
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Default constructor.
+			/// </summary>
+			public NativeWindow()
+			{
+				try {
+					
+				} catch {
+					Dispose();
+					throw;
+				}
+			}
+
+			#endregion
+
+			#region INativeWindow Implementation
+
+			/// <summary>
+			/// Get the native window handle.
+			/// </summary>
+			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+
+			/// <summary>
+			/// The native window handle.
+			/// </summary>
+			private IntPtr _Handle;
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public void Dispose()
+			{
+				
+			}
+
+			#endregion
+		}
+
+		#endregion
+
 		#region DeviceContext Overrides
+
+		/// <summary>
+		/// Create a simple context.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		internal override IntPtr CreateSimpleContext()
+		{
+			IntPtr ctx;
+
+			List<int> configAttribs = new List<int>();
+
+			if (Version >= Egl.Version_120)
+				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+			configAttribs.AddRange(new int[] {
+				Egl.RED_SIZE, 8,
+				Egl.GREEN_SIZE, 8,
+				Egl.BLUE_SIZE, 8,
+			});
+			configAttribs.Add(Egl.NONE);
+
+			int[] configCount = new int[1];
+			IntPtr[] configs = new IntPtr[8];
+
+			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
+				throw new InvalidOperationException("no ES API");
+
+			if (Egl.ChooseConfig(Display, configAttribs.ToArray(), configs, configs.Length, configCount) == false)
+				throw new InvalidOperationException("unable to choose configuration");
+			if (configCount[0] == 0)
+				throw new InvalidOperationException("no available configuration");
+
+			List<int> contextAttribs = new List<int>();
+
+			if (Version >= Egl.Version_130)
+				contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+			contextAttribs.Add(Egl.NONE);
+
+			if ((ctx = Egl.CreateContext(Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create context");
+
+			List<int> surfaceAttribs = new List<int>();
+
+			surfaceAttribs.Add(Egl.NONE);
+			// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+
+			Surface = Egl.CreateWindowSurface(Display, configs[configs.Length - 1], WindowHandle, surfaceAttribs.ToArray());
+
+			return (ctx);
+		}
 
 		/// <summary>
 		/// Creates a context.
@@ -176,7 +277,7 @@ namespace OpenGL
 				Egl.NONE
 			};
 
-			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _NativeWindow, surfaceAttribs)) == IntPtr.Zero)
+			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create window surface");
 
 			return (_Context);
@@ -289,6 +390,15 @@ namespace OpenGL
 		public override bool SwapInterval(int interval)
 		{
 			return (Egl.SwapInterval(_Display, interval));
+		}
+
+		/// <summary>
+		/// Query platform extensions available.
+		/// </summary>
+		internal override void QueryPlatformExtensions()
+		{
+			Egl._CurrentExtensions = new Egl.Extensions();
+			Egl._CurrentExtensions.Query(this);
 		}
 
 		/// <summary>
