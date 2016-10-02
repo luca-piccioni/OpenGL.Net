@@ -76,12 +76,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OpenGL.Hal\OpenGL.Hal.csproj">
       <Project>{B1656959-9AEE-45F3-A382-1BD0EAC86918}</Project>
       <Name>OpenGL.Hal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms.csproj">
+      <Project>{b65d2a92-28fb-400c-990a-c805a8586b60}</Project>
+      <Name>OpenGL.Net.WinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.csproj">
       <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>
