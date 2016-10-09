@@ -324,9 +324,9 @@ namespace OpenGL
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(Glx.CurrentExtensions.VertexBufferObject_ARB || _GpuBuffer != null);
+			Debug.Assert(Gl.CurrentExtensions.VertexBufferObject_ARB || _GpuBuffer != null);
 			// Map GPU buffer (actual or fake)
-			_MappedBuffer = Glx.CurrentExtensions.VertexBufferObject_ARB ? Gl.MapBuffer(BufferType, mask) : _GpuBuffer.AlignedBuffer;
+			_MappedBuffer = Gl.CurrentExtensions.VertexBufferObject_ARB ? Gl.MapBuffer(BufferType, mask) : _GpuBuffer.AlignedBuffer;
 		}
 
 		/// <summary>
@@ -364,7 +364,7 @@ namespace OpenGL
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			if (Exists(ctx) && Glx.CurrentExtensions.VertexBufferObject_ARB) {
+			if (Exists(ctx) && Gl.CurrentExtensions.VertexBufferObject_ARB) {
 				// Unmap buffer object data (resident on server)
 				bool uncorrupted = Gl.UnmapBuffer(BufferType);
 
@@ -542,7 +542,7 @@ namespace OpenGL
 				Debug.Assert(ClientBufferSize == BufferSize);
 			}
 
-			if (Glx.CurrentExtensions.VertexBufferObject_ARB) {
+			if (Gl.CurrentExtensions.VertexBufferObject_ARB) {
 				// Read this buffer object
 				ctx.Bind(this);
 				// Get the GPU buffer content
@@ -595,7 +595,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (Glx.CurrentExtensions.VertexBufferObject_ARB ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
+			return (Gl.CurrentExtensions.VertexBufferObject_ARB ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
 		}
 
 		/// <summary>
@@ -617,7 +617,7 @@ namespace OpenGL
 		{
 			CheckCurrentContext(ctx);
 
-			Debug.Assert(Glx.CurrentExtensions.VertexBufferObject_ARB);
+			Debug.Assert(Gl.CurrentExtensions.VertexBufferObject_ARB);
 
 			return (Gl.GenBuffer());
 		}
@@ -644,7 +644,7 @@ namespace OpenGL
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(Glx.CurrentExtensions.VertexBufferObject_ARB);
+			Debug.Assert(Gl.CurrentExtensions.VertexBufferObject_ARB);
 
 			// Delete buffer object
 			Gl.DeleteBuffers(name);
@@ -689,7 +689,7 @@ namespace OpenGL
 			// Buffer must be bound
 			ctx.Bind(this);
 
-			if (Glx.CurrentExtensions.VertexBufferObject_ARB) {
+			if (Gl.CurrentExtensions.VertexBufferObject_ARB) {
 				if (IsMapped)
 					throw new InvalidOperationException("mapped");
 
@@ -802,7 +802,7 @@ namespace OpenGL
 		/// </param>
 		protected virtual void BindCore(GraphicsContext ctx)
 		{
-			if (Glx.CurrentExtensions.VertexBufferObject_ARB)
+			if (Gl.CurrentExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, ObjectName);
 		}
 
@@ -827,7 +827,7 @@ namespace OpenGL
 		/// </param>
 		protected virtual void UnbindCore(GraphicsContext ctx)
 		{
-			if (Glx.CurrentExtensions.VertexBufferObject_ARB)
+			if (Gl.CurrentExtensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, InvalidObjectName);
 		}
 

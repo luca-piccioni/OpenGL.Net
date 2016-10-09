@@ -1237,7 +1237,7 @@ namespace OpenGL
 		{
 			CheckValidContext(ctx);
 
-			return (Glx.CurrentExtensions.VertexBufferObject_ARB);
+			return (Gl.CurrentExtensions.VertexBufferObject_ARB);
 		}
 
 		#endregion
