@@ -76,7 +76,7 @@ namespace HelloTriangle.Hal
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
 			ctx.Bind(_Program);
-			_Program.SetUniform(ctx, "hal_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f));
+			_Program.SetUniform(ctx, ProgramUniformSemantic.ModelViewProjection, new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f));
 			_VertexArray.Draw(ctx, _Program);
 		}
 
