@@ -65,10 +65,6 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void TestVersion()
 		{
-			// Static information
-			Assert.IsNotNull(GraphicsContext.CurrentVersion);
-			Assert.IsNotNull(GraphicsContext.CurrentShadingVersion);
-
 			Assert.IsNotNull(_Context.Version);
 			Assert.IsNotNull(_Context.ShadingVersion);
 		}

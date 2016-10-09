@@ -288,7 +288,7 @@ namespace OpenGL
 
 			// Append required shader extensions - ARB_shading_language_include
 			// Note: this extension, if supported, is required by the framework to compile correctly
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB)
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB)
 				shaderSource.Add("#extension GL_ARB_shading_language_include : require\n");
 
 			// Append required #define statments
@@ -316,7 +316,7 @@ namespace OpenGL
 			_Log.Verbose("--------------------------------------------------------------------------------");
 
 			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == false)
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB == false)
 				shaderSource = ShaderIncludePreprocessor.Process(ctx.IncludeLibrary, cctx, shaderSource);
 
 			// Remove comment lines
@@ -378,7 +378,7 @@ namespace OpenGL
 #if false
 			// #extension GL_ARB_shading_language_include (required by framework)
 			shaderExtensions.RemoveAll(delegate(ShaderExtension item) { return (item.Name == "GL_ARB_shading_language_include"); });
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB) {
 				RenderCapabilities.ShadingExtSupport shaderExtension = ctx.Caps.GetShadingExtensionSupport("GL_ARB_shading_language_include");
 				
 				// ARB_shading_language_include may become a core feature? Who knows...
@@ -722,7 +722,7 @@ namespace OpenGL
 			// Set shader source
 			Gl.ShaderSource(ObjectName, source.ToArray());
 
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB) {
 				string[] includePaths = new string[cctx.Includes.Count];
 
 				cctx.Includes.CopyTo(includePaths, 0);

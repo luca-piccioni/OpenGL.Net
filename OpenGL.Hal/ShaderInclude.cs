@@ -216,7 +216,7 @@ namespace OpenGL
 			if (!base.Exists(ctx))
 				return (false);
 			
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == true)
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB == true)
 				return (Gl.IsNamedStringARB(IncludePath.Length, IncludePath));
 
 			return (true);
@@ -246,7 +246,7 @@ namespace OpenGL
 		{
 			CheckCurrentContext(ctx);
 
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB) {
 				StringBuilder sb = new StringBuilder();
 
 				// Build include source string
@@ -272,7 +272,7 @@ namespace OpenGL
 			// Base implementation
 			base.Delete(ctx);
 			// Delete named string
-			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB)
+			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB)
 				Gl.DeleteNamedStringARB(-1, IncludePath);
 		}
 

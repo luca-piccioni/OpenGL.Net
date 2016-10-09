@@ -189,52 +189,45 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		private void CheckCapabilities(GraphicsCapabilities caps, uint width, uint height, uint depth, PixelLayout format)
+		private void CheckCapabilities(uint width, uint height, uint depth, PixelLayout format)
 		{
-			if (caps == null)
-				throw new ArgumentNullException("caps");
-			if (caps.GlExtensions == null)
-				throw new ArgumentException("caps GL extensions not queried", "caps");
-			if (caps.Limits == null)
-				throw new ArgumentException("caps Limits not queried", "caps");
-		
 			// Texture maximum size
 			switch (TextureTarget) {
 				case TextureTarget.Texture1d:
-					if (width > caps.Limits.MaxTexture2DSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTexture2DSize));
+					if (width > Gl.CurrentLimits.MaxTexture2DSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTexture2DSize));
 					break;
 				case TextureTarget.Texture2d:
-					if (width > caps.Limits.MaxTexture2DSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTexture2DSize));
-					if (height > caps.Limits.MaxTexture2DSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTexture2DSize));
+					if (width > Gl.CurrentLimits.MaxTexture2DSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTexture2DSize));
+					if (height > Gl.CurrentLimits.MaxTexture2DSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTexture2DSize));
 					break;
 				case TextureTarget.TextureRectangle:
-					if (width > caps.Limits.MaxTextureRectSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTextureRectSize));
-					if (height > caps.Limits.MaxTextureRectSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTextureRectSize));
+					if (width > Gl.CurrentLimits.MaxTextureRectSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureRectSize));
+					if (height > Gl.CurrentLimits.MaxTextureRectSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureRectSize));
 					break;
 				case TextureTarget.Texture3d:
-					if (width > caps.Limits.MaxTexture3DSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTexture3DSize));
-					if (height > caps.Limits.MaxTexture3DSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTexture3DSize));
-					if (depth > caps.Limits.MaxTexture3DSize)
-						throw new ArgumentException(String.Format("depth greater than maximum allowed ({0})", caps.Limits.MaxTexture3DSize));
+					if (width > Gl.CurrentLimits.MaxTexture3DSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTexture3DSize));
+					if (height > Gl.CurrentLimits.MaxTexture3DSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTexture3DSize));
+					if (depth > Gl.CurrentLimits.MaxTexture3DSize)
+						throw new ArgumentException(String.Format("depth greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTexture3DSize));
 					break;
 				case TextureTarget.TextureCubeMap:
-					if (width > caps.Limits.MaxTextureCubeSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTextureCubeSize));
-					if (height > caps.Limits.MaxTextureCubeSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTextureCubeSize));
+					if (width > Gl.CurrentLimits.MaxTextureCubeSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureCubeSize));
+					if (height > Gl.CurrentLimits.MaxTextureCubeSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureCubeSize));
 					break;
 				default:
 					throw new NotImplementedException("not implemented checks on texture " + GetType());
 			}
 			// Texture not-power-of-two
-			if (caps.GlExtensions.TextureNonPowerOfTwo_ARB == false) {
+			if (Gl.CurrentExtensions.TextureNonPowerOfTwo_ARB == false) {
 				if (IsPowerOfTwo(width) == false)
 					throw new ArgumentException(String.Format("NPOT texture width not supported (width is {0})", width));
 				if (IsPowerOfTwo(height) == false)
@@ -845,7 +838,7 @@ namespace OpenGL
 		/// </remarks>
 		private void SetupTextelSwizzle()
 		{
-			if (GraphicsContext.CurrentCaps.GlExtensions.TextureSwizzle_ARB) {
+			if (Gl.CurrentExtensions.TextureSwizzle_ARB) {
 				switch (PixelLayout) {
 
 					#region GRAY Internal Formats
@@ -1019,7 +1012,7 @@ namespace OpenGL
 
 			#region Textel Components Swizzle
 
-			if ((_TextelSwizzleRGBA != null) && (ctx.Caps.GlExtensions.TextureSwizzle_ARB)) {
+			if ((_TextelSwizzleRGBA != null) && (Gl.CurrentExtensions.TextureSwizzle_ARB)) {
 				// Set components swizzle setup
 				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, _TextelSwizzleRGBA);
 			}
@@ -1137,7 +1130,7 @@ namespace OpenGL
 		/// <summary>
 		/// Flag for releasing data on upload.
 		/// </summary>
-		private bool _TechniquesAutoRelease = GraphicsContext.CurrentCaps.GlExtensions.TextureObject_EXT;
+		private bool _TechniquesAutoRelease = Gl.CurrentExtensions.TextureObject_EXT;
 
 		#endregion
 
@@ -1181,7 +1174,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!ctx.Caps.GlExtensions.TextureObject_EXT || Gl.IsTexture(ObjectName));
+			return (!Gl.CurrentExtensions.TextureObject_EXT || Gl.IsTexture(ObjectName));
 		}
 
 		/// <summary>
@@ -1263,7 +1256,7 @@ namespace OpenGL
 			get
 			{
 				// Cannot lazy binding on textures if GL_EXT_texture_object is not supported
-				if (GraphicsContext.CurrentCaps.GlExtensions.TextureObject_EXT == false)
+				if (Gl.CurrentExtensions.TextureObject_EXT == false)
 					return (0);
 
 				// All-in-one implementation for all targets

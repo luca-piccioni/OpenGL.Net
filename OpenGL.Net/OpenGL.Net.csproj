@@ -263,6 +263,7 @@
     <Compile Include="Gl.ES_VERSION_2_0.cs" />
     <Compile Include="Gl.ES_VERSION_3_2.cs" />
     <Compile Include="Gl.Limits.cs" />
+    <Compile Include="Gl.PlatformExtensions.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="ICopiable.cs" />

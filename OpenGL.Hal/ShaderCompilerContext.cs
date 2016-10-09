@@ -38,7 +38,7 @@ namespace OpenGL
 		/// Default compilation context.
 		/// </summary>
 		public ShaderCompilerContext() :
-			this(GraphicsContext.CurrentShadingVersion, null)
+			this(Gl.CurrentShadingVersion, null)
 		{
 
 		}
@@ -50,7 +50,7 @@ namespace OpenGL
 		/// The list of preprocessor definitions included in each shader source.
 		/// </param>
 		public ShaderCompilerContext(params string[] defines) :
-			this(GraphicsContext.CurrentShadingVersion, defines)
+			this(Gl.CurrentShadingVersion, defines)
 		{
 
 		}
@@ -108,7 +108,7 @@ namespace OpenGL
 			get { return (_ShaderVersion); }
 			set
 			{
-				_ShaderVersion = value == null ? GraphicsContext.CurrentShadingVersion : value;
+				_ShaderVersion = value == null ? Gl.CurrentShadingVersion : value;
 			}
 		}
 

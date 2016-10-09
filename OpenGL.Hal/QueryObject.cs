@@ -79,7 +79,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			if (ctx.Caps.GlExtensions.TimerQuery_ARB) {
+			if (Gl.CurrentExtensions.TimerQuery_ARB) {
 				Gl.GetQueryObject(ObjectName, Gl.QUERY_RESULT, out result);
 			} else {
 				int intResult;
@@ -95,7 +95,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			if (ctx.Caps.GlExtensions.TimerQuery_ARB) {
+			if (Gl.CurrentExtensions.TimerQuery_ARB) {
 				Gl.GetQueryObject(ObjectName, Gl.QUERY_RESULT, out result);
 			} else {
 				uint uintResult;
@@ -171,20 +171,20 @@ namespace OpenGL
 		{
 			switch (mTarget) {
 				case QueryTarget.SamplesPassed:
-					if (!ctx.Caps.GlExtensions.OcclusionQuery_ARB)
+					if (!Gl.CurrentExtensions.OcclusionQuery_ARB)
 						throw new InvalidOperationException("occlusion query not available");
 					break;
 				case QueryTarget.TimeElapsed:
-					if (!ctx.Caps.GlExtensions.TimerQuery_ARB)
+					if (!Gl.CurrentExtensions.TimerQuery_ARB)
 						throw new InvalidOperationException("timer query not available");
 					break;
 				case QueryTarget.PrimitivesGenerated:
 				case QueryTarget.TransformFeedbackPrimitivesGenerated:
-					if (!ctx.Caps.GlExtensions.TransformFeedback_EXT && !ctx.Caps.GlExtensions.TransformFeedback_NV)
+					if (!Gl.CurrentExtensions.TransformFeedback_EXT && !Gl.CurrentExtensions.TransformFeedback_NV)
 						throw new InvalidOperationException("timer query not available");
 					break;
 				case QueryTarget.AnySamplesPassed:
-					if (!ctx.Caps.GlExtensions.OcclusionQuery2_ARB)
+					if (!Gl.CurrentExtensions.OcclusionQuery2_ARB)
 						throw new InvalidOperationException("(any) occlusion query not available");
 					break;
 				default:

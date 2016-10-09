@@ -43,7 +43,7 @@ namespace OpenGL.State
 		/// </summary>
 		public RenderBufferState()
 		{
-			mDrawBuffers = new int[GraphicsContext.CurrentCaps.Limits.MaxColorAttachments];
+			mDrawBuffers = new int[Gl.CurrentLimits.MaxColorAttachments];
 			mDrawBuffers[0] = Gl.BACK_LEFT;
 			for (int i = 1; i < mDrawBuffers.Length; i++)
 				mDrawBuffers[i] = Gl.NONE;
@@ -57,7 +57,7 @@ namespace OpenGL.State
 			if (framebuffer == null)
 				throw new ArgumentNullException("framebuffer");
 			
-			mDrawBuffers = new int[GraphicsContext.CurrentCaps.Limits.MaxColorAttachments];
+			mDrawBuffers = new int[Gl.CurrentLimits.MaxColorAttachments];
 			mDrawBuffers[0] = Gl.COLOR_ATTACHMENT0;
 			for (int i = 1; i < mDrawBuffers.Length; i++)
 				mDrawBuffers[i] = Gl.NONE;
@@ -84,8 +84,8 @@ namespace OpenGL.State
 			mDrawBinding = (uint)drawBinding;
 
 			// Draw buffers
-			mDrawBuffers = new int[ctx.Caps.Limits.MaxColorAttachments];
-			for (int i = 0; i < ctx.Caps.Limits.MaxColorAttachments; i++) {
+			mDrawBuffers = new int[Gl.CurrentLimits.MaxColorAttachments];
+			for (int i = 0; i < Gl.CurrentLimits.MaxColorAttachments; i++) {
 				Gl.Get(Gl.DRAW_BUFFER0 + i, out mDrawBuffers[i]);
 			}
 			

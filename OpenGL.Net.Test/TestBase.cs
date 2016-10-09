@@ -45,7 +45,7 @@ namespace OpenGL.Test
 				// Create window
 				Form = new TestForm(this);
 				// Create device context
-				_DeviceContext = DeviceContextFactory.Create(Form);
+				_DeviceContext = DeviceContext.Create(Form.Handle);
 
 				// Set pixel format
 				if      (_DeviceContext is WindowsDeviceContext)
@@ -126,7 +126,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// The device context.
 		/// </summary>
-		protected IDeviceContext _DeviceContext;
+		protected DeviceContext _DeviceContext;
 
 		#endregion
 

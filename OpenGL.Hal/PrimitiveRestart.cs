@@ -25,7 +25,7 @@ namespace OpenGL
 	{
 		public static bool IsPrimitiveRestartSupported()
 		{
-			return (GraphicsContext.CurrentCaps.GlExtensions.PrimitiveRestart || GraphicsContext.CurrentCaps.GlExtensions.PrimitiveRestart_NV);
+			return (Gl.CurrentExtensions.PrimitiveRestart || Gl.CurrentExtensions.PrimitiveRestart_NV);
 		}
 
 		public static bool IsPrimitiveRestartSupported(GraphicsContext ctx)
@@ -33,7 +33,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			return (ctx.Caps.GlExtensions.PrimitiveRestart || ctx.Caps.GlExtensions.PrimitiveRestart_NV);
+			return (Gl.CurrentExtensions.PrimitiveRestart || Gl.CurrentExtensions.PrimitiveRestart_NV);
 		}
 
 		public static void EnablePrimitiveRestart(GraphicsContext ctx, uint index)
@@ -43,12 +43,12 @@ namespace OpenGL
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current", "ctx");
 
-			if (ctx.Caps.GlExtensions.PrimitiveRestart) {
+			if (Gl.CurrentExtensions.PrimitiveRestart) {
 				// Enable primitive restart (server state)
 				Gl.Enable(EnableCap.PrimitiveRestart);
 				// Specify restart index
 				Gl.PrimitiveRestartIndex(index);
-			} else if(ctx.Caps.GlExtensions.PrimitiveRestart_NV) {
+			} else if(Gl.CurrentExtensions.PrimitiveRestart_NV) {
 				// Enable primitive restart (client state)
 				Gl.EnableClientState(EnableCap.PrimitiveRestartNv);
 				// Specify restart index
@@ -89,10 +89,10 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			if (ctx.Caps.GlExtensions.PrimitiveRestart) {
+			if (Gl.CurrentExtensions.PrimitiveRestart) {
 				// Enable primitive restart (server state)
 				Gl.Disable(EnableCap.PrimitiveRestart);
-			} else if (ctx.Caps.GlExtensions.PrimitiveRestart_NV) {
+			} else if (Gl.CurrentExtensions.PrimitiveRestart_NV) {
 				// Enable primitive restart (client state)
 				Gl.DisableClientState(EnableCap.PrimitiveRestartNv);
 			} else

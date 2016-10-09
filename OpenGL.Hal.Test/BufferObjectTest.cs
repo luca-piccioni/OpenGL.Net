@@ -193,14 +193,14 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void Map_NoExtension()
 		{
-			_Context.PushCaps();
+			Gl.PushExtensions();
 			try {
 				// Disable GL_ARB_vertex_array_object
-				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+				Gl.CurrentExtensions.VertexBufferObject_ARB = false;
 
 				Map_Core();
 			} finally {
-				_Context.PopCaps();
+				Gl.PopExtensions();
 			}
 		}
 
@@ -273,14 +273,14 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void MapCtx_NoExtension()
 		{
-			_Context.PushCaps();
+			Gl.PushExtensions();
 			try {
 				// Disable GL_ARB_vertex_array_object
-				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+				Gl.CurrentExtensions.VertexBufferObject_ARB = false;
 
 				MapCtx_Core();
 			} finally {
-				_Context.PopCaps();
+				Gl.PopExtensions();
 			}
 		}
 

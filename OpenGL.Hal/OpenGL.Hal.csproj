@@ -137,7 +137,6 @@
     <Compile Include="FeedbackBufferObject.cs" />
     <Compile Include="Framebuffer.cs" />
     <Compile Include="FramebufferException.cs" />
-    <Compile Include="GraphicsCapabilities.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsContext.Draw.cs" />
     <Compile Include="GraphicsContextFlags.cs" />

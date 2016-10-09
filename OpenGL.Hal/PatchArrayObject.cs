@@ -198,7 +198,7 @@ namespace OpenGL
 				throw new ArgumentNullException("ctx");
 
 			// Here is the most appropriate point where to check patch support by current OpenGL implementation.
-			if (ctx.Caps.GlExtensions.TessellationShader_ARB == false)
+			if (Gl.CurrentExtensions.TessellationShader_ARB == false)
 				throw new NotSupportedException("GL_ARB_tesselation_shader_ARB not supported by current implementation");
 
 			// Base implementation

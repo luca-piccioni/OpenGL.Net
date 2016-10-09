@@ -194,17 +194,17 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void CreateCount_NoExtension()
 		{
-			_Context.PushCaps();
+			Gl.PushExtensions();
 			try
 			{
 				// Disable GL_ARB_vertex_array_object
-				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+				Gl.CurrentExtensions.VertexBufferObject_ARB = false;
 
 				CreateCount_Core();
 			}
 			finally
 			{
-				_Context.PopCaps();
+				Gl.PopExtensions();
 			}
 		}
 
@@ -279,17 +279,17 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void CreateCtxCount_NoExtension()
 		{
-			_Context.PushCaps();
+			Gl.PushExtensions();
 			try
 			{
 				// Disable GL_ARB_vertex_array_object
-				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+				Gl.CurrentExtensions.VertexBufferObject_ARB = false;
 
 				CreateCtxCount_Core();
 			}
 			finally
 			{
-				_Context.PopCaps();
+				Gl.PopExtensions();
 			}
 		}
 
@@ -379,17 +379,17 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void CreateArray_NoExtension()
 		{
-			_Context.PushCaps();
+			Gl.PushExtensions();
 			try
 			{
 				// Disable GL_ARB_vertex_array_object
-				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+				Gl.CurrentExtensions.VertexBufferObject_ARB = false;
 
 				CreateArray_Core();
 			}
 			finally
 			{
-				_Context.PopCaps();
+				Gl.PopExtensions();
 			}
 		}
 
@@ -448,17 +448,17 @@ namespace OpenGL.Hal.Test
 		[Test]
 		public void CreateCtxArray_NoExtension()
 		{
-			_Context.PushCaps();
+			Gl.PushExtensions();
 			try
 			{
 				// Disable GL_ARB_vertex_array_object
-				_Context.Caps.GlExtensions.VertexBufferObject_ARB = false;
+				Gl.CurrentExtensions.VertexBufferObject_ARB = false;
 
 				CreateCtxArray_Core();
 			}
 			finally
 			{
-				_Context.PopCaps();
+				Gl.PopExtensions();
 			}
 		}
 

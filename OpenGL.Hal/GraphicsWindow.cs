@@ -516,7 +516,7 @@ namespace OpenGL
 		public override void BindDraw(GraphicsContext ctx)
 		{
 			// Eventually unbind a framebuffer
-			if (ctx.Caps.GlExtensions.FramebufferObject_ARB)
+			if (Gl.CurrentExtensions.FramebufferObject_ARB)
 				Gl.BindFramebuffer(Gl.DRAW_FRAMEBUFFER, InvalidObjectName);
 		}
 
@@ -529,7 +529,7 @@ namespace OpenGL
 		public override void BindRead(GraphicsContext ctx)
 		{
 			// Eventually unbind a framebuffer
-			if (ctx.Caps.GlExtensions.FramebufferObject_ARB)
+			if (Gl.CurrentExtensions.FramebufferObject_ARB)
 				Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, InvalidObjectName);
 		}
 
@@ -564,9 +564,9 @@ namespace OpenGL
 			int swapInterval = SwapInterval;
 
 			if (swapInterval != 1) {
-				if (GraphicsContext.CurrentCaps.PlatformExtensions.SwapControl == true) {
+				if (Gl.PlatformExtensions.SwapControl == true) {
 					if (swapInterval < 0) {
-						if (GraphicsContext.CurrentCaps.PlatformExtensions.SwapControlTear == false) {
+						if (Gl.PlatformExtensions.SwapControlTear == false) {
 							sLog.Warn("Ignoring tearing swap interval ({0}) because is not supported.", swapInterval);
 							swapInterval = -swapInterval;
 						}

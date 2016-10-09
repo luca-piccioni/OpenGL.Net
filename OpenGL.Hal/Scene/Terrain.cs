@@ -270,13 +270,13 @@ namespace OpenGL.Scene
 					{
 						const int DefaultBlockSize = 2048;
 
-						int blockSize = Math.Min(DefaultBlockSize, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
+						int blockSize = Math.Min(DefaultBlockSize, Gl.CurrentLimits.MaxTexture2DSize);
 
 						_BlockSize = new Vertex2i(blockSize, blockSize);
 					}
 
-					_BlockSize.x = Math.Min(_BlockSize.x, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
-					_BlockSize.y = Math.Min(_BlockSize.y, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
+					_BlockSize.x = Math.Min(_BlockSize.x, Gl.CurrentLimits.MaxTexture2DSize);
+					_BlockSize.y = Math.Min(_BlockSize.y, Gl.CurrentLimits.MaxTexture2DSize);
 				}
 
 				// Cache blocks definitions

@@ -166,7 +166,7 @@ namespace OpenGL.State
 
 				// Fixed pipeline rendering requires server state
 				
-				if (ctx.Caps.GlExtensions.DirectStateAccess_EXT) {
+				if (Gl.CurrentExtensions.DirectStateAccess_EXT) {
 					// Set projection and model-view matrix
 					Gl.MatrixLoadEXT(MatrixMode.Projection, Projection.ToArray());
 					Gl.MatrixLoadEXT(MatrixMode.Modelview, ModelView.ToArray());

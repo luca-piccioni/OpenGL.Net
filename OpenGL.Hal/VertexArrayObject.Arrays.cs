@@ -191,7 +191,7 @@ namespace OpenGL
 				int arrayStride = arraySection.Stride.ToInt32();
 
 				// Avoid rendundant buffer binding and relative vertex array setup
-				if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && IsDirty == false) {
+				if (Gl.CurrentExtensions.VertexArrayObject_ARB && IsDirty == false) {
 					CheckVertexAttribute(ctx, attributeBinding);
 					return;
 				}
@@ -384,7 +384,7 @@ namespace OpenGL
 					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
 
 					// Avoid rendundant buffer binding and relative vertex array setup
-					if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && IsDirty == false) {
+					if (Gl.CurrentExtensions.VertexArrayObject_ARB && IsDirty == false) {
 						CheckVertexAttribute(ctx, attributeBinding);
 						return;
 					}
@@ -818,7 +818,7 @@ namespace OpenGL
 		/// </exception>
 		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor, string attributeName, string blockName)
 		{
-			if (GraphicsContext.CurrentCaps.GlExtensions.InstancedArrays == false)
+			if (Gl.CurrentExtensions.InstancedArrays == false)
 				throw new InvalidOperationException("instanced arrays not support by current implementation");
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");

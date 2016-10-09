@@ -71,7 +71,7 @@ namespace OpenGL.Scene
 		/// </param>
 		public GeometryClipmapObject(ushort rank, ushort levels, float unit)
 		{
-			if (GraphicsContext.CurrentCaps.GlExtensions.InstancedArrays == false)
+			if (Gl.CurrentExtensions.InstancedArrays == false)
 				throw new NotSupportedException();
 			if (PrimitiveRestart.IsPrimitiveRestartSupported() == false)
 				throw new NotSupportedException();
@@ -567,7 +567,7 @@ namespace OpenGL.Scene
 		private void CreateTextureResources()
 		{
 			// Create elevation texture
-			uint elevationTextureSize = (uint)Math.Min(ClipmapVertices + 1, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
+			uint elevationTextureSize = (uint)Math.Min(ClipmapVertices + 1, Gl.CurrentLimits.MaxTexture2DSize);
 
 			_ElevationSource = new Texture2d(elevationTextureSize, elevationTextureSize, PixelLayout.GRAY16S);
 			_ElevationSource.MinFilter = Texture.Filter.Nearest;
@@ -696,7 +696,7 @@ namespace OpenGL.Scene
 			LinkResource(_GeometryClipmapProgram);
 
 			// Create elevation texture
-			uint elevationTextureSize = (uint)Math.Min(ClipmapVertices + 1, GraphicsContext.CurrentCaps.Limits.MaxTexture2DSize);
+			uint elevationTextureSize = (uint)Math.Min(ClipmapVertices + 1, Gl.CurrentLimits.MaxTexture2DSize);
 
 			_ElevationTexture = new TextureArray2d(elevationTextureSize, elevationTextureSize, ClipmapLevels, PixelLayout.RGBAF);
 			_ElevationTexture.MinFilter = Texture.Filter.Nearest;

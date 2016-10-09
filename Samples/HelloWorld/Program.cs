@@ -48,11 +48,11 @@ namespace HelloNewton
 			// Check requirements
 			StringBuilder missingReq = new StringBuilder();
 
-			if (!GraphicsContext.CurrentCaps.GlExtensions.VertexShader_ARB)
+			if (!Gl.CurrentExtensions.VertexShader_ARB)
 				missingReq.Append("- GL_ARB_vertex_shader\n");
-			if (!GraphicsContext.CurrentCaps.GlExtensions.PrimitiveRestart)
+			if (!Gl.CurrentExtensions.PrimitiveRestart)
 				missingReq.Append("- OpenGL 3.1\n");
-			if (!GraphicsContext.CurrentCaps.GlExtensions.InstancedArrays)
+			if (!Gl.CurrentExtensions.InstancedArrays)
 				missingReq.Append("- GL_ARB_instanced_arrays or OpenGL 3.2\n");
 
 			if (missingReq.Length > 0)

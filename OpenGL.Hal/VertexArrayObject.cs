@@ -110,7 +110,7 @@ namespace OpenGL
 
 			// Note: when the GL_ARB_vertex_array_object is supported, there's no need
 			// to define vertex attribute each time
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
+			if (Gl.CurrentExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
 				// CheckVertexAttributes(ctx, shaderProgram);
 				return;
 			}
@@ -323,7 +323,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			return (Gl.CurrentExtensions.VertexArrayObject_ARB);
 		}
 
 		/// <summary>
@@ -348,7 +348,7 @@ namespace OpenGL
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current");
 
-			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			Debug.Assert(Gl.CurrentExtensions.VertexArrayObject_ARB);
 
 			return (Gl.GenVertexArray());
 		}
@@ -375,7 +375,7 @@ namespace OpenGL
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(ctx.Caps.GlExtensions.VertexArrayObject_ARB);
+			Debug.Assert(Gl.CurrentExtensions.VertexArrayObject_ARB);
 
 			// Delete buffer object
 			Gl.DeleteVertexArrays(name);
@@ -456,7 +456,7 @@ namespace OpenGL
 			get
 			{
 				// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
-				if (GraphicsContext.CurrentCaps.GlExtensions.VertexArrayObject_ARB == false)
+				if (Gl.CurrentExtensions.VertexArrayObject_ARB == false)
 					return (0);
 
 				return (Gl.VERTEX_ARRAY_BINDING);
@@ -471,7 +471,7 @@ namespace OpenGL
 		/// </param>
 		void IBindingResource.Bind(GraphicsContext ctx)
 		{
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB)
+			if (Gl.CurrentExtensions.VertexArrayObject_ARB)
 				Gl.BindVertexArray(ObjectName);
 		}
 
@@ -483,7 +483,7 @@ namespace OpenGL
 		/// </param>
 		void IBindingResource.Unbind(GraphicsContext ctx)
 		{
-			if (ctx.Caps.GlExtensions.VertexArrayObject_ARB) {
+			if (Gl.CurrentExtensions.VertexArrayObject_ARB) {
 				CheckThisExistence(ctx);
 				Gl.BindVertexArray(InvalidObjectName);
 			}

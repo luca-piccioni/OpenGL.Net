@@ -93,28 +93,6 @@ namespace OpenGL
 	{
 		#region Constructors
 
-		#region Static Constructor
-
-		/// <summary>
-		/// Static GraphicsContext constructor.
-		/// </summary>
-		/// <remarks>
-		/// This method shall create an initial OpenGL context for querying extensions; then shall destroy it keeping track of extensions. Future GraphicsContext can
-		/// use the inspected extensions to provide every acceleration as possible.
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Exception throw in the case the <see cref="Windows.Forms.Form"/> created cannot be used for getting a valid device context.
-		/// </exception>
-		static GraphicsContext()
-		{
-			// Obtain current OpenGL implementation
-			_CurrentVersion = Gl.CurrentVersion;
-			_CurrentShadingVersion = Gl.CurrentShadingVersion;
-			_CurrentCaps = GraphicsCapabilities.Query();
-		}
-
-		#endregion
-
 		#region Constructor Overrides -  Constructors specifying DeviceContext
 
 		/// <summary>
@@ -168,7 +146,7 @@ namespace OpenGL
 		/// This exception is thrown if <paramref name="sharedContext"/> is not null and it is disposed.
 		/// </exception>
 		public GraphicsContext(DeviceContext deviceContext, GraphicsContext sharedContext) :
-			this(deviceContext, sharedContext, _CurrentVersion, GraphicsContextFlags.None)
+			this(deviceContext, sharedContext, Gl.CurrentVersion, GraphicsContextFlags.None)
 		{
 
 		}
@@ -277,7 +255,7 @@ namespace OpenGL
 					throw new ArgumentException("shared context disposed", "hSharedContext");
 				if ((sharedContext != null) && (sharedContext._RenderContextThreadId != _RenderContextThreadId))
 					throw new ArgumentException("shared context created from another thread", "hSharedContext");
-				if ((version != null) && (version != _CurrentVersion) && ((CurrentCaps.PlatformExtensions.CreateContext_ARB == false) && (CurrentCaps.PlatformExtensions.CreateContextProfile_ARB == false)))
+				if ((version != null) && (version != Gl.CurrentVersion) && ((Gl.PlatformExtensions.CreateContext_ARB == false) && (Gl.PlatformExtensions.CreateContextProfile_ARB == false)))
 					throw new ArgumentException("unable to specify OpenGL version when GL_ARB_create_context[_profile] is not supported");
 
 				// Store device context handle
@@ -285,11 +263,11 @@ namespace OpenGL
 				_DeviceContext.IncRef();
 
 				// Allow version to be null (fallback to current version)
-				version = version ?? _CurrentVersion;
+				version = version ?? Gl.CurrentVersion;
 				// Set flags
 				_ContextFlags = flags;
 
-				if ((version.Api == KhronosVersion.ApiGl) && (version >= Gl.Version_300) && (CurrentCaps.PlatformExtensions.CreateContext_ARB || CurrentCaps.PlatformExtensions.CreateContextProfile_ARB)) {
+				if ((version.Api == KhronosVersion.ApiGl) && (version >= Gl.Version_300) && (Gl.PlatformExtensions.CreateContext_ARB || Gl.PlatformExtensions.CreateContextProfile_ARB)) {
 					List<int> cAttributes = new List<int>();
 
 					#region Context Version
@@ -346,9 +324,9 @@ namespace OpenGL
 					Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
 					Debug.Assert(Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB == Glx.CONTEXT_RESET_ISOLATION_BIT_ARB);
 
-					if (((flags & GraphicsContextFlags.CompatibilityProfile) != 0) && (_CurrentCaps.GlExtensions.Compatibility_ARB == false))
+					if (((flags & GraphicsContextFlags.CompatibilityProfile) != 0) && (Gl.CurrentExtensions.Compatibility_ARB == false))
 						throw new NotSupportedException("compatibility profile not supported");
-					if (((flags & GraphicsContextFlags.Robust) != 0) && (_CurrentCaps.GlExtensions.Robustness_ARB == false && _CurrentCaps.GlExtensions.Robustness_EXT == false))
+					if (((flags & GraphicsContextFlags.Robust) != 0) && (Gl.CurrentExtensions.Robustness_ARB == false && Gl.CurrentExtensions.Robustness_EXT == false))
 						throw new NotSupportedException("robust profile not supported");
 
 					// Context flags: debug context
@@ -402,8 +380,6 @@ namespace OpenGL
 					// Get the current OpenGL and Shading Language implementation supported by this GraphicsContext
 					_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
 					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
-					// Query context capabilities
-					_CapsStack.Push(GraphicsCapabilities.Query());
 					// Reserved object name space
 					_ObjectNameSpace = Guid.NewGuid();
 
@@ -429,8 +405,6 @@ namespace OpenGL
 					// Same version
 					_Version = sharedContext._Version;
 					_ShadingVersion = sharedContext._ShadingVersion;
-					// Same context capabilities
-					_CapsStack.Push(sharedContext._CapsStack.Peek());
 					// Sharing same object name space
 					_ObjectNameSpace = sharedContext._ObjectNameSpace;
 					// Texture download
@@ -456,22 +430,9 @@ namespace OpenGL
 		#region OpenGL Versioning
 
 		/// <summary>
-		/// Get the OpenGL version currently implemented.
-		/// </summary>
-		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
-
-		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
 		/// </summary>
 		public KhronosVersion Version { get { return (_Version); } }
-
-		/// <summary>
-		/// OpenGL version currently implemented.
-		/// </summary>
-		/// <remarks>
-		/// Higher OpenGL versions versions cannot be requested to be implemented.
-		/// </remarks>
-		private static KhronosVersion _CurrentVersion;
 
 		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
@@ -479,22 +440,9 @@ namespace OpenGL
 		private KhronosVersion _Version;
 
 		/// <summary>
-		/// Get the OpenGL Shading Language version currently implemented.
-		/// </summary>
-		public static KhronosVersion CurrentShadingVersion { get { return (_CurrentShadingVersion); } }
-
-		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
 		/// </summary>
 		public KhronosVersion ShadingVersion { get { return (_ShadingVersion); } }
-
-		/// <summary>
-		/// OpenGL Shading Language version currently implemented.
-		/// </summary>
-		/// <remarks>
-		/// Higher OpenGL Shading Language versions cannot be requested to be implemented.
-		/// </remarks>
-		private static GlslVersion _CurrentShadingVersion;
 
 		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
@@ -515,76 +463,6 @@ namespace OpenGL
 		/// Flags used to create this GraphicsContext.
 		/// </summary>
 		private readonly GraphicsContextFlags _ContextFlags;
-
-		#endregion
-
-		#region OpenGL Extension Support
-
-		/// <summary>
-		/// Get capabilities of this GraphicsContext.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="Capabilities"/> which specify all available OpenGL implementation features and limits.
-		/// </returns>
-		/// <remarks>
-		/// 
-		/// </remarks>
-		public GraphicsCapabilities Caps
-		{
-			get
-			{
-				return (_CapsStack.Peek());
-			}
-		}
-
-		/// <summary>
-		/// Push <see cref="Caps"/> in order to restore it relater with <see cref="PopCaps"/>.
-		/// </summary>
-		internal void PushCaps()
-		{
-			_CapsStack.Push(Caps.Clone());
-		}
-
-		/// <summary>
-		/// Restore previous <see cref="Caps"/> when the previous <see cref="PushCaps"/> was called.
-		/// </summary>
-		internal void PopCaps()
-		{
-			if (_CapsStack.Count == 1)
-				throw new InvalidOperationException("stack underflow");
-			_CapsStack.Pop();
-		}
-
-		/// <summary>
-		/// Stack used to modify <see cref="Caps"/> backing up the previous instances.
-		/// </summary>
-		private readonly Stack<GraphicsCapabilities> _CapsStack = new Stack<GraphicsCapabilities>();
-
-		/// <summary>
-		/// Get capabilities of the current OpenGL implementation.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="Capabilities"/> which specify all available OpenGL implementation features and limits.
-		/// </returns>
-		/// <remarks>
-		/// 
-		/// </remarks>
-		public static GraphicsCapabilities CurrentCaps
-		{
-			get
-			{
-				return (_CurrentCaps);
-			}
-		}
-
-		/// <summary>
-		/// Rendering context capabilities.
-		/// </summary>
-		/// <remarks>
-		/// The <see cref="Capabilities"/> class is meant to represent a set of extensions and limits for a particoular OpenGL implementation. This
-		/// means also that the render capabilities are dependent on the current context on the executing thread.
-		/// </remarks>
-		private static readonly GraphicsCapabilities _CurrentCaps;
 
 		#endregion
 
@@ -683,7 +561,7 @@ namespace OpenGL
 		{
 			GraphicsResource.CheckCurrentContext(this);
 
-			if ((Caps.GlExtensions.VertexShader_ARB || Version >= Gl.Version_200) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
+			if ((Gl.CurrentExtensions.VertexShader_ARB || Version >= Gl.Version_200) && _BoundObjects.ContainsKey(Gl.CURRENT_PROGRAM)) {
 				Gl.UseProgram(GraphicsResource.InvalidObjectName);
 				_BoundObjects.Remove(Gl.CURRENT_PROGRAM);
 			}

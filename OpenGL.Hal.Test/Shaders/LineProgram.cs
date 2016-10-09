@@ -50,7 +50,7 @@ namespace OpenGL.Hal.Test.Shaders
 		[Test]
 		public void TestGeometry()
 		{
-			if (!_Context.Caps.GlExtensions.GeometryShader4_ARB && !_Context.Caps.GlExtensions.GeometryShader4_EXT)
+			if (!Gl.CurrentExtensions.GeometryShader4_ARB && !Gl.CurrentExtensions.GeometryShader4_EXT)
 				Assert.Inconclusive("geometry shader not supported");
 
 			using (ShaderObject shaderObject = new ShaderObject(ShaderStage.Geometry)) {

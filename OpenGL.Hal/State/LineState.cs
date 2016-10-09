@@ -171,7 +171,7 @@ namespace OpenGL.State
 
 			// Set the line width
 			if ((ctx.IsCompatibleProfile == true) || (shaderProgram == null) || (_Width <= 1.0)) {
-				float[] validRange = ctx.Caps.Limits.AliasedLineWidthRange;
+				float[] validRange = Gl.CurrentLimits.AliasedLineWidthRange;
 				float actualWidth = Math.Max(validRange[0], Math.Min(_Width, validRange[1]));
 
 				// LineWidth shall be called in the case drawing in immediate mode, or when no shader program

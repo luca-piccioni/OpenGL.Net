@@ -620,7 +620,7 @@ namespace OpenGL
 		{
 			if (attachment == null)
 				throw new ArgumentNullException("attachment");
-			if (attachmentIndex >= GraphicsContext.CurrentCaps.Limits.MaxColorAttachments)
+			if (attachmentIndex >= Gl.CurrentLimits.MaxColorAttachments)
 				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
 			// Detach
@@ -637,7 +637,7 @@ namespace OpenGL
 		/// </param>
 		public void DetachColor(uint attachmentIndex)
 		{
-			if (attachmentIndex >= GraphicsContext.CurrentCaps.Limits.MaxColorAttachments)
+			if (attachmentIndex >= Gl.CurrentLimits.MaxColorAttachments)
 				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
 			if (_ColorBuffers[attachmentIndex] != null) {
@@ -651,14 +651,14 @@ namespace OpenGL
 		/// </summary>
 		public void DetachColors()
 		{
-			for (uint i = 0; i < (uint)GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++)
+			for (uint i = 0; i < (uint)Gl.CurrentLimits.MaxColorAttachments; i++)
 				DetachColor(i);
 		}
 
 		/// <summary>
 		/// RenderBuffers used as color attachment.
 		/// </summary>
-		private readonly Attachment[] _ColorBuffers = new Attachment[GraphicsContext.CurrentCaps.Limits.MaxColorAttachments];
+		private readonly Attachment[] _ColorBuffers = new Attachment[Gl.CurrentLimits.MaxColorAttachments];
 
 		#endregion
 
@@ -817,7 +817,7 @@ namespace OpenGL
 			get {
 				uint width = UInt32.MaxValue;
 
-				for (int i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
+				for (int i = 0; i < Gl.CurrentLimits.MaxColorAttachments; i++) {
 					if (_ColorBuffers[i] != null)
 						width = Math.Min(width, _ColorBuffers[i].Width);
 				}
@@ -834,7 +834,7 @@ namespace OpenGL
 			get {
 				uint height = UInt32.MaxValue;
 
-				for (int i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
+				for (int i = 0; i < Gl.CurrentLimits.MaxColorAttachments; i++) {
 					if (_ColorBuffers[i] != null)
 						height = Math.Min(height, _ColorBuffers[i].Height);
 				}
@@ -896,7 +896,7 @@ namespace OpenGL
 
 			List<int> drawBuffers = new List<int>();
 			
-			for (uint i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
+			for (uint i = 0; i < Gl.CurrentLimits.MaxColorAttachments; i++) {
 				// Reset dirty binding points
 				if ((_ColorBuffers[i] != null) && _ColorBuffers[i].Dirty) {
 					// Ensure created buffer
@@ -942,7 +942,7 @@ namespace OpenGL
 			Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, ObjectName);
 
 			// Reset dirty binding points
-			for (uint i = 0; i < GraphicsContext.CurrentCaps.Limits.MaxColorAttachments; i++) {
+			for (uint i = 0; i < Gl.CurrentLimits.MaxColorAttachments; i++) {
 				if ((_ColorBuffers[i] != null) && _ColorBuffers[i].Dirty) {
 					// Ensure created buffer
 					_ColorBuffers[i].Create(ctx);

@@ -91,6 +91,10 @@ namespace OpenGL
 		/// </summary>
 		public static void Initialize() { }
 
+		#endregion
+
+		#region Versions, Extensions and Limits
+
 		/// <summary>
 		/// OpenGL version currently implemented.
 		/// </summary>
@@ -142,6 +146,36 @@ namespace OpenGL
 		/// OpenGL limits.
 		/// </summary>
 		private static Limits _CurrentLimits;
+
+		#endregion
+
+		#region Versions, Extensions and Limits Stacking
+
+		/// <summary>
+		/// Push current extensions.
+		/// </summary>
+		public static void PushExtensions()
+		{
+			// Enqueue the original state onto the stack...
+			_StackExtensions.Push(_CurrentExtensions);
+			// ...and copy the current one
+			_CurrentExtensions = _CurrentExtensions.Clone();
+		}
+
+		/// <summary>
+		/// Pop current extensions.
+		/// </summary>
+		public static void PopExtensions()
+		{
+			if (_StackExtensions.Count == 0)
+				throw new InvalidOperationException("extensions stack underflow");
+			_CurrentExtensions = _StackExtensions.Pop();
+		}
+
+		/// <summary>
+		/// Stack of <see cref="Extensions"/> to emulate specific environments.
+		/// </summary>
+		private static readonly Stack<Extensions> _StackExtensions = new Stack<Extensions>();
 
 		#endregion
 

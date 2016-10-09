@@ -225,7 +225,7 @@ namespace OpenGL
 					sLog.Debug("- {0}", feedbackVarying);
 				sLog.Unindent();
 
-				if (ctx.Caps.GlExtensions.TransformFeedback2_ARB || ctx.Caps.GlExtensions.TransformFeedback_EXT) {
+				if (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT) {
 					string[] feedbackVaryings = _FeedbackVaryings.ToArray();
 
 					// Bug in NVIDIA drivers? Not exactly, but the NVIDIA driver hold the 'feedbackVaryings' pointer until
@@ -235,7 +235,7 @@ namespace OpenGL
 
 					// Specify feedback varyings
 					Gl.TransformFeedbackVaryings(ObjectName, feedbackVaryingsPtrs, (int)cctx.FeedbackVaryingsFormat);
-				} else if (ctx.Caps.GlExtensions.TransformFeedback2_NV) {
+				} else if (Gl.CurrentExtensions.TransformFeedback2_NV) {
 					// Nothing to do ATM
 				} else
 					throw new InvalidOperationException("transform feedback not supported");
@@ -245,7 +245,7 @@ namespace OpenGL
 
 			#region Bind Fragment Locations
 
-			if (ctx.Caps.GlExtensions.GpuShader4_EXT) {
+			if (Gl.CurrentExtensions.GpuShader4_EXT) {
 				// Setup fragment locations, where defined
 				foreach (KeyValuePair<string, int> pair in _FragLocations) {
 					if (pair.Value >= 0)
@@ -391,7 +391,7 @@ namespace OpenGL
 
 			#region Collect Fragment Locations
 
-			if (ctx.Caps.GlExtensions.GpuShader4_EXT) {
+			if (Gl.CurrentExtensions.GpuShader4_EXT) {
 				// Get fragment locations, just in the case automatically assigned
 				foreach (string fragOutputName in new List<string>(_FragLocations.Keys))
 					_FragLocations[fragOutputName] = Gl.GetFragDataLocation(ObjectName, fragOutputName);
@@ -402,7 +402,7 @@ namespace OpenGL
 			#region Collect Feedback Varyings
 			
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				if (ctx.Caps.GlExtensions.TransformFeedback2_ARB || ctx.Caps.GlExtensions.TransformFeedback_EXT) {
+				if (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT) {
 					// Map active feedback
 					int feebackVaryings, feebackVaryingsMaxLength;
 
@@ -416,7 +416,7 @@ namespace OpenGL
 						Gl.GetTransformFeedbackVarying(ObjectName, (uint)i, feebackVaryingsMaxLength, out length, out size, out type, sb);
 						_FeedbacksMap.Add(sb.ToString(), new FeedbackBinding((ShaderAttributeType)type, (uint)size));
 					}
-				} else if (ctx.Caps.GlExtensions.TransformFeedback2_NV) {
+				} else if (Gl.CurrentExtensions.TransformFeedback2_NV) {
 					// Activate varyings
 					foreach (string feedbackVaryingName in _FeedbackVaryings) {
 						Gl.ActiveVaryingNV(ObjectName, feedbackVaryingName);
@@ -945,7 +945,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!ctx.Caps.GlExtensions.GetProgramBinary_ARB)
+			if (!Gl.CurrentExtensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 
 			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -966,7 +966,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!ctx.Caps.GlExtensions.GetProgramBinary_ARB)
+			if (!Gl.CurrentExtensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 			if (!IsLinked)
 				throw new InvalidOperationException("not linked");

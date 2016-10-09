@@ -47,9 +47,9 @@ namespace OpenGL
 		/// </param>
 		public RenderBuffer(Type type, PixelLayout internalFormat, uint w, uint h)
 		{
-			if (w >= GraphicsContext.CurrentCaps.Limits.MaxRenderBufferSize)
+			if (w >= Gl.CurrentLimits.MaxRenderBufferSize)
 				throw new ArgumentException("exceed maximum size", "w");
-			if (h >= GraphicsContext.CurrentCaps.Limits.MaxRenderBufferSize)
+			if (h >= Gl.CurrentLimits.MaxRenderBufferSize)
 				throw new ArgumentException("exceed maximum size", "w");
 
 			// Set buffer type
