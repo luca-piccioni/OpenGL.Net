@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -272,8 +275,7 @@ namespace OpenGL
 		public const int CONTEXT_PROFILE_MASK = 0x9126;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, the -wc≤zc≤wc plane equation is ignored by view volume clipping (effectively, there is no near or 
-		/// far plane clipping). See Gl.DepthRange.
+		/// Value of GL_DEPTH_CLAMP symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_CLAMP_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -330,9 +332,7 @@ namespace OpenGL
 		public const int PROVOKING_VERTEX = 0x8E4F;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, cubemap textures are sampled such that when linearly sampling from the border between two 
-		/// adjacent faces, texels from both faces are used to generate the final sample value. When disabled, texels from only a 
-		/// single face are used to construct the final sample value.
+		/// Value of GL_TEXTURE_CUBE_MAP_SEAMLESS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_AMD_seamless_cubemap_per_texture")]
@@ -502,8 +502,7 @@ namespace OpenGL
 		public const int SAMPLE_POSITION = 0x8E50;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, the sample coverage mask generated for a fragment during rasterization will be ANDed with the 
-		/// value of Gl.SAMPLE_MASK_VALUE before shading occurs. See Gl.SampleMaski.
+		/// Value of GL_SAMPLE_MASK symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_MASK_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -1925,6 +1924,238 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsBaseVertex", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawRangeElementsBaseVertex", ExactSpelling = true)]
+			internal extern static unsafe void glDrawRangeElementsBaseVertex(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstancedBaseVertex", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstancedBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawElementsBaseVertex", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawElementsBaseVertex(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount, Int32* basevertex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProvokingVertex", ExactSpelling = true)]
+			internal extern static void glProvokingVertex(Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFenceSync", ExactSpelling = true)]
+			internal extern static Int32 glFenceSync(Int32 condition, UInt32 flags);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsSync", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsSync(Int32 sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteSync", ExactSpelling = true)]
+			internal extern static void glDeleteSync(Int32 sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClientWaitSync", ExactSpelling = true)]
+			internal extern static Int32 glClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWaitSync", ExactSpelling = true)]
+			internal extern static void glWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInteger64v", ExactSpelling = true)]
+			internal extern static unsafe void glGetInteger64v(Int32 pname, Int64* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSynciv", ExactSpelling = true)]
+			internal extern static unsafe void glGetSynciv(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInteger64i_v", ExactSpelling = true)]
+			internal extern static unsafe void glGetInteger64i_v(Int32 target, UInt32 index, Int64* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetBufferParameteri64v", ExactSpelling = true)]
+			internal extern static unsafe void glGetBufferParameteri64v(Int32 target, Int32 pname, Int64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexImage2DMultisample", ExactSpelling = true)]
+			internal extern static void glTexImage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexImage3DMultisample", ExactSpelling = true)]
+			internal extern static void glTexImage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultisamplefv", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultisamplefv(Int32 pname, UInt32 index, float* val);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleMaski", ExactSpelling = true)]
+			internal extern static void glSampleMaski(UInt32 maskNumber, UInt32 mask);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawElementsBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[AliasOf("glDrawElementsBaseVertex")]
+			[AliasOf("glDrawElementsBaseVertexEXT")]
+			[AliasOf("glDrawElementsBaseVertexOES")]
+			[ThreadStatic]
+			internal static glDrawElementsBaseVertex pglDrawElementsBaseVertex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawRangeElementsBaseVertex(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
+
+			[AliasOf("glDrawRangeElementsBaseVertex")]
+			[AliasOf("glDrawRangeElementsBaseVertexEXT")]
+			[AliasOf("glDrawRangeElementsBaseVertexOES")]
+			[ThreadStatic]
+			internal static glDrawRangeElementsBaseVertex pglDrawRangeElementsBaseVertex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawElementsInstancedBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
+
+			[AliasOf("glDrawElementsInstancedBaseVertex")]
+			[AliasOf("glDrawElementsInstancedBaseVertexEXT")]
+			[AliasOf("glDrawElementsInstancedBaseVertexOES")]
+			[ThreadStatic]
+			internal static glDrawElementsInstancedBaseVertex pglDrawElementsInstancedBaseVertex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiDrawElementsBaseVertex(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount, Int32* basevertex);
+
+			[AliasOf("glMultiDrawElementsBaseVertex")]
+			[AliasOf("glMultiDrawElementsBaseVertexEXT")]
+			[AliasOf("glMultiDrawElementsBaseVertexOES")]
+			[ThreadStatic]
+			internal static glMultiDrawElementsBaseVertex pglMultiDrawElementsBaseVertex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProvokingVertex(Int32 mode);
+
+			[AliasOf("glProvokingVertex")]
+			[AliasOf("glProvokingVertexEXT")]
+			[ThreadStatic]
+			internal static glProvokingVertex pglProvokingVertex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glFenceSync(Int32 condition, UInt32 flags);
+
+			[AliasOf("glFenceSync")]
+			[AliasOf("glFenceSyncAPPLE")]
+			[ThreadStatic]
+			internal static glFenceSync pglFenceSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsSync(Int32 sync);
+
+			[AliasOf("glIsSync")]
+			[AliasOf("glIsSyncAPPLE")]
+			[ThreadStatic]
+			internal static glIsSync pglIsSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeleteSync(Int32 sync);
+
+			[AliasOf("glDeleteSync")]
+			[AliasOf("glDeleteSyncAPPLE")]
+			[ThreadStatic]
+			internal static glDeleteSync pglDeleteSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
+
+			[AliasOf("glClientWaitSync")]
+			[AliasOf("glClientWaitSyncAPPLE")]
+			[ThreadStatic]
+			internal static glClientWaitSync pglClientWaitSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
+
+			[AliasOf("glWaitSync")]
+			[AliasOf("glWaitSyncAPPLE")]
+			[ThreadStatic]
+			internal static glWaitSync pglWaitSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInteger64v(Int32 pname, Int64* data);
+
+			[AliasOf("glGetInteger64v")]
+			[AliasOf("glGetInteger64vAPPLE")]
+			[ThreadStatic]
+			internal static glGetInteger64v pglGetInteger64v;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetSynciv(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
+
+			[AliasOf("glGetSynciv")]
+			[AliasOf("glGetSyncivAPPLE")]
+			[ThreadStatic]
+			internal static glGetSynciv pglGetSynciv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInteger64i_v(Int32 target, UInt32 index, Int64* data);
+
+			[ThreadStatic]
+			internal static glGetInteger64i_v pglGetInteger64i_v;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetBufferParameteri64v(Int32 target, Int32 pname, Int64* @params);
+
+			[ThreadStatic]
+			internal static glGetBufferParameteri64v pglGetBufferParameteri64v;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level);
+
+			[AliasOf("glFramebufferTexture")]
+			[AliasOf("glFramebufferTextureARB")]
+			[AliasOf("glFramebufferTextureEXT")]
+			[AliasOf("glFramebufferTextureOES")]
+			[ThreadStatic]
+			internal static glFramebufferTexture pglFramebufferTexture;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexImage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
+
+			[ThreadStatic]
+			internal static glTexImage2DMultisample pglTexImage2DMultisample;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexImage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
+
+			[ThreadStatic]
+			internal static glTexImage3DMultisample pglTexImage3DMultisample;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultisamplefv(Int32 pname, UInt32 index, float* val);
+
+			[AliasOf("glGetMultisamplefv")]
+			[AliasOf("glGetMultisamplefvNV")]
+			[ThreadStatic]
+			internal static glGetMultisamplefv pglGetMultisamplefv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSampleMaski(UInt32 maskNumber, UInt32 mask);
+
+			[ThreadStatic]
+			internal static glSampleMaski pglSampleMaski;
+
+		}
 	}
 
 }

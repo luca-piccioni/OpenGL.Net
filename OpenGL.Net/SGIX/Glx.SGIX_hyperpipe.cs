@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -316,6 +319,85 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryHyperpipeNetworkSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr* glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXHyperpipeConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXHyperpipeConfigSGIX(IntPtr dpy, int networkId, int npipes, IntPtr cfg, int* hpId);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryHyperpipeConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXQueryHyperpipeConfigSGIX(IntPtr dpy, int hpId, int* npipes);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyHyperpipeConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXDestroyHyperpipeConfigSGIX(IntPtr dpy, int hpId);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindHyperpipeSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXBindHyperpipeSGIX(IntPtr dpy, int hpId);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryHyperpipeBestAttribSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryHyperpipeBestAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList, IntPtr returnAttribList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXHyperpipeAttribSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryHyperpipeAttribSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr returnAttribList);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr* glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
+
+			internal static glXQueryHyperpipeNetworkSGIX pglXQueryHyperpipeNetworkSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXHyperpipeConfigSGIX(IntPtr dpy, int networkId, int npipes, IntPtr cfg, int* hpId);
+
+			internal static glXHyperpipeConfigSGIX pglXHyperpipeConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXQueryHyperpipeConfigSGIX(IntPtr dpy, int hpId, int* npipes);
+
+			internal static glXQueryHyperpipeConfigSGIX pglXQueryHyperpipeConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXDestroyHyperpipeConfigSGIX(IntPtr dpy, int hpId);
+
+			internal static glXDestroyHyperpipeConfigSGIX pglXDestroyHyperpipeConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXBindHyperpipeSGIX(IntPtr dpy, int hpId);
+
+			internal static glXBindHyperpipeSGIX pglXBindHyperpipeSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryHyperpipeBestAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList, IntPtr returnAttribList);
+
+			internal static glXQueryHyperpipeBestAttribSGIX pglXQueryHyperpipeBestAttribSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList);
+
+			internal static glXHyperpipeAttribSGIX pglXHyperpipeAttribSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr returnAttribList);
+
+			internal static glXQueryHyperpipeAttribSGIX pglXQueryHyperpipeAttribSGIX;
+
+		}
 	}
 
 }

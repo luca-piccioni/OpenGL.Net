@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -177,6 +180,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGenfOES", ExactSpelling = true)]
+			internal extern static void glTexGenfOES(Int32 coord, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGenfvOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGeniOES", ExactSpelling = true)]
+			internal extern static void glTexGeniOES(Int32 coord, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexGenivOES", ExactSpelling = true)]
+			internal extern static unsafe void glTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexGenfvOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexGenivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexGenfOES(Int32 coord, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glTexGenfOES pglTexGenfOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glTexGenfvOES pglTexGenfvOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexGeniOES(Int32 coord, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glTexGeniOES pglTexGeniOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glTexGenivOES pglTexGenivOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetTexGenfvOES pglGetTexGenfvOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetTexGenivOES pglGetTexGenivOES;
+
+		}
 	}
 
 }

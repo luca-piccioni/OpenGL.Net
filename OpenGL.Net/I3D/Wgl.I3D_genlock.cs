@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -371,6 +374,145 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEnableGenlockI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglEnableGenlockI3D(IntPtr hDC);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDisableGenlockI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDisableGenlockI3D(IntPtr hDC);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglIsEnabledGenlockI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglIsEnabledGenlockI3D(IntPtr hDC, bool* pFlag);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGenlockSourceI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGenlockSourceI3D(IntPtr hDC, UInt32 uSource);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetGenlockSourceI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetGenlockSourceI3D(IntPtr hDC, UInt32* uSource);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGenlockSourceEdgeI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGenlockSourceEdgeI3D(IntPtr hDC, UInt32 uEdge);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetGenlockSourceEdgeI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetGenlockSourceEdgeI3D(IntPtr hDC, UInt32* uEdge);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGenlockSampleRateI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGenlockSampleRateI3D(IntPtr hDC, UInt32 uRate);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetGenlockSampleRateI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetGenlockSampleRateI3D(IntPtr hDC, UInt32* uRate);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGenlockSourceDelayI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGenlockSourceDelayI3D(IntPtr hDC, UInt32 uDelay);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetGenlockSourceDelayI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetGenlockSourceDelayI3D(IntPtr hDC, UInt32* uDelay);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryGenlockMaxSourceDelayI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryGenlockMaxSourceDelayI3D(IntPtr hDC, UInt32* uMaxLineDelay, UInt32* uMaxPixelDelay);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglEnableGenlockI3D(IntPtr hDC);
+
+			[ThreadStatic]
+			internal static wglEnableGenlockI3D pwglEnableGenlockI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDisableGenlockI3D(IntPtr hDC);
+
+			[ThreadStatic]
+			internal static wglDisableGenlockI3D pwglDisableGenlockI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglIsEnabledGenlockI3D(IntPtr hDC, bool* pFlag);
+
+			[ThreadStatic]
+			internal static wglIsEnabledGenlockI3D pwglIsEnabledGenlockI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGenlockSourceI3D(IntPtr hDC, UInt32 uSource);
+
+			[ThreadStatic]
+			internal static wglGenlockSourceI3D pwglGenlockSourceI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetGenlockSourceI3D(IntPtr hDC, UInt32* uSource);
+
+			[ThreadStatic]
+			internal static wglGetGenlockSourceI3D pwglGetGenlockSourceI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGenlockSourceEdgeI3D(IntPtr hDC, UInt32 uEdge);
+
+			[ThreadStatic]
+			internal static wglGenlockSourceEdgeI3D pwglGenlockSourceEdgeI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetGenlockSourceEdgeI3D(IntPtr hDC, UInt32* uEdge);
+
+			[ThreadStatic]
+			internal static wglGetGenlockSourceEdgeI3D pwglGetGenlockSourceEdgeI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGenlockSampleRateI3D(IntPtr hDC, UInt32 uRate);
+
+			[ThreadStatic]
+			internal static wglGenlockSampleRateI3D pwglGenlockSampleRateI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetGenlockSampleRateI3D(IntPtr hDC, UInt32* uRate);
+
+			[ThreadStatic]
+			internal static wglGetGenlockSampleRateI3D pwglGetGenlockSampleRateI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGenlockSourceDelayI3D(IntPtr hDC, UInt32 uDelay);
+
+			[ThreadStatic]
+			internal static wglGenlockSourceDelayI3D pwglGenlockSourceDelayI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetGenlockSourceDelayI3D(IntPtr hDC, UInt32* uDelay);
+
+			[ThreadStatic]
+			internal static wglGetGenlockSourceDelayI3D pwglGetGenlockSourceDelayI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryGenlockMaxSourceDelayI3D(IntPtr hDC, UInt32* uMaxLineDelay, UInt32* uMaxPixelDelay);
+
+			[ThreadStatic]
+			internal static wglQueryGenlockMaxSourceDelayI3D pwglQueryGenlockMaxSourceDelayI3D;
+
+		}
 	}
 
 }

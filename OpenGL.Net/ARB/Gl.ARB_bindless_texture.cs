@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -364,6 +367,175 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureHandleARB", ExactSpelling = true)]
+			internal extern static UInt64 glGetTextureHandleARB(UInt32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureSamplerHandleARB", ExactSpelling = true)]
+			internal extern static UInt64 glGetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeTextureHandleResidentARB", ExactSpelling = true)]
+			internal extern static void glMakeTextureHandleResidentARB(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeTextureHandleNonResidentARB", ExactSpelling = true)]
+			internal extern static void glMakeTextureHandleNonResidentARB(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetImageHandleARB", ExactSpelling = true)]
+			internal extern static UInt64 glGetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeImageHandleResidentARB", ExactSpelling = true)]
+			internal extern static void glMakeImageHandleResidentARB(UInt64 handle, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeImageHandleNonResidentARB", ExactSpelling = true)]
+			internal extern static void glMakeImageHandleNonResidentARB(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformHandleui64ARB", ExactSpelling = true)]
+			internal extern static void glUniformHandleui64ARB(Int32 location, UInt64 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformHandleui64vARB", ExactSpelling = true)]
+			internal extern static unsafe void glUniformHandleui64vARB(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64ARB", ExactSpelling = true)]
+			internal extern static void glProgramUniformHandleui64ARB(UInt32 program, Int32 location, UInt64 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64vARB", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformHandleui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsTextureHandleResidentARB", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsTextureHandleResidentARB(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsImageHandleResidentARB", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsImageHandleResidentARB(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1ui64ARB", ExactSpelling = true)]
+			internal extern static void glVertexAttribL1ui64ARB(UInt32 index, UInt64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1ui64vARB", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL1ui64vARB(UInt32 index, UInt64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexAttribLui64vARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexAttribLui64vARB(UInt32 index, Int32 pname, UInt64* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt64 glGetTextureHandleARB(UInt32 texture);
+
+			[ThreadStatic]
+			internal static glGetTextureHandleARB pglGetTextureHandleARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt64 glGetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler);
+
+			[ThreadStatic]
+			internal static glGetTextureSamplerHandleARB pglGetTextureSamplerHandleARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeTextureHandleResidentARB(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glMakeTextureHandleResidentARB pglMakeTextureHandleResidentARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeTextureHandleNonResidentARB(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glMakeTextureHandleNonResidentARB pglMakeTextureHandleNonResidentARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt64 glGetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
+
+			[ThreadStatic]
+			internal static glGetImageHandleARB pglGetImageHandleARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeImageHandleResidentARB(UInt64 handle, Int32 access);
+
+			[ThreadStatic]
+			internal static glMakeImageHandleResidentARB pglMakeImageHandleResidentARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeImageHandleNonResidentARB(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glMakeImageHandleNonResidentARB pglMakeImageHandleNonResidentARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniformHandleui64ARB(Int32 location, UInt64 value);
+
+			[ThreadStatic]
+			internal static glUniformHandleui64ARB pglUniformHandleui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformHandleui64vARB(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniformHandleui64vARB pglUniformHandleui64vARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniformHandleui64ARB(UInt32 program, Int32 location, UInt64 value);
+
+			[ThreadStatic]
+			internal static glProgramUniformHandleui64ARB pglProgramUniformHandleui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformHandleui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* values);
+
+			[ThreadStatic]
+			internal static glProgramUniformHandleui64vARB pglProgramUniformHandleui64vARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsTextureHandleResidentARB(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glIsTextureHandleResidentARB pglIsTextureHandleResidentARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsImageHandleResidentARB(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glIsImageHandleResidentARB pglIsImageHandleResidentARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL1ui64ARB(UInt32 index, UInt64 x);
+
+			[ThreadStatic]
+			internal static glVertexAttribL1ui64ARB pglVertexAttribL1ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL1ui64vARB(UInt32 index, UInt64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL1ui64vARB pglVertexAttribL1ui64vARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexAttribLui64vARB(UInt32 index, Int32 pname, UInt64* @params);
+
+			[ThreadStatic]
+			internal static glGetVertexAttribLui64vARB pglGetVertexAttribLui64vARB;
+
+		}
 	}
 
 }

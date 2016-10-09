@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -437,6 +440,113 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginPerfQueryINTEL", ExactSpelling = true)]
+			internal extern static void glBeginPerfQueryINTEL(UInt32 queryHandle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreatePerfQueryINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glCreatePerfQueryINTEL(UInt32 queryId, UInt32* queryHandle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeletePerfQueryINTEL", ExactSpelling = true)]
+			internal extern static void glDeletePerfQueryINTEL(UInt32 queryHandle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndPerfQueryINTEL", ExactSpelling = true)]
+			internal extern static void glEndPerfQueryINTEL(UInt32 queryHandle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFirstPerfQueryIdINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glGetFirstPerfQueryIdINTEL(UInt32* queryId);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNextPerfQueryIdINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glGetNextPerfQueryIdINTEL(UInt32 queryId, UInt32* nextQueryId);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfCounterInfoINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfCounterInfoINTEL(UInt32 queryId, UInt32 counterId, UInt32 counterNameLength, String counterName, UInt32 counterDescLength, String counterDesc, UInt32* counterOffset, UInt32* counterDataSize, UInt32* counterTypeEnum, UInt32* counterDataTypeEnum, UInt64* rawCounterMaxValue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfQueryDataINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, void* data, UInt32* bytesWritten);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfQueryIdByNameINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfQueryIdByNameINTEL(String queryName, UInt32* queryId);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfQueryInfoINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfQueryInfoINTEL(UInt32 queryId, UInt32 queryNameLength, String queryName, UInt32* dataSize, UInt32* noCounters, UInt32* noInstances, UInt32* capsMask);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginPerfQueryINTEL(UInt32 queryHandle);
+
+			[ThreadStatic]
+			internal static glBeginPerfQueryINTEL pglBeginPerfQueryINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCreatePerfQueryINTEL(UInt32 queryId, UInt32* queryHandle);
+
+			[ThreadStatic]
+			internal static glCreatePerfQueryINTEL pglCreatePerfQueryINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeletePerfQueryINTEL(UInt32 queryHandle);
+
+			[ThreadStatic]
+			internal static glDeletePerfQueryINTEL pglDeletePerfQueryINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndPerfQueryINTEL(UInt32 queryHandle);
+
+			[ThreadStatic]
+			internal static glEndPerfQueryINTEL pglEndPerfQueryINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFirstPerfQueryIdINTEL(UInt32* queryId);
+
+			[ThreadStatic]
+			internal static glGetFirstPerfQueryIdINTEL pglGetFirstPerfQueryIdINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNextPerfQueryIdINTEL(UInt32 queryId, UInt32* nextQueryId);
+
+			[ThreadStatic]
+			internal static glGetNextPerfQueryIdINTEL pglGetNextPerfQueryIdINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfCounterInfoINTEL(UInt32 queryId, UInt32 counterId, UInt32 counterNameLength, String counterName, UInt32 counterDescLength, String counterDesc, UInt32* counterOffset, UInt32* counterDataSize, UInt32* counterTypeEnum, UInt32* counterDataTypeEnum, UInt64* rawCounterMaxValue);
+
+			[ThreadStatic]
+			internal static glGetPerfCounterInfoINTEL pglGetPerfCounterInfoINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, void* data, UInt32* bytesWritten);
+
+			[ThreadStatic]
+			internal static glGetPerfQueryDataINTEL pglGetPerfQueryDataINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfQueryIdByNameINTEL(String queryName, UInt32* queryId);
+
+			[ThreadStatic]
+			internal static glGetPerfQueryIdByNameINTEL pglGetPerfQueryIdByNameINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfQueryInfoINTEL(UInt32 queryId, UInt32 queryNameLength, String queryName, UInt32* dataSize, UInt32* noCounters, UInt32* noInstances, UInt32* capsMask);
+
+			[ThreadStatic]
+			internal static glGetPerfQueryInfoINTEL pglGetPerfQueryInfoINTEL;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -126,6 +129,43 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformBufferEXT", ExactSpelling = true)]
+			internal extern static void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetUniformBufferSizeEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetUniformOffsetEXT", ExactSpelling = true)]
+			internal extern static IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glUniformBufferEXT pglUniformBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
+
+			[ThreadStatic]
+			internal static glGetUniformBufferSizeEXT pglGetUniformBufferSizeEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
+
+			[ThreadStatic]
+			internal static glGetUniformOffsetEXT pglGetUniformOffsetEXT;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -226,6 +229,63 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCurrentPaletteMatrixARB", ExactSpelling = true)]
+			internal extern static void glCurrentPaletteMatrixARB(Int32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixIndexubvARB", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixIndexubvARB(Int32 size, byte* indices);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixIndexusvARB", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixIndexusvARB(Int32 size, UInt16* indices);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixIndexuivARB", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixIndexuivARB(Int32 size, UInt32* indices);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixIndexPointerARB", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixIndexPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCurrentPaletteMatrixARB(Int32 index);
+
+			[ThreadStatic]
+			internal static glCurrentPaletteMatrixARB pglCurrentPaletteMatrixARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixIndexubvARB(Int32 size, byte* indices);
+
+			[ThreadStatic]
+			internal static glMatrixIndexubvARB pglMatrixIndexubvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixIndexusvARB(Int32 size, UInt16* indices);
+
+			[ThreadStatic]
+			internal static glMatrixIndexusvARB pglMatrixIndexusvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixIndexuivARB(Int32 size, UInt32* indices);
+
+			[ThreadStatic]
+			internal static glMatrixIndexuivARB pglMatrixIndexuivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixIndexPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glMatrixIndexPointerARB pglMatrixIndexPointerARB;
+
+		}
 	}
 
 }

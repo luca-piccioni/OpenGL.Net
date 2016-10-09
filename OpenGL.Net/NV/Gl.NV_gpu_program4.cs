@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -505,6 +508,173 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameterI4iNV", ExactSpelling = true)]
+			internal extern static void glProgramLocalParameterI4iNV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameterI4ivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramLocalParameterI4ivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParametersI4ivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramLocalParametersI4ivNV(Int32 target, UInt32 index, Int32 count, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameterI4uiNV", ExactSpelling = true)]
+			internal extern static void glProgramLocalParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameterI4uivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramLocalParameterI4uivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParametersI4uivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramLocalParametersI4uivNV(Int32 target, UInt32 index, Int32 count, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameterI4iNV", ExactSpelling = true)]
+			internal extern static void glProgramEnvParameterI4iNV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameterI4ivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramEnvParameterI4ivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParametersI4ivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramEnvParametersI4ivNV(Int32 target, UInt32 index, Int32 count, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameterI4uiNV", ExactSpelling = true)]
+			internal extern static void glProgramEnvParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameterI4uivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramEnvParameterI4uivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParametersI4uivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramEnvParametersI4uivNV(Int32 target, UInt32 index, Int32 count, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramLocalParameterIivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramLocalParameterIivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramLocalParameterIuivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramLocalParameterIuivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterIivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramEnvParameterIivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterIuivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramEnvParameterIuivNV(Int32 target, UInt32 index, UInt32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramLocalParameterI4iNV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameterI4iNV pglProgramLocalParameterI4iNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramLocalParameterI4ivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameterI4ivNV pglProgramLocalParameterI4ivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramLocalParametersI4ivNV(Int32 target, UInt32 index, Int32 count, Int32* @params);
+
+			[ThreadStatic]
+			internal static glProgramLocalParametersI4ivNV pglProgramLocalParametersI4ivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramLocalParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameterI4uiNV pglProgramLocalParameterI4uiNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramLocalParameterI4uivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameterI4uivNV pglProgramLocalParameterI4uivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramLocalParametersI4uivNV(Int32 target, UInt32 index, Int32 count, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glProgramLocalParametersI4uivNV pglProgramLocalParametersI4uivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramEnvParameterI4iNV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameterI4iNV pglProgramEnvParameterI4iNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramEnvParameterI4ivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameterI4ivNV pglProgramEnvParameterI4ivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramEnvParametersI4ivNV(Int32 target, UInt32 index, Int32 count, Int32* @params);
+
+			[ThreadStatic]
+			internal static glProgramEnvParametersI4ivNV pglProgramEnvParametersI4ivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramEnvParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameterI4uiNV pglProgramEnvParameterI4uiNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramEnvParameterI4uivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameterI4uivNV pglProgramEnvParameterI4uivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramEnvParametersI4uivNV(Int32 target, UInt32 index, Int32 count, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glProgramEnvParametersI4uivNV pglProgramEnvParametersI4uivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramLocalParameterIivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramLocalParameterIivNV pglGetProgramLocalParameterIivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramLocalParameterIuivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramLocalParameterIuivNV pglGetProgramLocalParameterIuivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramEnvParameterIivNV(Int32 target, UInt32 index, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramEnvParameterIivNV pglGetProgramEnvParameterIivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramEnvParameterIuivNV(Int32 target, UInt32 index, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramEnvParameterIuivNV pglGetProgramEnvParameterIuivNV;
+
+		}
 	}
 
 }

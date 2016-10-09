@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -61,6 +64,23 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIndexFuncEXT", ExactSpelling = true)]
+			internal extern static void glIndexFuncEXT(Int32 func, float @ref);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glIndexFuncEXT(Int32 func, float @ref);
+
+			[ThreadStatic]
+			internal static glIndexFuncEXT pglIndexFuncEXT;
+
+		}
 	}
 
 }

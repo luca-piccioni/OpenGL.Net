@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -75,6 +78,31 @@ namespace OpenGL
 			LogFunction("glXDestroyGLXVideoSourceSGIX(0x{0}, 0x{1})", dpy.ToString("X8"), glxvideosource.ToString("X8"));
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateGLXVideoSourceSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyGLXVideoSourceSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
+
+			internal static glXCreateGLXVideoSourceSGIX pglXCreateGLXVideoSourceSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
+
+			internal static glXDestroyGLXVideoSourceSGIX pglXDestroyGLXVideoSourceSGIX;
+
+		}
 	}
 
 }

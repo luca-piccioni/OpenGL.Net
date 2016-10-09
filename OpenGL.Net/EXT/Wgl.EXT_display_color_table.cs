@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -105,6 +108,56 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreateDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool wglCreateDisplayColorTableEXT(UInt16 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglLoadDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static unsafe bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglBindDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool wglBindDisplayColorTableEXT(UInt16 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDestroyDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
+			internal extern static void wglDestroyDisplayColorTableEXT(UInt16 id);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
+
+			[ThreadStatic]
+			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
+
+			[ThreadStatic]
+			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
+
+			[ThreadStatic]
+			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void wglDestroyDisplayColorTableEXT(UInt16 id);
+
+			[ThreadStatic]
+			internal static wglDestroyDisplayColorTableEXT pwglDestroyDisplayColorTableEXT;
+
+		}
 	}
 
 }

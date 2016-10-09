@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -106,19 +109,7 @@ namespace OpenGL
 		public const int RGB10_A2UI = 0x906F;
 
 		/// <summary>
-		/// <para>
 		/// Gl.GetTexParameter: returns the red component swizzle. The initial value is Gl.RED.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: sets the swizzle that will be applied to the r component of a texel before it is returned to the 
-		/// shader. Valid values for param are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.ZERO and Gl.ONE. If Gl.TEXTURE_SWIZZLE_R is 
-		/// Gl.RED, the value for r will be taken from the first channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.GREEN, 
-		/// the value for r will be taken from the second channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.BLUE, the 
-		/// value for r will be taken from the third channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.ALPHA, the value 
-		/// for r will be taken from the fourth channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.ZERO, the value for r 
-		/// will be subtituted with 0.0. If Gl.TEXTURE_SWIZZLE_R is Gl.ONE, the value for r will be subtituted with 1.0. The initial 
-		/// value is Gl.RED.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -128,14 +119,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
 
 		/// <summary>
-		/// <para>
 		/// Gl.GetTexParameter: returns the green component swizzle. The initial value is Gl.GREEN.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: sets the swizzle that will be applied to the g component of a texel before it is returned to the 
-		/// shader. Valid values for param and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R. The initial value is 
-		/// Gl.GREEN.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -145,14 +129,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
 
 		/// <summary>
-		/// <para>
 		/// Gl.GetTexParameter: returns the blue component swizzle. The initial value is Gl.BLUE.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: sets the swizzle that will be applied to the b component of a texel before it is returned to the 
-		/// shader. Valid values for param and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R. The initial value is 
-		/// Gl.BLUE.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -162,14 +139,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
 
 		/// <summary>
-		/// <para>
 		/// Gl.GetTexParameter: returns the alpha component swizzle. The initial value is Gl.ALPHA.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: sets the swizzle that will be applied to the a component of a texel before it is returned to the 
-		/// shader. Valid values for param and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R. The initial value is 
-		/// Gl.ALPHA.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -179,16 +149,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_A = 0x8E45;
 
 		/// <summary>
-		/// <para>
 		/// Gl.GetTexParameter: returns the component swizzle for all channels in a single query.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: sets the swizzles that will be applied to the r, g, b, and a components of a texel before they are 
-		/// returned to the shader. Valid values for params and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R, except 
-		/// that all channels are specified simultaneously. Setting the value of Gl.TEXTURE_SWIZZLE_RGBA is equivalent (assuming no 
-		/// errors are generated) to setting the parameters of each of Gl.TEXTURE_SWIZZLE_R, Gl.TEXTURE_SWIZZLE_G, 
-		/// Gl.TEXTURE_SWIZZLE_B, and Gl.TEXTURE_SWIZZLE_A successively.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -452,36 +413,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set sampler parameters
+		/// Binding for glSamplerParameteri.
 		/// </summary>
 		/// <param name="sampler">
-		/// Specifies the sampler object whose parameter to modify.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
-		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
-		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
-		/// Gl.TEXTURE_COMPARE_FUNC.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
-		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
-		/// a call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -494,36 +436,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set sampler parameters
+		/// Binding for glSamplerParameteriv.
 		/// </summary>
 		/// <param name="sampler">
-		/// Specifies the sampler object whose parameter to modify.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
-		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
-		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
-		/// Gl.TEXTURE_COMPARE_FUNC.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
-		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
-		/// a call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -541,36 +464,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set sampler parameters
+		/// Binding for glSamplerParameterf.
 		/// </summary>
 		/// <param name="sampler">
-		/// Specifies the sampler object whose parameter to modify.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
-		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
-		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
-		/// Gl.TEXTURE_COMPARE_FUNC.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
-		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
+		/// A <see cref="T:float"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
-		/// a call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -583,36 +487,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set sampler parameters
+		/// Binding for glSamplerParameterfv.
 		/// </summary>
 		/// <param name="sampler">
-		/// Specifies the sampler object whose parameter to modify.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
-		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
-		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
-		/// Gl.TEXTURE_COMPARE_FUNC.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
-		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
+		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
-		/// a call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -630,36 +515,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set sampler parameters
+		/// Binding for glSamplerParameterIiv.
 		/// </summary>
 		/// <param name="sampler">
-		/// Specifies the sampler object whose parameter to modify.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
-		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
-		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
-		/// Gl.TEXTURE_COMPARE_FUNC.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
-		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
-		/// a call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glSamplerParameterIivEXT")]
 		[AliasOf("glSamplerParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -681,36 +547,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set sampler parameters
+		/// Binding for glSamplerParameterIuiv.
 		/// </summary>
 		/// <param name="sampler">
-		/// Specifies the sampler object whose parameter to modify.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
-		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
-		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
-		/// Gl.TEXTURE_COMPARE_FUNC.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
-		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
+		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
-		/// a call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glSamplerParameterIuivEXT")]
 		[AliasOf("glSamplerParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -2166,6 +2013,621 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindFragDataLocationIndexed", ExactSpelling = true)]
+			internal extern static void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFragDataIndex", ExactSpelling = true)]
+			internal extern static Int32 glGetFragDataIndex(UInt32 program, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenSamplers", ExactSpelling = true)]
+			internal extern static unsafe void glGenSamplers(Int32 count, UInt32* samplers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteSamplers", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteSamplers(Int32 count, UInt32* samplers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsSampler", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsSampler(UInt32 sampler);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindSampler", ExactSpelling = true)]
+			internal extern static void glBindSampler(UInt32 unit, UInt32 sampler);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameteri", ExactSpelling = true)]
+			internal extern static void glSamplerParameteri(UInt32 sampler, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameteriv", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterf", ExactSpelling = true)]
+			internal extern static void glSamplerParameterf(UInt32 sampler, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterfv", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterfv(UInt32 sampler, Int32 pname, float* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterIiv", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSamplerParameterIuiv", ExactSpelling = true)]
+			internal extern static unsafe void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameteriv", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterIiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterfv", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterfv(UInt32 sampler, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSamplerParameterIuiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glQueryCounter", ExactSpelling = true)]
+			internal extern static void glQueryCounter(UInt32 id, Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjecti64v", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjecti64v(UInt32 id, Int32 pname, Int64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjectui64v", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribDivisor", ExactSpelling = true)]
+			internal extern static void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP1ui", ExactSpelling = true)]
+			internal extern static void glVertexAttribP1ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP1uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribP1uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP2ui", ExactSpelling = true)]
+			internal extern static void glVertexAttribP2ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP2uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribP2uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP3ui", ExactSpelling = true)]
+			internal extern static void glVertexAttribP3ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribP3uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP4ui", ExactSpelling = true)]
+			internal extern static void glVertexAttribP4ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribP4uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribP4uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexP2ui", ExactSpelling = true)]
+			internal extern static void glVertexP2ui(Int32 type, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexP2uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexP2uiv(Int32 type, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexP3ui", ExactSpelling = true)]
+			internal extern static void glVertexP3ui(Int32 type, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexP3uiv(Int32 type, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexP4ui", ExactSpelling = true)]
+			internal extern static void glVertexP4ui(Int32 type, UInt32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexP4uiv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexP4uiv(Int32 type, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP1ui", ExactSpelling = true)]
+			internal extern static void glTexCoordP1ui(Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP1uiv", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordP1uiv(Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP2ui", ExactSpelling = true)]
+			internal extern static void glTexCoordP2ui(Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP2uiv", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordP2uiv(Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP3ui", ExactSpelling = true)]
+			internal extern static void glTexCoordP3ui(Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordP3uiv(Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP4ui", ExactSpelling = true)]
+			internal extern static void glTexCoordP4ui(Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordP4uiv", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordP4uiv(Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP1ui", ExactSpelling = true)]
+			internal extern static void glMultiTexCoordP1ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP1uiv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoordP1uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP2ui", ExactSpelling = true)]
+			internal extern static void glMultiTexCoordP2ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP2uiv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoordP2uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP3ui", ExactSpelling = true)]
+			internal extern static void glMultiTexCoordP3ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoordP3uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP4ui", ExactSpelling = true)]
+			internal extern static void glMultiTexCoordP4ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordP4uiv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoordP4uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalP3ui", ExactSpelling = true)]
+			internal extern static void glNormalP3ui(Int32 type, UInt32 coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glNormalP3uiv(Int32 type, UInt32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorP3ui", ExactSpelling = true)]
+			internal extern static void glColorP3ui(Int32 type, UInt32 color);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glColorP3uiv(Int32 type, UInt32* color);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorP4ui", ExactSpelling = true)]
+			internal extern static void glColorP4ui(Int32 type, UInt32 color);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorP4uiv", ExactSpelling = true)]
+			internal extern static unsafe void glColorP4uiv(Int32 type, UInt32* color);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColorP3ui", ExactSpelling = true)]
+			internal extern static void glSecondaryColorP3ui(Int32 type, UInt32 color);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColorP3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColorP3uiv(Int32 type, UInt32* color);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
+
+			[AliasOf("glBindFragDataLocationIndexed")]
+			[AliasOf("glBindFragDataLocationIndexedEXT")]
+			[ThreadStatic]
+			internal static glBindFragDataLocationIndexed pglBindFragDataLocationIndexed;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetFragDataIndex(UInt32 program, String name);
+
+			[AliasOf("glGetFragDataIndex")]
+			[AliasOf("glGetFragDataIndexEXT")]
+			[ThreadStatic]
+			internal static glGetFragDataIndex pglGetFragDataIndex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenSamplers(Int32 count, UInt32* samplers);
+
+			[ThreadStatic]
+			internal static glGenSamplers pglGenSamplers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteSamplers(Int32 count, UInt32* samplers);
+
+			[ThreadStatic]
+			internal static glDeleteSamplers pglDeleteSamplers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsSampler(UInt32 sampler);
+
+			[ThreadStatic]
+			internal static glIsSampler pglIsSampler;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindSampler(UInt32 unit, UInt32 sampler);
+
+			[ThreadStatic]
+			internal static glBindSampler pglBindSampler;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSamplerParameteri(UInt32 sampler, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glSamplerParameteri pglSamplerParameteri;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* param);
+
+			[ThreadStatic]
+			internal static glSamplerParameteriv pglSamplerParameteriv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSamplerParameterf(UInt32 sampler, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glSamplerParameterf pglSamplerParameterf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSamplerParameterfv(UInt32 sampler, Int32 pname, float* param);
+
+			[ThreadStatic]
+			internal static glSamplerParameterfv pglSamplerParameterfv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
+
+			[AliasOf("glSamplerParameterIiv")]
+			[AliasOf("glSamplerParameterIivEXT")]
+			[AliasOf("glSamplerParameterIivOES")]
+			[ThreadStatic]
+			internal static glSamplerParameterIiv pglSamplerParameterIiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
+
+			[AliasOf("glSamplerParameterIuiv")]
+			[AliasOf("glSamplerParameterIuivEXT")]
+			[AliasOf("glSamplerParameterIuivOES")]
+			[ThreadStatic]
+			internal static glSamplerParameterIuiv pglSamplerParameterIuiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetSamplerParameteriv pglGetSamplerParameteriv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
+
+			[AliasOf("glGetSamplerParameterIiv")]
+			[AliasOf("glGetSamplerParameterIivEXT")]
+			[AliasOf("glGetSamplerParameterIivOES")]
+			[ThreadStatic]
+			internal static glGetSamplerParameterIiv pglGetSamplerParameterIiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetSamplerParameterfv(UInt32 sampler, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetSamplerParameterfv pglGetSamplerParameterfv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
+
+			[AliasOf("glGetSamplerParameterIuiv")]
+			[AliasOf("glGetSamplerParameterIuivEXT")]
+			[AliasOf("glGetSamplerParameterIuivOES")]
+			[ThreadStatic]
+			internal static glGetSamplerParameterIuiv pglGetSamplerParameterIuiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glQueryCounter(UInt32 id, Int32 target);
+
+			[AliasOf("glQueryCounter")]
+			[AliasOf("glQueryCounterEXT")]
+			[ThreadStatic]
+			internal static glQueryCounter pglQueryCounter;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryObjecti64v(UInt32 id, Int32 pname, Int64* @params);
+
+			[AliasOf("glGetQueryObjecti64v")]
+			[AliasOf("glGetQueryObjecti64vEXT")]
+			[ThreadStatic]
+			internal static glGetQueryObjecti64v pglGetQueryObjecti64v;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
+
+			[AliasOf("glGetQueryObjectui64v")]
+			[AliasOf("glGetQueryObjectui64vEXT")]
+			[ThreadStatic]
+			internal static glGetQueryObjectui64v pglGetQueryObjectui64v;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
+
+			[AliasOf("glVertexAttribDivisor")]
+			[AliasOf("glVertexAttribDivisorANGLE")]
+			[AliasOf("glVertexAttribDivisorARB")]
+			[AliasOf("glVertexAttribDivisorEXT")]
+			[AliasOf("glVertexAttribDivisorNV")]
+			[ThreadStatic]
+			internal static glVertexAttribDivisor pglVertexAttribDivisor;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribP1ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP1ui pglVertexAttribP1ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribP1uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP1uiv pglVertexAttribP1uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribP2ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP2ui pglVertexAttribP2ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribP2uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP2uiv pglVertexAttribP2uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribP3ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP3ui pglVertexAttribP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribP3uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP3uiv pglVertexAttribP3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribP4ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP4ui pglVertexAttribP4ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribP4uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexAttribP4uiv pglVertexAttribP4uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexP2ui(Int32 type, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexP2ui pglVertexP2ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexP2uiv(Int32 type, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexP2uiv pglVertexP2uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexP3ui(Int32 type, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexP3ui pglVertexP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexP3uiv(Int32 type, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexP3uiv pglVertexP3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexP4ui(Int32 type, UInt32 value);
+
+			[ThreadStatic]
+			internal static glVertexP4ui pglVertexP4ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexP4uiv(Int32 type, UInt32* value);
+
+			[ThreadStatic]
+			internal static glVertexP4uiv pglVertexP4uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexCoordP1ui(Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP1ui pglTexCoordP1ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordP1uiv(Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP1uiv pglTexCoordP1uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexCoordP2ui(Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP2ui pglTexCoordP2ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordP2uiv(Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP2uiv pglTexCoordP2uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexCoordP3ui(Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP3ui pglTexCoordP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordP3uiv(Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP3uiv pglTexCoordP3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexCoordP4ui(Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP4ui pglTexCoordP4ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordP4uiv(Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glTexCoordP4uiv pglTexCoordP4uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoordP1ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP1ui pglMultiTexCoordP1ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoordP1uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP1uiv pglMultiTexCoordP1uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoordP2ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP2ui pglMultiTexCoordP2ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoordP2uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP2uiv pglMultiTexCoordP2uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoordP3ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP3ui pglMultiTexCoordP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoordP3uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP3uiv pglMultiTexCoordP3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoordP4ui(Int32 texture, Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP4ui pglMultiTexCoordP4ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoordP4uiv(Int32 texture, Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordP4uiv pglMultiTexCoordP4uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalP3ui(Int32 type, UInt32 coords);
+
+			[ThreadStatic]
+			internal static glNormalP3ui pglNormalP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalP3uiv(Int32 type, UInt32* coords);
+
+			[ThreadStatic]
+			internal static glNormalP3uiv pglNormalP3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glColorP3ui(Int32 type, UInt32 color);
+
+			[ThreadStatic]
+			internal static glColorP3ui pglColorP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glColorP3uiv(Int32 type, UInt32* color);
+
+			[ThreadStatic]
+			internal static glColorP3uiv pglColorP3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glColorP4ui(Int32 type, UInt32 color);
+
+			[ThreadStatic]
+			internal static glColorP4ui pglColorP4ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glColorP4uiv(Int32 type, UInt32* color);
+
+			[ThreadStatic]
+			internal static glColorP4uiv pglColorP4uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColorP3ui(Int32 type, UInt32 color);
+
+			[ThreadStatic]
+			internal static glSecondaryColorP3ui pglSecondaryColorP3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColorP3uiv(Int32 type, UInt32* color);
+
+			[ThreadStatic]
+			internal static glSecondaryColorP3uiv pglSecondaryColorP3uiv;
+
+		}
 	}
 
 }

@@ -338,16 +338,16 @@ namespace OpenGL
 			public bool Multisample_3DFX;
 
 			/// <summary>
-			/// Support for extension WGL_NV_vertex_array_range.
-			/// </summary>
-			[Extension("WGL_NV_vertex_array_range")]
-			public bool VertexArrayRange_NV;
-
-			/// <summary>
 			/// Support for extension WGL_NV_multisample_coverage.
 			/// </summary>
 			[Extension("WGL_NV_multisample_coverage")]
 			public bool MultisampleCoverage_NV;
+
+			/// <summary>
+			/// Support for extension WGL_NV_vertex_array_range.
+			/// </summary>
+			[Extension("WGL_NV_vertex_array_range")]
+			public bool VertexArrayRange_NV;
 
 		}
 }

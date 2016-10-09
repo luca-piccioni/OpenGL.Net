@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -211,6 +214,53 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeformationMap3dSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glDeformationMap3dSGIX(Int32 target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double* points);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeformationMap3fSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glDeformationMap3fSGIX(Int32 target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float* points);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeformSGIX", ExactSpelling = true)]
+			internal extern static void glDeformSGIX(UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadIdentityDeformationMapSGIX", ExactSpelling = true)]
+			internal extern static void glLoadIdentityDeformationMapSGIX(UInt32 mask);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeformationMap3dSGIX(Int32 target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double* points);
+
+			[ThreadStatic]
+			internal static glDeformationMap3dSGIX pglDeformationMap3dSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeformationMap3fSGIX(Int32 target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float* points);
+
+			[ThreadStatic]
+			internal static glDeformationMap3fSGIX pglDeformationMap3fSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeformSGIX(UInt32 mask);
+
+			[ThreadStatic]
+			internal static glDeformSGIX pglDeformSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glLoadIdentityDeformationMapSGIX(UInt32 mask);
+
+			[ThreadStatic]
+			internal static glLoadIdentityDeformationMapSGIX pglLoadIdentityDeformationMapSGIX;
+
+		}
 	}
 
 }

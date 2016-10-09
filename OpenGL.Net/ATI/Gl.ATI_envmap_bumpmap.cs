@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -165,6 +168,53 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexBumpParameterivATI", ExactSpelling = true)]
+			internal extern static unsafe void glTexBumpParameterivATI(Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexBumpParameterfvATI", ExactSpelling = true)]
+			internal extern static unsafe void glTexBumpParameterfvATI(Int32 pname, float* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexBumpParameterivATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexBumpParameterfvATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexBumpParameterfvATI(Int32 pname, float* param);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexBumpParameterivATI(Int32 pname, Int32* param);
+
+			[ThreadStatic]
+			internal static glTexBumpParameterivATI pglTexBumpParameterivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexBumpParameterfvATI(Int32 pname, float* param);
+
+			[ThreadStatic]
+			internal static glTexBumpParameterfvATI pglTexBumpParameterfvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
+
+			[ThreadStatic]
+			internal static glGetTexBumpParameterivATI pglGetTexBumpParameterivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexBumpParameterfvATI(Int32 pname, float* param);
+
+			[ThreadStatic]
+			internal static glGetTexBumpParameterfvATI pglGetTexBumpParameterfvATI;
+
+		}
 	}
 
 }

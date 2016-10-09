@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -4702,32 +4705,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set multiple viewports
+		/// Binding for glViewportArrayv.
 		/// </summary>
 		/// <param name="first">
-		/// Specify the first viewport to set.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="count">
-		/// Specify the number of viewports to set.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
-		/// Specify the address of an array containing the viewport parameters.
+		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> + <paramref name="count"/> is greater than or equal to the 
-		/// value of Gl.MAX_VIEWPORTS.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
-		/// </exception>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.Viewport"/>
-		/// <seealso cref="Gl.ViewportIndexed"/>
 		[AliasOf("glViewportArrayvNV")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
@@ -4746,18 +4734,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set a specified viewport
+		/// Binding for glViewportIndexedf.
 		/// </summary>
 		/// <param name="index">
-		/// Specify the first viewport to set.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="x">
-		/// For Gl.ViewportIndexedf, specifies the lower left corner of the viewport rectangle, in pixels. The initial value is 
-		/// (0,0).
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="y">
-		/// For Gl.ViewportIndexedf, specifies the lower left corner of the viewport rectangle, in pixels. The initial value is 
-		/// (0,0).
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
@@ -4765,17 +4751,6 @@ namespace OpenGL
 		/// <param name="h">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
-		/// </exception>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.Viewport"/>
-		/// <seealso cref="Gl.ViewportArray"/>
 		[AliasOf("glViewportIndexedfNV")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
@@ -4789,25 +4764,14 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set a specified viewport
+		/// Binding for glViewportIndexedfv.
 		/// </summary>
 		/// <param name="index">
-		/// Specify the first viewport to set.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v">
-		/// For Gl.ViewportIndexedfv, specifies the address of an array containing the viewport parameters.
+		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
-		/// </exception>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.Viewport"/>
-		/// <seealso cref="Gl.ViewportArray"/>
 		[AliasOf("glViewportIndexedfvNV")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
@@ -5286,6 +5250,1010 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReleaseShaderCompiler", ExactSpelling = true)]
+			internal extern static void glReleaseShaderCompiler();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glShaderBinary", ExactSpelling = true)]
+			internal extern static unsafe void glShaderBinary(Int32 count, UInt32* shaders, Int32 binaryformat, IntPtr binary, Int32 length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetShaderPrecisionFormat", ExactSpelling = true)]
+			internal extern static unsafe void glGetShaderPrecisionFormat(Int32 shadertype, Int32 precisiontype, Int32* range, Int32* precision);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangef", ExactSpelling = true)]
+			internal extern static void glDepthRangef(float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearDepthf", ExactSpelling = true)]
+			internal extern static void glClearDepthf(float d);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramBinary", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramBinary(UInt32 program, Int32 bufSize, Int32* length, Int32* binaryFormat, IntPtr binary);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramBinary", ExactSpelling = true)]
+			internal extern static unsafe void glProgramBinary(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameteri", ExactSpelling = true)]
+			internal extern static void glProgramParameteri(UInt32 program, Int32 pname, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUseProgramStages", ExactSpelling = true)]
+			internal extern static void glUseProgramStages(UInt32 pipeline, UInt32 stages, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glActiveShaderProgram", ExactSpelling = true)]
+			internal extern static void glActiveShaderProgram(UInt32 pipeline, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreateShaderProgramv", ExactSpelling = true)]
+			internal extern static UInt32 glCreateShaderProgramv(Int32 type, Int32 count, String[] strings);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindProgramPipeline", ExactSpelling = true)]
+			internal extern static void glBindProgramPipeline(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteProgramPipelines", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteProgramPipelines(Int32 n, UInt32* pipelines);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenProgramPipelines", ExactSpelling = true)]
+			internal extern static unsafe void glGenProgramPipelines(Int32 n, UInt32* pipelines);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsProgramPipeline", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsProgramPipeline(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramPipelineiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramPipelineiv(UInt32 pipeline, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1i", ExactSpelling = true)]
+			internal extern static void glProgramUniform1i(UInt32 program, Int32 location, Int32 v0);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1iv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1f", ExactSpelling = true)]
+			internal extern static void glProgramUniform1f(UInt32 program, Int32 location, float v0);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1d", ExactSpelling = true)]
+			internal extern static void glProgramUniform1d(UInt32 program, Int32 location, double v0);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1ui", ExactSpelling = true)]
+			internal extern static void glProgramUniform1ui(UInt32 program, Int32 location, UInt32 v0);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1uiv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2i", ExactSpelling = true)]
+			internal extern static void glProgramUniform2i(UInt32 program, Int32 location, Int32 v0, Int32 v1);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2iv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2f", ExactSpelling = true)]
+			internal extern static void glProgramUniform2f(UInt32 program, Int32 location, float v0, float v1);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2d", ExactSpelling = true)]
+			internal extern static void glProgramUniform2d(UInt32 program, Int32 location, double v0, double v1);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2ui", ExactSpelling = true)]
+			internal extern static void glProgramUniform2ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2uiv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3i", ExactSpelling = true)]
+			internal extern static void glProgramUniform3i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3iv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3f", ExactSpelling = true)]
+			internal extern static void glProgramUniform3f(UInt32 program, Int32 location, float v0, float v1, float v2);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3d", ExactSpelling = true)]
+			internal extern static void glProgramUniform3d(UInt32 program, Int32 location, double v0, double v1, double v2);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3ui", ExactSpelling = true)]
+			internal extern static void glProgramUniform3ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4i", ExactSpelling = true)]
+			internal extern static void glProgramUniform4i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4iv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4f", ExactSpelling = true)]
+			internal extern static void glProgramUniform4f(UInt32 program, Int32 location, float v0, float v1, float v2, float v3);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4d", ExactSpelling = true)]
+			internal extern static void glProgramUniform4d(UInt32 program, Int32 location, double v0, double v1, double v2, double v3);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4ui", ExactSpelling = true)]
+			internal extern static void glProgramUniform4ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4uiv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x3fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2x3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x2fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3x2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x4fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2x4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x2fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4x2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x4fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3x4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x3fv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4x3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x3dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2x3dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x2dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3x2dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x4dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2x4dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x2dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4x2dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x4dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3x4dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x3dv", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4x3dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glValidateProgramPipeline", ExactSpelling = true)]
+			internal extern static void glValidateProgramPipeline(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramPipelineInfoLog", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, Int32* length, String infoLog);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1d", ExactSpelling = true)]
+			internal extern static void glVertexAttribL1d(UInt32 index, double x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL2d", ExactSpelling = true)]
+			internal extern static void glVertexAttribL2d(UInt32 index, double x, double y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL3d", ExactSpelling = true)]
+			internal extern static void glVertexAttribL3d(UInt32 index, double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL4d", ExactSpelling = true)]
+			internal extern static void glVertexAttribL4d(UInt32 index, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1dv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL1dv(UInt32 index, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL2dv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL2dv(UInt32 index, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL3dv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL3dv(UInt32 index, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL4dv", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL4dv(UInt32 index, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribLPointer", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribLPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexAttribLdv", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexAttribLdv(UInt32 index, Int32 pname, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glViewportArrayv", ExactSpelling = true)]
+			internal extern static unsafe void glViewportArrayv(UInt32 first, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glViewportIndexedf", ExactSpelling = true)]
+			internal extern static void glViewportIndexedf(UInt32 index, float x, float y, float w, float h);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glViewportIndexedfv", ExactSpelling = true)]
+			internal extern static unsafe void glViewportIndexedfv(UInt32 index, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScissorArrayv", ExactSpelling = true)]
+			internal extern static unsafe void glScissorArrayv(UInt32 first, Int32 count, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScissorIndexed", ExactSpelling = true)]
+			internal extern static void glScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScissorIndexedv", ExactSpelling = true)]
+			internal extern static unsafe void glScissorIndexedv(UInt32 index, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangeArrayv", ExactSpelling = true)]
+			internal extern static unsafe void glDepthRangeArrayv(UInt32 first, Int32 count, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangeIndexed", ExactSpelling = true)]
+			internal extern static void glDepthRangeIndexed(UInt32 index, double n, double f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFloati_v", ExactSpelling = true)]
+			internal extern static unsafe void glGetFloati_v(Int32 target, UInt32 index, float* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDoublei_v", ExactSpelling = true)]
+			internal extern static unsafe void glGetDoublei_v(Int32 target, UInt32 index, double* data);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glReleaseShaderCompiler();
+
+			[ThreadStatic]
+			internal static glReleaseShaderCompiler pglReleaseShaderCompiler;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glShaderBinary(Int32 count, UInt32* shaders, Int32 binaryformat, IntPtr binary, Int32 length);
+
+			[ThreadStatic]
+			internal static glShaderBinary pglShaderBinary;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetShaderPrecisionFormat(Int32 shadertype, Int32 precisiontype, Int32* range, Int32* precision);
+
+			[ThreadStatic]
+			internal static glGetShaderPrecisionFormat pglGetShaderPrecisionFormat;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDepthRangef(float n, float f);
+
+			[AliasOf("glDepthRangef")]
+			[AliasOf("glDepthRangefOES")]
+			[ThreadStatic]
+			internal static glDepthRangef pglDepthRangef;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClearDepthf(float d);
+
+			[AliasOf("glClearDepthf")]
+			[AliasOf("glClearDepthfOES")]
+			[ThreadStatic]
+			internal static glClearDepthf pglClearDepthf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramBinary(UInt32 program, Int32 bufSize, Int32* length, Int32* binaryFormat, IntPtr binary);
+
+			[AliasOf("glGetProgramBinary")]
+			[AliasOf("glGetProgramBinaryOES")]
+			[ThreadStatic]
+			internal static glGetProgramBinary pglGetProgramBinary;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramBinary(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length);
+
+			[AliasOf("glProgramBinary")]
+			[AliasOf("glProgramBinaryOES")]
+			[ThreadStatic]
+			internal static glProgramBinary pglProgramBinary;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramParameteri(UInt32 program, Int32 pname, Int32 value);
+
+			[AliasOf("glProgramParameteri")]
+			[AliasOf("glProgramParameteriARB")]
+			[AliasOf("glProgramParameteriEXT")]
+			[ThreadStatic]
+			internal static glProgramParameteri pglProgramParameteri;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUseProgramStages(UInt32 pipeline, UInt32 stages, UInt32 program);
+
+			[ThreadStatic]
+			internal static glUseProgramStages pglUseProgramStages;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glActiveShaderProgram(UInt32 pipeline, UInt32 program);
+
+			[ThreadStatic]
+			internal static glActiveShaderProgram pglActiveShaderProgram;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glCreateShaderProgramv(Int32 type, Int32 count, String[] strings);
+
+			[ThreadStatic]
+			internal static glCreateShaderProgramv pglCreateShaderProgramv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindProgramPipeline(UInt32 pipeline);
+
+			[ThreadStatic]
+			internal static glBindProgramPipeline pglBindProgramPipeline;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteProgramPipelines(Int32 n, UInt32* pipelines);
+
+			[ThreadStatic]
+			internal static glDeleteProgramPipelines pglDeleteProgramPipelines;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenProgramPipelines(Int32 n, UInt32* pipelines);
+
+			[ThreadStatic]
+			internal static glGenProgramPipelines pglGenProgramPipelines;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsProgramPipeline(UInt32 pipeline);
+
+			[ThreadStatic]
+			internal static glIsProgramPipeline pglIsProgramPipeline;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramPipelineiv(UInt32 pipeline, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramPipelineiv pglGetProgramPipelineiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1i(UInt32 program, Int32 location, Int32 v0);
+
+			[AliasOf("glProgramUniform1i")]
+			[AliasOf("glProgramUniform1iEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform1i pglProgramUniform1i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[AliasOf("glProgramUniform1iv")]
+			[AliasOf("glProgramUniform1ivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform1iv pglProgramUniform1iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1f(UInt32 program, Int32 location, float v0);
+
+			[AliasOf("glProgramUniform1f")]
+			[AliasOf("glProgramUniform1fEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform1f pglProgramUniform1f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[AliasOf("glProgramUniform1fv")]
+			[AliasOf("glProgramUniform1fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform1fv pglProgramUniform1fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1d(UInt32 program, Int32 location, double v0);
+
+			[ThreadStatic]
+			internal static glProgramUniform1d pglProgramUniform1d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform1dv pglProgramUniform1dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1ui(UInt32 program, Int32 location, UInt32 v0);
+
+			[AliasOf("glProgramUniform1ui")]
+			[AliasOf("glProgramUniform1uiEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform1ui pglProgramUniform1ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[AliasOf("glProgramUniform1uiv")]
+			[AliasOf("glProgramUniform1uivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform1uiv pglProgramUniform1uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2i(UInt32 program, Int32 location, Int32 v0, Int32 v1);
+
+			[AliasOf("glProgramUniform2i")]
+			[AliasOf("glProgramUniform2iEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform2i pglProgramUniform2i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[AliasOf("glProgramUniform2iv")]
+			[AliasOf("glProgramUniform2ivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform2iv pglProgramUniform2iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2f(UInt32 program, Int32 location, float v0, float v1);
+
+			[AliasOf("glProgramUniform2f")]
+			[AliasOf("glProgramUniform2fEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform2f pglProgramUniform2f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[AliasOf("glProgramUniform2fv")]
+			[AliasOf("glProgramUniform2fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform2fv pglProgramUniform2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2d(UInt32 program, Int32 location, double v0, double v1);
+
+			[ThreadStatic]
+			internal static glProgramUniform2d pglProgramUniform2d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform2dv pglProgramUniform2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1);
+
+			[AliasOf("glProgramUniform2ui")]
+			[AliasOf("glProgramUniform2uiEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform2ui pglProgramUniform2ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[AliasOf("glProgramUniform2uiv")]
+			[AliasOf("glProgramUniform2uivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform2uiv pglProgramUniform2uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2);
+
+			[AliasOf("glProgramUniform3i")]
+			[AliasOf("glProgramUniform3iEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform3i pglProgramUniform3i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[AliasOf("glProgramUniform3iv")]
+			[AliasOf("glProgramUniform3ivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform3iv pglProgramUniform3iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3f(UInt32 program, Int32 location, float v0, float v1, float v2);
+
+			[AliasOf("glProgramUniform3f")]
+			[AliasOf("glProgramUniform3fEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform3f pglProgramUniform3f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[AliasOf("glProgramUniform3fv")]
+			[AliasOf("glProgramUniform3fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform3fv pglProgramUniform3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3d(UInt32 program, Int32 location, double v0, double v1, double v2);
+
+			[ThreadStatic]
+			internal static glProgramUniform3d pglProgramUniform3d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform3dv pglProgramUniform3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2);
+
+			[AliasOf("glProgramUniform3ui")]
+			[AliasOf("glProgramUniform3uiEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform3ui pglProgramUniform3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[AliasOf("glProgramUniform3uiv")]
+			[AliasOf("glProgramUniform3uivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform3uiv pglProgramUniform3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3);
+
+			[AliasOf("glProgramUniform4i")]
+			[AliasOf("glProgramUniform4iEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform4i pglProgramUniform4i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4iv(UInt32 program, Int32 location, Int32 count, Int32* value);
+
+			[AliasOf("glProgramUniform4iv")]
+			[AliasOf("glProgramUniform4ivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform4iv pglProgramUniform4iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4f(UInt32 program, Int32 location, float v0, float v1, float v2, float v3);
+
+			[AliasOf("glProgramUniform4f")]
+			[AliasOf("glProgramUniform4fEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform4f pglProgramUniform4f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4fv(UInt32 program, Int32 location, Int32 count, float* value);
+
+			[AliasOf("glProgramUniform4fv")]
+			[AliasOf("glProgramUniform4fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform4fv pglProgramUniform4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4d(UInt32 program, Int32 location, double v0, double v1, double v2, double v3);
+
+			[ThreadStatic]
+			internal static glProgramUniform4d pglProgramUniform4d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4dv(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform4dv pglProgramUniform4dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3);
+
+			[AliasOf("glProgramUniform4ui")]
+			[AliasOf("glProgramUniform4uiEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform4ui pglProgramUniform4ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
+
+			[AliasOf("glProgramUniform4uiv")]
+			[AliasOf("glProgramUniform4uivEXT")]
+			[ThreadStatic]
+			internal static glProgramUniform4uiv pglProgramUniform4uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix2fv")]
+			[AliasOf("glProgramUniformMatrix2fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2fv pglProgramUniformMatrix2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix3fv")]
+			[AliasOf("glProgramUniformMatrix3fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3fv pglProgramUniformMatrix3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix4fv")]
+			[AliasOf("glProgramUniformMatrix4fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4fv pglProgramUniformMatrix4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2dv pglProgramUniformMatrix2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3dv pglProgramUniformMatrix3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4dv pglProgramUniformMatrix4dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2x3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix2x3fv")]
+			[AliasOf("glProgramUniformMatrix2x3fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2x3fv pglProgramUniformMatrix2x3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3x2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix3x2fv")]
+			[AliasOf("glProgramUniformMatrix3x2fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3x2fv pglProgramUniformMatrix3x2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2x4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix2x4fv")]
+			[AliasOf("glProgramUniformMatrix2x4fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2x4fv pglProgramUniformMatrix2x4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4x2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix4x2fv")]
+			[AliasOf("glProgramUniformMatrix4x2fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4x2fv pglProgramUniformMatrix4x2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3x4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix3x4fv")]
+			[AliasOf("glProgramUniformMatrix3x4fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3x4fv pglProgramUniformMatrix3x4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4x3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glProgramUniformMatrix4x3fv")]
+			[AliasOf("glProgramUniformMatrix4x3fvEXT")]
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4x3fv pglProgramUniformMatrix4x3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2x3dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2x3dv pglProgramUniformMatrix2x3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3x2dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3x2dv pglProgramUniformMatrix3x2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2x4dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2x4dv pglProgramUniformMatrix2x4dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4x2dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4x2dv pglProgramUniformMatrix4x2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3x4dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3x4dv pglProgramUniformMatrix3x4dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4x3dv(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4x3dv pglProgramUniformMatrix4x3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glValidateProgramPipeline(UInt32 pipeline);
+
+			[ThreadStatic]
+			internal static glValidateProgramPipeline pglValidateProgramPipeline;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
+
+			[ThreadStatic]
+			internal static glGetProgramPipelineInfoLog pglGetProgramPipelineInfoLog;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL1d(UInt32 index, double x);
+
+			[AliasOf("glVertexAttribL1d")]
+			[AliasOf("glVertexAttribL1dEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL1d pglVertexAttribL1d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL2d(UInt32 index, double x, double y);
+
+			[AliasOf("glVertexAttribL2d")]
+			[AliasOf("glVertexAttribL2dEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL2d pglVertexAttribL2d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL3d(UInt32 index, double x, double y, double z);
+
+			[AliasOf("glVertexAttribL3d")]
+			[AliasOf("glVertexAttribL3dEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL3d pglVertexAttribL3d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL4d(UInt32 index, double x, double y, double z, double w);
+
+			[AliasOf("glVertexAttribL4d")]
+			[AliasOf("glVertexAttribL4dEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL4d pglVertexAttribL4d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL1dv(UInt32 index, double* v);
+
+			[AliasOf("glVertexAttribL1dv")]
+			[AliasOf("glVertexAttribL1dvEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL1dv pglVertexAttribL1dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL2dv(UInt32 index, double* v);
+
+			[AliasOf("glVertexAttribL2dv")]
+			[AliasOf("glVertexAttribL2dvEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL2dv pglVertexAttribL2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL3dv(UInt32 index, double* v);
+
+			[AliasOf("glVertexAttribL3dv")]
+			[AliasOf("glVertexAttribL3dvEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL3dv pglVertexAttribL3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL4dv(UInt32 index, double* v);
+
+			[AliasOf("glVertexAttribL4dv")]
+			[AliasOf("glVertexAttribL4dvEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribL4dv pglVertexAttribL4dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribLPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[AliasOf("glVertexAttribLPointer")]
+			[AliasOf("glVertexAttribLPointerEXT")]
+			[ThreadStatic]
+			internal static glVertexAttribLPointer pglVertexAttribLPointer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexAttribLdv(UInt32 index, Int32 pname, double* @params);
+
+			[AliasOf("glGetVertexAttribLdv")]
+			[AliasOf("glGetVertexAttribLdvEXT")]
+			[ThreadStatic]
+			internal static glGetVertexAttribLdv pglGetVertexAttribLdv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glViewportArrayv(UInt32 first, Int32 count, float* v);
+
+			[AliasOf("glViewportArrayv")]
+			[AliasOf("glViewportArrayvNV")]
+			[ThreadStatic]
+			internal static glViewportArrayv pglViewportArrayv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glViewportIndexedf(UInt32 index, float x, float y, float w, float h);
+
+			[AliasOf("glViewportIndexedf")]
+			[AliasOf("glViewportIndexedfNV")]
+			[ThreadStatic]
+			internal static glViewportIndexedf pglViewportIndexedf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glViewportIndexedfv(UInt32 index, float* v);
+
+			[AliasOf("glViewportIndexedfv")]
+			[AliasOf("glViewportIndexedfvNV")]
+			[ThreadStatic]
+			internal static glViewportIndexedfv pglViewportIndexedfv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glScissorArrayv(UInt32 first, Int32 count, Int32* v);
+
+			[AliasOf("glScissorArrayv")]
+			[AliasOf("glScissorArrayvNV")]
+			[ThreadStatic]
+			internal static glScissorArrayv pglScissorArrayv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
+
+			[AliasOf("glScissorIndexed")]
+			[AliasOf("glScissorIndexedNV")]
+			[ThreadStatic]
+			internal static glScissorIndexed pglScissorIndexed;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glScissorIndexedv(UInt32 index, Int32* v);
+
+			[AliasOf("glScissorIndexedv")]
+			[AliasOf("glScissorIndexedvNV")]
+			[ThreadStatic]
+			internal static glScissorIndexedv pglScissorIndexedv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDepthRangeArrayv(UInt32 first, Int32 count, double* v);
+
+			[ThreadStatic]
+			internal static glDepthRangeArrayv pglDepthRangeArrayv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDepthRangeIndexed(UInt32 index, double n, double f);
+
+			[ThreadStatic]
+			internal static glDepthRangeIndexed pglDepthRangeIndexed;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFloati_v(Int32 target, UInt32 index, float* data);
+
+			[AliasOf("glGetFloati_v")]
+			[AliasOf("glGetFloatIndexedvEXT")]
+			[AliasOf("glGetFloati_vEXT")]
+			[AliasOf("glGetFloati_vNV")]
+			[ThreadStatic]
+			internal static glGetFloati_v pglGetFloati_v;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetDoublei_v(Int32 target, UInt32 index, double* data);
+
+			[AliasOf("glGetDoublei_v")]
+			[AliasOf("glGetDoubleIndexedvEXT")]
+			[AliasOf("glGetDoublei_vEXT")]
+			[ThreadStatic]
+			internal static glGetDoublei_v pglGetDoublei_v;
+
+		}
 	}
 
 }

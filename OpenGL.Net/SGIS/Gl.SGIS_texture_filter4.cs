@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -119,6 +122,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexFilterFuncSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexFilterFuncSGIS(Int32 target, Int32 filter, float* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexFilterFuncSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glTexFilterFuncSGIS(Int32 target, Int32 filter, Int32 n, float* weights);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexFilterFuncSGIS(Int32 target, Int32 filter, float* weights);
+
+			[ThreadStatic]
+			internal static glGetTexFilterFuncSGIS pglGetTexFilterFuncSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexFilterFuncSGIS(Int32 target, Int32 filter, Int32 n, float* weights);
+
+			[ThreadStatic]
+			internal static glTexFilterFuncSGIS pglTexFilterFuncSGIS;
+
+		}
 	}
 
 }

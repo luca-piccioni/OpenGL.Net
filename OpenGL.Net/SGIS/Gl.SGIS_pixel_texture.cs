@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -177,6 +180,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTexGenParameteriSGIS", ExactSpelling = true)]
+			internal extern static void glPixelTexGenParameteriSGIS(Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTexGenParameterivSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glPixelTexGenParameterivSGIS(Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTexGenParameterfSGIS", ExactSpelling = true)]
+			internal extern static void glPixelTexGenParameterfSGIS(Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTexGenParameterfvSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glPixelTexGenParameterfvSGIS(Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPixelTexGenParameterivSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glGetPixelTexGenParameterivSGIS(Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPixelTexGenParameterfvSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glGetPixelTexGenParameterfvSGIS(Int32 pname, float* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPixelTexGenParameteriSGIS(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glPixelTexGenParameteriSGIS pglPixelTexGenParameteriSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPixelTexGenParameterivSGIS(Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glPixelTexGenParameterivSGIS pglPixelTexGenParameterivSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPixelTexGenParameterfSGIS(Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glPixelTexGenParameterfSGIS pglPixelTexGenParameterfSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPixelTexGenParameterfvSGIS(Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glPixelTexGenParameterfvSGIS pglPixelTexGenParameterfvSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPixelTexGenParameterivSGIS(Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetPixelTexGenParameterivSGIS pglGetPixelTexGenParameterivSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPixelTexGenParameterfvSGIS(Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetPixelTexGenParameterfvSGIS pglGetPixelTexGenParameterfvSGIS;
+
+		}
 	}
 
 }

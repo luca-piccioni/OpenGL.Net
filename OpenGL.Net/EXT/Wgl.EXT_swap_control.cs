@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -60,6 +63,34 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSwapIntervalEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static bool wglSwapIntervalEXT(int interval);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetSwapIntervalEXT", ExactSpelling = true, SetLastError = true)]
+			internal extern static int wglGetSwapIntervalEXT();
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglSwapIntervalEXT(int interval);
+
+			[ThreadStatic]
+			internal static wglSwapIntervalEXT pwglSwapIntervalEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate int wglGetSwapIntervalEXT();
+
+			[ThreadStatic]
+			internal static wglGetSwapIntervalEXT pwglGetSwapIntervalEXT;
+
+		}
 	}
 
 }

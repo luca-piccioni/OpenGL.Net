@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -518,6 +521,113 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightbvARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightbvARB(Int32 size, sbyte* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightsvARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightsvARB(Int32 size, Int16* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightivARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightivARB(Int32 size, Int32* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightfvARB(Int32 size, float* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightdvARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightdvARB(Int32 size, double* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightubvARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightubvARB(Int32 size, byte* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightusvARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightusvARB(Int32 size, UInt16* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightuivARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightuivARB(Int32 size, UInt32* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightPointerARB", ExactSpelling = true)]
+			internal extern static unsafe void glWeightPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexBlendARB", ExactSpelling = true)]
+			internal extern static void glVertexBlendARB(Int32 count);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightbvARB(Int32 size, sbyte* weights);
+
+			[ThreadStatic]
+			internal static glWeightbvARB pglWeightbvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightsvARB(Int32 size, Int16* weights);
+
+			[ThreadStatic]
+			internal static glWeightsvARB pglWeightsvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightivARB(Int32 size, Int32* weights);
+
+			[ThreadStatic]
+			internal static glWeightivARB pglWeightivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightfvARB(Int32 size, float* weights);
+
+			[ThreadStatic]
+			internal static glWeightfvARB pglWeightfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightdvARB(Int32 size, double* weights);
+
+			[ThreadStatic]
+			internal static glWeightdvARB pglWeightdvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightubvARB(Int32 size, byte* weights);
+
+			[ThreadStatic]
+			internal static glWeightubvARB pglWeightubvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightusvARB(Int32 size, UInt16* weights);
+
+			[ThreadStatic]
+			internal static glWeightusvARB pglWeightusvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightuivARB(Int32 size, UInt32* weights);
+
+			[ThreadStatic]
+			internal static glWeightuivARB pglWeightuivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glWeightPointerARB pglWeightPointerARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexBlendARB(Int32 count);
+
+			[ThreadStatic]
+			internal static glVertexBlendARB pglVertexBlendARB;
+
+		}
 	}
 
 }

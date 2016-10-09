@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -57,6 +60,22 @@ namespace OpenGL
 			LogFunction("glXSwapIntervalEXT(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), interval);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXSwapIntervalEXT", ExactSpelling = true)]
+			internal extern static unsafe void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
+
+			internal static glXSwapIntervalEXT pglXSwapIntervalEXT;
+
+		}
 	}
 
 }

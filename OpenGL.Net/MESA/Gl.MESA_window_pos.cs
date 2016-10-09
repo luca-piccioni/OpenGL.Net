@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -201,6 +204,93 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4dMESA", ExactSpelling = true)]
+			internal extern static void glWindowPos4dMESA(double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4dvMESA", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos4dvMESA(double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4fMESA", ExactSpelling = true)]
+			internal extern static void glWindowPos4fMESA(float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4fvMESA", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos4fvMESA(float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4iMESA", ExactSpelling = true)]
+			internal extern static void glWindowPos4iMESA(Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4ivMESA", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos4ivMESA(Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4sMESA", ExactSpelling = true)]
+			internal extern static void glWindowPos4sMESA(Int16 x, Int16 y, Int16 z, Int16 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos4svMESA", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos4svMESA(Int16* v);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos4dMESA(double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glWindowPos4dMESA pglWindowPos4dMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos4dvMESA(double* v);
+
+			[ThreadStatic]
+			internal static glWindowPos4dvMESA pglWindowPos4dvMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos4fMESA(float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glWindowPos4fMESA pglWindowPos4fMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos4fvMESA(float* v);
+
+			[ThreadStatic]
+			internal static glWindowPos4fvMESA pglWindowPos4fvMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos4iMESA(Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[ThreadStatic]
+			internal static glWindowPos4iMESA pglWindowPos4iMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos4ivMESA(Int32* v);
+
+			[ThreadStatic]
+			internal static glWindowPos4ivMESA pglWindowPos4ivMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos4sMESA(Int16 x, Int16 y, Int16 z, Int16 w);
+
+			[ThreadStatic]
+			internal static glWindowPos4sMESA pglWindowPos4sMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos4svMESA(Int16* v);
+
+			[ThreadStatic]
+			internal static glWindowPos4svMESA pglWindowPos4svMESA;
+
+		}
 	}
 
 }

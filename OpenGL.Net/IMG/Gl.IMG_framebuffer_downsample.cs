@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -115,6 +118,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture2DDownsampleIMG", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture2DDownsampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 xscale, Int32 yscale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTextureLayerDownsampleIMG", ExactSpelling = true)]
+			internal extern static void glFramebufferTextureLayerDownsampleIMG(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer, Int32 xscale, Int32 yscale);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferTexture2DDownsampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 xscale, Int32 yscale);
+
+			[ThreadStatic]
+			internal static glFramebufferTexture2DDownsampleIMG pglFramebufferTexture2DDownsampleIMG;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferTextureLayerDownsampleIMG(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer, Int32 xscale, Int32 yscale);
+
+			[ThreadStatic]
+			internal static glFramebufferTextureLayerDownsampleIMG pglFramebufferTextureLayerDownsampleIMG;
+
+		}
 	}
 
 }

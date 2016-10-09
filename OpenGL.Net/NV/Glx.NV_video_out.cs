@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -255,6 +258,67 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetVideoDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXReleaseVideoDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindVideoImageNV", ExactSpelling = true)]
+			internal extern static unsafe int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXReleaseVideoImageNV", ExactSpelling = true)]
+			internal extern static unsafe int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXSendPbufferToVideoNV", ExactSpelling = true)]
+			internal extern static unsafe int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetVideoInfoNV", ExactSpelling = true)]
+			internal extern static unsafe int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
+
+			internal static glXGetVideoDeviceNV pglXGetVideoDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
+
+			internal static glXReleaseVideoDeviceNV pglXReleaseVideoDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
+
+			internal static glXBindVideoImageNV pglXBindVideoImageNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
+
+			internal static glXReleaseVideoImageNV pglXReleaseVideoImageNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+
+			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+
+			internal static glXGetVideoInfoNV pglXGetVideoInfoNV;
+
+		}
 	}
 
 }

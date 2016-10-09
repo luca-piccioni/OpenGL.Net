@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -92,6 +95,31 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXEnumerateVideoDevicesNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindVideoDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+
+			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
+
+			internal static glXBindVideoDeviceNV pglXBindVideoDeviceNV;
+
+		}
 	}
 
 }

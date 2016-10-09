@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -86,6 +89,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogFuncSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glFogFuncSGIS(Int32 n, float* points);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFogFuncSGIS", ExactSpelling = true)]
+			internal extern static unsafe void glGetFogFuncSGIS(float* points);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogFuncSGIS(Int32 n, float* points);
+
+			[ThreadStatic]
+			internal static glFogFuncSGIS pglFogFuncSGIS;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFogFuncSGIS(float* points);
+
+			[ThreadStatic]
+			internal static glGetFogFuncSGIS pglGetFogFuncSGIS;
+
+		}
 	}
 
 }

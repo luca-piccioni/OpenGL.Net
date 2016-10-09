@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -193,6 +196,49 @@ namespace OpenGL
 			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryCurrentRendererIntegerMESA", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryCurrentRendererIntegerMESA(int attribute, IntPtr value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryCurrentRendererStringMESA", ExactSpelling = true)]
+			internal extern static IntPtr glXQueryCurrentRendererStringMESA(int attribute);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryRendererIntegerMESA", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, IntPtr value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryRendererStringMESA", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, IntPtr value);
+
+			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glXQueryCurrentRendererStringMESA(int attribute);
+
+			internal static glXQueryCurrentRendererStringMESA pglXQueryCurrentRendererStringMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, IntPtr value);
+
+			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+
+			internal static glXQueryRendererStringMESA pglXQueryRendererStringMESA;
+
+		}
 	}
 
 }

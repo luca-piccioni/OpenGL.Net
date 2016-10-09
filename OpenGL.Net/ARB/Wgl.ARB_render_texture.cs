@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -294,6 +297,46 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglBindTexImageARB", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglReleaseTexImageARB", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSetPbufferAttribARB", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
+
+			[ThreadStatic]
+			internal static wglBindTexImageARB pwglBindTexImageARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
+
+			[ThreadStatic]
+			internal static wglReleaseTexImageARB pwglReleaseTexImageARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
+
+			[ThreadStatic]
+			internal static wglSetPbufferAttribARB pwglSetPbufferAttribARB;
+
+		}
 	}
 
 }

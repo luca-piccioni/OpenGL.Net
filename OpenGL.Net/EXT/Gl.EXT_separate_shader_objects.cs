@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -296,6 +299,144 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUseShaderProgramEXT", ExactSpelling = true)]
+			internal extern static void glUseShaderProgramEXT(Int32 type, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glActiveProgramEXT", ExactSpelling = true)]
+			internal extern static void glActiveProgramEXT(UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreateShaderProgramEXT", ExactSpelling = true)]
+			internal extern static UInt32 glCreateShaderProgramEXT(Int32 type, String @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glActiveShaderProgramEXT", ExactSpelling = true)]
+			internal extern static void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindProgramPipelineEXT", ExactSpelling = true)]
+			internal extern static void glBindProgramPipelineEXT(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreateShaderProgramvEXT", ExactSpelling = true)]
+			internal extern static UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteProgramPipelinesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenProgramPipelinesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramPipelineInfoLogEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, String infoLog);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramPipelineivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsProgramPipelineEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsProgramPipelineEXT(UInt32 pipeline);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUseProgramStagesEXT", ExactSpelling = true)]
+			internal extern static void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glValidateProgramPipelineEXT", ExactSpelling = true)]
+			internal extern static void glValidateProgramPipelineEXT(UInt32 pipeline);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUseShaderProgramEXT(Int32 type, UInt32 program);
+
+			[ThreadStatic]
+			internal static glUseShaderProgramEXT pglUseShaderProgramEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glActiveProgramEXT(UInt32 program);
+
+			[ThreadStatic]
+			internal static glActiveProgramEXT pglActiveProgramEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glCreateShaderProgramEXT(Int32 type, String @string);
+
+			[ThreadStatic]
+			internal static glCreateShaderProgramEXT pglCreateShaderProgramEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
+
+			[ThreadStatic]
+			internal static glActiveShaderProgramEXT pglActiveShaderProgramEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindProgramPipelineEXT(UInt32 pipeline);
+
+			[ThreadStatic]
+			internal static glBindProgramPipelineEXT pglBindProgramPipelineEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
+
+			[ThreadStatic]
+			internal static glCreateShaderProgramvEXT pglCreateShaderProgramvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+
+			[ThreadStatic]
+			internal static glDeleteProgramPipelinesEXT pglDeleteProgramPipelinesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+
+			[ThreadStatic]
+			internal static glGenProgramPipelinesEXT pglGenProgramPipelinesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
+
+			[ThreadStatic]
+			internal static glGetProgramPipelineInfoLogEXT pglGetProgramPipelineInfoLogEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramPipelineivEXT pglGetProgramPipelineivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsProgramPipelineEXT(UInt32 pipeline);
+
+			[ThreadStatic]
+			internal static glIsProgramPipelineEXT pglIsProgramPipelineEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
+
+			[ThreadStatic]
+			internal static glUseProgramStagesEXT pglUseProgramStagesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glValidateProgramPipelineEXT(UInt32 pipeline);
+
+			[ThreadStatic]
+			internal static glValidateProgramPipelineEXT pglValidateProgramPipelineEXT;
+
+		}
 	}
 
 }

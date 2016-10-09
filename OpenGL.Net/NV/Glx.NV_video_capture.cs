@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -162,6 +165,58 @@ namespace OpenGL
 			LogFunction("glXReleaseVideoCaptureDeviceNV(0x{0}, 0x{1})", dpy.ToString("X8"), device.ToString("X8"));
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindVideoCaptureDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe int glXBindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXEnumerateVideoCaptureDevicesNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXEnumerateVideoCaptureDevicesNV(IntPtr dpy, int screen, int* nelements);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXLockVideoCaptureDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe void glXLockVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryVideoCaptureDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryVideoCaptureDeviceNV(IntPtr dpy, IntPtr device, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXReleaseVideoCaptureDeviceNV", ExactSpelling = true)]
+			internal extern static unsafe void glXReleaseVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXBindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device);
+
+			internal static glXBindVideoCaptureDeviceNV pglXBindVideoCaptureDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXEnumerateVideoCaptureDevicesNV(IntPtr dpy, int screen, int* nelements);
+
+			internal static glXEnumerateVideoCaptureDevicesNV pglXEnumerateVideoCaptureDevicesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXLockVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+
+			internal static glXLockVideoCaptureDeviceNV pglXLockVideoCaptureDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryVideoCaptureDeviceNV(IntPtr dpy, IntPtr device, int attribute, int* value);
+
+			internal static glXQueryVideoCaptureDeviceNV pglXQueryVideoCaptureDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXReleaseVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+
+			internal static glXReleaseVideoCaptureDeviceNV pglXReleaseVideoCaptureDeviceNV;
+
+		}
 	}
 
 }

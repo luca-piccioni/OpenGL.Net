@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -259,6 +262,63 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glElementPointerAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glElementPointerAPPLE(Int32 type, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementArrayAPPLE", ExactSpelling = true)]
+			internal extern static void glDrawElementArrayAPPLE(Int32 mode, Int32 first, Int32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawRangeElementArrayAPPLE", ExactSpelling = true)]
+			internal extern static void glDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32 first, Int32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawElementArrayAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawElementArrayAPPLE(Int32 mode, Int32* first, Int32* count, Int32 primcount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawRangeElementArrayAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32* first, Int32* count, Int32 primcount);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glElementPointerAPPLE(Int32 type, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glElementPointerAPPLE pglElementPointerAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawElementArrayAPPLE(Int32 mode, Int32 first, Int32 count);
+
+			[ThreadStatic]
+			internal static glDrawElementArrayAPPLE pglDrawElementArrayAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32 first, Int32 count);
+
+			[ThreadStatic]
+			internal static glDrawRangeElementArrayAPPLE pglDrawRangeElementArrayAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiDrawElementArrayAPPLE(Int32 mode, Int32* first, Int32* count, Int32 primcount);
+
+			[ThreadStatic]
+			internal static glMultiDrawElementArrayAPPLE pglMultiDrawElementArrayAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32* first, Int32* count, Int32 primcount);
+
+			[ThreadStatic]
+			internal static glMultiDrawRangeElementArrayAPPLE pglMultiDrawRangeElementArrayAPPLE;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1326,8 +1329,7 @@ namespace OpenGL
 		/// specify a three-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_3D, Gl.PROXY_TEXTURE_3D, Gl.TEXTURE_2D_ARRAY or 
-		/// Gl.PROXY_TEXTURE_2D_ARRAY.
+		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1336,19 +1338,22 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. All implementations support 3D texture images that are at least 16 texels 
-		/// wide.
+		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image. All implementations support 3D texture images that are at least 16 texels 
-		/// high.
+		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels high.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture image. All implementations support 3D texture images that are at least 16 texels 
-		/// deep.
+		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels deep.
 		/// </param>
 		/// <param name="border">
-		/// This value must be 0.
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1358,45 +1363,54 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
-		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage3D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1421,8 +1435,7 @@ namespace OpenGL
 		/// specify a three-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_3D, Gl.PROXY_TEXTURE_3D, Gl.TEXTURE_2D_ARRAY or 
-		/// Gl.PROXY_TEXTURE_2D_ARRAY.
+		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1431,19 +1444,22 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. All implementations support 3D texture images that are at least 16 texels 
-		/// wide.
+		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image. All implementations support 3D texture images that are at least 16 texels 
-		/// high.
+		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels high.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture image. All implementations support 3D texture images that are at least 16 texels 
-		/// deep.
+		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels deep.
 		/// </param>
 		/// <param name="border">
-		/// This value must be 0.
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1453,45 +1469,54 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
-		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage3D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1518,10 +1543,9 @@ namespace OpenGL
 		/// specify a two-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_1D_ARRAY, 
-		/// Gl.PROXY_TEXTURE_1D_ARRAY, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
+		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1530,15 +1554,17 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. All implementations support 2D texture and cube map texture images that are at 
-		/// least 16384 texels wide.
+		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 2D texture images 
+		/// that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image. All implementations support 2D texture and cube map texture images that are 
-		/// at least 16384 texels high.
+		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be Must be 2n+2⁡border for some integer n. All implementations support 2D 
+		/// texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
 		/// </param>
 		/// <param name="border">
-		/// This value must be 0.
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1548,49 +1574,54 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the specific compressed internal 
-		/// formats: Gl.COMPRESSED_RED_RGTC1, Gl.COMPRESSED_SIGNED_RED_RGTC1, Gl.COMPRESSED_RG_RGTC2, Gl.COMPRESSED_SIGNED_RG_RGTC2. 
-		/// Gl.COMPRESSED_RGBA_BPTC_UNORM, Gl.COMPRESSED_SRGB_ALPHA_BPTC_UNORM, Gl.COMPRESSED_RGB_BPTC_SIGNED_FLOAT, 
-		/// Gl.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT, Gl.COMPRESSED_RGB8_ETC2, Gl.COMPRESSED_SRGB8_ETC2, 
-		/// Gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_RGBA8_ETC2_EAC, 
-		/// Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC, Gl.COMPRESSED_R11_EAC, Gl.COMPRESSED_SIGNED_R11_EAC, Gl.COMPRESSED_RG11_EAC, or 
-		/// Gl.COMPRESSED_SIGNED_RG11_EAC.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1614,10 +1645,9 @@ namespace OpenGL
 		/// specify a two-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_1D_ARRAY, 
-		/// Gl.PROXY_TEXTURE_1D_ARRAY, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
+		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1626,15 +1656,17 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. All implementations support 2D texture and cube map texture images that are at 
-		/// least 16384 texels wide.
+		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 2D texture images 
+		/// that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image. All implementations support 2D texture and cube map texture images that are 
-		/// at least 16384 texels high.
+		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be Must be 2n+2⁡border for some integer n. All implementations support 2D 
+		/// texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
 		/// </param>
 		/// <param name="border">
-		/// This value must be 0.
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1644,49 +1676,54 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the specific compressed internal 
-		/// formats: Gl.COMPRESSED_RED_RGTC1, Gl.COMPRESSED_SIGNED_RED_RGTC1, Gl.COMPRESSED_RG_RGTC2, Gl.COMPRESSED_SIGNED_RG_RGTC2. 
-		/// Gl.COMPRESSED_RGBA_BPTC_UNORM, Gl.COMPRESSED_SRGB_ALPHA_BPTC_UNORM, Gl.COMPRESSED_RGB_BPTC_SIGNED_FLOAT, 
-		/// Gl.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT, Gl.COMPRESSED_RGB8_ETC2, Gl.COMPRESSED_SRGB8_ETC2, 
-		/// Gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_RGBA8_ETC2_EAC, 
-		/// Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC, Gl.COMPRESSED_R11_EAC, Gl.COMPRESSED_SIGNED_R11_EAC, Gl.COMPRESSED_RG11_EAC, or 
-		/// Gl.COMPRESSED_SIGNED_RG11_EAC.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1721,11 +1758,12 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. All implementations support texture images that are at least 64 texels wide. 
-		/// The height of the 1D texture image is 1.
+		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
+		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
 		/// </param>
 		/// <param name="border">
-		/// This value must be 0.
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1735,46 +1773,55 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a supported specific compressed internal 
-		/// formats, or is one of the generic compressed internal formats: Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, 
-		/// Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1805,11 +1852,12 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. All implementations support texture images that are at least 64 texels wide. 
-		/// The height of the 1D texture image is 1.
+		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
+		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
 		/// </param>
 		/// <param name="border">
-		/// This value must be 0.
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1819,46 +1867,55 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a supported specific compressed internal 
-		/// formats, or is one of the generic compressed internal formats: Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, 
-		/// Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -3839,6 +3896,567 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glActiveTexture", ExactSpelling = true)]
+			internal extern static void glActiveTexture(Int32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleCoverage", ExactSpelling = true)]
+			internal extern static void glSampleCoverage(float value, bool invert);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexImage3D", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexImage2D", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexImage1D", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexSubImage3D", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexSubImage2D", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTexSubImage1D", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCompressedTexImage", ExactSpelling = true)]
+			internal extern static unsafe void glGetCompressedTexImage(Int32 target, Int32 level, IntPtr img);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClientActiveTexture", ExactSpelling = true)]
+			internal extern static void glClientActiveTexture(Int32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1d", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord1d(Int32 target, double s);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1dv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord1dv(Int32 target, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1f", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord1f(Int32 target, float s);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1fv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord1fv(Int32 target, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1i", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord1i(Int32 target, Int32 s);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1iv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord1iv(Int32 target, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1s", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord1s(Int32 target, Int16 s);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord1sv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord1sv(Int32 target, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2d", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord2d(Int32 target, double s, double t);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2dv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord2dv(Int32 target, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2f", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord2f(Int32 target, float s, float t);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2fv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord2fv(Int32 target, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2i", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord2i(Int32 target, Int32 s, Int32 t);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2iv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord2iv(Int32 target, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2s", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord2s(Int32 target, Int16 s, Int16 t);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord2sv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord2sv(Int32 target, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3d", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord3d(Int32 target, double s, double t, double r);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3dv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord3dv(Int32 target, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3f", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord3f(Int32 target, float s, float t, float r);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3fv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord3fv(Int32 target, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3i", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord3i(Int32 target, Int32 s, Int32 t, Int32 r);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3iv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord3iv(Int32 target, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3s", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord3s(Int32 target, Int16 s, Int16 t, Int16 r);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord3sv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord3sv(Int32 target, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4d", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord4d(Int32 target, double s, double t, double r, double q);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4dv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord4dv(Int32 target, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4f", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord4f(Int32 target, float s, float t, float r, float q);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4fv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord4fv(Int32 target, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4i", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord4i(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4iv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord4iv(Int32 target, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4s", ExactSpelling = true)]
+			internal extern static void glMultiTexCoord4s(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4sv", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord4sv(Int32 target, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadTransposeMatrixf", ExactSpelling = true)]
+			internal extern static unsafe void glLoadTransposeMatrixf(float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadTransposeMatrixd", ExactSpelling = true)]
+			internal extern static unsafe void glLoadTransposeMatrixd(double* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultTransposeMatrixf", ExactSpelling = true)]
+			internal extern static unsafe void glMultTransposeMatrixf(float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultTransposeMatrixd", ExactSpelling = true)]
+			internal extern static unsafe void glMultTransposeMatrixd(double* m);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glActiveTexture(Int32 texture);
+
+			[AliasOf("glActiveTexture")]
+			[AliasOf("glActiveTextureARB")]
+			[ThreadStatic]
+			internal static glActiveTexture pglActiveTexture;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSampleCoverage(float value, bool invert);
+
+			[AliasOf("glSampleCoverage")]
+			[AliasOf("glSampleCoverageARB")]
+			[ThreadStatic]
+			internal static glSampleCoverage pglSampleCoverage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
+
+			[AliasOf("glCompressedTexImage3D")]
+			[AliasOf("glCompressedTexImage3DARB")]
+			[AliasOf("glCompressedTexImage3DOES")]
+			[ThreadStatic]
+			internal static glCompressedTexImage3D pglCompressedTexImage3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data);
+
+			[AliasOf("glCompressedTexImage2D")]
+			[AliasOf("glCompressedTexImage2DARB")]
+			[ThreadStatic]
+			internal static glCompressedTexImage2D pglCompressedTexImage2D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data);
+
+			[AliasOf("glCompressedTexImage1D")]
+			[AliasOf("glCompressedTexImage1DARB")]
+			[ThreadStatic]
+			internal static glCompressedTexImage1D pglCompressedTexImage1D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
+
+			[AliasOf("glCompressedTexSubImage3D")]
+			[AliasOf("glCompressedTexSubImage3DARB")]
+			[AliasOf("glCompressedTexSubImage3DOES")]
+			[ThreadStatic]
+			internal static glCompressedTexSubImage3D pglCompressedTexSubImage3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
+
+			[AliasOf("glCompressedTexSubImage2D")]
+			[AliasOf("glCompressedTexSubImage2DARB")]
+			[ThreadStatic]
+			internal static glCompressedTexSubImage2D pglCompressedTexSubImage2D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
+
+			[AliasOf("glCompressedTexSubImage1D")]
+			[AliasOf("glCompressedTexSubImage1DARB")]
+			[ThreadStatic]
+			internal static glCompressedTexSubImage1D pglCompressedTexSubImage1D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCompressedTexImage(Int32 target, Int32 level, IntPtr img);
+
+			[AliasOf("glGetCompressedTexImage")]
+			[AliasOf("glGetCompressedTexImageARB")]
+			[ThreadStatic]
+			internal static glGetCompressedTexImage pglGetCompressedTexImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClientActiveTexture(Int32 texture);
+
+			[AliasOf("glClientActiveTexture")]
+			[AliasOf("glClientActiveTextureARB")]
+			[ThreadStatic]
+			internal static glClientActiveTexture pglClientActiveTexture;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord1d(Int32 target, double s);
+
+			[AliasOf("glMultiTexCoord1d")]
+			[AliasOf("glMultiTexCoord1dARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1d pglMultiTexCoord1d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord1dv(Int32 target, double* v);
+
+			[AliasOf("glMultiTexCoord1dv")]
+			[AliasOf("glMultiTexCoord1dvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1dv pglMultiTexCoord1dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord1f(Int32 target, float s);
+
+			[AliasOf("glMultiTexCoord1f")]
+			[AliasOf("glMultiTexCoord1fARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1f pglMultiTexCoord1f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord1fv(Int32 target, float* v);
+
+			[AliasOf("glMultiTexCoord1fv")]
+			[AliasOf("glMultiTexCoord1fvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1fv pglMultiTexCoord1fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord1i(Int32 target, Int32 s);
+
+			[AliasOf("glMultiTexCoord1i")]
+			[AliasOf("glMultiTexCoord1iARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1i pglMultiTexCoord1i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord1iv(Int32 target, Int32* v);
+
+			[AliasOf("glMultiTexCoord1iv")]
+			[AliasOf("glMultiTexCoord1ivARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1iv pglMultiTexCoord1iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord1s(Int32 target, Int16 s);
+
+			[AliasOf("glMultiTexCoord1s")]
+			[AliasOf("glMultiTexCoord1sARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1s pglMultiTexCoord1s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord1sv(Int32 target, Int16* v);
+
+			[AliasOf("glMultiTexCoord1sv")]
+			[AliasOf("glMultiTexCoord1svARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord1sv pglMultiTexCoord1sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord2d(Int32 target, double s, double t);
+
+			[AliasOf("glMultiTexCoord2d")]
+			[AliasOf("glMultiTexCoord2dARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2d pglMultiTexCoord2d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord2dv(Int32 target, double* v);
+
+			[AliasOf("glMultiTexCoord2dv")]
+			[AliasOf("glMultiTexCoord2dvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2dv pglMultiTexCoord2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord2f(Int32 target, float s, float t);
+
+			[AliasOf("glMultiTexCoord2f")]
+			[AliasOf("glMultiTexCoord2fARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2f pglMultiTexCoord2f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord2fv(Int32 target, float* v);
+
+			[AliasOf("glMultiTexCoord2fv")]
+			[AliasOf("glMultiTexCoord2fvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2fv pglMultiTexCoord2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord2i(Int32 target, Int32 s, Int32 t);
+
+			[AliasOf("glMultiTexCoord2i")]
+			[AliasOf("glMultiTexCoord2iARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2i pglMultiTexCoord2i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord2iv(Int32 target, Int32* v);
+
+			[AliasOf("glMultiTexCoord2iv")]
+			[AliasOf("glMultiTexCoord2ivARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2iv pglMultiTexCoord2iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord2s(Int32 target, Int16 s, Int16 t);
+
+			[AliasOf("glMultiTexCoord2s")]
+			[AliasOf("glMultiTexCoord2sARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2s pglMultiTexCoord2s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord2sv(Int32 target, Int16* v);
+
+			[AliasOf("glMultiTexCoord2sv")]
+			[AliasOf("glMultiTexCoord2svARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord2sv pglMultiTexCoord2sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord3d(Int32 target, double s, double t, double r);
+
+			[AliasOf("glMultiTexCoord3d")]
+			[AliasOf("glMultiTexCoord3dARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3d pglMultiTexCoord3d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord3dv(Int32 target, double* v);
+
+			[AliasOf("glMultiTexCoord3dv")]
+			[AliasOf("glMultiTexCoord3dvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3dv pglMultiTexCoord3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord3f(Int32 target, float s, float t, float r);
+
+			[AliasOf("glMultiTexCoord3f")]
+			[AliasOf("glMultiTexCoord3fARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3f pglMultiTexCoord3f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord3fv(Int32 target, float* v);
+
+			[AliasOf("glMultiTexCoord3fv")]
+			[AliasOf("glMultiTexCoord3fvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3fv pglMultiTexCoord3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord3i(Int32 target, Int32 s, Int32 t, Int32 r);
+
+			[AliasOf("glMultiTexCoord3i")]
+			[AliasOf("glMultiTexCoord3iARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3i pglMultiTexCoord3i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord3iv(Int32 target, Int32* v);
+
+			[AliasOf("glMultiTexCoord3iv")]
+			[AliasOf("glMultiTexCoord3ivARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3iv pglMultiTexCoord3iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord3s(Int32 target, Int16 s, Int16 t, Int16 r);
+
+			[AliasOf("glMultiTexCoord3s")]
+			[AliasOf("glMultiTexCoord3sARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3s pglMultiTexCoord3s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord3sv(Int32 target, Int16* v);
+
+			[AliasOf("glMultiTexCoord3sv")]
+			[AliasOf("glMultiTexCoord3svARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord3sv pglMultiTexCoord3sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord4d(Int32 target, double s, double t, double r, double q);
+
+			[AliasOf("glMultiTexCoord4d")]
+			[AliasOf("glMultiTexCoord4dARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4d pglMultiTexCoord4d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord4dv(Int32 target, double* v);
+
+			[AliasOf("glMultiTexCoord4dv")]
+			[AliasOf("glMultiTexCoord4dvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4dv pglMultiTexCoord4dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord4f(Int32 target, float s, float t, float r, float q);
+
+			[AliasOf("glMultiTexCoord4f")]
+			[AliasOf("glMultiTexCoord4fARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4f pglMultiTexCoord4f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord4fv(Int32 target, float* v);
+
+			[AliasOf("glMultiTexCoord4fv")]
+			[AliasOf("glMultiTexCoord4fvARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4fv pglMultiTexCoord4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord4i(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q);
+
+			[AliasOf("glMultiTexCoord4i")]
+			[AliasOf("glMultiTexCoord4iARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4i pglMultiTexCoord4i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord4iv(Int32 target, Int32* v);
+
+			[AliasOf("glMultiTexCoord4iv")]
+			[AliasOf("glMultiTexCoord4ivARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4iv pglMultiTexCoord4iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexCoord4s(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q);
+
+			[AliasOf("glMultiTexCoord4s")]
+			[AliasOf("glMultiTexCoord4sARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4s pglMultiTexCoord4s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord4sv(Int32 target, Int16* v);
+
+			[AliasOf("glMultiTexCoord4sv")]
+			[AliasOf("glMultiTexCoord4svARB")]
+			[ThreadStatic]
+			internal static glMultiTexCoord4sv pglMultiTexCoord4sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLoadTransposeMatrixf(float* m);
+
+			[AliasOf("glLoadTransposeMatrixf")]
+			[AliasOf("glLoadTransposeMatrixfARB")]
+			[ThreadStatic]
+			internal static glLoadTransposeMatrixf pglLoadTransposeMatrixf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLoadTransposeMatrixd(double* m);
+
+			[AliasOf("glLoadTransposeMatrixd")]
+			[AliasOf("glLoadTransposeMatrixdARB")]
+			[ThreadStatic]
+			internal static glLoadTransposeMatrixd pglLoadTransposeMatrixd;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultTransposeMatrixf(float* m);
+
+			[AliasOf("glMultTransposeMatrixf")]
+			[AliasOf("glMultTransposeMatrixfARB")]
+			[ThreadStatic]
+			internal static glMultTransposeMatrixf pglMultTransposeMatrixf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultTransposeMatrixd(double* m);
+
+			[AliasOf("glMultTransposeMatrixd")]
+			[AliasOf("glMultTransposeMatrixdARB")]
+			[ThreadStatic]
+			internal static glMultTransposeMatrixd pglMultTransposeMatrixd;
+
+		}
 	}
 
 }

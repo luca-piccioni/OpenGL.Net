@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -607,6 +610,233 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3bEXT", ExactSpelling = true)]
+			internal extern static void glTangent3bEXT(sbyte tx, sbyte ty, sbyte tz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3bvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTangent3bvEXT(sbyte* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3dEXT", ExactSpelling = true)]
+			internal extern static void glTangent3dEXT(double tx, double ty, double tz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTangent3dvEXT(double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3fEXT", ExactSpelling = true)]
+			internal extern static void glTangent3fEXT(float tx, float ty, float tz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3fvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTangent3fvEXT(float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3iEXT", ExactSpelling = true)]
+			internal extern static void glTangent3iEXT(Int32 tx, Int32 ty, Int32 tz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3ivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTangent3ivEXT(Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3sEXT", ExactSpelling = true)]
+			internal extern static void glTangent3sEXT(Int16 tx, Int16 ty, Int16 tz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangent3svEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTangent3svEXT(Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3bEXT", ExactSpelling = true)]
+			internal extern static void glBinormal3bEXT(sbyte bx, sbyte by, sbyte bz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3bvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBinormal3bvEXT(sbyte* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3dEXT", ExactSpelling = true)]
+			internal extern static void glBinormal3dEXT(double bx, double by, double bz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBinormal3dvEXT(double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3fEXT", ExactSpelling = true)]
+			internal extern static void glBinormal3fEXT(float bx, float by, float bz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3fvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBinormal3fvEXT(float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3iEXT", ExactSpelling = true)]
+			internal extern static void glBinormal3iEXT(Int32 bx, Int32 by, Int32 bz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3ivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBinormal3ivEXT(Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3sEXT", ExactSpelling = true)]
+			internal extern static void glBinormal3sEXT(Int16 bx, Int16 by, Int16 bz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormal3svEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBinormal3svEXT(Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTangentPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTangentPointerEXT(Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBinormalPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glBinormalPointerEXT(Int32 type, Int32 stride, IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTangent3bEXT(sbyte tx, sbyte ty, sbyte tz);
+
+			[ThreadStatic]
+			internal static glTangent3bEXT pglTangent3bEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTangent3bvEXT(sbyte* v);
+
+			[ThreadStatic]
+			internal static glTangent3bvEXT pglTangent3bvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTangent3dEXT(double tx, double ty, double tz);
+
+			[ThreadStatic]
+			internal static glTangent3dEXT pglTangent3dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTangent3dvEXT(double* v);
+
+			[ThreadStatic]
+			internal static glTangent3dvEXT pglTangent3dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTangent3fEXT(float tx, float ty, float tz);
+
+			[ThreadStatic]
+			internal static glTangent3fEXT pglTangent3fEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTangent3fvEXT(float* v);
+
+			[ThreadStatic]
+			internal static glTangent3fvEXT pglTangent3fvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTangent3iEXT(Int32 tx, Int32 ty, Int32 tz);
+
+			[ThreadStatic]
+			internal static glTangent3iEXT pglTangent3iEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTangent3ivEXT(Int32* v);
+
+			[ThreadStatic]
+			internal static glTangent3ivEXT pglTangent3ivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTangent3sEXT(Int16 tx, Int16 ty, Int16 tz);
+
+			[ThreadStatic]
+			internal static glTangent3sEXT pglTangent3sEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTangent3svEXT(Int16* v);
+
+			[ThreadStatic]
+			internal static glTangent3svEXT pglTangent3svEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBinormal3bEXT(sbyte bx, sbyte by, sbyte bz);
+
+			[ThreadStatic]
+			internal static glBinormal3bEXT pglBinormal3bEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBinormal3bvEXT(sbyte* v);
+
+			[ThreadStatic]
+			internal static glBinormal3bvEXT pglBinormal3bvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBinormal3dEXT(double bx, double by, double bz);
+
+			[ThreadStatic]
+			internal static glBinormal3dEXT pglBinormal3dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBinormal3dvEXT(double* v);
+
+			[ThreadStatic]
+			internal static glBinormal3dvEXT pglBinormal3dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBinormal3fEXT(float bx, float by, float bz);
+
+			[ThreadStatic]
+			internal static glBinormal3fEXT pglBinormal3fEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBinormal3fvEXT(float* v);
+
+			[ThreadStatic]
+			internal static glBinormal3fvEXT pglBinormal3fvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBinormal3iEXT(Int32 bx, Int32 by, Int32 bz);
+
+			[ThreadStatic]
+			internal static glBinormal3iEXT pglBinormal3iEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBinormal3ivEXT(Int32* v);
+
+			[ThreadStatic]
+			internal static glBinormal3ivEXT pglBinormal3ivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBinormal3sEXT(Int16 bx, Int16 by, Int16 bz);
+
+			[ThreadStatic]
+			internal static glBinormal3sEXT pglBinormal3sEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBinormal3svEXT(Int16* v);
+
+			[ThreadStatic]
+			internal static glBinormal3svEXT pglBinormal3svEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTangentPointerEXT(Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glTangentPointerEXT pglTangentPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBinormalPointerEXT(Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glBinormalPointerEXT pglBinormalPointerEXT;
+
+		}
 	}
 
 }

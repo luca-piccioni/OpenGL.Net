@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -125,6 +128,44 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenNamesAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteNamesAMD", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsNameAMD", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsNameAMD(Int32 identifier, UInt32 name);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
+
+			[ThreadStatic]
+			internal static glGenNamesAMD pglGenNamesAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
+
+			[ThreadStatic]
+			internal static glDeleteNamesAMD pglDeleteNamesAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsNameAMD(Int32 identifier, UInt32 name);
+
+			[ThreadStatic]
+			internal static glIsNameAMD pglIsNameAMD;
+
+		}
 	}
 
 }

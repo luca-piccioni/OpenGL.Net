@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -270,6 +273,40 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglLockSurfaceKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglUnlockSurfaceKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQuerySurface64KHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
+
+			internal static eglLockSurfaceKHR peglLockSurfaceKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
+
+			internal static eglUnlockSurfaceKHR peglUnlockSurfaceKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
+
+			internal static eglQuerySurface64KHR peglQuerySurface64KHR;
+
+		}
 	}
 
 }

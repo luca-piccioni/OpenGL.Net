@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -226,6 +229,74 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedStringARB", ExactSpelling = true)]
+			internal extern static void glNamedStringARB(Int32 type, Int32 namelen, String name, Int32 stringlen, String @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteNamedStringARB", ExactSpelling = true)]
+			internal extern static void glDeleteNamedStringARB(Int32 namelen, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompileShaderIncludeARB", ExactSpelling = true)]
+			internal extern static unsafe void glCompileShaderIncludeARB(UInt32 shader, Int32 count, String[] path, Int32* length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsNamedStringARB", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsNamedStringARB(Int32 namelen, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedStringARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedStringARB(Int32 namelen, String name, Int32 bufSize, Int32* stringlen, String @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedStringivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedStringivARB(Int32 namelen, String name, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedStringARB(Int32 type, Int32 namelen, String name, Int32 stringlen, String @string);
+
+			[ThreadStatic]
+			internal static glNamedStringARB pglNamedStringARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeleteNamedStringARB(Int32 namelen, String name);
+
+			[ThreadStatic]
+			internal static glDeleteNamedStringARB pglDeleteNamedStringARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompileShaderIncludeARB(UInt32 shader, Int32 count, String[] path, Int32* length);
+
+			[ThreadStatic]
+			internal static glCompileShaderIncludeARB pglCompileShaderIncludeARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsNamedStringARB(Int32 namelen, String name);
+
+			[ThreadStatic]
+			internal static glIsNamedStringARB pglIsNamedStringARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedStringARB(Int32 namelen, String name, Int32 bufSize, Int32* stringlen, [Out] StringBuilder @string);
+
+			[ThreadStatic]
+			internal static glGetNamedStringARB pglGetNamedStringARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedStringivARB(Int32 namelen, String name, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedStringivARB pglGetNamedStringivARB;
+
+		}
 	}
 
 }

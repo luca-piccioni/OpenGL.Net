@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -225,6 +228,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTransformParameteriEXT", ExactSpelling = true)]
+			internal extern static void glPixelTransformParameteriEXT(Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTransformParameterfEXT", ExactSpelling = true)]
+			internal extern static void glPixelTransformParameterfEXT(Int32 target, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTransformParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glPixelTransformParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelTransformParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glPixelTransformParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPixelTransformParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetPixelTransformParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPixelTransformParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetPixelTransformParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPixelTransformParameteriEXT(Int32 target, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glPixelTransformParameteriEXT pglPixelTransformParameteriEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPixelTransformParameterfEXT(Int32 target, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glPixelTransformParameterfEXT pglPixelTransformParameterfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPixelTransformParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glPixelTransformParameterivEXT pglPixelTransformParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPixelTransformParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glPixelTransformParameterfvEXT pglPixelTransformParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPixelTransformParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetPixelTransformParameterivEXT pglGetPixelTransformParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPixelTransformParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetPixelTransformParameterfvEXT pglGetPixelTransformParameterfvEXT;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -373,6 +376,123 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfMonitorGroupsAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfMonitorGroupsAMD(Int32* numGroups, Int32 groupsSize, UInt32* groups);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfMonitorCountersAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfMonitorCountersAMD(UInt32 group, Int32* numCounters, Int32* maxActiveCounters, Int32 counterSize, UInt32* counters);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfMonitorGroupStringAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, Int32* length, String groupString);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfMonitorCounterStringAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, Int32* length, String counterString);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfMonitorCounterInfoAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenPerfMonitorsAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGenPerfMonitorsAMD(Int32 n, UInt32* monitors);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeletePerfMonitorsAMD", ExactSpelling = true)]
+			internal extern static unsafe void glDeletePerfMonitorsAMD(Int32 n, UInt32* monitors);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSelectPerfMonitorCountersAMD", ExactSpelling = true)]
+			internal extern static unsafe void glSelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginPerfMonitorAMD", ExactSpelling = true)]
+			internal extern static void glBeginPerfMonitorAMD(UInt32 monitor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndPerfMonitorAMD", ExactSpelling = true)]
+			internal extern static void glEndPerfMonitorAMD(UInt32 monitor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPerfMonitorCounterDataAMD", ExactSpelling = true)]
+			internal extern static unsafe void glGetPerfMonitorCounterDataAMD(UInt32 monitor, Int32 pname, Int32 dataSize, UInt32* data, Int32* bytesWritten);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfMonitorGroupsAMD(Int32* numGroups, Int32 groupsSize, UInt32* groups);
+
+			[ThreadStatic]
+			internal static glGetPerfMonitorGroupsAMD pglGetPerfMonitorGroupsAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfMonitorCountersAMD(UInt32 group, Int32* numCounters, Int32* maxActiveCounters, Int32 counterSize, UInt32* counters);
+
+			[ThreadStatic]
+			internal static glGetPerfMonitorCountersAMD pglGetPerfMonitorCountersAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, Int32* length, [Out] StringBuilder groupString);
+
+			[ThreadStatic]
+			internal static glGetPerfMonitorGroupStringAMD pglGetPerfMonitorGroupStringAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, Int32* length, [Out] StringBuilder counterString);
+
+			[ThreadStatic]
+			internal static glGetPerfMonitorCounterStringAMD pglGetPerfMonitorCounterStringAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, IntPtr data);
+
+			[ThreadStatic]
+			internal static glGetPerfMonitorCounterInfoAMD pglGetPerfMonitorCounterInfoAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenPerfMonitorsAMD(Int32 n, UInt32* monitors);
+
+			[ThreadStatic]
+			internal static glGenPerfMonitorsAMD pglGenPerfMonitorsAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeletePerfMonitorsAMD(Int32 n, UInt32* monitors);
+
+			[ThreadStatic]
+			internal static glDeletePerfMonitorsAMD pglDeletePerfMonitorsAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
+
+			[ThreadStatic]
+			internal static glSelectPerfMonitorCountersAMD pglSelectPerfMonitorCountersAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginPerfMonitorAMD(UInt32 monitor);
+
+			[ThreadStatic]
+			internal static glBeginPerfMonitorAMD pglBeginPerfMonitorAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndPerfMonitorAMD(UInt32 monitor);
+
+			[ThreadStatic]
+			internal static glEndPerfMonitorAMD pglEndPerfMonitorAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPerfMonitorCounterDataAMD(UInt32 monitor, Int32 pname, Int32 dataSize, UInt32* data, Int32* bytesWritten);
+
+			[ThreadStatic]
+			internal static glGetPerfMonitorCounterDataAMD pglGetPerfMonitorCounterDataAMD;
+
+		}
 	}
 
 }

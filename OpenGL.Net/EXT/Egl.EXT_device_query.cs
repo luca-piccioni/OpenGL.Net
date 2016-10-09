@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -133,6 +136,42 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryDeviceAttribEXT", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryDeviceStringEXT", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryDisplayAttribEXT", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
+
+			internal static eglQueryDeviceAttribEXT peglQueryDeviceAttribEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
+
+			internal static eglQueryDeviceStringEXT peglQueryDeviceStringEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
+
+			[AliasOf("eglQueryDisplayAttribEXT")]
+			[AliasOf("eglQueryDisplayAttribNV")]
+			internal static eglQueryDisplayAttribEXT peglQueryDisplayAttribEXT;
+
+		}
 	}
 
 }

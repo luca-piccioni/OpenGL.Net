@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -217,6 +220,58 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindChannelToWindowSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXChannelRectSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryChannelRectSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryChannelDeltasSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXChannelRectSyncSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
+
+			internal static glXBindChannelToWindowSGIX pglXBindChannelToWindowSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
+
+			internal static glXChannelRectSGIX pglXChannelRectSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
+
+			internal static glXQueryChannelRectSGIX pglXQueryChannelRectSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
+
+			internal static glXQueryChannelDeltasSGIX pglXQueryChannelDeltasSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype);
+
+			internal static glXChannelRectSyncSGIX pglXChannelRectSyncSGIX;
+
+		}
 	}
 
 }

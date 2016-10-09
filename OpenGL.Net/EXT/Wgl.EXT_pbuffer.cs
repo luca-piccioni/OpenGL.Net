@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -163,6 +166,65 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreatePbufferEXT", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetPbufferDCEXT", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglReleasePbufferDCEXT", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDestroyPbufferEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDestroyPbufferEXT(IntPtr hPbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryPbufferEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
+
+			[ThreadStatic]
+			internal static wglCreatePbufferEXT pwglCreatePbufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
+
+			[ThreadStatic]
+			internal static wglGetPbufferDCEXT pwglGetPbufferDCEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
+
+			[ThreadStatic]
+			internal static wglReleasePbufferDCEXT pwglReleasePbufferDCEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDestroyPbufferEXT(IntPtr hPbuffer);
+
+			[ThreadStatic]
+			internal static wglDestroyPbufferEXT pwglDestroyPbufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
+
+			[ThreadStatic]
+			internal static wglQueryPbufferEXT pwglQueryPbufferEXT;
+
+		}
 	}
 
 }

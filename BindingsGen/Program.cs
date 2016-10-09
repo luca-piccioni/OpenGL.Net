@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,6 +13,8 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#define LOCAL_IMPORTS
 
 using System;
 using System.Collections.Generic;
@@ -101,12 +103,16 @@ namespace BindingsGen
 			Dictionary<string, bool> serializedEnums = new Dictionary<string, bool>();
 
 			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Enums.cs", ctx.Class)), null);
+#if !LOCAL_IMPORTS
 			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Imports.cs", ctx.Class)), null);
 			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Delegates.cs", ctx.Class)), delegate(Command command) {
 				if (command.Alias != null)
 					Console.WriteLine("  Skip command {0}: alias of {1}", command.Prototype.Name, command.Alias.Name);
 				return (command.Alias == null);
 			});
+#else
+			
+#endif
 
 			#region By features and extensions
 
@@ -186,6 +192,15 @@ namespace BindingsGen
 						command.GenerateImplementations(sw, cctx);
 						sw.WriteLine();
 					}
+
+					if (featureCommands.Count > 0) {
+						GenerateCommandsImports(cctx, sw, featureCommands);
+						sw.WriteLine();
+					}
+
+					if (featureCommands.Count > 0) {
+						GenerateCommandsDelegates(cctx, sw, featureCommands);
+					}
 				});
 			}
 
@@ -239,6 +254,54 @@ namespace BindingsGen
 			}
 
 			#endregion
+		}
+
+		private static void GenerateCommandsImports(RegistryContext ctx, SourceStreamWriter sw, IEnumerable<Command> commands)
+		{
+			// Write delegates
+			switch (ctx.Class) {
+				// Glx and Wgl classes exposes public unsafe native methods: let UnsafeNativeMethods be public (note: automatically
+				// generated members have internal scope)
+				case "Glx":
+				case "Wgl":
+					sw.WriteLine("public unsafe static partial class UnsafeNativeMethods");
+					break;
+				default:
+					sw.WriteLine("internal unsafe static partial class UnsafeNativeMethods");
+					break;
+			}
+				
+			sw.WriteLine("{");
+			sw.Indent();
+
+			foreach (Command command in commands) {
+				if ((command.Flags & CommandFlags.Disable) != 0)
+					continue;
+
+				command.GenerateImport(sw, ctx);
+				sw.WriteLine();
+			}
+
+			sw.Unindent();
+			sw.WriteLine("}");
+		}
+
+		private static void GenerateCommandsDelegates(RegistryContext ctx, SourceStreamWriter sw, IEnumerable<Command> commands)
+		{
+			sw.WriteLine("internal unsafe static partial class Delegates");
+			sw.WriteLine("{");
+			sw.Indent();
+
+			foreach (Command command in commands) {
+				if ((command.Flags & CommandFlags.Disable) != 0)
+					continue;
+
+				command.GenerateDelegate(sw, ctx);
+				sw.WriteLine();
+			}
+
+			sw.Unindent();
+			sw.WriteLine("}");
 		}
 
 		private static void GenerateExtensionsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)

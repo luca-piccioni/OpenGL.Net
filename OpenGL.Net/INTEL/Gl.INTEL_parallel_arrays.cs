@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -156,6 +159,53 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexPointervINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalPointervINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorPointervINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordPointervINTEL", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+
+			[ThreadStatic]
+			internal static glVertexPointervINTEL pglVertexPointervINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
+
+			[ThreadStatic]
+			internal static glNormalPointervINTEL pglNormalPointervINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+
+			[ThreadStatic]
+			internal static glColorPointervINTEL pglColorPointervINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+
+			[ThreadStatic]
+			internal static glTexCoordPointervINTEL pglTexCoordPointervINTEL;
+
+		}
 	}
 
 }

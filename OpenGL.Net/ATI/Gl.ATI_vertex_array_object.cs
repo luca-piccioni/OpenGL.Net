@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -424,6 +427,134 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNewObjectBufferATI", ExactSpelling = true)]
+			internal extern static unsafe UInt32 glNewObjectBufferATI(Int32 size, IntPtr pointer, Int32 usage);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsObjectBufferATI", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsObjectBufferATI(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUpdateObjectBufferATI", ExactSpelling = true)]
+			internal extern static unsafe void glUpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, IntPtr pointer, Int32 preserve);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectBufferfvATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectBufferfvATI(UInt32 buffer, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectBufferivATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectBufferivATI(UInt32 buffer, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFreeObjectBufferATI", ExactSpelling = true)]
+			internal extern static void glFreeObjectBufferATI(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glArrayObjectATI", ExactSpelling = true)]
+			internal extern static void glArrayObjectATI(Int32 array, Int32 size, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetArrayObjectfvATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetArrayObjectfvATI(Int32 array, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetArrayObjectivATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetArrayObjectivATI(Int32 array, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantArrayObjectATI", ExactSpelling = true)]
+			internal extern static void glVariantArrayObjectATI(UInt32 id, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVariantArrayObjectfvATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetVariantArrayObjectfvATI(UInt32 id, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVariantArrayObjectivATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetVariantArrayObjectivATI(UInt32 id, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate UInt32 glNewObjectBufferATI(Int32 size, IntPtr pointer, Int32 usage);
+
+			[ThreadStatic]
+			internal static glNewObjectBufferATI pglNewObjectBufferATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsObjectBufferATI(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glIsObjectBufferATI pglIsObjectBufferATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, IntPtr pointer, Int32 preserve);
+
+			[ThreadStatic]
+			internal static glUpdateObjectBufferATI pglUpdateObjectBufferATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetObjectBufferfvATI(UInt32 buffer, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetObjectBufferfvATI pglGetObjectBufferfvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetObjectBufferivATI(UInt32 buffer, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetObjectBufferivATI pglGetObjectBufferivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFreeObjectBufferATI(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glFreeObjectBufferATI pglFreeObjectBufferATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glArrayObjectATI(Int32 array, Int32 size, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
+
+			[ThreadStatic]
+			internal static glArrayObjectATI pglArrayObjectATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetArrayObjectfvATI(Int32 array, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetArrayObjectfvATI pglGetArrayObjectfvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetArrayObjectivATI(Int32 array, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetArrayObjectivATI pglGetArrayObjectivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVariantArrayObjectATI(UInt32 id, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
+
+			[ThreadStatic]
+			internal static glVariantArrayObjectATI pglVariantArrayObjectATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVariantArrayObjectfvATI(UInt32 id, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetVariantArrayObjectfvATI pglGetVariantArrayObjectfvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVariantArrayObjectivATI(UInt32 id, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetVariantArrayObjectivATI pglGetVariantArrayObjectivATI;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -153,6 +156,46 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetPixelFormatAttribivEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetPixelFormatAttribivEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetPixelFormatAttribfvEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetPixelFormatAttribfvEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglChoosePixelFormatEXT", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglChoosePixelFormatEXT(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetPixelFormatAttribivEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+
+			[ThreadStatic]
+			internal static wglGetPixelFormatAttribivEXT pwglGetPixelFormatAttribivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetPixelFormatAttribfvEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+
+			[ThreadStatic]
+			internal static wglGetPixelFormatAttribfvEXT pwglGetPixelFormatAttribfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglChoosePixelFormatEXT(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+
+			[ThreadStatic]
+			internal static wglChoosePixelFormatEXT pwglChoosePixelFormatEXT;
+
+		}
 	}
 
 }

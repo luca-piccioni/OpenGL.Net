@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -232,6 +235,77 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetSyncValuesOML", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetSyncValuesOML(IntPtr hdc, Int64* ust, Int64* msc, Int64* sbc);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetMscRateOML", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetMscRateOML(IntPtr hdc, Int32* numerator, Int32* denominator);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSwapBuffersMscOML", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe Int64 wglSwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSwapLayerBuffersMscOML", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe Int64 wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglWaitForMscOML", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglWaitForSbcOML", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetSyncValuesOML(IntPtr hdc, Int64* ust, Int64* msc, Int64* sbc);
+
+			[ThreadStatic]
+			internal static wglGetSyncValuesOML pwglGetSyncValuesOML;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetMscRateOML(IntPtr hdc, Int32* numerator, Int32* denominator);
+
+			[ThreadStatic]
+			internal static wglGetMscRateOML pwglGetMscRateOML;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int64 wglSwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder);
+
+			[ThreadStatic]
+			internal static wglSwapBuffersMscOML pwglSwapBuffersMscOML;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int64 wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder);
+
+			[ThreadStatic]
+			internal static wglSwapLayerBuffersMscOML pwglSwapLayerBuffersMscOML;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+
+			[ThreadStatic]
+			internal static wglWaitForMscOML pwglWaitForMscOML;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+
+			[ThreadStatic]
+			internal static wglWaitForSbcOML pwglWaitForSbcOML;
+
+		}
 	}
 
 }

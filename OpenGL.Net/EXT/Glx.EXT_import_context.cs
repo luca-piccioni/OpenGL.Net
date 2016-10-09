@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -180,6 +183,58 @@ namespace OpenGL
 			LogFunction("glXFreeContextEXT(0x{0}, 0x{1})", dpy.ToString("X8"), context.ToString("X8"));
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetCurrentDisplayEXT", ExactSpelling = true)]
+			internal extern static IntPtr glXGetCurrentDisplayEXT();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryContextInfoEXT", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetContextIDEXT", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXGetContextIDEXT(IntPtr context);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXImportContextEXT", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXFreeContextEXT", ExactSpelling = true)]
+			internal extern static unsafe void glXFreeContextEXT(IntPtr dpy, IntPtr context);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glXGetCurrentDisplayEXT();
+
+			internal static glXGetCurrentDisplayEXT pglXGetCurrentDisplayEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
+
+			internal static glXQueryContextInfoEXT pglXQueryContextInfoEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXGetContextIDEXT(IntPtr context);
+
+			internal static glXGetContextIDEXT pglXGetContextIDEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
+
+			internal static glXImportContextEXT pglXImportContextEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXFreeContextEXT(IntPtr dpy, IntPtr context);
+
+			internal static glXFreeContextEXT pglXFreeContextEXT;
+
+		}
 	}
 
 }

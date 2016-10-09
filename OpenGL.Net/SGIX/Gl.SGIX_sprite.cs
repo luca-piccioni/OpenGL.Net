@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -149,6 +152,53 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSpriteParameterfSGIX", ExactSpelling = true)]
+			internal extern static void glSpriteParameterfSGIX(Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSpriteParameterfvSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glSpriteParameterfvSGIX(Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSpriteParameteriSGIX", ExactSpelling = true)]
+			internal extern static void glSpriteParameteriSGIX(Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSpriteParameterivSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glSpriteParameterivSGIX(Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSpriteParameterfSGIX(Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glSpriteParameterfSGIX pglSpriteParameterfSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSpriteParameterfvSGIX(Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glSpriteParameterfvSGIX pglSpriteParameterfvSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSpriteParameteriSGIX(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glSpriteParameteriSGIX pglSpriteParameteriSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSpriteParameterivSGIX(Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glSpriteParameterivSGIX pglSpriteParameterivSGIX;
+
+		}
 	}
 
 }

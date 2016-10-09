@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -235,6 +238,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearColorIiEXT", ExactSpelling = true)]
+			internal extern static void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearColorIuiEXT", ExactSpelling = true)]
+			internal extern static void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
+
+			[ThreadStatic]
+			internal static glClearColorIiEXT pglClearColorIiEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
+
+			[ThreadStatic]
+			internal static glClearColorIuiEXT pglClearColorIuiEXT;
+
+		}
 	}
 
 }

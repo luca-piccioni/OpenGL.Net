@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -111,6 +114,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReadBufferIndexedEXT", ExactSpelling = true)]
+			internal extern static void glReadBufferIndexedEXT(Int32 src, Int32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawBuffersIndexedEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetIntegeri_vEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glReadBufferIndexedEXT(Int32 src, Int32 index);
+
+			[ThreadStatic]
+			internal static glReadBufferIndexedEXT pglReadBufferIndexedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
+
+			[ThreadStatic]
+			internal static glDrawBuffersIndexedEXT pglDrawBuffersIndexedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
+
+			[ThreadStatic]
+			internal static glGetIntegeri_vEXT pglGetIntegeri_vEXT;
+
+		}
 	}
 
 }

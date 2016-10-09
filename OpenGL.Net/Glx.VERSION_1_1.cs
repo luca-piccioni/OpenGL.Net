@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -119,6 +122,40 @@ namespace OpenGL
 			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryExtensionsString", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryServerString", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetClientString", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXGetClientString(IntPtr dpy, int name);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
+
+			internal static glXQueryExtensionsString pglXQueryExtensionsString;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
+
+			internal static glXQueryServerString pglXQueryServerString;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXGetClientString(IntPtr dpy, int name);
+
+			internal static glXGetClientString pglXGetClientString;
+
+		}
 	}
 
 }

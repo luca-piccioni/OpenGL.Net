@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -186,6 +189,67 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetFBConfigAttribSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXGetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXChooseFBConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr* glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateGLXPixmapWithConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateGLXPixmapWithConfigSGIX(IntPtr dpy, IntPtr config, IntPtr pixmap);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateContextWithConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateContextWithConfigSGIX(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfigSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetFBConfigFromVisualSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, Glx.XVisualInfo vis);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXGetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int* value);
+
+			internal static glXGetFBConfigAttribSGIX pglXGetFBConfigAttribSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr* glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+
+			internal static glXChooseFBConfigSGIX pglXChooseFBConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateGLXPixmapWithConfigSGIX(IntPtr dpy, IntPtr config, IntPtr pixmap);
+
+			internal static glXCreateGLXPixmapWithConfigSGIX pglXCreateGLXPixmapWithConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateContextWithConfigSGIX(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+
+			internal static glXCreateContextWithConfigSGIX pglXCreateContextWithConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+
+			internal static glXGetVisualFromFBConfigSGIX pglXGetVisualFromFBConfigSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, Glx.XVisualInfo vis);
+
+			internal static glXGetFBConfigFromVisualSGIX pglXGetFBConfigFromVisualSGIX;
+
+		}
 	}
 
 }

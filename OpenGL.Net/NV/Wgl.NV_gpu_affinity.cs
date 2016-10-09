@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -162,6 +165,67 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEnumGpusNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglEnumGpusNV(UInt32 iGpuIndex, IntPtr* phGpu);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEnumGpuDevicesNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglEnumGpuDevicesNV(IntPtr hGpu, UInt32 iDeviceIndex, IntPtr lpGpuDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreateAffinityDCNV", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglCreateAffinityDCNV(IntPtr* phGpuList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEnumGpusFromAffinityDCNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglEnumGpusFromAffinityDCNV(IntPtr hAffinityDC, UInt32 iGpuIndex, IntPtr* hGpu);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDeleteDCNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDeleteDCNV(IntPtr hdc);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglEnumGpusNV(UInt32 iGpuIndex, IntPtr* phGpu);
+
+			[ThreadStatic]
+			internal static wglEnumGpusNV pwglEnumGpusNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglEnumGpuDevicesNV(IntPtr hGpu, UInt32 iDeviceIndex, IntPtr lpGpuDevice);
+
+			[ThreadStatic]
+			internal static wglEnumGpuDevicesNV pwglEnumGpuDevicesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglCreateAffinityDCNV(IntPtr* phGpuList);
+
+			[ThreadStatic]
+			internal static wglCreateAffinityDCNV pwglCreateAffinityDCNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglEnumGpusFromAffinityDCNV(IntPtr hAffinityDC, UInt32 iGpuIndex, IntPtr* hGpu);
+
+			[ThreadStatic]
+			internal static wglEnumGpusFromAffinityDCNV pwglEnumGpusFromAffinityDCNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDeleteDCNV(IntPtr hdc);
+
+			[ThreadStatic]
+			internal static wglDeleteDCNV pwglDeleteDCNV;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -113,6 +116,57 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetFrameUsageI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetFrameUsageI3D(float * pUsage);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglBeginFrameTrackingI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static bool wglBeginFrameTrackingI3D();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEndFrameTrackingI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static bool wglEndFrameTrackingI3D();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryFrameTrackingI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetFrameUsageI3D(float * pUsage);
+
+			[ThreadStatic]
+			internal static wglGetFrameUsageI3D pwglGetFrameUsageI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglBeginFrameTrackingI3D();
+
+			[ThreadStatic]
+			internal static wglBeginFrameTrackingI3D pwglBeginFrameTrackingI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglEndFrameTrackingI3D();
+
+			[ThreadStatic]
+			internal static wglEndFrameTrackingI3D pwglEndFrameTrackingI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
+
+			[ThreadStatic]
+			internal static wglQueryFrameTrackingI3D pwglQueryFrameTrackingI3D;
+
+		}
 	}
 
 }

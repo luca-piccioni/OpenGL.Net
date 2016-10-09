@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -120,6 +123,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPixelDataRangeNV", ExactSpelling = true)]
+			internal extern static unsafe void glPixelDataRangeNV(Int32 target, Int32 length, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFlushPixelDataRangeNV", ExactSpelling = true)]
+			internal extern static void glFlushPixelDataRangeNV(Int32 target);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPixelDataRangeNV(Int32 target, Int32 length, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glPixelDataRangeNV pglPixelDataRangeNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFlushPixelDataRangeNV(Int32 target);
+
+			[ThreadStatic]
+			internal static glFlushPixelDataRangeNV pglFlushPixelDataRangeNV;
+
+		}
 	}
 
 }

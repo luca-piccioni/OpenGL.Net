@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -131,6 +134,53 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanefOES", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanefOES(Int32 plane, float* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFrustumfOES", ExactSpelling = true)]
+			internal extern static void glFrustumfOES(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetClipPlanefOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetClipPlanefOES(Int32 plane, float* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glOrthofOES", ExactSpelling = true)]
+			internal extern static void glOrthofOES(float l, float r, float b, float t, float n, float f);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClipPlanefOES(Int32 plane, float* equation);
+
+			[ThreadStatic]
+			internal static glClipPlanefOES pglClipPlanefOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFrustumfOES(float l, float r, float b, float t, float n, float f);
+
+			[ThreadStatic]
+			internal static glFrustumfOES pglFrustumfOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetClipPlanefOES(Int32 plane, float* equation);
+
+			[ThreadStatic]
+			internal static glGetClipPlanefOES pglGetClipPlanefOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glOrthofOES(float l, float r, float b, float t, float n, float f);
+
+			[ThreadStatic]
+			internal static glOrthofOES pglOrthofOES;
+
+		}
 	}
 
 }

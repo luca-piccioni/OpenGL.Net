@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -311,6 +314,93 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetTexturesQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetTexturesQCOM(UInt32* textures, Int32 maxTextures, Int32* numTextures);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetBuffersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetBuffersQCOM(UInt32* buffers, Int32 maxBuffers, Int32* numBuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetRenderbuffersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetRenderbuffersQCOM(UInt32* renderbuffers, Int32 maxRenderbuffers, Int32* numRenderbuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetFramebuffersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetFramebuffersQCOM(UInt32* framebuffers, Int32 maxFramebuffers, Int32* numFramebuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetTexLevelParameterivQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetTexLevelParameterivQCOM(UInt32 texture, Int32 face, Int32 level, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtTexObjectStateOverrideiQCOM", ExactSpelling = true)]
+			internal extern static void glExtTexObjectStateOverrideiQCOM(Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetTexSubImageQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetTexSubImageQCOM(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr texels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetBufferPointervQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetBufferPointervQCOM(Int32 target, IntPtr* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetTexturesQCOM(UInt32* textures, Int32 maxTextures, Int32* numTextures);
+
+			[ThreadStatic]
+			internal static glExtGetTexturesQCOM pglExtGetTexturesQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetBuffersQCOM(UInt32* buffers, Int32 maxBuffers, Int32* numBuffers);
+
+			[ThreadStatic]
+			internal static glExtGetBuffersQCOM pglExtGetBuffersQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetRenderbuffersQCOM(UInt32* renderbuffers, Int32 maxRenderbuffers, Int32* numRenderbuffers);
+
+			[ThreadStatic]
+			internal static glExtGetRenderbuffersQCOM pglExtGetRenderbuffersQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetFramebuffersQCOM(UInt32* framebuffers, Int32 maxFramebuffers, Int32* numFramebuffers);
+
+			[ThreadStatic]
+			internal static glExtGetFramebuffersQCOM pglExtGetFramebuffersQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetTexLevelParameterivQCOM(UInt32 texture, Int32 face, Int32 level, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glExtGetTexLevelParameterivQCOM pglExtGetTexLevelParameterivQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glExtTexObjectStateOverrideiQCOM(Int32 target, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glExtTexObjectStateOverrideiQCOM pglExtTexObjectStateOverrideiQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetTexSubImageQCOM(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr texels);
+
+			[ThreadStatic]
+			internal static glExtGetTexSubImageQCOM pglExtGetTexSubImageQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetBufferPointervQCOM(Int32 target, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glExtGetBufferPointervQCOM pglExtGetBufferPointervQCOM;
+
+		}
 	}
 
 }

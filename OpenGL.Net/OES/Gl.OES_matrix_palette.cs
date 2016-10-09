@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -158,6 +161,53 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCurrentPaletteMatrixOES", ExactSpelling = true)]
+			internal extern static void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadPaletteFromModelViewMatrixOES", ExactSpelling = true)]
+			internal extern static void glLoadPaletteFromModelViewMatrixOES();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixIndexPointerOES", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightPointerOES", ExactSpelling = true)]
+			internal extern static unsafe void glWeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
+
+			[ThreadStatic]
+			internal static glCurrentPaletteMatrixOES pglCurrentPaletteMatrixOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glLoadPaletteFromModelViewMatrixOES();
+
+			[ThreadStatic]
+			internal static glLoadPaletteFromModelViewMatrixOES pglLoadPaletteFromModelViewMatrixOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glMatrixIndexPointerOES pglMatrixIndexPointerOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glWeightPointerOES pglWeightPointerOES;
+
+		}
 	}
 
 }

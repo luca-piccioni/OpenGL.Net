@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -157,6 +160,93 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorbSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactorbSUN(sbyte factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorsSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactorsSUN(Int16 factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactoriSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactoriSUN(Int32 factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorfSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactorfSUN(float factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactordSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactordSUN(double factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorubSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactorubSUN(byte factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorusSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactorusSUN(UInt16 factor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGlobalAlphaFactoruiSUN", ExactSpelling = true)]
+			internal extern static void glGlobalAlphaFactoruiSUN(UInt32 factor);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactorbSUN pglGlobalAlphaFactorbSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactorsSUN(Int16 factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactorsSUN pglGlobalAlphaFactorsSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactoriSUN(Int32 factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactoriSUN pglGlobalAlphaFactoriSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactorfSUN(float factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactorfSUN pglGlobalAlphaFactorfSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactordSUN(double factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactordSUN pglGlobalAlphaFactordSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactorubSUN(byte factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactorubSUN pglGlobalAlphaFactorubSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactorusSUN(UInt16 factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactorusSUN pglGlobalAlphaFactorusSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGlobalAlphaFactoruiSUN(UInt32 factor);
+
+			[ThreadStatic]
+			internal static glGlobalAlphaFactoruiSUN pglGlobalAlphaFactoruiSUN;
+
+		}
 	}
 
 }

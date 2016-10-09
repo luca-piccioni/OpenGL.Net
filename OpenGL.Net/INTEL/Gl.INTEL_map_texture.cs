@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -119,6 +122,43 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSyncTextureINTEL", ExactSpelling = true)]
+			internal extern static void glSyncTextureINTEL(UInt32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUnmapTexture2DINTEL", ExactSpelling = true)]
+			internal extern static void glUnmapTexture2DINTEL(UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapTexture2DINTEL", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glMapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32* stride, Int32* layout);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSyncTextureINTEL(UInt32 texture);
+
+			[ThreadStatic]
+			internal static glSyncTextureINTEL pglSyncTextureINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUnmapTexture2DINTEL(UInt32 texture, Int32 level);
+
+			[ThreadStatic]
+			internal static glUnmapTexture2DINTEL pglUnmapTexture2DINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glMapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32* stride, Int32* layout);
+
+			[ThreadStatic]
+			internal static glMapTexture2DINTEL pglMapTexture2DINTEL;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -246,6 +249,58 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateStreamKHR", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDestroyStreamKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglStreamAttribKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryStreamKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryStreamu64KHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
+
+			internal static eglCreateStreamKHR peglCreateStreamKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
+
+			internal static eglDestroyStreamKHR peglDestroyStreamKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
+
+			internal static eglStreamAttribKHR peglStreamAttribKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
+
+			internal static eglQueryStreamKHR peglQueryStreamKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+
+			internal static eglQueryStreamu64KHR peglQueryStreamu64KHR;
+
+		}
 	}
 
 }

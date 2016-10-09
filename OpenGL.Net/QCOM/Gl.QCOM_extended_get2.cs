@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -121,6 +124,54 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetShadersQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetShadersQCOM(UInt32* shaders, Int32 maxShaders, Int32* numShaders);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetProgramsQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetProgramsQCOM(UInt32* programs, Int32 maxPrograms, Int32* numPrograms);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtIsProgramBinaryQCOM", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glExtIsProgramBinaryQCOM(UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtGetProgramBinarySourceQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glExtGetProgramBinarySourceQCOM(UInt32 program, Int32 shadertype, String source, Int32* length);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetShadersQCOM(UInt32* shaders, Int32 maxShaders, Int32* numShaders);
+
+			[ThreadStatic]
+			internal static glExtGetShadersQCOM pglExtGetShadersQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetProgramsQCOM(UInt32* programs, Int32 maxPrograms, Int32* numPrograms);
+
+			[ThreadStatic]
+			internal static glExtGetProgramsQCOM pglExtGetProgramsQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glExtIsProgramBinaryQCOM(UInt32 program);
+
+			[ThreadStatic]
+			internal static glExtIsProgramBinaryQCOM pglExtIsProgramBinaryQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExtGetProgramBinarySourceQCOM(UInt32 program, Int32 shadertype, String source, Int32* length);
+
+			[ThreadStatic]
+			internal static glExtGetProgramBinarySourceQCOM pglExtGetProgramBinarySourceQCOM;
+
+		}
 	}
 
 }

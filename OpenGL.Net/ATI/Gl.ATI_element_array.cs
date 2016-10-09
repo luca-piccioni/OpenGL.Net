@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -123,6 +126,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glElementPointerATI", ExactSpelling = true)]
+			internal extern static unsafe void glElementPointerATI(Int32 type, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementArrayATI", ExactSpelling = true)]
+			internal extern static void glDrawElementArrayATI(Int32 mode, Int32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawRangeElementArrayATI", ExactSpelling = true)]
+			internal extern static void glDrawRangeElementArrayATI(Int32 mode, UInt32 start, UInt32 end, Int32 count);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glElementPointerATI(Int32 type, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glElementPointerATI pglElementPointerATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawElementArrayATI(Int32 mode, Int32 count);
+
+			[ThreadStatic]
+			internal static glDrawElementArrayATI pglDrawElementArrayATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawRangeElementArrayATI(Int32 mode, UInt32 start, UInt32 end, Int32 count);
+
+			[ThreadStatic]
+			internal static glDrawRangeElementArrayATI pglDrawRangeElementArrayATI;
+
+		}
 	}
 
 }

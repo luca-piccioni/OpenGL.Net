@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -511,6 +514,133 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginVideoCaptureNV", ExactSpelling = true)]
+			internal extern static void glBeginVideoCaptureNV(UInt32 video_capture_slot);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindVideoCaptureStreamBufferNV", ExactSpelling = true)]
+			internal extern static unsafe void glBindVideoCaptureStreamBufferNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindVideoCaptureStreamTextureNV", ExactSpelling = true)]
+			internal extern static void glBindVideoCaptureStreamTextureNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, Int32 target, UInt32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndVideoCaptureNV", ExactSpelling = true)]
+			internal extern static void glEndVideoCaptureNV(UInt32 video_capture_slot);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVideoCaptureivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetVideoCaptureivNV(UInt32 video_capture_slot, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVideoCaptureStreamivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetVideoCaptureStreamivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVideoCaptureStreamfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetVideoCaptureStreamfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVideoCaptureStreamdvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetVideoCaptureStreamdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVideoCaptureNV", ExactSpelling = true)]
+			internal extern static unsafe Int32 glVideoCaptureNV(UInt32 video_capture_slot, UInt32* sequence_num, UInt64* capture_time);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVideoCaptureStreamParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glVideoCaptureStreamParameterivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVideoCaptureStreamParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVideoCaptureStreamParameterfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVideoCaptureStreamParameterdvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVideoCaptureStreamParameterdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginVideoCaptureNV(UInt32 video_capture_slot);
+
+			[ThreadStatic]
+			internal static glBeginVideoCaptureNV pglBeginVideoCaptureNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindVideoCaptureStreamBufferNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glBindVideoCaptureStreamBufferNV pglBindVideoCaptureStreamBufferNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindVideoCaptureStreamTextureNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, Int32 target, UInt32 texture);
+
+			[ThreadStatic]
+			internal static glBindVideoCaptureStreamTextureNV pglBindVideoCaptureStreamTextureNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndVideoCaptureNV(UInt32 video_capture_slot);
+
+			[ThreadStatic]
+			internal static glEndVideoCaptureNV pglEndVideoCaptureNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVideoCaptureivNV(UInt32 video_capture_slot, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetVideoCaptureivNV pglGetVideoCaptureivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVideoCaptureStreamivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetVideoCaptureStreamivNV pglGetVideoCaptureStreamivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVideoCaptureStreamfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetVideoCaptureStreamfvNV pglGetVideoCaptureStreamfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVideoCaptureStreamdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
+
+			[ThreadStatic]
+			internal static glGetVideoCaptureStreamdvNV pglGetVideoCaptureStreamdvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int32 glVideoCaptureNV(UInt32 video_capture_slot, UInt32* sequence_num, UInt64* capture_time);
+
+			[ThreadStatic]
+			internal static glVideoCaptureNV pglVideoCaptureNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVideoCaptureStreamParameterivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glVideoCaptureStreamParameterivNV pglVideoCaptureStreamParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVideoCaptureStreamParameterfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glVideoCaptureStreamParameterfvNV pglVideoCaptureStreamParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVideoCaptureStreamParameterdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
+
+			[ThreadStatic]
+			internal static glVideoCaptureStreamParameterdvNV pglVideoCaptureStreamParameterdvNV;
+
+		}
 	}
 
 }

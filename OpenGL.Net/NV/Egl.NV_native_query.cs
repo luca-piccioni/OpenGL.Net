@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -112,6 +115,40 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryNativeDisplayNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryNativeDisplayNV(IntPtr dpy, IntPtr* display_id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryNativeWindowNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr* window);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryNativePixmapNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr* pixmap);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryNativeDisplayNV(IntPtr dpy, IntPtr* display_id);
+
+			internal static eglQueryNativeDisplayNV peglQueryNativeDisplayNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr* window);
+
+			internal static eglQueryNativeWindowNV peglQueryNativeWindowNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr* pixmap);
+
+			internal static eglQueryNativePixmapNV peglQueryNativePixmapNV;
+
+		}
 	}
 
 }

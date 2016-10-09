@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -97,6 +100,40 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglStreamConsumerGLTextureExternalKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglStreamConsumerAcquireKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglStreamConsumerReleaseKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
+
+			internal static eglStreamConsumerGLTextureExternalKHR peglStreamConsumerGLTextureExternalKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
+
+			internal static eglStreamConsumerAcquireKHR peglStreamConsumerAcquireKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
+
+			internal static eglStreamConsumerReleaseKHR peglStreamConsumerReleaseKHR;
+
+		}
 	}
 
 }

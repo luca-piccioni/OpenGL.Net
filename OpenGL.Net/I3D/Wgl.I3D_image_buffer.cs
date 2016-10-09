@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -154,6 +157,56 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreateImageBufferI3D", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDestroyImageBufferI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglAssociateImageBufferEventsI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglReleaseImageBufferEventsI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
+
+			[ThreadStatic]
+			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
+
+			[ThreadStatic]
+			internal static wglDestroyImageBufferI3D pwglDestroyImageBufferI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
+
+			[ThreadStatic]
+			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
+
+			[ThreadStatic]
+			internal static wglReleaseImageBufferEventsI3D pwglReleaseImageBufferEventsI3D;
+
+		}
 	}
 
 }

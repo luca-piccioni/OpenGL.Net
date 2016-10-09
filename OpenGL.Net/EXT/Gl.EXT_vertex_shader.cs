@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1704,6 +1707,434 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginVertexShaderEXT", ExactSpelling = true)]
+			internal extern static void glBeginVertexShaderEXT();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndVertexShaderEXT", ExactSpelling = true)]
+			internal extern static void glEndVertexShaderEXT();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindVertexShaderEXT", ExactSpelling = true)]
+			internal extern static void glBindVertexShaderEXT(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenVertexShadersEXT", ExactSpelling = true)]
+			internal extern static UInt32 glGenVertexShadersEXT(UInt32 range);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteVertexShaderEXT", ExactSpelling = true)]
+			internal extern static void glDeleteVertexShaderEXT(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glShaderOp1EXT", ExactSpelling = true)]
+			internal extern static void glShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glShaderOp2EXT", ExactSpelling = true)]
+			internal extern static void glShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glShaderOp3EXT", ExactSpelling = true)]
+			internal extern static void glShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSwizzleEXT", ExactSpelling = true)]
+			internal extern static void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWriteMaskEXT", ExactSpelling = true)]
+			internal extern static void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glInsertComponentEXT", ExactSpelling = true)]
+			internal extern static void glInsertComponentEXT(UInt32 res, UInt32 src, UInt32 num);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExtractComponentEXT", ExactSpelling = true)]
+			internal extern static void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenSymbolsEXT", ExactSpelling = true)]
+			internal extern static UInt32 glGenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSetInvariantEXT", ExactSpelling = true)]
+			internal extern static unsafe void glSetInvariantEXT(UInt32 id, Int32 type, IntPtr addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSetLocalConstantEXT", ExactSpelling = true)]
+			internal extern static unsafe void glSetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantbvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantbvEXT(UInt32 id, sbyte* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantsvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantsvEXT(UInt32 id, Int16* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantivEXT(UInt32 id, Int32* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantfvEXT(UInt32 id, float* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantdvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantdvEXT(UInt32 id, double* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantubvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantubvEXT(UInt32 id, byte* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantusvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantusvEXT(UInt32 id, UInt16* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantuivEXT(UInt32 id, UInt32* addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVariantPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableVariantClientStateEXT", ExactSpelling = true)]
+			internal extern static void glEnableVariantClientStateEXT(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableVariantClientStateEXT", ExactSpelling = true)]
+			internal extern static void glDisableVariantClientStateEXT(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindLightParameterEXT", ExactSpelling = true)]
+			internal extern static UInt32 glBindLightParameterEXT(Int32 light, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindMaterialParameterEXT", ExactSpelling = true)]
+			internal extern static UInt32 glBindMaterialParameterEXT(Int32 face, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindTexGenParameterEXT", ExactSpelling = true)]
+			internal extern static UInt32 glBindTexGenParameterEXT(Int32 unit, Int32 coord, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindTextureUnitParameterEXT", ExactSpelling = true)]
+			internal extern static UInt32 glBindTextureUnitParameterEXT(Int32 unit, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindParameterEXT", ExactSpelling = true)]
+			internal extern static UInt32 glBindParameterEXT(Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsVariantEnabledEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVariantBooleanvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVariantIntegervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVariantFloatvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVariantFloatvEXT(UInt32 id, Int32 value, float* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVariantPointervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVariantPointervEXT(UInt32 id, Int32 value, IntPtr* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInvariantBooleanvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInvariantIntegervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetInvariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInvariantFloatvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetInvariantFloatvEXT(UInt32 id, Int32 value, float* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetLocalConstantBooleanvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetLocalConstantIntegervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetLocalConstantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetLocalConstantFloatvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetLocalConstantFloatvEXT(UInt32 id, Int32 value, float* data);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginVertexShaderEXT();
+
+			[ThreadStatic]
+			internal static glBeginVertexShaderEXT pglBeginVertexShaderEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndVertexShaderEXT();
+
+			[ThreadStatic]
+			internal static glEndVertexShaderEXT pglEndVertexShaderEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindVertexShaderEXT(UInt32 id);
+
+			[ThreadStatic]
+			internal static glBindVertexShaderEXT pglBindVertexShaderEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGenVertexShadersEXT(UInt32 range);
+
+			[ThreadStatic]
+			internal static glGenVertexShadersEXT pglGenVertexShadersEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeleteVertexShaderEXT(UInt32 id);
+
+			[ThreadStatic]
+			internal static glDeleteVertexShaderEXT pglDeleteVertexShaderEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1);
+
+			[ThreadStatic]
+			internal static glShaderOp1EXT pglShaderOp1EXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2);
+
+			[ThreadStatic]
+			internal static glShaderOp2EXT pglShaderOp2EXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3);
+
+			[ThreadStatic]
+			internal static glShaderOp3EXT pglShaderOp3EXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
+
+			[ThreadStatic]
+			internal static glSwizzleEXT pglSwizzleEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
+
+			[ThreadStatic]
+			internal static glWriteMaskEXT pglWriteMaskEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glInsertComponentEXT(UInt32 res, UInt32 src, UInt32 num);
+
+			[ThreadStatic]
+			internal static glInsertComponentEXT pglInsertComponentEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
+
+			[ThreadStatic]
+			internal static glExtractComponentEXT pglExtractComponentEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components);
+
+			[ThreadStatic]
+			internal static glGenSymbolsEXT pglGenSymbolsEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSetInvariantEXT(UInt32 id, Int32 type, IntPtr addr);
+
+			[ThreadStatic]
+			internal static glSetInvariantEXT pglSetInvariantEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr);
+
+			[ThreadStatic]
+			internal static glSetLocalConstantEXT pglSetLocalConstantEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantbvEXT(UInt32 id, sbyte* addr);
+
+			[ThreadStatic]
+			internal static glVariantbvEXT pglVariantbvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantsvEXT(UInt32 id, Int16* addr);
+
+			[ThreadStatic]
+			internal static glVariantsvEXT pglVariantsvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantivEXT(UInt32 id, Int32* addr);
+
+			[ThreadStatic]
+			internal static glVariantivEXT pglVariantivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantfvEXT(UInt32 id, float* addr);
+
+			[ThreadStatic]
+			internal static glVariantfvEXT pglVariantfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantdvEXT(UInt32 id, double* addr);
+
+			[ThreadStatic]
+			internal static glVariantdvEXT pglVariantdvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantubvEXT(UInt32 id, byte* addr);
+
+			[ThreadStatic]
+			internal static glVariantubvEXT pglVariantubvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantusvEXT(UInt32 id, UInt16* addr);
+
+			[ThreadStatic]
+			internal static glVariantusvEXT pglVariantusvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantuivEXT(UInt32 id, UInt32* addr);
+
+			[ThreadStatic]
+			internal static glVariantuivEXT pglVariantuivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr);
+
+			[ThreadStatic]
+			internal static glVariantPointerEXT pglVariantPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEnableVariantClientStateEXT(UInt32 id);
+
+			[ThreadStatic]
+			internal static glEnableVariantClientStateEXT pglEnableVariantClientStateEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDisableVariantClientStateEXT(UInt32 id);
+
+			[ThreadStatic]
+			internal static glDisableVariantClientStateEXT pglDisableVariantClientStateEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glBindLightParameterEXT(Int32 light, Int32 value);
+
+			[ThreadStatic]
+			internal static glBindLightParameterEXT pglBindLightParameterEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glBindMaterialParameterEXT(Int32 face, Int32 value);
+
+			[ThreadStatic]
+			internal static glBindMaterialParameterEXT pglBindMaterialParameterEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glBindTexGenParameterEXT(Int32 unit, Int32 coord, Int32 value);
+
+			[ThreadStatic]
+			internal static glBindTexGenParameterEXT pglBindTexGenParameterEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glBindTextureUnitParameterEXT(Int32 unit, Int32 value);
+
+			[ThreadStatic]
+			internal static glBindTextureUnitParameterEXT pglBindTextureUnitParameterEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glBindParameterEXT(Int32 value);
+
+			[ThreadStatic]
+			internal static glBindParameterEXT pglBindParameterEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
+
+			[ThreadStatic]
+			internal static glIsVariantEnabledEXT pglIsVariantEnabledEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+
+			[ThreadStatic]
+			internal static glGetVariantBooleanvEXT pglGetVariantBooleanvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+
+			[ThreadStatic]
+			internal static glGetVariantIntegervEXT pglGetVariantIntegervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVariantFloatvEXT(UInt32 id, Int32 value, float* data);
+
+			[ThreadStatic]
+			internal static glGetVariantFloatvEXT pglGetVariantFloatvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVariantPointervEXT(UInt32 id, Int32 value, IntPtr* data);
+
+			[ThreadStatic]
+			internal static glGetVariantPointervEXT pglGetVariantPointervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+
+			[ThreadStatic]
+			internal static glGetInvariantBooleanvEXT pglGetInvariantBooleanvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInvariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+
+			[ThreadStatic]
+			internal static glGetInvariantIntegervEXT pglGetInvariantIntegervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInvariantFloatvEXT(UInt32 id, Int32 value, float* data);
+
+			[ThreadStatic]
+			internal static glGetInvariantFloatvEXT pglGetInvariantFloatvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+
+			[ThreadStatic]
+			internal static glGetLocalConstantBooleanvEXT pglGetLocalConstantBooleanvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetLocalConstantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+
+			[ThreadStatic]
+			internal static glGetLocalConstantIntegervEXT pglGetLocalConstantIntegervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetLocalConstantFloatvEXT(UInt32 id, Int32 value, float* data);
+
+			[ThreadStatic]
+			internal static glGetLocalConstantFloatvEXT pglGetLocalConstantFloatvEXT;
+
+		}
 	}
 
 }

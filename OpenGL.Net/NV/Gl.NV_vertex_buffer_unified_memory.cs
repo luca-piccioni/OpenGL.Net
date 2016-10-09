@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -429,6 +432,133 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBufferAddressRangeNV", ExactSpelling = true)]
+			internal extern static void glBufferAddressRangeNV(Int32 pname, UInt32 index, UInt64 address, UInt32 length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexFormatNV", ExactSpelling = true)]
+			internal extern static void glVertexFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalFormatNV", ExactSpelling = true)]
+			internal extern static void glNormalFormatNV(Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorFormatNV", ExactSpelling = true)]
+			internal extern static void glColorFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIndexFormatNV", ExactSpelling = true)]
+			internal extern static void glIndexFormatNV(Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordFormatNV", ExactSpelling = true)]
+			internal extern static void glTexCoordFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEdgeFlagFormatNV", ExactSpelling = true)]
+			internal extern static void glEdgeFlagFormatNV(Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColorFormatNV", ExactSpelling = true)]
+			internal extern static void glSecondaryColorFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoordFormatNV", ExactSpelling = true)]
+			internal extern static void glFogCoordFormatNV(Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribFormatNV", ExactSpelling = true)]
+			internal extern static void glVertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribIFormatNV", ExactSpelling = true)]
+			internal extern static void glVertexAttribIFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetIntegerui64i_vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetIntegerui64i_vNV(Int32 value, UInt32 index, UInt64* result);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBufferAddressRangeNV(Int32 pname, UInt32 index, UInt64 address, UInt32 length);
+
+			[ThreadStatic]
+			internal static glBufferAddressRangeNV pglBufferAddressRangeNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glVertexFormatNV pglVertexFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalFormatNV(Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glNormalFormatNV pglNormalFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glColorFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glColorFormatNV pglColorFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glIndexFormatNV(Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glIndexFormatNV pglIndexFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexCoordFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glTexCoordFormatNV pglTexCoordFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEdgeFlagFormatNV(Int32 stride);
+
+			[ThreadStatic]
+			internal static glEdgeFlagFormatNV pglEdgeFlagFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColorFormatNV(Int32 size, Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glSecondaryColorFormatNV pglSecondaryColorFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFogCoordFormatNV(Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glFogCoordFormatNV pglFogCoordFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride);
+
+			[ThreadStatic]
+			internal static glVertexAttribFormatNV pglVertexAttribFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribIFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glVertexAttribIFormatNV pglVertexAttribIFormatNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetIntegerui64i_vNV(Int32 value, UInt32 index, UInt64* result);
+
+			[ThreadStatic]
+			internal static glGetIntegerui64i_vNV pglGetIntegerui64i_vNV;
+
+		}
 	}
 
 }

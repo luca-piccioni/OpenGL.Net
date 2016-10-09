@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -350,6 +353,58 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglBindAPI", ExactSpelling = true)]
+			internal extern static bool eglBindAPI(uint api);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryAPI", ExactSpelling = true)]
+			internal extern static uint eglQueryAPI();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreatePbufferFromClientBuffer", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglReleaseThread", ExactSpelling = true)]
+			internal extern static bool eglReleaseThread();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglWaitClient", ExactSpelling = true)]
+			internal extern static bool eglWaitClient();
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool eglBindAPI(uint api);
+
+			internal static eglBindAPI peglBindAPI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate uint eglQueryAPI();
+
+			internal static eglQueryAPI peglQueryAPI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
+
+			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool eglReleaseThread();
+
+			internal static eglReleaseThread peglReleaseThread;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool eglWaitClient();
+
+			internal static eglWaitClient peglWaitClient;
+
+		}
 	}
 
 }

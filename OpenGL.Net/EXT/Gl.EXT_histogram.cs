@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -241,6 +244,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetHistogramEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetHistogramParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetHistogramParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetHistogramParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetHistogramParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMinmaxEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMinmaxParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMinmaxParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMinmaxParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMinmaxParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+
+			[ThreadStatic]
+			internal static glGetHistogramEXT pglGetHistogramEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetHistogramParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetHistogramParameterfvEXT pglGetHistogramParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetHistogramParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetHistogramParameterivEXT pglGetHistogramParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+
+			[ThreadStatic]
+			internal static glGetMinmaxEXT pglGetMinmaxEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMinmaxParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMinmaxParameterfvEXT pglGetMinmaxParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMinmaxParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMinmaxParameterivEXT pglGetMinmaxParameterivEXT;
+
+		}
 	}
 
 }

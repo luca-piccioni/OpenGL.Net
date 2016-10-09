@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -286,6 +289,145 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureHandleNV", ExactSpelling = true)]
+			internal extern static UInt64 glGetTextureHandleNV(UInt32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureSamplerHandleNV", ExactSpelling = true)]
+			internal extern static UInt64 glGetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeTextureHandleResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeTextureHandleResidentNV(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeTextureHandleNonResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeTextureHandleNonResidentNV(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetImageHandleNV", ExactSpelling = true)]
+			internal extern static UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeImageHandleResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeImageHandleResidentNV(UInt64 handle, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeImageHandleNonResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeImageHandleNonResidentNV(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformHandleui64NV", ExactSpelling = true)]
+			internal extern static void glUniformHandleui64NV(Int32 location, UInt64 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformHandleui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformHandleui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniformHandleui64NV(UInt32 program, Int32 location, UInt64 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformHandleui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsTextureHandleResidentNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsTextureHandleResidentNV(UInt64 handle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsImageHandleResidentNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsImageHandleResidentNV(UInt64 handle);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt64 glGetTextureHandleNV(UInt32 texture);
+
+			[ThreadStatic]
+			internal static glGetTextureHandleNV pglGetTextureHandleNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt64 glGetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler);
+
+			[ThreadStatic]
+			internal static glGetTextureSamplerHandleNV pglGetTextureSamplerHandleNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeTextureHandleResidentNV(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glMakeTextureHandleResidentNV pglMakeTextureHandleResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeTextureHandleNonResidentNV(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glMakeTextureHandleNonResidentNV pglMakeTextureHandleNonResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
+
+			[ThreadStatic]
+			internal static glGetImageHandleNV pglGetImageHandleNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeImageHandleResidentNV(UInt64 handle, Int32 access);
+
+			[ThreadStatic]
+			internal static glMakeImageHandleResidentNV pglMakeImageHandleResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeImageHandleNonResidentNV(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glMakeImageHandleNonResidentNV pglMakeImageHandleNonResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniformHandleui64NV(Int32 location, UInt64 value);
+
+			[ThreadStatic]
+			internal static glUniformHandleui64NV pglUniformHandleui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformHandleui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniformHandleui64vNV pglUniformHandleui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniformHandleui64NV(UInt32 program, Int32 location, UInt64 value);
+
+			[ThreadStatic]
+			internal static glProgramUniformHandleui64NV pglProgramUniformHandleui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformHandleui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* values);
+
+			[ThreadStatic]
+			internal static glProgramUniformHandleui64vNV pglProgramUniformHandleui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsTextureHandleResidentNV(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glIsTextureHandleResidentNV pglIsTextureHandleResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsImageHandleResidentNV(UInt64 handle);
+
+			[ThreadStatic]
+			internal static glIsImageHandleResidentNV pglIsImageHandleResidentNV;
+
+		}
 	}
 
 }

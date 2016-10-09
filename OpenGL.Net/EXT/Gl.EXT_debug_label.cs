@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -109,6 +112,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLabelObjectEXT", ExactSpelling = true)]
+			internal extern static void glLabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectLabelEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, Int32* length, String label);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glLabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label);
+
+			[ThreadStatic]
+			internal static glLabelObjectEXT pglLabelObjectEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, Int32* length, [Out] StringBuilder label);
+
+			[ThreadStatic]
+			internal static glGetObjectLabelEXT pglGetObjectLabelEXT;
+
+		}
 	}
 
 }

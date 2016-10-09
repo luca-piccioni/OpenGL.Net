@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -110,6 +113,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribArrayObjectATI", ExactSpelling = true)]
+			internal extern static void glVertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexAttribArrayObjectfvATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexAttribArrayObjectfvATI(UInt32 index, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexAttribArrayObjectivATI", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexAttribArrayObjectivATI(UInt32 index, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
+
+			[ThreadStatic]
+			internal static glVertexAttribArrayObjectATI pglVertexAttribArrayObjectATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexAttribArrayObjectfvATI(UInt32 index, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetVertexAttribArrayObjectfvATI pglGetVertexAttribArrayObjectfvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexAttribArrayObjectivATI(UInt32 index, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetVertexAttribArrayObjectivATI pglGetVertexAttribArrayObjectivATI;
+
+		}
 	}
 
 }

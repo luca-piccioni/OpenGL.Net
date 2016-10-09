@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -258,6 +261,83 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodeuiSUN", ExactSpelling = true)]
+			internal extern static void glReplacementCodeuiSUN(UInt32 code);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodeusSUN", ExactSpelling = true)]
+			internal extern static void glReplacementCodeusSUN(UInt16 code);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodeubSUN", ExactSpelling = true)]
+			internal extern static void glReplacementCodeubSUN(byte code);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodeuivSUN", ExactSpelling = true)]
+			internal extern static unsafe void glReplacementCodeuivSUN(UInt32* code);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodeusvSUN", ExactSpelling = true)]
+			internal extern static unsafe void glReplacementCodeusvSUN(UInt16* code);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodeubvSUN", ExactSpelling = true)]
+			internal extern static unsafe void glReplacementCodeubvSUN(byte* code);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glReplacementCodePointerSUN", ExactSpelling = true)]
+			internal extern static unsafe void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glReplacementCodeuiSUN(UInt32 code);
+
+			[ThreadStatic]
+			internal static glReplacementCodeuiSUN pglReplacementCodeuiSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glReplacementCodeusSUN(UInt16 code);
+
+			[ThreadStatic]
+			internal static glReplacementCodeusSUN pglReplacementCodeusSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glReplacementCodeubSUN(byte code);
+
+			[ThreadStatic]
+			internal static glReplacementCodeubSUN pglReplacementCodeubSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glReplacementCodeuivSUN(UInt32* code);
+
+			[ThreadStatic]
+			internal static glReplacementCodeuivSUN pglReplacementCodeuivSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glReplacementCodeusvSUN(UInt16* code);
+
+			[ThreadStatic]
+			internal static glReplacementCodeusvSUN pglReplacementCodeusvSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glReplacementCodeubvSUN(byte* code);
+
+			[ThreadStatic]
+			internal static glReplacementCodeubvSUN pglReplacementCodeubvSUN;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
+
+			[ThreadStatic]
+			internal static glReplacementCodePointerSUN pglReplacementCodePointerSUN;
+
+		}
 	}
 
 }

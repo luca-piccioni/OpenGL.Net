@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -995,6 +998,105 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBufferStorage", ExactSpelling = true)]
+			internal extern static unsafe void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearTexImage", ExactSpelling = true)]
+			internal extern static unsafe void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearTexSubImage", ExactSpelling = true)]
+			internal extern static unsafe void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindBuffersBase", ExactSpelling = true)]
+			internal extern static unsafe void glBindBuffersBase(Int32 target, UInt32 first, Int32 count, UInt32* buffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindBuffersRange", ExactSpelling = true)]
+			internal extern static unsafe void glBindBuffersRange(Int32 target, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, UInt32* sizes);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindTextures", ExactSpelling = true)]
+			internal extern static unsafe void glBindTextures(UInt32 first, Int32 count, UInt32* textures);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindSamplers", ExactSpelling = true)]
+			internal extern static unsafe void glBindSamplers(UInt32 first, Int32 count, UInt32* samplers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindImageTextures", ExactSpelling = true)]
+			internal extern static unsafe void glBindImageTextures(UInt32 first, Int32 count, UInt32* textures);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindVertexBuffers", ExactSpelling = true)]
+			internal extern static unsafe void glBindVertexBuffers(UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
+
+			[AliasOf("glBufferStorage")]
+			[AliasOf("glBufferStorageEXT")]
+			[ThreadStatic]
+			internal static glBufferStorage pglBufferStorage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
+
+			[ThreadStatic]
+			internal static glClearTexImage pglClearTexImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
+
+			[ThreadStatic]
+			internal static glClearTexSubImage pglClearTexSubImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindBuffersBase(Int32 target, UInt32 first, Int32 count, UInt32* buffers);
+
+			[ThreadStatic]
+			internal static glBindBuffersBase pglBindBuffersBase;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindBuffersRange(Int32 target, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, UInt32* sizes);
+
+			[ThreadStatic]
+			internal static glBindBuffersRange pglBindBuffersRange;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindTextures(UInt32 first, Int32 count, UInt32* textures);
+
+			[ThreadStatic]
+			internal static glBindTextures pglBindTextures;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindSamplers(UInt32 first, Int32 count, UInt32* samplers);
+
+			[ThreadStatic]
+			internal static glBindSamplers pglBindSamplers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindImageTextures(UInt32 first, Int32 count, UInt32* textures);
+
+			[ThreadStatic]
+			internal static glBindImageTextures pglBindImageTextures;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBindVertexBuffers(UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
+
+			[ThreadStatic]
+			internal static glBindVertexBuffers pglBindVertexBuffers;
+
+		}
 	}
 
 }

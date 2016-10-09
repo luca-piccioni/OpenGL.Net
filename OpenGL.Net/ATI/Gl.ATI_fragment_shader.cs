@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1043,6 +1046,153 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenFragmentShadersATI", ExactSpelling = true)]
+			internal extern static UInt32 glGenFragmentShadersATI(UInt32 range);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindFragmentShaderATI", ExactSpelling = true)]
+			internal extern static void glBindFragmentShaderATI(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteFragmentShaderATI", ExactSpelling = true)]
+			internal extern static void glDeleteFragmentShaderATI(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginFragmentShaderATI", ExactSpelling = true)]
+			internal extern static void glBeginFragmentShaderATI();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndFragmentShaderATI", ExactSpelling = true)]
+			internal extern static void glEndFragmentShaderATI();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPassTexCoordATI", ExactSpelling = true)]
+			internal extern static void glPassTexCoordATI(UInt32 dst, UInt32 coord, Int32 swizzle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleMapATI", ExactSpelling = true)]
+			internal extern static void glSampleMapATI(UInt32 dst, UInt32 interp, Int32 swizzle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorFragmentOp1ATI", ExactSpelling = true)]
+			internal extern static void glColorFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorFragmentOp2ATI", ExactSpelling = true)]
+			internal extern static void glColorFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorFragmentOp3ATI", ExactSpelling = true)]
+			internal extern static void glColorFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAlphaFragmentOp1ATI", ExactSpelling = true)]
+			internal extern static void glAlphaFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAlphaFragmentOp2ATI", ExactSpelling = true)]
+			internal extern static void glAlphaFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAlphaFragmentOp3ATI", ExactSpelling = true)]
+			internal extern static void glAlphaFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSetFragmentShaderConstantATI", ExactSpelling = true)]
+			internal extern static unsafe void glSetFragmentShaderConstantATI(UInt32 dst, float* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGenFragmentShadersATI(UInt32 range);
+
+			[ThreadStatic]
+			internal static glGenFragmentShadersATI pglGenFragmentShadersATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindFragmentShaderATI(UInt32 id);
+
+			[ThreadStatic]
+			internal static glBindFragmentShaderATI pglBindFragmentShaderATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeleteFragmentShaderATI(UInt32 id);
+
+			[ThreadStatic]
+			internal static glDeleteFragmentShaderATI pglDeleteFragmentShaderATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginFragmentShaderATI();
+
+			[ThreadStatic]
+			internal static glBeginFragmentShaderATI pglBeginFragmentShaderATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndFragmentShaderATI();
+
+			[ThreadStatic]
+			internal static glEndFragmentShaderATI pglEndFragmentShaderATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPassTexCoordATI(UInt32 dst, UInt32 coord, Int32 swizzle);
+
+			[ThreadStatic]
+			internal static glPassTexCoordATI pglPassTexCoordATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSampleMapATI(UInt32 dst, UInt32 interp, Int32 swizzle);
+
+			[ThreadStatic]
+			internal static glSampleMapATI pglSampleMapATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glColorFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
+
+			[ThreadStatic]
+			internal static glColorFragmentOp1ATI pglColorFragmentOp1ATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glColorFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
+
+			[ThreadStatic]
+			internal static glColorFragmentOp2ATI pglColorFragmentOp2ATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glColorFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
+
+			[ThreadStatic]
+			internal static glColorFragmentOp3ATI pglColorFragmentOp3ATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glAlphaFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
+
+			[ThreadStatic]
+			internal static glAlphaFragmentOp1ATI pglAlphaFragmentOp1ATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glAlphaFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
+
+			[ThreadStatic]
+			internal static glAlphaFragmentOp2ATI pglAlphaFragmentOp2ATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glAlphaFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
+
+			[ThreadStatic]
+			internal static glAlphaFragmentOp3ATI pglAlphaFragmentOp3ATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSetFragmentShaderConstantATI(UInt32 dst, float* value);
+
+			[ThreadStatic]
+			internal static glSetFragmentShaderConstantATI pglSetFragmentShaderConstantATI;
+
+		}
 	}
 
 }

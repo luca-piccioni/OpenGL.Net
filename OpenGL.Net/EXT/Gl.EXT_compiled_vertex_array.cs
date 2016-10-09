@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -67,6 +70,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLockArraysEXT", ExactSpelling = true)]
+			internal extern static void glLockArraysEXT(Int32 first, Int32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUnlockArraysEXT", ExactSpelling = true)]
+			internal extern static void glUnlockArraysEXT();
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glLockArraysEXT(Int32 first, Int32 count);
+
+			[ThreadStatic]
+			internal static glLockArraysEXT pglLockArraysEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUnlockArraysEXT();
+
+			[ThreadStatic]
+			internal static glUnlockArraysEXT pglUnlockArraysEXT;
+
+		}
 	}
 
 }

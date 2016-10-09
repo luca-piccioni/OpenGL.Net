@@ -160,10 +160,15 @@ namespace BindingsGen
 				// sw.WriteLine("#pragma warning disable 1734");
 				// sw.WriteLine();
 
+				sw.WriteLine("#pragma warning disable 649, 1572, 1573");
+				sw.WriteLine();
+
 				sw.WriteLine("using System;");
 				sw.WriteLine("using System.Diagnostics;");
 				sw.WriteLine("using System.Runtime.InteropServices;");
+				sw.WriteLine("using System.Security;");
 				sw.WriteLine("using System.Text;");
+
 				sw.WriteLine();
 
 				sw.WriteLine("namespace OpenGL");

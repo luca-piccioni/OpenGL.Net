@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -106,6 +109,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferPixelLocalStorageSizeEXT", ExactSpelling = true)]
+			internal extern static void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFramebufferPixelLocalStorageSizeEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearPixelLocalStorageuiEXT", ExactSpelling = true)]
+			internal extern static unsafe void glClearPixelLocalStorageuiEXT(Int32 offset, Int32 n, UInt32* values);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
+
+			[ThreadStatic]
+			internal static glFramebufferPixelLocalStorageSizeEXT pglFramebufferPixelLocalStorageSizeEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
+
+			[ThreadStatic]
+			internal static glGetFramebufferPixelLocalStorageSizeEXT pglGetFramebufferPixelLocalStorageSizeEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearPixelLocalStorageuiEXT(Int32 offset, Int32 n, UInt32* values);
+
+			[ThreadStatic]
+			internal static glClearPixelLocalStorageuiEXT pglClearPixelLocalStorageuiEXT;
+
+		}
 	}
 
 }

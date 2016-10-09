@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -191,6 +194,85 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteFencesNV", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteFencesNV(Int32 n, UInt32* fences);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenFencesNV", ExactSpelling = true)]
+			internal extern static unsafe void glGenFencesNV(Int32 n, UInt32* fences);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsFenceNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsFenceNV(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTestFenceNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glTestFenceNV(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFenceivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetFenceivNV(UInt32 fence, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFinishFenceNV", ExactSpelling = true)]
+			internal extern static void glFinishFenceNV(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSetFenceNV", ExactSpelling = true)]
+			internal extern static void glSetFenceNV(UInt32 fence, Int32 condition);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteFencesNV(Int32 n, UInt32* fences);
+
+			[ThreadStatic]
+			internal static glDeleteFencesNV pglDeleteFencesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenFencesNV(Int32 n, UInt32* fences);
+
+			[ThreadStatic]
+			internal static glGenFencesNV pglGenFencesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsFenceNV(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glIsFenceNV pglIsFenceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glTestFenceNV(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glTestFenceNV pglTestFenceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFenceivNV(UInt32 fence, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetFenceivNV pglGetFenceivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFinishFenceNV(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glFinishFenceNV pglFinishFenceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSetFenceNV(UInt32 fence, Int32 condition);
+
+			[ThreadStatic]
+			internal static glSetFenceNV pglSetFenceNV;
+
+		}
 	}
 
 }

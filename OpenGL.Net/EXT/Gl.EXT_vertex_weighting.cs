@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -176,6 +179,43 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexWeightfEXT", ExactSpelling = true)]
+			internal extern static void glVertexWeightfEXT(float weight);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexWeightfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexWeightfvEXT(float* weight);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexWeightPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexWeightfEXT(float weight);
+
+			[ThreadStatic]
+			internal static glVertexWeightfEXT pglVertexWeightfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexWeightfvEXT(float* weight);
+
+			[ThreadStatic]
+			internal static glVertexWeightfvEXT pglVertexWeightfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glVertexWeightPointerEXT pglVertexWeightPointerEXT;
+
+		}
 	}
 
 }

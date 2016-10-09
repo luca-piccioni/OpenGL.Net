@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -167,10 +170,8 @@ namespace OpenGL
 		public const int MAX_TEXTURE_LOD_BIAS = 0x84FD;
 
 		/// <summary>
-		/// Gl.TexParameter: params specifies a fixed bias value that is to be added to the level-of-detail parameter for the 
-		/// texture before texture sampling. The specified value is added to the shader-supplied bias value (if any) and 
-		/// subsequently clamped into the implementation-defined range -biasmaxbiasmax, where biasmax is the value of the 
-		/// implementation defined constant Gl.MAX_TEXTURE_LOD_BIAS. The initial value is 0.0.
+		/// Gl.GetTexEnv: params returns a single floating-point value that is the texture level-of-detail bias. The initial value 
+		/// is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -233,22 +234,6 @@ namespace OpenGL
 		/// Gl.GetTexParameter: returns a single-valued texture comparison mode, a symbolic constant. The initial value is Gl.NONE. 
 		/// See Gl.TexParameter.
 		/// </para>
-		/// <para>
-		/// Gl.SamplerParameter: specifies the texture comparison mode for currently bound textures. That is, a texture whose 
-		/// internal format is Gl.DEPTH_COMPONENT_*; see Gl.TexImage2D) Permissible values are: Gl.COMPARE_REF_TO_TEXTURE Specifies 
-		/// that the interpolated and clamped r texture coordinate should be compared to the value in the currently bound texture. 
-		/// See the discussion of Gl.TEXTURE_COMPARE_FUNC for details of how the comparison is evaluated. The result of the 
-		/// comparison is assigned to the red channel. Gl.NONE Specifies that the red channel should be assigned the appropriate 
-		/// value from the currently bound texture.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: specifies the texture comparison mode for currently bound depth textures. That is, a texture whose 
-		/// internal format is Gl.DEPTH_COMPONENT_*; see Gl.TexImage2D) Permissible values are: Gl.COMPARE_REF_TO_TEXTURE Specifies 
-		/// that the interpolated and clamped r texture coordinate should be compared to the value in the currently bound depth 
-		/// texture. See the discussion of Gl.TEXTURE_COMPARE_FUNC for details of how the comparison is evaluated. The result of the 
-		/// comparison is assigned to the red channel. Gl.NONE Specifies that the red channel should be assigned the appropriate 
-		/// value from the currently bound depth texture.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_MODE_ARB")]
 		[AliasOf("GL_TEXTURE_COMPARE_MODE_EXT")]
@@ -266,20 +251,6 @@ namespace OpenGL
 		/// <para>
 		/// Gl.GetTexParameter: returns a single-valued texture comparison function, a symbolic constant. The initial value is 
 		/// Gl.LEQUAL. See Gl.TexParameter.
-		/// </para>
-		/// <para>
-		/// Gl.SamplerParameter: specifies the comparison operator used when Gl.TEXTURE_COMPARE_MODE is set to 
-		/// Gl.COMPARE_REF_TO_TEXTURE. Permissible values are: Texture Comparison Function Computed result 
-		/// Gl.LEQUALresult=1.00.0⁢  r&lt;=Dtr&gt;DtGl.GEQUALresult=1.00.0⁢  r&gt;=Dtr&lt;DtGl.LESSresult=1.00.0⁢  r&lt;Dtr&gt;=DtGl.GREATERresult=1.00.0⁢  r&gt;Dtr&lt;=DtGl.EQUALresult=1.00.0⁢  r=Dtr≠DtGl.NOTEQUALresult=1.00.0⁢  r≠Dtr=DtGl.ALWAYSresult=1.0Gl.NEVERresult=0.0 
-		/// where r is the current interpolated texture coordinate, and Dt is the texture value sampled from the currently bound 
-		/// texture. result is assigned to Rt.
-		/// </para>
-		/// <para>
-		/// Gl.TexParameter: specifies the comparison operator used when Gl.TEXTURE_COMPARE_MODE is set to 
-		/// Gl.COMPARE_REF_TO_TEXTURE. Permissible values are: Texture Comparison Function Computed result 
-		/// Gl.LEQUALresult=1.00.0⁢  r&lt;=Dtr&gt;DtGl.GEQUALresult=1.00.0⁢  r&gt;=Dtr&lt;DtGl.LESSresult=1.00.0⁢  r&lt;Dtr&gt;=DtGl.GREATERresult=1.00.0⁢  r&gt;Dtr&lt;=DtGl.EQUALresult=1.00.0⁢  r=Dtr≠DtGl.NOTEQUALresult=1.00.0⁢  r≠Dtr=DtGl.ALWAYSresult=1.0Gl.NEVERresult=0.0 
-		/// where r is the current interpolated texture coordinate, and Dt is the depth texture value sampled from the currently 
-		/// bound depth texture. result is assigned to the the red channel.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_FUNC_ARB")]
@@ -360,12 +331,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
-		/// Gl.TexParameter.
-		/// </para>
-		/// <para>
 		/// Gl.TexParameter: specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
 		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
+		/// Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
@@ -616,12 +587,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: returns a single-valued texture format indicating how the depth values should be converted into 
-		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
-		/// </para>
-		/// <para>
 		/// Gl.TexParameter: specifies a single symbolic constant indicating how depth values should be treated during filtering and 
 		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns a single-valued texture format indicating how the depth values should be converted into 
+		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]
@@ -776,13 +747,14 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="srcRGB"/> or <paramref name="dstRGB"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated by Gl.BlendFuncSeparatei if <paramref name="buf"/> is greater than or equal to the value 
-		/// of Gl.MAX_DRAW_BUFFERS.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BlendFuncSeparate is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
 		/// </exception>
+		/// <seealso cref="Gl.AlphaFunc"/>
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.BlendEquation"/>
@@ -2516,14 +2488,15 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 
 		/// Gl.FUNC_REVERSE_SUBTRACT, Gl.MAX, or Gl.MIN.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated by Gl.BlendEquationi if <paramref name="buf"/> is greater than or equal to the value of 
-		/// Gl.MAX_DRAW_BUFFERS.
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BlendEquation is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
 		/// </exception>
+		/// <seealso cref="Gl.GetString"/>
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.BlendFuncSeparate"/>
@@ -2540,6 +2513,598 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendFuncSeparate", ExactSpelling = true)]
+			internal extern static void glBlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawArrays", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawArrays(Int32 mode, Int32* first, Int32* count, Int32 drawcount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiDrawElements", ExactSpelling = true)]
+			internal extern static unsafe void glMultiDrawElements(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterf", ExactSpelling = true)]
+			internal extern static void glPointParameterf(Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterfv", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameterfv(Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameteri", ExactSpelling = true)]
+			internal extern static void glPointParameteri(Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameteriv", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameteriv(Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoordf", ExactSpelling = true)]
+			internal extern static void glFogCoordf(float coord);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoordfv", ExactSpelling = true)]
+			internal extern static unsafe void glFogCoordfv(float* coord);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoordd", ExactSpelling = true)]
+			internal extern static void glFogCoordd(double coord);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoorddv", ExactSpelling = true)]
+			internal extern static unsafe void glFogCoorddv(double* coord);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoordPointer", ExactSpelling = true)]
+			internal extern static unsafe void glFogCoordPointer(Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3b", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3b(sbyte red, sbyte green, sbyte blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3bv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3bv(sbyte* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3d", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3d(double red, double green, double blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3dv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3dv(double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3f", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3f(float red, float green, float blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3fv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3fv(float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3i", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3i(Int32 red, Int32 green, Int32 blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3iv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3iv(Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3s", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3s(Int16 red, Int16 green, Int16 blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3sv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3sv(Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3ub", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3ub(byte red, byte green, byte blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3ubv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3ubv(byte* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3ui", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3ui(UInt32 red, UInt32 green, UInt32 blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3uiv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3uiv(UInt32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3us", ExactSpelling = true)]
+			internal extern static void glSecondaryColor3us(UInt16 red, UInt16 green, UInt16 blue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColor3usv", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColor3usv(UInt16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColorPointer", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2d", ExactSpelling = true)]
+			internal extern static void glWindowPos2d(double x, double y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2dv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos2dv(double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2f", ExactSpelling = true)]
+			internal extern static void glWindowPos2f(float x, float y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2fv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos2fv(float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2i", ExactSpelling = true)]
+			internal extern static void glWindowPos2i(Int32 x, Int32 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2iv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos2iv(Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2s", ExactSpelling = true)]
+			internal extern static void glWindowPos2s(Int16 x, Int16 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos2sv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos2sv(Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3d", ExactSpelling = true)]
+			internal extern static void glWindowPos3d(double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3dv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos3dv(double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3f", ExactSpelling = true)]
+			internal extern static void glWindowPos3f(float x, float y, float z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3fv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos3fv(float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3i", ExactSpelling = true)]
+			internal extern static void glWindowPos3i(Int32 x, Int32 y, Int32 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3iv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos3iv(Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3s", ExactSpelling = true)]
+			internal extern static void glWindowPos3s(Int16 x, Int16 y, Int16 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWindowPos3sv", ExactSpelling = true)]
+			internal extern static unsafe void glWindowPos3sv(Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendColor", ExactSpelling = true)]
+			internal extern static void glBlendColor(float red, float green, float blue, float alpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendEquation", ExactSpelling = true)]
+			internal extern static void glBlendEquation(Int32 mode);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha);
+
+			[AliasOf("glBlendFuncSeparate")]
+			[AliasOf("glBlendFuncSeparateEXT")]
+			[AliasOf("glBlendFuncSeparateINGR")]
+			[ThreadStatic]
+			internal static glBlendFuncSeparate pglBlendFuncSeparate;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiDrawArrays(Int32 mode, Int32* first, Int32* count, Int32 drawcount);
+
+			[AliasOf("glMultiDrawArrays")]
+			[AliasOf("glMultiDrawArraysEXT")]
+			[ThreadStatic]
+			internal static glMultiDrawArrays pglMultiDrawArrays;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiDrawElements(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount);
+
+			[AliasOf("glMultiDrawElements")]
+			[AliasOf("glMultiDrawElementsEXT")]
+			[ThreadStatic]
+			internal static glMultiDrawElements pglMultiDrawElements;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPointParameterf(Int32 pname, float param);
+
+			[AliasOf("glPointParameterf")]
+			[AliasOf("glPointParameterfARB")]
+			[AliasOf("glPointParameterfEXT")]
+			[AliasOf("glPointParameterfSGIS")]
+			[ThreadStatic]
+			internal static glPointParameterf pglPointParameterf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPointParameterfv(Int32 pname, float* @params);
+
+			[AliasOf("glPointParameterfv")]
+			[AliasOf("glPointParameterfvARB")]
+			[AliasOf("glPointParameterfvEXT")]
+			[AliasOf("glPointParameterfvSGIS")]
+			[ThreadStatic]
+			internal static glPointParameterfv pglPointParameterfv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPointParameteri(Int32 pname, Int32 param);
+
+			[AliasOf("glPointParameteri")]
+			[AliasOf("glPointParameteriNV")]
+			[ThreadStatic]
+			internal static glPointParameteri pglPointParameteri;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPointParameteriv(Int32 pname, Int32* @params);
+
+			[AliasOf("glPointParameteriv")]
+			[AliasOf("glPointParameterivNV")]
+			[ThreadStatic]
+			internal static glPointParameteriv pglPointParameteriv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFogCoordf(float coord);
+
+			[AliasOf("glFogCoordf")]
+			[AliasOf("glFogCoordfEXT")]
+			[ThreadStatic]
+			internal static glFogCoordf pglFogCoordf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogCoordfv(float* coord);
+
+			[AliasOf("glFogCoordfv")]
+			[AliasOf("glFogCoordfvEXT")]
+			[ThreadStatic]
+			internal static glFogCoordfv pglFogCoordfv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFogCoordd(double coord);
+
+			[AliasOf("glFogCoordd")]
+			[AliasOf("glFogCoorddEXT")]
+			[ThreadStatic]
+			internal static glFogCoordd pglFogCoordd;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogCoorddv(double* coord);
+
+			[AliasOf("glFogCoorddv")]
+			[AliasOf("glFogCoorddvEXT")]
+			[ThreadStatic]
+			internal static glFogCoorddv pglFogCoorddv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogCoordPointer(Int32 type, Int32 stride, IntPtr pointer);
+
+			[AliasOf("glFogCoordPointer")]
+			[AliasOf("glFogCoordPointerEXT")]
+			[ThreadStatic]
+			internal static glFogCoordPointer pglFogCoordPointer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3b(sbyte red, sbyte green, sbyte blue);
+
+			[AliasOf("glSecondaryColor3b")]
+			[AliasOf("glSecondaryColor3bEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3b pglSecondaryColor3b;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3bv(sbyte* v);
+
+			[AliasOf("glSecondaryColor3bv")]
+			[AliasOf("glSecondaryColor3bvEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3bv pglSecondaryColor3bv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3d(double red, double green, double blue);
+
+			[AliasOf("glSecondaryColor3d")]
+			[AliasOf("glSecondaryColor3dEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3d pglSecondaryColor3d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3dv(double* v);
+
+			[AliasOf("glSecondaryColor3dv")]
+			[AliasOf("glSecondaryColor3dvEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3dv pglSecondaryColor3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3f(float red, float green, float blue);
+
+			[AliasOf("glSecondaryColor3f")]
+			[AliasOf("glSecondaryColor3fEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3f pglSecondaryColor3f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3fv(float* v);
+
+			[AliasOf("glSecondaryColor3fv")]
+			[AliasOf("glSecondaryColor3fvEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3fv pglSecondaryColor3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3i(Int32 red, Int32 green, Int32 blue);
+
+			[AliasOf("glSecondaryColor3i")]
+			[AliasOf("glSecondaryColor3iEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3i pglSecondaryColor3i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3iv(Int32* v);
+
+			[AliasOf("glSecondaryColor3iv")]
+			[AliasOf("glSecondaryColor3ivEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3iv pglSecondaryColor3iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3s(Int16 red, Int16 green, Int16 blue);
+
+			[AliasOf("glSecondaryColor3s")]
+			[AliasOf("glSecondaryColor3sEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3s pglSecondaryColor3s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3sv(Int16* v);
+
+			[AliasOf("glSecondaryColor3sv")]
+			[AliasOf("glSecondaryColor3svEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3sv pglSecondaryColor3sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3ub(byte red, byte green, byte blue);
+
+			[AliasOf("glSecondaryColor3ub")]
+			[AliasOf("glSecondaryColor3ubEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3ub pglSecondaryColor3ub;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3ubv(byte* v);
+
+			[AliasOf("glSecondaryColor3ubv")]
+			[AliasOf("glSecondaryColor3ubvEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3ubv pglSecondaryColor3ubv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3ui(UInt32 red, UInt32 green, UInt32 blue);
+
+			[AliasOf("glSecondaryColor3ui")]
+			[AliasOf("glSecondaryColor3uiEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3ui pglSecondaryColor3ui;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3uiv(UInt32* v);
+
+			[AliasOf("glSecondaryColor3uiv")]
+			[AliasOf("glSecondaryColor3uivEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3uiv pglSecondaryColor3uiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSecondaryColor3us(UInt16 red, UInt16 green, UInt16 blue);
+
+			[AliasOf("glSecondaryColor3us")]
+			[AliasOf("glSecondaryColor3usEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3us pglSecondaryColor3us;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColor3usv(UInt16* v);
+
+			[AliasOf("glSecondaryColor3usv")]
+			[AliasOf("glSecondaryColor3usvEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColor3usv pglSecondaryColor3usv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[AliasOf("glSecondaryColorPointer")]
+			[AliasOf("glSecondaryColorPointerEXT")]
+			[ThreadStatic]
+			internal static glSecondaryColorPointer pglSecondaryColorPointer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos2d(double x, double y);
+
+			[AliasOf("glWindowPos2d")]
+			[AliasOf("glWindowPos2dARB")]
+			[AliasOf("glWindowPos2dMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2d pglWindowPos2d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos2dv(double* v);
+
+			[AliasOf("glWindowPos2dv")]
+			[AliasOf("glWindowPos2dvARB")]
+			[AliasOf("glWindowPos2dvMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2dv pglWindowPos2dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos2f(float x, float y);
+
+			[AliasOf("glWindowPos2f")]
+			[AliasOf("glWindowPos2fARB")]
+			[AliasOf("glWindowPos2fMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2f pglWindowPos2f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos2fv(float* v);
+
+			[AliasOf("glWindowPos2fv")]
+			[AliasOf("glWindowPos2fvARB")]
+			[AliasOf("glWindowPos2fvMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2fv pglWindowPos2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos2i(Int32 x, Int32 y);
+
+			[AliasOf("glWindowPos2i")]
+			[AliasOf("glWindowPos2iARB")]
+			[AliasOf("glWindowPos2iMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2i pglWindowPos2i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos2iv(Int32* v);
+
+			[AliasOf("glWindowPos2iv")]
+			[AliasOf("glWindowPos2ivARB")]
+			[AliasOf("glWindowPos2ivMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2iv pglWindowPos2iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos2s(Int16 x, Int16 y);
+
+			[AliasOf("glWindowPos2s")]
+			[AliasOf("glWindowPos2sARB")]
+			[AliasOf("glWindowPos2sMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2s pglWindowPos2s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos2sv(Int16* v);
+
+			[AliasOf("glWindowPos2sv")]
+			[AliasOf("glWindowPos2svARB")]
+			[AliasOf("glWindowPos2svMESA")]
+			[ThreadStatic]
+			internal static glWindowPos2sv pglWindowPos2sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos3d(double x, double y, double z);
+
+			[AliasOf("glWindowPos3d")]
+			[AliasOf("glWindowPos3dARB")]
+			[AliasOf("glWindowPos3dMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3d pglWindowPos3d;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos3dv(double* v);
+
+			[AliasOf("glWindowPos3dv")]
+			[AliasOf("glWindowPos3dvARB")]
+			[AliasOf("glWindowPos3dvMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3dv pglWindowPos3dv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos3f(float x, float y, float z);
+
+			[AliasOf("glWindowPos3f")]
+			[AliasOf("glWindowPos3fARB")]
+			[AliasOf("glWindowPos3fMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3f pglWindowPos3f;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos3fv(float* v);
+
+			[AliasOf("glWindowPos3fv")]
+			[AliasOf("glWindowPos3fvARB")]
+			[AliasOf("glWindowPos3fvMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3fv pglWindowPos3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos3i(Int32 x, Int32 y, Int32 z);
+
+			[AliasOf("glWindowPos3i")]
+			[AliasOf("glWindowPos3iARB")]
+			[AliasOf("glWindowPos3iMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3i pglWindowPos3i;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos3iv(Int32* v);
+
+			[AliasOf("glWindowPos3iv")]
+			[AliasOf("glWindowPos3ivARB")]
+			[AliasOf("glWindowPos3ivMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3iv pglWindowPos3iv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glWindowPos3s(Int16 x, Int16 y, Int16 z);
+
+			[AliasOf("glWindowPos3s")]
+			[AliasOf("glWindowPos3sARB")]
+			[AliasOf("glWindowPos3sMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3s pglWindowPos3s;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWindowPos3sv(Int16* v);
+
+			[AliasOf("glWindowPos3sv")]
+			[AliasOf("glWindowPos3svARB")]
+			[AliasOf("glWindowPos3svMESA")]
+			[ThreadStatic]
+			internal static glWindowPos3sv pglWindowPos3sv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBlendColor(float red, float green, float blue, float alpha);
+
+			[AliasOf("glBlendColor")]
+			[AliasOf("glBlendColorEXT")]
+			[ThreadStatic]
+			internal static glBlendColor pglBlendColor;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBlendEquation(Int32 mode);
+
+			[AliasOf("glBlendEquation")]
+			[AliasOf("glBlendEquationEXT")]
+			[ThreadStatic]
+			internal static glBlendEquation pglBlendEquation;
+
+		}
 	}
 
 }

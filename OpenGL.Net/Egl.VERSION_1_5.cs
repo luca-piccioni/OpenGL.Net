@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -575,6 +578,111 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateSync", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDestroySync", ExactSpelling = true)]
+			internal extern static unsafe bool eglDestroySync(IntPtr dpy, IntPtr sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglClientWaitSync", ExactSpelling = true)]
+			internal extern static unsafe int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetSyncAttrib", ExactSpelling = true)]
+			internal extern static unsafe bool eglGetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateImage", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateImage(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, IntPtr* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDestroyImage", ExactSpelling = true)]
+			internal extern static unsafe bool eglDestroyImage(IntPtr dpy, IntPtr image);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetPlatformDisplay", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglGetPlatformDisplay(uint platform, IntPtr native_display, IntPtr* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreatePlatformWindowSurface", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreatePlatformWindowSurface(IntPtr dpy, IntPtr config, IntPtr native_window, IntPtr* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreatePlatformPixmapSurface", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreatePlatformPixmapSurface(IntPtr dpy, IntPtr config, IntPtr native_pixmap, IntPtr* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglWaitSync", ExactSpelling = true)]
+			internal extern static unsafe bool eglWaitSync(IntPtr dpy, IntPtr sync, int flags);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
+
+			[AliasOf("eglCreateSync")]
+			[AliasOf("eglCreateSync64KHR")]
+			internal static eglCreateSync peglCreateSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglDestroySync(IntPtr dpy, IntPtr sync);
+
+			[AliasOf("eglDestroySync")]
+			[AliasOf("eglDestroySyncKHR")]
+			internal static eglDestroySync peglDestroySync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
+
+			[AliasOf("eglClientWaitSync")]
+			[AliasOf("eglClientWaitSyncKHR")]
+			internal static eglClientWaitSync peglClientWaitSync;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglGetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr* value);
+
+			internal static eglGetSyncAttrib peglGetSyncAttrib;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateImage(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, IntPtr* attrib_list);
+
+			internal static eglCreateImage peglCreateImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglDestroyImage(IntPtr dpy, IntPtr image);
+
+			[AliasOf("eglDestroyImage")]
+			[AliasOf("eglDestroyImageKHR")]
+			internal static eglDestroyImage peglDestroyImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglGetPlatformDisplay(uint platform, IntPtr native_display, IntPtr* attrib_list);
+
+			internal static eglGetPlatformDisplay peglGetPlatformDisplay;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreatePlatformWindowSurface(IntPtr dpy, IntPtr config, IntPtr native_window, IntPtr* attrib_list);
+
+			internal static eglCreatePlatformWindowSurface peglCreatePlatformWindowSurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreatePlatformPixmapSurface(IntPtr dpy, IntPtr config, IntPtr native_pixmap, IntPtr* attrib_list);
+
+			internal static eglCreatePlatformPixmapSurface peglCreatePlatformPixmapSurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglWaitSync(IntPtr dpy, IntPtr sync, int flags);
+
+			internal static eglWaitSync peglWaitSync;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -177,6 +180,79 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglJoinSwapGroupNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglJoinSwapGroupNV(IntPtr hDC, UInt32 group);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglBindSwapBarrierNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static bool wglBindSwapBarrierNV(UInt32 group, UInt32 barrier);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQuerySwapGroupNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQuerySwapGroupNV(IntPtr hDC, UInt32* group, UInt32* barrier);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryMaxSwapGroupsNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryMaxSwapGroupsNV(IntPtr hDC, UInt32* maxGroups, UInt32* maxBarriers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryFrameCountNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryFrameCountNV(IntPtr hDC, UInt32* count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglResetFrameCountNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglResetFrameCountNV(IntPtr hDC);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglJoinSwapGroupNV(IntPtr hDC, UInt32 group);
+
+			[ThreadStatic]
+			internal static wglJoinSwapGroupNV pwglJoinSwapGroupNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglBindSwapBarrierNV(UInt32 group, UInt32 barrier);
+
+			[ThreadStatic]
+			internal static wglBindSwapBarrierNV pwglBindSwapBarrierNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQuerySwapGroupNV(IntPtr hDC, UInt32* group, UInt32* barrier);
+
+			[ThreadStatic]
+			internal static wglQuerySwapGroupNV pwglQuerySwapGroupNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryMaxSwapGroupsNV(IntPtr hDC, UInt32* maxGroups, UInt32* maxBarriers);
+
+			[ThreadStatic]
+			internal static wglQueryMaxSwapGroupsNV pwglQueryMaxSwapGroupsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryFrameCountNV(IntPtr hDC, UInt32* count);
+
+			[ThreadStatic]
+			internal static wglQueryFrameCountNV pwglQueryFrameCountNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglResetFrameCountNV(IntPtr hDC);
+
+			[ThreadStatic]
+			internal static wglResetFrameCountNV pwglResetFrameCountNV;
+
+		}
 	}
 
 }

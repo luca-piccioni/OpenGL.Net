@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -118,6 +121,45 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEnumerateVideoDevicesNV", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglBindVideoDeviceNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryCurrentContextNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
+
+			[ThreadStatic]
+			internal static wglEnumerateVideoDevicesNV pwglEnumerateVideoDevicesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
+
+			[ThreadStatic]
+			internal static wglBindVideoDeviceNV pwglBindVideoDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
+
+			[ThreadStatic]
+			internal static wglQueryCurrentContextNV pwglQueryCurrentContextNV;
+
+		}
 	}
 
 }

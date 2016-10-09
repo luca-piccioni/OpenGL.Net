@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -196,6 +199,96 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenFencesAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glGenFencesAPPLE(Int32 n, UInt32* fences);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteFencesAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteFencesAPPLE(Int32 n, UInt32* fences);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSetFenceAPPLE", ExactSpelling = true)]
+			internal extern static void glSetFenceAPPLE(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsFenceAPPLE", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsFenceAPPLE(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTestFenceAPPLE", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glTestFenceAPPLE(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFinishFenceAPPLE", ExactSpelling = true)]
+			internal extern static void glFinishFenceAPPLE(UInt32 fence);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTestObjectAPPLE", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glTestObjectAPPLE(Int32 @object, UInt32 name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFinishObjectAPPLE", ExactSpelling = true)]
+			internal extern static void glFinishObjectAPPLE(Int32 @object, Int32 name);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenFencesAPPLE(Int32 n, UInt32* fences);
+
+			[ThreadStatic]
+			internal static glGenFencesAPPLE pglGenFencesAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteFencesAPPLE(Int32 n, UInt32* fences);
+
+			[ThreadStatic]
+			internal static glDeleteFencesAPPLE pglDeleteFencesAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSetFenceAPPLE(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glSetFenceAPPLE pglSetFenceAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsFenceAPPLE(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glIsFenceAPPLE pglIsFenceAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glTestFenceAPPLE(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glTestFenceAPPLE pglTestFenceAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFinishFenceAPPLE(UInt32 fence);
+
+			[ThreadStatic]
+			internal static glFinishFenceAPPLE pglFinishFenceAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glTestObjectAPPLE(Int32 @object, UInt32 name);
+
+			[ThreadStatic]
+			internal static glTestObjectAPPLE pglTestObjectAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFinishObjectAPPLE(Int32 @object, Int32 name);
+
+			[ThreadStatic]
+			internal static glFinishObjectAPPLE pglFinishObjectAPPLE;
+
+		}
 	}
 
 }

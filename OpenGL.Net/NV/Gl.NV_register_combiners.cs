@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -685,6 +688,143 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCombinerParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glCombinerParameterfvNV(Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCombinerParameterfNV", ExactSpelling = true)]
+			internal extern static void glCombinerParameterfNV(Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCombinerParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glCombinerParameterivNV(Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCombinerParameteriNV", ExactSpelling = true)]
+			internal extern static void glCombinerParameteriNV(Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCombinerInputNV", ExactSpelling = true)]
+			internal extern static void glCombinerInputNV(Int32 stage, Int32 portion, Int32 variable, Int32 input, Int32 mapping, Int32 componentUsage);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCombinerOutputNV", ExactSpelling = true)]
+			internal extern static void glCombinerOutputNV(Int32 stage, Int32 portion, Int32 abOutput, Int32 cdOutput, Int32 sumOutput, Int32 scale, Int32 bias, bool abDotProduct, bool cdDotProduct, bool muxSum);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFinalCombinerInputNV", ExactSpelling = true)]
+			internal extern static void glFinalCombinerInputNV(Int32 variable, Int32 input, Int32 mapping, Int32 componentUsage);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCombinerInputParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetCombinerInputParameterfvNV(Int32 stage, Int32 portion, Int32 variable, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCombinerInputParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetCombinerInputParameterivNV(Int32 stage, Int32 portion, Int32 variable, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCombinerOutputParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetCombinerOutputParameterfvNV(Int32 stage, Int32 portion, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCombinerOutputParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetCombinerOutputParameterivNV(Int32 stage, Int32 portion, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFinalCombinerInputParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetFinalCombinerInputParameterfvNV(Int32 variable, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFinalCombinerInputParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetFinalCombinerInputParameterivNV(Int32 variable, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCombinerParameterfvNV(Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glCombinerParameterfvNV pglCombinerParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCombinerParameterfNV(Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glCombinerParameterfNV pglCombinerParameterfNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCombinerParameterivNV(Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glCombinerParameterivNV pglCombinerParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCombinerParameteriNV(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glCombinerParameteriNV pglCombinerParameteriNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCombinerInputNV(Int32 stage, Int32 portion, Int32 variable, Int32 input, Int32 mapping, Int32 componentUsage);
+
+			[ThreadStatic]
+			internal static glCombinerInputNV pglCombinerInputNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCombinerOutputNV(Int32 stage, Int32 portion, Int32 abOutput, Int32 cdOutput, Int32 sumOutput, Int32 scale, Int32 bias, bool abDotProduct, bool cdDotProduct, bool muxSum);
+
+			[ThreadStatic]
+			internal static glCombinerOutputNV pglCombinerOutputNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFinalCombinerInputNV(Int32 variable, Int32 input, Int32 mapping, Int32 componentUsage);
+
+			[ThreadStatic]
+			internal static glFinalCombinerInputNV pglFinalCombinerInputNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCombinerInputParameterfvNV(Int32 stage, Int32 portion, Int32 variable, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetCombinerInputParameterfvNV pglGetCombinerInputParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCombinerInputParameterivNV(Int32 stage, Int32 portion, Int32 variable, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetCombinerInputParameterivNV pglGetCombinerInputParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCombinerOutputParameterfvNV(Int32 stage, Int32 portion, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetCombinerOutputParameterfvNV pglGetCombinerOutputParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCombinerOutputParameterivNV(Int32 stage, Int32 portion, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetCombinerOutputParameterivNV pglGetCombinerOutputParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFinalCombinerInputParameterfvNV(Int32 variable, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetFinalCombinerInputParameterfvNV pglGetFinalCombinerInputParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFinalCombinerInputParameterivNV(Int32 variable, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetFinalCombinerInputParameterivNV pglGetFinalCombinerInputParameterivNV;
+
+		}
 	}
 
 }

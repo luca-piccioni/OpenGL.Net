@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -98,6 +101,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramSubroutineParametersuivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramSubroutineParametersuivNV(Int32 target, Int32 count, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramSubroutineParameteruivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramSubroutineParameteruivNV(Int32 target, UInt32 index, UInt32* param);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramSubroutineParametersuivNV(Int32 target, Int32 count, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glProgramSubroutineParametersuivNV pglProgramSubroutineParametersuivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramSubroutineParameteruivNV(Int32 target, UInt32 index, UInt32* param);
+
+			[ThreadStatic]
+			internal static glGetProgramSubroutineParameteruivNV pglGetProgramSubroutineParameteruivNV;
+
+		}
 	}
 
 }

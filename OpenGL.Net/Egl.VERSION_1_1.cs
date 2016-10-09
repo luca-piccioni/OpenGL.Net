@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -277,6 +280,49 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglBindTexImage", ExactSpelling = true)]
+			internal extern static unsafe bool eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglReleaseTexImage", ExactSpelling = true)]
+			internal extern static unsafe bool eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSurfaceAttrib", ExactSpelling = true)]
+			internal extern static unsafe bool eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapInterval", ExactSpelling = true)]
+			internal extern static unsafe bool eglSwapInterval(IntPtr dpy, int interval);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
+
+			internal static eglBindTexImage peglBindTexImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
+
+			internal static eglReleaseTexImage peglReleaseTexImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
+
+			internal static eglSurfaceAttrib peglSurfaceAttrib;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglSwapInterval(IntPtr dpy, int interval);
+
+			internal static eglSwapInterval peglSwapInterval;
+
+		}
 	}
 
 }

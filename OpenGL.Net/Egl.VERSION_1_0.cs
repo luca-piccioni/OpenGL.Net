@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1253,6 +1256,229 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglChooseConfig", ExactSpelling = true)]
+			internal extern static unsafe bool eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCopyBuffers", ExactSpelling = true)]
+			internal extern static unsafe bool eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateContext", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreatePbufferSurface", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreatePixmapSurface", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateWindowSurface", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDestroyContext", ExactSpelling = true)]
+			internal extern static unsafe bool eglDestroyContext(IntPtr dpy, IntPtr ctx);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDestroySurface", ExactSpelling = true)]
+			internal extern static unsafe bool eglDestroySurface(IntPtr dpy, IntPtr surface);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetConfigAttrib", ExactSpelling = true)]
+			internal extern static unsafe bool eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetConfigs", ExactSpelling = true)]
+			internal extern static unsafe bool eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetCurrentDisplay", ExactSpelling = true)]
+			internal extern static IntPtr eglGetCurrentDisplay();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetCurrentSurface", ExactSpelling = true)]
+			internal extern static IntPtr eglGetCurrentSurface(int readdraw);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetDisplay", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglGetDisplay(IntPtr display_id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetError", ExactSpelling = true)]
+			internal extern static int eglGetError();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetProcAddress", ExactSpelling = true)]
+			internal extern static IntPtr eglGetProcAddress(string procname);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglInitialize", ExactSpelling = true)]
+			internal extern static unsafe bool eglInitialize(IntPtr dpy, int* major, int* minor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglMakeCurrent", ExactSpelling = true)]
+			internal extern static unsafe bool eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryContext", ExactSpelling = true)]
+			internal extern static unsafe bool eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQueryString", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglQueryString(IntPtr dpy, int name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglQuerySurface", ExactSpelling = true)]
+			internal extern static unsafe bool eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapBuffers", ExactSpelling = true)]
+			internal extern static unsafe bool eglSwapBuffers(IntPtr dpy, IntPtr surface);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglTerminate", ExactSpelling = true)]
+			internal extern static unsafe bool eglTerminate(IntPtr dpy);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglWaitGL", ExactSpelling = true)]
+			internal extern static bool eglWaitGL();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglWaitNative", ExactSpelling = true)]
+			internal extern static bool eglWaitNative(int engine);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
+
+			internal static eglChooseConfig peglChooseConfig;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
+
+			internal static eglCopyBuffers peglCopyBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
+
+			internal static eglCreateContext peglCreateContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
+
+			internal static eglCreatePbufferSurface peglCreatePbufferSurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+
+			internal static eglCreatePixmapSurface peglCreatePixmapSurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+
+			internal static eglCreateWindowSurface peglCreateWindowSurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglDestroyContext(IntPtr dpy, IntPtr ctx);
+
+			internal static eglDestroyContext peglDestroyContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglDestroySurface(IntPtr dpy, IntPtr surface);
+
+			internal static eglDestroySurface peglDestroySurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+
+			internal static eglGetConfigAttrib peglGetConfigAttrib;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
+
+			internal static eglGetConfigs peglGetConfigs;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr eglGetCurrentDisplay();
+
+			internal static eglGetCurrentDisplay peglGetCurrentDisplay;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr eglGetCurrentSurface(int readdraw);
+
+			internal static eglGetCurrentSurface peglGetCurrentSurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglGetDisplay(IntPtr display_id);
+
+			internal static eglGetDisplay peglGetDisplay;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate int eglGetError();
+
+			internal static eglGetError peglGetError;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr eglGetProcAddress(string procname);
+
+			internal static eglGetProcAddress peglGetProcAddress;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglInitialize(IntPtr dpy, int* major, int* minor);
+
+			internal static eglInitialize peglInitialize;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+
+			internal static eglMakeCurrent peglMakeCurrent;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+
+			internal static eglQueryContext peglQueryContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglQueryString(IntPtr dpy, int name);
+
+			internal static eglQueryString peglQueryString;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
+
+			internal static eglQuerySurface peglQuerySurface;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglSwapBuffers(IntPtr dpy, IntPtr surface);
+
+			internal static eglSwapBuffers peglSwapBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglTerminate(IntPtr dpy);
+
+			internal static eglTerminate peglTerminate;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool eglWaitGL();
+
+			internal static eglWaitGL peglWaitGL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool eglWaitNative(int engine);
+
+			internal static eglWaitNative peglWaitNative;
+
+		}
 	}
 
 }

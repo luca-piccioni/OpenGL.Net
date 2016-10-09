@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1389,6 +1392,166 @@ namespace OpenGL
 			}
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetFBConfigs", ExactSpelling = true)]
+			internal extern static unsafe IntPtr* glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXChooseFBConfig", ExactSpelling = true)]
+			internal extern static unsafe IntPtr* glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetFBConfigAttrib", ExactSpelling = true)]
+			internal extern static unsafe int glXGetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfig", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateWindow", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyWindow", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyWindow(IntPtr dpy, IntPtr win);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreatePixmap", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyPixmap", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyPixmap(IntPtr dpy, IntPtr pixmap);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreatePbuffer", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreatePbuffer(IntPtr dpy, IntPtr config, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyPbuffer", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyPbuffer(IntPtr dpy, IntPtr pbuf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryDrawable", ExactSpelling = true)]
+			internal extern static unsafe void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateNewContext", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXMakeContextCurrent", ExactSpelling = true)]
+			internal extern static unsafe bool glXMakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetCurrentReadDrawable", ExactSpelling = true)]
+			internal extern static IntPtr glXGetCurrentReadDrawable();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryContext", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXSelectEvent", ExactSpelling = true)]
+			internal extern static unsafe void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetSelectedEvent", ExactSpelling = true)]
+			internal extern static unsafe void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32* event_mask);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr* glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
+
+			internal static glXGetFBConfigs pglXGetFBConfigs;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr* glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+
+			internal static glXChooseFBConfig pglXChooseFBConfig;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXGetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+
+			internal static glXGetFBConfigAttrib pglXGetFBConfigAttrib;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
+
+			internal static glXGetVisualFromFBConfig pglXGetVisualFromFBConfig;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+
+			internal static glXCreateWindow pglXCreateWindow;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyWindow(IntPtr dpy, IntPtr win);
+
+			internal static glXDestroyWindow pglXDestroyWindow;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+
+			internal static glXCreatePixmap pglXCreatePixmap;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyPixmap(IntPtr dpy, IntPtr pixmap);
+
+			internal static glXDestroyPixmap pglXDestroyPixmap;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreatePbuffer(IntPtr dpy, IntPtr config, int* attrib_list);
+
+			internal static glXCreatePbuffer pglXCreatePbuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyPbuffer(IntPtr dpy, IntPtr pbuf);
+
+			internal static glXDestroyPbuffer pglXDestroyPbuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value);
+
+			internal static glXQueryDrawable pglXQueryDrawable;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+
+			internal static glXCreateNewContext pglXCreateNewContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXMakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+
+			internal static glXMakeContextCurrent pglXMakeContextCurrent;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glXGetCurrentReadDrawable();
+
+			internal static glXGetCurrentReadDrawable pglXGetCurrentReadDrawable;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+
+			internal static glXQueryContext pglXQueryContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
+
+			internal static glXSelectEvent pglXSelectEvent;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32* event_mask);
+
+			internal static glXGetSelectedEvent pglXGetSelectedEvent;
+
+		}
 	}
 
 }

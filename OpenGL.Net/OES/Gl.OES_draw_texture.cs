@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -219,6 +222,93 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexsOES", ExactSpelling = true)]
+			internal extern static void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexiOES", ExactSpelling = true)]
+			internal extern static void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexxOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexsvOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexsvOES(Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexivOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexivOES(Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexxvOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexxvOES(IntPtr* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexfOES", ExactSpelling = true)]
+			internal extern static void glDrawTexfOES(float x, float y, float z, float width, float height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawTexfvOES", ExactSpelling = true)]
+			internal extern static unsafe void glDrawTexfvOES(float* coords);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
+
+			[ThreadStatic]
+			internal static glDrawTexsOES pglDrawTexsOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glDrawTexiOES pglDrawTexiOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
+
+			[ThreadStatic]
+			internal static glDrawTexxOES pglDrawTexxOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawTexsvOES(Int16* coords);
+
+			[ThreadStatic]
+			internal static glDrawTexsvOES pglDrawTexsvOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawTexivOES(Int32* coords);
+
+			[ThreadStatic]
+			internal static glDrawTexivOES pglDrawTexivOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawTexxvOES(IntPtr* coords);
+
+			[ThreadStatic]
+			internal static glDrawTexxvOES pglDrawTexxvOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawTexfOES(float x, float y, float z, float width, float height);
+
+			[ThreadStatic]
+			internal static glDrawTexfOES pglDrawTexfOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawTexfvOES(float* coords);
+
+			[ThreadStatic]
+			internal static glDrawTexfvOES pglDrawTexfvOES;
+
+		}
 	}
 
 }

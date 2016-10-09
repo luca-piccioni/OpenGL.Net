@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -173,6 +176,57 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetGammaTableParametersI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSetGammaTableParametersI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetGammaTableI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSetGammaTableI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[ThreadStatic]
+			internal static wglGetGammaTableParametersI3D pwglGetGammaTableParametersI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[ThreadStatic]
+			internal static wglSetGammaTableParametersI3D pwglSetGammaTableParametersI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+
+			[ThreadStatic]
+			internal static wglGetGammaTableI3D pwglGetGammaTableI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+
+			[ThreadStatic]
+			internal static wglSetGammaTableI3D pwglSetGammaTableI3D;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -95,6 +98,31 @@ namespace OpenGL
 			LogFunction("glXNamedCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), readBuffer, writeBuffer, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCopyBufferSubDataNV", ExactSpelling = true)]
+			internal extern static unsafe void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXNamedCopyBufferSubDataNV", ExactSpelling = true)]
+			internal extern static unsafe void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			internal static glXCopyBufferSubDataNV pglXCopyBufferSubDataNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			internal static glXNamedCopyBufferSubDataNV pglXNamedCopyBufferSubDataNV;
+
+		}
 	}
 
 }

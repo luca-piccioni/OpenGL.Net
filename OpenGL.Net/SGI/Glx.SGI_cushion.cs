@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -45,6 +48,22 @@ namespace OpenGL
 			LogFunction("glXCushionSGI(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), window.ToString("X8"), cushion);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCushionSGI", ExactSpelling = true)]
+			internal extern static unsafe void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
+
+			internal static glXCushionSGI pglXCushionSGI;
+
+		}
 	}
 
 }

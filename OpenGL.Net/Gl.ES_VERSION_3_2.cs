@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -541,6 +544,40 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBlendBarrier", ExactSpelling = true)]
+			internal extern static void glBlendBarrier();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPrimitiveBoundingBox", ExactSpelling = true)]
+			internal extern static void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBlendBarrier();
+
+			[AliasOf("glBlendBarrier")]
+			[AliasOf("glBlendBarrierKHR")]
+			[AliasOf("glBlendBarrierNV")]
+			[ThreadStatic]
+			internal static glBlendBarrier pglBlendBarrier;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+
+			[AliasOf("glPrimitiveBoundingBox")]
+			[AliasOf("glPrimitiveBoundingBoxARB")]
+			[AliasOf("glPrimitiveBoundingBoxEXT")]
+			[AliasOf("glPrimitiveBoundingBoxOES")]
+			[ThreadStatic]
+			internal static glPrimitiveBoundingBox pglPrimitiveBoundingBox;
+
+		}
 	}
 
 }

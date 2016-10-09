@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -365,6 +368,165 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsRenderbufferOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsRenderbufferOES(UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindRenderbufferOES", ExactSpelling = true)]
+			internal extern static void glBindRenderbufferOES(Int32 target, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteRenderbuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteRenderbuffersOES(Int32 n, UInt32* renderbuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenRenderbuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glGenRenderbuffersOES(Int32 n, UInt32* renderbuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRenderbufferStorageOES", ExactSpelling = true)]
+			internal extern static void glRenderbufferStorageOES(Int32 target, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetRenderbufferParameterivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetRenderbufferParameterivOES(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsFramebufferOES", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsFramebufferOES(UInt32 framebuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindFramebufferOES", ExactSpelling = true)]
+			internal extern static void glBindFramebufferOES(Int32 target, UInt32 framebuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteFramebuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteFramebuffersOES(Int32 n, UInt32* framebuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenFramebuffersOES", ExactSpelling = true)]
+			internal extern static unsafe void glGenFramebuffersOES(Int32 n, UInt32* framebuffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCheckFramebufferStatusOES", ExactSpelling = true)]
+			internal extern static Int32 glCheckFramebufferStatusOES(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferRenderbufferOES", ExactSpelling = true)]
+			internal extern static void glFramebufferRenderbufferOES(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferTexture2DOES", ExactSpelling = true)]
+			internal extern static void glFramebufferTexture2DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFramebufferAttachmentParameterivOES", ExactSpelling = true)]
+			internal extern static unsafe void glGetFramebufferAttachmentParameterivOES(Int32 target, Int32 attachment, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenerateMipmapOES", ExactSpelling = true)]
+			internal extern static void glGenerateMipmapOES(Int32 target);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsRenderbufferOES(UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glIsRenderbufferOES pglIsRenderbufferOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindRenderbufferOES(Int32 target, UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glBindRenderbufferOES pglBindRenderbufferOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteRenderbuffersOES(Int32 n, UInt32* renderbuffers);
+
+			[ThreadStatic]
+			internal static glDeleteRenderbuffersOES pglDeleteRenderbuffersOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenRenderbuffersOES(Int32 n, UInt32* renderbuffers);
+
+			[ThreadStatic]
+			internal static glGenRenderbuffersOES pglGenRenderbuffersOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glRenderbufferStorageOES(Int32 target, Int32 internalformat, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glRenderbufferStorageOES pglRenderbufferStorageOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetRenderbufferParameterivOES(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetRenderbufferParameterivOES pglGetRenderbufferParameterivOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsFramebufferOES(UInt32 framebuffer);
+
+			[ThreadStatic]
+			internal static glIsFramebufferOES pglIsFramebufferOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindFramebufferOES(Int32 target, UInt32 framebuffer);
+
+			[ThreadStatic]
+			internal static glBindFramebufferOES pglBindFramebufferOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteFramebuffersOES(Int32 n, UInt32* framebuffers);
+
+			[ThreadStatic]
+			internal static glDeleteFramebuffersOES pglDeleteFramebuffersOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenFramebuffersOES(Int32 n, UInt32* framebuffers);
+
+			[ThreadStatic]
+			internal static glGenFramebuffersOES pglGenFramebuffersOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glCheckFramebufferStatusOES(Int32 target);
+
+			[ThreadStatic]
+			internal static glCheckFramebufferStatusOES pglCheckFramebufferStatusOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferRenderbufferOES(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glFramebufferRenderbufferOES pglFramebufferRenderbufferOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferTexture2DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[ThreadStatic]
+			internal static glFramebufferTexture2DOES pglFramebufferTexture2DOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFramebufferAttachmentParameterivOES(Int32 target, Int32 attachment, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetFramebufferAttachmentParameterivOES pglGetFramebufferAttachmentParameterivOES;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGenerateMipmapOES(Int32 target);
+
+			[ThreadStatic]
+			internal static glGenerateMipmapOES pglGenerateMipmapOES;
+
+		}
 	}
 
 }

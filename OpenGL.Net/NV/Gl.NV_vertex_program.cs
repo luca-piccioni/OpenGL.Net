@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1293,6 +1296,314 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAreProgramsResidentNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static unsafe bool glAreProgramsResidentNV(Int32 n, UInt32* programs, bool* residences);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glExecuteProgramNV", ExactSpelling = true)]
+			internal extern static unsafe void glExecuteProgramNV(Int32 target, UInt32 id, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramParameterdvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramParameterdvNV(Int32 target, UInt32 index, Int32 pname, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramivNV(UInt32 id, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramStringNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramStringNV(UInt32 id, Int32 pname, byte* program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTrackMatrixivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetTrackMatrixivNV(Int32 target, UInt32 address, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadProgramNV", ExactSpelling = true)]
+			internal extern static unsafe void glLoadProgramNV(Int32 target, UInt32 id, Int32 len, byte* program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameter4dNV", ExactSpelling = true)]
+			internal extern static void glProgramParameter4dNV(Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameter4dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramParameter4dvNV(Int32 target, UInt32 index, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameter4fNV", ExactSpelling = true)]
+			internal extern static void glProgramParameter4fNV(Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameter4fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramParameter4fvNV(Int32 target, UInt32 index, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameters4dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramParameters4dvNV(Int32 target, UInt32 index, Int32 count, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramParameters4fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramParameters4fvNV(Int32 target, UInt32 index, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRequestResidentProgramsNV", ExactSpelling = true)]
+			internal extern static unsafe void glRequestResidentProgramsNV(Int32 n, UInt32* programs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTrackMatrixNV", ExactSpelling = true)]
+			internal extern static void glTrackMatrixNV(Int32 target, UInt32 address, Int32 matrix, Int32 transform);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribPointerNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribPointerNV(UInt32 index, Int32 fsize, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs1dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs1dvNV(UInt32 index, Int32 count, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs1fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs1fvNV(UInt32 index, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs1svNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs1svNV(UInt32 index, Int32 count, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs2dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs2dvNV(UInt32 index, Int32 count, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs2fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs2fvNV(UInt32 index, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs2svNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs2svNV(UInt32 index, Int32 count, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs3dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs3dvNV(UInt32 index, Int32 count, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs3fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs3fvNV(UInt32 index, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs3svNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs3svNV(UInt32 index, Int32 count, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs4dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs4dvNV(UInt32 index, Int32 count, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs4fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs4fvNV(UInt32 index, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs4svNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs4svNV(UInt32 index, Int32 count, Int16* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribs4ubvNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribs4ubvNV(UInt32 index, Int32 count, byte* v);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glAreProgramsResidentNV(Int32 n, UInt32* programs, bool* residences);
+
+			[ThreadStatic]
+			internal static glAreProgramsResidentNV pglAreProgramsResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glExecuteProgramNV(Int32 target, UInt32 id, float* @params);
+
+			[ThreadStatic]
+			internal static glExecuteProgramNV pglExecuteProgramNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramParameterdvNV(Int32 target, UInt32 index, Int32 pname, double* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramParameterdvNV pglGetProgramParameterdvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramParameterfvNV pglGetProgramParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramivNV(UInt32 id, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramivNV pglGetProgramivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramStringNV(UInt32 id, Int32 pname, byte* program);
+
+			[ThreadStatic]
+			internal static glGetProgramStringNV pglGetProgramStringNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTrackMatrixivNV(Int32 target, UInt32 address, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetTrackMatrixivNV pglGetTrackMatrixivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLoadProgramNV(Int32 target, UInt32 id, Int32 len, byte* program);
+
+			[ThreadStatic]
+			internal static glLoadProgramNV pglLoadProgramNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramParameter4dNV(Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glProgramParameter4dNV pglProgramParameter4dNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramParameter4dvNV(Int32 target, UInt32 index, double* v);
+
+			[ThreadStatic]
+			internal static glProgramParameter4dvNV pglProgramParameter4dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramParameter4fNV(Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glProgramParameter4fNV pglProgramParameter4fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramParameter4fvNV(Int32 target, UInt32 index, float* v);
+
+			[ThreadStatic]
+			internal static glProgramParameter4fvNV pglProgramParameter4fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramParameters4dvNV(Int32 target, UInt32 index, Int32 count, double* v);
+
+			[ThreadStatic]
+			internal static glProgramParameters4dvNV pglProgramParameters4dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramParameters4fvNV(Int32 target, UInt32 index, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glProgramParameters4fvNV pglProgramParameters4fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glRequestResidentProgramsNV(Int32 n, UInt32* programs);
+
+			[ThreadStatic]
+			internal static glRequestResidentProgramsNV pglRequestResidentProgramsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTrackMatrixNV(Int32 target, UInt32 address, Int32 matrix, Int32 transform);
+
+			[ThreadStatic]
+			internal static glTrackMatrixNV pglTrackMatrixNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribPointerNV(UInt32 index, Int32 fsize, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glVertexAttribPointerNV pglVertexAttribPointerNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs1dvNV(UInt32 index, Int32 count, double* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs1dvNV pglVertexAttribs1dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs1fvNV(UInt32 index, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs1fvNV pglVertexAttribs1fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs1svNV(UInt32 index, Int32 count, Int16* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs1svNV pglVertexAttribs1svNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs2dvNV(UInt32 index, Int32 count, double* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs2dvNV pglVertexAttribs2dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs2fvNV(UInt32 index, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs2fvNV pglVertexAttribs2fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs2svNV(UInt32 index, Int32 count, Int16* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs2svNV pglVertexAttribs2svNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs3dvNV(UInt32 index, Int32 count, double* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs3dvNV pglVertexAttribs3dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs3fvNV(UInt32 index, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs3fvNV pglVertexAttribs3fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs3svNV(UInt32 index, Int32 count, Int16* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs3svNV pglVertexAttribs3svNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs4dvNV(UInt32 index, Int32 count, double* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs4dvNV pglVertexAttribs4dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs4fvNV(UInt32 index, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs4fvNV pglVertexAttribs4fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs4svNV(UInt32 index, Int32 count, Int16* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs4svNV pglVertexAttribs4svNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribs4ubvNV(UInt32 index, Int32 count, byte* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribs4ubvNV pglVertexAttribs4ubvNV;
+
+		}
 	}
 
 }

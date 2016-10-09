@@ -292,10 +292,8 @@
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="Egl.cs" />
-    <Compile Include="Egl.Delegates.cs" />
     <Compile Include="Egl.Extensions.cs" />
     <Compile Include="Egl.Extensions.Query.cs" />
-    <Compile Include="Egl.Imports.cs" />
     <Compile Include="Egl.Versions.cs" />
     <Compile Include="Egl.VERSION_1_0.cs" />
     <Compile Include="Egl.VERSION_1_1.cs" />
@@ -392,18 +390,12 @@
     <Compile Include="Gl.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gl.Delegates.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Gl.Enums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Gl.Extensions.Core.cs" />
     <Compile Include="Gl.Extensions.cs" />
     <Compile Include="Gl.Extensions.Query.cs" />
-    <Compile Include="Gl.Imports.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Gl.Versions.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_1.cs" />
@@ -427,10 +419,8 @@
     <Compile Include="GlException.cs" />
     <Compile Include="GlslVersion.cs" />
     <Compile Include="Glx.cs" />
-    <Compile Include="Glx.Delegates.cs" />
     <Compile Include="Glx.Extensions.cs" />
     <Compile Include="Glx.Extensions.Query.cs" />
-    <Compile Include="Glx.Imports.cs" />
     <Compile Include="Glx.Versions.cs" />
     <Compile Include="Glx.VERSION_1_0.cs" />
     <Compile Include="Glx.VERSION_1_1.cs" />
@@ -773,14 +763,8 @@
     <Compile Include="Wgl.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Wgl.Delegates.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Wgl.Extensions.cs" />
     <Compile Include="Wgl.Extensions.Query.cs" />
-    <Compile Include="Wgl.Imports.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Wgl.Versions.cs" />
     <Compile Include="Wgl.VERSION_1_0.cs" />
     <Compile Include="WglException.cs" />

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -175,6 +178,58 @@ namespace OpenGL
 			}
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateGLXPbufferSGIX", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyGLXPbufferSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryGLXPbufferSGIX", ExactSpelling = true)]
+			internal extern static unsafe int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXSelectEventSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetSelectedEventSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32* mask);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int* attrib_list);
+
+			internal static glXCreateGLXPbufferSGIX pglXCreateGLXPbufferSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
+
+			internal static glXDestroyGLXPbufferSGIX pglXDestroyGLXPbufferSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value);
+
+			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask);
+
+			internal static glXSelectEventSGIX pglXSelectEventSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32* mask);
+
+			internal static glXGetSelectedEventSGIX pglXGetSelectedEventSGIX;
+
+		}
 	}
 
 }

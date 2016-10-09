@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -262,6 +265,31 @@ namespace OpenGL
 			LogFunction("glXReleaseTexImageEXT(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), buffer);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindTexImageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glXBindTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXReleaseTexImageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glXReleaseTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXBindTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer, int* attrib_list);
+
+			internal static glXBindTexImageEXT pglXBindTexImageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXReleaseTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer);
+
+			internal static glXReleaseTexImageEXT pglXReleaseTexImageEXT;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -3429,6 +3432,657 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenPathsNV", ExactSpelling = true)]
+			internal extern static UInt32 glGenPathsNV(Int32 range);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeletePathsNV", ExactSpelling = true)]
+			internal extern static void glDeletePathsNV(UInt32 path, Int32 range);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsPathNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsPathNV(UInt32 path);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathCommandsNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathCommandsNV(UInt32 path, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathCoordsNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathSubCommandsNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathSubCoordsNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathSubCoordsNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathStringNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathGlyphsNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathGlyphRangeNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glWeightPathsNV", ExactSpelling = true)]
+			internal extern static unsafe void glWeightPathsNV(UInt32 resultPath, Int32 numPaths, UInt32* paths, float* weights);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyPathNV", ExactSpelling = true)]
+			internal extern static void glCopyPathNV(UInt32 resultPath, UInt32 srcPath);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glInterpolatePathsNV", ExactSpelling = true)]
+			internal extern static void glInterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTransformPathNV", ExactSpelling = true)]
+			internal extern static unsafe void glTransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathParameteriNV", ExactSpelling = true)]
+			internal extern static void glPathParameteriNV(UInt32 path, Int32 pname, Int32 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathParameterfvNV(UInt32 path, Int32 pname, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathParameterfNV", ExactSpelling = true)]
+			internal extern static void glPathParameterfNV(UInt32 path, Int32 pname, float value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathDashArrayNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathDashArrayNV(UInt32 path, Int32 dashCount, float* dashArray);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathStencilFuncNV", ExactSpelling = true)]
+			internal extern static void glPathStencilFuncNV(Int32 func, Int32 @ref, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathStencilDepthOffsetNV", ExactSpelling = true)]
+			internal extern static void glPathStencilDepthOffsetNV(float factor, float units);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilFillPathNV", ExactSpelling = true)]
+			internal extern static void glStencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilStrokePathNV", ExactSpelling = true)]
+			internal extern static void glStencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilFillPathInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glStencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilStrokePathInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glStencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathCoverDepthFuncNV", ExactSpelling = true)]
+			internal extern static void glPathCoverDepthFuncNV(Int32 func);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverFillPathNV", ExactSpelling = true)]
+			internal extern static void glCoverFillPathNV(UInt32 path, Int32 coverMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverStrokePathNV", ExactSpelling = true)]
+			internal extern static void glCoverStrokePathNV(UInt32 path, Int32 coverMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverFillPathInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverStrokePathInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathParameterfvNV(UInt32 path, Int32 pname, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathCommandsNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathCommandsNV(UInt32 path, byte* commands);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathCoordsNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathCoordsNV(UInt32 path, float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathDashArrayNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathDashArrayNV(UInt32 path, float* dashArray);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathMetricsNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, float* metrics);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathMetricRangeNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, float* metrics);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathSpacingNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, float* returnedSpacing);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsPointInFillPathNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsPointInStrokePathNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsPointInStrokePathNV(UInt32 path, float x, float y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathLengthNV", ExactSpelling = true)]
+			internal extern static float glGetPathLengthNV(UInt32 path, Int32 startSegment, Int32 numSegments);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointAlongPathNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static unsafe bool glPointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoad3x2fNV", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoad3x2fNV(Int32 matrixMode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoad3x3fNV", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoad3x3fNV(Int32 matrixMode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoadTranspose3x3fNV", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoadTranspose3x3fNV(Int32 matrixMode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMult3x2fNV", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMult3x2fNV(Int32 matrixMode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMult3x3fNV", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMult3x3fNV(Int32 matrixMode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMultTranspose3x3fNV", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMultTranspose3x3fNV(Int32 matrixMode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilThenCoverFillPathNV", ExactSpelling = true)]
+			internal extern static void glStencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilThenCoverStrokePathNV", ExactSpelling = true)]
+			internal extern static void glStencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilThenCoverFillPathInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glStencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStencilThenCoverStrokePathInstancedNV", ExactSpelling = true)]
+			internal extern static unsafe void glStencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathGlyphIndexRangeNV", ExactSpelling = true)]
+			internal extern static unsafe Int32 glPathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32* baseAndCount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathGlyphIndexArrayNV", ExactSpelling = true)]
+			internal extern static unsafe Int32 glPathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathMemoryGlyphIndexArrayNV", ExactSpelling = true)]
+			internal extern static unsafe Int32 glPathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramPathFragmentInputGenNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float* coeffs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramResourcefvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramResourcefvNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32* props, Int32 bufSize, Int32* length, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathColorGenNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float* coeffs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathTexGenNV", ExactSpelling = true)]
+			internal extern static unsafe void glPathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float* coeffs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPathFogGenNV", ExactSpelling = true)]
+			internal extern static void glPathFogGenNV(Int32 genMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathColorGenivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathColorGenivNV(Int32 color, Int32 pname, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathColorGenfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathColorGenfvNV(Int32 color, Int32 pname, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathTexGenivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathTexGenivNV(Int32 texCoordSet, Int32 pname, Int32* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPathTexGenfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetPathTexGenfvNV(Int32 texCoordSet, Int32 pname, float* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGenPathsNV(Int32 range);
+
+			[ThreadStatic]
+			internal static glGenPathsNV pglGenPathsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeletePathsNV(UInt32 path, Int32 range);
+
+			[ThreadStatic]
+			internal static glDeletePathsNV pglDeletePathsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsPathNV(UInt32 path);
+
+			[ThreadStatic]
+			internal static glIsPathNV pglIsPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathCommandsNV(UInt32 path, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[ThreadStatic]
+			internal static glPathCommandsNV pglPathCommandsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[ThreadStatic]
+			internal static glPathCoordsNV pglPathCoordsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[ThreadStatic]
+			internal static glPathSubCommandsNV pglPathSubCommandsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathSubCoordsNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords);
+
+			[ThreadStatic]
+			internal static glPathSubCoordsNV pglPathSubCoordsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString);
+
+			[ThreadStatic]
+			internal static glPathStringNV pglPathStringNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[ThreadStatic]
+			internal static glPathGlyphsNV pglPathGlyphsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[ThreadStatic]
+			internal static glPathGlyphRangeNV pglPathGlyphRangeNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glWeightPathsNV(UInt32 resultPath, Int32 numPaths, UInt32* paths, float* weights);
+
+			[ThreadStatic]
+			internal static glWeightPathsNV pglWeightPathsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyPathNV(UInt32 resultPath, UInt32 srcPath);
+
+			[ThreadStatic]
+			internal static glCopyPathNV pglCopyPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glInterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight);
+
+			[ThreadStatic]
+			internal static glInterpolatePathsNV pglInterpolatePathsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glTransformPathNV pglTransformPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
+
+			[ThreadStatic]
+			internal static glPathParameterivNV pglPathParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPathParameteriNV(UInt32 path, Int32 pname, Int32 value);
+
+			[ThreadStatic]
+			internal static glPathParameteriNV pglPathParameteriNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathParameterfvNV(UInt32 path, Int32 pname, float* value);
+
+			[ThreadStatic]
+			internal static glPathParameterfvNV pglPathParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPathParameterfNV(UInt32 path, Int32 pname, float value);
+
+			[ThreadStatic]
+			internal static glPathParameterfNV pglPathParameterfNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathDashArrayNV(UInt32 path, Int32 dashCount, float* dashArray);
+
+			[ThreadStatic]
+			internal static glPathDashArrayNV pglPathDashArrayNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPathStencilFuncNV(Int32 func, Int32 @ref, UInt32 mask);
+
+			[ThreadStatic]
+			internal static glPathStencilFuncNV pglPathStencilFuncNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPathStencilDepthOffsetNV(float factor, float units);
+
+			[ThreadStatic]
+			internal static glPathStencilDepthOffsetNV pglPathStencilDepthOffsetNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glStencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask);
+
+			[ThreadStatic]
+			internal static glStencilFillPathNV pglStencilFillPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glStencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask);
+
+			[ThreadStatic]
+			internal static glStencilStrokePathNV pglStencilStrokePathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glStencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glStencilFillPathInstancedNV pglStencilFillPathInstancedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glStencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glStencilStrokePathInstancedNV pglStencilStrokePathInstancedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPathCoverDepthFuncNV(Int32 func);
+
+			[ThreadStatic]
+			internal static glPathCoverDepthFuncNV pglPathCoverDepthFuncNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCoverFillPathNV(UInt32 path, Int32 coverMode);
+
+			[ThreadStatic]
+			internal static glCoverFillPathNV pglCoverFillPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCoverStrokePathNV(UInt32 path, Int32 coverMode);
+
+			[ThreadStatic]
+			internal static glCoverStrokePathNV pglCoverStrokePathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glCoverFillPathInstancedNV pglCoverFillPathInstancedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glCoverStrokePathInstancedNV pglCoverStrokePathInstancedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
+
+			[ThreadStatic]
+			internal static glGetPathParameterivNV pglGetPathParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathParameterfvNV(UInt32 path, Int32 pname, float* value);
+
+			[ThreadStatic]
+			internal static glGetPathParameterfvNV pglGetPathParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathCommandsNV(UInt32 path, byte* commands);
+
+			[ThreadStatic]
+			internal static glGetPathCommandsNV pglGetPathCommandsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathCoordsNV(UInt32 path, float* coords);
+
+			[ThreadStatic]
+			internal static glGetPathCoordsNV pglGetPathCoordsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathDashArrayNV(UInt32 path, float* dashArray);
+
+			[ThreadStatic]
+			internal static glGetPathDashArrayNV pglGetPathDashArrayNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, float* metrics);
+
+			[ThreadStatic]
+			internal static glGetPathMetricsNV pglGetPathMetricsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, float* metrics);
+
+			[ThreadStatic]
+			internal static glGetPathMetricRangeNV pglGetPathMetricRangeNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, float* returnedSpacing);
+
+			[ThreadStatic]
+			internal static glGetPathSpacingNV pglGetPathSpacingNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y);
+
+			[ThreadStatic]
+			internal static glIsPointInFillPathNV pglIsPointInFillPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsPointInStrokePathNV(UInt32 path, float x, float y);
+
+			[ThreadStatic]
+			internal static glIsPointInStrokePathNV pglIsPointInStrokePathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate float glGetPathLengthNV(UInt32 path, Int32 startSegment, Int32 numSegments);
+
+			[ThreadStatic]
+			internal static glGetPathLengthNV pglGetPathLengthNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glPointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
+
+			[ThreadStatic]
+			internal static glPointAlongPathNV pglPointAlongPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoad3x2fNV(Int32 matrixMode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoad3x2fNV pglMatrixLoad3x2fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoad3x3fNV(Int32 matrixMode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoad3x3fNV pglMatrixLoad3x3fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoadTranspose3x3fNV(Int32 matrixMode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoadTranspose3x3fNV pglMatrixLoadTranspose3x3fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMult3x2fNV(Int32 matrixMode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixMult3x2fNV pglMatrixMult3x2fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMult3x3fNV(Int32 matrixMode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixMult3x3fNV pglMatrixMult3x3fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMultTranspose3x3fNV(Int32 matrixMode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixMultTranspose3x3fNV pglMatrixMultTranspose3x3fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glStencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode);
+
+			[ThreadStatic]
+			internal static glStencilThenCoverFillPathNV pglStencilThenCoverFillPathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glStencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode);
+
+			[ThreadStatic]
+			internal static glStencilThenCoverStrokePathNV pglStencilThenCoverStrokePathNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glStencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glStencilThenCoverFillPathInstancedNV pglStencilThenCoverFillPathInstancedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glStencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
+
+			[ThreadStatic]
+			internal static glStencilThenCoverStrokePathInstancedNV pglStencilThenCoverStrokePathInstancedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int32 glPathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32* baseAndCount);
+
+			[ThreadStatic]
+			internal static glPathGlyphIndexRangeNV pglPathGlyphIndexRangeNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int32 glPathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[ThreadStatic]
+			internal static glPathGlyphIndexArrayNV pglPathGlyphIndexArrayNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int32 glPathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
+
+			[ThreadStatic]
+			internal static glPathMemoryGlyphIndexArrayNV pglPathMemoryGlyphIndexArrayNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float* coeffs);
+
+			[ThreadStatic]
+			internal static glProgramPathFragmentInputGenNV pglProgramPathFragmentInputGenNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramResourcefvNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32* props, Int32 bufSize, Int32* length, float* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramResourcefvNV pglGetProgramResourcefvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float* coeffs);
+
+			[ThreadStatic]
+			internal static glPathColorGenNV pglPathColorGenNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float* coeffs);
+
+			[ThreadStatic]
+			internal static glPathTexGenNV pglPathTexGenNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPathFogGenNV(Int32 genMode);
+
+			[ThreadStatic]
+			internal static glPathFogGenNV pglPathFogGenNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathColorGenivNV(Int32 color, Int32 pname, Int32* value);
+
+			[ThreadStatic]
+			internal static glGetPathColorGenivNV pglGetPathColorGenivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathColorGenfvNV(Int32 color, Int32 pname, float* value);
+
+			[ThreadStatic]
+			internal static glGetPathColorGenfvNV pglGetPathColorGenfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathTexGenivNV(Int32 texCoordSet, Int32 pname, Int32* value);
+
+			[ThreadStatic]
+			internal static glGetPathTexGenivNV pglGetPathTexGenivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPathTexGenfvNV(Int32 texCoordSet, Int32 pname, float* value);
+
+			[ThreadStatic]
+			internal static glGetPathTexGenfvNV pglGetPathTexGenfvNV;
+
+		}
 	}
 
 }

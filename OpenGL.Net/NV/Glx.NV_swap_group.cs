@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -189,6 +192,67 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXJoinSwapGroupNV", ExactSpelling = true)]
+			internal extern static unsafe bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32 group);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindSwapBarrierNV", ExactSpelling = true)]
+			internal extern static unsafe bool glXBindSwapBarrierNV(IntPtr dpy, UInt32 group, UInt32 barrier);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQuerySwapGroupNV", ExactSpelling = true)]
+			internal extern static unsafe bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32* group, UInt32* barrier);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryMaxSwapGroupsNV", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, UInt32* maxGroups, UInt32* maxBarriers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryFrameCountNV", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryFrameCountNV(IntPtr dpy, int screen, UInt32* count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXResetFrameCountNV", ExactSpelling = true)]
+			internal extern static unsafe bool glXResetFrameCountNV(IntPtr dpy, int screen);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32 group);
+
+			internal static glXJoinSwapGroupNV pglXJoinSwapGroupNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXBindSwapBarrierNV(IntPtr dpy, UInt32 group, UInt32 barrier);
+
+			internal static glXBindSwapBarrierNV pglXBindSwapBarrierNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32* group, UInt32* barrier);
+
+			internal static glXQuerySwapGroupNV pglXQuerySwapGroupNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, UInt32* maxGroups, UInt32* maxBarriers);
+
+			internal static glXQueryMaxSwapGroupsNV pglXQueryMaxSwapGroupsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryFrameCountNV(IntPtr dpy, int screen, UInt32* count);
+
+			internal static glXQueryFrameCountNV pglXQueryFrameCountNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXResetFrameCountNV(IntPtr dpy, int screen);
+
+			internal static glXResetFrameCountNV pglXResetFrameCountNV;
+
+		}
 	}
 
 }

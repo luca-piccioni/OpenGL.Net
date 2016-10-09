@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -335,6 +338,114 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUInitNV", ExactSpelling = true)]
+			internal extern static unsafe void glVDPAUInitNV(IntPtr vdpDevice, IntPtr getProcAddress);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUFiniNV", ExactSpelling = true)]
+			internal extern static void glVDPAUFiniNV();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAURegisterVideoSurfaceNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, Int32 target, Int32 numTextureNames, UInt32* textureNames);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAURegisterOutputSurfaceNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, Int32 target, Int32 numTextureNames, UInt32* textureNames);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUIsSurfaceNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static unsafe bool glVDPAUIsSurfaceNV(IntPtr surface);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUUnregisterSurfaceNV", ExactSpelling = true)]
+			internal extern static unsafe void glVDPAUUnregisterSurfaceNV(IntPtr surface);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUGetSurfaceivNV", ExactSpelling = true)]
+			internal extern static unsafe void glVDPAUGetSurfaceivNV(IntPtr surface, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUSurfaceAccessNV", ExactSpelling = true)]
+			internal extern static unsafe void glVDPAUSurfaceAccessNV(IntPtr surface, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUMapSurfacesNV", ExactSpelling = true)]
+			internal extern static unsafe void glVDPAUMapSurfacesNV(Int32 numSurfaces, IntPtr* surfaces);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVDPAUUnmapSurfacesNV", ExactSpelling = true)]
+			internal extern static unsafe void glVDPAUUnmapSurfacesNV(Int32 numSurface, IntPtr* surfaces);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVDPAUInitNV(IntPtr vdpDevice, IntPtr getProcAddress);
+
+			[ThreadStatic]
+			internal static glVDPAUInitNV pglVDPAUInitNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVDPAUFiniNV();
+
+			[ThreadStatic]
+			internal static glVDPAUFiniNV pglVDPAUFiniNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, Int32 target, Int32 numTextureNames, UInt32* textureNames);
+
+			[ThreadStatic]
+			internal static glVDPAURegisterVideoSurfaceNV pglVDPAURegisterVideoSurfaceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, Int32 target, Int32 numTextureNames, UInt32* textureNames);
+
+			[ThreadStatic]
+			internal static glVDPAURegisterOutputSurfaceNV pglVDPAURegisterOutputSurfaceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glVDPAUIsSurfaceNV(IntPtr surface);
+
+			[ThreadStatic]
+			internal static glVDPAUIsSurfaceNV pglVDPAUIsSurfaceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVDPAUUnregisterSurfaceNV(IntPtr surface);
+
+			[ThreadStatic]
+			internal static glVDPAUUnregisterSurfaceNV pglVDPAUUnregisterSurfaceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVDPAUGetSurfaceivNV(IntPtr surface, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
+
+			[ThreadStatic]
+			internal static glVDPAUGetSurfaceivNV pglVDPAUGetSurfaceivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVDPAUSurfaceAccessNV(IntPtr surface, Int32 access);
+
+			[ThreadStatic]
+			internal static glVDPAUSurfaceAccessNV pglVDPAUSurfaceAccessNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVDPAUMapSurfacesNV(Int32 numSurfaces, IntPtr* surfaces);
+
+			[ThreadStatic]
+			internal static glVDPAUMapSurfacesNV pglVDPAUMapSurfacesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVDPAUUnmapSurfacesNV(Int32 numSurface, IntPtr* surfaces);
+
+			[ThreadStatic]
+			internal static glVDPAUUnmapSurfacesNV pglVDPAUUnmapSurfacesNV;
+
+		}
 	}
 
 }

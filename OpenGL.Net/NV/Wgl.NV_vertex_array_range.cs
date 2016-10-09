@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -68,6 +71,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglAllocateMemoryNV", ExactSpelling = true, SetLastError = true)]
+			internal extern static IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglFreeMemoryNV", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe void wglFreeMemoryNV(IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
+
+			[ThreadStatic]
+			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void wglFreeMemoryNV(IntPtr pointer);
+
+			[ThreadStatic]
+			internal static wglFreeMemoryNV pwglFreeMemoryNV;
+
+		}
 	}
 
 }

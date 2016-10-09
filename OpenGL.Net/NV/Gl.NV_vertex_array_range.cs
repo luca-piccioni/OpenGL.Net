@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -105,6 +108,33 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFlushVertexArrayRangeNV", ExactSpelling = true)]
+			internal extern static void glFlushVertexArrayRangeNV();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayRangeNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFlushVertexArrayRangeNV();
+
+			[ThreadStatic]
+			internal static glFlushVertexArrayRangeNV pglFlushVertexArrayRangeNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glVertexArrayRangeNV pglVertexArrayRangeNV;
+
+		}
 	}
 
 }

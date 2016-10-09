@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1099,6 +1102,463 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1sATI", ExactSpelling = true)]
+			internal extern static void glVertexStream1sATI(Int32 stream, Int16 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1svATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream1svATI(Int32 stream, Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1iATI", ExactSpelling = true)]
+			internal extern static void glVertexStream1iATI(Int32 stream, Int32 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1ivATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream1ivATI(Int32 stream, Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1fATI", ExactSpelling = true)]
+			internal extern static void glVertexStream1fATI(Int32 stream, float x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1fvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream1fvATI(Int32 stream, float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1dATI", ExactSpelling = true)]
+			internal extern static void glVertexStream1dATI(Int32 stream, double x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream1dvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream1dvATI(Int32 stream, double* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2sATI", ExactSpelling = true)]
+			internal extern static void glVertexStream2sATI(Int32 stream, Int16 x, Int16 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2svATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream2svATI(Int32 stream, Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2iATI", ExactSpelling = true)]
+			internal extern static void glVertexStream2iATI(Int32 stream, Int32 x, Int32 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2ivATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream2ivATI(Int32 stream, Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2fATI", ExactSpelling = true)]
+			internal extern static void glVertexStream2fATI(Int32 stream, float x, float y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2fvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream2fvATI(Int32 stream, float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2dATI", ExactSpelling = true)]
+			internal extern static void glVertexStream2dATI(Int32 stream, double x, double y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream2dvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream2dvATI(Int32 stream, double* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3sATI", ExactSpelling = true)]
+			internal extern static void glVertexStream3sATI(Int32 stream, Int16 x, Int16 y, Int16 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3svATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream3svATI(Int32 stream, Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3iATI", ExactSpelling = true)]
+			internal extern static void glVertexStream3iATI(Int32 stream, Int32 x, Int32 y, Int32 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3ivATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream3ivATI(Int32 stream, Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3fATI", ExactSpelling = true)]
+			internal extern static void glVertexStream3fATI(Int32 stream, float x, float y, float z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3fvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream3fvATI(Int32 stream, float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3dATI", ExactSpelling = true)]
+			internal extern static void glVertexStream3dATI(Int32 stream, double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream3dvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream3dvATI(Int32 stream, double* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4sATI", ExactSpelling = true)]
+			internal extern static void glVertexStream4sATI(Int32 stream, Int16 x, Int16 y, Int16 z, Int16 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4svATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream4svATI(Int32 stream, Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4iATI", ExactSpelling = true)]
+			internal extern static void glVertexStream4iATI(Int32 stream, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4ivATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream4ivATI(Int32 stream, Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4fATI", ExactSpelling = true)]
+			internal extern static void glVertexStream4fATI(Int32 stream, float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4fvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream4fvATI(Int32 stream, float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4dATI", ExactSpelling = true)]
+			internal extern static void glVertexStream4dATI(Int32 stream, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexStream4dvATI", ExactSpelling = true)]
+			internal extern static unsafe void glVertexStream4dvATI(Int32 stream, double* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3bATI", ExactSpelling = true)]
+			internal extern static void glNormalStream3bATI(Int32 stream, sbyte nx, sbyte ny, sbyte nz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3bvATI", ExactSpelling = true)]
+			internal extern static unsafe void glNormalStream3bvATI(Int32 stream, sbyte* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3sATI", ExactSpelling = true)]
+			internal extern static void glNormalStream3sATI(Int32 stream, Int16 nx, Int16 ny, Int16 nz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3svATI", ExactSpelling = true)]
+			internal extern static unsafe void glNormalStream3svATI(Int32 stream, Int16* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3iATI", ExactSpelling = true)]
+			internal extern static void glNormalStream3iATI(Int32 stream, Int32 nx, Int32 ny, Int32 nz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3ivATI", ExactSpelling = true)]
+			internal extern static unsafe void glNormalStream3ivATI(Int32 stream, Int32* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3fATI", ExactSpelling = true)]
+			internal extern static void glNormalStream3fATI(Int32 stream, float nx, float ny, float nz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3fvATI", ExactSpelling = true)]
+			internal extern static unsafe void glNormalStream3fvATI(Int32 stream, float* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3dATI", ExactSpelling = true)]
+			internal extern static void glNormalStream3dATI(Int32 stream, double nx, double ny, double nz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalStream3dvATI", ExactSpelling = true)]
+			internal extern static unsafe void glNormalStream3dvATI(Int32 stream, double* coords);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClientActiveVertexStreamATI", ExactSpelling = true)]
+			internal extern static void glClientActiveVertexStreamATI(Int32 stream);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexBlendEnviATI", ExactSpelling = true)]
+			internal extern static void glVertexBlendEnviATI(Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexBlendEnvfATI", ExactSpelling = true)]
+			internal extern static void glVertexBlendEnvfATI(Int32 pname, float param);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream1sATI(Int32 stream, Int16 x);
+
+			[ThreadStatic]
+			internal static glVertexStream1sATI pglVertexStream1sATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream1svATI(Int32 stream, Int16* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream1svATI pglVertexStream1svATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream1iATI(Int32 stream, Int32 x);
+
+			[ThreadStatic]
+			internal static glVertexStream1iATI pglVertexStream1iATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream1ivATI(Int32 stream, Int32* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream1ivATI pglVertexStream1ivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream1fATI(Int32 stream, float x);
+
+			[ThreadStatic]
+			internal static glVertexStream1fATI pglVertexStream1fATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream1fvATI(Int32 stream, float* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream1fvATI pglVertexStream1fvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream1dATI(Int32 stream, double x);
+
+			[ThreadStatic]
+			internal static glVertexStream1dATI pglVertexStream1dATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream1dvATI(Int32 stream, double* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream1dvATI pglVertexStream1dvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream2sATI(Int32 stream, Int16 x, Int16 y);
+
+			[ThreadStatic]
+			internal static glVertexStream2sATI pglVertexStream2sATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream2svATI(Int32 stream, Int16* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream2svATI pglVertexStream2svATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream2iATI(Int32 stream, Int32 x, Int32 y);
+
+			[ThreadStatic]
+			internal static glVertexStream2iATI pglVertexStream2iATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream2ivATI(Int32 stream, Int32* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream2ivATI pglVertexStream2ivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream2fATI(Int32 stream, float x, float y);
+
+			[ThreadStatic]
+			internal static glVertexStream2fATI pglVertexStream2fATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream2fvATI(Int32 stream, float* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream2fvATI pglVertexStream2fvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream2dATI(Int32 stream, double x, double y);
+
+			[ThreadStatic]
+			internal static glVertexStream2dATI pglVertexStream2dATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream2dvATI(Int32 stream, double* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream2dvATI pglVertexStream2dvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream3sATI(Int32 stream, Int16 x, Int16 y, Int16 z);
+
+			[ThreadStatic]
+			internal static glVertexStream3sATI pglVertexStream3sATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream3svATI(Int32 stream, Int16* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream3svATI pglVertexStream3svATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream3iATI(Int32 stream, Int32 x, Int32 y, Int32 z);
+
+			[ThreadStatic]
+			internal static glVertexStream3iATI pglVertexStream3iATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream3ivATI(Int32 stream, Int32* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream3ivATI pglVertexStream3ivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream3fATI(Int32 stream, float x, float y, float z);
+
+			[ThreadStatic]
+			internal static glVertexStream3fATI pglVertexStream3fATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream3fvATI(Int32 stream, float* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream3fvATI pglVertexStream3fvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream3dATI(Int32 stream, double x, double y, double z);
+
+			[ThreadStatic]
+			internal static glVertexStream3dATI pglVertexStream3dATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream3dvATI(Int32 stream, double* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream3dvATI pglVertexStream3dvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream4sATI(Int32 stream, Int16 x, Int16 y, Int16 z, Int16 w);
+
+			[ThreadStatic]
+			internal static glVertexStream4sATI pglVertexStream4sATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream4svATI(Int32 stream, Int16* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream4svATI pglVertexStream4svATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream4iATI(Int32 stream, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[ThreadStatic]
+			internal static glVertexStream4iATI pglVertexStream4iATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream4ivATI(Int32 stream, Int32* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream4ivATI pglVertexStream4ivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream4fATI(Int32 stream, float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glVertexStream4fATI pglVertexStream4fATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream4fvATI(Int32 stream, float* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream4fvATI pglVertexStream4fvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexStream4dATI(Int32 stream, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glVertexStream4dATI pglVertexStream4dATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexStream4dvATI(Int32 stream, double* coords);
+
+			[ThreadStatic]
+			internal static glVertexStream4dvATI pglVertexStream4dvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalStream3bATI(Int32 stream, sbyte nx, sbyte ny, sbyte nz);
+
+			[ThreadStatic]
+			internal static glNormalStream3bATI pglNormalStream3bATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalStream3bvATI(Int32 stream, sbyte* coords);
+
+			[ThreadStatic]
+			internal static glNormalStream3bvATI pglNormalStream3bvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalStream3sATI(Int32 stream, Int16 nx, Int16 ny, Int16 nz);
+
+			[ThreadStatic]
+			internal static glNormalStream3sATI pglNormalStream3sATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalStream3svATI(Int32 stream, Int16* coords);
+
+			[ThreadStatic]
+			internal static glNormalStream3svATI pglNormalStream3svATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalStream3iATI(Int32 stream, Int32 nx, Int32 ny, Int32 nz);
+
+			[ThreadStatic]
+			internal static glNormalStream3iATI pglNormalStream3iATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalStream3ivATI(Int32 stream, Int32* coords);
+
+			[ThreadStatic]
+			internal static glNormalStream3ivATI pglNormalStream3ivATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalStream3fATI(Int32 stream, float nx, float ny, float nz);
+
+			[ThreadStatic]
+			internal static glNormalStream3fATI pglNormalStream3fATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalStream3fvATI(Int32 stream, float* coords);
+
+			[ThreadStatic]
+			internal static glNormalStream3fvATI pglNormalStream3fvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNormalStream3dATI(Int32 stream, double nx, double ny, double nz);
+
+			[ThreadStatic]
+			internal static glNormalStream3dATI pglNormalStream3dATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalStream3dvATI(Int32 stream, double* coords);
+
+			[ThreadStatic]
+			internal static glNormalStream3dvATI pglNormalStream3dvATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClientActiveVertexStreamATI(Int32 stream);
+
+			[ThreadStatic]
+			internal static glClientActiveVertexStreamATI pglClientActiveVertexStreamATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexBlendEnviATI(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glVertexBlendEnviATI pglVertexBlendEnviATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexBlendEnvfATI(Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glVertexBlendEnvfATI pglVertexBlendEnvfATI;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -465,6 +468,203 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1i64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL1i64NV(UInt32 index, Int64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL2i64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL2i64NV(UInt32 index, Int64 x, Int64 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL3i64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL3i64NV(UInt32 index, Int64 x, Int64 y, Int64 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL4i64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL4i64NV(UInt32 index, Int64 x, Int64 y, Int64 z, Int64 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL1i64vNV(UInt32 index, Int64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL2i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL2i64vNV(UInt32 index, Int64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL3i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL3i64vNV(UInt32 index, Int64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL4i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL4i64vNV(UInt32 index, Int64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1ui64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL1ui64NV(UInt32 index, UInt64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL2ui64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL2ui64NV(UInt32 index, UInt64 x, UInt64 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL3ui64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL3ui64NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL4ui64NV", ExactSpelling = true)]
+			internal extern static void glVertexAttribL4ui64NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL1ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL1ui64vNV(UInt32 index, UInt64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL2ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL2ui64vNV(UInt32 index, UInt64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL3ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL3ui64vNV(UInt32 index, UInt64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribL4ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glVertexAttribL4ui64vNV(UInt32 index, UInt64* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexAttribLi64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexAttribLi64vNV(UInt32 index, Int32 pname, Int64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexAttribLui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexAttribLui64vNV(UInt32 index, Int32 pname, UInt64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexAttribLFormatNV", ExactSpelling = true)]
+			internal extern static void glVertexAttribLFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL1i64NV(UInt32 index, Int64 x);
+
+			[ThreadStatic]
+			internal static glVertexAttribL1i64NV pglVertexAttribL1i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL2i64NV(UInt32 index, Int64 x, Int64 y);
+
+			[ThreadStatic]
+			internal static glVertexAttribL2i64NV pglVertexAttribL2i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL3i64NV(UInt32 index, Int64 x, Int64 y, Int64 z);
+
+			[ThreadStatic]
+			internal static glVertexAttribL3i64NV pglVertexAttribL3i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL4i64NV(UInt32 index, Int64 x, Int64 y, Int64 z, Int64 w);
+
+			[ThreadStatic]
+			internal static glVertexAttribL4i64NV pglVertexAttribL4i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL1i64vNV(UInt32 index, Int64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL1i64vNV pglVertexAttribL1i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL2i64vNV(UInt32 index, Int64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL2i64vNV pglVertexAttribL2i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL3i64vNV(UInt32 index, Int64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL3i64vNV pglVertexAttribL3i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL4i64vNV(UInt32 index, Int64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL4i64vNV pglVertexAttribL4i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL1ui64NV(UInt32 index, UInt64 x);
+
+			[ThreadStatic]
+			internal static glVertexAttribL1ui64NV pglVertexAttribL1ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL2ui64NV(UInt32 index, UInt64 x, UInt64 y);
+
+			[ThreadStatic]
+			internal static glVertexAttribL2ui64NV pglVertexAttribL2ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL3ui64NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z);
+
+			[ThreadStatic]
+			internal static glVertexAttribL3ui64NV pglVertexAttribL3ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribL4ui64NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+
+			[ThreadStatic]
+			internal static glVertexAttribL4ui64NV pglVertexAttribL4ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL1ui64vNV(UInt32 index, UInt64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL1ui64vNV pglVertexAttribL1ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL2ui64vNV(UInt32 index, UInt64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL2ui64vNV pglVertexAttribL2ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL3ui64vNV(UInt32 index, UInt64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL3ui64vNV pglVertexAttribL3ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexAttribL4ui64vNV(UInt32 index, UInt64* v);
+
+			[ThreadStatic]
+			internal static glVertexAttribL4ui64vNV pglVertexAttribL4ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexAttribLi64vNV(UInt32 index, Int32 pname, Int64* @params);
+
+			[ThreadStatic]
+			internal static glGetVertexAttribLi64vNV pglGetVertexAttribLi64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexAttribLui64vNV(UInt32 index, Int32 pname, UInt64* @params);
+
+			[ThreadStatic]
+			internal static glGetVertexAttribLui64vNV pglGetVertexAttribLui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexAttribLFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
+
+			[ThreadStatic]
+			internal static glVertexAttribLFormatNV pglVertexAttribLFormatNV;
+
+		}
 	}
 
 }

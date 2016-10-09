@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -93,6 +96,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatusEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetGraphicsResetStatusEXT();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformfvEXT(UInt32 program, Int32 location, Int32 bufSize, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformivEXT(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetGraphicsResetStatusEXT();
+
+			[ThreadStatic]
+			internal static glGetGraphicsResetStatusEXT pglGetGraphicsResetStatusEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformfvEXT(UInt32 program, Int32 location, Int32 bufSize, float* @params);
+
+			[ThreadStatic]
+			internal static glGetnUniformfvEXT pglGetnUniformfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformivEXT(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetnUniformivEXT pglGetnUniformivEXT;
+
+		}
 	}
 
 }

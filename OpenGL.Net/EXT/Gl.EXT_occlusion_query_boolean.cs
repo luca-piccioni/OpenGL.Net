@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -188,6 +191,84 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenQueriesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGenQueriesEXT(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteQueriesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteQueriesEXT(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsQueryEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsQueryEXT(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginQueryEXT", ExactSpelling = true)]
+			internal extern static void glBeginQueryEXT(Int32 target, UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndQueryEXT", ExactSpelling = true)]
+			internal extern static void glEndQueryEXT(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjectuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenQueriesEXT(Int32 n, UInt32* ids);
+
+			[ThreadStatic]
+			internal static glGenQueriesEXT pglGenQueriesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteQueriesEXT(Int32 n, UInt32* ids);
+
+			[ThreadStatic]
+			internal static glDeleteQueriesEXT pglDeleteQueriesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsQueryEXT(UInt32 id);
+
+			[ThreadStatic]
+			internal static glIsQueryEXT pglIsQueryEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginQueryEXT(Int32 target, UInt32 id);
+
+			[ThreadStatic]
+			internal static glBeginQueryEXT pglBeginQueryEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndQueryEXT(Int32 target);
+
+			[ThreadStatic]
+			internal static glEndQueryEXT pglEndQueryEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetQueryivEXT pglGetQueryivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetQueryObjectuivEXT pglGetQueryObjectuivEXT;
+
+		}
 	}
 
 }

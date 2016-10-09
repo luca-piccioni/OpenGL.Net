@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -142,6 +145,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramBufferParametersfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramBufferParametersfvNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramBufferParametersIivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramBufferParametersIivNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramBufferParametersIuivNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramBufferParametersIuivNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, UInt32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramBufferParametersfvNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, float* @params);
+
+			[ThreadStatic]
+			internal static glProgramBufferParametersfvNV pglProgramBufferParametersfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramBufferParametersIivNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, Int32* @params);
+
+			[ThreadStatic]
+			internal static glProgramBufferParametersIivNV pglProgramBufferParametersIivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramBufferParametersIuivNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glProgramBufferParametersIuivNV pglProgramBufferParametersIuivNV;
+
+		}
 	}
 
 }

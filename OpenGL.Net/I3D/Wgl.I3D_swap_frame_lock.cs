@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -105,6 +108,57 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglEnableFrameLockI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static bool wglEnableFrameLockI3D();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDisableFrameLockI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static bool wglDisableFrameLockI3D();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglIsEnabledFrameLockI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglIsEnabledFrameLockI3D(bool* pFlag);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglQueryFrameLockMasterI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglQueryFrameLockMasterI3D(bool* pFlag);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglEnableFrameLockI3D();
+
+			[ThreadStatic]
+			internal static wglEnableFrameLockI3D pwglEnableFrameLockI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool wglDisableFrameLockI3D();
+
+			[ThreadStatic]
+			internal static wglDisableFrameLockI3D pwglDisableFrameLockI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
+
+			[ThreadStatic]
+			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
+
+			[ThreadStatic]
+			internal static wglQueryFrameLockMasterI3D pwglQueryFrameLockMasterI3D;
+
+		}
 	}
 
 }

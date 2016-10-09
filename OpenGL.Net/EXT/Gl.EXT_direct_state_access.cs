@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -7543,6 +7546,2124 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoadfEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoadfEXT(Int32 mode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoaddEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoaddEXT(Int32 mode, double* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMultfEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMultfEXT(Int32 mode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMultdEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMultdEXT(Int32 mode, double* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoadIdentityEXT", ExactSpelling = true)]
+			internal extern static void glMatrixLoadIdentityEXT(Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixRotatefEXT", ExactSpelling = true)]
+			internal extern static void glMatrixRotatefEXT(Int32 mode, float angle, float x, float y, float z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixRotatedEXT", ExactSpelling = true)]
+			internal extern static void glMatrixRotatedEXT(Int32 mode, double angle, double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixScalefEXT", ExactSpelling = true)]
+			internal extern static void glMatrixScalefEXT(Int32 mode, float x, float y, float z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixScaledEXT", ExactSpelling = true)]
+			internal extern static void glMatrixScaledEXT(Int32 mode, double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixTranslatefEXT", ExactSpelling = true)]
+			internal extern static void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixTranslatedEXT", ExactSpelling = true)]
+			internal extern static void glMatrixTranslatedEXT(Int32 mode, double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixFrustumEXT", ExactSpelling = true)]
+			internal extern static void glMatrixFrustumEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixOrthoEXT", ExactSpelling = true)]
+			internal extern static void glMatrixOrthoEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixPopEXT", ExactSpelling = true)]
+			internal extern static void glMatrixPopEXT(Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixPushEXT", ExactSpelling = true)]
+			internal extern static void glMatrixPushEXT(Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClientAttribDefaultEXT", ExactSpelling = true)]
+			internal extern static void glClientAttribDefaultEXT(UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPushClientAttribDefaultEXT", ExactSpelling = true)]
+			internal extern static void glPushClientAttribDefaultEXT(UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureParameterfEXT", ExactSpelling = true)]
+			internal extern static void glTextureParameterfEXT(UInt32 texture, Int32 target, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureParameteriEXT", ExactSpelling = true)]
+			internal extern static void glTextureParameteriEXT(UInt32 texture, Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureSubImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureSubImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTextureImage1DEXT", ExactSpelling = true)]
+			internal extern static void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTextureImage2DEXT", ExactSpelling = true)]
+			internal extern static void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTextureSubImage1DEXT", ExactSpelling = true)]
+			internal extern static void glCopyTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTextureSubImage2DEXT", ExactSpelling = true)]
+			internal extern static void glCopyTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureImageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureImageEXT(UInt32 texture, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureLevelParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureLevelParameterfvEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureLevelParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureLevelParameterivEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureSubImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyTextureSubImage3DEXT", ExactSpelling = true)]
+			internal extern static void glCopyTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindMultiTextureEXT", ExactSpelling = true)]
+			internal extern static void glBindMultiTextureEXT(Int32 texunit, Int32 target, UInt32 texture);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoordPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoordPointerEXT(Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexEnvfEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexEnvfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexEnvfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexEnviEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexEnviEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexEnvivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexGendEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexGendEXT(Int32 texunit, Int32 coord, Int32 pname, double param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexGendvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexGenfEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexGenfEXT(Int32 texunit, Int32 coord, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexGenfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexGeniEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexGeniEXT(Int32 texunit, Int32 coord, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexGenivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexEnvfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexEnvivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexGendvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexGenfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexGenivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexParameteriEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexParameteriEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexParameterfEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexParameterfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexSubImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexSubImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyMultiTexImage1DEXT", ExactSpelling = true)]
+			internal extern static void glCopyMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyMultiTexImage2DEXT", ExactSpelling = true)]
+			internal extern static void glCopyMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyMultiTexSubImage1DEXT", ExactSpelling = true)]
+			internal extern static void glCopyMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyMultiTexSubImage2DEXT", ExactSpelling = true)]
+			internal extern static void glCopyMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexImageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexImageEXT(Int32 texunit, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexLevelParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexLevelParameterfvEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexLevelParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexLevelParameterivEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexSubImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyMultiTexSubImage3DEXT", ExactSpelling = true)]
+			internal extern static void glCopyMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableClientStateIndexedEXT", ExactSpelling = true)]
+			internal extern static void glEnableClientStateIndexedEXT(Int32 array, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableClientStateIndexedEXT", ExactSpelling = true)]
+			internal extern static void glDisableClientStateIndexedEXT(Int32 array, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPointerIndexedvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetPointerIndexedvEXT(Int32 target, UInt32 index, IntPtr* data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTextureImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTextureImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTextureImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCompressedTextureImageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetCompressedTextureImageEXT(UInt32 texture, Int32 target, Int32 lod, IntPtr img);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedMultiTexImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedMultiTexImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedMultiTexImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedMultiTexSubImage3DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedMultiTexSubImage2DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompressedMultiTexSubImage1DEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCompressedMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCompressedMultiTexImageEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetCompressedMultiTexImageEXT(Int32 texunit, Int32 target, Int32 lod, IntPtr img);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoadTransposefEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoadTransposefEXT(Int32 mode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixLoadTransposedEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixLoadTransposedEXT(Int32 mode, double* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMultTransposefEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMultTransposefEXT(Int32 mode, float* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMatrixMultTransposedEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMatrixMultTransposedEXT(Int32 mode, double* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedBufferDataEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapNamedBufferEXT", ExactSpelling = true)]
+			internal extern static IntPtr glMapNamedBufferEXT(UInt32 buffer, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUnmapNamedBufferEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glUnmapNamedBufferEXT(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedBufferParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedBufferParameterivEXT(UInt32 buffer, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedBufferPointervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedBufferPointervEXT(UInt32 buffer, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedBufferSubDataEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureBufferEXT", ExactSpelling = true)]
+			internal extern static void glTextureBufferEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexBufferEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexBufferEXT(Int32 texunit, Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTextureParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMultiTexParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameters4fvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParameters4fvEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4iEXT", ExactSpelling = true)]
+			internal extern static void glNamedProgramLocalParameterI4iEXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4ivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParameterI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParametersI4ivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParametersI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4uiEXT", ExactSpelling = true)]
+			internal extern static void glNamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4uivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParameterI4uivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParametersI4uivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParametersI4uivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterIivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedProgramLocalParameterIivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterIuivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedProgramLocalParameterIuivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableClientStateiEXT", ExactSpelling = true)]
+			internal extern static void glEnableClientStateiEXT(Int32 array, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableClientStateiEXT", ExactSpelling = true)]
+			internal extern static void glDisableClientStateiEXT(Int32 array, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetPointeri_vEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetPointeri_vEXT(Int32 pname, UInt32 index, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramStringEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4dEXT", ExactSpelling = true)]
+			internal extern static void glNamedProgramLocalParameter4dEXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParameter4dvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4fEXT", ExactSpelling = true)]
+			internal extern static void glNamedProgramLocalParameter4fEXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4fvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedProgramLocalParameter4fvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterdvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedProgramLocalParameterdvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedProgramLocalParameterfvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedProgramivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedProgramivEXT(UInt32 program, Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedProgramStringEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageEXT", ExactSpelling = true)]
+			internal extern static void glNamedRenderbufferStorageEXT(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedRenderbufferParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedRenderbufferParameterivEXT(UInt32 renderbuffer, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageMultisampleEXT", ExactSpelling = true)]
+			internal extern static void glNamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageMultisampleCoverageEXT", ExactSpelling = true)]
+			internal extern static void glNamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCheckNamedFramebufferStatusEXT", ExactSpelling = true)]
+			internal extern static Int32 glCheckNamedFramebufferStatusEXT(UInt32 framebuffer, Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture1DEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferTexture1DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture2DEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferTexture2DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture3DEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferTexture3DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferRenderbufferEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedFramebufferAttachmentParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedFramebufferAttachmentParameterivEXT(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenerateTextureMipmapEXT", ExactSpelling = true)]
+			internal extern static void glGenerateTextureMipmapEXT(UInt32 texture, Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenerateMultiTexMipmapEXT", ExactSpelling = true)]
+			internal extern static void glGenerateMultiTexMipmapEXT(Int32 texunit, Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferDrawBufferEXT", ExactSpelling = true)]
+			internal extern static void glFramebufferDrawBufferEXT(UInt32 framebuffer, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferDrawBuffersEXT", ExactSpelling = true)]
+			internal extern static unsafe void glFramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, Int32* bufs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferReadBufferEXT", ExactSpelling = true)]
+			internal extern static void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFramebufferParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedCopyBufferSubDataEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferTextureEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureLayerEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferTextureLayerEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureFaceEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferTextureFaceEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureRenderbufferEXT", ExactSpelling = true)]
+			internal extern static void glTextureRenderbufferEXT(UInt32 texture, Int32 target, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexRenderbufferEXT", ExactSpelling = true)]
+			internal extern static void glMultiTexRenderbufferEXT(Int32 texunit, Int32 target, UInt32 renderbuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayColorOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayEdgeFlagOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayIndexOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayNormalOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayTexCoordOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayMultiTexCoordOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayFogCoordOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArraySecondaryColorOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribIOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableVertexArrayEXT", ExactSpelling = true)]
+			internal extern static void glEnableVertexArrayEXT(UInt32 vaobj, Int32 array);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableVertexArrayEXT", ExactSpelling = true)]
+			internal extern static void glDisableVertexArrayEXT(UInt32 vaobj, Int32 array);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableVertexArrayAttribEXT", ExactSpelling = true)]
+			internal extern static void glEnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableVertexArrayAttribEXT", ExactSpelling = true)]
+			internal extern static void glDisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexArrayIntegervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexArrayIntegervEXT(UInt32 vaobj, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexArrayPointervEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexArrayPointervEXT(UInt32 vaobj, Int32 pname, IntPtr* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexArrayIntegeri_vEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVertexArrayPointeri_vEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetVertexArrayPointeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, IntPtr* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapNamedBufferRangeEXT", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glMapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFlushMappedNamedBufferRangeEXT", ExactSpelling = true)]
+			internal extern static unsafe void glFlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearNamedBufferDataEXT", ExactSpelling = true)]
+			internal extern static unsafe void glClearNamedBufferDataEXT(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearNamedBufferSubDataEXT", ExactSpelling = true)]
+			internal extern static unsafe void glClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferParameteriEXT", ExactSpelling = true)]
+			internal extern static void glNamedFramebufferParameteriEXT(UInt32 framebuffer, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedFramebufferParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1dEXT", ExactSpelling = true)]
+			internal extern static void glProgramUniform1dEXT(UInt32 program, Int32 location, double x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2dEXT", ExactSpelling = true)]
+			internal extern static void glProgramUniform2dEXT(UInt32 program, Int32 location, double x, double y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3dEXT", ExactSpelling = true)]
+			internal extern static void glProgramUniform3dEXT(UInt32 program, Int32 location, double x, double y, double z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4dEXT", ExactSpelling = true)]
+			internal extern static void glProgramUniform4dEXT(UInt32 program, Int32 location, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x3dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x4dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix2x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x2dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x4dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix3x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x2dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x3dvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformMatrix4x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureBufferRangeEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTextureBufferRangeEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureStorage1DEXT", ExactSpelling = true)]
+			internal extern static void glTextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureStorage2DEXT", ExactSpelling = true)]
+			internal extern static void glTextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureStorage3DEXT", ExactSpelling = true)]
+			internal extern static void glTextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureStorage2DMultisampleEXT", ExactSpelling = true)]
+			internal extern static void glTextureStorage2DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTextureStorage3DMultisampleEXT", ExactSpelling = true)]
+			internal extern static void glTextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayBindVertexBufferEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribFormatEXT", ExactSpelling = true)]
+			internal extern static void glVertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribIFormatEXT", ExactSpelling = true)]
+			internal extern static void glVertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribLFormatEXT", ExactSpelling = true)]
+			internal extern static void glVertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribBindingEXT", ExactSpelling = true)]
+			internal extern static void glVertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexBindingDivisorEXT", ExactSpelling = true)]
+			internal extern static void glVertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribLOffsetEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexturePageCommitmentEXT", ExactSpelling = true)]
+			internal extern static void glTexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribDivisorEXT", ExactSpelling = true)]
+			internal extern static void glVertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoadfEXT(Int32 mode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoadfEXT pglMatrixLoadfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoaddEXT(Int32 mode, double* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoaddEXT pglMatrixLoaddEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMultfEXT(Int32 mode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixMultfEXT pglMatrixMultfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMultdEXT(Int32 mode, double* m);
+
+			[ThreadStatic]
+			internal static glMatrixMultdEXT pglMatrixMultdEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixLoadIdentityEXT(Int32 mode);
+
+			[ThreadStatic]
+			internal static glMatrixLoadIdentityEXT pglMatrixLoadIdentityEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixRotatefEXT(Int32 mode, float angle, float x, float y, float z);
+
+			[ThreadStatic]
+			internal static glMatrixRotatefEXT pglMatrixRotatefEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixRotatedEXT(Int32 mode, double angle, double x, double y, double z);
+
+			[ThreadStatic]
+			internal static glMatrixRotatedEXT pglMatrixRotatedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixScalefEXT(Int32 mode, float x, float y, float z);
+
+			[ThreadStatic]
+			internal static glMatrixScalefEXT pglMatrixScalefEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixScaledEXT(Int32 mode, double x, double y, double z);
+
+			[ThreadStatic]
+			internal static glMatrixScaledEXT pglMatrixScaledEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
+
+			[ThreadStatic]
+			internal static glMatrixTranslatefEXT pglMatrixTranslatefEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixTranslatedEXT(Int32 mode, double x, double y, double z);
+
+			[ThreadStatic]
+			internal static glMatrixTranslatedEXT pglMatrixTranslatedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixFrustumEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
+
+			[ThreadStatic]
+			internal static glMatrixFrustumEXT pglMatrixFrustumEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixOrthoEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
+
+			[ThreadStatic]
+			internal static glMatrixOrthoEXT pglMatrixOrthoEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixPopEXT(Int32 mode);
+
+			[ThreadStatic]
+			internal static glMatrixPopEXT pglMatrixPopEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMatrixPushEXT(Int32 mode);
+
+			[ThreadStatic]
+			internal static glMatrixPushEXT pglMatrixPushEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClientAttribDefaultEXT(UInt32 mask);
+
+			[ThreadStatic]
+			internal static glClientAttribDefaultEXT pglClientAttribDefaultEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPushClientAttribDefaultEXT(UInt32 mask);
+
+			[ThreadStatic]
+			internal static glPushClientAttribDefaultEXT pglPushClientAttribDefaultEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureParameterfEXT(UInt32 texture, Int32 target, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glTextureParameterfEXT pglTextureParameterfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glTextureParameterfvEXT pglTextureParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureParameteriEXT(UInt32 texture, Int32 target, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glTextureParameteriEXT pglTextureParameteriEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glTextureParameterivEXT pglTextureParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glTextureImage1DEXT pglTextureImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glTextureImage2DEXT pglTextureImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glTextureSubImage1DEXT pglTextureSubImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glTextureSubImage2DEXT pglTextureSubImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+
+			[ThreadStatic]
+			internal static glCopyTextureImage1DEXT pglCopyTextureImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+
+			[ThreadStatic]
+			internal static glCopyTextureImage2DEXT pglCopyTextureImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+
+			[ThreadStatic]
+			internal static glCopyTextureSubImage1DEXT pglCopyTextureSubImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glCopyTextureSubImage2DEXT pglCopyTextureSubImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureImageEXT(UInt32 texture, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glGetTextureImageEXT pglGetTextureImageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetTextureParameterfvEXT pglGetTextureParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetTextureParameterivEXT pglGetTextureParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureLevelParameterfvEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetTextureLevelParameterfvEXT pglGetTextureLevelParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureLevelParameterivEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetTextureLevelParameterivEXT pglGetTextureLevelParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glTextureImage3DEXT pglTextureImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glTextureSubImage3DEXT pglTextureSubImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glCopyTextureSubImage3DEXT pglCopyTextureSubImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindMultiTextureEXT(Int32 texunit, Int32 target, UInt32 texture);
+
+			[ThreadStatic]
+			internal static glBindMultiTextureEXT pglBindMultiTextureEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoordPointerEXT(Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glMultiTexCoordPointerEXT pglMultiTexCoordPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexEnvfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glMultiTexEnvfEXT pglMultiTexEnvfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexEnvfvEXT pglMultiTexEnvfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexEnviEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glMultiTexEnviEXT pglMultiTexEnviEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexEnvivEXT pglMultiTexEnvivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexGendEXT(Int32 texunit, Int32 coord, Int32 pname, double param);
+
+			[ThreadStatic]
+			internal static glMultiTexGendEXT pglMultiTexGendEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexGendvEXT pglMultiTexGendvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexGenfEXT(Int32 texunit, Int32 coord, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glMultiTexGenfEXT pglMultiTexGenfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexGenfvEXT pglMultiTexGenfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexGeniEXT(Int32 texunit, Int32 coord, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glMultiTexGeniEXT pglMultiTexGeniEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexGenivEXT pglMultiTexGenivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexEnvfvEXT pglGetMultiTexEnvfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexEnvivEXT pglGetMultiTexEnvivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexGendvEXT pglGetMultiTexGendvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexGenfvEXT pglGetMultiTexGenfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexGenivEXT pglGetMultiTexGenivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexParameteriEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glMultiTexParameteriEXT pglMultiTexParameteriEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexParameterivEXT pglMultiTexParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexParameterfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glMultiTexParameterfEXT pglMultiTexParameterfEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexParameterfvEXT pglMultiTexParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glMultiTexImage1DEXT pglMultiTexImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glMultiTexImage2DEXT pglMultiTexImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glMultiTexSubImage1DEXT pglMultiTexSubImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glMultiTexSubImage2DEXT pglMultiTexSubImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+
+			[ThreadStatic]
+			internal static glCopyMultiTexImage1DEXT pglCopyMultiTexImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+
+			[ThreadStatic]
+			internal static glCopyMultiTexImage2DEXT pglCopyMultiTexImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+
+			[ThreadStatic]
+			internal static glCopyMultiTexSubImage1DEXT pglCopyMultiTexSubImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glCopyMultiTexSubImage2DEXT pglCopyMultiTexSubImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexImageEXT(Int32 texunit, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glGetMultiTexImageEXT pglGetMultiTexImageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexParameterfvEXT pglGetMultiTexParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexParameterivEXT pglGetMultiTexParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexLevelParameterfvEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexLevelParameterfvEXT pglGetMultiTexLevelParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexLevelParameterivEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexLevelParameterivEXT pglGetMultiTexLevelParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glMultiTexImage3DEXT pglMultiTexImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+
+			[ThreadStatic]
+			internal static glMultiTexSubImage3DEXT pglMultiTexSubImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCopyMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glCopyMultiTexSubImage3DEXT pglCopyMultiTexSubImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEnableClientStateIndexedEXT(Int32 array, UInt32 index);
+
+			[ThreadStatic]
+			internal static glEnableClientStateIndexedEXT pglEnableClientStateIndexedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDisableClientStateIndexedEXT(Int32 array, UInt32 index);
+
+			[ThreadStatic]
+			internal static glDisableClientStateIndexedEXT pglDisableClientStateIndexedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPointerIndexedvEXT(Int32 target, UInt32 index, IntPtr* data);
+
+			[ThreadStatic]
+			internal static glGetPointerIndexedvEXT pglGetPointerIndexedvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedTextureImage3DEXT pglCompressedTextureImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedTextureImage2DEXT pglCompressedTextureImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedTextureImage1DEXT pglCompressedTextureImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedTextureSubImage3DEXT pglCompressedTextureSubImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedTextureSubImage2DEXT pglCompressedTextureSubImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedTextureSubImage1DEXT pglCompressedTextureSubImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCompressedTextureImageEXT(UInt32 texture, Int32 target, Int32 lod, IntPtr img);
+
+			[ThreadStatic]
+			internal static glGetCompressedTextureImageEXT pglGetCompressedTextureImageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedMultiTexImage3DEXT pglCompressedMultiTexImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedMultiTexImage2DEXT pglCompressedMultiTexImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedMultiTexImage1DEXT pglCompressedMultiTexImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedMultiTexSubImage3DEXT pglCompressedMultiTexSubImage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedMultiTexSubImage2DEXT pglCompressedMultiTexSubImage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCompressedMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
+
+			[ThreadStatic]
+			internal static glCompressedMultiTexSubImage1DEXT pglCompressedMultiTexSubImage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCompressedMultiTexImageEXT(Int32 texunit, Int32 target, Int32 lod, IntPtr img);
+
+			[ThreadStatic]
+			internal static glGetCompressedMultiTexImageEXT pglGetCompressedMultiTexImageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoadTransposefEXT(Int32 mode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoadTransposefEXT pglMatrixLoadTransposefEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixLoadTransposedEXT(Int32 mode, double* m);
+
+			[ThreadStatic]
+			internal static glMatrixLoadTransposedEXT pglMatrixLoadTransposedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMultTransposefEXT(Int32 mode, float* m);
+
+			[ThreadStatic]
+			internal static glMatrixMultTransposefEXT pglMatrixMultTransposefEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMatrixMultTransposedEXT(Int32 mode, double* m);
+
+			[ThreadStatic]
+			internal static glMatrixMultTransposedEXT pglMatrixMultTransposedEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
+
+			[ThreadStatic]
+			internal static glNamedBufferDataEXT pglNamedBufferDataEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glMapNamedBufferEXT(UInt32 buffer, Int32 access);
+
+			[ThreadStatic]
+			internal static glMapNamedBufferEXT pglMapNamedBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glUnmapNamedBufferEXT(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glUnmapNamedBufferEXT pglUnmapNamedBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedBufferParameterivEXT(UInt32 buffer, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedBufferParameterivEXT pglGetNamedBufferParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedBufferPointervEXT(UInt32 buffer, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedBufferPointervEXT pglGetNamedBufferPointervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
+
+			[ThreadStatic]
+			internal static glGetNamedBufferSubDataEXT pglGetNamedBufferSubDataEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureBufferEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glTextureBufferEXT pglTextureBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexBufferEXT(Int32 texunit, Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glMultiTexBufferEXT pglMultiTexBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glTextureParameterIivEXT pglTextureParameterIivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glTextureParameterIuivEXT pglTextureParameterIuivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetTextureParameterIivEXT pglGetTextureParameterIivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetTextureParameterIuivEXT pglGetTextureParameterIuivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexParameterIivEXT pglMultiTexParameterIivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glMultiTexParameterIuivEXT pglMultiTexParameterIuivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexParameterIivEXT pglGetMultiTexParameterIivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetMultiTexParameterIuivEXT pglGetMultiTexParameterIuivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParameters4fvEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameters4fvEXT pglNamedProgramLocalParameters4fvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedProgramLocalParameterI4iEXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameterI4iEXT pglNamedProgramLocalParameterI4iEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParameterI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameterI4ivEXT pglNamedProgramLocalParameterI4ivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParametersI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParametersI4ivEXT pglNamedProgramLocalParametersI4ivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameterI4uiEXT pglNamedProgramLocalParameterI4uiEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParameterI4uivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameterI4uivEXT pglNamedProgramLocalParameterI4uivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParametersI4uivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParametersI4uivEXT pglNamedProgramLocalParametersI4uivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedProgramLocalParameterIivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedProgramLocalParameterIivEXT pglGetNamedProgramLocalParameterIivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedProgramLocalParameterIuivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedProgramLocalParameterIuivEXT pglGetNamedProgramLocalParameterIuivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEnableClientStateiEXT(Int32 array, UInt32 index);
+
+			[ThreadStatic]
+			internal static glEnableClientStateiEXT pglEnableClientStateiEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDisableClientStateiEXT(Int32 array, UInt32 index);
+
+			[ThreadStatic]
+			internal static glDisableClientStateiEXT pglDisableClientStateiEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetPointeri_vEXT(Int32 pname, UInt32 index, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetPointeri_vEXT pglGetPointeri_vEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string);
+
+			[ThreadStatic]
+			internal static glNamedProgramStringEXT pglNamedProgramStringEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedProgramLocalParameter4dEXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameter4dEXT pglNamedProgramLocalParameter4dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParameter4dvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameter4dvEXT pglNamedProgramLocalParameter4dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedProgramLocalParameter4fEXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameter4fEXT pglNamedProgramLocalParameter4fEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedProgramLocalParameter4fvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
+
+			[ThreadStatic]
+			internal static glNamedProgramLocalParameter4fvEXT pglNamedProgramLocalParameter4fvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedProgramLocalParameterdvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedProgramLocalParameterdvEXT pglGetNamedProgramLocalParameterdvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedProgramLocalParameterfvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedProgramLocalParameterfvEXT pglGetNamedProgramLocalParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedProgramivEXT(UInt32 program, Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedProgramivEXT pglGetNamedProgramivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string);
+
+			[ThreadStatic]
+			internal static glGetNamedProgramStringEXT pglGetNamedProgramStringEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedRenderbufferStorageEXT(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glNamedRenderbufferStorageEXT pglNamedRenderbufferStorageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedRenderbufferParameterivEXT(UInt32 renderbuffer, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedRenderbufferParameterivEXT pglGetNamedRenderbufferParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glNamedRenderbufferStorageMultisampleEXT pglNamedRenderbufferStorageMultisampleEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glNamedRenderbufferStorageMultisampleCoverageEXT pglNamedRenderbufferStorageMultisampleCoverageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glCheckNamedFramebufferStatusEXT(UInt32 framebuffer, Int32 target);
+
+			[ThreadStatic]
+			internal static glCheckNamedFramebufferStatusEXT pglCheckNamedFramebufferStatusEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferTexture1DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferTexture1DEXT pglNamedFramebufferTexture1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferTexture2DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferTexture2DEXT pglNamedFramebufferTexture2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferTexture3DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferTexture3DEXT pglNamedFramebufferTexture3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferRenderbufferEXT pglNamedFramebufferRenderbufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedFramebufferAttachmentParameterivEXT(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedFramebufferAttachmentParameterivEXT pglGetNamedFramebufferAttachmentParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGenerateTextureMipmapEXT(UInt32 texture, Int32 target);
+
+			[ThreadStatic]
+			internal static glGenerateTextureMipmapEXT pglGenerateTextureMipmapEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glGenerateMultiTexMipmapEXT(Int32 texunit, Int32 target);
+
+			[ThreadStatic]
+			internal static glGenerateMultiTexMipmapEXT pglGenerateMultiTexMipmapEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferDrawBufferEXT(UInt32 framebuffer, Int32 mode);
+
+			[ThreadStatic]
+			internal static glFramebufferDrawBufferEXT pglFramebufferDrawBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, Int32* bufs);
+
+			[ThreadStatic]
+			internal static glFramebufferDrawBuffersEXT pglFramebufferDrawBuffersEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
+
+			[ThreadStatic]
+			internal static glFramebufferReadBufferEXT pglFramebufferReadBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetFramebufferParameterivEXT pglGetFramebufferParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			[ThreadStatic]
+			internal static glNamedCopyBufferSubDataEXT pglNamedCopyBufferSubDataEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferTextureEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferTextureEXT pglNamedFramebufferTextureEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferTextureLayerEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferTextureLayerEXT pglNamedFramebufferTextureLayerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferTextureFaceEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferTextureFaceEXT pglNamedFramebufferTextureFaceEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureRenderbufferEXT(UInt32 texture, Int32 target, UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glTextureRenderbufferEXT pglTextureRenderbufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMultiTexRenderbufferEXT(Int32 texunit, Int32 target, UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glMultiTexRenderbufferEXT pglMultiTexRenderbufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexOffsetEXT pglVertexArrayVertexOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayColorOffsetEXT pglVertexArrayColorOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayEdgeFlagOffsetEXT pglVertexArrayEdgeFlagOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayIndexOffsetEXT pglVertexArrayIndexOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayNormalOffsetEXT pglVertexArrayNormalOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayTexCoordOffsetEXT pglVertexArrayTexCoordOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayMultiTexCoordOffsetEXT pglVertexArrayMultiTexCoordOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayFogCoordOffsetEXT pglVertexArrayFogCoordOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArraySecondaryColorOffsetEXT pglVertexArraySecondaryColorOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribOffsetEXT pglVertexArrayVertexAttribOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribIOffsetEXT pglVertexArrayVertexAttribIOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEnableVertexArrayEXT(UInt32 vaobj, Int32 array);
+
+			[ThreadStatic]
+			internal static glEnableVertexArrayEXT pglEnableVertexArrayEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDisableVertexArrayEXT(UInt32 vaobj, Int32 array);
+
+			[ThreadStatic]
+			internal static glDisableVertexArrayEXT pglDisableVertexArrayEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
+
+			[ThreadStatic]
+			internal static glEnableVertexArrayAttribEXT pglEnableVertexArrayAttribEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
+
+			[ThreadStatic]
+			internal static glDisableVertexArrayAttribEXT pglDisableVertexArrayAttribEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexArrayIntegervEXT(UInt32 vaobj, Int32 pname, Int32* param);
+
+			[ThreadStatic]
+			internal static glGetVertexArrayIntegervEXT pglGetVertexArrayIntegervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexArrayPointervEXT(UInt32 vaobj, Int32 pname, IntPtr* param);
+
+			[ThreadStatic]
+			internal static glGetVertexArrayPointervEXT pglGetVertexArrayPointervEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
+
+			[ThreadStatic]
+			internal static glGetVertexArrayIntegeri_vEXT pglGetVertexArrayIntegeri_vEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetVertexArrayPointeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, IntPtr* param);
+
+			[ThreadStatic]
+			internal static glGetVertexArrayPointeri_vEXT pglGetVertexArrayPointeri_vEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glMapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
+
+			[ThreadStatic]
+			internal static glMapNamedBufferRangeEXT pglMapNamedBufferRangeEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length);
+
+			[ThreadStatic]
+			internal static glFlushMappedNamedBufferRangeEXT pglFlushMappedNamedBufferRangeEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearNamedBufferDataEXT(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
+
+			[ThreadStatic]
+			internal static glClearNamedBufferDataEXT pglClearNamedBufferDataEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
+
+			[ThreadStatic]
+			internal static glClearNamedBufferSubDataEXT pglClearNamedBufferSubDataEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glNamedFramebufferParameteriEXT(UInt32 framebuffer, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferParameteriEXT pglNamedFramebufferParameteriEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedFramebufferParameterivEXT pglGetNamedFramebufferParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1dEXT(UInt32 program, Int32 location, double x);
+
+			[ThreadStatic]
+			internal static glProgramUniform1dEXT pglProgramUniform1dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2dEXT(UInt32 program, Int32 location, double x, double y);
+
+			[ThreadStatic]
+			internal static glProgramUniform2dEXT pglProgramUniform2dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3dEXT(UInt32 program, Int32 location, double x, double y, double z);
+
+			[ThreadStatic]
+			internal static glProgramUniform3dEXT pglProgramUniform3dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4dEXT(UInt32 program, Int32 location, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glProgramUniform4dEXT pglProgramUniform4dEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform1dvEXT pglProgramUniform1dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform2dvEXT pglProgramUniform2dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform3dvEXT pglProgramUniform3dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform4dvEXT pglProgramUniform4dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2dvEXT pglProgramUniformMatrix2dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3dvEXT pglProgramUniformMatrix3dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4dvEXT pglProgramUniformMatrix4dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2x3dvEXT pglProgramUniformMatrix2x3dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix2x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix2x4dvEXT pglProgramUniformMatrix2x4dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3x2dvEXT pglProgramUniformMatrix3x2dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix3x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix3x4dvEXT pglProgramUniformMatrix3x4dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4x2dvEXT pglProgramUniformMatrix4x2dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformMatrix4x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformMatrix4x3dvEXT pglProgramUniformMatrix4x3dvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTextureBufferRangeEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
+
+			[ThreadStatic]
+			internal static glTextureBufferRangeEXT pglTextureBufferRangeEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width);
+
+			[ThreadStatic]
+			internal static glTextureStorage1DEXT pglTextureStorage1DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
+
+			[ThreadStatic]
+			internal static glTextureStorage2DEXT pglTextureStorage2DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
+
+			[ThreadStatic]
+			internal static glTextureStorage3DEXT pglTextureStorage3DEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureStorage2DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
+
+			[ThreadStatic]
+			internal static glTextureStorage2DMultisampleEXT pglTextureStorage2DMultisampleEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
+
+			[ThreadStatic]
+			internal static glTextureStorage3DMultisampleEXT pglTextureStorage3DMultisampleEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
+
+			[ThreadStatic]
+			internal static glVertexArrayBindVertexBufferEXT pglVertexArrayBindVertexBufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribFormatEXT pglVertexArrayVertexAttribFormatEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribIFormatEXT pglVertexArrayVertexAttribIFormatEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribLFormatEXT pglVertexArrayVertexAttribLFormatEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribBindingEXT pglVertexArrayVertexAttribBindingEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexBindingDivisorEXT pglVertexArrayVertexBindingDivisorEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribLOffsetEXT pglVertexArrayVertexAttribLOffsetEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
+
+			[ThreadStatic]
+			internal static glTexturePageCommitmentEXT pglTexturePageCommitmentEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor);
+
+			[ThreadStatic]
+			internal static glVertexArrayVertexAttribDivisorEXT pglVertexArrayVertexAttribDivisorEXT;
+
+		}
 	}
 
 }

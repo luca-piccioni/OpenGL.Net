@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1875,6 +1878,248 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenQueries", ExactSpelling = true)]
+			internal extern static unsafe void glGenQueries(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteQueries", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteQueries(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsQuery", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsQuery(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginQuery", ExactSpelling = true)]
+			internal extern static void glBeginQuery(Int32 target, UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndQuery", ExactSpelling = true)]
+			internal extern static void glEndQuery(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryiv(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjectiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjectiv(UInt32 id, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetQueryObjectuiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetQueryObjectuiv(UInt32 id, Int32 pname, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindBuffer", ExactSpelling = true)]
+			internal extern static void glBindBuffer(Int32 target, UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteBuffers", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteBuffers(Int32 n, UInt32* buffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenBuffers", ExactSpelling = true)]
+			internal extern static unsafe void glGenBuffers(Int32 n, UInt32* buffers);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsBuffer", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsBuffer(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBufferData", ExactSpelling = true)]
+			internal extern static unsafe void glBufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBufferSubData", ExactSpelling = true)]
+			internal extern static unsafe void glBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetBufferSubData", ExactSpelling = true)]
+			internal extern static unsafe void glGetBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapBuffer", ExactSpelling = true)]
+			internal extern static IntPtr glMapBuffer(Int32 target, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUnmapBuffer", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glUnmapBuffer(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetBufferParameteriv", ExactSpelling = true)]
+			internal extern static unsafe void glGetBufferParameteriv(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetBufferPointerv", ExactSpelling = true)]
+			internal extern static unsafe void glGetBufferPointerv(Int32 target, Int32 pname, IntPtr* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenQueries(Int32 n, UInt32* ids);
+
+			[AliasOf("glGenQueries")]
+			[AliasOf("glGenQueriesARB")]
+			[ThreadStatic]
+			internal static glGenQueries pglGenQueries;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteQueries(Int32 n, UInt32* ids);
+
+			[AliasOf("glDeleteQueries")]
+			[AliasOf("glDeleteQueriesARB")]
+			[ThreadStatic]
+			internal static glDeleteQueries pglDeleteQueries;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsQuery(UInt32 id);
+
+			[AliasOf("glIsQuery")]
+			[AliasOf("glIsQueryARB")]
+			[ThreadStatic]
+			internal static glIsQuery pglIsQuery;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginQuery(Int32 target, UInt32 id);
+
+			[AliasOf("glBeginQuery")]
+			[AliasOf("glBeginQueryARB")]
+			[ThreadStatic]
+			internal static glBeginQuery pglBeginQuery;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndQuery(Int32 target);
+
+			[AliasOf("glEndQuery")]
+			[AliasOf("glEndQueryARB")]
+			[ThreadStatic]
+			internal static glEndQuery pglEndQuery;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryiv(Int32 target, Int32 pname, Int32* @params);
+
+			[AliasOf("glGetQueryiv")]
+			[AliasOf("glGetQueryivARB")]
+			[ThreadStatic]
+			internal static glGetQueryiv pglGetQueryiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryObjectiv(UInt32 id, Int32 pname, Int32* @params);
+
+			[AliasOf("glGetQueryObjectiv")]
+			[AliasOf("glGetQueryObjectivARB")]
+			[AliasOf("glGetQueryObjectivEXT")]
+			[ThreadStatic]
+			internal static glGetQueryObjectiv pglGetQueryObjectiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetQueryObjectuiv(UInt32 id, Int32 pname, UInt32* @params);
+
+			[AliasOf("glGetQueryObjectuiv")]
+			[AliasOf("glGetQueryObjectuivARB")]
+			[ThreadStatic]
+			internal static glGetQueryObjectuiv pglGetQueryObjectuiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindBuffer(Int32 target, UInt32 buffer);
+
+			[AliasOf("glBindBuffer")]
+			[AliasOf("glBindBufferARB")]
+			[ThreadStatic]
+			internal static glBindBuffer pglBindBuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteBuffers(Int32 n, UInt32* buffers);
+
+			[AliasOf("glDeleteBuffers")]
+			[AliasOf("glDeleteBuffersARB")]
+			[ThreadStatic]
+			internal static glDeleteBuffers pglDeleteBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenBuffers(Int32 n, UInt32* buffers);
+
+			[AliasOf("glGenBuffers")]
+			[AliasOf("glGenBuffersARB")]
+			[ThreadStatic]
+			internal static glGenBuffers pglGenBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsBuffer(UInt32 buffer);
+
+			[AliasOf("glIsBuffer")]
+			[AliasOf("glIsBufferARB")]
+			[ThreadStatic]
+			internal static glIsBuffer pglIsBuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage);
+
+			[AliasOf("glBufferData")]
+			[AliasOf("glBufferDataARB")]
+			[ThreadStatic]
+			internal static glBufferData pglBufferData;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
+
+			[AliasOf("glBufferSubData")]
+			[AliasOf("glBufferSubDataARB")]
+			[ThreadStatic]
+			internal static glBufferSubData pglBufferSubData;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
+
+			[AliasOf("glGetBufferSubData")]
+			[AliasOf("glGetBufferSubDataARB")]
+			[ThreadStatic]
+			internal static glGetBufferSubData pglGetBufferSubData;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glMapBuffer(Int32 target, Int32 access);
+
+			[AliasOf("glMapBuffer")]
+			[AliasOf("glMapBufferARB")]
+			[AliasOf("glMapBufferOES")]
+			[ThreadStatic]
+			internal static glMapBuffer pglMapBuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glUnmapBuffer(Int32 target);
+
+			[AliasOf("glUnmapBuffer")]
+			[AliasOf("glUnmapBufferARB")]
+			[AliasOf("glUnmapBufferOES")]
+			[ThreadStatic]
+			internal static glUnmapBuffer pglUnmapBuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetBufferParameteriv(Int32 target, Int32 pname, Int32* @params);
+
+			[AliasOf("glGetBufferParameteriv")]
+			[AliasOf("glGetBufferParameterivARB")]
+			[ThreadStatic]
+			internal static glGetBufferParameteriv pglGetBufferParameteriv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetBufferPointerv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[AliasOf("glGetBufferPointerv")]
+			[AliasOf("glGetBufferPointervARB")]
+			[AliasOf("glGetBufferPointervOES")]
+			[ThreadStatic]
+			internal static glGetBufferPointerv pglGetBufferPointerv;
+
+		}
 	}
 
 }

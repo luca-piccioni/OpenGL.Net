@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -312,6 +315,83 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTransformFeedbackAttribsNV", ExactSpelling = true)]
+			internal extern static unsafe void glTransformFeedbackAttribsNV(Int32 count, Int32* attribs, Int32 bufferMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTransformFeedbackVaryingsNV", ExactSpelling = true)]
+			internal extern static unsafe void glTransformFeedbackVaryingsNV(UInt32 program, Int32 count, Int32* locations, Int32 bufferMode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glActiveVaryingNV", ExactSpelling = true)]
+			internal extern static void glActiveVaryingNV(UInt32 program, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetVaryingLocationNV", ExactSpelling = true)]
+			internal extern static Int32 glGetVaryingLocationNV(UInt32 program, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetActiveVaryingNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, String name);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTransformFeedbackVaryingNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, Int32* location);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTransformFeedbackStreamAttribsNV", ExactSpelling = true)]
+			internal extern static unsafe void glTransformFeedbackStreamAttribsNV(Int32 count, Int32* attribs, Int32 nbuffers, Int32* bufstreams, Int32 bufferMode);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTransformFeedbackAttribsNV(Int32 count, Int32* attribs, Int32 bufferMode);
+
+			[ThreadStatic]
+			internal static glTransformFeedbackAttribsNV pglTransformFeedbackAttribsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTransformFeedbackVaryingsNV(UInt32 program, Int32 count, Int32* locations, Int32 bufferMode);
+
+			[ThreadStatic]
+			internal static glTransformFeedbackVaryingsNV pglTransformFeedbackVaryingsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glActiveVaryingNV(UInt32 program, String name);
+
+			[ThreadStatic]
+			internal static glActiveVaryingNV pglActiveVaryingNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetVaryingLocationNV(UInt32 program, String name);
+
+			[ThreadStatic]
+			internal static glGetVaryingLocationNV pglGetVaryingLocationNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, [Out] StringBuilder name);
+
+			[ThreadStatic]
+			internal static glGetActiveVaryingNV pglGetActiveVaryingNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, Int32* location);
+
+			[ThreadStatic]
+			internal static glGetTransformFeedbackVaryingNV pglGetTransformFeedbackVaryingNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTransformFeedbackStreamAttribsNV(Int32 count, Int32* attribs, Int32 nbuffers, Int32* bufstreams, Int32 bufferMode);
+
+			[ThreadStatic]
+			internal static glTransformFeedbackStreamAttribsNV pglTransformFeedbackStreamAttribsNV;
+
+		}
 	}
 
 }

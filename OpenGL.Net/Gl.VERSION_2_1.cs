@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -712,6 +715,85 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix2x3fv", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix3x2fv", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix2x4fv", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix4x2fv", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix3x4fv", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformMatrix4x3fv", ExactSpelling = true)]
+			internal extern static unsafe void glUniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, float* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glUniformMatrix2x3fv")]
+			[AliasOf("glUniformMatrix2x3fvNV")]
+			[ThreadStatic]
+			internal static glUniformMatrix2x3fv pglUniformMatrix2x3fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glUniformMatrix3x2fv")]
+			[AliasOf("glUniformMatrix3x2fvNV")]
+			[ThreadStatic]
+			internal static glUniformMatrix3x2fv pglUniformMatrix3x2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glUniformMatrix2x4fv")]
+			[AliasOf("glUniformMatrix2x4fvNV")]
+			[ThreadStatic]
+			internal static glUniformMatrix2x4fv pglUniformMatrix2x4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glUniformMatrix4x2fv")]
+			[AliasOf("glUniformMatrix4x2fvNV")]
+			[ThreadStatic]
+			internal static glUniformMatrix4x2fv pglUniformMatrix4x2fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glUniformMatrix3x4fv")]
+			[AliasOf("glUniformMatrix3x4fvNV")]
+			[ThreadStatic]
+			internal static glUniformMatrix3x4fv pglUniformMatrix3x4fv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, float* value);
+
+			[AliasOf("glUniformMatrix4x3fv")]
+			[AliasOf("glUniformMatrix4x3fvNV")]
+			[ThreadStatic]
+			internal static glUniformMatrix4x3fv pglUniformMatrix4x3fv;
+
+		}
 	}
 
 }

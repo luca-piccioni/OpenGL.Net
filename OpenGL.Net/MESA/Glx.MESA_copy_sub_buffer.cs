@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -54,6 +57,22 @@ namespace OpenGL
 			LogFunction("glXCopySubBufferMESA(0x{0}, 0x{1}, {2}, {3}, {4}, {5})", dpy.ToString("X8"), drawable.ToString("X8"), x, y, width, height);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCopySubBufferMESA", ExactSpelling = true)]
+			internal extern static unsafe void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
+
+			internal static glXCopySubBufferMESA pglXCopySubBufferMESA;
+
+		}
 	}
 
 }

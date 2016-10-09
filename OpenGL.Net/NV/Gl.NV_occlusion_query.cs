@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -198,6 +201,84 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenOcclusionQueriesNV", ExactSpelling = true)]
+			internal extern static unsafe void glGenOcclusionQueriesNV(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteOcclusionQueriesNV", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsOcclusionQueryNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsOcclusionQueryNV(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBeginOcclusionQueryNV", ExactSpelling = true)]
+			internal extern static void glBeginOcclusionQueryNV(UInt32 id);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEndOcclusionQueryNV", ExactSpelling = true)]
+			internal extern static void glEndOcclusionQueryNV();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetOcclusionQueryivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetOcclusionQueryivNV(UInt32 id, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetOcclusionQueryuivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetOcclusionQueryuivNV(UInt32 id, Int32 pname, UInt32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenOcclusionQueriesNV(Int32 n, UInt32* ids);
+
+			[ThreadStatic]
+			internal static glGenOcclusionQueriesNV pglGenOcclusionQueriesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
+
+			[ThreadStatic]
+			internal static glDeleteOcclusionQueriesNV pglDeleteOcclusionQueriesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsOcclusionQueryNV(UInt32 id);
+
+			[ThreadStatic]
+			internal static glIsOcclusionQueryNV pglIsOcclusionQueryNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBeginOcclusionQueryNV(UInt32 id);
+
+			[ThreadStatic]
+			internal static glBeginOcclusionQueryNV pglBeginOcclusionQueryNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEndOcclusionQueryNV();
+
+			[ThreadStatic]
+			internal static glEndOcclusionQueryNV pglEndOcclusionQueryNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetOcclusionQueryivNV(UInt32 id, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetOcclusionQueryivNV pglGetOcclusionQueryivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetOcclusionQueryuivNV(UInt32 id, Int32 pname, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetOcclusionQueryuivNV pglGetOcclusionQueryuivNV;
+
+		}
 	}
 
 }

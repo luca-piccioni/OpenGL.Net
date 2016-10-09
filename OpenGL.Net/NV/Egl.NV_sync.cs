@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -230,6 +233,67 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateFenceSyncNV", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglDestroySyncNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglDestroySyncNV(IntPtr sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglFenceNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglFenceNV(IntPtr sync);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglClientWaitSyncNV", ExactSpelling = true)]
+			internal extern static unsafe int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSignalSyncNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglSignalSyncNV(IntPtr sync, uint mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetSyncAttribNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
+
+			internal static eglCreateFenceSyncNV peglCreateFenceSyncNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglDestroySyncNV(IntPtr sync);
+
+			internal static eglDestroySyncNV peglDestroySyncNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglFenceNV(IntPtr sync);
+
+			internal static eglFenceNV peglFenceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
+
+			internal static eglClientWaitSyncNV peglClientWaitSyncNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglSignalSyncNV(IntPtr sync, uint mode);
+
+			internal static eglSignalSyncNV peglSignalSyncNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
+
+			internal static eglGetSyncAttribNV peglGetSyncAttribNV;
+
+		}
 	}
 
 }

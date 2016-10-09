@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -108,6 +111,53 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDriverControlsQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glGetDriverControlsQCOM(Int32* num, Int32 size, UInt32* driverControls);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDriverControlStringQCOM", ExactSpelling = true)]
+			internal extern static unsafe void glGetDriverControlStringQCOM(UInt32 driverControl, Int32 bufSize, Int32* length, String driverControlString);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEnableDriverControlQCOM", ExactSpelling = true)]
+			internal extern static void glEnableDriverControlQCOM(UInt32 driverControl);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDisableDriverControlQCOM", ExactSpelling = true)]
+			internal extern static void glDisableDriverControlQCOM(UInt32 driverControl);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetDriverControlsQCOM(Int32* num, Int32 size, UInt32* driverControls);
+
+			[ThreadStatic]
+			internal static glGetDriverControlsQCOM pglGetDriverControlsQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetDriverControlStringQCOM(UInt32 driverControl, Int32 bufSize, Int32* length, [Out] StringBuilder driverControlString);
+
+			[ThreadStatic]
+			internal static glGetDriverControlStringQCOM pglGetDriverControlStringQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEnableDriverControlQCOM(UInt32 driverControl);
+
+			[ThreadStatic]
+			internal static glEnableDriverControlQCOM pglEnableDriverControlQCOM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDisableDriverControlQCOM(UInt32 driverControl);
+
+			[ThreadStatic]
+			internal static glDisableDriverControlQCOM pglDisableDriverControlQCOM;
+
+		}
 	}
 
 }

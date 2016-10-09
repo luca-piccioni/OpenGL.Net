@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -357,6 +360,93 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSecondaryColorPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glSecondaryColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEdgeFlagPointerListIBM", ExactSpelling = true)]
+			internal extern static void glEdgeFlagPointerListIBM(Int32 stride, bool[] pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogCoordPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glFogCoordPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIndexPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glIndexPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glNormalPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexPointerListIBM", ExactSpelling = true)]
+			internal extern static unsafe void glVertexPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glColorPointerListIBM pglColorPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glSecondaryColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glSecondaryColorPointerListIBM pglSecondaryColorPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEdgeFlagPointerListIBM(Int32 stride, bool[] pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glEdgeFlagPointerListIBM pglEdgeFlagPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogCoordPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glFogCoordPointerListIBM pglFogCoordPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glIndexPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glIndexPointerListIBM pglIndexPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glNormalPointerListIBM pglNormalPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glTexCoordPointerListIBM pglTexCoordPointerListIBM;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+
+			[ThreadStatic]
+			internal static glVertexPointerListIBM pglVertexPointerListIBM;
+
+		}
 	}
 
 }

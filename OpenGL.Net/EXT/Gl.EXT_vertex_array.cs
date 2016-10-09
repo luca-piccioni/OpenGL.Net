@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -355,6 +358,73 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColorPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glColorPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEdgeFlagPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glEdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIndexPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glIndexPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormalPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glNormalPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexCoordPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glTexCoordPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexPointerEXT", ExactSpelling = true)]
+			internal extern static unsafe void glVertexPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glColorPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glColorPointerEXT pglColorPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glEdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
+
+			[ThreadStatic]
+			internal static glEdgeFlagPointerEXT pglEdgeFlagPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glIndexPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glIndexPointerEXT pglIndexPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormalPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glNormalPointerEXT pglNormalPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexCoordPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glTexCoordPointerEXT pglTexCoordPointerEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glVertexPointerEXT pglVertexPointerEXT;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -59,6 +62,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapObjectBufferATI", ExactSpelling = true)]
+			internal extern static IntPtr glMapObjectBufferATI(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUnmapObjectBufferATI", ExactSpelling = true)]
+			internal extern static void glUnmapObjectBufferATI(UInt32 buffer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glMapObjectBufferATI(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glMapObjectBufferATI pglMapObjectBufferATI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUnmapObjectBufferATI(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glUnmapObjectBufferATI pglUnmapObjectBufferATI;
+
+		}
 	}
 
 }

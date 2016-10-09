@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -301,6 +304,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteObjectARB", ExactSpelling = true)]
+			internal extern static void glDeleteObjectARB(UInt32 obj);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetHandleARB", ExactSpelling = true)]
+			internal extern static UInt32 glGetHandleARB(Int32 pname);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectParameterfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectParameterfvARB(UInt32 obj, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectParameterivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectParameterivARB(UInt32 obj, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetInfoLogARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetInfoLogARB(UInt32 obj, Int32 maxLength, Int32* length, String infoLog);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetAttachedObjectsARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetAttachedObjectsARB(UInt32 containerObj, Int32 maxCount, Int32* count, UInt32* obj);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeleteObjectARB(UInt32 obj);
+
+			[ThreadStatic]
+			internal static glDeleteObjectARB pglDeleteObjectARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGetHandleARB(Int32 pname);
+
+			[ThreadStatic]
+			internal static glGetHandleARB pglGetHandleARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetObjectParameterfvARB(UInt32 obj, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetObjectParameterfvARB pglGetObjectParameterfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetObjectParameterivARB(UInt32 obj, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetObjectParameterivARB pglGetObjectParameterivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInfoLogARB(UInt32 obj, Int32 maxLength, Int32* length, [Out] StringBuilder infoLog);
+
+			[ThreadStatic]
+			internal static glGetInfoLogARB pglGetInfoLogARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetAttachedObjectsARB(UInt32 containerObj, Int32 maxCount, Int32* count, UInt32* obj);
+
+			[ThreadStatic]
+			internal static glGetAttachedObjectsARB pglGetAttachedObjectsARB;
+
+		}
 	}
 
 }

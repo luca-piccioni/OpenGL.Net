@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1012,6 +1015,443 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanef", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanef(Int32 p, float* eqn);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFrustumf", ExactSpelling = true)]
+			internal extern static void glFrustumf(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetClipPlanef", ExactSpelling = true)]
+			internal extern static unsafe void glGetClipPlanef(Int32 plane, float* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glOrthof", ExactSpelling = true)]
+			internal extern static void glOrthof(float l, float r, float b, float t, float n, float f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAlphaFuncx", ExactSpelling = true)]
+			internal extern static unsafe void glAlphaFuncx(Int32 func, IntPtr @ref);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearColorx", ExactSpelling = true)]
+			internal extern static unsafe void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearDepthx", ExactSpelling = true)]
+			internal extern static unsafe void glClearDepthx(IntPtr depth);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClipPlanex", ExactSpelling = true)]
+			internal extern static unsafe void glClipPlanex(Int32 plane, IntPtr* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glColor4x", ExactSpelling = true)]
+			internal extern static unsafe void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangex", ExactSpelling = true)]
+			internal extern static unsafe void glDepthRangex(IntPtr n, IntPtr f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogx", ExactSpelling = true)]
+			internal extern static unsafe void glFogx(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFogxv", ExactSpelling = true)]
+			internal extern static unsafe void glFogxv(Int32 pname, IntPtr* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFrustumx", ExactSpelling = true)]
+			internal extern static unsafe void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetClipPlanex", ExactSpelling = true)]
+			internal extern static unsafe void glGetClipPlanex(Int32 plane, IntPtr* equation);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFixedv", ExactSpelling = true)]
+			internal extern static unsafe void glGetFixedv(Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetLightxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMaterialxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexEnvxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetTexParameterxv", ExactSpelling = true)]
+			internal extern static unsafe void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightModelx", ExactSpelling = true)]
+			internal extern static unsafe void glLightModelx(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightModelxv", ExactSpelling = true)]
+			internal extern static unsafe void glLightModelxv(Int32 pname, IntPtr* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightx", ExactSpelling = true)]
+			internal extern static unsafe void glLightx(Int32 light, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightxv", ExactSpelling = true)]
+			internal extern static unsafe void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLineWidthx", ExactSpelling = true)]
+			internal extern static unsafe void glLineWidthx(IntPtr width);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLoadMatrixx", ExactSpelling = true)]
+			internal extern static unsafe void glLoadMatrixx(IntPtr* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMaterialx", ExactSpelling = true)]
+			internal extern static unsafe void glMaterialx(Int32 face, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMaterialxv", ExactSpelling = true)]
+			internal extern static unsafe void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultMatrixx", ExactSpelling = true)]
+			internal extern static unsafe void glMultMatrixx(IntPtr* m);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMultiTexCoord4x", ExactSpelling = true)]
+			internal extern static unsafe void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNormal3x", ExactSpelling = true)]
+			internal extern static unsafe void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glOrthox", ExactSpelling = true)]
+			internal extern static unsafe void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterx", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameterx(Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointParameterxv", ExactSpelling = true)]
+			internal extern static unsafe void glPointParameterxv(Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPointSizex", ExactSpelling = true)]
+			internal extern static unsafe void glPointSizex(IntPtr size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPolygonOffsetx", ExactSpelling = true)]
+			internal extern static unsafe void glPolygonOffsetx(IntPtr factor, IntPtr units);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glRotatex", ExactSpelling = true)]
+			internal extern static unsafe void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleCoveragex", ExactSpelling = true)]
+			internal extern static void glSampleCoveragex(Int32 value, bool invert);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glScalex", ExactSpelling = true)]
+			internal extern static unsafe void glScalex(IntPtr x, IntPtr y, IntPtr z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexEnvx", ExactSpelling = true)]
+			internal extern static unsafe void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexEnvxv", ExactSpelling = true)]
+			internal extern static unsafe void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexParameterx", ExactSpelling = true)]
+			internal extern static unsafe void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexParameterxv", ExactSpelling = true)]
+			internal extern static unsafe void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTranslatex", ExactSpelling = true)]
+			internal extern static unsafe void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClipPlanef(Int32 p, float* eqn);
+
+			[ThreadStatic]
+			internal static glClipPlanef pglClipPlanef;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFrustumf(float l, float r, float b, float t, float n, float f);
+
+			[ThreadStatic]
+			internal static glFrustumf pglFrustumf;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetClipPlanef(Int32 plane, float* equation);
+
+			[ThreadStatic]
+			internal static glGetClipPlanef pglGetClipPlanef;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glOrthof(float l, float r, float b, float t, float n, float f);
+
+			[ThreadStatic]
+			internal static glOrthof pglOrthof;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glAlphaFuncx(Int32 func, IntPtr @ref);
+
+			[ThreadStatic]
+			internal static glAlphaFuncx pglAlphaFuncx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
+
+			[ThreadStatic]
+			internal static glClearColorx pglClearColorx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClearDepthx(IntPtr depth);
+
+			[ThreadStatic]
+			internal static glClearDepthx pglClearDepthx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glClipPlanex(Int32 plane, IntPtr* equation);
+
+			[ThreadStatic]
+			internal static glClipPlanex pglClipPlanex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
+
+			[ThreadStatic]
+			internal static glColor4x pglColor4x;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDepthRangex(IntPtr n, IntPtr f);
+
+			[ThreadStatic]
+			internal static glDepthRangex pglDepthRangex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogx(Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glFogx pglFogx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFogxv(Int32 pname, IntPtr* param);
+
+			[ThreadStatic]
+			internal static glFogxv pglFogxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
+
+			[ThreadStatic]
+			internal static glFrustumx pglFrustumx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetClipPlanex(Int32 plane, IntPtr* equation);
+
+			[ThreadStatic]
+			internal static glGetClipPlanex pglGetClipPlanex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFixedv(Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetFixedv pglGetFixedv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetLightxv pglGetLightxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetMaterialxv pglGetMaterialxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetTexEnvxv pglGetTexEnvxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glGetTexParameterxv pglGetTexParameterxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLightModelx(Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glLightModelx pglLightModelx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLightModelxv(Int32 pname, IntPtr* param);
+
+			[ThreadStatic]
+			internal static glLightModelxv pglLightModelxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLightx(Int32 light, Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glLightx pglLightx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glLightxv pglLightxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLineWidthx(IntPtr width);
+
+			[ThreadStatic]
+			internal static glLineWidthx pglLineWidthx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glLoadMatrixx(IntPtr* m);
+
+			[ThreadStatic]
+			internal static glLoadMatrixx pglLoadMatrixx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMaterialx(Int32 face, Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glMaterialx pglMaterialx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
+
+			[ThreadStatic]
+			internal static glMaterialxv pglMaterialxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultMatrixx(IntPtr* m);
+
+			[ThreadStatic]
+			internal static glMultMatrixx pglMultMatrixx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
+
+			[ThreadStatic]
+			internal static glMultiTexCoord4x pglMultiTexCoord4x;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
+
+			[ThreadStatic]
+			internal static glNormal3x pglNormal3x;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
+
+			[ThreadStatic]
+			internal static glOrthox pglOrthox;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPointParameterx(Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glPointParameterx pglPointParameterx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPointParameterxv(Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glPointParameterxv pglPointParameterxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPointSizex(IntPtr size);
+
+			[ThreadStatic]
+			internal static glPointSizex pglPointSizex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glPolygonOffsetx(IntPtr factor, IntPtr units);
+
+			[ThreadStatic]
+			internal static glPolygonOffsetx pglPolygonOffsetx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
+
+			[ThreadStatic]
+			internal static glRotatex pglRotatex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSampleCoveragex(Int32 value, bool invert);
+
+			[ThreadStatic]
+			internal static glSampleCoveragex pglSampleCoveragex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glScalex(IntPtr x, IntPtr y, IntPtr z);
+
+			[ThreadStatic]
+			internal static glScalex pglScalex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glTexEnvx pglTexEnvx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glTexEnvxv pglTexEnvxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
+
+			[ThreadStatic]
+			internal static glTexParameterx pglTexParameterx;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
+
+			[ThreadStatic]
+			internal static glTexParameterxv pglTexParameterxv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
+
+			[ThreadStatic]
+			internal static glTranslatex pglTranslatex;
+
+		}
 	}
 
 }

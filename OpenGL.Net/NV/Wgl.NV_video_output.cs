@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -263,6 +266,79 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetVideoDeviceNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglReleaseVideoDeviceNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglBindVideoImageNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglReleaseVideoImageNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSendPbufferToVideoNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetVideoInfoNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
+
+			[ThreadStatic]
+			internal static wglGetVideoDeviceNV pwglGetVideoDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
+
+			[ThreadStatic]
+			internal static wglReleaseVideoDeviceNV pwglReleaseVideoDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
+
+			[ThreadStatic]
+			internal static wglBindVideoImageNV pwglBindVideoImageNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
+
+			[ThreadStatic]
+			internal static wglReleaseVideoImageNV pwglReleaseVideoImageNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+
+			[ThreadStatic]
+			internal static wglSendPbufferToVideoNV pwglSendPbufferToVideoNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+
+			[ThreadStatic]
+			internal static wglGetVideoInfoNV pwglGetVideoInfoNV;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -239,6 +242,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramNamedParameter4fNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramNamedParameter4fNV(UInt32 id, Int32 len, byte* name, float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramNamedParameter4fvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramNamedParameter4fvNV(UInt32 id, Int32 len, byte* name, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramNamedParameter4dNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramNamedParameter4dNV(UInt32 id, Int32 len, byte* name, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramNamedParameter4dvNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramNamedParameter4dvNV(UInt32 id, Int32 len, byte* name, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramNamedParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramNamedParameterfvNV(UInt32 id, Int32 len, byte* name, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramNamedParameterdvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramNamedParameterdvNV(UInt32 id, Int32 len, byte* name, double* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramNamedParameter4fNV(UInt32 id, Int32 len, byte* name, float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glProgramNamedParameter4fNV pglProgramNamedParameter4fNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramNamedParameter4fvNV(UInt32 id, Int32 len, byte* name, float* v);
+
+			[ThreadStatic]
+			internal static glProgramNamedParameter4fvNV pglProgramNamedParameter4fvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramNamedParameter4dNV(UInt32 id, Int32 len, byte* name, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glProgramNamedParameter4dNV pglProgramNamedParameter4dNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramNamedParameter4dvNV(UInt32 id, Int32 len, byte* name, double* v);
+
+			[ThreadStatic]
+			internal static glProgramNamedParameter4dvNV pglProgramNamedParameter4dvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramNamedParameterfvNV(UInt32 id, Int32 len, byte* name, float* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramNamedParameterfvNV pglGetProgramNamedParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramNamedParameterdvNV(UInt32 id, Int32 len, byte* name, double* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramNamedParameterdvNV pglGetProgramNamedParameterdvNV;
+
+		}
 	}
 
 }

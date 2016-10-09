@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -121,6 +124,40 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglCreateSyncKHR", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSignalSyncKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglGetSyncAttribKHR", ExactSpelling = true)]
+			internal extern static unsafe bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
+
+			internal static eglCreateSyncKHR peglCreateSyncKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
+
+			internal static eglSignalSyncKHR peglSignalSyncKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
+
+			internal static eglGetSyncAttribKHR peglGetSyncAttribKHR;
+
+		}
 	}
 
 }

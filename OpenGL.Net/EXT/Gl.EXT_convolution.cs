@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -193,6 +196,53 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetConvolutionFilterEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetConvolutionFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr image);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetConvolutionParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetConvolutionParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetConvolutionParameterivEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetConvolutionParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetSeparableFilterEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGetSeparableFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr row, IntPtr column, IntPtr span);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetConvolutionFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr image);
+
+			[ThreadStatic]
+			internal static glGetConvolutionFilterEXT pglGetConvolutionFilterEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetConvolutionParameterfvEXT(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetConvolutionParameterfvEXT pglGetConvolutionParameterfvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetConvolutionParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetConvolutionParameterivEXT pglGetConvolutionParameterivEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetSeparableFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr row, IntPtr column, IntPtr span);
+
+			[ThreadStatic]
+			internal static glGetSeparableFilterEXT pglGetSeparableFilterEXT;
+
+		}
 	}
 
 }

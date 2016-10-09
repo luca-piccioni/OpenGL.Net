@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -161,6 +164,55 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreateBufferRegionARB", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDeleteBufferRegionARB", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe void wglDeleteBufferRegionARB(IntPtr hRegion);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSaveBufferRegionARB", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglRestoreBufferRegionARB", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
+
+			[ThreadStatic]
+			internal static wglCreateBufferRegionARB pwglCreateBufferRegionARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void wglDeleteBufferRegionARB(IntPtr hRegion);
+
+			[ThreadStatic]
+			internal static wglDeleteBufferRegionARB pwglDeleteBufferRegionARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
+
+			[ThreadStatic]
+			internal static wglSaveBufferRegionARB pwglSaveBufferRegionARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
+
+			[ThreadStatic]
+			internal static wglRestoreBufferRegionARB pwglRestoreBufferRegionARB;
+
+		}
 	}
 
 }

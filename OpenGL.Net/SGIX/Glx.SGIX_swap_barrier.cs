@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -74,6 +77,31 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXBindSwapBarrierSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryMaxSwapBarriersSGIX", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
+
+			internal static glXBindSwapBarrierSGIX pglXBindSwapBarrierSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
+
+			internal static glXQueryMaxSwapBarriersSGIX pglXQueryMaxSwapBarriersSGIX;
+
+		}
 	}
 
 }

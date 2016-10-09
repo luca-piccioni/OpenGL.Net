@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -289,9 +292,7 @@ namespace OpenGL
 		public const int SIGNED_NORMALIZED = 0x8F9C;
 
 		/// <summary>
-		/// Gl.Enable: enables primitive restarting. If enabled, any one of the draw commands which transfers a set of generic 
-		/// attribute array elements to the GL will restart the primitive when the index of the vertex is equal to the primitive 
-		/// restart index. See Gl.PrimitiveRestartIndex.
+		/// Value of GL_PRIMITIVE_RESTART symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PRIMITIVE_RESTART = 0x8F9D;
@@ -1251,6 +1252,149 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawArraysInstanced", ExactSpelling = true)]
+			internal extern static void glDrawArraysInstanced(Int32 mode, Int32 first, Int32 count, Int32 instancecount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawElementsInstanced", ExactSpelling = true)]
+			internal extern static unsafe void glDrawElementsInstanced(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexBuffer", ExactSpelling = true)]
+			internal extern static void glTexBuffer(Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPrimitiveRestartIndex", ExactSpelling = true)]
+			internal extern static void glPrimitiveRestartIndex(UInt32 index);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCopyBufferSubData", ExactSpelling = true)]
+			internal extern static unsafe void glCopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetUniformIndices", ExactSpelling = true)]
+			internal extern static unsafe void glGetUniformIndices(UInt32 program, Int32 uniformCount, String[] uniformNames, UInt32* uniformIndices);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetActiveUniformsiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetActiveUniformsiv(UInt32 program, Int32 uniformCount, UInt32* uniformIndices, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetActiveUniformName", ExactSpelling = true)]
+			internal extern static unsafe void glGetActiveUniformName(UInt32 program, UInt32 uniformIndex, Int32 bufSize, Int32* length, String uniformName);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetUniformBlockIndex", ExactSpelling = true)]
+			internal extern static UInt32 glGetUniformBlockIndex(UInt32 program, String uniformBlockName);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetActiveUniformBlockiv", ExactSpelling = true)]
+			internal extern static unsafe void glGetActiveUniformBlockiv(UInt32 program, UInt32 uniformBlockIndex, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetActiveUniformBlockName", ExactSpelling = true)]
+			internal extern static unsafe void glGetActiveUniformBlockName(UInt32 program, UInt32 uniformBlockIndex, Int32 bufSize, Int32* length, String uniformBlockName);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformBlockBinding", ExactSpelling = true)]
+			internal extern static void glUniformBlockBinding(UInt32 program, UInt32 uniformBlockIndex, UInt32 uniformBlockBinding);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDrawArraysInstanced(Int32 mode, Int32 first, Int32 count, Int32 instancecount);
+
+			[AliasOf("glDrawArraysInstanced")]
+			[AliasOf("glDrawArraysInstancedANGLE")]
+			[AliasOf("glDrawArraysInstancedARB")]
+			[AliasOf("glDrawArraysInstancedEXT")]
+			[AliasOf("glDrawArraysInstancedNV")]
+			[ThreadStatic]
+			internal static glDrawArraysInstanced pglDrawArraysInstanced;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawElementsInstanced(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount);
+
+			[AliasOf("glDrawElementsInstanced")]
+			[AliasOf("glDrawElementsInstancedANGLE")]
+			[AliasOf("glDrawElementsInstancedARB")]
+			[AliasOf("glDrawElementsInstancedEXT")]
+			[AliasOf("glDrawElementsInstancedNV")]
+			[ThreadStatic]
+			internal static glDrawElementsInstanced pglDrawElementsInstanced;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexBuffer(Int32 target, Int32 internalformat, UInt32 buffer);
+
+			[AliasOf("glTexBuffer")]
+			[AliasOf("glTexBufferARB")]
+			[AliasOf("glTexBufferEXT")]
+			[AliasOf("glTexBufferOES")]
+			[ThreadStatic]
+			internal static glTexBuffer pglTexBuffer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPrimitiveRestartIndex(UInt32 index);
+
+			[ThreadStatic]
+			internal static glPrimitiveRestartIndex pglPrimitiveRestartIndex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+
+			[AliasOf("glCopyBufferSubData")]
+			[AliasOf("glCopyBufferSubDataNV")]
+			[ThreadStatic]
+			internal static glCopyBufferSubData pglCopyBufferSubData;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetUniformIndices(UInt32 program, Int32 uniformCount, String[] uniformNames, UInt32* uniformIndices);
+
+			[ThreadStatic]
+			internal static glGetUniformIndices pglGetUniformIndices;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetActiveUniformsiv(UInt32 program, Int32 uniformCount, UInt32* uniformIndices, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetActiveUniformsiv pglGetActiveUniformsiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetActiveUniformName(UInt32 program, UInt32 uniformIndex, Int32 bufSize, Int32* length, [Out] StringBuilder uniformName);
+
+			[ThreadStatic]
+			internal static glGetActiveUniformName pglGetActiveUniformName;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGetUniformBlockIndex(UInt32 program, String uniformBlockName);
+
+			[ThreadStatic]
+			internal static glGetUniformBlockIndex pglGetUniformBlockIndex;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetActiveUniformBlockiv(UInt32 program, UInt32 uniformBlockIndex, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetActiveUniformBlockiv pglGetActiveUniformBlockiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetActiveUniformBlockName(UInt32 program, UInt32 uniformBlockIndex, Int32 bufSize, Int32* length, [Out] StringBuilder uniformBlockName);
+
+			[ThreadStatic]
+			internal static glGetActiveUniformBlockName pglGetActiveUniformBlockName;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniformBlockBinding(UInt32 program, UInt32 uniformBlockIndex, UInt32 uniformBlockBinding);
+
+			[ThreadStatic]
+			internal static glUniformBlockBinding pglUniformBlockBinding;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -128,6 +131,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverageModulationTableNV", ExactSpelling = true)]
+			internal extern static unsafe void glCoverageModulationTableNV(Int32 n, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCoverageModulationTableNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCoverageModulationNV", ExactSpelling = true)]
+			internal extern static void glCoverageModulationNV(Int32 components);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCoverageModulationTableNV(Int32 n, float* v);
+
+			[ThreadStatic]
+			internal static glCoverageModulationTableNV pglCoverageModulationTableNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
+
+			[ThreadStatic]
+			internal static glGetCoverageModulationTableNV pglGetCoverageModulationTableNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCoverageModulationNV(Int32 components);
+
+			[ThreadStatic]
+			internal static glCoverageModulationNV pglCoverageModulationNV;
+
+		}
 	}
 
 }

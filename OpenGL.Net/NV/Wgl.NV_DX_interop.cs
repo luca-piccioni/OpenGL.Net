@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -241,6 +244,99 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXSetResourceShareHandleNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXOpenDeviceNV", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXCloseDeviceNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDXCloseDeviceNV(IntPtr hDevice);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXRegisterObjectNV", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXUnregisterObjectNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXObjectAccessNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXLockObjectsNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDXUnlockObjectsNV", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
+
+			[ThreadStatic]
+			internal static wglDXSetResourceShareHandleNV pwglDXSetResourceShareHandleNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
+
+			[ThreadStatic]
+			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
+
+			[ThreadStatic]
+			internal static wglDXCloseDeviceNV pwglDXCloseDeviceNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
+
+			[ThreadStatic]
+			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
+
+			[ThreadStatic]
+			internal static wglDXUnregisterObjectNV pwglDXUnregisterObjectNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
+
+			[ThreadStatic]
+			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+
+			[ThreadStatic]
+			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+
+			[ThreadStatic]
+			internal static wglDXUnlockObjectsNV pwglDXUnlockObjectsNV;
+
+		}
 	}
 
 }

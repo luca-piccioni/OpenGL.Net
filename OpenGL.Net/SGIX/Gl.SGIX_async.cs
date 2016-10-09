@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -150,6 +153,74 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAsyncMarkerSGIX", ExactSpelling = true)]
+			internal extern static void glAsyncMarkerSGIX(UInt32 marker);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFinishAsyncSGIX", ExactSpelling = true)]
+			internal extern static unsafe Int32 glFinishAsyncSGIX(UInt32* markerp);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glPollAsyncSGIX", ExactSpelling = true)]
+			internal extern static unsafe Int32 glPollAsyncSGIX(UInt32* markerp);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenAsyncMarkersSGIX", ExactSpelling = true)]
+			internal extern static UInt32 glGenAsyncMarkersSGIX(Int32 range);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteAsyncMarkersSGIX", ExactSpelling = true)]
+			internal extern static void glDeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsAsyncMarkerSGIX", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsAsyncMarkerSGIX(UInt32 marker);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glAsyncMarkerSGIX(UInt32 marker);
+
+			[ThreadStatic]
+			internal static glAsyncMarkerSGIX pglAsyncMarkerSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int32 glFinishAsyncSGIX(UInt32* markerp);
+
+			[ThreadStatic]
+			internal static glFinishAsyncSGIX pglFinishAsyncSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Int32 glPollAsyncSGIX(UInt32* markerp);
+
+			[ThreadStatic]
+			internal static glPollAsyncSGIX pglPollAsyncSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGenAsyncMarkersSGIX(Int32 range);
+
+			[ThreadStatic]
+			internal static glGenAsyncMarkersSGIX pglGenAsyncMarkersSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
+
+			[ThreadStatic]
+			internal static glDeleteAsyncMarkersSGIX pglDeleteAsyncMarkersSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsAsyncMarkerSGIX(UInt32 marker);
+
+			[ThreadStatic]
+			internal static glIsAsyncMarkerSGIX pglIsAsyncMarkerSGIX;
+
+		}
 	}
 
 }

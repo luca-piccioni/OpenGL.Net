@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1078,6 +1081,212 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramStringARB", ExactSpelling = true)]
+			internal extern static unsafe void glProgramStringARB(Int32 target, Int32 format, Int32 len, IntPtr @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glBindProgramARB", ExactSpelling = true)]
+			internal extern static void glBindProgramARB(Int32 target, UInt32 program);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteProgramsARB", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteProgramsARB(Int32 n, UInt32* programs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenProgramsARB", ExactSpelling = true)]
+			internal extern static unsafe void glGenProgramsARB(Int32 n, UInt32* programs);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameter4dARB", ExactSpelling = true)]
+			internal extern static void glProgramEnvParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameter4dvARB", ExactSpelling = true)]
+			internal extern static unsafe void glProgramEnvParameter4dvARB(Int32 target, UInt32 index, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameter4fARB", ExactSpelling = true)]
+			internal extern static void glProgramEnvParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramEnvParameter4fvARB", ExactSpelling = true)]
+			internal extern static unsafe void glProgramEnvParameter4fvARB(Int32 target, UInt32 index, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameter4dARB", ExactSpelling = true)]
+			internal extern static void glProgramLocalParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameter4dvARB", ExactSpelling = true)]
+			internal extern static unsafe void glProgramLocalParameter4dvARB(Int32 target, UInt32 index, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameter4fARB", ExactSpelling = true)]
+			internal extern static void glProgramLocalParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramLocalParameter4fvARB", ExactSpelling = true)]
+			internal extern static unsafe void glProgramLocalParameter4fvARB(Int32 target, UInt32 index, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterdvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramEnvParameterdvARB(Int32 target, UInt32 index, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramEnvParameterfvARB(Int32 target, UInt32 index, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramLocalParameterdvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramLocalParameterdvARB(Int32 target, UInt32 index, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramLocalParameterfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramLocalParameterfvARB(Int32 target, UInt32 index, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramivARB(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramStringARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetProgramStringARB(Int32 target, Int32 pname, IntPtr @string);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsProgramARB", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsProgramARB(UInt32 program);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramStringARB(Int32 target, Int32 format, Int32 len, IntPtr @string);
+
+			[ThreadStatic]
+			internal static glProgramStringARB pglProgramStringARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glBindProgramARB(Int32 target, UInt32 program);
+
+			[AliasOf("glBindProgramARB")]
+			[AliasOf("glBindProgramNV")]
+			[ThreadStatic]
+			internal static glBindProgramARB pglBindProgramARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteProgramsARB(Int32 n, UInt32* programs);
+
+			[AliasOf("glDeleteProgramsARB")]
+			[AliasOf("glDeleteProgramsNV")]
+			[ThreadStatic]
+			internal static glDeleteProgramsARB pglDeleteProgramsARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenProgramsARB(Int32 n, UInt32* programs);
+
+			[AliasOf("glGenProgramsARB")]
+			[AliasOf("glGenProgramsNV")]
+			[ThreadStatic]
+			internal static glGenProgramsARB pglGenProgramsARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramEnvParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameter4dARB pglProgramEnvParameter4dARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramEnvParameter4dvARB(Int32 target, UInt32 index, double* @params);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameter4dvARB pglProgramEnvParameter4dvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramEnvParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameter4fARB pglProgramEnvParameter4fARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramEnvParameter4fvARB(Int32 target, UInt32 index, float* @params);
+
+			[ThreadStatic]
+			internal static glProgramEnvParameter4fvARB pglProgramEnvParameter4fvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramLocalParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameter4dARB pglProgramLocalParameter4dARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramLocalParameter4dvARB(Int32 target, UInt32 index, double* @params);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameter4dvARB pglProgramLocalParameter4dvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramLocalParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameter4fARB pglProgramLocalParameter4fARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramLocalParameter4fvARB(Int32 target, UInt32 index, float* @params);
+
+			[ThreadStatic]
+			internal static glProgramLocalParameter4fvARB pglProgramLocalParameter4fvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramEnvParameterdvARB(Int32 target, UInt32 index, double* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramEnvParameterdvARB pglGetProgramEnvParameterdvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramEnvParameterfvARB(Int32 target, UInt32 index, float* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramEnvParameterfvARB pglGetProgramEnvParameterfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramLocalParameterdvARB(Int32 target, UInt32 index, double* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramLocalParameterdvARB pglGetProgramLocalParameterdvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramLocalParameterfvARB(Int32 target, UInt32 index, float* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramLocalParameterfvARB pglGetProgramLocalParameterfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramivARB(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetProgramivARB pglGetProgramivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetProgramStringARB(Int32 target, Int32 pname, IntPtr @string);
+
+			[ThreadStatic]
+			internal static glGetProgramStringARB pglGetProgramStringARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsProgramARB(UInt32 program);
+
+			[AliasOf("glIsProgramARB")]
+			[AliasOf("glIsProgramNV")]
+			[ThreadStatic]
+			internal static glIsProgramARB pglIsProgramARB;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -50,6 +53,23 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetProgramResourceLocationIndexEXT", ExactSpelling = true)]
+			internal extern static Int32 glGetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name);
+
+			[ThreadStatic]
+			internal static glGetProgramResourceLocationIndexEXT pglGetProgramResourceLocationIndexEXT;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -782,6 +785,226 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCopyContext", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreateContext", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglCreateContext(IntPtr hDc);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglCreateLayerContext", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe IntPtr wglCreateLayerContext(IntPtr hDc, int level);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDeleteContext", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDeleteContext(IntPtr oldContext);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglDescribeLayerPlane", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr* plpd);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetCurrentContext", ExactSpelling = true, SetLastError = true)]
+			internal extern static IntPtr wglGetCurrentContext();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetCurrentDC", ExactSpelling = true, SetLastError = true)]
+			internal extern static IntPtr wglGetCurrentDC();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetLayerPaletteEntries", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true, SetLastError = true)]
+			internal extern static IntPtr wglGetProcAddress(String lpszProc);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglMakeCurrent", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglMakeCurrent(IntPtr hDc, IntPtr newContext);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglRealizeLayerPalette", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglRealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSetLayerPaletteEntries", ExactSpelling = true, SetLastError = true)]
+			internal extern static unsafe int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglShareLists", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSwapLayerBuffers", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSwapLayerBuffers(IntPtr hdc, UInt32 fuFlags);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglUseFontBitmaps", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglUseFontBitmaps(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglUseFontBitmapsA", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglUseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglUseFontBitmapsW", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglUseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglUseFontOutlines", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglUseFontOutlines(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglUseFontOutlinesA", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglUseFontOutlinesW", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask);
+
+			[ThreadStatic]
+			internal static wglCopyContext pwglCopyContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglCreateContext(IntPtr hDc);
+
+			[ThreadStatic]
+			internal static wglCreateContext pwglCreateContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr wglCreateLayerContext(IntPtr hDc, int level);
+
+			[ThreadStatic]
+			internal static wglCreateLayerContext pwglCreateLayerContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDeleteContext(IntPtr oldContext);
+
+			[ThreadStatic]
+			internal static wglDeleteContext pwglDeleteContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr* plpd);
+
+			[ThreadStatic]
+			internal static wglDescribeLayerPlane pwglDescribeLayerPlane;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr wglGetCurrentContext();
+
+			[ThreadStatic]
+			internal static wglGetCurrentContext pwglGetCurrentContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr wglGetCurrentDC();
+
+			[ThreadStatic]
+			internal static wglGetCurrentDC pwglGetCurrentDC;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+
+			[ThreadStatic]
+			internal static wglGetLayerPaletteEntries pwglGetLayerPaletteEntries;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr wglGetProcAddress(String lpszProc);
+
+			[ThreadStatic]
+			internal static wglGetProcAddress pwglGetProcAddress;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglMakeCurrent(IntPtr hDc, IntPtr newContext);
+
+			[ThreadStatic]
+			internal static wglMakeCurrent pwglMakeCurrent;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglRealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize);
+
+			[ThreadStatic]
+			internal static wglRealizeLayerPalette pwglRealizeLayerPalette;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+
+			[ThreadStatic]
+			internal static wglSetLayerPaletteEntries pwglSetLayerPaletteEntries;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource);
+
+			[ThreadStatic]
+			internal static wglShareLists pwglShareLists;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSwapLayerBuffers(IntPtr hdc, UInt32 fuFlags);
+
+			[ThreadStatic]
+			internal static wglSwapLayerBuffers pwglSwapLayerBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglUseFontBitmaps(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+
+			[ThreadStatic]
+			internal static wglUseFontBitmaps pwglUseFontBitmaps;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglUseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+
+			[ThreadStatic]
+			internal static wglUseFontBitmapsA pwglUseFontBitmapsA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglUseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+
+			[ThreadStatic]
+			internal static wglUseFontBitmapsW pwglUseFontBitmapsW;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglUseFontOutlines(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+
+			[ThreadStatic]
+			internal static wglUseFontOutlines pwglUseFontOutlines;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+
+			[ThreadStatic]
+			internal static wglUseFontOutlinesA pwglUseFontOutlinesA;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+
+			[ThreadStatic]
+			internal static wglUseFontOutlinesW pwglUseFontOutlinesW;
+
+		}
 	}
 
 }

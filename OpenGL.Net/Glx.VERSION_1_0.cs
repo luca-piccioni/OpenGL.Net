@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1020,6 +1023,166 @@ namespace OpenGL
 			LogFunction("glXUseXFont({0}, {1}, {2}, {3})", font, first, count, list);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXChooseVisual", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateContext", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyContext", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyContext(IntPtr dpy, IntPtr ctx);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXMakeCurrent", ExactSpelling = true)]
+			internal extern static unsafe bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCopyContext", ExactSpelling = true)]
+			internal extern static unsafe void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXSwapBuffers", ExactSpelling = true)]
+			internal extern static unsafe void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCreateGLXPixmap", ExactSpelling = true)]
+			internal extern static unsafe IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXDestroyGLXPixmap", ExactSpelling = true)]
+			internal extern static unsafe void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryExtension", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXQueryVersion", ExactSpelling = true)]
+			internal extern static unsafe bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXIsDirect", ExactSpelling = true)]
+			internal extern static unsafe bool glXIsDirect(IntPtr dpy, IntPtr ctx);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetConfig", ExactSpelling = true)]
+			internal extern static unsafe int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetCurrentContext", ExactSpelling = true)]
+			internal extern static IntPtr glXGetCurrentContext();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXGetCurrentDrawable", ExactSpelling = true)]
+			internal extern static IntPtr glXGetCurrentDrawable();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXWaitGL", ExactSpelling = true)]
+			internal extern static void glXWaitGL();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXWaitX", ExactSpelling = true)]
+			internal extern static void glXWaitX();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXUseXFont", ExactSpelling = true)]
+			internal extern static void glXUseXFont(Int32 font, int first, int count, int list);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
+
+			internal static glXChooseVisual pglXChooseVisual;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
+
+			internal static glXCreateContext pglXCreateContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyContext(IntPtr dpy, IntPtr ctx);
+
+			internal static glXDestroyContext pglXDestroyContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
+
+			internal static glXMakeCurrent pglXMakeCurrent;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
+
+			internal static glXCopyContext pglXCopyContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
+
+			internal static glXSwapBuffers pglXSwapBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
+
+			internal static glXCreateGLXPixmap pglXCreateGLXPixmap;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
+
+			internal static glXDestroyGLXPixmap pglXDestroyGLXPixmap;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
+
+			internal static glXQueryExtension pglXQueryExtension;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
+
+			internal static glXQueryVersion pglXQueryVersion;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glXIsDirect(IntPtr dpy, IntPtr ctx);
+
+			internal static glXIsDirect pglXIsDirect;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
+
+			internal static glXGetConfig pglXGetConfig;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glXGetCurrentContext();
+
+			internal static glXGetCurrentContext pglXGetCurrentContext;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate IntPtr glXGetCurrentDrawable();
+
+			internal static glXGetCurrentDrawable pglXGetCurrentDrawable;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glXWaitGL();
+
+			internal static glXWaitGL pglXWaitGL;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glXWaitX();
+
+			internal static glXWaitX pglXWaitX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glXUseXFont(Int32 font, int first, int count, int list);
+
+			internal static glXUseXFont pglXUseXFont;
+
+		}
 	}
 
 }

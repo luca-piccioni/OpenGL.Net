@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -497,6 +500,103 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapControlPointsNV", ExactSpelling = true)]
+			internal extern static unsafe void glMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMapParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glMapParameterfvNV(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMapControlPointsNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, IntPtr points);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMapParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMapParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetMapParameterfvNV(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMapAttribParameterivNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetMapAttribParameterivNV(Int32 target, UInt32 index, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetMapAttribParameterfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetMapAttribParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glEvalMapsNV", ExactSpelling = true)]
+			internal extern static void glEvalMapsNV(Int32 target, Int32 mode);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
+
+			[ThreadStatic]
+			internal static glMapControlPointsNV pglMapControlPointsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glMapParameterivNV pglMapParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glMapParameterfvNV(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glMapParameterfvNV pglMapParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, IntPtr points);
+
+			[ThreadStatic]
+			internal static glGetMapControlPointsNV pglGetMapControlPointsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMapParameterivNV pglGetMapParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMapParameterfvNV(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMapParameterfvNV pglGetMapParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMapAttribParameterivNV(Int32 target, UInt32 index, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetMapAttribParameterivNV pglGetMapAttribParameterivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetMapAttribParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetMapAttribParameterfvNV pglGetMapAttribParameterfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEvalMapsNV(Int32 target, Int32 mode);
+
+			[ThreadStatic]
+			internal static glEvalMapsNV pglEvalMapsNV;
+
+		}
 	}
 
 }

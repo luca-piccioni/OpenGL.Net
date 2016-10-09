@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -141,6 +144,55 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glAreTexturesResidentEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static unsafe bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteTexturesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteTexturesEXT(Int32 n, UInt32* textures);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGenTexturesEXT", ExactSpelling = true)]
+			internal extern static unsafe void glGenTexturesEXT(Int32 n, UInt32* textures);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsTextureEXT", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsTextureEXT(UInt32 texture);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
+
+			[ThreadStatic]
+			internal static glAreTexturesResidentEXT pglAreTexturesResidentEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteTexturesEXT(Int32 n, UInt32* textures);
+
+			[ThreadStatic]
+			internal static glDeleteTexturesEXT pglDeleteTexturesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGenTexturesEXT(Int32 n, UInt32* textures);
+
+			[ThreadStatic]
+			internal static glGenTexturesEXT pglGenTexturesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsTextureEXT(UInt32 texture);
+
+			[ThreadStatic]
+			internal static glIsTextureEXT pglIsTextureEXT;
+
+		}
 	}
 
 }

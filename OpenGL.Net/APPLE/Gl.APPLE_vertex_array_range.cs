@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -123,6 +126,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayRangeAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFlushVertexArrayRangeAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glFlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glVertexArrayParameteriAPPLE", ExactSpelling = true)]
+			internal extern static void glVertexArrayParameteriAPPLE(Int32 pname, Int32 param);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glVertexArrayRangeAPPLE pglVertexArrayRangeAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
+
+			[ThreadStatic]
+			internal static glFlushVertexArrayRangeAPPLE pglFlushVertexArrayRangeAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glVertexArrayParameteriAPPLE(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glVertexArrayParameteriAPPLE pglVertexArrayParameteriAPPLE;
+
+		}
 	}
 
 }

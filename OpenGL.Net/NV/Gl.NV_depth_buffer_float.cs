@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -94,6 +97,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthRangedNV", ExactSpelling = true)]
+			internal extern static void glDepthRangedNV(double zNear, double zFar);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glClearDepthdNV", ExactSpelling = true)]
+			internal extern static void glClearDepthdNV(double depth);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDepthBoundsdNV", ExactSpelling = true)]
+			internal extern static void glDepthBoundsdNV(double zmin, double zmax);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDepthRangedNV(double zNear, double zFar);
+
+			[ThreadStatic]
+			internal static glDepthRangedNV pglDepthRangedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glClearDepthdNV(double depth);
+
+			[ThreadStatic]
+			internal static glClearDepthdNV pglClearDepthdNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDepthBoundsdNV(double zmin, double zmax);
+
+			[ThreadStatic]
+			internal static glDepthBoundsdNV pglDepthBoundsdNV;
+
+		}
 	}
 
 }

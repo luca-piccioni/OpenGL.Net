@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -555,6 +558,193 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentColorMaterialSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentColorMaterialSGIX(Int32 face, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightfSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentLightfSGIX(Int32 light, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightfvSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glFragmentLightfvSGIX(Int32 light, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightiSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentLightiSGIX(Int32 light, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightivSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glFragmentLightivSGIX(Int32 light, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightModelfSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentLightModelfSGIX(Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightModelfvSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glFragmentLightModelfvSGIX(Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightModeliSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentLightModeliSGIX(Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentLightModelivSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glFragmentLightModelivSGIX(Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentMaterialfSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentMaterialfSGIX(Int32 face, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentMaterialfvSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glFragmentMaterialfvSGIX(Int32 face, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentMaterialiSGIX", ExactSpelling = true)]
+			internal extern static void glFragmentMaterialiSGIX(Int32 face, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFragmentMaterialivSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glFragmentMaterialivSGIX(Int32 face, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFragmentLightfvSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glGetFragmentLightfvSGIX(Int32 light, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFragmentLightivSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glGetFragmentLightivSGIX(Int32 light, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFragmentMaterialfvSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glGetFragmentMaterialfvSGIX(Int32 face, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetFragmentMaterialivSGIX", ExactSpelling = true)]
+			internal extern static unsafe void glGetFragmentMaterialivSGIX(Int32 face, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glLightEnviSGIX", ExactSpelling = true)]
+			internal extern static void glLightEnviSGIX(Int32 pname, Int32 param);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentColorMaterialSGIX(Int32 face, Int32 mode);
+
+			[ThreadStatic]
+			internal static glFragmentColorMaterialSGIX pglFragmentColorMaterialSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentLightfSGIX(Int32 light, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glFragmentLightfSGIX pglFragmentLightfSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFragmentLightfvSGIX(Int32 light, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glFragmentLightfvSGIX pglFragmentLightfvSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentLightiSGIX(Int32 light, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glFragmentLightiSGIX pglFragmentLightiSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFragmentLightivSGIX(Int32 light, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glFragmentLightivSGIX pglFragmentLightivSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentLightModelfSGIX(Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glFragmentLightModelfSGIX pglFragmentLightModelfSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFragmentLightModelfvSGIX(Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glFragmentLightModelfvSGIX pglFragmentLightModelfvSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentLightModeliSGIX(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glFragmentLightModeliSGIX pglFragmentLightModeliSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFragmentLightModelivSGIX(Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glFragmentLightModelivSGIX pglFragmentLightModelivSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentMaterialfSGIX(Int32 face, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glFragmentMaterialfSGIX pglFragmentMaterialfSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFragmentMaterialfvSGIX(Int32 face, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glFragmentMaterialfvSGIX pglFragmentMaterialfvSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentMaterialiSGIX(Int32 face, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glFragmentMaterialiSGIX pglFragmentMaterialiSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFragmentMaterialivSGIX(Int32 face, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glFragmentMaterialivSGIX pglFragmentMaterialivSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFragmentLightfvSGIX(Int32 light, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetFragmentLightfvSGIX pglGetFragmentLightfvSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFragmentLightivSGIX(Int32 light, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetFragmentLightivSGIX pglGetFragmentLightivSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFragmentMaterialfvSGIX(Int32 face, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetFragmentMaterialfvSGIX pglGetFragmentMaterialfvSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetFragmentMaterialivSGIX(Int32 face, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetFragmentMaterialivSGIX pglGetFragmentMaterialivSGIX;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glLightEnviSGIX(Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glLightEnviSGIX pglLightEnviSGIX;
+
+		}
 	}
 
 }

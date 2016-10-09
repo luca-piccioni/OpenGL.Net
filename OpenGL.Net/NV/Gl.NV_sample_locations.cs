@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -95,6 +98,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glFramebufferSampleLocationsfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glNamedFramebufferSampleLocationsfvNV", ExactSpelling = true)]
+			internal extern static unsafe void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glResolveDepthValuesNV", ExactSpelling = true)]
+			internal extern static void glResolveDepthValuesNV();
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glFramebufferSampleLocationsfvNV pglFramebufferSampleLocationsfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+
+			[ThreadStatic]
+			internal static glNamedFramebufferSampleLocationsfvNV pglNamedFramebufferSampleLocationsfvNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glResolveDepthValuesNV();
+
+			[ThreadStatic]
+			internal static glResolveDepthValuesNV pglResolveDepthValuesNV;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -90,6 +93,22 @@ namespace OpenGL
 			LogFunction("glXCopyImageSubDataNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17})", dpy.ToString("X8"), srcCtx.ToString("X8"), srcName, LogEnumName(srcTarget), srcLevel, srcX, srcY, srcZ, dstCtx.ToString("X8"), dstName, LogEnumName(dstTarget), dstLevel, dstX, dstY, dstZ, width, height, depth);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glXCopyImageSubDataNV", ExactSpelling = true)]
+			internal extern static unsafe void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr dstCtx, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr dstCtx, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+
+			internal static glXCopyImageSubDataNV pglXCopyImageSubDataNV;
+
+		}
 	}
 
 }

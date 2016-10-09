@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -189,6 +192,53 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDebugMessageEnableAMD", ExactSpelling = true)]
+			internal extern static unsafe void glDebugMessageEnableAMD(Int32 category, Int32 severity, Int32 count, UInt32* ids, bool enabled);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDebugMessageInsertAMD", ExactSpelling = true)]
+			internal extern static void glDebugMessageInsertAMD(Int32 category, Int32 severity, UInt32 id, Int32 length, String buf);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDebugMessageCallbackAMD", ExactSpelling = true)]
+			internal extern static unsafe void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetDebugMessageLogAMD", ExactSpelling = true)]
+			internal extern static unsafe UInt32 glGetDebugMessageLogAMD(UInt32 count, Int32 bufsize, Int32* categories, UInt32* severities, UInt32* ids, Int32* lengths, String message);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDebugMessageEnableAMD(Int32 category, Int32 severity, Int32 count, UInt32* ids, bool enabled);
+
+			[ThreadStatic]
+			internal static glDebugMessageEnableAMD pglDebugMessageEnableAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glDebugMessageInsertAMD(Int32 category, Int32 severity, UInt32 id, Int32 length, String buf);
+
+			[ThreadStatic]
+			internal static glDebugMessageInsertAMD pglDebugMessageInsertAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
+
+			[ThreadStatic]
+			internal static glDebugMessageCallbackAMD pglDebugMessageCallbackAMD;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate UInt32 glGetDebugMessageLogAMD(UInt32 count, Int32 bufsize, Int32* categories, UInt32* severities, UInt32* ids, Int32* lengths, [Out] StringBuilder message);
+
+			[ThreadStatic]
+			internal static glGetDebugMessageLogAMD pglGetDebugMessageLogAMD;
+
+		}
 	}
 
 }

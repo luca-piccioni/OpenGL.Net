@@ -298,12 +298,6 @@ namespace OpenGL
 			public bool FramebufferTarget_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_TIZEN_image_native_buffer.
-			/// </summary>
-			[Extension("EGL_TIZEN_image_native_buffer")]
-			public bool ImageNativeBuffer_TIZEN;
-
-			/// <summary>
 			/// Support for extension EGL_NV_system_time.
 			/// </summary>
 			[Extension("EGL_NV_system_time")]
@@ -424,10 +418,10 @@ namespace OpenGL
 			public bool DrmImage_MESA;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_image_native_buffer.
+			/// Support for extension EGL_TIZEN_image_native_buffer.
 			/// </summary>
-			[Extension("EGL_ANDROID_image_native_buffer")]
-			public bool ImageNativeBuffer_ANDROID;
+			[Extension("EGL_TIZEN_image_native_buffer")]
+			public bool ImageNativeBuffer_TIZEN;
 
 			/// <summary>
 			/// Support for extension EGL_IMG_image_plane_attribs.
@@ -626,6 +620,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_ANDROID_native_fence_sync")]
 			public bool NativeFenceSync_ANDROID;
+
+			/// <summary>
+			/// Support for extension EGL_ANDROID_image_native_buffer.
+			/// </summary>
+			[Extension("EGL_ANDROID_image_native_buffer")]
+			public bool ImageNativeBuffer_ANDROID;
 
 		}
 }

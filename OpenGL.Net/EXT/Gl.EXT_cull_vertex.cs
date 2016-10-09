@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -89,6 +92,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCullParameterdvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCullParameterdvEXT(Int32 pname, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCullParameterfvEXT", ExactSpelling = true)]
+			internal extern static unsafe void glCullParameterfvEXT(Int32 pname, float* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCullParameterdvEXT(Int32 pname, double* @params);
+
+			[ThreadStatic]
+			internal static glCullParameterdvEXT pglCullParameterdvEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCullParameterfvEXT(Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glCullParameterfvEXT pglCullParameterfvEXT;
+
+		}
 	}
 
 }

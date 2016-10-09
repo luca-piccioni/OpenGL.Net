@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -553,6 +556,185 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreateStatesNV", ExactSpelling = true)]
+			internal extern static unsafe void glCreateStatesNV(Int32 n, UInt32* states);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteStatesNV", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteStatesNV(Int32 n, UInt32* states);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsStateNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsStateNV(UInt32 state);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glStateCaptureNV", ExactSpelling = true)]
+			internal extern static void glStateCaptureNV(UInt32 state, Int32 mode);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetCommandHeaderNV", ExactSpelling = true)]
+			internal extern static UInt32 glGetCommandHeaderNV(Int32 tokenID, UInt32 size);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetStageIndexNV", ExactSpelling = true)]
+			internal extern static UInt16 glGetStageIndexNV(Int32 shadertype);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawCommandsNV", ExactSpelling = true)]
+			internal extern static unsafe void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawCommandsAddressNV", ExactSpelling = true)]
+			internal extern static unsafe void glDrawCommandsAddressNV(Int32 primitiveMode, UInt64* indirects, Int32* sizes, UInt32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawCommandsStatesNV", ExactSpelling = true)]
+			internal extern static unsafe void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDrawCommandsStatesAddressNV", ExactSpelling = true)]
+			internal extern static unsafe void glDrawCommandsStatesAddressNV(UInt64* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCreateCommandListsNV", ExactSpelling = true)]
+			internal extern static unsafe void glCreateCommandListsNV(Int32 n, UInt32* lists);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glDeleteCommandListsNV", ExactSpelling = true)]
+			internal extern static unsafe void glDeleteCommandListsNV(Int32 n, UInt32* lists);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsCommandListNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsCommandListNV(UInt32 list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glListDrawCommandsStatesClientNV", ExactSpelling = true)]
+			internal extern static unsafe void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCommandListSegmentsNV", ExactSpelling = true)]
+			internal extern static void glCommandListSegmentsNV(UInt32 list, UInt32 segments);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCompileCommandListNV", ExactSpelling = true)]
+			internal extern static void glCompileCommandListNV(UInt32 list);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glCallCommandListNV", ExactSpelling = true)]
+			internal extern static void glCallCommandListNV(UInt32 list);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCreateStatesNV(Int32 n, UInt32* states);
+
+			[ThreadStatic]
+			internal static glCreateStatesNV pglCreateStatesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteStatesNV(Int32 n, UInt32* states);
+
+			[ThreadStatic]
+			internal static glDeleteStatesNV pglDeleteStatesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsStateNV(UInt32 state);
+
+			[ThreadStatic]
+			internal static glIsStateNV pglIsStateNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glStateCaptureNV(UInt32 state, Int32 mode);
+
+			[ThreadStatic]
+			internal static glStateCaptureNV pglStateCaptureNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt32 glGetCommandHeaderNV(Int32 tokenID, UInt32 size);
+
+			[ThreadStatic]
+			internal static glGetCommandHeaderNV pglGetCommandHeaderNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate UInt16 glGetStageIndexNV(Int32 shadertype);
+
+			[ThreadStatic]
+			internal static glGetStageIndexNV pglGetStageIndexNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
+
+			[ThreadStatic]
+			internal static glDrawCommandsNV pglDrawCommandsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawCommandsAddressNV(Int32 primitiveMode, UInt64* indirects, Int32* sizes, UInt32 count);
+
+			[ThreadStatic]
+			internal static glDrawCommandsAddressNV pglDrawCommandsAddressNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+
+			[ThreadStatic]
+			internal static glDrawCommandsStatesNV pglDrawCommandsStatesNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawCommandsStatesAddressNV(UInt64* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+
+			[ThreadStatic]
+			internal static glDrawCommandsStatesAddressNV pglDrawCommandsStatesAddressNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCreateCommandListsNV(Int32 n, UInt32* lists);
+
+			[ThreadStatic]
+			internal static glCreateCommandListsNV pglCreateCommandListsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteCommandListsNV(Int32 n, UInt32* lists);
+
+			[ThreadStatic]
+			internal static glDeleteCommandListsNV pglDeleteCommandListsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsCommandListNV(UInt32 list);
+
+			[ThreadStatic]
+			internal static glIsCommandListNV pglIsCommandListNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+
+			[ThreadStatic]
+			internal static glListDrawCommandsStatesClientNV pglListDrawCommandsStatesClientNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCommandListSegmentsNV(UInt32 list, UInt32 segments);
+
+			[ThreadStatic]
+			internal static glCommandListSegmentsNV pglCommandListSegmentsNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCompileCommandListNV(UInt32 list);
+
+			[ThreadStatic]
+			internal static glCompileCommandListNV pglCompileCommandListNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCallCommandListNV(UInt32 list);
+
+			[ThreadStatic]
+			internal static glCallCommandListNV pglCallCommandListNV;
+
+		}
 	}
 
 }

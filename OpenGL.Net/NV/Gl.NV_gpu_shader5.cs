@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -1042,6 +1045,343 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform1i64NV", ExactSpelling = true)]
+			internal extern static void glUniform1i64NV(Int32 location, Int64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform2i64NV", ExactSpelling = true)]
+			internal extern static void glUniform2i64NV(Int32 location, Int64 x, Int64 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform3i64NV", ExactSpelling = true)]
+			internal extern static void glUniform3i64NV(Int32 location, Int64 x, Int64 y, Int64 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform4i64NV", ExactSpelling = true)]
+			internal extern static void glUniform4i64NV(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform1i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform1i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform2i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform2i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform3i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform3i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform4i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform4i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform1ui64NV", ExactSpelling = true)]
+			internal extern static void glUniform1ui64NV(Int32 location, UInt64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform2ui64NV", ExactSpelling = true)]
+			internal extern static void glUniform2ui64NV(Int32 location, UInt64 x, UInt64 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform3ui64NV", ExactSpelling = true)]
+			internal extern static void glUniform3ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform4ui64NV", ExactSpelling = true)]
+			internal extern static void glUniform4ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform1ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform1ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform2ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform2ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform3ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform3ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniform4ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniform4ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetUniformi64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetUniformi64vNV(UInt32 program, Int32 location, Int64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1i64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform1i64NV(UInt32 program, Int32 location, Int64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2i64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform2i64NV(UInt32 program, Int32 location, Int64 x, Int64 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3i64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform3i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4i64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform4i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4i64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1ui64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform1ui64NV(UInt32 program, Int32 location, UInt64 x);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2ui64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform2ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3ui64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform3ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4ui64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniform4ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform1ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform1ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform2ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform2ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform3ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform3ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniform4ui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniform4ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform1i64NV(Int32 location, Int64 x);
+
+			[ThreadStatic]
+			internal static glUniform1i64NV pglUniform1i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform2i64NV(Int32 location, Int64 x, Int64 y);
+
+			[ThreadStatic]
+			internal static glUniform2i64NV pglUniform2i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform3i64NV(Int32 location, Int64 x, Int64 y, Int64 z);
+
+			[ThreadStatic]
+			internal static glUniform3i64NV pglUniform3i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform4i64NV(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+
+			[ThreadStatic]
+			internal static glUniform4i64NV pglUniform4i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform1i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glUniform1i64vNV pglUniform1i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform2i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glUniform2i64vNV pglUniform2i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform3i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glUniform3i64vNV pglUniform3i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform4i64vNV(Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glUniform4i64vNV pglUniform4i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform1ui64NV(Int32 location, UInt64 x);
+
+			[ThreadStatic]
+			internal static glUniform1ui64NV pglUniform1ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform2ui64NV(Int32 location, UInt64 x, UInt64 y);
+
+			[ThreadStatic]
+			internal static glUniform2ui64NV pglUniform2ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform3ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z);
+
+			[ThreadStatic]
+			internal static glUniform3ui64NV pglUniform3ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform4ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+
+			[ThreadStatic]
+			internal static glUniform4ui64NV pglUniform4ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform1ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniform1ui64vNV pglUniform1ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform2ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniform2ui64vNV pglUniform2ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform3ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniform3ui64vNV pglUniform3ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform4ui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniform4ui64vNV pglUniform4ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetUniformi64vNV(UInt32 program, Int32 location, Int64* @params);
+
+			[ThreadStatic]
+			internal static glGetUniformi64vNV pglGetUniformi64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1i64NV(UInt32 program, Int32 location, Int64 x);
+
+			[ThreadStatic]
+			internal static glProgramUniform1i64NV pglProgramUniform1i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2i64NV(UInt32 program, Int32 location, Int64 x, Int64 y);
+
+			[ThreadStatic]
+			internal static glProgramUniform2i64NV pglProgramUniform2i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
+
+			[ThreadStatic]
+			internal static glProgramUniform3i64NV pglProgramUniform3i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+
+			[ThreadStatic]
+			internal static glProgramUniform4i64NV pglProgramUniform4i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform1i64vNV pglProgramUniform1i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform2i64vNV pglProgramUniform2i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform3i64vNV pglProgramUniform3i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform4i64vNV pglProgramUniform4i64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1ui64NV(UInt32 program, Int32 location, UInt64 x);
+
+			[ThreadStatic]
+			internal static glProgramUniform1ui64NV pglProgramUniform1ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y);
+
+			[ThreadStatic]
+			internal static glProgramUniform2ui64NV pglProgramUniform2ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
+
+			[ThreadStatic]
+			internal static glProgramUniform3ui64NV pglProgramUniform3ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+
+			[ThreadStatic]
+			internal static glProgramUniform4ui64NV pglProgramUniform4ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform1ui64vNV pglProgramUniform1ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform2ui64vNV pglProgramUniform2ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform3ui64vNV pglProgramUniform3ui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniform4ui64vNV pglProgramUniform4ui64vNV;
+
+		}
 	}
 
 }

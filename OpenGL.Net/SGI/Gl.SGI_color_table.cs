@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -127,6 +130,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetColorTableSGI", ExactSpelling = true)]
+			internal extern static unsafe void glGetColorTableSGI(Int32 target, Int32 format, Int32 type, IntPtr table);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetColorTableParameterfvSGI", ExactSpelling = true)]
+			internal extern static unsafe void glGetColorTableParameterfvSGI(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetColorTableParameterivSGI", ExactSpelling = true)]
+			internal extern static unsafe void glGetColorTableParameterivSGI(Int32 target, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetColorTableSGI(Int32 target, Int32 format, Int32 type, IntPtr table);
+
+			[ThreadStatic]
+			internal static glGetColorTableSGI pglGetColorTableSGI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetColorTableParameterfvSGI(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetColorTableParameterfvSGI pglGetColorTableParameterfvSGI;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetColorTableParameterivSGI(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetColorTableParameterivSGI pglGetColorTableParameterivSGI;
+
+		}
 	}
 
 }

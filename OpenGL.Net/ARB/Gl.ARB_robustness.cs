@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -738,6 +741,203 @@ namespace OpenGL
 			}
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatusARB", ExactSpelling = true)]
+			internal extern static Int32 glGetGraphicsResetStatusARB();
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnTexImageARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr img);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnCompressedTexImageARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, IntPtr img);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformfvARB(UInt32 program, Int32 location, Int32 bufSize, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformivARB(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformuivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformuivARB(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnUniformdvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnUniformdvARB(UInt32 program, Int32 location, Int32 bufSize, double* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnMapdvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnMapdvARB(Int32 target, Int32 query, Int32 bufSize, double* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnMapfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnMapfvARB(Int32 target, Int32 query, Int32 bufSize, float* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnMapivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnMapivARB(Int32 target, Int32 query, Int32 bufSize, Int32* v);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnPixelMapfvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnPixelMapfvARB(Int32 map, Int32 bufSize, float* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnPixelMapuivARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnPixelMapuivARB(Int32 map, Int32 bufSize, UInt32* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnPixelMapusvARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnPixelMapusvARB(Int32 map, Int32 bufSize, UInt16* values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnPolygonStippleARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnPolygonStippleARB(Int32 bufSize, byte* pattern);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnColorTableARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnConvolutionFilterARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnSeparableFilterARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnHistogramARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetnMinmaxARB", ExactSpelling = true)]
+			internal extern static unsafe void glGetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glGetGraphicsResetStatusARB();
+
+			[ThreadStatic]
+			internal static glGetGraphicsResetStatusARB pglGetGraphicsResetStatusARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr img);
+
+			[ThreadStatic]
+			internal static glGetnTexImageARB pglGetnTexImageARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, IntPtr img);
+
+			[ThreadStatic]
+			internal static glGetnCompressedTexImageARB pglGetnCompressedTexImageARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformfvARB(UInt32 program, Int32 location, Int32 bufSize, float* @params);
+
+			[ThreadStatic]
+			internal static glGetnUniformfvARB pglGetnUniformfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformivARB(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetnUniformivARB pglGetnUniformivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformuivARB(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
+
+			[ThreadStatic]
+			internal static glGetnUniformuivARB pglGetnUniformuivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformdvARB(UInt32 program, Int32 location, Int32 bufSize, double* @params);
+
+			[ThreadStatic]
+			internal static glGetnUniformdvARB pglGetnUniformdvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnMapdvARB(Int32 target, Int32 query, Int32 bufSize, double* v);
+
+			[ThreadStatic]
+			internal static glGetnMapdvARB pglGetnMapdvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnMapfvARB(Int32 target, Int32 query, Int32 bufSize, float* v);
+
+			[ThreadStatic]
+			internal static glGetnMapfvARB pglGetnMapfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnMapivARB(Int32 target, Int32 query, Int32 bufSize, Int32* v);
+
+			[ThreadStatic]
+			internal static glGetnMapivARB pglGetnMapivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnPixelMapfvARB(Int32 map, Int32 bufSize, float* values);
+
+			[ThreadStatic]
+			internal static glGetnPixelMapfvARB pglGetnPixelMapfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnPixelMapuivARB(Int32 map, Int32 bufSize, UInt32* values);
+
+			[ThreadStatic]
+			internal static glGetnPixelMapuivARB pglGetnPixelMapuivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnPixelMapusvARB(Int32 map, Int32 bufSize, UInt16* values);
+
+			[ThreadStatic]
+			internal static glGetnPixelMapusvARB pglGetnPixelMapusvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnPolygonStippleARB(Int32 bufSize, byte* pattern);
+
+			[ThreadStatic]
+			internal static glGetnPolygonStippleARB pglGetnPolygonStippleARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
+
+			[ThreadStatic]
+			internal static glGetnColorTableARB pglGetnColorTableARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
+
+			[ThreadStatic]
+			internal static glGetnConvolutionFilterARB pglGetnConvolutionFilterARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
+
+			[ThreadStatic]
+			internal static glGetnSeparableFilterARB pglGetnSeparableFilterARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
+
+			[ThreadStatic]
+			internal static glGetnHistogramARB pglGetnHistogramARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
+
+			[ThreadStatic]
+			internal static glGetnMinmaxARB pglGetnMinmaxARB;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -65,6 +68,22 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglPostSubBufferNV", ExactSpelling = true)]
+			internal extern static unsafe bool eglPostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool eglPostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height);
+
+			internal static eglPostSubBufferNV peglPostSubBufferNV;
+
+		}
 	}
 
 }

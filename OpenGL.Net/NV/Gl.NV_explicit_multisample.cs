@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -97,6 +100,33 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glSampleMaskIndexedNV", ExactSpelling = true)]
+			internal extern static void glSampleMaskIndexedNV(UInt32 index, UInt32 mask);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glTexRenderbufferNV", ExactSpelling = true)]
+			internal extern static void glTexRenderbufferNV(Int32 target, UInt32 renderbuffer);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSampleMaskIndexedNV(UInt32 index, UInt32 mask);
+
+			[ThreadStatic]
+			internal static glSampleMaskIndexedNV pglSampleMaskIndexedNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glTexRenderbufferNV(Int32 target, UInt32 renderbuffer);
+
+			[ThreadStatic]
+			internal static glTexRenderbufferNV pglTexRenderbufferNV;
+
+		}
 	}
 
 }

@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -109,6 +112,35 @@ namespace OpenGL
 			return (retValue);
 		}
 
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglGetDigitalVideoParametersI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "wglSetDigitalVideoParametersI3D", ExactSpelling = true, SetLastError = true)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			internal extern static unsafe bool wglSetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[ThreadStatic]
+			internal static wglGetDigitalVideoParametersI3D pwglGetDigitalVideoParametersI3D;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate bool wglSetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+
+			[ThreadStatic]
+			internal static wglSetDigitalVideoParametersI3D pwglSetDigitalVideoParametersI3D;
+
+		}
 	}
 
 }

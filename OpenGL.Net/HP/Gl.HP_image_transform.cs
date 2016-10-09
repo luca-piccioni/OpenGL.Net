@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -261,6 +264,73 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glImageTransformParameteriHP", ExactSpelling = true)]
+			internal extern static void glImageTransformParameteriHP(Int32 target, Int32 pname, Int32 param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glImageTransformParameterfHP", ExactSpelling = true)]
+			internal extern static void glImageTransformParameterfHP(Int32 target, Int32 pname, float param);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glImageTransformParameterivHP", ExactSpelling = true)]
+			internal extern static unsafe void glImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glImageTransformParameterfvHP", ExactSpelling = true)]
+			internal extern static unsafe void glImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetImageTransformParameterivHP", ExactSpelling = true)]
+			internal extern static unsafe void glGetImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetImageTransformParameterfvHP", ExactSpelling = true)]
+			internal extern static unsafe void glGetImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glImageTransformParameteriHP(Int32 target, Int32 pname, Int32 param);
+
+			[ThreadStatic]
+			internal static glImageTransformParameteriHP pglImageTransformParameteriHP;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glImageTransformParameterfHP(Int32 target, Int32 pname, float param);
+
+			[ThreadStatic]
+			internal static glImageTransformParameterfHP pglImageTransformParameterfHP;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glImageTransformParameterivHP pglImageTransformParameterivHP;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glImageTransformParameterfvHP pglImageTransformParameterfvHP;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetImageTransformParameterivHP pglGetImageTransformParameterivHP;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
+
+			[ThreadStatic]
+			internal static glGetImageTransformParameterfvHP pglGetImageTransformParameterfvHP;
+
+		}
 	}
 
 }

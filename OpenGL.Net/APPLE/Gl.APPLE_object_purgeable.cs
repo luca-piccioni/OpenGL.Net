@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -140,6 +143,43 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glObjectPurgeableAPPLE", ExactSpelling = true)]
+			internal extern static Int32 glObjectPurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glObjectUnpurgeableAPPLE", ExactSpelling = true)]
+			internal extern static Int32 glObjectUnpurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetObjectParameterivAPPLE", ExactSpelling = true)]
+			internal extern static unsafe void glGetObjectParameterivAPPLE(Int32 objectType, UInt32 name, Int32 pname, Int32* @params);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glObjectPurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option);
+
+			[ThreadStatic]
+			internal static glObjectPurgeableAPPLE pglObjectPurgeableAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Int32 glObjectUnpurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option);
+
+			[ThreadStatic]
+			internal static glObjectUnpurgeableAPPLE pglObjectUnpurgeableAPPLE;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetObjectParameterivAPPLE(Int32 objectType, UInt32 name, Int32 pname, Int32* @params);
+
+			[ThreadStatic]
+			internal static glGetObjectParameterivAPPLE pglGetObjectParameterivAPPLE;
+
+		}
 	}
 
 }

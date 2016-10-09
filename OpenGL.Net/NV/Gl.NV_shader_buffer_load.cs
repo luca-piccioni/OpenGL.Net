@@ -16,9 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 
 namespace OpenGL
@@ -340,6 +343,155 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
+		internal unsafe static partial class UnsafeNativeMethods
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeBufferResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeBufferResidentNV(Int32 target, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeBufferNonResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeBufferNonResidentNV(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsBufferResidentNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsBufferResidentNV(Int32 target);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeNamedBufferResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeNamedBufferResidentNV(UInt32 buffer, Int32 access);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glMakeNamedBufferNonResidentNV", ExactSpelling = true)]
+			internal extern static void glMakeNamedBufferNonResidentNV(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glIsNamedBufferResidentNV", ExactSpelling = true)]
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal extern static bool glIsNamedBufferResidentNV(UInt32 buffer);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetBufferParameterui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetBufferParameterui64vNV(Int32 target, Int32 pname, UInt64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetNamedBufferParameterui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetNamedBufferParameterui64vNV(UInt32 buffer, Int32 pname, UInt64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetIntegerui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetIntegerui64vNV(Int32 value, UInt64* result);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformui64NV", ExactSpelling = true)]
+			internal extern static void glUniformui64NV(Int32 location, UInt64 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glUniformui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glUniformui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glGetUniformui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glGetUniformui64vNV(UInt32 program, Int32 location, UInt64* @params);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformui64NV", ExactSpelling = true)]
+			internal extern static void glProgramUniformui64NV(UInt32 program, Int32 location, UInt64 value);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "glProgramUniformui64vNV", ExactSpelling = true)]
+			internal extern static unsafe void glProgramUniformui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+		}
+
+		internal unsafe static partial class Delegates
+		{
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeBufferResidentNV(Int32 target, Int32 access);
+
+			[ThreadStatic]
+			internal static glMakeBufferResidentNV pglMakeBufferResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeBufferNonResidentNV(Int32 target);
+
+			[ThreadStatic]
+			internal static glMakeBufferNonResidentNV pglMakeBufferNonResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsBufferResidentNV(Int32 target);
+
+			[ThreadStatic]
+			internal static glIsBufferResidentNV pglIsBufferResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeNamedBufferResidentNV(UInt32 buffer, Int32 access);
+
+			[ThreadStatic]
+			internal static glMakeNamedBufferResidentNV pglMakeNamedBufferResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMakeNamedBufferNonResidentNV(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glMakeNamedBufferNonResidentNV pglMakeNamedBufferNonResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate bool glIsNamedBufferResidentNV(UInt32 buffer);
+
+			[ThreadStatic]
+			internal static glIsNamedBufferResidentNV pglIsNamedBufferResidentNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetBufferParameterui64vNV(Int32 target, Int32 pname, UInt64* @params);
+
+			[ThreadStatic]
+			internal static glGetBufferParameterui64vNV pglGetBufferParameterui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetNamedBufferParameterui64vNV(UInt32 buffer, Int32 pname, UInt64* @params);
+
+			[ThreadStatic]
+			internal static glGetNamedBufferParameterui64vNV pglGetNamedBufferParameterui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetIntegerui64vNV(Int32 value, UInt64* result);
+
+			[ThreadStatic]
+			internal static glGetIntegerui64vNV pglGetIntegerui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniformui64NV(Int32 location, UInt64 value);
+
+			[ThreadStatic]
+			internal static glUniformui64NV pglUniformui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniformui64vNV(Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glUniformui64vNV pglUniformui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetUniformui64vNV(UInt32 program, Int32 location, UInt64* @params);
+
+			[ThreadStatic]
+			internal static glGetUniformui64vNV pglGetUniformui64vNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniformui64NV(UInt32 program, Int32 location, UInt64 value);
+
+			[ThreadStatic]
+			internal static glProgramUniformui64NV pglProgramUniformui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniformui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
+
+			[ThreadStatic]
+			internal static glProgramUniformui64vNV pglProgramUniformui64vNV;
+
+		}
 	}
 
 }
