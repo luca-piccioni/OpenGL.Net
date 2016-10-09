@@ -100,32 +100,6 @@
     <Compile Include="Collections\Graph.cs" />
     <Compile Include="Collections\IGeoTreeNode.cs" />
     <Compile Include="Collections\IGraphNode.cs" />
-    <Compile Include="ColorBGR.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorBGR.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ColorBGRA.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorBGRA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ColorR.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorR.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ColorRGB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorRGB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ColorRGBA.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorRGBA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ColorSRGB.cs" />
     <Compile Include="GdalImageCodecPlugin.cs" />
     <Compile Include="GraphicsBufferType.cs" />
     <Compile Include="IBindingResource.cs" />
@@ -157,7 +131,6 @@
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
-    <Compile Include="ColorRGBARef.cs" />
     <Compile Include="CoreImageCodecPlugin.cs" />
     <Compile Include="ElementBufferObject.cs" />
     <Compile Include="FeedbackBufferFormat.cs" />
@@ -179,9 +152,7 @@
     <Compile Include="GraphicsScreen.cs" />
     <Compile Include="GraphicsSurface.cs" />
     <Compile Include="GraphicsWindow.cs" />
-    <Compile Include="IColor.cs" />
     <Compile Include="IGraphicsDisposable.cs" />
-    <Compile Include="IFragment.cs" />
     <Compile Include="IGraphicsResource.cs" />
     <Compile Include="IImageCodecPlugin.cs" />
     <Compile Include="ILogger.cs" />
@@ -208,17 +179,6 @@
     <Compile Include="ArrayBufferObjectPacked.cs" />
     <Compile Include="Vincenty.cs" />
     <None Include="PatchArrayObject.cs" />
-    <Compile Include="Pixel.cs" />
-    <Compile Include="PixelColorspaceAttribute.cs" />
-    <Compile Include="PixelComponentsAttribute.cs" />
-    <Compile Include="PixelLayout.cs" />
-    <Compile Include="PixelLayoutInfo.cs" />
-    <Compile Include="PixelNonLinearAttribute.cs" />
-    <Compile Include="PixelPlanesAttribute.cs" />
-    <Compile Include="PixelPrecisionAttribute.cs" />
-    <Compile Include="PixelSizeAttribute.cs" />
-    <Compile Include="PixelSpace.cs" />
-    <Compile Include="PixelStructureAttribute.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="PrimitiveRestart.cs" />
     <Compile Include="ProjectionMatrix.cs" />
@@ -320,28 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Shaders\GeometryClipmap\DefaultElevationBanding.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ColorBGR.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorBGR.cs</LastGenOutput>
-    </Content>
-    <Content Include="ColorBGRA.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorBGRA.cs</LastGenOutput>
-    </Content>
-    <Content Include="ColorR.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorR.cs</LastGenOutput>
-    </Content>
-    <Content Include="ColorRGB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorRGB.cs</LastGenOutput>
-    </Content>
-    <Content Include="ColorRGBA.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorRGBA.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

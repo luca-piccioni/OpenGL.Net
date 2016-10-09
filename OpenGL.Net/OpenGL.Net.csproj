@@ -214,6 +214,33 @@
     <Compile Include="ATI\Gl.ATI_vertex_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
+    <Compile Include="ColorBGR.cs">
+      <DependentUpon>ColorBGR.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ColorBGRA.cs">
+      <DependentUpon>ColorBGRA.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ColorR.cs">
+      <DependentUpon>ColorR.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ColorRGB.cs">
+      <DependentUpon>ColorRGB.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ColorRGBA.cs">
+      <DependentUpon>ColorRGBA.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ColorRGBARef.cs" />
+    <Compile Include="ColorSRGB.cs" />
     <Compile Include="CpuInformation.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />
@@ -237,7 +264,9 @@
     <Compile Include="Gl.ES_VERSION_3_2.cs" />
     <Compile Include="Gl.Limits.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />
+    <Compile Include="IColor.cs" />
     <Compile Include="ICopiable.cs" />
+    <Compile Include="IFragment.cs" />
     <Compile Include="IMatrix.cs" />
     <Compile Include="IMatrix3x3.cs" />
     <Compile Include="IMatrix4x4.cs" />
@@ -617,6 +646,17 @@
     <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
     <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
     <Compile Include="KhronosApi.cs" />
+    <Compile Include="Pixel.cs" />
+    <Compile Include="PixelColorspaceAttribute.cs" />
+    <Compile Include="PixelComponentsAttribute.cs" />
+    <Compile Include="PixelLayout.cs" />
+    <Compile Include="PixelLayoutInfo.cs" />
+    <Compile Include="PixelNonLinearAttribute.cs" />
+    <Compile Include="PixelPlanesAttribute.cs" />
+    <Compile Include="PixelPrecisionAttribute.cs" />
+    <Compile Include="PixelSizeAttribute.cs" />
+    <Compile Include="PixelSpace.cs" />
+    <Compile Include="PixelStructureAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QCOM\Gl.QCOM_alpha_test.cs" />
     <Compile Include="QCOM\Gl.QCOM_binning_control.cs" />
@@ -777,6 +817,26 @@
     <None Include="OpenGL.Net.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ColorBGR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorBGR.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorBGRA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorBGRA.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorR.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorRGB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorRGB.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorRGBA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorRGBA.cs</LastGenOutput>
+    </Content>
     <Content Include="Vertex2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Vertex2.cs</LastGenOutput>

@@ -477,7 +477,7 @@ namespace OpenGL
 			Gl.ReadBuffer(rBuffer);
 
 			// Copy pixels from read buffer to texture
-			Gl.CopyTexImage2D(texture.TextureTarget, (int)level, Pixel.GetGlInternalFormat(texture.PixelLayout, ctx), (int)x, (int)y, (int)texture.Width, (int)texture.Height, 0);
+			Gl.CopyTexImage2D(texture.TextureTarget, (int)level, Pixel.GetGlInternalFormat(texture.PixelLayout), (int)x, (int)y, (int)texture.Width, (int)texture.Height, 0);
 
 			// Unbind from reading
 			UnbindRead(ctx);

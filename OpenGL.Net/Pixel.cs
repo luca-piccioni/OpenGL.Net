@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Diagnostics;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -1169,46 +1168,6 @@ namespace OpenGL
 		#region Internal Format
 
 		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as internal format.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
-		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, and it is stored internally with
-		/// the same pixel format.
-		/// </returns>
-		public static bool IsSupportedInternalFormat(PixelLayout type)
-		{
-			return (IsSupportedInternalFormat(type, GraphicsContext.CurrentCaps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as internal format.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specify which OpenGL extension are supported.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
-		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, and it is stored internally with
-		/// the same pixel format.
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw when <paramref name="ctx"/> is null.
-		/// </exception>
-		public static bool IsSupportedInternalFormat(PixelLayout type, GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			return (IsSupportedInternalFormat(type, ctx.Caps));
-		}
-
-		/// <summary>
 		/// Determine whether a <see cref="PixelLayout"/> is supported by some OpenGL implementation as internal format.
 		/// </summary>
 		/// <param name="type">
@@ -1285,7 +1244,7 @@ namespace OpenGL
 		/// - <see cref="Type.Depth32"/>
 		/// - <see cref="Type.DepthF"/>
 		/// </remarks>
-		private static bool IsSupportedInternalFormat(PixelLayout type, GraphicsCapabilities caps)
+		public static bool IsSupportedInternalFormat(PixelLayout type)
 		{
 			switch (type) {
 
@@ -1295,7 +1254,7 @@ namespace OpenGL
 				case PixelLayout.RGB16:
 				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
-					return (caps.GlExtensions.PackedPixels_EXT);
+					return (Gl.CurrentExtensions.PackedPixels_EXT);
 				case PixelLayout.RGB24:
 				case PixelLayout.RGB48:
 				case PixelLayout.RGBA32:
@@ -1303,13 +1262,13 @@ namespace OpenGL
 					return (true);
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBAF:
-					return (caps.GlExtensions.TextureFloat_ARB);
+					return (Gl.CurrentExtensions.TextureFloat_ARB);
 				case PixelLayout.RGBD:
 					return (false);
 
 				case PixelLayout.RGBHF:
 				case PixelLayout.RGBAHF:
-					return (caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
+					return (Gl.CurrentExtensions.TextureFloat_ARB && Gl.CurrentExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1317,7 +1276,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (caps.GlExtensions.TextureSRGB_EXT);
+					return (Gl.CurrentExtensions.TextureSRGB_EXT);
 
 				#endregion
 
@@ -1326,20 +1285,20 @@ namespace OpenGL
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
 				//case PixelLayout.BGR30A2:
-					return (caps.GlExtensions.PackedPixels_EXT);
+					return (Gl.CurrentExtensions.PackedPixels_EXT);
 				case PixelLayout.BGR15:
-					return (caps.GlExtensions.PackedPixels_EXT && caps.GlExtensions.TextureSwizzle_ARB);
+					return (Gl.CurrentExtensions.PackedPixels_EXT && Gl.CurrentExtensions.TextureSwizzle_ARB);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
-					return (caps.GlExtensions.Bgra_EXT);
+					return (Gl.CurrentExtensions.Bgra_EXT);
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRF:
-					return (caps.GlExtensions.Bgra_EXT && caps.GlExtensions.TextureFloat_ARB);
+					return (Gl.CurrentExtensions.Bgra_EXT && Gl.CurrentExtensions.TextureFloat_ARB);
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAHF:
-					return (caps.GlExtensions.Bgra_EXT && caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
+					return (Gl.CurrentExtensions.Bgra_EXT && Gl.CurrentExtensions.TextureFloat_ARB && Gl.CurrentExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1347,20 +1306,20 @@ namespace OpenGL
 
 				case PixelLayout.R8:
 				case PixelLayout.R16:
-					return (caps.GlExtensions.TextureSwizzle_ARB);
+					return (Gl.CurrentExtensions.TextureSwizzle_ARB);
 				case PixelLayout.GRAY16S:
-					return (caps.GlExtensions.TextureSnorm_EXT);
+					return (Gl.CurrentExtensions.TextureSnorm_EXT);
 				case PixelLayout.RF:
-					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
+					return (Gl.CurrentExtensions.TextureSwizzle_ARB && Gl.CurrentExtensions.TextureFloat_ARB);
 				case PixelLayout.RHF:
-					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
+					return (Gl.CurrentExtensions.TextureSwizzle_ARB && Gl.CurrentExtensions.TextureFloat_ARB && Gl.CurrentExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
 				#region GRAY Formats
 
 				//case PixelLayout.GRAYAF:
-				//	return (caps.GlExtensions.TextureRg_ARB && caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
+				//	return (Gl.CurrentExtensions.TextureRg_ARB && Gl.CurrentExtensions.TextureSwizzle_ARB && Gl.CurrentExtensions.TextureFloat_ARB);
 
 				#endregion
 
@@ -1379,18 +1338,18 @@ namespace OpenGL
 				case PixelLayout.Depth16:
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
-					return (caps.GlExtensions.DepthTexture_ARB);
+					return (Gl.CurrentExtensions.DepthTexture_ARB);
 				case PixelLayout.DepthF:
-					return (caps.GlExtensions.DepthBufferFloat_ARB);
+					return (Gl.CurrentExtensions.DepthBufferFloat_ARB);
 
 				#endregion
 
 				#region Depth/Stencil Formats
 
 				case PixelLayout.Depth24Stencil8:
-					return (caps.GlExtensions.DepthTexture_ARB);
+					return (Gl.CurrentExtensions.DepthTexture_ARB);
 				case PixelLayout.Depth32FStencil8:
-					return (caps.GlExtensions.DepthBufferFloat_ARB);
+					return (Gl.CurrentExtensions.DepthBufferFloat_ARB);
 
 				#endregion
 
@@ -1404,7 +1363,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (caps.GlExtensions.TextureInteger_EXT);
+					return (Gl.CurrentExtensions.TextureInteger_EXT);
 
 				#endregion
 
@@ -1428,49 +1387,6 @@ namespace OpenGL
 		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, but it could be stored in
 		/// another pixel format.
 		/// </returns>
-		public static bool IsSupportedDataFormat(PixelLayout type)
-		{
-			return (IsSupportedDataFormat(type, GraphicsContext.CurrentCaps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as data format.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specify which OpenGL extension are supported.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
-		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, but it could be stored in
-		/// another pixel format.
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw when <paramref name="ctx"/> is null.
-		/// </exception>
-		public static bool IsSupportedDataFormat(PixelLayout type, GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			return (IsSupportedDataFormat(type, ctx.Caps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as data format.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support.
-		/// </param>
-		/// <param name="caps">
-		/// A <see cref="GraphicsCapabilities"/> that declares which extension are supported by a particoular OpenGL version.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
-		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, but it could be stored in
-		/// another pixel format.
-		/// </returns>
 		/// <remarks>
 		/// The OpenGL support is dependent on what extensions have been implemented by current driver/hardware. The following
 		/// capabilities are tested:
@@ -1486,7 +1402,7 @@ namespace OpenGL
 		/// 
 		/// 
 		/// </remarks>
-		private static bool IsSupportedDataFormat(PixelLayout type, GraphicsCapabilities caps)
+		public static bool IsSupportedDataFormat(PixelLayout type)
 		{
 			switch (type) {
 
@@ -1496,7 +1412,7 @@ namespace OpenGL
 				case PixelLayout.RGB16:
 				//case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
-					return (caps.GlExtensions.PackedPixels_EXT);
+					return (Gl.CurrentExtensions.PackedPixels_EXT);
 				case PixelLayout.RGB24:
 				case PixelLayout.RGB48:
 				case PixelLayout.RGBA32:
@@ -1509,7 +1425,7 @@ namespace OpenGL
 
 				case PixelLayout.RGBHF:
 				case PixelLayout.RGBAHF:
-					return (caps.GlExtensions.HalfFloatPixel_ARB);
+					return (Gl.CurrentExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1517,7 +1433,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (caps.GlExtensions.TextureSRGB_EXT);
+					return (Gl.CurrentExtensions.TextureSRGB_EXT);
 
 				#endregion
 
@@ -1526,20 +1442,20 @@ namespace OpenGL
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
 				//case PixelLayout.BGR30A2:
-					return (caps.GlExtensions.PackedPixels_EXT);
+					return (Gl.CurrentExtensions.PackedPixels_EXT);
 				case PixelLayout.BGR15:
-					return (caps.GlExtensions.PackedPixels_EXT && caps.GlExtensions.TextureSwizzle_ARB);
+					return (Gl.CurrentExtensions.PackedPixels_EXT && Gl.CurrentExtensions.TextureSwizzle_ARB);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
-					return (caps.GlExtensions.Bgra_EXT);
+					return (Gl.CurrentExtensions.Bgra_EXT);
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRF:
-					return (caps.GlExtensions.Bgra_EXT);
+					return (Gl.CurrentExtensions.Bgra_EXT);
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAHF:
-					return (caps.GlExtensions.Bgra_EXT && caps.GlExtensions.HalfFloatPixel_ARB);
+					return (Gl.CurrentExtensions.Bgra_EXT && Gl.CurrentExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1552,14 +1468,14 @@ namespace OpenGL
 					return (true);
 				
 				case PixelLayout.RHF:
-					return (caps.GlExtensions.HalfFloatPixel_ARB);
+					return (Gl.CurrentExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
 				#region GRAYA Formats
 
 				//case PixelLayout.GRAYAF:
-				//	return (caps.GlExtensions.TextureRg_ARB);
+				//	return (Gl.CurrentExtensions.TextureRg_ARB);
 
 				#endregion
 
@@ -1601,7 +1517,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (caps.GlExtensions.TextureInteger_EXT);
+					return (Gl.CurrentExtensions.TextureInteger_EXT);
 
 				#endregion
 
@@ -1625,57 +1541,10 @@ namespace OpenGL
 		/// </returns>
 		public static bool IsSupportedSetDataFormat(PixelLayout dataFormat, PixelLayout internalFormat)
 		{
-			return (IsSupportedSetDataFormat(dataFormat, internalFormat, GraphicsContext.CurrentCaps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as data format for uploading
-		/// texture data with a specific internal format.
-		/// </summary>
-		/// <param name="dataFormat">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support as data format in conjunction with the internal format <paramref name="internalFormat"/>.
-		/// </param>
-		/// <param name="internalFormat">
-		/// A <see cref="PixelLayout"/> that specify the texture internal format.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specify which OpenGL extension are supported.
-		/// </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw when <paramref name="ctx"/> is null.
-		/// </exception>
-		public static bool IsSupportedSetDataFormat(PixelLayout dataFormat, PixelLayout internalFormat, GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			return (IsSupportedSetDataFormat(dataFormat, internalFormat, ctx.Caps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as data format for uploading
-		/// texture data with a specific internal format.
-		/// </summary>
-		/// <param name="dataFormat">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support as data format in conjunction with the internal format <paramref name="internalFormat"/>.
-		/// </param>
-		/// <param name="internalFormat">
-		/// A <see cref="PixelLayout"/> that specify the texture internal format.
-		/// </param>
-		/// <param name="caps">
-		/// A <see cref="GraphicsCapabilities"/> that declares which extension are supported by a particoular OpenGL version.
-		/// </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		private static bool IsSupportedSetDataFormat(PixelLayout dataFormat, PixelLayout internalFormat, GraphicsCapabilities caps)
-		{
 			// Source and destination format shall be supported
-			if (IsSupportedDataFormat(dataFormat, caps) == false)
+			if (IsSupportedDataFormat(dataFormat) == false)
 				return (false);
-			if (IsSupportedInternalFormat(internalFormat, caps) == false)
+			if (IsSupportedInternalFormat(internalFormat) == false)
 				return (false);
 
 			// Data format and internal format shall match by color/no-color
@@ -1704,53 +1573,10 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool IsSupportedGetDataFormat(PixelLayout texFormat, PixelLayout imgFormat)
 		{
-			return (IsSupportedGetDataFormat(texFormat, imgFormat, GraphicsContext.CurrentCaps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as data format for downloading
-		/// texture data with a specific internal format.
-		/// </summary>
-		/// <param name="texFormat">
-		/// The underlying texture internal format.
-		/// </param>
-		/// <param name="imgFormat">
-		/// 
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specify which OpenGL extension are supported.
-		/// </param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw when <paramref name="ctx"/> is null.
-		/// </exception>
-		public static bool IsSupportedGetDataFormat(PixelLayout texFormat, PixelLayout imgFormat, GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			return (IsSupportedGetDataFormat(texFormat, imgFormat, ctx.Caps));
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by current OpenGL implementation as data format for downloading
-		/// texture data with a specific internal format.
-		/// </summary>
-		/// <param name="texFormat">
-		/// The underlying texture internal format.
-		/// </param>
-		/// <param name="imgFormat">
-		/// 
-		/// </param>
-		/// <param name="caps">
-		/// A <see cref="GraphicsCapabilities"/> that declares which extension are supported by a particoular OpenGL version.
-		/// </param>
-		/// <returns></returns>
-		private static bool IsSupportedGetDataFormat(PixelLayout texFormat, PixelLayout imgFormat, GraphicsCapabilities caps)
-		{
 			// Source and destination format shall be supported
-			if (IsSupportedDataFormat(imgFormat, caps) == false)
+			if (IsSupportedDataFormat(imgFormat) == false)
 				return (false);
-			if (IsSupportedInternalFormat(texFormat, caps) == false)
+			if (IsSupportedInternalFormat(texFormat) == false)
 				return (false);
 
 			// Check whether 'texFormat' and 'imgFormat' are color formats
@@ -1780,47 +1606,6 @@ namespace OpenGL
 		/// </returns>
 		public static int GetGlInternalFormat(PixelLayout type)
 		{
-			return (GetGlInternalFormat(type, GraphicsContext.CurrentCaps));
-		}
-
-		/// <summary>
-		/// Determine the OpenGL internal format corresponding to a <see cref="PixelLayout"/>.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> that specify which extensions are supported.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
-		/// for the pixel/textel internal format.
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw when <paramref name="ctx"/> is null.
-		/// </exception>
-		public static int GetGlInternalFormat(PixelLayout type, GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			return (GetGlInternalFormat(type, ctx.Caps));
-		}
-
-		/// <summary>
-		/// Determine the OpenGL internal format corresponding to a <see cref="PixelLayout"/>.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
-		/// </param>
-		/// <param name="caps">
-		/// A <see cref="GraphicsCapabilities"/> that specify which extension are supported.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
-		/// for the pixel/textel internal format.
-		/// </returns>
-		private static int GetGlInternalFormat(PixelLayout type, GraphicsCapabilities caps)
-		{
 			switch (type) {
 
 				#region RGB/BGR Formats
@@ -1843,13 +1628,13 @@ namespace OpenGL
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBD:
 				case PixelLayout.BGRF:
-					if (caps.GlExtensions.TextureFloat_ARB == true)
+					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
 						return (Gl.RGB32F);
 					else
 						return (Gl.RGB);
 				case PixelLayout.RGBHF:
 				case PixelLayout.BGRHF:
-					if (caps.GlExtensions.TextureFloat_ARB == true)
+					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
 						return (Gl.RGB16F);
 					else
 						return (Gl.RGB);
@@ -1876,13 +1661,13 @@ namespace OpenGL
 					return (Gl.RGBA16);
 				case PixelLayout.RGBAF:
 				case PixelLayout.BGRAF:
-					if (caps.GlExtensions.TextureFloat_ARB == true)
+					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
 						return (Gl.RGBA32F);
 					else
 						return (Gl.RGBA);
 				case PixelLayout.RGBAHF:
 				case PixelLayout.BGRAHF:
-					if (caps.GlExtensions.TextureFloat_ARB == true)
+					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
 						return (Gl.RGBA16F);
 					else
 						return (Gl.RGBA);
@@ -1898,12 +1683,12 @@ namespace OpenGL
 				case PixelLayout.GRAY16S:
 					return (Gl.R16_SNORM);
 				case PixelLayout.RF:
-					if (caps.GlExtensions.TextureFloat_ARB == true)
+					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
 						return (Gl.R32F);
 					else
 						return (Gl.RED);
 				case PixelLayout.RHF:
-					if (caps.GlExtensions.TextureFloat_ARB == true)
+					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
 						return (Gl.R16F);
 					else
 						return (Gl.RED);
