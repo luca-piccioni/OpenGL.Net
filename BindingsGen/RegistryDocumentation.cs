@@ -1063,7 +1063,7 @@ namespace BindingsGen
 						XmlParserContext context = new XmlParserContext(null, nsmgr, null, XmlSpace.Default);
 						XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
 
-						xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
+						xmlReaderSettings.DtdProcessing = DtdProcessing.Ignore;
 						// xmlReaderSettings.ProhibitDtd = false;
 						xmlReaderSettings.ConformanceLevel = ConformanceLevel.Auto;
 						xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(documentationFile);
