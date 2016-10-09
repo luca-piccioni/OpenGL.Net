@@ -243,7 +243,7 @@ namespace OpenGL
 					throw new ArgumentException(String.Format("NPOT texture depth not supported (height is {0})", height));
 			}
 			// Texture internal format
-			if (Pixel.IsSupportedInternalFormat(format) == false)
+			if (format.IsSupportedInternalFormat() == false)
 				throw new ArgumentException(String.Format("not supported texture internal format {0}", format), "format");
 		}
 
@@ -306,7 +306,7 @@ namespace OpenGL
 			}
 
 			// Download texture contents
-			Gl.GetTexImage(target, (int)level, Pixel.GetGlFormat(pixelType), Pixel.GetPixelType(pixelType), image.ImageBuffer);
+			Gl.GetTexImage(target, (int)level, pixelType.GetGlFormat(), pixelType.GetPixelType(), image.ImageBuffer);
 
 			// Unbind this texture
 			ctx.Unbind(this);

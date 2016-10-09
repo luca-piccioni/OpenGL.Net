@@ -143,12 +143,12 @@ namespace OpenGL
 		/// <summary>
 		/// Determine whether the surface configuration required an unsigned integer (normalized) pixel.
 		/// </summary>
-		private bool RequiredUnsignedPixel { get { return (Pixel.IsGlUnsignedPixel(ColorType)); } }
+		private bool RequiredUnsignedPixel { get { return (ColorType.IsGlUnsignedPixel()); } }
 
 		/// <summary>
 		/// Determine whether the surface configuration required a floating-point pixel.
 		/// </summary>
-		private bool RequiresFloatPixel { get { return (Pixel.IsGlFloatPixel(ColorType)); } }
+		private bool RequiresFloatPixel { get { return (ColorType.IsGlFloatPixel()); } }
 
 		/// <summary>
 		/// Color buffer pixel format.

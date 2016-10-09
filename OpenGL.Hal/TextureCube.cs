@@ -107,7 +107,7 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat);
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
 
 				// Define empty texture
 				for (int i = 0; i < 6; i++)
@@ -189,9 +189,9 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat);
-				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
-				PixelType type = Pixel.GetPixelType(_PixelFormat);
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
+				PixelFormat format = _PixelFormat.GetGlFormat();
+				PixelType type = _PixelFormat.GetPixelType();
 
 				for (int i = 0; i < 6; i++) {
 					Image image = _Images[i];

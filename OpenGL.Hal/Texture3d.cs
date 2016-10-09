@@ -210,8 +210,8 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
-				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat);
+				PixelFormat format = _PixelFormat.GetGlFormat();
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
 
 				// Define empty texture
 				Gl.TexImage3D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, (int)_Depth, 0, format, /* Unused */ PixelType.UnsignedByte, null);
@@ -385,7 +385,7 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat);
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
 				uint width = _Images[0].Width, height = _Images[0].Height;
 
 				Gl.TexImage3D(_Target, 0, internalFormat, (int)width, (int)height, _Images.Length, 0, /* Unused */ OpenGL.PixelFormat.Red, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
@@ -393,8 +393,8 @@ namespace OpenGL
 				for (int i = 0; i < _Images.Length; i++) {
 					Image image = _Images[i];
 
-					PixelFormat format = Pixel.GetGlFormat(image.PixelLayout);
-					PixelType type = Pixel.GetPixelType(image.PixelLayout);
+					PixelFormat format = image.PixelLayout.GetGlFormat();
+					PixelType type = image.PixelLayout.GetPixelType();
 
 					// Set pixel transfer
 					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {

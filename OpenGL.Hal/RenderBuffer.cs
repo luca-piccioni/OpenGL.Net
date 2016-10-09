@@ -138,7 +138,7 @@ namespace OpenGL
 			// Allocate buffer
 			Gl.BindRenderbuffer(Gl.RENDERBUFFER, ObjectName);
 			// Define buffer storage
-			Gl.RenderbufferStorage(Gl.RENDERBUFFER, Pixel.GetGlInternalFormat(_InternalFormat), (int)w, (int)h);
+			Gl.RenderbufferStorage(Gl.RENDERBUFFER, _InternalFormat.GetGlInternalFormat(), (int)w, (int)h);
 		}
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace OpenGL
 			Gl.BindRenderbuffer(Gl.RENDERBUFFER, ObjectName);
 
 			// Define buffer storage
-			Gl.RenderbufferStorage(Gl.RENDERBUFFER, Pixel.GetGlInternalFormat(_InternalFormat), (int)_Width, (int)_Height);
+			Gl.RenderbufferStorage(Gl.RENDERBUFFER, _InternalFormat.GetGlInternalFormat(), (int)_Width, (int)_Height);
 			// Restore previous RenderBuffer binding
 			Gl.BindRenderbuffer(Gl.RENDERBUFFER, (uint)currentBinding);
 		}

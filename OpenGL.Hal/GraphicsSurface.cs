@@ -427,8 +427,8 @@ namespace OpenGL
 			}
 
 			// Grab frame buffer pixels
-			PixelFormat rFormat = Pixel.GetGlFormat(pType);
-			PixelType rType = Pixel.GetPixelType(pType);
+			PixelFormat rFormat = pType.GetGlFormat();
+			PixelType rType = pType.GetPixelType();
 
 			Gl.ReadPixels((int)x, (int)y, (int)width, (int)height, rFormat, rType, image.ImageBuffer);
 
@@ -477,7 +477,7 @@ namespace OpenGL
 			Gl.ReadBuffer(rBuffer);
 
 			// Copy pixels from read buffer to texture
-			Gl.CopyTexImage2D(texture.TextureTarget, (int)level, Pixel.GetGlInternalFormat(texture.PixelLayout), (int)x, (int)y, (int)texture.Width, (int)texture.Height, 0);
+			Gl.CopyTexImage2D(texture.TextureTarget, (int)level, texture.PixelLayout.GetGlInternalFormat(), (int)x, (int)y, (int)texture.Width, (int)texture.Height, 0);
 
 			// Unbind from reading
 			UnbindRead(ctx);

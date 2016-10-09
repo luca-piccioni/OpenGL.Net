@@ -94,7 +94,7 @@ namespace OpenGL
 								getMethod.Invoke(null, @params);
 								field.SetValue(graphicsLimits, @params[1]);
 							} catch (GlException) {
-
+								
 							} catch (Exception) {
 								
 							}

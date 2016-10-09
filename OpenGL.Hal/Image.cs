@@ -80,7 +80,7 @@ namespace OpenGL
 		/// </param>
 		public void Create(PixelLayout format, uint w, uint h)
 		{
-			PixelLayoutInfo formatInfo = Pixel.GetPixelFormat(format);
+			PixelLayoutInfo formatInfo = format.GetPixelFormat();
 
 			switch (format) {
 				// Single plane formats

@@ -159,8 +159,8 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat);
-				PixelFormat format = Pixel.GetGlFormat(_PixelFormat);
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
+				PixelFormat format = _PixelFormat.GetGlFormat();
 
 				// Define empty texture
 				Gl.TexImage3D(_Target, 0, internalFormat, (int)_Width, (int)_Height, (int)_Layers, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
@@ -341,7 +341,7 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(_PixelFormat);
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
 
 				// Define texture storage, if required
 				if (_ResetLayers)
@@ -354,8 +354,8 @@ namespace OpenGL
 					if (_Images[layer] == null)
 						continue;
 
-					PixelFormat format = Pixel.GetGlFormat(_Images[layer].PixelLayout);
-					PixelType type = Pixel.GetPixelType(_Images[layer].PixelLayout);
+					PixelFormat format = _Images[layer].PixelLayout.GetGlFormat();
+					PixelType type = _Images[layer].PixelLayout.GetPixelType();
 
 					// Set pixel transfer
 					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
@@ -540,10 +540,10 @@ namespace OpenGL
 		{
 			get
 			{
-				if (Pixel.IsGlIntegerPixel(PixelLayout)) {
-					if (Pixel.IsGlSignedIntegerPixel(PixelLayout))
+				if (PixelLayout.IsGlIntegerPixel()) {
+					if (PixelLayout.IsGlSignedIntegerPixel())
 						return (Gl.INT_SAMPLER_2D_ARRAY);
-					if (Pixel.IsGlUnsignedIntegerPixel(PixelLayout))
+					if (PixelLayout.IsGlUnsignedIntegerPixel())
 						return (Gl.UNSIGNED_INT_SAMPLER_2D_ARRAY);
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));

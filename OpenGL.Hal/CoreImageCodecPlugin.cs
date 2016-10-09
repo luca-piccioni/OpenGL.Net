@@ -502,7 +502,7 @@ namespace OpenGL
 				ConvertPixelFormat(iBitmap, out pType);
 
 				// Check for hardware/software support
-				if (Pixel.IsSupportedInternalFormat(pType) == false) {
+				if (pType.IsSupportedInternalFormat() == false) {
 					if (criteria.IsSet(ImageCodecCriteria.SoftwareSupport) && (bool)criteria[ImageCodecCriteria.SoftwareSupport]) {
 						// Pixel type not directly supported by hardware... try to guess suitable software conversion
 						pConvType = Pixel.GuessBestSupportedConvertion(pType);
@@ -572,7 +572,7 @@ namespace OpenGL
 			ConvertPixelFormat(bitmap, out pType);
 
 			// Check for hardware/software support
-			if (Pixel.IsSupportedInternalFormat(pType) == false) {
+			if (pType.IsSupportedInternalFormat() == false) {
 				if (criteria.IsSet(ImageCodecCriteria.SoftwareSupport) && ((bool)criteria[ImageCodecCriteria.SoftwareSupport])) {
 					// Pixel type not directly supported by hardware... try to guess suitable software conversion
 					pConvType = Pixel.GuessBestSupportedConvertion(pType);
