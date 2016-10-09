@@ -76,7 +76,7 @@ namespace OpenGL
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
 		public ArrayBufferObject(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, BufferObjectHint hint) :
-			this(ArrayBufferItem.GetArrayType(vertexBaseType, vertexLength, vertexRank), hint)
+			this(vertexBaseType.GetArrayBufferType(vertexLength, vertexRank), hint)
 		{
 			
 		}
@@ -97,7 +97,7 @@ namespace OpenGL
 				// Store array type
 				_ArrayType = format;
 				// Determine array item size
-				ItemSize = ArrayBufferItem.GetArrayItemSize(format);
+				ItemSize = format.GetItemSize();
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -162,11 +162,11 @@ namespace OpenGL
 
 			// The base type should be corresponding
 			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
-			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(arrayElementVertexType))
-				throw new InvalidOperationException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, ArrayBufferItem.GetArrayBaseType(_ArrayType)));
+			if (_ArrayType.GetVertexBaseType() != arrayElementVertexType.GetVertexBaseType())
+				throw new InvalidOperationException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, _ArrayType.GetVertexBaseType()));
 
 			// Array element item size cannot exceed ItemSize
-			uint arrayItemSize = ArrayBufferItem.GetArrayItemSize(arrayElementVertexType);
+			uint arrayItemSize = arrayElementVertexType.GetItemSize();
 			if (arrayItemSize > ItemSize)
 				throw new ArgumentException("array element type too big", "array");
 
@@ -336,7 +336,7 @@ namespace OpenGL
 				throw new ArgumentException("invalid", "stride");
 			if (offset + ((count - 1) * stride) > indices.Length)
 				throw new InvalidOperationException("indices out of bounds");
-			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(buffer._ArrayType))
+			if (_ArrayType.GetVertexBaseType() != buffer._ArrayType.GetVertexBaseType())
 				throw new InvalidOperationException("base type mismatch");
 
 			Create(count);
@@ -400,7 +400,7 @@ namespace OpenGL
 				throw new ArgumentNullException("indices");
 			if (stride == 0)
 				throw new ArgumentException("invalid", "stride");
-			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(buffer._ArrayType))
+			if (_ArrayType.GetVertexBaseType() != buffer._ArrayType.GetVertexBaseType())
 				throw new InvalidOperationException("base type mismatch");
 
 			// Allocate array buffer
@@ -572,11 +572,11 @@ namespace OpenGL
 		/// </exception>
 		public ArrayBufferObject ConvertItemType(ArrayBufferItemType vertexArrayType)
 		{
-			if (ArrayBufferItem.GetArrayBaseType(_ArrayType) != ArrayBufferItem.GetArrayBaseType(vertexArrayType))
+			if (_ArrayType.GetVertexBaseType() != vertexArrayType.GetVertexBaseType())
 				throw new ArgumentException("base type mismatch", "vertexArrayType");
 
-			uint componentsCount = ItemCount * ArrayBufferItem.GetArrayLength(ArrayType) * ArrayBufferItem.GetArrayRank(ArrayType);
-			uint convComponentsCount = ArrayBufferItem.GetArrayLength(vertexArrayType) * ArrayBufferItem.GetArrayRank(vertexArrayType);
+			uint componentsCount = ItemCount * ArrayType.GetArrayLength() * ArrayType.GetArrayRank();
+			uint convComponentsCount = vertexArrayType.GetArrayLength() * vertexArrayType.GetArrayRank();
 
 			Debug.Assert(componentsCount >= convComponentsCount);
 			if ((componentsCount % convComponentsCount) != 0)

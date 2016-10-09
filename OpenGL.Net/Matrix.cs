@@ -206,6 +206,25 @@ namespace OpenGL
 			}
 		}
 
+		#endregion
+
+		#region Buffer
+
+		/// <summary>
+		/// Get the matrix components, in column-major order.
+		/// </summary>
+		public float[] Buffer
+		{
+			get
+			{
+				float[] buffer = new float[MatrixBuffer.Length];
+
+				Array.Copy(MatrixBuffer, buffer, MatrixBuffer.Length);
+
+				return (buffer);
+			}
+		}
+
 		/// <summary>
 		/// Matrix components.
 		/// </summary>

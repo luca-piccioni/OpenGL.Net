@@ -464,7 +464,7 @@ namespace OpenGL
 
 			return (dcm);
 		}
-		
+
 		/// <summary>
 		/// 
 		/// </summary>

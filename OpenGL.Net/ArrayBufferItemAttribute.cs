@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2015 Luca Piccioni
+// Copyright (C) 2011-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -34,6 +34,8 @@ namespace OpenGL
 	[DebuggerDisplay("ArrayBufferItemAttribute: ArrayType={ArrayType} ArraySize{ArraySize} Normalized{Normalized}")]
 	public class ArrayBufferItemAttribute : Attribute
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct an ArrayBufferItemAttribute for vector items.
 		/// </summary>
@@ -63,6 +65,7 @@ namespace OpenGL
 		/// </param>
 		public ArrayBufferItemAttribute(VertexBaseType arrayType, uint matrixColumns, uint matrixRows)
 		{
+			ArrayType = arrayType.GetArrayBufferType(matrixRows, matrixColumns);
 			ArrayBaseType = arrayType;
 			ArrayLength = matrixRows;
 			ArrayRank = matrixColumns;
@@ -74,15 +77,20 @@ namespace OpenGL
 		/// <param name="vertexArrayType"></param>
 		public ArrayBufferItemAttribute(ArrayBufferItemType vertexArrayType)
 		{
-			ArrayBaseType = ArrayBufferItem.GetArrayBaseType(vertexArrayType);
-			ArrayLength = ArrayBufferItem.GetArrayLength(vertexArrayType);
-			ArrayRank = ArrayBufferItem.GetArrayRank(vertexArrayType);
+			ArrayType = vertexArrayType;
+			ArrayBaseType = vertexArrayType.GetVertexBaseType();
+			ArrayLength = vertexArrayType.GetArrayLength();
+			ArrayRank = vertexArrayType.GetArrayRank();
 		}
+
+		#endregion
+
+		#region Structure Information
 
 		/// <summary>
 		/// The array type.
 		/// </summary>
-		public ArrayBufferItemType ArrayType { get { return (ArrayBufferItem.GetArrayType(ArrayBaseType, ArrayLength, ArrayRank)); } }
+		public readonly ArrayBufferItemType ArrayType;
 
 		/// <summary>
 		/// The array base type.
@@ -108,5 +116,7 @@ namespace OpenGL
 		/// Indicated whether this field should be ignored in special cases.
 		/// </summary>
 		public bool Ignore;
+
+		#endregion
 	}
 }

@@ -128,8 +128,8 @@ namespace OpenGL
 				if (ArrayBuffer != null) {
 					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
-					int arrayBaseType = (int)ArrayBufferItem.GetArrayBaseType(arraySection.ItemType);
-					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayBaseType = (int)arraySection.ItemType.GetVertexBaseType();
+					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Check effective state
@@ -186,8 +186,8 @@ namespace OpenGL
 			{
 				ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
-				int arrayBaseType = (int)ArrayBufferItem.GetArrayBaseType(arraySection.ItemType);
-				int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+				int arrayBaseType = (int)arraySection.ItemType.GetVertexBaseType();
+				int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 				int arrayStride = arraySection.Stride.ToInt32();
 
 				// Avoid rendundant buffer binding and relative vertex array setup
@@ -255,7 +255,7 @@ namespace OpenGL
 				if (ArrayBuffer != null) {
 					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
-					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Bind the array buffer
@@ -263,7 +263,7 @@ namespace OpenGL
 
 					// Set vertex pointer
 					Gl.VertexPointer(
-						arrayLength, ArrayBufferItem.GetVertexPointerType(arraySection.ItemType), arrayStride,
+						arrayLength, arraySection.ItemType.GetVertexPointerType(), arrayStride,
 						arraySection.Pointer
 					);
 					// Enable vertex attribute
@@ -278,7 +278,7 @@ namespace OpenGL
 				if (ArrayBuffer != null) {
 					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
-					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Bind the array buffer
@@ -286,7 +286,7 @@ namespace OpenGL
 
 					// Set vertex pointer
 					Gl.ColorPointer(
-						arrayLength, ArrayBufferItem.GetColorPointerType(arraySection.ItemType), arrayStride,
+						arrayLength, arraySection.ItemType.GetColorPointerType(), arrayStride,
 						arraySection.Pointer
 					);
 					// Enable vertex attribute
@@ -300,7 +300,7 @@ namespace OpenGL
 				if (ArrayBuffer != null) {
 					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
-					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					if (arrayLength != 3)
 						throw new NotSupportedException(String.Format("normal pointer of length {0} not supported", arrayLength));
 
@@ -309,7 +309,7 @@ namespace OpenGL
 
 					// Set vertex pointer
 					Gl.NormalPointer(
-						ArrayBufferItem.GetNormalPointerType(arraySection.ItemType), arraySection.Stride.ToInt32(),
+						arraySection.ItemType.GetNormalPointerType(), arraySection.Stride.ToInt32(),
 						arraySection.Pointer
 					);
 					// Enable vertex attribute
@@ -323,7 +323,7 @@ namespace OpenGL
 				if (ArrayBuffer != null) {
 					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
-					int arrayLength = (int)ArrayBufferItem.GetArrayLength(arraySection.ItemType);
+					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
 
 					// Bind the array buffer
@@ -331,7 +331,7 @@ namespace OpenGL
 
 					// Set vertex pointer
 					Gl.TexCoordPointer(
-						arrayLength, ArrayBufferItem.GetTexCoordPointerType(arraySection.ItemType), arraySection.Stride.ToInt32(),
+						arrayLength, arraySection.ItemType.GetTexCoordPointerType(), arraySection.Stride.ToInt32(),
 						arraySection.Pointer
 					);
 					// Enable vertex attribute

@@ -92,10 +92,7 @@
   <ItemGroup>
     <Compile Include="ArrayBufferObjectAggregated.cs" />
     <Compile Include="AlignedMemoryBuffer.cs" />
-    <Compile Include="Angle.cs" />
     <Compile Include="ArrayBufferItem.cs" />
-    <Compile Include="ArrayBufferItemAttribute.cs" />
-    <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
     <Compile Include="Collections\GeoTree.cs" />
@@ -156,32 +153,12 @@
     <Compile Include="State\UniformColorState.cs" />
     <Compile Include="Technique.cs" />
     <Compile Include="TextureArray2d.cs" />
-    <Compile Include="Vertex2.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vertex2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vertex3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vertex3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vertex3Ref.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vertex3Ref.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vertex4.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vertex4.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Vertex.cs" />
     <Compile Include="VertexArrayBatchObject.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="CoreImageCodecPlugin.cs" />
-    <Compile Include="CpuInformation.cs" />
     <Compile Include="ElementBufferObject.cs" />
     <Compile Include="FeedbackBufferFormat.cs" />
     <Compile Include="FeedbackBufferObject.cs" />
@@ -203,7 +180,6 @@
     <Compile Include="GraphicsSurface.cs" />
     <Compile Include="GraphicsWindow.cs" />
     <Compile Include="IColor.cs" />
-    <Compile Include="ICopiable.cs" />
     <Compile Include="IGraphicsDisposable.cs" />
     <Compile Include="IFragment.cs" />
     <Compile Include="IGraphicsResource.cs" />
@@ -215,35 +191,19 @@
     <Compile Include="ImageFormat.cs" />
     <Compile Include="ImageInfo.cs" />
     <Compile Include="ImageSemantic.cs" />
-    <Compile Include="IMatrix.cs" />
-    <Compile Include="IMatrix3x3.cs" />
-    <Compile Include="IMatrix4x4.cs" />
     <Compile Include="IMedia.cs" />
     <Compile Include="IMediaCodecPlugin.cs" />
-    <Compile Include="IModelMatrix.cs" />
     <Compile Include="ArrayBufferObjectInterleaved.cs" />
     <Compile Include="IPlugin.cs" />
     <Compile Include="IResource.cs" />
-    <Compile Include="IVertex.cs" />
-    <Compile Include="IVertex2.cs" />
-    <Compile Include="IVertex3.cs" />
-    <Compile Include="IVertex4.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="LogFlags.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="Matrix.cs" />
-    <Compile Include="Matrix3x3.cs" />
-    <Compile Include="Matrix4x4.cs" />
-    <Compile Include="MatrixDouble.cs" />
-    <Compile Include="MatrixDouble3x3.cs" />
-    <Compile Include="MatrixDouble4x4.cs" />
     <Compile Include="MediaCodec.cs" />
     <Compile Include="MediaCodecCriteria.cs" />
     <Compile Include="MediaFormatAttribute.cs" />
     <Compile Include="MediaInfo.cs" />
     <Compile Include="MediaStream.cs" />
-    <Compile Include="ModelMatrix.cs" />
-    <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="ObjectAccessor.cs" />
     <Compile Include="ArrayBufferObjectPacked.cs" />
     <Compile Include="Vincenty.cs" />
@@ -264,14 +224,12 @@
     <Compile Include="ProjectionMatrix.cs" />
     <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quaternion.cs" />
     <Compile Include="QueryObject.cs" />
     <Compile Include="QueryTarget.cs" />
     <Compile Include="RenderBuffer.cs" />
     <Compile Include="GraphicsBuffersFormat.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCollection.cs" />
-    <Compile Include="Memory.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="RuntimeVersion.cs" />
     <Compile Include="ShaderAttributeType.cs" />
@@ -314,12 +272,10 @@
     <Compile Include="TextureCube.cs" />
     <Compile Include="TextureRectangle.cs" />
     <Compile Include="UniformBufferObject.cs" />
-    <Compile Include="Vertex.cs" />
     <Compile Include="VertexArrayObject.Arrays.cs" />
     <Compile Include="VertexArrayObject.cs" />
     <Compile Include="VertexArrayObject.Elements.cs" />
     <Compile Include="VertexArraySemantic.cs" />
-    <Compile Include="VertexBaseType.cs" />
     <EmbeddedResource Include="Shaders\GeometryClipmap\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\GeometryClipmap\Vertex.glsl" />
     <EmbeddedResource Include="Shaders\GeometryClipmap\ClipmapTexFragment.glsl" />
@@ -385,22 +341,6 @@
     <Content Include="ColorRGBA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorRGBA.cs</LastGenOutput>
-    </Content>
-    <Content Include="Vertex2.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vertex2.cs</LastGenOutput>
-    </Content>
-    <Content Include="Vertex3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vertex3.cs</LastGenOutput>
-    </Content>
-    <Content Include="Vertex3Ref.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vertex3Ref.cs</LastGenOutput>
-    </Content>
-    <Content Include="Vertex4.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vertex4.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -19,9 +19,9 @@
 namespace OpenGL
 {
 	/// <summary>
-	/// Generic tridimensional vertex interface.
+	/// Generic bidimensional vertex interface.
 	/// </summary>
-	public interface IVertex3 : IVertex
+	public interface IVertex2 : IVertex
 	{
 		/// <summary>
 		/// Vertex coordinate X.
@@ -32,10 +32,5 @@ namespace OpenGL
 		/// Vertex coordinate Y.
 		/// </summary>
 		float Y { get; set; }
-
-		/// <summary>
-		/// Vertex coordinate Z.
-		/// </summary>
-		float Z { get; set; }
 	}
 }
