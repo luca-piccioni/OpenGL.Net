@@ -74,6 +74,8 @@
 			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="Fragment" />
 			<Attribute Name="hal_Position" Semantic="Position" />
+
+			<Uniform Name="hal_ModelViewProjection" Semantic="ModelViewProjection" />
 		</Program>
 
 		<!-- Standard+Color -->
@@ -86,6 +88,10 @@
 			</Object>
 			<Attribute Name="hal_Position" Semantic="Position" />
 			<Attribute Name="hal_Color" Semantic="Color" />
+			
+			<Uniform Name="hal_ModelView" Semantic="ModelView" />
+			<Uniform Name="hal_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="hal_NormalMatrix" Semantic="NormalMatrix"/>
 		</Program>
 		
 		<!-- Line -->

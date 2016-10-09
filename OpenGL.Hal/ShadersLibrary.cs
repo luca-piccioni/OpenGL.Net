@@ -152,6 +152,28 @@ namespace OpenGL
 			[XmlElement("Attribute")]
 			public readonly List<Attribute> Attributes = new List<Attribute>();
 
+			[XmlType("Uniform")]
+			public class Uniform
+			{
+				/// <summary>
+				/// Uniform name.
+				/// </summary>
+				[XmlAttribute("Name")]
+				public string Name;
+
+				/// <summary>
+				/// Uniform semantic.
+				/// </summary>
+				[XmlAttribute("Semantic")]
+				public string Semantic;
+			}
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[XmlElement("Uniform")]
+			public readonly List<Uniform> Uniforms = new List<Uniform>();
+
 			/// <summary>
 			/// Create a program from this Program.
 			/// </summary>
@@ -184,6 +206,9 @@ namespace OpenGL
 				// Register attributes semantic
 				foreach (Attribute attribute in Attributes)
 					shaderProgram.SetAttributeSemantic(attribute.Name, attribute.Semantic);
+				// Register uniforms semantic
+				foreach (Uniform uniform in Uniforms)
+					shaderProgram.SetUniformSemantic(uniform.Name, uniform.Semantic);
 
 				return (shaderProgram);
 			}

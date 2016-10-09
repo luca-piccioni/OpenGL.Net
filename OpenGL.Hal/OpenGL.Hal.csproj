@@ -111,6 +111,7 @@
     <Compile Include="MediaCodecPlugin.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Plugin.cs" />
+    <Compile Include="ProgramUniformSemantic.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
     <Compile Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\GeometryClipmapObject.cs" />

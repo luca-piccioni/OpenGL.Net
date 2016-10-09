@@ -267,7 +267,7 @@ namespace OpenGL
 		{
 			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
 				throw new InvalidOperationException("surface has no sRGB buffer");
-			if ((Glx.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
+			if ((Gl.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
 				throw new InvalidOperationException("no framebuffer sRGB extension supported");
 
 			Gl.Enable(EnableCap.FramebufferSrgb);
@@ -286,7 +286,7 @@ namespace OpenGL
 		{
 			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
 				throw new InvalidOperationException("surface has no sRGB buffer");
-			if ((Glx.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
+			if ((Gl.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
 				throw new InvalidOperationException("no framebuffer sRGB extension supported");
 
 			Gl.Disable(EnableCap.FramebufferSrgb);
@@ -308,7 +308,7 @@ namespace OpenGL
 		{
 			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
 				throw new InvalidOperationException("surface has no sRGB buffer");
-			if ((Glx.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
+			if ((Gl.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
 				throw new InvalidOperationException("no framebuffer sRGB extension supported");
 
 			return (Gl.IsEnabled(EnableCap.FramebufferSrgb));

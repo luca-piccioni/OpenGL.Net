@@ -2204,6 +2204,11 @@ namespace OpenGL
 				throw new ArgumentNullException("uniformName");
 
 			UniformBinding uniformBinding;
+			string semanticName;
+
+			// Known semantic overrides uniform name
+			if (_UniformSemantic.TryGetValue(uniformName, out semanticName))
+				uniformName = semanticName;
 
 			if (_UniformMap.TryGetValue(uniformName, out uniformBinding) == false)
 				throw new InvalidOperationException(String.Format("uniform {0} is not active", uniformName));

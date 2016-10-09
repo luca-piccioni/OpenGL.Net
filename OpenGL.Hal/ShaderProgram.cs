@@ -781,6 +781,65 @@ namespace OpenGL
 
 		#endregion
 
+		#region Program Uniform Semantic
+
+		/// <summary>
+		/// Set a shader program uniform semantic.
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the uniform name. This value doesn't have to match with the actual
+		/// shader program uniforms, but it is usually.
+		/// </param>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the uniform semantic. It can be any value meaninfull for the application; usually
+		/// it equals to the constant fields of <see cref="ProgramUniformSemantic"/>.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="uniformName"/> or <paramref name="semantic"/> is null.
+		/// </exception>
+		public void SetUniformSemantic(string uniformName, string semantic)
+		{
+			if (uniformName == null)
+				throw new ArgumentNullException("uniformName");
+			if (semantic == null)
+				throw new ArgumentNullException("semantic");
+
+			_UniformSemantic[semantic] = uniformName;
+		}
+
+		/// <summary>
+		/// Remove a specific uniform semantic.
+		/// </summary>
+		/// <param name="semantic">
+		/// A <see cref="String"/> that specify the uniform name. This value doesn't have to match with the actual
+		/// shader program uniforms.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="semantic"/> is null.
+		/// </exception>
+		public void ResetUniformSemantic(string semantic)
+		{
+			if (semantic == null)
+				throw new ArgumentNullException("semantic");
+
+			_UniformSemantic.Remove(semantic);
+		}
+
+		/// <summary>
+		/// Remove all defined uniform semantics.
+		/// </summary>
+		public void ClearUniformSemantic()
+		{
+			_UniformSemantic.Clear();
+		}
+
+		/// <summary>
+		/// Map between program attribute names and uniform semantic.
+		/// </summary>
+		private readonly Dictionary<string, string> _UniformSemantic = new Dictionary<string, string>();
+
+		#endregion
+
 		#region Program Feedback Varyings
 
 		/// <summary>
