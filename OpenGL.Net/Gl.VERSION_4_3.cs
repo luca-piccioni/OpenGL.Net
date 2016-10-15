@@ -4097,7 +4097,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
-		public static void Texture(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers)
+		public static void TextureView(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers)
 		{
 			Debug.Assert(Delegates.pglTextureView != null, "pglTextureView not implemented");
 			Delegates.pglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
