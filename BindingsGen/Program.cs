@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// Symbol for defining imports and delegates the in the same module of the methods implementation
 #define LOCAL_IMPORTS
 
 using System;
@@ -51,6 +52,7 @@ namespace BindingsGen
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVbCommands(glRegistryProcessor, ctx);
 			}
 
 			// OpenGL for Windows
@@ -60,6 +62,7 @@ namespace BindingsGen
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVbCommands(glRegistryProcessor, ctx);
 			}
 
 			// OpenGL for Unix
@@ -69,6 +72,7 @@ namespace BindingsGen
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVbCommands(glRegistryProcessor, ctx);
 			}
 
 			// EGL
@@ -78,6 +82,7 @@ namespace BindingsGen
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVbCommands(glRegistryProcessor, ctx);
 			}
 
 			RegistryDocumentation.CloseLog();
@@ -110,8 +115,6 @@ namespace BindingsGen
 					Console.WriteLine("  Skip command {0}: alias of {1}", command.Prototype.Name, command.Alias.Name);
 				return (command.Alias == null);
 			});
-#else
-			
 #endif
 
 			#region By features and extensions
@@ -302,6 +305,114 @@ namespace BindingsGen
 
 			sw.Unindent();
 			sw.WriteLine("}");
+		}
+
+		private static void GenerateVbCommands(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
+		{
+			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>();
+			List<Command> featureVbCommands = new List<Command>();
+
+			Console.WriteLine("Testing for VB.Net incompatibilities.");
+
+			#region Select VB incompatible commands
+
+			foreach (IFeature feature in ctx.Registry.AllFeatures(ctx)) {
+				foreach (FeatureCommand featureCommand in feature.Requirements) {
+					if (featureCommand.Api != null && !ctx.IsSupportedApi(featureCommand.Api)) {
+						Console.WriteLine("Skip command: API {1} not supported", featureCommand.Api);
+						continue;
+					}
+						
+
+					foreach (FeatureCommand.Item featureCommandItem in featureCommand.Commands) {
+						Command command = ctx.Registry.GetCommand(featureCommandItem.Name);
+
+						Debug.Assert(command != null);
+						if (serializedCommands.ContainsKey(command.Prototype.Name))
+							continue;
+
+						serializedCommands.Add(command.Prototype.Name, true);
+
+						// Do not generate manually disabled command
+						if ((command.Flags & CommandFlags.Disable) != 0)
+							continue;
+						// Do not generate command with aliases
+						if (command.Alias != null)
+							continue;
+
+						// Do not generate methods not conflicting with enumerations having the same name with different case
+						bool commandHasConflict = ctx.Registry.GetEnumerantNoCase(command.GetImplementationName(ctx)) != null;
+
+						if (commandHasConflict == false)
+							continue;
+							
+						featureVbCommands.Add(command);
+					}
+				}
+			}
+
+			#endregion
+
+			string path = Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Vb.cs", ctx.Class));
+
+			if (featureVbCommands.Count > 0) {
+				Console.WriteLine("Generate registry commands to {0}.", path);
+
+				using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
+					RegistryProcessor.GenerateLicensePreamble(sw);
+
+					// Warning CS1734  XML comment on 'method' has a paramref tag for 'param', but there is no parameter by that name
+					// sw.WriteLine("#pragma warning disable 1734");
+					// sw.WriteLine();
+
+					sw.WriteLine("#pragma warning disable 649, 1572, 1573");
+					sw.WriteLine();
+
+					sw.WriteLine("using System;");
+					sw.WriteLine("using System.Diagnostics;");
+					sw.WriteLine("using System.Runtime.InteropServices;");
+					sw.WriteLine("using System.Security;");
+					sw.WriteLine("using System.Text;");
+
+					sw.WriteLine();
+
+					sw.WriteLine("namespace OpenGL");
+					sw.WriteLine("{");
+					sw.Indent();
+
+					sw.WriteLine("/// <summary>");
+					sw.WriteLine("/// Class for scoping those methods conflicting with other fields/enums.");
+					sw.WriteLine("/// </summary>");
+					sw.WriteLine("public partial class {0}", ctx.Class);
+					sw.WriteLine("{");
+					sw.Indent();
+
+					// VB Function class
+					sw.WriteLine("public static class VB");
+					sw.WriteLine("{");
+					sw.Indent();
+
+					// VB Function implementations
+					foreach (Command command in featureVbCommands) {
+						command.GenerateImplementations(sw, ctx);
+						sw.WriteLine();
+					}
+
+					sw.Unindent();
+					sw.WriteLine("}");
+					sw.Unindent();
+
+					sw.Unindent();
+					sw.WriteLine("}");
+					sw.Unindent();
+
+					sw.WriteLine();
+					sw.WriteLine("}");
+				}
+			} else {
+				if (File.Exists(path))
+					File.Delete(path);
+			}
 		}
 
 		private static void GenerateExtensionsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)

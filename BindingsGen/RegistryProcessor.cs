@@ -189,7 +189,7 @@ namespace BindingsGen
 				sw.WriteLine();
 				sw.WriteLine("}");
 			}
-		}
+		}	
 
 		public void GenerateCommandsImports(RegistryContext ctx, string path, CommandFilterDelegate filter)
 		{

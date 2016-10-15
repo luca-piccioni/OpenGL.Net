@@ -98,13 +98,27 @@ namespace BindingsGen.GLSpecs
 		{
 			Enumerant enumerant;
 
-			if (mEnumerantRegistry.TryGetValue(name, out enumerant))
+			if (_EnumerantRegistry.TryGetValue(name, out enumerant))
 				return (enumerant);
 
 			return (null);
 		}
 
-		private readonly Dictionary<string, Enumerant> mEnumerantRegistry = new Dictionary<string, Enumerant>();
+		public Enumerant GetEnumerantNoCase(string name)
+		{
+			name = name.ToLowerInvariant();
+
+			foreach (KeyValuePair<string, Enumerant> pair in _EnumerantRegistry) {
+				string enumnocase = pair.Value.ImplementationName.ToLowerInvariant();
+
+				if (enumnocase == name)
+					return (pair.Value);
+			}
+
+			return (null);
+		}
+
+		private readonly Dictionary<string, Enumerant> _EnumerantRegistry = new Dictionary<string, Enumerant>();
 
 		#endregion
 
@@ -221,7 +235,7 @@ namespace BindingsGen.GLSpecs
 			// Index required enumerants
 			foreach (Enumerant enumerant in Enumerants) {
 				if ((enumerant.Api == null) || (ctx.IsSupportedApi(enumerant.Api)))
-					mEnumerantRegistry[enumerant.Name] = enumerant;
+					_EnumerantRegistry[enumerant.Name] = enumerant;
 			}
 			// Link enumerant aliases
 			foreach (Enumerant enumerant in Enumerants) {
