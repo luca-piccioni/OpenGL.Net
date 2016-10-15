@@ -143,55 +143,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Window Factory
-
-		/// <summary>
-		/// Native window implementation for Windows.
-		/// </summary>
-		internal class NativeWindow : INativeWindow
-		{
-			#region Constructors
-
-			/// <summary>
-			/// Default constructor.
-			/// </summary>
-			public NativeWindow()
-			{
-				try {
-					
-				} catch {
-					Dispose();
-					throw;
-				}
-			}
-
-			#endregion
-
-			#region INativeWindow Implementation
-
-			/// <summary>
-			/// Get the native window handle.
-			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_Handle); } }
-
-			/// <summary>
-			/// The native window handle.
-			/// </summary>
-			private IntPtr _Handle;
-
-			/// <summary>
-			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-			/// </summary>
-			public void Dispose()
-			{
-				
-			}
-
-			#endregion
-		}
-
-		#endregion
-
 		#region DeviceContext Overrides
 
 		/// <summary>
