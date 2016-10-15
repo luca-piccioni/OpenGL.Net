@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -331,12 +331,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.TexParameter: specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
-		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
-		/// </para>
-		/// <para>
 		/// Gl.GetTexParameter: returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
 		/// Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
+		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
@@ -587,12 +587,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.TexParameter: specifies a single symbolic constant indicating how depth values should be treated during filtering and 
-		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
-		/// </para>
-		/// <para>
 		/// Gl.GetTexParameter: returns a single-valued texture format indicating how the depth values should be converted into 
 		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: specifies a single symbolic constant indicating how depth values should be treated during filtering and 
+		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]
