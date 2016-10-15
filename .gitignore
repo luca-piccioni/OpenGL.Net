@@ -50,3 +50,7 @@ packages
 /Samples/HelloTriangle.Hal/bin
 /OpenGL.Net.WinForms/obj
 /OpenGL.Net.WinForms/bin
+/Samples/HelloTriangle.VB/obj
+/Samples/HelloTriangle.VB/bin
+/Samples/HelloTriangle.WPF/obj
+/Samples/HelloTriangle.WPF/bin
