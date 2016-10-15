@@ -689,6 +689,109 @@ namespace OpenGL
 			}
 
 		}
+
+		public static class VBEnum
+		{
+			/// <summary>
+			/// Value of GL_CLEAR symbol.
+			/// </summary>
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			public const int CLEAR = 0x1500;
+
+			/// <summary>
+			/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns four values: the x and y 
+			/// window coordinates of the viewport, followed by its width and height. Initially the x and y window coordinates are both 
+			/// set to 0, and the width and height are set to the width and height of the window into which the GL will do its 
+			/// rendering. See Gl.Viewport. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns four 
+			/// values: the x and y window coordinates of the indexed viewport, followed by its width and height. Initially the x and y 
+			/// window coordinates are both set to 0, and the width and height are set to the width and height of the window into which 
+			/// the GL will do its rendering. See Gl.ViewportIndexedf.
+			/// </summary>
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			public const int VIEWPORT = 0x0BA2;
+
+			/// <summary>
+			/// Value of GL_BITMAP symbol (DEPRECATED).
+			/// </summary>
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
+#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
+			[Obsolete("Deprecated/removed by OpenGL 3.2.")]
+#endif
+			public const int BITMAP = 0x1A00;
+
+			/// <summary>
+			/// Value of GL_INDEX symbol.
+			/// </summary>
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			public const int INDEX = 0x8222;
+
+			/// <summary>
+			/// <para>
+			/// Gl.Get: params returns a single boolean value indicating whether fogging is enabled. The initial value is Gl.FALSE. See 
+			/// Gl.Fog.
+			/// </para>
+			/// <para>
+			/// Gl.Enable: if enabled and no fragment shader is active, blend a fog color into the post-texturing color. See Gl.Fog.
+			/// </para>
+			/// </summary>
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_NV_register_combiners")]
+			[RemovedByFeature("GL_VERSION_3_2")]
+#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
+			[Obsolete("Deprecated/removed by OpenGL 3.2.")]
+#endif
+			public const int FOG = 0x0B60;
+
+			/// <summary>
+			/// Gl.Accum: obtains R, G, B, and A values from the buffer currently selected for reading (see Gl.ReadBuffer). Each 
+			/// component value is divided by 2n-1, where n is the number of bits allocated to each color component in the currently 
+			/// selected buffer. The result is a floating-point value in the range 01, which is multiplied by value and added to the 
+			/// corresponding pixel component in the accumulation buffer, thereby updating the accumulation buffer.
+			/// </summary>
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
+#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
+			[Obsolete("Deprecated/removed by OpenGL 3.2.")]
+#endif
+			public const int ACCUM = 0x0100;
+
+			/// <summary>
+			/// <para>
+			/// Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is Gl.FALSE. 
+			/// See Gl.Histogram.
+			/// </para>
+			/// <para>
+			/// Gl.Enable: if enabled, histogram incoming RGBA color values. See Gl.Histogram.
+			/// </para>
+			/// </summary>
+			[AliasOf("GL_HISTOGRAM_EXT")]
+			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_histogram")]
+			public const int HISTOGRAM = 0x8024;
+
+			/// <summary>
+			/// <para>
+			/// Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial value is 
+			/// Gl.FALSE. See Gl.Minmax.
+			/// </para>
+			/// <para>
+			/// Gl.Enable: if enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
+			/// </para>
+			/// </summary>
+			[AliasOf("GL_MINMAX_EXT")]
+			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_histogram")]
+			public const int MINMAX = 0x802E;
+
+		}
 }
 
 }

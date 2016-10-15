@@ -310,7 +310,9 @@ namespace BindingsGen
 		private static void GenerateVbCommands(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
 		{
 			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>();
+			Dictionary<string, bool> serializedEnums = new Dictionary<string, bool>();
 			List<Command> featureVbCommands = new List<Command>();
+			List<Enumerant> featureVbEnums = new List<Enumerant>();
 
 			Console.WriteLine("Testing for VB.Net incompatibilities.");
 
@@ -330,7 +332,6 @@ namespace BindingsGen
 						Debug.Assert(command != null);
 						if (serializedCommands.ContainsKey(command.Prototype.Name))
 							continue;
-
 						serializedCommands.Add(command.Prototype.Name, true);
 
 						// Do not generate manually disabled command
@@ -341,12 +342,19 @@ namespace BindingsGen
 							continue;
 
 						// Do not generate methods not conflicting with enumerations having the same name with different case
-						bool commandHasConflict = ctx.Registry.GetEnumerantNoCase(command.GetImplementationName(ctx)) != null;
-
-						if (commandHasConflict == false)
+						Enumerant enumInConflict = ctx.Registry.GetEnumerantNoCase(command.GetImplementationName(ctx)); 
+						if (enumInConflict == null)
 							continue;
-							
+						
+						// VB.Net command
 						featureVbCommands.Add(command);
+
+						if (serializedEnums.ContainsKey(enumInConflict.Name))
+							continue;
+						serializedEnums.Add(enumInConflict.Name, true);
+
+						// VB.Net enum
+						featureVbEnums.Add(enumInConflict);
 					}
 				}
 			}
@@ -387,7 +395,7 @@ namespace BindingsGen
 					sw.WriteLine("{");
 					sw.Indent();
 
-					// VB Function class
+					// VB Commands class
 					sw.WriteLine("public static class VB");
 					sw.WriteLine("{");
 					sw.Indent();
@@ -395,6 +403,21 @@ namespace BindingsGen
 					// VB Function implementations
 					foreach (Command command in featureVbCommands) {
 						command.GenerateImplementations(sw, ctx);
+						sw.WriteLine();
+					}
+
+					sw.Unindent();
+					sw.WriteLine("}");
+
+					// VB Commands class
+					sw.WriteLine();
+					sw.WriteLine("public static class VBEnum");
+					sw.WriteLine("{");
+					sw.Indent();
+
+					// VB Function implementations
+					foreach (Enumerant enumerant in featureVbEnums) {
+						enumerant.GenerateSource(sw, ctx);
 						sw.WriteLine();
 					}
 
