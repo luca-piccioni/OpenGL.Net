@@ -87,11 +87,12 @@ namespace OpenGL
 			// Set pixel format
 			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
 			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
-			//controlReqFormat.ColorBits = (int)ColorBits;
+			controlReqFormat.RgbaUnsigned = true;
+			controlReqFormat.ColorBits = 24;
 			//controlReqFormat.DepthBits = (int)DepthBits;
 			//controlReqFormat.StencilBits = (int)StencilBits;
 			//controlReqFormat.MultisampleBits = (int)MultisampleBits;
-			//controlReqFormat.DoubleBuffer = DoubleBuffer;
+			//controlReqFormat.DoubleBuffer = true;
 
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 			if (matchingPixelFormats.Count == 0)
@@ -162,11 +163,11 @@ namespace OpenGL
 
 		private void StopRendering()
 		{
-			if (_RenderTimer == null)
-				throw new InvalidOperationException("no rendering active");
-			_RenderTimer.Change(Timeout.Infinite, Timeout.Infinite);
-			_RenderTimer.Dispose();
-			_RenderTimer = null;
+			if (_RenderTimer != null) {
+				_RenderTimer.Change(Timeout.Infinite, Timeout.Infinite);
+				_RenderTimer.Dispose();
+				_RenderTimer = null;
+			}
 		}
 
 		private void RenderTimerCallback(object state)
@@ -255,10 +256,11 @@ namespace OpenGL
 		/// </summary>
 		protected virtual void OnRender()
 		{
-			if (Render != null && _RenderContext != IntPtr.Zero)
+			if (Render != null && _DeviceContext != null && _RenderContext != IntPtr.Zero) {
 				Render(this, new GlSurfaceViewEventArgs(_DeviceContext, _RenderContext));
 
-			_DeviceContext.SwapBuffers();
+				_DeviceContext.SwapBuffers();
+			}
 		}
 
 		#endregion
@@ -309,6 +311,8 @@ namespace OpenGL
 		/// </param>
 		public void SurfaceDestroyed(ISurfaceHolder holder)
 		{
+			StopRendering();
+
 			if (_DeviceContext != null) {
 				if (_RenderContext != IntPtr.Zero)
 					_DeviceContext.DeleteContext(_RenderContext);

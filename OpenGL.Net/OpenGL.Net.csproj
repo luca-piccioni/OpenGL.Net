@@ -283,6 +283,7 @@
     <Compile Include="IMG\Gl.IMG_user_clip_plane.cs" />
     <Compile Include="IModelMatrix.cs" />
     <Compile Include="INativeWindow.cs" />
+    <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="IVertex.cs" />
     <Compile Include="IVertex2.cs" />
     <Compile Include="IVertex3.cs" />
@@ -649,6 +650,9 @@
     <Compile Include="PixelSizeAttribute.cs" />
     <Compile Include="PixelSpace.cs" />
     <Compile Include="PixelStructureAttribute.cs" />
+    <Compile Include="Plane.cs" />
+    <Compile Include="ProjectionMatrix.cs" />
+    <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QCOM\Gl.QCOM_alpha_test.cs" />
     <Compile Include="QCOM\Gl.QCOM_binning_control.cs" />

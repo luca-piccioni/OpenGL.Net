@@ -214,8 +214,6 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			CreateWindowSurface();
-
 			List<int> contextAttribs = new List<int>();
 
 			if (Version >= Egl.Version_130)
@@ -224,6 +222,8 @@ namespace OpenGL
 
 			if ((_Context = Egl.CreateContext(_Display, _Config, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
+
+			CreateWindowSurface();
 
 			return (_Context);
 		}
@@ -266,7 +266,7 @@ namespace OpenGL
 		private void CreateWindowSurface()
 		{
 			int[] surfaceAttribs = new int[] {
-				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+				Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
 				Egl.NONE
 			};
 

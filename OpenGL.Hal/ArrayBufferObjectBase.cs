@@ -804,10 +804,7 @@ namespace OpenGL
 		/// <param name="srcCount">
 		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="src"/> must be copied.
 		/// </param>
-		protected static void CopyArray(
-			IntPtr dst, uint dstItemSize,
-			Array src, uint srcItemSize,
-			uint srcIndex, uint srcCount)
+		protected static void CopyArray(IntPtr dst, uint dstItemSize, Array src, uint srcItemSize, uint srcIndex, uint srcCount)
 		{
 			CopyArray(dst, IntPtr.Zero, IntPtr.Zero, dstItemSize, src, IntPtr.Zero, IntPtr.Zero, srcItemSize, srcIndex, srcCount);
 		}

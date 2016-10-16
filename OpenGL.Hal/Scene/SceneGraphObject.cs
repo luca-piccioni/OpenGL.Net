@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 using OpenGL.Collections;
 using OpenGL.State;
