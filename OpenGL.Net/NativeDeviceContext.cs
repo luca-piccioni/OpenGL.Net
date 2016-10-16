@@ -127,11 +127,6 @@ namespace OpenGL
 		private IntPtr _Config;
 
 		/// <summary>
-		/// The graphics context.
-		/// </summary>
-		private IntPtr _Context;
-
-		/// <summary>
 		/// The EGL surface.
 		/// </summary>
 		private IntPtr _EglSurface;
@@ -140,6 +135,52 @@ namespace OpenGL
 		/// EGL version implemented.
 		/// </summary>
 		private readonly KhronosVersion _Version;
+
+		private int[] DefaultConfigAttribs
+		{
+			get
+			{
+				List<int> configAttribs = new List<int>();
+
+				if (Version >= Egl.Version_120)
+					configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+				configAttribs.AddRange(new int[] {
+					Egl.RED_SIZE, 8,
+					Egl.GREEN_SIZE, 8,
+					Egl.BLUE_SIZE, 8,
+				});
+				configAttribs.Add(Egl.NONE);
+
+				return (configAttribs.ToArray());
+			}
+		}
+
+		private int[] DefaultContextAttribs
+		{
+			get
+			{
+				List<int> contextAttribs = new List<int>();
+
+				if (Version >= Egl.Version_130)
+					contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+				contextAttribs.Add(Egl.NONE);
+
+				return (contextAttribs.ToArray());
+			}
+		}
+
+		private int[] DefaultSurfaceAttribs
+		{
+			get
+			{
+				List<int> surfaceAttribs = new List<int>();
+
+				surfaceAttribs.Add(Egl.NONE);
+				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+
+				return (surfaceAttribs.ToArray());
+			}
+		}
 
 		#endregion
 
@@ -156,43 +197,25 @@ namespace OpenGL
 		{
 			IntPtr ctx;
 
-			List<int> configAttribs = new List<int>();
-
-			if (Version >= Egl.Version_120)
-				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
-			configAttribs.AddRange(new int[] {
-				Egl.RED_SIZE, 8,
-				Egl.GREEN_SIZE, 8,
-				Egl.BLUE_SIZE, 8,
-			});
-			configAttribs.Add(Egl.NONE);
-
+			int[] configAttribs = DefaultConfigAttribs;
 			int[] configCount = new int[1];
 			IntPtr[] configs = new IntPtr[8];
 
 			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
 				throw new InvalidOperationException("no ES API");
 
-			if (Egl.ChooseConfig(Display, configAttribs.ToArray(), configs, configs.Length, configCount) == false)
+			if (Egl.ChooseConfig(Display, configAttribs, configs, configs.Length, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");
 			if (configCount[0] == 0)
 				throw new InvalidOperationException("no available configuration");
 
-			List<int> contextAttribs = new List<int>();
+			int[] contextAttribs = DefaultContextAttribs;
+			int[] surfaceAttribs = DefaultSurfaceAttribs;
 
-			if (Version >= Egl.Version_130)
-				contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
-			contextAttribs.Add(Egl.NONE);
-
-			if ((ctx = Egl.CreateContext(Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
+			if ((ctx = Egl.CreateContext(Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
 
-			List<int> surfaceAttribs = new List<int>();
-
-			surfaceAttribs.Add(Egl.NONE);
-			// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-
-			Surface = Egl.CreateWindowSurface(Display, configs[configs.Length - 1], WindowHandle, surfaceAttribs.ToArray());
+			Surface = Egl.CreateWindowSurface(Display, configs[configs.Length - 1], WindowHandle, surfaceAttribs);
 
 			return (ctx);
 		}
@@ -214,18 +237,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			List<int> contextAttribs = new List<int>();
-
-			if (Version >= Egl.Version_130)
-				contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
-			contextAttribs.Add(Egl.NONE);
-
-			if ((_Context = Egl.CreateContext(_Display, _Config, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create context");
-
-			CreateWindowSurface();
-
-			return (_Context);
+			return (CreateContextAttrib(sharedContext, DefaultContextAttribs));
 		}
 
 		/// <summary>
@@ -255,20 +267,22 @@ namespace OpenGL
 				throw new ArgumentNullException("attribsList");
 			if (attribsList.Length == 0)
 				throw new ArgumentException("zero length array", "attribsList");
-			if (attribsList[attribsList.Length - 1] != 0)
-				throw new ArgumentException("not zero-terminated array", "attribsList");
+			if (attribsList[attribsList.Length - 1] != Egl.NONE)
+				throw new ArgumentException("not EGL_NONE-terminated array", "attribsList");
+
+			IntPtr context;
+
+			if ((context = Egl.CreateContext(_Display, _Config, sharedContext, attribsList)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create context");
 
 			CreateWindowSurface();
 
-			return (Egl.CreateContext(_Display, _Config, sharedContext, attribsList));
+			return (context);
 		}
 
 		private void CreateWindowSurface()
 		{
-			int[] surfaceAttribs = new int[] {
-				Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-				Egl.NONE
-			};
+			int[] surfaceAttribs = DefaultSurfaceAttribs;
 
 			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create window surface");
@@ -543,6 +557,9 @@ namespace OpenGL
 
 			int[] configCount = new int[1];
 			IntPtr[] configs = new IntPtr[1];
+
+			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
+				throw new InvalidOperationException("no ES API");
 
 			if (Egl.ChooseConfig(_Display, configAttribs.ToArray(), configs, 1, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");

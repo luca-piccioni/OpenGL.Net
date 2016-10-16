@@ -53,6 +53,46 @@ namespace HelloTriangle.Xamarin
 
 		#endregion
 
+		#region Rendering (ES 1.0)
+
+		private void Es1_ContextCreated()
+		{
+			// Here you can allocate resources or initialize state
+			Gl.MatrixMode(MatrixMode.Projection);
+			Gl.LoadIdentity();
+			Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
+
+			Gl.MatrixMode(MatrixMode.Modelview);
+			Gl.LoadIdentity();
+		}
+
+		private void Es1_Render()
+		{
+			// Old school OpenGL 1.1
+			// Setup & enable client states to specify vertex arrays, and use Gl.DrawArrays instead of Gl.Begin/End paradigm
+			using (MemoryLock vertexArrayLock = new MemoryLock(_ArrayPosition)) 
+			using (MemoryLock vertexColorLock = new MemoryLock(_ArrayColor))
+			{
+				// Note: the use of MemoryLock objects is necessary to pin vertex arrays since they can be reallocated by GC
+				// at any time between the Gl.VertexPointer execution and the Gl.DrawArrays execution
+
+				Gl.VertexPointer(2, VertexPointerType.Float, 0, vertexArrayLock.Address);
+				Gl.EnableClientState(EnableCap.VertexArray);
+
+				Gl.ColorPointer(3, ColorPointerType.Float, 0, vertexColorLock.Address);
+				Gl.EnableClientState(EnableCap.ColorArray);
+
+				Gl.DrawArrays(PrimitiveType.Triangles, 0, 3);
+			}
+		}
+
+		private void Es1_ContextDestroying()
+		{
+			
+		}
+
+		#endregion
+
 		#region Rendering (ES 2.0)
 
 		private void Es2_ContextCreated()
@@ -73,8 +113,9 @@ namespace HelloTriangle.Xamarin
 			Gl.AttachShader(_Es2_Program, fragmentShader);
 			Gl.LinkProgram(_Es2_Program);
 
-			_Es2_Program_Location_vPosition = Gl.GetAttribLocation(_Es2_Program, "vPosition");
 			_Es2_Program_Location_uMVP = Gl.GetUniformLocation(_Es2_Program, "uMVP");
+			_Es2_Program_Location_aPosition = Gl.GetAttribLocation(_Es2_Program, "aPosition");
+			_Es2_Program_Location_aColor = Gl.GetAttribLocation(_Es2_Program, "aColor");
 		}
 
 		private void Es2_Render()
@@ -83,12 +124,16 @@ namespace HelloTriangle.Xamarin
 
 			Gl.UseProgram(_Es2_Program);
 
-			using (MemoryLock arrayPosition = new MemoryLock(_ArrayPosition)) {
-				Gl.VertexAttribPointer((uint)_Es2_Program_Location_vPosition, 3, Gl.FLOAT, false, 0, arrayPosition.Address);
-				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_vPosition);
+			using (MemoryLock arrayPosition = new MemoryLock(_ArrayPosition))
+			using (MemoryLock arrayColor = new MemoryLock(_ArrayColor))
+			{
+				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aPosition, 2, Gl.FLOAT, false, 0, arrayPosition.Address);
+				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aPosition);
 
-				if (_Es2_Program_Location_uMVP != -1)
-					Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, projectionMatrix.ToArray());
+				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, Gl.FLOAT, false, 0, arrayColor.Address);
+				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
+
+				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, projectionMatrix.ToArray());
 
 				Gl.DrawArrays(PrimitiveType.Triangles,  0, 3);
 			}
@@ -103,21 +148,27 @@ namespace HelloTriangle.Xamarin
 
 		private uint _Es2_Program;
 
-		private int _Es2_Program_Location_vPosition;
+		private int _Es2_Program_Location_aPosition;
+
+		private int _Es2_Program_Location_aColor;
 
 		private int _Es2_Program_Location_uMVP;
 
 		private readonly string[] _Es2_ShaderVertexSource = new string[] {
 			"uniform mat4 uMVP;\n",
-			"attribute vec2 vPosition;\n",
+			"attribute vec2 aPosition;\n",
+			"attribute vec3 aColor;\n",
+			"varying vec3 vColor;\n",
 			"void main() {\n",
-			"	gl_Position = uMVP * vec4(vPosition, 0.0, 1.0);\n",
+			"	gl_Position = uMVP * vec4(aPosition, 0.0, 1.0);\n",
+			"	vColor = aColor;\n",
 			"}\n"
 		};
 
 		private readonly string[] _Es2_ShaderFragmentSource = new string[] {
+			"varying vec3 vColor;\n",
 			"void main() {\n",
-			"	gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);\n",
+			"	gl_FragColor = vec4(vColor, 1.0);\n",
 			"}\n"
 		};
 

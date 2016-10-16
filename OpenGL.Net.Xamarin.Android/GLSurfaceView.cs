@@ -72,55 +72,6 @@ namespace OpenGL
 
 		#region Device Context
 
-		/// <summary>
-		/// Create the device context and set the pixel format.
-		/// </summary>
-		protected void CreateDeviceContext()
-		{
-			// Get actual native window handle
-			_NativeWindowHandle = ANativeWindow_fromSurface(JNIEnv.Handle, _Holder.Surface.Handle);
-
-			// Create device context
-			_DeviceContext = DeviceContext.Create(_NativeWindowHandle);
-			_DeviceContext.IncRef();
-
-			// Set pixel format
-			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
-			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
-			controlReqFormat.RgbaUnsigned = true;
-			controlReqFormat.ColorBits = 24;
-			//controlReqFormat.DepthBits = (int)DepthBits;
-			//controlReqFormat.StencilBits = (int)StencilBits;
-			//controlReqFormat.MultisampleBits = (int)MultisampleBits;
-			//controlReqFormat.DoubleBuffer = true;
-
-			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
-			if (matchingPixelFormats.Count == 0)
-				throw new InvalidOperationException("unable to find a suitable pixel format");
-
-			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
-		}
-
-		/// <summary>
-		/// Create the GlSurfaceView context.
-		/// </summary>
-		protected void CreateContext()
-		{
-			if (_RenderContext != IntPtr.Zero)
-				return;
-
-			// Create OpenGL context using compatibility profile
-			if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create render context");
-
-			// Make context current
-			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
-				throw new InvalidOperationException("unable to make context current");
-
-			// Raise relative event
-			OnContextCreated();
-		}
-
 		private IntPtr _NativeWindowHandle;
 
 		/// <summary>
@@ -297,8 +248,37 @@ namespace OpenGL
 		/// </param>
 		public void SurfaceCreated(ISurfaceHolder holder)
 		{
-			CreateDeviceContext();
-			CreateContext();
+			// Get actual native window handle
+			_NativeWindowHandle = ANativeWindow_fromSurface(JNIEnv.Handle, holder.Surface.Handle);
+
+			// Create device context
+			_DeviceContext = DeviceContext.Create(_NativeWindowHandle);
+			_DeviceContext.IncRef();
+
+			// Set pixel format
+			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
+			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
+			controlReqFormat.RgbaUnsigned = true;
+			controlReqFormat.ColorBits = 24;
+			//controlReqFormat.DepthBits = (int)DepthBits;
+			//controlReqFormat.StencilBits = (int)StencilBits;
+			//controlReqFormat.MultisampleBits = (int)MultisampleBits;
+			//controlReqFormat.DoubleBuffer = true;
+
+			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
+			if (matchingPixelFormats.Count == 0)
+				throw new InvalidOperationException("unable to find a suitable pixel format");
+
+			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
+
+			// Create OpenGL context using compatibility profile
+			if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create render context");
+			// Make context current
+			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
+				throw new InvalidOperationException("unable to make context current");
+			// Raise relative event
+			OnContextCreated();
 
 			StartRendering(30.0f);
 		}
