@@ -32,43 +32,49 @@ namespace OpenGL
 	/// </summary>
 	public static class GetProcAddress
 	{
-		#region Static Constructor
+		#region Static Constructor (Initialization)
 
 		/// <summary>
 		/// Static constructor.
 		/// </summary>
 		static GetProcAddress()
 		{
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32S:
-				case PlatformID.WinCE:
-					_GetProcAddress = new GetProcAddressWindows();
-					break;
-				case PlatformID.Unix:
-					string unixName = DetectUnixKernel();
+			bool eglOnAdroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
 
-					// Distinguish between Unix and Mac OS X kernels.
-					switch (unixName) {
-						case "Unix":
-						case "Linux":
-							_GetProcAddress = new GetProcAddressX11();
-							break;
-						case "Darwin":
-							_GetProcAddress = new GetProcAddressOSX();
-							break;
-						case null:
-							throw new NotSupportedException(String.Format("Unix platform not detected"));
-						default:
-							throw new NotSupportedException(String.Format("Unix platform {0} not supported", unixName));
-					}
-					break;
-				case PlatformID.MacOSX:
-					_GetProcAddress = new GetProcAddressOSX();
-					break;
-				default:
-					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion.Platform));
+			if (eglOnAdroid == false) {
+				switch (Environment.OSVersion.Platform) {
+					case PlatformID.Win32NT:
+					case PlatformID.Win32Windows:
+					case PlatformID.Win32S:
+					case PlatformID.WinCE:
+						_GetProcAddress = new GetProcAddressWindows();
+						break;
+					case PlatformID.Unix:
+						string unixName = DetectUnixKernel();
+
+						// Distinguish between Unix and Mac OS X kernels.
+						switch (unixName) {
+							case "Unix":
+							case "Linux":
+								_GetProcAddress = new GetProcAddressX11();
+								break;
+							case "Darwin":
+								_GetProcAddress = new GetProcAddressOSX();
+								break;
+							case null:
+								throw new NotSupportedException(String.Format("Unix platform not detected"));
+							default:
+								throw new NotSupportedException(String.Format("Unix platform {0} not supported", unixName));
+						}
+						break;
+					case PlatformID.MacOSX:
+						_GetProcAddress = new GetProcAddressOSX();
+						break;
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion.Platform));
+				}
+			} else {
+				_GetProcAddress = new GetProcAddressEgl();
 			}
 		}
 
@@ -621,6 +627,84 @@ namespace OpenGL
 		/// The OpenGL library on OSX platform.
 		/// </summary>
 		private const string Library = "libdl.dylib";
+
+		#endregion
+	}
+
+	/// <summary>
+	/// Class able to get function pointers on different platforms supporting EGL.
+	/// </summary>
+	class GetProcAddressEgl : IGetProcAddress
+	{
+		#region IGetProcAddress Implementation
+
+		/// <summary>
+		/// Add a path of a directory as additional path for searching libraries.
+		/// </summary>
+		/// <param name="libraryDirPath">
+		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// <see cref="GetProcAddress(string, string)"/> method.
+		/// </param>
+		public void AddLibraryDirectory(string libraryDirPath)
+		{
+			
+		}
+
+		/// <summary>
+		/// Get a function pointer from a library, specified by path.
+		/// </summary>
+		/// <param name="library">
+		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the function name.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
+		/// </returns>
+		public IntPtr GetProcAddress(string library, string function)
+		{
+			return (GetProcAddress(function));
+		}
+
+		/// <summary>
+		/// Get a function pointer from a library, specified by handle.
+		/// </summary>
+		/// <param name="library">
+		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the function name.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
+		/// </returns>
+		public IntPtr GetProcAddress(IntPtr library, string function)
+		{
+			return (GetProcAddress(function));
+		}
+
+		/// <summary>
+		/// Get a function pointer from the OpenGL driver.
+		/// </summary>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the function name.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
+		/// </returns>
+		public IntPtr GetOpenGLProcAddress(string function)
+		{
+			return (GetProcAddress(function));
+		}
+
+		/// <summary>
+		/// Static import for egòGetProcAddress.
+		/// </summary>
+		/// <param name="funcname"></param>
+		/// <returns></returns>
+		[DllImportAttribute("libEGL.dll", EntryPoint = "eglGetProcAddress")]
+		public static extern IntPtr GetProcAddress(string funcname);
 
 		#endregion
 	}

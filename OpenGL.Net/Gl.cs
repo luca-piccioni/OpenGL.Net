@@ -40,11 +40,27 @@ namespace OpenGL
 		/// </summary>
 		static Gl()
 		{
+			Initialize();
+		}
+
+		/// <summary>
+		/// Initialize OpenGL namespace static environment. This method shall be called before any other classes methods.
+		/// </summary>
+		public static void Initialize()
+		{
+			if (_Initialized != 0)
+				return;		// Already initialized
+			System.Threading.Interlocked.Exchange(ref _Initialized, 1);
+
 			// Cache imports & delegates
 			_Delegates = GetDelegateList(typeof(Gl));
 			_ImportMap = GetImportMap(typeof(Gl));
 			// Load procedures (OpenGL desktop by default) @todo Really necessary?
 			LoadProcDelegates(_ImportMap, _Delegates);
+
+			// Temporary: do not query OpenGL on Android
+			if (Egl.IsMandatory)
+				return;
 
 			// Create temporary context for getting preliminary information on desktop systems
 			using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
@@ -87,9 +103,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Initialize OpenGL namespace static environment. This method shall be called before any other classes methods.
+		/// Flag indicating whether <see cref="Gl"/> has been initialized.
 		/// </summary>
-		public static void Initialize() { }
+		private static int _Initialized;
 
 		#endregion
 

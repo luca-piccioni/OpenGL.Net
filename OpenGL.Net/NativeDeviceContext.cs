@@ -214,6 +214,8 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
+			CreateWindowSurface();
+
 			List<int> contextAttribs = new List<int>();
 
 			if (Version >= Egl.Version_130)
@@ -222,14 +224,6 @@ namespace OpenGL
 
 			if ((_Context = Egl.CreateContext(_Display, _Config, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
-
-			int[] surfaceAttribs = new int[1] {
-				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-				Egl.NONE
-			};
-
-			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create window surface");
 
 			return (_Context);
 		}
@@ -264,7 +258,20 @@ namespace OpenGL
 			if (attribsList[attribsList.Length - 1] != 0)
 				throw new ArgumentException("not zero-terminated array", "attribsList");
 
+			CreateWindowSurface();
+
 			return (Egl.CreateContext(_Display, _Config, sharedContext, attribsList));
+		}
+
+		private void CreateWindowSurface()
+		{
+			int[] surfaceAttribs = new int[] {
+				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
+				Egl.NONE
+			};
+
+			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create window surface");
 		}
 
 		/// <summary>
@@ -325,7 +332,7 @@ namespace OpenGL
 		/// </summary>
 		public override void SwapBuffers()
 		{
-			Egl.SwapBuffers(_Display, IntPtr.Zero);
+			Egl.SwapBuffers(_Display, _EglSurface);
 		}
 
 		/// <summary>

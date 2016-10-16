@@ -39,6 +39,10 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
+			// Determine OS at runtime
+			_EglOnAndroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
+
+			// Avoid loading ANGLE when Designer is active
 			if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
 				return;
 
@@ -72,7 +76,7 @@ namespace OpenGL
 			// Load procesdures
 			try {
 				LoadProcDelegates(Library, _ImportMap, _Delegates);
-			} catch { /* Fail-safe: complict with Designer */ }
+			} catch { /* Fail-safe */ }
 		}
 
 		/// <summary>
@@ -109,17 +113,32 @@ namespace OpenGL
 		#region Availability
 
 		/// <summary>
+		/// Get or set whether <see cref="DeviceContextFactory"/> must create an EGL device context.
+		/// </summary>
+		public static bool IsMandatory
+		{
+			get
+			{
+				return (_EglOnAndroid);
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether EGL is mandatory since we're running on Android.
+		/// </summary>
+		private static bool _EglOnAndroid;
+
+		/// <summary>
 		/// Determine whether EGL layer is avaialable.
 		/// </summary>
 		public static bool IsAvailable { get { return (Delegates.peglInitialize != null); } }
 
 		/// <summary>
-		/// Get or set whether <see cref="DeviceContextFactory"/> should create an EGL device
-		/// context, if available..
+		/// Get or set whether <see cref="DeviceContextFactory"/> should create an EGL device context, if available.
 		/// </summary>
 		public static bool IsRequired
 		{
-			get { return (_RequiresEgl && IsAvailable); }
+			get { return ((_RequiresEgl && IsAvailable) || IsMandatory); }
 			set { _RequiresEgl = value; }
 		}
 

@@ -36,7 +36,7 @@ namespace OpenGL
 			Gl.Initialize();
 		}
 
-        #endregion
+		#endregion
 
 		#region Factory
 
@@ -55,7 +55,10 @@ namespace OpenGL
 				case PlatformID.Win32NT:
 					return (new WindowsDeviceContext.NativeWindow());
 				case PlatformID.Unix:
-					return (new XServerDeviceContext.NativeWindow());
+					if (Egl.IsMandatory)
+						return (null);
+					else
+						return (new XServerDeviceContext.NativeWindow());
 				default:
 					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 			}
