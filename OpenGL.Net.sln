@@ -15,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenGL Specs", "OpenGL Spec
 		GLSpecs\wgl.xml = GLSpecs\wgl.xml
 	EndProjectSection
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "OpenGL.Net", "OpenGL.Net.mdproj", "{B07B4826-465D-4EF6-A5BE-D2F288144CA3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -25,14 +23,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x64.Build.0 = Debug|Any CPU
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x86.ActiveCfg = Debug|x86
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x86.Build.0 = Debug|x86
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x64.ActiveCfg = Release|Any CPU
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x64.Build.0 = Release|Any CPU
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x86.ActiveCfg = Release|x86
-		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x86.Build.0 = Release|x86
 		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Debug|x64.Build.0 = Debug|Any CPU
 		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Debug|x86.ActiveCfg = Debug|x86
@@ -41,12 +31,14 @@ Global
 		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Release|x64.Build.0 = Release|Any CPU
 		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Release|x86.ActiveCfg = Release|x86
 		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Release|x86.Build.0 = Release|x86
-		{B07B4826-465D-4EF6-A5BE-D2F288144CA3}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B07B4826-465D-4EF6-A5BE-D2F288144CA3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B07B4826-465D-4EF6-A5BE-D2F288144CA3}.Release|x64.ActiveCfg = Release|Any CPU
-		{B07B4826-465D-4EF6-A5BE-D2F288144CA3}.Release|x86.ActiveCfg = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x64.Build.0 = Debug|Any CPU
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x86.ActiveCfg = Debug|x86
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|x86.Build.0 = Debug|x86
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x64.ActiveCfg = Release|Any CPU
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x64.Build.0 = Release|Any CPU
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x86.ActiveCfg = Release|x86
+		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -54,3 +54,8 @@ packages
 /Samples/HelloTriangle.VB/bin
 /Samples/HelloTriangle.WPF/obj
 /Samples/HelloTriangle.WPF/bin
+/OpenGL.Net.Xamarin.Android/obj
+/OpenGL.Net.Xamarin.Android/bin
+/Samples/HelloTriangle.Xamarin.Android/obj
+/Samples/HelloTriangle.Xamarin.Android/bin
+/*.db
