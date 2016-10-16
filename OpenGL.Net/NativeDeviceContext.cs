@@ -32,19 +32,14 @@ namespace OpenGL
 		/// Initializes a new instance of the <see cref="NativeDeviceContext"/> class.
 		/// </summary>
 		/// <param name='windowHandle'>
-		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context. If it is <see cref="IntPtr.Zero"/>
+		/// the surface referenced by this NativeDeviceContext is a minimal PBuffer.
 		/// </param>
-		/// <exception cref='ArgumentException'>
-		/// Is thrown when <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
-		/// </exception>
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
 		public NativeDeviceContext(IntPtr windowHandle)
 		{
-			if (windowHandle == IntPtr.Zero)
-				throw new ArgumentException("null handle", "windowHandle");
-
 			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get display handle");
 
@@ -80,7 +75,7 @@ namespace OpenGL
 		public IntPtr Surface
 		{
 			get { return (_EglSurface); }
-			set
+			internal set
 			{
 				if (value == IntPtr.Zero)
 					throw new InvalidOperationException("invalid value");
@@ -144,6 +139,7 @@ namespace OpenGL
 
 				if (Version >= Egl.Version_120)
 					configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+				configAttribs.AddRange(new int[] { Egl.SURFACE_TYPE, Egl.PBUFFER_BIT | Egl.WINDOW_BIT });
 				configAttribs.AddRange(new int[] {
 					Egl.RED_SIZE, 8,
 					Egl.GREEN_SIZE, 8,
@@ -184,6 +180,38 @@ namespace OpenGL
 
 		#endregion
 
+		#region Window Factory
+
+		/// <summary>
+		/// Native window implementation for Windows.
+		/// </summary>
+		internal class NativeWindow : INativeWindow
+		{
+			#region INativeWindow Implementation
+
+			/// <summary>
+			/// Get the native window handle.
+			/// </summary>
+			IntPtr INativeWindow.Handle { get { return (IntPtr.Zero); } }
+
+			/// <summary>
+			/// The native window handle.
+			/// </summary>
+			private IntPtr _Handle;
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public void Dispose()
+			{
+				
+			}
+
+			#endregion
+		}
+
+		#endregion
+
 		#region DeviceContext Overrides
 
 		/// <summary>
@@ -212,10 +240,16 @@ namespace OpenGL
 			int[] contextAttribs = DefaultContextAttribs;
 			int[] surfaceAttribs = DefaultSurfaceAttribs;
 
-			if ((ctx = Egl.CreateContext(Display, configs[configs.Length - 1], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
+			if ((ctx = Egl.CreateContext(Display, configs[0], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
 
-			Surface = Egl.CreateWindowSurface(Display, configs[configs.Length - 1], WindowHandle, surfaceAttribs);
+			List<int> pbufferAttribs = new List<int>(surfaceAttribs);
+
+			pbufferAttribs.RemoveAt(pbufferAttribs.Count - 1);
+			pbufferAttribs.AddRange(new int[] { Egl.WIDTH, 1, Egl.HEIGHT, 2 });
+			pbufferAttribs.Add(Egl.NONE);
+
+			Surface = Egl.CreatePbufferSurface(Display, configs[0], pbufferAttribs.ToArray());
 
 			return (ctx);
 		}
@@ -284,8 +318,13 @@ namespace OpenGL
 		{
 			int[] surfaceAttribs = DefaultSurfaceAttribs;
 
-			if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create window surface");
+			if (_WindowHandle != IntPtr.Zero) {
+				if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create window surface");
+			} else {
+				if ((_EglSurface = Egl.CreatePbufferSurface(_Display, _Config, surfaceAttribs)) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create PBuffer surface");
+			}
 		}
 
 		/// <summary>

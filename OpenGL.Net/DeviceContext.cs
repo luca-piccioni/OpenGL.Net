@@ -55,10 +55,10 @@ namespace OpenGL
 				case PlatformID.Win32NT:
 					return (new WindowsDeviceContext.NativeWindow());
 				case PlatformID.Unix:
-					if (Egl.IsMandatory)
-						return (null);
-					else
+					if (Egl.IsMandatory == false)
 						return (new XServerDeviceContext.NativeWindow());
+					else
+						return (new NativeDeviceContext.NativeWindow());
 				default:
 					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 			}
