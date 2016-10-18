@@ -258,7 +258,10 @@ namespace OpenGL
 			// Set pixel format
 			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
 			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
+
 			controlReqFormat.RgbaUnsigned = true;
+			controlReqFormat.RenderWindow = true;
+
 			controlReqFormat.ColorBits = 24;
 			//controlReqFormat.DepthBits = (int)DepthBits;
 			//controlReqFormat.StencilBits = (int)StencilBits;

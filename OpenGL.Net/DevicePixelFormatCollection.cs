@@ -43,9 +43,10 @@ namespace OpenGL
 			List<DevicePixelFormat> pixelFormats = new List<DevicePixelFormat>(this);
 
 			pixelFormats.RemoveAll(delegate (DevicePixelFormat item) {
-				if (pixelFormat.RgbaUnsigned && !item.RgbaUnsigned)
+
+				if (pixelFormat.RgbaUnsigned != item.RgbaUnsigned)
 					return (true);
-				if (pixelFormat.RgbaFloat && !item.RgbaFloat)
+				if (pixelFormat.RgbaFloat  != item.RgbaFloat)
 					return (true);
 
 				if (pixelFormat.RenderWindow && !item.RenderWindow)

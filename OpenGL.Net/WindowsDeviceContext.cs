@@ -26,6 +26,8 @@
 #define SUPPORT_PIXEL_FORMAT_FLOAT
 // Support WGL_EXT_pixel_format_packed_float
 #define SUPPORT_PIXEL_FORMAT_PACKED_FLOAT
+// 
+#undef CHOOSE_PIXEL_FORMAT_FALLBACK
 
 using System;
 using System.Collections.Generic;
@@ -625,26 +627,69 @@ namespace OpenGL
 			if (_PixelFormatSet == true)
 				throw new InvalidOperationException("pixel format already set");
 
-			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
+#if CHOOSE_PIXEL_FORMAT_FALLBACK
+			try {
+#endif
+				Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
 
-			// Note (from MSDN): Setting the pixel format of a window more than once can lead to significant complications for the Window Manager
-			// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
-			// window's pixel format is set, it cannot be changed.
+				// Note (from MSDN): Setting the pixel format of a window more than once can lead to significant complications for the Window Manager
+				// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
+				// window's pixel format is set, it cannot be changed.
 
-			if (Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor) == false) {
-				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-				throw new InvalidOperationException(String.Format("unable to describe pixel format, {0}", innerException.Message), innerException);
+				if (!Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor)) {
+					Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
+					throw new InvalidOperationException(String.Format("unable to describe pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
+				}
+
+				// Set choosen pixel format
+				if (!Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor)) {
+					Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
+					throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
+				}
+#if CHOOSE_PIXEL_FORMAT_FALLBACK
+			} catch (InvalidOperationException) {
+				// Try using default ChoosePixelFormat*
+				SetDisplayablePixelFormat(pixelFormat);
 			}
+#endif
 
-			// Set choosen pixel format
-			if (Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor) == false) {
-				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-				throw new InvalidOperationException(String.Format("unable to set pixel format, {0}", innerException.Message), innerException);
-			}
-				
 			// Unable to set pixel format again
 			_PixelFormatSet = true;
 		}
+
+#if CHOOSE_PIXEL_FORMAT_FALLBACK
+
+		/// <summary>
+		/// Set pixel format by letting the driver choose the best pixel format following the criteria.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// 
+		/// </param>
+		private void SetDisplayablePixelFormat(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			List<int> attribIList = new List<int>();
+			List<float> attribFList = new List<float>();
+			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
+			uint[] countFormatAttribsValues = new uint[1];
+			int[] choosenFormats = new int[4];
+
+			// Let choose pixel formats
+			if (!Wgl.ChoosePixelFormatARB(_DeviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues)) {
+				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
+				throw new InvalidOperationException(String.Format("unable to choose pixel format: {0}", innerException.Message), innerException);
+			}
+			
+			// Set choosen pixel format
+			if (Wgl.SetPixelFormat(DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
+				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
+				throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
+			}
+		}
+
+#endif
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

@@ -87,8 +87,7 @@ namespace OpenGL
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
-			}
-			else
+			} else
 				return (new NativeDeviceContext(windowHandle));
 		}
 
