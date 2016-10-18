@@ -27,7 +27,7 @@ using System.Windows.Forms;
 namespace OpenGL
 {
 	/// <summary>
-	/// Basic <see cref="UserControl"/> for rendering.
+	/// Basic <see cref="UserControl"/> for rendering using OpenGL.Net.
 	/// </summary>
 	public partial class GlControl : UserControl
 	{
@@ -69,7 +69,10 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Context")]
-		[Description("The version to be implemented by the context created by this GlControl. If null, a compatibility profile is created.")]
+		[Description(
+			"The version to be implemented by the context created by this GlControl. If null, the default version is created. " +
+			"Considered only if WGL_ARB_create_context is supported."
+		)]
 		[DefaultValue(null)]
 		[TypeConverter(typeof(KhronosVersionConverter))]
 		public KhronosVersion Version
@@ -104,7 +107,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Context")]
-		[Description("The actual context profile implemented.")]
+		[Description("Select the type of profile of the context. Considered only if WGL_ARB_create_context is supported.")]
 		[DefaultValue(ProfileType.Compatibility)]
 		public ProfileType ContextProfile
 		{
@@ -148,7 +151,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Context")]
-		[Description("Permission to create a debug context.")]
+		[Description("Creates a debug context. Considered only if WGL_ARB_create_context_profile is supported.")]
 		[DefaultValue(AttributePermission.EnabledInDebugger)]
 		public AttributePermission DebugContext
 		{
@@ -166,7 +169,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Context")]
-		[Description("Permission to create a forward compatible context.")]
+		[Description("Creates a forward-compatible context. Considered only if WGL_ARB_create_context is supported.")]
 		[DefaultValue(AttributePermission.DonCare)]
 		public AttributePermission ForwardCompatibleContext
 		{
@@ -180,11 +183,11 @@ namespace OpenGL
 		private AttributePermission _ForwardCompatibleContextBit = AttributePermission.DonCare;
 
 		/// <summary>
-		/// Get or set the permission to create a context with the compatibility profile.
+		/// Get or set the permission to create a robust context.
 		/// </summary>
 		[Browsable(true)]
 		[Category("Context")]
-		[Description("Permission to create a context with the compatibility profile.")]
+		[Description("Creates a robust context. Considered only if WGL_ARB_create_context_robustness is supported.")]
 		[DefaultValue(AttributePermission.DonCare)]
 		public AttributePermission RobustContext
 		{
@@ -206,7 +209,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Number of bits of the color buffer.")]
+		[Description("Minimum number of bits of the color buffer.")]
 		[DefaultValue(24)]
 		public uint ColorBits
 		{
@@ -224,7 +227,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Number of bits of the depth buffer.")]
+		[Description("Minimum number of bits of the depth buffer.")]
 		[DefaultValue(0)]
 		public uint DepthBits
 		{
@@ -242,7 +245,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Number of bits of the stencil buffer.")]
+		[Description("Minimum number of bits of the stencil buffer.")]
 		[DefaultValue(0)]
 		public uint StencilBits
 		{
@@ -260,7 +263,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Number of bits of the multisample buffer.")]
+		[Description("Minimum number of bits of the multisample buffer.")]
 		[DefaultValue(0)]
 		public uint MultisampleBits
 		{
@@ -278,7 +281,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Flag indicating whether double buffering is enabled.")]
+		[Description("Flag indicating whether double buffering is required.")]
 		[DefaultValue(true)]
 		public bool DoubleBuffer
 		{
@@ -296,7 +299,11 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Integer specifing the minimum number of video frames that are displayed before a buffer swap will occur.")]
+		[Description(
+			"Integer specifing the minimum number of video frames that are displayed before a buffer swap will occur. " +
+			"Considered only if (WGL|GLX)_EXT_swap_control is supported: set to 1 to enable V-Sync or set to 0 to disable V-Sync. " +
+			"If the (WGL|GLX)_EXT_swap_control_tear is supported, set to -1 to enable adaptive V-Sync."
+		)]
 		[DefaultValue(1)]
 		public int SwapInterval
 		{
@@ -418,6 +425,17 @@ namespace OpenGL
 				throw new InvalidOperationException("unable to find a suitable pixel format");
 
 			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
+
+			// Set V-Sync
+			if (Wgl.CurrentExtensions.SwapControl_EXT) {
+				int swapInterval = SwapInterval;
+
+				// Mask value in case it is not supported
+				if (!Wgl.CurrentExtensions.SwapControlTear_EXT && swapInterval == -1)
+					swapInterval = 1;
+
+				_DeviceContext.SwapInterval(swapInterval);
+			}
 		}
 
 		/// <summary>
@@ -467,11 +485,6 @@ namespace OpenGL
 					attributes.AddRange(new int[] {
 						Wgl.CONTEXT_MAJOR_VERSION_ARB, Version.Major,
 						Wgl.CONTEXT_MINOR_VERSION_ARB, Version.Minor
-					});
-				} else {
-					attributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, currentVersion.Major,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, currentVersion.Minor
 					});
 				}
 
@@ -640,20 +653,6 @@ namespace OpenGL
 		#endregion
 
 		#region UserControl Overrides
-
-		/// <summary>
-		/// Creates a handle for the control.
-		/// </summary>
-		protected override void CreateHandle()
-		{
-			// "Select" device pixel format before creating control handle
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Unix:
-					break;
-			}
-			// Base implementation
-			base.CreateHandle();
-		}
 
 		/// <summary>
 		/// Raises the <see cref="E:System.Windows.Forms.Control.HandleCreated"/> event.

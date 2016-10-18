@@ -48,7 +48,7 @@ namespace OpenGL
 			Int32[] length = new Int32[@string.Length];
 
 			for (int i = 0; i < @string.Length; i++)
-				length[i] = @string[i].Length;
+				length[i] = @string[i] != null ? @string[i].Length : 0;
 
 			ShaderSource(shader, @string, length);
 		}
