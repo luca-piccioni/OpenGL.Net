@@ -383,6 +383,12 @@ namespace OpenGL
 		/// </exception>
 		public override bool MakeCurrent(IntPtr ctx)
 		{
+			// Avoid actual call to wglMakeCurrent if it is not necessary
+			// Efficient on simple/nominal applications
+			IntPtr currentContext = Wgl.GetCurrentContext(), currentDc = Wgl.GetCurrentDC();
+			if (ctx == currentContext && DeviceContext == currentDc)
+				return (true);
+
 			return (Wgl.MakeCurrent(DeviceContext, ctx));
 		}
 
@@ -430,6 +436,11 @@ namespace OpenGL
 		/// </returns>
 		public override bool SwapInterval(int interval)
 		{
+			if (Wgl.CurrentExtensions.SwapControl_EXT == false)
+				throw new InvalidOperationException("WGL_EXT_swap_control not supported");
+			if ((interval == -1) && (Wgl.CurrentExtensions.SwapControlTear_EXT == false))
+				throw new InvalidOperationException("WGL_EXT_swap_control_ttear not supported");
+
 			return (Wgl.SwapIntervalEXT(interval));
 		}
 

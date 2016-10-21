@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -403,11 +404,15 @@ namespace OpenGL
 		/// </summary>
 		protected void CreateDeviceContext()
 		{
-			// Create device context
+			#region Create device context
+
 			_DeviceContext = DeviceContext.Create(this.Handle);
 			_DeviceContext.IncRef();
 
-			// Set pixel format
+			#endregion
+
+			#region Set pixel format
+
 			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
 			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
 
@@ -426,7 +431,10 @@ namespace OpenGL
 
 			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
 
-			// Set V-Sync
+			#endregion
+
+			#region Set V-Sync
+
 			if (Wgl.CurrentExtensions.SwapControl_EXT) {
 				int swapInterval = SwapInterval;
 
@@ -436,6 +444,8 @@ namespace OpenGL
 
 				_DeviceContext.SwapInterval(swapInterval);
 			}
+
+			#endregion
 		}
 
 		/// <summary>
@@ -446,12 +456,36 @@ namespace OpenGL
 			if (_RenderContext != IntPtr.Zero)
 				throw new InvalidOperationException("context already created");
 
+			switch (ContextSharing) {
+				case ContextSharingOption.OwnContext:
+					// This GlControl own its context
+					CreateOwnContext();
+					break;
+				case ContextSharingOption.SingleContext:
+					// This GlControl reuse a context previously created
+					ReuseOtherContext();
+					break;
+			}
+
+			Debug.Assert(_RenderContext != IntPtr.Zero);
+		}
+
+		/// <summary>
+		/// Create the GlControl context, eventually shared with others.
+		/// </summary>
+		protected void CreateOwnContext()
+		{
+			if (_RenderContext != IntPtr.Zero)
+				throw new InvalidOperationException("context already created");
+
 			KhronosVersion currentVersion = Gl.CurrentVersion;
 			Gl.Extensions currentExtensions = Gl.CurrentExtensions;
 			
+			IntPtr sharingContext = IntPtr.Zero;
 			bool hasCreateContext = true;
 			bool hasCreateContextProfile = true;
 			bool hasCreateContextRobustness = true;
+			bool shareResources = ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null;
 
 			hasCreateContextProfile &= currentVersion.Api == KhronosVersion.ApiGl && currentVersion >= Gl.Version_300;
 			switch (Environment.OSVersion.Platform) {
@@ -467,6 +501,15 @@ namespace OpenGL
 					hasCreateContextProfile &= currentGlxExtensions.CreateContextProfile_ARB;
 					hasCreateContextRobustness = currentGlxExtensions.CreateContextRobustness_ARB;
 					break;
+			}
+
+			if (shareResources) {
+				List<IntPtr> sharingContextes;
+
+				if (_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes))
+					sharingContext = sharingContextes.Count > 0 ? sharingContextes[0] : IntPtr.Zero;
+				else
+					_SharingGroups.Add(ContextSharingGroup, new List<IntPtr>());
 			}
 
 			if (hasCreateContext) {
@@ -541,13 +584,88 @@ namespace OpenGL
 
 				attributes.Add(0);
 
-				if ((_RenderContext = _DeviceContext.CreateContextAttrib(IntPtr.Zero, attributes.ToArray())) == IntPtr.Zero)
+				if ((_RenderContext = _DeviceContext.CreateContextAttrib(sharingContext, attributes.ToArray())) == IntPtr.Zero)
 					throw new InvalidOperationException(String.Format("unable to create render context ({0})", Gl.GetError()));
 			} else {
 				// Create OpenGL context using compatibility profile
-				if ((_RenderContext = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+				if ((_RenderContext = _DeviceContext.CreateContext(sharingContext)) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create render context");
 			}
+
+			// Allow other GlControl instances to reuse this GlControl context
+			if (shareResources) {
+				if (_SharingControls.ContainsKey(ContextSharingGroup))
+					throw new InvalidOperationException(String.Format("another GlControl has created sharing group {0}", ContextSharingGroup));
+				_SharingControls.Add(ContextSharingGroup, this);
+			}
+
+			// Allow other GlControl instances to share resources with this context
+			if (shareResources == true) {
+				List<IntPtr> sharingContextes;
+
+				// Get the list previously created
+				_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes);
+				// ...and register this context among the others
+				sharingContextes.Add(_RenderContext);
+			}
+		}
+
+		/// <summary>
+		/// Reuse the GlControl context of another GlControl, eventually shared with others.
+		/// </summary>
+		protected void ReuseOtherContext()
+		{
+			if (ContextSharingGroup == null)
+				throw new InvalidOperationException("undefined context sharing group");
+
+			if (_SharingControls.TryGetValue(ContextSharingGroup, out _SharingControl) == false)
+				throw new InvalidOperationException(String.Format("no GlControl sharing with {0}", ContextSharingGroup));
+
+			// Resure context
+			_RenderContext = _SharingControl._RenderContext;
+			// ...but reset it when no more valid
+			_SharingControl.ContextCreated += SharingControl_ContextCreated;
+			_SharingControl.ContextDestroying += SharingControl_ContextDestroying;
+		}
+
+		/// <summary>
+		/// Ensure <see cref="_RenderContext"/> is in sync with other <see cref="GlControl"/> owning the context.
+		/// </summary>
+		/// <param name="sender">
+		/// The <see cref="GlControl"/> raising the event.
+		/// </param>
+		/// <param name="e">
+		/// A <see cref="GlControlEventArgs"/> specifying the event arguments.
+		/// </param>
+		private void SharingControl_ContextCreated(object sender, GlControlEventArgs e)
+		{
+			Debug.Assert(ReferenceEquals(_SharingControl, sender));
+			Debug.Assert(_RenderContext == IntPtr.Zero);
+
+			// Copy context reference
+			_RenderContext = _SharingControl._RenderContext;
+			// Emulates event
+			OnContextCreated();
+		}
+
+		/// <summary>
+		/// Ensure <see cref="_RenderContext"/> is in sync with other <see cref="GlControl"/> owning the context.
+		/// </summary>
+		/// <param name="sender">
+		/// The <see cref="GlControl"/> raising the event.
+		/// </param>
+		/// <param name="e">
+		/// A <see cref="GlControlEventArgs"/> specifying the event arguments.
+		/// </param>
+		private void SharingControl_ContextDestroying(object sender, GlControlEventArgs e)
+		{
+			Debug.Assert(ReferenceEquals(_SharingControl, sender));
+			Debug.Assert(_RenderContext != IntPtr.Zero);
+
+			// Emulates event
+			OnContextDestroying();
+			// Loose reference
+			_RenderContext = IntPtr.Zero;
 		}
 
 		/// <summary>
@@ -565,9 +683,22 @@ namespace OpenGL
 		/// </summary>
 		protected virtual void DeleteContext()
 		{
+			// Remove this context from the sharing group
+			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
+				List<IntPtr> sharingContextes;
+
+				// Get the list previously created
+				_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes);
+				// Remove this context
+				bool res = sharingContextes.Remove(_RenderContext);
+				Debug.Assert(res);
+			}
+
 			// Delete OpenGL context
-			_DeviceContext.DeleteContext(_RenderContext);
-			_RenderContext = IntPtr.Zero;
+			if (_RenderContext != IntPtr.Zero) {
+				_DeviceContext.DeleteContext(_RenderContext);
+				_RenderContext = IntPtr.Zero;
+			}
 		}
 
 		/// <summary>
@@ -581,9 +712,90 @@ namespace OpenGL
 		protected IntPtr _RenderContext;
 
 		/// <summary>
+		/// The <see cref="GlControl"/> that owns <see cref="_RenderContext"/>.
+		/// </summary>
+		private GlControl _SharingControl;
+
+		/// <summary>
 		/// Exception caught while creating device context and render context.
 		/// </summary>
 		protected Exception _FailureException;
+
+		#endregion
+
+		#region Context Sharing
+
+		/// <summary>
+		/// Context sharing options.
+		/// </summary>
+		public enum ContextSharingOption
+		{
+			/// <summary>
+			/// Create its own context.
+			/// </summary>
+			OwnContext,
+
+			/// <summary>
+			/// Do not create its own context, but reuse the first one created by application.
+			/// </summary>
+			SingleContext,
+		}
+
+		/// <summary>
+		/// Get or set the context sharing option.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Context")]
+		[Description("Option for sharing the context with other GlControl instances.")]
+		[DefaultValue(ContextSharingOption.OwnContext)]
+		public ContextSharingOption ContextSharing
+		{
+			get { return (_ContextSharing); }
+			set
+			{
+				if (_RenderContext != IntPtr.Zero)
+					throw new InvalidOperationException("read-only property");
+				_ContextSharing = value;
+			}
+		}
+
+		/// <summary>
+		/// The context sharing option.
+		/// </summary>
+		private ContextSharingOption _ContextSharing = ContextSharingOption.OwnContext;
+
+		/// <summary>
+		/// Get or set a tag for defining sharing groups.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Context")]
+		[Description("Tag for sharing resource with other GlControl instances. Each one having the same tag will share resources.")]
+		[DefaultValue(null)]
+		public string ContextSharingGroup
+		{
+			get { return (_ContextSharingGroup); }
+			set
+			{
+				if (_RenderContext != IntPtr.Zero)
+					throw new InvalidOperationException("read-only property");
+				_ContextSharingGroup = value;
+			}
+		}
+
+		/// <summary>
+		/// A tag for defining sharing groups.
+		/// </summary>
+		private string _ContextSharingGroup;
+
+		/// <summary>
+		/// Map group names with the contextes sharing resources.
+		/// </summary>
+		private static readonly Dictionary<string, List<IntPtr>> _SharingGroups = new Dictionary<string, List<IntPtr>>();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private static readonly Dictionary<string, GlControl> _SharingControls = new Dictionary<string, GlControl>();
 
 		#endregion
 
@@ -668,10 +880,8 @@ namespace OpenGL
 					CreateDeviceContext();
 					CreateContext();
 
-					// The context is made current unconditionally: it will be current also on OnPaint, avoiding
-					// rendundant calls to glMakeCurrent in nominal implementations
+					// The context is made current unconditionally: event handlers allocate resources
 					MakeCurrentContext();
-
 					// Event handling
 					OnContextCreated();
 				} catch (Exception exception) {
@@ -695,7 +905,8 @@ namespace OpenGL
 					// Event handling
 					OnContextDestroying();
 					// Destroy context
-					DeleteContext();
+					if (_SharingControl == null)
+						DeleteContext();
 				}
 				// Destroy device context
 				_DeviceContext.DecRef();
@@ -716,6 +927,8 @@ namespace OpenGL
 			if (DesignMode == false) {
 				if (_FailureException == null) {
 					try {
+						// Ensure that context is actually current on this device
+						MakeCurrentContext();
 						// Event handling
 						OnRender();
 						// Swap buffers if double-buffering
@@ -742,9 +955,20 @@ namespace OpenGL
 			// Designer components disposition
 			if (disposing && (components != null))
 				components.Dispose();
+
+			// Avoid reference leaks
+			if (_SharingControl != null) {
+				_SharingControl.ContextDestroying -= SharingControl_ContextDestroying;
+				_SharingControl.ContextCreated -= SharingControl_ContextCreated;
+			}
+			// This control cannot create context anymore
+			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null)
+				_SharingControls.Remove(ContextSharingGroup);
+
 			// Dispose resources
 			_DesignPen.Dispose();
 			_FailurePen.Dispose();
+
 			// Base implementation
 			base.Dispose(disposing);
 		}

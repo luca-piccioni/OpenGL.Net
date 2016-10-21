@@ -144,15 +144,13 @@ namespace OpenGL
 			if (Delegates.pwglMakeCurrent == null)
 				SyncDelegates();
 
+			// Make current on device context
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
-				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the
-				// actual implementation
+				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the actual implementation
 				Gl.SyncDelegates();
-
-				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using
-				// wglGetprocAddress)
+				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using wglGetprocAddress)
 				SyncDelegates();
 			}
 
