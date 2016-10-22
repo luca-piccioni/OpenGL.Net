@@ -499,11 +499,6 @@ namespace OpenGL
 					if (param == Egl.SLOW_CONFIG)		// Skip software implementations?
 						continue;
 
-					if (Egl.GetConfigAttrib(_Display, config, Egl.NATIVE_RENDERABLE, out param) == false)
-						throw new InvalidOperationException("unable to get configuration parameter NATIVE_RENDERABLE");
-					if (param == Egl.TRUE)
-						continue;
-
 					if (version12) {
 						if (Egl.GetConfigAttrib(_Display, config, Egl.COLOR_BUFFER_TYPE, out param) == false)
 							throw new InvalidOperationException("unable to get configuration parameter COLOR_BUFFER_TYPE");
