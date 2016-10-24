@@ -46,6 +46,14 @@ namespace OpenGL
 			}
 
 			/// <summary>
+			/// Support for extension WGL_ARB_create_context_robustness or GLX_ARB_create_context_robustness.
+			/// </summary>
+			public bool CreateContextRobustness_ARB
+			{
+				get { return (Wgl.CurrentExtensions.CreateContextRobustness_ARB || Glx.CurrentExtensions.CreateContextRobustness_ARB); }
+			}
+
+			/// <summary>
 			/// Support for extension WGL_ARB_multisample or GLX_ARB_multisample.
 			/// </summary>
 			public bool Multisample_ARB
