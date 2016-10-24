@@ -65,7 +65,7 @@ namespace HelloNewton
 			// framebuffer.SetClearColor(new ColorRGBAF(0.0f, 0.0f, 0.0f));
 		}
 
-		private void SampleGraphicsControl_Render(object sender, GraphicsControlEventArgs e)
+		private void SampleGraphicsControl_Render(object sender, GlControlEventArgs e)
 		{
 			GraphicsContext ctx = e.Context;
 			IGraphicsSurface framebuffer = e.Framebuffer;

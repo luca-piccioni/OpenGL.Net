@@ -29,15 +29,18 @@ namespace HelloTriangle.Hal
 			InitializeComponent();
 		}
 
-		private void GraphicsControl_GraphicsContextCreated(object sender, OpenGL.GraphicsControlEventArgs e)
+		private void GraphicsControl_GraphicsContextCreated(object sender, OpenGL.GlControlEventArgs e)
 		{
+			GraphicsControl graphicsControl = (GraphicsControl)sender;
+			GraphicsContext ctx = graphicsControl.Context;
+
 			// Program
 			_Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+Color");
-			_Program.Create(e.Context);
+			_Program.Create(ctx);
 
 			// Position array buffer
 			ArrayBufferObject<Vertex2f> _ArrayPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
-			_ArrayPosition.Create(e.Context, new Vertex2f[] {
+			_ArrayPosition.Create(ctx, new Vertex2f[] {
 				new Vertex2f(0.0f, 0.0f),
 				new Vertex2f(0.5f, 1.0f),
 				new Vertex2f(1.0f, 0.0f)
@@ -45,7 +48,7 @@ namespace HelloTriangle.Hal
 
 			// Color array buffer
 			ArrayBufferObject<ColorRGBF> _ArrayColor = new ArrayBufferObject<ColorRGBF>(BufferObjectHint.StaticCpuDraw);
-			_ArrayColor.Create(e.Context, new ColorRGBF[] {
+			_ArrayColor.Create(ctx, new ColorRGBF[] {
 				new ColorRGBF(1.0f, 0.0f, 0.0f),
 				new ColorRGBF(0.0f, 1.0f, 0.0f),
 				new ColorRGBF(0.0f, 0.0f, 1.0f)
@@ -56,10 +59,10 @@ namespace HelloTriangle.Hal
 			_VertexArray.SetArray(_ArrayPosition, VertexArraySemantic.Position);
 			_VertexArray.SetArray(_ArrayColor, VertexArraySemantic.Color);
 			_VertexArray.SetElementArray(PrimitiveType.Triangles, 0, 3);
-			_VertexArray.Create(e.Context);
+			_VertexArray.Create(ctx);
 		}
 
-		private void GraphicsControl_GraphicsContextDestroying(object sender, GraphicsControlEventArgs e)
+		private void GraphicsControl_GraphicsContextDestroying(object sender, GlControlEventArgs e)
 		{
 			if (_Program != null)
 				_Program.Dispose();
@@ -67,12 +70,12 @@ namespace HelloTriangle.Hal
 				_VertexArray.Dispose();
 		}
 
-		private void GraphicsControl_Draw(object sender, GraphicsControlEventArgs e)
+		private void GraphicsControl_Draw(object sender, GlControlEventArgs e)
 		{
-			GraphicsContext ctx = e.Context;
-			IGraphicsSurface fb = e.Framebuffer;
+			GraphicsControl graphicsControl = (GraphicsControl)sender;
+			GraphicsContext ctx = graphicsControl.Context;
 
-			Gl.Viewport(0, 0, (int)fb.Width, (int)fb.Height);
+			Gl.Viewport(0, 0, graphicsControl.ClientSize.Width, graphicsControl.ClientSize.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
 			ctx.Bind(_Program);

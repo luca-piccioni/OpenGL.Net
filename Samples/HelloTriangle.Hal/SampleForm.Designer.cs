@@ -42,9 +42,9 @@
 			this.GraphicsControl.Size = new System.Drawing.Size(565, 488);
 			this.GraphicsControl.StencilBits = ((uint)(0u));
 			this.GraphicsControl.TabIndex = 0;
-			this.GraphicsControl.GraphicsContextCreated += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.GraphicsControl_GraphicsContextCreated);
-			this.GraphicsControl.GraphicsContextDestroying += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.GraphicsControl_GraphicsContextDestroying);
-			this.GraphicsControl.Draw += new System.EventHandler<OpenGL.GraphicsControlEventArgs>(this.GraphicsControl_Draw);
+			this.GraphicsControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.GraphicsControl_GraphicsContextCreated);
+			this.GraphicsControl.ContextDestroying += new System.EventHandler<OpenGL.GlControlEventArgs>(this.GraphicsControl_GraphicsContextDestroying);
+			this.GraphicsControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.GraphicsControl_Draw);
 			// 
 			// SampleForm
 			// 
