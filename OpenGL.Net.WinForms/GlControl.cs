@@ -22,7 +22,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -449,6 +448,15 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// The <see cref="DeviceContext"/> created on this GlControl.
+		/// </summary>
+		protected DeviceContext _DeviceContext;
+
+		#endregion
+
+		#region OpenGL Context
+
+		/// <summary>
 		/// Create the GlControl context.
 		/// </summary>
 		protected virtual void CreateContext()
@@ -471,6 +479,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Make the GlControl context current.
+		/// </summary>
+		protected virtual void MakeCurrentContext()
+		{
+			// Make context current
+			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
+				throw new InvalidOperationException("unable to make context current");
+		}
+
+		/// <summary>
+		/// Delete the GlControl context.
+		/// </summary>
+		protected virtual void DeleteContext()
+		{
+			// Remove this context from the sharing group
+			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
+				List<IntPtr> sharingContextes;
+
+				// Get the list previously created
+				_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes);
+				// Remove this context
+				bool res = sharingContextes.Remove(_RenderContext);
+				Debug.Assert(res);
+			}
+
+			// Delete OpenGL context
+			if (_RenderContext != IntPtr.Zero) {
+				_DeviceContext.DeleteContext(_RenderContext);
+				_RenderContext = IntPtr.Zero;
+			}
+		}
+
+		/// <summary>
 		/// Create the GlControl context, eventually shared with others.
 		/// </summary>
 		protected void CreateOwnContext()
@@ -479,29 +520,9 @@ namespace OpenGL
 				throw new InvalidOperationException("context already created");
 
 			KhronosVersion currentVersion = Gl.CurrentVersion;
-			Gl.Extensions currentExtensions = Gl.CurrentExtensions;
 			
 			IntPtr sharingContext = IntPtr.Zero;
-			bool hasCreateContext = true;
-			bool hasCreateContextProfile = true;
-			bool hasCreateContextRobustness = true;
 			bool shareResources = ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null;
-
-			hasCreateContextProfile &= currentVersion.Api == KhronosVersion.ApiGl && currentVersion >= Gl.Version_300;
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-					Wgl.Extensions currentWglExtensions = Wgl.CurrentExtensions;
-					hasCreateContext &= currentWglExtensions.CreateContext_ARB || currentWglExtensions.CreateContextProfile_ARB;
-					hasCreateContextProfile &= currentWglExtensions.CreateContextProfile_ARB;
-					hasCreateContextRobustness = currentWglExtensions.CreateContextRobustness_ARB;
-					break;
-				case PlatformID.Unix:
-					Glx.Extensions currentGlxExtensions = Glx.CurrentExtensions;
-					hasCreateContext &= currentGlxExtensions.CreateContext_ARB;
-					hasCreateContextProfile &= currentGlxExtensions.CreateContextProfile_ARB;
-					hasCreateContextRobustness = currentGlxExtensions.CreateContextRobustness_ARB;
-					break;
-			}
 
 			if (shareResources) {
 				List<IntPtr> sharingContextes;
@@ -512,7 +533,7 @@ namespace OpenGL
 					_SharingGroups.Add(ContextSharingGroup, new List<IntPtr>());
 			}
 
-			if (hasCreateContext) {
+			if (Gl.PlatformExtensions.CreateContext_ARB) {
 				List<int> attributes = new List<int>();
 				uint contextProfile = 0, contextFlags = 0;
 				bool debuggerAttached = Debugger.IsAttached;
@@ -545,7 +566,7 @@ namespace OpenGL
 
 				#region WGL_ARB_create_context_profile|GLX_ARB_create_context_profile
 
-				if (hasCreateContextProfile) {
+				if (Gl.PlatformExtensions.CreateContextProfile_ARB) {
 
 					switch (_ProfileType) {
 						case ProfileType.Core:
@@ -563,7 +584,7 @@ namespace OpenGL
 
 				#region WGL_ARB_create_context_robustness|GLX_ARB_create_context_robustness
 
-				if (hasCreateContextRobustness) {
+				if (Gl.PlatformExtensions.CreateContextRobustness_ARB) {
 
 					if ((_RobustContextBit == AttributePermission.Enabled) || (debuggerAttached && _RobustContextBit == AttributePermission.EnabledInDebugger)) {
 						Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
@@ -669,44 +690,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Make the GlControl context current.
-		/// </summary>
-		protected virtual void MakeCurrentContext()
-		{
-			// Make context current
-			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
-				throw new InvalidOperationException("unable to make context current");
-		}
-
-		/// <summary>
-		/// Delete the GlControl context.
-		/// </summary>
-		protected virtual void DeleteContext()
-		{
-			// Remove this context from the sharing group
-			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
-				List<IntPtr> sharingContextes;
-
-				// Get the list previously created
-				_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes);
-				// Remove this context
-				bool res = sharingContextes.Remove(_RenderContext);
-				Debug.Assert(res);
-			}
-
-			// Delete OpenGL context
-			if (_RenderContext != IntPtr.Zero) {
-				_DeviceContext.DeleteContext(_RenderContext);
-				_RenderContext = IntPtr.Zero;
-			}
-		}
-
-		/// <summary>
-		/// The <see cref="DeviceContext"/> created on this GlControl.
-		/// </summary>
-		protected DeviceContext _DeviceContext;
-
-		/// <summary>
 		/// The OpenGL context created on this GlControl.
 		/// </summary>
 		protected IntPtr _RenderContext;
@@ -715,11 +698,6 @@ namespace OpenGL
 		/// The <see cref="GlControl"/> that owns <see cref="_RenderContext"/>.
 		/// </summary>
 		private GlControl _SharingControl;
-
-		/// <summary>
-		/// Exception caught while creating device context and render context.
-		/// </summary>
-		protected Exception _FailureException;
 
 		#endregion
 
@@ -876,10 +854,10 @@ namespace OpenGL
 		{
 			if (DesignMode == false) {
 				try {
-					// Create device/render context
+					// Create device context
 					CreateDeviceContext();
+					// Create OpenGL context
 					CreateContext();
-
 					// The context is made current unconditionally: event handlers allocate resources
 					MakeCurrentContext();
 					// Event handling
@@ -943,6 +921,11 @@ namespace OpenGL
 			// Base implementation
 			base.OnPaint(e);
 		}
+
+		/// <summary>
+		/// Exception caught while creating device context and render context.
+		/// </summary>
+		protected Exception _FailureException;
 
 		/// <summary> 
 		/// Clean up any resources being used.
