@@ -34,7 +34,17 @@ namespace OpenGL
 			/// </summary>
 			public bool CreateContext_ARB
 			{
-				get { return (Wgl.CurrentExtensions.CreateContext_ARB || Glx.CurrentExtensions.CreateContext_ARB); }
+				get
+				{
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							return (Wgl.CurrentExtensions.CreateContext_ARB);
+						case PlatformID.Unix:
+							return (Glx.CurrentExtensions.CreateContext_ARB);
+						default:
+							return (false);
+					}
+				}
 			}
 
 			/// <summary>
@@ -42,7 +52,17 @@ namespace OpenGL
 			/// </summary>
 			public bool CreateContextProfile_ARB
 			{
-				get { return (Wgl.CurrentExtensions.CreateContextProfile_ARB || Glx.CurrentExtensions.CreateContextProfile_ARB); }
+				get
+				{
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							return (Wgl.CurrentExtensions.CreateContextProfile_ARB);
+						case PlatformID.Unix:
+							return (Glx.CurrentExtensions.CreateContextProfile_ARB);
+						default:
+							return (false);
+					}
+				}
 			}
 
 			/// <summary>
@@ -50,7 +70,17 @@ namespace OpenGL
 			/// </summary>
 			public bool CreateContextRobustness_ARB
 			{
-				get { return (Wgl.CurrentExtensions.CreateContextRobustness_ARB || Glx.CurrentExtensions.CreateContextRobustness_ARB); }
+				get
+				{
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							return (Wgl.CurrentExtensions.CreateContextRobustness_ARB);
+						case PlatformID.Unix:
+							return (Glx.CurrentExtensions.CreateContextRobustness_ARB);
+						default:
+							return (false);
+					}
+				}
 			}
 
 			/// <summary>
@@ -58,7 +88,17 @@ namespace OpenGL
 			/// </summary>
 			public bool Multisample_ARB
 			{
-				get { return (Wgl.CurrentExtensions.Multisample_ARB || Glx.CurrentExtensions.Multisample_ARB); }
+				get
+				{
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							return (Wgl.CurrentExtensions.Multisample_ARB);
+						case PlatformID.Unix:
+							return (Glx.CurrentExtensions.Multisample_ARB);
+						default:
+							return (false);
+					}
+				}
 			}
 
 			/// <summary>
@@ -66,7 +106,17 @@ namespace OpenGL
 			/// </summary>
 			public bool SwapControl
 			{
-				get { return (Wgl.CurrentExtensions.SwapControl_EXT || Glx.CurrentExtensions.SwapControl_EXT); }
+				get
+				{
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							return (Wgl.CurrentExtensions.SwapControl_EXT);
+						case PlatformID.Unix:
+							return (Glx.CurrentExtensions.SwapControl_EXT);
+						default:
+							return (false);
+					}
+				}
 			}
 
 			/// <summary>
@@ -74,7 +124,17 @@ namespace OpenGL
 			/// </summary>
 			public bool SwapControlTear
 			{
-				get { return (Wgl.CurrentExtensions.SwapControlTear_EXT || Glx.CurrentExtensions.SwapControlTear_EXT); }
+				get
+				{
+					switch (Environment.OSVersion.Platform) {
+						case PlatformID.Win32NT:
+							return (Wgl.CurrentExtensions.SwapControlTear_EXT);
+						case PlatformID.Unix:
+							return (Glx.CurrentExtensions.SwapControlTear_EXT);
+						default:
+							return (false);
+					}
+				}
 			}
 
 			#endregion
