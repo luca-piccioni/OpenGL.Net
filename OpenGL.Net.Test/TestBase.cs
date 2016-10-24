@@ -27,7 +27,7 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating a device context used for testing.
 	/// </summary>
-	[TestFixture]
+	[TestFixture, RequiresSTA]
 	abstract class TestBase
 	{
 		#region Setup & Tear Down
