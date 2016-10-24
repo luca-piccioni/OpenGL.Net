@@ -61,12 +61,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.3.2.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="NSubstitute">
       <HintPath>..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
     </Reference>
@@ -86,7 +87,6 @@
     <Compile Include="BufferObjectTest.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsSurface.cs" />
-    <Compile Include="GraphicsWindow.cs" />
     <Compile Include="IGraphicsDisposable.cs" />
     <Compile Include="IGraphicsResource.cs" />
     <Compile Include="IResource.cs" />
@@ -107,6 +107,10 @@
     <ProjectReference Include="..\OpenGL.Hal\OpenGL.Hal.csproj">
       <Project>{B1656959-9AEE-45F3-A382-1BD0EAC86918}</Project>
       <Name>OpenGL.Hal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenGL.Net.WinForms\OpenGL.Net.WinForms.csproj">
+      <Project>{b65d2a92-28fb-400c-990a-c805a8586b60}</Project>
+      <Name>OpenGL.Net.WinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj">
       <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>

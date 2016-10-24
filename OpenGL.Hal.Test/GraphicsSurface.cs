@@ -104,9 +104,7 @@ namespace OpenGL.Hal.Test
 				Surface.Clear(ctx);
 				// Execute drawing
 				animationDelegates.Draw(ctx, animationElapsedTime, data);
-				// Swap surface, if possible
-				if (Surface.Swappable)
-					Surface.SwapSurface();
+				// Swap buffers
 			}
 		}
 	}

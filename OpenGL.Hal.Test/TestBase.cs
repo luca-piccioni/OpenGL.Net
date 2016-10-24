@@ -21,6 +21,7 @@
 
 using System;
 using System.Reflection;
+using System.Windows.Forms;
 
 using NSubstitute;
 using NUnit.Framework;
@@ -50,19 +51,15 @@ namespace OpenGL.Hal.Test
 					Console.WriteLine(format, args);
 				});
 #endif
+				_Window = new Form();
 
-				// Create window on which tests are run
-				_Window = new GraphicsWindow(800, 600);
+				GlControl glControl = new GlControl();
+				glControl.CreateControl();
 
-				// Define window buffers
-				GraphicsBuffersFormat graphicsBuffersFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
+				_Window.Controls.Add(glControl);
 
-				//graphicsBuffersFormat.DefineDepthBuffer(24, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-				//graphicsBuffersFormat.DefineDoubleBuffers(GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
-
-				_Window.Create(graphicsBuffersFormat);
 				// Create graphics context
-				_Context = new GraphicsContext(_Window.GetDeviceContext(), null, null, GraphicsContextFlags.CompatibilityProfile);
+				_Context = new GraphicsContext(glControl.Device, null, null, GraphicsContextFlags.CompatibilityProfile);
 			} catch {
 				// Release resources manually
 				FixtureTearDown();
@@ -106,7 +103,7 @@ namespace OpenGL.Hal.Test
 		/// <summary>
 		/// The device context.
 		/// </summary>
-		protected GraphicsWindow _Window;
+		protected Form _Window;
 
 		/// <summary>
 		/// The graphics context.
@@ -292,74 +289,6 @@ namespace OpenGL.Hal.Test
 					throw new InvalidOperationException("not implementing IDisposable");
 
 				disposable.Dispose();
-			}
-
-			#endregion
-		}
-
-		protected class GraphicsWindowTypeSupport : DefaultGraphicsTypeSupport
-		{
-			#region Constructors
-
-			/// <summary>
-			/// Construct a GraphicsWindowTypeSupport.
-			/// </summary>
-			public GraphicsWindowTypeSupport() :
-				base(typeof(GraphicsWindow))
-			{
-
-			}
-
-			#endregion
-
-			#region DefaultGraphicsTypeSupport Overrides
-
-			/// <summary>
-			/// Allocate an instance of the type.
-			/// </summary>
-			/// <param name="ctx">
-			/// A <see cref="GraphicsContext"/> used for allocating the instance.
-			/// </param>
-			/// <returns>
-			/// It returns an instance of a specific type.
-			/// </returns>
-			public override object Allocate(GraphicsContext ctx)
-			{
-				GraphicsWindow graphicsWindow = new GraphicsWindow(16, 16);
-
-				return (graphicsWindow);
-			}
-
-			/// <summary>
-			/// Allocate an instance of the type mocked for spying.
-			/// </summary>
-			/// <param name="ctx">
-			/// A <see cref="GraphicsContext"/> used for allocating the instance.
-			/// </param>
-			/// <returns>
-			/// It returns an instance of a specific type.
-			/// </returns>
-			public override T AllocateSpy<T>(GraphicsContext ctx)
-			{
-				T shaderObjectSpy = (T)CreateTypeSpy(typeof(GraphicsWindow), 16U, 16U);
-
-				return (shaderObjectSpy);
-			}
-
-			/// <summary>
-			/// Actually create resources associated to the type.
-			/// </summary>
-			/// <param name="instance">
-			/// A <see cref="Object"/> that specifies the underlying instance.
-			/// </param>
-			/// <param name="ctx">
-			/// A <see cref="GraphicsContext"/> used for creating the resources.
-			/// </param>
-			public override void Create(object instance, GraphicsContext ctx)
-			{
-				GraphicsWindow graphicsWindow = (GraphicsWindow)instance;
-
-				graphicsWindow.Create(new GraphicsBuffersFormat(PixelLayout.RGB24, 24));
 			}
 
 			#endregion

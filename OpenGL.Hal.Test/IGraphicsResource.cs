@@ -117,12 +117,6 @@ namespace OpenGL.Hal.Test
 					if (item.IsSealed)
 						return (false);
 
-					// Note: GraphicsWindow as IGraphicsResource is somewhat an exception to the design pattern, since
-					// its resources are not associated with any GraphicsContext
-
-					if (item.GetType() == typeof(GraphicsWindow))
-						return (false);
-
 					return (item.GetInterface("IGraphicsResource") != null);
 				}));
 			}

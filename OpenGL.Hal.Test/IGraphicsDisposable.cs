@@ -96,14 +96,6 @@ namespace OpenGL.Hal.Test
 					if (item.IsSealed)
 						return (false);
 
-					// Note: GraphicsWindow as IGraphicsDisposable is somewhat an exception to the design pattern, since
-					// its object namespace cannot match with the device context. Need to rethink the GraphicsWindow.Dispose
-					// implementation, since a GraphicsContext could be created within the class, and used to create resources
-					// associated with the window.
-
-					if (item.GetType() == typeof(GraphicsWindow))
-						return (false);
-
 					return (item.GetInterface("IGraphicsDisposable") != null);
 				}));
 			}
