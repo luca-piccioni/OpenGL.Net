@@ -35,7 +35,7 @@ namespace OpenGL
 	/// formats for data storage. 
 	/// </para>
 	/// </remarks>
-	public abstract class GraphicsSurface : GraphicsResource, IGraphicsSurface
+	public abstract class GraphicsSurface : GraphicsResource
 	{
 		#region Constructors
 
@@ -59,18 +59,6 @@ namespace OpenGL
 			_Width = w;
 			_Height = h;
 		}
-		
-		#endregion
-		
-		#region Device Context Management
-		
-		/// <summary>
-		/// Obtain device context associated with this GraphicsSurface. 
-		/// </summary>
-		/// <returns>
-		/// A <see cref="DeviceContext"/>
-		/// </returns>
-		public abstract DeviceContext GetDeviceContext();
 		
 		#endregion
 		
@@ -129,20 +117,6 @@ namespace OpenGL
 		
 		#endregion
 		
-		#region Runtime Surface Buffers Management
-
-		/// <summary>
-		/// Current surface configuration.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
-		/// buffer configuration. The object returned shall not be used to modify this GraphicsSurface buffers,
-		/// but it shall be used to know which is the buffer configuration.
-		/// </para>
-		/// </remarks>
-		public abstract GraphicsBuffersFormat BufferFormat { get; }
-
 		#region Surface Clearing
 
 		/// <summary>
@@ -153,7 +127,7 @@ namespace OpenGL
 		/// </param>
 		public void Clear(GraphicsContext ctx)
 		{
-			Clear(ctx, BufferFormat.BuffersMask);
+			Clear(ctx, GraphicsBufferType.Color);
 		}
 
 		/// <summary>
@@ -247,94 +221,6 @@ namespace OpenGL
 		/// </summary>
 		private Int32 mClearStencil;
 		
-		#endregion
-
-		#region sRGB Support
-
-		/// <summary>
-		/// Enable sRGB color correction on this GraphicsSurface.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>.
-		/// </param>
-		/// <param name="surfaceFormat">
-		/// A <see cref="GraphicsBuffersFormat"/> that specify this GraphicsSurface format.
-		/// </param>
-		/// <remarks>
-		/// This routine can be called only in the case GraphicsContext.Caps.GlExtensions.FramebufferSRGB_ARB is supported.
-		/// </remarks>
-		protected void EnableSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
-		{
-			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
-				throw new InvalidOperationException("surface has no sRGB buffer");
-			if ((Gl.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
-				throw new InvalidOperationException("no framebuffer sRGB extension supported");
-
-			Gl.Enable(EnableCap.FramebufferSrgb);
-		}
-
-		/// <summary>
-		/// Disable sRGB color correction on this GraphicsSurface.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>.
-		/// </param>
-		/// <param name="surfaceFormat">
-		/// A <see cref="GraphicsBuffersFormat"/> that specify this GraphicsSurface format.
-		/// </param>
-		protected void DisableSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
-		{
-			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
-				throw new InvalidOperationException("surface has no sRGB buffer");
-			if ((Gl.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
-				throw new InvalidOperationException("no framebuffer sRGB extension supported");
-
-			Gl.Disable(EnableCap.FramebufferSrgb);
-		}
-
-		/// <summary>
-		/// Check whether sRGB color correction on this GraphicsSurface is enabled.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/>.
-		/// </param>
-		/// <param name="surfaceFormat">
-		/// 
-		/// </param>
-		/// <returns>
-		/// Is returns a boolean value indicating whether sRGB color correction on this GraphicsSurface is enabled.
-		/// </returns>
-		protected bool IsEnabledSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
-		{
-			if ((surfaceFormat.BuffersMask & GraphicsBufferType.ColorSRGB) == 0)
-				throw new InvalidOperationException("surface has no sRGB buffer");
-			if ((Gl.CurrentExtensions.FramebufferSRGB_ARB == false) && (Glx.CurrentExtensions.FramebufferSRGB_EXT == false))
-				throw new InvalidOperationException("no framebuffer sRGB extension supported");
-
-			return (Gl.IsEnabled(EnableCap.FramebufferSrgb));
-		}
-
-		#endregion
-
-		#endregion
-
-		#region Surface Buffers Swapping
-
-		/// <summary>
-		/// Determine whether this surface has to be swapped.
-		/// </summary>
-		public abstract bool Swappable { get; }
-		
-		/// <summary>
-		/// Gets or sets the buffer swap interval desired on this surface.
-		/// </summary>
-		public abstract int SwapInterval { get; set; }
-		
-		/// <summary>
-		/// Swap render surface. 
-		/// </summary>
-		public abstract void SwapSurface();
-
 		#endregion
 
 		#region Surface Bindings
@@ -484,20 +370,6 @@ namespace OpenGL
 			// Reset read configuration
 			Gl.ReadBuffer(Gl.NONE);
 		}
-
-		#endregion
-
-		#region IGraphicsSurface Implementation
-
-		/// <summary>
-		/// The width of the surface, in pixels.
-		/// </summary>
-		uint IGraphicsSurface.Width { get { return (_Width); } }
-
-		/// <summary>
-		/// The width of the surface, in pixels.
-		/// </summary>
-		uint IGraphicsSurface.Height { get { return (_Height); } }
 
 		#endregion
 	}

@@ -354,12 +354,6 @@ namespace OpenGL.State
 				return (false);
 			Debug.Assert(other is ShaderUniformState);
 
-			ShaderUniformState otherState = (ShaderUniformState) other;
-			GraphicsContext ctx = GraphicsContext.GetCurrentContext();
-
-			if (ctx == null)
-				throw new InvalidOperationException("no current context");
-
 			return (false);
 		}
 

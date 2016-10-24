@@ -1,5 +1,5 @@
 
-// Copyright (c) 2013 Luca Piccioni
+// Copyright (c) 2013-2016 Luca Piccioni
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ namespace OpenGL
 	public enum GraphicsContextFlags
 	{
 		/// <summary>
-		/// No flag.
+		/// No flags placeholder.
 		/// </summary>
 		None = 					0x0000,
 

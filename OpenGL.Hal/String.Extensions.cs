@@ -21,6 +21,9 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
+	/// <summary>
+	/// Extension methods for <see cref="String"/>.
+	/// </summary>
 	static class StringExtensions
 	{
 		public static IntPtr[] AllocHGlobal(this String[] array)

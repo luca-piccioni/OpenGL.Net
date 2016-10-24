@@ -844,46 +844,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get the device context associated to this Framebuffer. 
-		/// </summary>
-		/// <returns>
-		/// It always returns <see cref="IntPtr.Zero"/>, since no device context is related to this render
-		/// surface.
-		/// </returns>
-		public override DeviceContext GetDeviceContext()
-		{
-			return (null);
-		}
-
-		/// <summary>
-		/// Current surface configuration.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
-		/// buffer configuration. The object returned shall not be used to modify this GraphicsSurface buffers,
-		/// but it shall be used to know which is the buffer configuration.
-		/// </para>
-		/// </remarks>
-		public override GraphicsBuffersFormat BufferFormat
-		{
-			get
-			{
-				GraphicsBuffersFormat bufferFormat = new GraphicsBuffersFormat();
-
-				// It has a color buffer?
-
-				// It has a depth buffer?
-
-				// It has a stencil buffer?
-
-				// No double buffering and stereo buffering
-
-				return (bufferFormat);
-			}
-		}
-
-		/// <summary>
 		/// Bind this GraphicsSurface for drawing.
 		/// </summary>
 		/// <param name="ctx">
@@ -981,43 +941,6 @@ namespace OpenGL
 
 			if (status != Gl.FRAMEBUFFER_COMPLETE)
 				throw new FramebufferException(status);
-		}
-
-		/// <summary>
-		/// Determine whether this surface has to be swapped.
-		/// </summary>
-		/// <remarks>
-		/// This routine returns always 'false', since the framebuffer cannot be defined with a double buffer.
-		/// </remarks>
-		public override bool Swappable { get { return (false); } }
-		
-		/// <summary>
-		/// Gets or sets the buffer swap interval desired on this surface.
-		/// </summary>
-		/// <remarks>
-		/// This property returns always 0.
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this property is set with any value.
-		/// </exception>
-		public override int SwapInterval
-		{
-			get { return (0); }
-			set { throw new InvalidOperationException("framebuffer can set a swap interval"); }
-		}
-
-		/// <summary>
-		/// Swap render surface. 
-		/// </summary>
-		/// <exception cref="InvalidOperationException">
-		/// This exception is always thrown since <see cref="Swappable"/> returns always 'false'.
-		/// </exception>
-		/// <remarks>
-		/// Do not call this routine.
-		/// </remarks>
-		public override void SwapSurface()
-		{
-			throw new InvalidOperationException("framebuffer can't swap");
 		}
 
 		#endregion

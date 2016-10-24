@@ -105,7 +105,6 @@
     <Compile Include="IBindingResource.cs" />
     <Compile Include="IDisposableExtensions.cs" />
     <Compile Include="IGraphicsResource.Extensions.cs" />
-    <Compile Include="IGraphicsSurface.cs" />
     <Compile Include="ImageCodecPlugin.cs" />
     <Compile Include="MediaCodecPlugin.cs" />
     <Compile Include="Plugin.cs" />
@@ -149,7 +148,6 @@
     <Compile Include="GraphicsResource.cs" />
     <Compile Include="GraphicsScreen.cs" />
     <Compile Include="GraphicsSurface.cs" />
-    <Compile Include="GraphicsWindow.cs" />
     <Compile Include="IGraphicsDisposable.cs" />
     <Compile Include="IGraphicsResource.cs" />
     <Compile Include="IImageCodecPlugin.cs" />
@@ -183,7 +181,6 @@
     <Compile Include="QueryObject.cs" />
     <Compile Include="QueryTarget.cs" />
     <Compile Include="RenderBuffer.cs" />
-    <Compile Include="GraphicsBuffersFormat.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCollection.cs" />
     <Compile Include="Runtime.cs" />

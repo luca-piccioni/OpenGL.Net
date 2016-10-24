@@ -637,7 +637,7 @@ namespace OpenGL.Scene
 					graphicsStateKeeper.Keep(ViewportState.StateId);
 					// Set new state
 					graphicsStateKeeper.DefineState(new PolygonModeState(PolygonMode.Fill));
-					graphicsStateKeeper.DefineState(new ViewportState(_ElevationFramebuffer));
+					graphicsStateKeeper.DefineState(new ViewportState((int)_ElevationFramebuffer.Width, (int)_ElevationFramebuffer.Height));
 					graphicsStateKeeper.Apply(ctx, _GeometryClipmapTextureProgram);
 					// Set program uniforms
 					ctx.Bind(_GeometryClipmapTextureProgram);
