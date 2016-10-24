@@ -765,7 +765,7 @@ namespace OpenGL
 			get
 			{
 				// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
-				if (Gl.CurrentExtensions.VertexArrayObject_ARB == false)
+				if (Gl.CurrentExtensions.VertexBufferObject_ARB == false)
 					return (0);
 				
 				// All-in-one implementation for all targets
