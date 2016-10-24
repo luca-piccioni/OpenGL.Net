@@ -399,6 +399,14 @@ namespace OpenGL
 		#region Device Context
 
 		/// <summary>
+		/// Get the <see cref="DeviceContext"/> created on this GlControl.
+		/// </summary>
+		public DeviceContext Device
+		{
+			get { return (_DeviceContext); }
+		}
+
+		/// <summary>
 		/// Create the device context and set the pixel format.
 		/// </summary>
 		protected void CreateDeviceContext()
