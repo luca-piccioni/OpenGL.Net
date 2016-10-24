@@ -59,3 +59,7 @@ packages
 /Samples/HelloTriangle.Xamarin.Android/obj
 /Samples/HelloTriangle.Xamarin.Android/bin
 /*.db
+/Samples/ContextSharing/SimpleSharing/obj
+/Samples/ContextSharing/SimpleSharing/bin
+/Samples/ContextSharing/SingleContext/obj
+/Samples/ContextSharing/SingleContext/bin
