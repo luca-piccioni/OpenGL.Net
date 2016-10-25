@@ -578,7 +578,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetProcAddress(string library, string function)
 		{
-			throw new NotImplementedException();
+			return (GetOpenGLProcAddress(function));
 		}
 
 		/// <summary>
@@ -595,7 +595,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetProcAddress(IntPtr library, string function)
 		{
-			throw new NotImplementedException();
+			return (GetOpenGLProcAddress(function));
 		}
 
 		/// <summary>
