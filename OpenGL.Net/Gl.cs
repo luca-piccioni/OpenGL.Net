@@ -101,7 +101,7 @@ namespace OpenGL
 		/// <summary>
 		/// Flag indicating whether <see cref="Gl"/> has been initialized.
 		/// </summary>
-		private static bool _Initialized;
+		internal static bool _Initialized;
 
 		#endregion
 

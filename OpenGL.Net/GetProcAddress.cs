@@ -39,14 +39,11 @@ namespace OpenGL
 		/// </summary>
 		static GetProcAddress()
 		{
-			bool eglOnAdroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
+			bool eglOnAndroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
 
-			if (eglOnAdroid == false) {
+			if (eglOnAndroid == false) {
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Win32NT:
-					case PlatformID.Win32Windows:
-					case PlatformID.Win32S:
-					case PlatformID.WinCE:
 						_GetProcAddress = new GetProcAddressWindows();
 						break;
 					case PlatformID.Unix:

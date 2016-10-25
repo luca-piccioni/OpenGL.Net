@@ -322,6 +322,30 @@ namespace OpenGL
 
 		#region String Parsing
 
+		internal static KhronosVersion ParseFeature(string featureName, bool throwException)
+		{
+			if (featureName == null)
+				throw new ArgumentNullException("featureName");
+
+			// Shortcut for ES1
+			if (featureName == "GL_VERSION_ES_CM_1_0")
+				return (new KhronosVersion(1, 0, 0, ApiGles1));
+
+			// Matches GL and GL ES versions
+			Match versionMatch = Regex.Match(featureName, @"GL(?<Embedded>_ES)?_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
+			if (versionMatch.Success == false) {
+				if (throwException)
+					throw new ArgumentException("unrecognized pattern", "featureName");
+				return (null);
+			}
+
+			int major = Int32.Parse(versionMatch.Groups["Major"].Value);
+			int minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
+			bool embedded = versionMatch.Groups["Embedded"].Success;
+
+			return (new KhronosVersion(major, minor, embedded ? ApiGles2 : ApiGl));
+		}
+
 		/// <summary>
 		/// Parse a KhronosVersion from a string.
 		/// </summary>

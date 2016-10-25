@@ -496,13 +496,21 @@ namespace OpenGL
 
 					if (Egl.GetConfigAttrib(_Display, config, Egl.CONFIG_CAVEAT, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter CONFIG_CAVEAT");
-					if (param == Egl.SLOW_CONFIG)		// Skip software implementations?
-						continue;
+					switch (param) {
+						case Egl.NONE:
+							break;
+						case Egl.SLOW_CONFIG:
+							continue;			// Skip software implementations?
+						case Egl.NON_CONFORMANT_CONFIG:
+							break;
+					}
 
 					if (version12) {
 						if (Egl.GetConfigAttrib(_Display, config, Egl.COLOR_BUFFER_TYPE, out param) == false)
 							throw new InvalidOperationException("unable to get configuration parameter COLOR_BUFFER_TYPE");
 						switch (param) {
+							case Egl.RGB_BUFFER:
+									break;
 							case Egl.LUMINANCE_BUFFER:
 								if (Egl.GetConfigAttrib(_Display, config, Egl.LUMINANCE_SIZE, out param) == false)
 									throw new InvalidOperationException("unable to get configuration parameter LUMINANCE_SIZE");
@@ -556,7 +564,9 @@ namespace OpenGL
 						if ((param & Egl.SWAP_BEHAVIOR_PRESERVED_BIT) != 0) { }
 						if ((param & Egl.VG_ALPHA_FORMAT_PRE_BIT) != 0) { }
 						if ((param & Egl.VG_COLORSPACE_LINEAR_BIT) != 0) { }
-						if ((param & Egl.WINDOW_BIT) != 0) { }
+
+						if ((param & Egl.WINDOW_BIT) == 0)
+							pixelFormat.RenderWindow = false;
 					}
 
 					_PixelFormatCache.Add(pixelFormat);

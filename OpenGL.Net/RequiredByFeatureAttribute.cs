@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -18,7 +18,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text.RegularExpressions;
 
 namespace OpenGL
 {
@@ -28,6 +28,8 @@ namespace OpenGL
 	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method, AllowMultiple = true)]
 	public sealed class RequiredByFeatureAttribute : Attribute
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a RequiredByFeatureAttribute, specifying the feature name.
 		/// </summary>
@@ -44,6 +46,10 @@ namespace OpenGL
 			FeatureName = featureName;
 		}
 
+		#endregion
+
+		#region Attributes
+
 		/// <summary>
 		/// The name of the feature.
 		/// </summary>
@@ -53,5 +59,37 @@ namespace OpenGL
 		/// The name of the featuring API. Defaults to "gl".
 		/// </summary>
 		public string Api = "gl";
+
+		#endregion
+
+		#region Support Detection
+
+		/// <summary>
+		/// Determine whether the feature specified by this Attribute is supported by the current
+		/// implementation.
+		/// </summary>
+		public bool IsSupported
+		{
+			get
+			{
+				// Check version
+				KhronosVersion featureVersion = KhronosVersion.ParseFeature(FeatureName, false);
+				if (featureVersion != null) {
+					if (Gl.CurrentVersion.Api != featureVersion.Api)
+						return (false);
+
+					return (Gl.CurrentVersion >= featureVersion);
+				}
+
+				// Check compatible API
+				if (Regex.IsMatch(Gl.CurrentVersion.Api, Api) == false)
+					return (false);
+
+				// Last chance: extension name
+				return (Gl.CurrentExtensions.HasExtensions(FeatureName));
+			}
+		}
+
+		#endregion
 	}
 }

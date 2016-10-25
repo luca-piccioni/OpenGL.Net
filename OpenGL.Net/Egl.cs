@@ -42,10 +42,6 @@ namespace OpenGL
 			// Determine OS at runtime
 			_EglOnAndroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
 
-			// Avoid loading ANGLE when Designer is active
-			if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
-				return;
-
 			// Before linking procedures, append ANGLE directory in path
 			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
 			string anglePath = null;
@@ -73,11 +69,22 @@ namespace OpenGL
 			// Cache imports & delegates
 			_Delegates = GetDelegateList(typeof(Egl));
 			_ImportMap = GetImportMap(typeof(Egl));
-			// Load procesdures
+			
 			try {
+				// Load procesdures
 				LoadProcDelegates(Library, _ImportMap, _Delegates);
 			} catch { /* Fail-safe */ }
 		}
+
+		/// <summary>
+		/// EGL version currently implemented.
+		/// </summary>
+		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
+
+		/// <summary>
+		/// EGL version currently implemented.
+		/// </summary>
+		internal static KhronosVersion _CurrentVersion;
 
 		/// <summary>
 		/// OpenGL extension support.

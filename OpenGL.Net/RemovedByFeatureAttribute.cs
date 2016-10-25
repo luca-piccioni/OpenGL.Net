@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -53,5 +53,14 @@ namespace OpenGL
 		/// The name of the featuring API. Defaults to "gl".
 		/// </summary>
 		public string Api = "gl";
+
+		#region Information Parsing
+
+		/// <summary>
+		/// Get the OpenGL version of the feature, if any.
+		/// </summary>
+		public KhronosVersion FeatureVersion { get { return (KhronosVersion.ParseFeature(FeatureName, false)); } }
+
+		#endregion
 	}
 }

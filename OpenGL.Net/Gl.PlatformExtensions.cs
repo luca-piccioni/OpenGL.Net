@@ -36,14 +36,17 @@ namespace OpenGL
 			{
 				get
 				{
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							return (Wgl.CurrentExtensions.CreateContext_ARB);
-						case PlatformID.Unix:
-							return (Glx.CurrentExtensions.CreateContext_ARB);
-						default:
-							return (false);
-					}
+					if (Egl.IsRequired == false) {
+						switch (Environment.OSVersion.Platform) {
+							case PlatformID.Win32NT:
+								return (Wgl.CurrentExtensions.CreateContext_ARB);
+							case PlatformID.Unix:
+								return (Glx.CurrentExtensions.CreateContext_ARB);
+							default:
+								return (false);
+						}
+					} else
+						return (false);
 				}
 			}
 
@@ -54,14 +57,17 @@ namespace OpenGL
 			{
 				get
 				{
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							return (Wgl.CurrentExtensions.CreateContextProfile_ARB);
-						case PlatformID.Unix:
-							return (Glx.CurrentExtensions.CreateContextProfile_ARB);
-						default:
-							return (false);
-					}
+					if (Egl.IsRequired == false) {
+						switch (Environment.OSVersion.Platform) {
+							case PlatformID.Win32NT:
+								return (Wgl.CurrentExtensions.CreateContextProfile_ARB);
+							case PlatformID.Unix:
+								return (Glx.CurrentExtensions.CreateContextProfile_ARB);
+							default:
+								return (false);
+						}
+					} else
+						return (false);
 				}
 			}
 
@@ -72,14 +78,17 @@ namespace OpenGL
 			{
 				get
 				{
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							return (Wgl.CurrentExtensions.CreateContextRobustness_ARB);
-						case PlatformID.Unix:
-							return (Glx.CurrentExtensions.CreateContextRobustness_ARB);
-						default:
-							return (false);
-					}
+					if (Egl.IsRequired == false) {
+						switch (Environment.OSVersion.Platform) {
+							case PlatformID.Win32NT:
+								return (Wgl.CurrentExtensions.CreateContextRobustness_ARB);
+							case PlatformID.Unix:
+								return (Glx.CurrentExtensions.CreateContextRobustness_ARB);
+							default:
+								return (false);
+						}
+					} else
+						return (false);
 				}
 			}
 
@@ -90,14 +99,17 @@ namespace OpenGL
 			{
 				get
 				{
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							return (Wgl.CurrentExtensions.Multisample_ARB);
-						case PlatformID.Unix:
-							return (Glx.CurrentExtensions.Multisample_ARB);
-						default:
-							return (false);
-					}
+					if (Egl.IsRequired == false) {
+						switch (Environment.OSVersion.Platform) {
+							case PlatformID.Win32NT:
+								return (Wgl.CurrentExtensions.Multisample_ARB);
+							case PlatformID.Unix:
+								return (Glx.CurrentExtensions.Multisample_ARB);
+							default:
+								return (false);
+						}
+					} else
+						return (false);
 				}
 			}
 
@@ -108,14 +120,17 @@ namespace OpenGL
 			{
 				get
 				{
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							return (Wgl.CurrentExtensions.SwapControl_EXT);
-						case PlatformID.Unix:
-							return (Glx.CurrentExtensions.SwapControl_EXT);
-						default:
-							return (false);
-					}
+					if (Egl.IsRequired == false) {
+						switch (Environment.OSVersion.Platform) {
+							case PlatformID.Win32NT:
+								return (Wgl.CurrentExtensions.SwapControl_EXT);
+							case PlatformID.Unix:
+								return (Glx.CurrentExtensions.SwapControl_EXT);
+							default:
+								return (false);
+						}
+					} else
+						return (false);
 				}
 			}
 
@@ -126,14 +141,17 @@ namespace OpenGL
 			{
 				get
 				{
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							return (Wgl.CurrentExtensions.SwapControlTear_EXT);
-						case PlatformID.Unix:
-							return (Glx.CurrentExtensions.SwapControlTear_EXT);
-						default:
-							return (false);
-					}
+					if (Egl.IsRequired == false) {
+						switch (Environment.OSVersion.Platform) {
+							case PlatformID.Win32NT:
+								return (Wgl.CurrentExtensions.SwapControlTear_EXT);
+							case PlatformID.Unix:
+								return (Glx.CurrentExtensions.SwapControlTear_EXT);
+							default:
+								return (false);
+						}
+					} else
+						return (false);
 				}
 			}
 
