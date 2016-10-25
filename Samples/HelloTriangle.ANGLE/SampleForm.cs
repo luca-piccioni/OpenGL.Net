@@ -1,19 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿
+// Copyright (C) 2016 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using OpenGL;
 
 namespace HelloTriangle.ANGLE
 {
+	/// <summary>
+	/// Hello triangle sample, using ANGLE for providing OpenGL ES on Windows OS.
+	/// </summary>
 	public partial class SampleForm : Form
 	{
+		/// <summary>
+		/// Construct a SampleForm.
+		/// </summary>
 		public SampleForm()
 		{
 			InitializeComponent();
@@ -24,9 +42,57 @@ namespace HelloTriangle.ANGLE
 			Text = String.Format("Hello triangle with ANGLE (Version: {0})", OpenGL.Gl.CurrentVersion);
 		}
 
-		private void glControl1_Render(object sender, OpenGL.GlControlEventArgs e)
+		private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
 		{
+			StringBuilder infolog = new StringBuilder(1024);
+			int infologLength;
+			int compiled;
+
+			infolog.EnsureCapacity(1024);
+
+			// Vertex shader
+			uint vertexShader = Gl.CreateShader(Gl.VERTEX_SHADER);
+			Gl.ShaderSource(vertexShader, _Es2_ShaderVertexSource);
+			Gl.CompileShader(vertexShader);
+			Gl.GetShader(vertexShader, Gl.COMPILE_STATUS, out compiled);
+			if (compiled == 0) {
+				Gl.GetShaderInfoLog(vertexShader, 1024, out infologLength, infolog);
+			}
+
+			// Fragment shader
+			uint fragmentShader = Gl.CreateShader(Gl.FRAGMENT_SHADER);
+			Gl.ShaderSource(fragmentShader, _Es2_ShaderFragmentSource);
+			Gl.CompileShader(fragmentShader);
+			Gl.GetShader(fragmentShader, Gl.COMPILE_STATUS, out compiled);
+			if (compiled == 0) {
+				Gl.GetShaderInfoLog(fragmentShader, 1024, out infologLength, infolog);
+			}
+
+			// Program
+			_Es2_Program = Gl.CreateProgram();
+			Gl.AttachShader(_Es2_Program, vertexShader);
+			Gl.AttachShader(_Es2_Program, fragmentShader);
+			Gl.LinkProgram(_Es2_Program);
+
+			int linked;
+			Gl.GetProgram(_Es2_Program, Gl.LINK_STATUS, out linked);
+
+			if (linked == 0) {
+				Gl.GetProgramInfoLog(_Es2_Program, 1024, out infologLength, infolog);
+			}
+
+			_Es2_Program_Location_uMVP = Gl.GetUniformLocation(_Es2_Program, "uMVP");
+			_Es2_Program_Location_aPosition = Gl.GetAttribLocation(_Es2_Program, "aPosition");
+			_Es2_Program_Location_aColor = Gl.GetAttribLocation(_Es2_Program, "aColor");
+		}
+
+		private void RenderControl_Render(object sender, GlControlEventArgs e)
+		{
+			Control control = (Control)sender;
 			OrthoProjectionMatrix projectionMatrix = new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
+
+			Gl.Viewport(0, 0, control.Width, control.Height);
+			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
 			Gl.UseProgram(_Es2_Program);
 
@@ -45,30 +111,7 @@ namespace HelloTriangle.ANGLE
 			}
 		}
 
-		private void glControl1_ContextCreated(object sender, OpenGL.GlControlEventArgs e)
-		{
-			// Vertex shader
-			uint vertexShader = Gl.CreateShader(Gl.VERTEX_SHADER);
-			Gl.ShaderSource(vertexShader, _Es2_ShaderVertexSource);
-			Gl.CompileShader(vertexShader);
-
-			// Fragment shader
-			uint fragmentShader = Gl.CreateShader(Gl.FRAGMENT_SHADER);
-			Gl.ShaderSource(fragmentShader, _Es2_ShaderFragmentSource);
-			Gl.CompileShader(fragmentShader);
-
-			// Program
-			_Es2_Program = Gl.CreateProgram();
-			Gl.AttachShader(_Es2_Program, vertexShader);
-			Gl.AttachShader(_Es2_Program, fragmentShader);
-			Gl.LinkProgram(_Es2_Program);
-
-			_Es2_Program_Location_uMVP = Gl.GetUniformLocation(_Es2_Program, "uMVP");
-			_Es2_Program_Location_aPosition = Gl.GetAttribLocation(_Es2_Program, "aPosition");
-			_Es2_Program_Location_aColor = Gl.GetAttribLocation(_Es2_Program, "aColor");
-		}
-
-		private void glControl1_ContextDestroying(object sender, OpenGL.GlControlEventArgs e)
+		private void RenderControl_ContextDestroying(object sender, OpenGL.GlControlEventArgs e)
 		{
 			if (_Es2_Program != 0)
 				Gl.DeleteProgram(_Es2_Program);
@@ -95,6 +138,7 @@ namespace HelloTriangle.ANGLE
 		};
 
 		private readonly string[] _Es2_ShaderFragmentSource = new string[] {
+			"precision mediump float;\n",
 			"varying vec3 vColor;\n",
 			"void main() {\n",
 			"	gl_FragColor = vec4(vColor, 1.0);\n",
