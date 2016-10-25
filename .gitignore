@@ -63,3 +63,5 @@ packages
 /Samples/ContextSharing/SimpleSharing/bin
 /Samples/ContextSharing/SingleContext/obj
 /Samples/ContextSharing/SingleContext/bin
+/Samples/HelloTriangle.ANGLE/obj
+/Samples/HelloTriangle.ANGLE/bin
