@@ -34,14 +34,6 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// Static constructor.
-		/// </summary>
-		static GlControl()
-		{
-			Gl.Initialize();
-		}
-
-		/// <summary>
 		/// Construct a GlControl.
 		/// </summary>
 		public GlControl()
@@ -100,6 +92,11 @@ namespace OpenGL
 			/// Requires the compatibility profile.
 			/// </summary>
 			Compatibility,
+
+			/// <summary>
+			/// Embedded profile (OpenGL ES).
+			/// </summary>
+			Embedded,
 		}
 
 		/// <summary>
@@ -338,6 +335,8 @@ namespace OpenGL
 
 			sysinfo.AppendFormat("Running on OpenGL {0}\n", Gl.CurrentVersion);
 			sysinfo.AppendFormat("  - OpenGL Shading Language {0}\n", Gl.CurrentShadingVersion);
+			if (Egl.IsAvailable)
+				sysinfo.AppendFormat("EGL is available.\n");
 
 			e.Graphics.DrawString(sysinfo.ToString(), _DesignFont, _DesignBrush, clientRect);
 		}
@@ -411,6 +410,20 @@ namespace OpenGL
 		/// </summary>
 		protected void CreateDeviceContext()
 		{
+			#region Support embedded profile via ANGLE
+
+			if (_ProfileType == ProfileType.Embedded) {
+				if (Egl.IsAvailable == false)
+					throw new InvalidOperationException("EGL/ANGLE platform not available");
+				Egl.IsRequired = true;
+			}
+
+			// Initialization must be performed after Egl.IsRequired assignation
+			// I know that it will be troublesome...
+			Gl.Initialize();
+
+			#endregion
+
 			#region Create device context
 
 			_DeviceContext = DeviceContext.Create(this.Handle);
@@ -430,7 +443,7 @@ namespace OpenGL
 			controlReqFormat.DepthBits = (int)DepthBits;
 			controlReqFormat.StencilBits = (int)StencilBits;
 			controlReqFormat.MultisampleBits = (int)MultisampleBits;
-			controlReqFormat.DoubleBuffer = DoubleBuffer;
+			controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);		// DB not yet managed using ANGLE
 
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 			if (matchingPixelFormats.Count == 0)
@@ -442,11 +455,11 @@ namespace OpenGL
 
 			#region Set V-Sync
 
-			if (Wgl.CurrentExtensions.SwapControl_EXT) {
+			if (Gl.PlatformExtensions.SwapControl) {
 				int swapInterval = SwapInterval;
 
 				// Mask value in case it is not supported
-				if (!Wgl.CurrentExtensions.SwapControlTear_EXT && swapInterval == -1)
+				if (!Gl.PlatformExtensions.SwapControlTear && swapInterval == -1)
 					swapInterval = 1;
 
 				_DeviceContext.SwapInterval(swapInterval);
@@ -475,7 +488,10 @@ namespace OpenGL
 			switch (ContextSharing) {
 				case ContextSharingOption.OwnContext:
 					// This GlControl own its context
-					CreateOwnContext();
+					if (_ProfileType != ProfileType.Embedded)
+						CreateDesktopContext();
+					else
+						CreateEmbeddedContext();
 					break;
 				case ContextSharingOption.SingleContext:
 					// This GlControl reuse a context previously created
@@ -522,7 +538,7 @@ namespace OpenGL
 		/// <summary>
 		/// Create the GlControl context, eventually shared with others.
 		/// </summary>
-		protected void CreateOwnContext()
+		protected void CreateDesktopContext()
 		{
 			if (_RenderContext != IntPtr.Zero)
 				throw new InvalidOperationException("context already created");
@@ -637,6 +653,24 @@ namespace OpenGL
 				// ...and register this context among the others
 				sharingContextes.Add(_RenderContext);
 			}
+		}
+
+		/// <summary>
+		/// Create the GlControl context, eventually shared with others.
+		/// </summary>
+		protected void CreateEmbeddedContext()
+		{
+			if (_RenderContext != IntPtr.Zero)
+				throw new InvalidOperationException("context already created");
+
+			IntPtr sharingContext = IntPtr.Zero;
+			List<int> attributes = new List<int>();
+
+			attributes.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+			attributes.Add(Egl.NONE);
+
+			if ((_RenderContext = _DeviceContext.CreateContextAttrib(sharingContext, attributes.ToArray())) == IntPtr.Zero)
+				throw new InvalidOperationException(String.Format("unable to create render context ({0})", Gl.GetError()));
 		}
 
 		/// <summary>
