@@ -77,16 +77,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// EGL version currently implemented.
-		/// </summary>
-		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
-
-		/// <summary>
-		/// EGL version currently implemented.
-		/// </summary>
-		internal static KhronosVersion _CurrentVersion;
-
-		/// <summary>
 		/// OpenGL extension support.
 		/// </summary>
 		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
