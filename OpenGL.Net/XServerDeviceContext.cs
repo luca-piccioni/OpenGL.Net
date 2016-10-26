@@ -37,54 +37,6 @@ namespace OpenGL
 			Glx.UnsafeNativeMethods.XSetErrorHandler(XServerErrorHandler);
 		}
 
-#if false
-		/// <summary>
-		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class that opens the local display.
-		/// </summary>
-		/// <remarks>
-		/// The property <see cref="WindowHandle"/> must be set to a valid value, since no window is created. The
-		/// window handle shall be created using the display <see cref="Display"/>.
-		/// </remarks>
-		/// <exception cref='InvalidOperationException'>
-		/// Exception thrown in the case it is not possible to connect with the display 0.
-		/// </exception>
-		public XServerDeviceContext()
-			: this(IntPtr.Zero)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class that opens the specified display.
-		/// </summary>
-		/// <param name="display">
-		/// A <see cref="System.IntpPtr"/> that will be argument of <see cref="Glx.XOpenDisplay"/>, indeed
-		/// specifying the display to connect to.
-		/// </param>
-		/// <remarks>
-		/// The property <see cref="WindowHandle"/> must be set to a valid value, since no window is created. The
-		/// window handle shall be created using the display <see cref="Display"/>.
-		/// </remarks>
-		/// <exception cref='InvalidOperationException'>
-		/// Exception thrown in the case it is not possible to connect with the display <paramref name="display"/>.
-		/// </exception>
-		public XServerDeviceContext(IntPtr display)
-		{
-			// Open display (follows DISPLAY environment variable)
-			_Display = Glx.UnsafeNativeMethods.XOpenDisplay(display);
-			KhronosApi.LogFunction("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
-			if (_Display == IntPtr.Zero)
-				throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
-			// Need to close display
-			_OwnDisplay = true;
-			// Screen
-			_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
-			
-			// Query GLX extensions
-			QueryVersion();
-		}
-#endif
-
 		/// <summary>
 		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class, initialized with the display of a control.
 		/// </summary>
@@ -107,22 +59,30 @@ namespace OpenGL
 
 			Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
 			
-			if (xplatui == null)
-				throw new PlatformNotSupportedException("mono runtime version no supported");
+			if (xplatui != null) {
+				// Get System.Windows.Forms display
+				_Display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+				KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", _Display.ToString("X"));
+				if (_Display == IntPtr.Zero)
+					throw new InvalidOperationException("unable to connect to X server using XPlatUI");
 			
-			// Get System.Windows.Forms display
-			_Display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", _Display.ToString("X"));
-			if (_Display == IntPtr.Zero)
-				throw new InvalidOperationException("unable to connect to X server using XPlatUI");
-			
-			// Screen
-			_Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
+				// Screen
+				_Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+				KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
+			} else {
+				// Open display (follows DISPLAY environment variable?)
+				_Display = Glx.UnsafeNativeMethods.XOpenDisplay(IntPtr.Zero);
+				KhronosApi.LogFunction("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
+				if (_Display == IntPtr.Zero)
+					throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
+				// Need to close display
+				_OwnDisplay = true;
+				// Screen
+				_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
+			}
 
 			// Window handle
 			_WindowHandle = windowHandle;
-			
 			// Query GLX extensions
 			QueryVersion();
 		}
