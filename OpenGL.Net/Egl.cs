@@ -107,7 +107,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Availability
+		#region EGL Availability
 
 		/// <summary>
 		/// Get or set whether <see cref="DeviceContextFactory"/> must create an EGL device context.

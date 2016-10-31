@@ -42,7 +42,7 @@ namespace OpenGL
 	/// </remarks>
 	public class KhronosApi
 	{
-		#region Import Function Linkage
+		#region Function Linkage
 
 		/// <summary>
 		/// Delegate used for getting a procedure address.
@@ -127,32 +127,31 @@ namespace OpenGL
 				string importName = fi.Name.Substring(1);           // Delegate name always prefixes with 'p'
 				IntPtr importAddress = IntPtr.Zero;
 
+				// Manages aliases
 				if (aliasOfAttributes.Length > 0) {
 					for (int i = 0; i < aliasOfAttributes.Length; i++) {
-						if ((importAddress = getAddress(path, ((AliasOfAttribute)aliasOfAttributes[i]).SymbolName)) != IntPtr.Zero)
+						AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
+						if ((importAddress = getAddress(path, aliasOfAttribute.SymbolName)) != IntPtr.Zero)
 							break;
 					}
 				} else
 					importAddress = getAddress(path, importName);
 
-				// Is function implemented?
-				if (importAddress == IntPtr.Zero) {
-					fi.SetValue(null, null);
-					continue;
-				}
+				if (importAddress != IntPtr.Zero) {
+					Delegate delegatePtr;
 
-				Delegate delegatePtr;
+					// Try to load external symbol
+					if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, fi.FieldType)) == null) {
+						MethodInfo methodInfo;
 
-				// Try to load external symbol
-				if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, fi.FieldType)) == null) {
-					MethodInfo methodInfo;
+						if (imports.TryGetValue(importName, out methodInfo) == true)
+							delegatePtr = Delegate.CreateDelegate(fi.FieldType, methodInfo);
+					}
 
-					if (imports.TryGetValue(importName, out methodInfo) == true)
-						delegatePtr = Delegate.CreateDelegate(fi.FieldType, methodInfo);
-				}
-
-				if (delegatePtr != null)
-					fi.SetValue(null, delegatePtr);
+					if (delegatePtr != null)
+						fi.SetValue(null, delegatePtr);
+				} else
+					fi.SetValue(null, null);				// Function not implemented
 			}
 		}
 
@@ -544,25 +543,8 @@ namespace OpenGL
 		{
 			_ProcLogCallbacks.Add(callback);
 
-			// Automatically query information for corner cases
-			if (_ProcLogCallbacks.Count == 1) {
-                QueryLogContext(typeof(Gl));
-				if (Egl.IsRequired == false) {
-					switch (Environment.OSVersion.Platform) {
-						case PlatformID.Win32NT:
-							QueryLogContext(typeof(Wgl));
-							break;
-						case PlatformID.Unix:
-							QueryLogContext(typeof(Glx));
-							break;
-					}
-				} else {
-					QueryLogContext(typeof(Egl));
-				}
-
-				// Automatically enable logging
-				_ProcLogEnabled = true;
-			}
+			// Automatically query information
+			_ProcLogEnabled = _ProcLogCallbacks.Count == 1;
 		}
 
 		/// <summary>

@@ -74,7 +74,7 @@ namespace OpenGL
 				_Display = Glx.UnsafeNativeMethods.XOpenDisplay(IntPtr.Zero);
 				KhronosApi.LogFunction("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
 				if (_Display == IntPtr.Zero)
-					throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
+					throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", _Display.ToInt32()));
 				// Need to close display
 				_OwnDisplay = true;
 				// Screen

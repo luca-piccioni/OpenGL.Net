@@ -40,7 +40,11 @@ namespace OpenGL
 		/// </summary>
 		static Gl()
 		{
-			Initialize();
+			try {
+				Initialize();
+			} catch (NotSupportedException) {
+				// Fail-safe
+			}
 		}
 
 		/// <summary>
@@ -72,12 +76,16 @@ namespace OpenGL
 						throw new InvalidOperationException("unable to make current");
 
 					// Obtain current OpenGL implementation
-					string glVersion = Gl.GetString(StringName.Version);
+					string glVersion = GetString(StringName.Version);
 					_CurrentVersion = KhronosVersion.Parse(glVersion);
 
 					// Obtain current OpenGL Shading Language version
-					string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+					string glslVersion = GetString(StringName.ShadingLanguageVersion);
 					_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+
+					// Vendor/Render information
+					_Vendor = GetString(StringName.Vendor);
+					_Renderer = GetString(StringName.Renderer);
 
 					// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
 					_CurrentExtensions = new Extensions();
@@ -140,6 +148,26 @@ namespace OpenGL
 		private static GlslVersion _CurrentShadingVersion;
 
 		/// <summary>
+		/// Get the OpenGL vendor.
+		/// </summary>
+		public static string CurrentVendor { get { return (_Vendor); } }
+
+		/// <summary>
+		/// OpenGL vendor.
+		/// </summary>
+		private static string _Vendor;
+
+		/// <summary>
+		/// Get the OpenGL renderer.
+		/// </summary>
+		public static string CurrentRenderer { get { return (_Renderer); } }
+
+		/// <summary>
+		/// OpenGL renderer.
+		/// </summary>
+		private static string _Renderer;
+
+		/// <summary>
 		/// OpenGL extension support.
 		/// </summary>
 		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
@@ -191,7 +219,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Imports/Delegates Management
+		#region API Binding
 
 		/// <summary>
 		/// Synchronize OpenGL delegates.
@@ -206,7 +234,7 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncEsDelegates()
 		{
-			LoadProcDelegates(LibraryEs, _ImportMap, _Delegates);
+			LoadProcDelegates(LibraryEs2, _ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -217,7 +245,7 @@ namespace OpenGL
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		private const string LibraryEs = "libGLESv2.dll";
+		private const string LibraryEs2 = "libGLESv2.dll";
 
 		/// <summary>
 		/// Imported functions delegates.
