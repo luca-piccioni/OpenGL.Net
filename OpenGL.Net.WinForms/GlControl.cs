@@ -334,9 +334,11 @@ namespace OpenGL
 			StringBuilder sysinfo = new StringBuilder();
 
 			sysinfo.AppendFormat("Running on OpenGL {0}\n", Gl.CurrentVersion);
-			sysinfo.AppendFormat("  - OpenGL Shading Language {0}\n", Gl.CurrentShadingVersion);
+			sysinfo.AppendFormat("  - OpenGL Shading Language version: {0}\n", Gl.CurrentShadingVersion);
+			sysinfo.AppendFormat("  - Vendor: {0}\n", Gl.CurrentVendor);
+			sysinfo.AppendFormat("  - Renderer: {0}\n", Gl.CurrentRenderer);
 			if (Egl.IsAvailable)
-				sysinfo.AppendFormat("EGL is available.\n");
+				sysinfo.AppendFormat("- EGL is available.\n");
 
 			e.Graphics.DrawString(sysinfo.ToString(), _DesignFont, _DesignBrush, clientRect);
 		}
