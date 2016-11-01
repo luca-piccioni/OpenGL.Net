@@ -51,17 +51,17 @@ namespace OpenGL
 		/// </exception>
 		internal static INativeWindow CreateWindow()
 		{
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-					return (new WindowsDeviceContext.NativeWindow());
-				case PlatformID.Unix:
-					if (Egl.IsMandatory == false)
+			if (Egl.IsMandatory == false) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						return (new WindowsDeviceContext.NativeWindow());
+					case Platform.Id.Linux:
 						return (new XServerDeviceContext.NativeWindow());
-					else
-						return (new NativeDeviceContext.NativeWindow());
-				default:
-					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
-			}
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+				}
+			} else
+				return (new NativeDeviceContext.NativeWindow());
 		}
 
 		/// <summary>
@@ -79,10 +79,10 @@ namespace OpenGL
 		public static DeviceContext Create(IntPtr windowHandle)
 		{
 			if (Egl.IsRequired == false) {
-				switch (Environment.OSVersion.Platform) {
-					case PlatformID.Win32NT:
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
 						return (new WindowsDeviceContext(windowHandle));
-					case PlatformID.Unix:
+					case Platform.Id.Linux:
 						return (new XServerDeviceContext(windowHandle));
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));

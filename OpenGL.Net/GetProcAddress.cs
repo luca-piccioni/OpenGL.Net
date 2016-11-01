@@ -39,36 +39,22 @@ namespace OpenGL
 		/// </summary>
 		static GetProcAddress()
 		{
-			bool eglOnAndroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
-
-			if (eglOnAndroid == false) {
-				switch (Environment.OSVersion.Platform) {
-					case PlatformID.Win32NT:
+			if (Egl.IsRequired == false) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
 						_GetProcAddress = new GetProcAddressWindows();
 						break;
-					case PlatformID.Unix:
-						string unixName = DetectUnixKernel();
-
-						// Distinguish between Unix and Mac OS X kernels.
-						switch (unixName) {
-							case "Unix":
-							case "Linux":
-								_GetProcAddress = new GetProcAddressX11();
-								break;
-							case "Darwin":
-								_GetProcAddress = new GetProcAddressOSX();
-								break;
-							case null:
-								throw new NotSupportedException(String.Format("Unix platform not detected"));
-							default:
-								throw new NotSupportedException(String.Format("Unix platform {0} not supported", unixName));
-						}
+					case Platform.Id.Linux:
+						_GetProcAddress = new GetProcAddressX11();
 						break;
-					case PlatformID.MacOSX:
+					case Platform.Id.MacOS:
 						_GetProcAddress = new GetProcAddressOSX();
 						break;
+					case Platform.Id.Android:
+						_GetProcAddress = new GetProcAddressEgl();
+						break;
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion.Platform));
+						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
 				_GetProcAddress = new GetProcAddressEgl();

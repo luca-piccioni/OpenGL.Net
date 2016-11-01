@@ -39,15 +39,24 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
-			// Determine OS at runtime
-			_EglOnAndroid = Type.GetType("Android.OS.Build, Mono.Android.dll") != null;
+			Initialize();
+		}
+
+		/// <summary>
+		/// Initialize OpenGL namespace static environment. This method shall be called before any other classes methods.
+		/// </summary>
+		public static void Initialize()
+		{
+			if (_Initialized == true)
+				return; // Already initialized
+			_Initialized = true;
 
 			// Before linking procedures, append ANGLE directory in path
 			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
 			string anglePath = null;
 
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
 #if DEBUG
 					if (IntPtr.Size == 8)
 						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x64");
@@ -71,10 +80,15 @@ namespace OpenGL
 			_ImportMap = GetImportMap(typeof(Egl));
 			
 			try {
-				// Load procesdures
+				// Load procedures
 				LoadProcDelegates(Library, _ImportMap, _Delegates);
 			} catch { /* Fail-safe */ }
 		}
+
+		/// <summary>
+		/// Flag indicating whether <see cref="Gl"/> has been initialized.
+		/// </summary>
+		private static bool _Initialized;
 
 		/// <summary>
 		/// OpenGL extension support.
@@ -116,14 +130,14 @@ namespace OpenGL
 		{
 			get
 			{
-				return (_EglOnAndroid);
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.Android:
+						return (true);
+					default:
+						return (false);
+				}
 			}
 		}
-
-		/// <summary>
-		/// Flag indicating whether EGL is mandatory since we're running on Android.
-		/// </summary>
-		private static bool _EglOnAndroid;
 
 		/// <summary>
 		/// Determine whether EGL layer is avaialable.
@@ -135,14 +149,14 @@ namespace OpenGL
 		/// </summary>
 		public static bool IsRequired
 		{
-			get { return ((_RequiresEgl && IsAvailable) || IsMandatory); }
-			set { _RequiresEgl = value; }
+			get { return ((_IsRequired && IsAvailable) || IsMandatory); }
+			set { _IsRequired = value; }
 		}
 
 		/// <summary>
 		/// Flag for requesting an EGL device context, if available.
 		/// </summary>
-		private static bool _RequiresEgl;
+		private static bool _IsRequired;
 
 		#endregion
 

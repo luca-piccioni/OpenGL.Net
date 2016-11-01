@@ -16,8 +16,6 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-using System;
-
 namespace OpenGL
 {
 	public partial class Gl
@@ -37,10 +35,10 @@ namespace OpenGL
 				get
 				{
 					if (Egl.IsRequired == false) {
-						switch (Environment.OSVersion.Platform) {
-							case PlatformID.Win32NT:
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
 								return (Wgl.CurrentExtensions.CreateContext_ARB);
-							case PlatformID.Unix:
+							case Platform.Id.Linux:
 								return (Glx.CurrentExtensions.CreateContext_ARB);
 							default:
 								return (false);
@@ -58,10 +56,10 @@ namespace OpenGL
 				get
 				{
 					if (Egl.IsRequired == false) {
-						switch (Environment.OSVersion.Platform) {
-							case PlatformID.Win32NT:
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
 								return (Wgl.CurrentExtensions.CreateContextProfile_ARB);
-							case PlatformID.Unix:
+							case Platform.Id.Linux:
 								return (Glx.CurrentExtensions.CreateContextProfile_ARB);
 							default:
 								return (false);
@@ -79,10 +77,10 @@ namespace OpenGL
 				get
 				{
 					if (Egl.IsRequired == false) {
-						switch (Environment.OSVersion.Platform) {
-							case PlatformID.Win32NT:
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
 								return (Wgl.CurrentExtensions.CreateContextRobustness_ARB);
-							case PlatformID.Unix:
+							case Platform.Id.Linux:
 								return (Glx.CurrentExtensions.CreateContextRobustness_ARB);
 							default:
 								return (false);
@@ -100,10 +98,10 @@ namespace OpenGL
 				get
 				{
 					if (Egl.IsRequired == false) {
-						switch (Environment.OSVersion.Platform) {
-							case PlatformID.Win32NT:
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
 								return (Wgl.CurrentExtensions.Multisample_ARB);
-							case PlatformID.Unix:
+							case Platform.Id.Linux:
 								return (Glx.CurrentExtensions.Multisample_ARB);
 							default:
 								return (false);
@@ -121,10 +119,10 @@ namespace OpenGL
 				get
 				{
 					if (Egl.IsRequired == false) {
-						switch (Environment.OSVersion.Platform) {
-							case PlatformID.Win32NT:
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
 								return (Wgl.CurrentExtensions.SwapControl_EXT);
-							case PlatformID.Unix:
+							case Platform.Id.Linux:
 								return (Glx.CurrentExtensions.SwapControl_EXT);
 							default:
 								return (false);
@@ -142,10 +140,10 @@ namespace OpenGL
 				get
 				{
 					if (Egl.IsRequired == false) {
-						switch (Environment.OSVersion.Platform) {
-							case PlatformID.Win32NT:
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
 								return (Wgl.CurrentExtensions.SwapControlTear_EXT);
-							case PlatformID.Unix:
+							case Platform.Id.Linux:
 								return (Glx.CurrentExtensions.SwapControlTear_EXT);
 							default:
 								return (false);
