@@ -33,7 +33,7 @@ namespace OpenGL
 			/// <param name="deviceContext">
 			/// A <see cref="XServerDeviceContext"/> that specifies the device context to query extensions for.
 			/// </param>
-			public void Query(XServerDeviceContext deviceContext)
+			internal void Query(XServerDeviceContext deviceContext)
 			{
 				if (deviceContext == null)
 					throw new ArgumentNullException("deviceContext");

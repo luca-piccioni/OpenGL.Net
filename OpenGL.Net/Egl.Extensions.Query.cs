@@ -33,7 +33,7 @@ namespace OpenGL
 			/// <param name="deviceContext">
 			/// A <see cref="NativeDeviceContext"/> that specifies the device context to query extensions for.
 			/// </param>
-			public void Query(NativeDeviceContext deviceContext)
+			internal void Query(NativeDeviceContext deviceContext)
 			{
 				LogComment("Query EGL extensions.");
 

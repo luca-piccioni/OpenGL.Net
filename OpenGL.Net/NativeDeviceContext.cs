@@ -24,7 +24,7 @@ namespace OpenGL
 	/// <summary>
 	/// Native Platform Interface (EGL) device context.
 	/// </summary>
-	public sealed class NativeDeviceContext : DeviceContext
+	sealed class NativeDeviceContext : DeviceContext
 	{
 		#region Constructors
 

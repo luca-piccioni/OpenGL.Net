@@ -24,7 +24,7 @@ namespace OpenGL
 	/// <summary>
 	///Device context for Unix-based platforms.
 	/// </summary>
-	public sealed class XServerDeviceContext : DeviceContext
+	sealed class XServerDeviceContext : DeviceContext
 	{
 		#region Constructors
 

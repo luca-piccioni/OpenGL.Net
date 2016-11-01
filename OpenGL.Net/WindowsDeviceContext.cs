@@ -40,7 +40,7 @@ namespace OpenGL
 	/// <summary>
 	/// Device context for MS Windows platform.
 	/// </summary>
-	public sealed class WindowsDeviceContext : DeviceContext
+	sealed class WindowsDeviceContext : DeviceContext
 	{
 		#region Constructors
 

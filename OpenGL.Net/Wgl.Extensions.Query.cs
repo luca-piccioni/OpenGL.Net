@@ -36,7 +36,7 @@ namespace OpenGL
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="deviceContext"/> is null.
 			/// </exception>
-			public void Query(WindowsDeviceContext deviceContext)
+			internal void Query(WindowsDeviceContext deviceContext)
 			{
 				if (deviceContext == null)
 					throw new ArgumentNullException("deviceContext");

@@ -140,10 +140,6 @@ namespace OpenGL
 		/// </remarks>
 		public static bool MakeCurrent(IntPtr hDc, IntPtr newContext)
 		{
-			// Automatically load procedures in the case in this thread procedures pointers are not loaded yet
-			if (Delegates.pwglMakeCurrent == null)
-				SyncDelegates();
-
 			// Make current on device context
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 

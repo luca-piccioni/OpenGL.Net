@@ -127,7 +127,7 @@ namespace OpenGL
 				string importName = fi.Name.Substring(1);           // Delegate name always prefixes with 'p'
 				IntPtr importAddress = IntPtr.Zero;
 
-				// Manages aliases
+				// Manages aliases (load external symbol)
 				if (aliasOfAttributes.Length > 0) {
 					for (int i = 0; i < aliasOfAttributes.Length; i++) {
 						AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
