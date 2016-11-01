@@ -65,3 +65,4 @@ packages
 /Samples/ContextSharing/SingleContext/bin
 /Samples/HelloTriangle.ANGLE/obj
 /Samples/HelloTriangle.ANGLE/bin
+/Samples/HelloTriangle.Xamarin.Android/*.user
