@@ -248,6 +248,9 @@ namespace OpenGL
 		/// </param>
 		public void SurfaceCreated(ISurfaceHolder holder)
 		{
+			// Problem with static constructors? Ensure manual initialization
+			Egl.Initialize(); Gl.Initialize();
+
 			// Get actual native window handle
 			_NativeWindowHandle = ANativeWindow_fromSurface(JNIEnv.Handle, holder.Surface.Handle);
 
