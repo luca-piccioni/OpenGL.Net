@@ -53,7 +53,9 @@ or just download the [nuget binary package](https://www.nuget.org/packages/OpenG
 - Using the [OpenGL.GlControl](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL.GlControl)
 - [Procedures query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Procedures-query)
 - [Version and extensions query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Version-and-extensions-query)
+- [Math library and data structures](https://github.com/luca-piccioni/OpenGL.Net/wiki/Math-library-and-data-structures)
 - [Update OpenGL bindings](https://github.com/luca-piccioni/OpenGL.Net/wiki/Generate-an-updated-OpenGL.Net-(API-update)) from Khronos registry
+- [Common programming mistakes](https://github.com/luca-piccioni/OpenGL.Net/wiki/Common-mistakes)
 
 
 
