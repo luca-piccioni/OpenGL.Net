@@ -420,10 +420,6 @@ namespace OpenGL
 				Egl.IsRequired = true;
 			}
 
-			// Initialization must be performed after Egl.IsRequired assignation
-			// I know that it will be troublesome...
-			Gl.Initialize();
-
 			#endregion
 
 			#region Create device context
@@ -576,6 +572,14 @@ namespace OpenGL
 						Wgl.CONTEXT_MAJOR_VERSION_ARB, Version.Major,
 						Wgl.CONTEXT_MINOR_VERSION_ARB, Version.Minor
 					});
+				} else {
+					// Note: this shouldn't be necessary since defaults are defined. However, on certains drivers this arguments are
+					// required for specifying CONTEXT_FLAGS_ARB and CONTEXT_PROFILE_MASK_ARB attributes:
+					// - Required by NVIDIA 266.72 on GeForce GT 540M on Windows 7 x64
+					attributes.AddRange(new int[] {
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, Gl.CurrentVersion.Major,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, Gl.CurrentVersion.Minor
+					});
 				}
 
 				if ((_DebugContextBit == AttributePermission.Enabled) || (debuggerAttached && _DebugContextBit == AttributePermission.EnabledInDebugger)) {
@@ -626,6 +630,7 @@ namespace OpenGL
 					attributes.AddRange(new int[] { Wgl.CONTEXT_FLAGS_ARB, unchecked((int)contextFlags) });
 
 				Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
+				Debug.Assert(contextProfile == 0 || Gl.PlatformExtensions.CreateContextProfile_ARB);
 				if (contextProfile != 0)
 					attributes.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile) });
 
