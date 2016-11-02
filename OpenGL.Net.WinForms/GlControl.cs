@@ -489,7 +489,7 @@ namespace OpenGL
 
 				return (display);
 			} else
-				throw new NotSupportedException("current mono run-time not supported");
+				return (IntPtr.Zero);
 		}
 
 		/// <summary>
