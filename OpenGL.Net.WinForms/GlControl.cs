@@ -424,7 +424,7 @@ namespace OpenGL
 
 			#region Create device context
 
-			_DeviceContext = DeviceContext.Create(this.Handle);
+			_DeviceContext = DeviceContext.Create(IntPtr.Zero, this.Handle);
 			_DeviceContext.IncRef();
 
 			#endregion
