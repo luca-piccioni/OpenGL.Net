@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace OpenGL
@@ -60,7 +61,6 @@ namespace OpenGL
 				throw new ArgumentException("null handle", "windowHandle");
 
 			_Display = display;
-			_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 			_WindowHandle = windowHandle;
 
 			// Query GLX extensions
@@ -85,101 +85,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// The screen.
-		/// </summary>
-		public int Screen
-		{
-			get
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				return (_Screen);
-			}
-		}
-
-		/// <summary>
-		/// The window handle.
-		/// </summary>
-		public IntPtr WindowHandle
-		{
-			get
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				return (_WindowHandle);
-			}
-			set
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				if (_OwnDisplay == false)
-					throw new InvalidOperationException("display not owned");
-				_WindowHandle = value;
-			}
-		}
-
-		/// <summary>
-		/// The frame buffer configuration index.
-		/// </summary>
-		public IntPtr FBConfig
-		{
-			get
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				return (_FBConfig);
-			}
-			set
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				_FBConfig = value;
-			}
-		}
-
-		/// <summary>
-		/// The visual information (related with <see cref="FBConfig"/>.
-		/// </summary>
-		public Glx.XVisualInfo XVisualInfo
-		{
-			get
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				return (_VisualInfo);
-			}
-			set
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("XServerDeviceContext");
-				_VisualInfo = value;
-			}
-		}
-
-		/// <summary>
 		/// The opened display.
 		/// </summary>
 		private readonly IntPtr _Display;
 
 		/// <summary>
-		/// The screen.
-		/// </summary>
-		private readonly int _Screen;
-
-		/// <summary>
 		/// The window handle.
 		/// </summary>
-		private IntPtr _WindowHandle;
+		private readonly IntPtr _WindowHandle;
 
 		/// <summary>
-		/// The frame buffer configuration.
+		/// The framebuffer configuration (<see cref="SetPixelFormat"/>).
 		/// </summary>
 		private IntPtr _FBConfig;
 
 		/// <summary>
-		/// The visual information.
+		/// The <see cref="Glx.XVisualInfo"/> corresponding to <see cref="_FBConfig"/>
 		/// </summary>
-		private Glx.XVisualInfo _VisualInfo;
+		private Glx.XVisualInfo _XVisualInfo;
 		
 		#endregion
 
@@ -224,9 +147,8 @@ namespace OpenGL
 						config = *choosenConfigs;
 						KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
 
-						VisualInfo = visual = Glx.GetVisualFromFBConfig(_Display, config);
+						visual = Glx.GetVisualFromFBConfig(_Display, config);
 						KhronosApi.LogComment("Choosen visual is {0}", visual);
-
 
 						Glx.XFree((IntPtr)choosenConfigs);
 					}
@@ -241,18 +163,15 @@ namespace OpenGL
 
 					if ((_Handle = Glx.XCreateWindow(_Display, rootWindow, 0, 0, 64, 64, 0, visual.depth, /* InputOutput */ 0, visual.visual, new UIntPtr(setWindowAttrFlags), ref setWindowAttrs)) == IntPtr.Zero)
 						throw new InvalidOperationException("unable to create window");
+
+					// Assign FB configuration to window: essential to make CreateContext(IntPtr) working
+					_GlxHandle = Glx.CreateWindow(_Display, config, _Handle, null);
 				
 				} catch {
 					Dispose();
 					throw;
 				}
 			}
-
-			#endregion
-
-			#region X Information
-
-			internal static Glx.XVisualInfo VisualInfo;
 
 			#endregion
 
@@ -271,12 +190,17 @@ namespace OpenGL
 			/// <summary>
 			/// Get the native window handle.
 			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+			IntPtr INativeWindow.Handle { get { return (_GlxHandle); } }
 
 			/// <summary>
 			/// The native window handle.
 			/// </summary>
 			private IntPtr _Handle;
+
+			/// <summary>
+			/// The GLX window handle.
+			/// </summary>
+			private IntPtr _GlxHandle;
 
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -373,11 +297,9 @@ namespace OpenGL
 		/// </returns>
 		internal override IntPtr CreateSimpleContext()
 		{
-			IntPtr rContext;
-
 			using (Glx.XLock xLock = new Glx.XLock(Display)) {
 				// Create direct context
-				rContext = CreateContext(IntPtr.Zero);
+				IntPtr rContext = CreateContext(IntPtr.Zero);
 
 				if (rContext == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create context");
@@ -403,12 +325,52 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			//if (XVisualInfo == null)
-			//	throw new InvalidOperationException("no visual information");
-
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-				return (Glx.CreateContext(Display, NativeWindow.VisualInfo, sharedContext, true));
+				// Get the corresponding X visual info
+				Glx.XVisualInfo xVisualInfo = _XVisualInfo != null ? _XVisualInfo : GetVisualInfoFromXWindow(_WindowHandle);
+
+				Debug.Assert(xVisualInfo != null, "SetPixelFormat not executed or undetected XVisualInfo");
+				return (Glx.CreateContext(Display, xVisualInfo, sharedContext, true));
 			}
+		}
+
+		/// <summary>
+		/// Get the <see cref="Glx.XVisualInfo"/> set on the specified X window.
+		/// </summary>
+		/// <param name="xWindow">
+		/// The <see cref="IntPtr"/> that specifies the handle of the X window.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="Glx.XVisualInfo"/> set on <paramref name="xWindow"/>.
+		/// </returns>
+		private Glx.XVisualInfo GetVisualInfoFromXWindow(IntPtr xWindow)
+		{
+			Glx.XVisualInfo xVisualInfo;
+			uint[] windowFBConfigId = new uint[1];
+			int screen = Glx.XDefaultScreen(_Display);
+
+			// Get the FB configuration associated to the native window
+			Glx.QueryDrawable(_Display, _WindowHandle, Glx.FBCONFIG_ID, windowFBConfigId);
+
+			unsafe {
+				int[] attributes = new int[] {
+					Glx.FBCONFIG_ID, (int)windowFBConfigId[0],
+					0,
+				};
+
+				int[] choosenConfigCount = new int[1];
+
+				IntPtr* choosenConfigs = Glx.ChooseFBConfig(_Display, screen, attributes, choosenConfigCount);
+				if (choosenConfigCount[0] == 0)
+					throw new InvalidOperationException("unable to find X Window visual configuration");
+				IntPtr configId = *choosenConfigs;
+
+				xVisualInfo = Glx.GetVisualFromFBConfig(_Display, configId);
+
+				Glx.XFree((IntPtr)choosenConfigs);
+			}
+
+			return (xVisualInfo);
 		}
 
 		/// <summary>
@@ -442,7 +404,8 @@ namespace OpenGL
 				throw new ArgumentException("not zero-terminated array", "attribsList");
 
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-				return (Glx.CreateContextAttribsARB(Display, FBConfig, sharedContext, true, attribsList));
+				Debug.Assert(_FBConfig != IntPtr.Zero, "SetPixelFormat not executed");
+				return (Glx.CreateContextAttribsARB(Display, _FBConfig, sharedContext, true, attribsList));
 			}
 		}
 
@@ -462,7 +425,7 @@ namespace OpenGL
 		public override bool MakeCurrent(IntPtr ctx)
 		{
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-				return (Glx.MakeCurrent(Display, ctx != IntPtr.Zero ? WindowHandle : IntPtr.Zero, ctx));
+				return (Glx.MakeCurrent(Display, ctx != IntPtr.Zero ? _WindowHandle : IntPtr.Zero, ctx));
 			}
 		}
 
@@ -500,7 +463,7 @@ namespace OpenGL
 		public override void SwapBuffers()
 		{
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-				Glx.SwapBuffers(Display, WindowHandle);
+				Glx.SwapBuffers(Display, _WindowHandle);
 			}
 		}
 
@@ -523,7 +486,7 @@ namespace OpenGL
 
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
 				if (Glx.Delegates.pglXSwapIntervalEXT != null) {
-					Glx.SwapIntervalEXT(Display, WindowHandle, interval);
+					Glx.SwapIntervalEXT(Display, _WindowHandle, interval);
 					return (true);
 				} else if (Glx.Delegates.pglXSwapIntervalSGI != null)
 					return (Glx.SwapIntervalSGI(interval) == 0);
@@ -614,7 +577,8 @@ namespace OpenGL
 
 					unsafe
 					{
-						IntPtr* configs = Glx.GetFBConfigs(Display, Screen, out configsCount);
+						int screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
+						IntPtr* configs = Glx.GetFBConfigs(Display, screen, out configsCount);
 
 						for (int i = 0; i < configsCount; i++) {
 							IntPtr configId = configs[i];
@@ -725,12 +689,8 @@ namespace OpenGL
 			if (pixelFormat == null)
 				throw new ArgumentNullException("pixelFormat");
 
-			// Note: GLX does not really need a SetPixelFormat operation
-
-			// Framebuffer configuration
-			FBConfig = pixelFormat.XFbConfig;
-			// X Visual Information
-			XVisualInfo = pixelFormat.XVisualInfo;
+			_FBConfig = pixelFormat.XFbConfig;
+			_XVisualInfo = pixelFormat.XVisualInfo;
 		}
 
 		/// <summary>

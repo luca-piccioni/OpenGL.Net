@@ -424,7 +424,7 @@ namespace OpenGL
 
 			#region Create device context
 
-			_DeviceContext = DeviceContext.Create(IntPtr.Zero, this.Handle);
+			_DeviceContext = DeviceContext.Create(GetDisplay(), this.Handle);
 			_DeviceContext.IncRef();
 
 			#endregion
@@ -464,6 +464,32 @@ namespace OpenGL
 			}
 
 			#endregion
+		}
+
+		/// <summary>
+		/// Get the display associated with this Control.
+		/// </summary>
+		/// <returns>
+		/// It returns an <see cref="IntPtr"/> valid for GLX functions as display parameter.
+		/// </returns>
+		protected IntPtr GetDisplay()
+		{
+			Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
+
+			if (xplatui != null) {
+				// Get System.Windows.Forms display
+				IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+				KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", display.ToString("X"));
+				if (display == IntPtr.Zero)
+					throw new InvalidOperationException("unable to connect to X server using XPlatUI");
+
+				// Screen
+				// _Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+				// KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
+
+				return (display);
+			} else
+				throw new NotSupportedException("current mono run-time not supported");
 		}
 
 		/// <summary>

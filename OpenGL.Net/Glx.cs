@@ -84,6 +84,22 @@ namespace OpenGL
 
 		#endregion
 
+		#region Error Handling
+
+		/// <summary>
+		/// GLX error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		[Conditional("DEBUG")]
+		private static void DebugCheckErrors(object returnValue)
+		{
+			
+		}
+
+		#endregion
+
 		#region Required External Declarations
 
 		[StructLayout(LayoutKind.Sequential)]

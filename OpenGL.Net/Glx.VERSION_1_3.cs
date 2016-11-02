@@ -1119,11 +1119,16 @@ namespace OpenGL
 		/// <seealso cref="Glx.GetFBConfigAttrib"/>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value)
+		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, [Out()] UInt32[] value)
 		{
-			Debug.Assert(Delegates.pglXQueryDrawable != null, "pglXQueryDrawable not implemented");
-			Delegates.pglXQueryDrawable(dpy, draw, attribute, value);
-			LogFunction("glXQueryDrawable(0x{0}, 0x{1}, {2}, 0x{3})", dpy.ToString("X8"), draw.ToString("X8"), attribute, value.ToString("X8"));
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					Debug.Assert(Delegates.pglXQueryDrawable != null, "pglXQueryDrawable not implemented");
+					Delegates.pglXQueryDrawable(dpy, draw, attribute, p_value);
+					LogFunction("glXQueryDrawable(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), draw.ToString("X8"), attribute, LogValue(value));
+				}
+			}
 		}
 
 		/// <summary>
@@ -1436,7 +1441,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryDrawable", ExactSpelling = true)]
-			internal extern static unsafe void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value);
+			internal extern static unsafe void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXCreateNewContext", ExactSpelling = true)]
@@ -1517,7 +1522,7 @@ namespace OpenGL
 			internal static glXDestroyPbuffer pglXDestroyPbuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value);
+			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, [Out()] UInt32* value);
 
 			internal static glXQueryDrawable pglXQueryDrawable;
 
