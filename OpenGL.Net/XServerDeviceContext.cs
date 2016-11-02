@@ -56,15 +56,18 @@ namespace OpenGL
 		public XServerDeviceContext(IntPtr display, IntPtr windowHandle)
 		{
 			if (display == IntPtr.Zero)
-				throw new ArgumentException("null handle", "display");
+				throw new ArgumentException("invalid X display", "display");
 			if (windowHandle == IntPtr.Zero)
-				throw new ArgumentException("null handle", "windowHandle");
-
-			_Display = display;
-			_WindowHandle = windowHandle;
+				throw new ArgumentException("invalid X window", "windowHandle");
 
 			// Query GLX extensions
 			QueryVersion();
+
+			if (Version < Glx.Version_130)
+				throw new NotSupportedException("missing GLX 1.3 or greater");
+
+			_Display = display;
+			_WindowHandle = windowHandle;
 		}
 
 		#endregion
