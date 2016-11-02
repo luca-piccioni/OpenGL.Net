@@ -97,6 +97,7 @@
 	
 	<!-- WGL types -->
 	<type name="unsigned int" value="UInt32" />
+	<type name="unsigned int *" value="UInt32*" />
 	<type name="unsigned long" value="UInt32" />
 	<type name="unsigned long *" value="UInt32*" />
 	<type name="int" value="int" />
@@ -173,7 +174,6 @@
 	<type name="int32_t*" value="Int32*" />
 	<type name="int64_t" value="Int64" />
 	<type name="int64_t*" value="Int64*" />
-	<type name="unsigned int *" value="IntPtr" />
 
 	<type name="Display" value="IntPtr" />
 	<type name="Display*" value="IntPtr" />

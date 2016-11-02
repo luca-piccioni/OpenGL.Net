@@ -47,16 +47,16 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_present_video")]
-		public static IntPtr EnumerateVideoDevicesNV(IntPtr dpy, int screen, int[] nelements)
+		public static unsafe UInt32* EnumerateVideoDevicesNV(IntPtr dpy, int screen, int[] nelements)
 		{
-			IntPtr retValue;
+			UInt32* retValue;
 
 			unsafe {
 				fixed (int* p_nelements = nelements)
 				{
 					Debug.Assert(Delegates.pglXEnumerateVideoDevicesNV != null, "pglXEnumerateVideoDevicesNV not implemented");
 					retValue = Delegates.pglXEnumerateVideoDevicesNV(dpy, screen, p_nelements);
-					LogFunction("glXEnumerateVideoDevicesNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue.ToString("X8"));
+					LogFunction("glXEnumerateVideoDevicesNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
 
@@ -99,7 +99,7 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXEnumerateVideoDevicesNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+			internal extern static unsafe UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXBindVideoDeviceNV", ExactSpelling = true)]
@@ -110,7 +110,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+			internal unsafe delegate UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
 
 			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
 

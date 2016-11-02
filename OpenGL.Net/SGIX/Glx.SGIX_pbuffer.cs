@@ -119,16 +119,21 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public static int QueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value)
+		public static int QueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, UInt32[] value)
 		{
 			int retValue;
 
-			Debug.Assert(Delegates.pglXQueryGLXPbufferSGIX != null, "pglXQueryGLXPbufferSGIX not implemented");
-			retValue = Delegates.pglXQueryGLXPbufferSGIX(dpy, pbuf, attribute, value);
-			LogFunction("glXQueryGLXPbufferSGIX(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), pbuf.ToString("X8"), attribute, value.ToString("X8"), retValue);
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					Debug.Assert(Delegates.pglXQueryGLXPbufferSGIX != null, "pglXQueryGLXPbufferSGIX not implemented");
+					retValue = Delegates.pglXQueryGLXPbufferSGIX(dpy, pbuf, attribute, p_value);
+					LogFunction("glXQueryGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), pbuf.ToString("X8"), attribute, LogValue(value), retValue);
+				}
+			}
 
 			return (retValue);
 		}
@@ -190,7 +195,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryGLXPbufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value);
+			internal extern static unsafe int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, UInt32* value);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXSelectEventSGIX", ExactSpelling = true)]
@@ -215,7 +220,7 @@ namespace OpenGL
 			internal static glXDestroyGLXPbufferSGIX pglXDestroyGLXPbufferSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value);
+			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, UInt32* value);
 
 			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
 

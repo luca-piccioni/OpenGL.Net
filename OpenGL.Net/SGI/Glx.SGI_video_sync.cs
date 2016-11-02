@@ -32,16 +32,21 @@ namespace OpenGL
 		/// Binding for glXGetVideoSyncSGI.
 		/// </summary>
 		/// <param name="count">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGI_video_sync")]
-		public static int GetVideoSyncSGI(IntPtr count)
+		public static int GetVideoSyncSGI([Out] UInt32[] count)
 		{
 			int retValue;
 
-			Debug.Assert(Delegates.pglXGetVideoSyncSGI != null, "pglXGetVideoSyncSGI not implemented");
-			retValue = Delegates.pglXGetVideoSyncSGI(count);
-			LogFunction("glXGetVideoSyncSGI(0x{0}) = {1}", count.ToString("X8"), retValue);
+			unsafe {
+				fixed (UInt32* p_count = count)
+				{
+					Debug.Assert(Delegates.pglXGetVideoSyncSGI != null, "pglXGetVideoSyncSGI not implemented");
+					retValue = Delegates.pglXGetVideoSyncSGI(p_count);
+					LogFunction("glXGetVideoSyncSGI({0}) = {1}", LogValue(count), retValue);
+				}
+			}
 
 			return (retValue);
 		}
@@ -56,16 +61,21 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGI_video_sync")]
-		public static int WaitVideoSyncSGI(int divisor, int remainder, IntPtr count)
+		public static int WaitVideoSyncSGI(int divisor, int remainder, UInt32[] count)
 		{
 			int retValue;
 
-			Debug.Assert(Delegates.pglXWaitVideoSyncSGI != null, "pglXWaitVideoSyncSGI not implemented");
-			retValue = Delegates.pglXWaitVideoSyncSGI(divisor, remainder, count);
-			LogFunction("glXWaitVideoSyncSGI({0}, {1}, 0x{2}) = {3}", divisor, remainder, count.ToString("X8"), retValue);
+			unsafe {
+				fixed (UInt32* p_count = count)
+				{
+					Debug.Assert(Delegates.pglXWaitVideoSyncSGI != null, "pglXWaitVideoSyncSGI not implemented");
+					retValue = Delegates.pglXWaitVideoSyncSGI(divisor, remainder, p_count);
+					LogFunction("glXWaitVideoSyncSGI({0}, {1}, {2}) = {3}", divisor, remainder, LogValue(count), retValue);
+				}
+			}
 
 			return (retValue);
 		}
@@ -74,23 +84,23 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetVideoSyncSGI", ExactSpelling = true)]
-			internal extern static unsafe int glXGetVideoSyncSGI(IntPtr count);
+			internal extern static unsafe int glXGetVideoSyncSGI(UInt32* count);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXWaitVideoSyncSGI", ExactSpelling = true)]
-			internal extern static unsafe int glXWaitVideoSyncSGI(int divisor, int remainder, IntPtr count);
+			internal extern static unsafe int glXWaitVideoSyncSGI(int divisor, int remainder, UInt32* count);
 
 		}
 
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetVideoSyncSGI(IntPtr count);
+			internal unsafe delegate int glXGetVideoSyncSGI(UInt32* count);
 
 			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, IntPtr count);
+			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, UInt32* count);
 
 			internal static glXWaitVideoSyncSGI pglXWaitVideoSyncSGI;
 

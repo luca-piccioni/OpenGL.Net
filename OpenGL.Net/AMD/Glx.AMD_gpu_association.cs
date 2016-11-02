@@ -95,16 +95,21 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="ids">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
-		public static UInt32 GetAMD(UInt32 maxCount, IntPtr ids)
+		public static UInt32 GetAMD(UInt32 maxCount, [Out] UInt32[] ids)
 		{
 			UInt32 retValue;
 
-			Debug.Assert(Delegates.pglXGetGPUIDsAMD != null, "pglXGetGPUIDsAMD not implemented");
-			retValue = Delegates.pglXGetGPUIDsAMD(maxCount, ids);
-			LogFunction("glXGetGPUIDsAMD({0}, 0x{1}) = {2}", maxCount, ids.ToString("X8"), retValue);
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglXGetGPUIDsAMD != null, "pglXGetGPUIDsAMD not implemented");
+					retValue = Delegates.pglXGetGPUIDsAMD(maxCount, p_ids);
+					LogFunction("glXGetGPUIDsAMD({0}, {1}) = {2}", maxCount, LogValue(ids), retValue);
+				}
+			}
 
 			return (retValue);
 		}
@@ -306,7 +311,7 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetGPUIDsAMD", ExactSpelling = true)]
-			internal extern static unsafe UInt32 glXGetGPUIDsAMD(UInt32 maxCount, IntPtr ids);
+			internal extern static unsafe UInt32 glXGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetGPUInfoAMD", ExactSpelling = true)]
@@ -345,7 +350,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 glXGetGPUIDsAMD(UInt32 maxCount, IntPtr ids);
+			internal unsafe delegate UInt32 glXGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
 			internal static glXGetGPUIDsAMD pglXGetGPUIDsAMD;
 
