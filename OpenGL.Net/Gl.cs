@@ -62,10 +62,12 @@ namespace OpenGL
 			// Load procedures (OpenGL desktop by default) @todo Really necessary?
 			LoadProcDelegates(_ImportMap, _Delegates);
 
+			KhronosApi.LogComment("OpenGL.Net is initializing");
+
 			// Create temporary context for getting preliminary information on desktop systems
 			using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
 				// Create device context
-				using (DeviceContext windowDevice = DeviceContext.Create(nativeWindow.Handle)) {
+				using (DeviceContext windowDevice = DeviceContext.Create(nativeWindow.Display, nativeWindow.Handle)) {
 					// Create basic OpenGL context
 					IntPtr renderContext = windowDevice.CreateSimpleContext();
 					if (renderContext == IntPtr.Zero)
@@ -73,7 +75,7 @@ namespace OpenGL
 
 					// Query OpenGL informations
 					if (windowDevice.MakeCurrent(renderContext) == false)
-						throw new InvalidOperationException("unable to make current");
+						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
 
 					// Obtain current OpenGL implementation
 					string glVersion = GetString(StringName.Version);
@@ -104,6 +106,8 @@ namespace OpenGL
 						throw new InvalidOperationException("unable to delete OpenGL context");
 				}
 			}
+
+			KhronosApi.LogComment("OpenGL.net has been initialized");
 		}
 
 		/// <summary>

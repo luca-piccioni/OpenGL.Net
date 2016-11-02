@@ -76,14 +76,14 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static DeviceContext Create(IntPtr windowHandle)
+		public static DeviceContext Create(IntPtr display, IntPtr windowHandle)
 		{
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
 						return (new WindowsDeviceContext(windowHandle));
 					case Platform.Id.Linux:
-						return (new XServerDeviceContext(windowHandle));
+						return (new XServerDeviceContext(display, windowHandle));
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}

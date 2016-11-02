@@ -28,6 +28,11 @@ namespace OpenGL
 		#region Properties
 
 		/// <summary>
+		/// Get the display handle associated this instance.
+		/// </summary>
+		IntPtr Display { get; }
+
+		/// <summary>
 		/// Get the native window handle.
 		/// </summary>
 		IntPtr Handle { get; }

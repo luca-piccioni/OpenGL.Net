@@ -190,6 +190,11 @@ namespace OpenGL
 			#region INativeWindow Implementation
 
 			/// <summary>
+			/// Get the display handle associated this instance.
+			/// </summary>
+			IntPtr INativeWindow.Display { get { return (IntPtr.Zero); } }
+
+			/// <summary>
 			/// Get the native window handle.
 			/// </summary>
 			IntPtr INativeWindow.Handle { get { return (IntPtr.Zero); } }

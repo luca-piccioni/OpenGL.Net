@@ -52,37 +52,17 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if the current Mono runtime has not yet opened a display connection.
 		/// </exception>
-		public XServerDeviceContext(IntPtr windowHandle)
+		public XServerDeviceContext(IntPtr display, IntPtr windowHandle)
 		{
+			if (display == IntPtr.Zero)
+				throw new ArgumentException("null handle", "display");
 			if (windowHandle == IntPtr.Zero)
 				throw new ArgumentException("null handle", "windowHandle");
 
-			Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
-			
-			if (xplatui != null) {
-				// Get System.Windows.Forms display
-				_Display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-				KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", _Display.ToString("X"));
-				if (_Display == IntPtr.Zero)
-					throw new InvalidOperationException("unable to connect to X server using XPlatUI");
-			
-				// Screen
-				_Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-				KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
-			} else {
-				// Open display (follows DISPLAY environment variable?)
-				_Display = Glx.UnsafeNativeMethods.XOpenDisplay(IntPtr.Zero);
-				KhronosApi.LogFunction("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
-				if (_Display == IntPtr.Zero)
-					throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", _Display.ToInt32()));
-				// Need to close display
-				_OwnDisplay = true;
-				// Screen
-				_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
-			}
-
-			// Window handle
+			_Display = display;
+			_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 			_WindowHandle = windowHandle;
+
 			// Query GLX extensions
 			QueryVersion();
 		}
@@ -219,17 +199,49 @@ namespace OpenGL
 			{
 				try {
 					// Open display
-					if ((_Display = Glx.UnsafeNativeMethods.XOpenDisplay(IntPtr.Zero)) == IntPtr.Zero)
+					if ((_Display = Glx.XOpenDisplay(IntPtr.Zero)) == IntPtr.Zero)
 						throw new InvalidOperationException("unable to connect to X server");
 
-					// Choose basic visual
-					int[] visualAttrs = new int[] { Glx.RGBA, Glx.DEPTH_SIZE, 24, Glx.DOUBLEBUFFER, 0 };
+					Glx.XVisualInfo visual;
+					IntPtr config;
 
-					Glx.XVisualInfo visual = Glx.ChooseVisual(_Display, 0, visualAttrs);
+					int[] attributes = new int[] {
+						Glx.DRAWABLE_TYPE, (int)Glx.WINDOW_BIT,
+						Glx.RENDER_TYPE, (int)Glx.RGBA_BIT,
+						Glx.DOUBLEBUFFER,  unchecked((int)Glx.DONT_CARE),
+						0
+					};
+
+					int screen = Glx.XDefaultScreen(_Display);
+
+					// Get basic visual
+					unsafe {
+						int[] choosenConfigCount = new int[1];
+
+						IntPtr* choosenConfigs = Glx.ChooseFBConfig(_Display, screen, attributes, choosenConfigCount);
+						if (choosenConfigCount[0] == 0)
+							throw new InvalidOperationException("unable to find basic visual");
+						config = *choosenConfigs;
+						KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
+
+						VisualInfo = visual = Glx.GetVisualFromFBConfig(_Display, config);
+						KhronosApi.LogComment("Choosen visual is {0}", visual);
+
+
+						Glx.XFree((IntPtr)choosenConfigs);
+					}
+
 					Glx.XSetWindowAttributes setWindowAttrs = new Glx.XSetWindowAttributes();
+					IntPtr rootWindow = Glx.XRootWindow(_Display, screen);
+					ulong setWindowAttrFlags = /* CWBorderPixel | CWColormap | CWEventMask*/ (1L<<3) | (1L<<13) | (1L<<11);
 
-					if ((_Handle = Glx.UnsafeNativeMethods.XCreateWindow(_Display, IntPtr.Zero, 0, 0, 64, 64, 0, visual.depth, /* InputOutput */ 0, visual.visual, UIntPtr.Zero, ref setWindowAttrs)) == IntPtr.Zero)
+					setWindowAttrs.border_pixel = IntPtr.Zero;
+					setWindowAttrs.event_mask = /* StructureNotifyMask	*/ new IntPtr(1L << 17);
+					setWindowAttrs.colormap = Glx.XCreateColormap(_Display, rootWindow, visual.visual, /* AllocNone */ 0);
+
+					if ((_Handle = Glx.XCreateWindow(_Display, rootWindow, 0, 0, 64, 64, 0, visual.depth, /* InputOutput */ 0, visual.visual, new UIntPtr(setWindowAttrFlags), ref setWindowAttrs)) == IntPtr.Zero)
 						throw new InvalidOperationException("unable to create window");
+				
 				} catch {
 					Dispose();
 					throw;
@@ -238,17 +250,28 @@ namespace OpenGL
 
 			#endregion
 
+			#region X Information
+
+			internal static Glx.XVisualInfo VisualInfo;
+
+			#endregion
+
 			#region INativeWindow Implementation
 
 			/// <summary>
-			/// Get the native window handle.
+			/// Get the display handle associated this instance.
 			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+			IntPtr INativeWindow.Display { get { return (_Display); } }
 
 			/// <summary>
 			/// The native window handle.
 			/// </summary>
 			private IntPtr _Display;
+
+			/// <summary>
+			/// Get the native window handle.
+			/// </summary>
+			IntPtr INativeWindow.Handle { get { return (_Handle); } }
 
 			/// <summary>
 			/// The native window handle.
@@ -353,33 +376,8 @@ namespace OpenGL
 			IntPtr rContext;
 
 			using (Glx.XLock xLock = new Glx.XLock(Display)) {
-				int[] attributes = new int[] {
-					Glx.RENDER_TYPE, (int)Glx.RGBA_BIT,
-					0
-				};
-
-				// Get basic visual
-				unsafe {
-					int[] choosenConfigCount = new int[1];
-					IntPtr* choosenConfigs = Glx.ChooseFBConfig(Display, Screen, attributes, choosenConfigCount);
-
-					if (choosenConfigCount[0] == 0)
-						throw new InvalidOperationException("unable to find basic visual");
-
-					IntPtr choosenConfig = *choosenConfigs;
-
-					XVisualInfo = Glx.GetVisualFromFBConfig(Display, choosenConfig);
-					FBConfig = choosenConfig;
-
-					Glx.UnsafeNativeMethods.XFree((IntPtr)choosenConfigs);
-				}
-
 				// Create direct context
 				rContext = CreateContext(IntPtr.Zero);
-				if (rContext == IntPtr.Zero) {
-					// Fallback to not direct context
-					rContext = Glx.CreateContext(Display, XVisualInfo, IntPtr.Zero, false);
-				}
 
 				if (rContext == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create context");
@@ -405,11 +403,11 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			if (XVisualInfo == null)
-				throw new InvalidOperationException("no visual information");
+			//if (XVisualInfo == null)
+			//	throw new InvalidOperationException("no visual information");
 
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-				return (Glx.CreateContext(Display, XVisualInfo, sharedContext, true));
+				return (Glx.CreateContext(Display, NativeWindow.VisualInfo, sharedContext, true));
 			}
 		}
 
@@ -520,6 +518,8 @@ namespace OpenGL
 		{
 			// Keep into account the SwapIntervalEXT and SwapIntervalSGI entry points, relative to
 			// two equivalent GLX extensions
+
+			return (true);
 
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
 				if (Glx.Delegates.pglXSwapIntervalEXT != null) {
