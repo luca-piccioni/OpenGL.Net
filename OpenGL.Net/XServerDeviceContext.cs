@@ -696,28 +696,6 @@ namespace OpenGL
 			_XVisualInfo = pixelFormat.XVisualInfo;
 		}
 
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
-		/// </summary>
-		/// <param name="disposing">
-		/// 
-		/// A <see cref="System.Boolean"/> indicating whether the disposition is requested explictly.
-		/// </param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing) {
-				if ((_OwnDisplay == true) && (Display != IntPtr.Zero)) {
-					Glx.UnsafeNativeMethods.XCloseDisplay(Display);
-					KhronosApi.LogFunction("XCloseDisplay({0})", Display.ToString("X"));
-				}
-			}
-		}
-		
-		/// <summary>
-		/// Flag indicating whether the display has been opened with XOpenDisplay.
-		/// </summary>
-		private bool _OwnDisplay;
-
 		#endregion
 	}
 }

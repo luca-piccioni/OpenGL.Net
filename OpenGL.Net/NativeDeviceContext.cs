@@ -200,11 +200,6 @@ namespace OpenGL
 			IntPtr INativeWindow.Handle { get { return (IntPtr.Zero); } }
 
 			/// <summary>
-			/// The native window handle.
-			/// </summary>
-			private IntPtr _Handle;
-
-			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 			/// </summary>
 			public void Dispose()
