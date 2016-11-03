@@ -66,3 +66,4 @@ packages
 /Samples/HelloTriangle.ANGLE/obj
 /Samples/HelloTriangle.ANGLE/bin
 /Samples/HelloTriangle.Xamarin.Android/*.user
+/ANGLE
