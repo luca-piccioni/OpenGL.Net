@@ -95,7 +95,14 @@ namespace OpenGL
 		[Conditional("DEBUG")]
 		private static void DebugCheckErrors(object returnValue)
 		{
-			
+			IntPtr display = GetCurrentDisplay();
+			Debug.Assert(display != IntPtr.Zero);
+
+			lock (XServerDeviceContext._DisplayErrorsLock) {
+				Exception glxException;
+				if (XServerDeviceContext._DisplayErrors.TryGetValue(display, out glxException) == true)
+					throw glxException;
+			}
 		}
 
 		#endregion

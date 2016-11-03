@@ -553,12 +553,12 @@ namespace OpenGL
 		/// <summary>
 		/// The display errors list lock.
 		/// </summary>
-		private static readonly object _DisplayErrorsLock = new object();
+		internal static readonly object _DisplayErrorsLock = new object();
 
 		/// <summary>
 		/// The display errors.
 		/// </summary>
-		private static readonly Dictionary<IntPtr, Exception> _DisplayErrors = new Dictionary<IntPtr, Exception>();
+		internal static readonly Dictionary<IntPtr, Exception> _DisplayErrors = new Dictionary<IntPtr, Exception>();
 
 		/// <summary>
 		/// Get the pixel formats supported by this device.
