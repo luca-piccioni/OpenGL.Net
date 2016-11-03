@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,8 +17,7 @@
 // USA
 
 using System;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -43,21 +42,16 @@ namespace OpenGL.Test
 				Egl.IsRequired = IsEsTest;
 
 				// Create window
-				Form = new TestForm(this);
+				Form = DeviceContext.CreateWindow();
 				// Create device context
-				_DeviceContext = DeviceContext.Create(Form.Handle);
+				_DeviceContext = DeviceContext.Create(Form.Display, Form.Handle);
+				List<DevicePixelFormat> pixelFormats = _DeviceContext.PixelsFormats.Choose(new DevicePixelFormat(24));
 
-				// Set pixel format
-				if      (_DeviceContext is WindowsDeviceContext)
-					SetPixelFormatWgl();
-				else if (_DeviceContext is NativeDeviceContext)
-					SetPixelFormatEgl();
-				else
-					throw new NotImplementedException("platform not supported");
+				if (pixelFormats.Count == 0)
+					throw new NotSupportedException("unable to find suitable pixel format");
 			} catch {
 				// Release resources manually
 				FixtureTearDown();
-
 				throw;
 			}
 		}
@@ -79,38 +73,6 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
-		/// Set the pixel format on Windows platform.
-		/// </summary>
-		private void SetPixelFormatWgl()
-		{
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)_DeviceContext;
-
-			// Define most compatible pixel format
-			Wgl.PIXELFORMATDESCRIPTOR pfd = new Wgl.PIXELFORMATDESCRIPTOR(24);
-			int pFormat;
-
-			// Find pixel format match
-			pFormat = Wgl.ChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
-			// Get exact description of the pixel format
-			Wgl.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
-			// Set pixel format before creating OpenGL context
-			Wgl.SetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
-		}
-
-		/// <summary>
-		/// Set the pixel format on EGL platform.
-		/// </summary>
-		private void SetPixelFormatEgl()
-		{
-			NativeDeviceContext eglDeviceContext = (NativeDeviceContext)_DeviceContext;
-
-			// Require the pixel formats
-			DevicePixelFormatCollection pixelFormats = eglDeviceContext.PixelsFormats;
-
-			eglDeviceContext.SetPixelFormat(pixelFormats[0]);
-		}
-
-		/// <summary>
 		/// Determine whether this test is testing OpenGL ES API.
 		/// </summary>
 		protected virtual bool IsEsTest
@@ -121,49 +83,12 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Form used for unit testing.
 		/// </summary>
-		protected TestForm Form;
+		protected INativeWindow Form;
 
 		/// <summary>
 		/// The device context.
 		/// </summary>
 		protected DeviceContext _DeviceContext;
-
-		#endregion
-
-		#region Test Form
-
-		/// <summary>
-		/// Form used for unit testing. 
-		/// </summary>
-		protected class TestForm : Form
-		{
-			/// <summary>
-			/// RenderForm constructor. 
-			/// </summary>
-			public TestForm(TestBase unitTest)
-			{
-				if (unitTest == null)
-					throw new ArgumentNullException("unitTest");
-
-				mUnitTest = unitTest;
-
-				// No need to erase window background
-				SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-				// No need to draw window background
-				SetStyle(ControlStyles.Opaque, true);
-				// Buffer control
-				SetStyle(ControlStyles.DoubleBuffer, false);
-				// Redraw window on resize
-				SetStyle(ControlStyles.ResizeRedraw, true);
-				// Painting handled by user
-				SetStyle(ControlStyles.UserPaint, true);
-			}
-
-			/// <summary>
-			/// The unit test that has created this TestForm.
-			/// </summary>
-			private readonly TestBase mUnitTest;
-		}
 
 		#endregion
 	}

@@ -27,6 +27,29 @@ namespace OpenGL
 	[DebuggerDisplay("DevicePixelFormat: Idx={FormatIndex} Color={ColorBits} Depth={DepthBits} Stencil={StencilBits} Ms={MultisampleBits} sRGB={SRGBCapable} DB={DoubleBuffer}")]
 	public sealed class DevicePixelFormat
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Parameterless constructor.
+		/// </summary>
+		public DevicePixelFormat()
+		{
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="colorBits"></param>
+		public DevicePixelFormat(int colorBits)
+		{
+			RgbaUnsigned = true;
+			RenderWindow = true;
+			ColorBits = colorBits;
+		}
+
+		#endregion
+
 		#region Format Identification
 
 		/// <summary>

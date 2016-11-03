@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -28,5 +29,8 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.2.1")]
+[assembly: AssemblyVersion("0.3.1")]
 [assembly: AssemblyFileVersion("0.2.1")]
+
+// Unit testing support
+[assembly: InternalsVisibleTo("OpenGL.Net.Test")]
