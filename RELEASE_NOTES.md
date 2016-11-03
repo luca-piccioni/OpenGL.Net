@@ -1,4 +1,25 @@
 
+Changes with OpenGL.Net 0.3.0													03 Nov 2016
+
+- Decoupled from System.Window.Forms dependency. OpenGL.Gl static initialization uses P/Invoke on the detected platform
+  to create a native window.
+- Added OpenGL.Net.WinForms: support Windows and Linux platform using .NET native window system with GlControl.
+- Added OpenGL.Net.Xamarin.Android: support Android platform with GLSurfaceView
+- Inherited basic code from OpenGL.Hal (and from now on excluded from repo):
+	- Vertex(2|3|4)(f|i|...) and Color* structures
+	- Matrix math
+
+Changes with OpenGL.Net 0.2.1													15 Apr 2016
+
+- Added OpenGL.GlControl, a System.Windows.Forms.UserControl allowing rendering.
+- OpenGL.Gl static initialization automatically probe versions, extensions and limits of the platform (see Gl.Current*).
+- OpenGL ES tested with Google ANGLE project.
+
+Changes with OpenGL.Net 0.2.0													24 Mar 2016
+
+- OpenGL ES 3.2 and relative extensions
+- Native Platform Interface 1.5 (EGL) and relative extensions
+
 Changes with OpenGL.Net 0.1.0													03 Mar 2016
 
 The first public version. Exposes the following APIs:

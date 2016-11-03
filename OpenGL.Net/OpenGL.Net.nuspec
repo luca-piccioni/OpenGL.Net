@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net</id>
-		<version>0.2.3</version>
+		<version>0.3.0</version>
 		<title>OpenGL for .Net</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -25,8 +25,10 @@
 			<frameworkAssembly assemblyName="System.Windows.Forms" />
 		</frameworkAssemblies>
 		<releaseNotes>
-			*** Version 0.2.3
-			- Fixed GLX device context implementation. Now it runs on Linux. Need to configure the application configuration file.
+			*** Version 0.3.0
+			- OpenGL.Net has been decoupled from System.Windows.Forms dependency.
+			- OpenGL.GlControl can be found in OpenGL.Net.WinForms.
+			- GLSurfaceView allow to create an OpenGL context on Android, using OpenGL.Net.Xamarin.Android.
 
 			*** Version 0.2.2
 			- Fixed the missing GlControl implementation.
@@ -53,10 +55,14 @@
 			This binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
 		</releaseNotes>
 		<copyright>Copyright 2015-2016</copyright>
-		<tags>OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>
+		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 	</metadata>
 	<files>
 		<file src="bin/Release/OpenGL.Net.dll" target="lib" />
 		<file src="bin/Release/OpenGL.Net.xml" target="lib" />
+		<file src="../OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.dll" target="lib" />
+		<file src="../OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.xml" target="lib" />
+		<file src="../OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.dll" target="lib" />
+		<file src="../OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.xml" target="lib" />
 	</files>
 </package>
