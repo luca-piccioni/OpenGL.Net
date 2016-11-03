@@ -41,6 +41,10 @@ namespace OpenGL
 		/// <summary>
 		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class, initialized with the display of a control.
 		/// </summary>
+		/// <param name="display">
+		/// A <see cref="IntPtr"/> that specifies the display handle used to create <paramref name="windowHandle"/>.
+		/// Specifies the connection to the X server.
+		/// </param>
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
 		/// </param>

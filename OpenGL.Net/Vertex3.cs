@@ -44,7 +44,7 @@ namespace OpenGL
 		/// Vertex3ub constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="byte[]"/> that specify the value of every component.
+		/// A <see cref="T:byte[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3ub(byte[] v) : this(v[0], v[1], v[2]) { }
 
@@ -384,7 +384,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="byte[]"/> initialized with the vector components.
+		/// A <see cref="T:byte[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator byte[](Vertex3ub a)
 		{
@@ -400,7 +400,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -414,7 +414,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -428,7 +428,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -442,7 +442,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -456,7 +456,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ub"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -741,7 +741,7 @@ namespace OpenGL
 		/// Vertex3b constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="sbyte[]"/> that specify the value of every component.
+		/// A <see cref="T:sbyte[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3b(sbyte[] v) : this(v[0], v[1], v[2]) { }
 
@@ -1095,7 +1095,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="sbyte[]"/> initialized with the vector components.
+		/// A <see cref="T:sbyte[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator sbyte[](Vertex3b a)
 		{
@@ -1111,7 +1111,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1125,7 +1125,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1139,7 +1139,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1153,7 +1153,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1167,7 +1167,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3b"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1452,7 +1452,7 @@ namespace OpenGL
 		/// Vertex3us constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="ushort[]"/> that specify the value of every component.
+		/// A <see cref="T:ushort[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3us(ushort[] v) : this(v[0], v[1], v[2]) { }
 
@@ -1792,7 +1792,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="ushort[]"/> initialized with the vector components.
+		/// A <see cref="T:ushort[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator ushort[](Vertex3us a)
 		{
@@ -1808,7 +1808,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1822,7 +1822,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1836,7 +1836,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1850,7 +1850,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -1864,7 +1864,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3us"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -2149,7 +2149,7 @@ namespace OpenGL
 		/// Vertex3s constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="short[]"/> that specify the value of every component.
+		/// A <see cref="T:short[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3s(short[] v) : this(v[0], v[1], v[2]) { }
 
@@ -2503,7 +2503,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="short[]"/> initialized with the vector components.
+		/// A <see cref="T:short[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator short[](Vertex3s a)
 		{
@@ -2519,7 +2519,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -2533,7 +2533,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -2547,7 +2547,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -2561,7 +2561,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -2575,7 +2575,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3s"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -2860,7 +2860,7 @@ namespace OpenGL
 		/// Vertex3ui constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="uint[]"/> that specify the value of every component.
+		/// A <see cref="T:uint[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3ui(uint[] v) : this(v[0], v[1], v[2]) { }
 
@@ -3200,7 +3200,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="uint[]"/> initialized with the vector components.
+		/// A <see cref="T:uint[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator uint[](Vertex3ui a)
 		{
@@ -3216,7 +3216,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3230,7 +3230,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3244,7 +3244,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3258,7 +3258,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3272,7 +3272,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3ui"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3557,7 +3557,7 @@ namespace OpenGL
 		/// Vertex3i constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="int[]"/> that specify the value of every component.
+		/// A <see cref="T:int[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3i(int[] v) : this(v[0], v[1], v[2]) { }
 
@@ -3911,7 +3911,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="int[]"/> initialized with the vector components.
+		/// A <see cref="T:int[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator int[](Vertex3i a)
 		{
@@ -3927,7 +3927,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3941,7 +3941,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3955,7 +3955,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3969,7 +3969,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -3983,7 +3983,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3i"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -4268,7 +4268,7 @@ namespace OpenGL
 		/// Vertex3f constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="float[]"/> that specify the value of every component.
+		/// A <see cref="T:float[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3f(float[] v) : this(v[0], v[1], v[2]) { }
 
@@ -4577,7 +4577,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="float[]"/> initialized with the vector components.
+		/// A <see cref="T:float[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator float[](Vertex3f a)
 		{
@@ -4593,7 +4593,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3f"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -4607,7 +4607,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3f"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -4621,7 +4621,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3f"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -4635,7 +4635,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3f"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -4905,7 +4905,7 @@ namespace OpenGL
 		/// Vertex3d constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="double[]"/> that specify the value of every component.
+		/// A <see cref="T:double[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3d(double[] v) : this(v[0], v[1], v[2]) { }
 
@@ -5214,7 +5214,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="double[]"/> initialized with the vector components.
+		/// A <see cref="T:double[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator double[](Vertex3d a)
 		{
@@ -5230,7 +5230,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3d"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5244,7 +5244,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3d"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5258,7 +5258,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3d"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5272,7 +5272,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3d"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5542,7 +5542,7 @@ namespace OpenGL
 		/// Vertex3hf constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="HalfFloat[]"/> that specify the value of every component.
+		/// A <see cref="T:HalfFloat[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex3hf(HalfFloat[] v) : this(v[0], v[1], v[2]) { }
 
@@ -5851,7 +5851,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="HalfFloat[]"/> initialized with the vector components.
+		/// A <see cref="T:HalfFloat[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator HalfFloat[](Vertex3hf a)
 		{
@@ -5867,7 +5867,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5881,7 +5881,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5895,7 +5895,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5909,7 +5909,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -5923,7 +5923,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="Vertex3hf"/> to be casted.
 		/// </param>
 		/// <returns>

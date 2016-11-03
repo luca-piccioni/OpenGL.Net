@@ -67,6 +67,10 @@ namespace OpenGL
 		/// <summary>
 		/// Create a device context on the specified window.
 		/// </summary>
+		/// <param name="display">
+		/// A <see cref="IntPtr"/> that specified the display handle associated to <paramref name="windowHandle"/>. Some platforms
+		/// ignore this parameter (i.e. Windows or any EGL implementation).
+		/// </param>
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
 		/// </param>

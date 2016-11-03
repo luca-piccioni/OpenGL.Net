@@ -29,7 +29,7 @@ namespace OpenGL
 		/// <summary>
 		/// Construct <see cref="OpenGL.PixelComponentsAttribute"/> class.
 		/// </summary>
-		/// <param name='pixelSpace'>
+		/// <param name='pixelComponents'>
 		/// The pixel color component count.
 		/// </param>
 		public PixelComponentsAttribute(byte pixelComponents)

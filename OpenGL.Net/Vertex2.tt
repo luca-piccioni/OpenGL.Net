@@ -56,7 +56,7 @@ namespace OpenGL
 		/// <#= className #> constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="<#= baseType #>"/> that specify the value of every component.
+		/// A <see cref="T:<#= baseType #>"/> that specify the value of every component.
 		/// </param>
 		public <#= className #>(<#= baseType #> v) : this(v, v) { }
 
@@ -64,7 +64,7 @@ namespace OpenGL
 		/// <#= className #> constructor.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="<#= baseType #>[]"/> that specify the value of every component.
+		/// A <see cref="T:<#= baseType #>[]"/> that specify the value of every component.
 		/// </param>
 		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1]) { }
 
@@ -72,10 +72,10 @@ namespace OpenGL
 		/// <#= className #> constructor.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="<#= baseType #>"/> that specify the X coordinate.
+		/// A <see cref="T:<#= baseType #>"/> that specify the X coordinate.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="<#= baseType #>"/> that specify the Y coordinate.
+		/// A <see cref="T:<#= baseType #>"/> that specify the Y coordinate.
 		/// </param>
 		public <#= className #>(<#= baseType #> x, <#= baseType #> y)
 		{
@@ -422,7 +422,7 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="<#= baseType #>[]"/> initialized with the vector components.
+		/// A <see cref="T:<#= baseType #>[]"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator <#= baseType #>[](<#= className #> a)
 		{
@@ -446,7 +446,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -465,7 +465,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex2d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -481,7 +481,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -495,7 +495,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -509,7 +509,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
@@ -523,7 +523,7 @@ namespace OpenGL
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="a">
+		/// <param name="v">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>

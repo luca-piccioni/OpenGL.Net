@@ -48,8 +48,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct <see cref="OpenGL.PixelPrecisionAttribute"/> class.
+		/// Construct <see cref="PixelPrecisionAttribute"/> class.
 		/// </summary>
+		/// <param name="epsilon">
+		/// The precision of the pixel components.
+		/// </param>
 		/// <param name='componentBits'>
 		/// The number of bits assigned to each pixel components.
 		/// </param>
