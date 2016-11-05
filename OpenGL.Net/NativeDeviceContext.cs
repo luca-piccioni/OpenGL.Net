@@ -375,9 +375,7 @@ namespace OpenGL
 			if (ctx == IntPtr.Zero)
 				throw new ArgumentException("ctx");
 
-			Egl.DestroyContext(_Display, ctx);
-
-			return (true);
+			return (Egl.DestroyContext(_Display, ctx));
 		}
 
 		/// <summary>
