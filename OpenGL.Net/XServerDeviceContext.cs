@@ -64,14 +64,14 @@ namespace OpenGL
 			if (windowHandle == IntPtr.Zero)
 				throw new ArgumentException("invalid X window", "windowHandle");
 
+			_Display = display;
+			_WindowHandle = windowHandle;
+
 			// Query GLX extensions
 			QueryVersion();
 
 			if (Version < Glx.Version_130)
 				throw new NotSupportedException("missing GLX 1.3 or greater");
-
-			_Display = display;
-			_WindowHandle = windowHandle;
 		}
 
 		#endregion
