@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+		<id>OpenGL.Net.WinForms</id>
+		<version>0.3.0-beta</version>
+		<title>OpenGL for .Net - WinForms utilities</title>
+		<authors>Luca Piccioni</authors>
+		<owners>Luca Piccioni</owners>
+		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
+		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+		<!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<summary>Modern OpenGL bindings for C# - WinForms utilities.</summary>
+		<description>
+			Modern OpenGL bindings for C#, System.Windows.Forms utilities.
+			
+			It includes an UserControl implementation that ease the OpenGL context creation using WinForms UI designers.
+
+			It supports the following OSes:
+			- MS Windows
+			- GNU/Linux
+			
+			The package depends on OpenGL.Net.
+		</description>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Windows.Forms" />
+		</frameworkAssemblies>
+		<dependencies>
+			<dependency id="OpenGL.Net" version="0.3.0" />
+		</dependencies>
+		<releaseNotes>
+			*** Version 0.3.0
+			- First release. Code extracted from OpenGL.Net.
+		</releaseNotes>
+		<copyright>Copyright 2015-2016</copyright>
+		<tags>WinForms OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+	</metadata>
+	<files>
+		<file src="OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.dll" target="lib/net35" />
+		<file src="OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.xml" target="lib/net35" />
+	</files>
+</package>

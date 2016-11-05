@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net</id>
-		<version>0.3.0</version>
+		<version>0.3.0-beta</version>
 		<title>OpenGL for .Net</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -21,9 +21,6 @@
 			- OpenGL for X11 1.4 (XGL) and relative extensions
 			- Native Platform Interface 1.5 (EGL) and relative extensions
 		</description>
-		<frameworkAssemblies>
-			<frameworkAssembly assemblyName="System.Windows.Forms" />
-		</frameworkAssemblies>
 		<releaseNotes>
 			*** Version 0.3.0
 			- OpenGL.Net has been decoupled from System.Windows.Forms dependency.
@@ -58,11 +55,7 @@
 		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 	</metadata>
 	<files>
-		<file src="bin/Release/OpenGL.Net.dll" target="lib" />
-		<file src="bin/Release/OpenGL.Net.xml" target="lib" />
-		<file src="../OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.dll" target="lib" />
-		<file src="../OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.xml" target="lib" />
-		<file src="../OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.dll" target="lib" />
-		<file src="../OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.xml" target="lib" />
+		<file src="OpenGL.Net/bin/Release/OpenGL.Net.dll" target="lib/net35" />
+		<file src="OpenGL.Net/bin/Release/OpenGL.Net.xml" target="lib/net35" />
 	</files>
 </package>
