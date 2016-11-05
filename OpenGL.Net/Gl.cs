@@ -60,7 +60,7 @@ namespace OpenGL
 			_Delegates = GetDelegateList(typeof(Gl));
 			_ImportMap = GetImportMap(typeof(Gl));
 			// Load procedures (OpenGL desktop by default) @todo Really necessary?
-			LoadProcDelegates(_ImportMap, _Delegates);
+			BindDelegatesGL(_ImportMap, _Delegates);
 
 			KhronosApi.LogComment("OpenGL.Net is initializing");
 
@@ -226,20 +226,52 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Synchronize OpenGL delegates.
+		/// Bind the OpenGL delegates to a specific API.
 		/// </summary>
-		public static void SyncDelegates()
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="version"/> is null.
+		/// </exception>
+		/// <remarks>
+		/// <para>Exact version is not meaninful yet.</para>
+		/// <para>
+		/// Supports:
+		/// - Desktop API (<see cref="KhronosVersion.ApiGl"/>)
+		/// - Embedded API (<see cref="KhronosVersion.ApiGles2"/>)
+		/// </para>
+		/// </remarks>
+		public static void BindAPI(KhronosVersion version)
 		{
-			LoadProcDelegates(_ImportMap, _Delegates);
+			if (version == null)
+				throw new ArgumentNullException("version");
+
+			if (_VersionBinding == version)
+				return;		// Avoid reloading
+
+			switch (version.Api) {
+				case KhronosVersion.ApiGl:
+					// Using wglGetProcAddress/glXGetProcAddress/eglGetProcAddress
+					BindDelegatesGL(_ImportMap, _Delegates);
+					break;
+				case KhronosVersion.ApiGles2:
+					// Using eglGetProcAddress/OS
+					BindDelegatesOS(LibraryEs2, _ImportMap, _Delegates);
+					break;
+				default:
+					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));
+			}
+
+			// Cache value
+			_VersionBinding = version;
 		}
 
 		/// <summary>
-		/// Synchronize OpenGL ES delegates.
+		/// Current API version currently bound on the calling thread.
 		/// </summary>
-		public static void SyncEsDelegates()
-		{
-			LoadProcDelegates(LibraryEs2, _ImportMap, _Delegates);
-		}
+		[ThreadStatic]
+		private static KhronosVersion _VersionBinding;
 
 		/// <summary>
 		/// Default import library.

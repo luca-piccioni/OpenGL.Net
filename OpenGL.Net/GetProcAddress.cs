@@ -21,8 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -30,7 +28,7 @@ namespace OpenGL
 	/// <summary>
 	/// Abtract an interface for interoperating with dynamically loaded libraries.
 	/// </summary>
-	public static class GetProcAddress
+	static class GetProcAddress
 	{
 		#region Static Constructor (Initialization)
 
@@ -113,46 +111,6 @@ namespace OpenGL
 			if (_GetProcAddress == null)
 				throw new PlatformNotSupportedException();
 			return (_GetProcAddress.GetOpenGLProcAddress(function));
-		}
-
-		/// <summary>
-		/// Executes "uname" which returns a string representing the name of the
-		/// underlying Unix kernel.
-		/// </summary>
-		/// <returns>
-		/// "Unix", "Linux", "Darwin" or null.
-		/// </returns>
-		/// <remarks>
-		/// Source code from "Mono: A Developer's Notebook"
-		/// </remarks>
-		private static string DetectUnixKernel()
-		{
-			ProcessStartInfo startInfo = new ProcessStartInfo();
-
-			startInfo.Arguments = "-s";
-			startInfo.RedirectStandardOutput = true;
-			startInfo.RedirectStandardError = true;
-			startInfo.UseShellExecute = false;
-
-			foreach (string unameprog in new string[] { "/usr/bin/uname", "/bin/uname", "uname" }) {
-				// Avoid exception handling
-				if (File.Exists(unameprog) == false)
-					continue;
-
-				try {
-					startInfo.FileName = unameprog;
-					using (Process uname = Process.Start(startInfo)) {
-						return uname.StandardOutput.ReadLine().Trim();
-					}
-				} catch (FileNotFoundException) {
-					// The requested executable doesn't exist, try next one.
-					continue;
-				} catch (System.ComponentModel.Win32Exception) {
-					continue;
-				}
-			}
-
-			return (null);
 		}
 
 		/// <summary>
@@ -491,9 +449,9 @@ namespace OpenGL
 		{
 			IntPtr libraryHandle;
 
-			if (sLibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
+			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
 				libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW);
-				sLibraryHandles.Add(libraryPath, libraryHandle);
+				_LibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
 			if (libraryHandle == IntPtr.Zero)
@@ -510,7 +468,7 @@ namespace OpenGL
 		/// <summary>
 		/// Currently loaded libraries.
 		/// </summary>
-		private static readonly Dictionary<string, IntPtr> sLibraryHandles = new Dictionary<string,IntPtr>();
+		private static readonly Dictionary<string, IntPtr> _LibraryHandles = new Dictionary<string,IntPtr>();
 
 		#endregion
 	}
@@ -682,11 +640,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Static import for egòGetProcAddress.
+		/// Static import for eglGetProcAddress.
 		/// </summary>
 		/// <param name="funcname"></param>
 		/// <returns></returns>
-		[DllImportAttribute("libEGL.dll", EntryPoint = "eglGetProcAddress")]
+		[DllImport(Egl.Library, EntryPoint = "eglGetProcAddress")]
 		public static extern IntPtr GetProcAddress(string funcname);
 
 		#endregion

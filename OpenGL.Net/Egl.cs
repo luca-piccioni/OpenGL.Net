@@ -80,9 +80,8 @@ namespace OpenGL
 			_ImportMap = GetImportMap(typeof(Egl));
 			
 			try {
-				// Load procedures
-				LoadProcDelegates(Library, _ImportMap, _Delegates);
-			} catch { /* Fail-safe */ }
+				BindAPI();
+			} catch { /* Fail-safe (it may fail due Egl access) */ }
 		}
 
 		/// <summary>
@@ -102,12 +101,21 @@ namespace OpenGL
 
 		#endregion
 
-		#region Imports/Delegates Management
+		#region API Binding
+
+		/// <summary>
+		/// Bind Windows GL delegates.
+		/// </summary>
+		private static void BindAPI()
+		{
+			// Using eglGetProcAddress
+			BindDelegatesOS(Library, _ImportMap, _Delegates);
+		}
 
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		private const string Library = "libEGL.dll";
+		internal const string Library = "libEGL.dll";
 
 		/// <summary>
 		/// Imported functions delegates.
@@ -117,14 +125,14 @@ namespace OpenGL
 		/// <summary>
 		/// Build a string->MethodInfo map to speed up extension loading.
 		/// </summary>
-		internal static SortedList<string, MethodInfo> _ImportMap;
+		private static SortedList<string, MethodInfo> _ImportMap;
 
 		#endregion
 
 		#region EGL Availability
 
 		/// <summary>
-		/// Get or set whether <see cref="DeviceContextFactory"/> must create an EGL device context.
+		/// Get whether <see cref="DeviceContextFactory"/> must create an EGL device context.
 		/// </summary>
 		public static bool IsMandatory
 		{
@@ -140,7 +148,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Determine whether EGL layer is avaialable.
+		/// Get whether EGL layer is avaialable.
 		/// </summary>
 		public static bool IsAvailable { get { return (Delegates.peglInitialize != null); } }
 

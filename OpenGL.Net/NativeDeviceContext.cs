@@ -347,7 +347,7 @@ namespace OpenGL
 
 				// Link OpenGL ES procedures on Gl
 				if (ctx != IntPtr.Zero && current == true)
-					Gl.SyncEsDelegates();
+					Gl.BindAPI(Gl.Version_320_ES);
 
 				return (current);
 			} else

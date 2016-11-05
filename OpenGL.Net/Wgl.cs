@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -42,8 +43,8 @@ namespace OpenGL
 			// Cache imports & delegates
 			_Delegates = GetDelegateList(typeof(Wgl));
 			_ImportMap = GetImportMap(typeof(Wgl));
-			// Load procedures
-			LoadProcDelegates(_ImportMap, _Delegates);
+			// Load procedures (using wglGetProcAddress, but falling back to OS since no current context)
+			BindDelegatesGL(_ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -58,16 +59,17 @@ namespace OpenGL
 
 		#endregion
 
-		#region Imports/Delegates Management
+		#region API Binding
 
 		/// <summary>
-		/// Synchronize Windows GL delegates.
+		/// Bind Windows GL delegates.
 		/// </summary>
-		public static void SyncDelegates()
+		private static void BindAPI()
 		{
-			LogComment("Synchronize WGL delegates.");
-			// Load procedures
-			LoadProcDelegates(_ImportMap, _Delegates);
+			Debug.Assert(GetCurrentContext() != IntPtr.Zero, "binding WGL without a current OpenGL context");
+
+			// Using wglGetProcAddress
+			BindDelegatesGL(_ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -145,9 +147,9 @@ namespace OpenGL
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
 				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the actual implementation
-				Gl.SyncDelegates();
+				Gl.BindAPI(Gl.Version_100);
 				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using wglGetprocAddress)
-				SyncDelegates();
+				BindAPI();
 			}
 
 			return (retvalue);

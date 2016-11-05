@@ -64,9 +64,9 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
 		/// </exception>
-		protected static void LoadProcDelegates(ImportMap imports, DelegateList delegates)
+		protected static void BindDelegatesGL(ImportMap imports, DelegateList delegates)
 		{
-			LoadProcDelegates(String.Empty, imports, delegates, delegate(string libpath, string function) {
+			BindDelegates(String.Empty, imports, delegates, delegate(string libpath, string function) {
 				return (GetProcAddress.GetOpenGLAddress(function));
 			});
 		}
@@ -86,9 +86,9 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/> or <paramref name="delegates"/> is null.
 		/// </exception>
-		protected static void LoadProcDelegates(string path, ImportMap imports, DelegateList delegates)
+		protected static void BindDelegatesOS(string path, ImportMap imports, DelegateList delegates)
 		{
-			LoadProcDelegates(path, imports, delegates, delegate(string libpath, string function) {
+			BindDelegates(path, imports, delegates, delegate(string libpath, string function) {
 				return (GetProcAddress.GetAddress(libpath, function));
 			});
 		}
@@ -111,7 +111,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/>, <paramref name="delegates"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
-		private static void LoadProcDelegates(string path, ImportMap imports, DelegateList delegates, GetAddressDelegate getAddress)
+		private static void BindDelegates(string path, ImportMap imports, DelegateList delegates, GetAddressDelegate getAddress)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");

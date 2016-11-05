@@ -41,7 +41,7 @@ namespace OpenGL
 			_Delegates = GetDelegateList(typeof(Glx));
 			_ImportMap = GetImportMap(typeof(Glx));
 			// Load procedures
-			LoadProcDelegates(Library, _ImportMap, _Delegates);
+			BindAPI();
 		}
 
 		/// <summary>
@@ -56,15 +56,15 @@ namespace OpenGL
 
 		#endregion
 
-		#region Imports/Delegates Management
+		#region API Binding
 
 		/// <summary>
-		/// Synchronize X11 delegates.
+		/// Bind X11 delegates.
 		/// </summary>
-		public static void SyncDelegates()
+		private static void BindAPI()
 		{
-			// Load procedures
-			LoadProcDelegates(Library, _ImportMap, _Delegates);
+			// Using OS
+			BindDelegatesOS(Library, _ImportMap, _Delegates);
 		}
 
 		/// <summary>
