@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net</id>
-		<version>0.3.0-beta</version>
+		<version>0.3.2</version>
 		<title>OpenGL for .Net</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
 		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
 		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
-		<!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<summary>Modern OpenGL bindings for C#.</summary>
 		<description>
@@ -22,40 +22,42 @@
 			- Native Platform Interface 1.5 (EGL) and relative extensions
 		</description>
 		<releaseNotes>
-			*** Version 0.3.0
-			- OpenGL.Net has been decoupled from System.Windows.Forms dependency.
-			- OpenGL.GlControl can be found in OpenGL.Net.WinForms.
-			- GLSurfaceView allow to create an OpenGL context on Android, using OpenGL.Net.Xamarin.Android.
+      *** Version 0.3.2
+      - OpenGL.Net has been decoupled from System.Windows.Forms dependency.
+      - OpenGL.GlControl can be found in OpenGL.Net.WinForms.
+      - GLSurfaceView allow to create an OpenGL context on Android, using OpenGL.Net.Xamarin.Android.
 
-			*** Version 0.2.2
-			- Fixed the missing GlControl implementation.
-			- Compiled with Mono 4.2
-			- Removed ANGLE precompiled libraries.
+      *** Version 0.2.2
+      - Fixed the missing GlControl implementation.
+      - Compiled with Mono 4.2
+      - Removed ANGLE precompiled libraries.
 
-			*** Version 0.2.1
-			- Added OpenGL.GlControl, a System.Windows.Forms.UserControl allowing rendering.
-			- OpenGL.Gl static initialization automatically probe versions, extensions and limits of the platform (see Gl.Current*).
-			- Included ANGLE precompiled libraries.
+      *** Version 0.2.1
+      - Added OpenGL.GlControl, a System.Windows.Forms.UserControl allowing rendering.
+      - OpenGL.Gl static initialization automatically probe versions, extensions and limits of the platform (see Gl.Current*).
+      - Included ANGLE precompiled libraries.
 
-			*** Version 0.2.0
-			Exposes the following additional APIs:
-			- OpenGL ES 3.2 and relative extensions
-			- Native Platform Interface 1.5 (EGL) and relative extensions
-			OpenGL ES and EGL APIs has been tested using ANGLE project on Windows platforms.
+      *** Version 0.2.0
+      Exposes the following additional APIs:
+      - OpenGL ES 3.2 and relative extensions
+      - Native Platform Interface 1.5 (EGL) and relative extensions
+      OpenGL ES and EGL APIs has been tested using ANGLE project on Windows platforms.
 
-			*** Version 0.1.0
-			Exposes the following APIs:
-			- OpenGL 4.5 and relative extensions
-			- OpenGL for Windows (WGL) and relative extensions
-			- OpenGL for X11 1.4 (XGL) and relative extensions
-			- Native Platform Interface 1.5 (EGL) and relative extensions
-			This binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
-		</releaseNotes>
+      *** Version 0.1.0
+      Exposes the following APIs:
+      - OpenGL 4.5 and relative extensions
+      - OpenGL for Windows (WGL) and relative extensions
+      - OpenGL for X11 1.4 (XGL) and relative extensions
+      - Native Platform Interface 1.5 (EGL) and relative extensions
+      This binary release is not meant for production use. XGL and EGL public APIs has not been tested properly.
+    </releaseNotes>
 		<copyright>Copyright 2015-2016</copyright>
 		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 	</metadata>
 	<files>
 		<file src="OpenGL.Net/bin/Release/OpenGL.Net.dll" target="lib/net35" />
 		<file src="OpenGL.Net/bin/Release/OpenGL.Net.xml" target="lib/net35" />
+		<file src="OpenGL.Net/bin/Release/OpenGL.Net.dll" target="lib/MonoAndroid" />
+		<file src="OpenGL.Net/bin/Release/OpenGL.Net.xml" target="lib/MonoAndroid" />
 	</files>
 </package>
