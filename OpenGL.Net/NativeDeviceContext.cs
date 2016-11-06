@@ -215,6 +215,16 @@ namespace OpenGL
 		#region DeviceContext Overrides
 
 		/// <summary>
+		/// Get the <see cref="IGetProcAddress"/> to be used for loading OpenGL procedures.
+		/// </summary>
+		public override IGetProcAddress ProcAddressLoader { get { return (_ProcAddressLoader); } }
+
+		/// <summary>
+		/// NativeDeviceContext uses GetProcAddressEgl for loading OpenGL routines.
+		/// </summary>
+		private static readonly IGetProcAddress _ProcAddressLoader = new GetProcAddressEgl();
+
+		/// <summary>
 		/// Create a simple context.
 		/// </summary>
 		/// <returns>
@@ -342,16 +352,59 @@ namespace OpenGL
 		/// </exception>
 		public override bool MakeCurrent(IntPtr ctx)
 		{
+			// Basic implementation
+			bool current = MakeCurrentCore(ctx);
+
+			// Link OpenGL procedures on Gl
+			if ((ctx != IntPtr.Zero) && (current == true))
+				Gl.BindAPI(QueryContextVersion(), ProcAddressLoader);
+
+			return (current);
+		}
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		internal override bool MakeCurrentCore(IntPtr ctx)
+		{
 			if (ctx != IntPtr.Zero) {
-				bool current = Egl.MakeCurrent(_Display, _EglSurface, _EglSurface, ctx);
-
-				// Link OpenGL ES procedures on Gl
-				if (ctx != IntPtr.Zero && current == true)
-					Gl.BindAPI(Gl.Version_320_ES);
-
-				return (current);
+				return (Egl.MakeCurrent(_Display, _EglSurface, _EglSurface, ctx));
 			} else
 				return (Egl.MakeCurrent(_Display, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero));
+		}
+
+		/// <summary>
+		/// Query the version of the current OpenGL context.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// </returns>
+		public override KhronosVersion QueryContextVersion()
+		{
+			IntPtr ctx = Egl.GetCurrentContext();
+			if (ctx == null)
+				throw new InvalidOperationException("no current context");
+
+			// Load minimal Gl functions for querying information
+			IGetProcAddress getProcAddress = _ProcAddressLoader;       // eglGetProcAddress
+
+			Gl.BindAPIFunction(Gl.Library, "glGetString", getProcAddress);
+			Gl.BindAPIFunction(Gl.Library, "glGetError", getProcAddress);
+			Gl.BindAPIFunction(Gl.Library, "glGetIntegerv", getProcAddress);
+
+			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+
+			return (glversion);
 		}
 
 		/// <summary>

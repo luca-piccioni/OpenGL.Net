@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,9 +17,7 @@
 // USA
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -37,11 +35,8 @@ namespace OpenGL
 		/// </summary>
 		static Glx()
 		{
-			// Cache imports & delegates
-			_Delegates = GetDelegateList(typeof(Glx));
-			_ImportMap = GetImportMap(typeof(Glx));
 			// Load procedures
-			BindAPI();
+			BindAPI<Glx>(Library);
 		}
 
 		/// <summary>
@@ -59,28 +54,9 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Bind X11 delegates.
-		/// </summary>
-		private static void BindAPI()
-		{
-			// Using OS
-			BindDelegatesOS(Library, _ImportMap, _Delegates);
-		}
-
-		/// <summary>
 		/// Default import library.
 		/// </summary>
 		private const string Library = "libGL.so.1";
-
-		/// <summary>
-		/// Imported functions delegates.
-		/// </summary>
-		private static List<FieldInfo> _Delegates;
-
-		/// <summary>
-		/// Build a string->MethodInfo map to speed up extension loading.
-		/// </summary>
-		private static readonly SortedList<string, MethodInfo> _ImportMap;
 
 		#endregion
 

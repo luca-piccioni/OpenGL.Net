@@ -431,9 +431,58 @@ namespace OpenGL
 		/// </exception>
 		public override bool MakeCurrent(IntPtr ctx)
 		{
+			// Basic implementation
+			bool current = MakeCurrentCore(ctx);
+
+			// Link OpenGL procedures on Gl
+			if ((ctx != IntPtr.Zero) && (current == true))
+				Gl.BindAPI(QueryContextVersion(), ProcAddressLoader);
+
+			return (current);
+		}
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		internal override bool MakeCurrentCore(IntPtr ctx)
+		{
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
 				return (Glx.MakeCurrent(Display, ctx != IntPtr.Zero ? _WindowHandle : IntPtr.Zero, ctx));
 			}
+		}
+
+		/// <summary>
+		/// Query the version of the current OpenGL context.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// </returns>
+		public override KhronosVersion QueryContextVersion()
+		{
+			IntPtr ctx = Glx.GetCurrentContext();
+			if (ctx == null)
+				throw new InvalidOperationException("no current context");
+
+			// Load minimal Gl functions for querying information
+			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressOS;       // glXGetProcAddress
+
+			Gl.BindAPIFunction(Gl.Library, "glGetString", getProcAddress);
+			Gl.BindAPIFunction(Gl.Library, "glGetError", getProcAddress);
+			Gl.BindAPIFunction(Gl.Library, "glGetIntegerv", getProcAddress);
+
+			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+
+			return (glversion);
 		}
 
 		/// <summary>

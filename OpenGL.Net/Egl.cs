@@ -24,6 +24,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenGL
 {
@@ -73,15 +74,13 @@ namespace OpenGL
 
 			// Include ANGLE path, if any
 			if (anglePath != null && Directory.Exists(anglePath))
-				OpenGL.GetProcAddress.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
-
-			// Cache imports & delegates
-			_Delegates = GetDelegateList(typeof(Egl));
-			_ImportMap = GetImportMap(typeof(Egl));
+				OpenGL.GetProcAddress.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 			
 			try {
-				BindAPI();
-			} catch { /* Fail-safe (it may fail due Egl access) */ }
+				BindAPI<Egl>(Library);
+			} catch (Exception) {
+				/* Fail-safe (it may fail due Egl access) */
+			}
 		}
 
 		/// <summary>
@@ -104,28 +103,10 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Bind Windows GL delegates.
-		/// </summary>
-		private static void BindAPI()
-		{
-			// Using eglGetProcAddress
-			BindDelegatesOS(Library, _ImportMap, _Delegates);
-		}
-
-		/// <summary>
 		/// Default import library.
 		/// </summary>
 		internal const string Library = "libEGL.dll";
-
-		/// <summary>
-		/// Imported functions delegates.
-		/// </summary>
-		private static List<FieldInfo> _Delegates;
-
-		/// <summary>
-		/// Build a string->MethodInfo map to speed up extension loading.
-		/// </summary>
-		private static SortedList<string, MethodInfo> _ImportMap;
+		//internal const string Library = "/usr/lib/arm-linux-gnueabihf/libEGL.so.1";
 
 		#endregion
 
@@ -181,6 +162,92 @@ namespace OpenGL
 			if (error != SUCCESS)
 				throw new EglException(error);
 		}
+
+		#endregion
+
+		#region Procedure Logging
+
+		/// <summary>
+		/// Query <see cref="Egl"/> enumeration names, for logging purposes.
+		/// </summary>
+		/// <remarks>
+		/// After having called this method, the method <see cref="LogFunction"/> will output known enumeration
+		/// names instead of the numerical value.
+		/// </remarks>
+		public static void QueryLogContext()
+		{
+			_LogContext = QueryLogContext(typeof(Egl));
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValue">
+		/// A <see cref="Int32"/> that specifies the enumeration value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/> as hexadecimal value. If the
+		/// name of the enumeration value is detected, it returns the relative OpenGL specification name.
+		/// </returns>
+		protected static new string LogEnumName(int enumValue)
+		{
+			string enumName;
+
+			if (_LogContext.EnumNames != null && _LogContext.EnumNames.TryGetValue(enumValue, out enumName))
+				return (enumName);
+			else
+				return (KhronosApi.LogEnumName(enumValue));
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValues">
+		/// An array of <see cref="Int32"/> that specifies the enumeration values.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValues"/> as hexadecimal value.
+		/// </returns>
+		protected static new string LogEnumName(int[] enumValues)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("{");
+			foreach (int enumValue in enumValues)
+				sb.AppendFormat("{0},", LogEnumName(enumValue));
+			if (enumValues.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
+
+			return (sb.ToString());
+		}
+
+		/// <summary>
+		/// Log an bitmask value.
+		/// </summary>
+		/// <param name="bitmaskName">
+		/// A <see cref="String"/> that specifies the enumeration bitmask name.
+		/// </param>
+		/// <param name="bitmaskValue">
+		/// A <see cref="Int32"/> that specifies the enumeration bitmask value.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="bitmaskValue"/>.
+		/// </returns>
+		protected static new string LogEnumBitmask(string bitmaskName, long bitmaskValue)
+		{
+			Dictionary<long, String> bitmaskNames;
+
+			if (_LogContext.EnumBitmasks.TryGetValue(bitmaskName, out bitmaskNames) == false)
+				return (KhronosApi.LogEnumBitmask(bitmaskName, bitmaskValue));
+
+			return (KhronosApi.LogEnumBitmask(bitmaskValue, bitmaskNames));
+		}
+
+		/// <summary>
+		/// Enumeration names indexed by their value.
+		/// </summary>
+		private static LogContext _LogContext = new LogContext();
 
 		#endregion
 

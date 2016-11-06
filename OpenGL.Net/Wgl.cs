@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,8 @@
 #pragma warning disable 618
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -40,11 +38,8 @@ namespace OpenGL
 		/// </summary>
 		static Wgl()
 		{
-			// Cache imports & delegates
-			_Delegates = GetDelegateList(typeof(Wgl));
-			_ImportMap = GetImportMap(typeof(Wgl));
-			// Load procedures (using wglGetProcAddress, but falling back to OS since no current context)
-			BindDelegatesGL(_ImportMap, _Delegates);
+			// Load procedures
+			BindAPI<Wgl>(Library);
 		}
 
 		/// <summary>
@@ -69,23 +64,13 @@ namespace OpenGL
 			Debug.Assert(GetCurrentContext() != IntPtr.Zero, "binding WGL without a current OpenGL context");
 
 			// Using wglGetProcAddress
-			BindDelegatesGL(_ImportMap, _Delegates);
+			BindAPI<Wgl>(Library);
 		}
 
 		/// <summary>
 		/// Default import library.
 		/// </summary>
 		private const string Library = "opengl32.dll";
-
-		/// <summary>
-		/// Build a string->MethodInfo map to speed up extension loading.
-		/// </summary>
-		internal static SortedList<string, MethodInfo> _ImportMap;
-
-		/// <summary>
-		/// Imported functions delegates.
-		/// </summary>
-		private static List<FieldInfo> _Delegates;
 
 		#endregion
 
@@ -147,7 +132,7 @@ namespace OpenGL
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
 				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the actual implementation
-				Gl.BindAPI(Gl.Version_100);
+				// Gl.BindAPI(Gl.Version_100, OpenGL.GetProcAddress.GetProcAddressOS);
 				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using wglGetprocAddress)
 				BindAPI();
 			}

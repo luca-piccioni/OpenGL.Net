@@ -213,7 +213,7 @@ namespace OpenGL
 					case PlatformID.Win32Windows:
 					case PlatformID.Win32NT:
 					case PlatformID.Win32S:
-						memoryCopyPtr = GetProcAddress.GetAddress("msvcrt.dll", "memcpy");
+						memoryCopyPtr = GetProcAddress.GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
 						if (memoryCopyPtr != IntPtr.Zero) {
 							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
 							return;
@@ -221,7 +221,7 @@ namespace OpenGL
 						
 						throw new NotSupportedException("no suitable memcpy support");
 					case PlatformID.Unix:
-						memoryCopyPtr = GetProcAddress.GetAddress("libc.so.6", "memcpy");
+						memoryCopyPtr = GetProcAddress.GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
 						if (memoryCopyPtr != IntPtr.Zero) {
 							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
 							return;
@@ -278,7 +278,7 @@ namespace OpenGL
 				return;
 
 			try {
-				getCpuInformationPtr = GetProcAddress.GetAddress(AssemblyPath, "GetCpuInformation");	
+				getCpuInformationPtr = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, "GetCpuInformation");	
 			} catch { /* Ignore exception, leave 'getCpuInformationPtr' equals to 'IntPtr.Zero' */ }
 
 			// No CPU information? Ahi ahi ahi
@@ -298,7 +298,7 @@ namespace OpenGL
 					// Test for SSSE3 support
 					if ((cpuInfo.SimdSupport & SimdTechnology.SSSE3) != 0) {
 						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSSE3");
-						IntPtr address = GetProcAddress.GetAddress(AssemblyPath, entryPoint);
+						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
 
 						if (address != IntPtr.Zero) {
 							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
@@ -309,7 +309,7 @@ namespace OpenGL
 					// Test for SSE3 support
 					if ((cpuInfo.SimdSupport & SimdTechnology.SSE3) != 0) {
 						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSE3");
-						IntPtr address = GetProcAddress.GetAddress(AssemblyPath, entryPoint);
+						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
 
 						if (address != IntPtr.Zero) {
 							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
@@ -320,7 +320,7 @@ namespace OpenGL
 					// Test for SSE2 support
 					if ((cpuInfo.SimdSupport & SimdTechnology.SSE2) != 0) {
 						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSE2");
-						IntPtr address = GetProcAddress.GetAddress(AssemblyPath, entryPoint);
+						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
 
 						if (address != IntPtr.Zero) {
 							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
@@ -331,7 +331,7 @@ namespace OpenGL
 					// Test for SSE support
 					if ((cpuInfo.SimdSupport & SimdTechnology.SSE) != 0) {
 						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSE");
-						IntPtr address = GetProcAddress.GetAddress(AssemblyPath, entryPoint);
+						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
 
 						if (address != IntPtr.Zero) {
 							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
@@ -342,7 +342,7 @@ namespace OpenGL
 					// Test for MMX support
 					if ((cpuInfo.SimdSupport & SimdTechnology.MMX) != 0) {
 						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "MMX");
-						IntPtr address = GetProcAddress.GetAddress(AssemblyPath, entryPoint);
+						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
 
 						if (address != IntPtr.Zero) {
 							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));

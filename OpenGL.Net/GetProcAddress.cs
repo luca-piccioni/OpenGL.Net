@@ -30,93 +30,51 @@ namespace OpenGL
 	/// </summary>
 	static class GetProcAddress
 	{
-		#region Static Constructor (Initialization)
+		#region Constructors
 
 		/// <summary>
 		/// Static constructor.
 		/// </summary>
 		static GetProcAddress()
 		{
-			if (Egl.IsRequired == false) {
-				switch (Platform.CurrentPlatformId) {
-					case Platform.Id.WindowsNT:
-						_GetProcAddress = new GetProcAddressWindows();
-						break;
-					case Platform.Id.Linux:
-						_GetProcAddress = new GetProcAddressX11();
-						break;
-					case Platform.Id.MacOS:
-						_GetProcAddress = new GetProcAddressOSX();
-						break;
-					case Platform.Id.Android:
-						_GetProcAddress = new GetProcAddressEgl();
-						break;
-					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
-				}
-			} else {
-				_GetProcAddress = new GetProcAddressEgl();
-			}
+			_GetProcAddressOS = Create();
 		}
 
 		#endregion
 
-		#region Static Implementation of IGetProcAddress
+		#region Singleton Factory
 
 		/// <summary>
-		/// Add a path of a directory as additional path for searching libraries.
+		/// Get the most appropriate <see cref="IGetProcAddress"/> for the current platform.
 		/// </summary>
-		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
-		/// <see cref="GetProcAddress(string, string)"/> method.
-		/// </param>
-		public static void AddLibraryDirectory(string libraryDirPath)
-		{
-			if (_GetProcAddress == null)
-				throw new PlatformNotSupportedException();
-			_GetProcAddress.AddLibraryDirectory(libraryDirPath);
-		}
+		public static IGetProcAddress GetProcAddressOS { get { return (_GetProcAddressOS); } }
 
 		/// <summary>
-		/// Retrieves the entry point for a dynamically exported function from any valid assembly.
+		/// Most appropriate <see cref="IGetProcAddress"/> for the current platform.
 		/// </summary>
-		/// <param name="path">
-		/// A <see cref="String"/> that specifies the path of the assembly file.
-		/// </param>
-		/// <param name="function">
-		/// The function string for the OpenGL function (i.e. "GetProcAddress")
-		/// </param>
+		private static readonly IGetProcAddress _GetProcAddressOS;
+
+		/// <summary>
+		/// Create an <see cref="IGetProcAddress"/> for the hosting platform.
+		/// </summary>
 		/// <returns>
-		/// An IntPtr contaning the address for the entry point, or IntPtr.Zero if the specified
-		/// function is not dynamically exported.
+		/// It returns the most appropriate <see cref="IGetProcAddress"/> for the current platform.
 		/// </returns>
-		public static IntPtr GetAddress(string path, string function)
+		private static IGetProcAddress Create()
 		{
-			if (_GetProcAddress == null)
-				throw new PlatformNotSupportedException();
-			return (_GetProcAddress.GetProcAddress(path, function));
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					return new GetProcAddressWindows();
+				case Platform.Id.Linux:
+					return new GetProcAddressX11();
+				case Platform.Id.MacOS:
+					return new GetProcAddressOSX();
+				case Platform.Id.Android:
+					return new GetProcAddressEgl();
+				default:
+					throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+			}
 		}
-
-
-		/// <summary>
-		/// Retrieves the entry point for a dynamically exported OpenGL function.
-		/// </summary>
-		/// <param name="function">The function string for the OpenGL function (eg. "glNewList")</param>
-		/// <returns>
-		/// An IntPtr contaning the address for the entry point, or IntPtr.Zero if the specified
-		/// OpenGL function is not dynamically exported.
-		/// </returns>
-		public static IntPtr GetOpenGLAddress(string function)
-		{
-			if (_GetProcAddress == null)
-				throw new PlatformNotSupportedException();
-			return (_GetProcAddress.GetOpenGLProcAddress(function));
-		}
-
-		/// <summary>
-		/// Interface for loading external symbols.
-		/// </summary>
-		private static IGetProcAddress _GetProcAddress;
 
 		#endregion
 	}
@@ -124,7 +82,7 @@ namespace OpenGL
 	/// <summary>
 	/// Interface implemented by those classes which are able to get function pointers from dynamically loaded libraries.
 	/// </summary>
-	interface IGetProcAddress
+	public interface IGetProcAddress
 	{
 		/// <summary>
 		/// Add a path of a directory as additional path for searching libraries.
@@ -305,10 +263,7 @@ namespace OpenGL
 			KhronosApi.LogFunction("wglGetProcAddress({0}) = 0x{1}", function, procAddress.ToString("X8"));
 #endif
 
-			if (procAddress == IntPtr.Zero)
-				return (GetProcAddress(Library, function));
-			else
-				return (procAddress);
+			return (procAddress);
 		}
 
 		/// <summary>

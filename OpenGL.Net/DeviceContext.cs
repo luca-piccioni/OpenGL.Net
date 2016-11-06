@@ -21,7 +21,7 @@ using System;
 namespace OpenGL
 {
 	/// <summary>
-	/// Device context.
+	/// Abstract device context.
 	/// </summary>
 	public abstract class DeviceContext : IDisposable
 	{
@@ -51,7 +51,7 @@ namespace OpenGL
 		/// </exception>
 		internal static INativeWindow CreateWindow()
 		{
-			if (Egl.IsMandatory == false) {
+			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
 						return (new WindowsDeviceContext.NativeWindow());
@@ -160,6 +160,11 @@ namespace OpenGL
 		#region Platform Methods
 
 		/// <summary>
+		/// Get the <see cref="IGetProcAddress"/> to be used for loading OpenGL procedures.
+		/// </summary>
+		public virtual IGetProcAddress ProcAddressLoader { get { return (GetProcAddress.GetProcAddressOS); } }
+
+		/// <summary>
 		/// Create a simple context.
 		/// </summary>
 		/// <returns>
@@ -222,6 +227,29 @@ namespace OpenGL
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
 		public abstract bool MakeCurrent(IntPtr ctx);
+
+		/// <summary>
+		/// Query the version of the current OpenGL context.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// </returns>
+		public abstract KhronosVersion QueryContextVersion();
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		internal abstract bool MakeCurrentCore(IntPtr ctx);
 
 		/// <summary>
 		/// Deletes a context.

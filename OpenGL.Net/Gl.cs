@@ -56,13 +56,19 @@ namespace OpenGL
 				return; // Already initialized
 			_Initialized = true;
 
-			// Cache imports & delegates
-			_Delegates = GetDelegateList(typeof(Gl));
-			_ImportMap = GetImportMap(typeof(Gl));
-			// Load procedures (OpenGL desktop by default) @todo Really necessary?
-			BindDelegatesGL(_ImportMap, _Delegates);
+			LogComment("OpenGL.Net is initializing");
 
-			KhronosApi.LogComment("OpenGL.Net is initializing");
+			// Loader function			OS API			GL API
+			// ------------------------------------------------------
+			// Supported platform: Windows
+			// wglGetProcAddress		WGL				GL
+			// eglGetProcAddress		EGL(Angle)		GLES2+
+			// ------------------------------------------------------
+			// Supported platform: Linux
+			// glXGetProcAddress		GLX				GL
+			// ------------------------------------------------------
+			// Supported platform: Android
+			// eglGetProcAddress		EGL				GLES2+
 
 			// Create temporary context for getting preliminary information on desktop systems
 			using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
@@ -73,13 +79,19 @@ namespace OpenGL
 					if (renderContext == IntPtr.Zero)
 						throw new NotImplementedException("unable to create a simple context");
 
-					// Query OpenGL informations
-					if (windowDevice.MakeCurrent(renderContext) == false)
+					// Make contect current
+					if (windowDevice.MakeCurrentCore(renderContext) == false)
 						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
 
-					// Obtain current OpenGL implementation
-					string glVersion = GetString(StringName.Version);
-					_CurrentVersion = KhronosVersion.Parse(glVersion);
+					// Query context version
+					KhronosVersion glVersion = windowDevice.QueryContextVersion();
+
+					// Loading function pointers
+					BindAPI(glVersion, windowDevice.ProcAddressLoader);
+
+					// Query OpenGL informations
+
+					_CurrentVersion = glVersion;
 
 					// Obtain current OpenGL Shading Language version
 					string glslVersion = GetString(StringName.ShadingLanguageVersion);
@@ -107,7 +119,7 @@ namespace OpenGL
 				}
 			}
 
-			KhronosApi.LogComment("OpenGL.net has been initialized");
+			LogComment("OpenGL.net has been initialized");
 		}
 
 		/// <summary>
@@ -231,8 +243,11 @@ namespace OpenGL
 		/// <param name="version">
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
 		/// </param>
+		/// <param name="getProcAddress">
+		/// The <see cref="IGetProcAddress"/> used for loading function pointers.
+		/// </param>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="version"/> is null.
+		/// Exception thrown if <paramref name="version"/> or <paramref name="getProcAddress"/> is null.
 		/// </exception>
 		/// <remarks>
 		/// <para>Exact version is not meaninful yet.</para>
@@ -242,56 +257,39 @@ namespace OpenGL
 		/// - Embedded API (<see cref="KhronosVersion.ApiGles2"/>)
 		/// </para>
 		/// </remarks>
-		public static void BindAPI(KhronosVersion version)
+		public static void BindAPI(KhronosVersion version, IGetProcAddress getProcAddress)
 		{
 			if (version == null)
 				throw new ArgumentNullException("version");
-
-			if (_VersionBinding == version)
-				return;		// Avoid reloading
+			if (getProcAddress == null)
+				throw new ArgumentNullException("getProcAddress");
 
 			switch (version.Api) {
 				case KhronosVersion.ApiGl:
-					// Using wglGetProcAddress/glXGetProcAddress/eglGetProcAddress
-					BindDelegatesGL(_ImportMap, _Delegates);
+					BindAPI<Gl>(Library, getProcAddress);
 					break;
 				case KhronosVersion.ApiGles2:
-					// Using eglGetProcAddress/OS
-					BindDelegatesOS(LibraryEs2, _ImportMap, _Delegates);
+					BindAPI<Gl>(LibraryEs2, getProcAddress);
 					break;
 				default:
 					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));
 			}
+		}
 
-			// Cache value
-			_VersionBinding = version;
+		internal static void BindAPIFunction(string path, string functionName, IGetProcAddress getProcAddress)
+		{
+			BindAPIFunction<Gl>(path, functionName, getProcAddress);
 		}
 
 		/// <summary>
-		/// Current API version currently bound on the calling thread.
+		/// Default import library.
 		/// </summary>
-		[ThreadStatic]
-		private static KhronosVersion _VersionBinding;
+		internal const string Library = "opengl32.dll";
 
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		private const string Library = "opengl32.dll";
-
-		/// <summary>
-		/// Default import library.
-		/// </summary>
-		private const string LibraryEs2 = "libGLESv2.dll";
-
-		/// <summary>
-		/// Imported functions delegates.
-		/// </summary>
-		private static List<FieldInfo> _Delegates;
-
-		/// <summary>
-		/// Build a string->MethodInfo map to speed up extension loading.
-		/// </summary>
-		internal static SortedList<string, MethodInfo> _ImportMap;
+		internal const string LibraryEs2 = "libGLESv2.dll";
 
 		#endregion
 

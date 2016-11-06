@@ -50,7 +50,7 @@ namespace OpenGL
 		/// <param name="path"></param>
 		/// <param name="function"></param>
 		/// <returns></returns>
-		private delegate IntPtr GetAddressDelegate(string path, string function);
+		protected delegate IntPtr GetAddressDelegate(string path, string function);
 
 		/// <summary>
 		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
@@ -64,19 +64,14 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
 		/// </exception>
-		protected static void BindDelegatesGL(ImportMap imports, DelegateList delegates)
+		protected static void BindAPI<T>(string path)
 		{
-			BindDelegates(String.Empty, imports, delegates, delegate(string libpath, string function) {
-				return (GetProcAddress.GetOpenGLAddress(function));
-			});
+			BindAPI<T>(path, GetProcAddress.GetProcAddressOS);
 		}
 
 		/// <summary>
-		/// Link delegates fields using import declarations, using platform standard method for determining procesures addresses.
+		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
 		/// </summary>
-		/// <param name="path">
-		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
-		/// </param>
 		/// <param name="imports">
 		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
 		/// </param>
@@ -84,12 +79,65 @@ namespace OpenGL
 		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/> or <paramref name="delegates"/> is null.
+		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
 		/// </exception>
-		protected static void BindDelegatesOS(string path, ImportMap imports, DelegateList delegates)
+		internal static void BindAPI<T>(string path, IGetProcAddress getProcAddress)
 		{
-			BindDelegates(path, imports, delegates, delegate(string libpath, string function) {
-				return (GetProcAddress.GetAddress(libpath, function));
+			BindAPI<T>(path, delegate(string libpath, string function) {
+				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
+				IntPtr procAddress = getProcAddress.GetOpenGLProcAddress(function);
+
+				if (procAddress == IntPtr.Zero)
+					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
+
+				return (procAddress);
+			});
+		}
+
+		/// <summary>
+		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
+		/// </summary>
+		internal static void BindAPIFunction<T>(string path, string functionName)
+		{
+			BindAPIFunction<T>(path, functionName, GetProcAddress.GetProcAddressOS);
+		}
+
+		/// <summary>
+		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
+		/// </summary>
+		internal static void BindAPIFunction<T>(string path, string functionName, IGetProcAddress getProcAddress)
+		{
+			if (path == null)
+				throw new ArgumentNullException("path");
+			if (functionName == null)
+				throw new ArgumentNullException("function");
+			if (getProcAddress == null)
+				throw new ArgumentNullException("getAddress");
+
+			FunctionContext functionContext = GetFunctionContext(typeof(T));
+
+			Debug.Assert(functionContext != null);
+			if (functionContext == null)
+				throw new InvalidOperationException("unrecognized API type");
+
+			Type delegatesClass = typeof(T).GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			FieldInfo functionField = delegatesClass.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(functionField != null);
+			if (functionField == null)
+				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
+
+			BindAPIFunction(path, functionContext, functionField, delegate (string libpath, string function) {
+				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
+				IntPtr procAddress = getProcAddress.GetOpenGLProcAddress(function);
+
+				if (procAddress == IntPtr.Zero)
+					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
+
+				return (procAddress);
 			});
 		}
 
@@ -111,48 +159,81 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/>, <paramref name="delegates"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
-		private static void BindDelegates(string path, ImportMap imports, DelegateList delegates, GetAddressDelegate getAddress)
+		private static void BindAPI<T>(string path, GetAddressDelegate getAddress)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
-			if (imports == null)
-				throw new ArgumentNullException("importMap");
-			if (delegates == null)
-				throw new ArgumentNullException("delegates");
 			if (getAddress == null)
 				throw new ArgumentNullException("getAddress");
 
-			foreach (FieldInfo fi in delegates) {
-				Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(fi, typeof(AliasOfAttribute));
-				string importName = fi.Name.Substring(1);           // Delegate name always prefixes with 'p'
-				IntPtr importAddress = IntPtr.Zero;
+			FunctionContext functionContext = GetFunctionContext(typeof(T));
 
-				// Manages aliases (load external symbol)
-				if (aliasOfAttributes.Length > 0) {
-					for (int i = 0; i < aliasOfAttributes.Length; i++) {
-						AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
-						if ((importAddress = getAddress(path, aliasOfAttribute.SymbolName)) != IntPtr.Zero)
-							break;
-					}
-				} else
-					importAddress = getAddress(path, importName);
+			Debug.Assert(functionContext != null);
+			if (functionContext == null)
+				throw new InvalidOperationException("unrecognized API type");
 
-				if (importAddress != IntPtr.Zero) {
-					Delegate delegatePtr;
+			foreach (FieldInfo fi in functionContext.Delegates)
+				BindAPIFunction(path, functionContext, fi, getAddress);
+		}
 
-					// Try to load external symbol
-					if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, fi.FieldType)) == null) {
-						MethodInfo methodInfo;
+		/// <summary>
+		/// Link delegates fields using import declarations.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
+		/// </param>
+		/// <param name="functionContext">
+		/// A <see cref="FunctionContext"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="FieldInfo"/> that specifies the underlying function field to be updated.
+		/// </param>
+		/// <param name="getAddress">
+		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="path"/>, <paramref name="function"/> or <paramref name="getAddress"/> is null.
+		/// </exception>
+		private static void BindAPIFunction(string path, FunctionContext functionContext, FieldInfo function, GetAddressDelegate getAddress)
+		{
+			if (path == null)
+				throw new ArgumentNullException("path");
+			if (functionContext == null)
+				throw new ArgumentNullException("functionContext");
+			if (function == null)
+				throw new ArgumentNullException("function");
+			if (getAddress == null)
+				throw new ArgumentNullException("getAddress");
 
-						if (imports.TryGetValue(importName, out methodInfo) == true)
-							delegatePtr = Delegate.CreateDelegate(fi.FieldType, methodInfo);
-					}
+			Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(function, typeof(AliasOfAttribute));
+			string importName = function.Name.Substring(1);           // Delegate name always prefixes with 'p'
+			IntPtr importAddress = IntPtr.Zero;
 
-					if (delegatePtr != null)
-						fi.SetValue(null, delegatePtr);
-				} else
-					fi.SetValue(null, null);				// Function not implemented
-			}
+			// Manages aliases (load external symbol)
+			if (aliasOfAttributes.Length > 0) {
+				for (int i = 0; i < aliasOfAttributes.Length; i++) {
+					AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
+					if ((importAddress = getAddress(path, aliasOfAttribute.SymbolName)) != IntPtr.Zero)
+						break;
+				}
+			} else
+				importAddress = getAddress(path, importName);
+
+			if (importAddress != IntPtr.Zero) {
+				Delegate delegatePtr;
+
+				// Try to load external symbol
+				if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, function.FieldType)) == null) {
+					MethodInfo methodInfo;
+
+					if (functionContext.Imports.TryGetValue(importName, out methodInfo) == true)
+						delegatePtr = Delegate.CreateDelegate(function.FieldType, methodInfo);
+				}
+
+				if (delegatePtr != null)
+					function.SetValue(null, delegatePtr);
+			} else
+				function.SetValue(null, null);				// Function not implemented
 		}
 
 		/// <summary>
@@ -204,6 +285,87 @@ namespace OpenGL
 
 			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
 		}
+
+		/// <summary>
+		/// Get the delegate method for the specified type and function tuple.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="Type"/> that specifies the type used for detecting delegates declarations.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="String"/> function that specifies the function name.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="FieldInfo"/> for <paramref name="type"/>.
+		/// </returns>
+		protected static FieldInfo GetFunctionDelegate(Type type, string function)
+		{
+			if (type == null)
+				throw new ArgumentNullException("type");
+			if (function == null)
+				throw new ArgumentNullException("function");
+
+			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			return (delegatesClass.GetField(function, BindingFlags.Static | BindingFlags.NonPublic));
+		}
+
+		/// <summary>
+		/// Get the <see cref="FunctionContext"/> corresponding to a specific type.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="Type"/> that specifies the type used for loading function pointers.
+		/// </param>
+		/// <returns></returns>
+		private static FunctionContext GetFunctionContext(Type type)
+		{
+			FunctionContext functionContext;
+
+			if (_FunctionContext.TryGetValue(type, out functionContext))
+				return (functionContext);
+
+			functionContext = new FunctionContext(type);
+			_FunctionContext.Add(type, functionContext);
+
+			return (functionContext);
+		}
+
+		/// <summary>
+		/// Information required for loading function pointers.
+		/// </summary>
+		private class FunctionContext
+		{
+			/// <summary>
+			/// Construct a FunctionContext on a specific <see cref="Type"/>.
+			/// </summary>
+			/// <param name="type"></param>
+			public FunctionContext(Type type)
+			{
+				if (type == null)
+					throw new ArgumentNullException("type");
+
+				Imports = GetImportMap(type);
+				Delegates = GetDelegateList(type);
+			}
+
+			/// <summary>
+			/// The import methods map for the underlying type.
+			/// </summary>
+			public readonly ImportMap Imports;
+
+			/// <summary>
+			/// The delegate fields list for the underlying type.
+			/// </summary>
+			public readonly DelegateList Delegates;
+		}
+
+		/// <summary>
+		/// Mapping between <see cref="FunctionContext"/> and the underlying <see cref="Type"/>.
+		/// </summary>
+		private static readonly Dictionary<Type, FunctionContext> _FunctionContext = new Dictionary<Type, FunctionContext>();
 
 		#endregion
 
