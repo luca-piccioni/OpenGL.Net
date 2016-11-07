@@ -37,7 +37,7 @@ namespace OpenGL
 		/// </summary>
 		static GetProcAddress()
 		{
-			_GetProcAddressOS = Create();
+			_GetProcAddressOS = CreateOS();
 		}
 
 		#endregion
@@ -60,7 +60,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the most appropriate <see cref="IGetProcAddress"/> for the current platform.
 		/// </returns>
-		private static IGetProcAddress Create()
+		private static IGetProcAddress CreateOS()
 		{
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.WindowsNT:
@@ -76,13 +76,27 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the most appropriate <see cref="IGetProcAddress"/> for for loading OpenGL functions.
+		/// </summary>
+		public static IGetProcAddress GetProcAddressGL
+		{
+			get
+			{
+				if (Egl.IsRequired == false) {
+					return (_GetProcAddressOS);
+				} else
+					return (GetProcAddressEgl.Instance);
+			}
+		}
+
 		#endregion
 	}
 
 	/// <summary>
 	/// Interface implemented by those classes which are able to get function pointers from dynamically loaded libraries.
 	/// </summary>
-	public interface IGetProcAddress
+	interface IGetProcAddress
 	{
 		/// <summary>
 		/// Add a path of a directory as additional path for searching libraries.
@@ -532,6 +546,15 @@ namespace OpenGL
 	/// </summary>
 	class GetProcAddressEgl : IGetProcAddress
 	{
+		#region Singleton
+
+		/// <summary>
+		/// The <see cref="GetProcAddressEgl"/> singleton instance.
+		/// </summary>
+		public static readonly IGetProcAddress Instance = new GetProcAddressEgl();
+
+		#endregion
+
 		#region IGetProcAddress Implementation
 
 		/// <summary>
