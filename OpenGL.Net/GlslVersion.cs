@@ -155,7 +155,7 @@ namespace OpenGL
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
-			return (new GlslVersion(versionMajor, versionMinor, versionRev));
+			return (new GlslVersion(versionMajor, versionMinor, versionRev, KhronosVersion.ApiGlsl));
 		}
 
 		#endregion
