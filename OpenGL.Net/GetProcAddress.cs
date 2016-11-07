@@ -84,7 +84,15 @@ namespace OpenGL
 			get
 			{
 				if (Egl.IsRequired == false) {
-					return (_GetProcAddressOS);
+					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.MacOS:
+							if (Glx.IsRequired)
+								return (GetProcAddressX11.Instance);
+							else
+								return (_GetProcAddressOS);
+						default:
+								return (_GetProcAddressOS);
+					}
 				} else
 					return (GetProcAddressEgl.Instance);
 			}
@@ -327,6 +335,15 @@ namespace OpenGL
 	/// </summary>
 	class GetProcAddressX11 : IGetProcAddress
 	{
+		#region Singleton
+
+		/// <summary>
+		/// The <see cref="GetProcAddressEgl"/> singleton instance.
+		/// </summary>
+		public static readonly IGetProcAddress Instance = new GetProcAddressX11();
+
+		#endregion
+
 		#region X11 Platform Imports
 
 		unsafe static class UnsafeNativeMethods
@@ -345,7 +362,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region IGetProcAdress Imports
+		#region IGetProcAdress Implementation
 
 		/// <summary>
 		/// Add a path of a directory as additional path for searching libraries.

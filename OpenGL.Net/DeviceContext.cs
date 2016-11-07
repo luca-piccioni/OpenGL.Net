@@ -57,6 +57,11 @@ namespace OpenGL
 						return (new WindowsDeviceContext.NativeWindow());
 					case Platform.Id.Linux:
 						return (new XServerDeviceContext.NativeWindow());
+					case Platform.Id.MacOS:
+						if (Glx.IsRequired)
+							return (new XServerDeviceContext.NativeWindow());
+						else
+							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
@@ -88,6 +93,11 @@ namespace OpenGL
 						return (new WindowsDeviceContext(windowHandle));
 					case Platform.Id.Linux:
 						return (new XServerDeviceContext(display, windowHandle));
+					case Platform.Id.MacOS:
+						if (Glx.IsRequired)
+							return (new XServerDeviceContext(display, windowHandle));
+						else
+							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
@@ -332,6 +342,11 @@ namespace OpenGL
 						return (Wgl.GetCurrentContext());
 					case Platform.Id.Linux:
 						return (Glx.GetCurrentContext());
+					case Platform.Id.MacOS:
+						if (Glx.IsRequired)
+							return (Glx.GetCurrentContext());
+						else
+							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
