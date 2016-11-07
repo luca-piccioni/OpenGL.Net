@@ -436,7 +436,7 @@ namespace OpenGL
 
 			// Link OpenGL procedures on Gl
 			if ((ctx != IntPtr.Zero) && (current == true))
-				Gl.BindAPI(QueryContextVersion(), ProcAddressLoader);
+				Gl.BindAPI();
 
 			return (current);
 		}
@@ -459,30 +459,6 @@ namespace OpenGL
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
 				return (Glx.MakeCurrent(Display, ctx != IntPtr.Zero ? _WindowHandle : IntPtr.Zero, ctx));
 			}
-		}
-
-		/// <summary>
-		/// Query the version of the current OpenGL context.
-		/// </summary>
-		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
-		/// </returns>
-		public override KhronosVersion QueryContextVersion()
-		{
-			IntPtr ctx = Glx.GetCurrentContext();
-			if (ctx == null)
-				throw new InvalidOperationException("no current context");
-
-			// Load minimal Gl functions for querying information
-			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressOS;       // glXGetProcAddress
-
-			Gl.BindAPIFunction(Gl.Library, "glGetString", getProcAddress);
-			Gl.BindAPIFunction(Gl.Library, "glGetError", getProcAddress);
-			Gl.BindAPIFunction(Gl.Library, "glGetIntegerv", getProcAddress);
-
-			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-
-			return (glversion);
 		}
 
 		/// <summary>

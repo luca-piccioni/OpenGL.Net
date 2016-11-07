@@ -160,11 +160,6 @@ namespace OpenGL
 		#region Platform Methods
 
 		/// <summary>
-		/// Get the <see cref="IGetProcAddress"/> to be used for loading OpenGL procedures.
-		/// </summary>
-		public virtual IGetProcAddress ProcAddressLoader { get { return (GetProcAddress.GetProcAddressOS); } }
-
-		/// <summary>
 		/// Create a simple context.
 		/// </summary>
 		/// <returns>
@@ -227,14 +222,6 @@ namespace OpenGL
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
 		public abstract bool MakeCurrent(IntPtr ctx);
-
-		/// <summary>
-		/// Query the version of the current OpenGL context.
-		/// </summary>
-		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
-		/// </returns>
-		public abstract KhronosVersion QueryContextVersion();
 
 		/// <summary>
 		/// Makes the context current on the calling thread.
@@ -315,6 +302,59 @@ namespace OpenGL
 		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
 		/// </param>
 		public abstract void SetPixelFormat(DevicePixelFormat pixelFormat);
+
+		#endregion
+
+		#region Context Version
+
+		/// <summary>
+		/// Get the OpenGL context current on the calling thread.
+		/// </summary>
+		/// <returns>
+		/// It returns the handle of the OpenGL context current on the calling thread. It may return <see cref="IntPtr.Zero"/>
+		/// indicating that no OpenGL context is current.
+		/// </returns>
+		public static IntPtr GetCurrentContext()
+		{
+			if (Egl.IsRequired == false) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						return (Wgl.GetCurrentContext());
+					case Platform.Id.Linux:
+						return (Glx.GetCurrentContext());
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+				}
+			} else
+				return (Egl.GetCurrentContext());
+		}
+
+		/// <summary>
+		/// Query the version of the current OpenGL context.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// </returns>
+		internal static KhronosVersion QueryContextVersion()
+		{
+			IntPtr ctx = GetCurrentContext();
+			if (ctx == null)
+				throw new InvalidOperationException("no current context");
+
+			// Load minimal Gl functions for querying information
+			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
+
+			Gl.BindAPIFunction(Gl.Library, "glGetError", getProcAddress);
+			Gl.BindAPIFunction(Gl.Library, "glGetString", getProcAddress);
+			//Gl.BindAPIFunction(Gl.Library, "glGetIntegerv", getProcAddress);
+
+			// Parse version string (effective for detecting Desktop and ES contextes)
+			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+
+			// ATM do not support fancy context creation flags
+
+			return (glversion);
+		}
 
 		#endregion
 

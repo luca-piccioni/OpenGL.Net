@@ -215,16 +215,6 @@ namespace OpenGL
 		#region DeviceContext Overrides
 
 		/// <summary>
-		/// Get the <see cref="IGetProcAddress"/> to be used for loading OpenGL procedures.
-		/// </summary>
-		public override IGetProcAddress ProcAddressLoader { get { return (_ProcAddressLoader); } }
-
-		/// <summary>
-		/// NativeDeviceContext uses GetProcAddressEgl for loading OpenGL routines.
-		/// </summary>
-		private static readonly IGetProcAddress _ProcAddressLoader = new GetProcAddressEgl();
-
-		/// <summary>
 		/// Create a simple context.
 		/// </summary>
 		/// <returns>
@@ -357,7 +347,7 @@ namespace OpenGL
 
 			// Link OpenGL procedures on Gl
 			if ((ctx != IntPtr.Zero) && (current == true))
-				Gl.BindAPI(QueryContextVersion(), ProcAddressLoader);
+				Gl.BindAPI();
 
 			return (current);
 		}
@@ -381,30 +371,6 @@ namespace OpenGL
 				return (Egl.MakeCurrent(_Display, _EglSurface, _EglSurface, ctx));
 			} else
 				return (Egl.MakeCurrent(_Display, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero));
-		}
-
-		/// <summary>
-		/// Query the version of the current OpenGL context.
-		/// </summary>
-		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
-		/// </returns>
-		public override KhronosVersion QueryContextVersion()
-		{
-			IntPtr ctx = Egl.GetCurrentContext();
-			if (ctx == null)
-				throw new InvalidOperationException("no current context");
-
-			// Load minimal Gl functions for querying information
-			IGetProcAddress getProcAddress = _ProcAddressLoader;       // eglGetProcAddress
-
-			Gl.BindAPIFunction(Gl.Library, "glGetString", getProcAddress);
-			Gl.BindAPIFunction(Gl.Library, "glGetError", getProcAddress);
-			Gl.BindAPIFunction(Gl.Library, "glGetIntegerv", getProcAddress);
-
-			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-
-			return (glversion);
 		}
 
 		/// <summary>
