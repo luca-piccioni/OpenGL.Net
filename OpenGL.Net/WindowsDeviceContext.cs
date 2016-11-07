@@ -394,14 +394,8 @@ namespace OpenGL
 			if (ctx == currentContext && DeviceContext == currentDc)
 				return (true);
 
-			// Basic implementation
-			bool current = MakeCurrentCore(ctx);
-
-			// Link OpenGL procedures on Gl
-			if ((ctx != IntPtr.Zero) && (current == true))
-				Gl.BindAPI();
-
-			return (current);
+			// Base implementation
+			return (base.MakeCurrent(ctx));
 		}
 
 		/// <summary>
@@ -417,7 +411,7 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		internal override bool MakeCurrentCore(IntPtr ctx)
+		protected override bool MakeCurrentCore(IntPtr ctx)
 		{
 			return (Wgl.MakeCurrent(DeviceContext, ctx));
 		}

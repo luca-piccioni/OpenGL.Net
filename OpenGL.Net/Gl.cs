@@ -79,12 +79,9 @@ namespace OpenGL
 					if (renderContext == IntPtr.Zero)
 						throw new NotImplementedException("unable to create a simple context");
 
-					// Make contect current XXX
-					if (windowDevice.MakeCurrentCore(renderContext) == false)
+					// Make contect current
+					if (windowDevice.MakeCurrent(renderContext) == false)
 						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
-
-					// Loading function pointers
-					BindAPI();
 
 					// Query OpenGL informations
 					string glVersion = GetString(StringName.Version);

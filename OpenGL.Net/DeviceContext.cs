@@ -221,7 +221,17 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public abstract bool MakeCurrent(IntPtr ctx);
+		public virtual bool MakeCurrent(IntPtr ctx)
+		{
+			// Basic implementation
+			bool current = MakeCurrentCore(ctx);
+
+			// Link OpenGL procedures on Gl
+			if ((ctx != IntPtr.Zero) && (current == true))
+				Gl.BindAPI();
+
+			return (current);
+		}
 
 		/// <summary>
 		/// Makes the context current on the calling thread.
@@ -236,7 +246,7 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		internal abstract bool MakeCurrentCore(IntPtr ctx);
+		protected abstract bool MakeCurrentCore(IntPtr ctx);
 
 		/// <summary>
 		/// Deletes a context.

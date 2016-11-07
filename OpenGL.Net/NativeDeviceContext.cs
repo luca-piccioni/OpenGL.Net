@@ -340,32 +340,7 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public override bool MakeCurrent(IntPtr ctx)
-		{
-			// Basic implementation
-			bool current = MakeCurrentCore(ctx);
-
-			// Link OpenGL procedures on Gl
-			if ((ctx != IntPtr.Zero) && (current == true))
-				Gl.BindAPI();
-
-			return (current);
-		}
-
-		/// <summary>
-		/// Makes the context current on the calling thread.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
-		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the operation was successful.
-		/// </returns>
-		/// <exception cref="NotSupportedException">
-		/// Exception thrown if the current platform is not supported.
-		/// </exception>
-		internal override bool MakeCurrentCore(IntPtr ctx)
+		protected override bool MakeCurrentCore(IntPtr ctx)
 		{
 			if (ctx != IntPtr.Zero) {
 				return (Egl.MakeCurrent(_Display, _EglSurface, _EglSurface, ctx));
