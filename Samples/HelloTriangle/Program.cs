@@ -19,6 +19,8 @@
 using System;
 using System.Windows.Forms;
 
+using OpenGL;
+
 namespace HelloTriangle
 {
 	static class Program
@@ -29,6 +31,10 @@ namespace HelloTriangle
 		[STAThread]
 		static void Main()
 		{
+			//KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
+			//	Console.WriteLine(format, args);
+			//});
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new SampleForm());
