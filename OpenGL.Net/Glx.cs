@@ -84,13 +84,7 @@ namespace OpenGL
 		/// </summary>
 		public static bool IsRequired
 		{
-			get
-			{
-				switch (Platform.CurrentPlatformId) {
-					default:
-						return (_IsRequired && IsAvailable);
-				}
-			}
+			get { return (_IsRequired && IsAvailable); }
 			set { _IsRequired = value; }
 		}
 
