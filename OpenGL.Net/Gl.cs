@@ -79,19 +79,16 @@ namespace OpenGL
 					if (renderContext == IntPtr.Zero)
 						throw new NotImplementedException("unable to create a simple context");
 
-					// Make contect current
+					// Make contect current XXX
 					if (windowDevice.MakeCurrentCore(renderContext) == false)
 						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
 
-					// Query context version
-					KhronosVersion glVersion = windowDevice.QueryContextVersion();
-
 					// Loading function pointers
-					BindAPI(glVersion, windowDevice.ProcAddressLoader);
+					BindAPI();
 
 					// Query OpenGL informations
-
-					_CurrentVersion = glVersion;
+					string glVersion = GetString(StringName.Version);
+					_CurrentVersion = KhronosVersion.Parse(glVersion);
 
 					// Obtain current OpenGL Shading Language version
 					string glslVersion = GetString(StringName.ShadingLanguageVersion);
@@ -238,6 +235,14 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
+		/// Bind the OpenGL delegates for the API corresponding to the current OpenGL context.
+		/// </summary>
+		public static void BindAPI()
+		{
+			BindAPI(DeviceContext.QueryContextVersion(), GetProcAddress.GetProcAddressGL);
+		}
+
+		/// <summary>
 		/// Bind the OpenGL delegates to a specific API.
 		/// </summary>
 		/// <param name="version">
@@ -257,7 +262,7 @@ namespace OpenGL
 		/// - Embedded API (<see cref="KhronosVersion.ApiGles2"/>)
 		/// </para>
 		/// </remarks>
-		public static void BindAPI(KhronosVersion version, IGetProcAddress getProcAddress)
+		private static void BindAPI(KhronosVersion version, IGetProcAddress getProcAddress)
 		{
 			if (version == null)
 				throw new ArgumentNullException("version");

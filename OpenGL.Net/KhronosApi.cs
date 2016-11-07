@@ -64,23 +64,6 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
 		/// </exception>
-		protected static void BindAPI<T>(string path)
-		{
-			BindAPI<T>(path, GetProcAddress.GetProcAddressOS);
-		}
-
-		/// <summary>
-		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
-		/// </summary>
-		/// <param name="imports">
-		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
-		/// </param>
-		/// <param name="delegates">
-		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
-		/// </exception>
 		internal static void BindAPI<T>(string path, IGetProcAddress getProcAddress)
 		{
 			BindAPI<T>(path, delegate(string libpath, string function) {

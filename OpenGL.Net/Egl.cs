@@ -77,7 +77,7 @@ namespace OpenGL
 				OpenGL.GetProcAddress.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 			
 			try {
-				BindAPI<Egl>(Library);
+				BindAPI<Egl>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
 			} catch (Exception) {
 				/* Fail-safe (it may fail due Egl access) */
 			}

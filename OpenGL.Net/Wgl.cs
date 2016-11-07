@@ -39,7 +39,7 @@ namespace OpenGL
 		static Wgl()
 		{
 			// Load procedures
-			BindAPI<Wgl>(Library);
+			BindAPI<Wgl>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
 		}
 
 		/// <summary>
@@ -64,7 +64,7 @@ namespace OpenGL
 			Debug.Assert(GetCurrentContext() != IntPtr.Zero, "binding WGL without a current OpenGL context");
 
 			// Using wglGetProcAddress
-			BindAPI<Wgl>(Library);
+			BindAPI<Wgl>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
 		}
 
 		/// <summary>

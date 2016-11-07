@@ -36,7 +36,7 @@ namespace OpenGL
 		static Glx()
 		{
 			// Load procedures
-			BindAPI<Glx>(Library);
+			BindAPI<Glx>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
 		}
 
 		/// <summary>
