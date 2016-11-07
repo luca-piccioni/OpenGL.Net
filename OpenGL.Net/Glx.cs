@@ -35,9 +35,30 @@ namespace OpenGL
 		/// </summary>
 		static Glx()
 		{
-			// Load procedures
-			BindAPI<Glx>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
+			Initialize();
 		}
+
+		/// <summary>
+		/// Initialize OpenGL namespace static environment. This method shall be called before any other classes methods.
+		/// </summary>
+		public static void Initialize()
+		{
+			if (_Initialized == true)
+				return; // Already initialized
+			_Initialized = true;
+
+			// Load procedures
+			try {
+				BindAPI<Glx>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
+			} catch (Exception) {
+				/* Fail-safe (it may fail due Egl access) */
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether <see cref="Glx"/> has been initialized.
+		/// </summary>
+		private static bool _Initialized;
 
 		/// <summary>
 		/// OpenGL extension support.
@@ -52,6 +73,31 @@ namespace OpenGL
 		#endregion
 
 		#region API Binding
+
+		/// <summary>
+		/// Get whether GLX layer is avaialable.
+		/// </summary>
+		public static bool IsAvailable { get { return (Delegates.pglXCreateContext != null); } }
+
+		/// <summary>
+		/// Get or set whether <see cref="DeviceContextFactory"/> should create an GLX device context, if available.
+		/// </summary>
+		public static bool IsRequired
+		{
+			get
+			{
+				switch (Platform.CurrentPlatformId) {
+					default:
+						return (_IsRequired && IsAvailable);
+				}
+			}
+			set { _IsRequired = value; }
+		}
+
+		/// <summary>
+		/// Flag for requesting an EGL device context, if available.
+		/// </summary>
+		private static bool _IsRequired;
 
 		/// <summary>
 		/// Default import library.

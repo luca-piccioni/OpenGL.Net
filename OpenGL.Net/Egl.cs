@@ -76,6 +76,7 @@ namespace OpenGL
 			if (anglePath != null && Directory.Exists(anglePath))
 				OpenGL.GetProcAddress.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 			
+			// Load procedures
 			try {
 				BindAPI<Egl>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
 			} catch (Exception) {
@@ -84,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Flag indicating whether <see cref="Gl"/> has been initialized.
+		/// Flag indicating whether <see cref="Egl"/> has been initialized.
 		/// </summary>
 		private static bool _Initialized;
 
@@ -103,32 +104,6 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Default import library.
-		/// </summary>
-		internal const string Library = "libEGL.dll";
-		//internal const string Library = "/usr/lib/arm-linux-gnueabihf/libEGL.so.1";
-
-		#endregion
-
-		#region EGL Availability
-
-		/// <summary>
-		/// Get whether <see cref="DeviceContextFactory"/> must create an EGL device context.
-		/// </summary>
-		public static bool IsMandatory
-		{
-			get
-			{
-				switch (Platform.CurrentPlatformId) {
-					case Platform.Id.Android:
-						return (true);
-					default:
-						return (false);
-				}
-			}
-		}
-
-		/// <summary>
 		/// Get whether EGL layer is avaialable.
 		/// </summary>
 		public static bool IsAvailable { get { return (Delegates.peglInitialize != null); } }
@@ -138,7 +113,15 @@ namespace OpenGL
 		/// </summary>
 		public static bool IsRequired
 		{
-			get { return ((_IsRequired && IsAvailable) || IsMandatory); }
+			get
+			{
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.Android:
+						return (true);
+					default:
+						return (_IsRequired && IsAvailable);
+				}
+			}
 			set { _IsRequired = value; }
 		}
 
@@ -146,6 +129,12 @@ namespace OpenGL
 		/// Flag for requesting an EGL device context, if available.
 		/// </summary>
 		private static bool _IsRequired;
+
+		/// <summary>
+		/// Default import library.
+		/// </summary>
+		internal const string Library = "libEGL.dll";
+		//internal const string Library = "/usr/lib/arm-linux-gnueabihf/libEGL.so.1";
 
 		#endregion
 
