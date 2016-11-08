@@ -37,7 +37,7 @@ namespace OpenGL.Test
 			if (IsWglExtensionSupported("WGL_ARB_pixel_format") == false)
 				Assert.Inconclusive("OpenGL extension WGL_ARB_pixel_format not supported");
 
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)_DeviceContext;
+			DeviceContextWGL winDeviceContext = (DeviceContextWGL)_DeviceContext;
 
 			#region List the attributes to query
 

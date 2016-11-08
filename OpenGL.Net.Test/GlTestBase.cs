@@ -55,15 +55,15 @@ namespace OpenGL.Test
 				_GlExtensions.Query();
 				// Get OpenGL window system extensions
 				// Windows OpenGL extensions
-				WindowsDeviceContext windowsDeviceContext = _DeviceContext as WindowsDeviceContext;
+				DeviceContextWGL windowsDeviceContext = _DeviceContext as DeviceContextWGL;
 				if (windowsDeviceContext != null)
 					_WglExtensions.Query(windowsDeviceContext);
 				// GLX OpenGL extensions
-				XServerDeviceContext xserverDeviceContext = _DeviceContext as XServerDeviceContext;
+				DeviceContextGLX xserverDeviceContext = _DeviceContext as DeviceContextGLX;
 				if (xserverDeviceContext != null)
 					_GlxExtensions.Query(xserverDeviceContext);
 				// EGL OpenGL extensions
-				NativeDeviceContext nativeDeviceContext = _DeviceContext as NativeDeviceContext;
+				DeviceContextEGL nativeDeviceContext = _DeviceContext as DeviceContextEGL;
 				if (nativeDeviceContext != null)
 					_EglExtensions.Query(nativeDeviceContext);
 				

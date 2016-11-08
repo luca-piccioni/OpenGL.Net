@@ -37,7 +37,7 @@ namespace OpenGL.Test
 			if (Wgl.HasGetExtensionsStringARB == false)
 				Assert.Inconclusive("WGL_ARB_extensions_string not supported");
 
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)_DeviceContext;
+			DeviceContextWGL winDeviceContext = (DeviceContextWGL)_DeviceContext;
 
 			string extensions = Wgl.GetExtensionsStringARB(winDeviceContext.DeviceContext);
 
