@@ -27,7 +27,7 @@ using System.Text;
 namespace OpenGL
 {
 	/// <summary>
-	/// Modern OpenGL bindings.
+	/// WGL (GL for Windows) window system interface.
 	/// </summary>
 	public partial class Wgl : KhronosApi
 	{

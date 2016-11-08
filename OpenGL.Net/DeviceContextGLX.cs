@@ -25,14 +25,14 @@ namespace OpenGL
 	/// <summary>
 	///Device context for Unix-based platforms.
 	/// </summary>
-	sealed class XServerDeviceContext : DeviceContext
+	sealed class DeviceContextGLX : DeviceContext
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Initializes the <see cref="XServerDeviceContext"/> class.
+		/// Initializes the <see cref="DeviceContextGLX"/> class.
 		/// </summary>
-		static XServerDeviceContext()
+		static DeviceContextGLX()
 		{
 			// Be notified about XServer errors
 			Glx.UnsafeNativeMethods.XSetErrorHandler(XServerErrorHandler);
@@ -57,7 +57,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if the current Mono runtime has not yet opened a display connection.
 		/// </exception>
-		public XServerDeviceContext(IntPtr display, IntPtr windowHandle)
+		public DeviceContextGLX(IntPtr display, IntPtr windowHandle)
 		{
 			if (display == IntPtr.Zero)
 				throw new ArgumentException("invalid X display", "display");

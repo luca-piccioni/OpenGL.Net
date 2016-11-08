@@ -54,19 +54,19 @@ namespace OpenGL
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new WindowsDeviceContext.NativeWindow());
+						return (new DeviceContextWGL.NativeWindow());
 					case Platform.Id.Linux:
-						return (new XServerDeviceContext.NativeWindow());
+						return (new DeviceContextGLX.NativeWindow());
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new XServerDeviceContext.NativeWindow());
+							return (new DeviceContextGLX.NativeWindow());
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else
-				return (new NativeDeviceContext.NativeWindow());
+				return (new DeviceContextEGL.NativeWindow());
 		}
 
 		/// <summary>
@@ -90,19 +90,19 @@ namespace OpenGL
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new WindowsDeviceContext(windowHandle));
+						return (new DeviceContextWGL(windowHandle));
 					case Platform.Id.Linux:
-						return (new XServerDeviceContext(display, windowHandle));
+						return (new DeviceContextGLX(display, windowHandle));
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new XServerDeviceContext(display, windowHandle));
+							return (new DeviceContextGLX(display, windowHandle));
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
 			} else
-				return (new NativeDeviceContext(windowHandle));
+				return (new DeviceContextEGL(windowHandle));
 		}
 
 		#endregion

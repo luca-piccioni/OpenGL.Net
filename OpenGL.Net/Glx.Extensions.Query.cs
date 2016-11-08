@@ -31,9 +31,9 @@ namespace OpenGL
 			/// Query the extensions supported by current platform.
 			/// </summary>
 			/// <param name="deviceContext">
-			/// A <see cref="XServerDeviceContext"/> that specifies the device context to query extensions for.
+			/// A <see cref="DeviceContextGLX"/> that specifies the device context to query extensions for.
 			/// </param>
-			internal void Query(XServerDeviceContext deviceContext)
+			internal void Query(DeviceContextGLX deviceContext)
 			{
 				if (deviceContext == null)
 					throw new ArgumentNullException("deviceContext");

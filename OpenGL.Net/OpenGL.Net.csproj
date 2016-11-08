@@ -500,7 +500,7 @@
     <Compile Include="MESA\Glx.MESA_set_3dfx_mode.cs" />
     <Compile Include="ModelMatrix.cs" />
     <Compile Include="ModelMatrixDouble.cs" />
-    <Compile Include="NativeDeviceContext.cs" />
+    <Compile Include="DeviceContextEGL.cs" />
     <Compile Include="NOK\Egl.NOK_texture_from_pixmap.cs" />
     <Compile Include="NVX\Gl.NVX_conditional_render.cs" />
     <Compile Include="NVX\Gl.NVX_gpu_memory_info.cs" />
@@ -774,10 +774,10 @@
     <Compile Include="Wgl.Versions.cs" />
     <Compile Include="Wgl.VERSION_1_0.cs" />
     <Compile Include="WglException.cs" />
-    <Compile Include="WindowsDeviceContext.cs" />
+    <Compile Include="DeviceContextWGL.cs" />
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
     <Compile Include="WIN\Gl.WIN_specular_fog.cs" />
-    <Compile Include="XServerDeviceContext.cs" />
+    <Compile Include="DeviceContextGLX.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_device_d3d.cs" />
     <Compile Include="EXT\Egl.EXT_device_enumeration.cs" />
     <Compile Include="EXT\Egl.EXT_device_query.cs" />

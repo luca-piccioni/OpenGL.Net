@@ -31,12 +31,12 @@ namespace OpenGL
 			/// Query the extensions supported by current platform.
 			/// </summary>
 			/// <param name="deviceContext">
-			/// A <see cref="WindowsDeviceContext"/> that specifies the device context to query extensions for.
+			/// A <see cref="DeviceContextWGL"/> that specifies the device context to query extensions for.
 			/// </param>
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="deviceContext"/> is null.
 			/// </exception>
-			internal void Query(WindowsDeviceContext deviceContext)
+			internal void Query(DeviceContextWGL deviceContext)
 			{
 				if (deviceContext == null)
 					throw new ArgumentNullException("deviceContext");

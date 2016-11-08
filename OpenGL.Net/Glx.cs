@@ -24,7 +24,7 @@ using System.Text;
 namespace OpenGL
 {
 	/// <summary>
-	/// Modern OpenGL bindings.
+	/// GLX (GL for X) window system interface.
 	/// </summary>
 	public partial class Glx : KhronosApi
 	{
@@ -114,9 +114,9 @@ namespace OpenGL
 			IntPtr display = GetCurrentDisplay();
 			Debug.Assert(display != IntPtr.Zero);
 
-			lock (XServerDeviceContext._DisplayErrorsLock) {
+			lock (DeviceContextGLX._DisplayErrorsLock) {
 				Exception glxException;
-				if (XServerDeviceContext._DisplayErrors.TryGetValue(display, out glxException) == true)
+				if (DeviceContextGLX._DisplayErrors.TryGetValue(display, out glxException) == true)
 					throw glxException;
 			}
 		}
@@ -1824,7 +1824,7 @@ namespace OpenGL
 					throw new ArgumentException("invalid", "display");
 				_LockedDisplay = display;
 
-				if (XServerDeviceContext.IsMultithreadingInitialized)
+				if (DeviceContextGLX.IsMultithreadingInitialized)
 					UnsafeNativeMethods.XLockDisplay(_LockedDisplay);
 			}
 
@@ -1839,7 +1839,7 @@ namespace OpenGL
 			/// </remarks>
 			public void Dispose()
 			{
-				if (XServerDeviceContext.IsMultithreadingInitialized)
+				if (DeviceContextGLX.IsMultithreadingInitialized)
 					UnsafeNativeMethods.XUnlockDisplay(_LockedDisplay);
 			}
 
