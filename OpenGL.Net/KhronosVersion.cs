@@ -372,9 +372,9 @@ namespace OpenGL
 				throw new ArgumentNullException("input");
 
 			// Determine version value (support up to 3 version numbers)
-			Match versionMatch = Regex.Match(input, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?( .*)?");
+			Match versionMatch = Regex.Match(input, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?");
 			if (versionMatch.Success == false)
-				throw new ArgumentException("unrecognized pattern", "input");
+				throw new ArgumentException(String.Format("unrecognized pattern '{0}'", input), "input");
 
 			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);

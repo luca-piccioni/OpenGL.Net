@@ -24,12 +24,12 @@ namespace OpenGL
 	/// <summary>
 	/// Native Platform Interface (EGL) device context.
 	/// </summary>
-	sealed class NativeDeviceContext : DeviceContext
+	sealed class DeviceContextEGL : DeviceContext
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="NativeDeviceContext"/> class.
+		/// Initializes a new instance of the <see cref="DeviceContextEGL"/> class.
 		/// </summary>
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context. If it is <see cref="IntPtr.Zero"/>
@@ -38,7 +38,7 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public NativeDeviceContext(IntPtr windowHandle)
+		public DeviceContextEGL(IntPtr windowHandle)
 		{
 			if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get display handle");

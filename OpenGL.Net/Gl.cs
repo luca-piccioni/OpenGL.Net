@@ -266,21 +266,40 @@ namespace OpenGL
 			if (getProcAddress == null)
 				throw new ArgumentNullException("getProcAddress");
 
-			switch (version.Api) {
-				case KhronosVersion.ApiGl:
-					BindAPI<Gl>(Library, getProcAddress);
-					break;
-				case KhronosVersion.ApiGles2:
-					BindAPI<Gl>(LibraryEs2, getProcAddress);
-					break;
-				default:
-					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));
-			}
+			BindAPI<Gl>(GetPlatformLibrary(version), getProcAddress);
 		}
 
 		internal static void BindAPIFunction(string path, string functionName, IGetProcAddress getProcAddress)
 		{
 			BindAPIFunction<Gl>(path, functionName, getProcAddress);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="version"></param>
+		/// <returns></returns>
+		private static string GetPlatformLibrary(KhronosVersion version)
+		{
+			switch (version.Api) {
+				case KhronosVersion.ApiGl:
+					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.Linux:
+							return ("libGL.so.1");
+						case Platform.Id.MacOS:
+							return ("/usr/X11/lib/libGL.1.dylib");
+						default:
+							// EGL ignore library name
+							return ("opengl32.dll");
+					}
+				case KhronosVersion.ApiGles2:
+					switch (Platform.CurrentPlatformId) {
+						default:
+							return ("libGLESv2.dll");
+					}
+				default:
+					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));
+			}
 		}
 
 		/// <summary>

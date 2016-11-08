@@ -139,6 +139,9 @@ namespace OpenGL
 						Glx.DRAWABLE_TYPE, (int)Glx.WINDOW_BIT,
 						Glx.RENDER_TYPE, (int)Glx.RGBA_BIT,
 						Glx.DOUBLEBUFFER,  unchecked((int)Glx.DONT_CARE),
+						Glx.RED_SIZE, 1,
+						Glx.GREEN_SIZE, 1,
+						Glx.BLUE_SIZE, 1,
 						0
 					};
 
@@ -158,6 +161,9 @@ namespace OpenGL
 						KhronosApi.LogComment("Choosen visual is {0}", visual);
 
 						Glx.XFree((IntPtr)choosenConfigs);
+
+						_InternalConfig = config;
+						_InternalVisual = visual;
 					}
 
 					Glx.XSetWindowAttributes setWindowAttrs = new Glx.XSetWindowAttributes();
@@ -179,6 +185,10 @@ namespace OpenGL
 					throw;
 				}
 			}
+
+			internal static IntPtr _InternalConfig;
+
+			internal static Glx.XVisualInfo _InternalVisual;
 
 			#endregion
 
@@ -358,6 +368,12 @@ namespace OpenGL
 
 			// Get the FB configuration associated to the native window
 			Glx.QueryDrawable(_Display, _WindowHandle, Glx.FBCONFIG_ID, windowFBConfigId);
+
+			if (windowFBConfigId[0] == 0) {
+				KhronosApi.LogComment("Glx.QueryDrawable cannot query Glx.FBCONFIG_ID. Query manually.");
+
+				return (NativeWindow._InternalVisual);
+			}
 
 			unsafe {
 				int[] attributes = new int[] {

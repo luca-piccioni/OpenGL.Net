@@ -40,12 +40,12 @@ namespace OpenGL
 	/// <summary>
 	/// Device context for MS Windows platform.
 	/// </summary>
-	sealed class WindowsDeviceContext : DeviceContext
+	sealed class DeviceContextWGL : DeviceContext
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="WindowsDeviceContext"/> class.
+		/// Initializes a new instance of the <see cref="DeviceContextWGL"/> class.
 		/// </summary>
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
-		public WindowsDeviceContext(IntPtr windowHandle)
+		public DeviceContextWGL(IntPtr windowHandle)
 		{
 			if (windowHandle == IntPtr.Zero)
 				throw new ArgumentException("null handle", "windowHandle");
