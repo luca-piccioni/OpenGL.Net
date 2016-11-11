@@ -251,14 +251,6 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="version"/> or <paramref name="getProcAddress"/> is null.
 		/// </exception>
-		/// <remarks>
-		/// <para>Exact version is not meaninful yet.</para>
-		/// <para>
-		/// Supports:
-		/// - Desktop API (<see cref="KhronosVersion.ApiGl"/>)
-		/// - Embedded API (<see cref="KhronosVersion.ApiGles2"/>)
-		/// </para>
-		/// </remarks>
 		private static void BindAPI(KhronosVersion version, IGetProcAddress getProcAddress)
 		{
 			if (version == null)
@@ -269,16 +261,32 @@ namespace OpenGL
 			BindAPI<Gl>(GetPlatformLibrary(version), getProcAddress);
 		}
 
-		internal static void BindAPIFunction(string path, string functionName, IGetProcAddress getProcAddress)
+		/// <summary>
+		/// Bind a single OpenGL delegates to a specific API.
+		/// </summary>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
+		/// </param>
+		/// <param name="getProcAddress">
+		/// The <see cref="IGetProcAddress"/> used for loading function pointers.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="version"/>, <paramref name="functionName"/> or <paramref name="getProcAddress"/> is null.
+		/// </exception>
+		internal static void BindAPIFunction(KhronosVersion version, string functionName, IGetProcAddress getProcAddress)
 		{
-			BindAPIFunction<Gl>(path, functionName, getProcAddress);
+			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, getProcAddress);
 		}
 
 		/// <summary>
-		/// 
+		/// Get the library name used for loading OpenGL functions.
 		/// </summary>
-		/// <param name="version"></param>
-		/// <returns></returns>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that specifies the library name to be used.
+		/// </returns>
 		private static string GetPlatformLibrary(KhronosVersion version)
 		{
 			switch (version.Api) {
@@ -290,12 +298,14 @@ namespace OpenGL
 							return ("/usr/X11/lib/libGL.1.dylib");
 						default:
 							// EGL ignore library name
-							return ("opengl32.dll");
+							return (Library);
 					}
 				case KhronosVersion.ApiGles2:
 					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.Linux:
+							return ("libGLESv1_CM.so.1");	// XXX
 						default:
-							return ("libGLESv2.dll");
+							return (LibraryEs2);
 					}
 				default:
 					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));

@@ -165,19 +165,6 @@ namespace OpenGL
 			}
 		}
 
-		private int[] DefaultSurfaceAttribs
-		{
-			get
-			{
-				List<int> surfaceAttribs = new List<int>();
-
-				surfaceAttribs.Add(Egl.NONE);
-				// Egl.RENDER_BUFFER, Egl.BACK_BUFFER,
-
-				return (surfaceAttribs.ToArray());
-			}
-		}
-
 		#endregion
 
 		#region Window Factory
@@ -238,7 +225,7 @@ namespace OpenGL
 				throw new InvalidOperationException("no available configuration");
 
 			int[] contextAttribs = DefaultContextAttribs;
-			int[] surfaceAttribs = DefaultSurfaceAttribs;
+			int[] surfaceAttribs = new int[] { Egl.NONE };
 
 			if ((ctx = Egl.CreateContext(Display, configs[0], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
@@ -316,13 +303,16 @@ namespace OpenGL
 
 		private void CreateWindowSurface()
 		{
-			int[] surfaceAttribs = DefaultSurfaceAttribs;
-
 			if (_WindowHandle != IntPtr.Zero) {
-				if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs)) == IntPtr.Zero)
+				List<int> surfaceAttribs = new List<int>();
+
+				surfaceAttribs.AddRange(new int[] { Egl.RENDER_BUFFER, Egl.BACK_BUFFER });
+				surfaceAttribs.Add(Egl.NONE);
+
+				if ((_EglSurface = Egl.CreateWindowSurface(_Display, _Config, _WindowHandle, surfaceAttribs.ToArray())) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create window surface");
 			} else {
-				if ((_EglSurface = Egl.CreatePbufferSurface(_Display, _Config, surfaceAttribs)) == IntPtr.Zero)
+				if ((_EglSurface = Egl.CreatePbufferSurface(_Display, _Config, new int[] { Egl.NONE })) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create PBuffer surface");
 			}
 		}
@@ -377,7 +367,13 @@ namespace OpenGL
 		/// </summary>
 		public override void SwapBuffers()
 		{
-			Egl.SwapBuffers(_Display, _EglSurface);
+			int[] attrib = new int[1];
+
+			if (Egl.QuerySurface(_Display, _EglSurface, Egl.RENDER_BUFFER, attrib) == false)
+				attrib[0] = Egl.BACK_BUFFER;		// eglSwapBuffers have no effects
+
+			if (attrib[0] == Egl.BACK_BUFFER)
+				Egl.SwapBuffers(_Display, _EglSurface);
 		}
 
 		/// <summary>
@@ -454,10 +450,6 @@ namespace OpenGL
 					pixelFormat.RgbaUnsigned = true;
 					pixelFormat.RenderWindow = true;
 					pixelFormat.RenderBuffer = false;
-
-					// Double buffer and swap method can be determined only later, once the pixel format is set
-					pixelFormat.DoubleBuffer = false;
-					pixelFormat.SwapMethod = 0;
 
 					if (Egl.GetConfigAttrib(_Display, config, Egl.BUFFER_SIZE, out param) == false)
 						throw new InvalidOperationException("unable to get configuration parameter BUFFER_SIZE");
@@ -561,6 +553,11 @@ namespace OpenGL
 							pixelFormat.RenderWindow = false;
 					}
 
+					// Double buffer and swap method can be determined only later, once the pixel format is set
+					pixelFormat.DoubleBuffer = true;
+					pixelFormat.SwapMethod = 0;
+
+					// 
 					_PixelFormatCache.Add(pixelFormat);
 				}
 
@@ -616,10 +613,10 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				//if (_EglSurface != IntPtr.Zero) {
-				//	Egl.DestroySurface(_Display, _EglSurface);
-				//	_EglSurface = IntPtr.Zero;
-				//}
+				if (_EglSurface != IntPtr.Zero) {
+					Egl.DestroySurface(_Display, _EglSurface);
+					_EglSurface = IntPtr.Zero;
+				}
 				if (_Display != IntPtr.Zero) {
 					Egl.Terminate(_Display);
 					_Display = IntPtr.Zero;

@@ -78,7 +78,7 @@ namespace OpenGL
 			
 			// Load procedures
 			try {
-				BindAPI<Egl>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
+				BindAPI<Egl>(GetPlatformLibrary(), OpenGL.GetProcAddress.GetProcAddressOS);
 			} catch (Exception) {
 				/* Fail-safe (it may fail due Egl access) */
 			}
@@ -129,6 +129,22 @@ namespace OpenGL
 		/// Flag for requesting an EGL device context, if available.
 		/// </summary>
 		private static bool _IsRequired;
+
+		/// <summary>
+		/// Get the library name used for loading OpenGL functions.
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="String"/> that specifies the library name to be used.
+		/// </returns>
+		private static string GetPlatformLibrary()
+		{
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.Linux:
+					return ("/usr/lib/arm-linux-gnueabihf/libEGL.so.1");
+				default:
+					return (Library);
+			}
+		}
 
 		/// <summary>
 		/// Default import library.

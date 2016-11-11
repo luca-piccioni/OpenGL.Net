@@ -369,9 +369,13 @@ namespace OpenGL
 			// Load minimal Gl functions for querying information
 			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
 
-			Gl.BindAPIFunction(Gl.Library, "glGetError", getProcAddress);
-			Gl.BindAPIFunction(Gl.Library, "glGetString", getProcAddress);
-			//Gl.BindAPIFunction(Gl.Library, "glGetIntegerv", getProcAddress);
+			if (Egl.IsRequired == false) {
+				Gl.BindAPIFunction(Gl.Version_100, "glGetError", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_100, "glGetString", getProcAddress);
+			} else {
+				Gl.BindAPIFunction(Gl.Version_320_ES, "glGetError", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_320_ES, "glGetString", getProcAddress);
+			}
 
 			// Parse version string (effective for detecting Desktop and ES contextes)
 			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
