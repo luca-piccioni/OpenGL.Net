@@ -441,10 +441,17 @@ namespace OpenGL
 			controlReqFormat.DepthBits = (int)DepthBits;
 			controlReqFormat.StencilBits = (int)StencilBits;
 			controlReqFormat.MultisampleBits = (int)MultisampleBits;
-			controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);		// DB not yet managed using ANGLE
+			controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);     // DB not yet managed using ANGLE
 
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
-			if (matchingPixelFormats.Count == 0)
+			if ((matchingPixelFormats.Count == 0) && controlReqFormat.DoubleBuffer) {
+				// Try single buffered pixel formats
+				controlReqFormat.DoubleBuffer = false;
+
+				matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
+				if (matchingPixelFormats.Count == 0)
+					throw new InvalidOperationException("unable to find a suitable pixel format");
+			} else if (matchingPixelFormats.Count == 0)
 				throw new InvalidOperationException("unable to find a suitable pixel format");
 
 			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
@@ -939,6 +946,7 @@ namespace OpenGL
 					OnContextCreated();
 				} catch (Exception exception) {
 					_FailureException = exception;
+					Debug.Fail(String.Format("OnHandleCreated: initialization exception ({0})\n{1}", exception.Message, exception.ToString()));
 				}
 			}
 			// Base implementation
@@ -986,6 +994,8 @@ namespace OpenGL
 						OnRender();
 						// Swap buffers if double-buffering
 						_DeviceContext.SwapBuffers();
+
+						// Invalidate();
 					} catch (Exception exception) {
 						DrawFailure(e, exception);
 					}
