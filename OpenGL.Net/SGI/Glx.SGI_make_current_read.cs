@@ -51,6 +51,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXMakeCurrentReadSGI != null, "pglXMakeCurrentReadSGI not implemented");
 			retValue = Delegates.pglXMakeCurrentReadSGI(dpy, draw, read, ctx);
 			LogFunction("glXMakeCurrentReadSGI(0x{0}, 0x{1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), draw.ToString("X8"), read.ToString("X8"), ctx.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -66,6 +67,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetCurrentReadDrawableSGI != null, "pglXGetCurrentReadDrawableSGI not implemented");
 			retValue = Delegates.pglXGetCurrentReadDrawableSGI();
 			LogFunction("glXGetCurrentReadDrawableSGI() = {0}", retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

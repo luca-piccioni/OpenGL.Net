@@ -67,6 +67,7 @@ namespace OpenGL
 					LogFunction("glXGetProcAddress({0}) = {1}", LogValue(procName), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

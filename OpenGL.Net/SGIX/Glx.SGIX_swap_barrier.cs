@@ -46,6 +46,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXBindSwapBarrierSGIX != null, "pglXBindSwapBarrierSGIX not implemented");
 			Delegates.pglXBindSwapBarrierSGIX(dpy, drawable, barrier);
 			LogFunction("glXBindSwapBarrierSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), barrier);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -73,6 +74,7 @@ namespace OpenGL
 					LogFunction("glXQueryMaxSwapBarriersSGIX(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(max), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

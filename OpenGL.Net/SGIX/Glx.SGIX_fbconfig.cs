@@ -56,6 +56,7 @@ namespace OpenGL
 					LogFunction("glXGetFBConfigAttribSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -89,6 +90,7 @@ namespace OpenGL
 					LogFunction("glXChooseFBConfigSGIX(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, LogValue(attrib_list), LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
+			DebugCheckErrors(null);
 
 			return (retValue);
 		}
@@ -113,6 +115,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXCreateGLXPixmapWithConfigSGIX != null, "pglXCreateGLXPixmapWithConfigSGIX not implemented");
 			retValue = Delegates.pglXCreateGLXPixmapWithConfigSGIX(dpy, config, pixmap);
 			LogFunction("glXCreateGLXPixmapWithConfigSGIX(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), pixmap.ToString("X8"), retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -143,6 +146,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXCreateContextWithConfigSGIX != null, "pglXCreateContextWithConfigSGIX not implemented");
 			retValue = Delegates.pglXCreateContextWithConfigSGIX(dpy, config, render_type, share_list, direct);
 			LogFunction("glXCreateContextWithConfigSGIX(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), render_type, share_list.ToString("X8"), direct, retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -164,6 +168,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfigSGIX != null, "pglXGetVisualFromFBConfigSGIX not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfigSGIX(dpy, config);
 			LogFunction("glXGetVisualFromFBConfigSGIX(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), config.ToString("X8"), (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+			DebugCheckErrors(retValue);
 
 			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 		}
@@ -185,6 +190,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetFBConfigFromVisualSGIX != null, "pglXGetFBConfigFromVisualSGIX not implemented");
 			retValue = Delegates.pglXGetFBConfigFromVisualSGIX(dpy, vis);
 			LogFunction("glXGetFBConfigFromVisualSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), vis, retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

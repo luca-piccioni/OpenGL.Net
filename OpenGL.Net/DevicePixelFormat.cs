@@ -18,6 +18,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Text;
 
 namespace OpenGL
 {
@@ -171,7 +172,7 @@ namespace OpenGL
 		/// <remarks>
 		/// This value is obtained by calling Glx.GetFBConfigs or Glx.ChooseFBConfig.
 		/// </remarks>
-		public IntPtr XFbConfig;
+		internal IntPtr XFbConfig;
 
 		/// <summary>
 		/// GLX visual information (valid only for X11).
@@ -179,7 +180,7 @@ namespace OpenGL
 		/// <remarks>
 		/// This value is obtained by GetVisualFromFBConfig using <see cref="XFbConfig"/>.
 		/// </remarks>
-		public Glx.XVisualInfo XVisualInfo;
+		internal Glx.XVisualInfo XVisualInfo;
 
 		#endregion
 
@@ -196,6 +197,44 @@ namespace OpenGL
 			DevicePixelFormat copy = (DevicePixelFormat)MemberwiseClone();
 
 			return (copy);
+		}
+
+		#endregion
+
+		#region ToString
+
+
+
+		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Represent this object with a String.
+		/// </summary>
+		/// <returns>
+		/// Guess it.
+		/// </returns>
+		public override string ToString()
+		{
+			StringBuilder pixelType = new StringBuilder();
+
+			if (RgbaUnsigned) pixelType.Append("U");
+			if (RgbaFloat) pixelType.Append("F");
+			if (SRGBCapable) pixelType.Append("s");
+
+			StringBuilder surfaceType = new StringBuilder();
+
+			if (RenderWindow) surfaceType.Append("W");
+			if (RenderBuffer) surfaceType.Append("B");
+			if (RenderPBuffer) surfaceType.Append("P");
+
+			return (String.Format(
+				"Idx={0} Pixel={1} Color={2} Depth={3} Stencil={4} Ms={5} DB={6}, Surface={7}",
+				FormatIndex,
+				pixelType.ToString(), ColorBits, DepthBits, StencilBits, MultisampleBits, DoubleBuffer,
+				surfaceType.ToString()
+			));
 		}
 
 		#endregion

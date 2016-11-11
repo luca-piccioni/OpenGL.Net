@@ -42,6 +42,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXSwapIntervalSGI != null, "pglXSwapIntervalSGI not implemented");
 			retValue = Delegates.pglXSwapIntervalSGI(interval);
 			LogFunction("glXSwapIntervalSGI({0}) = {1}", interval, retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

@@ -46,6 +46,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXCushionSGI != null, "pglXCushionSGI not implemented");
 			Delegates.pglXCushionSGI(dpy, window, cushion);
 			LogFunction("glXCushionSGI(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), window.ToString("X8"), cushion);
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

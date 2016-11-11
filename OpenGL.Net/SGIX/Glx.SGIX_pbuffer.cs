@@ -85,6 +85,7 @@ namespace OpenGL
 					LogFunction("glXCreateGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), width, height, LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -104,6 +105,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXDestroyGLXPbufferSGIX != null, "pglXDestroyGLXPbufferSGIX not implemented");
 			Delegates.pglXDestroyGLXPbufferSGIX(dpy, pbuf);
 			LogFunction("glXDestroyGLXPbufferSGIX(0x{0}, 0x{1})", dpy.ToString("X8"), pbuf.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -134,6 +136,7 @@ namespace OpenGL
 					LogFunction("glXQueryGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), pbuf.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -156,6 +159,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXSelectEventSGIX != null, "pglXSelectEventSGIX not implemented");
 			Delegates.pglXSelectEventSGIX(dpy, drawable, mask);
 			LogFunction("glXSelectEventSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), mask);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -181,6 +185,7 @@ namespace OpenGL
 					LogFunction("glXGetSelectedEventSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), LogValue(mask));
 				}
 			}
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

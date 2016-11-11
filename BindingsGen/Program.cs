@@ -66,7 +66,7 @@ namespace BindingsGen
 			}
 
 			// OpenGL for Unix
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--xgl"); }) >= 0)) {
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0)) {
 				ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);

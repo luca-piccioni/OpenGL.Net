@@ -852,7 +852,7 @@ namespace BindingsGen.GLSpecs
 				string returnValue = "null";
 
 				// Optionally pass the returned value to error checking method
-				if (HasReturnValue)
+				if (HasReturnValue && !IsUnsafeImplementationSignature(ctx, commandParams))
 					returnValue = ReturnVariableName;
 
 				sw.WriteLine("DebugCheckErrors({0});", returnValue);

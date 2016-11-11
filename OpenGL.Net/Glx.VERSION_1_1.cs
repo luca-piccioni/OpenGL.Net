@@ -67,6 +67,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXQueryExtensionsString != null, "pglXQueryExtensionsString not implemented");
 			retValue = Delegates.pglXQueryExtensionsString(dpy, screen);
 			LogFunction("glXQueryExtensionsString(0x{0}, {1}) = {2}", dpy.ToString("X8"), screen, Marshal.PtrToStringAnsi(retValue));
+			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));
 		}
@@ -94,6 +95,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXQueryServerString != null, "pglXQueryServerString not implemented");
 			retValue = Delegates.pglXQueryServerString(dpy, screen, name);
 			LogFunction("glXQueryServerString(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, name, Marshal.PtrToStringAnsi(retValue));
+			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));
 		}
@@ -118,6 +120,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetClientString != null, "pglXGetClientString not implemented");
 			retValue = Delegates.pglXGetClientString(dpy, name);
 			LogFunction("glXGetClientString(0x{0}, {1}) = {2}", dpy.ToString("X8"), name, Marshal.PtrToStringAnsi(retValue));
+			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));
 		}

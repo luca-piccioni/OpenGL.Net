@@ -55,6 +55,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXCopySubBufferMESA != null, "pglXCopySubBufferMESA not implemented");
 			Delegates.pglXCopySubBufferMESA(dpy, drawable, x, y, width, height);
 			LogFunction("glXCopySubBufferMESA(0x{0}, 0x{1}, {2}, {3}, {4}, {5})", dpy.ToString("X8"), drawable.ToString("X8"), x, y, width, height);
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

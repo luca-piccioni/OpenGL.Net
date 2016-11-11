@@ -47,6 +47,7 @@ namespace OpenGL
 					LogFunction("glXGetVideoSyncSGI({0}) = {1}", LogValue(count), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -76,6 +77,7 @@ namespace OpenGL
 					LogFunction("glXWaitVideoSyncSGI({0}, {1}, {2}) = {3}", divisor, remainder, LogValue(count), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

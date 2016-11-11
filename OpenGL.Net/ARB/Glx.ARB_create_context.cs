@@ -91,6 +91,7 @@ namespace OpenGL
 					LogFunction("glXCreateContextAttribsARB(0x{0}, 0x{1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), share_context.ToString("X8"), direct, LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

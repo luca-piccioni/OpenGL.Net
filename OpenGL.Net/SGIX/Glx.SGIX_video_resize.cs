@@ -65,6 +65,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXBindChannelToWindowSGIX != null, "pglXBindChannelToWindowSGIX not implemented");
 			retValue = Delegates.pglXBindChannelToWindowSGIX(display, screen, channel, window);
 			LogFunction("glXBindChannelToWindowSGIX(0x{0}, {1}, {2}, 0x{3}) = {4}", display.ToString("X8"), screen, channel, window.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -101,6 +102,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXChannelRectSGIX != null, "pglXChannelRectSGIX not implemented");
 			retValue = Delegates.pglXChannelRectSGIX(display, screen, channel, x, y, w, h);
 			LogFunction("glXChannelRectSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, x, y, w, h, retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -145,6 +147,7 @@ namespace OpenGL
 					LogFunction("glXQueryChannelRectSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, LogValue(dx), LogValue(dy), LogValue(dw), LogValue(dh), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -189,6 +192,7 @@ namespace OpenGL
 					LogFunction("glXQueryChannelDeltasSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, LogValue(x), LogValue(y), LogValue(w), LogValue(h), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -216,6 +220,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXChannelRectSyncSGIX != null, "pglXChannelRectSyncSGIX not implemented");
 			retValue = Delegates.pglXChannelRectSyncSGIX(display, screen, channel, synctype);
 			LogFunction("glXChannelRectSyncSGIX(0x{0}, {1}, {2}, {3}) = {4}", display.ToString("X8"), screen, channel, LogEnumName(synctype), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

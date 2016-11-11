@@ -46,6 +46,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXJoinSwapGroupSGIX != null, "pglXJoinSwapGroupSGIX not implemented");
 			Delegates.pglXJoinSwapGroupSGIX(dpy, drawable, member);
 			LogFunction("glXJoinSwapGroupSGIX(0x{0}, 0x{1}, 0x{2})", dpy.ToString("X8"), drawable.ToString("X8"), member.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

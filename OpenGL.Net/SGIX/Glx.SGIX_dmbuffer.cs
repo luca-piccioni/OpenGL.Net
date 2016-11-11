@@ -62,6 +62,7 @@ namespace OpenGL
 					LogFunction("glXAssociateDMPbufferSGIX(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), pbuffer.ToString("X8"), LogValue(@params), dmbuffer.ToString("X8"), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

@@ -111,7 +111,7 @@ namespace OpenGL
 		[Conditional("DEBUG")]
 		private static void DebugCheckErrors(object returnValue)
 		{
-			IntPtr display = GetCurrentDisplay();
+			IntPtr display = Delegates.pglXGetCurrentDisplay();		// Avoid recursion
 			Debug.Assert(display != IntPtr.Zero);
 
 			lock (DeviceContextGLX._DisplayErrorsLock) {

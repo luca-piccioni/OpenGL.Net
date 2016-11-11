@@ -66,6 +66,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXBindVideoCaptureDeviceNV != null, "pglXBindVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pglXBindVideoCaptureDeviceNV(dpy, video_capture_slot, device);
 			LogFunction("glXBindVideoCaptureDeviceNV(0x{0}, {1}, 0x{2}) = {3}", dpy.ToString("X8"), video_capture_slot, device.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -95,6 +96,7 @@ namespace OpenGL
 					LogFunction("glXEnumerateVideoCaptureDevicesNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -114,6 +116,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXLockVideoCaptureDeviceNV != null, "pglXLockVideoCaptureDeviceNV not implemented");
 			Delegates.pglXLockVideoCaptureDeviceNV(dpy, device);
 			LogFunction("glXLockVideoCaptureDeviceNV(0x{0}, 0x{1})", dpy.ToString("X8"), device.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -144,6 +147,7 @@ namespace OpenGL
 					LogFunction("glXQueryVideoCaptureDeviceNV(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), device.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -163,6 +167,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXReleaseVideoCaptureDeviceNV != null, "pglXReleaseVideoCaptureDeviceNV not implemented");
 			Delegates.pglXReleaseVideoCaptureDeviceNV(dpy, device);
 			LogFunction("glXReleaseVideoCaptureDeviceNV(0x{0}, 0x{1})", dpy.ToString("X8"), device.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

@@ -59,6 +59,7 @@ namespace OpenGL
 					LogFunction("glXEnumerateVideoDevicesNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
+			DebugCheckErrors(null);
 
 			return (retValue);
 		}
@@ -91,6 +92,7 @@ namespace OpenGL
 					LogFunction("glXBindVideoDeviceNV(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), video_slot, video_device, LogValue(attrib_list), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

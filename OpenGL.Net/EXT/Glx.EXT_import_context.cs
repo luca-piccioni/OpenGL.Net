@@ -45,6 +45,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetCurrentDisplayEXT != null, "pglXGetCurrentDisplayEXT not implemented");
 			retValue = Delegates.pglXGetCurrentDisplayEXT();
 			LogFunction("glXGetCurrentDisplayEXT() = {0}", retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -66,7 +67,6 @@ namespace OpenGL
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
@@ -93,6 +93,7 @@ namespace OpenGL
 					LogFunction("glXQueryContextInfoEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), context.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -104,7 +105,6 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
@@ -120,6 +120,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetContextIDEXT != null, "pglXGetContextIDEXT not implemented");
 			retValue = Delegates.pglXGetContextIDEXT(context);
 			LogFunction("glXGetContextIDEXT(0x{0}) = {1}", context.ToString("X8"), retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -134,7 +135,6 @@ namespace OpenGL
 		/// Specifies a GLX rendering context.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="contextID"/> does not refer to a valid context.
@@ -152,6 +152,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXImportContextEXT != null, "pglXImportContextEXT not implemented");
 			retValue = Delegates.pglXImportContextEXT(dpy, contextID);
 			LogFunction("glXImportContextEXT(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), contextID.ToString("X8"), retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -166,7 +167,6 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
@@ -181,6 +181,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXFreeContextEXT != null, "pglXFreeContextEXT not implemented");
 			Delegates.pglXFreeContextEXT(dpy, context);
 			LogFunction("glXFreeContextEXT(0x{0}, 0x{1})", dpy.ToString("X8"), context.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

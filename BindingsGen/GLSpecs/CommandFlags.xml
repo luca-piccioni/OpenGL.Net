@@ -286,10 +286,10 @@
 		<flags>SetLastError</flags>
 	</command>
 	
-	<command name="^glX.+">
-		<!-- WGL commands errors won't be automatically checked by bindings -->
+	<!--<command name="^glX.+">
+		--><!-- WGL commands errors won't be automatically checked by bindings --><!--
 		<flags>NoGetError</flags>
-	</command>
+	</command>-->
 	
 	<command name="^(ChoosePixelFormat|DescribePixelFormat|GetEnhMetaFilePixelFormat|GetPixelFormat|SetPixelFormat|SwapBuffers)$">
 		<!-- GDI functions are implemented manually -->

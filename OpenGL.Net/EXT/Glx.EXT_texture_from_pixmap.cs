@@ -243,6 +243,7 @@ namespace OpenGL
 					LogFunction("glXBindTexImageEXT(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), drawable.ToString("X8"), buffer, LogValue(attrib_list));
 				}
 			}
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -263,6 +264,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXReleaseTexImageEXT != null, "pglXReleaseTexImageEXT not implemented");
 			Delegates.pglXReleaseTexImageEXT(dpy, drawable, buffer);
 			LogFunction("glXReleaseTexImageEXT(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), buffer);
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods

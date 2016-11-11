@@ -651,6 +651,7 @@ namespace OpenGL
 					LogFunction("glXGetFBConfigs(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
+			DebugCheckErrors(null);
 
 			return (retValue);
 		}
@@ -683,6 +684,7 @@ namespace OpenGL
 					LogFunction("glXGetFBConfigs(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, nelements, retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
+			DebugCheckErrors(null);
 
 			return (retValue);
 		}
@@ -703,7 +705,6 @@ namespace OpenGL
 		/// Returns the number of elements in the list returned by Glx.ChooseFBConfig.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if an undefined GLX attribute is encountered in <paramref name="attrib_list"/>, if <paramref 
@@ -726,6 +727,7 @@ namespace OpenGL
 					LogFunction("glXChooseFBConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, LogValue(attrib_list), LogValue(nelements), retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
+			DebugCheckErrors(null);
 
 			return (retValue);
 		}
@@ -746,7 +748,6 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
@@ -769,6 +770,7 @@ namespace OpenGL
 					LogFunction("glXGetFBConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -789,7 +791,6 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
@@ -812,6 +813,7 @@ namespace OpenGL
 					LogFunction("glXGetFBConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -826,7 +828,6 @@ namespace OpenGL
 		/// Specifies the GLX frame buffer configuration.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Returns Glx. if <paramref name="config"/> is not a valid GLXFBConfig.
@@ -843,6 +844,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
 			LogFunction("glXGetVisualFromFBConfig(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), config.ToString("X8"), (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+			DebugCheckErrors(retValue);
 
 			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 		}
@@ -863,7 +865,6 @@ namespace OpenGL
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
 		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="win"/> was not created with a visual that corresponds to <paramref 
@@ -903,6 +904,7 @@ namespace OpenGL
 					LogFunction("glXCreateWindow(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), win.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -917,7 +919,6 @@ namespace OpenGL
 		/// Specifies the GLXWindow to be destroyed.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adWindow is generated if <paramref name="win"/> is not a valid GLXPixmap.
@@ -931,6 +932,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXDestroyWindow != null, "pglXDestroyWindow not implemented");
 			Delegates.pglXDestroyWindow(dpy, win);
 			LogFunction("glXDestroyWindow(0x{0}, 0x{1})", dpy.ToString("X8"), win.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -949,7 +951,6 @@ namespace OpenGL
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
 		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="pixmap"/> was not created with a visual that corresponds to <paramref 
@@ -988,6 +989,7 @@ namespace OpenGL
 					LogFunction("glXCreatePixmap(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), pixmap.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1002,7 +1004,6 @@ namespace OpenGL
 		/// Specifies the GLXPixmap to be destroyed.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adPixmap is generated if <paramref name="pixmap"/> is not a valid GLXPixmap.
@@ -1017,6 +1018,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXDestroyPixmap != null, "pglXDestroyPixmap not implemented");
 			Delegates.pglXDestroyPixmap(dpy, pixmap);
 			LogFunction("glXDestroyPixmap(0x{0}, 0x{1})", dpy.ToString("X8"), pixmap.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1033,7 +1035,6 @@ namespace OpenGL
 		/// Glx.PBUFFER_WIDTH, Glx.PBUFFER_HEIGHT, Glx.PRESERVED_CONTENTS, and Glx.LARGEST_PBUFFER.
 		/// </param>
 		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.lloc is generated if there are insufficient resources to allocate the requested GLXPbuffer.
@@ -1061,6 +1062,7 @@ namespace OpenGL
 					LogFunction("glXCreatePbuffer(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1075,7 +1077,6 @@ namespace OpenGL
 		/// Specifies the GLXPbuffer to be destroyed.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adPbuffer is generated if <paramref name="pbuf"/> is not a valid GLXPbuffer.
@@ -1089,6 +1090,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXDestroyPbuffer != null, "pglXDestroyPbuffer not implemented");
 			Delegates.pglXDestroyPbuffer(dpy, pbuf);
 			LogFunction("glXDestroyPbuffer(0x{0}, 0x{1})", dpy.ToString("X8"), pbuf.ToString("X8"));
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1108,7 +1110,6 @@ namespace OpenGL
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// A Glx.adDrawable is generated if <paramref name="draw"/> is not a valid GLXDrawable.
@@ -1119,7 +1120,7 @@ namespace OpenGL
 		/// <seealso cref="Glx.GetFBConfigAttrib"/>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, [Out()] UInt32[] value)
+		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1129,6 +1130,7 @@ namespace OpenGL
 					LogFunction("glXQueryDrawable(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), draw.ToString("X8"), attribute, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1150,7 +1152,6 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if execution fails on the client side.
@@ -1187,6 +1188,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXCreateNewContext != null, "pglXCreateNewContext not implemented");
 			retValue = Delegates.pglXCreateNewContext(dpy, config, render_type, share_list, direct);
 			LogFunction("glXCreateNewContext(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), render_type, share_list.ToString("X8"), direct, retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1207,7 +1209,6 @@ namespace OpenGL
 		/// Specifies the GLX context to be bound to <paramref name="read"/> and <paramref name="ctx"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="draw"/> and <paramref name="read"/> are not compatible.
@@ -1272,6 +1273,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXMakeContextCurrent != null, "pglXMakeContextCurrent not implemented");
 			retValue = Delegates.pglXMakeContextCurrent(dpy, draw, read, ctx);
 			LogFunction("glXMakeContextCurrent(0x{0}, 0x{1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), draw.ToString("X8"), read.ToString("X8"), ctx.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1291,6 +1293,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetCurrentReadDrawable != null, "pglXGetCurrentReadDrawable not implemented");
 			retValue = Delegates.pglXGetCurrentReadDrawable();
 			LogFunction("glXGetCurrentReadDrawable() = {0}", retValue.ToString("X8"));
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1311,7 +1314,6 @@ namespace OpenGL
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
@@ -1333,6 +1335,7 @@ namespace OpenGL
 					LogFunction("glXQueryContext(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), ctx.ToString("X8"), attribute, LogValue(value), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1350,7 +1353,6 @@ namespace OpenGL
 		/// Specifies the events to be returned for <paramref name="draw"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="draw"/> is not a valid window or a valid GLX pixel buffer.
@@ -1362,6 +1364,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXSelectEvent != null, "pglXSelectEvent not implemented");
 			Delegates.pglXSelectEvent(dpy, draw, event_mask);
 			LogFunction("glXSelectEvent(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), draw.ToString("X8"), event_mask);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1377,7 +1380,6 @@ namespace OpenGL
 		/// Returns the events that are selected for <paramref name="draw"/>.
 		/// </param>
 		/// <remarks>
-		/// <para>The exception below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="draw"/> is not a valid window or a valid GLX pixel buffer.
@@ -1395,6 +1397,7 @@ namespace OpenGL
 					LogFunction("glXGetSelectedEvent(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), draw.ToString("X8"), LogValue(event_mask));
 				}
 			}
+			DebugCheckErrors(null);
 		}
 
 		public unsafe static partial class UnsafeNativeMethods
@@ -1522,7 +1525,7 @@ namespace OpenGL
 			internal static glXDestroyPbuffer pglXDestroyPbuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, [Out()] UInt32* value);
+			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32* value);
 
 			internal static glXQueryDrawable pglXQueryDrawable;
 

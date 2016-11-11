@@ -111,6 +111,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXGetVideoDeviceNV != null, "pglXGetVideoDeviceNV not implemented");
 			retValue = Delegates.pglXGetVideoDeviceNV(dpy, screen, numVideoDevices, pVideoDevice);
 			LogFunction("glXGetVideoDeviceNV(0x{0}, {1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), screen, numVideoDevices, pVideoDevice.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -135,6 +136,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXReleaseVideoDeviceNV != null, "pglXReleaseVideoDeviceNV not implemented");
 			retValue = Delegates.pglXReleaseVideoDeviceNV(dpy, screen, VideoDevice);
 			LogFunction("glXReleaseVideoDeviceNV(0x{0}, {1}, 0x{2}) = {3}", dpy.ToString("X8"), screen, VideoDevice.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -162,6 +164,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXBindVideoImageNV != null, "pglXBindVideoImageNV not implemented");
 			retValue = Delegates.pglXBindVideoImageNV(dpy, VideoDevice, pbuf, iVideoBuffer);
 			LogFunction("glXBindVideoImageNV(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), VideoDevice.ToString("X8"), pbuf.ToString("X8"), iVideoBuffer, retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -183,6 +186,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglXReleaseVideoImageNV != null, "pglXReleaseVideoImageNV not implemented");
 			retValue = Delegates.pglXReleaseVideoImageNV(dpy, pbuf);
 			LogFunction("glXReleaseVideoImageNV(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), pbuf.ToString("X8"), retValue);
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -218,6 +222,7 @@ namespace OpenGL
 					LogFunction("glXSendPbufferToVideoNV(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), pbuf.ToString("X8"), iBufferType, LogValue(pulCounterPbuffer), bBlock, retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -254,6 +259,7 @@ namespace OpenGL
 					LogFunction("glXGetVideoInfoNV(0x{0}, {1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), screen, VideoDevice.ToString("X8"), LogValue(pulCounterOutputPbuffer), LogValue(pulCounterOutputVideo), retValue);
 				}
 			}
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
