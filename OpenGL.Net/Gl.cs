@@ -303,7 +303,7 @@ namespace OpenGL
 				case KhronosVersion.ApiGles2:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
-							return ("libGLESv1_CM.so.1");	// XXX
+							return ("libGLESv2.so");
 						default:
 							return (LibraryEs2);
 					}

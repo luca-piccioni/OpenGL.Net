@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -340,7 +341,7 @@ namespace OpenGL
 		/// <summary>
 		/// The <see cref="GetProcAddressEgl"/> singleton instance.
 		/// </summary>
-		public static readonly IGetProcAddress Instance = new GetProcAddressX11();
+		public static readonly GetProcAddressX11 Instance = new GetProcAddressX11();
 
 		#endregion
 
@@ -355,6 +356,9 @@ namespace OpenGL
 
 			[DllImport("dl")]
 			public static extern IntPtr dlsym(IntPtr handle, [MarshalAs(UnmanagedType.LPTStr)] string symbol);
+
+			[DllImport("dl")]
+			public static extern string dlerror();
 
 			[DllImport(Library, EntryPoint = "glXGetProcAddress")]
 			public static extern IntPtr glxGetProcAddress([MarshalAs(UnmanagedType.LPTStr)] string procName);
@@ -431,17 +435,17 @@ namespace OpenGL
 			return (UnsafeNativeMethods.glxGetProcAddress(function));
 		}
 
-		private IntPtr GetLibraryHandle(string libraryPath)
+		internal IntPtr GetLibraryHandle(string libraryPath)
 		{
 			IntPtr libraryHandle;
 
 			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
-				libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW);
+				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW)) == IntPtr.Zero)
+					throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath), new InvalidOperationException(UnsafeNativeMethods.dlerror()));
 				_LibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
-			if (libraryHandle == IntPtr.Zero)
-				throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath));
+			Debug.Assert(libraryHandle == IntPtr.Zero);
 
 			return (libraryHandle);
 		}

@@ -75,12 +75,15 @@ namespace OpenGL
 			// Include ANGLE path, if any
 			if (anglePath != null && Directory.Exists(anglePath))
 				OpenGL.GetProcAddress.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
-			
+
 			// Load procedures
+			string platformLibrary = GetPlatformLibrary();
 			try {
-				BindAPI<Egl>(GetPlatformLibrary(), OpenGL.GetProcAddress.GetProcAddressOS);
-			} catch (Exception) {
+				LogComment("Querying EGL from {0}", platformLibrary);
+				BindAPI<Egl>(platformLibrary, OpenGL.GetProcAddress.GetProcAddressOS);
+			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */
+				LogComment("EGL not available:\n{0}", exception.ToString());
 			}
 		}
 
@@ -140,7 +143,7 @@ namespace OpenGL
 		{
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.Linux:
-					return ("/usr/lib/arm-linux-gnueabihf/libEGL.so.1");
+					return ("libEGL.so");
 				default:
 					return (Library);
 			}
