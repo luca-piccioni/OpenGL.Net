@@ -32,5 +32,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.3.2")]
 [assembly: AssemblyFileVersion("0.3.2")]
 
+[assembly: InternalsVisibleTo("OpenGL.Net.VideoCore")]
 // Unit testing support
 [assembly: InternalsVisibleTo("OpenGL.Net.Test")]

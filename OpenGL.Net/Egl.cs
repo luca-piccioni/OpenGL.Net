@@ -70,6 +70,10 @@ namespace OpenGL
 						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x86");
 #endif
 					break;
+				case Platform.Id.Linux:
+					// Note: on RPi libEGL.so depends on libGLESv2.so, so it's required to pre-load the shared library
+					GetProcAddressX11.Instance.GetLibraryHandle("libGLESv2.so");
+					break;
 			}
 
 			// Include ANGLE path, if any
@@ -81,9 +85,16 @@ namespace OpenGL
 			try {
 				LogComment("Querying EGL from {0}", platformLibrary);
 				BindAPI<Egl>(platformLibrary, OpenGL.GetProcAddress.GetProcAddressOS);
+				LogComment("EGL availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */
 				LogComment("EGL not available:\n{0}", exception.ToString());
+			}
+
+			// Support for BCM VideoCore API
+			if (IsAvailable && Bcm.IsAvailable) {
+				// This need to be executed before any EGL/GL routine
+				Bcm.bcm_host_init();
 			}
 		}
 
@@ -153,7 +164,6 @@ namespace OpenGL
 		/// Default import library.
 		/// </summary>
 		internal const string Library = "libEGL.dll";
-		//internal const string Library = "/usr/lib/arm-linux-gnueabihf/libEGL.so.1";
 
 		#endregion
 

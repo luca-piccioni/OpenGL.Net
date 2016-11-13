@@ -88,8 +88,13 @@ namespace OpenGL
 					_CurrentVersion = KhronosVersion.Parse(glVersion);
 
 					// Obtain current OpenGL Shading Language version
-					string glslVersion = GetString(StringName.ShadingLanguageVersion);
-					_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+					switch (_CurrentVersion.Api) {
+						case KhronosVersion.ApiGl:
+						case KhronosVersion.ApiGles2:
+							string glslVersion = GetString(StringName.ShadingLanguageVersion);
+							_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+							break;
+					}
 
 					// Vendor/Render information
 					_Vendor = GetString(StringName.Vendor);
@@ -300,6 +305,13 @@ namespace OpenGL
 							// EGL ignore library name
 							return (Library);
 					}
+				case KhronosVersion.ApiGles1:
+					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.Linux:
+							return ("libGLESv2.so");
+						default:
+							return (LibraryEs);
+					}
 				case KhronosVersion.ApiGles2:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
@@ -316,6 +328,11 @@ namespace OpenGL
 		/// Default import library.
 		/// </summary>
 		internal const string Library = "opengl32.dll";
+
+		/// <summary>
+		/// Default import library.
+		/// </summary>
+		internal const string LibraryEs = "libGLESv1_CM.dll";
 
 		/// <summary>
 		/// Default import library.

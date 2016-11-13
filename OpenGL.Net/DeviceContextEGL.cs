@@ -571,6 +571,58 @@ namespace OpenGL
 		/// <param name="pixelFormat">
 		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
 		/// </param>
+		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			List<int> configAttribs = new List<int>();
+			int[] configCount = new int[1];
+			IntPtr[] configs = new IntPtr[8];
+			int surfaceType = 0;
+
+			if (Version >= Egl.Version_120)
+				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+
+			if (pixelFormat.RenderWindow)
+				surfaceType |= Egl.WINDOW_BIT;
+			if (pixelFormat.RenderPBuffer)
+				surfaceType |= Egl.PBUFFER_BIT;
+			if (surfaceType != 0)
+				configAttribs.AddRange(new int[] { Egl.SURFACE_TYPE, surfaceType });
+
+			switch (pixelFormat.ColorBits) {
+				case 24:
+					configAttribs.AddRange(new int[] { Egl.RED_SIZE, 8, Egl.GREEN_SIZE, 8, Egl.BLUE_SIZE, 8, });
+					break;
+				case 32:
+					configAttribs.AddRange(new int[] { Egl.RED_SIZE, 8, Egl.GREEN_SIZE, 8, Egl.BLUE_SIZE, 8, Egl.ALPHA_SIZE, 8 });
+					break;
+				default:
+					configAttribs.AddRange(new int[] { Egl.BUFFER_SIZE, pixelFormat.ColorBits });
+					break;
+			}
+			if (pixelFormat.DepthBits > 0)
+				configAttribs.AddRange(new int[] { Egl.DEPTH_SIZE, pixelFormat.DepthBits });
+			if (pixelFormat.StencilBits > 0)
+				configAttribs.AddRange(new int[] { Egl.STENCIL_SIZE, pixelFormat.StencilBits });
+
+			configAttribs.Add(Egl.NONE);
+
+			if (Egl.ChooseConfig(Display, configAttribs.ToArray(), configs, configs.Length, configCount) == false)
+				throw new InvalidOperationException("unable to choose configuration");
+			if (configCount[0] == 0)
+				throw new InvalidOperationException("no available configuration");
+
+			_Config = configs[0];
+		}
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="pixelFormat"/> is null.
 		/// </exception>
@@ -599,9 +651,7 @@ namespace OpenGL
 			if (configCount[0] == 0)
 				throw new InvalidOperationException("no available configuration");
 
-			IntPtr config = configs[0];
-
-			_Config = config;
+			_Config = configs[0];
 		}
 
 		/// <summary>

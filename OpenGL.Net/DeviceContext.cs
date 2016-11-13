@@ -321,6 +321,14 @@ namespace OpenGL
 		/// <param name="pixelFormat">
 		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
 		/// </param>
+		public abstract void ChoosePixelFormat(DevicePixelFormat pixelFormat);
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
 		public abstract void SetPixelFormat(DevicePixelFormat pixelFormat);
 
 		#endregion

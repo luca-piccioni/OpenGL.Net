@@ -729,8 +729,8 @@ namespace OpenGL
 			foreach (ProcedureLogDelegate logDelegate in _ProcLogCallbacks) {
 				try {
 					logDelegate(format, args);
-				} catch {
-					// Ignore exceptions
+				} catch (Exception exception) {
+					LogComment("Unable to log function ({0}): {1}", format, exception.ToString());
 				}
 			}
 		}

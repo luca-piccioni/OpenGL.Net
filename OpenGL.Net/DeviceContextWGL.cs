@@ -652,6 +652,56 @@ namespace OpenGL
 		/// <param name="pixelFormat">
 		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
 		/// </param>
+		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			List<int> attribIList = new List<int>();
+			List<float> attribFList = new List<float>();
+			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
+			uint[] countFormatAttribsValues = new uint[1];
+			int[] choosenFormats = new int[4];
+
+			attribIList.AddRange(new int[] { Wgl.SUPPORT_OPENGL_ARB, Gl.TRUE });
+			if (pixelFormat.RenderWindow)
+				attribIList.AddRange(new int[] { Wgl.DRAW_TO_WINDOW_ARB, Gl.TRUE });
+
+			if (pixelFormat.RgbaUnsigned)
+				attribIList.AddRange(new int[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_ARB });
+			if (pixelFormat.RgbaFloat)
+				attribIList.AddRange(new int[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_FLOAT_ARB });
+
+			if (pixelFormat.ColorBits > 0)
+				attribIList.AddRange(new int[] { Wgl.COLOR_BITS_ARB, pixelFormat.ColorBits });
+			if (pixelFormat.DepthBits > 0)
+				attribIList.AddRange(new int[] { Wgl.DEPTH_BITS_ARB, pixelFormat.DepthBits });
+			if (pixelFormat.StencilBits > 0)
+				attribIList.AddRange(new int[] { Wgl.STENCIL_BITS_ARB, pixelFormat.StencilBits });
+
+			if (pixelFormat.DoubleBuffer)
+				attribIList.AddRange(new int[] { Wgl.DOUBLE_BUFFER_ARB, pixelFormat.StencilBits });
+			attribIList.Add(0);
+
+			// Let choose pixel formats
+			if (!Wgl.ChoosePixelFormatARB(_DeviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues)) {
+				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
+				throw new InvalidOperationException(String.Format("unable to choose pixel format: {0}", innerException.Message), innerException);
+			}
+			
+			// Set choosen pixel format
+			if (Wgl.SetPixelFormat(DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
+				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
+				throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
+			}
+		}
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="pixelFormat"/> is null.
 		/// </exception>

@@ -704,6 +704,83 @@ namespace OpenGL
 		/// <param name="pixelFormat">
 		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
 		/// </param>
+		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			int screen = Glx.XDefaultScreen(_Display);
+
+			// Get basic visual
+			Glx.XVisualInfo visual;
+			IntPtr config;
+
+			List<int> attributes = new List<int>();
+
+			if (pixelFormat.RenderWindow)
+				attributes.AddRange(new int[] { Glx.DRAWABLE_TYPE, (int)Glx.WINDOW_BIT });
+			if (pixelFormat.RgbaUnsigned)
+				attributes.AddRange(new int[] { Glx.RENDER_TYPE, (int)Glx.RGBA_BIT });
+			if (pixelFormat.RgbaFloat)
+				attributes.AddRange(new int[] { Glx.RENDER_TYPE, (int)Glx.RGBA_FLOAT_BIT_ARB });
+			if (pixelFormat.DoubleBuffer)
+			attributes.AddRange(new int[] { Glx.DOUBLEBUFFER,  Gl.TRUE });
+
+			if (pixelFormat.ColorBits > 0) {
+				switch (pixelFormat.ColorBits) {
+					case 16:
+						attributes.AddRange(new int[] { Glx.RED_SIZE, 5, Glx.GREEN_SIZE, 6, Glx.BLUE_SIZE, 8, Glx.ALPHA_SIZE, 5 });
+						break;
+					case 24:
+						attributes.AddRange(new int[] { Glx.RED_SIZE, 8, Glx.GREEN_SIZE, 8, Glx.BLUE_SIZE, 8 });
+						break;
+					case 32:
+						attributes.AddRange(new int[] { Glx.RED_SIZE, 8, Glx.GREEN_SIZE, 8, Glx.BLUE_SIZE, 8, Glx.ALPHA_SIZE, 8 });
+						break;
+					default:
+						if (pixelFormat.ColorBits < 16)
+							attributes.AddRange(new int[] { Glx.RED_SIZE, 1, Glx.GREEN_SIZE, 1, Glx.BLUE_SIZE, 1 });
+						else {
+							int bits = pixelFormat.ColorBits / 4;
+							attributes.AddRange(new int[] { Glx.RED_SIZE, bits, Glx.GREEN_SIZE, bits, Glx.BLUE_SIZE, bits });
+						}
+						break;
+				}
+				
+			}
+			
+			if (pixelFormat.DepthBits > 0)
+				attributes.AddRange(new int[] { Glx.DEPTH_SIZE, pixelFormat.DepthBits });
+			if (pixelFormat.StencilBits > 0)
+				attributes.AddRange(new int[] { Glx.STENCIL_SIZE, pixelFormat.StencilBits });
+
+			attributes.Add(0);
+
+			unsafe {
+				int[] choosenConfigCount = new int[1];
+
+				IntPtr* choosenConfigs = Glx.ChooseFBConfig(_Display, screen, attributes.ToArray(), choosenConfigCount);
+				if (choosenConfigCount[0] == 0)
+					throw new InvalidOperationException("unable to choose visual");
+				config = *choosenConfigs;
+				KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
+
+				visual = Glx.GetVisualFromFBConfig(_Display, config);
+				KhronosApi.LogComment("Choosen visual is {0}", visual);
+
+				Glx.XFree((IntPtr)choosenConfigs);
+			}
+
+			_FBConfig = config;
+			_XVisualInfo = visual;
+		}
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="pixelFormat"/> is null.
 		/// </exception>
