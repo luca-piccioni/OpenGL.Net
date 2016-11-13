@@ -519,7 +519,7 @@ namespace OpenGL
 			switch (ContextSharing) {
 				case ContextSharingOption.OwnContext:
 					// This GlControl own its context
-					if (_ProfileType != ProfileType.Embedded)
+					if ((_ProfileType != ProfileType.Embedded) && (Gl.CurrentVersion.Api == KhronosVersion.ApiGl))
 						CreateDesktopContext();
 					else
 						CreateEmbeddedContext();
