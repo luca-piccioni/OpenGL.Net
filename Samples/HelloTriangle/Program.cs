@@ -31,9 +31,16 @@ namespace HelloTriangle
 		[STAThread]
 		static void Main()
 		{
-			//KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
-			//	Console.WriteLine(format, args);
-			//});
+			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
+
+			if (envDebug == "GL") {
+				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
+					Console.WriteLine(format, args);
+				});
+			}
+
+			Egl.IsRequired = Egl.IsAvailable;
+			Gl.Initialize();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
