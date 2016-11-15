@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -30,12 +30,12 @@ namespace BindingsGen
 	{
 		#region Constructors
 
-		public RegistryProcessor(Registry registry)
+		public RegistryProcessor(IRegistry registry)
 		{
 			if (registry == null)
 				throw new ArgumentNullException("registry");
 
-			mRegistry = registry;
+			_Registry = registry;
 		}
 
 		#endregion
@@ -50,7 +50,7 @@ namespace BindingsGen
 			if (path == null)
 				throw new ArgumentNullException("path");
 
-            List<Enumerant> enumerants = mRegistry.Enumerants;
+            List<Enumerant> enumerants = _Registry.Enumerants;
 
             if ((filter != null) && (enumerants.FindIndex(delegate(Enumerant item) { return (filter(item)); }) < 0))
                 return;
@@ -71,7 +71,7 @@ namespace BindingsGen
 				sw.WriteLine("{");
 				sw.Indent();
 
-				foreach (Enumerant enumerant in mRegistry.Enumerants) {
+				foreach (Enumerant enumerant in _Registry.Enumerants) {
 					if ((filter != null) && (filter(enumerant) == false))
 						continue;
 
@@ -93,7 +93,7 @@ namespace BindingsGen
 			if (path == null)
 				throw new ArgumentNullException("path");
 
-			if (mRegistry.Groups.Count == 0)
+			if (_Registry.Groups.Count == 0)
 				return;
 
 			Console.WriteLine("Generate registry enums (strognly typed) to {0}.", path);
@@ -103,6 +103,7 @@ namespace BindingsGen
 
 				sw.WriteLine("// Disable \"'token' is obsolete\" warnings");
 				sw.WriteLine("#pragma warning disable 618");
+				sw.WriteLine();
 
 				sw.WriteLine("using System;");
 				sw.WriteLine();
@@ -111,7 +112,7 @@ namespace BindingsGen
 				sw.WriteLine("{");
 				sw.Indent();
 
-				foreach (EnumerantGroup enumerantGroup in mRegistry.Groups) {
+				foreach (EnumerantGroup enumerantGroup in _Registry.Groups) {
 					if ((filter != null) && (filter(enumerantGroup) == false))
 						continue;
 
@@ -119,7 +120,8 @@ namespace BindingsGen
 					sw.WriteLine();
 				}
 
-				sw.WriteLine();
+				sw.Unindent();
+
 				sw.WriteLine("}");
 			}
 		}
@@ -129,12 +131,12 @@ namespace BindingsGen
 			if (path == null)
 				throw new ArgumentNullException("path");
 
-			if ((filter != null) && (mRegistry.Commands.FindIndex(delegate(Command item) { return (filter(item)); }) < 0))
+			if ((filter != null) && (_Registry.Commands.FindIndex(delegate(Command item) { return (filter(item)); }) < 0))
 				return;
 
 			GenerateCommands(ctx, path, (CommandSerializerDelegate)delegate(RegistryContext cctx, SourceStreamWriter sw)
 			{
-				foreach (Command command in mRegistry.Commands)
+				foreach (Command command in _Registry.Commands)
 				{
 					if ((filter != null) && (filter(command) == false))
 						continue;
@@ -230,7 +232,7 @@ namespace BindingsGen
 				sw.WriteLine("{");
 				sw.Indent();
 
-				foreach (Command command in mRegistry.Commands) {
+				foreach (Command command in _Registry.Commands) {
 					if ((filter != null) && (filter(command) == false))
 						continue;
 
@@ -286,7 +288,7 @@ namespace BindingsGen
 				sw.WriteLine("{");
 				sw.Indent();
 
-				foreach (Command command in mRegistry.Commands) {
+				foreach (Command command in _Registry.Commands) {
 					if ((filter != null) && (filter(command) == false))
 						continue;
 
@@ -333,6 +335,6 @@ namespace BindingsGen
 		/// <summary>
 		/// The OpenGL registry.
 		/// </summary>
-		private readonly Registry mRegistry;
+		private readonly IRegistry _Registry;
 	}
 }

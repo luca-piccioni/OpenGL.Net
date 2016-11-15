@@ -45,6 +45,8 @@ namespace BindingsGen
 
 			RegistryDocumentation.CreateLog();
 
+			// XML-based speicfications
+
 			// OpenGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
@@ -78,6 +80,34 @@ namespace BindingsGen
 			// EGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
 				ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVbCommands(glRegistryProcessor, ctx);
+			}
+
+			// Header-based speicfications
+
+			// OpenWF(C)
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {
+				Header headRegistry = new Header("Wfc");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"));
+
+				ctx = new RegistryContext("Wfc", headRegistry);
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVbCommands(glRegistryProcessor, ctx);
+			}
+
+			// OpenWF(D)
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfd"); }) >= 0)) {
+				Header headRegistry = new Header("Wfd");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"));
+
+				ctx = new RegistryContext("Wfd", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);

@@ -98,7 +98,9 @@
     <Compile Include="GLSpecs\FeatureCommand.cs" />
     <Compile Include="GLSpecs\ICommandParameter.cs" />
     <Compile Include="GLSpecs\IFeature.cs" />
+    <Compile Include="GLSpecs\IRegistry.cs" />
     <Compile Include="GLSpecs\Registry.cs" />
+    <Compile Include="GLSpecs\Header.cs" />
     <Compile Include="SpecificationStyle.cs" />
     <Compile Include="GLSpecs\SpecWordsDictionary.cs" />
     <Compile Include="GLSpecs\Type.cs" />
@@ -116,7 +118,7 @@
   <ItemGroup>
     <EmbeddedResource Include="GLSpecs\GlWords.xml" />
     <EmbeddedResource Include="GLSpecs\GlxWords.xml" />
-    <EmbeddedResource Include="GLSpecs\WglWords.xml" />
+    <EmbeddedResource Include="GLSpecs\WfdWords.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GLSpecs\ExtWords.xml" />
@@ -179,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GLSpecs\EnumerantDoc_Man2.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GLSpecs\WglWords.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GLSpecs\WfcWords.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

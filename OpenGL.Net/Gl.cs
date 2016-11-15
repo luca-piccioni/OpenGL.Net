@@ -70,55 +70,59 @@ namespace OpenGL
 			// Supported platform: Android
 			// eglGetProcAddress		EGL				GLES2+
 
-			// Create temporary context for getting preliminary information on desktop systems
-			using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
-				// Create device context
-				using (DeviceContext windowDevice = DeviceContext.Create(nativeWindow.Display, nativeWindow.Handle)) {
-					// Create basic OpenGL context
-					IntPtr renderContext = windowDevice.CreateSimpleContext();
-					if (renderContext == IntPtr.Zero)
-						throw new NotImplementedException("unable to create a simple context");
+			try {
+				// Create temporary context for getting preliminary information on desktop systems
+				using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
+					// Create device context
+					using (DeviceContext windowDevice = DeviceContext.Create(nativeWindow.Display, nativeWindow.Handle)) {
+						// Create basic OpenGL context
+						IntPtr renderContext = windowDevice.CreateSimpleContext();
+						if (renderContext == IntPtr.Zero)
+							throw new NotImplementedException("unable to create a simple context");
 
-					// Make contect current
-					if (windowDevice.MakeCurrent(renderContext) == false)
-						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
+						// Make contect current
+						if (windowDevice.MakeCurrent(renderContext) == false)
+							throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
 
-					// Query OpenGL informations
-					string glVersion = GetString(StringName.Version);
-					_CurrentVersion = KhronosVersion.Parse(glVersion);
+						// Query OpenGL informations
+						string glVersion = GetString(StringName.Version);
+						_CurrentVersion = KhronosVersion.Parse(glVersion);
 
-					// Obtain current OpenGL Shading Language version
-					switch (_CurrentVersion.Api) {
-						case KhronosVersion.ApiGl:
-						case KhronosVersion.ApiGles2:
-							string glslVersion = GetString(StringName.ShadingLanguageVersion);
-							_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
-							break;
+						// Obtain current OpenGL Shading Language version
+						switch (_CurrentVersion.Api) {
+							case KhronosVersion.ApiGl:
+							case KhronosVersion.ApiGles2:
+								string glslVersion = GetString(StringName.ShadingLanguageVersion);
+								_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+								break;
+						}
+
+						// Vendor/Render information
+						_Vendor = GetString(StringName.Vendor);
+						_Renderer = GetString(StringName.Renderer);
+
+						// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
+						_CurrentExtensions = new Extensions();
+						_CurrentExtensions.Query();
+
+						// Query OpenGL limits
+						_CurrentLimits = Limits.Query(_CurrentExtensions);
+
+						// Query platform extensions
+						windowDevice.QueryPlatformExtensions();
+
+						// Before deletion, make uncurrent
+						windowDevice.MakeCurrent(IntPtr.Zero);
+						// Detroy context
+						if (windowDevice.DeleteContext(renderContext) == false)
+							throw new InvalidOperationException("unable to delete OpenGL context");
 					}
-
-					// Vendor/Render information
-					_Vendor = GetString(StringName.Vendor);
-					_Renderer = GetString(StringName.Renderer);
-
-					// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-					_CurrentExtensions = new Extensions();
-					_CurrentExtensions.Query();
-
-					// Query OpenGL limits
-					_CurrentLimits = Limits.Query(_CurrentExtensions);
-
-					// Query platform extensions
-					windowDevice.QueryPlatformExtensions();
-
-					// Before deletion, make uncurrent
-					windowDevice.MakeCurrent(IntPtr.Zero);
-					// Detroy context
-					if (windowDevice.DeleteContext(renderContext) == false)
-						throw new InvalidOperationException("unable to delete OpenGL context");
 				}
-			}
 
-			LogComment("OpenGL.net has been initialized");
+				LogComment("OpenGL.Net has been initialized");
+			} catch (Exception excepton) {
+				LogComment("Unable to initialize OpenGL.Net: {0}", excepton.ToString());
+			}
 		}
 
 		/// <summary>

@@ -308,6 +308,13 @@ namespace OpenGL
 			UInt32 replace_value;
 		}
 
+		public struct EGL_DISPMANX_WINDOW_T
+		{
+			public UInt32 element;
+			public int width;
+			public int height;
+		}
+
 		public delegate void DISPMANX_CALLBACK_FUNC_T(DISPMANX_UPDATE_HANDLE_T u, IntPtr arg);
 
 		#endregion

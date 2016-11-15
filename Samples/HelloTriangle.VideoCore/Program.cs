@@ -27,8 +27,6 @@ namespace HelloTriangle.VideoCore
 				if (Egl.IsAvailable == false)
 					throw new InvalidOperationException("EGL is not available. Aborting.");
 
-				Gl.Initialize();
-
 				using (VideoCoreWindow nativeWindow = new VideoCoreWindow()) {
 					using (DeviceContext eglContext = DeviceContext.Create(nativeWindow.Display, nativeWindow.Handle)) {
 

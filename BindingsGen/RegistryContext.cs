@@ -46,10 +46,7 @@ namespace BindingsGen
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
-		/// <param name="registryPath">
-		/// A <see cref="String"/> that specifies the path of the OpenGL specification to parse.
-		/// </param>
-		public RegistryContext(string @class, string registryPath)
+		private RegistryContext(string @class)
 		{
 			// Store the class
 			Class = @class;
@@ -71,11 +68,45 @@ namespace BindingsGen
 			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");
 			// Loads the words dictionary
 			WordsDictionary = SpecWordsDictionary.Load(String.Format("BindingsGen.GLSpecs.{0}Words.xml", @class));
-			// Load and parse OpenGL specification
+		}
+
+		/// <summary>
+		/// Construct a RegistryContext.
+		/// </summary>
+		/// <param name="class">
+		/// A <see cref="String"/> that specifies the actual specification to build. It determines:
+		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
+		/// - The features selection to include in the generated sources
+		/// </param>
+		/// <param name="registryPath">
+		/// A <see cref="String"/> that specifies the path of the OpenGL specification to parse.
+		/// </param>
+		public RegistryContext(string @class, string registryPath) :
+			this( @class)
+		{
 			using (StreamReader sr = new StreamReader(registryPath)) {
-				Registry = ((Registry)SpecSerializer.Deserialize(sr));
-				Registry.Link(this);
+				Registry specRegistry = (Registry)SpecSerializer.Deserialize(sr);
+				specRegistry.Link(this);
+
+				Registry = specRegistry;
 			}
+		}
+
+		/// <summary>
+		/// Construct a RegistryContext.
+		/// </summary>
+		/// <param name="class">
+		/// A <see cref="String"/> that specifies the actual specification to build. It determines:
+		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
+		/// - The features selection to include in the generated sources
+		/// </param>
+		/// <param name="registry">
+		/// A <see cref="IRegistry"/> that specifies the elements of the OpenGL specification.
+		/// </param>
+		public RegistryContext(string @class, IRegistry registry) :
+			this( @class)
+		{
+			Registry = registry;
 		}
 
 		/// <summary>
@@ -116,7 +147,7 @@ namespace BindingsGen
 		/// <summary>
 		/// The OpenGL specification registry.
 		/// </summary>
-		public readonly Registry Registry;
+		public readonly IRegistry Registry;
 
 		/// <summary>
 		/// The extension names dictionary.

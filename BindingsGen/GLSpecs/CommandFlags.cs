@@ -50,6 +50,11 @@ namespace BindingsGen.GLSpecs
 		OutParamLast =		0x08,
 
 		/// <summary>
+		/// Generate command returning void while the actual returned value is returned via out parameter.
+		/// </summary>
+		ReturnAsOutParam =	0x100,
+
+		/// <summary>
 		/// Generate the method overload with plain parameters even if parameters are strongly typed.
 		/// </summary>
 		ForcePlainParams =	0x10,

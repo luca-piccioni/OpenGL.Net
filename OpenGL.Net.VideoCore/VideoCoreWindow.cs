@@ -43,10 +43,10 @@ namespace OpenGL
 				Bcm.VC_RECT_T dstRect = new Bcm.VC_RECT_T(0, 0, width, height);
 				Bcm.VC_RECT_T srcRect = new Bcm.VC_RECT_T(0, 0, width << 16, height << 16);
 
-				if ((_Display = Bcm.vc_dispmanx_display_open(0 /* LCD */)) == 0)
+				if ((_DispManxDisplay = Bcm.vc_dispmanx_display_open(0 /* LCD */)) == 0)
 					throw new InvalidOperationException("unable to open DispManX display");
 				_Update = Bcm.vc_dispmanx_update_start(0);
-				_ElementHandle = Bcm.vc_dispmanx_element_add(_Update, _Display, 0, ref dstRect, 0, ref srcRect, 0, IntPtr.Zero, IntPtr.Zero, Bcm.DISPMANX_TRANSFORM_T.DISPMANX_NO_ROTATE);
+				_ElementHandle = Bcm.vc_dispmanx_element_add(_Update, _DispManxDisplay, 0, ref dstRect, 0, ref srcRect, 0, IntPtr.Zero, IntPtr.Zero, Bcm.DISPMANX_TRANSFORM_T.DISPMANX_NO_ROTATE);
 				Bcm.vc_dispmanx_update_submit_sync(_Update);
 
 				// Native window
@@ -69,7 +69,7 @@ namespace OpenGL
 
 		public IntPtr Display { get { return (IntPtr.Zero); } }
 		
-		public IntPtr Handle { get { return (_NativeWindowLock.Address); } }
+		public IntPtr Handle { get { return (IntPtr.Zero); } }
 
 		private struct EGL_DISPMANX_WINDOW_T
 		{
@@ -78,7 +78,7 @@ namespace OpenGL
 			public int height;
 		}
 
-		private uint _Display;
+		private uint _DispManxDisplay;
 
 		private uint _Update;
 
@@ -99,9 +99,9 @@ namespace OpenGL
 					_NativeWindowLock.Dispose();
 					_NativeWindowLock = null;
 				}
-				if (_Display != 0) {
-					Bcm.vc_dispmanx_display_close(_Display);
-					_Display = 0;
+				if (_DispManxDisplay != 0) {
+					Bcm.vc_dispmanx_display_close(_DispManxDisplay);
+					_DispManxDisplay = 0;
 				}
 			}
 		}

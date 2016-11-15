@@ -61,6 +61,16 @@ namespace BindingsGen.GLSpecs
 		public class Item
 		{
 			/// <summary>
+			/// Parameterless constructor.
+			/// </summary>
+			public Item() { }
+
+			/// <summary>
+			/// Parameterless constructor.
+			/// </summary>
+			public Item(string name) { Name = name; }
+
+			/// <summary>
 			/// Item name.
 			/// </summary>
 			[XmlAttribute("name")]

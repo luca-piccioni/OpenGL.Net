@@ -74,6 +74,10 @@ namespace BindingsGen
 				specificationName = specificationName.Substring(4, specificationName.Length - 4);
 			else if (specificationName.StartsWith("EGL_"))
 				specificationName = specificationName.Substring(4, specificationName.Length - 4);
+			else if (specificationName.StartsWith("WFD_"))
+				specificationName = specificationName.Substring(4, specificationName.Length - 4);
+			else if (specificationName.StartsWith("WFC_"))
+				specificationName = specificationName.Substring(4, specificationName.Length - 4);
 
 			return (GetLegalCsField(specificationName));
 		}

@@ -272,6 +272,53 @@
 	<type name="EGLClientPixmapHI*" value="ClientPixmap*" />
 	<type name="EGLDEBUGPROCKHR" value="DebugProcKHR" />
 
+	<!-- WFC types -->
+	<type name="char**" value="IntPtr*" />
+	<type name="WFCboolean" value="bool" />
+	<type name="WFCint" value="int" />
+	<type name="WFCint*" value="int*" />
+	<type name="WFCfloat" value="float" />
+	<type name="WFCfloat*" value="float*" />
+	<type name="WFCbitfield" value="UInt32" />
+	<type name="WFCHandle" value="UInt32" />
+	<type name="WFCEGLDisplay" value="IntPtr" />
+	<type name="WFCEGLSync" value="IntPtr" />
+	<type name="WFCNativeStreamType" value="UInt32" />
+	
+	<type name="WFCDevice" value="UInt32" />
+	<type name="WFCContext" value="UInt32" />
+	<type name="WFCSource" value="UInt32" />
+	<type name="WFCMask" value="UInt32" />
+	<type name="WFCElement" value="UInt32" />
+	
+	<!-- WFD types -->
+	<type name="WFDboolean" value="bool" />
+	<type name="WFDuint8" value="byte" />
+	<type name="WFDuint8*" value="byte*" />
+	<type name="WFDbitfield" value="UInt32" />
+	<type name="WFDbitfield*" value="UInt32*" />
+	<type name="WFDtime" value="ulong" />
+	<type name="WFDint" value="int" />
+	<type name="WFDint*" value="int*" />
+	<type name="const WFDint" value="int" />
+	<type name="WFDfloat" value="float" />
+	<type name="WFDfloat*" value="float*" />
+	<type name="const WFDfloat" value="float" />
+	<type name="WFDHandle" value="UInt32" />
+	<type name="WFDNativeStreamType" value="UInt32" />
+	<type name="WFDDevice" value="UInt32" />
+	<type name="WFDEvent" value="UInt32" />
+	<type name="WFDPort" value="UInt32" />
+	<type name="WFDPortMode" value="UInt32" />
+	<type name="WFDPortMode*" value="UInt32*" />
+	<type name="WFDPipeline" value="UInt32" />
+	<type name="WFDSource" value="UInt32" />
+	<type name="WFDMask" value="UInt32" />
+	<type name="WFDEGLDisplay" value="IntPtr" />
+	<type name="WFDEGLSync" value="IntPtr" />
+	<type name="WFDEGLImage" value="IntPtr" />
+	<type name="UInt32" value="IntPtr" />
+
 	<!-- Bad decorators -->
 	<type name="GLfloatconst" value="float" />
 	<type name="GLXContextconst" value="IntPtr" />

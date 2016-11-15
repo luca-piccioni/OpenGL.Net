@@ -303,6 +303,34 @@ namespace OpenGL
 
 		private void CreateWindowSurface()
 		{
+			//if (Bcm.IsAvailable) {
+			//	int width, height;
+			//	KhronosApi.LogComment("Creating VideoCore native window");
+
+			//	if (Bcm.graphics_get_display_size(0 /* LCD */, out width, out height) < 0)
+			//		throw new InvalidOperationException("unable to get BCM display size");
+
+			//	Bcm.VC_RECT_T dstRect = new Bcm.VC_RECT_T(0, 0, width, height);
+			//	Bcm.VC_RECT_T srcRect = new Bcm.VC_RECT_T(0, 0, width << 16, height << 16);
+
+			//	if ((_DispManxDisplay = Bcm.vc_dispmanx_display_open(0 /* LCD */)) == 0)
+			//		throw new InvalidOperationException("unable to open DispManX display");
+			//	_Update = Bcm.vc_dispmanx_update_start(0);
+			//	_ElementHandle = Bcm.vc_dispmanx_element_add(_Update, _DispManxDisplay, 0, ref dstRect, 0, ref srcRect, 0, IntPtr.Zero, IntPtr.Zero, Bcm.DISPMANX_TRANSFORM_T.DISPMANX_NO_ROTATE);
+			//	Bcm.vc_dispmanx_update_submit_sync(_Update);
+
+			//	// Native window
+			//	_NativeWindow = new Bcm.EGL_DISPMANX_WINDOW_T();
+			//	_NativeWindow.element = _ElementHandle;
+			//	_NativeWindow.width = width;
+			//	_NativeWindow.height = height;
+
+			//	// Keep native window pinned
+			//	_NativeWindowLock = new MemoryLock(_NativeWindow);
+
+			//	_WindowHandle = _NativeWindowLock.Address;
+			//}
+
 			if (_WindowHandle != IntPtr.Zero) {
 				List<int> surfaceAttribs = new List<int>();
 
@@ -316,6 +344,16 @@ namespace OpenGL
 					throw new InvalidOperationException("unable to create PBuffer surface");
 			}
 		}
+
+		private uint _DispManxDisplay;
+
+		private uint _Update;
+
+		private uint _ElementHandle;
+
+		private Bcm.EGL_DISPMANX_WINDOW_T _NativeWindow;
+
+		private MemoryLock _NativeWindowLock;
 
 		/// <summary>
 		/// Makes the context current on the calling thread.

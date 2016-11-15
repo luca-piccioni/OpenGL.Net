@@ -157,7 +157,7 @@ namespace BindingsGen.GLSpecs
 				} else
 					sw.WriteLine("/// Strongly typed for value {0}.", enumerant.Name);
 				sw.WriteLine("/// </summary>");
-				sw.WriteLine("{0} = Gl.{1},", camelCase, bindingName);
+				sw.WriteLine("{0} = {1}.{2},", camelCase, ctx.Class, bindingName);
 				sw.WriteLine();
 			}
 			sw.Unindent();

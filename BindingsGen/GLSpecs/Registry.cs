@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2016 Luca Piccioni
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,13 +16,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
 	[XmlRoot("registry")]
-	public class Registry
+	public class Registry : IRegistry
 	{
 		#region Basic
 
@@ -50,19 +49,21 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlArray("groups")]
 		[XmlArrayItem("group")]
-		public readonly List<EnumerantGroup> Groups = new List<EnumerantGroup>();
+		public List<EnumerantGroup> Groups { get { return (_Groups); } }
+
+		private readonly List<EnumerantGroup> _Groups = new List<EnumerantGroup>();
 
 		public EnumerantGroup GetEnumerantGroup(string name)
 		{
 			EnumerantGroup enumerantGroup;
 
-			if (mEnumerantGroupRegistry.TryGetValue(name, out enumerantGroup) == false)
+			if (_EnumerantGroupRegistry.TryGetValue(name, out enumerantGroup) == false)
 				return (null);
 
 			return (enumerantGroup);
 		}
 
-		private readonly Dictionary<string, EnumerantGroup> mEnumerantGroupRegistry = new Dictionary<string, EnumerantGroup>();
+		private readonly Dictionary<string, EnumerantGroup> _EnumerantGroupRegistry = new Dictionary<string, EnumerantGroup>();
 
 		#endregion
 
@@ -147,13 +148,13 @@ namespace BindingsGen.GLSpecs
 		{
 			Command command;
 
-			if (mCommandRegistry.TryGetValue(name, out command) == false)
+			if (_CommandRegistry.TryGetValue(name, out command) == false)
 				return (null);
 
 			return (command);
 		}
 
-		private readonly Dictionary<string, Command> mCommandRegistry = new Dictionary<string,Command>();
+		private readonly Dictionary<string, Command> _CommandRegistry = new Dictionary<string,Command>();
 
 		#endregion
 
@@ -163,14 +164,18 @@ namespace BindingsGen.GLSpecs
 		/// It defines API feature interfaces (API versions, more or less). One item per feature set.
 		/// </summary>
 		[XmlElement("feature")]
-		public readonly List<Feature> Features = new List<Feature>();
+		public List<Feature> Features { get { return (_Features); } }
+
+		private readonly List<Feature> _Features = new List<Feature>();
 
 		/// <summary>
 		/// The <see cref="Extensions"/> contains individual <see cref="Extension"/> defining API extension interface.
 		/// </summary>
 		[XmlArray("extensions")]
 		[XmlArrayItem("extension")]
-		public readonly List<Extension> Extensions = new List<Extension>();
+		public List<Extension> Extensions { get { return (_Extensions); } }
+
+		private readonly List<Extension> _Extensions = new List<Extension>();
 
 		public IEnumerable<IFeature> AllFeatures(RegistryContext ctx)
 		{
@@ -210,10 +215,10 @@ namespace BindingsGen.GLSpecs
 		{
 			// Index enumeration groups
 			foreach (EnumerantGroup enumerantGroup in Groups)
-				mEnumerantGroupRegistry.Add(enumerantGroup.Name, enumerantGroup);
+				_EnumerantGroupRegistry.Add(enumerantGroup.Name, enumerantGroup);
 			// Index commands
 			foreach (Command command in Commands)
-				mCommandRegistry.Add(command.Prototype.Name, command);
+				_CommandRegistry.Add(command.Prototype.Name, command);
 
 			// Link command aliases
 			foreach (Command command in Commands) {

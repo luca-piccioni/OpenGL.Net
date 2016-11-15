@@ -312,5 +312,11 @@
 	<command name="^eglGetConfig(s|Attrib)$">
 		<flags>OutParamLast</flags>
 	</command>
+
+	<!-- OpenWF -->
+
+	<command name="^wf(c|d)Get(Element)Attrib(f|i)v?$">
+		<flags>ReturnAsOutParam</flags>
+	</command>
 	
 </command_overrides>

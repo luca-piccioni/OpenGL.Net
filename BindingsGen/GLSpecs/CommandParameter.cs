@@ -262,9 +262,12 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
-				string alternativeName = CommandFlagsDatabase.GetCommandArgumentAlternativeName(ParentCommand, this);
+				if (ParentCommand != null) {
+					string alternativeName = CommandFlagsDatabase.GetCommandArgumentAlternativeName(ParentCommand, this);
 
-				return (alternativeName ?? Name);
+					return (alternativeName ?? Name);
+				} else
+					return (Name);
 			}
 		}
 

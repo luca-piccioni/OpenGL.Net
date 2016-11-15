@@ -135,6 +135,16 @@ namespace OpenGL
 		public const string ApiGlsl = "glsl";
 
 		/// <summary>
+		/// OpenWF Composition API.
+		/// </summary>
+		public const string ApiWfc = "wfc";
+
+		/// <summary>
+		/// OpenWF Display API.
+		/// </summary>
+		public const string ApiWfd = "wfd";
+
+		/// <summary>
 		/// The Khronos API description.
 		/// </summary>
 		/// <remarks>
