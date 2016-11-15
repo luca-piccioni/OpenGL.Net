@@ -21,6 +21,9 @@ namespace HelloTriangle.VideoCore
 					});
 				}
 
+				if (Wfc.IsAvailable)
+					return;
+
 				// RPi runs on EGL
 				Egl.IsRequired = true;
 

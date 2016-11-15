@@ -33,11 +33,18 @@ namespace OpenGL
 		/// </summary>
 		static Wfc()
 		{
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.Linux:
+					// Note: on RPi libWFC.so depends on libGLESv2.so, so it's required to pre-load the shared library
+					GetProcAddressX11.Instance.GetLibraryHandle("libGLESv2.so");
+					break;
+			}
+
 			// Load procedures
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying OpenWF Compositor from {0}", platformLibrary);
-				BindAPI<Egl>(platformLibrary, GetProcAddress.GetProcAddressOS);
+				BindAPI<Wfc>(platformLibrary, GetProcAddress.GetProcAddressOS);
 				LogComment("OpenWF Compositor availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

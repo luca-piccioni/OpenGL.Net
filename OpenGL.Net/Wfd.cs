@@ -36,7 +36,7 @@ namespace OpenGL
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying OpenWF Display from {0}", platformLibrary);
-				BindAPI<Egl>(platformLibrary, GetProcAddress.GetProcAddressOS);
+				BindAPI<Wfd>(platformLibrary, GetProcAddress.GetProcAddressOS);
 				LogComment("OpenWF Display availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */
