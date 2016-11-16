@@ -121,7 +121,9 @@ namespace BindingsGen
 		/// <summary>
 		/// Base path to construct correct file paths.
 		/// </summary>
-        internal static readonly string BasePath = "../../../";
+		internal static readonly string BasePath = "../../../";
+
+		private static string _OutputBasePath = "OpenGL.Net";
 
 		/// <summary>
 		/// Generate all required files for OpenGL C# bindings.
@@ -137,15 +139,7 @@ namespace BindingsGen
 			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>();
 			Dictionary<string, bool> serializedEnums = new Dictionary<string, bool>();
 
-			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Enums.cs", ctx.Class)), null);
-#if !LOCAL_IMPORTS
-			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Imports.cs", ctx.Class)), null);
-			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Delegates.cs", ctx.Class)), delegate(Command command) {
-				if (command.Alias != null)
-					Console.WriteLine("  Skip command {0}: alias of {1}", command.Prototype.Name, command.Alias.Name);
-				return (command.Alias == null);
-			});
-#endif
+			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", _OutputBasePath, ctx.Class)), null);
 
 			#region By features and extensions
 
@@ -391,7 +385,7 @@ namespace BindingsGen
 
 			#endregion
 
-			string path = Path.Combine(BasePath, String.Format("OpenGL.Net/{0}.Vb.cs", ctx.Class));
+			string path = Path.Combine(BasePath, String.Format("{0}/{1}.Vb.cs", _OutputBasePath, ctx.Class));
 
 			if (featureVbCommands.Count > 0) {
 				Console.WriteLine("Generate registry commands to {0}.", path);
@@ -658,7 +652,7 @@ namespace BindingsGen
 		/// </returns>
 		private static string GetFeatureFilePath(IFeature feature, RegistryContext ctx)
 		{
-			string path = String.Format("OpenGL.Net/{0}.{1}.cs", ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
+			string path = String.Format("{0}/{1}.{2}.cs", _OutputBasePath, ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
 			string featureName = feature.Name.Substring(ctx.Class.Length + 1);
 			int separatorIndex = featureName.IndexOf('_');
 
@@ -666,10 +660,10 @@ namespace BindingsGen
 				string ext = featureName.Substring(0, separatorIndex);
 
 				if (ctx.ExtensionsDictionary.HasWord(ext)) {
-					string extensionDir = Path.Combine(BasePath, String.Format("OpenGL.NET/{0}", ext));
+					string extensionDir = Path.Combine(BasePath, String.Format("{0}/{1}", _OutputBasePath, ext));
 					if (!Directory.Exists(extensionDir))
 						Directory.CreateDirectory(extensionDir);
-					path = String.Format("OpenGL.Net/{2}/{0}.{1}.cs", ctx.Class, featureName, ext);
+					path = String.Format("{3}/{2}/{0}.{1}.cs", ctx.Class, featureName, ext, _OutputBasePath);
 				}
 			}
 

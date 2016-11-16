@@ -33,14 +33,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		[Log(BitmaskName = "GLXContextFlags")]
-		public const uint CONTEXT_DEBUG_BIT_ARB = 0x00000001;
+		public const int CONTEXT_DEBUG_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		[Log(BitmaskName = "GLXContextFlags")]
-		public const uint CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
+		public const int CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_CONTEXT_MAJOR_VERSION_ARB symbol.

@@ -34,7 +34,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_ARB_robustness_application_isolation")]
 		[RequiredByFeature("GLX_ARB_robustness_share_group_isolation")]
 		[Log(BitmaskName = "GLXContextFlags")]
-		public const uint CONTEXT_RESET_ISOLATION_BIT_ARB = 0x00000008;
+		public const int CONTEXT_RESET_ISOLATION_BIT_ARB = 0x00000008;
 
 	}
 

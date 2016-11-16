@@ -33,14 +33,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
 		[Log(BitmaskName = "GLXSyncType")]
-		public const uint SYNC_FRAME_SGIX = 0x00000000;
+		public const int SYNC_FRAME_SGIX = 0x00000000;
 
 		/// <summary>
 		/// Value of GLX_SYNC_SWAP_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
 		[Log(BitmaskName = "GLXSyncType")]
-		public const uint SYNC_SWAP_SGIX = 0x00000001;
+		public const int SYNC_SWAP_SGIX = 0x00000001;
 
 		/// <summary>
 		/// Binding for glXBindChannelToWindowSGIX.

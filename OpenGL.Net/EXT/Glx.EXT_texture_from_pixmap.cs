@@ -33,21 +33,21 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 		[Log(BitmaskName = "GLXBindToTextureTargetMask")]
-		public const uint TEXTURE_1D_BIT_EXT = 0x00000001;
+		public const int TEXTURE_1D_BIT_EXT = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_TEXTURE_2D_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 		[Log(BitmaskName = "GLXBindToTextureTargetMask")]
-		public const uint TEXTURE_2D_BIT_EXT = 0x00000002;
+		public const int TEXTURE_2D_BIT_EXT = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_TEXTURE_RECTANGLE_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 		[Log(BitmaskName = "GLXBindToTextureTargetMask")]
-		public const uint TEXTURE_RECTANGLE_BIT_EXT = 0x00000004;
+		public const int TEXTURE_RECTANGLE_BIT_EXT = 0x00000004;
 
 		/// <summary>
 		/// Value of GLX_BIND_TO_TEXTURE_RGB_EXT symbol.

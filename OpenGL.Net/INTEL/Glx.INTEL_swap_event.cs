@@ -33,7 +33,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_INTEL_swap_event")]
 		[Log(BitmaskName = "GLXEventMask")]
-		public const uint BUFFER_SWAP_COMPLETE_INTEL_MASK = 0x04000000;
+		public const int BUFFER_SWAP_COMPLETE_INTEL_MASK = 0x04000000;
 
 		/// <summary>
 		/// Value of GLX_EXCHANGE_COMPLETE_INTEL symbol.

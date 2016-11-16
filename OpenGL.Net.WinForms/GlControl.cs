@@ -669,7 +669,7 @@ namespace OpenGL
 
 			if (Gl.PlatformExtensions.CreateContext_ARB) {
 				List<int> attributes = new List<int>();
-				uint contextProfile = 0, contextFlags = 0;
+				int contextProfile = 0, contextFlags = 0;
 				bool debuggerAttached = Debugger.IsAttached;
 
 				#region WGL_ARB_create_context|GLX_ARB_create_context
@@ -681,27 +681,27 @@ namespace OpenGL
 				Debug.Assert(Wgl.CONTEXT_MINOR_VERSION_ARB == Glx.CONTEXT_MINOR_VERSION_ARB);
 				if (Version != null) {
 					attributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, Version.Major,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, Version.Minor
+						Glx.CONTEXT_MAJOR_VERSION_ARB, Version.Major,
+						Glx.CONTEXT_MINOR_VERSION_ARB, Version.Minor
 					});
 				} else {
 					// Note: this shouldn't be necessary since defaults are defined. However, on certains drivers this arguments are
 					// required for specifying CONTEXT_FLAGS_ARB and CONTEXT_PROFILE_MASK_ARB attributes:
 					// - Required by NVIDIA 266.72 on GeForce GT 540M on Windows 7 x64
 					attributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, Gl.CurrentVersion.Major,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, Gl.CurrentVersion.Minor
+						Glx.CONTEXT_MAJOR_VERSION_ARB, Gl.CurrentVersion.Major,
+						Glx.CONTEXT_MINOR_VERSION_ARB, Gl.CurrentVersion.Minor
 					});
 				}
 
 				if ((_DebugContextBit == AttributePermission.Enabled) || (debuggerAttached && _DebugContextBit == AttributePermission.EnabledInDebugger)) {
 					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
-					contextFlags |= Wgl.CONTEXT_DEBUG_BIT_ARB;
+					contextFlags |= Glx.CONTEXT_DEBUG_BIT_ARB;
 				}
 
 				if ((_ForwardCompatibleContextBit == AttributePermission.Enabled) || (debuggerAttached && _ForwardCompatibleContextBit == AttributePermission.EnabledInDebugger)) {
 					Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
-					contextFlags |= Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
+					contextFlags |= Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
 				}
 
 				#endregion
@@ -713,11 +713,11 @@ namespace OpenGL
 					switch (_ProfileType) {
 						case ProfileType.Core:
 							Debug.Assert(Wgl.CONTEXT_CORE_PROFILE_BIT_ARB == Glx.CONTEXT_CORE_PROFILE_BIT_ARB);
-							contextProfile |= Wgl.CONTEXT_CORE_PROFILE_BIT_ARB;
+							contextProfile |= Glx.CONTEXT_CORE_PROFILE_BIT_ARB;
 							break;
 						case ProfileType.Compatibility:
 							Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
-							contextProfile |= Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
+							contextProfile |= Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
 							break;
 					}
 				}
@@ -730,7 +730,7 @@ namespace OpenGL
 
 					if ((_RobustContextBit == AttributePermission.Enabled) || (debuggerAttached && _RobustContextBit == AttributePermission.EnabledInDebugger)) {
 						Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
-						contextFlags |= Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB;
+						contextFlags |= Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB;
 					}
 
 				}
@@ -739,12 +739,12 @@ namespace OpenGL
 
 				Debug.Assert(Wgl.CONTEXT_FLAGS_ARB == Glx.CONTEXT_FLAGS_ARB);
 				if (contextFlags != 0)
-					attributes.AddRange(new int[] { Wgl.CONTEXT_FLAGS_ARB, unchecked((int)contextFlags) });
+					attributes.AddRange(new int[] { Glx.CONTEXT_FLAGS_ARB, contextFlags });
 
 				Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
 				Debug.Assert(contextProfile == 0 || Gl.PlatformExtensions.CreateContextProfile_ARB);
 				if (contextProfile != 0)
-					attributes.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile) });
+					attributes.AddRange(new int[] { Glx.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile) });
 
 				attributes.Add(0);
 

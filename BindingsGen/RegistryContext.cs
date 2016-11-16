@@ -86,6 +86,7 @@ namespace BindingsGen
 		{
 			using (StreamReader sr = new StreamReader(registryPath)) {
 				Registry specRegistry = (Registry)SpecSerializer.Deserialize(sr);
+				Registry = specRegistry;
 				specRegistry.Link(this);
 
 				Registry = specRegistry;
