@@ -68,3 +68,7 @@ packages
 /Samples/HelloTriangle.Xamarin.Android/*.user
 /ANGLE
 /*.nupkg
+/Samples/HelloTriangle.VideoCore/obj
+/Samples/HelloTriangle.VideoCore/bin
+/OpenGL.Net.VideoCore/obj
+/OpenGL.Net.VideoCore/bin

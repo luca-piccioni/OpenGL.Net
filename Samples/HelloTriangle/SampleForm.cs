@@ -39,6 +39,8 @@ namespace HelloTriangle
 
 		private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
 		{
+			GlControl glControl = (GlControl)sender;
+
 			if (Gl.CurrentVersion.Api == KhronosVersion.ApiGles2)
 				RenderControl_ContextCreated_ES(sender, e);
 			else {
@@ -49,6 +51,10 @@ namespace HelloTriangle
 
 				Gl.MatrixMode(MatrixMode.Modelview);
 				Gl.LoadIdentity();
+
+				// Uses multisampling, if available
+				if (glControl.MultisampleBits > 0)
+					Gl.Enable(EnableCap.Multisample);
 			}
 		}
 
