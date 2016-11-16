@@ -39,7 +39,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_stereo_tree")]
 		[Log(BitmaskName = "GLXEventMask")]
-		public const int STEREO_NOTIFY_MASK_EXT = 0x00000001;
+		public const uint STEREO_NOTIFY_MASK_EXT = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_STEREO_NOTIFY_EXT symbol.

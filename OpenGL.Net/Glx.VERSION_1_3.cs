@@ -35,7 +35,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXDrawableTypeMask")]
-		public const int WINDOW_BIT = 0x00000001;
+		public const uint WINDOW_BIT = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_PIXMAP_BIT symbol.
@@ -44,7 +44,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXDrawableTypeMask")]
-		public const int PIXMAP_BIT = 0x00000002;
+		public const uint PIXMAP_BIT = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_PBUFFER_BIT symbol.
@@ -53,7 +53,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXDrawableTypeMask")]
-		public const int PBUFFER_BIT = 0x00000004;
+		public const uint PBUFFER_BIT = 0x00000004;
 
 		/// <summary>
 		/// Value of GLX_RGBA_BIT symbol.
@@ -62,7 +62,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXRenderTypeMask")]
-		public const int RGBA_BIT = 0x00000001;
+		public const uint RGBA_BIT = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_COLOR_INDEX_BIT symbol.
@@ -71,14 +71,14 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXRenderTypeMask")]
-		public const int COLOR_INDEX_BIT = 0x00000002;
+		public const uint COLOR_INDEX_BIT = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_PBUFFER_CLOBBER_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[Log(BitmaskName = "GLXEventMask")]
-		public const int PBUFFER_CLOBBER_MASK = 0x08000000;
+		public const uint PBUFFER_CLOBBER_MASK = 0x08000000;
 
 		/// <summary>
 		/// Value of GLX_FRONT_LEFT_BUFFER_BIT symbol.
@@ -87,7 +87,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int FRONT_LEFT_BUFFER_BIT = 0x00000001;
+		public const uint FRONT_LEFT_BUFFER_BIT = 0x00000001;
 
 		/// <summary>
 		/// Value of GLX_FRONT_RIGHT_BUFFER_BIT symbol.
@@ -96,7 +96,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int FRONT_RIGHT_BUFFER_BIT = 0x00000002;
+		public const uint FRONT_RIGHT_BUFFER_BIT = 0x00000002;
 
 		/// <summary>
 		/// Value of GLX_BACK_LEFT_BUFFER_BIT symbol.
@@ -105,7 +105,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int BACK_LEFT_BUFFER_BIT = 0x00000004;
+		public const uint BACK_LEFT_BUFFER_BIT = 0x00000004;
 
 		/// <summary>
 		/// Value of GLX_BACK_RIGHT_BUFFER_BIT symbol.
@@ -114,7 +114,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int BACK_RIGHT_BUFFER_BIT = 0x00000008;
+		public const uint BACK_RIGHT_BUFFER_BIT = 0x00000008;
 
 		/// <summary>
 		/// Value of GLX_AUX_BUFFERS_BIT symbol.
@@ -123,7 +123,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int AUX_BUFFERS_BIT = 0x00000010;
+		public const uint AUX_BUFFERS_BIT = 0x00000010;
 
 		/// <summary>
 		/// Value of GLX_DEPTH_BUFFER_BIT symbol.
@@ -132,7 +132,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int DEPTH_BUFFER_BIT = 0x00000020;
+		public const uint DEPTH_BUFFER_BIT = 0x00000020;
 
 		/// <summary>
 		/// Value of GLX_STENCIL_BUFFER_BIT symbol.
@@ -141,7 +141,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int STENCIL_BUFFER_BIT = 0x00000040;
+		public const uint STENCIL_BUFFER_BIT = 0x00000040;
 
 		/// <summary>
 		/// Value of GLX_ACCUM_BUFFER_BIT symbol.
@@ -150,7 +150,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int ACCUM_BUFFER_BIT = 0x00000080;
+		public const uint ACCUM_BUFFER_BIT = 0x00000080;
 
 		/// <summary>
 		/// <para>
@@ -298,7 +298,7 @@ namespace OpenGL
 		/// Value of GLX_DONT_CARE symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public const int DONT_CARE = unchecked((int)0xFFFFFFFF);
+		public const uint DONT_CARE = 0xFFFFFFFF;
 
 		/// <summary>
 		/// Value of GLX_NONE symbol.

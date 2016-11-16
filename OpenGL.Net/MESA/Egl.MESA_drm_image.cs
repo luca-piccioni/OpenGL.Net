@@ -63,14 +63,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		[Log(BitmaskName = "EGLDRMBufferUseMESAMask")]
-		public const uint DRM_BUFFER_USE_SCANOUT_MESA = 0x00000001;
+		public const int DRM_BUFFER_USE_SCANOUT_MESA = 0x00000001;
 
 		/// <summary>
 		/// Value of EGL_DRM_BUFFER_USE_SHARE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		[Log(BitmaskName = "EGLDRMBufferUseMESAMask")]
-		public const uint DRM_BUFFER_USE_SHARE_MESA = 0x00000002;
+		public const int DRM_BUFFER_USE_SHARE_MESA = 0x00000002;
 
 		/// <summary>
 		/// Binding for eglCreateDRMImageMESA.

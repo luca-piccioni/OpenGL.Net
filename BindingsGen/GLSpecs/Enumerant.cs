@@ -353,13 +353,13 @@ namespace BindingsGen.GLSpecs
 						// Remove ull suffix
 						value = Value.Substring(0, Value.Length - 3);
 						type = "ulong";
-					} else if (Regex.IsMatch(Value, @"0x\d{8}") && Regex.IsMatch(Value, @"_BIT|_MASK")) {
+					} else if (Regex.IsMatch(Value, @"0x\w{8}") && (Name.Contains("_BIT") || Name.Contains("_MASK"))) {
 						value = Value;
 						type = "uint";
-					} else if (Regex.IsMatch(Value, @"0x\d{8}") && Name.StartsWith("SWAP_")) {
+					} else if (Regex.IsMatch(Value, @"0x\w{8}") && ImplementationName.StartsWith("SWAP_")) {
 						value = Value;
 						type = "uint";
-					} else if (Regex.IsMatch(Value, @"0xF\d{7}")) {
+					} else if (Regex.IsMatch(Value, @"0x[8F]\w{7}")) {
 						value = Value;
 						type = "uint";
 					} else {													// 0xXXXX

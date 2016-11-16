@@ -87,7 +87,9 @@ namespace BindingsGen
 				GenerateVbCommands(glRegistryProcessor, ctx);
 			}
 
-			// Header-based speicfications
+			// OpenWF
+
+			_OutputBasePath = "OpenGL.Net.OpenWF";
 
 			// OpenWF(C)
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {

@@ -33,14 +33,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXEventMask")]
-		public const int BUFFER_CLOBBER_MASK_SGIX = 0x08000000;
+		public const uint BUFFER_CLOBBER_MASK_SGIX = 0x08000000;
 
 		/// <summary>
 		/// Value of GLX_SAMPLE_BUFFERS_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
-		public const int SAMPLE_BUFFERS_BIT_SGIX = 0x00000100;
+		public const uint SAMPLE_BUFFERS_BIT_SGIX = 0x00000100;
 
 		/// <summary>
 		/// Value of GLX_OPTIMAL_PBUFFER_WIDTH_SGIX symbol.

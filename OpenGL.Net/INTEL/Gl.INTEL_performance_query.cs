@@ -33,14 +33,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
-		public const uint PERFQUERY_SINGLE_CONTEXT_INTEL = 0x00000000;
+		public const int PERFQUERY_SINGLE_CONTEXT_INTEL = 0x00000000;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_GLOBAL_CONTEXT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|gles2")]
 		[Log(BitmaskName = "GL")]
-		public const uint PERFQUERY_GLOBAL_CONTEXT_INTEL = 0x00000001;
+		public const int PERFQUERY_GLOBAL_CONTEXT_INTEL = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_PERFQUERY_WAIT_INTEL symbol.

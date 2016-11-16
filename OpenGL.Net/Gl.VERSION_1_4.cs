@@ -263,12 +263,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns one value, the lower bound for the attenuated point sizes. The initial value is 1.0. See 
-		/// Gl.PointParameter.
-		/// </para>
-		/// <para>
 		/// Gl.PointParameter: params is a single floating-point value that specifies the minimum point size. The default value is 
 		/// 0.0.
+		/// </para>
+		/// <para>
+		/// Gl.Get: params returns one value, the lower bound for the attenuated point sizes. The initial value is 1.0. See 
+		/// Gl.PointParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SIZE_MIN_ARB")]
@@ -287,12 +287,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns one value, the upper bound for the attenuated point sizes. The initial value is 0.0. See 
-		/// Gl.PointParameter.
-		/// </para>
-		/// <para>
 		/// Gl.PointParameter: params is a single floating-point value that specifies the maximum point size. The default value is 
 		/// 1.0.
+		/// </para>
+		/// <para>
+		/// Gl.Get: params returns one value, the upper bound for the attenuated point sizes. The initial value is 0.0. See 
+		/// Gl.PointParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SIZE_MAX_ARB")]
@@ -311,12 +311,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns three values, the coefficients for computing the attenuation value for points. See 
-		/// Gl.PointParameter.
-		/// </para>
-		/// <para>
 		/// Gl.PointParameter: params is an array of three floating-point values that specify the coefficients used for scaling the 
 		/// computed point size. The default values are 100.
+		/// </para>
+		/// <para>
+		/// Gl.Get: params returns three values, the coefficients for computing the attenuation value for points. See 
+		/// Gl.PointParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_DISTANCE_ATTENUATION_ARB")]
@@ -331,12 +331,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
-		/// Gl.TexParameter.
-		/// </para>
-		/// <para>
 		/// Gl.TexParameter: specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
 		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
+		/// Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
@@ -587,12 +587,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: returns a single-valued texture format indicating how the depth values should be converted into 
-		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
-		/// </para>
-		/// <para>
 		/// Gl.TexParameter: specifies a single symbolic constant indicating how depth values should be treated during filtering and 
 		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns a single-valued texture format indicating how the depth values should be converted into 
+		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]

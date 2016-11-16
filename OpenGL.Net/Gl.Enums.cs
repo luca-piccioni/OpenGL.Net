@@ -18,6 +18,7 @@
 
 // Disable "'token' is obsolete" warnings
 #pragma warning disable 618
+
 using System;
 
 namespace OpenGL
@@ -8027,5 +8028,4 @@ namespace OpenGL
 
 	}
 
-
-	}
+}
