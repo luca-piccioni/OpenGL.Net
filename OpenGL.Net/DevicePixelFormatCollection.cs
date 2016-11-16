@@ -166,7 +166,7 @@ namespace OpenGL
 			}));
 
 			if (pixelFormats.Count == 0)
-				return (String.Format("no color bits combination matching ({0} bits, {{1}|{2}|{3}|{4}})", pixelFormat.ColorBits, pixelFormat.RedBits, pixelFormat.BlueBits, pixelFormat.AlphaBits));
+				return (String.Format("no color bits combination matching ({0} bits, {{{1}|{2}|{3}|{4}}})", pixelFormat.ColorBits, pixelFormat.RedBits, pixelFormat.BlueBits, pixelFormat.GreenBits, pixelFormat.AlphaBits));
 
 			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
 				return (item.DepthBits < pixelFormat.DepthBits);

@@ -211,7 +211,12 @@ namespace OpenGL
 		public uint ColorBits
 		{
 			get { return (_ColorBits); }
-			set { _ColorBits = value; }
+			set
+			{
+				_ColorBits = value;
+				// In-Designer pixel format checking
+				DesignerValidatePixelFormat();
+			}
 		}
 
 		/// <summary>
@@ -229,7 +234,12 @@ namespace OpenGL
 		public uint DepthBits
 		{
 			get { return (_DepthBits); }
-			set {_DepthBits = value; }
+			set
+			{
+				_DepthBits = value;
+				// In-Designer pixel format checking
+				DesignerValidatePixelFormat();
+			}
 		}
 
 		/// <summary>
@@ -247,7 +257,12 @@ namespace OpenGL
 		public uint StencilBits
 		{
 			get { return (_StencilBits); }
-			set { _StencilBits = value; }
+			set
+			{
+				_StencilBits = value;
+				// In-Designer pixel format checking
+				DesignerValidatePixelFormat();
+			}
 		}
 
 		/// <summary>
@@ -265,7 +280,12 @@ namespace OpenGL
 		public uint MultisampleBits
 		{
 			get { return (_MultisampleBits); }
-			set { _MultisampleBits = value; }
+			set
+			{
+				_MultisampleBits = value;
+				// In-Designer pixel format checking
+				DesignerValidatePixelFormat();
+			}
 		}
 
 		/// <summary>
@@ -283,7 +303,12 @@ namespace OpenGL
 		public bool DoubleBuffer
 		{
 			get { return (_DoubleBuffer); }
-			set { _DoubleBuffer = value; }
+			set
+			{
+				_DoubleBuffer = value;
+				// In-Designer pixel format checking
+				DesignerValidatePixelFormat();
+			}
 		}
 
 		/// <summary>
@@ -313,6 +338,59 @@ namespace OpenGL
 		/// </summary>
 		private int _SwapInterval = 1;
 
+		/// <summary>
+		/// The <see cref="DevicePixelFormat"/> describing the minimum pixel format required by this control.
+		/// </summary>
+		private DevicePixelFormat ControlPixelFormat
+		{
+			get
+			{
+				DevicePixelFormat controlReqFormat = new DevicePixelFormat();
+
+				controlReqFormat.RgbaUnsigned = true;
+				controlReqFormat.RenderWindow = true;
+
+				controlReqFormat.ColorBits = (int)ColorBits;
+				controlReqFormat.DepthBits = (int)DepthBits;
+				controlReqFormat.StencilBits = (int)StencilBits;
+				controlReqFormat.MultisampleBits = (int)MultisampleBits;
+				controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);     // DB not yet managed using ANGLE
+
+				return (controlReqFormat);
+			}
+		}
+
+		/// <summary>
+		/// Performs a design-time check to validate the current pixel format.
+		/// </summary>
+		private void DesignerValidatePixelFormat()
+		{
+			if (DesignMode == false)
+				return;
+
+			try {
+				if (_DeviceContext == null)
+					CreateDeviceContext(new DevicePixelFormat(0));
+
+				List<DevicePixelFormat> pixelFormats = _DeviceContext.PixelsFormats.Choose(ControlPixelFormat);
+
+				if (pixelFormats.Count > 0) {
+					_DesignerPixelFormatNotice = String.Format("Device pixel format:\n  > {0}", pixelFormats[0]);
+				} else {
+					_DesignerPixelFormatNotice = String.Format("Unable to find suitable pixel format:\n  > {0}", _DeviceContext.PixelsFormats.GuessChooseError(ControlPixelFormat));
+				}
+			} catch (Exception exception) {
+				_DesignerPixelFormatNotice = exception.ToString();
+			}
+
+			Invalidate();
+		}
+
+		/// <summary>
+		/// Notice to be displayed at design-time about current pixel format selection.
+		/// </summary>
+		private string _DesignerPixelFormatNotice;
+
 		#endregion
 
 		#region Design/Debug Graphics
@@ -338,7 +416,10 @@ namespace OpenGL
 			sysinfo.AppendFormat("  - Vendor: {0}\n", Gl.CurrentVendor);
 			sysinfo.AppendFormat("  - Renderer: {0}\n", Gl.CurrentRenderer);
 			if (Egl.IsAvailable)
-				sysinfo.AppendFormat("- EGL is available.\n");
+				sysinfo.AppendFormat("- EGL is available.\n\n");
+
+			if (_DesignerPixelFormatNotice != null)
+				sysinfo.AppendFormat("{0}\n", _DesignerPixelFormatNotice);
 
 			e.Graphics.DrawString(sysinfo.ToString(), _DesignFont, _DesignBrush, clientRect);
 		}
@@ -412,6 +493,14 @@ namespace OpenGL
 		/// </summary>
 		protected void CreateDeviceContext()
 		{
+			CreateDeviceContext(ControlPixelFormat);
+		}
+
+		/// <summary>
+		/// Create the device context and set the pixel format.
+		/// </summary>
+		private void CreateDeviceContext(DevicePixelFormat controlReqFormat)
+		{
 			#region Support embedded profile via ANGLE
 
 			if (_ProfileType == ProfileType.Embedded) {
@@ -432,18 +521,8 @@ namespace OpenGL
 			#region Set pixel format
 
 			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
-			DevicePixelFormat controlReqFormat = new DevicePixelFormat();
-
-			controlReqFormat.RgbaUnsigned = true;
-			controlReqFormat.RenderWindow = true;
-
-			controlReqFormat.ColorBits = (int)ColorBits;
-			controlReqFormat.DepthBits = (int)DepthBits;
-			controlReqFormat.StencilBits = (int)StencilBits;
-			controlReqFormat.MultisampleBits = (int)MultisampleBits;
-			controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);     // DB not yet managed using ANGLE
-
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
+
 			if ((matchingPixelFormats.Count == 0) && controlReqFormat.DoubleBuffer) {
 				// Try single buffered pixel formats
 				controlReqFormat.DoubleBuffer = false;
