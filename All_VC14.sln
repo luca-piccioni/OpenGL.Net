@@ -54,6 +54,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.VideoCore", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.VideoCore", "OpenGL.Net.VideoCore\OpenGL.Net.VideoCore.csproj", "{53BDDF50-1755-4A72-935E-A052FC28BCBA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WF", "WF", "{CA1B5E95-F2B3-4A2E-B3E8-9D2A86E20B7D}"
+	ProjectSection(SolutionItems) = preProject
+		GLSpecs\WF\wfc.h = GLSpecs\WF\wfc.h
+		GLSpecs\WF\wfcext.h = GLSpecs\WF\wfcext.h
+		GLSpecs\WF\wfcplatform.h = GLSpecs\WF\wfcplatform.h
+		GLSpecs\WF\wfd.h = GLSpecs\WF\wfd.h
+		GLSpecs\WF\wfdext.h = GLSpecs\WF\wfdext.h
+		GLSpecs\WF\wfdplatform.h = GLSpecs\WF\wfdplatform.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -192,5 +202,6 @@ Global
 		{34F2AF27-4843-441E-BF3A-D7FF8CA8BC96} = {D94A5DCC-F8D7-477D-97F9-27888A2F7EED}
 		{32492BB6-936E-4DDA-8086-21EC3B630CE2} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{2125A880-2A7D-4122-988A-1075D0E1FB22} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
+		{CA1B5E95-F2B3-4A2E-B3E8-9D2A86E20B7D} = {74055295-3E82-45FF-8748-6130F534C8B0}
 	EndGlobalSection
 EndGlobal

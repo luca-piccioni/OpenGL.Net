@@ -260,7 +260,7 @@ namespace OpenGL
 		/// </summary>
 		[Browsable(true)]
 		[Category("Framebuffer")]
-		[Description("Minimum number of bits of the multisample buffer.")]
+		[Description("Minimum number of samples of the multisample buffer.")]
 		[DefaultValue(0)]
 		public uint MultisampleBits
 		{
@@ -450,9 +450,9 @@ namespace OpenGL
 
 				matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 				if (matchingPixelFormats.Count == 0)
-					throw new InvalidOperationException("unable to find a suitable pixel format");
+					throw new InvalidOperationException(String.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
 			} else if (matchingPixelFormats.Count == 0)
-				throw new InvalidOperationException("unable to find a suitable pixel format");
+				throw new InvalidOperationException(String.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
 
 			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
 

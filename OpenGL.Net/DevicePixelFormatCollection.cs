@@ -56,11 +56,6 @@ namespace OpenGL
 				if (pixelFormat.RenderBuffer && !item.RenderBuffer)
 					return (true);
 
-				if (pixelFormat.SRGBCapable && !item.SRGBCapable)
-					return (true);
-				if (pixelFormat.DoubleBuffer && !item.DoubleBuffer)
-					return (true);
-
 				if (item.ColorBits < pixelFormat.ColorBits)
 					return (true);
 				if (item.RedBits < pixelFormat.RedBits)
@@ -75,6 +70,13 @@ namespace OpenGL
 				if (item.DepthBits < pixelFormat.DepthBits)
 					return (true);
 				if (item.StencilBits < pixelFormat.StencilBits)
+					return (true);
+				if (item.MultisampleBits < pixelFormat.MultisampleBits)
+					return (true);
+
+				if (pixelFormat.DoubleBuffer && !item.DoubleBuffer)
+					return (true);
+				if (pixelFormat.SRGBCapable && !item.SRGBCapable)
 					return (true);
 
 				return (false);
@@ -95,6 +97,8 @@ namespace OpenGL
 					return (compare);
 				if ((compare = x.StencilBits.CompareTo(y.StencilBits)) != 0)
 					return (compare);
+				if ((compare = x.MultisampleBits.CompareTo(y.MultisampleBits)) != 0)
+					return (compare);
 
 				if ((compare = y.DoubleBuffer.CompareTo(x.DoubleBuffer)) != 0)
 					return (compare);
@@ -103,6 +107,98 @@ namespace OpenGL
 			});
 
 			return (pixelFormatsCopy);
+		}
+
+		/// <summary>
+		/// Try to guess why <see cref="Choose(DevicePixelFormat)"/> is not returning any pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specify the minimum requirements
+		/// </param>
+		/// <returns>
+		/// It returns a string indicating the actual reason behind a failure in pixel format selection using <paramref name="pixelFormat"/>.
+		/// </returns>
+		public string GuessChooseError(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			List<DevicePixelFormat> pixelFormats = new List<DevicePixelFormat>(this);
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				if (pixelFormat.RgbaUnsigned != item.RgbaUnsigned)
+					return (true);
+				if (pixelFormat.RgbaFloat != item.RgbaFloat)
+					return (true);
+
+				return (false);
+			}));
+			if (pixelFormats.Count == 0)
+				return (String.Format("no RGBA pixel type matching (RGBAui={0}, RGBAf={1})", pixelFormat.RgbaUnsigned, pixelFormat.RgbaFloat));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				if (pixelFormat.RenderWindow && !item.RenderWindow)
+					return (true);
+				if (pixelFormat.RenderPBuffer && !item.RenderPBuffer)
+					return (true);
+				if (pixelFormat.RenderBuffer && !item.RenderBuffer)
+					return (true);
+
+				return (false);
+			}));
+
+			if (pixelFormats.Count == 0)
+				return (String.Format("no surface matching (Window={0}, PBuffer={1}, RenderBuffer={2})", pixelFormat.RenderWindow, pixelFormat.RenderPBuffer, pixelFormat.RenderBuffer));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				if (item.ColorBits < pixelFormat.ColorBits)
+					return (true);
+				if (item.RedBits < pixelFormat.RedBits)
+					return (true);
+				if (item.GreenBits < pixelFormat.GreenBits)
+					return (true);
+				if (item.BlueBits < pixelFormat.BlueBits)
+					return (true);
+				if (item.AlphaBits < pixelFormat.AlphaBits)
+					return (true);
+
+				return (false);
+			}));
+
+			if (pixelFormats.Count == 0)
+				return (String.Format("no color bits combination matching ({0} bits, {{1}|{2}|{3}|{4}})", pixelFormat.ColorBits, pixelFormat.RedBits, pixelFormat.BlueBits, pixelFormat.AlphaBits));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				return (item.DepthBits < pixelFormat.DepthBits);
+			}));
+			if (pixelFormats.Count == 0)
+				return (String.Format("no depth bits matching (Depth >= {0})", pixelFormat.DepthBits));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				return (item.StencilBits < pixelFormat.StencilBits);
+			}));
+			if (pixelFormats.Count == 0)
+				return (String.Format("no stencil bits matching (Bits >= {0})", pixelFormat.StencilBits));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				return (item.MultisampleBits < pixelFormat.MultisampleBits);
+			}));
+			if (pixelFormats.Count == 0)
+				return (String.Format("no multisample bits matching (Samples >= {0})", pixelFormat.MultisampleBits));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				return (pixelFormat.DoubleBuffer && !item.DoubleBuffer);
+			}));
+			if (pixelFormats.Count == 0)
+				return (String.Format("no double-buffer matching (DB={0})", pixelFormat.DoubleBuffer));
+
+			pixelFormats.RemoveAll((delegate (DevicePixelFormat item) {
+				return (pixelFormat.SRGBCapable && !item.SRGBCapable);
+			}));
+			if (pixelFormats.Count == 0)
+				return (String.Format("no sRGB matching (sRGB={0})", pixelFormat.SRGBCapable));
+			
+			return ("no error");
 		}
 
 		/// <summary>
