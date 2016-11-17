@@ -767,16 +767,6 @@
     </Compile>
     <Compile Include="VertexBaseType.cs" />
     <Compile Include="VIV\Gl.VIV_shader_binary.cs" />
-    <None Include="Wfd.cs" />
-    <None Include="Wfd.Enums.cs" />
-    <None Include="Wfd.Extensions.cs" />
-    <None Include="Wfd.Versions.cs" />
-    <None Include="Wfd.VERSION_1_0.cs" />
-    <Compile Include="Wfc.Enums.cs" />
-    <Compile Include="Wfc.Extensions.cs" />
-    <Compile Include="Wfc.Versions.cs" />
-    <Compile Include="Wfc.VERSION_1_0.cs" />
-    <Compile Include="Wfc.cs" />
     <Compile Include="Wgl.cs">
       <SubType>Code</SubType>
     </Compile>

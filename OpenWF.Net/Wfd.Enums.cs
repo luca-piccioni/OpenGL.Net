@@ -21,25 +21,8 @@
 
 using System;
 
-namespace OpenGL
+namespace OpenWF
 {
-	/// <summary>
-	/// Strongly typed enumeration WFDboolean.
-	/// </summary>
-	public enum WFDboolean
-	{
-		/// <summary>
-		/// Strongly typed for value WFD_FALSE.
-		/// </summary>
-		False = Wfd.FALSE,
-
-		/// <summary>
-		/// Strongly typed for value WFD_TRUE.
-		/// </summary>
-		True = Wfd.TRUE,
-
-	}
-
 	/// <summary>
 	/// Strongly typed enumeration WFDStringID.
 	/// </summary>

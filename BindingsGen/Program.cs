@@ -89,7 +89,8 @@ namespace BindingsGen
 
 			// OpenWF
 
-			_OutputBasePath = "OpenGL.Net.OpenWF";
+			_OutputBasePath = "OpenWF.Net";
+			_Namespace = "OpenWF";
 
 			// OpenWF(C)
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {
@@ -97,7 +98,7 @@ namespace BindingsGen
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"));
 
 				ctx = new RegistryContext("Wfc", headRegistry);
-				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
@@ -110,7 +111,7 @@ namespace BindingsGen
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"));
 
 				ctx = new RegistryContext("Wfd", headRegistry);
-				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
@@ -125,7 +126,12 @@ namespace BindingsGen
 		/// </summary>
 		internal static readonly string BasePath = "../../../";
 
+		/// <summary>
+		/// The directory where the output files are placed.
+		/// </summary>
 		private static string _OutputBasePath = "OpenGL.Net";
+
+		private static string _Namespace = "OpenGL";
 
 		/// <summary>
 		/// Generate all required files for OpenGL C# bindings.
@@ -261,7 +267,7 @@ namespace BindingsGen
 				orphanEnums.Add(enumerant);
 			}
 
-			string orphanFile = Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Orphans.cs", ctx.Class));
+			string orphanFile = Path.Combine(BasePath, String.Format("{0}/{1}.Orphans.cs", _OutputBasePath, ctx.Class));
 
 			if ((orphanCommands.Count != 0) || (orphanEnums.Count != 0)) {
 				glRegistryProcessor.GenerateCommands(ctx, orphanFile, delegate(RegistryContext cctx, SourceStreamWriter sw) {
@@ -410,7 +416,7 @@ namespace BindingsGen
 
 					sw.WriteLine();
 
-					sw.WriteLine("namespace OpenGL");
+					sw.WriteLine("namespace {0}", _Namespace);
 					sw.WriteLine("{");
 					sw.Indent();
 
@@ -466,7 +472,7 @@ namespace BindingsGen
 
 		private static void GenerateExtensionsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
 		{
-			string path = String.Format("OpenGL.NET/{0}.Extensions.cs", ctx.Class);
+			string path = String.Format("{0}/{1}.Extensions.cs", _OutputBasePath, ctx.Class);
 
 			Console.WriteLine("Generate registry khronosExtensions to {0}.", path);
 
@@ -498,7 +504,7 @@ namespace BindingsGen
 				sw.WriteLine("using System;");
 				sw.WriteLine();
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", _Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -568,14 +574,14 @@ namespace BindingsGen
 
 		private static void GenerateVersionsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
 		{
-			string path = String.Format("OpenGL.NET/{0}.Versions.cs", ctx.Class);
+			string path = String.Format("{0}/{1}.Versions.cs", _OutputBasePath, ctx.Class);
 
 			Console.WriteLine("Generate version support class to {0}.", path);
 
 			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(BasePath, path), false)) {
 				RegistryProcessor.GenerateLicensePreamble(sw);
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", _Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 

@@ -30,15 +30,24 @@ namespace BindingsGen
 	{
 		#region Constructors
 
-		public RegistryProcessor(IRegistry registry)
+		public RegistryProcessor(IRegistry registry) :
+			this(registry, "OpenGL")
+		{
+
+		}
+
+		public RegistryProcessor(IRegistry registry, string @namespace)
 		{
 			if (registry == null)
 				throw new ArgumentNullException("registry");
 
 			_Registry = registry;
+			Namespace = @namespace;
 		}
 
 		#endregion
+
+		public readonly string Namespace;
 
 		/// <summary>
 		/// 
@@ -63,7 +72,7 @@ namespace BindingsGen
 				sw.WriteLine("using System;");
 				sw.WriteLine();
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -108,7 +117,7 @@ namespace BindingsGen
 				sw.WriteLine("using System;");
 				sw.WriteLine();
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -173,7 +182,7 @@ namespace BindingsGen
 
 				sw.WriteLine();
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -206,7 +215,7 @@ namespace BindingsGen
 				sw.WriteLine("using System.Runtime.InteropServices;");
 				sw.WriteLine();
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -273,7 +282,7 @@ namespace BindingsGen
 				sw.WriteLine("using System.Text;");
 				sw.WriteLine();
 
-				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
 				sw.Indent();
 

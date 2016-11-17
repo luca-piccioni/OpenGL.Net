@@ -21,13 +21,6 @@ namespace HelloTriangle.VideoCore
 					});
 				}
 
-				if (Wfc.IsAvailable) {
-					int devices = Wfc.EnumerateDevices(null, 0, null);
-
-					Console.WriteLine("Found {0} devices", devices);
-					return;
-				}
-
 				// RPi runs on EGL
 				Egl.IsRequired = true;
 

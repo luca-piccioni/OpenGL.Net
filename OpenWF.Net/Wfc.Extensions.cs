@@ -18,7 +18,7 @@
 
 using System;
 
-namespace OpenGL
+namespace OpenWF
 {
 	public partial class Wfc
 	{

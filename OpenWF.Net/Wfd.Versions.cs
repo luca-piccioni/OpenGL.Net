@@ -16,18 +16,19 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-using System;
-
-namespace OpenGL
+namespace OpenWF
 {
 	public partial class Wfd
 	{
+		#region Known Versions Constants
+
 		/// <summary>
-		/// Extension support listing.
+		/// Version for WFD_VERSION_1_0 API.
 		/// </summary>
-		public partial class Extensions : ExtensionsCollection
-		{
-		}
-}
+		public static readonly KhronosVersion Version_100 = new KhronosVersion(1, 0, KhronosVersion.ApiWfd);
+
+		#endregion
+
+	}
 
 }

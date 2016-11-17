@@ -21,7 +21,7 @@
 
 using System;
 
-namespace OpenGL
+namespace OpenWF
 {
 	/// <summary>
 	/// Strongly typed enumeration WFCErrorCode.

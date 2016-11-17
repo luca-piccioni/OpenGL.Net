@@ -110,7 +110,7 @@ namespace BindingsGen.GLSpecs
 			headerText = Regex.Replace(headerText, preprocessorDirective, String.Empty);
 
 			// Remove new lines
-			headerText = Regex.Replace(headerText, @"\n", String.Empty);
+			headerText = Regex.Replace(headerText, @"\r?\n", String.Empty);
 			// Remove structures typedefs
 			string structTypedef = @"typedef struct ?\{(.*?)\}( +?)(.*?);";
 			headerText = Regex.Replace(headerText, structTypedef, String.Empty);

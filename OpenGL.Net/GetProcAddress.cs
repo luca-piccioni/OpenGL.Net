@@ -29,7 +29,7 @@ namespace OpenGL
 	/// <summary>
 	/// Abtract an interface for interoperating with dynamically loaded libraries.
 	/// </summary>
-	static class GetProcAddress
+	internal static class GetProcAddress
 	{
 		#region Constructors
 
@@ -105,7 +105,7 @@ namespace OpenGL
 	/// <summary>
 	/// Interface implemented by those classes which are able to get function pointers from dynamically loaded libraries.
 	/// </summary>
-	interface IGetProcAddress
+	internal interface IGetProcAddress
 	{
 		/// <summary>
 		/// Add a path of a directory as additional path for searching libraries.
@@ -159,7 +159,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on Windows platform.
 	/// </summary>
-	class GetProcAddressWindows : IGetProcAddress
+	internal class GetProcAddressWindows : IGetProcAddress
 	{
 		#region Windows Platform Imports
 
@@ -334,7 +334,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on X11 platform.
 	/// </summary>
-	class GetProcAddressX11 : IGetProcAddress
+	internal class GetProcAddressX11 : IGetProcAddress
 	{
 		#region Singleton
 
@@ -466,7 +466,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on OSX platform.
 	/// </summary>
-	class GetProcAddressOSX : IGetProcAddress
+	internal class GetProcAddressOSX : IGetProcAddress
 	{
 		#region OSX Platform Imports
 
@@ -565,7 +565,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on different platforms supporting EGL.
 	/// </summary>
-	class GetProcAddressEgl : IGetProcAddress
+	internal class GetProcAddressEgl : IGetProcAddress
 	{
 		#region Singleton
 

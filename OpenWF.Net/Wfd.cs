@@ -18,7 +18,7 @@
 
 using System.Diagnostics;
 
-namespace OpenGL
+namespace OpenWF
 {
 	/// <summary>
 	/// Modern OpenGL bindings: OpenWF, Display API.
