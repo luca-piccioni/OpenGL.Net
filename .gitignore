@@ -74,3 +74,7 @@ packages
 /OpenGL.Net.VideoCore/bin
 /OpenWF.Net/obj
 /OpenWF.Net/bin
+/OpenGL.Net.OpenWF/obj
+/OpenGL.Net.OpenWF/bin
+/Samples/HelloTriangle.OpenWF/obj
+/Samples/HelloTriangle.OpenWF/bin
