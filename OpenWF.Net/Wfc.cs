@@ -91,7 +91,15 @@ namespace OpenWF
 		/// <summary>
 		/// OpenWF Composition error checking.
 		/// </summary>
-		[Conditional("DEBUG")]
+		public static void CheckErrors(WFCErrorCode errorCode)
+		{
+			if (errorCode != WFCErrorCode.ErrorNone)
+				throw new InvalidOperationException(String.Format("OpenWF error: {0}", errorCode));
+		}
+
+		/// <summary>
+		/// OpenWF Composition error checking.
+		/// </summary>
 		private static void DebugCheckErrors(object returnValue)
 		{
 			

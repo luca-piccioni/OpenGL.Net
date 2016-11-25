@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E8E7D5BA-D0A6-4A6C-A748-C1AAAF2C0473}</ProjectGuid>
+    <ProjectGuid>{7D2E34E4-2173-4D6F-9A01-E661618F5C79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenWF</RootNamespace>
-    <AssemblyName>OpenWF.Net</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>OpenGL.Net.OpenWF</RootNamespace>
+    <AssemblyName>OpenGL.Net.OpenWF</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,33 +28,22 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WfcWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wfc.cs" />
-    <Compile Include="Wfc.Enums.cs" />
-    <Compile Include="Wfc.Extensions.cs" />
-    <Compile Include="Wfc.Versions.cs" />
-    <Compile Include="Wfc.VERSION_1_0.cs" />
-    <Compile Include="WfcContext.cs" />
-    <Compile Include="WfcDevice.cs" />
-    <Compile Include="WfcElement.cs" />
-    <Compile Include="WfcSource.cs" />
-    <None Include="Wfd.cs" />
-    <None Include="Wfd.Enums.cs" />
-    <None Include="Wfd.Extensions.cs" />
-    <None Include="Wfd.Versions.cs" />
-    <None Include="Wfd.VERSION_1_0.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj">
       <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
       <Name>OpenGL.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenWF.Net\OpenWF.Net.csproj">
+      <Project>{e8e7d5ba-d0a6-4a6c-a748-c1aaaf2c0473}</Project>
+      <Name>OpenWF.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
