@@ -70,11 +70,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Create a device context without a specific window.
+		/// </summary>
+		/// <exception cref='NotSupportedException'>
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		public static DeviceContext Create()
+		{
+			if (Egl.IsRequired == false) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						return (new DeviceContextWGL());
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+				}
+			} else
+				throw new NotSupportedException("platform EGL not supported");
+		}
+
+		/// <summary>
 		/// Create a device context on the specified window.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="IntPtr"/> that specified the display handle associated to <paramref name="windowHandle"/>. Some platforms
-		/// ignore this parameter (i.e. Windows or any EGL implementation).
+		/// ignore this parameter (i.e. Windows or EGL implementation).
 		/// </param>
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.

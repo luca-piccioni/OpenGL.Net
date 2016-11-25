@@ -50,8 +50,27 @@ namespace OpenGL
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
 		/// </param>
-		/// <exception cref='ArgumentException'>
-		/// Is thrown when <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
+		/// <exception cref='InvalidOperationException'>
+		/// Is thrown when an operation cannot be performed.
+		/// </exception>
+		public DeviceContextWGL()
+		{
+			_WindowHandle = Gl._NativeWindow.Handle;
+			_PixelFormatSet = true;		// We do not want to reset pixel format
+
+			_DeviceContext = Wgl.GetDC(_WindowHandle);
+			if (_DeviceContext == IntPtr.Zero)
+				throw new InvalidOperationException("unable to get device context");
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DeviceContextWGL"/> class.
+		/// </summary>
+		/// <param name='windowHandle'>
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="windowHandle"/> is <see cref="IntPtr.Zero"/>.
 		/// </exception>
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
@@ -62,10 +81,10 @@ namespace OpenGL
 				throw new ArgumentException("null handle", "windowHandle");
 
 			_WindowHandle = windowHandle;
-			_DeviceContext = Wgl.GetDC(windowHandle);
 
-			if (DeviceContext == IntPtr.Zero)
-				throw new InvalidOperationException("unable to get any video device context");
+			_DeviceContext = Wgl.GetDC(_WindowHandle);
+			if (_DeviceContext == IntPtr.Zero)
+				throw new InvalidOperationException("unable to get device context");
 		}
 
 		#endregion
@@ -73,40 +92,19 @@ namespace OpenGL
 		#region Device Information
 
 		/// <summary>
-		/// The window handle.
-		/// </summary>
-		public IntPtr WindowHandle
-		{
-			get
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("WindowsDeviceContext");
-				return (_WindowHandle);
-			}
-		}
-
-		/// <summary>
 		/// The device context of the control.
 		/// </summary>
-		public IntPtr DeviceContext
-		{
-			get
-			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("WindowsDeviceContext");
-				return (_DeviceContext);
-			}
-		}
+		internal IntPtr DeviceContext { get { return (_DeviceContext); } }
 
 		/// <summary>
 		/// The window handle.
 		/// </summary>
-		private readonly IntPtr _WindowHandle;
+		private IntPtr _WindowHandle;
 
 		/// <summary>
 		/// The device context of the control.
 		/// </summary>
-		private readonly IntPtr _DeviceContext;
+		internal IntPtr _DeviceContext;
 
 		#endregion
 
@@ -285,15 +283,15 @@ namespace OpenGL
 			// Find pixel format match
 			pfd.dwFlags |= Wgl.PixelFormatDescriptorFlags.DepthDontCare | Wgl.PixelFormatDescriptorFlags.DoublebufferDontCare | Wgl.PixelFormatDescriptorFlags.StereoDontCare;
 
-			pFormat = Wgl.ChoosePixelFormat(DeviceContext, ref pfd);
+			pFormat = Wgl.ChoosePixelFormat(_DeviceContext, ref pfd);
 			Debug.Assert(pFormat != 0);
 
 			// Get exact description of the pixel format
-			res = Wgl.DescribePixelFormat(DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
+			res = Wgl.DescribePixelFormat(_DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
 			Debug.Assert(res);
 
 			// Set pixel format before creating OpenGL context
-			res = Wgl.SetPixelFormat(DeviceContext, pFormat, ref pfd);
+			res = Wgl.SetPixelFormat(_DeviceContext, pFormat, ref pfd);
 			Debug.Assert(res);
 
 			// Create a dummy OpenGL context to retrieve initial informations.
@@ -323,7 +321,7 @@ namespace OpenGL
 			IntPtr renderContext = IntPtr.Zero;
 
 			try {
-				renderContext = Wgl.CreateContext(DeviceContext);
+				renderContext = Wgl.CreateContext(_DeviceContext);
 				if ((renderContext != IntPtr.Zero) && (sharedContext != IntPtr.Zero)) {
 					bool res = Wgl.ShareLists(renderContext, sharedContext);
 					Debug.Assert(res);
@@ -363,14 +361,12 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			if (attribsList == null)
-				throw new ArgumentNullException("attribsList");
-			if (attribsList.Length == 0)
+			if ((attribsList != null) && (attribsList.Length == 0))
 				throw new ArgumentException("zero length array", "attribsList");
-			if (attribsList[attribsList.Length - 1] != 0)
+			if ((attribsList != null) && (attribsList[attribsList.Length - 1] != 0))
 				throw new ArgumentException("not zero-terminated array", "attribsList");
 
-			return (Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, attribsList));
+			return (Wgl.CreateContextAttribsARB(_DeviceContext, sharedContext, attribsList));
 		}
 
 		/// <summary>
@@ -391,7 +387,7 @@ namespace OpenGL
 			// Avoid actual call to wglMakeCurrent if it is not necessary
 			// Efficient on simple/nominal applications
 			IntPtr currentContext = Wgl.GetCurrentContext(), currentDc = Wgl.GetCurrentDC();
-			if (ctx == currentContext && DeviceContext == currentDc)
+			if (ctx == currentContext && _DeviceContext == currentDc)
 				return (true);
 
 			// Base implementation
@@ -413,7 +409,7 @@ namespace OpenGL
 		/// </exception>
 		protected override bool MakeCurrentCore(IntPtr ctx)
 		{
-			return (Wgl.MakeCurrent(DeviceContext, ctx));
+			return (Wgl.MakeCurrent(_DeviceContext, ctx));
 		}
 
 		/// <summary>
@@ -445,7 +441,7 @@ namespace OpenGL
 		/// </summary>
 		public override void SwapBuffers()
 		{
-			Wgl.UnsafeNativeMethods.GdiSwapBuffersFast(DeviceContext);
+			Wgl.UnsafeNativeMethods.GdiSwapBuffersFast(_DeviceContext);
 		}
 
 		/// <summary>
@@ -518,7 +514,7 @@ namespace OpenGL
 				int[] countFormatAttribsCodes = new int[] { Wgl.NUMBER_PIXEL_FORMATS_ARB };
 				int[] countFormatAttribsValues = new int[countFormatAttribsCodes.Length];
 
-				Wgl.GetPixelFormatAttribARB(DeviceContext, 1, 0, (uint)countFormatAttribsCodes.Length, countFormatAttribsCodes, countFormatAttribsValues);
+				Wgl.GetPixelFormatAttribARB(_DeviceContext, 1, 0, (uint)countFormatAttribsCodes.Length, countFormatAttribsCodes, countFormatAttribsValues);
 
 				// Request configurations
 				List<int> pixelFormatAttribsCodes = new List<int>(12);
@@ -571,7 +567,7 @@ namespace OpenGL
 				for (int pixelFormatIndex = 1; pixelFormatIndex < countFormatAttribsValues[0]; pixelFormatIndex++) {
 					DevicePixelFormat pixelFormat = new DevicePixelFormat();
 
-					Wgl.GetPixelFormatAttribARB(DeviceContext, pixelFormatIndex, 0, (uint)pixelFormatAttribsCodes.Count, pixelFormatAttribsCodes.ToArray(), pixelFormatAttribValues);
+					Wgl.GetPixelFormatAttribARB(_DeviceContext, pixelFormatIndex, 0, (uint)pixelFormatAttribsCodes.Count, pixelFormatAttribsCodes.ToArray(), pixelFormatAttribValues);
 
 					// Check minimum requirements
 					if (pixelFormatAttribValues[0] != Gl.TRUE)
@@ -647,6 +643,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Pixel formats available on this DeviceContext (cache).
+		/// </summary>
+		private DevicePixelFormatCollection _PixelFormatCache;
+
+		/// <summary>
 		/// Set the device pixel format.
 		/// </summary>
 		/// <param name="pixelFormat">
@@ -656,6 +657,8 @@ namespace OpenGL
 		{
 			if (pixelFormat == null)
 				throw new ArgumentNullException("pixelFormat");
+			if (_PixelFormatSet == true)
+				throw new InvalidOperationException("pixel format already set");
 
 			List<int> attribIList = new List<int>();
 			List<float> attribFList = new List<float>();
@@ -686,13 +689,13 @@ namespace OpenGL
 			// Let choose pixel formats
 			if (!Wgl.ChoosePixelFormatARB(_DeviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues)) {
 				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-				throw new InvalidOperationException(String.Format("unable to choose pixel format: {0}", innerException.Message), innerException);
+				throw new InvalidOperationException("unable to choose pixel format", innerException);
 			}
 			
 			// Set choosen pixel format
-			if (Wgl.SetPixelFormat(DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
+			if (Wgl.SetPixelFormat(_DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
 				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-				throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
+				throw new InvalidOperationException("unable to set pixel format", innerException);
 			}
 		}
 
@@ -721,13 +724,13 @@ namespace OpenGL
 				// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
 				// window's pixel format is set, it cannot be changed.
 
-				if (!Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor)) {
+				if (!Wgl.DescribePixelFormat(_DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor)) {
 					Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
 					throw new InvalidOperationException(String.Format("unable to describe pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
 				}
 
 				// Set choosen pixel format
-				if (!Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor)) {
+				if (!Wgl.SetPixelFormat(_DeviceContext, pixelFormat.FormatIndex, ref pDescriptor)) {
 					Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
 					throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
 				}
@@ -768,13 +771,18 @@ namespace OpenGL
 			}
 			
 			// Set choosen pixel format
-			if (Wgl.SetPixelFormat(DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
+			if (Wgl.SetPixelFormat(_DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
 				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
 				throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
 			}
 		}
 
 #endif
+
+		/// <summary>
+		/// Flag for checking whether the pixel format is set only once.
+		/// </summary>
+		private bool _PixelFormatSet;
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -785,20 +793,19 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				bool res = Wgl.ReleaseDC(WindowHandle, DeviceContext);
-				Debug.Assert(res);
+				// Release device context
+				if (_DeviceContext != IntPtr.Zero) {
+					bool res = Wgl.ReleaseDC(_WindowHandle, _DeviceContext);
+					Debug.Assert(res);
+
+					_DeviceContext = IntPtr.Zero;
+					_WindowHandle = IntPtr.Zero;
+				}
 			}
+
+			// Base implementation
+			base.Dispose(disposing);
 		}
-
-		/// <summary>
-		/// Pixel formats available on this DeviceContext (cache).
-		/// </summary>
-		private DevicePixelFormatCollection _PixelFormatCache;
-
-		/// <summary>
-		/// Flag for checking whether the pixel format is set only once.
-		/// </summary>
-		private bool _PixelFormatSet;
 
 		#endregion
 	}

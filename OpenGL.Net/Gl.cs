@@ -71,52 +71,53 @@ namespace OpenGL
 			// eglGetProcAddress		EGL				GLES2+
 
 			try {
-				// Create temporary context for getting preliminary information on desktop systems
-				using (INativeWindow nativeWindow = DeviceContext.CreateWindow()) {
-					// Create device context
-					using (DeviceContext windowDevice = DeviceContext.Create(nativeWindow.Display, nativeWindow.Handle)) {
-						// Create basic OpenGL context
-						IntPtr renderContext = windowDevice.CreateSimpleContext();
-						if (renderContext == IntPtr.Zero)
-							throw new NotImplementedException("unable to create a simple context");
+				// Create native window for getting preliminary information on desktop systems
+				// This instance will be used for creating contexts without explictly specify a window
+				_NativeWindow = DeviceContext.CreateWindow();
 
-						// Make contect current
-						if (windowDevice.MakeCurrent(renderContext) == false)
-							throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
+				// Create device context
+				using (DeviceContext windowDevice = DeviceContext.Create(_NativeWindow.Display, _NativeWindow.Handle)) {
+					// Create basic OpenGL context
+					IntPtr renderContext = windowDevice.CreateSimpleContext();
+					if (renderContext == IntPtr.Zero)
+						throw new NotImplementedException("unable to create a simple context");
 
-						// Query OpenGL informations
-						string glVersion = GetString(StringName.Version);
-						_CurrentVersion = KhronosVersion.Parse(glVersion);
+					// Make contect current
+					if (windowDevice.MakeCurrent(renderContext) == false)
+						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
 
-						// Obtain current OpenGL Shading Language version
-						switch (_CurrentVersion.Api) {
-							case KhronosVersion.ApiGl:
-							case KhronosVersion.ApiGles2:
-								string glslVersion = GetString(StringName.ShadingLanguageVersion);
-								_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
-								break;
-						}
+					// Query OpenGL informations
+					string glVersion = GetString(StringName.Version);
+					_CurrentVersion = KhronosVersion.Parse(glVersion);
 
-						// Vendor/Render information
-						_Vendor = GetString(StringName.Vendor);
-						_Renderer = GetString(StringName.Renderer);
-
-						// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-						_CurrentExtensions = new Extensions();
-						_CurrentExtensions.Query();
-
-						// Query OpenGL limits
-						_CurrentLimits = Limits.Query(_CurrentExtensions);
-
-						// Query platform extensions
-						windowDevice.QueryPlatformExtensions();
-
-						// Before deletion, make uncurrent
-						windowDevice.MakeCurrent(IntPtr.Zero);
-						// Detroy context
-						if (windowDevice.DeleteContext(renderContext) == false)
-							throw new InvalidOperationException("unable to delete OpenGL context");
+					// Obtain current OpenGL Shading Language version
+					switch (_CurrentVersion.Api) {
+						case KhronosVersion.ApiGl:
+						case KhronosVersion.ApiGles2:
+							string glslVersion = GetString(StringName.ShadingLanguageVersion);
+							_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+							break;
 					}
+
+					// Vendor/Render information
+					_Vendor = GetString(StringName.Vendor);
+					_Renderer = GetString(StringName.Renderer);
+
+					// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
+					_CurrentExtensions = new Extensions();
+					_CurrentExtensions.Query();
+
+					// Query OpenGL limits
+					_CurrentLimits = Limits.Query(_CurrentExtensions);
+
+					// Query platform extensions
+					windowDevice.QueryPlatformExtensions();
+
+					// Before deletion, make uncurrent
+					windowDevice.MakeCurrent(IntPtr.Zero);
+					// Detroy context
+					if (windowDevice.DeleteContext(renderContext) == false)
+						throw new InvalidOperationException("unable to delete OpenGL context");
 				}
 
 				LogComment("OpenGL.Net has been initialized");
@@ -129,6 +130,11 @@ namespace OpenGL
 		/// Flag indicating whether <see cref="Gl"/> has been initialized.
 		/// </summary>
 		private static bool _Initialized;
+
+		/// <summary>
+		/// The native window used for initializing the OpenGL.Net state.
+		/// </summary>
+		internal static INativeWindow _NativeWindow;
 
 		#endregion
 
