@@ -39,4 +39,12 @@ namespace OpenGL
 
 		#endregion
 	}
+
+	/// <summary>
+	/// Native P-Buffer interface.
+	/// </summary>
+	public interface INativePBuffer : IDisposable
+	{
+
+	}
 }

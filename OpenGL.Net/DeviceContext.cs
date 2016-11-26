@@ -70,6 +70,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Create an off-screen buffer.
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="INativePBuffer"/> that implements a native P-Buffer on the underlying platform.
+		/// </returns>
+		/// <exception cref='NotSupportedException'>
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		public static INativePBuffer CreatePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
+		{
+			if (Egl.IsRequired == false) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						return (new DeviceContextWGL.NativePBuffer(pixelFormat, width, height));
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+				}
+			} else
+				throw new NotSupportedException("platform EGL not supported");
+		}
+
+		/// <summary>
 		/// Create a device context without a specific window.
 		/// </summary>
 		/// <exception cref='NotSupportedException'>
@@ -92,7 +114,7 @@ namespace OpenGL
 		/// Create a device context on the specified window.
 		/// </summary>
 		/// <param name="display">
-		/// A <see cref="IntPtr"/> that specified the display handle associated to <paramref name="windowHandle"/>. Some platforms
+		/// A <see cref="IntPtr"/> that specifies the display handle associated to <paramref name="windowHandle"/>. Some platforms
 		/// ignore this parameter (i.e. Windows or EGL implementation).
 		/// </param>
 		/// <param name='windowHandle'>
@@ -122,6 +144,29 @@ namespace OpenGL
 				}
 			} else
 				return (new DeviceContextEGL(windowHandle));
+		}
+
+		/// <summary>
+		/// Create a device context on the specified P-Buffer.
+		/// </summary>
+		/// <param name="nativeBuffer">
+		/// A <see cref="INativePBuffer"/> created with <see cref="CreatePBuffer(DevicePixelFormat, uint, uint)"/> which
+		/// the created context shall be able to render on.
+		/// </param>
+		/// <exception cref='NotSupportedException'>
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		public static DeviceContext Create(INativePBuffer nativeBuffer)
+		{
+			if (Egl.IsRequired == false) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						return (new DeviceContextWGL(nativeBuffer));
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+				}
+			} else
+				throw new NotSupportedException("platform EGL not supported");
 		}
 
 		#endregion

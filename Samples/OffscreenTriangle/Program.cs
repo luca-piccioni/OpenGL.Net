@@ -41,78 +41,130 @@ namespace OffscreenTriangle
 			}
 
 			try {
-				if (Gl.CurrentExtensions.FramebufferObject_ARB == false)
-					throw new InvalidOperationException("GL_ARB_framebuffer_object not implemented");
+				// Gl.CurrentExtensions.FramebufferObject_ARB = false;
 
-				using (DeviceContext deviceContext = DeviceContext.Create()) {
-					IntPtr glContext = IntPtr.Zero;
-					uint framebuffer = 0;
-					uint renderbuffer = 0;
-
-					try {
-						// Create context and make current on this thread
-						if ((glContext = deviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-							throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error());	// XXX
-						deviceContext.MakeCurrent(glContext);
-
-						// Create framebuffer resources
-						int w = Math.Min(800, Gl.CurrentLimits.MaxRenderBufferSize);
-						int h = Math.Min(600, Gl.CurrentLimits.MaxRenderBufferSize);
-
-						renderbuffer = Gl.GenRenderbuffer();
-						Gl.BindRenderbuffer(Gl.RENDERBUFFER, renderbuffer);
-						Gl.RenderbufferStorage(Gl.RENDERBUFFER, Gl.RGB8, w, h);
-
-						framebuffer = Gl.GenFramebuffer();
-						Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, framebuffer);
-						Gl.BindFramebuffer(Gl.FRAMEBUFFER, framebuffer);
-						Gl.FramebufferRenderbuffer(Gl.FRAMEBUFFER, Gl.COLOR_ATTACHMENT0, Gl.RENDERBUFFER, renderbuffer);
-
-						int framebufferStatus = Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER);
-						if (framebufferStatus != Gl.FRAMEBUFFER_COMPLETE)
-							throw new InvalidOperationException("framebuffer not complete");
-
-						Gl.DrawBuffers(Gl.COLOR_ATTACHMENT0);
-
-						Gl.Viewport(0, 0, w, h);
-						Gl.Clear(ClearBufferMask.ColorBufferBit);
-
-						Gl.MatrixMode(MatrixMode.Projection);
-						Gl.LoadIdentity();
-						Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
-						Gl.MatrixMode(MatrixMode.Modelview);
-						Gl.LoadIdentity();
-
-						Gl.Begin(PrimitiveType.Triangles);
-						Gl.Color3(1.0f, 0.0f, 0.0f); Gl.Vertex2(0.0f, 0.0f);
-						Gl.Color3(0.0f, 1.0f, 0.0f); Gl.Vertex2(0.5f, 1.0f);
-						Gl.Color3(0.0f, 0.0f, 1.0f); Gl.Vertex2(1.0f, 0.0f);
-						Gl.End();
-
-						Gl.ReadBuffer(ReadBufferMode.ColorAttachment0);
-
-						using (Bitmap bitmap = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format24bppRgb)) {
-							BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, w, h), ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-							try {
-								Gl.ReadPixels(0, 0, w, h, OpenGL.PixelFormat.Rgb, PixelType.UnsignedByte, bitmapData.Scan0);
-							} finally {
-								bitmap.UnlockBits(bitmapData);
-							}
-
-							bitmap.Save("Snapshot.png");
+				if (Gl.CurrentExtensions.FramebufferObject_ARB) {
+					using (DeviceContext deviceContext = DeviceContext.Create()) {
+						RenderOsdFramebuffer(deviceContext);
+					}
+				} else {
+					// Fallback to old-school pbuffer
+					using (INativePBuffer nativeBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 800, 600)) {
+						using (DeviceContext deviceContext = DeviceContext.Create(nativeBuffer)) {
+							RenderOsdPBuffer(deviceContext);
 						}
-
-					} finally {
-						if (renderbuffer != 0)
-							Gl.DeleteRenderbuffers(renderbuffer);
-						if (framebuffer != 0)
-							Gl.DeleteFramebuffers(framebuffer);
-						if (glContext != IntPtr.Zero)
-							deviceContext.DeleteContext(glContext);
 					}
 				}
 			} catch (Exception exception) {
 				Console.WriteLine("Unexpected exception: {0}", exception.ToString());
+			}
+		}
+
+		private static void RenderOsdFramebuffer(DeviceContext deviceContext)
+		{
+			IntPtr glContext = IntPtr.Zero;
+			uint framebuffer = 0;
+			uint renderbuffer = 0;
+
+			try {
+				// Create context and make current on this thread
+				if ((glContext = deviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+					throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error());	// XXX
+				deviceContext.MakeCurrent(glContext);
+
+				// Create framebuffer resources
+				int w = Math.Min(800, Gl.CurrentLimits.MaxRenderBufferSize);
+				int h = Math.Min(600, Gl.CurrentLimits.MaxRenderBufferSize);
+
+				renderbuffer = Gl.GenRenderbuffer();
+				Gl.BindRenderbuffer(Gl.RENDERBUFFER, renderbuffer);
+				Gl.RenderbufferStorage(Gl.RENDERBUFFER, Gl.RGB8, w, h);
+
+				framebuffer = Gl.GenFramebuffer();
+				Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, framebuffer);
+				Gl.BindFramebuffer(Gl.FRAMEBUFFER, framebuffer);
+				Gl.FramebufferRenderbuffer(Gl.FRAMEBUFFER, Gl.COLOR_ATTACHMENT0, Gl.RENDERBUFFER, renderbuffer);
+
+				int framebufferStatus = Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER);
+				if (framebufferStatus != Gl.FRAMEBUFFER_COMPLETE)
+					throw new InvalidOperationException("framebuffer not complete");
+
+				Gl.DrawBuffers(Gl.COLOR_ATTACHMENT0);
+
+				RenderOsd(w, h);
+
+				Gl.ReadBuffer(ReadBufferMode.ColorAttachment0);
+
+				SnapshotOsd(w, h);
+
+			} finally {
+				if (renderbuffer != 0)
+					Gl.DeleteRenderbuffers(renderbuffer);
+				if (framebuffer != 0)
+					Gl.DeleteFramebuffers(framebuffer);
+				if (glContext != IntPtr.Zero)
+					deviceContext.DeleteContext(glContext);
+			}
+		}
+
+		private static void RenderOsdPBuffer(DeviceContext deviceContext)
+		{
+			IntPtr glContext = IntPtr.Zero;
+			uint framebuffer = 0;
+			uint renderbuffer = 0;
+
+			try {
+				// Create context and make current on this thread
+				if ((glContext = deviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
+					throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error());	// XXX
+				deviceContext.MakeCurrent(glContext);
+
+				// Create framebuffer resources
+				int w = Math.Min(800, 800);
+				int h = Math.Min(600, 800);
+
+				RenderOsd(w, h);
+				SnapshotOsd(w, h);
+
+			} finally {
+				if (renderbuffer != 0)
+					Gl.DeleteRenderbuffers(renderbuffer);
+				if (framebuffer != 0)
+					Gl.DeleteFramebuffers(framebuffer);
+				if (glContext != IntPtr.Zero)
+					deviceContext.DeleteContext(glContext);
+			}
+		}
+
+		private static void RenderOsd(int w, int h)
+		{
+			Gl.Viewport(0, 0, w, h);
+			Gl.Clear(ClearBufferMask.ColorBufferBit);
+
+			Gl.MatrixMode(MatrixMode.Projection);
+			Gl.LoadIdentity();
+			Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
+			Gl.MatrixMode(MatrixMode.Modelview);
+			Gl.LoadIdentity();
+
+			Gl.Begin(PrimitiveType.Triangles);
+			Gl.Color3(1.0f, 0.0f, 0.0f); Gl.Vertex2(0.0f, 0.0f);
+			Gl.Color3(0.0f, 1.0f, 0.0f); Gl.Vertex2(0.5f, 1.0f);
+			Gl.Color3(0.0f, 0.0f, 1.0f); Gl.Vertex2(1.0f, 0.0f);
+			Gl.End();
+		}
+
+		private static void SnapshotOsd(int w, int h)
+		{
+			using (Bitmap bitmap = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format24bppRgb)) {
+				BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, w, h), ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+				try {
+					Gl.ReadPixels(0, 0, w, h, OpenGL.PixelFormat.Rgb, PixelType.UnsignedByte, bitmapData.Scan0);
+				} finally {
+					bitmap.UnlockBits(bitmapData);
+				}
+
+				bitmap.Save("Snapshot.png");
 			}
 		}
 	}

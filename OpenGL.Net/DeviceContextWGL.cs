@@ -87,6 +87,37 @@ namespace OpenGL
 				throw new InvalidOperationException("unable to get device context");
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DeviceContextWGL"/> class.
+		/// </summary>
+		/// <param name='nativeBuffer'>
+		/// A <see cref="INativePBuffer"/> that specifies the P-Buffer used to create the device context.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="nativeBuffer"/> is null.
+		/// </exception>
+		public DeviceContextWGL(INativePBuffer nativeBuffer)
+		{
+			if (nativeBuffer == null)
+				throw new ArgumentNullException("nativeBuffer");
+
+			NativePBuffer nativePBuffer = nativeBuffer as NativePBuffer;
+			if (nativePBuffer == null)
+				throw new ArgumentException("INativePBuffer not created with DeviceContext.CreatePBuffer");
+
+			_WindowHandle = nativePBuffer.Handle;
+
+			Debug.Assert(Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT);
+			if (Wgl.CurrentExtensions.Pbuffer_ARB)
+				_DeviceContext = Wgl.GetPbufferDCARB(nativePBuffer.Handle);
+			else
+				_DeviceContext = Wgl.GetPbufferDCEXT(nativePBuffer.Handle);
+
+			if (_DeviceContext == IntPtr.Zero)
+				throw new InvalidOperationException("unable to get device context");
+			_DeviceContextPBuffer = true;
+		}
+
 		#endregion
 
 		#region Device Information
@@ -105,6 +136,12 @@ namespace OpenGL
 		/// The device context of the control.
 		/// </summary>
 		internal IntPtr _DeviceContext;
+
+		/// <summary>
+		/// Flag indicating whether <see cref="_DeviceContext"/> is obtained by using GetPbufferDC* and
+		/// <see cref="_WindowHandle"/> is obtained by using CreatePbuffer*.
+		/// </summary>
+		private bool _DeviceContextPBuffer;
 
 		#endregion
 
@@ -254,6 +291,105 @@ namespace OpenGL
 				if (_ClassAtom != 0) {
 					UnsafeNativeMethods.UnregisterClass(_ClassAtom, Marshal.GetHINSTANCE(typeof(Gl).Module));
 					_ClassAtom = 0;
+				}
+			}
+
+			#endregion
+		}
+
+		/// <summary>
+		/// P-Buffer implementation for Windows.
+		/// </summary>
+		internal class NativePBuffer : INativePBuffer
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a NativePBuffer with a specific pixel format and size.
+			/// </summary>
+			/// <param name="pixelFormat">
+			/// A <see cref="DevicePixelFormat"/> that specifies the pixel format and the ancillary buffers required.
+			/// </param>
+			/// <param name="width">
+			/// A <see cref="UInt32"/> that specifies the width of the P-Buffer, in pixels.
+			/// </param>
+			/// <param name="height">
+			/// A <see cref="UInt32"/> that specifies the height of the P-Buffer, in pixels.
+			/// </param>
+			public NativePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
+			{
+				if (pixelFormat == null)
+					throw new ArgumentNullException("pixelFormat");
+
+				if (!Wgl.CurrentExtensions.Pbuffer_ARB && !Wgl.CurrentExtensions.Pbuffer_EXT)
+					throw new NotSupportedException("WGL_(ARB|EXT)_pbuffer not implemented");
+
+				try {
+					// Uses screen device context
+					_DeviceContext = Wgl.GetDC(Gl._NativeWindow.Handle);
+
+					// Choose appropriate pixel format
+					pixelFormat.RenderWindow = false;	// XXX
+					pixelFormat.RenderPBuffer = true;
+					pixelFormat.DoubleBuffer = true;
+
+					int pixelFormatIndex = ChoosePixelFormat(_DeviceContext, pixelFormat);
+
+					if (Wgl.CurrentExtensions.Pbuffer_ARB)
+						_Handle = Wgl.CreatePbufferARB(_DeviceContext, pixelFormatIndex, (int)width, (int)height, new int[] { 0 });
+					else
+						_Handle = Wgl.CreatePbufferEXT(_DeviceContext, pixelFormatIndex, (int)width, (int)height, new int[] { 0 });
+					if (_Handle == IntPtr.Zero)
+						throw new InvalidOperationException("unable to create P-Buffer", GetPlatformExceptionCore());
+				} catch {
+					Dispose();
+					throw;
+				}
+			}
+
+			#endregion
+
+			#region Handles
+
+			/// <summary>
+			/// The device context used for allocating the P-Buffer resources.
+			/// </summary>
+			private IntPtr _DeviceContext;
+			
+			/// <summary>
+			/// Get the P-Buffer handle.
+			/// </summary>
+			public IntPtr Handle { get { return (_Handle); } }
+
+			/// <summary>
+			/// The P-Buffer handle.
+			/// </summary>
+			private IntPtr _Handle;
+
+			#endregion
+
+			#region INativePBuffer Implementation
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public void Dispose()
+			{
+				if (_Handle != IntPtr.Zero) {
+					if (Wgl.CurrentExtensions.Pbuffer_ARB) {
+						bool res = Wgl.DestroyPbufferARB(_Handle);
+						Debug.Assert(res);
+					} else {
+						bool res = Wgl.DestroyPbufferEXT(_Handle);
+						Debug.Assert(res);
+					}
+					
+					_Handle = IntPtr.Zero;
+				}
+
+				if (_DeviceContext != IntPtr.Zero) {
+					Wgl.ReleaseDC(IntPtr.Zero, _DeviceContext);
+					_DeviceContext = IntPtr.Zero;
 				}
 			}
 
@@ -479,11 +615,19 @@ namespace OpenGL
 		/// <returns>
 		/// The platform exception relative to the last operation performed.
 		/// </returns>
-		/// <exception cref="NotSupportedException">
-		/// Exception thrown if the current platform is not supported.
-		/// </exception>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
 		public override Exception GetPlatformException()
+		{
+			return (GetPlatformExceptionCore());
+		}
+
+		/// <summary>
+		/// Gets the platform exception relative to the last operation performed.
+		/// </summary>
+		/// <returns>
+		/// The platform exception relative to the last operation performed.
+		/// </returns>
+		internal static Exception GetPlatformExceptionCore()
 		{
 			Exception platformException = null;
 
@@ -655,20 +799,40 @@ namespace OpenGL
 		/// </param>
 		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
 		{
-			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
 			if (_PixelFormatSet == true)
 				throw new InvalidOperationException("pixel format already set");
 
+			// Choose pixel format
+			int pixelFormatIndex = ChoosePixelFormat(_DeviceContext, pixelFormat);
+			
+			// Set choosen pixel format
+			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
+
+			if (Wgl.SetPixelFormat(_DeviceContext, pixelFormatIndex, ref pDescriptor) == false)
+				throw new InvalidOperationException("unable to set pixel format", GetPlatformException());
+		}
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
+		private static int ChoosePixelFormat(IntPtr deviceContext, DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
 			List<int> attribIList = new List<int>();
 			List<float> attribFList = new List<float>();
-			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
 			uint[] countFormatAttribsValues = new uint[1];
 			int[] choosenFormats = new int[4];
 
 			attribIList.AddRange(new int[] { Wgl.SUPPORT_OPENGL_ARB, Gl.TRUE });
 			if (pixelFormat.RenderWindow)
 				attribIList.AddRange(new int[] { Wgl.DRAW_TO_WINDOW_ARB, Gl.TRUE });
+			if (pixelFormat.RenderPBuffer)
+				attribIList.AddRange(new int[] { Wgl.DRAW_TO_PBUFFER_ARB, Gl.TRUE });
 
 			if (pixelFormat.RgbaUnsigned)
 				attribIList.AddRange(new int[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_ARB });
@@ -687,16 +851,10 @@ namespace OpenGL
 			attribIList.Add(0);
 
 			// Let choose pixel formats
-			if (!Wgl.ChoosePixelFormatARB(_DeviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues)) {
-				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-				throw new InvalidOperationException("unable to choose pixel format", innerException);
-			}
-			
-			// Set choosen pixel format
-			if (Wgl.SetPixelFormat(_DeviceContext, choosenFormats[0], ref pDescriptor) == false) {
-				Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-				throw new InvalidOperationException("unable to set pixel format", innerException);
-			}
+			if (!Wgl.ChoosePixelFormatARB(deviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues))
+				throw new InvalidOperationException("unable to choose pixel format", GetPlatformExceptionCore());
+
+			return (choosenFormats[0]);
 		}
 
 		/// <summary>
@@ -724,16 +882,13 @@ namespace OpenGL
 				// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
 				// window's pixel format is set, it cannot be changed.
 
-				if (!Wgl.DescribePixelFormat(_DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor)) {
-					Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-					throw new InvalidOperationException(String.Format("unable to describe pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
-				}
+				if (!Wgl.DescribePixelFormat(_DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor))
+					throw new InvalidOperationException(String.Format("unable to describe pixel format {0}", pixelFormat.FormatIndex), GetPlatformException());
 
 				// Set choosen pixel format
-				if (!Wgl.SetPixelFormat(_DeviceContext, pixelFormat.FormatIndex, ref pDescriptor)) {
-					Win32Exception innerException = new Win32Exception(Marshal.GetLastWin32Error());
-					throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex, innerException.Message), innerException);
-				}
+				if (!Wgl.SetPixelFormat(_DeviceContext, pixelFormat.FormatIndex, ref pDescriptor))
+					throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex), GetPlatformException());
+
 #if CHOOSE_PIXEL_FORMAT_FALLBACK
 			} catch (InvalidOperationException) {
 				// Try using default ChoosePixelFormat*
@@ -795,8 +950,13 @@ namespace OpenGL
 			if (disposing) {
 				// Release device context
 				if (_DeviceContext != IntPtr.Zero) {
-					bool res = Wgl.ReleaseDC(_WindowHandle, _DeviceContext);
-					Debug.Assert(res);
+					if (_DeviceContextPBuffer == false) {
+						bool res = Wgl.ReleaseDC(_WindowHandle, _DeviceContext);
+						Debug.Assert(res);
+					} else {
+						int res = Wgl.ReleasePbufferDCARB(_WindowHandle, _DeviceContext);
+						Debug.Assert(res == 1);
+					}
 
 					_DeviceContext = IntPtr.Zero;
 					_WindowHandle = IntPtr.Zero;
