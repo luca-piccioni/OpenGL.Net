@@ -53,6 +53,10 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
+		/// <remarks>
+		/// The created instance will be bound to the (hidden) window used for initializing <see cref="Gl"/>. The device contextes
+		/// created by using this constructor are meant to render on framebuffer objects.
+		/// </remarks>
 		public DeviceContextWGL()
 		{
 			_WindowHandle = Gl._NativeWindow.Handle;
@@ -75,6 +79,10 @@ namespace OpenGL
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
+		/// <remarks>
+		/// The <paramref name="windowHandle"/> must be an handle to a native window. It is normally created by calling
+		/// CreateWindow(Ex)? methods.
+		/// </remarks>
 		public DeviceContextWGL(IntPtr windowHandle)
 		{
 			if (windowHandle == IntPtr.Zero)
@@ -96,6 +104,13 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="nativeBuffer"/> is null.
 		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="nativeBuffer"/> is not an instance created by
+		/// <see cref="DeviceContext.CreatePBuffer(DevicePixelFormat, uint, uint)"/>.
+		/// </exception>
+		/// <exception cref='InvalidOperationException'>
+		/// Is thrown when an operation cannot be performed.
+		/// </exception>
 		public DeviceContextWGL(INativePBuffer nativeBuffer)
 		{
 			if (nativeBuffer == null)
@@ -105,9 +120,11 @@ namespace OpenGL
 			if (nativePBuffer == null)
 				throw new ArgumentException("INativePBuffer not created with DeviceContext.CreatePBuffer");
 
+			if (!Wgl.CurrentExtensions.Pbuffer_ARB && !Wgl.CurrentExtensions.Pbuffer_EXT)
+				throw new InvalidOperationException("WGL_(ARB|EXT)_pbuffer not supported");
+
 			_WindowHandle = nativePBuffer.Handle;
 
-			Debug.Assert(Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT);
 			if (Wgl.CurrentExtensions.Pbuffer_ARB)
 				_DeviceContext = Wgl.GetPbufferDCARB(nativePBuffer.Handle);
 			else

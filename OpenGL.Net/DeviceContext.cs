@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 
 namespace OpenGL
 {
@@ -66,7 +67,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else
-				return (new DeviceContextEGL.NativeWindow());
+				return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
 		}
 
 		/// <summary>
@@ -88,7 +89,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else
-				throw new NotSupportedException("platform EGL not supported");
+				return (new DeviceContextEGL.NativePBuffer(pixelFormat, width, height));
 		}
 
 		/// <summary>
@@ -99,15 +100,24 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create()
 		{
+			Debug.Assert(Gl._NativeWindow != null);
+
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
 						return (new DeviceContextWGL());
+					case Platform.Id.Linux:
+						return (new DeviceContextGLX());
+					case Platform.Id.MacOS:
+						if (Glx.IsRequired)
+							return (new DeviceContextGLX());
+						else
+							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else
-				throw new NotSupportedException("platform EGL not supported");
+				return (new DeviceContextEGL(Gl._NativeWindow as INativePBuffer));
 		}
 
 		/// <summary>
@@ -166,7 +176,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
 			} else
-				throw new NotSupportedException("platform EGL not supported");
+				return (new DeviceContextEGL(nativeBuffer));
 		}
 
 		#endregion

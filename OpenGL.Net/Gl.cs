@@ -76,7 +76,7 @@ namespace OpenGL
 				_NativeWindow = DeviceContext.CreateWindow();
 
 				// Create device context
-				using (DeviceContext windowDevice = DeviceContext.Create(_NativeWindow.Display, _NativeWindow.Handle)) {
+				using (DeviceContext windowDevice = DeviceContext.Create()) {
 					// Create basic OpenGL context
 					IntPtr renderContext = windowDevice.CreateSimpleContext();
 					if (renderContext == IntPtr.Zero)

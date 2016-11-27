@@ -39,7 +39,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a <see cref="Derm.Render.XServerDeviceContext"/> class, initialized with the display of a control.
+		/// Construct a <see cref="DeviceContextGLX"/> class.
+		/// </summary>
+		public DeviceContextGLX()
+		{
+			_Display = Gl._NativeWindow.Display;
+			_WindowHandle = Gl._NativeWindow.Handle;
+
+			// Query GLX extensions
+			QueryVersion();
+
+			if (Version < Glx.Version_130)
+				throw new NotSupportedException("missing GLX 1.3 or greater");
+		}
+
+		/// <summary>
+		/// Construct a <see cref="DeviceContextGLX"/> class, initialized with the display of a control.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="IntPtr"/> that specifies the display handle used to create <paramref name="windowHandle"/>.

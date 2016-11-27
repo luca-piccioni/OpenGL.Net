@@ -41,7 +41,8 @@ namespace OffscreenTriangle
 			}
 
 			try {
-				// Gl.CurrentExtensions.FramebufferObject_ARB = false;
+				// Gl.CurrentExtensions.FramebufferObject_ARB = false;		// Test P-Buffer
+				// Egl.IsRequired = Egl.IsAvailable;						// Test EGL (not yet working)
 
 				if (Gl.CurrentExtensions.FramebufferObject_ARB) {
 					using (DeviceContext deviceContext = DeviceContext.Create()) {
