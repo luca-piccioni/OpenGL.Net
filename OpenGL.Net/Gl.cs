@@ -73,7 +73,7 @@ namespace OpenGL
 			try {
 				// Create native window for getting preliminary information on desktop systems
 				// This instance will be used for creating contexts without explictly specify a window
-				_NativeWindow = DeviceContext.CreateWindow();
+				_NativeWindow = DeviceContext.CreateHiddenWindow();
 
 				// Create device context
 				using (DeviceContext windowDevice = DeviceContext.Create()) {

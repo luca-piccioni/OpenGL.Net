@@ -50,7 +50,7 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		internal static INativeWindow CreateWindow()
+		internal static INativeWindow CreateHiddenWindow()
 		{
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
@@ -66,8 +66,15 @@ namespace OpenGL
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
-			} else
-				return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
+			} else {
+				if (Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
+					// Throw away P-Buffer
+					return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
+				} else {
+					// Surfaceless window
+					return (new DeviceContextEGL.NativeWindow(IntPtr.Zero));
+				}
+			}
 		}
 
 		/// <summary>
@@ -116,8 +123,19 @@ namespace OpenGL
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
-			} else
-				return (new DeviceContextEGL(Gl._NativeWindow as INativePBuffer));
+			} else {
+				INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
+				if (nativeWindow != null)
+					return (new DeviceContextEGL(nativeWindow.Handle));
+
+				INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
+				if (nativeBuffer != null)
+					return (new DeviceContextEGL(nativeBuffer));
+
+				Debug.Fail("unsupported EGL surface");
+				throw new NotSupportedException("EGL surface not supported");
+			}
+				
 		}
 
 		/// <summary>

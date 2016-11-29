@@ -42,7 +42,7 @@ namespace OpenGL.Test
 				Egl.IsRequired = IsEsTest;
 
 				// Create window
-				Form = DeviceContext.CreateWindow();
+				Form = DeviceContext.CreateHiddenWindow();
 				// Create device context
 				_DeviceContext = DeviceContext.Create(Form.Display, Form.Handle);
 				List<DevicePixelFormat> pixelFormats = _DeviceContext.PixelsFormats.Choose(new DevicePixelFormat(24));

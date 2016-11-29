@@ -314,9 +314,13 @@ namespace OpenGL
 			{
 				if (_Handle != IntPtr.Zero)
 					throw new InvalidOperationException("handle already created");
+				if ((_WindowHandle == IntPtr.Zero) && (Egl.CurrentExtensions.SurfacelessContext_KHR == false))
+					throw new InvalidOperationException("null window handle");
 
-				if ((_Handle = Egl.CreateWindowSurface(_Display, configId, _WindowHandle, attribs)) == IntPtr.Zero)
-					throw new InvalidOperationException("unable to create window surface");
+				if (_WindowHandle != IntPtr.Zero) {
+					if ((_Handle = Egl.CreateWindowSurface(_Display, configId, _WindowHandle, attribs)) == IntPtr.Zero)
+						throw new InvalidOperationException("unable to create window surface");
+				}
 			}
 
 			/// <summary>
