@@ -23,6 +23,8 @@ Currently implemented API are:
 - [OpenGL 4.5](https://www.opengl.org/registry/), including compatibility profile
 - [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0
 - WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.
+- [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs) (alpha state)
+- [OpenWF Composition](https://www.khronos.org/openwf/) (alpha state)
 
 # Instructions
 
@@ -50,12 +52,27 @@ or just download the [nuget binary package](https://www.nuget.org/packages/OpenG
 # Documentation
 
 - Project [introduction](https://github.com/luca-piccioni/OpenGL.Net/wiki)
-- Using the [OpenGL.GlControl](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL.GlControl)
+
 - [Procedures query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Procedures-query)
+- [OpenGL ES on ANGLE](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL-ES-using-ANGLE)
 - [Version and extensions query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Version-and-extensions-query)
+- [Device Context & GL Context](https://github.com/luca-piccioni/OpenGL.Net/wiki/Device-Context-and-GL-Context)
 - [Math library and data structures](https://github.com/luca-piccioni/OpenGL.Net/wiki/Math-library-and-data-structures)
-- [Update OpenGL bindings](https://github.com/luca-piccioni/OpenGL.Net/wiki/Generate-an-updated-OpenGL.Net-(API-update)) from Khronos registry
+
+- Using the [OpenGL.GlControl](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL.GlControl)
+
 - [Common programming mistakes](https://github.com/luca-piccioni/OpenGL.Net/wiki/Common-mistakes)
+- [Update OpenGL bindings](https://github.com/luca-piccioni/OpenGL.Net/wiki/Generate-an-updated-OpenGL.Net-(API-update)) from Khronos registry
+
+# Basic Samples
+
+- [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/HelloTriangle)
+- [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/HelloTriangle.ANGLE) using OpenGL ES 2 via ANGLE
+- [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/HelloTriangle.Xamarin.Android) on Android
+- [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/HelloTriangle.VideoCore) on Raspberry Pi
+- [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/HelloTriangle.VB) in VB.Net
+- [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/HelloTriangle.WPF) on WPF
+- [Offscren Triangle](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples/OffscreenTriangle)
 
 
 
