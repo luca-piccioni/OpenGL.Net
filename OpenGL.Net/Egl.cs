@@ -96,12 +96,45 @@ namespace OpenGL
 				// This need to be executed before any EGL/GL routine
 				Bcm.bcm_host_init();
 			}
+
+			// Get EGL information
+			using (INativeWindow nativeWindow = new DeviceContextEGL.NativeWindow()) {
+				// Query EGL version
+				string eglVersionString = QueryString(nativeWindow.Display, VERSION);
+				_CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
+				// Query EGL vendor
+				_Vendor = QueryString(nativeWindow.Display, VENDOR);
+			}
 		}
 
 		/// <summary>
 		/// Flag indicating whether <see cref="Egl"/> has been initialized.
 		/// </summary>
 		private static bool _Initialized;
+
+		#endregion
+
+		#region Versions, Extensions and Limits
+
+		/// <summary>
+		/// EGL version currently implemented.
+		/// </summary>
+		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
+
+		/// <summary>
+		/// EGL version currently implemented.
+		/// </summary>
+		private static KhronosVersion _CurrentVersion;
+
+		/// <summary>
+		/// Get the EGL vendor.
+		/// </summary>
+		public static string CurrentVendor { get { return (_Vendor); } }
+
+		/// <summary>
+		/// EGL vendor.
+		/// </summary>
+		private static string _Vendor;
 
 		/// <summary>
 		/// OpenGL extension support.

@@ -378,6 +378,30 @@ namespace OpenGL
 		/// </exception>
 		public static KhronosVersion Parse(string input)
 		{
+			return (Parse(input, null));
+		}
+
+		/// <summary>
+		/// Parse a KhronosVersion from a string.
+		/// </summary>
+		/// <param name="input">
+		/// A <see cref="String"/> that specifies the API version.
+		/// </param>
+		/// <param name="api">
+		/// A <see cref="String"/> that specifies the API string to be set to the returned value. If null, it
+		/// will be determined automatically from <paramref name="input"/>, or set to <see cref="ApiGl"/>.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="KhronosVersion"/> based on the pattern recognized in <paramref name="input"/>.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="input"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if no pattern is recognized in <paramref name="input"/>.
+		/// </exception>
+		public static KhronosVersion Parse(string input, string api)
+		{
 			if (input == null)
 				throw new ArgumentNullException("input");
 
@@ -389,7 +413,6 @@ namespace OpenGL
 			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
-			string api = ApiGl;
 
 			if (Regex.IsMatch(input, "ES")) {
 				switch (versionMajor) {
@@ -401,6 +424,9 @@ namespace OpenGL
 						api = ApiGles2;
 						break;
 				}
+			} else {
+				if (api == null)
+					api = ApiGl;
 			}
 
 			return (new KhronosVersion(versionMajor, versionMinor, versionRev, api));
