@@ -308,6 +308,7 @@ namespace OpenGL
 			UInt32 replace_value;
 		}
 
+		[StructLayout(LayoutKind.Sequential)]
 		public struct EGL_DISPMANX_WINDOW_T
 		{
 			public UInt32 element;
@@ -350,7 +351,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_display_open != null, "vc_dispmanx_display_open not implemented");
 			retvalue = Delegates.pvc_dispmanx_display_open(device);
-			LogFunction("vc_dispmanx_display_open({0}) = {1}", device, retvalue);
+			LogFunction("vc_dispmanx_display_open({0}) = 0x{1:X8}", device, retvalue);
 
 			return (retvalue);
 		}
@@ -361,7 +362,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_display_close != null, "vc_dispmanx_display_close not implemented");
 			retvalue = Delegates.pvc_dispmanx_display_close(display);
-			LogFunction("vc_dispmanx_display_close({0}) = {1}", display, retvalue);
+			LogFunction("vc_dispmanx_display_close(0x{0:X8}) = {1}", display, retvalue);
 
 			return (retvalue);
 		}
@@ -372,12 +373,12 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_update_start != null, "vc_dispmanx_update_start not implemented");
 			retvalue = Delegates.pvc_dispmanx_update_start(priority);
-			LogFunction("vc_dispmanx_update_start({0}) = {1}", priority, retvalue);
+			LogFunction("vc_dispmanx_update_start({0}) = 0x{1}", priority, retvalue.ToString("X8"));
 
 			return (retvalue);
 		}
 
-		public static DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, ref VC_RECT_T dest_rect, DISPMANX_RESOURCE_HANDLE_T src, ref VC_RECT_T src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform)
+		public static DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, VC_RECT_T dest_rect, DISPMANX_RESOURCE_HANDLE_T src, VC_RECT_T src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform)
 		{
 			DISPMANX_ELEMENT_HANDLE_T retvalue;
 
@@ -386,11 +387,22 @@ namespace OpenGL
 			try {
 				Debug.Assert(Delegates.pvc_dispmanx_element_add != null, "vc_dispmanx_element_add not implemented");
 				retvalue = Delegates.pvc_dispmanx_element_add(update, display, layer, dest_rectHandle.AddrOfPinnedObject(), src, src_rectHandle.AddrOfPinnedObject(), protection, alpha, clamp, transform);
-				LogFunction("vc_dispmanx_element_add({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}) = {10}", update, display, layer, dest_rect, src, src_rect, protection, alpha, clamp, transform, retvalue);
+				LogFunction("vc_dispmanx_element_add(0x{0:X8}, 0x{1:X8}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}) = 0x{10:X8}", update, display, layer, dest_rect, src, src_rect, protection, alpha, clamp, transform, retvalue);
 			} finally {
 				dest_rectHandle.Free();
 				src_rectHandle.Free();
 			}
+			
+			return (retvalue);
+		}
+
+		public static int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element)
+		{
+			int retvalue;
+
+			Debug.Assert(Delegates.pvc_dispmanx_element_remove != null, "vc_dispmanx_element_remove not implemented");
+			retvalue = Delegates.pvc_dispmanx_element_remove(update, element);
+			LogFunction("vc_dispmanx_element_remove(0x{0:X8}, 0x{1:X8}) = {2}", update, element, retvalue);
 			
 			return (retvalue);
 		}
@@ -401,7 +413,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_update_submit_sync != null, "vc_dispmanx_update_submit_sync not implemented");
 			retvalue = Delegates.pvc_dispmanx_update_submit_sync(update);
-			LogFunction("vc_dispmanx_update_submit_sync({0}) = {1}", update, retvalue);
+			LogFunction("vc_dispmanx_update_submit_sync(0x{0:X8}) = {1}", update, retvalue);
 
 			return (retvalue);
 		}
@@ -504,9 +516,9 @@ namespace OpenGL
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_element_modified")]
 			//internal extern static int vc_dispmanx_element_modified(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element, ref VC_RECT_T rect);
 			
-			//[SuppressUnmanagedCodeSecurity()]
-			//[DllImport(Library, EntryPoint = "vc_dispmanx_element_remove")]
-			//internal extern static int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element);
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "vc_dispmanx_element_remove")]
+			internal extern static int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element);
 			
 			//[SuppressUnmanagedCodeSecurity()]
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_update_submit")]
@@ -581,6 +593,11 @@ namespace OpenGL
 			internal delegate DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, IntPtr dest_rect, DISPMANX_RESOURCE_HANDLE_T src, IntPtr src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform);
 
 			internal static vc_dispmanx_element_add pvc_dispmanx_element_add;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element);
+
+			internal static vc_dispmanx_element_remove pvc_dispmanx_element_remove;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int vc_dispmanx_update_submit_sync(DISPMANX_UPDATE_HANDLE_T update);

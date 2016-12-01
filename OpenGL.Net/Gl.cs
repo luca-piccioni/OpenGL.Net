@@ -55,18 +55,28 @@ namespace OpenGL
 				return; // Already initialized
 			_Initialized = true;
 
+#if DEBUG
+			string envGlInit = Environment.GetEnvironmentVariable("GL_INIT");
+
+			if (envGlInit != null && envGlInit == "NO")
+				return;
+#endif
+
 			LogComment("OpenGL.Net is initializing");
 
 			// Loader function			OS API			GL API
 			// ------------------------------------------------------
 			// Supported platform: Windows
 			// wglGetProcAddress		WGL				GL
+			// wglGetProcAddress		WGL				GLES2+ (with WGL_create_context_es(2)?_profile_EXT)
 			// eglGetProcAddress		EGL(Angle)		GLES2+
 			// ------------------------------------------------------
 			// Supported platform: Linux
 			// glXGetProcAddress		GLX				GL
+			// glXGetProcAddress		GLX				GLES2+ (with GLX_create_context_es(2)?_profile_EXT)
 			// ------------------------------------------------------
 			// Supported platform: Android
+			// eglGetProcAddress		EGL				GL
 			// eglGetProcAddress		EGL				GLES2+
 
 			try {

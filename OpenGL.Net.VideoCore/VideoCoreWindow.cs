@@ -45,9 +45,11 @@ namespace OpenGL
 
 				if ((_DispManxDisplay = Bcm.vc_dispmanx_display_open(0 /* LCD */)) == 0)
 					throw new InvalidOperationException("unable to open DispManX display");
-				_Update = Bcm.vc_dispmanx_update_start(0);
-				_ElementHandle = Bcm.vc_dispmanx_element_add(_Update, _DispManxDisplay, 0, ref dstRect, 0, ref srcRect, 0, IntPtr.Zero, IntPtr.Zero, Bcm.DISPMANX_TRANSFORM_T.DISPMANX_NO_ROTATE);
-				Bcm.vc_dispmanx_update_submit_sync(_Update);
+
+				// Update - Add element
+				uint updateHandle = Bcm.vc_dispmanx_update_start(0);
+				_ElementHandle = Bcm.vc_dispmanx_element_add(updateHandle, _DispManxDisplay, 0, dstRect, 0, srcRect, 0, IntPtr.Zero, IntPtr.Zero, Bcm.DISPMANX_TRANSFORM_T.DISPMANX_NO_ROTATE);
+				Bcm.vc_dispmanx_update_submit_sync(updateHandle);
 
 				// Native window
 				_NativeWindow = new EGL_DISPMANX_WINDOW_T();
@@ -73,6 +75,9 @@ namespace OpenGL
 		
 		public IntPtr Handle { get { return (_NativeWindowLock.Address); } }
 
+		/// <summary>
+		/// The structure expected by eglCreateWindowSurface function.
+		/// </summary>
 		private struct EGL_DISPMANX_WINDOW_T
 		{
 			public UInt32 element;
@@ -80,35 +85,62 @@ namespace OpenGL
 			public int height;
 		}
 
+		/// <summary>
+		/// The DispManX display.
+		/// </summary>
 		private uint _DispManxDisplay;
 
-		private uint _Update;
-
+		/// <summary>
+		/// The element used for presenting a fullscreen window.
+		/// </summary>
 		private uint _ElementHandle;
 
+		/// <summary>
+		/// The native window.
+		/// </summary>
 		private EGL_DISPMANX_WINDOW_T _NativeWindow;
 
+		/// <summary>
+		/// The native window, pinned.
+		/// </summary>
 		private MemoryLock _NativeWindowLock;
 
 		#endregion
 
 		#region IDisposable Implementation
 
+		/// <summary>
+		/// Releases all resources used by the <see cref="VideoCoreWindow"/> object.
+		/// </summary>
+		/// <param name="disposing">
+		/// </param>
 		protected virtual void Dispose(bool disposing)
 		{
 			if (disposing) {
-				if (_NativeWindowLock != null) {
-					_NativeWindowLock.Dispose();
-					_NativeWindowLock = null;
+				
+				if (_ElementHandle != 0) {
+					uint updateHandle = Bcm.vc_dispmanx_update_start(0);
+					Bcm.vc_dispmanx_element_remove(updateHandle, _ElementHandle);
+					Bcm.vc_dispmanx_update_submit_sync(updateHandle);
+					
+					_ElementHandle = 0;
 				}
+
 				if (_DispManxDisplay != 0) {
 					Bcm.vc_dispmanx_display_close(_DispManxDisplay);
 					_DispManxDisplay = 0;
 				}
+
+				if (_NativeWindowLock != null) {
+					_NativeWindowLock.Dispose();
+					_NativeWindowLock = null;
+				}
 			}
 		}
 
-		// This code added to correctly implement the disposable pattern.
+		// <summary>
+		/// Releases all resources used by the <see cref="VideoCoreWindow"/> object.
+		/// </summary>
 		public void Dispose()
 		{
 			Dispose(true);

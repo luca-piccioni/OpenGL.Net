@@ -97,6 +97,13 @@ namespace OpenGL
 				Bcm.bcm_host_init();
 			}
 
+#if DEBUG
+			string envEglInit = Environment.GetEnvironmentVariable("EGL_INIT");
+
+			if (envEglInit != null && envEglInit == "NO")
+				return;
+#endif
+
 			// Get EGL information
 			if (IsAvailable) {
 				IntPtr eglDisplay = GetDisplay(new IntPtr(DEFAULT_DISPLAY));

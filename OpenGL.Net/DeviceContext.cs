@@ -663,6 +663,7 @@ namespace OpenGL
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
+		/// A <see cref="System.Boolean"/> indicating whether the disposition is requested explictly.
 		/// </param>
 		protected virtual void Dispose(bool disposing)
 		{
