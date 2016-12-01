@@ -98,12 +98,26 @@ namespace OpenGL
 			}
 
 			// Get EGL information
-			using (INativeWindow nativeWindow = new DeviceContextEGL.NativeWindow()) {
-				// Query EGL version
-				string eglVersionString = QueryString(nativeWindow.Display, VERSION);
-				_CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
-				// Query EGL vendor
-				_Vendor = QueryString(nativeWindow.Display, VENDOR);
+			if (IsAvailable) {
+				IntPtr eglDisplay = GetDisplay(new IntPtr(DEFAULT_DISPLAY));
+
+				try {
+					if (Initialize(eglDisplay, null, null) == false)
+						throw new InvalidOperationException("unable to initialize EGL");
+
+					// Query EGL version
+					string eglVersionString = QueryString(eglDisplay, VERSION);
+					_CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
+					// Query EGL vendor
+					_Vendor = QueryString(eglDisplay, VENDOR);
+					// Client APIs
+					if (_CurrentVersion >= Version_120) {
+						string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
+						_AvailableApis = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
+					}
+				} finally {
+					Terminate(eglDisplay);
+				}
 			}
 		}
 
@@ -135,6 +149,11 @@ namespace OpenGL
 		/// EGL vendor.
 		/// </summary>
 		private static string _Vendor;
+
+		/// <summary>
+		/// EGL available APIs.
+		/// </summary>
+		internal static string[] _AvailableApis;
 
 		/// <summary>
 		/// OpenGL extension support.

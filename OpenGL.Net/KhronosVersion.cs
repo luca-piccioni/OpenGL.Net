@@ -125,9 +125,14 @@ namespace OpenGL
 		public const string ApiGles1 = "gles1";
 
 		/// <summary>
-		/// OpenGL ES 2.x API.
+		/// OpenGL ES 2.x+ API.
 		/// </summary>
 		public const string ApiGles2 = "gles2";
+
+		/// <summary>
+		/// OpenGL VG API.
+		/// </summary>
+		public const string ApiVg = "vg";
 
 		/// <summary>
 		/// OpenGL GLSL. Not really an API, but let KhronosVersion be consistent.

@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace OpenGL
 {
@@ -487,9 +488,6 @@ namespace OpenGL
 			int[] configCount = new int[1];
 			IntPtr[] configs = new IntPtr[8];
 
-			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
-				throw new InvalidOperationException("no ES API");
-
 			if (Egl.ChooseConfig(Display, configAttribs, configs, configs.Length, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");
 			if (configCount[0] == 0)
@@ -498,19 +496,77 @@ namespace OpenGL
 			int[] contextAttribs = DefaultContextAttribs;
 			int[] surfaceAttribs = new int[] { Egl.NONE };
 
+			if (Version >= Egl.Version_120) {
+				if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
+					throw new InvalidOperationException("no ES API");
+			}
+
 			if ((ctx = Egl.CreateContext(Display, configs[0], IntPtr.Zero, contextAttribs)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
 
-			List<int> pbufferAttribs = new List<int>(surfaceAttribs);
+			if (_NativeSurface.Handle == IntPtr.Zero) {
+				List<int> pbufferAttribs = new List<int>(surfaceAttribs);
 
-			pbufferAttribs.RemoveAt(pbufferAttribs.Count - 1);
-			pbufferAttribs.AddRange(new int[] { Egl.WIDTH, 1, Egl.HEIGHT, 1 });
-			pbufferAttribs.Add(Egl.NONE);
+				pbufferAttribs.RemoveAt(pbufferAttribs.Count - 1);
+				pbufferAttribs.AddRange(new int[] { Egl.WIDTH, 1, Egl.HEIGHT, 1 });
+				pbufferAttribs.Add(Egl.NONE);
 
-			if (_NativeSurface.Handle == IntPtr.Zero)
 				_NativeSurface.CreateHandle(configs[0], pbufferAttribs.ToArray());
+			}
 
 			return (ctx);
+		}
+
+		/// <summary>
+		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
+		/// found in <see cref="KhronosVersion"/> definition.
+		/// </summary>
+		public override IEnumerable<string> AvailableApis
+		{
+			get
+			{
+				if (Version >= Egl.Version_120) {
+					string clientApisString = Egl.QueryString(Display, Egl.CLIENT_APIS);
+					string[] clientApis = Regex.Split(clientApisString, " ");
+
+					return (ConvertApiNames(clientApis));
+				} else {
+					return (null);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Get the APIs available on the EGL device context.
+		/// </summary>
+		/// <returns></returns>
+		internal static string[] GetAvailableApis()
+		{
+			return (ConvertApiNames(Egl._AvailableApis));
+		}
+
+		private static string[] ConvertApiNames(string[] clientApis)
+		{
+			List<string> deviceApi = new List<string>();
+
+			foreach (string clientApi in clientApis) {
+				switch (clientApi) {
+					case "OpenGL":
+						deviceApi.Add(KhronosVersion.ApiGl);
+						break;
+					case "OpenGL_ES":
+						deviceApi.Add(KhronosVersion.ApiGles2);
+						break;
+					case "OpenVG":
+						deviceApi.Add(KhronosVersion.ApiVg);
+						break;
+					default:
+						deviceApi.Add(clientApi);
+						break;
+				}
+			}
+
+			return (deviceApi.ToArray());
 		}
 
 		/// <summary>
@@ -556,6 +612,36 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _Api)));
+		}
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <param name="api">
+		/// A <see cref="KhronosVersion"/> that specifies the API to be implemented by the returned context. It can be null indicating the
+		/// default API for this DeviceContext implementation. If it is possible, try to determine the API version also.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList, KhronosVersion api)
+		{
 			if (attribsList == null)
 				throw new ArgumentNullException("attribsList");
 			if (attribsList.Length == 0)
@@ -565,6 +651,7 @@ namespace OpenGL
 
 			IntPtr context;
 
+			// Select surface pixel format automatically
 			if (_NativeSurface.Handle != IntPtr.Zero) {
 				int[] configId = new int[1];
 
@@ -574,6 +661,32 @@ namespace OpenGL
 				_Config = ChoosePixelFormat(Display, configId[0]);
 			}
 
+			// Bind API
+			if (Version >= Egl.Version_120) {
+				uint apiEnum;
+
+				switch (api.Api) {
+					case KhronosVersion.ApiGles2:
+					case KhronosVersion.ApiGles1:
+					case null:
+						// Default
+						apiEnum = Egl.OPENGL_ES_API;
+						break;
+					case KhronosVersion.ApiGl:
+						apiEnum = Egl.OPENGL_API;
+						break;
+					case KhronosVersion.ApiVg:
+						apiEnum = Egl.OPENVG_API;
+						break;
+					default:
+						throw new InvalidOperationException(String.Format("'{0}' API not available", api));
+				}
+				if (Egl.BindAPI(apiEnum) == false)
+					throw new InvalidOperationException("no ES API");
+			} else if (api != null && api.Api != KhronosVersion.ApiGles2 && api.Api != KhronosVersion.ApiGles1)
+				throw new InvalidOperationException(String.Format("'{0}' API not available", api));
+
+			// Create context
 			if ((context = Egl.CreateContext(Display, _Config, sharedContext, attribsList)) == IntPtr.Zero)
 				throw new InvalidOperationException("unable to create context");
 
@@ -601,6 +714,16 @@ namespace OpenGL
 		protected override bool MakeCurrentCore(IntPtr ctx)
 		{
 			if (ctx != IntPtr.Zero) {
+				// Ensure correct API bound
+				if (Version >= Egl.Version_120) {
+					int[] contextClientType = new int[1];
+
+					if (Egl.QueryContext(Display, ctx, Egl.CONTEXT_CLIENT_TYPE, contextClientType)) {
+						if (Egl.BindAPI((uint)contextClientType[0]) == false)
+							throw new InvalidOperationException("no ES API");
+					}
+				}
+
 				return (Egl.MakeCurrent(Display, EglSurface, EglSurface, ctx));
 			} else
 				return (Egl.MakeCurrent(Display, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero));
@@ -635,13 +758,7 @@ namespace OpenGL
 		/// </summary>
 		public override void SwapBuffers()
 		{
-			int[] attrib = new int[1];
-
-			//if (Egl.QuerySurface(Display, EglSurface, Egl.RENDER_BUFFER, attrib) == false)
-			//	attrib[0] = Egl.BACK_BUFFER;		// eglSwapBuffers have no effects
-
-			//if (attrib[0] == Egl.BACK_BUFFER)
-				Egl.SwapBuffers(Display, EglSurface);
+			Egl.SwapBuffers(Display, EglSurface);
 		}
 
 		/// <summary>
@@ -944,9 +1061,6 @@ namespace OpenGL
 
 			int[] configCount = new int[1];
 			IntPtr[] configs = new IntPtr[1];
-
-			if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
-				throw new InvalidOperationException("no ES API");
 
 			if (Egl.ChooseConfig(Display, configAttribs.ToArray(), configs, 1, configCount) == false)
 				throw new InvalidOperationException("unable to choose configuration");

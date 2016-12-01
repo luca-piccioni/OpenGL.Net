@@ -77,9 +77,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms.csproj">
       <Project>{b65d2a92-28fb-400c-990a-c805a8586b60}</Project>
       <Name>OpenGL.Net.WinForms</Name>

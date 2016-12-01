@@ -455,6 +455,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
+		/// found in <see cref="KhronosVersion"/> definition.
+		/// </summary>
+		public override IEnumerable<string> AvailableApis
+		{
+			get { return (GetAvailableApis()); }
+		}
+
+		/// <summary>
+		/// Get the APIs available on the WGL device context.
+		/// </summary>
+		/// <returns></returns>
+		internal static string[] GetAvailableApis()
+		{
+			List<string> deviceApi = new List<string>();
+
+			// Default
+			deviceApi.Add(KhronosVersion.ApiGl);
+			// OpenGL ES via WGL_EXT_create_context_es(2)?_profile
+			if (Wgl.CurrentExtensions.CreateContextEsProfile_EXT) {
+				deviceApi.Add(KhronosVersion.ApiGles1);
+				deviceApi.Add(KhronosVersion.ApiGles2);
+			}
+
+			return (deviceApi.ToArray());
+		}
+
+		/// <summary>
 		/// Creates a context.
 		/// </summary>
 		/// <param name="sharedContext">
@@ -473,22 +501,25 @@ namespace OpenGL
 		{
 			IntPtr renderContext = IntPtr.Zero;
 
-			try {
-				renderContext = Wgl.CreateContext(_DeviceContext);
-				if ((renderContext != IntPtr.Zero) && (sharedContext != IntPtr.Zero)) {
-					bool res = Wgl.ShareLists(renderContext, sharedContext);
-					Debug.Assert(res);
-				}
+			if (Wgl.CurrentExtensions == null || Wgl.CurrentExtensions.CreateContext_ARB == false) {
+				try {
+					renderContext = Wgl.CreateContext(_DeviceContext);
+					if ((renderContext != IntPtr.Zero) && (sharedContext != IntPtr.Zero)) {
+						bool res = Wgl.ShareLists(renderContext, sharedContext);
+						Debug.Assert(res);
+					}
 
-				return (renderContext);
-			} catch {
-				if (renderContext != IntPtr.Zero) {
-					bool res = Wgl.DeleteContext(renderContext);
-					Debug.Assert(res);
-				}
+					return (renderContext);
+				} catch {
+					if (renderContext != IntPtr.Zero) {
+						bool res = Wgl.DeleteContext(renderContext);
+						Debug.Assert(res);
+					}
 
-				throw;
-			}
+					throw;
+				}
+			} else
+				return (CreateContextAttrib(sharedContext, new int[] { Gl.NONE }));
 		}
 
 		/// <summary>
@@ -514,12 +545,103 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _Api)));
+		}
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <param name="api">
+		/// A <see cref="KhronosVersion"/> that specifies the API to be implemented by the returned context. It can be null indicating the
+		/// default API for this DeviceContext implementation. If it is possible, try to determine the API version also.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList, KhronosVersion api)
+		{
 			if ((attribsList != null) && (attribsList.Length == 0))
 				throw new ArgumentException("zero length array", "attribsList");
 			if ((attribsList != null) && (attribsList[attribsList.Length - 1] != 0))
 				throw new ArgumentException("not zero-terminated array", "attribsList");
 
-			return (Wgl.CreateContextAttribsARB(_DeviceContext, sharedContext, attribsList));
+			if (api != null && api.Api != KhronosVersion.ApiGl) {
+				List<int> adulteredAttribs = new List<int>(attribsList);
+
+				// Support check
+				switch (api.Api) {
+					case KhronosVersion.ApiGles1:
+					case KhronosVersion.ApiGles2:
+						if (Wgl.CurrentExtensions.CreateContextEsProfile_EXT == false)
+							throw new NotSupportedException("OpenGL ES API not supported");
+						break;
+					default:
+						throw new NotSupportedException(String.Format("'{0}' API not supported", api.Api));
+				}
+
+				// Remove trailing 0
+				if (adulteredAttribs.Count > 0 && adulteredAttribs[adulteredAttribs.Count - 1] == Gl.NONE)
+					adulteredAttribs.RemoveAt(adulteredAttribs.Count - 1);
+
+				// Add required attributes
+				int majorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Wgl.CONTEXT_MAJOR_VERSION_ARB); });
+				int minorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Wgl.CONTEXT_MINOR_VERSION_ARB); });
+				int profileMaskIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Wgl.CONTEXT_PROFILE_MASK_ARB); });
+
+				if (majorVersionIndex < 0) {
+					adulteredAttribs.AddRange(new int[] { Gl.MAJOR_VERSION, api.Major });
+					majorVersionIndex = adulteredAttribs.Count - 2;
+				}
+						
+				if (minorVersionIndex < 0) {
+					adulteredAttribs.AddRange(new int[] { Gl.MINOR_VERSION, api.Minor });
+					minorVersionIndex = adulteredAttribs.Count - 2;
+				}
+					
+				if (profileMaskIndex < 0) {
+					adulteredAttribs.AddRange(new int[] { Gl.CONTEXT_PROFILE_MASK, 0 });
+					profileMaskIndex = adulteredAttribs.Count - 2;
+				}
+
+				switch (api.Api) {
+					case KhronosVersion.ApiGles1:
+						// Ignore API version: force always to 1.0
+						adulteredAttribs[majorVersionIndex + 1] = 1;
+						adulteredAttribs[minorVersionIndex + 1] = 0;
+						adulteredAttribs[profileMaskIndex + 1] |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
+						break;
+					case KhronosVersion.ApiGles2:
+						// Uses API version: it may be greater than 2.0(?)
+						adulteredAttribs[majorVersionIndex + 1] = 2;
+						adulteredAttribs[minorVersionIndex + 1] = 0;
+						adulteredAttribs[profileMaskIndex + 1] |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
+						break;
+					default:
+						Debug.Fail("API not implemented");
+						throw new NotSupportedException(String.Format("'{0}' API not supported", api.Api));
+				}
+
+				// Restore trailing 0
+				adulteredAttribs.Add(Gl.NONE);
+
+				return (Wgl.CreateContextAttribsARB(_DeviceContext, sharedContext, adulteredAttribs.ToArray()));
+			} else
+				return (Wgl.CreateContextAttribsARB(_DeviceContext, sharedContext, attribsList));
 		}
 
 		/// <summary>

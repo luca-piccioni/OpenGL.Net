@@ -29,6 +29,9 @@ namespace HelloTriangle.ANGLE
 		[STAThread]
 		static void Main()
 		{
+			// Force using EGL, indeed ANGLE
+			OpenGL.Egl.IsRequired = true;
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new SampleForm());

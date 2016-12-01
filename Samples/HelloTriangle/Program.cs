@@ -39,9 +39,6 @@ namespace HelloTriangle
 				});
 			}
 
-			Egl.IsRequired = Egl.IsAvailable;
-			Gl.Initialize();
-
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new SampleForm());

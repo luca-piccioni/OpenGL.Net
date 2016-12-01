@@ -501,13 +501,10 @@ namespace OpenGL
 		/// </summary>
 		private void CreateDeviceContext(DevicePixelFormat controlReqFormat)
 		{
-			#region Support embedded profile via ANGLE
+			#region Support ES API
 
-			if (_ProfileType == ProfileType.Embedded) {
-				if (Egl.IsAvailable == false)
-					throw new InvalidOperationException("EGL/ANGLE platform not available");
-				Egl.IsRequired = true;
-			}
+			if (_ProfileType == ProfileType.Embedded)
+				DeviceContext.DefaultApi = KhronosVersion.ApiGles2;
 
 			#endregion
 
@@ -598,10 +595,7 @@ namespace OpenGL
 			switch (ContextSharing) {
 				case ContextSharingOption.OwnContext:
 					// This GlControl own its context
-					if ((_ProfileType != ProfileType.Embedded) && (Gl.CurrentVersion.Api == KhronosVersion.ApiGl))
-						CreateDesktopContext();
-					else
-						CreateEmbeddedContext();
+					CreateDesktopContext();
 					break;
 				case ContextSharingOption.SingleContext:
 					// This GlControl reuse a context previously created
@@ -772,24 +766,6 @@ namespace OpenGL
 				// ...and register this context among the others
 				sharingContextes.Add(_RenderContext);
 			}
-		}
-
-		/// <summary>
-		/// Create the GlControl context, eventually shared with others.
-		/// </summary>
-		protected void CreateEmbeddedContext()
-		{
-			if (_RenderContext != IntPtr.Zero)
-				throw new InvalidOperationException("context already created");
-
-			IntPtr sharingContext = IntPtr.Zero;
-			List<int> attributes = new List<int>();
-
-			attributes.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
-			attributes.Add(Egl.NONE);
-
-			if ((_RenderContext = _DeviceContext.CreateContextAttrib(sharingContext, attributes.ToArray())) == IntPtr.Zero)
-				throw new InvalidOperationException(String.Format("unable to create render context ({0})", Gl.GetError()));
 		}
 
 		/// <summary>

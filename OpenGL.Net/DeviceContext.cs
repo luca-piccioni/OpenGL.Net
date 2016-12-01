@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL
@@ -33,6 +34,10 @@ namespace OpenGL
 		/// </summary>
 		static DeviceContext()
 		{
+			// The default API is GLES2 in the case Egl.IsRequired is initialized to true
+			if (Egl.IsRequired)
+				_DefaultApi = KhronosVersion.ApiGles2;
+
 			// Required for correct static initialization sequences
 			Gl.Initialize();
 		}
@@ -67,7 +72,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
-				if (Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
+				if (Egl.CurrentExtensions == null || Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
 					// Throw away P-Buffer
 					return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
 				} else {
@@ -100,6 +105,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get or set the default API, driving device context creation using <see cref="Create"/>,
+		/// <see cref="Create(IntPtr, IntPtr)"/> or <see cref="Create(INativePBuffer)"/>.
+		/// </summary>
+		public static string DefaultApi
+		{
+			get { return (_DefaultApi); }
+			set
+			{
+				switch (value) {
+					case KhronosVersion.ApiGl:
+					case KhronosVersion.ApiGles1:
+					case KhronosVersion.ApiGles2:
+					case KhronosVersion.ApiVg:
+						// Allowed values
+						break;
+					default:
+						throw new InvalidOperationException("unsupported API");
+				}
+				_DefaultApi = value;
+			}
+		}
+
+		/// <summary>
+		/// The default API driving device context creation.
+		/// </summary>
+		private static string _DefaultApi = KhronosVersion.ApiGl;
+
+		/// <summary>
+		/// The default API driving device context creation.
+		/// </summary>
+		protected string _Api = KhronosVersion.ApiGl;
+
+		/// <summary>
 		/// Create a device context without a specific window.
 		/// </summary>
 		/// <exception cref='NotSupportedException'>
@@ -109,33 +147,48 @@ namespace OpenGL
 		{
 			Debug.Assert(Gl._NativeWindow != null);
 
-			if (Egl.IsRequired == false) {
+			DeviceContext deviceContext = null;
+
+			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL());
+						deviceContext = new DeviceContextWGL();
+						break;
 					case Platform.Id.Linux:
-						return (new DeviceContextGLX());
+						deviceContext = new DeviceContextGLX();
+						break;
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new DeviceContextGLX());
+							deviceContext = new DeviceContextGLX();
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
+						break;
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
-				INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
-				if (nativeWindow != null)
-					return (new DeviceContextEGL(nativeWindow.Handle));
+				if (deviceContext == null) {
+					INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
+					if (nativeBuffer != null)
+						deviceContext = new DeviceContextEGL(nativeBuffer);
+				}
 
-				INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
-				if (nativeBuffer != null)
-					return (new DeviceContextEGL(nativeBuffer));
+				if (deviceContext == null) {
+					INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
+					if (nativeWindow != null)
+						deviceContext = new DeviceContextEGL(nativeWindow.Handle);
+				}
 
-				Debug.Fail("unsupported EGL surface");
-				throw new NotSupportedException("EGL surface not supported");
+				if (deviceContext == null) {
+					Debug.Fail("unsupported EGL surface");
+					throw new NotSupportedException("EGL surface not supported");
+				}
 			}
-				
+
+			// Set the device context default API
+			deviceContext._Api = _DefaultApi;
+
+			return (deviceContext);
 		}
 
 		/// <summary>
@@ -156,22 +209,31 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create(IntPtr display, IntPtr windowHandle)
 		{
-			if (Egl.IsRequired == false) {
+			DeviceContext deviceContext = null;
+
+			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL(windowHandle));
+						deviceContext = new DeviceContextWGL(windowHandle);
+						break;
 					case Platform.Id.Linux:
-						return (new DeviceContextGLX(display, windowHandle));
+						deviceContext = new DeviceContextGLX(display, windowHandle);
+						break;
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new DeviceContextGLX(display, windowHandle));
+							deviceContext = new DeviceContextGLX(display, windowHandle);
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
+						break;
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
 			} else
-				return (new DeviceContextEGL(windowHandle));
+				deviceContext = new DeviceContextEGL(windowHandle);
+
+			deviceContext._Api = _DefaultApi;
+
+			return (deviceContext);
 		}
 
 		/// <summary>
@@ -186,15 +248,76 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create(INativePBuffer nativeBuffer)
 		{
-			if (Egl.IsRequired == false) {
+			DeviceContext deviceContext = null;
+
+			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL(nativeBuffer));
+						deviceContext = new DeviceContextWGL(nativeBuffer);
+						break;
 					default:
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
 			} else
-				return (new DeviceContextEGL(nativeBuffer));
+				deviceContext = new DeviceContextEGL(nativeBuffer);
+
+			deviceContext._Api = _DefaultApi;
+
+			return (deviceContext);
+		}
+
+		/// <summary>
+		/// Get whether EGL device context is is required for implementing <see cref="DefaultApi"/>.
+		/// </summary>
+		private static bool IsEglRequired
+		{
+			get
+			{
+				// Default API management
+				// - Select eglRequired if EGL is the only device API available
+				// - Select eglRequired if desktop device does not support ES context creation
+				// - Select eglRequired if VG context creation
+				bool eglRequired = Egl.IsRequired;
+
+				if (eglRequired == false) {
+					switch (_DefaultApi) {
+						case KhronosVersion.ApiGl:
+							// Leave EGL requirement to the system (i.e. ANDROID or Broadcom)
+							break;
+						case KhronosVersion.ApiGles1:
+						case KhronosVersion.ApiGles2:
+							string[] desktopAvailableApi;
+
+							switch (Platform.CurrentPlatformId) {
+								case Platform.Id.WindowsNT:
+									desktopAvailableApi = DeviceContextWGL.GetAvailableApis();
+									break;
+								case Platform.Id.Linux:
+									desktopAvailableApi = DeviceContextGLX.GetAvailableApis();
+									break;
+								case Platform.Id.MacOS:
+									if (Glx.IsRequired)
+										desktopAvailableApi = DeviceContextGLX.GetAvailableApis();
+									else
+										throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
+									break;
+								default:
+									throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+							}
+							Debug.Assert(desktopAvailableApi != null);
+
+							if (Array.FindIndex(desktopAvailableApi, delegate(string item) { return (item == _DefaultApi); }) < 0)
+								eglRequired = true;
+							break;
+						case KhronosVersion.ApiVg:
+							// EGL is the only way to access to VG
+							eglRequired = true;
+							break;
+					}
+				}
+
+				return (eglRequired);
+			}
 		}
 
 		#endregion
@@ -271,6 +394,13 @@ namespace OpenGL
 		internal abstract IntPtr CreateSimpleContext();
 
 		/// <summary>
+		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
+		/// found in <see cref="KhronosVersion"/> definition. The returned value can be null; in this case only
+		/// the explicit API is implemented.
+		/// </summary>
+		public virtual IEnumerable<string> AvailableApis { get { return (null); } }
+
+		/// <summary>
 		/// Creates a context.
 		/// </summary>
 		/// <param name="sharedContext">
@@ -309,6 +439,33 @@ namespace OpenGL
 		/// is not zero.
 		/// </exception>
 		public abstract IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList);
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <param name="api">
+		/// A <see cref="KhronosVersion"/> that specifies the API to be implemented by the returned context. It can be null indicating the
+		/// default API for this DeviceContext implementation. If it is possible, try to determine the API version also.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		public abstract IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList, KhronosVersion api);
 
 		/// <summary>
 		/// Makes the context current on the calling thread.

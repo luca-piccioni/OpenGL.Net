@@ -21,7 +21,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
@@ -320,14 +319,14 @@ namespace OpenGL
 						case Platform.Id.Linux:
 							return ("libGLESv2.so");
 						default:
-							return (LibraryEs);
+							return (Egl.IsRequired ? LibraryEs : Library);
 					}
 				case KhronosVersion.ApiGles2:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
 							return ("libGLESv2.so");
 						default:
-							return (LibraryEs2);
+							return (Egl.IsRequired ? LibraryEs2 : Library);
 					}
 				default:
 					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));

@@ -39,11 +39,15 @@ namespace HelloTriangle.ANGLE
 
 		private void SampleForm_Load(object sender, EventArgs e)
 		{
-			Text = String.Format("Hello triangle with ANGLE (Version: {0})", OpenGL.Gl.CurrentVersion);
+			
 		}
 
 		private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
 		{
+			// Update Form caption
+			Text = String.Format("Hello triangle with ANGLE (Version: {0})", Gl.GetString(StringName.Version));
+
+			// Create resources
 			StringBuilder infolog = new StringBuilder(1024);
 			int infologLength;
 			int compiled;
