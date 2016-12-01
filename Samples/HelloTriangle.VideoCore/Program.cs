@@ -13,9 +13,9 @@ namespace HelloTriangle.VideoCore
 		static void Main()
 		{
 			try {
-				string envDebug = Environment.GetEnvironmentVariable("GL_DEBUG");
+				string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 
-				if (envDebug == "YES") {
+				if (envDebug == "GL") {
 					KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
 						Console.WriteLine(format, args);
 					});
@@ -38,11 +38,15 @@ namespace HelloTriangle.VideoCore
 
 						Gl.Viewport(0, 0, 1920, 1080);
 						Gl.ClearColor(1.0f, 0.0f, 0.0f, 0.0f);
-						Gl.Clear(ClearBufferMask.ColorBufferBit);
 
-						Gl.Flush();
-						eglContext.SwapBuffers();
+						while (true) {
+							Gl.Clear(ClearBufferMask.ColorBufferBit);
 
+							Gl.Flush();
+							eglContext.SwapBuffers();
+							break;
+						}
+						
 						System.Threading.Thread.Sleep(10000);
 
 						eglContext.DeleteContext(glContext);

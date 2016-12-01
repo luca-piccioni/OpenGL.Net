@@ -57,6 +57,8 @@ namespace OpenGL
 
 				// Keep native window pinned
 				_NativeWindowLock = new MemoryLock(_NativeWindow);
+
+				KhronosApi.LogComment("VideoIV Native Window is 0x{0}", _NativeWindowLock.Address.ToString("X"));
 			} catch {
 				Dispose();
 				throw;
@@ -69,7 +71,7 @@ namespace OpenGL
 
 		public IntPtr Display { get { return (IntPtr.Zero); } }
 		
-		public IntPtr Handle { get { return (IntPtr.Zero); } }
+		public IntPtr Handle { get { return (_NativeWindowLock.Address); } }
 
 		private struct EGL_DISPMANX_WINDOW_T
 		{
