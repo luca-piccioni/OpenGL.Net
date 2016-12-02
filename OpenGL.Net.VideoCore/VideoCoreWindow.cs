@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
@@ -35,7 +36,7 @@ namespace OpenGL
 			try {
 				int width, height;
 
-				KhronosApi.LogComment("Creating VideoCore native window");
+				KhronosApi.LogComment("Creating VideoCore IV native window");
 
 				if (Bcm.graphics_get_display_size(0 /* LCD */, out width, out height) < 0)
 					throw new InvalidOperationException("unable to get BCM display size");
@@ -60,7 +61,7 @@ namespace OpenGL
 				// Keep native window pinned
 				_NativeWindowLock = new MemoryLock(_NativeWindow);
 
-				KhronosApi.LogComment("VideoIV Native Window is 0x{0}", _NativeWindowLock.Address.ToString("X"));
+				KhronosApi.LogComment("VideoCore IV Native Window is 0x{0}", _NativeWindowLock.Address.ToString("X"));
 			} catch {
 				Dispose();
 				throw;
@@ -71,13 +72,20 @@ namespace OpenGL
 
 		#region VideoCore Handles
 
+		/// <summary>
+		/// Get the display handle associated this instance.
+		/// </summary>
 		public IntPtr Display { get { return (IntPtr.Zero); } }
 		
+		/// <summary>
+		/// Get the native window handle.
+		/// </summary>
 		public IntPtr Handle { get { return (_NativeWindowLock.Address); } }
 
 		/// <summary>
 		/// The structure expected by eglCreateWindowSurface function.
 		/// </summary>
+		[StructLayout(LayoutKind.Sequential)]
 		private struct EGL_DISPMANX_WINDOW_T
 		{
 			public UInt32 element;
