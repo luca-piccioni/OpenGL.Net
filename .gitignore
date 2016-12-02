@@ -80,3 +80,5 @@ packages
 /Samples/HelloTriangle.OpenWF/bin
 /Samples/OffscreenTriangle/bin
 /Samples/OffscreenTriangle/obj
+/OpenGL.Net.Objects/obj
+/OpenGL.Net.Objects/bin

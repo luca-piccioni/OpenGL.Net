@@ -19,20 +19,24 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 
 namespace OpenGL
 {
 	/// <summary>
 	/// Detected platforms.
 	/// </summary>
-	class Platform
+	public static class Platform
 	{
 		/// <summary>
 		/// Static constructor.
 		/// </summary>
 		static Platform()
 		{
+			// Cache platform ID
 			_CurrentPlatformId = GetCurrentPlatform();
+			// Detect Mono environment
+			_MonoVersion = DetectMonoEnvironment();
 		}
 
 		/// <summary>
@@ -147,6 +151,39 @@ namespace OpenGL
 			}
 
 			return (null);
+		}
+
+		/// <summary>
+		/// Get whether the running runtime is Mono.
+		/// </summary>
+		public static bool RunningMono { get { return (_MonoVersion != null); } }
+
+		/// <summary>
+		/// The Mono display name, if any.
+		/// </summary>
+		private static readonly string _MonoVersion;
+
+		/// <summary>
+		/// Detect the Mono environment.
+		/// </summary>
+		/// <returns>
+		/// It returns the version string of Mono, if running with it.
+		/// </returns>
+		private static string DetectMonoEnvironment()
+		{
+			Type monoRuntime = Type.GetType("Mono.Runtime", false);
+
+			if (monoRuntime != null) {
+				string runningVersion = "generic";
+				try {
+					MethodInfo getDisplayName = monoRuntime.GetMethod("GetDisplayName", BindingFlags.Static | BindingFlags.NonPublic);
+					if (getDisplayName != null)
+						runningVersion = getDisplayName.Invoke(null, new object[0]) as string;
+				} catch { /* Ignore */ }
+
+				return (runningVersion);
+			} else
+				return (null);
 		}
 	}
 }
