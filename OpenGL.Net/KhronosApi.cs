@@ -596,7 +596,8 @@ namespace OpenGL
 				// Cache extension names in registry
 				_ExtensionsRegistry.Clear();
 				foreach (string extension in extensions)
-					_ExtensionsRegistry.Add(extension, true);
+					if (!_ExtensionsRegistry.ContainsKey(extension))
+						_ExtensionsRegistry.Add(extension, true);
 
 				// Set all extension fields
 				Type thisType = GetType();
