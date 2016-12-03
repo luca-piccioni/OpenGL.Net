@@ -91,8 +91,24 @@ namespace OpenGL
 			Major = major;
 			Minor = minor;
 			Revision = revision;
-
 			Api = api;
+		}
+
+		/// <summary>
+		/// Copy constructor.
+		/// </summary>
+		/// <param name="other">
+		/// The other <see cref="KhronosVersion"/> to be copied.
+		/// </param>
+		public KhronosVersion(KhronosVersion other)
+		{
+			if (other == null)
+				throw new ArgumentNullException("other");
+
+			Major = other.Major;
+			Minor = other.Minor;
+			Revision = other.Revision;
+			Api = other.Api;
 		}
 
 		#endregion

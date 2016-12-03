@@ -289,14 +289,14 @@ namespace OpenGL
 		private static bool _MultithreadingInitialized;
 		
 		#endregion
-		
-		#region GLX Version
-		
+
+		#region DeviceContext Overrides
+
 		/// <summary>
-		/// Get the GLX version.
+		/// Get this DeviceContext API version.
 		/// </summary>
-		public KhronosVersion Version { get { return (_GlxVersion); } }
-		
+		public override KhronosVersion Version { get { return (new KhronosVersion(_GlxVersion)); } }
+
 		/// <summary>
 		/// Query the GLX version supported by current implementation.
 		/// </summary>
@@ -315,10 +315,6 @@ namespace OpenGL
 		/// The GLX major version.
 		/// </summary>
 		private KhronosVersion _GlxVersion;
-
-		#endregion
-
-		#region DeviceContext Overrides
 
 		/// <summary>
 		/// Create a simple context.

@@ -108,6 +108,32 @@ namespace OpenGL
 			}
 
 			/// <summary>
+			/// Support for extension WGL_EXT_create_context_es_profile or GLX_EXT_create_context_es_profile.
+			/// </summary>
+			public bool CreateContextEsProfile_EXT
+			{
+				get
+				{
+					if (Egl.IsRequired == false) {
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
+								return (Wgl.CurrentExtensions.CreateContextEsProfile_EXT);
+							case Platform.Id.Linux:
+								return (Glx.CurrentExtensions.CreateContextEsProfile_EXT);
+							case Platform.Id.MacOS:
+								if (Glx.IsRequired)
+									return (Glx.CurrentExtensions.CreateContextEsProfile_EXT);
+								else
+									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
+							default:
+								return (false);
+						}
+					} else
+						return (false);
+				}
+			}
+
+			/// <summary>
 			/// Support for extension WGL_ARB_multisample or GLX_ARB_multisample.
 			/// </summary>
 			public bool Multisample_ARB

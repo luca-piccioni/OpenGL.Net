@@ -418,6 +418,11 @@ namespace OpenGL
 		#region DeviceContext Overrides
 
 		/// <summary>
+		/// Get this DeviceContext API version.
+		/// </summary>
+		public override KhronosVersion Version { get { return (new KhronosVersion(1, 0, KhronosVersion.ApiWgl)); } }
+
+		/// <summary>
 		/// Create a simple context.
 		/// </summary>
 		/// <returns>

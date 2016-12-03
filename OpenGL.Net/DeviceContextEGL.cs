@@ -81,11 +81,6 @@ namespace OpenGL
 		internal IntPtr Display { get { return (_NativeSurface._Display); } }
 
 		/// <summary>
-		/// Get the EGL context version.
-		/// </summary>
-		public KhronosVersion Version { get { return (_NativeSurface._EglVersion); } }
-
-		/// <summary>
 		/// Get the EGL surface handle.
 		/// </summary>
 		private IntPtr EglSurface { get { return (_NativeSurface.Handle); } }
@@ -472,6 +467,11 @@ namespace OpenGL
 		#endregion
 
 		#region DeviceContext Overrides
+
+		/// <summary>
+		/// Get this DeviceContext API version.
+		/// </summary>
+		public override KhronosVersion Version { get { return (new KhronosVersion(_NativeSurface._EglVersion)); } }
 
 		/// <summary>
 		/// Create a simple context.

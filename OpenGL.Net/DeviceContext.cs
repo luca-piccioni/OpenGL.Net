@@ -135,7 +135,7 @@ namespace OpenGL
 		/// <summary>
 		/// The default API driving device context creation.
 		/// </summary>
-		protected string _Api = KhronosVersion.ApiGl;
+		protected string _Api = _DefaultApi;
 
 		/// <summary>
 		/// Create a device context without a specific window.
@@ -185,9 +185,6 @@ namespace OpenGL
 				}
 			}
 
-			// Set the device context default API
-			deviceContext._Api = _DefaultApi;
-
 			return (deviceContext);
 		}
 
@@ -231,8 +228,6 @@ namespace OpenGL
 			} else
 				deviceContext = new DeviceContextEGL(windowHandle);
 
-			deviceContext._Api = _DefaultApi;
-
 			return (deviceContext);
 		}
 
@@ -260,8 +255,6 @@ namespace OpenGL
 				}
 			} else
 				deviceContext = new DeviceContextEGL(nativeBuffer);
-
-			deviceContext._Api = _DefaultApi;
 
 			return (deviceContext);
 		}
@@ -383,6 +376,11 @@ namespace OpenGL
 		#endregion
 
 		#region Platform Methods
+
+		/// <summary>
+		/// Get this DeviceContext API version.
+		/// </summary>
+		public abstract KhronosVersion Version { get; }
 
 		/// <summary>
 		/// Create a simple context.
