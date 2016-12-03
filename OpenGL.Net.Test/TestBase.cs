@@ -41,10 +41,8 @@ namespace OpenGL.Test
 				// Support ES tests
 				Egl.IsRequired = IsEsTest;
 
-				// Create window
-				Form = DeviceContext.CreateHiddenWindow();
 				// Create device context
-				_DeviceContext = DeviceContext.Create(Form.Display, Form.Handle);
+				_DeviceContext = DeviceContext.Create();
 				List<DevicePixelFormat> pixelFormats = _DeviceContext.PixelsFormats.Choose(new DevicePixelFormat(24));
 
 				if (pixelFormats.Count == 0)
@@ -66,10 +64,6 @@ namespace OpenGL.Test
 			if (_DeviceContext != null)
 				_DeviceContext.Dispose();
 			_DeviceContext = null;
-			// Dispose window
-			if (Form != null)
-				Form.Dispose();
-			Form = null;
 		}
 
 		/// <summary>
@@ -79,11 +73,6 @@ namespace OpenGL.Test
 		{
 			get { return (false); }
 		}
-
-		/// <summary>
-		/// Form used for unit testing.
-		/// </summary>
-		protected INativeWindow Form;
 
 		/// <summary>
 		/// The device context.
