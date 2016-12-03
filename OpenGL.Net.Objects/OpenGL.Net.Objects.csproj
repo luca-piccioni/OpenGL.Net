@@ -152,6 +152,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Shaders\Compatibility.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Geometry.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
+    <None Include="Shaders\TransformState.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\ShadersLibrary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

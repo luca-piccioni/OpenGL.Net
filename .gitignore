@@ -82,3 +82,5 @@ packages
 /Samples/OffscreenTriangle/obj
 /OpenGL.Net.Objects/obj
 /OpenGL.Net.Objects/bin
+/OpenGL.Net.Objects.Test/obj
+/OpenGL.Net.Objects.Test/bin

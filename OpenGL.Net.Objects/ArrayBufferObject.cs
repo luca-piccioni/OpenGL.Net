@@ -231,7 +231,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.UShort4:
 					return (new ArrayBufferObject<Vertex4us>(hint));
 				case ArrayBufferItemType.Int:
-					return (new ArrayBufferObject<Int32>(hint));
+					return (new ArrayBufferObject<int>(hint));
 				case ArrayBufferItemType.Int2:
 					return (new ArrayBufferObject<Vertex2i>(hint));
 				case ArrayBufferItemType.Int3:
@@ -239,7 +239,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Int4:
 					return (new ArrayBufferObject<Vertex4i>(hint));
 				case ArrayBufferItemType.UInt:
-					return (new ArrayBufferObject<UInt32>(hint));
+					return (new ArrayBufferObject<uint>(hint));
 				case ArrayBufferItemType.UInt2:
 					return (new ArrayBufferObject<Vertex2ui>(hint));
 				case ArrayBufferItemType.UInt3:
@@ -247,19 +247,19 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.UInt4:
 					return (new ArrayBufferObject<Vertex4ui>(hint));
 				case ArrayBufferItemType.Float:
-					return (new ArrayBufferObject<Single>(hint));
+					return (new ArrayBufferObject<float>(hint));
 				case ArrayBufferItemType.Float2:
 					return (new ArrayBufferObject<Vertex2f>(hint));
 				case ArrayBufferItemType.Float3:
 					return (new ArrayBufferObject<Vertex3f>(hint));
 				case ArrayBufferItemType.Float4:
 					return (new ArrayBufferObject<Vertex4f>(hint));
-				//case ArrayBufferItemType.Float2x4:
-				//	return (new ArrayBufferObject<Matrix2x4>(hint));
-				//case ArrayBufferItemType.Float4x4:
-				//	return (new ArrayBufferObject<Matrix4>(hint));
+				case ArrayBufferItemType.Float2x4:
+					return (new ArrayBufferObject<Matrix2x4f>(hint));
+				case ArrayBufferItemType.Float4x4:
+					return (new ArrayBufferObject<Matrix4x4f>(hint));
 				case ArrayBufferItemType.Double:
-					return (new ArrayBufferObject<Double>(hint));
+					return (new ArrayBufferObject<double>(hint));
 				case ArrayBufferItemType.Double2:
 					return (new ArrayBufferObject<Vertex2d>(hint));
 				case ArrayBufferItemType.Double3:

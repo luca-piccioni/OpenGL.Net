@@ -195,6 +195,71 @@ namespace OpenGL.Objects
 		#endregion
 
 		/// <summary>
+		/// Construct a GraphicsContext wrapping an OpenGL context already created.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// The <see cref="DeviceContext"/> that has created <paramref name="glContext"/>.
+		/// </param>
+		/// <param name="glContext">
+		/// A <see cref="IntPtr"/> that specifies the OpenGL context to be wrapped by this instance.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="deviceContext"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="glContext"/> is <see cref="IntPtr.Zero"/>.
+		/// </exception>
+		/// <remarks>
+		/// <para>
+		/// The created GraphicsContext is not aware about resource sharing about another GL context. Keep attention
+		/// to the resource management.
+		/// </para>
+		/// </remarks>
+		public GraphicsContext(DeviceContext deviceContext, IntPtr glContext)
+		{
+			if (deviceContext == null)
+				throw new ArgumentNullException("deviceContext");
+			if (glContext == IntPtr.Zero)
+				throw new ArgumentException("glContext");
+
+#if DEBUG
+			_ConstructorStackTrace = Environment.StackTrace;
+#endif
+			// Store thread ID of the render context
+			_RenderContextThreadId = Thread.CurrentThread.ManagedThreadId;
+			// Store thread ID of the device context
+			_DeviceContextThreadId = Thread.CurrentThread.ManagedThreadId;
+
+			try {
+				// Store device context handle
+				_DeviceContext = deviceContext;
+				_DeviceContext.IncRef();
+				// Store GL context handle
+				_RenderContext = glContext;
+
+				// Make current on this thread
+				MakeCurrent(deviceContext, true);
+				// Initialize resources
+				InitializeResources();
+				// Get GL context flags
+				Debug.Assert(_Version != null);
+				switch (_Version.Api) {
+					case KhronosVersion.ApiGl:
+						QueryDesktopContextInformation();
+						break;
+					case KhronosVersion.ApiGles1:
+					case KhronosVersion.ApiGles2:
+						QueryEmbeddedContextInformation();
+						break;
+				}
+			} catch {
+				Dispose();
+				// Rethrow the exception
+				throw;
+			}
+		}
+
+		/// <summary>
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="deviceContext">
@@ -237,27 +302,22 @@ namespace OpenGL.Objects
 		/// </exception>
 		public GraphicsContext(DeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags)
 		{
-			try {
-				IntPtr sharedContextHandle = (sharedContext != null) ? sharedContext._RenderContext : IntPtr.Zero;
+			if (deviceContext == null)
+				throw new ArgumentNullException("deviceContext");
+			if ((sharedContext != null) && (sharedContext._DeviceContext == null))
+				throw new ArgumentException("shared context disposed", "sharedContext");
+			if ((sharedContext != null) && (sharedContext._RenderContextThreadId != _RenderContextThreadId))
+				throw new ArgumentException("shared context created from another thread", "sharedContext");
 
 #if DEBUG
-				_ConstructorStackTrace = Environment.StackTrace;
+			_ConstructorStackTrace = Environment.StackTrace;
 #endif
+			// Store thread ID of the render context
+			_RenderContextThreadId = Thread.CurrentThread.ManagedThreadId;
+			// Store thread ID of the device context
+			_DeviceContextThreadId = Thread.CurrentThread.ManagedThreadId;
 
-				// Store thread ID of the render context
-				_RenderContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-				// Store thread ID of the device context
-				_DeviceContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-
-				if (deviceContext == null)
-					throw new ArgumentNullException("deviceContext");
-				if ((sharedContext != null) && (sharedContext._DeviceContext == null))
-					throw new ArgumentException("shared context disposed", "hSharedContext");
-				if ((sharedContext != null) && (sharedContext._RenderContextThreadId != _RenderContextThreadId))
-					throw new ArgumentException("shared context created from another thread", "hSharedContext");
-				if ((version != null) && (version != Gl.CurrentVersion) && ((Gl.PlatformExtensions.CreateContext_ARB == false) && (Gl.PlatformExtensions.CreateContextProfile_ARB == false)))
-					throw new ArgumentException("unable to specify OpenGL version when GL_ARB_create_context[_profile] is not supported");
-
+			try {
 				// Store device context handle
 				_DeviceContext = deviceContext;
 				_DeviceContext.IncRef();
@@ -267,103 +327,22 @@ namespace OpenGL.Objects
 				// Set flags
 				_ContextFlags = flags;
 
-				if ((version.Api == KhronosVersion.ApiGl) && (version >= Gl.Version_300) && (Gl.PlatformExtensions.CreateContext_ARB || Gl.PlatformExtensions.CreateContextProfile_ARB)) {
-					List<int> cAttributes = new List<int>();
+				// Sharing resources
+				IntPtr sharedContextHandle = (sharedContext != null) ? sharedContext._RenderContext : IntPtr.Zero;
 
-					#region Context Version
-
-					// Requires a specific version
-					Debug.Assert(Wgl.CONTEXT_MAJOR_VERSION_ARB == Glx.CONTEXT_MAJOR_VERSION_ARB);
-					Debug.Assert(Wgl.CONTEXT_MINOR_VERSION_ARB == Glx.CONTEXT_MINOR_VERSION_ARB);
-					cAttributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, version.Major,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, version.Minor
-					});
-
-					#endregion
-
-					#region Context Profile
-
-					uint contextProfile = 0;
-
-					// Check binary compatibility between WGL and GLX
-					Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
-					Debug.Assert(Wgl.CONTEXT_CORE_PROFILE_BIT_ARB == Glx.CONTEXT_CORE_PROFILE_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_ES_PROFILE_BIT_EXT == Glx.CONTEXT_ES_PROFILE_BIT_EXT);
-
-					// By default, Core profile
-
-					// Core profile?
-					if ((flags & GraphicsContextFlags.CoreProfile) != 0)
-						contextProfile |= Wgl.CONTEXT_CORE_PROFILE_BIT_ARB;
-					// Compatibility profile?
-					if ((flags & GraphicsContextFlags.CompatibilityProfile) != 0)
-						contextProfile |= Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
-					// OpenGL ES profile?
-					if ((flags & GraphicsContextFlags.EmbeddedProfile) != 0)
-						contextProfile |= Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
-
-					if (contextProfile != 0) {
-						cAttributes.AddRange(new int[] {
-							Wgl.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile)
-						});
-					}
-
-					#endregion
-
-					#region Context Flags
-
-					uint contextFlags = 0;
-
-					// Check binary compatibility between WGL and GLX
-					Debug.Assert(Wgl.CONTEXT_FLAGS_ARB == Glx.CONTEXT_FLAGS_ARB);
-					Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB == Glx.CONTEXT_RESET_ISOLATION_BIT_ARB);
-
-					if (((flags & GraphicsContextFlags.CompatibilityProfile) != 0) && (Gl.CurrentExtensions.Compatibility_ARB == false))
-						throw new NotSupportedException("compatibility profile not supported");
-					if (((flags & GraphicsContextFlags.Robust) != 0) && (Gl.CurrentExtensions.Robustness_ARB == false && Gl.CurrentExtensions.Robustness_EXT == false))
-						throw new NotSupportedException("robust profile not supported");
-
-					// Context flags: debug context
-					if ((flags & GraphicsContextFlags.Debug) != 0)
-						contextFlags |= Wgl.CONTEXT_DEBUG_BIT_ARB;
-					// Context flags: forward compatible context
-					if ((flags & GraphicsContextFlags.ForwardCompatible) != 0)
-						contextFlags |= Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
-					// Context flags: robust behavior
-					if ((flags & GraphicsContextFlags.Robust) != 0)
-						contextFlags |= Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB;
-					// Context flags: reset isolation
-					if ((flags & GraphicsContextFlags.ResetIsolation) != 0)
-						contextFlags |= Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB;
-
-					if (contextFlags != 0) {
-						cAttributes.AddRange(new int[] {
-							Wgl.CONTEXT_FLAGS_ARB, unchecked((int)contextFlags)
-						});
-					}
-
-					#endregion
-
-					// End of attributes
-					cAttributes.Add(0);
-
-					// Create rendering context
-					int[] contextAttributes = cAttributes.ToArray();
-
-					_RenderContext = _DeviceContext.CreateContextAttrib(sharedContextHandle, contextAttributes);
-					Debug.Assert(_RenderContext != IntPtr.Zero);
-				} else {
-					// Create rendering context
-					_RenderContext = _DeviceContext.CreateContext(sharedContextHandle);
-					Debug.Assert(_RenderContext != IntPtr.Zero);
+				switch (deviceContext.Version.Api) {
+					case KhronosVersion.ApiWgl:
+					case KhronosVersion.ApiGlx:
+						_RenderContext = CreateContextDesktop(version, sharedContextHandle, flags);
+						break;
+					case KhronosVersion.ApiEgl:
+						_RenderContext = CreateContextNative(version, sharedContextHandle, flags);
+						break;
+					default:
+						throw new NotSupportedException(String.Format("backend API {0} not supported", deviceContext.Version.Api));
 				}
 
+				Debug.Assert(_RenderContext != IntPtr.Zero);
 				if (_RenderContext == IntPtr.Zero)
 					throw new InvalidOperationException(String.Format("unable to create context {0}", version));
 
@@ -376,23 +355,8 @@ namespace OpenGL.Objects
 
 					// Make current on this thread
 					MakeCurrent(deviceContext, true);
-
-					// Get the current OpenGL and Shading Language implementation supported by this GraphicsContext
-					_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
-					// Reserved object name space
-					_ObjectNameSpace = Guid.NewGuid();
-
-					// Texture download
-					_TextureDownloadFramebuffer = new Framebuffer();
-					_TextureDownloadFramebuffer.Create(this);
-
-					// Shader include library (GLSL #include support)
-					_ShaderIncludeLibrary = new ShaderIncludeLibrary();
-					_ShaderIncludeLibrary.Create(this);
-					// IGraphicsResource Async methods @todo ANGLE?
-					// StartAsyncResourceThread();
-
+					// Initialize resources
+					InitializeResources();
 					// Restore previous current context, if any. Otherwise, make uncurrent
 					if (prevContext != null)
 						prevContext.MakeCurrent(prevContextDevice, true);
@@ -413,9 +377,247 @@ namespace OpenGL.Objects
 					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 				}
 			} catch {
+				Dispose();
 				// Rethrow the exception
 				throw;
 			}
+		}
+
+		private IntPtr CreateContextDesktop(KhronosVersion version, IntPtr sharedContext, GraphicsContextFlags flags)
+		{
+			#region Check Requirements
+
+			// (WGL|GLX)_ARB_create_context
+			bool requiredCreateContext = false;
+
+			if ((version != null) && (version.Api != KhronosVersion.ApiGl))
+				requiredCreateContext = true;
+			if ((version != null) && (version >= Gl.Version_300))
+				requiredCreateContext = true;
+			if ((flags & GraphicsContextFlags.Debug) != 0)
+				requiredCreateContext = true;
+			if ((flags & GraphicsContextFlags.ForwardCompatible) != 0)
+				requiredCreateContext = true;
+
+			if (requiredCreateContext && !Gl.PlatformExtensions.CreateContext_ARB)
+				throw new InvalidOperationException("(WGL|GLX)_ARB_create_context required but not implemented");
+
+			// (WGL|GLX)_ARB_create_context_profile
+			bool requiredCreateContextProfile = false;
+
+			if ((flags & GraphicsContextFlags.CoreProfile) != 0)
+				requiredCreateContextProfile = true;
+			if ((flags & GraphicsContextFlags.CompatibilityProfile) != 0)
+				requiredCreateContextProfile = true;
+
+			if (requiredCreateContextProfile && !Gl.PlatformExtensions.CreateContextProfile_ARB)
+				throw new InvalidOperationException("(WGL|GLX)_ARB_create_context_profile required but not implemented");
+
+			// (WGL|GLX)_ARB_create_context_robustness
+			bool requiredCreateContextRobustness = (flags & GraphicsContextFlags.Robust) != 0;
+
+			if (requiredCreateContextRobustness && !Gl.PlatformExtensions.CreateContextRobustness_ARB)
+				throw new InvalidOperationException("(WGL|GLX)_ARB_create_context_robustness required but not implemented");
+
+			// (WGL|GLX)_EXT_create_context_es_profile
+			bool requiredCreateContextEsProfile = (flags & GraphicsContextFlags.EmbeddedProfile) != 0;
+
+			if (requiredCreateContextEsProfile && !Gl.PlatformExtensions.CreateContextEsProfile_EXT)
+				throw new InvalidOperationException("(WGL|GLX)_EXT_create_context_es_profile required but not implemented");
+
+			#endregion
+
+			// Create context
+			if (requiredCreateContext || requiredCreateContextProfile) {
+				List<int> contextAttributes = new List<int>();
+
+				#region Context Version
+
+				// Requires a specific version
+				if (version != null) {
+					Debug.Assert(Wgl.CONTEXT_MAJOR_VERSION_ARB == Glx.CONTEXT_MAJOR_VERSION_ARB);
+					Debug.Assert(Wgl.CONTEXT_MINOR_VERSION_ARB == Glx.CONTEXT_MINOR_VERSION_ARB);
+					contextAttributes.AddRange(new int[] {
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, version.Major,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, version.Minor
+					});
+				}
+
+				#endregion
+
+				#region Context Profile
+
+				uint contextProfile = 0;
+
+				// Check binary compatibility between WGL and GLX
+				Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
+				Debug.Assert(Wgl.CONTEXT_CORE_PROFILE_BIT_ARB == Glx.CONTEXT_CORE_PROFILE_BIT_ARB);
+				Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
+				Debug.Assert(Wgl.CONTEXT_ES_PROFILE_BIT_EXT == Glx.CONTEXT_ES_PROFILE_BIT_EXT);
+
+				// Core profile?
+				if ((flags & GraphicsContextFlags.CoreProfile) != 0)
+					contextProfile |= Wgl.CONTEXT_CORE_PROFILE_BIT_ARB;
+				// Compatibility profile?
+				if ((flags & GraphicsContextFlags.CompatibilityProfile) != 0)
+					contextProfile |= Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
+				// OpenGL ES profile?
+				if ((flags & GraphicsContextFlags.EmbeddedProfile) != 0)
+					contextProfile |= Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
+
+				if (contextProfile != 0)
+					contextAttributes.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, unchecked((int)contextProfile) });
+
+				#endregion
+
+				#region Context Flags
+
+				uint contextFlags = 0;
+
+				// Check binary compatibility between WGL and GLX
+				Debug.Assert(Wgl.CONTEXT_FLAGS_ARB == Glx.CONTEXT_FLAGS_ARB);
+				Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
+				Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
+				Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
+				Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
+				Debug.Assert(Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB == Glx.CONTEXT_RESET_ISOLATION_BIT_ARB);
+
+				if (((flags & GraphicsContextFlags.CompatibilityProfile) != 0) && (Gl.CurrentExtensions.Compatibility_ARB == false))
+					throw new NotSupportedException("compatibility profile not supported");
+				if (((flags & GraphicsContextFlags.Robust) != 0) && (Gl.CurrentExtensions.Robustness_ARB == false && Gl.CurrentExtensions.Robustness_EXT == false))
+					throw new NotSupportedException("robust profile not supported");
+
+				// Context flags: debug context
+				if ((flags & GraphicsContextFlags.Debug) != 0)
+					contextFlags |= Wgl.CONTEXT_DEBUG_BIT_ARB;
+				// Context flags: forward compatible context
+				if ((flags & GraphicsContextFlags.ForwardCompatible) != 0)
+					contextFlags |= Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
+				// Context flags: robust behavior
+				if ((flags & GraphicsContextFlags.Robust) != 0)
+					contextFlags |= Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB;
+				// Context flags: reset isolation
+				if ((flags & GraphicsContextFlags.ResetIsolation) != 0)
+					contextFlags |= Wgl.CONTEXT_RESET_ISOLATION_BIT_ARB;
+
+				if (contextFlags != 0)
+					contextAttributes.AddRange(new int[] { Wgl.CONTEXT_FLAGS_ARB, unchecked((int)contextFlags) });
+
+				#endregion
+
+				// End of attributes
+				contextAttributes.Add(Gl.NONE);
+
+				// Create rendering context
+				return (_DeviceContext.CreateContextAttrib(sharedContext, contextAttributes.ToArray()));
+			} else {
+				return (_DeviceContext.CreateContext(sharedContext));
+			}
+		}
+
+		private IntPtr CreateContextNative(KhronosVersion version, IntPtr sharedContext, GraphicsContextFlags flags)
+		{
+			#region Check Requirements
+
+			// EGL_EXT_create_context_robustness
+			bool requiredCreateContextRobustness = false;
+
+			if ((flags & GraphicsContextFlags.Robust) != 0)
+				requiredCreateContextRobustness = true;
+			if ((flags & GraphicsContextFlags.ResetIsolation) != 0)
+				requiredCreateContextRobustness = true;
+
+			if (requiredCreateContextRobustness && !Egl.CurrentExtensions.CreateContextRobustness_EXT)
+				throw new InvalidOperationException("EGL_EXT_create_context_robustness required but not implemented");
+
+			#endregion
+
+			// Create context
+			List<int> contextAttributes = new List<int>();
+
+			if (version != null) {
+				switch (version.Api) {
+					case KhronosVersion.ApiGles1:
+						contextAttributes.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 1 });
+						break;
+					case KhronosVersion.ApiGles2:
+						contextAttributes.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+						break;
+					case KhronosVersion.ApiGl:
+					case KhronosVersion.ApiVg:
+					default:
+						throw new NotSupportedException(String.Format("API {0} not supported", version.Api));
+				}
+			}
+
+			if ((flags & GraphicsContextFlags.Robust) != 0)
+				contextAttributes.AddRange(new int[] { Egl.CONTEXT_OPENGL_ROBUST_ACCESS, Egl.TRUE });
+			if ((flags & GraphicsContextFlags.ResetIsolation) != 0)
+				requiredCreateContextRobustness = true;
+
+			// End of attributes
+			contextAttributes.Add(Egl.NONE);
+
+			// Create rendering context
+			return (_DeviceContext.CreateContextAttrib(sharedContext, contextAttributes.ToArray()));
+		}
+
+		/// <summary>
+		/// Initialize resources required by this GraphicsContext.
+		/// </summary>
+		private void InitializeResources()
+		{
+			// Get the current OpenGL implementation version
+			_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+			// Get the current OpenGL Shading Language implementation version
+			switch (_Version.Api) {
+				case KhronosVersion.ApiGl:
+					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
+					break;
+				case KhronosVersion.ApiGles2:
+					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
+					break;
+				default:
+					// No Shading Language support
+					break;
+			}
+			
+			// Reserved object name space
+			_ObjectNameSpace = Guid.NewGuid();
+
+			// Texture download
+			_TextureDownloadFramebuffer = new Framebuffer();
+			_TextureDownloadFramebuffer.Create(this);
+
+			// Shader include library (GLSL #include support)
+			_ShaderIncludeLibrary = new ShaderIncludeLibrary();
+			_ShaderIncludeLibrary.Create(this);
+		}
+
+		/// <summary>
+		/// Query information from an OpenGL desktop context.
+		/// </summary>
+		private void QueryDesktopContextInformation()
+		{
+			int contextFlags = 0;
+
+			// Context flags.
+			Gl.Get(Gl.CONTEXT_FLAGS, out contextFlags);
+
+			if ((contextFlags & Wgl.CONTEXT_DEBUG_BIT_ARB) != 0)
+				_ContextFlags |= GraphicsContextFlags.Debug;
+			if ((contextFlags & Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB) != 0)
+				_ContextFlags |= GraphicsContextFlags.ForwardCompatible;
+			if ((contextFlags & Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB) != 0)
+				_ContextFlags |= GraphicsContextFlags.CompatibilityProfile;
+		}
+
+		/// <summary>
+		/// Query information from an OpenGL embedded context.
+		/// </summary>
+		private void QueryEmbeddedContextInformation()
+		{
+			_ContextFlags |= GraphicsContextFlags.EmbeddedProfile;
 		}
 
 #if DEBUG
@@ -462,7 +664,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Flags used to create this GraphicsContext.
 		/// </summary>
-		private readonly GraphicsContextFlags _ContextFlags;
+		private GraphicsContextFlags _ContextFlags;
 
 		#endregion
 
@@ -742,6 +944,11 @@ namespace OpenGL.Objects
 		private IntPtr _RenderContext = IntPtr.Zero;
 
 		/// <summary>
+		/// Flag indicating whether <see cref="_RenderContext"/> is created by this instance.
+		/// </summary>
+		private bool _RenderContextOwned = true;
+
+		/// <summary>
 		/// Flag indicating whether <see cref="_DeviceContext"/> is a device context for the entire screen. This means that
 		/// no <see cref="GraphicsWindow"/> instance will release the device context, so this GraphicsContext instance will
 		/// take care of releasing it.
@@ -921,7 +1128,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Framebuffer used to support layered/3d texture data download.
 		/// </summary>
-		private readonly Framebuffer _TextureDownloadFramebuffer;
+		private Framebuffer _TextureDownloadFramebuffer;
 
 		#endregion
 
@@ -993,12 +1200,14 @@ namespace OpenGL.Objects
 
 				StopResourceThread();
 
-				// Dispose unmanaged resources
 				if (_RenderContext != IntPtr.Zero) {
-					if (_DeviceContext.DeleteContext(_RenderContext) == false)
-						throw new InvalidOperationException("unable to release OpenGL context");
+					if (_RenderContextOwned) {
+						if (_DeviceContext.DeleteContext(_RenderContext) == false)
+							throw new InvalidOperationException("unable to release OpenGL context");
+					}
 					_RenderContext = IntPtr.Zero;
 				}
+				_ObjectNameSpace = Guid.Empty;
 
 				if (_DeviceContextThreadId != Thread.CurrentThread.ManagedThreadId)
 					throw new InvalidOperationException("disposing on a different thread context");
