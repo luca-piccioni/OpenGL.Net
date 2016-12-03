@@ -1,0 +1,119 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Runtime.InteropServices" #>
+
+// Copyright (C) 2009-2016 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+namespace OpenGL
+{
+<#
+	string[] underlyingType =	new[] { "float", "double" };
+	string[] postfixes =		new[] { "f",     "d"};
+	string[] zeroes =			new[] { "0.0f",  "0.0" };
+	string[] ones =				new[] { "1.0f",  "1.0",     null };
+	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
+
+	for (int i = 0; i < 2; i++) for (int c = 2; c <= 4; c++) for (int r = 2; r <= 4; r++) {
+		string className = String.Format("Matrix{0}x{1}{2}", c, r, postfixes[i]);
+		string columnType = String.Format("Vertex{0}{1}", r, postfixes[i]);
+		string matrixType = "Matrix";
+
+		if (i == 0) {
+			if (r == c && c >= 3 && r >= 3)
+				matrixType = String.Format("Matrix{0}x{0}", r);
+		} else {
+			matrixType = "MatrixDouble";
+			if (r == c && c >= 3 && r >= 3)
+				matrixType = String.Format("MatrixDouble{0}x{0}", r);
+		}
+
+		System.Text.StringBuilder matrixArray = new System.Text.StringBuilder();
+		string[] vertexComponents = new string[] { "x", "y", "z", "w" };
+
+		for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
+			matrixArray.AppendFormat("Column{0}.{1}, ", c1, vertexComponents[r1]);
+		}
+		matrixArray.Remove(matrixArray.Length - 2, 2);
+
+		string matrixArrayStr = matrixArray.ToString();
+#>
+	/// <summary>
+	/// Matrix composed by <#= c #> columns and <#= r #> rows.
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential, Pack = 4)]
+	[ArrayBufferItem(VertexBaseType.Float, <#= c #>, <#= r #>)]
+	public struct <#= className #>
+	{
+		#region Structure
+
+		/// <summary>
+		/// Construct a <#= className #> specifying the matrix columns.
+		/// </summary>
+		public <#= className #>(<#for (int j = 0; j < c; j++){#><#= columnType #> c<#= j #><# if (j < c - 1) { #>, <#}#><#}#>)
+		{
+<# for (int j = 0; j < c; j++) {#>
+			Column<#= j #> = c<#= j #>;
+<#}#>
+		}
+
+		#endregion
+
+		#region Structure
+
+<#
+		for (int j = 0; j < c; j++) {
+#>
+		/// <summary>
+		/// <#= className #> column n. <#= j+1 #>.
+		/// </summary>
+		public <#= columnType #> Column<#= j #>;
+
+<#
+		}
+#>
+		#endregion
+
+		#region ToMatrix
+
+		/// <summary>
+		/// Convert this <#= className #> to <#= matrixType #>.
+		/// </summary>
+		public <#= matrixType #> ToMatrix()
+		{
+<# if (r == c && c >= 3 && r >= 3) {#>
+			return (new <#= matrixType #>(new <#= underlyingType[i] #>[] { <#= matrixArrayStr #> }));
+<#} else {#>
+			return (new <#= matrixType #>(new <#= underlyingType[i] #>[] { <#= matrixArrayStr #> }, <#= c #>, <#= r #>));
+<#}#>
+		}
+
+		#endregion
+	}
+
+<#
+	}
+#>
+}
