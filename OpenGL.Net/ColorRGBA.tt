@@ -5,7 +5,6 @@
 <#@ Import Namespace="System.Collections.Generic" #>
 <#@ Import Namespace="System.Linq" #>
 <#@ Import Namespace="System.Runtime.InteropServices" #>
-
 // Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -28,14 +27,14 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
-{
-<#
+{<#
 	string[] postfixes =		new[] { "32",     "64",     "F",     "HF"        };
 	string[] interfaceTypes =	new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] pixelTypes =		new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
 	string[] structType =		new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] vertexBaseType =	new[] { "UByte",  "UShort", "Float", "Half" };
 	int[] structMembersCount =	new[] {  4,        4,        4,       4          };
+	string[] zeros =			new[] { "0",      "0",     "1.0f",   "(HalfFloat)0.0f"};
 	string[] ones =				new[] { null,     null,     "1.0f",  "(HalfFloat)1.0f"};
 	int[][] bitss =				new[] {  new[] { 1 },    null,     null,     null,      };
 
@@ -46,12 +45,13 @@ namespace OpenGL
 		string pixelType = pixelTypes[i];
 		int[] bits = bitss[i];
 		string one = ones[i];
+		string zero = zeros[i];
 
 		if (one == null)
 			one = componentType + ".MaxValue";
 #>
 	/// <summary>
-	/// RGB color.
+	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 4)]
@@ -91,33 +91,33 @@ namespace OpenGL
 		/// </param>
 		/// <param name="a">
 		/// A <see cref="<#= interfaceType #>"/> that specify the alpha component.
-		/// </param>
+		/// </param><#
+if (structMembersCount[i] == 1) { #>
 		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
 		{
-<# if (structMembersCount[i] == 1) { #>
 			// Reset structure
 			rgb = 0;
 			// Setup RGBA components
 			Red = r; Green = g; Blue = b; Alpha = a;
+		}
 <# } else { #>
+		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
+		{
 			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
 			this.a = a;
-<# } #>
 		}
-
+<# } #>
 		#endregion
 
 		#region Structure
-
 <# if (structMembersCount[i] == 1) { #>
 		/// <summary>
 		/// RGB color components (packed).
 		/// </summary>
 		public <#= componentType #> rgba;
-
 <# } else { #>
 		/// <summary>
 		/// Red color components.
@@ -138,8 +138,51 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public <#= componentType #> a;
-
 <# } #>
+		#endregion
+
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly <#= className #> ColorWhite = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= one #>);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly <#= className #> ColorBlack = new <#= className #>(<#= zero #>, <#= zero #>, <#= zero #>, <#= one #>);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly <#= className #> ColorRed = new <#= className #>(<#= one #>, <#= zero #>, <#= zero #>, <#= one #>);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly <#= className #> ColorGreen = new <#= className #>(<#= zero #>, <#= one #>, <#= zero #>, <#= one #>);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly <#= className #> ColorBlue = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>, <#= one #>);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly <#= className #> ColorYellow = new <#= className #>(<#= one #>, <#= one #>, <#= zero #>, <#= one #>);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly <#= className #> ColorMagenta = new <#= className #>(<#= one #>, <#= zero #>, <#= one #>, <#= one #>);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly <#= className #> ColorCyan = new <#= className #>(<#= zero #>, <#= one #>, <#= one #>, <#= one #>);
+
 		#endregion
 
 		#region IColorRGBA<<#= interfaceType #>> Implementation
@@ -147,77 +190,85 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-		public <#= interfaceType #> Red
-		{
 <# if (structMembersCount[i] == 1) {
 	int rOffset = bits[0], rWidth = bits[1];
 	int rMask = 1;								for (int b = 1; b < rWidth; b++) rMask = (rMask << 1) | 1;
 	int rResetMask = rMask << rOffset;
 #>
+		public <#= interfaceType #> Red
+		{
 			get { return (<#= interfaceType #>)(((rgb >> <#= rOffset #>) & 0x<#= rMask.ToString("X2") #>) << <#= 8 - rWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= rResetMask.ToString("X2") #>) | (value >> <#= 8 - rWidth #>) << <#= rOffset #>); }
+		}
 <# } else { #>
+		public <#= interfaceType #> Red
+		{
 			get { return (r); }
 			set { r = value; }
-<# } #>
 		}
-		
+<# } #>
 		/// <summary>
 		/// Get or set the green component.
-		/// </summary>
-		public <#= interfaceType #> Green
-		{
-<# if (structMembersCount[i] == 1) {
+		/// </summary><#
+if (structMembersCount[i] == 1) {
 	int gOffset = bits[2], gWidth = bits[3];
 	int gMask = 1;							for (int b = 1; b < gWidth; b++) gMask = (gMask << 1) | 1;
 	int gResetMask = gMask << gOffset;
 #>
+		public <#= interfaceType #> Green
+		{
 			get { return (<#= interfaceType #>)(((rgb >> <#= gOffset #>) & 0x<#= gMask.ToString("X2") #>) << <#= 8 - gWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= gResetMask.ToString("X2") #>) | (value >> <#= 8 - gWidth #>) << <#= gOffset #>); }
+		}
 <# } else { #>
+		public <#= interfaceType #> Green
+		{
 			get { return (g); }
 			set { g = value; }
-<# } #>
 		}
-		
+<# } #>
 		/// <summary>
 		/// Get or set the blue component.
-		/// </summary>
-		public <#= interfaceType #> Blue
-		{
-<# if (structMembersCount[i] == 1) {
+		/// </summary><#
+if (structMembersCount[i] == 1) {
 	int bOffset = bits[4], bWidth = bits[5];
 	int bMask = 1;							
 	for (int b = 1; b < bWidth; b++) bMask = (bMask << 1) | 1;
 	int bResetMask = bMask << bOffset;
 #>
+		public <#= interfaceType #> Blue
+		{
 			get { return (<#= interfaceType #>)(((rgb >> <#= bOffset #>) & 0x<#= bMask.ToString("X2") #>) << <#= 8 - bWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= bResetMask.ToString("X2") #>) | (value >> <#= 8 - bWidth #>)); }
+		}
 <# } else { #>
+		public <#= interfaceType #> Blue
+		{
 			get { return (b); }
 			set { b = value; }
-<# } #>
 		}
-
+<# } #>
 		/// <summary>
 		/// Get or set the alpha component.
-		/// </summary>
-		public <#= interfaceType #> Alpha
-		{
-<# if (structMembersCount[i] == 1) {
+		/// </summary><#
+if (structMembersCount[i] == 1) {
 	int aOffset = bits[6], aWidth = bits[7];
 	int aMask = 1;							
 	for (int b = 1; b < aWidth; b++) aMask = (aMask << 1) | 1;
 	int aResetMask = aMask << aOffset;
 #>
+		public <#= interfaceType #> Alpha
+		{
 			get { return (<#= interfaceType #>)(((rgb >> <#= aOffset #>) & 0x<#= aMask.ToString("X2") #>) << <#= 8 - aWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= aResetMask.ToString("X2") #>) | (value >> <#= 8 - aWidth #>)); }
+		}
 <# } else { #>
+		public <#= interfaceType #> Alpha
+		{
 			get { return (a); }
 			set { a = value; }
-<# } #>
 		}
-		
+<# } #>
 		#endregion
 
 		#region IColor Implementation
@@ -240,8 +291,7 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{
-<# if (interfaceType != "float" && interfaceType != "HalfFloat") { #>
+		{<# if (interfaceType != "float" && interfaceType != "HalfFloat") { #>
 			get
 			{
 				switch (c) {
@@ -296,8 +346,5 @@ namespace OpenGL
 
 		#endregion
 	}
-
-<#
-}
-#>
+<# } #>
 }

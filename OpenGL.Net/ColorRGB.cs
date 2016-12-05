@@ -22,6 +22,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
@@ -61,6 +62,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorWhite = new ColorRGB8(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorBlack = new ColorRGB8(0, 0, 0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorRed = new ColorRGB8(Byte.MaxValue, 0, 0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorGreen = new ColorRGB8(0, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorBlue = new ColorRGB8(0, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorYellow = new ColorRGB8(Byte.MaxValue, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorMagenta = new ColorRGB8(Byte.MaxValue, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGB8 ColorCyan = new ColorRGB8(0, Byte.MaxValue, Byte.MaxValue);
+
+		#endregion
+
 		#region IColorRGB<byte> Implementation
 
 		/// <summary>
@@ -71,7 +116,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 5) & 0x07) << 5); }
 			set { rgb = (byte)unchecked((rgb & ~0xE0) | (value >> 5) << 5); }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -80,7 +125,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 3) & 0x07) << 5); }
 			set { rgb = (byte)unchecked((rgb & ~0x38) | (value >> 5) << 3); }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -89,7 +134,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 0) & 0x03) << 6); }
 			set { rgb = (byte)unchecked((rgb & ~0x03) | (value >> 6)); }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -113,6 +158,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -135,6 +181,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -179,6 +226,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorWhite = new ColorRGB15(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorBlack = new ColorRGB15(0, 0, 0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorRed = new ColorRGB15(Byte.MaxValue, 0, 0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorGreen = new ColorRGB15(0, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorBlue = new ColorRGB15(0, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorYellow = new ColorRGB15(Byte.MaxValue, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorMagenta = new ColorRGB15(Byte.MaxValue, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGB15 ColorCyan = new ColorRGB15(0, Byte.MaxValue, Byte.MaxValue);
+
+		#endregion
+
 		#region IColorRGB<byte> Implementation
 
 		/// <summary>
@@ -189,7 +280,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 10) & 0x1F) << 3); }
 			set { rgb = (ushort)unchecked((rgb & ~0x7C00) | (value >> 3) << 10); }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -198,7 +289,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 5) & 0x1F) << 3); }
 			set { rgb = (ushort)unchecked((rgb & ~0x3E0) | (value >> 3) << 5); }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -207,7 +298,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 0) & 0x1F) << 3); }
 			set { rgb = (ushort)unchecked((rgb & ~0x1F) | (value >> 3)); }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -231,6 +322,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -253,6 +345,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -297,6 +390,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorWhite = new ColorRGB16(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorBlack = new ColorRGB16(0, 0, 0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorRed = new ColorRGB16(Byte.MaxValue, 0, 0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorGreen = new ColorRGB16(0, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorBlue = new ColorRGB16(0, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorYellow = new ColorRGB16(Byte.MaxValue, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorMagenta = new ColorRGB16(Byte.MaxValue, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGB16 ColorCyan = new ColorRGB16(0, Byte.MaxValue, Byte.MaxValue);
+
+		#endregion
+
 		#region IColorRGB<byte> Implementation
 
 		/// <summary>
@@ -307,7 +444,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 11) & 0x1F) << 3); }
 			set { rgb = (ushort)unchecked((rgb & ~0xF800) | (value >> 3) << 11); }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -316,7 +453,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 5) & 0x3F) << 2); }
 			set { rgb = (ushort)unchecked((rgb & ~0x7E0) | (value >> 2) << 5); }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -325,7 +462,7 @@ namespace OpenGL
 			get { return (byte)(((rgb >> 0) & 0x1F) << 3); }
 			set { rgb = (ushort)unchecked((rgb & ~0x1F) | (value >> 3)); }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -349,6 +486,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -371,6 +509,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -426,6 +565,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorWhite = new ColorRGB24(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorBlack = new ColorRGB24(0, 0, 0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorRed = new ColorRGB24(Byte.MaxValue, 0, 0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorGreen = new ColorRGB24(0, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorBlue = new ColorRGB24(0, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorYellow = new ColorRGB24(Byte.MaxValue, Byte.MaxValue, 0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorMagenta = new ColorRGB24(Byte.MaxValue, 0, Byte.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGB24 ColorCyan = new ColorRGB24(0, Byte.MaxValue, Byte.MaxValue);
+
+		#endregion
+
 		#region IColorRGB<byte> Implementation
 
 		/// <summary>
@@ -436,7 +619,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -445,7 +628,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -454,7 +637,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -478,6 +661,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -500,6 +684,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -555,6 +740,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorWhite = new ColorRGB48(UInt16.MaxValue, UInt16.MaxValue, UInt16.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorBlack = new ColorRGB48(0, 0, 0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorRed = new ColorRGB48(UInt16.MaxValue, 0, 0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorGreen = new ColorRGB48(0, UInt16.MaxValue, 0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorBlue = new ColorRGB48(0, 0, UInt16.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorYellow = new ColorRGB48(UInt16.MaxValue, UInt16.MaxValue, 0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorMagenta = new ColorRGB48(UInt16.MaxValue, 0, UInt16.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGB48 ColorCyan = new ColorRGB48(0, UInt16.MaxValue, UInt16.MaxValue);
+
+		#endregion
+
 		#region IColorRGB<ushort> Implementation
 
 		/// <summary>
@@ -565,7 +794,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -574,7 +803,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -583,7 +812,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -607,6 +836,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -629,6 +859,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -684,6 +915,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorWhite = new ColorRGB96(UInt32.MaxValue, UInt32.MaxValue, UInt32.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorBlack = new ColorRGB96(0, 0, 0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorRed = new ColorRGB96(UInt32.MaxValue, 0, 0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorGreen = new ColorRGB96(0, UInt32.MaxValue, 0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorBlue = new ColorRGB96(0, 0, UInt32.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorYellow = new ColorRGB96(UInt32.MaxValue, UInt32.MaxValue, 0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorMagenta = new ColorRGB96(UInt32.MaxValue, 0, UInt32.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGB96 ColorCyan = new ColorRGB96(0, UInt32.MaxValue, UInt32.MaxValue);
+
+		#endregion
+
 		#region IColorRGB<uint> Implementation
 
 		/// <summary>
@@ -694,7 +969,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -703,7 +978,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -712,7 +987,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -736,6 +1011,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -758,6 +1034,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -813,6 +1090,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBF ColorWhite = new ColorRGBF(1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBF ColorBlack = new ColorRGBF(0.0f, 0.0f, 0.0f);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBF ColorRed = new ColorRGBF(1.0f, 0.0f, 0.0f);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBF ColorGreen = new ColorRGBF(0.0f, 1.0f, 0.0f);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBF ColorBlue = new ColorRGBF(0.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBF ColorYellow = new ColorRGBF(1.0f, 1.0f, 0.0f);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBF ColorMagenta = new ColorRGBF(1.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBF ColorCyan = new ColorRGBF(0.0f, 1.0f, 1.0f);
+
+		#endregion
+
 		#region IColorRGB<float> Implementation
 
 		/// <summary>
@@ -823,7 +1144,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -832,7 +1153,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -841,7 +1162,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -865,6 +1186,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -887,6 +1209,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -942,6 +1265,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBD ColorWhite = new ColorRGBD(1.0, 1.0, 1.0);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBD ColorBlack = new ColorRGBD(0.0, 0.0, 0.0);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBD ColorRed = new ColorRGBD(1.0, 0.0, 0.0);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBD ColorGreen = new ColorRGBD(0.0, 1.0, 0.0);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBD ColorBlue = new ColorRGBD(0.0, 0.0, 1.0);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBD ColorYellow = new ColorRGBD(1.0, 1.0, 0.0);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBD ColorMagenta = new ColorRGBD(1.0, 0.0, 1.0);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBD ColorCyan = new ColorRGBD(0.0, 1.0, 1.0);
+
+		#endregion
+
 		#region IColorRGB<double> Implementation
 
 		/// <summary>
@@ -952,7 +1319,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -961,7 +1328,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -970,7 +1337,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -994,6 +1361,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1016,6 +1384,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -1081,7 +1450,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -1090,7 +1459,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -1099,7 +1468,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -1123,6 +1492,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1145,6 +1515,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion

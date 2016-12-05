@@ -1,4 +1,10 @@
 ﻿
+
+
+
+
+
+
 // Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -23,7 +29,7 @@ using System.Runtime.InteropServices;
 namespace OpenGL
 {
 	/// <summary>
-	/// RGB color.
+	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 4)]
@@ -99,17 +105,62 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorWhite = new ColorRGBA32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorBlack = new ColorRGBA32(0, 0, 0, byte.MaxValue);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorRed = new ColorRGBA32(byte.MaxValue, 0, 0, byte.MaxValue);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorGreen = new ColorRGBA32(0, byte.MaxValue, 0, byte.MaxValue);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorBlue = new ColorRGBA32(0, 0, byte.MaxValue, byte.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorYellow = new ColorRGBA32(byte.MaxValue, byte.MaxValue, 0, byte.MaxValue);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorMagenta = new ColorRGBA32(byte.MaxValue, 0, byte.MaxValue, byte.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBA32 ColorCyan = new ColorRGBA32(0, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+
+		#endregion
+
 		#region IColorRGBA<byte> Implementation
 
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
+
 		public byte Red
 		{
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -118,7 +169,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -136,7 +187,7 @@ namespace OpenGL
 			get { return (a); }
 			set { a = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -184,13 +235,14 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
 	/// <summary>
-	/// RGB color.
+	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 4)]
@@ -266,17 +318,62 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorWhite = new ColorRGBA64(ushort.MaxValue, ushort.MaxValue, ushort.MaxValue, ushort.MaxValue);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorBlack = new ColorRGBA64(0, 0, 0, ushort.MaxValue);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorRed = new ColorRGBA64(ushort.MaxValue, 0, 0, ushort.MaxValue);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorGreen = new ColorRGBA64(0, ushort.MaxValue, 0, ushort.MaxValue);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorBlue = new ColorRGBA64(0, 0, ushort.MaxValue, ushort.MaxValue);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorYellow = new ColorRGBA64(ushort.MaxValue, ushort.MaxValue, 0, ushort.MaxValue);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorMagenta = new ColorRGBA64(ushort.MaxValue, 0, ushort.MaxValue, ushort.MaxValue);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBA64 ColorCyan = new ColorRGBA64(0, ushort.MaxValue, ushort.MaxValue, ushort.MaxValue);
+
+		#endregion
+
 		#region IColorRGBA<ushort> Implementation
 
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
+
 		public ushort Red
 		{
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -285,7 +382,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -303,7 +400,7 @@ namespace OpenGL
 			get { return (a); }
 			set { a = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -351,13 +448,14 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
 	/// <summary>
-	/// RGB color.
+	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 4)]
@@ -433,17 +531,62 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorWhite = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorBlack = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorRed = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorGreen = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorBlue = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorYellow = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorMagenta = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBAF ColorCyan = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+
+		#endregion
+
 		#region IColorRGBA<float> Implementation
 
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
+
 		public float Red
 		{
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -452,7 +595,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -470,7 +613,7 @@ namespace OpenGL
 			get { return (a); }
 			set { a = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -518,13 +661,14 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
 	/// <summary>
-	/// RGB color.
+	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 4)]
@@ -600,17 +744,62 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorWhite = new ColorRGBAHF((HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorBlack = new ColorRGBAHF((HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorRed = new ColorRGBAHF((HalfFloat)1.0f, (HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorGreen = new ColorRGBAHF((HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)0.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorBlue = new ColorRGBAHF((HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorYellow = new ColorRGBAHF((HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)0.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorMagenta = new ColorRGBAHF((HalfFloat)1.0f, (HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBAHF ColorCyan = new ColorRGBAHF((HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
+
+		#endregion
+
 		#region IColorRGBA<HalfFloat> Implementation
 
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
+
 		public HalfFloat Red
 		{
 			get { return (r); }
 			set { r = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -619,7 +808,7 @@ namespace OpenGL
 			get { return (g); }
 			set { g = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -637,7 +826,7 @@ namespace OpenGL
 			get { return (a); }
 			set { a = value; }
 		}
-		
+
 		#endregion
 
 		#region IColor Implementation
@@ -685,6 +874,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
