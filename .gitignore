@@ -84,3 +84,5 @@ packages
 /OpenGL.Net.Objects/bin
 /OpenGL.Net.Objects.Test/obj
 /OpenGL.Net.Objects.Test/bin
+/Samples/HelloObjects/bin
+/Samples/HelloObjects/obj
