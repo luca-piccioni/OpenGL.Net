@@ -25,7 +25,7 @@ namespace OpenGL.Objects
 	/// </summary>
 	public class TextureCube : Texture
 	{
-		#region Create
+		#region Cube Targets
 
 		/// <summary>
 		/// Enuemartion defining cube texture faces.
@@ -36,27 +36,58 @@ namespace OpenGL.Objects
 			/// Positive X-axis face.
 			/// </summary>
 			XPositive = 0,
+
 			/// <summary>
 			/// Negative X-axis face.
 			/// </summary>s
 			XNegative,
+
 			/// <summary>
 			/// Positive Y-axis face.
 			/// </summary>
 			YPositive,
+
 			/// <summary>
 			/// Negative Y-axis face.
 			/// </summary>
 			YNegative,
+
 			/// <summary>
 			/// Positive Z-axis face.
 			/// </summary>
 			ZPositive,
+
 			/// <summary>
 			/// Negative Z-axis face.
 			/// </summary>
 			ZNegative,
 		}
+
+		internal static TextureTarget GetTextureCubeTarget(CubeFace cubeFace)
+		{
+			if ((int)cubeFace < 0 || (int)cubeFace >= _CubeTargets.Length)
+				throw new ArgumentOutOfRangeException("cubeFace");
+			return (_CubeTargets[(int)cubeFace]);
+		}
+
+		/// <summary>
+		/// TextureCube target ordering.
+		/// </summary>
+		/// <remarks>
+		/// It must following <see cref="CubeFace"/>.
+		/// </remarks>
+		private static readonly TextureTarget[] _CubeTargets = new TextureTarget[] {
+			TextureTarget.TextureCubeMapPositiveX,
+			TextureTarget.TextureCubeMapNegativeX,
+			TextureTarget.TextureCubeMapPositiveY,
+			TextureTarget.TextureCubeMapNegativeY,
+			TextureTarget.TextureCubeMapPositiveZ,
+			TextureTarget.TextureCubeMapNegativeZ
+		};
+
+		#endregion
+
+		#region Create
 
 		/// <summary>
 		/// Technique defining an empty texture.
@@ -116,11 +147,17 @@ namespace OpenGL.Objects
 			}
 		}
 
+		#region Create(uint, PixelLayout)
+
 		public void Create(uint size, PixelLayout internalFormat)
 		{
 			// Setup technique for creation
 			SetTechnique(new EmptyTechnique(this, internalFormat, size));
 		}
+
+		#endregion
+
+		#region Create(GraphicsContext, uint, PixelLayout)
 
 		public void Create(GraphicsContext ctx, uint size, PixelLayout internalFormat)
 		{
@@ -129,6 +166,8 @@ namespace OpenGL.Objects
 			// Actually create texture
 			Create(ctx);
 		}
+
+		#endregion
 
 		/// <summary>
 		/// Technique defining a texture based on image.
@@ -212,11 +251,17 @@ namespace OpenGL.Objects
 			}
 		}
 
+		#region Create(PixelLayout, Image[])
+
 		public void Create(PixelLayout internalFormat, Image[] images)
 		{
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, internalFormat, images));
 		}
+
+		#endregion
+
+		#region Create(GraphicsContext, PixelLayout, Image[])
 
 		public void Create(GraphicsContext ctx, PixelLayout internalFormat, Image[] images)
 		{
@@ -226,27 +271,7 @@ namespace OpenGL.Objects
 			Create(ctx);
 		}
 
-		internal static TextureTarget GetTextureCubeTarget(CubeFace cubeFace)
-		{
-			if ((int)cubeFace < 0 || (int)cubeFace >= _CubeTargets.Length)
-				throw new ArgumentOutOfRangeException("cubeFace");
-			return (_CubeTargets[(int)cubeFace]);
-		}
-
-		/// <summary>
-		/// TextureCube target ordering.
-		/// </summary>
-		/// <remarks>
-		/// It must following <see cref="CubeFace"/>.
-		/// </remarks>
-		private static readonly TextureTarget[] _CubeTargets = new TextureTarget[] {
-			TextureTarget.TextureCubeMapPositiveX,
-			TextureTarget.TextureCubeMapNegativeX,
-			TextureTarget.TextureCubeMapPositiveY,
-			TextureTarget.TextureCubeMapNegativeY,
-			TextureTarget.TextureCubeMapPositiveZ,
-			TextureTarget.TextureCubeMapNegativeZ
-		};
+		#endregion
 
 		#endregion
 

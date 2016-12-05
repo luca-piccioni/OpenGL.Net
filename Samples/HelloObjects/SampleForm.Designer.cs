@@ -47,11 +47,14 @@
 			this.ObjectsControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.ObjectsControl_ContextCreated);
 			this.ObjectsControl.ContextDestroying += new System.EventHandler<OpenGL.GlControlEventArgs>(this.ObjectsControl_ContextDestroying);
 			this.ObjectsControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.ObjectsControl_Render);
+			this.ObjectsControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseDown);
+			this.ObjectsControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseMove);
+			this.ObjectsControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseUp);
 			// 
 			// UpdateTimer
 			// 
 			this.UpdateTimer.Enabled = true;
-			this.UpdateTimer.Interval = 16;
+			this.UpdateTimer.Interval = 10;
 			this.UpdateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
 			// 
 			// SampleForm
@@ -62,6 +65,7 @@
 			this.Controls.Add(this.ObjectsControl);
 			this.Name = "SampleForm";
 			this.Text = "OpenGL.Objects Sample";
+			this.Load += new System.EventHandler(this.SampleForm_Load);
 			this.ResumeLayout(false);
 
 		}

@@ -160,6 +160,8 @@
     <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
     <EmbeddedResource Include="Shaders\TransformState.glsl" />
+    <EmbeddedResource Include="Shaders\CubeMapping\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\CubeMapping\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />

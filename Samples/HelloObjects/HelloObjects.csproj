@@ -83,6 +83,15 @@
       <Name>OpenGL.Net.WinForms</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\PiazzaDelPopolo\negx.jpg" />
+    <EmbeddedResource Include="Data\PiazzaDelPopolo\negy.jpg" />
+    <EmbeddedResource Include="Data\PiazzaDelPopolo\negz.jpg" />
+    <EmbeddedResource Include="Data\PiazzaDelPopolo\posx.jpg" />
+    <EmbeddedResource Include="Data\PiazzaDelPopolo\posy.jpg" />
+    <EmbeddedResource Include="Data\PiazzaDelPopolo\posz.jpg" />
+    <Content Include="Data\PiazzaDelPopolo\readme.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -36,7 +36,7 @@ namespace OpenGL.Objects
 		/// This type is a singleton.
 		/// </summary>
 		private ImageCodec() :
-			base(PluginFactoryType, "HAL_IMAGE_CODEC_DIR")
+			base(PluginFactoryType, "GLO_IMAGE_CODEC_DIR")
 		{
 			// Common media description
 			ExtractDescriptions(typeof(ImageFormat));

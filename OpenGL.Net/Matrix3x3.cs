@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -30,8 +30,8 @@ namespace OpenGL
 		/// <summary>
 		/// Construct a 3x3 matrix, initialized to identity.
 		/// </summary>
-		public Matrix3x3()
-			: base(3, 3)
+		public Matrix3x3() :
+			base(3, 3)
 		{
 			SetIdentity();
 		}
@@ -57,8 +57,8 @@ namespace OpenGL
 		/// Exception throw if <paramref name="c"/> is greater or equal to <paramref name="m"/> column count,
 		/// or if <paramref name="r"/> is greater or equal to <paramref name="m"/> row count.
 		/// </exception>
-		public Matrix3x3(Matrix4x4 m, uint c, uint r)
-			: base(m, c, r)
+		public Matrix3x3(Matrix4x4 m, uint c, uint r) :
+			base(m, c, r)
 		{
 
 		}
@@ -75,8 +75,8 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception throw if <paramref name="values"/> length differs from 9.
 		/// </exception>
-		public Matrix3x3(float[] values)
-			: base(values, 3, 3)
+		public Matrix3x3(float[] values) :
+			base(values, 3, 3)
 		{
 		
 		}
@@ -90,8 +90,8 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="m"/> is null.
 		/// </exception>
-		public Matrix3x3(Matrix3x3 m)
-			: base(m)
+		public Matrix3x3(Matrix3x3 m) :
+			base(m)
 		{
 
 		}

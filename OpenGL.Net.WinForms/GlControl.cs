@@ -941,8 +941,9 @@ namespace OpenGL
 				foreach(EventHandler<GlControlEventArgs> handler in _ContextCreated.GetInvocationList()) {
 					try {
 						handler(this, glControlEventArgs);
-					} catch (Exception) {
+					} catch (Exception exception) {
 						// Fail-safe
+						Trace.TraceError(exception.ToString());
 					}
 				}
 			}

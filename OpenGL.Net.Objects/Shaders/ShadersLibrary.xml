@@ -44,6 +44,11 @@
 			</Symbols>
 		</Object>
 		
+		<!-- CubeMapping -->
+
+		<Object Path="OpenGL.Objects.Shaders.CubeMapping.Vertex.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.CubeMapping.Fragment.glsl" />
+		
 		<!-- Geometry Clipmap -->
 		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Vertex.glsl" />
 		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Fragment.glsl" />
@@ -96,6 +101,15 @@
 			</Object>
 			<Attribute Name="glo_Position" Semantic="Position" />
 			<Attribute Name="glo_Color" Semantic="Color" />
+		</Program>
+
+		<!-- CubeMapping -->
+		<Program Id="OpenGL.CubeMapping">
+			<Object Path="OpenGL.Objects.Shaders.CubeMapping.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.CubeMapping.Fragment.glsl" Stage="Fragment" />
+			<Attribute Name="glo_Position" Semantic="Position" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 		</Program>
 	
 	</Programs>
