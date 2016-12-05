@@ -68,6 +68,7 @@
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Single.Extensions.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
     <Compile Include="CoreImageCodecPlugin.cs" />
@@ -158,7 +159,7 @@
     <EmbeddedResource Include="Shaders\Line\Vertex.glsl" />
     <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
-    <None Include="Shaders\TransformState.glsl" />
+    <EmbeddedResource Include="Shaders\TransformState.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />

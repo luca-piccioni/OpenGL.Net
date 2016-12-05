@@ -41,7 +41,8 @@ namespace OpenGL.Objects.Test
 		[TestFixtureSetUp]
 		public void FixtureSetUp()
 		{
-			
+			_DeviceContext = DeviceContext.Create();
+			_Context = new GraphicsContext(_DeviceContext);
 		}
 
 		[SetUp()]
@@ -61,6 +62,11 @@ namespace OpenGL.Objects.Test
 				_Context.Dispose();
 				_Context = null;
 			}
+
+			if (_DeviceContext != null) {
+				_DeviceContext.Dispose();
+				_DeviceContext = null;
+			}
 		}
 
 		/// <summary>
@@ -70,6 +76,11 @@ namespace OpenGL.Objects.Test
 		{
 			get { return (false); }
 		}
+
+		/// <summary>
+		/// The device context.
+		/// </summary>
+		protected DeviceContext _DeviceContext;
 
 		/// <summary>
 		/// The graphics context.

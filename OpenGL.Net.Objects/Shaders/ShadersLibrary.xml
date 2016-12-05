@@ -6,6 +6,9 @@
 		<Include Id="/OpenGL/Compatibility.glsl">
 			<Path>OpenGL.Objects.Shaders.Compatibility.glsl</Path>
 		</Include>
+		<Include Id="/OpenGL/TransformState.glsl">
+			<Path>OpenGL.Objects.Shaders.TransformState.glsl</Path>
+		</Include>
 	</Includes>
 	
 	<!-- Program Objects -->
@@ -57,6 +60,7 @@
 			<Attribute Name="glo_Position" Semantic="Position" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="glo_UniformColor" Semantic="Color"/>
 		</Program>
 
 		<!-- Standard+Color -->
@@ -70,9 +74,7 @@
 			<Attribute Name="glo_Position" Semantic="Position" />
 			<Attribute Name="glo_Color" Semantic="Color" />
 			
-			<Uniform Name="glo_ModelView" Semantic="ModelView" />
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix"/>
 		</Program>
 		
 		<!-- Line -->

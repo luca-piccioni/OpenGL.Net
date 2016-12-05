@@ -221,6 +221,23 @@ namespace OpenGL.Objects
 		[XmlArrayItem("Program")]
 		public readonly List<Program> Programs = new List<Program>();
 
+		/// <summary>
+		/// Get the definition of a program.
+		/// </summary>
+		/// <param name="programId">
+		/// A <see cref="String"/> that specifies the program identifier.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Program"/> describing the program identified with <paramref name="programId"/>.
+		/// </returns>
+		public Program GetProgram(string programId)
+		{
+			if (programId == null)
+				throw new ArgumentNullException("programId");
+
+			return (Programs.Find(delegate(Program item) { return (item.Id == programId); }));
+		}
+
 		#endregion
 
 		#region Serialization
@@ -328,12 +345,17 @@ namespace OpenGL.Objects
 
 		#region Creation
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="programId"></param>
+		/// <returns></returns>
 		public ShaderProgram CreateProgram(string programId)
 		{
 			if (String.IsNullOrEmpty(programId))
 				throw new ArgumentException("invalid program identifier", "programId");
 
-			Program libraryProgram = Programs.Find(delegate (Program item) { return (item.Id == programId); });
+			Program libraryProgram = GetProgram(programId);
 
 			if (libraryProgram == null)
 				throw new ArgumentException("no program with such identifier", "programId");

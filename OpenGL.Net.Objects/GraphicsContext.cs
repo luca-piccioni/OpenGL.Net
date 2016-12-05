@@ -252,6 +252,8 @@ namespace OpenGL.Objects
 						QueryEmbeddedContextInformation();
 						break;
 				}
+
+				// Leave current
 			} catch {
 				Dispose();
 				// Rethrow the exception
@@ -346,22 +348,12 @@ namespace OpenGL.Objects
 				if (_RenderContext == IntPtr.Zero)
 					throw new InvalidOperationException(String.Format("unable to create context {0}", version));
 
+				// Make current on this thread
+				MakeCurrent(deviceContext, true);
+
 				if (sharedContext == null) {
-
-					// Allow the creation of a GraphicsContext while another GraphicsContext is currently current to the
-					// calling thread: restore currency after the job get done
-					GraphicsContext prevContext = GetCurrentContext();
-					DeviceContext prevContextDevice = (prevContext != null) ? prevContext._CurrentDeviceContext : null;
-
-					// Make current on this thread
-					MakeCurrent(deviceContext, true);
 					// Initialize resources
 					InitializeResources();
-					// Restore previous current context, if any. Otherwise, make uncurrent
-					if (prevContext != null)
-						prevContext.MakeCurrent(prevContextDevice, true);
-					else
-						MakeCurrent(deviceContext, false);
 				} else {
 					// Not sure if really necessary
 					_CurrentDeviceContext = sharedContext._CurrentDeviceContext;
@@ -376,6 +368,8 @@ namespace OpenGL.Objects
 					// Reference shader include library (GLSL #include support)
 					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 				}
+
+				// Leave current
 			} catch {
 				Dispose();
 				// Rethrow the exception

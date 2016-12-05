@@ -40,9 +40,6 @@ namespace OpenGL.Objects.Test
 
 				try {
 					Assert.DoesNotThrow(delegate { graphicsContext = new GraphicsContext(deviceContext, glContext); });
-
-					graphicsContext.MakeCurrent(true);
-
 					TestConstructProperties(graphicsContext);
 
 					Assert.AreEqual(glContext, graphicsContext.Handle, "GL context handle different from original");
@@ -68,7 +65,6 @@ namespace OpenGL.Objects.Test
 				GraphicsContext graphicsContext;
 
 				using (graphicsContext = new GraphicsContext(deviceContext)) {
-					graphicsContext.MakeCurrent(true);
 					TestConstructProperties(graphicsContext);
 				}
 				TestDisposedProperties(graphicsContext);
@@ -80,6 +76,7 @@ namespace OpenGL.Objects.Test
 			if (graphicsContext == null)
 				throw new ArgumentNullException("graphicsContext");
 
+			Assert.IsTrue(graphicsContext.IsCurrent, "not current");
 			Assert.IsNotNull(graphicsContext.Version, "Version is null");
 			if (graphicsContext.ShadingVersion != null)
 				Assert.AreEqual(graphicsContext.ShadingVersion.Api, KhronosVersion.ApiGlsl, "GLSL version API is incorrect");
