@@ -116,6 +116,7 @@
 
 			<Attribute Name="glo_Position" Semantic="Position" />
 			<Attribute Name="glo_Color" Semantic="Color" />
+			<Attribute Name="glo_Normal" Semantic="Normal" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />

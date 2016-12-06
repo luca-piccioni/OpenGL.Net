@@ -40,16 +40,16 @@ uniform glo_MaterialType glo_FrontMaterial;
 // The front face material texture for emission component, if any
 uniform sampler2D glo_FrontMaterialEmissionTexture;
 // The front face material texture for emission component, if any
-uniform int glo_FrontMaterialEmissionTexCoord;
+uniform int glo_FrontMaterialEmissionTexCoord = -1;
 
 // The front face material texture for ambient component, if any
 uniform sampler2D glo_FrontMaterialAmbientTexture;
 // The front face material texture for ambient component, if any
-uniform int glo_FrontMaterialAmbientTexCoord;
+uniform int glo_FrontMaterialAmbientTexCoord = -1;
 
 // The front face material texture for diffuse component, if any
 uniform sampler2D glo_FrontMaterialDiffuseTexture;
 // The front face material texture for diffuse component, if any
-uniform int glo_FrontMaterialDiffuseTexCoord;
+uniform int glo_FrontMaterialDiffuseTexCoord = -1;
 
 #endif

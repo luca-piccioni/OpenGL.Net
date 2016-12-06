@@ -24,8 +24,6 @@
 // The light model applied
 struct glo_LightModelType
 {
-	// Two sided lighting
-	bool TwoSided;
 	// The ambient lighting.
 	vec4 AmbientLighting;
 };
