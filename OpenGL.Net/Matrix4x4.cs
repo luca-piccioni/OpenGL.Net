@@ -443,7 +443,7 @@ namespace OpenGL
 		/// It returns a <see cref="IMatrix3x3"/> that is the complement matrix constructed from this IMatrix4x4,
 		/// excluding the column <paramref name="c"/> and row <paramref name="r"/>.
 		/// </returns>
-		IMatrix3x3 IMatrix4x4.GetComplementMatrix(uint c, uint r)
+		public IMatrix3x3 GetComplementMatrix(uint c, uint r)
 		{
 			return (new Matrix3x3(this, c, r));
 		}

@@ -49,8 +49,34 @@ namespace HelloObjects
 		private void InitializeCube()
 		{
 			// Create the program, using the embedded shaders lbrary
-			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+Color");
+			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+VertexLighting");
+			_CubeProgram.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
+			_CubeProgram.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 1");
 			_CubeProgram.Create(_Context);
+
+			_Context.Bind(_CubeProgram);
+
+			if (_CubeProgram.IsActiveUniform("glo_LightModel.AmbientLighting"))
+				_CubeProgram.SetUniform(_Context, "glo_LightModel.AmbientLighting", ColorRGBAF.ColorWhite);
+			
+			if (_CubeProgram.IsActiveUniform("glo_LightsCount"))
+				_CubeProgram.SetUniform(_Context, "glo_LightsCount", 1);
+
+			if (_CubeProgram.IsActiveUniform("glo_Light[0].AmbientColor"))
+				_CubeProgram.SetUniform(_Context, "glo_Light[0].AmbientColor", ColorRGBAF.ColorBlack);
+			if (_CubeProgram.IsActiveUniform("glo_Light[0].DiffuseColor"))
+				_CubeProgram.SetUniform(_Context, "glo_Light[0].DiffuseColor", ColorRGBAF.ColorWhite);
+			if (_CubeProgram.IsActiveUniform("glo_Light[0].Direction"))
+				_CubeProgram.SetUniform(_Context, "glo_Light[0].Direction", Vertex3f.One.Normalized);
+
+			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.AmbientColor"))
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.AmbientColor", ColorRGBAF.ColorBlack);
+			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.EmissiveColor"))
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.EmissiveColor", ColorRGBAF.ColorBlack);
+			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.DiffuseColor"))
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.DiffuseColor", ColorRGBAF.ColorRed);
+			if (_CubeProgram.IsActiveUniform("glo_FrontMaterialDiffuseTexCoord"))
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterialDiffuseTexCoord", -1);
 
 			// Allocate arrays - Position
 			_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
@@ -58,10 +84,14 @@ namespace HelloObjects
 			// Allocate arrays - Color
 			ArrayBufferObject<ColorRGBF> arrayColor = new ArrayBufferObject<ColorRGBF>(BufferObjectHint.StaticCpuDraw);
 			arrayColor.Create(ArrayColors);
+			// Allocate arrays - Color
+			ArrayBufferObject<Vertex3f> arrayNormal = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			arrayNormal.Create(ArrayNormals);
 			// Define vertex arrays
 			_CubeVertexArray = new VertexArrayObject();
 			_CubeVertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
 			_CubeVertexArray.SetArray(arrayColor, VertexArraySemantic.Color);
+			_CubeVertexArray.SetArray(arrayNormal, VertexArraySemantic.Normal);
 			_CubeVertexArray.SetElementArray(PrimitiveType.Triangles);
 			_CubeVertexArray.Create(_Context);
 		}
@@ -86,9 +116,16 @@ namespace HelloObjects
 			ModelMatrix modelMatrix = new ModelMatrix();
 			modelMatrix.RotateZ(_CubeRotationH);
 			modelMatrix.RotateY(_CubeRotationP);
-			
+
+			Matrix4x4 modelView = viewMatrix.GetInverseMatrix() * modelMatrix;
+
 			_Context.Bind(_CubeProgram);
-			_CubeProgram.SetUniform(_Context, "glo_ModelViewProjection", projectionMatrix * viewMatrix.GetInverseMatrix() * modelMatrix);
+			if (_CubeProgram.IsActiveUniform("glo_ModelView"))
+				_CubeProgram.SetUniform(_Context, "glo_ModelView", modelView);
+			if (_CubeProgram.IsActiveUniform("glo_ModelViewProjection"))
+				_CubeProgram.SetUniform(_Context, "glo_ModelViewProjection", projectionMatrix * modelView);
+			if (_CubeProgram.IsActiveUniform("glo_NormalMatrix"))
+				_CubeProgram.SetUniform(_Context, "glo_NormalMatrix", modelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose());
 			_CubeVertexArray.Draw(_Context, _CubeProgram);
 		}
 
