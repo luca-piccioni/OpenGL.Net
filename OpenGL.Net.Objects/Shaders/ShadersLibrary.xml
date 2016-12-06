@@ -9,6 +9,16 @@
 		<Include Id="/OpenGL/TransformState.glsl">
 			<Path>OpenGL.Objects.Shaders.TransformState.glsl</Path>
 		</Include>
+
+		<Include Id="/OpenGL/Light/MaterialState.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.MaterialState.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Light/LightState.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.LightState.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Light/Lighting.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.Lighting.glsl</Path>
+		</Include>
 	</Includes>
 	
 	<!-- Program Objects -->
@@ -43,6 +53,13 @@
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 			</Symbols>
 		</Object>
+
+		<!-- Light -->
+		<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.ConstantShading.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.BlinnShading.glsl" />
 		
 		<!-- CubeMapping -->
 
@@ -80,6 +97,29 @@
 			<Attribute Name="glo_Color" Semantic="Color" />
 			
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+		</Program>
+
+		<!-- Standard+VertexLighting -->
+		<Program Id="OpenGL.Standard+VertexLighting">
+			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex">
+				<Symbols>
+					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
+				</Symbols>
+			</Object>
+			<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment">
+				<Symbols>
+					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
+				</Symbols>
+			</Object>
+
+			<Attribute Name="glo_Position" Semantic="Position" />
+			<Attribute Name="glo_Color" Semantic="Color" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="glo_ModelView" Semantic="ModelView" />
+			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
 		</Program>
 		
 		<!-- Line -->

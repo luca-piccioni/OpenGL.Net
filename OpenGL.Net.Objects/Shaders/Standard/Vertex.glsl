@@ -19,6 +19,7 @@
 
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
+#include </OpenGL/Light/Lighting.glsl>
 
 // Vertex position
 ATTRIBUTE vec4 glo_Position;
@@ -72,7 +73,7 @@ void main()
 #endif
 
 	// Vertex color
-	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_ModelView * glo_Position, glo_NormalMatrix * normalize(ds_Normal));
+	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_ModelView * glo_Position, glo_NormalMatrix * normalize(glo_Normal));
 
 #endif
 }

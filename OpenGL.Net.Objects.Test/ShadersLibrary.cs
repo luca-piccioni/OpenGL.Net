@@ -64,8 +64,35 @@ namespace OpenGL.Objects.Test
 
 				programIds.Add("OpenGL.Standard");
 				programIds.Add("OpenGL.Standard+Color");
+				programIds.Add("OpenGL.Standard+VertexLighting");
+				programIds.Add("OpenGL.CubeMapping");
 
 				return (programIds.ToArray());
+			}
+		}
+
+		[Test(Description = "Test ShaderLibrary objects compilation")]
+		[TestCaseSource("ObjectIds")]
+		public void TestCreateObject(string objectId)
+		{
+			ShadersLibrary.Object shaderObjectInfo = ShadersLibrary.Instance.GetObject(objectId);
+			Assert.IsNotNull(shaderObjectInfo);
+
+			ShaderObject shaderObject = shaderObjectInfo.Create();
+			try {
+				Assert.IsNotNull(shaderObject);
+				Assert.DoesNotThrow(delegate { shaderObject.Create(_Context); });
+			} finally {
+				if (shaderObject != null)
+					shaderObject.Dispose();
+			}
+		}
+
+		public string[] ObjectIds
+		{
+			get
+			{
+				return (ShadersLibrary.Instance.Objects.ConvertAll(delegate (ShadersLibrary.Object item) { return (item.Path); }).ToArray());
 			}
 		}
 	}

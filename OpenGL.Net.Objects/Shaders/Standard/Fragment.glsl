@@ -17,9 +17,9 @@
 // USA
 
 #include </OpenGL/Compatibility.glsl>
+#include </OpenGL/Light/Lighting.glsl>
 //#include </OpenGL/EnvironMap/EnvironReflection>
 //#include </OpenGL/EnvironMap/EnvironRefraction>
-//#include </OpenGL/Light/ILightShading>
 //#include </OpenGL/Shadow/ShadowMap>
 
 // Vertex uniform color

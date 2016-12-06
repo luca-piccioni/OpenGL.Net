@@ -99,6 +99,20 @@ namespace OpenGL.Objects
 			[XmlArray("Symbols")]
 			[XmlArrayItem("Symbol")]
 			public readonly List<string> Symbols = new List<string>();
+
+			/// <summary>
+			/// Create a shader object from this Object.
+			/// </summary>
+			/// <returns></returns>
+			public ShaderObject Create()
+			{
+				ShaderObject shaderObject = new ShaderObject(Stage);
+
+				// Load source
+				shaderObject.LoadSource(Path);
+
+				return (shaderObject);
+			}
 		}
 
 		/// <summary>
@@ -107,6 +121,23 @@ namespace OpenGL.Objects
 		[XmlArray("Objects")]
 		[XmlArrayItem("Object")]
 		public readonly List<Object> Objects = new List<Object>();
+
+		/// <summary>
+		/// Get the definition of a object.
+		/// </summary>
+		/// <param name="objectId">
+		/// A <see cref="String"/> that specifies the object identifier.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Object"/> describing the object identified with <paramref name="objectId"/>.
+		/// </returns>
+		public Object GetObject(string objectId)
+		{
+			if (objectId == null)
+				throw new ArgumentNullException("programId");
+
+			return (Objects.Find(delegate(Object item) { return (item.Path == objectId); }));
+		}
 
 		#endregion
 

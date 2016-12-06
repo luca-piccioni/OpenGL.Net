@@ -162,6 +162,14 @@
     <EmbeddedResource Include="Shaders\TransformState.glsl" />
     <EmbeddedResource Include="Shaders\CubeMapping\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\CubeMapping\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Light\BlinnShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ConstantShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\Lighting.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LambertShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\Lights.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\MaterialState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\PhongShading.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />
