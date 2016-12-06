@@ -293,7 +293,7 @@ namespace OpenGL.Objects
 
 			unsafe
 			{
-				Gl.Uniform2(uniform.Location, 1, (float*)&v);
+				Gl.Uniform3(uniform.Location, 1, (float*)&v);
 			}
 		}
 
@@ -349,7 +349,7 @@ namespace OpenGL.Objects
 
 			unsafe
 			{
-				Gl.Uniform2(uniform.Location, 1, (float*)&v);
+				Gl.Uniform4(uniform.Location, 1, (float*)&v);
 			}
 		}
 
@@ -762,7 +762,7 @@ namespace OpenGL.Objects
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
 
 			unsafe {
-				Gl.Uniform2(uniform.Location, 1, (double*)&v);
+				Gl.Uniform3(uniform.Location, 1, (double*)&v);
 			}
 		}
 
@@ -789,7 +789,7 @@ namespace OpenGL.Objects
 
 			unsafe
 			{
-				Gl.Uniform2(uniform.Location, 1, (double*)&v);
+				Gl.Uniform4(uniform.Location, 1, (double*)&v);
 			}
 		}
 
@@ -1053,10 +1053,10 @@ namespace OpenGL.Objects
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
-			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
+			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			// Set uniform value
-			Gl.Uniform3(uniform.Location, x, y, z);
+			Gl.Uniform4(uniform.Location, x, y, z, w);
 		}
 
 		/// <summary>
@@ -1105,7 +1105,7 @@ namespace OpenGL.Objects
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
-			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
+			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			unsafe
 			{
@@ -1132,7 +1132,7 @@ namespace OpenGL.Objects
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
-			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
+			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			unsafe
 			{
@@ -1403,7 +1403,7 @@ namespace OpenGL.Objects
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
 
 			// Set uniform value
-			Gl.Uniform3(uniform.Location, x, y, z);
+			Gl.Uniform4(uniform.Location, x, y, z, w);
 		}
 
 		/// <summary>
