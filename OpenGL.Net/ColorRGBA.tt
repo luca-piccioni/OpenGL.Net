@@ -34,7 +34,7 @@ namespace OpenGL
 	string[] structType =		new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] vertexBaseType =	new[] { "UByte",  "UShort", "Float", "Half" };
 	int[] structMembersCount =	new[] {  4,        4,        4,       4          };
-	string[] zeros =			new[] { "0",      "0",     "1.0f",   "(HalfFloat)0.0f"};
+	string[] zeros =			new[] { "0",      "0",     "0.0f",   "(HalfFloat)0.0f"};
 	string[] ones =				new[] { null,     null,     "1.0f",  "(HalfFloat)1.0f"};
 	int[][] bitss =				new[] {  new[] { 1 },    null,     null,     null,      };
 

@@ -541,37 +541,37 @@ namespace OpenGL
 		/// <summary>
 		/// Black color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorBlack = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorBlack = new ColorRGBAF(0.0f, 0.0f, 0.0f, 1.0f);
 
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorRed = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorRed = new ColorRGBAF(1.0f, 0.0f, 0.0f, 1.0f);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorGreen = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorGreen = new ColorRGBAF(0.0f, 1.0f, 0.0f, 1.0f);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorBlue = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorBlue = new ColorRGBAF(0.0f, 0.0f, 1.0f, 1.0f);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorYellow = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorYellow = new ColorRGBAF(1.0f, 1.0f, 0.0f, 1.0f);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorMagenta = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorMagenta = new ColorRGBAF(1.0f, 0.0f, 1.0f, 1.0f);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGBAF ColorCyan = new ColorRGBAF(1.0f, 1.0f, 1.0f, 1.0f);
+		public static readonly ColorRGBAF ColorCyan = new ColorRGBAF(0.0f, 1.0f, 1.0f, 1.0f);
 
 		#endregion
 
