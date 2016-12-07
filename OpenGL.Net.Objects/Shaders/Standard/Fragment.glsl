@@ -50,9 +50,8 @@ OUT vec4		glo_FragColor;
 void main()
 {
 #if defined(GLO_LIGHTING_PER_FRAGMENT)
-
 	// Material initially defined by uniform colors
-	ds_MaterialType fragmentMaterial = glo_FrontMaterial;
+	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
 	int index;
 
 #if defined(GLO_COLOR_PER_VERTEX)
@@ -149,7 +148,7 @@ void main()
 
 	if (glo_TransparentTexCoord >= 0) {
 		// Get transparency value
-		vec4 alphaFragment = TEXTURE_2D(glo_TransparentTexture, glo_VertexTexCoord[ds_TransparentTexCoord]);
+		vec4 alphaFragment = TEXTURE_2D(glo_TransparentTexture, glo_VertexTexCoord[glo_TransparentTexCoord]);
 
 		// Module transparency value
 		alphaFragment *= glo_Transparency;

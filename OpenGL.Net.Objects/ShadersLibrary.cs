@@ -38,7 +38,9 @@ namespace OpenGL.Objects
 		static ShadersLibrary()
 		{
 			// Load OpenGL.Objects shaders library
-			Merge("OpenGL.Objects.Shaders.ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Light._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Standard._ShadersLibrary.xml");
 		}
 
 		#endregion

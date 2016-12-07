@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+
+	<!-- Include sources -->
+	<Includes>
+		<Include Id="/OpenGL/Light/MaterialState.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.MaterialState.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Light/LightState.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.LightState.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/Light/Lighting.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.Lighting.glsl</Path>
+		</Include>
+	</Includes>
+
+	<!-- Program Objects -->
+	<Objects>
+		<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.ConstantShading.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.BlinnShading.glsl" />
+	</Objects>
+	
+</ShadersLibrary>

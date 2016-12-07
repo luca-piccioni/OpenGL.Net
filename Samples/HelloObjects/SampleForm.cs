@@ -49,7 +49,7 @@ namespace HelloObjects
 		private void InitializeCube()
 		{
 			// Create the program, using the embedded shaders lbrary
-			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+VertexLighting");
+			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+PhongFragment");
 			_CubeProgram.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
 			_CubeProgram.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 1");
 			_CubeProgram.Create(_Context);
@@ -68,13 +68,22 @@ namespace HelloObjects
 				_CubeProgram.SetUniform(_Context, "glo_Light[0].DiffuseColor", ColorRGBAF.ColorWhite);
 			if (_CubeProgram.IsActiveUniform("glo_Light[0].Direction"))
 				_CubeProgram.SetUniform(_Context, "glo_Light[0].Direction", Vertex3f.One.Normalized);
+			//if (_CubeProgram.IsActiveUniform("glo_Light[0].Position"))
+			//	_CubeProgram.SetUniform(_Context, "glo_Light[0].Position", new Vertex4f(0.0f, 0.0f, 4.0f, 1.0f));
+			//if (_CubeProgram.IsActiveUniform("glo_Light[0].FallOff[0]"))
+			//	_CubeProgram.SetUniform(_Context, "glo_Light[0].FallOff[0]", 180.0f);
 
 			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.AmbientColor"))
 				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.AmbientColor", ColorRGBAF.ColorBlack);
 			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.EmissiveColor"))
 				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.EmissiveColor", ColorRGBAF.ColorBlack);
 			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.DiffuseColor"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.DiffuseColor", ColorRGBAF.ColorRed);
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.DiffuseColor", ColorRGBAF.ColorWhite);
+			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.SpecularColor"))
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.SpecularColor", ColorRGBAF.ColorWhite);
+			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.Shininess"))
+				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.Shininess", 4.0f);
+
 			if (_CubeProgram.IsActiveUniform("glo_FrontMaterialDiffuseTexCoord"))
 				_CubeProgram.SetUniform(_Context, "glo_FrontMaterialDiffuseTexCoord", -1);
 

@@ -83,7 +83,7 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialS
 	for (int i = 0; i < glo_LightsCount; i++) {
 		if (glo_Light[i].Position.w == 0.0)
 			ComputeDirectionalLight(i, normal, materialShininess, ambient, diffuse, specular);
-		else if (glo_Light[i].FallOff[0] == 180.0)
+		else // if (glo_Light[i].FallOff[0] == 180.0)
 			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, ambient, diffuse, specular);
 #if 0
 		else

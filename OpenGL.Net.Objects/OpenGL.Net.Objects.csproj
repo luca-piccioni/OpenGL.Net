@@ -130,6 +130,19 @@
     <Compile Include="ShadersLibrary.cs" />
     <Compile Include="ShaderStage.cs" />
     <Compile Include="ShaderUniformType.cs" />
+    <Compile Include="State\BlendState.cs" />
+    <Compile Include="State\CullFaceState.cs" />
+    <Compile Include="State\DepthTestState.cs" />
+    <Compile Include="State\GraphicsState.cs" />
+    <Compile Include="State\GraphicsStateSet.cs" />
+    <Compile Include="State\GraphicsStateSetStack.cs" />
+    <Compile Include="State\IGraphicsState.cs" />
+    <Compile Include="State\PolygonModeState.cs" />
+    <Compile Include="State\PolygonOffsetState.cs" />
+    <Compile Include="State\ShaderUniformState.cs" />
+    <Compile Include="State\TransformState.cs" />
+    <Compile Include="State\TransformStateBase.cs" />
+    <Compile Include="State\TransformStateDouble.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Texture1d.cs" />
@@ -173,7 +186,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />
-    <EmbeddedResource Include="Shaders\ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Standard\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\Light\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
