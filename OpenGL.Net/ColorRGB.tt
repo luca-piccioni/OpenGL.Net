@@ -40,8 +40,10 @@ namespace OpenGL
 	string[] vertexBaseType =	new[] { null,   null,     null,     "Byte",  "UShort", "UInt",  "Float", "Double", "Half" };
 	int[] structMembersCount =	new[] {  1,      1,        1,        3,       3,        3,       3,       3,        3          };
 	int[][] bitss =				new[] {  bits8,  bits15,   bits16,   null,    null,     null,    null,    null,     null,      };
-	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
-	string[] ones =				new[] { "Byte.MaxValue", "Byte.MaxValue", "Byte.MaxValue", "Byte.MaxValue","UInt16.MaxValue", "UInt32.MaxValue", "1.0f", "1.0", null };
+	string[] zeroes =			new[] { "0",    "0",     "0",      "0",      "0",    "0",   "0.0f",  "0.0",     null };
+	string[] ones =				new[] { "Byte.MaxValue", "Byte.MaxValue", "Byte.MaxValue", "Byte.MaxValue","UInt16.MaxValue", "UInt32.MaxValue", "1.0f", "1.0", "(HalfFloat)1.0f" };
+	string[] castSuffixes =		new[] { null,   null,    null,       "ub",     "us",     "ui",    "f",     "d",       "hf" };
+	string[] colorSuffixes =	new[] { null,   null,    null,       "32",     "64",     null,    "F",     null,       "HF" };
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorRGB{0}", postfixes[i]);
@@ -50,6 +52,8 @@ namespace OpenGL
 		string pixelType = pixelTypes[i];
 		int[] bits = bitss[i];
 		int structTypeBits = bits != null ? bits[bits.Length - 1] : 0;
+		string castSuffix = castSuffixes[i];
+		string colorSuffix = colorSuffixes[i];
 #>
 	/// <summary>
 	/// RGB color.
@@ -116,6 +120,59 @@ namespace OpenGL
 		/// </summary>
 		public <#= componentType #> b;
 <# } #>
+		#endregion
+
+		#region Cast Operators
+<#		if (colorSuffix != null) { #>
+		/// <summary>
+		/// Cast to ColorRGBA<#= colorSuffix #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA<#= colorSuffix #>"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ColorRGBA<#= colorSuffix #>(<#= className #> a)
+		{
+			return (new ColorRGBA<#= colorSuffix #>(a.r, a.g, a.b, <#= ones[i] #>));
+		}
+<#		}
+		if (castSuffix != null) { #>
+		/// <summary>
+		/// Cast to <#= componentType #>[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= componentType #>[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator <#= componentType #>[](<#= className #> a)
+		{
+			<#= componentType #>[] v = new <#= componentType #>[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3<#= castSuffix #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4<#= castSuffix #>"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3<#= castSuffix #>(<#= className #> a)
+		{
+			return (new Vertex3<#= castSuffix #>(a.r, a.g, a.b));
+		}
+<#		} #>
 		#endregion
 <#
 		string zero = zeroes[i], one = ones[i];

@@ -62,6 +62,10 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -226,6 +230,10 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -387,6 +395,10 @@ namespace OpenGL
 		/// RGB color components (packed).
 		/// </summary>
 		public ushort rgb;
+
+		#endregion
+
+		#region Cast Operators
 
 		#endregion
 
@@ -565,6 +577,58 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to ColorRGBA32 operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB24"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA32"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ColorRGBA32(ColorRGB24 a)
+		{
+			return (new ColorRGBA32(a.r, a.g, a.b, Byte.MaxValue));
+		}
+
+		/// <summary>
+		/// Cast to byte[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB24"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:byte[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator byte[](ColorRGB24 a)
+		{
+			byte[] v = new byte[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3ub operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB24"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4ub"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3ub(ColorRGB24 a)
+		{
+			return (new Vertex3ub(a.r, a.g, a.b));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -737,6 +801,58 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public ushort b;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to ColorRGBA64 operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB48"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA64"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ColorRGBA64(ColorRGB48 a)
+		{
+			return (new ColorRGBA64(a.r, a.g, a.b, UInt16.MaxValue));
+		}
+
+		/// <summary>
+		/// Cast to ushort[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB48"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ushort[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ushort[](ColorRGB48 a)
+		{
+			ushort[] v = new ushort[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3us operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB48"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4us"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3us(ColorRGB48 a)
+		{
+			return (new Vertex3us(a.r, a.g, a.b));
+		}
 
 		#endregion
 
@@ -915,6 +1031,44 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to uint[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB96"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:uint[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator uint[](ColorRGB96 a)
+		{
+			uint[] v = new uint[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3ui operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGB96"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4ui"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3ui(ColorRGB96 a)
+		{
+			return (new Vertex3ui(a.r, a.g, a.b));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -1087,6 +1241,58 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public float b;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to ColorRGBAF operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBAF"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ColorRGBAF(ColorRGBF a)
+		{
+			return (new ColorRGBAF(a.r, a.g, a.b, 1.0f));
+		}
+
+		/// <summary>
+		/// Cast to float[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:float[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator float[](ColorRGBF a)
+		{
+			float[] v = new float[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3f(ColorRGBF a)
+		{
+			return (new Vertex3f(a.r, a.g, a.b));
+		}
 
 		#endregion
 
@@ -1265,6 +1471,44 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBD"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator double[](ColorRGBD a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBD"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4d"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3d(ColorRGBD a)
+		{
+			return (new Vertex3d(a.r, a.g, a.b));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -1437,6 +1681,58 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public HalfFloat b;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to ColorRGBAHF operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBAHF"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ColorRGBAHF(ColorRGBHF a)
+		{
+			return (new ColorRGBAHF(a.r, a.g, a.b, (HalfFloat)1.0f));
+		}
+
+		/// <summary>
+		/// Cast to HalfFloat[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:HalfFloat[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator HalfFloat[](ColorRGBHF a)
+		{
+			HalfFloat[] v = new HalfFloat[3];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3hf operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4hf"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex3hf(ColorRGBHF a)
+		{
+			return (new Vertex3hf(a.r, a.g, a.b));
+		}
 
 		#endregion
 

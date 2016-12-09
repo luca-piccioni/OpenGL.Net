@@ -105,6 +105,73 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to byte[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA32"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:byte[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator byte[](ColorRGBA32 a)
+		{
+			byte[] v = new byte[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4ub operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA32"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4ub"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4ub(ColorRGBA32 a)
+		{
+			return (new Vertex4ub(a.r, a.g, a.b, a.a));
+		}
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA32"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA32"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBA32 operator*(ColorRGBA32 a, float scalar)
+		{
+			ColorRGBA32 v = new ColorRGBA32();
+
+			v.r = (byte)(a.r * scalar);
+			v.g = (byte)(a.g * scalar);
+			v.b = (byte)(a.b * scalar);
+			v.a = (byte)(a.a * scalar);
+
+			return (v);
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -315,6 +382,73 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public ushort a;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to ushort[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA64"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ushort[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ushort[](ColorRGBA64 a)
+		{
+			ushort[] v = new ushort[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4us operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA64"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4us"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4us(ColorRGBA64 a)
+		{
+			return (new Vertex4us(a.r, a.g, a.b, a.a));
+		}
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA64"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA64"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBA64 operator*(ColorRGBA64 a, float scalar)
+		{
+			ColorRGBA64 v = new ColorRGBA64();
+
+			v.r = (ushort)(a.r * scalar);
+			v.g = (ushort)(a.g * scalar);
+			v.b = (ushort)(a.b * scalar);
+			v.a = (ushort)(a.a * scalar);
+
+			return (v);
+		}
 
 		#endregion
 
@@ -531,6 +665,73 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to float[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:float[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator float[](ColorRGBAF a)
+		{
+			float[] v = new float[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4f(ColorRGBAF a)
+		{
+			return (new Vertex4f(a.r, a.g, a.b, a.a));
+		}
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAF"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBAF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBAF operator*(ColorRGBAF a, float scalar)
+		{
+			ColorRGBAF v = new ColorRGBAF();
+
+			v.r = (float)(a.r * scalar);
+			v.g = (float)(a.g * scalar);
+			v.b = (float)(a.b * scalar);
+			v.a = (float)(a.a * scalar);
+
+			return (v);
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -741,6 +942,73 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public HalfFloat a;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to HalfFloat[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:HalfFloat[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator HalfFloat[](ColorRGBAHF a)
+		{
+			HalfFloat[] v = new HalfFloat[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4hf operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4hf"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4hf(ColorRGBAHF a)
+		{
+			return (new Vertex4hf(a.r, a.g, a.b, a.a));
+		}
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAHF"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBAHF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBAHF operator*(ColorRGBAHF a, float scalar)
+		{
+			ColorRGBAHF v = new ColorRGBAHF();
+
+			v.r = (HalfFloat)(a.r * scalar);
+			v.g = (HalfFloat)(a.g * scalar);
+			v.b = (HalfFloat)(a.b * scalar);
+			v.a = (HalfFloat)(a.a * scalar);
+
+			return (v);
+		}
 
 		#endregion
 

@@ -279,6 +279,26 @@ namespace OpenGL
 		#region Methods
 
 		/// <summary>
+		/// Compute the complement matrix.
+		/// </summary>
+		/// <param name="c">
+		/// A <see cref="UInt32"/> that specify the index of the column to exclude in complement
+		/// matrix.
+		/// </param>
+		/// <param name="r">
+		/// A <see cref="UInt32"/> that specify the index of the row to exclude in complement
+		/// matrix.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IMatrix3x3"/> that is the complement matrix constructed from this IMatrix4x4,
+		/// excluding the column <paramref name="c"/> and row <paramref name="r"/>.
+		/// </returns>
+		public Matrix3x3 GetComplementMatrix(uint c, uint r)
+		{
+			return (new Matrix3x3(this, c, r));
+		}
+
+		/// <summary>
 		/// Compute the transpose of this Matrix4x4.
 		/// </summary>
 		/// <returns>
@@ -443,7 +463,7 @@ namespace OpenGL
 		/// It returns a <see cref="IMatrix3x3"/> that is the complement matrix constructed from this IMatrix4x4,
 		/// excluding the column <paramref name="c"/> and row <paramref name="r"/>.
 		/// </returns>
-		public IMatrix3x3 GetComplementMatrix(uint c, uint r)
+		IMatrix3x3 IMatrix4x4.GetComplementMatrix(uint c, uint r)
 		{
 			return (new Matrix3x3(this, c, r));
 		}

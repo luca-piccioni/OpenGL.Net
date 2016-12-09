@@ -28,15 +28,16 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {<#
-	string[] postfixes =		new[] { "32",     "64",     "F",     "HF"        };
-	string[] interfaceTypes =	new[] { "byte",   "ushort", "float", "HalfFloat" };
-	string[] pixelTypes =		new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
-	string[] structType =		new[] { "byte",   "ushort", "float", "HalfFloat" };
-	string[] vertexBaseType =	new[] { "UByte",  "UShort", "Float", "Half" };
-	int[] structMembersCount =	new[] {  4,        4,        4,       4          };
-	string[] zeros =			new[] { "0",      "0",     "0.0f",   "(HalfFloat)0.0f"};
-	string[] ones =				new[] { null,     null,     "1.0f",  "(HalfFloat)1.0f"};
-	int[][] bitss =				new[] {  new[] { 1 },    null,     null,     null,      };
+	string[] postfixes =			new[] { "32",     "64",     "F",     "HF"        };
+	string[] interfaceTypes =		new[] { "byte",   "ushort", "float", "HalfFloat" };
+	string[] pixelTypes =			new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
+	string[] structType =			new[] { "byte",   "ushort", "float", "HalfFloat" };
+	string[] vertexBaseType =		new[] { "UByte",  "UShort", "Float", "Half" };
+	int[] structMembersCount =		new[] {  4,        4,        4,       4          };
+	string[] zeros =				new[] { "0",      "0",     "0.0f",   "(HalfFloat)0.0f"};
+	string[] ones =					new[] { null,     null,     "1.0f",  "(HalfFloat)1.0f"};
+	int[][] bitss =					new[] {  new[] { 1 },    null,     null,     null,      };
+	string[] castSuffixes =			new[] { "ub",   "us", "f", "hf" };
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorRGBA{0}", postfixes[i]);
@@ -46,6 +47,7 @@ namespace OpenGL
 		int[] bits = bitss[i];
 		string one = ones[i];
 		string zero = zeros[i];
+		string castSuffix = castSuffixes[i];
 
 		if (one == null)
 			one = componentType + ".MaxValue";
@@ -139,6 +141,73 @@ if (structMembersCount[i] == 1) { #>
 		/// </summary>
 		public <#= componentType #> a;
 <# } #>
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to <#= componentType #>[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= componentType #>[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator <#= componentType #>[](<#= className #> a)
+		{
+			<#= componentType #>[] v = new <#= componentType #>[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4<#= castSuffix #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4<#= castSuffix #>"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4<#= castSuffix #>(<#= className #> a)
+		{
+			return (new Vertex4<#= castSuffix #>(a.r, a.g, a.b, a.a));
+		}
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator*(<#= className #> a, float scalar)
+		{
+			<#= className #> v = new <#= className #>();
+
+			v.r = (<#= componentType #>)(a.r * scalar);
+			v.g = (<#= componentType #>)(a.g * scalar);
+			v.b = (<#= componentType #>)(a.b * scalar);
+			v.a = (<#= componentType #>)(a.a * scalar);
+
+			return (v);
+		}
+
 		#endregion
 
 		#region Notable Colors
