@@ -46,10 +46,37 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Attribute applied to those fields that are bound to a shader program uniform state.
 		/// </summary>
-		[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+		[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 		protected class ShaderUniformStateAttribute : Attribute
 		{
+			#region Constructors
 
+			/// <summary>
+			/// Assumes that the name is prefixes with a prefix framework-reserved ("glo_").
+			/// </summary>
+			internal ShaderUniformStateAttribute()
+			{
+
+			}
+
+			/// <summary>
+			/// Assumes that the name is prefixes with a prefix framework-reserved ("glo_").
+			/// </summary>
+			public ShaderUniformStateAttribute(string uniformName)
+			{
+				UniformName = uniformName;
+			}
+
+			#endregion
+
+			#region Parameters
+
+			/// <summary>
+			/// A specific name of the uniform variable. If null, the name is implicit.
+			/// </summary>
+			public readonly string UniformName;
+
+			#endregion
 		}
 
 		/// <summary>
@@ -122,22 +149,33 @@ namespace OpenGL.Objects.State
 			/// <summary>
 			/// Construct a UniformStateMember.
 			/// </summary>
+			/// <param name="uniformName">
+			/// A <see cref="String"/> that specifies the name of the uniform variable.
+			/// </param>
 			/// <param name="memberInfo">
 			/// The <see cref="MemberInfo"/> that specify the uniform state variable.
 			/// </param>
 			/// <param name="getUniformValueDelegate">
 			/// The <see cref="GetUniformValueDelegate"/> used for getting the uniform state from <paramref name="memberInfo"/>.
 			/// </param>
-			public UniformStateMember(MemberInfo memberInfo, GetUniformValueDelegate getUniformValueDelegate)
+			public UniformStateMember(string uniformName, MemberInfo memberInfo, GetUniformValueDelegate getUniformValueDelegate)
 			{
+				if (uniformName == null)
+					throw new ArgumentNullException("uniformName");
 				if (memberInfo == null)
 					throw new ArgumentNullException("memberInfo");
 				if (getUniformValueDelegate == null)
 					throw new ArgumentNullException("getUniformValueDelegate");
 
+				UniformName = uniformName;
 				Member = memberInfo;
 				GetValueDelegate = getUniformValueDelegate;
 			}
+
+			/// <summary>
+			/// The name of the uniform variable.
+			/// </summary>
+			public readonly string UniformName;
 
 			/// <summary>
 			/// The underlying member that specify the uniform state variable.
@@ -168,7 +206,8 @@ namespace OpenGL.Objects.State
 			/// The <see cref="Object"/> that specify the instance defining <paramref name="memberInfo"/>.
 			/// </param>
 			/// <returns></returns>
-			public object GetUniformValue(object instance) { return (GetValueDelegate(instance, Member)); } }
+			public object GetUniformValue(object instance) { return (GetValueDelegate(instance, Member)); }
+		}
 
 		/// <summary>
 		/// Utility routine for detecting fields and properties which value is bound to a shader program uniform
@@ -197,7 +236,9 @@ namespace OpenGL.Objects.State
 				if (attribute == null)
 					continue;
 
-				uniformMembers.Add("hal_" + uniformField.Name, new UniformStateMember(uniformField, GetFieldUniformValue));
+				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformField.Name;
+
+				uniformMembers.Add(uniformName, new UniformStateMember(uniformName, uniformField, GetFieldUniformValue));
 			}
 
 			// Properties
@@ -213,7 +254,9 @@ namespace OpenGL.Objects.State
 				if (attribute == null)
 					continue;
 
-				uniformMembers.Add("hal_" + uniformProperty.Name, new UniformStateMember(uniformProperty, GetPropertyUniformValue));
+				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformProperty.Name;
+
+				uniformMembers.Add(uniformName, new UniformStateMember(uniformName, uniformProperty, GetPropertyUniformValue));
 			}
 
 			return (uniformMembers);
@@ -223,6 +266,65 @@ namespace OpenGL.Objects.State
 		/// Get the uniform state associated with this instance.
 		/// </summary>
 		protected abstract Dictionary<string, UniformStateMember> UniformState { get; }
+
+		protected static void DetectTypeProperties(Type shaderUniformStateType)
+		{
+			foreach (Type nestedType in shaderUniformStateType.GetNestedTypes(BindingFlags.Public)) {
+				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(nestedType, typeof(ShaderUniformStateAttribute));
+				if (attribute == null)
+					continue;
+
+				DetetectNestedTypeProperties(nestedType);
+			}
+		}
+
+		private static void DetetectNestedTypeProperties(Type shaderUniformStateType)
+		{
+			if (shaderUniformStateType == null)
+				throw new ArgumentNullException("shaderUniformStateType");
+			if (_TypeUniformState.ContainsKey(shaderUniformStateType))
+				throw new ArgumentException("type known already");
+
+			List<UniformStateMember> typeMembers = new List<UniformStateMember>();
+
+			// Fields
+			FieldInfo[] uniformFields = shaderUniformStateType.GetFields(BindingFlags.Public | BindingFlags.Instance);
+
+			foreach (FieldInfo uniformField in uniformFields) {
+				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformField, typeof(ShaderUniformStateAttribute));
+				if (attribute == null)
+					continue;
+
+				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformField.Name;
+
+				typeMembers.Add(new UniformStateMember(uniformName, uniformField, GetFieldUniformValue));
+			}
+
+			// Properties
+			PropertyInfo[] uniformProperties = shaderUniformStateType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+			foreach (PropertyInfo uniformProperty in uniformProperties) {
+				if (uniformProperty.CanRead == false)
+					continue;
+				if (uniformProperty.GetIndexParameters().Length > 0)
+					continue;
+
+				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformProperty, typeof(ShaderUniformStateAttribute));
+				if (attribute == null)
+					continue;
+
+				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformProperty.Name;
+
+				typeMembers.Add(new UniformStateMember(uniformName, uniformProperty, GetPropertyUniformValue));
+			}
+
+			_TypeUniformState.Add(shaderUniformStateType, typeMembers);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private static readonly Dictionary<Type, List<UniformStateMember>> _TypeUniformState = new Dictionary<Type, List<UniformStateMember>>();
 
 		/// <summary>
 		/// Apply this state to a shader program.
@@ -243,30 +345,68 @@ namespace OpenGL.Objects.State
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
 
-			Dictionary<string, UniformStateMember> uniformState = UniformState;
-			ICollection<string> activeUniforms = shaderProgram.ActiveUniforms;
-			
-			if (activeUniforms.Count <= uniformState.Count) {
-				foreach (string activeUniform in activeUniforms) {
-					UniformStateMember uniformStateMember;
-					string uniformName = activeUniform;
+			ApplyState(ctx, shaderProgram, null, UniformState.Values, this);
+		}
 
-					// Get the underlying member
-					if (uniformState.TryGetValue(uniformName, out uniformStateMember) == false)
-						continue;
+		/// <summary>
+		/// Apply this state to a shader program.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used to share common state between shaders.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> that specify this uniform state.
+		/// </param>
+		/// <param name="uniformScope">
+		/// A <see cref="String"/> that specify the scope the uniform variable.
+		/// </param>
+		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope, IEnumerable<UniformStateMember> uniforms, object uniformContainer)
+		{
+			foreach (UniformStateMember uniform in uniforms) {
+				// Set the program uniform
+				string uniformPattern = uniformScope != null ? String.Format("{0}.{1}", uniformScope, uniform.UniformName) : uniform.UniformName;
+				if (shaderProgram.IsActiveUniform(uniformPattern) == false)
+					continue;
 
-					// Set the program uniform
-					shaderProgram.SetUniform(ctx, uniformName, uniformStateMember.GetUniformValue(this));
-				}
-			} else {
-				foreach (KeyValuePair<string, UniformStateMember> pair in uniformState) {
-					if (shaderProgram.IsActiveUniform(pair.Key) == false)
-						continue;
+				object uniformValue = uniform.GetUniformValue(uniformContainer);
 
-					// Set the program uniform
-					shaderProgram.SetUniform(ctx, pair.Key, pair.Value.GetUniformValue(this));
-				}
+				// Silently skip null references
+				if (uniformValue == null)
+					continue;
+
+				Type uniformValueType = uniformValue.GetType();
+
+				if (uniformValueType.IsArray) {
+					Array uniformArray = (Array)uniformValue;
+
+					for (int i = 0; i < uniformArray.Length; i++) {
+						string uniformArrayPattern = String.Format("{0}[{1}]", uniformPattern, i);
+
+						if (shaderProgram.IsActiveUniform(uniformArrayPattern) == false)
+							continue;
+
+						object uniformArrayValue = uniformArray.GetValue(i);
+
+						// Silently skip null references
+						if (uniformArrayValue == null)
+							continue;
+
+						ApplyUniform(ctx, shaderProgram, uniformArrayPattern, uniformArrayValue);
+					}
+				} else
+					ApplyUniform(ctx, shaderProgram, uniformPattern, uniformValue);
 			}
+		}
+
+		private void ApplyUniform(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformPattern, object uniformValue)
+		{
+			List<UniformStateMember> structuredTypeMembers;
+
+			if (_TypeUniformState.TryGetValue(uniformValue.GetType(), out structuredTypeMembers)) {
+				// Recurse over structure fields
+				ApplyState(ctx, shaderProgram, uniformPattern, structuredTypeMembers, uniformValue);
+			} else
+				shaderProgram.SetUniform(ctx, uniformPattern, uniformValue);
 		}
 
 		#endregion
@@ -288,9 +428,10 @@ namespace OpenGL.Objects.State
 					continue;
 
 				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
+				if (graphicsResource == null)
+					continue;
 
 				// Create the IGraphicsResource associated with the uniform state variable
-				Debug.Assert(graphicsResource != null);
 				graphicsResource.Create(ctx);
 			}
 		}

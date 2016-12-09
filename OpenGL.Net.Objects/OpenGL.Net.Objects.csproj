@@ -137,6 +137,8 @@
     <Compile Include="State\GraphicsStateSet.cs" />
     <Compile Include="State\GraphicsStateSetStack.cs" />
     <Compile Include="State\IGraphicsState.cs" />
+    <Compile Include="State\MaterialState.cs" />
+    <Compile Include="State\LightsState.cs" />
     <Compile Include="State\PolygonModeState.cs" />
     <Compile Include="State\PolygonOffsetState.cs" />
     <Compile Include="State\ShaderUniformState.cs" />
@@ -191,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Shaders\Light\_ShadersLibrary.xml" />
     <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scene\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

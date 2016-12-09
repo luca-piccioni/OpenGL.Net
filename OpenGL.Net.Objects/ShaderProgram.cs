@@ -219,11 +219,11 @@ namespace OpenGL.Objects
 			IntPtr[] feedbackVaryingsPtrs = null;
 
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				sLog.Debug("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
-				sLog.Indent();
+				_Log.Debug("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
+				_Log.Indent();
 				foreach (string feedbackVarying in _FeedbackVaryings)
-					sLog.Debug("- {0}", feedbackVarying);
-				sLog.Unindent();
+					_Log.Debug("- {0}", feedbackVarying);
+				_Log.Unindent();
 
 				if (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT) {
 					string[] feedbackVaryings = _FeedbackVaryings.ToArray();
@@ -259,7 +259,7 @@ namespace OpenGL.Objects
 
 			int lStatus;
 
-			sLog.Debug("Link shader program {0}", Identifier ?? "<Unnamed>");
+			_Log.Debug("Link shader program {0}", Identifier ?? "<Unnamed>");
 
 			// Link shader program
 			Gl.LinkProgram(ObjectName);
@@ -286,7 +286,7 @@ namespace OpenGL.Objects
 				foreach (string logLine in compilerLogLines)
 					sb.AppendLine("  $ " + logLine);
 
-				sLog.Error("Shader program \"{0}\" linkage failed: {1}", Identifier ?? "<Unnamed>", sb.ToString());
+				_Log.Error("Shader program \"{0}\" linkage failed: {1}", Identifier ?? "<Unnamed>", sb.ToString());
 
 				throw new ShaderException("shader program is not valid. Linker output for {0}: {1}\n", Identifier ?? "<Unnamed>", sb.ToString());
 			}
@@ -329,6 +329,31 @@ namespace OpenGL.Objects
 
 				// Map active uniform
 				_UniformMap[uniformName] = uniformBinding;
+				// Check for structured uniform
+				Match uniformStructure = Regex.Match(uniformName, @"((?<Struct>[\w\d_]+(\[\d+\])?)(\.))+");
+
+				if (uniformStructure.Success) {
+					string structurePattern = null;
+
+					for (int j = 0; j < uniformStructure.Groups["Struct"].Captures.Count; j++) {
+						string structureName = uniformStructure.Groups["Struct"].Captures[j].Value;
+
+						if (structurePattern != null) {
+							structurePattern = String.Format("{0}.{1}", structurePattern, structureName);
+						} else
+							structurePattern = structureName;
+
+						Match uniformArrayMatch = Regex.Match(structurePattern, @"(?<ArrayName>[\w\d_]+)(?<Indexer>\[\d+\])");
+						if (uniformArrayMatch.Success) {
+							string arrayPattern = uniformArrayMatch.Groups["ArrayName"].Value;
+							if (_UniformMap.ContainsKey(arrayPattern) == false)
+								_UniformMap.Add(arrayPattern, null);
+						}
+
+						if (_UniformMap.ContainsKey(structurePattern) == false)
+							_UniformMap.Add(structurePattern, null);
+					}
+				}
 				// Keep track of used slot
 				_DefaultBlockUniformSlots += GetUniformSlotCount(uniformBinding.UniformType);
 			}
@@ -339,11 +364,15 @@ namespace OpenGL.Objects
 			// Make uniform list invariant respect the used driver (ease log comparation)
 			uniformNames.Sort();
 
-			sLog.Debug("Shader program active uniforms:");
-			foreach (string uniformName in uniformNames)
-				sLog.Debug("\tUniform {0} (Type: {1}, Location: {2})", uniformName, _UniformMap[uniformName].UniformType, _UniformMap[uniformName].Location);
+			_Log.Debug("Shader program active uniforms:");
+			foreach (string uniformName in uniformNames) {
+				UniformBinding uniformBinding = _UniformMap[uniformName];
+				if (uniformBinding != null)
+					_Log.Debug("\tUniform {0} (Type: {1}, Location: {2})", uniformName, uniformBinding.UniformType, uniformBinding.Location);
+			}
+				
 
-			sLog.Debug("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
+			_Log.Debug("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
 
 			#endregion
 
@@ -383,9 +412,9 @@ namespace OpenGL.Objects
 			// Make attribute list invariant respect the used driver (ease log comparation)
 			attributeNames.Sort();
 
-			sLog.Debug("Shader program active attributes:");
+			_Log.Debug("Shader program active attributes:");
 			foreach (string attributeName in attributeNames)
-				sLog.Debug("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, _AttributesMap[attributeName].Type, _AttributesMap[attributeName].Location);
+				_Log.Debug("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, _AttributesMap[attributeName].Type, _AttributesMap[attributeName].Location);
 
 			#endregion
 
@@ -456,9 +485,9 @@ namespace OpenGL.Objects
 				Debug.Assert(_FeedbacksMap.Count > 0);
 
 				// Log feedback mapping
-				sLog.Debug("Shader program active feedbacks:");
+				_Log.Debug("Shader program active feedbacks:");
 				foreach (string feedbackName in _FeedbacksMap.Keys)
-					sLog.Debug("\tFeedback {0} (Type: {1})", feedbackName, _FeedbacksMap[feedbackName].Type);
+					_Log.Debug("\tFeedback {0} (Type: {1})", feedbackName, _FeedbacksMap[feedbackName].Type);
 			}
 			
 			#endregion
@@ -1109,7 +1138,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
-		protected static readonly ILogger sLog = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+		protected static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 

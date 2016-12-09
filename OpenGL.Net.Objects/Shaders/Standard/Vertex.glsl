@@ -72,7 +72,7 @@ void main()
 #endif
 
 	// Vertex color
-	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_ModelView * glo_Position, glo_NormalMatrix * normalize(glo_Normal));
+	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_ModelView * glo_Position, glo_VertexNormal);
 
 #endif
 }
