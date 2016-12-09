@@ -24,6 +24,7 @@ using System.Windows.Forms;
 
 using OpenGL;
 using OpenGL.Objects;
+using OpenGL.Objects.State;
 
 namespace HelloObjects
 {
@@ -49,43 +50,30 @@ namespace HelloObjects
 		private void InitializeCube()
 		{
 			// Create the program, using the embedded shaders lbrary
-			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+PhongFragment");
+			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
 			_CubeProgram.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
 			_CubeProgram.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 1");
 			_CubeProgram.Create(_Context);
 
+			_CubeDepthTest = new DepthTestState(DepthFunction.Lequal);
+			_CubeDepthTest.Create(_Context);
+
+			_CubeTransformState = new TransformState();
+			_CubeTransformState.Create(_Context);
+
+			_CubeLightState = new LightsState();
+			_CubeLightState.LightsCount = 1;
+			_CubeLightState.Lights[0] = new LightsState.Light(ColorRGBAF.ColorWhite);
+			_CubeLightState.Lights[0].AmbientColor = ColorRGBAF.ColorWhite * 0.1f;
+			_CubeLightState.Create(_Context);
+
+			_CubeMaterialState = new MaterialState();
+			_CubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
+			_CubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.5f;
+			_CubeMaterialState.Create(_Context);
+			_CubeMaterialState.ApplyState(_Context, _CubeProgram);
+
 			_Context.Bind(_CubeProgram);
-
-			if (_CubeProgram.IsActiveUniform("glo_LightModel.AmbientLighting"))
-				_CubeProgram.SetUniform(_Context, "glo_LightModel.AmbientLighting", ColorRGBAF.ColorWhite);
-			
-			if (_CubeProgram.IsActiveUniform("glo_LightsCount"))
-				_CubeProgram.SetUniform(_Context, "glo_LightsCount", 1);
-
-			if (_CubeProgram.IsActiveUniform("glo_Light[0].AmbientColor"))
-				_CubeProgram.SetUniform(_Context, "glo_Light[0].AmbientColor", ColorRGBAF.ColorBlack);
-			if (_CubeProgram.IsActiveUniform("glo_Light[0].DiffuseColor"))
-				_CubeProgram.SetUniform(_Context, "glo_Light[0].DiffuseColor", ColorRGBAF.ColorWhite);
-			if (_CubeProgram.IsActiveUniform("glo_Light[0].Direction"))
-				_CubeProgram.SetUniform(_Context, "glo_Light[0].Direction", Vertex3f.One.Normalized);
-			//if (_CubeProgram.IsActiveUniform("glo_Light[0].Position"))
-			//	_CubeProgram.SetUniform(_Context, "glo_Light[0].Position", new Vertex4f(0.0f, 0.0f, 4.0f, 1.0f));
-			//if (_CubeProgram.IsActiveUniform("glo_Light[0].FallOff[0]"))
-			//	_CubeProgram.SetUniform(_Context, "glo_Light[0].FallOff[0]", 180.0f);
-
-			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.AmbientColor"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.AmbientColor", ColorRGBAF.ColorBlack);
-			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.EmissiveColor"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.EmissiveColor", ColorRGBAF.ColorBlack);
-			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.DiffuseColor"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.DiffuseColor", ColorRGBAF.ColorWhite);
-			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.SpecularColor"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.SpecularColor", ColorRGBAF.ColorWhite);
-			if (_CubeProgram.IsActiveUniform("glo_FrontMaterial.Shininess"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterial.Shininess", 4.0f);
-
-			if (_CubeProgram.IsActiveUniform("glo_FrontMaterialDiffuseTexCoord"))
-				_CubeProgram.SetUniform(_Context, "glo_FrontMaterialDiffuseTexCoord", -1);
 
 			// Allocate arrays - Position
 			_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
@@ -126,15 +114,20 @@ namespace HelloObjects
 			modelMatrix.RotateZ(_CubeRotationH);
 			modelMatrix.RotateY(_CubeRotationP);
 
-			Matrix4x4 modelView = viewMatrix.GetInverseMatrix() * modelMatrix;
+			Matrix4x4 viewMatrixInverse = viewMatrix.GetInverseMatrix();
+			Matrix4x4 modelView = viewMatrixInverse * modelMatrix;
+			Matrix3x3 normalMatrix = modelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose();
+			Matrix3x3 lightMatrix = viewMatrixInverse.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose();
 
-			_Context.Bind(_CubeProgram);
-			if (_CubeProgram.IsActiveUniform("glo_ModelView"))
-				_CubeProgram.SetUniform(_Context, "glo_ModelView", modelView);
-			if (_CubeProgram.IsActiveUniform("glo_ModelViewProjection"))
-				_CubeProgram.SetUniform(_Context, "glo_ModelViewProjection", projectionMatrix * modelView);
-			if (_CubeProgram.IsActiveUniform("glo_NormalMatrix"))
-				_CubeProgram.SetUniform(_Context, "glo_NormalMatrix", modelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose());
+			_CubeDepthTest.ApplyState(_Context, _CubeProgram);
+
+			_CubeTransformState.LocalProjection = projectionMatrix;
+			_CubeTransformState.LocalModel.Set(modelView);
+			_CubeTransformState.ApplyState(_Context, _CubeProgram);
+
+			_CubeLightState.Lights[0].Direction = lightMatrix * Vertex3f.UnitY.Normalized;
+			_CubeLightState.ApplyState(_Context, _CubeProgram);
+
 			_CubeVertexArray.Draw(_Context, _CubeProgram);
 		}
 
@@ -147,6 +140,14 @@ namespace HelloObjects
 		/// The shader program drawing the cube.
 		/// </summary>
 		ShaderProgram _CubeProgram;
+
+		DepthTestState _CubeDepthTest;
+
+		TransformState _CubeTransformState;
+
+		LightsState _CubeLightState;
+
+		MaterialState _CubeMaterialState;
 
 		/// <summary>
 		/// The vertex arrays defining the cube information.
@@ -380,9 +381,6 @@ namespace HelloObjects
 
 			InitializeCube();
 			InitializeCubeMapping();
-
-			// Set required server state
-			Gl.Enable(EnableCap.DepthTest);
 		}
 
 		/// <summary>
