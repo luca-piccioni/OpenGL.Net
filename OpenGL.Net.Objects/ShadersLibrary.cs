@@ -41,6 +41,7 @@ namespace OpenGL.Objects
 			Merge("OpenGL.Objects.Shaders._ShadersLibrary.xml");
 			Merge("OpenGL.Objects.Shaders.Light._ShadersLibrary.xml");
 			Merge("OpenGL.Objects.Shaders.Standard._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Skybox._ShadersLibrary.xml");
 		}
 
 		#endregion

@@ -68,6 +68,21 @@
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Scene\BoundingBox.cs" />
+    <Compile Include="Scene\BoundingSphere.cs" />
+    <Compile Include="Scene\IBoundingVolume.cs" />
+    <Compile Include="Scene\Light.cs" />
+    <Compile Include="Scene\LightDirectional.cs" />
+    <Compile Include="Scene\LightPoint.cs" />
+    <Compile Include="Scene\LightSpot.cs" />
+    <Compile Include="Scene\SceneGraph.cs" />
+    <Compile Include="Scene\SceneLightingState.cs" />
+    <Compile Include="Scene\SceneObjectCamera.cs" />
+    <Compile Include="Scene\SceneGraphContext.cs" />
+    <Compile Include="Scene\SceneObject.cs" />
+    <Compile Include="Scene\SceneObjectGeometry.cs" />
+    <Compile Include="Scene\SceneObjectLight.cs" />
+    <Compile Include="Scene\SceneObjectLightZone.cs" />
     <Compile Include="Single.Extensions.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
@@ -175,8 +190,8 @@
     <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
     <EmbeddedResource Include="Shaders\TransformState.glsl" />
-    <EmbeddedResource Include="Shaders\CubeMapping\Fragment.glsl" />
-    <EmbeddedResource Include="Shaders\CubeMapping\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Skybox\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Skybox\Vertex.glsl" />
     <EmbeddedResource Include="Shaders\Light\BlinnShading.glsl" />
     <EmbeddedResource Include="Shaders\Light\ConstantShading.glsl" />
     <EmbeddedResource Include="Shaders\Light\Lighting.glsl" />
@@ -188,15 +203,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\Skybox\_ShadersLibrary.xml" />
     <EmbeddedResource Include="Shaders\Standard\_ShadersLibrary.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Shaders\Light\_ShadersLibrary.xml" />
     <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scene\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,7 +28,9 @@ SHADER_OUT vec3 glo_VertexCubeTexCoord;
 void main()
 {
 	// Compute transformed vertex position
-	gl_Position = glo_ModelViewProjection * glo_Position;
+	vec4 position = glo_ModelViewProjection * glo_Position;
 	// Vertex texture coordinate (assume centered geometry)
 	glo_VertexCubeTexCoord = glo_Position.xyz / glo_Position.w;
+
+	gl_Position = position.xyww;
 }

@@ -25,7 +25,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// OpenGL.Net light shading model.
 	/// </summary>
-	public class MaterialState : ShaderUniformState
+	public class MaterialState : ShaderUniformStateBase
 	{
 		#region Constructors
 
@@ -156,7 +156,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier for the TransformStateBase derived classes.
 		/// </summary>
-		public static string StateId = "OpenGL.Net.LightsState";
+		public static string StateId = "OpenGL.Net.MaterialState";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.

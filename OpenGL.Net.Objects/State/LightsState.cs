@@ -25,28 +25,27 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// OpenGL.Net light shading model.
 	/// </summary>
-	public class LightsState : ShaderUniformState
+	public abstract class LightsStateBase : ShaderUniformStateBase
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Static constructor.
 		/// </summary>
-		static LightsState()
+		static LightsStateBase()
 		{
 			// Has nested types
-			DetectTypeProperties(typeof(LightsState));
+			DetectTypeProperties(typeof(LightsStateBase));
 			// Statically initialize uniform properties
-			_UniformProperties = DetectUniformProperties(typeof(LightsState));
+			_UniformProperties = DetectUniformProperties(typeof(LightsStateBase));
 		}
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public LightsState()
+		public LightsStateBase()
 		{
 			LightModel = new LightModelType(ColorRGBAF.ColorWhite);
-			Lights = new Light[8];
 		}
 
 		#endregion
@@ -174,13 +173,13 @@ namespace OpenGL.Objects.State
 		/// Lights state.
 		/// </summary>
 		[ShaderUniformState("glo_Light")]
-		public Light[] Lights;
+		public abstract Light[] Lights { get; }
 
 		/// <summary>
 		/// The enabled lights count.
 		/// </summary>
 		[ShaderUniformState()]
-		public int LightsCount;
+		public abstract int LightsCount { get; }
 
 		#endregion
 
@@ -245,12 +244,10 @@ namespace OpenGL.Objects.State
 			if (state == null)
 				throw new ArgumentNullException("state");
 
-			TransformStateBase otherState = state as TransformStateBase;
+			LightsState otherState = state as LightsState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a TransformStateBase", "state");
-
-			
+				throw new ArgumentException("not a LightsState", "state");
 		}
 
 		/// <summary>
@@ -273,6 +270,81 @@ namespace OpenGL.Objects.State
 		/// The uniform state of this TransformStateBase.
 		/// </summary>
 		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
+
+		#endregion
+	}
+
+	/// <summary>
+	/// OpenGL.Net light shading model.
+	/// </summary>
+	public class LightsState : LightsStateBase
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public LightsState() : this(8)
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct a LightsState specifying the maximum number of active lights.
+		/// </summary>
+		/// <param name="maxCount">
+		/// A <see cref="UInt32"/> that specifies the maximum number of active lights.
+		/// </param>
+		public LightsState(uint maxCount)
+		{
+			_Lights = new Light[maxCount];
+		}
+
+		#endregion
+
+		#region Lights Management
+
+		public void ResetLights()
+		{
+			_LightsCount = 0;
+		}
+
+		public void AddLight(Light light)
+		{
+			if (_LightsCount >= _Lights.Length)
+				throw new InvalidOperationException("lights overflow");
+
+			_Lights[_LightsCount] = light;
+			_LightsCount++;
+		}
+
+		#endregion
+
+		#region LightsStateBase Overrides
+
+		/// <summary>
+		/// Lights state.
+		/// </summary>
+		public override Light[] Lights { get { return (_Lights); } }
+
+		/// <summary>
+		/// Lights state.
+		/// </summary>
+		private Light[] _Lights;
+
+		/// <summary>
+		/// Get the enabled lights count.
+		/// </summary>
+		[ShaderUniformState()]
+		public override int LightsCount
+		{
+			get { return (_LightsCount); }
+		}
+
+		/// <summary>
+		/// The enabled lights count.
+		/// </summary>
+		private int _LightsCount;
 
 		#endregion
 	}

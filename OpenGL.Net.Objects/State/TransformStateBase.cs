@@ -34,7 +34,7 @@ namespace OpenGL.Objects.State
 	/// 
 	/// </para>
 	/// </remarks>
-	public abstract class TransformStateBase : ShaderUniformState
+	public abstract class TransformStateBase : ShaderUniformStateBase
 	{
 		#region Constructors
 
@@ -78,13 +78,13 @@ namespace OpenGL.Objects.State
 		/// Near and far distances.
 		/// </summary>
 		[ShaderUniformState()]
-		public Vertex2f DepthDistances { get { return (new Vertex2f((float)LocalProjection.Near, (float)LocalProjection.Far)); } }
+		public Vertex2f DepthDistances { get { return (LocalProjection != null ? new Vertex2f((float)LocalProjection.Near, (float)LocalProjection.Far) : new Vertex2f()); } }
 
 		/// <summary>
 		/// The actual projection matrix used for projecting vertex arrays.
 		/// </summary>
 		[ShaderUniformState()]
-		public virtual IMatrix4x4 InverseProjection { get { return (Projection.GetInverseMatrix()); } }
+		public virtual IMatrix4x4 InverseProjection { get { return (Projection != null ? Projection.GetInverseMatrix() : null); } }
 
 		/// <summary>
 		/// The actual model-view matrix used for transforming vertex arrays object space.
@@ -96,19 +96,19 @@ namespace OpenGL.Objects.State
 		/// The actual model-view-projection matrix used for drawing vertex arrays.
 		/// </summary>
 		[ShaderUniformState()]
-		public virtual IMatrix4x4 ModelViewProjection { get { return (Projection.Multiply(ModelView)); } }
+		public virtual IMatrix4x4 ModelViewProjection { get { return (Projection != null ? Projection.Multiply(ModelView) : null); } }
 
 		/// <summary>
 		/// The inverse of <see cref="ModelView"/>.
 		/// </summary>
 		[ShaderUniformState()]
-		public virtual IModelMatrix InverseModelView { get { return (ModelView.GetInverseMatrix()); } }
+		public virtual IModelMatrix InverseModelView { get { return (ModelView != null ? ModelView.GetInverseMatrix() : null); } }
 
 		/// <summary>
 		/// The inverse of <see cref="ModelViewProjection"/>.
 		/// </summary>
 		[ShaderUniformState()]
-		public virtual IMatrix4x4 InverseModelViewProjection { get { return (ModelViewProjection.GetInverseMatrix()); } }
+		public virtual IMatrix4x4 InverseModelViewProjection { get { return (ModelViewProjection != null ? ModelViewProjection.GetInverseMatrix() : null); } }
 
 		/// <summary>
 		/// The normal matrix, derived from <see cref="ModelView"/>.
@@ -118,7 +118,7 @@ namespace OpenGL.Objects.State
 		{
 			get
 			{
-				return (ModelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose());
+				return (ModelView != null ? ModelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose() : null);
 			}
 		}
 

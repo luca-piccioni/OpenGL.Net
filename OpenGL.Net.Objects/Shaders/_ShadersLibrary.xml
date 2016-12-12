@@ -14,26 +14,6 @@
 	<!-- Program Objects -->
 	<Objects>
 		
-		<!-- Standard -->
-		
-		<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl">
-			<Symbols>
-				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
-				<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
-				<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
-			</Symbols>
-		</Object>
-
-		<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl">
-			<Symbols>
-				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
-				<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
-				<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
-				<Symbol>GLO_REFLECTION_PER_FRAGMENT</Symbol>
-				<Symbol>GLO_REFRACTION_PER_FRAGMENT</Symbol>
-			</Symbols>
-		</Object>
-
 		<!-- Line -->
 
 		<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" />
@@ -44,11 +24,6 @@
 			</Symbols>
 		</Object>
 		
-		<!-- CubeMapping -->
-
-		<Object Path="OpenGL.Objects.Shaders.CubeMapping.Vertex.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.CubeMapping.Fragment.glsl" />
-		
 		<!-- Geometry Clipmap -->
 		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Vertex.glsl" />
 		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Fragment.glsl" />
@@ -58,54 +33,6 @@
 
 	<Programs>
 
-		<!-- Standard -->
-		<Program Id="OpenGL.Standard">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment" />
-			<Attribute Name="glo_Position" Semantic="Position" />
-
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_UniformColor" Semantic="Color"/>
-		</Program>
-
-		<!-- Standard+Color -->
-		<Program Id="OpenGL.Standard+Color">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment">
-				<Symbols>
-					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
-				</Symbols>
-			</Object>
-			<Attribute Name="glo_Position" Semantic="Position" />
-			<Attribute Name="glo_Color" Semantic="Color" />
-			
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-		</Program>
-
-		<!-- Standard+VertexLighting -->
-		<Program Id="OpenGL.Standard+VertexLighting">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" Stage="Vertex" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" Stage="Vertex" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
-				</Symbols>
-			</Object>
-
-			<Attribute Name="glo_Position" Semantic="Position" />
-			<Attribute Name="glo_Color" Semantic="Color" />
-			<Attribute Name="glo_Normal" Semantic="Normal" />
-
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_ModelView" Semantic="ModelView" />
-			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
-		</Program>
-		
 		<!-- Line -->
 		<Program Id="OpenGL.Line">
 			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="Vertex" />
@@ -125,15 +52,6 @@
 			</Object>
 			<Attribute Name="glo_Position" Semantic="Position" />
 			<Attribute Name="glo_Color" Semantic="Color" />
-		</Program>
-
-		<!-- CubeMapping -->
-		<Program Id="OpenGL.CubeMapping">
-			<Object Path="OpenGL.Objects.Shaders.CubeMapping.Vertex.glsl" Stage="Vertex" />
-			<Object Path="OpenGL.Objects.Shaders.CubeMapping.Fragment.glsl" Stage="Fragment" />
-			<Attribute Name="glo_Position" Semantic="Position" />
-
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 		</Program>
 	
 	</Programs>
