@@ -24,6 +24,7 @@ using System.Windows.Forms;
 
 using OpenGL;
 using OpenGL.Objects;
+using OpenGL.Objects.Scene;
 using OpenGL.Objects.State;
 
 namespace HelloObjects
@@ -47,112 +48,63 @@ namespace HelloObjects
 
 		#region Colored Cube
 
-		private void InitializeCube()
+		private SceneObject CreateCubeGeometry()
 		{
-			// Create the program, using the embedded shaders lbrary
-			_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
-			_CubeProgram.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
-			_CubeProgram.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 1");
-			_CubeProgram.Create(_Context);
+			SceneObjectGeometry cubeGeometry = new SceneObjectGeometry("Cube");
 
-			_CubeDepthTest = new DepthTestState(DepthFunction.Lequal);
-			_CubeDepthTest.Create(_Context);
+			#region State
 
-			_CubeTransformState = new TransformState();
-			_CubeTransformState.Create(_Context);
+			cubeGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			cubeGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
+			cubeGeometry.ObjectState.DefineState(new TransformState());
 
-			_CubeLightState = new LightsState();
-			_CubeLightState.LightsCount = 1;
-			_CubeLightState.Lights[0] = new LightsState.Light(ColorRGBAF.ColorWhite);
-			_CubeLightState.Lights[0].AmbientColor = ColorRGBAF.ColorWhite * 0.1f;
-			_CubeLightState.Create(_Context);
+			//LightsState cubeLightState = new LightsState();
+			//LightsState.Light cubeLight = new LightsStateBase.Light(ColorRGBAF.ColorWhite);
+			//cubeLight.AmbientColor = ColorRGBAF.ColorWhite * 0.1f;
+			//cubeLightState.AddLight(cubeLight);
+			//cubeGeometry.ObjectState.DefineState(cubeLightState);
 
-			_CubeMaterialState = new MaterialState();
-			_CubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
-			_CubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.5f;
-			_CubeMaterialState.Create(_Context);
-			_CubeMaterialState.ApplyState(_Context, _CubeProgram);
+			MaterialState cubeMaterialState = new MaterialState();
+			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
+			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.5f;
+			cubeGeometry.ObjectState.DefineState(cubeMaterialState);
 
-			_Context.Bind(_CubeProgram);
+			#endregion
 
-			// Allocate arrays - Position
+			#region Vertex Arrays
+
 			_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 			_CubeArrayPosition.Create(ArrayPosition);
-			// Allocate arrays - Color
+
 			ArrayBufferObject<ColorRGBF> arrayColor = new ArrayBufferObject<ColorRGBF>(BufferObjectHint.StaticCpuDraw);
 			arrayColor.Create(ArrayColors);
-			// Allocate arrays - Color
+
 			ArrayBufferObject<Vertex3f> arrayNormal = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 			arrayNormal.Create(ArrayNormals);
-			// Define vertex arrays
-			_CubeVertexArray = new VertexArrayObject();
-			_CubeVertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
-			_CubeVertexArray.SetArray(arrayColor, VertexArraySemantic.Color);
-			_CubeVertexArray.SetArray(arrayNormal, VertexArraySemantic.Normal);
-			_CubeVertexArray.SetElementArray(PrimitiveType.Triangles);
-			_CubeVertexArray.Create(_Context);
-		}
+			
+			cubeGeometry.VertexArray = new VertexArrayObject();
+			cubeGeometry.VertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
+			cubeGeometry.VertexArray.SetArray(arrayColor, VertexArraySemantic.Color);
+			cubeGeometry.VertexArray.SetArray(arrayNormal, VertexArraySemantic.Normal);
+			cubeGeometry.VertexArray.SetElementArray(PrimitiveType.Triangles);
 
-		private void TerminateCube()
-		{
-			if (_CubeVertexArray != null) {
-				_CubeVertexArray.Dispose();
-				_CubeVertexArray = null;
-			}
-			if (_CubeProgram != null) {
-				_CubeProgram.Dispose();
-				_CubeProgram = null;
-			}
-		}
+			#endregion
 
-		private void RenderCube(PerspectiveProjectionMatrix projectionMatrix, ModelMatrix viewMatrix)
-		{
-			Gl.FrontFace(FrontFaceDirection.Ccw);
+			#region Program
 
-			// Model matrix
-			ModelMatrix modelMatrix = new ModelMatrix();
-			modelMatrix.RotateZ(_CubeRotationH);
-			modelMatrix.RotateY(_CubeRotationP);
+			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
+			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
+			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 1");
 
-			Matrix4x4 viewMatrixInverse = viewMatrix.GetInverseMatrix();
-			Matrix4x4 modelView = viewMatrixInverse * modelMatrix;
-			Matrix3x3 normalMatrix = modelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose();
-			Matrix3x3 lightMatrix = viewMatrixInverse.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose();
+			#endregion
 
-			_CubeDepthTest.ApplyState(_Context, _CubeProgram);
-
-			_CubeTransformState.LocalProjection = projectionMatrix;
-			_CubeTransformState.LocalModel.Set(modelView);
-			_CubeTransformState.ApplyState(_Context, _CubeProgram);
-
-			_CubeLightState.Lights[0].Direction = lightMatrix * Vertex3f.UnitY.Normalized;
-			_CubeLightState.ApplyState(_Context, _CubeProgram);
-
-			_CubeVertexArray.Draw(_Context, _CubeProgram);
+			return (cubeGeometry);
 		}
 
 		/// <summary>
-		/// Rotation angles of the cube, in degrees.
+		/// Scene drawn on screen.
 		/// </summary>
-		private float _CubeRotationH, _CubeRotationP;
-
-		/// <summary>
-		/// The shader program drawing the cube.
-		/// </summary>
-		ShaderProgram _CubeProgram;
-
-		DepthTestState _CubeDepthTest;
-
-		TransformState _CubeTransformState;
-
-		LightsState _CubeLightState;
-
-		MaterialState _CubeMaterialState;
-
-		/// <summary>
-		/// The vertex arrays defining the cube information.
-		/// </summary>
-		VertexArrayObject _CubeVertexArray;
+		SceneGraph _CubeScene;
 
 		/// <summary>
 		/// Shared array buffer: vertex positions
@@ -272,17 +224,12 @@ namespace HelloObjects
 
 		#region Cube Mapping
 
-		private void InitializeCubeMapping()
+		private SceneObject CreateSkyBoxObject()
 		{
 			if (!Gl.CurrentExtensions.TextureCubeMap_ARB)
-				return;
+				return (null);
 
-			#region Program
-
-			_CubeMappingProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.CubeMapping");
-			_CubeMappingProgram.Create(_Context);
-
-			#endregion
+			SceneObjectGeometry skyboxObject = new SceneObjectGeometry();
 
 			#region Texture
 
@@ -304,59 +251,43 @@ namespace HelloObjects
 			foreach (OpenGL.Objects.Image image in cubeMap)
 				image.FlipVertically();
 
-			_CubeMapTexture = new TextureCube();
-			_CubeMapTexture.Create(_Context, PixelLayout.RGB24, cubeMap);
+			TextureCube cubeMapTexture = new TextureCube();
+			cubeMapTexture.Create(PixelLayout.RGB24, cubeMap);
+
+			#endregion
+
+			#region State
+
+			skyboxObject.LocalModel.Scale(170.0f);
+
+			skyboxObject.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			skyboxObject.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Cw, CullFaceMode.Back));
+
+			ShaderUniformState skyboxUniformState = new ShaderUniformState("OpenGL.Skybox");
+			skyboxUniformState.SetUniformState("glo_CubeMapTexture", cubeMapTexture);
+			skyboxObject.ObjectState.DefineState(skyboxUniformState);
+
+			#endregion
+
+			#region Program
+
+			skyboxObject.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Skybox");
+			skyboxObject.Program.Create(_Context);
 
 			#endregion
 
 			#region Vertex Array
 
 			// Define vertex arrays
-			_CubeMappingVertexArray = new VertexArrayObject();
-			_CubeMappingVertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
-			_CubeMappingVertexArray.SetElementArray(PrimitiveType.Triangles);
-			_CubeMappingVertexArray.Create(_Context);
+			skyboxObject.VertexArray = new VertexArrayObject();
+			skyboxObject.VertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
+			skyboxObject.VertexArray.SetElementArray(PrimitiveType.Triangles);
+			skyboxObject.VertexArray.Create(_Context);
 
 			#endregion
+
+			return (skyboxObject);
 		}
-
-		private void TerminateCubeMapping()
-		{
-			if (_CubeMapTexture != null) {
-				_CubeMapTexture.Dispose();
-				_CubeMapTexture = null;
-			}
-		}
-
-		private void RenderCubeMapping(PerspectiveProjectionMatrix projectionMatrix, ModelMatrix viewMatrix)
-		{
-			Gl.FrontFace(FrontFaceDirection.Cw);
-
-			// Model matrix
-			ModelMatrix modelMatrix = new ModelMatrix();
-			modelMatrix.Scale(160.0f);
-
-			_Context.Bind(_CubeMappingProgram);
-			_CubeMappingProgram.ResetTextureUnits();
-			_CubeMappingProgram.SetUniform(_Context, "glo_ModelViewProjection", projectionMatrix * viewMatrix.GetInverseMatrix() * modelMatrix);
-			_CubeMappingProgram.SetUniform(_Context, "glo_CubeMapTexture", _CubeMapTexture);
-			_CubeMappingVertexArray.Draw(_Context, _CubeMappingProgram);
-		}
-
-		/// <summary>
-		/// The shader program drawing the cube.
-		/// </summary>
-		private ShaderProgram _CubeMappingProgram;
-
-		/// <summary>
-		/// The vertex arrays defining the cube information.
-		/// </summary>
-		private VertexArrayObject _CubeMappingVertexArray;
-
-		/// <summary>
-		/// Cube texture for implementing environment mapping.
-		/// </summary>
-		private TextureCube _CubeMapTexture;
 
 		#endregion
 
@@ -378,9 +309,30 @@ namespace HelloObjects
 		{
 			// Wrap GL context with GraphicsContext
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
+			// Scene
+			_CubeScene = new SceneGraph();
+			_CubeScene.AddChild(new SceneObjectCamera());
 
-			InitializeCube();
-			InitializeCubeMapping();
+			SceneObject sceneObject;
+
+			// Global lighting
+			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
+			SceneObjectLight globalLightObject = new SceneObjectLight();
+			LightDirectional globalLight = new LightDirectional();
+
+			globalLightObject.Light = globalLight;
+
+			globalLightZone.AddChild(globalLightObject);
+
+			_CubeScene.AddChild(globalLightZone);
+
+			// Cube
+			globalLightZone.AddChild(CreateCubeGeometry());
+			// Skybox
+			if ((sceneObject = CreateSkyBoxObject()) != null)
+				_CubeScene.AddChild(sceneObject);
+
+			_CubeScene.Create(_Context);
 		}
 
 		/// <summary>
@@ -390,9 +342,7 @@ namespace HelloObjects
 		/// <param name="e"></param>
 		private void ObjectsControl_ContextDestroying(object sender, GlControlEventArgs e)
 		{
-			TerminateCubeMapping();
-			TerminateCube();
-
+			_CubeScene.Dispose();
 			_Context.Dispose();
 		}
 
@@ -410,18 +360,13 @@ namespace HelloObjects
 			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-			// Projection matrix - Perspective
-			PerspectiveProjectionMatrix projectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 400.0f);
+			_CubeScene.CurrentView.LocalModel.SetIdentity();
+			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
+			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
+			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
+			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 400.0f);
 
-			// View matrix
-			ModelMatrix viewMatrix = new ModelMatrix();
-			//viewMatrix.LookAtTarget(new Vertex3f(2.0f, -2.0f, 2.0f), Vertex3f.Zero);
-			viewMatrix.RotateY(_ViewAzimuth);
-			viewMatrix.RotateX(_ViewElevation);
-			viewMatrix.Translate(0.0f, 0.0f, _ViewLever);
-
-			RenderCube(projectionMatrix, viewMatrix);
-			RenderCubeMapping(projectionMatrix, viewMatrix);
+			_CubeScene.Draw(_Context);
 		}
 
 		/// <summary>
@@ -485,8 +430,11 @@ namespace HelloObjects
 
 		private void UpdateTimer_Tick(object sender, EventArgs e)
 		{
-			_CubeRotationH += 1.0f;
-			_CubeRotationP += 0.5f;
+			SceneObject cubeObject = _CubeScene.FindChild(delegate(SceneObject item) { return (item.Identifier == "Cube"); });
+
+			cubeObject.LocalModel.RotateY(1.0f);
+			cubeObject.LocalModel.RotateX(0.85f);
+
 			ObjectsControl.Invalidate();
 		}
 
