@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -21,6 +28,7 @@ using System.Diagnostics;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// Threedimensional vertex defined as reference type (float implementation).
 	/// </summary>
@@ -123,18 +131,38 @@ namespace OpenGL
 		/// Cast to float[] operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/>
+		/// A <see cref="Vertex3"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex3d"/>
+		/// A <see cref="float[]"/> equivalent to <paramref name="a"/>.
 		/// </returns>
-		public static explicit operator float[](Vertex3 a)
+		public static implicit operator float[](Vertex3 a)
 		{
 			float[] v = new float[3];
 
 			v[0] = a.X;
 			v[1] = a.Y;
 			v[2] = a.Z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3f"/> equivalent to <paramref name="a"/>
+		/// </returns>
+		public static implicit operator Vertex3f(Vertex3 a)
+		{
+			Vertex3f v = new Vertex3f();
+
+			v.x = a.X;
+			v.y = a.Y;
+			v.z = a.Z;
 
 			return (v);
 		}
@@ -206,6 +234,8 @@ namespace OpenGL
 
 		#endregion
 	}
+
+
 	/// <summary>
 	/// Threedimensional vertex defined as reference type (double implementation).
 	/// </summary>
@@ -308,18 +338,38 @@ namespace OpenGL
 		/// Cast to float[] operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/>
+		/// A <see cref="Vertex3Double"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex3d"/>
+		/// A <see cref="double[]"/> equivalent to <paramref name="a"/>.
 		/// </returns>
-		public static explicit operator double[](Vertex3Double a)
+		public static implicit operator double[](Vertex3Double a)
 		{
 			double[] v = new double[3];
 
 			v[0] = a.X;
 			v[1] = a.Y;
 			v[2] = a.Z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3Double"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> equivalent to <paramref name="a"/>
+		/// </returns>
+		public static implicit operator Vertex3d(Vertex3Double a)
+		{
+			Vertex3d v = new Vertex3d();
+
+			v.x = a.X;
+			v.y = a.Y;
+			v.z = a.Z;
 
 			return (v);
 		}
@@ -391,4 +441,6 @@ namespace OpenGL
 
 		#endregion
 	}
+
+
 }

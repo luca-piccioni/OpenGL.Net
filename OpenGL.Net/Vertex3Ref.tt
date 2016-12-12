@@ -29,14 +29,16 @@ using System.Diagnostics;
 namespace OpenGL
 {
 <#
-	string[] underlyingType =	new[] { "float",  "double" };
-	string[] postfixes =		new[] { "",       "Double"};
-	string[] zeroes =			new[] { "0.0f",   "0.0" };
-	string[] ones =				new[] { "1.0f",   "1.0" };
+	string[] underlyingType =		new[] { "float",  "double" };
+	string[] postfixes =			new[] { "",       "Double"};
+	string[] zeroes =				new[] { "0.0f",   "0.0" };
+	string[] ones =					new[] { "1.0f",   "1.0" };
+	string[] vertexCastPostfixes =	new[] { "f",       "d"};
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex3{0}", postfixes[i]);
 		string baseType = underlyingType[i];
+		string vertexCastPostfix = vertexCastPostfixes[i];
 #>
 	/// <summary>
 	/// Threedimensional vertex defined as reference type (<#= underlyingType[i] #> implementation).
@@ -140,18 +142,38 @@ namespace OpenGL
 		/// Cast to float[] operator.
 		/// </summary>
 		/// <param name="a">
-		/// A <see cref="Vertex3f"/>
+		/// A <see cref="<#= className #>"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex3d"/>
+		/// A <see cref="<#= baseType #>[]"/> equivalent to <paramref name="a"/>.
 		/// </returns>
-		public static explicit operator <#= baseType #>[](<#= className #> a)
+		public static implicit operator <#= baseType #>[](<#= className #> a)
 		{
 			<#= baseType #>[] v = new <#= baseType #>[3];
 
 			v[0] = a.X;
 			v[1] = a.Y;
 			v[2] = a.Z;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex3<#= vertexCastPostfix #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3<#= vertexCastPostfix #>"/> equivalent to <paramref name="a"/>
+		/// </returns>
+		public static implicit operator Vertex3<#= vertexCastPostfix #>(<#= className #> a)
+		{
+			Vertex3<#= vertexCastPostfix #> v = new Vertex3<#= vertexCastPostfix #>();
+
+			v.x = a.X;
+			v.y = a.Y;
+			v.z = a.Z;
 
 			return (v);
 		}
@@ -223,6 +245,7 @@ namespace OpenGL
 
 		#endregion
 	}
+
 <#
 }
 #>
