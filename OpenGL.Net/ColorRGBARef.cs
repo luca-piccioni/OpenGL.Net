@@ -89,6 +89,50 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Colors
+
+		/// <summary>
+		/// White color.
+		/// </summary>
+		public static readonly ColorRGBA ColorWhite = new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Black color.
+		/// </summary>
+		public static readonly ColorRGBA ColorBlack = new ColorRGBA(0.0f, 0.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Red color.
+		/// </summary>
+		public static readonly ColorRGBA ColorRed = new ColorRGBA(1.0f, 0.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Green color.
+		/// </summary>
+		public static readonly ColorRGBA ColorGreen = new ColorRGBA(0.0f, 1.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Blue color.
+		/// </summary>
+		public static readonly ColorRGBA ColorBlue = new ColorRGBA(0.0f, 0.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Yellow color.
+		/// </summary>
+		public static readonly ColorRGBA ColorYellow = new ColorRGBA(1.0f, 1.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Magenta color.
+		/// </summary>
+		public static readonly ColorRGBA ColorMagenta = new ColorRGBA(1.0f, 0.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Cyan color.
+		/// </summary>
+		public static readonly ColorRGBA ColorCyan = new ColorRGBA(0.0f, 1.0f, 1.0f, 1.0f);
+
+		#endregion
+
 		#region Cast
 
 		/// <summary>
@@ -97,7 +141,7 @@ namespace OpenGL
 		/// <param name="value"></param>
 		/// <returns>
 		/// </returns>
-		public static explicit operator float[] (ColorRGBA value)
+		public static implicit operator float[] (ColorRGBA value)
 		{
 			if (value == null)
 				throw new ArgumentNullException("value");
@@ -110,6 +154,14 @@ namespace OpenGL
 			v[3] = value.Alpha;
 
 			return (v);
+		}
+
+		public static implicit operator ColorRGBAF(ColorRGBA value)
+		{
+			if (value == null)
+				throw new ArgumentNullException("value");
+
+			return (new ColorRGBAF(value.Red, value.Green, value.Blue, value.Alpha));
 		}
 
 		#endregion
