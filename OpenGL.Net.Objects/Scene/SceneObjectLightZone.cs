@@ -58,14 +58,13 @@ namespace OpenGL.Objects.Scene
 		/// </param>
 		protected override void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			ICollection<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
+			List<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
 
 			SceneLightingState lightingState = (SceneLightingState)ObjectState[SceneLightingState.StateId];
-			lightingState.SceneLights.Clear();
-			foreach (SceneObjectLight sceneObject in lightObjects)
-				lightingState.SceneLights.Add(sceneObject.Light);
 
 			lightingState.CurrentSceneContext = ctxScene;
+			lightingState.ResetLights();
+			lightingState.AddLights(lightObjects.ConvertAll(delegate(SceneObject item) { return ((SceneObjectLight)item); }));
 		}
 
 		#endregion

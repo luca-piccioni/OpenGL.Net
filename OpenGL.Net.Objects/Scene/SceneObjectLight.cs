@@ -16,9 +16,14 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using OpenGL.Objects.State;
+
 namespace OpenGL.Objects.Scene
 {
-	public class SceneObjectLight : SceneObject
+	/// <summary>
+	/// Base class for defining scene lighting.
+	/// </summary>
+	public abstract class SceneObjectLight : SceneObject
 	{
 		#region Constructors
 
@@ -46,9 +51,36 @@ namespace OpenGL.Objects.Scene
 		#region Light Model
 
 		/// <summary>
-		/// Light model.
+		/// Light ambient color.
 		/// </summary>
-		public Light Light;
+		public ColorRGBA AmbientColor = ColorRGBA.ColorBlack;
+
+		/// <summary>
+		/// Light diffuse color.
+		/// </summary>
+		public ColorRGBA DiffuseColor = ColorRGBA.ColorWhite;
+
+		/// <summary>
+		/// Light specular color.
+		/// </summary>
+		public ColorRGBA SpecularColor = ColorRGBA.ColorBlack;
+
+		/// <summary>
+		/// Convert to <see cref="LightsStateBase.Light"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="LightsStateBase.Light"/> corresponding o this Light.
+		/// </returns>
+		internal virtual LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
+		{
+			LightsStateBase.Light lightState = new LightsStateBase.Light();
+
+			lightState.AmbientColor = AmbientColor;
+			lightState.DiffuseColor = DiffuseColor;
+			lightState.SpecularColor = SpecularColor;
+
+			return (lightState);
+		}
 
 		#endregion
 	}

@@ -20,18 +20,44 @@ using OpenGL.Objects.State;
 
 namespace OpenGL.Objects.Scene
 {
-	public class LightPoint : Light
+	/// <summary>
+	/// Base class for defining scene lighting.
+	/// </summary>
+	public class SceneObjectLightDirectional : SceneObjectLight
 	{
-		#region Properties
+		#region Constructors
 
 		/// <summary>
-		/// The light attenuation factors (X: constant; Y: linear; Z: quadratic; used by point and spot lights).
+		/// Construct a SceneObjectLightDirectional.
 		/// </summary>
-		public Vertex3 AttenuationFactors;
+		public SceneObjectLightDirectional()
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct a SceneObjectLightDirectional.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="String"/> that specify the node identifier. It can be null for unnamed objects.
+		/// </param>
+		public SceneObjectLightDirectional(string id) : base(id)
+		{
+			
+		}
 
 		#endregion
 
-		#region Light Overrides
+		#region Light Model
+
+		/// <summary>
+		/// The direction of the light source (i.e. not the light direction).
+		/// </summary>
+		public Vertex3 Direction = Vertex3.UnitY;
+
+		#endregion
+
+		#region SceneObjectLight Overrides
 
 		/// <summary>
 		/// Convert to <see cref="LightsStateBase.Light"/>.
@@ -42,8 +68,11 @@ namespace OpenGL.Objects.Scene
 		internal override LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
 		{
 			LightsStateBase.Light lightState = base.ToLightState(sceneCtx);
+			Vertex3f lightDir = Vertex3f.UnitY;
 
-			lightState.AttenuationFactors = AttenuationFactors;
+			// Note: avoiding to invert the view matrix twice
+			IMatrix3x3 normalMatrix = sceneCtx.CurrentView.LocalModel.GetComplementMatrix(3, 3).Transpose();
+			lightState.Direction = (Vertex3f)normalMatrix.Multiply((Vertex3f)Direction);
 
 			return (lightState);
 		}

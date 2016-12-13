@@ -30,10 +30,34 @@ namespace OpenGL.Objects.Scene
 	{
 		#region Active Lights
 
+		public void AddLights(IEnumerable<SceneObjectLight> lights)
+		{
+			foreach (SceneObjectLight sceneObjectLight in lights)
+				if (_SceneLights.Contains(sceneObjectLight) == false)
+					_SceneLights.Add(sceneObjectLight);
+			UpdateLightState(CurrentSceneContext);
+		}
+
+		public void ResetLights()
+		{
+			_SceneLights.Clear();
+			_Lights = null;
+		}
+
+		private void UpdateLightState(SceneGraphContext ctxScene)
+		{
+			_Lights = new Light[_SceneLights.Count];
+
+			for (int i = 0; i < _SceneLights.Count; i++)
+				_Lights[i] = _SceneLights[i].ToLightState(ctxScene);
+		}
+
 		/// <summary>
 		/// Currently active lights.
 		/// </summary>
-		public readonly List<Scene.Light> SceneLights = new List<Scene.Light>();
+		private readonly List<SceneObjectLight> _SceneLights = new List<SceneObjectLight>();
+
+		private Light[] _Lights;
 
 		public SceneGraphContext CurrentSceneContext;
 
@@ -49,12 +73,9 @@ namespace OpenGL.Objects.Scene
 		{
 			get
 			{
-				Light[] lights = new Light[SceneLights.Count];
-
-				for (int i = 0; i < SceneLights.Count; i++)
-					lights[i] = SceneLights[i].ToLightState(CurrentSceneContext);
-
-				return (lights);
+				if (_Lights == null && _SceneLights.Count > 0)
+					UpdateLightState(CurrentSceneContext);
+				return (_Lights ?? new Light[0]);
 			}
 		}
 
@@ -62,7 +83,7 @@ namespace OpenGL.Objects.Scene
 		/// The enabled lights count.
 		/// </summary>
 		[ShaderUniformState()]
-		public override int LightsCount { get { return (SceneLights.Count); } }
+		public override int LightsCount { get { return (_Lights != null ? _Lights.Length : 0); } }
 
 		/// <summary>
 		/// Merge this state with another one.

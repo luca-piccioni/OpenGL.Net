@@ -125,18 +125,16 @@ namespace OpenGL.Objects.Scene
 			if (match == null)
 				throw new ArgumentNullException("match");
 
-			if (_Children.RemoveAll(match) > 0)
-				return (true);
+			bool res = false;
+
+			res |= _Children.RemoveAll(match) > 0;
 
 			if (recurse) {
-				bool res = false;
-
 				foreach (SceneObject sceneObject in _Children)
 					res |= sceneObject.RemoveChildren(match, true);
+			}
 
-				return (res);
-			} else
-				return (false);
+			return (res);
 		}
 
 		/// <summary>
@@ -152,7 +150,7 @@ namespace OpenGL.Objects.Scene
 		/// It returns a <see cref="ICollection{SceneObject}"/> holding all <see cref="SceneObject"/> instances
 		/// found by this method.
 		/// </returns>
-		public ICollection<SceneObject> FindChildren(Predicate<SceneObject> match)
+		public List<SceneObject> FindChildren(Predicate<SceneObject> match)
 		{
 			return (FindChildren(match, true));
 		}
@@ -170,7 +168,7 @@ namespace OpenGL.Objects.Scene
 		/// It returns a <see cref="ICollection{SceneObject}"/> holding all <see cref="SceneObject"/> instances
 		/// found by this method.
 		/// </returns>
-		public virtual ICollection<SceneObject> FindChildren(Predicate<SceneObject> match, bool recurse)
+		public virtual List<SceneObject> FindChildren(Predicate<SceneObject> match, bool recurse)
 		{
 			if (match == null)
 				throw new ArgumentNullException("match");
@@ -269,10 +267,19 @@ namespace OpenGL.Objects.Scene
 		{
 			get
 			{
-				IModelMatrix worldModel = (IModelMatrix)LocalModel.Clone();
+				Stack<IModelMatrix> modelStack = new Stack<IModelMatrix>();
+				SceneObject cursor = this;
+				IModelMatrix worldModel = new ModelMatrix();
 
-				for (SceneObject parentObject = _ParentObject; parentObject != null; parentObject = parentObject._ParentObject)
-					worldModel = worldModel.Multiply(_ParentObject.LocalModel);
+				while (cursor != null) {
+					// Store local model
+					modelStack.Push(cursor.LocalModel);
+					// Go to parent, if any
+					cursor = cursor._ParentObject;
+				}
+
+				while (modelStack.Count > 0)
+					worldModel = worldModel.Multiply(modelStack.Pop());
 
 				return (worldModel);
 			}

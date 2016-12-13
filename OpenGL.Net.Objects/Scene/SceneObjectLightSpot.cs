@@ -21,11 +21,53 @@ using OpenGL.Objects.State;
 namespace OpenGL.Objects.Scene
 {
 	/// <summary>
-	/// Directional light.
+	/// Base class for defining scene lighting.
 	/// </summary>
-	public class LightDirectional : Light
+	public class SceneObjectLightSpot : SceneObjectLightPoint
 	{
-		#region Light Overrides
+		#region Constructors
+
+		/// <summary>
+		/// Construct a SceneObjectLightSpot.
+		/// </summary>
+		public SceneObjectLightSpot()
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct a SceneObjectLightSpot.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="String"/> that specify the node identifier. It can be null for unnamed objects.
+		/// </param>
+		public SceneObjectLightSpot(string id) : base(id)
+		{
+			
+		}
+
+		#endregion
+
+		#region Light Model
+
+		/// <summary>
+		/// Directoin of the spot.
+		/// </summary>
+		public Vertex3 Direction;
+
+		/// <summary>
+		/// Fall-off angle, in degrees.
+		/// </summary>
+		public float FalloffAngle;
+
+		/// <summary>
+		/// Fall-off exponent.
+		/// </summary>
+		public float FalloffExponent;
+
+		#endregion
+
+		#region SceneObjectLight Overrides
 
 		/// <summary>
 		/// Convert to <see cref="LightsStateBase.Light"/>.
@@ -36,11 +78,8 @@ namespace OpenGL.Objects.Scene
 		internal override LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
 		{
 			LightsStateBase.Light lightState = base.ToLightState(sceneCtx);
-			Vertex3f lightDir = Vertex3f.UnitY;
 
-			// Note: avoiding to invert the view matrix twice
-			IMatrix3x3 normalMatrix = sceneCtx.CurrentView.LocalModel.GetComplementMatrix(3, 3).Transpose();
-			lightState.Direction = (Vertex3f)normalMatrix.Multiply(lightDir);
+			lightState.FallOff = new Vertex2f(FalloffAngle, FalloffExponent);
 
 			return (lightState);
 		}

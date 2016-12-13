@@ -21,30 +21,43 @@ using OpenGL.Objects.State;
 namespace OpenGL.Objects.Scene
 {
 	/// <summary>
-	/// Light abstraction.
+	/// Base class for defining scene lighting.
 	/// </summary>
-	public abstract class Light
+	public class SceneObjectLightPoint : SceneObjectLight
 	{
-		#region Properties
+		#region Constructors
 
 		/// <summary>
-		/// Light ambient color.
+		/// Construct a SceneObjectLightPoint.
 		/// </summary>
-		public ColorRGBA AmbientColor = ColorRGBA.ColorBlack;
+		public SceneObjectLightPoint()
+		{
+			
+		}
 
 		/// <summary>
-		/// Light diffuse color.
+		/// Construct a SceneObjectLightPoint.
 		/// </summary>
-		public ColorRGBA DiffuseColor = ColorRGBA.ColorWhite;
-
-		/// <summary>
-		/// Light specular color.
-		/// </summary>
-		public ColorRGBA SpecularColor = ColorRGBA.ColorBlack;
+		/// <param name="id">
+		/// A <see cref="String"/> that specify the node identifier. It can be null for unnamed objects.
+		/// </param>
+		public SceneObjectLightPoint(string id) : base(id)
+		{
+			
+		}
 
 		#endregion
 
-		#region Abstract Interface
+		#region Light Model
+
+		/// <summary>
+		/// The light attenuation factors (X: constant; Y: linear; Z: quadratic; used by point and spot lights).
+		/// </summary>
+		public Vertex3 AttenuationFactors = new Vertex3(1.0f, 0.0f, 0.0f);
+
+		#endregion
+
+		#region SceneObjectLight Overrides
 
 		/// <summary>
 		/// Convert to <see cref="LightsStateBase.Light"/>.
@@ -52,13 +65,13 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns the <see cref="LightsStateBase.Light"/> corresponding o this Light.
 		/// </returns>
-		internal virtual LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
+		internal override LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
 		{
-			LightsStateBase.Light lightState = new LightsStateBase.Light();
+			LightsStateBase.Light lightState = base.ToLightState(sceneCtx);
 
-			lightState.AmbientColor = AmbientColor;
-			lightState.DiffuseColor = DiffuseColor;
-			lightState.SpecularColor = SpecularColor;
+			lightState.Position = (Vertex3f)WorldModel.Multiply(Vertex3f.Zero);
+			lightState.AttenuationFactors = AttenuationFactors;
+			lightState.FallOff.X = 180.0f;
 
 			return (lightState);
 		}
