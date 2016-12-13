@@ -58,15 +58,11 @@ namespace HelloObjects
 			cubeGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			cubeGeometry.ObjectState.DefineState(new TransformState());
 
-			//LightsState cubeLightState = new LightsState();
-			//LightsState.Light cubeLight = new LightsStateBase.Light(ColorRGBAF.ColorWhite);
-			//cubeLight.AmbientColor = ColorRGBAF.ColorWhite * 0.1f;
-			//cubeLightState.AddLight(cubeLight);
-			//cubeGeometry.ObjectState.DefineState(cubeLightState);
-
 			MaterialState cubeMaterialState = new MaterialState();
 			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
 			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.5f;
+			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorMagenta;
+			cubeMaterialState.FrontMaterial.Shininess = 0.5f;
 			cubeGeometry.ObjectState.DefineState(cubeMaterialState);
 
 			#endregion
@@ -94,7 +90,7 @@ namespace HelloObjects
 
 			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
 			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
-			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 1");
+			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 4");
 
 			#endregion
 
@@ -317,12 +313,15 @@ namespace HelloObjects
 
 			// Global lighting
 			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
-			SceneObjectLight globalLightObject = new SceneObjectLight();
-			LightDirectional globalLight = new LightDirectional();
 
-			globalLightObject.Light = globalLight;
-
+			SceneObjectLightDirectional globalLightObject = new SceneObjectLightDirectional();
+			globalLightObject.Direction = Vertex3f.UnitY + Vertex3f.UnitZ;
 			globalLightZone.AddChild(globalLightObject);
+
+			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
+			localLightObject.LocalModel.Translate(0.0, -5.0f, 0.0);
+			localLightObject.AttenuationFactors.Y = 0.1f;
+			globalLightZone.AddChild(localLightObject);
 
 			_CubeScene.AddChild(globalLightZone);
 
