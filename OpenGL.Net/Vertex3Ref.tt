@@ -43,7 +43,7 @@ namespace OpenGL
 	/// <summary>
 	/// Threedimensional vertex defined as reference type (<#= underlyingType[i] #> implementation).
 	/// </summary>
-	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z}")]
+	[DebuggerDisplay("<#= className #>: X={X} Y={Y} Z={Z}")]
 	public class <#= className #> : ICopiable<<#= className #>>
 	{
 		#region Constructors
@@ -169,13 +169,21 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3<#= vertexCastPostfix #>(<#= className #> a)
 		{
-			Vertex3<#= vertexCastPostfix #> v = new Vertex3<#= vertexCastPostfix #>();
+			return (new Vertex3<#= vertexCastPostfix #>(a.X, a.Y, a.Z));
+		}
 
-			v.x = a.X;
-			v.y = a.Y;
-			v.z = a.Z;
-
-			return (v);
+		/// <summary>
+		/// Cast to Vertex3<#= vertexCastPostfix #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3<#= vertexCastPostfix #>"/> equivalent to <paramref name="a"/>
+		/// </returns>
+		public static implicit operator <#= className #>(Vertex3<#= vertexCastPostfix #> a)
+		{
+			return (new <#= className #>(a.x, a.y, a.z));
 		}
 
 		#endregion

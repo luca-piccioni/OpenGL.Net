@@ -32,7 +32,7 @@ namespace OpenGL
 	/// <summary>
 	/// Threedimensional vertex defined as reference type (float implementation).
 	/// </summary>
-	[DebuggerDisplay("Vertex3: X={x} Y={y} Z={z}")]
+	[DebuggerDisplay("Vertex3: X={X} Y={Y} Z={Z}")]
 	public class Vertex3 : ICopiable<Vertex3>
 	{
 		#region Constructors
@@ -158,13 +158,21 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex3 a)
 		{
-			Vertex3f v = new Vertex3f();
+			return (new Vertex3f(a.X, a.Y, a.Z));
+		}
 
-			v.x = a.X;
-			v.y = a.Y;
-			v.z = a.Z;
-
-			return (v);
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3f"/> equivalent to <paramref name="a"/>
+		/// </returns>
+		public static implicit operator Vertex3(Vertex3f a)
+		{
+			return (new Vertex3(a.x, a.y, a.z));
 		}
 
 		#endregion
@@ -239,7 +247,7 @@ namespace OpenGL
 	/// <summary>
 	/// Threedimensional vertex defined as reference type (double implementation).
 	/// </summary>
-	[DebuggerDisplay("Vertex3Double: X={x} Y={y} Z={z}")]
+	[DebuggerDisplay("Vertex3Double: X={X} Y={Y} Z={Z}")]
 	public class Vertex3Double : ICopiable<Vertex3Double>
 	{
 		#region Constructors
@@ -365,13 +373,21 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex3Double a)
 		{
-			Vertex3d v = new Vertex3d();
+			return (new Vertex3d(a.X, a.Y, a.Z));
+		}
 
-			v.x = a.X;
-			v.y = a.Y;
-			v.z = a.Z;
-
-			return (v);
+		/// <summary>
+		/// Cast to Vertex3d operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3Double"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3d"/> equivalent to <paramref name="a"/>
+		/// </returns>
+		public static implicit operator Vertex3Double(Vertex3d a)
+		{
+			return (new Vertex3Double(a.x, a.y, a.z));
 		}
 
 		#endregion
