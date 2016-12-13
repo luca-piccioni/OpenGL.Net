@@ -42,7 +42,7 @@ namespace OpenGL.Objects.Scene
 		#region Draw
 
 		/// <summary>
-		/// Draw this SceneGraphObject.
+		/// Draw this SceneGraph.
 		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for drawing.
@@ -57,8 +57,6 @@ namespace OpenGL.Objects.Scene
 					LocalProjection = _CurrentView.ProjectionMatrix;
 					LocalModel = _CurrentView.LocalModel.GetInverseMatrix();
 				}
-				// Update
-				base.Update(ctx, ctxScene);
 				// Base implementation
 				base.Draw(ctx, ctxScene);
 			}

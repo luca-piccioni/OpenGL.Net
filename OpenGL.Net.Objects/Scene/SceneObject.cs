@@ -277,7 +277,132 @@ namespace OpenGL.Objects.Scene
 				return (worldModel);
 			}
 		}
-	
+
+		#endregion
+
+		#region Traversing
+
+		/// <summary>
+		/// Delegate for visiting <see cref="SceneObject"/> instanced during scene graph traversal.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing/updating objects, if any.
+		/// </param>
+		/// <param name="ctxScene">
+		/// The <see cref="SceneGraphContext"/> used for drawing/updating objects, if any.
+		/// </param>
+		/// <param name="sceneObject">
+		/// The <see cref="SceneObject"/> currently visited by the delegate function.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Boolean"/> indicating whether the traversal function shall continue.
+		/// </returns>
+		protected delegate bool TraverseDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data);
+
+		/// <summary>
+		/// Context holding information for executing scene graph traversal.
+		/// </summary>
+		protected class TraverseContext
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a TraverseContext.
+			/// </summary>
+			/// <param name="visit">
+			/// The <see cref="TraverseDelegate"/> used for visiting the underlying scene graph nodes.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="visit"/> is null.
+			/// </exception>
+			public TraverseContext(TraverseDelegate visit) :
+				this(visit, null, null)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a TraverseContext.
+			/// </summary>
+			/// <param name="visit">
+			/// The <see cref="TraverseDelegate"/> used for visiting the underlying scene graph nodes.
+			/// </param>
+			/// <param name="pre">
+			/// The <see cref="TraverseDelegate"/> executed before <paramref name="visit"/>. It can be null.
+			/// </param>
+			/// <param name="post">
+			/// The <see cref="TraverseDelegate"/> executed after <paramref name="visit"/>. It can be null.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="visit"/> is null.
+			/// </exception>
+			public TraverseContext(TraverseDelegate visit, TraverseDelegate pre, TraverseDelegate post)
+			{
+				if (visit == null)
+					throw new ArgumentNullException("visit");
+
+				Visit = visit;
+				PreContract = pre;
+				PostContract = post;
+			}
+
+			#endregion
+
+			#region Callbacks
+
+			/// <summary>
+			/// Visit the underlying node.
+			/// </summary>
+			public readonly TraverseDelegate Visit;
+
+			/// <summary>
+			/// Function executed before <see cref="Visit"/>. It can be null.
+			/// </summary>
+			public readonly TraverseDelegate PreContract;
+
+			/// <summary>
+			/// Function executed after <see cref="Visit"/>. It can be null.
+			/// </summary>
+			public readonly TraverseDelegate PostContract;
+
+			#endregion
+		}
+
+		/// <summary>
+		/// Traverse the scene graph from the current SceneObject to the leaf SceneObject.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing/updating objects, if any.
+		/// </param>
+		/// <param name="ctxScene">
+		/// The <see cref="SceneGraphContext"/> used for drawing/updating objects, if any.
+		/// </param>
+		/// <param name="traverseFunc">
+		/// The <see cref="TraverseDelegate"/> executed for each SceneObject instance visited during traversal.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="traverseFunc"/> is null.
+		/// </exception>
+		protected void TraverseDirect(GraphicsContext ctx, SceneGraphContext ctxScene, TraverseContext traverseFunc, object data)
+		{
+			if (traverseFunc == null)
+				throw new ArgumentNullException("traverseFunc");
+
+			if (traverseFunc.PreContract != null)
+				traverseFunc.PreContract(ctx, ctxScene, this, data);
+			try {
+				// Visit this object
+				if (traverseFunc.Visit(ctx, ctxScene, this, data) == false)
+					return;
+				// Visit children
+				foreach (SceneObject sceneObject in _Children)
+					sceneObject.TraverseDirect(ctx, ctxScene, traverseFunc, data);
+			} finally {
+				if (traverseFunc.PostContract != null)
+					traverseFunc.PostContract(ctx, ctxScene, this, data);
+			}
+		}
+
 		#endregion
 
 		#region Updating
@@ -307,11 +432,7 @@ namespace OpenGL.Objects.Scene
 			if (ctxScene == null)
 				throw new ArgumentNullException("ctxScene");
 
-			// Update this object
-			UpdateThis(ctx, ctxScene);
-			// Update all children
-			foreach (SceneObject sceneGraphObject in _Children)
-				sceneGraphObject.Update(ctx, ctxScene);
+			TraverseDirect(ctx, ctxScene, _TraverseUpdateContext, null);
 		}
 
 		/// <summary>
@@ -327,6 +448,18 @@ namespace OpenGL.Objects.Scene
 		{
 			
 		}
+
+		private static bool UpdateDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			sceneObject.UpdateThis(ctx, ctxScene);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// The <see cref="TraverseContext"/> used for updating the scene graph
+		/// </summary>
+		private static TraverseContext _TraverseUpdateContext = new TraverseContext(UpdateDelegate);
 
 		#endregion
 
@@ -357,17 +490,7 @@ namespace OpenGL.Objects.Scene
 			if (ctxScene == null)
 				throw new ArgumentNullException("ctxScene");
 
-			// Push and merge the graphics state
-			ctxScene.GraphicsStateStack.Push(ObjectState);
-			try {
-				// Draw this object
-				DrawThis(ctx, ctxScene);
-				// Draw all children
-				foreach (SceneObject sceneGraphObject in _Children)
-					sceneGraphObject.Draw(ctx, ctxScene);
-			} finally {
-				ctxScene.GraphicsStateStack.Pop();
-			}
+			TraverseDirect(ctx, ctxScene, _TraverseDrawContext, null);
 		}
 
 		/// <summary>
@@ -383,6 +506,37 @@ namespace OpenGL.Objects.Scene
 		{
 			
 		}
+
+		private static bool DrawDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			// Draw this object
+			sceneObject.DrawThis(ctx, ctxScene);
+
+			return (true);
+		}
+
+		private static bool DrawPreDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			// Update object before applying state
+			sceneObject.UpdateThis(ctx, ctxScene);
+			// Push and merge the graphics state
+			ctxScene.GraphicsStateStack.Push(sceneObject.ObjectState);
+
+			return (true);
+		}
+
+		private static bool DrawPostDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			// Restore previous state
+			ctxScene.GraphicsStateStack.Pop();
+
+			return (true);
+		}
+
+		/// <summary>
+		/// The <see cref="TraverseContext"/> used for drawing the scene graph
+		/// </summary>
+		private static TraverseContext _TraverseDrawContext = new TraverseContext(DrawDelegate, DrawPreDelegate, DrawPostDelegate);
 
 		/// <summary>
 		/// The state relative to this SceneGraphObject.
