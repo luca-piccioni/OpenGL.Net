@@ -23,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Color defined as reference type.
 	/// </summary>
-	public class ColorRGBA
+	public class ColorRGBA : IEquatable<ColorRGBA>
 	{
 		#region Constructors
 
@@ -162,6 +162,106 @@ namespace OpenGL
 				throw new ArgumentNullException("value");
 
 			return (new ColorRGBAF(value.Red, value.Green, value.Blue, value.Alpha));
+		}
+
+		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(ColorRGBA v1, ColorRGBA v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(ColorRGBA v1, ColorRGBA v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region IEquatable<ColorRGBA> Implementation
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBA is equal to another ColorRGBA.
+		/// </summary>
+		/// <param name="other">
+		/// An ColorRGBA to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this ColorRGBA is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBA other)
+		{
+			if (ReferenceEquals(null, other))
+				return false;
+
+			if (Math.Abs(Red - other.Red) >= Single.Epsilon)
+				return (false);
+			if (Math.Abs(Green - other.Green) >= Single.Epsilon)
+				return (false);
+			if (Math.Abs(Blue - other.Blue) >= Single.Epsilon)
+				return (false);
+			if (Math.Abs(Alpha - other.Alpha) >= Single.Epsilon)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+
+			ColorRGBA otherObj = obj as ColorRGBA;
+			if (otherObj == null)
+				return (false);
+
+			return (Equals(otherObj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = Red.GetHashCode();
+				result = (result * 397) ^ Green.GetHashCode();
+				result = (result * 397) ^ Blue.GetHashCode();
+				result = (result * 397) ^ Alpha.GetHashCode();
+
+				return result;
+			}
 		}
 
 		#endregion
