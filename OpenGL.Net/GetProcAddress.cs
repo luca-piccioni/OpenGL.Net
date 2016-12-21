@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -313,7 +314,7 @@ namespace OpenGL
 			}
 
 			if (libraryHandle == IntPtr.Zero)
-				throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath));
+				throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath), new Win32Exception(Marshal.GetLastWin32Error()));
 
 			return (libraryHandle);
 		}
