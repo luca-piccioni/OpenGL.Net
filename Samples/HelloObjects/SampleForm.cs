@@ -50,6 +50,21 @@ namespace HelloObjects
 
 		private SceneObject CreateCubeGeometry()
 		{
+			_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			_CubeArrayPosition.Create(ArrayPosition);
+
+			// C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\RB-BumbleBee.obj | VH-BumbleBee.obj
+			// 
+			SceneObject bb8 = SceneObjectCodec.Instance.Load(@"C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\VH-BumbleBee.obj");
+
+			bb8.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			bb8.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
+			bb8.LocalModel.Scale(0.1f);
+			bb8.LocalModel.RotateX(-90.0f);
+			bb8.LocalModel.RotateZ(90.0f);
+
+			return bb8;
+
 			SceneObjectGeometry cubeGeometry = new SceneObjectGeometry("Cube");
 
 			#region State
@@ -88,7 +103,7 @@ namespace HelloObjects
 
 			#region Program
 
-			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
+			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+PhongFragment");
 			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
 			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 4");
 
@@ -315,13 +330,13 @@ namespace HelloObjects
 			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
 
 			SceneObjectLightDirectional globalLightObject = new SceneObjectLightDirectional();
-			globalLightObject.Direction = Vertex3f.UnitY + Vertex3f.UnitZ;
+			globalLightObject.Direction = Vertex3f.UnitY;
 			globalLightZone.AddChild(globalLightObject);
 
 			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
 			localLightObject.LocalModel.Translate(0.0, -5.0f, 0.0);
 			localLightObject.AttenuationFactors.Y = 0.1f;
-			globalLightZone.AddChild(localLightObject);
+			//globalLightZone.AddChild(localLightObject);
 
 			_CubeScene.AddChild(globalLightZone);
 
@@ -431,8 +446,10 @@ namespace HelloObjects
 		{
 			SceneObject cubeObject = _CubeScene.FindChild(delegate(SceneObject item) { return (item.Identifier == "Cube"); });
 
-			cubeObject.LocalModel.RotateY(1.0f);
-			cubeObject.LocalModel.RotateX(0.85f);
+			if (cubeObject != null) {
+				cubeObject.LocalModel.RotateY(1.0f);
+				cubeObject.LocalModel.RotateX(0.85f);
+			}
 
 			ObjectsControl.Invalidate();
 		}
