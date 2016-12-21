@@ -66,13 +66,14 @@
 			<Attribute Name="glo_Position" Semantic="Position" />
 			<Attribute Name="glo_Color" Semantic="Color" />
 			<Attribute Name="glo_Normal" Semantic="Normal" />
+			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />
 			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
 		</Program>
 	
-<!-- Standard+PhongFragment-->
+		<!-- Standard+PhongFragment-->
 		<Program Id="OpenGL.Standard+PhongFragment">
 			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex">
 				<Symbols>
@@ -88,8 +89,8 @@
 			<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" Stage="Fragment" />
 
 			<Attribute Name="glo_Position" Semantic="Position" />
-			<Attribute Name="glo_Color" Semantic="Color" />
 			<Attribute Name="glo_Normal" Semantic="Normal" />
+			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />

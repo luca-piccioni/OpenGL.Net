@@ -23,6 +23,11 @@ namespace OpenGL.Objects
 	/// </summary>
 	public static class VertexArraySemantic
 	{
+		public static string ToArray(string semantic, int index)
+		{
+			return (string.Format("{0}[{1}]", semantic, index));
+		}
+
 		/// <summary>
 		/// Vertices position.
 		/// </summary>

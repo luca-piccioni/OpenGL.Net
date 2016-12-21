@@ -63,7 +63,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Light specular color.
 		/// </summary>
-		public ColorRGBA SpecularColor = ColorRGBA.ColorBlack;
+		public ColorRGBA SpecularColor = ColorRGBA.ColorWhite;
 
 		/// <summary>
 		/// Convert to <see cref="LightsStateBase.Light"/>.

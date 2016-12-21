@@ -54,28 +54,22 @@ void main()
 	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
 	int index;
 
-#if defined(GLO_COLOR_PER_VERTEX)
-	// Material diffuse color is vertex color, if specified
-	fragmentMaterial.DiffuseColor = glo_VertexColor;
-#endif
-
 	// Emission color from texture
 	index = glo_FrontMaterialEmissionTexCoord;
 	if (index >= 0) {
-		fragmentMaterial.EmissiveColor = TEXTURE_2D(glo_FrontMaterialEmissionTexture, glo_VertexTexCoord[index]);
+		fragmentMaterial.EmissiveColor = fragmentMaterial.EmissiveColor * TEXTURE_2D(glo_FrontMaterialEmissionTexture, glo_VertexTexCoord[index]);
 	}
 
 	// Ambient color from texture
 	index = glo_FrontMaterialAmbientTexCoord;
 	if (index >= 0) {
-		fragmentMaterial.AmbientColor = TEXTURE_2D(glo_FrontMaterialAmbientTexture, glo_VertexTexCoord[index]);
+		fragmentMaterial.AmbientColor = fragmentMaterial.AmbientColor * TEXTURE_2D(glo_FrontMaterialAmbientTexture, glo_VertexTexCoord[index]);
 	}
 
 	// Diffuse color from texture
 	index = glo_FrontMaterialDiffuseTexCoord;
-	if (glo_FrontMaterialDiffuseTexCoord >= 0) {
+	if (index >= 0) {
 		fragmentMaterial.DiffuseColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
-
 #if defined(GLO_COLOR_PER_VERTEX)
 		// Modulate diffuse texture with vertex color, if defined
 		fragmentMaterial.DiffuseColor = fragmentMaterial.DiffuseColor * glo_VertexColor;
@@ -89,8 +83,13 @@ void main()
 
 	int index;
 
+	// Default
+	glo_FragColor = glo_UniformColor;
+
+#if defined(GLO_COLOR_PER_VERTEX)
 	// Vertex shader computes fragment color
 	glo_FragColor = glo_VertexColor;
+#endif
 
 	// No emission texture support!
 

@@ -691,10 +691,12 @@ namespace OpenGL.Objects
 			/// Texture coordinates are clamped to the valid range.
 			/// </summary>
 			Clamp = Gl.CLAMP_TO_EDGE,
+
 			/// <summary>
 			/// Texture coordinates are wrapped around the valid range.
 			/// </summary>
 			Repeat = Gl.REPEAT,
+
 			/// <summary>
 			/// Texture coordinates are wrapped around the valid range, but mirrored.
 			/// </summary>
@@ -1239,9 +1241,6 @@ namespace OpenGL.Objects
 				if (_RequiresMipMaps)
 					GenerateMipmaps(ctx);
 			}
-
-			// Clear binding point
-			ctx.Unbind(this);
 		}
 
 		#endregion

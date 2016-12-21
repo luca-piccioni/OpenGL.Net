@@ -68,6 +68,11 @@
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Scene\SceneObjectCodecWavefront.cs" />
+    <Compile Include="Scene\SceneObjectFormat.cs" />
+    <Compile Include="Scene\SceneObjectCodecCriteria.cs" />
+    <Compile Include="Scene\SceneObjectCodec.cs" />
+    <Compile Include="Scene\SceneObjectInfo.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
     <Compile Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\IBoundingVolume.cs" />

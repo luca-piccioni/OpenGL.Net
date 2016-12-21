@@ -41,7 +41,7 @@ vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 norma
 
 	return (
 		material.EmissiveColor +
-		glo_LightModel.AmbientLighting * lightAmbient +
+		glo_LightModel.AmbientLighting * lightAmbient * glo_LightModel.AmbientLighting +
 		material.DiffuseColor * lightDiffuse +
 		material.SpecularColor * lightSpecular
 		);

@@ -754,7 +754,7 @@ namespace OpenGL.Objects
 						continue;
 					}
 
-					throw new InvalidOperationException(String.Format("no plugin can load media: {0}", exception.Message));
+					throw new InvalidOperationException(String.Format("no plugin can load media: {0}", exception.Message), exception);
 				}
 			}
 

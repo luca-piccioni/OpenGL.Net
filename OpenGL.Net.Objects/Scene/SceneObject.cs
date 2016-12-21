@@ -27,7 +27,7 @@ namespace OpenGL.Objects.Scene
 	/// <summary>
 	/// Scene object.
 	/// </summary>
-	public class SceneObject : UserGraphicsResource
+	public class SceneObject : UserGraphicsResource, IMedia<SceneObjectInfo>
 	{
 		#region Constructors
 
@@ -595,6 +595,28 @@ namespace OpenGL.Objects.Scene
 			// Base implementation
 			base.Dispose(disposing);
 		}
+
+		#endregion
+
+		#region IMedia<SceneObjectInfo> Implementation
+
+		/// <summary>
+		/// Gets the media information of this instance.
+		/// </summary>
+		public SceneObjectInfo MediaInformation
+		{
+			get
+			{
+				// Other information may be modified by external code
+
+				return (_SceneObjectInfo);
+			}
+		}
+
+		/// <summary>
+		/// Media information.
+		/// </summary>
+		private readonly SceneObjectInfo _SceneObjectInfo = new SceneObjectInfo();
 
 		#endregion
 	}
