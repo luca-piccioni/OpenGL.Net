@@ -495,6 +495,16 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2ub UnitY = new Vertex2ub(0, 1);
 
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2ub Minimum = new Vertex2ub(byte.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2ub Maximum = new Vertex2ub(byte.MaxValue);
+
 		#endregion
 
 		#region IVertex2 Implementation
@@ -1139,6 +1149,16 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2b UnitY = new Vertex2b(0, 1);
 
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2b Minimum = new Vertex2b(sbyte.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2b Maximum = new Vertex2b(sbyte.MaxValue);
+
 		#endregion
 
 		#region IVertex2 Implementation
@@ -1768,6 +1788,16 @@ namespace OpenGL
 		/// Unit vertex along Y axis.
 		/// </summary>
 		public static readonly Vertex2us UnitY = new Vertex2us(0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2us Minimum = new Vertex2us(ushort.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2us Maximum = new Vertex2us(ushort.MaxValue);
 
 		#endregion
 
@@ -2413,6 +2443,16 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2s UnitY = new Vertex2s(0, 1);
 
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2s Minimum = new Vertex2s(short.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2s Maximum = new Vertex2s(short.MaxValue);
+
 		#endregion
 
 		#region IVertex2 Implementation
@@ -3042,6 +3082,16 @@ namespace OpenGL
 		/// Unit vertex along Y axis.
 		/// </summary>
 		public static readonly Vertex2ui UnitY = new Vertex2ui(0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2ui Minimum = new Vertex2ui(uint.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2ui Maximum = new Vertex2ui(uint.MaxValue);
 
 		#endregion
 
@@ -3687,6 +3737,16 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2i UnitY = new Vertex2i(0, 1);
 
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2i Minimum = new Vertex2i(int.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2i Maximum = new Vertex2i(int.MaxValue);
+
 		#endregion
 
 		#region IVertex2 Implementation
@@ -4274,6 +4334,16 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2f UnitY = new Vertex2f(0.0f, 1.0f);
 
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2f Minimum = new Vertex2f(float.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2f Maximum = new Vertex2f(float.MaxValue);
+
 		#endregion
 
 		#region IVertex2 Implementation
@@ -4851,6 +4921,16 @@ namespace OpenGL
 		/// Unit vertex along Y axis.
 		/// </summary>
 		public static readonly Vertex2d UnitY = new Vertex2d(0.0, 1.0);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2d Minimum = new Vertex2d(double.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2d Maximum = new Vertex2d(double.MaxValue);
 
 		#endregion
 

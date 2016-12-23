@@ -33,7 +33,7 @@ namespace OpenGL
 	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
 	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
-	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     null };
+	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "(HalfFloat)1.0f" };
 	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
 	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
@@ -42,6 +42,7 @@ namespace OpenGL
 		string className = String.Format("Vertex4{0}", postfixes[i]);
 		string vertex3Name = String.Format("Vertex3{0}", postfixes[i]);
 		string baseType = underlyingType[i];
+		string zero = zeroes[i], one = ones[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
@@ -68,6 +69,20 @@ namespace OpenGL
 		/// A <see cref="T:<#= baseType #>[]"/> that specify the value of every component.
 		/// </param>
 		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// <#= className #> constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="<#= baseType #>"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="<#= baseType #>"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="<#= baseType #>"/> that specify the Z coordinate.
+		/// </param>
+		public <#= className #>(<#= baseType #> x, <#= baseType #> y, <#= baseType #> z) : this(x, y, z, <#= one #>) { }
 
 		/// <summary>
 		/// <#= className #> constructor.
@@ -539,10 +554,58 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the <#= className #> holding the minumum values.
+		/// </returns>
+		public static <#= className #> Min(params <#= className #>[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (<#= baseType #>)Math.Min(x, v[i].x / v[i].w);
+				y = (<#= baseType #>)Math.Min(y, v[i].y / v[i].w);
+				z = (<#= baseType #>)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new <#= className #>(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the <#= className #> holding the maximum values.
+		/// </returns>
+		public static <#= className #> Max(params <#= className #>[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue, z = (<#= baseType #>)<#= baseType #>.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (<#= baseType #>)Math.Max(x, v[i].x);
+				y = (<#= baseType #>)Math.Max(y, v[i].y);
+				z = (<#= baseType #>)Math.Max(z, v[i].z);
+			}
+
+			return (new <#= className #>(x, y, z));
+		}
+
 		#endregion
 		<#
-		string zero = zeroes[i], one = ones[i];
-
 		if (zero != null && one != null) {
 #>
 
@@ -572,6 +635,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly <#= className #> UnitZ = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>, <#= one #>);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly <#= className #> Minimum = new <#= className #>(<#= baseType #>.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly <#= className #> Maximum = new <#= className #>(<#= baseType #>.MaxValue);
 
 		#endregion
 <#

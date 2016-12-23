@@ -514,6 +514,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ub[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ub holding the minumum values.
+		/// </returns>
+		public static Vertex3ub Min(params Vertex3ub[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (byte)Math.Min(x, v[i].x);
+				y = (byte)Math.Min(y, v[i].y);
+				z = (byte)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ub[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ub holding the maximum values.
+		/// </returns>
+		public static Vertex3ub Max(params Vertex3ub[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (byte)Math.Max(x, v[i].x);
+				y = (byte)Math.Max(y, v[i].y);
+				z = (byte)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3ub(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -542,6 +592,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3ub UnitZ = new Vertex3ub(0, 0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3ub Minimum = new Vertex3ub(byte.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3ub Maximum = new Vertex3ub(byte.MaxValue);
 
 		#endregion
 
@@ -1225,6 +1285,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3b[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3b holding the minumum values.
+		/// </returns>
+		public static Vertex3b Min(params Vertex3b[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (sbyte)Math.Min(x, v[i].x);
+				y = (sbyte)Math.Min(y, v[i].y);
+				z = (sbyte)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3b[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3b holding the maximum values.
+		/// </returns>
+		public static Vertex3b Max(params Vertex3b[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (sbyte)Math.Max(x, v[i].x);
+				y = (sbyte)Math.Max(y, v[i].y);
+				z = (sbyte)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3b(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -1253,6 +1363,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3b UnitZ = new Vertex3b(0, 0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3b Minimum = new Vertex3b(sbyte.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3b Maximum = new Vertex3b(sbyte.MaxValue);
 
 		#endregion
 
@@ -1922,6 +2042,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3us[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3us holding the minumum values.
+		/// </returns>
+		public static Vertex3us Min(params Vertex3us[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (ushort)Math.Min(x, v[i].x);
+				y = (ushort)Math.Min(y, v[i].y);
+				z = (ushort)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3us[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3us holding the maximum values.
+		/// </returns>
+		public static Vertex3us Max(params Vertex3us[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (ushort)Math.Max(x, v[i].x);
+				y = (ushort)Math.Max(y, v[i].y);
+				z = (ushort)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3us(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -1950,6 +2120,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3us UnitZ = new Vertex3us(0, 0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3us Minimum = new Vertex3us(ushort.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3us Maximum = new Vertex3us(ushort.MaxValue);
 
 		#endregion
 
@@ -2633,6 +2813,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3s[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3s holding the minumum values.
+		/// </returns>
+		public static Vertex3s Min(params Vertex3s[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (short)Math.Min(x, v[i].x);
+				y = (short)Math.Min(y, v[i].y);
+				z = (short)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3s[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3s holding the maximum values.
+		/// </returns>
+		public static Vertex3s Max(params Vertex3s[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (short)Math.Max(x, v[i].x);
+				y = (short)Math.Max(y, v[i].y);
+				z = (short)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3s(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -2661,6 +2891,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3s UnitZ = new Vertex3s(0, 0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3s Minimum = new Vertex3s(short.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3s Maximum = new Vertex3s(short.MaxValue);
 
 		#endregion
 
@@ -3330,6 +3570,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ui[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ui holding the minumum values.
+		/// </returns>
+		public static Vertex3ui Min(params Vertex3ui[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (uint)Math.Min(x, v[i].x);
+				y = (uint)Math.Min(y, v[i].y);
+				z = (uint)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ui[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ui holding the maximum values.
+		/// </returns>
+		public static Vertex3ui Max(params Vertex3ui[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (uint)Math.Max(x, v[i].x);
+				y = (uint)Math.Max(y, v[i].y);
+				z = (uint)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3ui(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -3358,6 +3648,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3ui UnitZ = new Vertex3ui(0, 0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3ui Minimum = new Vertex3ui(uint.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3ui Maximum = new Vertex3ui(uint.MaxValue);
 
 		#endregion
 
@@ -4041,6 +4341,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3i[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3i holding the minumum values.
+		/// </returns>
+		public static Vertex3i Min(params Vertex3i[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (int)Math.Min(x, v[i].x);
+				y = (int)Math.Min(y, v[i].y);
+				z = (int)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3i[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3i holding the maximum values.
+		/// </returns>
+		public static Vertex3i Max(params Vertex3i[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (int)Math.Max(x, v[i].x);
+				y = (int)Math.Max(y, v[i].y);
+				z = (int)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3i(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -4069,6 +4419,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3i UnitZ = new Vertex3i(0, 0, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3i Minimum = new Vertex3i(int.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3i Maximum = new Vertex3i(int.MaxValue);
 
 		#endregion
 
@@ -4693,6 +5053,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3f[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3f holding the minumum values.
+		/// </returns>
+		public static Vertex3f Min(params Vertex3f[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (float)Math.Min(x, v[i].x);
+				y = (float)Math.Min(y, v[i].y);
+				z = (float)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3f[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3f holding the maximum values.
+		/// </returns>
+		public static Vertex3f Max(params Vertex3f[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (float)Math.Max(x, v[i].x);
+				y = (float)Math.Max(y, v[i].y);
+				z = (float)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3f(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -4721,6 +5131,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3f UnitZ = new Vertex3f(0.0f, 0.0f, 1.0f);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3f Minimum = new Vertex3f(float.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3f Maximum = new Vertex3f(float.MaxValue);
 
 		#endregion
 
@@ -5330,6 +5750,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex3d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3d[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3d holding the minumum values.
+		/// </returns>
+		public static Vertex3d Min(params Vertex3d[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (double)Math.Min(x, v[i].x);
+				y = (double)Math.Min(y, v[i].y);
+				z = (double)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3d[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3d holding the maximum values.
+		/// </returns>
+		public static Vertex3d Max(params Vertex3d[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (double)Math.Max(x, v[i].x);
+				y = (double)Math.Max(y, v[i].y);
+				z = (double)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3d(x, y, z));
+		}
+
 		#endregion
 
 		#region Notable Vertex
@@ -5358,6 +5828,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex3d UnitZ = new Vertex3d(0.0, 0.0, 1.0);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3d Minimum = new Vertex3d(double.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3d Maximum = new Vertex3d(double.MaxValue);
 
 		#endregion
 
@@ -5979,6 +6459,56 @@ namespace OpenGL
 
 				return (normalized);
 			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex3hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3hf[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3hf holding the minumum values.
+		/// </returns>
+		public static Vertex3hf Min(params Vertex3hf[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (HalfFloat)Math.Min(x, v[i].x);
+				y = (HalfFloat)Math.Min(y, v[i].y);
+				z = (HalfFloat)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3hf[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3hf holding the maximum values.
+		/// </returns>
+		public static Vertex3hf Max(params Vertex3hf[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (HalfFloat)Math.Max(x, v[i].x);
+				y = (HalfFloat)Math.Max(y, v[i].y);
+				z = (HalfFloat)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3hf(x, y, z));
 		}
 
 		#endregion

@@ -60,6 +60,20 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="byte"/> that specify the Z coordinate.
 		/// </param>
+		public Vertex4ub(byte x, byte y, byte z) : this(x, y, z, 1) { }
+
+		/// <summary>
+		/// Vertex4ub constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="byte"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="byte"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="byte"/> that specify the Z coordinate.
+		/// </param>
 		/// <param name="w">
 		/// A <see cref="byte"/> that specify the W coordinate.
 		/// </param>
@@ -459,6 +473,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ub[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ub holding the minumum values.
+		/// </returns>
+		public static Vertex4ub Min(params Vertex4ub[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (byte)Math.Min(x, v[i].x / v[i].w);
+				y = (byte)Math.Min(y, v[i].y / v[i].w);
+				z = (byte)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ub[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ub holding the maximum values.
+		/// </returns>
+		public static Vertex4ub Max(params Vertex4ub[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (byte)Math.Max(x, v[i].x);
+				y = (byte)Math.Max(y, v[i].y);
+				z = (byte)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4ub(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -487,6 +551,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4ub UnitZ = new Vertex4ub(0, 0, 1, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4ub Minimum = new Vertex4ub(byte.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4ub Maximum = new Vertex4ub(byte.MaxValue);
 
 		#endregion
 
@@ -708,6 +782,20 @@ namespace OpenGL
 		/// A <see cref="T:sbyte[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4b(sbyte[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4b constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="sbyte"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="sbyte"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="sbyte"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4b(sbyte x, sbyte y, sbyte z) : this(x, y, z, 1) { }
 
 		/// <summary>
 		/// Vertex4b constructor.
@@ -1134,6 +1222,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4b[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4b holding the minumum values.
+		/// </returns>
+		public static Vertex4b Min(params Vertex4b[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (sbyte)Math.Min(x, v[i].x / v[i].w);
+				y = (sbyte)Math.Min(y, v[i].y / v[i].w);
+				z = (sbyte)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4b[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4b holding the maximum values.
+		/// </returns>
+		public static Vertex4b Max(params Vertex4b[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (sbyte)Math.Max(x, v[i].x);
+				y = (sbyte)Math.Max(y, v[i].y);
+				z = (sbyte)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4b(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -1162,6 +1300,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4b UnitZ = new Vertex4b(0, 0, 1, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4b Minimum = new Vertex4b(sbyte.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4b Maximum = new Vertex4b(sbyte.MaxValue);
 
 		#endregion
 
@@ -1383,6 +1531,20 @@ namespace OpenGL
 		/// A <see cref="T:ushort[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4us(ushort[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4us constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="ushort"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="ushort"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="ushort"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4us(ushort x, ushort y, ushort z) : this(x, y, z, 1) { }
 
 		/// <summary>
 		/// Vertex4us constructor.
@@ -1795,6 +1957,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4us[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4us holding the minumum values.
+		/// </returns>
+		public static Vertex4us Min(params Vertex4us[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (ushort)Math.Min(x, v[i].x / v[i].w);
+				y = (ushort)Math.Min(y, v[i].y / v[i].w);
+				z = (ushort)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4us[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4us holding the maximum values.
+		/// </returns>
+		public static Vertex4us Max(params Vertex4us[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (ushort)Math.Max(x, v[i].x);
+				y = (ushort)Math.Max(y, v[i].y);
+				z = (ushort)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4us(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -1823,6 +2035,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4us UnitZ = new Vertex4us(0, 0, 1, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4us Minimum = new Vertex4us(ushort.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4us Maximum = new Vertex4us(ushort.MaxValue);
 
 		#endregion
 
@@ -2044,6 +2266,20 @@ namespace OpenGL
 		/// A <see cref="T:short[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4s(short[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4s constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="short"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="short"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="short"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4s(short x, short y, short z) : this(x, y, z, 1) { }
 
 		/// <summary>
 		/// Vertex4s constructor.
@@ -2470,6 +2706,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4s[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4s holding the minumum values.
+		/// </returns>
+		public static Vertex4s Min(params Vertex4s[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (short)Math.Min(x, v[i].x / v[i].w);
+				y = (short)Math.Min(y, v[i].y / v[i].w);
+				z = (short)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4s[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4s holding the maximum values.
+		/// </returns>
+		public static Vertex4s Max(params Vertex4s[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (short)Math.Max(x, v[i].x);
+				y = (short)Math.Max(y, v[i].y);
+				z = (short)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4s(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -2498,6 +2784,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4s UnitZ = new Vertex4s(0, 0, 1, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4s Minimum = new Vertex4s(short.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4s Maximum = new Vertex4s(short.MaxValue);
 
 		#endregion
 
@@ -2719,6 +3015,20 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4ui(uint[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4ui constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="uint"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="uint"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="uint"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4ui(uint x, uint y, uint z) : this(x, y, z, 1) { }
 
 		/// <summary>
 		/// Vertex4ui constructor.
@@ -3131,6 +3441,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ui[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ui holding the minumum values.
+		/// </returns>
+		public static Vertex4ui Min(params Vertex4ui[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (uint)Math.Min(x, v[i].x / v[i].w);
+				y = (uint)Math.Min(y, v[i].y / v[i].w);
+				z = (uint)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ui[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ui holding the maximum values.
+		/// </returns>
+		public static Vertex4ui Max(params Vertex4ui[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (uint)Math.Max(x, v[i].x);
+				y = (uint)Math.Max(y, v[i].y);
+				z = (uint)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4ui(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -3159,6 +3519,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4ui UnitZ = new Vertex4ui(0, 0, 1, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4ui Minimum = new Vertex4ui(uint.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4ui Maximum = new Vertex4ui(uint.MaxValue);
 
 		#endregion
 
@@ -3380,6 +3750,20 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4i(int[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4i constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="int"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="int"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="int"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4i(int x, int y, int z) : this(x, y, z, 1) { }
 
 		/// <summary>
 		/// Vertex4i constructor.
@@ -3806,6 +4190,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4i[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4i holding the minumum values.
+		/// </returns>
+		public static Vertex4i Min(params Vertex4i[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (int)Math.Min(x, v[i].x / v[i].w);
+				y = (int)Math.Min(y, v[i].y / v[i].w);
+				z = (int)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4i[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4i holding the maximum values.
+		/// </returns>
+		public static Vertex4i Max(params Vertex4i[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (int)Math.Max(x, v[i].x);
+				y = (int)Math.Max(y, v[i].y);
+				z = (int)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4i(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -3834,6 +4268,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4i UnitZ = new Vertex4i(0, 0, 1, 1);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4i Minimum = new Vertex4i(int.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4i Maximum = new Vertex4i(int.MaxValue);
 
 		#endregion
 
@@ -4055,6 +4499,20 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4f(float[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4f constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="float"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="float"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="float"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4f(float x, float y, float z) : this(x, y, z, 1.0f) { }
 
 		/// <summary>
 		/// Vertex4f constructor.
@@ -4451,6 +4909,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4f[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4f holding the minumum values.
+		/// </returns>
+		public static Vertex4f Min(params Vertex4f[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (float)Math.Min(x, v[i].x / v[i].w);
+				y = (float)Math.Min(y, v[i].y / v[i].w);
+				z = (float)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4f[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4f holding the maximum values.
+		/// </returns>
+		public static Vertex4f Max(params Vertex4f[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (float)Math.Max(x, v[i].x);
+				y = (float)Math.Max(y, v[i].y);
+				z = (float)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4f(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -4479,6 +4987,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4f UnitZ = new Vertex4f(0.0f, 0.0f, 1.0f, 1.0f);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4f Minimum = new Vertex4f(float.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4f Maximum = new Vertex4f(float.MaxValue);
 
 		#endregion
 
@@ -4680,6 +5198,20 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4d(double[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4d constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="double"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="double"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="double"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4d(double x, double y, double z) : this(x, y, z, 1.0) { }
 
 		/// <summary>
 		/// Vertex4d constructor.
@@ -5072,6 +5604,56 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum of an array of Vertex4d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4d[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4d holding the minumum values.
+		/// </returns>
+		public static Vertex4d Min(params Vertex4d[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (double)Math.Min(x, v[i].x / v[i].w);
+				y = (double)Math.Min(y, v[i].y / v[i].w);
+				z = (double)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4d[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4d holding the maximum values.
+		/// </returns>
+		public static Vertex4d Max(params Vertex4d[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (double)Math.Max(x, v[i].x);
+				y = (double)Math.Max(y, v[i].y);
+				z = (double)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4d(x, y, z));
+		}
+
 		#endregion
 		
 		#region Notable Vertex
@@ -5100,6 +5682,16 @@ namespace OpenGL
 		/// Unit vertex along Z axis.
 		/// </summary>
 		public static readonly Vertex4d UnitZ = new Vertex4d(0.0, 0.0, 1.0, 1.0);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4d Minimum = new Vertex4d(double.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4d Maximum = new Vertex4d(double.MaxValue);
 
 		#endregion
 
@@ -5301,6 +5893,20 @@ namespace OpenGL
 		/// A <see cref="T:HalfFloat[]"/> that specify the value of every component.
 		/// </param>
 		public Vertex4hf(HalfFloat[] v) : this(v[0], v[1], v[2], v[3]) { }
+
+		/// <summary>
+		/// Vertex4hf constructor.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="HalfFloat"/> that specify the X coordinate.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="HalfFloat"/> that specify the Y coordinate.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="HalfFloat"/> that specify the Z coordinate.
+		/// </param>
+		public Vertex4hf(HalfFloat x, HalfFloat y, HalfFloat z) : this(x, y, z, (HalfFloat)1.0f) { }
 
 		/// <summary>
 		/// Vertex4hf constructor.
@@ -5725,6 +6331,56 @@ namespace OpenGL
 
 				return (normalized);
 			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4hf[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4hf holding the minumum values.
+		/// </returns>
+		public static Vertex4hf Min(params Vertex4hf[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (HalfFloat)Math.Min(x, v[i].x / v[i].w);
+				y = (HalfFloat)Math.Min(y, v[i].y / v[i].w);
+				z = (HalfFloat)Math.Min(z, v[i].z / v[i].w);
+			}
+
+			return (new Vertex4hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4hf[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4hf holding the maximum values.
+		/// </returns>
+		public static Vertex4hf Max(params Vertex4hf[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (HalfFloat)Math.Max(x, v[i].x);
+				y = (HalfFloat)Math.Max(y, v[i].y);
+				z = (HalfFloat)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex4hf(x, y, z));
 		}
 
 		#endregion

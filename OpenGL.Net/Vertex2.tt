@@ -563,6 +563,16 @@ namespace OpenGL
 		/// </summary>
 		public static readonly <#= className #> UnitY = new <#= className #>(<#= zero #>, <#= one #>);
 
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly <#= className #> Minimum = new <#= className #>(<#= baseType #>.MinValue);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly <#= className #> Maximum = new <#= className #>(<#= baseType #>.MaxValue);
+
 		#endregion
 
 <#
