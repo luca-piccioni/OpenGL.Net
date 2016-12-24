@@ -473,6 +473,100 @@ namespace OpenGL
 
 		#endregion
 
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2ub Normalized
+		{
+			get
+			{
+				Vertex2ub normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ub[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ub holding the minumum values.
+		/// </returns>
+		public static Vertex2ub Min(params Vertex2ub[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (byte)Math.Min(x, v[i].x);
+				y = (byte)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2ub(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ub[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ub holding the maximum values.
+		/// </returns>
+		public static Vertex2ub Max(params Vertex2ub[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (byte)Math.Max(x, v[i].x);
+				y = (byte)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2ub(x, y));
+		}
+
+		#endregion
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -1127,6 +1221,100 @@ namespace OpenGL
 
 		#endregion
 
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2b Normalized
+		{
+			get
+			{
+				Vertex2b normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2b[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2b holding the minumum values.
+		/// </returns>
+		public static Vertex2b Min(params Vertex2b[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (sbyte)Math.Min(x, v[i].x);
+				y = (sbyte)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2b(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2b[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2b holding the maximum values.
+		/// </returns>
+		public static Vertex2b Max(params Vertex2b[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (sbyte)Math.Max(x, v[i].x);
+				y = (sbyte)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2b(x, y));
+		}
+
+		#endregion
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -1763,6 +1951,100 @@ namespace OpenGL
 		public static implicit operator Vertex4d(Vertex2us v)
 		{
 			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+		}
+
+		#endregion
+
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2us Normalized
+		{
+			get
+			{
+				Vertex2us normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2us[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2us holding the minumum values.
+		/// </returns>
+		public static Vertex2us Min(params Vertex2us[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (ushort)Math.Min(x, v[i].x);
+				y = (ushort)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2us(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2us[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2us holding the maximum values.
+		/// </returns>
+		public static Vertex2us Max(params Vertex2us[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (ushort)Math.Max(x, v[i].x);
+				y = (ushort)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2us(x, y));
 		}
 
 		#endregion
@@ -2421,6 +2703,100 @@ namespace OpenGL
 
 		#endregion
 
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2s Normalized
+		{
+			get
+			{
+				Vertex2s normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2s[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2s holding the minumum values.
+		/// </returns>
+		public static Vertex2s Min(params Vertex2s[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			short x = (short)short.MaxValue, y = (short)short.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (short)Math.Min(x, v[i].x);
+				y = (short)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2s(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2s[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2s holding the maximum values.
+		/// </returns>
+		public static Vertex2s Max(params Vertex2s[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short x = (short)short.MinValue, y = (short)short.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (short)Math.Max(x, v[i].x);
+				y = (short)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2s(x, y));
+		}
+
+		#endregion
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -3057,6 +3433,100 @@ namespace OpenGL
 		public static implicit operator Vertex4d(Vertex2ui v)
 		{
 			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+		}
+
+		#endregion
+
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2ui Normalized
+		{
+			get
+			{
+				Vertex2ui normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ui[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ui holding the minumum values.
+		/// </returns>
+		public static Vertex2ui Min(params Vertex2ui[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (uint)Math.Min(x, v[i].x);
+				y = (uint)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2ui(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ui[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ui holding the maximum values.
+		/// </returns>
+		public static Vertex2ui Max(params Vertex2ui[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (uint)Math.Max(x, v[i].x);
+				y = (uint)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2ui(x, y));
 		}
 
 		#endregion
@@ -3715,6 +4185,100 @@ namespace OpenGL
 
 		#endregion
 
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2i Normalized
+		{
+			get
+			{
+				Vertex2i normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2i[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2i holding the minumum values.
+		/// </returns>
+		public static Vertex2i Min(params Vertex2i[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			int x = (int)int.MaxValue, y = (int)int.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (int)Math.Min(x, v[i].x);
+				y = (int)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2i(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2i[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2i holding the maximum values.
+		/// </returns>
+		public static Vertex2i Max(params Vertex2i[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int x = (int)int.MinValue, y = (int)int.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (int)Math.Max(x, v[i].x);
+				y = (int)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2i(x, y));
+		}
+
+		#endregion
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4312,6 +4876,100 @@ namespace OpenGL
 
 		#endregion
 
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2f Normalized
+		{
+			get
+			{
+				Vertex2f normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2f[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2f holding the minumum values.
+		/// </returns>
+		public static Vertex2f Min(params Vertex2f[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			float x = (float)float.MaxValue, y = (float)float.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (float)Math.Min(x, v[i].x);
+				y = (float)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2f(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2f[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2f holding the maximum values.
+		/// </returns>
+		public static Vertex2f Max(params Vertex2f[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float x = (float)float.MinValue, y = (float)float.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (float)Math.Max(x, v[i].x);
+				y = (float)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2f(x, y));
+		}
+
+		#endregion
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4896,6 +5554,100 @@ namespace OpenGL
 		public static implicit operator Vertex4d(Vertex2d v)
 		{
 			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+		}
+
+		#endregion
+
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2d Normalized
+		{
+			get
+			{
+				Vertex2d normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2d[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2d holding the minumum values.
+		/// </returns>
+		public static Vertex2d Min(params Vertex2d[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			double x = (double)double.MaxValue, y = (double)double.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (double)Math.Min(x, v[i].x);
+				y = (double)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2d(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2d[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2d holding the maximum values.
+		/// </returns>
+		public static Vertex2d Max(params Vertex2d[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double x = (double)double.MinValue, y = (double)double.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (double)Math.Max(x, v[i].x);
+				y = (double)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2d(x, y));
 		}
 
 		#endregion
@@ -5497,6 +6249,100 @@ namespace OpenGL
 		public static implicit operator Vertex4d(Vertex2hf v)
 		{
 			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+		}
+
+		#endregion
+
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public Vertex2hf Normalized
+		{
+			get
+			{
+				Vertex2hf normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex2hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2hf[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2hf holding the minumum values.
+		/// </returns>
+		public static Vertex2hf Min(params Vertex2hf[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (HalfFloat)Math.Min(x, v[i].x);
+				y = (HalfFloat)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2hf(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2hf[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2hf holding the maximum values.
+		/// </returns>
+		public static Vertex2hf Max(params Vertex2hf[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (HalfFloat)Math.Max(x, v[i].x);
+				y = (HalfFloat)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2hf(x, y));
 		}
 
 		#endregion

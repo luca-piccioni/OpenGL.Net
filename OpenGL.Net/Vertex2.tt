@@ -535,6 +535,100 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region Vertex Methods
+
+		/// <summary>
+		/// Compute bidimensional vertex module.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module.
+		/// </returns>
+		public float Module()
+		{
+			float x2 = (float)(x * x);
+			float y2 = (float)(y * y);
+
+			return ((float)Math.Sqrt(x2 + y2));
+		}
+
+		/// <summary>
+		/// Normalize vertex coordinates.
+		/// </summary>
+		public void Normalize()
+		{
+			float length = Module();
+
+			if (Math.Abs(length) < Single.Epsilon)
+				throw new DivideByZeroException("zero length normalization");
+
+			this /= length;
+		}
+
+		/// <summary>
+		/// This vertex, but normalized.
+		/// </summary>
+		public <#= className #> Normalized
+		{
+			get
+			{
+				<#= className #> normalized = this;
+
+				normalized.Normalize();
+
+				return (normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the <#= className #> holding the minumum values.
+		/// </returns>
+		public static <#= className #> Min(params <#= className #>[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (<#= baseType #>)Math.Min(x, v[i].x);
+				y = (<#= baseType #>)Math.Min(y, v[i].y);
+			}
+
+			return (new <#= className #>(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>[]"/> that specify the values to be processed.
+		/// </param>
+		/// <returns>
+		/// It returns the <#= className #> holding the maximum values.
+		/// </returns>
+		public static <#= className #> Max(params <#= className #>[] v)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue;
+
+			for (int i = 0; i < v.Length; i++) {
+				x = (<#= baseType #>)Math.Max(x, v[i].x);
+				y = (<#= baseType #>)Math.Max(y, v[i].y);
+			}
+
+			return (new <#= className #>(x, y));
+		}
+
+		#endregion
 <#
 		string zero = zeroes[i], one = ones[i];
 
