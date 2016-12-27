@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -50,21 +51,6 @@ namespace HelloObjects
 
 		private SceneObject CreateCubeGeometry()
 		{
-			_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
-			_CubeArrayPosition.Create(ArrayPosition);
-
-			// C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\RB-BumbleBee.obj | VH-BumbleBee.obj
-			// 
-			SceneObject bb8 = SceneObjectCodec.Instance.Load(@"C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\VH-BumbleBee.obj");
-
-			bb8.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
-			bb8.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			bb8.LocalModel.Scale(0.1f);
-			bb8.LocalModel.RotateX(-90.0f);
-			bb8.LocalModel.RotateZ(90.0f);
-
-			return bb8;
-
 			SceneObjectGeometry cubeGeometry = new SceneObjectGeometry("Cube");
 
 			#region State
@@ -84,28 +70,43 @@ namespace HelloObjects
 
 			#region Vertex Arrays
 
-			_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
-			_CubeArrayPosition.Create(ArrayPosition);
+			if (_CubeArrayPosition == null) {
+				_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+				_CubeArrayPosition.Create(ArrayPosition);
+			}
 
-			ArrayBufferObject<ColorRGBF> arrayColor = new ArrayBufferObject<ColorRGBF>(BufferObjectHint.StaticCpuDraw);
-			arrayColor.Create(ArrayColors);
+			if (_CubeArrayColor == null) {
+				_CubeArrayColor = new ArrayBufferObject<ColorRGBF>(BufferObjectHint.StaticCpuDraw);
+				_CubeArrayColor.Create(ArrayColors);
+			}
 
-			ArrayBufferObject<Vertex3f> arrayNormal = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
-			arrayNormal.Create(ArrayNormals);
-			
-			cubeGeometry.VertexArray = new VertexArrayObject();
-			cubeGeometry.VertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
-			cubeGeometry.VertexArray.SetArray(arrayColor, VertexArraySemantic.Color);
-			cubeGeometry.VertexArray.SetArray(arrayNormal, VertexArraySemantic.Normal);
-			cubeGeometry.VertexArray.SetElementArray(PrimitiveType.Triangles);
+			if (_CubeArrayNormal == null) {
+				_CubeArrayNormal = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+				_CubeArrayNormal.Create(ArrayNormals);
+			}
+
+			if (_CubeArrays == null) {
+				_CubeArrays = new VertexArrayObject();
+				_CubeArrays.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
+				_CubeArrays.SetArray(_CubeArrayColor, VertexArraySemantic.Color);
+				_CubeArrays.SetArray(_CubeArrayNormal, VertexArraySemantic.Normal);
+				_CubeArrays.SetElementArray(PrimitiveType.Triangles);
+			}
+
+			cubeGeometry.VertexArray = _CubeArrays;
 
 			#endregion
 
 			#region Program
 
-			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+PhongFragment");
-			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
-			cubeGeometry.Program.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 4");
+			if (_CubeProgram == null) {
+				_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
+				_CubeProgram.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
+				_CubeProgram.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 4");
+			}
+
+			cubeGeometry.Program = _CubeProgram;
+			// cubeGeometry.BoundingVolume = new BoundingBox(-Vertex3f.One * _CubeSize, Vertex3f.One * _CubeSize);
 
 			#endregion
 
@@ -118,9 +119,26 @@ namespace HelloObjects
 		SceneGraph _CubeScene;
 
 		/// <summary>
-		/// Shared array buffer: vertex positions
+		/// Shared array buffer: vertex positions.
 		/// </summary>
 		ArrayBufferObject<Vertex3f> _CubeArrayPosition;
+
+		/// <summary>
+		/// Shared array buffer: vertex colors.
+		/// </summary>
+		ArrayBufferObject<ColorRGBF> _CubeArrayColor;
+
+		/// <summary>
+		/// Shared array buffer: vertex normals.
+		/// </summary>
+		ArrayBufferObject<Vertex3f> _CubeArrayNormal;
+
+		VertexArrayObject _CubeArrays;
+
+		/// <summary>
+		/// Shared program.
+		/// </summary>
+		ShaderProgram _CubeProgram;
 
 		private const float _CubeSize = 1.0f;
 
@@ -302,6 +320,26 @@ namespace HelloObjects
 
 		#endregion
 
+		#region Mesh Loading
+
+		private SceneObject CreateMesh()
+		{
+			// C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\RB-BumbleBee.obj | VH-BumbleBee.obj
+			// 
+			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\RB-BumbleBee.obj");
+
+			bumbleBee.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
+			bumbleBee.LocalModel.Translate(0.0f, -10.0f);
+			bumbleBee.LocalModel.Scale(0.03f);
+			bumbleBee.LocalModel.RotateX(-90.0f);
+			bumbleBee.LocalModel.RotateZ(90.0f);
+
+			return bumbleBee;
+		}
+
+		#endregion
+
 		#region Event Handling
 
 		private void SampleForm_Load(object sender, EventArgs e)
@@ -330,7 +368,7 @@ namespace HelloObjects
 			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
 
 			SceneObjectLightDirectional globalLightObject = new SceneObjectLightDirectional();
-			globalLightObject.Direction = Vertex3f.UnitY;
+			globalLightObject.Direction = (Vertex3f.UnitY - Vertex3f.UnitZ).Normalized;
 			globalLightZone.AddChild(globalLightObject);
 
 			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
@@ -341,10 +379,20 @@ namespace HelloObjects
 			_CubeScene.AddChild(globalLightZone);
 
 			// Cube
-			globalLightZone.AddChild(CreateCubeGeometry());
+			for (float x = -160.0f; x < 160.0f; x += 4.0f) {
+				for (float y = -160.0f; y < 160.0f; y += 4.0f) {
+					SceneObject cubeInstance = CreateCubeGeometry();
+
+					cubeInstance.LocalModel.Translate(x, 0.0f, y);
+					cubeInstance.LocalModel.Scale(0.5f);
+
+					globalLightZone.AddChild(cubeInstance);
+				}
+			}
+			globalLightZone.AddChild(CreateMesh());
 			// Skybox
-			if ((sceneObject = CreateSkyBoxObject()) != null)
-				_CubeScene.AddChild(sceneObject);
+			//if ((sceneObject = CreateSkyBoxObject()) != null)
+			//	_CubeScene.AddChild(sceneObject);
 
 			_CubeScene.Create(_Context);
 		}
@@ -375,6 +423,7 @@ namespace HelloObjects
 			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
 			_CubeScene.CurrentView.LocalModel.SetIdentity();
+			_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
 			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
 			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
@@ -403,6 +452,8 @@ namespace HelloObjects
 		/// </summary>
 		private float _ViewLever = 4.0f;
 
+		private float _ViewStrideLat, _ViewStrideAlt;
+
 		#endregion
 
 		#region Mouse Input
@@ -430,13 +481,29 @@ namespace HelloObjects
 			_Mouse = null;
 		}
 
+		private Point? _Mouse;
+
 		private void ObjectsControl_MouseWheel(object sender, MouseEventArgs e)
 		{
 			_ViewLever += e.Delta / 60.0f;
 			_ViewLever = Math.Max(2.5f, _ViewLever);
 		}
 
-		private Point? _Mouse;
+		private void ObjectsControl_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (_PressedKeys.Contains(e.KeyCode) == false)
+				_PressedKeys.Add(e.KeyCode);
+		}
+
+		private void ObjectsControl_KeyUp(object sender, KeyEventArgs e)
+		{
+			_PressedKeys.Remove(e.KeyCode);
+		}
+
+		/// <summary>
+		/// Currently pressed keys
+		/// </summary>
+		private readonly List<Keys> _PressedKeys = new List<Keys>();
 
 		#endregion
 
@@ -449,6 +516,23 @@ namespace HelloObjects
 			if (cubeObject != null) {
 				cubeObject.LocalModel.RotateY(1.0f);
 				cubeObject.LocalModel.RotateX(0.85f);
+			}
+
+			foreach (Keys pressedKey in _PressedKeys) {
+				switch (pressedKey) {
+					case Keys.A:
+						_ViewStrideLat -= 0.1f;
+						break;
+					case Keys.D:
+						_ViewStrideLat += 0.1f;
+						break;
+					case Keys.W:
+						_ViewStrideAlt += 0.1f;
+						break;
+					case Keys.S:
+						_ViewStrideAlt -= 0.1f;
+						break;
+				}
 			}
 
 			ObjectsControl.Invalidate();

@@ -47,6 +47,8 @@
 			this.ObjectsControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.ObjectsControl_ContextCreated);
 			this.ObjectsControl.ContextDestroying += new System.EventHandler<OpenGL.GlControlEventArgs>(this.ObjectsControl_ContextDestroying);
 			this.ObjectsControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.ObjectsControl_Render);
+			this.ObjectsControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ObjectsControl_KeyDown);
+			this.ObjectsControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ObjectsControl_KeyUp);
 			this.ObjectsControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseDown);
 			this.ObjectsControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseMove);
 			this.ObjectsControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseUp);
