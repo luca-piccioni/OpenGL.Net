@@ -102,6 +102,7 @@
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="GlTestBase.cs" />
     <Compile Include="Memory.cs" />
+    <Compile Include="Plane.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
