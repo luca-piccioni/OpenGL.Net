@@ -538,6 +538,14 @@ namespace OpenGL.Objects.Scene
 					sceneGeometry.VertexArray = objGeometry.CreateArrays(objContext);
 					sceneGeometry.ObjectState.DefineState(objGeometry.CreateMaterialState());
 
+					// Compute bounding box
+					VertexArrayObject.IVertexArray positionArray = sceneGeometry.VertexArray.GetVertexArray(VertexArraySemantic.Position);
+					ArrayBufferObject<Vertex4f> positionArrayBuffer = (ArrayBufferObject<Vertex4f>)positionArray.Array;
+					Vertex4f min, max;
+					
+					positionArrayBuffer.MinMax(out min, out max);
+					sceneGeometry.BoundingVolume = new BoundingBox((Vertex3f)min, (Vertex3f)max);
+
 					sceneGroup.AddChild(sceneGeometry);
 				}
 

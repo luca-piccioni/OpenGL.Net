@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenGL.Net.Objects")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Object oriented abstraction for OpenGL.Net.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Luca Piccioni")]
 [assembly: AssemblyProduct("OpenGL.Net.Objects")]
 [assembly: AssemblyCopyright("Copyright © Luca Piccioni 2016")]
 [assembly: AssemblyTrademark("")]

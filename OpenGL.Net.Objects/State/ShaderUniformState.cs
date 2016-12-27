@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#undef ENABLE_REFS_ON_COPY
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -356,7 +358,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope)
 		{
-			CheckCurrentContext(ctx);
+			GraphicsResource.CheckCurrentContext(ctx);
 
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
@@ -433,12 +435,25 @@ namespace OpenGL.Objects.State
 		#region GraphicsState Overrides
 
 		/// <summary>
-		/// Actually create this GraphicsResource resources.
+		/// Flag indicating whether the state is context-bound.
+		/// </summary>
+		/// <remarks>
+		/// It returns always false.
+		/// </remarks>
+		public override bool IsContextBound { get { return (false); } }
+
+		/// <summary>
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
+		/// </summary>
+		public override bool IsShaderProgramBound { get { return (true); } }
+
+		/// <summary>
+		/// Create or update resources defined by this IGraphicsState.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
 		/// </param>
-		protected override void CreateObject(GraphicsContext ctx)
+		public override void CreateState(GraphicsContext ctx)
 		{
 			Dictionary<string, UniformStateMember> uniformState = UniformState;
 
@@ -454,19 +469,6 @@ namespace OpenGL.Objects.State
 				graphicsResource.Create(ctx);
 			}
 		}
-
-		/// <summary>
-		/// Flag indicating whether the state is context-bound.
-		/// </summary>
-		/// <remarks>
-		/// It returns always false.
-		/// </remarks>
-		public override bool IsContextBound { get { return (false); } }
-
-		/// <summary>
-		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
-		/// </summary>
-		public override bool IsShaderProgramBound { get { return (true); } }
 
 		/// <summary>
 		/// Apply this depth test render state.
@@ -532,6 +534,53 @@ namespace OpenGL.Objects.State
 				throw new InvalidOperationException("no current context");
 
 			return (false);
+		}
+
+		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public override IGraphicsState Copy()
+		{
+			ShaderUniformStateBase copiedState = (ShaderUniformStateBase)base.Copy();
+
+#if ENABLE_REFS_ON_COPY
+			foreach (KeyValuePair<string, UniformStateMember> pair in copiedState.UniformState) {
+				//if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
+				//	continue;
+
+				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
+				if (graphicsResource == null)
+					continue;
+
+				// Copied share references
+				graphicsResource.IncRef();
+			}
+#endif
+
+			return (copiedState);
+		}
+
+		/// <summary>
+		/// Dispose resources hold by this GraphicsState.
+		/// </summary>
+		public override void Dispose()
+		{
+#if ENABLE_REFS_ON_COPY
+
+			foreach (KeyValuePair<string, UniformStateMember> pair in UniformState) {
+				if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
+					continue;
+
+				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
+				if (graphicsResource == null)
+					continue;
+				graphicsResource.DecRef();
+			}
+#endif
 		}
 
 		#endregion
@@ -631,17 +680,17 @@ namespace OpenGL.Objects.State
 
 				IGraphicsResource prevResource = uniformStateVariable.UniformValue as IGraphicsResource;
 				if (prevResource != null)
-					UnlinkResource(prevResource);
+					prevResource.DecRef();
 
 				IGraphicsResource currResource = value as IGraphicsResource;
 				if (currResource != null)
-					LinkResource(currResource);
+					currResource.IncRef();
 
 				uniformStateVariable.UniformValue = value;
 			} else {
 				IGraphicsResource currResource = value as IGraphicsResource;
 				if (currResource != null)
-					LinkResource(currResource);
+					currResource.IncRef();
 
 				_UniformProperties.Add(uniformName, new UniformStateVariable(uniformName, value));
 			}
@@ -670,29 +719,6 @@ namespace OpenGL.Objects.State
 		/// The uniform state of this TransformStateBase.
 		/// </summary>
 		private readonly Dictionary<string, UniformStateMember> _UniformProperties = new Dictionary<string, UniformStateMember>();
-
-		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
-		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		public override IGraphicsState Copy()
-		{
-			ShaderUniformState copiedState = (ShaderUniformState)MemberwiseClone();
-
-			// New copy shall have a reference count of 0
-			copiedState.ResetRefCount();
-			// IGraphicResource instances must be referenced
-			foreach (KeyValuePair<string, UniformStateMember> pair in copiedState._UniformProperties) {
-				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
-				if (graphicsResource != null)
-					graphicsResource.IncRef();
-			}
-
-			return (copiedState);
-		}
 
 		#endregion
 	}

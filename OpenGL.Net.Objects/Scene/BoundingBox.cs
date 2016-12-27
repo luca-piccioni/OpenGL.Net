@@ -31,6 +31,17 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="min"></param>
+		/// <param name="max"></param>
+		public BoundingBox(Vertex3f min, Vertex3f max)
+		{
+			_Bounds[0] = min;
+			_Bounds[1] = max;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="o"></param>
 		/// <param name="w"></param>
 		/// <param name="h"></param>
@@ -39,19 +50,8 @@ namespace OpenGL.Objects.Scene
 		{
 			float w2 = w/2.0f, h2 = h/2.0f, d2 = d/2.0f;
 
-			_Bounds[0] = new Vertex3f(o.x-w2, o.y-h2, o.z-d2);
-			_Bounds[1] = new Vertex3f(o.x+w2, o.y+h2, o.z+d2);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="min"></param>
-		/// <param name="max"></param>
-		public BoundingBox(Vertex3f min, Vertex3f max)
-		{
-			_Bounds[0] = min;
-			_Bounds[1] = max;
+			_Bounds[0] = new Vertex3f(o.x - w2, o.y - h2, o.z - d2);
+			_Bounds[1] = new Vertex3f(o.x + w2, o.y + h2, o.z + d2);
 		}
 
 		#endregion
@@ -80,7 +80,7 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		public bool IsClipped(IEnumerable<Plane> clippingPlanes)
+		public bool IsClipped(IEnumerable<Plane> clippingPlanes, IModelMatrix objectViewModel)
 		{
 			if (clippingPlanes == null)
 				throw new ArgumentNullException("clippingPlanes");
@@ -92,12 +92,15 @@ namespace OpenGL.Objects.Scene
 			boundVertices[1] = new Vertex3f(_Bounds[0].x, _Bounds[0].y, _Bounds[1].z);
 			boundVertices[2] = new Vertex3f(_Bounds[0].x, _Bounds[0].y, _Bounds[0].z);
 			boundVertices[3] = new Vertex3f(_Bounds[1].x, _Bounds[0].y, _Bounds[0].z);
-
 			// Higher box vertices
 			boundVertices[4] = new Vertex3f(_Bounds[1].x, _Bounds[1].y, _Bounds[1].z);
 			boundVertices[5] = new Vertex3f(_Bounds[0].x, _Bounds[1].y, _Bounds[1].z);
 			boundVertices[6] = new Vertex3f(_Bounds[0].x, _Bounds[1].y, _Bounds[0].z);
 			boundVertices[7] = new Vertex3f(_Bounds[1].x, _Bounds[1].y, _Bounds[0].z);
+
+			// Vertices in view-space
+			for (int i = 0; i < boundVertices.Length; i++)
+				boundVertices[i] = (Vertex3f)objectViewModel.Multiply(boundVertices[i]);
 
 			foreach (Plane clipPlane in clippingPlanes) {
 				bool outsidePlane = true;
@@ -113,21 +116,14 @@ namespace OpenGL.Objects.Scene
 		}
 
 		/// <summary>
-		/// Check whether a three-dimensional position relies in this BoundBox.
+		/// Draw the bounding volume.
 		/// </summary>
-		/// <param name="p">
-		/// A <see cref="Vertex3f"/> that specifies the position.
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
 		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the position <paramref name="p"/> is inside this BoundBox.
-		/// </returns>
-		public virtual bool IsWithinVolume(Vertex3f p)
+		public void Draw(GraphicsContext ctx, IModelMatrix objectViewModel)
 		{
-			return (
-				(p.x >= _Bounds[0].x) && (p.x <= _Bounds[1].x) &&
-				(p.y >= _Bounds[0].y) && (p.y <= _Bounds[1].y) &&
-				(p.z >= _Bounds[0].z) && (p.z <= _Bounds[1].z)
-				);
+
 		}
 
 		#endregion

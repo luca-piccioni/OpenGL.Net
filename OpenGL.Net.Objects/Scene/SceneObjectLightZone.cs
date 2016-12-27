@@ -56,7 +56,7 @@ namespace OpenGL.Objects.Scene
 		/// <param name="ctxScene">
 		/// The <see cref="SceneGraphContext"/> used for drawing.
 		/// </param>
-		protected override void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
+		protected internal override void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			List<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
 

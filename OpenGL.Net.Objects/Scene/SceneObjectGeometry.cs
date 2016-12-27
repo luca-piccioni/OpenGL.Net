@@ -153,8 +153,9 @@ namespace OpenGL.Objects.Scene
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			// Create geometry state
-			VertexArray.Create(ctx);
-			if (Program != null)
+			if (VertexArray.Exists(ctx) == false)
+				VertexArray.Create(ctx);
+			if (Program != null && Program.Exists(ctx) == false)
 				Program.Create(ctx);
 
 			// Base implementation

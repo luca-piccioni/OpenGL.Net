@@ -101,6 +101,40 @@ namespace OpenGL.Objects.State
 			/// </summary>
 			[ShaderUniformState("Shininess")]
 			public float Shininess;
+
+			/// <summary>
+			/// Apply this MaterialState
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+			/// </param>
+			/// <param name="shaderProgram">
+			/// The <see cref="ShaderProgram"/> which has the state set.
+			/// </param>
+			public void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			{
+				string uniformName;
+
+				uniformName = String.Format("{0}.AmbientColor", prefix);
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Ambient);
+
+				uniformName = String.Format("{0}.EmissiveColor", prefix);
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Emissive);
+
+				uniformName = String.Format("{0}.DiffuseColor", prefix);
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Diffuse);
+
+				uniformName = String.Format("{0}.SpecularColor", prefix);
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Specular);
+
+				uniformName = String.Format("{0}.Shininess", prefix);
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Shininess);
+			}
 		}
 
 		#endregion
@@ -177,7 +211,7 @@ namespace OpenGL.Objects.State
 		public override bool IsShaderProgramBound { get { return (true); } }
 
 		/// <summary>
-		/// Apply this TransformStateBase.
+		/// Apply this MaterialState
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
@@ -187,7 +221,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			CheckCurrentContext(ctx);
+			GraphicsResource.CheckCurrentContext(ctx);
 
 			if (shaderProgram == null) {
 
@@ -195,8 +229,24 @@ namespace OpenGL.Objects.State
 
 				throw new NotImplementedException();
 			} else {
-				// Base implementation
-				base.ApplyState(ctx, shaderProgram);
+				// Custom implementation
+				ctx.Bind(shaderProgram);
+
+				if (shaderProgram.IsActiveUniform("glo_FrontMaterial"))
+					FrontMaterial.ApplyState(ctx, shaderProgram, "glo_FrontMaterial");
+
+				if (FrontMaterialEmissionTexture != null && shaderProgram.IsActiveUniform("glo_FrontMaterialEmissionTexture"))
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialEmissionTexture", FrontMaterialEmissionTexture);
+				if (shaderProgram.IsActiveUniform("glo_FrontMaterialEmissionTexCoord"))
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialEmissionTexCoord", FrontMaterialEmissionTexCoord);
+				if (FrontMaterialAmbientTexture != null && shaderProgram.IsActiveUniform("glo_FrontMaterialAmbientTexture"))
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialAmbientTexture", FrontMaterialAmbientTexture);
+				if (shaderProgram.IsActiveUniform("glo_FrontMaterialAmbientTexCoord"))
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialAmbientTexCoord", FrontMaterialAmbientTexCoord);
+				if (FrontMaterialDiffuseTexture != null && shaderProgram.IsActiveUniform("glo_FrontMaterialDiffuseTexture"))
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialDiffuseTexture", FrontMaterialDiffuseTexture);
+				if (shaderProgram.IsActiveUniform("glo_FrontMaterialDiffuseTexCoord"))
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialDiffuseTexCoord", FrontMaterialDiffuseTexCoord);
 			}
 		}
 

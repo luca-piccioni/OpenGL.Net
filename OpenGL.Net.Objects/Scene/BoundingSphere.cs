@@ -74,9 +74,27 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		public bool IsClipped(IEnumerable<Plane> clippingPlanes)
+		public bool IsClipped(IEnumerable<Plane> clippingPlanes, IModelMatrix objectViewModel)
 		{
-			throw new NotImplementedException();
+			Vertex3f sphereOrigin = (Vertex3f)objectViewModel.Position;
+
+			foreach (Plane plane in clippingPlanes) {
+				if (plane.GetDistance(sphereOrigin) < _Radius)
+					return (true);
+			}
+
+			return (false);
+		}
+
+		/// <summary>
+		/// Draw the bounding volume.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		public void Draw(GraphicsContext ctx, IModelMatrix objectViewModel)
+		{
+
 		}
 
 		#endregion

@@ -365,6 +365,7 @@ namespace OpenGL.Objects
 					_ObjectNameSpace = sharedContext._ObjectNameSpace;
 					// Texture download
 					_TextureDownloadFramebuffer = sharedContext._TextureDownloadFramebuffer;
+					_TextureDownloadFramebuffer.IncRef();
 					// Reference shader include library (GLSL #include support)
 					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 				}
@@ -581,11 +582,22 @@ namespace OpenGL.Objects
 
 			// Texture download
 			_TextureDownloadFramebuffer = new Framebuffer();
+			_TextureDownloadFramebuffer.IncRef();
 			_TextureDownloadFramebuffer.Create(this);
 
 			// Shader include library (GLSL #include support)
 			_ShaderIncludeLibrary = new ShaderIncludeLibrary();
+			_ShaderIncludeLibrary.IncRef();
 			_ShaderIncludeLibrary.Create(this);
+		}
+
+		/// <summary>
+		/// Dispose resources required by this GraphicsContext.
+		/// </summary>
+		private void TerminateResources()
+		{
+			_TextureDownloadFramebuffer.DecRef();
+			_ShaderIncludeLibrary.DecRef();
 		}
 
 		/// <summary>
@@ -1186,11 +1198,7 @@ namespace OpenGL.Objects
 			if (disposing == true) {
 
 				// Dispose resources
-
-				if (_ShaderIncludeLibrary != null) {
-					_ShaderIncludeLibrary.Dispose(this);
-					_ShaderIncludeLibrary = null;
-				}
+				TerminateResources();
 
 				StopResourceThread();
 

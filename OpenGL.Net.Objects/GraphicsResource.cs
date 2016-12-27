@@ -259,7 +259,6 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
 		/// </exception>
-		[Conditional("DEBUG")]
 		protected void CheckThisExistence(GraphicsContext ctx)
 		{
 			if (Exists(ctx) == false)
@@ -281,7 +280,6 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
 		/// </exception>
-		[Conditional("DEBUG")]
 		protected internal static void CheckThatExistence(GraphicsContext ctx, IGraphicsResource resource)
 		{
 			if (resource == null)
@@ -622,7 +620,7 @@ namespace OpenGL.Objects
 		/// Link a resource used by this UserGraphicsResource.
 		/// </summary>
 		/// <param name="graphicsResource">
-		/// The <see cref="GraphicsResource"/> that will be linked by this UserGraphicsResource. It will be referenced till
+		/// The <see cref="IGraphicsResource"/> that will be linked by this UserGraphicsResource. It will be referenced till
 		/// this instance disposition. You should not manually reference this instance for the UserGraphicsResource lifetime.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -638,15 +636,15 @@ namespace OpenGL.Objects
 			// Reference resources
 			graphicsResource.IncRef();
 			// Unreference at disposition
-			Debug.Assert(!_UserResources.Contains(graphicsResource));
-			_UserResources.Add(graphicsResource);
+			Debug.Assert(!_GpuResources.Contains(graphicsResource));
+			_GpuResources.Add(graphicsResource);
 		}
 
 		/// <summary>
 		/// Unlink a resource used by this UserGraphicsResource.
 		/// </summary>
 		/// <param name="graphicsResource">
-		/// The <see cref="GraphicsResource"/> that will be unlinked from this UserGraphicsResource. It will be unreferenced.
+		/// The <see cref="IGraphicsResource"/> that will be unlinked from this UserGraphicsResource. It will be unreferenced.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="graphicsResource"/> is null.
@@ -659,7 +657,7 @@ namespace OpenGL.Objects
 				throw new ArgumentException("namespace mismatch", "graphicsResource");
 
 			// Unreference at disposition
-			bool res = _UserResources.Remove(graphicsResource);
+			bool res = _GpuResources.Remove(graphicsResource);
 			Debug.Assert(res);
 			// No more referenced
 			graphicsResource.DecRef();
@@ -668,7 +666,55 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Resources used by this UserGraphicsResource.
 		/// </summary>
-		private readonly List<IGraphicsResource> _UserResources = new List<IGraphicsResource>();
+		private readonly List<IGraphicsResource> _GpuResources = new List<IGraphicsResource>();
+
+		/// <summary>
+		/// Link a resource used by this UserGraphicsResource.
+		/// </summary>
+		/// <param name="resource">
+		/// The <see cref="IResource"/> that will be linked by this UserGraphicsResource. It will be referenced till
+		/// this instance disposition. You should not manually reference this instance for the UserGraphicsResource lifetime.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resource"/> is null.
+		/// </exception>
+		protected void LinkResource(IResource resource)
+		{
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+
+			// Reference resources
+			resource.IncRef();
+			// Unreference at disposition
+			Debug.Assert(!_CpuResources.Contains(resource));
+			_CpuResources.Add(resource);
+		}
+
+		/// <summary>
+		/// Unlink a resource used by this UserGraphicsResource.
+		/// </summary>
+		/// <param name="resource">
+		/// The <see cref="IResource"/> that will be unlinked from this UserGraphicsResource. It will be unreferenced.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resource"/> is null.
+		/// </exception>
+		protected void UnlinkResource(IResource resource)
+		{
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+
+			// Unreference at disposition
+			bool res = _CpuResources.Remove(resource);
+			Debug.Assert(res);
+			// No more referenced
+			resource.DecRef();
+		}
+
+		/// <summary>
+		/// Resources used by this UserGraphicsResource.
+		/// </summary>
+		private readonly List<IResource> _CpuResources = new List<IResource>();
 
 		#endregion
 
@@ -726,7 +772,7 @@ namespace OpenGL.Objects
 				return (false);
 
 			// All linked resources must exists
-			foreach (GraphicsResource userResource in _UserResources)
+			foreach (GraphicsResource userResource in _GpuResources)
 				if (userResource.Exists(ctx) == false)
 					return (false);
 
@@ -741,7 +787,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			foreach (GraphicsResource userResource in _UserResources)
+			foreach (GraphicsResource userResource in _GpuResources)
 				userResource.Create(ctx);
 		}
 
@@ -756,9 +802,9 @@ namespace OpenGL.Objects
 		{
 			if (disposing) {
 				// Dereference linked resources
-				foreach (GraphicsResource graphicsResource in _UserResources)
+				foreach (GraphicsResource graphicsResource in _GpuResources)
 					graphicsResource.DecRef();
-				_UserResources.Clear();
+				_GpuResources.Clear();
 			}
 
 			// Base implementation

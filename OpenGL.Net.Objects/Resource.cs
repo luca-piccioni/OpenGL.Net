@@ -51,10 +51,11 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// 
 		/// </summary>
+		[Conditional("DEBUG")]
 		public static void CheckResourceLeaks()
 		{
 			foreach (Resource resource in _LivingResources)
-				Debug.Assert(resource.IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", resource.RefCount, resource._ConstructorStackTrace));
+				Debug.Assert(!resource.IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", resource.RefCount, resource._ConstructorStackTrace));
 		}
 
 		protected void NotifyDiedResource()
@@ -62,7 +63,8 @@ namespace OpenGL.Objects
 			// Mark as disposed
 			_Disposed = true;
 			// Remove this GraphicsResource from the living ones
-			_LivingResources.RemoveAll(delegate (Resource resource) { return ReferenceEquals(resource, this); });
+			//_LivingResources.RemoveAll(delegate (Resource resource) { return ReferenceEquals(resource, this); });
+			_LivingResources.Remove(this);
 		}
 
 		[Conditional("DEBUG")]

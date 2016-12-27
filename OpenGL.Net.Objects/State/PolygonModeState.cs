@@ -53,7 +53,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public PolygonModeState(GraphicsContext ctx)
 		{
-			CheckCurrentContext(ctx);
+			GraphicsResource.CheckCurrentContext(ctx);
 
 			int[] modes = new int[2];
 

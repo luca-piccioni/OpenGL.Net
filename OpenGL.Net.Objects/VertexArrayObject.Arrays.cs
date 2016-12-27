@@ -38,6 +38,11 @@ namespace OpenGL.Objects
 			void Create(GraphicsContext ctx);
 
 			/// <summary>
+			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
+			/// </summary>
+			ArrayBufferObjectBase Array { get; }
+
+			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
 			uint Length { get; }
@@ -359,6 +364,11 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
+			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
+			/// </summary>
+			public ArrayBufferObjectBase Array { get { return (ArrayBuffer); } }
+
+			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
 			public uint Length { get { return (ArrayBuffer.ItemCount); } }
@@ -479,6 +489,11 @@ namespace OpenGL.Objects
 			{
 				
 			}
+
+			/// <summary>
+			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
+			/// </summary>
+			public ArrayBufferObjectBase Array { get { return (null); } }
 
 			/// <summary>
 			/// Get the length of the vertex array.

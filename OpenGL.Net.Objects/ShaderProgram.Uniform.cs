@@ -56,6 +56,59 @@ namespace OpenGL.Objects
 			if (value == null)
 				throw new ArgumentNullException("value");
 
+			Type valueType = value.GetType();
+
+			Matrix valueMatrix = value as Matrix;
+			if (valueMatrix != null) {
+				Matrix4x4 matrix4x4 = value as Matrix4x4;
+				if (matrix4x4 != null) {
+					SetUniform(ctx, uniformName, matrix4x4);
+					return;
+				}
+
+				Matrix3x3 matrix3x3 = value as Matrix3x3;
+				if (matrix3x3 != null) {
+					SetUniform(ctx, uniformName, matrix3x3);
+					return;
+				}
+
+				throw new NotSupportedException();
+			} else if (valueType == typeof(Vertex2f)) {
+				SetUniform(ctx, uniformName, (Vertex2f)value);
+				return;
+			} else if (valueType == typeof(Vertex3f)) {
+				SetUniform(ctx, uniformName, (Vertex3f)value);
+				return;
+			} else if (valueType == typeof(Vertex4f)) {
+				SetUniform(ctx, uniformName, (Vertex4f)value);
+				return;
+			} else if (valueType == typeof(Vertex2i)) {
+				SetUniform(ctx, uniformName, (Vertex2i)value);
+				return;
+			} else if (valueType == typeof(Vertex3i)) {
+				SetUniform(ctx, uniformName, (Vertex3i)value);
+				return;
+			} else if (valueType == typeof(Vertex4i)) {
+				SetUniform(ctx, uniformName, (Vertex4i)value);
+				return;
+			} else if (valueType == typeof(int)) {
+				SetUniform(ctx, uniformName, (int)value);
+				return;
+			} else if (valueType == typeof(float)) {
+				SetUniform(ctx, uniformName, (float)value);
+				return;
+			} else if (valueType == typeof(ColorRGBAF)) {
+				SetUniform(ctx, uniformName, (ColorRGBAF)value);
+				return;
+			} else if (valueType == typeof(Texture2d)) {
+				SetUniform(ctx, uniformName, (Texture2d)value);
+				return;
+			} else if (valueType == typeof(TextureCube)) {
+				SetUniform(ctx, uniformName, (TextureCube)value);
+				return;
+			} else
+				throw new NotSupportedException();
+
 			MethodInfo setUniformMethod;
 
 			if (_SetUniformMethods.TryGetValue(value.GetType(), out setUniformMethod) == false) {

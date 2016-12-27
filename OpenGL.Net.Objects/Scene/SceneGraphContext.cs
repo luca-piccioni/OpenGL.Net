@@ -17,7 +17,7 @@
 // USA
 
 using System;
-
+using System.Diagnostics;
 using OpenGL.Objects.State;
 
 namespace OpenGL.Objects.Scene
@@ -72,7 +72,8 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public void Dispose()
 		{
-			GraphicsStateStack.Dispose();
+			GraphicsStateStack.DecRef();
+			Debug.Assert(GraphicsStateStack.IsDisposed);
 		}
 
 		#endregion

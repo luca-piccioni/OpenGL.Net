@@ -73,6 +73,24 @@ namespace OpenGL.Objects.State
 			/// </summary>
 			[ShaderUniformState("AmbientLighting")]
 			public ColorRGBAF AmbientLighting;
+
+			/// <summary>
+			/// Apply this MaterialState
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+			/// </param>
+			/// <param name="shaderProgram">
+			/// The <see cref="ShaderProgram"/> which has the state set.
+			/// </param>
+			public void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			{
+				string uniformName;
+
+				uniformName = String.Format("{0}.AmbientLighting", prefix);
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, AmbientLighting);
+			}
 		}
 
 		/// <summary>
@@ -157,6 +175,52 @@ namespace OpenGL.Objects.State
 			public Vertex2f FallOff;
 
 			#endregion
+
+			/// <summary>
+			/// Apply this MaterialState
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+			/// </param>
+			/// <param name="shaderProgram">
+			/// The <see cref="ShaderProgram"/> which has the state set.
+			/// </param>
+			public void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			{
+				string uniformName;
+
+				uniformName = prefix + ".AmbientColor";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, AmbientColor);
+
+				uniformName = prefix + ".DiffuseColor";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, DiffuseColor);
+
+				uniformName = prefix + ".SpecularColor";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, SpecularColor);
+
+				uniformName = prefix + ".Direction";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Direction);
+
+				uniformName = prefix + ".Position";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, Position);
+
+				uniformName = prefix + ".HalfVector";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, HalfVector);
+
+				uniformName = prefix + ".AttenuationFactors";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, AttenuationFactors);
+
+				uniformName = prefix + ".FallOff";
+				if (shaderProgram.IsActiveUniform(uniformName))
+					shaderProgram.SetUniform(ctx, uniformName, FallOff);
+			}
 		}
 
 		#endregion
@@ -219,7 +283,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			CheckCurrentContext(ctx);
+			GraphicsResource.CheckCurrentContext(ctx);
 
 			if (shaderProgram == null) {
 
@@ -227,8 +291,25 @@ namespace OpenGL.Objects.State
 
 				throw new NotImplementedException();
 			} else {
-				// Base implementation
-				base.ApplyState(ctx, shaderProgram);
+				// Custom implementation
+				ctx.Bind(shaderProgram);
+
+				if (shaderProgram.IsActiveUniform("glo_LightModel"))
+					LightModel.ApplyState(ctx, shaderProgram, "glo_LightModel");
+
+				if (shaderProgram.IsActiveUniform("glo_Light")) {
+					for (int i = 0; i < Lights.Length; i++) {
+						string uniformName = String.Format("glo_Light[{0}]", i);
+
+						if (shaderProgram.IsActiveUniform(uniformName) == false)
+							break;
+
+						Lights[i].ApplyState(ctx, shaderProgram, uniformName);
+					}
+				}
+
+				if (shaderProgram.IsActiveUniform("glo_LightsCount"))
+					shaderProgram.SetUniform(ctx, "glo_LightsCount", LightsCount);
 			}
 		}
 

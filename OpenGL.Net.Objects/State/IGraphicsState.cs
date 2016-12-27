@@ -29,7 +29,7 @@ namespace OpenGL.Objects.State
 	/// for rendering.
 	/// </para>
 	/// </remarks>
-	public interface IGraphicsState : IGraphicsResource, IResource, IEquatable<IGraphicsState>
+	public interface IGraphicsState : IResource, IEquatable<IGraphicsState>
 	{
 		#region State Properties
 
@@ -51,6 +51,14 @@ namespace OpenGL.Objects.State
 		#endregion
 
 		#region State Application
+
+		/// <summary>
+		/// Create or update resources defined by this IGraphicsState.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		void CreateState(GraphicsContext ctx);
 
 		/// <summary>
 		/// Apply the render state defined by this IGraphicsState.

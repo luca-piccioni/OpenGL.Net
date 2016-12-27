@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 namespace OpenGL.Objects
 {
 	/// <summary>
-	/// Data buffer object abstraction.
+	/// Buffer object abstraction.
 	/// </summary>
 	/// <remarks>
 	/// <para>
@@ -778,7 +778,7 @@ namespace OpenGL.Objects
 						return (Gl.TRANSFORM_FEEDBACK_BINDING);
 
 					default:
-						throw new NotSupportedException(String.Format("buffer target 0x{0:X2} not supported", (int)BufferType));
+						throw new NotSupportedException(String.Format("buffer target {0} not supported", BufferType));
 				}
 			}
 		}
@@ -910,7 +910,7 @@ namespace OpenGL.Objects
 				T[] reallocClientBuffer = new T[size];
 
 				// Copy previous client buffer contents
-				Array.Copy(_TypedClientBuffer, reallocClientBuffer, _TypedClientBuffer.Length);
+				Array.Copy(_TypedClientBuffer, reallocClientBuffer, Math.Min(_TypedClientBuffer.Length, reallocClientBuffer.Length));
 				// Unpin and release previous client buffer
 				ReleaseClientBuffer();
 

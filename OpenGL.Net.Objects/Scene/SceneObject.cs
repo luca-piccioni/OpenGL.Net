@@ -52,7 +52,6 @@ namespace OpenGL.Objects.Scene
 		{
 			// The graphics state TransformState is always defined
 			LinkResource(ObjectState);
-
 			ObjectState.DefineState(new TransformState());
 		}
 
@@ -451,7 +450,7 @@ namespace OpenGL.Objects.Scene
 		/// <param name="ctxScene">
 		/// The <see cref="SceneGraphContext"/> used for drawing.
 		/// </param>
-		protected virtual void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
+		protected internal virtual void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
 			
 		}
@@ -522,7 +521,7 @@ namespace OpenGL.Objects.Scene
 			return (true);
 		}
 
-		private static bool DrawPreDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		protected static bool DrawPreDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
 		{
 			// Update object before applying state
 			sceneObject.UpdateThis(ctx, ctxScene);
@@ -532,7 +531,7 @@ namespace OpenGL.Objects.Scene
 			return (true);
 		}
 
-		private static bool DrawPostDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		protected static bool DrawPostDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
 		{
 			// Restore previous state
 			ctxScene.GraphicsStateStack.Pop();
@@ -549,6 +548,15 @@ namespace OpenGL.Objects.Scene
 		/// The state relative to this SceneGraphObject.
 		/// </summary>
 		public readonly GraphicsStateSet ObjectState = new GraphicsStateSet();
+
+		#endregion
+
+		#region Culling
+
+		/// <summary>
+		/// Bounding volume used for testing visibility.
+		/// </summary>
+		public IBoundingVolume BoundingVolume;
 
 		#endregion
 

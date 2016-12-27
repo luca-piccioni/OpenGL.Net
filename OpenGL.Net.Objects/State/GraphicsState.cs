@@ -25,7 +25,7 @@ namespace OpenGL.Objects.State
 	/// Generic render state.
 	/// </summary>
 	[DebuggerDisplay("GraphicsState: Id={StateIdentifier} Inheritable={Inheritable}")]
-	public abstract class GraphicsState : UserGraphicsResource, IGraphicsState
+	public abstract class GraphicsState : IGraphicsState
 	{
 		#region Constructors
 
@@ -87,7 +87,7 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
-		#region GraphicsResource Overrides
+		#region Object Overrides
 
 		/// <summary>
 		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
@@ -152,6 +152,17 @@ namespace OpenGL.Objects.State
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
 		public virtual bool IsShaderProgramBound { get { return (false); } }
+
+		/// <summary>
+		/// Create or update resources defined by this IGraphicsState.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		public virtual void CreateState(GraphicsContext ctx)
+		{
+
+		}
 
 		/// <summary>
 		/// Apply the render state define by this IGraphicsState.
@@ -219,9 +230,6 @@ namespace OpenGL.Objects.State
 		{
 			GraphicsState copiedState = (GraphicsState)MemberwiseClone();
 
-			// New copy shall have a reference count of 0
-			copiedState.ResetRefCount();
-
 			return (copiedState);
 		}
 
@@ -229,6 +237,71 @@ namespace OpenGL.Objects.State
 		/// Flag indicating whether this state is inheritable.
 		/// </summary>
 		private bool _Inheritable = true;
+
+		/// <summary>
+		/// Number of shared instances of this IGraphicsResource.
+		/// </summary>
+		/// <remarks>
+		/// The reference count shall be initially 0 on new instances.
+		/// </remarks>
+		public uint RefCount { get { return (_RefCount); } }
+
+		/// <summary>
+		/// Increment the shared IGraphicsResource reference count.
+		/// </summary>
+		/// <remarks>
+		/// Incrementing the reference count for this resource prevents the system to dispose this instance.
+		/// </remarks>
+		public void IncRef()
+		{
+			_RefCount++;
+		}
+
+		/// <summary>
+		/// Decrement the shared IGraphicsResource reference count.
+		/// </summary>
+		/// <remarks>
+		/// Decrementing the reference count for this resource could cause this instance disposition. In the case
+		/// the reference count equals 0 (with or without decrementing it), this instance will be disposed.
+		/// </remarks>
+		public void DecRef()
+		{
+			// Instance could be never referenced with IncRef
+			Debug.Assert(_RefCount > 0);
+			if (_RefCount > 0)
+				_RefCount--;
+
+			// Automatically dispose when no references are available
+			if (_RefCount == 0)
+				Dispose();
+		}
+
+		/// <summary>
+		/// Reset the reference count of this instance.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This should be used in normal code.
+		/// </para>
+		/// <para>
+		/// This routine could be useful in the case the deep-copoy implementation uses <see cref="Object.MemberwiseClone"/>,
+		/// indeed copying the reference count.
+		/// </para>
+		/// </remarks>
+		protected void ResetRefCount() { _RefCount = 0; }
+
+		/// <summary>
+		/// The count of references for this GraphicsResource.
+		/// </summary>
+		private uint _RefCount;
+
+		/// <summary>
+		/// Dispose resources hold by this GraphicsState.
+		/// </summary>
+		public virtual void Dispose()
+		{
+
+		}
 
 		#endregion
 	}

@@ -160,7 +160,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			CheckCurrentContext(ctx);
+			GraphicsResource.CheckCurrentContext(ctx);
 
 			if (shaderProgram == null) {
 
@@ -179,8 +179,25 @@ namespace OpenGL.Objects.State
 					Gl.LoadMatrix(ModelView.ToArray());
 				}
 			} else {
-				// Base implementation
-				base.ApplyState(ctx, shaderProgram);
+				// Custom implementation
+				ctx.Bind(shaderProgram);
+
+				if (shaderProgram.IsActiveUniform("glo_Projection"))
+					shaderProgram.SetUniform(ctx, "glo_Projection", Projection);
+				if (shaderProgram.IsActiveUniform("glo_DepthDistances"))
+					shaderProgram.SetUniform(ctx, "glo_DepthDistances", DepthDistances);
+				if (shaderProgram.IsActiveUniform("glo_InverseProjection"))
+					shaderProgram.SetUniform(ctx, "glo_InverseProjection", InverseProjection);
+				if (shaderProgram.IsActiveUniform("glo_ModelView"))
+					shaderProgram.SetUniform(ctx, "glo_ModelView", ModelView);
+				if (shaderProgram.IsActiveUniform("glo_ModelViewProjection"))
+					shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection);
+				if (shaderProgram.IsActiveUniform("glo_InverseModelView"))
+					shaderProgram.SetUniform(ctx, "glo_InverseModelView", InverseModelView);
+				if (shaderProgram.IsActiveUniform("glo_InverseModelViewProjection"))
+					shaderProgram.SetUniform(ctx, "glo_InverseModelViewProjection", InverseModelViewProjection);
+				if (shaderProgram.IsActiveUniform("glo_NormalMatrix"))
+					shaderProgram.SetUniform(ctx, "glo_NormalMatrix", NormalMatrix);
 			}
 		}
 

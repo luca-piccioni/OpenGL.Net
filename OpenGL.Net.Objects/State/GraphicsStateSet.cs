@@ -38,8 +38,8 @@ namespace OpenGL.Objects.State
 	/// to be applied. This operation is performed using Merge method.
 	/// </para>
 	/// </remarks>
-	[DebuggerDisplay("GraphicsStateSet: States={mRenderStates.Count} Customs={mCustomStates.Count}")]
-	public class GraphicsStateSet : UserGraphicsResource
+	[DebuggerDisplay("GraphicsStateSet: States={_RenderStates.Count}")]
+	public class GraphicsStateSet : IResource
 	{
 		#region State Factory
 
@@ -124,7 +124,7 @@ namespace OpenGL.Objects.State
 			_RenderStates[renderState.StateIdentifier] = renderState;
 
 			// Reference the new state
-			LinkResource(renderState);
+			renderState.IncRef();
 		}
 
 		/// <summary>
@@ -142,7 +142,7 @@ namespace OpenGL.Objects.State
 			IGraphicsState previousState;
 
 			if (_RenderStates.TryGetValue(stateId, out previousState) && previousState != null)
-				UnlinkResource(previousState);
+				previousState.DecRef();
 			// Remove state
 			_RenderStates.Remove(stateId);
 		}
@@ -202,6 +202,12 @@ namespace OpenGL.Objects.State
 		#endregion
 
 		#region State Set Application
+
+		public void Create(GraphicsContext ctx)
+		{
+			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
+				pair.Value.CreateState(ctx);
+		}
 
 		/// <summary>
 		/// Apply the set of GraphicsState collected by this instance.
@@ -344,6 +350,80 @@ namespace OpenGL.Objects.State
 		/// Logger of this class.
 		/// </summary>
 		private static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+		#endregion
+
+		#region IResource Implementation
+
+		/// <summary>
+		/// Number of shared instances of this IGraphicsResource.
+		/// </summary>
+		/// <remarks>
+		/// The reference count shall be initially 0 on new instances.
+		/// </remarks>
+		public uint RefCount { get { return (_RefCount); } }
+
+		/// <summary>
+		/// Increment the shared IGraphicsResource reference count.
+		/// </summary>
+		/// <remarks>
+		/// Incrementing the reference count for this resource prevents the system to dispose this instance.
+		/// </remarks>
+		public void IncRef()
+		{
+			_RefCount++;
+		}
+
+		/// <summary>
+		/// Decrement the shared IGraphicsResource reference count.
+		/// </summary>
+		/// <remarks>
+		/// Decrementing the reference count for this resource could cause this instance disposition. In the case
+		/// the reference count equals 0 (with or without decrementing it), this instance will be disposed.
+		/// </remarks>
+		public void DecRef()
+		{
+			// Instance could be never referenced with IncRef
+			Debug.Assert(_RefCount > 0);
+			if (_RefCount > 0)
+				_RefCount--;
+
+			// Automatically dispose when no references are available
+			if (_RefCount == 0)
+				Dispose();
+		}
+
+		/// <summary>
+		/// Reset the reference count of this instance.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This should be used in normal code.
+		/// </para>
+		/// <para>
+		/// This routine could be useful in the case the deep-copoy implementation uses <see cref="Object.MemberwiseClone"/>,
+		/// indeed copying the reference count.
+		/// </para>
+		/// </remarks>
+		protected void ResetRefCount() { _RefCount = 0; }
+
+		/// <summary>
+		/// The count of references for this GraphicsResource.
+		/// </summary>
+		private uint _RefCount;
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+		/// </summary>
+		public void Dispose()
+		{
+			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
+				pair.Value.DecRef();
+		}
 
 		#endregion
 	}
