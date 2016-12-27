@@ -160,8 +160,8 @@ namespace OpenGL
 
 			planes.Add(GetFrustumLeftPlane(modelViewProjection));
 			planes.Add(GetFrustumRightPlane(modelViewProjection));
-			planes.Add(GetFrustumFarPlane(modelViewProjection));
-			planes.Add(GetFrustumNearPlane(modelViewProjection));
+			//planes.Add(GetFrustumFarPlane(modelViewProjection));
+			//planes.Add(GetFrustumNearPlane(modelViewProjection));
 			planes.Add(GetFrustumBottomPlane(modelViewProjection));
 			planes.Add(GetFrustumTopPlane(modelViewProjection));
 
@@ -339,7 +339,7 @@ namespace OpenGL
 		/// </returns>
 		public float GetDistance(Vertex3f p)
 		{
-			return ((Normal * p) + Distance);
+			return ((Normal * p) - Distance);
 		}
 
 		#endregion
