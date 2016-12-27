@@ -94,6 +94,11 @@ namespace OpenGL
 		/// </summary>
 		public byte z;
 
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 3;
+
 		#endregion
 
 		#region Arithmetic Operators
@@ -518,7 +523,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3ub, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3ub[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3ub[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3ub holding the minumum values.
@@ -540,10 +545,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ub holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3ub Min(Vertex3ub* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (byte)Math.Min(x, v[i].x);
+				y = (byte)Math.Min(y, v[i].y);
+				z = (byte)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3ub(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3ub, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3ub[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3ub[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3ub holding the maximum values.
@@ -562,6 +595,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ub holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3ub Max(Vertex3ub* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (byte)Math.Max(x, v[i].x);
+				y = (byte)Math.Max(y, v[i].y);
+				z = (byte)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ub[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3ub"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3ub"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3ub[] v, out Vertex3ub min, out Vertex3ub max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
+			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (byte)Math.Min(minx, v[i].x); miny = (byte)Math.Min(miny, v[i].y); minz = (byte)Math.Min(minz, v[i].z);
+				maxx = (byte)Math.Max(maxx, v[i].x); maxy = (byte)Math.Max(maxy, v[i].y); maxz = (byte)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3ub(minx, miny, minz);
+			max = new Vertex3ub(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3ub"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3ub"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3ub* v, uint count, out Vertex3ub min, out Vertex3ub max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
+			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (byte)Math.Min(minx, v[i].x); miny = (byte)Math.Min(miny, v[i].y); minz = (byte)Math.Min(minz, v[i].z);
+				maxx = (byte)Math.Max(maxx, v[i].x); maxy = (byte)Math.Max(maxy, v[i].y); maxz = (byte)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3ub(minx, miny, minz);
+			max = new Vertex3ub(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -850,6 +972,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public sbyte z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 3;
 
 		#endregion
 
@@ -1289,7 +1416,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3b, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3b[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3b[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3b holding the minumum values.
@@ -1311,10 +1438,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3b holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3b Min(Vertex3b* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (sbyte)Math.Min(x, v[i].x);
+				y = (sbyte)Math.Min(y, v[i].y);
+				z = (sbyte)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3b(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3b, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3b[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3b[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3b holding the maximum values.
@@ -1333,6 +1488,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3b holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3b Max(Vertex3b* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (sbyte)Math.Max(x, v[i].x);
+				y = (sbyte)Math.Max(y, v[i].y);
+				z = (sbyte)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3b[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3b"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3b"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3b[] v, out Vertex3b min, out Vertex3b max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
+			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (sbyte)Math.Min(minx, v[i].x); miny = (sbyte)Math.Min(miny, v[i].y); minz = (sbyte)Math.Min(minz, v[i].z);
+				maxx = (sbyte)Math.Max(maxx, v[i].x); maxy = (sbyte)Math.Max(maxy, v[i].y); maxz = (sbyte)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3b(minx, miny, minz);
+			max = new Vertex3b(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3b"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3b"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3b* v, uint count, out Vertex3b min, out Vertex3b max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
+			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (sbyte)Math.Min(minx, v[i].x); miny = (sbyte)Math.Min(miny, v[i].y); minz = (sbyte)Math.Min(minz, v[i].z);
+				maxx = (sbyte)Math.Max(maxx, v[i].x); maxy = (sbyte)Math.Max(maxy, v[i].y); maxz = (sbyte)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3b(minx, miny, minz);
+			max = new Vertex3b(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -1621,6 +1865,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public ushort z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 6;
 
 		#endregion
 
@@ -2046,7 +2295,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3us, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3us[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3us[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3us holding the minumum values.
@@ -2068,10 +2317,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3us holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3us Min(Vertex3us* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (ushort)Math.Min(x, v[i].x);
+				y = (ushort)Math.Min(y, v[i].y);
+				z = (ushort)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3us(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3us, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3us[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3us[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3us holding the maximum values.
@@ -2090,6 +2367,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3us holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3us Max(Vertex3us* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (ushort)Math.Max(x, v[i].x);
+				y = (ushort)Math.Max(y, v[i].y);
+				z = (ushort)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3us[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3us"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3us"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3us[] v, out Vertex3us min, out Vertex3us max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
+			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (ushort)Math.Min(minx, v[i].x); miny = (ushort)Math.Min(miny, v[i].y); minz = (ushort)Math.Min(minz, v[i].z);
+				maxx = (ushort)Math.Max(maxx, v[i].x); maxy = (ushort)Math.Max(maxy, v[i].y); maxz = (ushort)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3us(minx, miny, minz);
+			max = new Vertex3us(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3us"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3us"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3us* v, uint count, out Vertex3us min, out Vertex3us max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
+			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (ushort)Math.Min(minx, v[i].x); miny = (ushort)Math.Min(miny, v[i].y); minz = (ushort)Math.Min(minz, v[i].z);
+				maxx = (ushort)Math.Max(maxx, v[i].x); maxy = (ushort)Math.Max(maxy, v[i].y); maxz = (ushort)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3us(minx, miny, minz);
+			max = new Vertex3us(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -2378,6 +2744,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public short z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 6;
 
 		#endregion
 
@@ -2817,7 +3188,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3s, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3s[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3s[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3s holding the minumum values.
@@ -2839,10 +3210,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3s holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3s Min(Vertex3s* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (short)Math.Min(x, v[i].x);
+				y = (short)Math.Min(y, v[i].y);
+				z = (short)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3s(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3s, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3s[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3s[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3s holding the maximum values.
@@ -2861,6 +3260,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3s holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3s Max(Vertex3s* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (short)Math.Max(x, v[i].x);
+				y = (short)Math.Max(y, v[i].y);
+				z = (short)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3s[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3s"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3s"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3s[] v, out Vertex3s min, out Vertex3s max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
+			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (short)Math.Min(minx, v[i].x); miny = (short)Math.Min(miny, v[i].y); minz = (short)Math.Min(minz, v[i].z);
+				maxx = (short)Math.Max(maxx, v[i].x); maxy = (short)Math.Max(maxy, v[i].y); maxz = (short)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3s(minx, miny, minz);
+			max = new Vertex3s(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3s"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3s"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3s* v, uint count, out Vertex3s min, out Vertex3s max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
+			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (short)Math.Min(minx, v[i].x); miny = (short)Math.Min(miny, v[i].y); minz = (short)Math.Min(minz, v[i].z);
+				maxx = (short)Math.Max(maxx, v[i].x); maxy = (short)Math.Max(maxy, v[i].y); maxz = (short)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3s(minx, miny, minz);
+			max = new Vertex3s(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -3149,6 +3637,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public uint z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 12;
 
 		#endregion
 
@@ -3574,7 +4067,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3ui, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3ui[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3ui[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3ui holding the minumum values.
@@ -3596,10 +4089,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ui holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3ui Min(Vertex3ui* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (uint)Math.Min(x, v[i].x);
+				y = (uint)Math.Min(y, v[i].y);
+				z = (uint)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3ui(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3ui, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3ui[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3ui[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3ui holding the maximum values.
@@ -3618,6 +4139,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3ui holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3ui Max(Vertex3ui* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (uint)Math.Max(x, v[i].x);
+				y = (uint)Math.Max(y, v[i].y);
+				z = (uint)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ui[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3ui"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3ui"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3ui[] v, out Vertex3ui min, out Vertex3ui max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
+			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (uint)Math.Min(minx, v[i].x); miny = (uint)Math.Min(miny, v[i].y); minz = (uint)Math.Min(minz, v[i].z);
+				maxx = (uint)Math.Max(maxx, v[i].x); maxy = (uint)Math.Max(maxy, v[i].y); maxz = (uint)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3ui(minx, miny, minz);
+			max = new Vertex3ui(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3ui"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3ui"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3ui* v, uint count, out Vertex3ui min, out Vertex3ui max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
+			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (uint)Math.Min(minx, v[i].x); miny = (uint)Math.Min(miny, v[i].y); minz = (uint)Math.Min(minz, v[i].z);
+				maxx = (uint)Math.Max(maxx, v[i].x); maxy = (uint)Math.Max(maxy, v[i].y); maxz = (uint)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3ui(minx, miny, minz);
+			max = new Vertex3ui(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -3906,6 +4516,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public int z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 12;
 
 		#endregion
 
@@ -4345,7 +4960,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3i, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3i[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3i[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3i holding the minumum values.
@@ -4367,10 +4982,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3i holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3i Min(Vertex3i* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (int)Math.Min(x, v[i].x);
+				y = (int)Math.Min(y, v[i].y);
+				z = (int)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3i(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3i, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3i[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3i[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3i holding the maximum values.
@@ -4389,6 +5032,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3i holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3i Max(Vertex3i* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (int)Math.Max(x, v[i].x);
+				y = (int)Math.Max(y, v[i].y);
+				z = (int)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3i[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3i"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3i"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3i[] v, out Vertex3i min, out Vertex3i max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
+			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (int)Math.Min(minx, v[i].x); miny = (int)Math.Min(miny, v[i].y); minz = (int)Math.Min(minz, v[i].z);
+				maxx = (int)Math.Max(maxx, v[i].x); maxy = (int)Math.Max(maxy, v[i].y); maxz = (int)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3i(minx, miny, minz);
+			max = new Vertex3i(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3i"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3i"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3i* v, uint count, out Vertex3i min, out Vertex3i max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
+			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (int)Math.Min(minx, v[i].x); miny = (int)Math.Min(miny, v[i].y); minz = (int)Math.Min(minz, v[i].z);
+				maxx = (int)Math.Max(maxx, v[i].x); maxy = (int)Math.Max(maxy, v[i].y); maxz = (int)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3i(minx, miny, minz);
+			max = new Vertex3i(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -4677,6 +5409,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public float z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 12;
 
 		#endregion
 
@@ -5057,7 +5794,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3f, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3f[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3f[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3f holding the minumum values.
@@ -5079,10 +5816,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3f holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3f Min(Vertex3f* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (float)Math.Min(x, v[i].x);
+				y = (float)Math.Min(y, v[i].y);
+				z = (float)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3f(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3f, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3f[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3f[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3f holding the maximum values.
@@ -5101,6 +5866,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3f holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3f Max(Vertex3f* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (float)Math.Max(x, v[i].x);
+				y = (float)Math.Max(y, v[i].y);
+				z = (float)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3f[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3f"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3f"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3f[] v, out Vertex3f min, out Vertex3f max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
+			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (float)Math.Min(minx, v[i].x); miny = (float)Math.Min(miny, v[i].y); minz = (float)Math.Min(minz, v[i].z);
+				maxx = (float)Math.Max(maxx, v[i].x); maxy = (float)Math.Max(maxy, v[i].y); maxz = (float)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3f(minx, miny, minz);
+			max = new Vertex3f(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3f"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3f"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3f* v, uint count, out Vertex3f min, out Vertex3f max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
+			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (float)Math.Min(minx, v[i].x); miny = (float)Math.Min(miny, v[i].y); minz = (float)Math.Min(minz, v[i].z);
+				maxx = (float)Math.Max(maxx, v[i].x); maxy = (float)Math.Max(maxy, v[i].y); maxz = (float)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3f(minx, miny, minz);
+			max = new Vertex3f(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -5374,6 +6228,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public double z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 24;
 
 		#endregion
 
@@ -5754,7 +6613,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3d, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3d[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3d[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3d holding the minumum values.
@@ -5776,10 +6635,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3d holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3d Min(Vertex3d* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (double)Math.Min(x, v[i].x);
+				y = (double)Math.Min(y, v[i].y);
+				z = (double)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3d(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3d, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3d[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3d[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3d holding the maximum values.
@@ -5798,6 +6685,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3d holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3d Max(Vertex3d* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (double)Math.Max(x, v[i].x);
+				y = (double)Math.Max(y, v[i].y);
+				z = (double)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3d[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3d"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3d"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3d[] v, out Vertex3d min, out Vertex3d max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
+			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (double)Math.Min(minx, v[i].x); miny = (double)Math.Min(miny, v[i].y); minz = (double)Math.Min(minz, v[i].z);
+				maxx = (double)Math.Max(maxx, v[i].x); maxy = (double)Math.Max(maxy, v[i].y); maxz = (double)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3d(minx, miny, minz);
+			max = new Vertex3d(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3d"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3d"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3d* v, uint count, out Vertex3d min, out Vertex3d max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
+			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (double)Math.Min(minx, v[i].x); miny = (double)Math.Min(miny, v[i].y); minz = (double)Math.Min(minz, v[i].z);
+				maxx = (double)Math.Max(maxx, v[i].x); maxy = (double)Math.Max(maxy, v[i].y); maxz = (double)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3d(minx, miny, minz);
+			max = new Vertex3d(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -6071,6 +7047,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public HalfFloat z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 6;
 
 		#endregion
 
@@ -6465,7 +7446,7 @@ namespace OpenGL
 		/// Get the minimum of an array of Vertex3hf, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3hf[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3hf[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3hf holding the minumum values.
@@ -6487,10 +7468,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex3hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3hf holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex3hf Min(Vertex3hf* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (HalfFloat)Math.Min(x, v[i].x);
+				y = (HalfFloat)Math.Min(y, v[i].y);
+				z = (HalfFloat)Math.Min(z, v[i].z);
+			}
+
+			return (new Vertex3hf(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex3hf, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Vertex3hf[]"/> that specify the values to be processed.
+		/// A <see cref="T:Vertex3hf[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the Vertex3hf holding the maximum values.
@@ -6509,6 +7518,95 @@ namespace OpenGL
 			}
 
 			return (new Vertex3hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex3hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex3hf holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex3hf Max(Vertex3hf* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (HalfFloat)Math.Max(x, v[i].x);
+				y = (HalfFloat)Math.Max(y, v[i].y);
+				z = (HalfFloat)Math.Max(z, v[i].z);
+			}
+
+			return (new Vertex3hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3hf[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3hf"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3hf"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex3hf[] v, out Vertex3hf min, out Vertex3hf max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (HalfFloat)Math.Min(minx, v[i].x); miny = (HalfFloat)Math.Min(miny, v[i].y); minz = (HalfFloat)Math.Min(minz, v[i].z);
+				maxx = (HalfFloat)Math.Max(maxx, v[i].x); maxy = (HalfFloat)Math.Max(maxy, v[i].y); maxz = (HalfFloat)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3hf(minx, miny, minz);
+			max = new Vertex3hf(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex3hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex3hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex3hf"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex3hf"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex3hf* v, uint count, out Vertex3hf min, out Vertex3hf max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (HalfFloat)Math.Min(minx, v[i].x); miny = (HalfFloat)Math.Min(miny, v[i].y); minz = (HalfFloat)Math.Min(minz, v[i].z);
+				maxx = (HalfFloat)Math.Max(maxx, v[i].x); maxy = (HalfFloat)Math.Max(maxy, v[i].y); maxz = (HalfFloat)Math.Max(maxz, v[i].z);
+			}
+
+			min = new Vertex3hf(minx, miny, minz);
+			max = new Vertex3hf(maxx, maxy, maxz);
 		}
 
 		#endregion

@@ -85,6 +85,11 @@ namespace OpenGL
 		/// </summary>
 		public byte y;
 
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 2;
+
 		#endregion
 
 		#region Arithmetic Operators
@@ -542,6 +547,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ub holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2ub Min(Vertex2ub* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (byte)Math.Min(x, v[i].x);
+				y = (byte)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2ub(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2ub, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -563,6 +595,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2ub(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ub holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2ub Max(Vertex2ub* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (byte)Math.Max(x, v[i].x);
+				y = (byte)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2ub(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ub[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2ub"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2ub"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2ub[] v, out Vertex2ub min, out Vertex2ub max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue;
+			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (byte)Math.Min(minx, v[i].x); miny = (byte)Math.Min(miny, v[i].y);
+				maxx = (byte)Math.Max(maxx, v[i].x); maxy = (byte)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2ub(minx, miny);
+			max = new Vertex2ub(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2ub"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2ub"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2ub* v, uint count, out Vertex2ub min, out Vertex2ub max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue;
+			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (byte)Math.Min(minx, v[i].x); miny = (byte)Math.Min(miny, v[i].y);
+				maxx = (byte)Math.Max(maxx, v[i].x); maxy = (byte)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2ub(minx, miny);
+			max = new Vertex2ub(maxx, maxy);
 		}
 
 		#endregion
@@ -818,6 +938,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public sbyte y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 2;
 
 		#endregion
 
@@ -1290,6 +1415,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2b holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2b Min(Vertex2b* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (sbyte)Math.Min(x, v[i].x);
+				y = (sbyte)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2b(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2b, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -1311,6 +1463,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2b(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2b holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2b Max(Vertex2b* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (sbyte)Math.Max(x, v[i].x);
+				y = (sbyte)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2b(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2b[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2b"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2b"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2b[] v, out Vertex2b min, out Vertex2b max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue;
+			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (sbyte)Math.Min(minx, v[i].x); miny = (sbyte)Math.Min(miny, v[i].y);
+				maxx = (sbyte)Math.Max(maxx, v[i].x); maxy = (sbyte)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2b(minx, miny);
+			max = new Vertex2b(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2b"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2b"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2b* v, uint count, out Vertex2b min, out Vertex2b max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue;
+			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (sbyte)Math.Min(minx, v[i].x); miny = (sbyte)Math.Min(miny, v[i].y);
+				maxx = (sbyte)Math.Max(maxx, v[i].x); maxy = (sbyte)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2b(minx, miny);
+			max = new Vertex2b(maxx, maxy);
 		}
 
 		#endregion
@@ -1566,6 +1806,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public ushort y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 4;
 
 		#endregion
 
@@ -2024,6 +2269,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2us holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2us Min(Vertex2us* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (ushort)Math.Min(x, v[i].x);
+				y = (ushort)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2us(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2us, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -2045,6 +2317,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2us(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2us holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2us Max(Vertex2us* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (ushort)Math.Max(x, v[i].x);
+				y = (ushort)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2us(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2us[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2us"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2us"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2us[] v, out Vertex2us min, out Vertex2us max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue;
+			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (ushort)Math.Min(minx, v[i].x); miny = (ushort)Math.Min(miny, v[i].y);
+				maxx = (ushort)Math.Max(maxx, v[i].x); maxy = (ushort)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2us(minx, miny);
+			max = new Vertex2us(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2us"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2us"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2us* v, uint count, out Vertex2us min, out Vertex2us max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue;
+			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (ushort)Math.Min(minx, v[i].x); miny = (ushort)Math.Min(miny, v[i].y);
+				maxx = (ushort)Math.Max(maxx, v[i].x); maxy = (ushort)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2us(minx, miny);
+			max = new Vertex2us(maxx, maxy);
 		}
 
 		#endregion
@@ -2300,6 +2660,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public short y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 4;
 
 		#endregion
 
@@ -2772,6 +3137,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2s holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2s Min(Vertex2s* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (short)Math.Min(x, v[i].x);
+				y = (short)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2s(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2s, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -2793,6 +3185,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2s(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2s holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2s Max(Vertex2s* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short x = (short)short.MinValue, y = (short)short.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (short)Math.Max(x, v[i].x);
+				y = (short)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2s(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2s[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2s"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2s"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2s[] v, out Vertex2s min, out Vertex2s max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short minx = (short)short.MaxValue, miny = (short)short.MaxValue;
+			short maxx = (short)short.MinValue, maxy = (short)short.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (short)Math.Min(minx, v[i].x); miny = (short)Math.Min(miny, v[i].y);
+				maxx = (short)Math.Max(maxx, v[i].x); maxy = (short)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2s(minx, miny);
+			max = new Vertex2s(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2s"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2s"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2s* v, uint count, out Vertex2s min, out Vertex2s max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short minx = (short)short.MaxValue, miny = (short)short.MaxValue;
+			short maxx = (short)short.MinValue, maxy = (short)short.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (short)Math.Min(minx, v[i].x); miny = (short)Math.Min(miny, v[i].y);
+				maxx = (short)Math.Max(maxx, v[i].x); maxy = (short)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2s(minx, miny);
+			max = new Vertex2s(maxx, maxy);
 		}
 
 		#endregion
@@ -3048,6 +3528,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public uint y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 8;
 
 		#endregion
 
@@ -3506,6 +3991,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ui holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2ui Min(Vertex2ui* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (uint)Math.Min(x, v[i].x);
+				y = (uint)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2ui(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2ui, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -3527,6 +4039,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2ui(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2ui holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2ui Max(Vertex2ui* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (uint)Math.Max(x, v[i].x);
+				y = (uint)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2ui(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ui[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2ui"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2ui"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2ui[] v, out Vertex2ui min, out Vertex2ui max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue;
+			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (uint)Math.Min(minx, v[i].x); miny = (uint)Math.Min(miny, v[i].y);
+				maxx = (uint)Math.Max(maxx, v[i].x); maxy = (uint)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2ui(minx, miny);
+			max = new Vertex2ui(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2ui"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2ui"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2ui* v, uint count, out Vertex2ui min, out Vertex2ui max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue;
+			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (uint)Math.Min(minx, v[i].x); miny = (uint)Math.Min(miny, v[i].y);
+				maxx = (uint)Math.Max(maxx, v[i].x); maxy = (uint)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2ui(minx, miny);
+			max = new Vertex2ui(maxx, maxy);
 		}
 
 		#endregion
@@ -3782,6 +4382,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public int y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 8;
 
 		#endregion
 
@@ -4254,6 +4859,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2i holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2i Min(Vertex2i* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (int)Math.Min(x, v[i].x);
+				y = (int)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2i(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2i, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -4275,6 +4907,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2i(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2i holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2i Max(Vertex2i* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int x = (int)int.MinValue, y = (int)int.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (int)Math.Max(x, v[i].x);
+				y = (int)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2i(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2i[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2i"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2i"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2i[] v, out Vertex2i min, out Vertex2i max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int minx = (int)int.MaxValue, miny = (int)int.MaxValue;
+			int maxx = (int)int.MinValue, maxy = (int)int.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (int)Math.Min(minx, v[i].x); miny = (int)Math.Min(miny, v[i].y);
+				maxx = (int)Math.Max(maxx, v[i].x); maxy = (int)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2i(minx, miny);
+			max = new Vertex2i(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2i"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2i"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2i* v, uint count, out Vertex2i min, out Vertex2i max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int minx = (int)int.MaxValue, miny = (int)int.MaxValue;
+			int maxx = (int)int.MinValue, maxy = (int)int.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (int)Math.Min(minx, v[i].x); miny = (int)Math.Min(miny, v[i].y);
+				maxx = (int)Math.Max(maxx, v[i].x); maxy = (int)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2i(minx, miny);
+			max = new Vertex2i(maxx, maxy);
 		}
 
 		#endregion
@@ -4530,6 +5250,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public float y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 8;
 
 		#endregion
 
@@ -4945,6 +5670,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2f holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2f Min(Vertex2f* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (float)Math.Min(x, v[i].x);
+				y = (float)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2f(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2f, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -4966,6 +5718,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2f(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2f holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2f Max(Vertex2f* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float x = (float)float.MinValue, y = (float)float.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (float)Math.Max(x, v[i].x);
+				y = (float)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2f(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2f[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2f"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2f"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2f[] v, out Vertex2f min, out Vertex2f max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float minx = (float)float.MaxValue, miny = (float)float.MaxValue;
+			float maxx = (float)float.MinValue, maxy = (float)float.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (float)Math.Min(minx, v[i].x); miny = (float)Math.Min(miny, v[i].y);
+				maxx = (float)Math.Max(maxx, v[i].x); maxy = (float)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2f(minx, miny);
+			max = new Vertex2f(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2f"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2f"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2f* v, uint count, out Vertex2f min, out Vertex2f max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float minx = (float)float.MaxValue, miny = (float)float.MaxValue;
+			float maxx = (float)float.MinValue, maxy = (float)float.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (float)Math.Min(minx, v[i].x); miny = (float)Math.Min(miny, v[i].y);
+				maxx = (float)Math.Max(maxx, v[i].x); maxy = (float)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2f(minx, miny);
+			max = new Vertex2f(maxx, maxy);
 		}
 
 		#endregion
@@ -5211,6 +6051,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public double y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 16;
 
 		#endregion
 
@@ -5627,6 +6472,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2d holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2d Min(Vertex2d* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (double)Math.Min(x, v[i].x);
+				y = (double)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2d(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2d, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -5648,6 +6520,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2d(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2d holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2d Max(Vertex2d* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double x = (double)double.MinValue, y = (double)double.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (double)Math.Max(x, v[i].x);
+				y = (double)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2d(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2d[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2d"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2d"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2d[] v, out Vertex2d min, out Vertex2d max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double minx = (double)double.MaxValue, miny = (double)double.MaxValue;
+			double maxx = (double)double.MinValue, maxy = (double)double.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (double)Math.Min(minx, v[i].x); miny = (double)Math.Min(miny, v[i].y);
+				maxx = (double)Math.Max(maxx, v[i].x); maxy = (double)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2d(minx, miny);
+			max = new Vertex2d(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2d"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2d"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2d* v, uint count, out Vertex2d min, out Vertex2d max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double minx = (double)double.MaxValue, miny = (double)double.MaxValue;
+			double maxx = (double)double.MinValue, maxy = (double)double.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (double)Math.Min(minx, v[i].x); miny = (double)Math.Min(miny, v[i].y);
+				maxx = (double)Math.Max(maxx, v[i].x); maxy = (double)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2d(minx, miny);
+			max = new Vertex2d(maxx, maxy);
 		}
 
 		#endregion
@@ -5893,6 +6853,11 @@ namespace OpenGL
 		/// Y coordinate for bidimensional vertex.
 		/// </summary>
 		public HalfFloat y;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 4;
 
 		#endregion
 
@@ -6322,6 +7287,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of Vertex2hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2hf holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex2hf Min(Vertex2hf* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (HalfFloat)Math.Min(x, v[i].x);
+				y = (HalfFloat)Math.Min(y, v[i].y);
+			}
+
+			return (new Vertex2hf(x, y));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of Vertex2hf, component-wise.
 		/// </summary>
 		/// <param name="v">
@@ -6343,6 +7335,94 @@ namespace OpenGL
 			}
 
 			return (new Vertex2hf(x, y));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex2hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex2hf holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex2hf Max(Vertex2hf* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (HalfFloat)Math.Max(x, v[i].x);
+				y = (HalfFloat)Math.Max(y, v[i].y);
+			}
+
+			return (new Vertex2hf(x, y));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2hf[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2hf"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2hf"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex2hf[] v, out Vertex2hf min, out Vertex2hf max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (HalfFloat)Math.Min(minx, v[i].x); miny = (HalfFloat)Math.Min(miny, v[i].y);
+				maxx = (HalfFloat)Math.Max(maxx, v[i].x); maxy = (HalfFloat)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2hf(minx, miny);
+			max = new Vertex2hf(maxx, maxy);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex2hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex2hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex2hf"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex2hf"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex2hf* v, uint count, out Vertex2hf min, out Vertex2hf max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (HalfFloat)Math.Min(minx, v[i].x); miny = (HalfFloat)Math.Min(miny, v[i].y);
+				maxx = (HalfFloat)Math.Max(maxx, v[i].x); maxy = (HalfFloat)Math.Max(maxy, v[i].y);
+			}
+
+			min = new Vertex2hf(minx, miny);
+			max = new Vertex2hf(maxx, maxy);
 		}
 
 		#endregion

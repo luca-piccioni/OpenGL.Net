@@ -117,6 +117,11 @@ namespace OpenGL
 		/// </summary>
 		public byte w;
 
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 4;
+
 		#endregion
 
 		#region Arithmetic Operators
@@ -490,9 +495,39 @@ namespace OpenGL
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (byte)Math.Min(x, v[i].x / v[i].w);
-				y = (byte)Math.Min(y, v[i].y / v[i].w);
-				z = (byte)Math.Min(z, v[i].z / v[i].w);
+				byte w = v[i].w;
+				x = (byte)Math.Min(x, v[i].x / w);
+				y = (byte)Math.Min(y, v[i].y / w);
+				z = (byte)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ub holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4ub Min(Vertex4ub* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				byte w = v[i].w;
+				x = (byte)Math.Min(x, v[i].x / w);
+				y = (byte)Math.Min(y, v[i].y / w);
+				z = (byte)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4ub(x, y, z));
@@ -515,12 +550,105 @@ namespace OpenGL
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (byte)Math.Max(x, v[i].x);
-				y = (byte)Math.Max(y, v[i].y);
-				z = (byte)Math.Max(z, v[i].z);
+				byte w = v[i].w;
+				x = (byte)Math.Max(x, v[i].x / w);
+				y = (byte)Math.Max(y, v[i].y / w);
+				z = (byte)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ub holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4ub Max(Vertex4ub* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				byte w = v[i].w;
+				x = (byte)Math.Max(x, v[i].x / w);
+				y = (byte)Math.Max(y, v[i].y / w);
+				z = (byte)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4ub(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ub[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4ub"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4ub"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4ub[] v, out Vertex4ub min, out Vertex4ub max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
+			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				byte w = (byte)v[i].w, x = (byte)(v[i].x / w), y = (byte)(v[i].y / w), z = (byte)(v[i].z / w);
+				minx = (byte)Math.Min(minx, x); miny = (byte)Math.Min(miny, y); minz = (byte)Math.Min(minz, z);
+				maxx = (byte)Math.Max(maxx, x); maxy = (byte)Math.Max(maxy, y); maxz = (byte)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4ub(minx, miny, minz);
+			max = new Vertex4ub(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4ub, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ub*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4ub"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4ub"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4ub* v, uint count, out Vertex4ub min, out Vertex4ub max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
+			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				byte w = (byte)v[i].w, x = (byte)(v[i].x / w), y = (byte)(v[i].y / w), z = (byte)(v[i].z / w);
+				minx = (byte)Math.Min(minx, x); miny = (byte)Math.Min(miny, y); minz = (byte)Math.Min(minz, z);
+				maxx = (byte)Math.Max(maxx, x); maxy = (byte)Math.Max(maxy, y); maxz = (byte)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4ub(minx, miny, minz);
+			max = new Vertex4ub(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -851,6 +979,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public sbyte w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 4;
 
 		#endregion
 
@@ -1239,9 +1372,39 @@ namespace OpenGL
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (sbyte)Math.Min(x, v[i].x / v[i].w);
-				y = (sbyte)Math.Min(y, v[i].y / v[i].w);
-				z = (sbyte)Math.Min(z, v[i].z / v[i].w);
+				sbyte w = v[i].w;
+				x = (sbyte)Math.Min(x, v[i].x / w);
+				y = (sbyte)Math.Min(y, v[i].y / w);
+				z = (sbyte)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4b holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4b Min(Vertex4b* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				sbyte w = v[i].w;
+				x = (sbyte)Math.Min(x, v[i].x / w);
+				y = (sbyte)Math.Min(y, v[i].y / w);
+				z = (sbyte)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4b(x, y, z));
@@ -1264,12 +1427,105 @@ namespace OpenGL
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (sbyte)Math.Max(x, v[i].x);
-				y = (sbyte)Math.Max(y, v[i].y);
-				z = (sbyte)Math.Max(z, v[i].z);
+				sbyte w = v[i].w;
+				x = (sbyte)Math.Max(x, v[i].x / w);
+				y = (sbyte)Math.Max(y, v[i].y / w);
+				z = (sbyte)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4b holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4b Max(Vertex4b* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				sbyte w = v[i].w;
+				x = (sbyte)Math.Max(x, v[i].x / w);
+				y = (sbyte)Math.Max(y, v[i].y / w);
+				z = (sbyte)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4b(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4b[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4b"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4b"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4b[] v, out Vertex4b min, out Vertex4b max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
+			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				sbyte w = (sbyte)v[i].w, x = (sbyte)(v[i].x / w), y = (sbyte)(v[i].y / w), z = (sbyte)(v[i].z / w);
+				minx = (sbyte)Math.Min(minx, x); miny = (sbyte)Math.Min(miny, y); minz = (sbyte)Math.Min(minz, z);
+				maxx = (sbyte)Math.Max(maxx, x); maxy = (sbyte)Math.Max(maxy, y); maxz = (sbyte)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4b(minx, miny, minz);
+			max = new Vertex4b(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4b, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4b*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4b"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4b"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4b* v, uint count, out Vertex4b min, out Vertex4b max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
+			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				sbyte w = (sbyte)v[i].w, x = (sbyte)(v[i].x / w), y = (sbyte)(v[i].y / w), z = (sbyte)(v[i].z / w);
+				minx = (sbyte)Math.Min(minx, x); miny = (sbyte)Math.Min(miny, y); minz = (sbyte)Math.Min(minz, z);
+				maxx = (sbyte)Math.Max(maxx, x); maxy = (sbyte)Math.Max(maxy, y); maxz = (sbyte)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4b(minx, miny, minz);
+			max = new Vertex4b(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -1600,6 +1856,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public ushort w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 8;
 
 		#endregion
 
@@ -1974,9 +2235,39 @@ namespace OpenGL
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (ushort)Math.Min(x, v[i].x / v[i].w);
-				y = (ushort)Math.Min(y, v[i].y / v[i].w);
-				z = (ushort)Math.Min(z, v[i].z / v[i].w);
+				ushort w = v[i].w;
+				x = (ushort)Math.Min(x, v[i].x / w);
+				y = (ushort)Math.Min(y, v[i].y / w);
+				z = (ushort)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4us holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4us Min(Vertex4us* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				ushort w = v[i].w;
+				x = (ushort)Math.Min(x, v[i].x / w);
+				y = (ushort)Math.Min(y, v[i].y / w);
+				z = (ushort)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4us(x, y, z));
@@ -1999,12 +2290,105 @@ namespace OpenGL
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (ushort)Math.Max(x, v[i].x);
-				y = (ushort)Math.Max(y, v[i].y);
-				z = (ushort)Math.Max(z, v[i].z);
+				ushort w = v[i].w;
+				x = (ushort)Math.Max(x, v[i].x / w);
+				y = (ushort)Math.Max(y, v[i].y / w);
+				z = (ushort)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4us holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4us Max(Vertex4us* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				ushort w = v[i].w;
+				x = (ushort)Math.Max(x, v[i].x / w);
+				y = (ushort)Math.Max(y, v[i].y / w);
+				z = (ushort)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4us(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4us[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4us"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4us"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4us[] v, out Vertex4us min, out Vertex4us max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
+			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				ushort w = (ushort)v[i].w, x = (ushort)(v[i].x / w), y = (ushort)(v[i].y / w), z = (ushort)(v[i].z / w);
+				minx = (ushort)Math.Min(minx, x); miny = (ushort)Math.Min(miny, y); minz = (ushort)Math.Min(minz, z);
+				maxx = (ushort)Math.Max(maxx, x); maxy = (ushort)Math.Max(maxy, y); maxz = (ushort)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4us(minx, miny, minz);
+			max = new Vertex4us(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4us, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4us*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4us"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4us"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4us* v, uint count, out Vertex4us min, out Vertex4us max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
+			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				ushort w = (ushort)v[i].w, x = (ushort)(v[i].x / w), y = (ushort)(v[i].y / w), z = (ushort)(v[i].z / w);
+				minx = (ushort)Math.Min(minx, x); miny = (ushort)Math.Min(miny, y); minz = (ushort)Math.Min(minz, z);
+				maxx = (ushort)Math.Max(maxx, x); maxy = (ushort)Math.Max(maxy, y); maxz = (ushort)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4us(minx, miny, minz);
+			max = new Vertex4us(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -2335,6 +2719,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public short w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 8;
 
 		#endregion
 
@@ -2723,9 +3112,39 @@ namespace OpenGL
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (short)Math.Min(x, v[i].x / v[i].w);
-				y = (short)Math.Min(y, v[i].y / v[i].w);
-				z = (short)Math.Min(z, v[i].z / v[i].w);
+				short w = v[i].w;
+				x = (short)Math.Min(x, v[i].x / w);
+				y = (short)Math.Min(y, v[i].y / w);
+				z = (short)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4s holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4s Min(Vertex4s* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				short w = v[i].w;
+				x = (short)Math.Min(x, v[i].x / w);
+				y = (short)Math.Min(y, v[i].y / w);
+				z = (short)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4s(x, y, z));
@@ -2748,12 +3167,105 @@ namespace OpenGL
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (short)Math.Max(x, v[i].x);
-				y = (short)Math.Max(y, v[i].y);
-				z = (short)Math.Max(z, v[i].z);
+				short w = v[i].w;
+				x = (short)Math.Max(x, v[i].x / w);
+				y = (short)Math.Max(y, v[i].y / w);
+				z = (short)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4s holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4s Max(Vertex4s* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				short w = v[i].w;
+				x = (short)Math.Max(x, v[i].x / w);
+				y = (short)Math.Max(y, v[i].y / w);
+				z = (short)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4s(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4s[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4s"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4s"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4s[] v, out Vertex4s min, out Vertex4s max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
+			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				short w = (short)v[i].w, x = (short)(v[i].x / w), y = (short)(v[i].y / w), z = (short)(v[i].z / w);
+				minx = (short)Math.Min(minx, x); miny = (short)Math.Min(miny, y); minz = (short)Math.Min(minz, z);
+				maxx = (short)Math.Max(maxx, x); maxy = (short)Math.Max(maxy, y); maxz = (short)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4s(minx, miny, minz);
+			max = new Vertex4s(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4s, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4s*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4s"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4s"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4s* v, uint count, out Vertex4s min, out Vertex4s max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
+			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				short w = (short)v[i].w, x = (short)(v[i].x / w), y = (short)(v[i].y / w), z = (short)(v[i].z / w);
+				minx = (short)Math.Min(minx, x); miny = (short)Math.Min(miny, y); minz = (short)Math.Min(minz, z);
+				maxx = (short)Math.Max(maxx, x); maxy = (short)Math.Max(maxy, y); maxz = (short)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4s(minx, miny, minz);
+			max = new Vertex4s(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -3084,6 +3596,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public uint w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 16;
 
 		#endregion
 
@@ -3458,9 +3975,39 @@ namespace OpenGL
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (uint)Math.Min(x, v[i].x / v[i].w);
-				y = (uint)Math.Min(y, v[i].y / v[i].w);
-				z = (uint)Math.Min(z, v[i].z / v[i].w);
+				uint w = v[i].w;
+				x = (uint)Math.Min(x, v[i].x / w);
+				y = (uint)Math.Min(y, v[i].y / w);
+				z = (uint)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ui holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4ui Min(Vertex4ui* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				uint w = v[i].w;
+				x = (uint)Math.Min(x, v[i].x / w);
+				y = (uint)Math.Min(y, v[i].y / w);
+				z = (uint)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4ui(x, y, z));
@@ -3483,12 +4030,105 @@ namespace OpenGL
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (uint)Math.Max(x, v[i].x);
-				y = (uint)Math.Max(y, v[i].y);
-				z = (uint)Math.Max(z, v[i].z);
+				uint w = v[i].w;
+				x = (uint)Math.Max(x, v[i].x / w);
+				y = (uint)Math.Max(y, v[i].y / w);
+				z = (uint)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4ui holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4ui Max(Vertex4ui* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				uint w = v[i].w;
+				x = (uint)Math.Max(x, v[i].x / w);
+				y = (uint)Math.Max(y, v[i].y / w);
+				z = (uint)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4ui(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ui[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4ui"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4ui"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4ui[] v, out Vertex4ui min, out Vertex4ui max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
+			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				uint w = (uint)v[i].w, x = (uint)(v[i].x / w), y = (uint)(v[i].y / w), z = (uint)(v[i].z / w);
+				minx = (uint)Math.Min(minx, x); miny = (uint)Math.Min(miny, y); minz = (uint)Math.Min(minz, z);
+				maxx = (uint)Math.Max(maxx, x); maxy = (uint)Math.Max(maxy, y); maxz = (uint)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4ui(minx, miny, minz);
+			max = new Vertex4ui(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4ui, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4ui*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4ui"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4ui"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4ui* v, uint count, out Vertex4ui min, out Vertex4ui max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
+			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				uint w = (uint)v[i].w, x = (uint)(v[i].x / w), y = (uint)(v[i].y / w), z = (uint)(v[i].z / w);
+				minx = (uint)Math.Min(minx, x); miny = (uint)Math.Min(miny, y); minz = (uint)Math.Min(minz, z);
+				maxx = (uint)Math.Max(maxx, x); maxy = (uint)Math.Max(maxy, y); maxz = (uint)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4ui(minx, miny, minz);
+			max = new Vertex4ui(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -3819,6 +4459,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public int w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 16;
 
 		#endregion
 
@@ -4207,9 +4852,39 @@ namespace OpenGL
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (int)Math.Min(x, v[i].x / v[i].w);
-				y = (int)Math.Min(y, v[i].y / v[i].w);
-				z = (int)Math.Min(z, v[i].z / v[i].w);
+				int w = v[i].w;
+				x = (int)Math.Min(x, v[i].x / w);
+				y = (int)Math.Min(y, v[i].y / w);
+				z = (int)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4i holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4i Min(Vertex4i* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				int w = v[i].w;
+				x = (int)Math.Min(x, v[i].x / w);
+				y = (int)Math.Min(y, v[i].y / w);
+				z = (int)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4i(x, y, z));
@@ -4232,12 +4907,105 @@ namespace OpenGL
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (int)Math.Max(x, v[i].x);
-				y = (int)Math.Max(y, v[i].y);
-				z = (int)Math.Max(z, v[i].z);
+				int w = v[i].w;
+				x = (int)Math.Max(x, v[i].x / w);
+				y = (int)Math.Max(y, v[i].y / w);
+				z = (int)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4i holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4i Max(Vertex4i* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				int w = v[i].w;
+				x = (int)Math.Max(x, v[i].x / w);
+				y = (int)Math.Max(y, v[i].y / w);
+				z = (int)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4i(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4i[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4i"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4i"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4i[] v, out Vertex4i min, out Vertex4i max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
+			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				int w = (int)v[i].w, x = (int)(v[i].x / w), y = (int)(v[i].y / w), z = (int)(v[i].z / w);
+				minx = (int)Math.Min(minx, x); miny = (int)Math.Min(miny, y); minz = (int)Math.Min(minz, z);
+				maxx = (int)Math.Max(maxx, x); maxy = (int)Math.Max(maxy, y); maxz = (int)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4i(minx, miny, minz);
+			max = new Vertex4i(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4i, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4i*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4i"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4i"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4i* v, uint count, out Vertex4i min, out Vertex4i max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
+			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				int w = (int)v[i].w, x = (int)(v[i].x / w), y = (int)(v[i].y / w), z = (int)(v[i].z / w);
+				minx = (int)Math.Min(minx, x); miny = (int)Math.Min(miny, y); minz = (int)Math.Min(minz, z);
+				maxx = (int)Math.Max(maxx, x); maxy = (int)Math.Max(maxy, y); maxz = (int)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4i(minx, miny, minz);
+			max = new Vertex4i(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -4568,6 +5336,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public float w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 16;
 
 		#endregion
 
@@ -4926,9 +5699,39 @@ namespace OpenGL
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (float)Math.Min(x, v[i].x / v[i].w);
-				y = (float)Math.Min(y, v[i].y / v[i].w);
-				z = (float)Math.Min(z, v[i].z / v[i].w);
+				float w = v[i].w;
+				x = (float)Math.Min(x, v[i].x / w);
+				y = (float)Math.Min(y, v[i].y / w);
+				z = (float)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4f holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4f Min(Vertex4f* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				float w = v[i].w;
+				x = (float)Math.Min(x, v[i].x / w);
+				y = (float)Math.Min(y, v[i].y / w);
+				z = (float)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4f(x, y, z));
@@ -4951,12 +5754,105 @@ namespace OpenGL
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (float)Math.Max(x, v[i].x);
-				y = (float)Math.Max(y, v[i].y);
-				z = (float)Math.Max(z, v[i].z);
+				float w = v[i].w;
+				x = (float)Math.Max(x, v[i].x / w);
+				y = (float)Math.Max(y, v[i].y / w);
+				z = (float)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4f holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4f Max(Vertex4f* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				float w = v[i].w;
+				x = (float)Math.Max(x, v[i].x / w);
+				y = (float)Math.Max(y, v[i].y / w);
+				z = (float)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4f(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4f[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4f"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4f"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4f[] v, out Vertex4f min, out Vertex4f max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
+			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				float w = (float)v[i].w, x = (float)(v[i].x / w), y = (float)(v[i].y / w), z = (float)(v[i].z / w);
+				minx = (float)Math.Min(minx, x); miny = (float)Math.Min(miny, y); minz = (float)Math.Min(minz, z);
+				maxx = (float)Math.Max(maxx, x); maxy = (float)Math.Max(maxy, y); maxz = (float)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4f(minx, miny, minz);
+			max = new Vertex4f(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4f, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4f*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4f"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4f"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4f* v, uint count, out Vertex4f min, out Vertex4f max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
+			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				float w = (float)v[i].w, x = (float)(v[i].x / w), y = (float)(v[i].y / w), z = (float)(v[i].z / w);
+				minx = (float)Math.Min(minx, x); miny = (float)Math.Min(miny, y); minz = (float)Math.Min(minz, z);
+				maxx = (float)Math.Max(maxx, x); maxy = (float)Math.Max(maxy, y); maxz = (float)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4f(minx, miny, minz);
+			max = new Vertex4f(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -5267,6 +6163,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public double w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 32;
 
 		#endregion
 
@@ -5621,9 +6522,39 @@ namespace OpenGL
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (double)Math.Min(x, v[i].x / v[i].w);
-				y = (double)Math.Min(y, v[i].y / v[i].w);
-				z = (double)Math.Min(z, v[i].z / v[i].w);
+				double w = v[i].w;
+				x = (double)Math.Min(x, v[i].x / w);
+				y = (double)Math.Min(y, v[i].y / w);
+				z = (double)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4d holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4d Min(Vertex4d* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				double w = v[i].w;
+				x = (double)Math.Min(x, v[i].x / w);
+				y = (double)Math.Min(y, v[i].y / w);
+				z = (double)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4d(x, y, z));
@@ -5646,12 +6577,105 @@ namespace OpenGL
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (double)Math.Max(x, v[i].x);
-				y = (double)Math.Max(y, v[i].y);
-				z = (double)Math.Max(z, v[i].z);
+				double w = v[i].w;
+				x = (double)Math.Max(x, v[i].x / w);
+				y = (double)Math.Max(y, v[i].y / w);
+				z = (double)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4d holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4d Max(Vertex4d* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				double w = v[i].w;
+				x = (double)Math.Max(x, v[i].x / w);
+				y = (double)Math.Max(y, v[i].y / w);
+				z = (double)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4d(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4d[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4d"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4d"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4d[] v, out Vertex4d min, out Vertex4d max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
+			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				double w = (double)v[i].w, x = (double)(v[i].x / w), y = (double)(v[i].y / w), z = (double)(v[i].z / w);
+				minx = (double)Math.Min(minx, x); miny = (double)Math.Min(miny, y); minz = (double)Math.Min(minz, z);
+				maxx = (double)Math.Max(maxx, x); maxy = (double)Math.Max(maxy, y); maxz = (double)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4d(minx, miny, minz);
+			max = new Vertex4d(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4d, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4d*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4d"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4d"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4d* v, uint count, out Vertex4d min, out Vertex4d max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
+			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				double w = (double)v[i].w, x = (double)(v[i].x / w), y = (double)(v[i].y / w), z = (double)(v[i].z / w);
+				minx = (double)Math.Min(minx, x); miny = (double)Math.Min(miny, y); minz = (double)Math.Min(minz, z);
+				maxx = (double)Math.Max(maxx, x); maxy = (double)Math.Max(maxy, y); maxz = (double)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4d(minx, miny, minz);
+			max = new Vertex4d(maxx, maxy, maxz);
 		}
 
 		#endregion
@@ -5962,6 +6986,11 @@ namespace OpenGL
 		/// W coordinate for tridimensional vertex.
 		/// </summary>
 		public HalfFloat w;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = 8;
 
 		#endregion
 
@@ -6350,9 +7379,39 @@ namespace OpenGL
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (HalfFloat)Math.Min(x, v[i].x / v[i].w);
-				y = (HalfFloat)Math.Min(y, v[i].y / v[i].w);
-				z = (HalfFloat)Math.Min(z, v[i].z / v[i].w);
+				HalfFloat w = v[i].w;
+				x = (HalfFloat)Math.Min(x, v[i].x / w);
+				y = (HalfFloat)Math.Min(y, v[i].y / w);
+				z = (HalfFloat)Math.Min(z, v[i].z / w);
+			}
+
+			return (new Vertex4hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum of an array of Vertex4hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4hf holding the minumum values.
+		/// </returns>
+		public unsafe static Vertex4hf Min(Vertex4hf* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				HalfFloat w = v[i].w;
+				x = (HalfFloat)Math.Min(x, v[i].x / w);
+				y = (HalfFloat)Math.Min(y, v[i].y / w);
+				z = (HalfFloat)Math.Min(z, v[i].z / w);
 			}
 
 			return (new Vertex4hf(x, y, z));
@@ -6375,12 +7434,105 @@ namespace OpenGL
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
-				x = (HalfFloat)Math.Max(x, v[i].x);
-				y = (HalfFloat)Math.Max(y, v[i].y);
-				z = (HalfFloat)Math.Max(z, v[i].z);
+				HalfFloat w = v[i].w;
+				x = (HalfFloat)Math.Max(x, v[i].x / w);
+				y = (HalfFloat)Math.Max(y, v[i].y / w);
+				z = (HalfFloat)Math.Max(z, v[i].z / w);
 			}
 
 			return (new Vertex4hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of Vertex4hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the Vertex4hf holding the maximum values.
+		/// </returns>
+		public unsafe static Vertex4hf Max(Vertex4hf* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				HalfFloat w = v[i].w;
+				x = (HalfFloat)Math.Max(x, v[i].x / w);
+				y = (HalfFloat)Math.Max(y, v[i].y / w);
+				z = (HalfFloat)Math.Max(z, v[i].z / w);
+			}
+
+			return (new Vertex4hf(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4hf[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4hf"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4hf"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(Vertex4hf[] v, out Vertex4hf min, out Vertex4hf max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				HalfFloat w = (HalfFloat)v[i].w, x = (HalfFloat)(v[i].x / w), y = (HalfFloat)(v[i].y / w), z = (HalfFloat)(v[i].z / w);
+				minx = (HalfFloat)Math.Min(minx, x); miny = (HalfFloat)Math.Min(miny, y); minz = (HalfFloat)Math.Min(minz, z);
+				maxx = (HalfFloat)Math.Max(maxx, x); maxy = (HalfFloat)Math.Max(maxy, y); maxz = (HalfFloat)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4hf(minx, miny, minz);
+			max = new Vertex4hf(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of Vertex4hf, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:Vertex4hf*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="Vertex4hf"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="Vertex4hf"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(Vertex4hf* v, uint count, out Vertex4hf min, out Vertex4hf max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				HalfFloat w = (HalfFloat)v[i].w, x = (HalfFloat)(v[i].x / w), y = (HalfFloat)(v[i].y / w), z = (HalfFloat)(v[i].z / w);
+				minx = (HalfFloat)Math.Min(minx, x); miny = (HalfFloat)Math.Min(miny, y); minz = (HalfFloat)Math.Min(minz, z);
+				maxx = (HalfFloat)Math.Max(maxx, x); maxy = (HalfFloat)Math.Max(maxy, y); maxz = (HalfFloat)Math.Max(maxz, z);
+			}
+
+			min = new Vertex4hf(minx, miny, minz);
+			max = new Vertex4hf(maxx, maxy, maxz);
 		}
 
 		#endregion

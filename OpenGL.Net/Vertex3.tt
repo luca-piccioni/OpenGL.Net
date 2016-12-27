@@ -37,10 +37,12 @@ namespace OpenGL
 	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
 	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
+	int[] structSizes =			new[] {  3,      3,       6,        6,       12,      12,    12,      24,        6 };
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex3{0}", postfixes[i]);
 		string baseType = underlyingType[i];
+		int structSize = structSizes[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
@@ -113,6 +115,11 @@ namespace OpenGL
 		/// Z coordinate for tridimensional vertex.
 		/// </summary>
 		public <#= baseType #> z;
+
+		/// <summary>
+		/// Structure size.
+		/// </summary>
+		public const int Size = <#= structSize #>;
 
 		#endregion
 
@@ -582,7 +589,7 @@ namespace OpenGL
 		/// Get the minimum of an array of <#= className #>, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:<#= className #>[]"/> that specify the values to be processed.
+		/// A <see cref="T:<#= className #>[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the <#= className #> holding the minumum values.
@@ -604,10 +611,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Get the minimum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the <#= className #> holding the minumum values.
+		/// </returns>
+		public unsafe static <#= className #> Min(<#= className #>* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (<#= baseType #>)Math.Min(x, v[i].x);
+				y = (<#= baseType #>)Math.Min(y, v[i].y);
+				z = (<#= baseType #>)Math.Min(z, v[i].z);
+			}
+
+			return (new <#= className #>(x, y, z));
+		}
+
+		/// <summary>
 		/// Get the maximum of an array of <#= className #>, component-wise.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:<#= className #>[]"/> that specify the values to be processed.
+		/// A <see cref="T:<#= className #>[]"/> that specifies the values to be processed.
 		/// </param>
 		/// <returns>
 		/// It returns the <#= className #> holding the maximum values.
@@ -626,6 +661,95 @@ namespace OpenGL
 			}
 
 			return (new <#= className #>(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the maximum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <returns>
+		/// It returns the <#= className #> holding the maximum values.
+		/// </returns>
+		public unsafe static <#= className #> Max(<#= className #>* v, uint count)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue, z = (<#= baseType #>)<#= baseType #>.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				x = (<#= baseType #>)Math.Max(x, v[i].x);
+				y = (<#= baseType #>)Math.Max(y, v[i].y);
+				z = (<#= baseType #>)Math.Max(z, v[i].z);
+			}
+
+			return (new <#= className #>(x, y, z));
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>[]"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="<#= className #>"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="<#= className #>"/> that returns the maximum value.
+		/// </param>
+		public static void MinMax(<#= className #>[] v, out <#= className #> min, out <#= className #> max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			<#= baseType #> minx = (<#= baseType #>)<#= baseType #>.MaxValue, miny = (<#= baseType #>)<#= baseType #>.MaxValue, minz = (<#= baseType #>)<#= baseType #>.MaxValue;
+			<#= baseType #> maxx = (<#= baseType #>)<#= baseType #>.MinValue, maxy = (<#= baseType #>)<#= baseType #>.MinValue, maxz = (<#= baseType #>)<#= baseType #>.MinValue;
+
+			for (uint i = 0; i < v.Length; i++) {
+				minx = (<#= baseType #>)Math.Min(minx, v[i].x); miny = (<#= baseType #>)Math.Min(miny, v[i].y); minz = (<#= baseType #>)Math.Min(minz, v[i].z);
+				maxx = (<#= baseType #>)Math.Max(maxx, v[i].x); maxy = (<#= baseType #>)Math.Max(maxy, v[i].y); maxz = (<#= baseType #>)Math.Max(maxz, v[i].z);
+			}
+
+			min = new <#= className #>(minx, miny, minz);
+			max = new <#= className #>(maxx, maxy, maxz);
+		}
+
+		/// <summary>
+		/// Get the minimum and maximum of an array of <#= className #>, component-wise.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="T:<#= className #>*"/> that specifies the values to be processed.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies how many elements to process.
+		/// </param>
+		/// <param name="min">
+		/// A <see cref="<#= className #>"/> that returns the minimum value.
+		/// </param>
+		/// <param name="max">
+		/// A <see cref="<#= className #>"/> that returns the maximum value.
+		/// </param>
+		public unsafe static void MinMax(<#= className #>* v, uint count, out <#= className #> min, out <#= className #> max)
+		{
+			if (v == null)
+				throw new ArgumentNullException("v");
+			
+			<#= baseType #> minx = (<#= baseType #>)<#= baseType #>.MaxValue, miny = (<#= baseType #>)<#= baseType #>.MaxValue, minz = (<#= baseType #>)<#= baseType #>.MaxValue;
+			<#= baseType #> maxx = (<#= baseType #>)<#= baseType #>.MinValue, maxy = (<#= baseType #>)<#= baseType #>.MinValue, maxz = (<#= baseType #>)<#= baseType #>.MinValue;
+
+			for (uint i = 0; i < count; i++) {
+				minx = (<#= baseType #>)Math.Min(minx, v[i].x); miny = (<#= baseType #>)Math.Min(miny, v[i].y); minz = (<#= baseType #>)Math.Min(minz, v[i].z);
+				maxx = (<#= baseType #>)Math.Max(maxx, v[i].x); maxy = (<#= baseType #>)Math.Max(maxy, v[i].y); maxz = (<#= baseType #>)Math.Max(maxz, v[i].z);
+			}
+
+			min = new <#= className #>(minx, miny, minz);
+			max = new <#= className #>(maxx, maxy, maxz);
 		}
 
 		#endregion
