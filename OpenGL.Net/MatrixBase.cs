@@ -250,27 +250,10 @@ namespace OpenGL
 		public float this[uint c, uint r]
 		{
 			get {
-				if (c >= _Width)
-					throw new ArgumentException("colum index greater than column count", "c");
-				if (r >= _Height)
-					throw new ArgumentException("row index greater than row count", "r");
-
-				unsafe {
-					fixed (float* matrix = MatrixBuffer) {
-						return (matrix[c * _Height + r]);
-					}
-				}
+				return (MatrixBuffer[c * _Height + r]);
 			}
 			set {
-				if (c >= _Width)
-					throw new ArgumentException("colum index greater than column count", "c");
-				if (r >= _Height)
-					throw new ArgumentException("row index greater than row count", "r");
-				unsafe {
-					fixed (float* matrix = MatrixBuffer) {
-						matrix[c * _Height + r] = value;
-					}
-				}
+				MatrixBuffer[c * _Height + r] = value;
 			}
 		}
 
@@ -837,9 +820,14 @@ namespace OpenGL
 			if (matrix.Height != Height)
 				throw new ArgumentException("height mismatch", "matrix");
 
-			for (uint c = 0; c < Width; c++)
-				for (uint r = 0; r < Height; r++)
-					this[c, r] = (float)matrix[c, r];
+			Matrix amatrix = matrix as Matrix;
+
+			if (amatrix == null) {
+				for (uint c = 0; c < Width; c++)
+					for (uint r = 0; r < Height; r++)
+						this[c, r] = (float)matrix[c, r];
+			} else
+				Array.Copy(amatrix.MatrixBuffer, MatrixBuffer, MatrixBuffer.Length);
 		}
 
 		/// <summary>

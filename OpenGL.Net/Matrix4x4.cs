@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -15,6 +15,9 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
+
+// Enable gluInvertMatrix implementation
+#define ENABLE_INVERSE
 
 using System;
 using System.Collections.Generic;
@@ -99,14 +102,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4f operator *(Matrix4x4 m, Vertex4f v)
 		{
-			Vertex4f result;
-
-			result.x = m[0, 0] * v.x + m[1, 0] * v.y + m[2, 0] * v.z + m[3, 0] * v.w;
-			result.y = m[0, 1] * v.x + m[1, 1] * v.y + m[2, 1] * v.z + m[3, 1] * v.w;
-			result.z = m[0, 2] * v.x + m[1, 2] * v.y + m[2, 2] * v.z + m[3, 2] * v.w;
-			result.w = m[0, 3] * v.x + m[1, 3] * v.y + m[2, 3] * v.z + m[3, 3] * v.w;
-
-			return (result);
+			return (ComputeMatrixProduct(m, v));
 		}
 
 		/// <summary>
@@ -146,6 +142,35 @@ namespace OpenGL
 			ComputeMatrixProduct(prod, m, (Matrix4x4) q);
 
 			return (prod);
+		}
+
+		/// <summary>
+		/// Compute the product between Matrix4x4 and Vertex4f.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex4f"/> that specify the right multiplication operand.
+		/// </param>
+		protected static Vertex4f ComputeMatrixProduct(Matrix4x4 m, Vertex4f v)
+		{
+			if (m == null)
+				throw new ArgumentNullException("m");
+
+			float x, y, z, w;
+
+			unsafe {
+				fixed (float* pm = m.MatrixBuffer)
+				{
+					x = pm[0x0] * v.x + pm[0x4] * v.y + pm[0x8] * v.z + pm[0xC] * v.w;
+					y = pm[0x1] * v.x + pm[0x5] * v.y + pm[0x9] * v.z + pm[0xD] * v.w;
+					z = pm[0x2] * v.x + pm[0x6] * v.y + pm[0xA] * v.z + pm[0xE] * v.w;
+					w = pm[0x3] * v.x + pm[0x7] * v.y + pm[0xB] * v.z + pm[0xF] * v.w;
+				}
+			}
+
+			return (new Vertex4f(x, y, z, w));
 		}
 
 		/// <summary>
@@ -389,48 +414,142 @@ namespace OpenGL
 		/// </exception>
 		public new Matrix4x4 GetInverseMatrix()
 		{
-#if XXX
-			float px = Math.Abs(this[0, 3]), py = Math.Abs(this[1, 3]), pz = Math.Abs(this[2, 3]), ps = Math.Abs(this[3, 3] - 1.0f);
+#if ENABLE_INVERSE
+			float[] m = ToArray();
+			float[] inv = new float[16], invOut = new float[16];
+			float det;
+			int i;
 
-			if ((px > Single.Epsilon) || (py > Single.Epsilon) || (pz > Single.Epsilon) || (ps > Single.Epsilon))
-#endif
-				return ((Matrix4x4)base.GetInverseMatrix());	// Most general case, but rare
-#if XXX
-			else {
-				Matrix3x3 rotMatrix = new Matrix3x3(this, 3, 3);
-				Matrix4x4 inverseMatrix = (Matrix4x4) Clone();
+			inv[0] = m[5]  * m[10] * m[15] - 
+					 m[5]  * m[11] * m[14] - 
+					 m[9]  * m[6]  * m[15] + 
+					 m[9]  * m[7]  * m[14] +
+					 m[13] * m[6]  * m[11] - 
+					 m[13] * m[7]  * m[10];
 
-				// Invert rotation matrix
-				rotMatrix = rotMatrix.GetInverseMatrix();
-				
-				unsafe {
-					fixed (float* src = rotMatrix.MatrixBuffer)
-					fixed (float* dst = inverseMatrix.MatrixBuffer) {
+			inv[4] = -m[4]  * m[10] * m[15] + 
+					  m[4]  * m[11] * m[14] + 
+					  m[8]  * m[6]  * m[15] - 
+					  m[8]  * m[7]  * m[14] - 
+					  m[12] * m[6]  * m[11] + 
+					  m[12] * m[7]  * m[10];
 
-						// Copy rotation matrix into the inverse
-						dst[0] = src[0]; dst[4] = src[3]; dst[8]  = src[6];
-						dst[1] = src[1]; dst[5] = src[4]; dst[9]  = src[7];
-						dst[2] = src[2]; dst[6] = src[5]; dst[10] = src[8];
-						dst[3] = 0.0f;   dst[7] = 0.0f;   dst[11] = 0.0f;   dst[15] = 1.0f;
-					}
+			inv[8] = m[4]  * m[9] * m[15] - 
+					 m[4]  * m[11] * m[13] - 
+					 m[8]  * m[5] * m[15] + 
+					 m[8]  * m[7] * m[13] + 
+					 m[12] * m[5] * m[11] - 
+					 m[12] * m[7] * m[9];
 
-					fixed (float* src = MatrixBuffer)
-					fixed (float* dst = inverseMatrix.MatrixBuffer) {
+			inv[12] = -m[4]  * m[9] * m[14] + 
+					   m[4]  * m[10] * m[13] +
+					   m[8]  * m[5] * m[14] - 
+					   m[8]  * m[6] * m[13] - 
+					   m[12] * m[5] * m[10] + 
+					   m[12] * m[6] * m[9];
 
-						// Negate translation
-						dst[12] = -src[12];
-						dst[13] = -src[13];
-						dst[14] = -src[14];
+			inv[1] = -m[1]  * m[10] * m[15] + 
+					  m[1]  * m[11] * m[14] + 
+					  m[9]  * m[2] * m[15] - 
+					  m[9]  * m[3] * m[14] - 
+					  m[13] * m[2] * m[11] + 
+					  m[13] * m[3] * m[10];
 
-					}
-				}
+			inv[5] = m[0]  * m[10] * m[15] - 
+					 m[0]  * m[11] * m[14] - 
+					 m[8]  * m[2] * m[15] + 
+					 m[8]  * m[3] * m[14] + 
+					 m[12] * m[2] * m[11] - 
+					 m[12] * m[3] * m[10];
 
-				return (inverseMatrix);
-			}
+			inv[9] = -m[0]  * m[9] * m[15] + 
+					  m[0]  * m[11] * m[13] + 
+					  m[8]  * m[1] * m[15] - 
+					  m[8]  * m[3] * m[13] - 
+					  m[12] * m[1] * m[11] + 
+					  m[12] * m[3] * m[9];
+
+			inv[13] = m[0]  * m[9] * m[14] - 
+					  m[0]  * m[10] * m[13] - 
+					  m[8]  * m[1] * m[14] + 
+					  m[8]  * m[2] * m[13] + 
+					  m[12] * m[1] * m[10] - 
+					  m[12] * m[2] * m[9];
+
+			inv[2] = m[1]  * m[6] * m[15] - 
+					 m[1]  * m[7] * m[14] - 
+					 m[5]  * m[2] * m[15] + 
+					 m[5]  * m[3] * m[14] + 
+					 m[13] * m[2] * m[7] - 
+					 m[13] * m[3] * m[6];
+
+			inv[6] = -m[0]  * m[6] * m[15] + 
+					  m[0]  * m[7] * m[14] + 
+					  m[4]  * m[2] * m[15] - 
+					  m[4]  * m[3] * m[14] - 
+					  m[12] * m[2] * m[7] + 
+					  m[12] * m[3] * m[6];
+
+			inv[10] = m[0]  * m[5] * m[15] - 
+					  m[0]  * m[7] * m[13] - 
+					  m[4]  * m[1] * m[15] + 
+					  m[4]  * m[3] * m[13] + 
+					  m[12] * m[1] * m[7] - 
+					  m[12] * m[3] * m[5];
+
+			inv[14] = -m[0]  * m[5] * m[14] + 
+					   m[0]  * m[6] * m[13] + 
+					   m[4]  * m[1] * m[14] - 
+					   m[4]  * m[2] * m[13] - 
+					   m[12] * m[1] * m[6] + 
+					   m[12] * m[2] * m[5];
+
+			inv[3] = -m[1] * m[6] * m[11] + 
+					  m[1] * m[7] * m[10] + 
+					  m[5] * m[2] * m[11] - 
+					  m[5] * m[3] * m[10] - 
+					  m[9] * m[2] * m[7] + 
+					  m[9] * m[3] * m[6];
+
+			inv[7] = m[0] * m[6] * m[11] - 
+					 m[0] * m[7] * m[10] - 
+					 m[4] * m[2] * m[11] + 
+					 m[4] * m[3] * m[10] + 
+					 m[8] * m[2] * m[7] - 
+					 m[8] * m[3] * m[6];
+
+			inv[11] = -m[0] * m[5] * m[11] + 
+					   m[0] * m[7] * m[9] + 
+					   m[4] * m[1] * m[11] - 
+					   m[4] * m[3] * m[9] - 
+					   m[8] * m[1] * m[7] + 
+					   m[8] * m[3] * m[5];
+
+			inv[15] = m[0] * m[5] * m[10] - 
+					  m[0] * m[6] * m[9] - 
+					  m[4] * m[1] * m[10] + 
+					  m[4] * m[2] * m[9] + 
+					  m[8] * m[1] * m[6] - 
+					  m[8] * m[2] * m[5];
+
+			det = m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] + m[3] * inv[12];
+
+			if (det == 0)
+				throw new InvalidOperationException("not invertible");
+
+			det = 1.0f / det;
+
+			Matrix4x4 inverseMatrix = (Matrix4x4)Clone();
+			for (i = 0; i < 16; i++)
+				inverseMatrix.MatrixBuffer[i] = inv[i] * det;
+
+			return (inverseMatrix);
+#else
+			return ((Matrix4x4)base.GetInverseMatrix());
 #endif
 		}
 
-		#endregion
+#endregion
 
 		#region IMatrix4x4 Implementation
 
