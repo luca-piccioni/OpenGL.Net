@@ -52,15 +52,12 @@ or just download the [nuget binary package](https://www.nuget.org/packages/OpenG
 # Documentation
 
 - Project [introduction](https://github.com/luca-piccioni/OpenGL.Net/wiki)
-
 - [Procedures query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Procedures-query)
-- [OpenGL ES on ANGLE](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL-ES-using-ANGLE)
 - [Version and extensions query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Version-and-extensions-query)
 - [Device Context & GL Context](https://github.com/luca-piccioni/OpenGL.Net/wiki/Device-Context-and-GL-Context)
 - [Math library and data structures](https://github.com/luca-piccioni/OpenGL.Net/wiki/Math-library-and-data-structures)
-
 - Using the [OpenGL.GlControl](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL.GlControl)
-
+- [OpenGL ES on ANGLE](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL-ES-using-ANGLE)
 - [Common programming mistakes](https://github.com/luca-piccioni/OpenGL.Net/wiki/Common-mistakes)
 - [Update OpenGL bindings](https://github.com/luca-piccioni/OpenGL.Net/wiki/Generate-an-updated-OpenGL.Net-(API-update)) from Khronos registry
 
