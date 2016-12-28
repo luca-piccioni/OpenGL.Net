@@ -717,7 +717,7 @@ namespace OpenGL
 		/// <param name="args">
 		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
 		/// </param>
-		[Conditional("DEBUG2")]
+		[Conditional("GL_DEBUG")]
 		protected internal static void LogFunction(string format, params object[] args)
 		{
 			if (format == null)

@@ -100,6 +100,12 @@ namespace OpenGL
 			Distance = Normal * v1;
 		}
 
+		private Plane(string name, float a, float b, float c, float d) : this(name)
+		{
+			Normal = new Vertex3f(a, b, c);
+			Distance = d;
+		}
+
 		#endregion
 
 		#region Plane Definition
@@ -160,8 +166,8 @@ namespace OpenGL
 
 			planes.Add(GetFrustumLeftPlane(modelViewProjection));
 			planes.Add(GetFrustumRightPlane(modelViewProjection));
-			//planes.Add(GetFrustumFarPlane(modelViewProjection));
-			//planes.Add(GetFrustumNearPlane(modelViewProjection));
+			planes.Add(GetFrustumNearPlane(modelViewProjection));
+			planes.Add(GetFrustumFarPlane(modelViewProjection));
 			planes.Add(GetFrustumBottomPlane(modelViewProjection));
 			planes.Add(GetFrustumTopPlane(modelViewProjection));
 
@@ -180,8 +186,8 @@ namespace OpenGL
 		public static Plane GetFrustumLeftPlane(IMatrix4x4 modelViewProjection)
 		{
 			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(0));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(0));
 
 			return (NormalizePlane(NameLeft, a + b));
 		}
@@ -198,10 +204,10 @@ namespace OpenGL
 		public static Plane GetFrustumRightPlane(IMatrix4x4 modelViewProjection)
 		{
 			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(0));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(0));
 
-			return (NormalizePlane(NameRight, b - a));
+			return (NormalizePlane(NameRight, a - b));
 		}
 
 		/// <summary>
@@ -216,8 +222,8 @@ namespace OpenGL
 		public static Plane GetFrustumBottomPlane(IMatrix4x4 modelViewProjection)
 		{
 			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(1));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(1));
 
 			return (NormalizePlane(NameBottom, a + b));
 		}
@@ -234,10 +240,10 @@ namespace OpenGL
 		public static Plane GetFrustumTopPlane(IMatrix4x4 modelViewProjection)
 		{
 			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(1));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(1));
 
-			return (NormalizePlane(NameTop, b - a));
+			return (NormalizePlane(NameTop, a - b));
 		}
 
 		/// <summary>
@@ -252,10 +258,12 @@ namespace OpenGL
 		public static Plane GetFrustumNearPlane(IMatrix4x4 modelViewProjection)
 		{
 			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(2));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(2));
 
-			return (NormalizePlane(NameNear, a + b));
+			Plane plane = NormalizePlane(NameFar, a + b);
+			plane.Distance = -plane.Distance;
+			return (plane);
 		}
 
 		/// <summary>
@@ -270,10 +278,12 @@ namespace OpenGL
 		public static Plane GetFrustumFarPlane(IMatrix4x4 modelViewProjection)
 		{
 			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(2));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
+			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(2));
 
-			return (NormalizePlane(NameFar, b - a));
+			Plane plane = NormalizePlane(NameFar, a - b);
+			plane.Distance = -plane.Distance;
+			return (plane);
 		}
 
 		/// <summary>
@@ -287,10 +297,9 @@ namespace OpenGL
 		/// </returns>
 		private static Plane NormalizePlane(string name, Vertex4d r)
 		{
-			// Normalize plane
-			Vertex3d normal = new Vertex3d(r.x, r.y, r.z);
+			double module = Math.Sqrt(r.x * r.x + r.y * r.y + r.z * r.z);
 
-			return new Plane(name, (Vertex3f)normal.Normalized, (float)(r.W / normal.Module()));
+			return (new Plane(name, (float)(r.x / module), (float)(r.y / module), (float)(r.z / module), (float)(r.w / module)));
 		}
 
 		/// <summary>

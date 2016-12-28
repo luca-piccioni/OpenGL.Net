@@ -502,7 +502,7 @@ namespace OpenGL
 			if (Math.Abs(far) < Math.Abs(near))
 				throw new ArgumentOutOfRangeException("less than near", "far");
 
-			float ymax = near * (float)Math.Tan(Angle.ToRadians(fovy));
+			float ymax = near * (float)Math.Tan(Angle.ToRadians(fovy / 2.0f));
 			float xmax = ymax * aspectRatio;
 
 			SetFustrum(-xmax, +xmax, -ymax, +ymax, near, far);
