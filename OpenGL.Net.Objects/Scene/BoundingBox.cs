@@ -80,27 +80,27 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		public bool IsClipped(IEnumerable<Plane> clippingPlanes, IModelMatrix objectViewModel)
+		public bool IsClipped(IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
 		{
 			if (clippingPlanes == null)
 				throw new ArgumentNullException("clippingPlanes");
 
 			Vertex3f[] boundVertices = new Vertex3f[8];
+			Vertex3f[] viewVertices = new Vertex3f[2];
+
+			for (int i = 0; i < 2; i++)
+				viewVertices[i] = (Vertex3f)viewModel.Multiply(_Bounds[i]); 
 
 			// Lower box vertices
-			boundVertices[0] = new Vertex3f(_Bounds[1].x, _Bounds[0].y, _Bounds[1].z);
-			boundVertices[1] = new Vertex3f(_Bounds[0].x, _Bounds[0].y, _Bounds[1].z);
-			boundVertices[2] = new Vertex3f(_Bounds[0].x, _Bounds[0].y, _Bounds[0].z);
-			boundVertices[3] = new Vertex3f(_Bounds[1].x, _Bounds[0].y, _Bounds[0].z);
+			boundVertices[0] = new Vertex3f(viewVertices[1].x, viewVertices[0].y, viewVertices[1].z);
+			boundVertices[1] = new Vertex3f(viewVertices[0].x, viewVertices[0].y, viewVertices[1].z);
+			boundVertices[2] = new Vertex3f(viewVertices[0].x, viewVertices[0].y, viewVertices[0].z);
+			boundVertices[3] = new Vertex3f(viewVertices[1].x, viewVertices[0].y, viewVertices[0].z);
 			// Higher box vertices
-			boundVertices[4] = new Vertex3f(_Bounds[1].x, _Bounds[1].y, _Bounds[1].z);
-			boundVertices[5] = new Vertex3f(_Bounds[0].x, _Bounds[1].y, _Bounds[1].z);
-			boundVertices[6] = new Vertex3f(_Bounds[0].x, _Bounds[1].y, _Bounds[0].z);
-			boundVertices[7] = new Vertex3f(_Bounds[1].x, _Bounds[1].y, _Bounds[0].z);
-
-			// Vertices in view-space
-			for (int i = 0; i < boundVertices.Length; i++)
-				boundVertices[i] = (Vertex3f)objectViewModel.Multiply(boundVertices[i]);
+			boundVertices[4] = new Vertex3f(viewVertices[1].x, viewVertices[1].y, viewVertices[1].z);
+			boundVertices[5] = new Vertex3f(viewVertices[0].x, viewVertices[1].y, viewVertices[1].z);
+			boundVertices[6] = new Vertex3f(viewVertices[0].x, viewVertices[1].y, viewVertices[0].z);
+			boundVertices[7] = new Vertex3f(viewVertices[1].x, viewVertices[1].y, viewVertices[0].z);
 
 			foreach (Plane clipPlane in clippingPlanes) {
 				bool outsidePlane = true;

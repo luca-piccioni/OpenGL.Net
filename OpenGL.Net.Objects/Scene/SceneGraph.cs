@@ -72,14 +72,14 @@ namespace OpenGL.Objects.Scene
 				// Sort geometries
 				// ...
 
-				Trace.TraceInformation("ObjectsSelection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				Console.WriteLine("Objects selection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
 
 				// Draw all batches
 				sw = Stopwatch.StartNew();
 				foreach (ObjectBatch objectBatch in objectBatchContext.Objects)
 					objectBatch.Draw(ctx);
 				sw.Stop();
-				Trace.TraceInformation("Objectsdrawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				Console.WriteLine("Objects drawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
 
 				Resource.CheckResourceLeaks();
 			}

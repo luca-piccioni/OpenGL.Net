@@ -35,7 +35,7 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		bool IsClipped(IEnumerable<Plane> clippingPlanes, IModelMatrix objectViewModel);
+		bool IsClipped(IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel);
 
 		/// <summary>
 		/// Draw the bounding volume.

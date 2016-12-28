@@ -214,12 +214,22 @@ namespace OpenGL.Objects.Scene
 		/// </returns>
 		public SceneObject FindChild(Predicate<SceneObject> match, bool recurse)
 		{
-			List<SceneObject> foundChildren = (List<SceneObject>)FindChildren(match, recurse);
+			List<SceneObject> foundChildren = FindChildren(match, recurse);
 
 			if (foundChildren.Count > 0)
 				return (foundChildren[0]);
 			else
 				return (null);
+		}
+
+		public uint CountChildren()
+		{
+			uint count = (uint)_Children.Count;
+
+			foreach (SceneObject child in _Children)
+				count += child.CountChildren();
+
+			return (count);
 		}
 
 		/// <summary>
