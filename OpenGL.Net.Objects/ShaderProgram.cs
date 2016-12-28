@@ -558,7 +558,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Throw an Exception in the case the validation has failed.
 		/// </exception>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG")]
 		private void Validate()
 		{
 			int lStatus;

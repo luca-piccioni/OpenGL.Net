@@ -216,7 +216,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> is null.
 		/// </exception>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG")]
 		protected internal static void CheckValidContext(GraphicsContext ctx)
 		{
 			if (ctx == null)
@@ -235,7 +235,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
 		/// </exception>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG_PEDANTIC")]
 		protected internal static void CheckCurrentContext(GraphicsContext ctx)
 		{
 			if (ctx == null)
@@ -259,6 +259,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
 		/// </exception>
+		[Conditional("GL_DEBUG")]
 		protected void CheckThisExistence(GraphicsContext ctx)
 		{
 			if (Exists(ctx) == false)
@@ -280,6 +281,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this <see cref="GraphicsResource"/> does not exists for <paramref name="ctx"/>.
 		/// </exception>
+		[Conditional("GL_DEBUG")]
 		protected internal static void CheckThatExistence(GraphicsContext ctx, IGraphicsResource resource)
 		{
 			if (resource == null)

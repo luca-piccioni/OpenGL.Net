@@ -66,8 +66,8 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			if (shader != null && shader.Exists(ctx) == false)
-				throw new ArgumentException("not existing", "shader");
+			//if (shader != null && shader.Exists(ctx) == false)
+			//	throw new ArgumentException("not existing", "shader");
 
 			// If vertex was modified after creation, don't miss to create array buffers
 			if (_VertexArrayDirty) CreateObject(ctx);

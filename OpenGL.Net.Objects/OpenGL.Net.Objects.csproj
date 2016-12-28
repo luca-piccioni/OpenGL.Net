@@ -77,7 +77,7 @@
     <Compile Include="Scene\SceneObjectCodec.cs" />
     <Compile Include="Scene\SceneObjectInfo.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
-    <Compile Include="Scene\BoundingSphere.cs" />
+    <None Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\IBoundingVolume.cs" />
     <Compile Include="Scene\SceneGraph.cs" />
     <Compile Include="Scene\SceneLightingState.cs" />

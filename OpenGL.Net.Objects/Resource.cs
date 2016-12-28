@@ -51,7 +51,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// 
 		/// </summary>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG")]
 		public static void CheckResourceLeaks()
 		{
 			foreach (Resource resource in _LivingResources)
@@ -67,7 +67,7 @@ namespace OpenGL.Objects
 			_LivingResources.Remove(this);
 		}
 
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG")]
 		private void TrackResourceLifetime()
 		{
 			// Store stack trace
