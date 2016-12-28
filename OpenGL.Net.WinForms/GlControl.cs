@@ -1050,8 +1050,6 @@ namespace OpenGL
 						OnRender();
 						// Swap buffers if double-buffering
 						_DeviceContext.SwapBuffers();
-
-						// Invalidate();
 					} catch (Exception exception) {
 						DrawFailure(e, exception);
 					}
