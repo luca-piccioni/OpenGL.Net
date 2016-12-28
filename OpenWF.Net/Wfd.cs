@@ -81,7 +81,7 @@ namespace OpenWF
 		/// <summary>
 		/// OpenGL error checking.
 		/// </summary>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG")]
 		private static void DebugCheckErrors(object returnValue)
 		{
 			
