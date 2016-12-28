@@ -266,5 +266,25 @@ namespace OpenGL.Test
 			Assert.AreEqual(  0.0f, plane.GetDistance(new Vertex3f(0.0f, 0.0f, 10.0f)));
 			Assert.AreEqual(+10.0f, plane.GetDistance(new Vertex3f(0.0f, 0.0f, 20.0f)));
 		}
+
+		[Test]
+		public void TestProjectionFrustum()
+		{
+			PerspectiveProjectionMatrix projectionMatrix = new PerspectiveProjectionMatrix(90.0f, 1.0f, 1.0f, 10.0f);
+			ModelMatrix modelMatrix = new ModelMatrix();
+
+			IMatrix4x4 frustumMatrix = projectionMatrix * modelMatrix;
+
+			Plane planeL = Plane.GetFrustumLeftPlane(frustumMatrix);
+			Plane planeR = Plane.GetFrustumRightPlane(frustumMatrix);
+			Plane planeB = Plane.GetFrustumBottomPlane(frustumMatrix);
+			Plane planeT = Plane.GetFrustumTopPlane(frustumMatrix);
+
+			Plane planeN = Plane.GetFrustumNearPlane(frustumMatrix);
+			Assert.Greater(planeN.GetDistance(new Vertex3f(0.0f, 0.0f, -5.0f)), 0.0f);
+
+			Plane planeF = Plane.GetFrustumFarPlane(frustumMatrix);
+			Assert.Greater(planeF.GetDistance(new Vertex3f(0.0f, 0.0f, -5.0f)), 0.0f);
+		}
 	}
 }
