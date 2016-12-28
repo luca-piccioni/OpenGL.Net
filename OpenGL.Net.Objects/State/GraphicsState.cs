@@ -49,6 +49,28 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
+		#region State Index
+
+		/// <summary>
+		/// Get the next state index.
+		/// </summary>
+		/// <returns>
+		/// 
+		/// </returns>
+		protected static int NextStateIndex()
+		{
+			return (_StateIndex++);
+		}
+
+		protected internal static int GetStateCount() { return (_StateIndex); }
+
+		/// <summary>
+		/// The current state index for GraphicsState.
+		/// </summary>
+		private static int _StateIndex;
+
+		#endregion
+
 		#region Equality Operators
 
 		/// <summary>
@@ -142,6 +164,11 @@ namespace OpenGL.Objects.State
 		/// The identifier of this GraphicsState.
 		/// </summary>
 		public abstract string StateIdentifier { get; }
+
+		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public abstract int StateIndex { get; }
 
 		/// <summary>
 		/// Flag indicating whether the state is context-bound.

@@ -711,6 +711,21 @@ namespace OpenGL.Objects.State
 		private readonly string _StateId;
 
 		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public static int StateSetIndex { get { return (_StateIndex); } }
+
+		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public override int StateIndex { get { return (_StateIndex); } }
+
+		/// <summary>
+		/// The index for this GraphicsState.
+		/// </summary>
+		private static int _StateIndex = NextStateIndex();
+
+		/// <summary>
 		/// Get the uniform state associated with this instance.
 		/// </summary>
 		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }

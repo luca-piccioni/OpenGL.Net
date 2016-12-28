@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2015 Luca Piccioni
+// Copyright (C) 2011-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -41,6 +41,28 @@ namespace OpenGL.Objects.State
 	[DebuggerDisplay("GraphicsStateSet: States={_RenderStates.Count}")]
 	public class GraphicsStateSet : IResource
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static GraphicsStateSet()
+		{
+			int index;
+
+			index = TransformStateBase.StateSetIndex;
+			index = CullFaceState.StateSetIndex;
+			index = BlendState.StateSetIndex;
+			index = DepthTestState.StateSetIndex;
+			index = PolygonModeState.StateSetIndex;
+			index = PolygonOffsetState.StateSetIndex;
+			index = ShaderUniformState.StateSetIndex;
+			index = LightsStateBase.StateSetIndex;
+			index = MaterialState.StateSetIndex;
+		}
+
+		#endregion
+
 		#region State Factory
 
 		/// <summary>
@@ -94,10 +116,6 @@ namespace OpenGL.Objects.State
 			//renderStateSet.DefineState(new ViewportState(ctx));
 			renderStateSet.DefineState(new TransformState(ctx));
 			
-			_Log.Verbose("Detected current state set:");
-			foreach (KeyValuePair<string, IGraphicsState> pair in renderStateSet._RenderStates)
-				_Log.Verbose(pair.Value.ToString());
-			
 			return (renderStateSet);
 		}
 
@@ -115,15 +133,19 @@ namespace OpenGL.Objects.State
 		{
 			if (renderState == null)
 				throw new ArgumentNullException("renderState");
+			if (renderState.StateIndex >= _RenderStates.Length)
+				throw new ArgumentException(renderState.GetType() + " not registered", "renderState");
+
+			int stateIndex = renderState.StateIndex;
 
 			// Unreference previous state
 			IGraphicsState previousState;
 
-			if (_RenderStates.TryGetValue(renderState.StateIdentifier, out previousState) && (previousState != null))
+			if ((previousState = _RenderStates[stateIndex]) != null)
 				previousState.DecRef();
-			_RenderStates[renderState.StateIdentifier] = renderState;
 
 			// Reference the new state
+			_RenderStates[stateIndex] = renderState;
 			renderState.IncRef();
 		}
 
@@ -133,18 +155,18 @@ namespace OpenGL.Objects.State
 		/// <param name="stateId">
 		/// A <see cref="String"/> that identify a specific state to undefine.
 		/// </param>
-		public void UndefineState(string stateId)
+		public void UndefineState(int stateIndex)
 		{
-			if (stateId == null)
-				throw new ArgumentNullException("stateId");
+			if (stateIndex >= _RenderStates.Length)
+				throw new ArgumentOutOfRangeException("stateIndex");
 
 			// Unreference previous state
 			IGraphicsState previousState;
 
-			if (_RenderStates.TryGetValue(stateId, out previousState) && previousState != null)
+			if ((previousState = _RenderStates[stateIndex]) != null)
 				previousState.DecRef();
 			// Remove state
-			_RenderStates.Remove(stateId);
+			_RenderStates[stateIndex] = null;
 		}
 
 		/// <summary>
@@ -156,12 +178,12 @@ namespace OpenGL.Objects.State
 		/// <returns>
 		/// It returns a boolean value indicating whether a state is defined in this GraphicsStateSet.
 		/// </returns>
-		public bool IsDefinedState(string stateId)
+		public bool IsDefinedState(int stateIndex)
 		{
-			if (stateId == null)
-				throw new ArgumentNullException("stateId");
+			if (stateIndex >= _RenderStates.Length)
+				throw new ArgumentOutOfRangeException("stateIndex");
 
-			return (_RenderStates.ContainsKey(stateId));
+			return (_RenderStates[stateIndex] != null);
 		}
 
 		/// <summary>
@@ -169,16 +191,16 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		/// <param name="stateId"></param>
 		/// <returns></returns>
-		public IGraphicsState this[string stateId]
+		public IGraphicsState this[int stateIndex]
 		{
 			get
 			{
-				IGraphicsState state;
+				// Defensive
+				Debug.Assert(stateIndex < _RenderStates.Length);
+				if (stateIndex >= _RenderStates.Length)
+					return (null);
 
-				if (_RenderStates.TryGetValue(stateId, out state))
-					return (state);
-
-				return (null);
+				return (_RenderStates[stateIndex]);
 			}
 			set
 			{
@@ -192,12 +214,12 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// An enumerable of the states collected by this GraphicsStateSet.
 		/// </summary>
-		public IEnumerable<IGraphicsState> States { get { return (_RenderStates.Values); } }
+		public IEnumerable<IGraphicsState> States { get { return (_RenderStates); } }
 
 		/// <summary>
 		/// The set of GraphicsState.
 		/// </summary>
-		private readonly Dictionary<string, IGraphicsState> _RenderStates = new Dictionary<string, IGraphicsState>();
+		private readonly IGraphicsState[] _RenderStates = new IGraphicsState[GraphicsState.GetStateCount()];
 
 		#endregion
 
@@ -205,8 +227,9 @@ namespace OpenGL.Objects.State
 
 		public void Create(GraphicsContext ctx)
 		{
-			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
-				pair.Value.CreateState(ctx);
+			foreach (IGraphicsState state in _RenderStates)
+				if (state != null)
+					state.CreateState(ctx);
 		}
 
 		/// <summary>
@@ -256,11 +279,12 @@ namespace OpenGL.Objects.State
 				program.ResetTextureUnits();
 
 			// Apply known states
-			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates) {
-				IGraphicsState state = pair.Value;
-				
-				if (state.IsContextBound && (currentStateSet != null) && (currentStateSet.IsDefinedState(state.StateIdentifier))) {
-					IGraphicsState currentState = currentStateSet[state.StateIdentifier];
+			foreach (IGraphicsState state in _RenderStates) {
+				if (state == null)
+					continue;
+
+				if (state.IsContextBound && (currentStateSet != null) && (currentStateSet.IsDefinedState(state.StateIndex))) {
+					IGraphicsState currentState = currentStateSet[state.StateIndex];
 
 					if (state.Equals(currentState))
 						continue;
@@ -310,16 +334,15 @@ namespace OpenGL.Objects.State
 			List<IGraphicsState> thisSetStates = new List<IGraphicsState>(States);
 
 			// Merge states defined by stateSet
-			foreach (GraphicsState state in thisSetStates) {
-				IGraphicsState otherState = stateSet[state.StateIdentifier];
+			for (int i = 0; i < _RenderStates.Length; i++) {
+				IGraphicsState currentState = _RenderStates[i];
+				IGraphicsState otherState = stateSet[i];
 
-				if (otherState != null)
-					state.Merge(otherState);
+				if (currentState != null && otherState != null)
+					_RenderStates[i].Merge(otherState);
+				else if (currentState == null && otherState != null)
+					_RenderStates[i] = otherState.Copy();
 			}
-			// Include states not defined by this
-			foreach (GraphicsState state in stateSet.States)
-				if (IsDefinedState(state.StateIdentifier) == false)
-					DefineState(state.Copy());
 		}
 
 		#endregion
@@ -336,8 +359,9 @@ namespace OpenGL.Objects.State
 		{
 			GraphicsStateSet clone = new GraphicsStateSet();
 
-			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
-				clone.DefineState(pair.Value.Copy());
+			foreach (IGraphicsState state in _RenderStates)
+				if (state != null)
+					clone.DefineState(state.Copy());
 
 			return (clone);
 		}
@@ -421,8 +445,9 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		public void Dispose()
 		{
-			foreach (KeyValuePair<string, IGraphicsState> pair in _RenderStates)
-				pair.Value.DecRef();
+			foreach (IGraphicsState state in _RenderStates)
+				if (state != null)
+					state.DecRef();
 		}
 
 		#endregion

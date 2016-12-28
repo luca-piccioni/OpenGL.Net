@@ -60,7 +60,7 @@ namespace OpenGL.Objects.Scene
 		{
 			List<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
 
-			SceneLightingState lightingState = (SceneLightingState)ObjectState[SceneLightingState.StateId];
+			SceneLightingState lightingState = (SceneLightingState)ObjectState[SceneLightingState.StateSetIndex];
 
 			lightingState.CurrentSceneContext = ctxScene;
 			lightingState.ResetLights();

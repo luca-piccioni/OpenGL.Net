@@ -39,6 +39,11 @@ namespace OpenGL.Objects.State
 		string StateIdentifier { get; }
 
 		/// <summary>
+		/// Unique index assigned to this IGraphicsState.
+		/// </summary>
+		int StateIndex { get; }
+
+		/// <summary>
 		/// Flag indicating whether the state is applied to a <see cref="GraphicsContext"/>.
 		/// </summary>
 		bool IsContextBound { get; }

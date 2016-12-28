@@ -102,7 +102,7 @@ namespace OpenGL.Objects.Scene
 			SceneObjectGeometry sceneGeometry = sceneObject as SceneObjectGeometry;
 			if (sceneGeometry != null) {
 				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
-				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateId];
+				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
 
 				// Test geometry culling
 				if (sceneGeometry.BoundingVolume != null) {
@@ -195,6 +195,140 @@ namespace OpenGL.Objects.Scene
 		/// The <see cref="TraverseContext"/> used for processing the scene graph
 		/// </summary>
 		private static TraverseContext _TraverseDrawContext = new TraverseContext(DrawDelegate, DrawPreDelegate, DrawPostDelegate);
+
+		#endregion
+
+		#region Objects Ordering
+
+		/// <summary>
+		/// Base interface for object sorters.
+		/// </summary>
+		abstract class ObjectSorterBase
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="objects"></param>
+			/// <returns></returns>
+			public abstract List<ObjectBatch> Sort(List<ObjectBatch> objects);
+		}
+
+		abstract class ObjectSorterBinary : ObjectSorterBase
+		{
+			#region Binary Chaining
+
+			public ObjectSorter SorterA
+			{
+				get; set;
+			}
+
+			public ObjectSorter SorterB
+			{
+				get; set;
+			}
+
+			protected abstract bool ComparePriority(ObjectBatch objectBatch);
+
+			private void Split(List<ObjectBatch> objects, out List<ObjectBatch> a, out List<ObjectBatch> b)
+			{
+				if (objects == null)
+					throw new ArgumentNullException("objects");
+
+				a = new List<ObjectBatch>(objects.Count);
+				b = new List<ObjectBatch>();
+
+				foreach (ObjectBatch objectBatch in objects) {
+					if (ComparePriority(objectBatch))
+						a.Add(objectBatch);
+					else
+						b.Add(objectBatch);
+				}
+			}
+
+			#endregion
+
+			#region ObjectSorter Overrides
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="objects"></param>
+			/// <returns></returns>
+			public override List<ObjectBatch> Sort(List<ObjectBatch> objects)
+			{
+				if (objects == null)
+					throw new ArgumentNullException("objects");
+
+				List<ObjectBatch> a, b;
+
+				Split(objects, out a, out b);
+
+				if (SorterA != null)
+					a = SorterA.Sort(a);
+				if (SorterB != null)
+					b = SorterB.Sort(b);
+
+				a.AddRange(b);
+
+				return (a);
+			}
+
+			#endregion
+		}
+
+		abstract class ObjectSorter : ObjectSorterBase, IComparer<ObjectBatch>
+		{
+			#region IComparer<ObjectBatch> Implementation
+
+			public abstract int Compare(ObjectBatch x, ObjectBatch y);
+
+			#endregion
+
+			#region ObjectSorterBase Overrides
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="objects"></param>
+			/// <returns></returns>
+			public override List<ObjectBatch> Sort(List<ObjectBatch> objects)
+			{
+				if (objects == null)
+					throw new ArgumentNullException("objects");
+
+				objects.Sort(this);
+
+				return (objects);
+			}
+
+			#endregion
+		}
+
+		class BlendSorter : ObjectSorterBinary
+		{
+			#region ObjectSorterBinary Overrides
+
+			protected override bool ComparePriority(ObjectBatch objectBatch)
+			{
+				BlendState blendState = (BlendState)objectBatch.State[BlendState.StateSetIndex];
+
+				return (blendState != null && blendState.Enabled);
+			}
+
+			#endregion
+		}
+
+		class DistanceSorter : ObjectSorter
+		{
+			#region ObjectSorter Overrides
+
+			public override int Compare(ObjectBatch x, ObjectBatch y)
+			{
+				return (0);
+			}
+
+			#endregion
+		}
 
 		#endregion
 

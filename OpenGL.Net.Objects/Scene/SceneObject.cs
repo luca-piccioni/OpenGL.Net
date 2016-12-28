@@ -254,8 +254,8 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public IProjectionMatrix LocalProjection
 		{
-			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateId]).LocalProjection); }
-			set { ((TransformStateBase)ObjectState[TransformStateBase.StateId]).LocalProjection = value; }
+			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalProjection); }
+			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalProjection = value; }
 		}
 
 		/// <summary>
@@ -264,8 +264,8 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public IModelMatrix LocalModel
 		{
-			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateId]).LocalModel); }
-			set { ((TransformStateBase)ObjectState[TransformStateBase.StateId]).LocalModel.Set(value); }
+			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModel); }
+			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModel.Set(value); }
 		}
 
 		/// <summary>

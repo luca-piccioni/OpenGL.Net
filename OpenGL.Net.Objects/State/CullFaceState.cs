@@ -169,6 +169,21 @@ namespace OpenGL.Objects.State
 		/// The identifier of this GraphicsState.
 		/// </summary>
 		public override string StateIdentifier { get { return (StateId); } }
+
+		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public static int StateSetIndex { get { return (_StateIndex); } }
+
+		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public override int StateIndex { get { return (_StateIndex); } }
+
+		/// <summary>
+		/// The index for this GraphicsState.
+		/// </summary>
+		private static int _StateIndex = NextStateIndex();
 		
 		/// <summary>
 		/// Set ShaderProgram state.
