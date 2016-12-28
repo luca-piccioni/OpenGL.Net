@@ -688,6 +688,52 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Lazy Server State
+
+		/// <summary>
+		/// Set the current state of this GraphicsContext.
+		/// </summary>
+		/// <param name="state">
+		/// The <see cref="State.IGraphicsState"/> applied on the this GraphicsContext.
+		/// </param>
+		/// <remarks>
+		/// This method is excepted to be called by <see cref="State.IGraphicsState.ApplyState(GraphicsContext, ShaderProgram)"/>
+		/// implementations.
+		/// </remarks>
+		internal void SetCurrentState(State.IGraphicsState state)
+		{
+			if (state == null)
+				throw new ArgumentNullException("state");
+			Debug.Assert(state.IsContextBound);
+
+			_ServerState[state.StateIdentifier] = state;
+		}
+
+		/// <summary>
+		/// Get the a specific state of this GraphicsContext.
+		/// </summary>
+		/// <param name="stateId"></param>
+		/// <returns></returns>
+		internal State.IGraphicsState GetCurrentState(string stateId)
+		{
+			if (stateId == null)
+				throw new ArgumentNullException("stateId");
+
+			State.IGraphicsState state;
+
+			if (_ServerState.TryGetValue(stateId, out state))
+				return (state);
+
+			return (null);
+		}
+
+		/// <summary>
+		/// Current state of this GraphicsContext.
+		/// </summary>
+		private readonly Dictionary<string, State.IGraphicsState> _ServerState = new Dictionary<string, State.IGraphicsState>();
+
+		#endregion
+
 		#region Lazy Objects Binding
 
 		/// <summary>
@@ -714,7 +760,9 @@ namespace OpenGL.Objects
 				boundResourceRef.TryGetTarget(out boundResource);
 
 				if (ReferenceEquals(bindingResource, boundResource)) {
+#if GL_DEBUG_PEDANTIC
 					Debug.Assert(bindingResource.IsBound(this));
+#endif
 					// Resource already bound, avoid rendundant "Bind" operation
 					return;
 				}

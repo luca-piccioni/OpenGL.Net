@@ -127,7 +127,7 @@ namespace OpenGL.Objects
 
 			#region Vertex Attribute
 
-			[Conditional("DEBUG")]
+			[Conditional("GL_DEBUG")]
 			internal void CheckVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding attributeBinding)
 			{
 				if (ArrayBuffer != null) {
@@ -1062,7 +1062,7 @@ namespace OpenGL.Objects
 		/// Validate this vertex array.
 		/// </summary>
 		/// <returns></returns>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG")]
 		private void Validate()
 		{
 			if (_VertexArrays.Count == 0)

@@ -134,16 +134,28 @@ namespace OpenGL.Objects.State
 		/// Apply this depth test render state.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="sProgram"/>.
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="program"/>.
 		/// </param>
-		/// <param name="sProgram">
+		/// <param name="program">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram sProgram)
+		public override void ApplyState(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+			DepthTestState currentState = (DepthTestState)ctx.GetCurrentState(StateId);
+
+			if (currentState != null)
+				ApplyStateCore(ctx, program, currentState);
+			else
+				ApplyStateCore(ctx, program);
+
+			ctx.SetCurrentState(this);
+		}
+
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
+		{
 			if (_Enabled) {
 				// Enable depth test
 				Gl.Enable(EnableCap.DepthTest);
@@ -152,6 +164,22 @@ namespace OpenGL.Objects.State
 			} else {
 				// Disable depth test
 				Gl.Disable(EnableCap.DepthTest);
+			}
+		}
+
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, DepthTestState currentState)
+		{
+			if (_Enabled) {
+				// Enable depth test
+				if (currentState.Enabled == false)
+					Gl.Enable(EnableCap.DepthTest);
+				// Specify depth function
+				if (currentState.Function != Function)
+					Gl.DepthFunc(Function);
+			} else {
+				// Disable depth test
+				if (currentState != null && currentState.Enabled == true)
+					Gl.Disable(EnableCap.DepthTest);
 			}
 		}
 

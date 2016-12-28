@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#define ENABLE_UNIFORM_VALUE_CACHING
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -166,8 +168,17 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			// Set uniform value
 			Gl.Uniform1(uniform.Location, v);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -190,6 +201,11 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, new Vertex2f(x, y)) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -197,6 +213,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform2(uniform.Location, x, y);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, new Vertex2f(x, y));
+#endif
 		}
 
 		/// <summary>
@@ -222,6 +242,11 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, new Vertex3f(x, y, z)) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -229,6 +254,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform3(uniform.Location, x, y, z);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, new Vertex3f(x, y, z));
+#endif
 		}
 
 		/// <summary>
@@ -257,6 +286,11 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, new Vertex4f(x, y, z, w)) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -264,6 +298,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform4(uniform.Location, x, y, z, w);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, new Vertex4f(x, y, z, w));
+#endif
 		}
 
 		/// <summary>
@@ -282,6 +320,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -290,6 +333,10 @@ namespace OpenGL.Objects
 			unsafe {
 				Gl.Uniform2(uniform.Location, 1, (float*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -311,6 +358,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -321,6 +373,10 @@ namespace OpenGL.Objects
 					Gl.Uniform2(uniform.Location, v.Length, (float*)p_v);
 				}
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -339,6 +395,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -348,6 +409,10 @@ namespace OpenGL.Objects
 			{
 				Gl.Uniform3(uniform.Location, 1, (float*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -366,6 +431,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -377,6 +447,10 @@ namespace OpenGL.Objects
 					Gl.Uniform3(uniform.Location, v.Length, (float*)p_v);
 				}
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -395,6 +469,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -404,6 +483,10 @@ namespace OpenGL.Objects
 			{
 				Gl.Uniform4(uniform.Location, 1, (float*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -422,6 +505,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -433,6 +521,10 @@ namespace OpenGL.Objects
 					Gl.Uniform4(uniform.Location, v.Length, (float*)p_v);
 				}
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -451,6 +543,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -459,6 +556,10 @@ namespace OpenGL.Objects
 			unsafe {
 				Gl.Uniform4(uniform.Location, 1, (float*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1007,6 +1108,11 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1014,6 +1120,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform1(uniform.Location, v);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1036,6 +1146,12 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			Vertex2i v = new Vertex2i(x, y);
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1043,6 +1159,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform2(uniform.Location, x, y);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1068,6 +1188,12 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			Vertex3i v = new Vertex3i(x, y, z);
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1075,6 +1201,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform3(uniform.Location, x, y, z);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1103,6 +1233,12 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			Vertex4i v = new Vertex4i(x, y, z, w);
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1110,6 +1246,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.Uniform4(uniform.Location, x, y, z, w);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1128,6 +1268,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1137,6 +1282,10 @@ namespace OpenGL.Objects
 			{
 				Gl.Uniform2(uniform.Location, 1, (int*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1155,6 +1304,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1164,6 +1318,10 @@ namespace OpenGL.Objects
 			{
 				Gl.Uniform3(uniform.Location, 1, (int*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1182,6 +1340,11 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1191,6 +1354,10 @@ namespace OpenGL.Objects
 			{
 				Gl.Uniform4(uniform.Location, 1, (int*)&v);
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, v);
+#endif
 		}
 
 		/// <summary>
@@ -1888,6 +2055,11 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, m) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1941,6 +2113,10 @@ namespace OpenGL.Objects
 				default:
 					throw new NotSupportedException(String.Format("uniform type {0} not assignable from Matrix{1}x{2}", uniform.UniformType, m.Width, m.Height));
 			}
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, m);
+#endif
 		}
 
 		/// <summary>
@@ -1962,6 +2138,11 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, m) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1969,6 +2150,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.UniformMatrix3(uniform.Location, 1, false, m.Buffer);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, m);
+#endif
 		}
 
 		/// <summary>
@@ -1990,6 +2175,11 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
+#if ENABLE_UNIFORM_VALUE_CACHING
+			if (IsUniformValueChanged(uniformName, m) == false)
+				return;
+#endif
+
 			UniformBinding uniform = GetUniform(uniformName);
 
 			CheckProgramBinding();
@@ -1997,6 +2187,10 @@ namespace OpenGL.Objects
 
 			// Set uniform value
 			Gl.UniformMatrix4(uniform.Location, 1, false, m.Buffer);
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+			CacheUniformValue(uniformName, m);
+#endif
 		}
 
 		#endregion
@@ -2281,7 +2475,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if the type of the uniform variable <paramref name="uniform"/> does not match any value specified by <paramref name="uniformRequestTypes"/>.
 		/// </exception>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG_PENDANTIC")]
 		private static void CheckUniformType(UniformBinding uniform, params int[] uniformRequestTypes)
 		{
 			if (uniform == null)
@@ -2304,7 +2498,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Check whether this ShaderProgram is bound.
 		/// </summary>
-		[Conditional("DEBUG")]
+		[Conditional("GL_DEBUG_PENDANTIC")]
 		private void CheckProgramBinding()
 		{
 			int program;
@@ -2375,6 +2569,35 @@ namespace OpenGL.Objects
 		/// Uniform slots used by the default block of this shader program.
 		/// </summary>
 		private uint _DefaultBlockUniformSlots;
+
+		#endregion
+
+		#region Graphics State Caching
+
+#if ENABLE_UNIFORM_VALUE_CACHING
+
+		private void CacheUniformValue(string uniformName, object uniformValue)
+		{
+			_UniformValues[uniformName] = uniformValue;
+		}
+
+		private bool IsUniformValueChanged(string uniformName, object uniformValue)
+		{
+			object cachedValue;
+
+			if (_UniformValues.TryGetValue(uniformName, out cachedValue) == false)
+				return (true);
+
+			return (uniformValue.Equals(cachedValue) == false);
+		}
+
+		/// <summary>
+		/// Map program uniforms with the last value set with SetUniform methods. Used to avoid redundant calls at the cost
+		/// of checking for values equality, per program instance.
+		/// </summary>
+		private readonly Dictionary<string, object> _UniformValues = new Dictionary<string, object>();
+
+#endif
 
 		#endregion
 	}

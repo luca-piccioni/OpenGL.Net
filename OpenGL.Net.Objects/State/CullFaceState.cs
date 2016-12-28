@@ -174,12 +174,27 @@ namespace OpenGL.Objects.State
 		/// Set ShaderProgram state.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="sProgram"/>.
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="program"/>.
 		/// </param>
-		/// <param name="sProgram">
+		/// <param name="program">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram sProgram)
+		public override void ApplyState(GraphicsContext ctx, ShaderProgram program)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			CullFaceState currentState = (CullFaceState)ctx.GetCurrentState(StateId);
+
+			if (currentState != null)
+				ApplyStateCore(ctx, program, currentState);
+			else
+				ApplyStateCore(ctx, program);
+
+			ctx.SetCurrentState(this);
+		}
+
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -195,6 +210,30 @@ namespace OpenGL.Objects.State
 			} else {
 				//No face culling
 				Gl.Disable(EnableCap.CullFace);
+			}
+		}
+
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, CullFaceState currentState)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			// Front face determination
+			if (currentState.FrontFaceMode != FrontFaceMode)
+				Gl.FrontFace(FrontFaceMode);
+
+			// Culling
+			if (_Enabled) {
+				// Face culling
+				if (currentState._Enabled == false)
+					Gl.Enable(EnableCap.CullFace);
+				// Culled face
+				if (currentState.CulledFace != CulledFace)
+					Gl.CullFace(CulledFace);
+			} else {
+				//No face culling
+				if (currentState._Enabled == true)
+					Gl.Disable(EnableCap.CullFace);
 			}
 		}
 
