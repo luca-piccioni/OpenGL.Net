@@ -805,10 +805,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -842,10 +842,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -1682,10 +1682,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -1719,10 +1719,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -2545,10 +2545,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -2582,10 +2582,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -3422,10 +3422,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -3459,10 +3459,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -4285,10 +4285,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -4322,10 +4322,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -5162,10 +5162,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -5199,10 +5199,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -5989,10 +5989,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -6026,10 +6026,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -6812,10 +6812,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -6849,10 +6849,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -7630,10 +7630,10 @@ namespace OpenGL
 		/// Indicates whether the this IVertex4 is equal to another IVertex4.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An IVertex4 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(IVertex4 other)
 		{
@@ -7667,10 +7667,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex4") == null)
-				return (false);
-
-			return (Equals((IVertex3)obj));
+			
+			try {
+				return (Equals((IVertex4)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>

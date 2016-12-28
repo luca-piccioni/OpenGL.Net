@@ -835,10 +835,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -1703,10 +1703,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -2557,10 +2557,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -3425,10 +3425,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -4279,10 +4279,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -5147,10 +5147,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -5948,10 +5948,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -6750,10 +6750,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
@@ -7530,10 +7530,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
-			if (obj.GetType().GetInterface("IVertex2") == null)
-				return (false);
-
-			return (Equals((IVertex2)obj));
+			
+			try {
+				return (Equals((IVertex2)obj));
+			} catch(InvalidCastException) { return (false); }
 		}
 
 		/// <summary>
