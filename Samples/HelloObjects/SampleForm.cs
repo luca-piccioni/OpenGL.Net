@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -106,7 +107,7 @@ namespace HelloObjects
 			}
 
 			cubeGeometry.Program = _CubeProgram;
-			// cubeGeometry.BoundingVolume = new BoundingBox(-Vertex3f.One * _CubeSize, Vertex3f.One * _CubeSize);
+			cubeGeometry.BoundingVolume = new BoundingBox(-Vertex3f.One * _CubeSize, Vertex3f.One * _CubeSize);
 
 			#endregion
 
@@ -344,6 +345,7 @@ namespace HelloObjects
 
 		private void SampleForm_Load(object sender, EventArgs e)
 		{
+			AnimationTimer.Enabled = true;
 			ObjectsControl.MouseWheel += ObjectsControl_MouseWheel;
 		}
 
@@ -362,8 +364,6 @@ namespace HelloObjects
 			_CubeScene = new SceneGraph();
 			_CubeScene.AddChild(new SceneObjectCamera());
 
-			SceneObject sceneObject;
-
 			// Global lighting
 			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
 
@@ -374,17 +374,20 @@ namespace HelloObjects
 			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
 			localLightObject.LocalModel.Translate(0.0, -5.0f, 0.0);
 			localLightObject.AttenuationFactors.Y = 0.1f;
-			//globalLightZone.AddChild(localLightObject);
+			globalLightZone.AddChild(localLightObject);
 
 			_CubeScene.AddChild(globalLightZone);
 
 			// Cube
-			for (float x = -160.0f; x < 160.0f; x += 4.0f) {
-				for (float y = -160.0f; y < 160.0f; y += 4.0f) {
+			float Size = (float)Math.Sqrt(3000.0f);
+			const float Multiplier = 10.0f;
+
+			for (float x = -Size / 2.0f * Multiplier; x < Size / 2.0f * Multiplier; x += Multiplier) {
+				for (float y = -Size / 2.0f * Multiplier; y < Size / 2.0f * Multiplier; y += Multiplier) {
 					SceneObject cubeInstance = CreateCubeGeometry();
 
 					cubeInstance.LocalModel.Translate(x, 0.0f, y);
-					cubeInstance.LocalModel.Scale(0.5f);
+					cubeInstance.LocalModel.Scale(0.25f);
 
 					globalLightZone.AddChild(cubeInstance);
 				}
@@ -394,7 +397,11 @@ namespace HelloObjects
 			//if ((sceneObject = CreateSkyBoxObject()) != null)
 			//	_CubeScene.AddChild(sceneObject);
 
+			KhronosApi.LogEnabled = false;
+
 			_CubeScene.Create(_Context);
+
+			KhronosApi.LogEnabled = true;
 		}
 
 		/// <summary>
@@ -427,7 +434,7 @@ namespace HelloObjects
 			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
 			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
-			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 400.0f);
+			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.5f, 10000.0f);
 
 			_CubeScene.Draw(_Context);
 		}
@@ -509,15 +516,8 @@ namespace HelloObjects
 
 		#region Animation
 
-		private void UpdateTimer_Tick(object sender, EventArgs e)
+		private void UpdateTimer_Tick(object sender, EventArgs args)
 		{
-			SceneObject cubeObject = _CubeScene.FindChild(delegate(SceneObject item) { return (item.Identifier == "Cube"); });
-
-			if (cubeObject != null) {
-				cubeObject.LocalModel.RotateY(1.0f);
-				cubeObject.LocalModel.RotateX(0.85f);
-			}
-
 			foreach (Keys pressedKey in _PressedKeys) {
 				switch (pressedKey) {
 					case Keys.A:

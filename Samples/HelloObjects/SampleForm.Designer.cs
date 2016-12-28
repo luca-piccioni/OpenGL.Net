@@ -29,7 +29,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.ObjectsControl = new OpenGL.GlControl();
-			this.UpdateTimer = new System.Windows.Forms.Timer(this.components);
+			this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// ObjectsControl
@@ -53,11 +53,10 @@
 			this.ObjectsControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseMove);
 			this.ObjectsControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ObjectsControl_MouseUp);
 			// 
-			// UpdateTimer
+			// AnimationTimer
 			// 
-			this.UpdateTimer.Enabled = true;
-			this.UpdateTimer.Interval = 10;
-			this.UpdateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
+			this.AnimationTimer.Interval = 16;
+			this.AnimationTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
 			// 
 			// SampleForm
 			// 
@@ -75,7 +74,7 @@
 		#endregion
 
 		private OpenGL.GlControl ObjectsControl;
-		private System.Windows.Forms.Timer UpdateTimer;
+		private System.Windows.Forms.Timer AnimationTimer;
 	}
 }
 

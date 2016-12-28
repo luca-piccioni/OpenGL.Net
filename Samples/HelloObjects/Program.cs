@@ -19,6 +19,8 @@
 using System;
 using System.Windows.Forms;
 
+using OpenGL;
+
 namespace HelloObjects
 {
 	/// <summary>
@@ -32,6 +34,14 @@ namespace HelloObjects
 		[STAThread]
 		static void Main()
 		{
+			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
+
+			if (envDebug == "GL") {
+				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
+					Console.WriteLine(format, args);
+				});
+			}
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new SampleForm());
