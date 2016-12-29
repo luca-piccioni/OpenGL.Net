@@ -23,6 +23,12 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
+#if HAVE_NUMERICS
+using System.Numerics;
+
+using Mat4x4 = System.Numerics.Matrix4x4;
+#endif
+
 namespace OpenGL
 {
 	/// <summary>
@@ -299,6 +305,50 @@ namespace OpenGL
 			return (matrix);
 		}
 
+#if HAVE_NUMERICS
+
+		/// <summary>
+		/// Cast from Matrix4x4 to System.Numerics.Matrix4x4.
+		/// </summary>
+		/// <param name="m"></param>
+		public static implicit operator Mat4x4(Matrix4x4 m)
+		{
+			return (new Mat4x4(
+				m.MatrixBuffer[0x0], m.MatrixBuffer[0x4], m.MatrixBuffer[0x8], m.MatrixBuffer[0xC],
+				m.MatrixBuffer[0x1], m.MatrixBuffer[0x5], m.MatrixBuffer[0x9], m.MatrixBuffer[0xD],
+				m.MatrixBuffer[0x2], m.MatrixBuffer[0x6], m.MatrixBuffer[0xA], m.MatrixBuffer[0xE],
+				m.MatrixBuffer[0x3], m.MatrixBuffer[0x7], m.MatrixBuffer[0xB], m.MatrixBuffer[0xF]
+			));
+		}
+
+		/// <summary>
+		/// Cast from System.Numerics.Matrix4x4 to Matrix4x4.
+		/// </summary>
+		/// <param name="m"></param>
+		public static implicit operator Matrix4x4(Mat4x4 m)
+		{
+			Matrix4x4 v = new Matrix4x4();
+
+			CopyMat4x4(v, m);
+
+			return (v);
+		}
+
+		private static void CopyMat4x4(Matrix4x4 matrix, Mat4x4 m)
+		{
+			unsafe
+			{
+				fixed (float *vm = matrix.MatrixBuffer) {
+					vm[0x0] = m.M11; vm[0x4] = m.M12; vm[0x8] = m.M13; vm[0xC] = m.M14;
+					vm[0x1] = m.M21; vm[0x5] = m.M22; vm[0x9] = m.M23; vm[0xD] = m.M24;
+					vm[0x2] = m.M31; vm[0x6] = m.M32; vm[0xA] = m.M33; vm[0xE] = m.M34;
+					vm[0x3] = m.M41; vm[0x7] = m.M42; vm[0xB] = m.M43; vm[0xF] = m.M44;
+				}
+			}
+		}
+
+#endif
+
 		#endregion
 		
 		#region Methods
@@ -339,53 +389,6 @@ namespace OpenGL
 					transpose[r, c] = this[c, r];
 
 			return (transpose);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="matrices"></param>
-		/// <returns></returns>
-		public static Matrix4x4 Concatenate(params Matrix4x4[] matrices)
-		{
-			if (matrices.Length == 0)
-				throw new ArgumentNullException("matrices", "no matric chain");
-
-			Matrix4x4 m = new Matrix4x4();
-
-			m.SetIdentity();
-
-			unsafe {
-				if (Memory.Matrix4x4_Concatenate != null) {
-					List<GCHandle> gcHandles = new List<GCHandle>();
-
-					try {
-						float*[] matrixChain = new float*[matrices.Length + 1];
-
-						GCHandle matrixData = GCHandle.Alloc(m.MatrixBuffer, GCHandleType.Pinned);
-						gcHandles.Add(matrixData);
-						matrixChain[0] = (float*)matrixData.AddrOfPinnedObject().ToPointer();
-
-						for (int i = 0; i < matrices.Length; i++) {
-							matrixData = GCHandle.Alloc(matrices[i].MatrixBuffer, GCHandleType.Pinned);
-							gcHandles.Add(matrixData);
-
-							matrixChain[i + 1] = (float*)matrixData.AddrOfPinnedObject().ToPointer();
-						}
-
-						Memory.Matrix4x4_Concatenate(matrixChain, (uint)matrixChain.Length);
-
-					} finally {
-						foreach (GCHandle gcHandle in gcHandles)
-							gcHandle.Free();
-					}
-				} else {
-					foreach (Matrix4x4 matrix in matrices)
-						m = m * matrix;
-				}
-			}
-
-			return (m);
 		}
 
 		#endregion

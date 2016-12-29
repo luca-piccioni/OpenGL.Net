@@ -20,6 +20,10 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+#if HAVE_NUMERICS
+using System.Numerics;
+#endif
+
 namespace OpenGL
 {
 	/// <summary>
@@ -5696,6 +5700,14 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
+#if HAVE_NUMERICS
+			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+
+			for (uint i = 0; i < v.Length; i++)
+				min = Vector3.Min(min, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new Vertex4f(min.X, min.Y, min.Z));
+#else
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5706,6 +5718,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+#endif
 		}
 
 		/// <summary>
@@ -5725,6 +5738,14 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
+#if HAVE_NUMERICS
+			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+
+			for (uint i = 0; i < count; i++)
+				min = Vector3.Min(min, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new Vertex4f(min.X, min.Y, min.Z));
+#else
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -5735,6 +5756,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+#endif
 		}
 
 		/// <summary>
@@ -5751,6 +5773,14 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+#if HAVE_NUMERICS
+			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < v.Length; i++)
+				max = Vector3.Max(max, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new Vertex4f(max.X, max.Y, max.Z));
+#else
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5761,6 +5791,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+#endif
 		}
 
 		/// <summary>
@@ -5780,6 +5811,14 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+#if HAVE_NUMERICS
+			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < count; i++)
+				max = Vector3.Max(max, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new Vertex4f(max.X, max.Y, max.Z));
+#else
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -5790,6 +5829,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+#endif
 		}
 
 		/// <summary>
@@ -5809,6 +5849,20 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+#if HAVE_NUMERICS
+			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < v.Length; i++) {
+				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
+
+				vmin = Vector3.Max(vmin, v3);
+				vmax = Vector3.Max(vmax, v3);
+			}
+
+			min = new Vertex4f(vmin.X, vmin.Y, vmin.Z);
+			max = new Vertex4f(vmax.X, vmax.Y, vmax.Z);
+#else
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
 
@@ -5820,6 +5874,7 @@ namespace OpenGL
 
 			min = new Vertex4f(minx, miny, minz);
 			max = new Vertex4f(maxx, maxy, maxz);
+#endif
 		}
 
 		/// <summary>
@@ -5842,6 +5897,20 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+#if HAVE_NUMERICS
+			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < count; i++) {
+				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
+
+				vmin = Vector3.Max(vmin, v3);
+				vmax = Vector3.Max(vmax, v3);
+			}
+
+			min = new Vertex4f(vmin.X, vmin.Y, vmin.Z);
+			max = new Vertex4f(vmax.X, vmax.Y, vmax.Z);
+#else
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
 
@@ -5853,6 +5922,7 @@ namespace OpenGL
 
 			min = new Vertex4f(minx, miny, minz);
 			max = new Vertex4f(maxx, maxy, maxz);
+#endif
 		}
 
 		#endregion

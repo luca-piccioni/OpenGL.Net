@@ -27,6 +27,10 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+#if HAVE_NUMERICS
+using System.Numerics;
+#endif
+
 namespace OpenGL
 {
 <#
@@ -575,6 +579,16 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
+<# if (className == "Vertex4f") { #>
+#if HAVE_NUMERICS
+			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+
+			for (uint i = 0; i < v.Length; i++)
+				min = Vector3.Min(min, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new <#= className #>(min.X, min.Y, min.Z));
+#else
+<# } #>
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -585,6 +599,9 @@ namespace OpenGL
 			}
 
 			return (new <#= className #>(x, y, z));
+<# if (className == "Vertex4f") { #>
+#endif
+<# } #>
 		}
 
 		/// <summary>
@@ -604,6 +621,16 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
+<# if (className == "Vertex4f") { #>
+#if HAVE_NUMERICS
+			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+
+			for (uint i = 0; i < count; i++)
+				min = Vector3.Min(min, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new <#= className #>(min.X, min.Y, min.Z));
+#else
+<# } #>
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -614,6 +641,9 @@ namespace OpenGL
 			}
 
 			return (new <#= className #>(x, y, z));
+<# if (className == "Vertex4f") { #>
+#endif
+<# } #>
 		}
 
 		/// <summary>
@@ -630,6 +660,16 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+<# if (className == "Vertex4f") { #>
+#if HAVE_NUMERICS
+			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < v.Length; i++)
+				max = Vector3.Max(max, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new <#= className #>(max.X, max.Y, max.Z));
+#else
+<# } #>
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue, z = (<#= baseType #>)<#= baseType #>.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -640,6 +680,9 @@ namespace OpenGL
 			}
 
 			return (new <#= className #>(x, y, z));
+<# if (className == "Vertex4f") { #>
+#endif
+<# } #>
 		}
 
 		/// <summary>
@@ -659,6 +702,16 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+<# if (className == "Vertex4f") { #>
+#if HAVE_NUMERICS
+			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < count; i++)
+				max = Vector3.Max(max, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
+
+			return (new <#= className #>(max.X, max.Y, max.Z));
+#else
+<# } #>
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue, z = (<#= baseType #>)<#= baseType #>.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -669,6 +722,9 @@ namespace OpenGL
 			}
 
 			return (new <#= className #>(x, y, z));
+<# if (className == "Vertex4f") { #>
+#endif
+<# } #>
 		}
 
 		/// <summary>
@@ -688,6 +744,22 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+<# if (className == "Vertex4f") { #>
+#if HAVE_NUMERICS
+			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < v.Length; i++) {
+				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
+
+				vmin = Vector3.Max(vmin, v3);
+				vmax = Vector3.Max(vmax, v3);
+			}
+
+			min = new <#= className #>(vmin.X, vmin.Y, vmin.Z);
+			max = new <#= className #>(vmax.X, vmax.Y, vmax.Z);
+#else
+<# } #>
 			<#= baseType #> minx = (<#= baseType #>)<#= baseType #>.MaxValue, miny = (<#= baseType #>)<#= baseType #>.MaxValue, minz = (<#= baseType #>)<#= baseType #>.MaxValue;
 			<#= baseType #> maxx = (<#= baseType #>)<#= baseType #>.MinValue, maxy = (<#= baseType #>)<#= baseType #>.MinValue, maxz = (<#= baseType #>)<#= baseType #>.MinValue;
 
@@ -699,6 +771,9 @@ namespace OpenGL
 
 			min = new <#= className #>(minx, miny, minz);
 			max = new <#= className #>(maxx, maxy, maxz);
+<# if (className == "Vertex4f") { #>
+#endif
+<# } #>
 		}
 
 		/// <summary>
@@ -721,6 +796,22 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
+<# if (className == "Vertex4f") { #>
+#if HAVE_NUMERICS
+			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+
+			for (uint i = 0; i < count; i++) {
+				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
+
+				vmin = Vector3.Max(vmin, v3);
+				vmax = Vector3.Max(vmax, v3);
+			}
+
+			min = new <#= className #>(vmin.X, vmin.Y, vmin.Z);
+			max = new <#= className #>(vmax.X, vmax.Y, vmax.Z);
+#else
+<# } #>
 			<#= baseType #> minx = (<#= baseType #>)<#= baseType #>.MaxValue, miny = (<#= baseType #>)<#= baseType #>.MaxValue, minz = (<#= baseType #>)<#= baseType #>.MaxValue;
 			<#= baseType #> maxx = (<#= baseType #>)<#= baseType #>.MinValue, maxy = (<#= baseType #>)<#= baseType #>.MinValue, maxz = (<#= baseType #>)<#= baseType #>.MinValue;
 
@@ -732,6 +823,9 @@ namespace OpenGL
 
 			min = new <#= className #>(minx, miny, minz);
 			max = new <#= className #>(maxx, maxy, maxz);
+<# if (className == "Vertex4f") { #>
+#endif
+<# } #>
 		}
 
 		#endregion

@@ -36,11 +36,11 @@ namespace OpenGL.Test
 				if (prefix != null && method.Name.StartsWith(prefix) == false)
 					continue;
 
-				BenchmarkAttribute benchmarkAttr = (BenchmarkAttribute)method.GetCustomAttribute(typeof(BenchmarkAttribute));
-				if (benchmarkAttr == null)
+				object[] benchmarkAttrs = method.GetCustomAttributes(typeof(BenchmarkAttribute), true);
+				if (benchmarkAttrs.Length == 0)
 					continue;
 
-				Run(benchmarkAttr, method);
+				Run((BenchmarkAttribute)benchmarkAttrs[0], method);
 			}
 		}
 

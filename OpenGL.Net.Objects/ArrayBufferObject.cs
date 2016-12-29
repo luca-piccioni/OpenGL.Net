@@ -740,6 +740,14 @@ namespace OpenGL.Objects
 
 					// Note: support JIT optimization based on typeof(T)
 
+					if        (typeof(T) == typeof(Vertex4f)) {
+						maxValue = Vertex4f.Min((Vertex4f*)arrayPtr, BufferSize /  Vertex4f.Size);
+					} else if (typeof(T) == typeof(Vertex3f)) {
+						maxValue = Vertex3f.Min((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size);
+					} else if (typeof(T) == typeof(Vertex2f)) {
+						maxValue = Vertex2f.Min((Vertex2f*)arrayPtr, BufferSize /  Vertex2f.Size);
+					} else
+
 					if        (typeof(T) == typeof(Vertex2b)) {
 						maxValue = Vertex2b.Min((Vertex2b*)arrayPtr, ClientBufferSize / Vertex2b.Size);
 					} else if (typeof(T) == typeof(Vertex2ub)) {
@@ -752,8 +760,6 @@ namespace OpenGL.Objects
 						maxValue = Vertex2i.Min((Vertex2i*)arrayPtr, BufferSize /  Vertex2i.Size);
 					} else if (typeof(T) == typeof(Vertex2ui)) {
 						maxValue = Vertex2ui.Min((Vertex2ui*)arrayPtr, BufferSize /  Vertex2ui.Size);
-					} else if (typeof(T) == typeof(Vertex2f)) {
-						maxValue = Vertex2f.Min((Vertex2f*)arrayPtr, BufferSize /  Vertex2f.Size);
 					} else if (typeof(T) == typeof(Vertex2d)) {
 						maxValue = Vertex2d.Min((Vertex2d*)arrayPtr, BufferSize /  Vertex2d.Size);
 					} else if (typeof(T) == typeof(Vertex2hf)) {
@@ -770,8 +776,6 @@ namespace OpenGL.Objects
 						maxValue = Vertex3i.Min((Vertex3i*)arrayPtr, BufferSize /  Vertex3i.Size);
 					} else if (typeof(T) == typeof(Vertex3ui)) {
 						maxValue = Vertex3ui.Min((Vertex3ui*)arrayPtr, BufferSize /  Vertex3ui.Size);
-					} else if (typeof(T) == typeof(Vertex3f)) {
-						maxValue = Vertex3f.Min((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size);
 					} else if (typeof(T) == typeof(Vertex3d)) {
 						maxValue = Vertex3d.Min((Vertex3d*)arrayPtr, BufferSize /  Vertex3d.Size);
 					} else if (typeof(T) == typeof(Vertex3hf)) {
@@ -788,8 +792,6 @@ namespace OpenGL.Objects
 						maxValue = Vertex4i.Min((Vertex4i*)arrayPtr, BufferSize /  Vertex4i.Size);
 					} else if (typeof(T) == typeof(Vertex4ui)) {
 						maxValue = Vertex4ui.Min((Vertex4ui*)arrayPtr, BufferSize /  Vertex4ui.Size);
-					} else if (typeof(T) == typeof(Vertex4f)) {
-						maxValue = Vertex4f.Min((Vertex4f*)arrayPtr, BufferSize /  Vertex4f.Size);
 					} else if (typeof(T) == typeof(Vertex4d)) {
 						maxValue = Vertex4d.Min((Vertex4d*)arrayPtr, BufferSize /  Vertex4d.Size);
 					} else if (typeof(T) == typeof(Vertex4hf)) {
@@ -818,6 +820,14 @@ namespace OpenGL.Objects
 
 					// Note: support JIT optimization based on typeof(T)
 
+					if        (typeof(T) == typeof(Vertex4f)) {
+						maxValue = Vertex4f.Max((Vertex4f*)arrayPtr, BufferSize / Vertex4f.Size);
+					} else if (typeof(T) == typeof(Vertex3f)) {
+						maxValue = Vertex3f.Max((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size);
+					} else if (typeof(T) == typeof(Vertex2f)) {
+						maxValue = Vertex2f.Max((Vertex2f*)arrayPtr, BufferSize / Vertex2f.Size);
+					} else
+
 					if        (typeof(T) == typeof(Vertex2b)) {
 						maxValue = Vertex2b.Max((Vertex2b*)arrayPtr, BufferSize / Vertex2b.Size);
 					} else if (typeof(T) == typeof(Vertex2ub)) {
@@ -830,8 +840,6 @@ namespace OpenGL.Objects
 						maxValue = Vertex2i.Max((Vertex2i*)arrayPtr, BufferSize / Vertex2i.Size);
 					} else if (typeof(T) == typeof(Vertex2ui)) {
 						maxValue = Vertex2ui.Max((Vertex2ui*)arrayPtr, BufferSize / Vertex2ui.Size);
-					} else if (typeof(T) == typeof(Vertex2f)) {
-						maxValue = Vertex2f.Max((Vertex2f*)arrayPtr, BufferSize / Vertex2f.Size);
 					} else if (typeof(T) == typeof(Vertex2d)) {
 						maxValue = Vertex2d.Max((Vertex2d*)arrayPtr, BufferSize / Vertex2d.Size);
 					} else if (typeof(T) == typeof(Vertex2hf)) {
@@ -848,8 +856,6 @@ namespace OpenGL.Objects
 						maxValue = Vertex3i.Max((Vertex3i*)arrayPtr, BufferSize / Vertex3i.Size);
 					} else if (typeof(T) == typeof(Vertex3ui)) {
 						maxValue = Vertex3ui.Max((Vertex3ui*)arrayPtr, BufferSize / Vertex3ui.Size);
-					} else if (typeof(T) == typeof(Vertex3f)) {
-						maxValue = Vertex3f.Max((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size);
 					} else if (typeof(T) == typeof(Vertex3d)) {
 						maxValue = Vertex3d.Max((Vertex3d*)arrayPtr, BufferSize / Vertex3d.Size);
 					} else if (typeof(T) == typeof(Vertex3hf)) {
@@ -866,8 +872,6 @@ namespace OpenGL.Objects
 						maxValue = Vertex4i.Max((Vertex4i*)arrayPtr, BufferSize / Vertex4i.Size);
 					} else if (typeof(T) == typeof(Vertex4ui)) {
 						maxValue = Vertex4ui.Max((Vertex4ui*)arrayPtr, BufferSize / Vertex4ui.Size);
-					} else if (typeof(T) == typeof(Vertex4f)) {
-						maxValue = Vertex4f.Max((Vertex4f*)arrayPtr, BufferSize / Vertex4f.Size);
 					} else if (typeof(T) == typeof(Vertex4d)) {
 						maxValue = Vertex4d.Max((Vertex4d*)arrayPtr, BufferSize / Vertex4d.Size);
 					} else if (typeof(T) == typeof(Vertex4hf)) {
@@ -892,7 +896,21 @@ namespace OpenGL.Objects
 
 					// Note: support JIT optimization based on typeof(T)
 
-					if        (typeof(T) == typeof(Vertex2b)) {
+					if        (typeof(T) == typeof(Vertex4f)) {
+						Vertex4f vmin, vmax;
+						Vertex4f.MinMax((Vertex4f*)arrayPtr, BufferSize / Vertex4f.Size, out vmin, out vmax);
+						minValue = vmin; maxValue = vmax;
+					} else if (typeof(T) == typeof(Vertex3f)) {
+						Vertex3f vmin, vmax;
+						Vertex3f.MinMax((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size, out vmin, out vmax);
+						minValue = vmin; maxValue = vmax;
+					} else if (typeof(T) == typeof(Vertex2f)) {
+						Vertex2f vmin, vmax;
+						Vertex2f.MinMax((Vertex2f*)arrayPtr, BufferSize / Vertex2f.Size, out vmin, out vmax);
+						minValue = vmin; maxValue = vmax;
+					} else 
+					
+					if (typeof(T) == typeof(Vertex2b)) {
 						Vertex2b vmin, vmax;
 						Vertex2b.MinMax((Vertex2b*)arrayPtr, BufferSize / Vertex2b.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
@@ -915,10 +933,6 @@ namespace OpenGL.Objects
 					} else if (typeof(T) == typeof(Vertex2ui)) {
 						Vertex2ui vmin, vmax;
 						Vertex2ui.MinMax((Vertex2ui*)arrayPtr, BufferSize / Vertex2ui.Size, out vmin, out vmax);
-						minValue = vmin; maxValue = vmax;
-					} else if (typeof(T) == typeof(Vertex2f)) {
-						Vertex2f vmin, vmax;
-						Vertex2f.MinMax((Vertex2f*)arrayPtr, BufferSize / Vertex2f.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2d)) {
 						Vertex2d vmin, vmax;
@@ -952,10 +966,6 @@ namespace OpenGL.Objects
 						Vertex3ui vmin, vmax;
 						Vertex3ui.MinMax((Vertex3ui*)arrayPtr, BufferSize / Vertex3ui.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
-					} else if (typeof(T) == typeof(Vertex3f)) {
-						Vertex3f vmin, vmax;
-						Vertex3f.MinMax((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size, out vmin, out vmax);
-						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3d)) {
 						Vertex3d vmin, vmax;
 						Vertex3d.MinMax((Vertex3d*)arrayPtr, BufferSize / Vertex3d.Size, out vmin, out vmax);
@@ -987,10 +997,6 @@ namespace OpenGL.Objects
 					} else if (typeof(T) == typeof(Vertex4ui)) {
 						Vertex4ui vmin, vmax;
 						Vertex4ui.MinMax((Vertex4ui*)arrayPtr, BufferSize / Vertex4ui.Size, out vmin, out vmax);
-						minValue = vmin; maxValue = vmax;
-					} else if (typeof(T) == typeof(Vertex4f)) {
-						Vertex4f vmin, vmax;
-						Vertex4f.MinMax((Vertex4f*)arrayPtr, BufferSize / Vertex4f.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4d)) {
 						Vertex4d vmin, vmax;

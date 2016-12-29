@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HelloTriangle.ANGLE</RootNamespace>
     <AssemblyName>HelloTriangle.ANGLE</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -75,9 +76,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenGL.Net">
-      <HintPath>..\..\OpenGL.Net\bin\Debug\OpenGL.Net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -107,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SampleForm.resx">
       <DependentUpon>SampleForm.cs</DependentUpon>
@@ -125,6 +124,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj">
+      <Project>{861a0458-2848-4585-b844-8945e4b61b5c}</Project>
+      <Name>OpenGL.Net.Test_net35</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms.csproj">
       <Project>{B65D2A92-28FB-400C-990A-C805A8586B60}</Project>
       <Name>OpenGL.Net.WinForms</Name>

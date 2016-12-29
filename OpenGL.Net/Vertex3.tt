@@ -27,6 +27,10 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+#ifdef HAVE_NUMERICS
+using System.Numerics;
+#endregion
+
 namespace OpenGL
 {
 <#

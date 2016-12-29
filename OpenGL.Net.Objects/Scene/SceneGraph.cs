@@ -72,14 +72,14 @@ namespace OpenGL.Objects.Scene
 				// Sort geometries
 				// ...
 
-				Console.WriteLine("Objects selection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				// Console.WriteLine("Objects selection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
 
 				// Draw all batches
 				sw = Stopwatch.StartNew();
 				foreach (ObjectBatch objectBatch in objectBatchContext.Objects)
 					objectBatch.Draw(ctx);
 				sw.Stop();
-				Console.WriteLine("Objects drawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				// Console.WriteLine("Objects drawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
 
 				Resource.CheckResourceLeaks();
 			}
@@ -111,6 +111,8 @@ namespace OpenGL.Objects.Scene
 				}
 				// Object is drawn
 				objectBatchContext.Objects.Add(new ObjectBatch(sceneGeometry.Program, sceneGeometry.VertexArray, sceneGeometryState.Copy()));
+
+				Vertex3f.Min(new Vertex3f[] { Vertex3f.Zero, Vertex3f.One });
 			}
 
 			return (true);
