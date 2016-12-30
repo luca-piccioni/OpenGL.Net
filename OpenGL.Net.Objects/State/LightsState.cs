@@ -314,7 +314,7 @@ namespace OpenGL.Objects.State
 
 				if (shaderProgram.IsActiveUniform("glo_Light")) {
 					for (int i = 0; i < Lights.Length; i++) {
-						string uniformName = String.Format("glo_Light[{0}]", i);
+						string uniformName = "glo_Light[" + i + "]";
 
 						if (shaderProgram.IsActiveUniform(uniformName) == false)
 							break;

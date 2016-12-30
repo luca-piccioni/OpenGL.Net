@@ -76,12 +76,13 @@ namespace OpenGL.Objects.State
 			GraphicsStateSet renderStateSet = new GraphicsStateSet();
 
 			// Instantiate all context-bound states
-			// renderStateSet.DefineState(UniformColorState.DefaultState);
 			renderStateSet.DefineState(TransformState.DefaultState);
+			renderStateSet.DefineState(DepthTestState.DefaultState);
+			renderStateSet.DefineState(BlendState.DefaultState);
+			renderStateSet.DefineState(CullFaceState.DefaultState);
 
+			// renderStateSet.DefineState(UniformColorState.DefaultState);
 			//renderStateSet.DefineState(PolygonModeState.DefaultState);
-			//renderStateSet.DefineState(BlendState.DefaultState);
-			//renderStateSet.DefineState(DepthTestState.DefaultState);
 			//renderStateSet.DefineState(CullFaceState.DefaultState);
 			//renderStateSet.DefineState(RenderBufferState.DefaultState);
 			//renderStateSet.DefineState(ViewportState.DefaultState);

@@ -43,8 +43,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if the parameter <paramref name="programName"/> is not a valid name.
 		/// </exception>
-		public ShaderProgram(string programName)
-			: this(programName, null)
+		public ShaderProgram(string programName) : this(programName, null)
 		{
 
 		}
@@ -61,8 +60,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if the parameter <paramref name="programName"/> is not a valid name.
 		/// </exception>
-		public ShaderProgram(string programName, ShaderCompilerContext compilationParams)
-			: base(programName)
+		public ShaderProgram(string programName, ShaderCompilerContext compilationParams) : base(programName)
 		{
 			try {
 				// GraphicsResource allows empty string, enforce check
@@ -1038,7 +1036,7 @@ namespace OpenGL.Objects
 
 			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-			cachePath = Path.Combine(cachePath, CompiledHash + ".glsl");
+			cachePath = Path.Combine(cachePath, "XXX" + ".glsl");
 
 			byte[] programCache;
 
@@ -1076,60 +1074,12 @@ namespace OpenGL.Objects
 
 			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-			cachePath = Path.Combine(cachePath, CompiledHash + ".glsl");
+			cachePath = Path.Combine(cachePath, "XXX" + ".glsl");
 
 			using (FileStream fs = new FileStream(cachePath, FileMode.Create, FileAccess.Write)) {
 				fs.Write(programCache, 0, programCache.Length);
 			}
 		}
-
-		#endregion
-
-		#region Shader Programs Library Support
-
-		/// <summary>
-		/// Determine an unique identifier that specify the linked shader program.
-		/// </summary>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> determining the compiler parameteres.
-		/// </param>
-		/// <param name="libraryId">
-		/// A <see cref="String"/> that identifies the shader object in library.
-		/// </param>
-		/// <returns>
-		/// It returns a string that identify the a shader program classified with <paramref name="libraryId"/> by
-		/// specifying <paramref name="cctx"/> as compiled parameters.
-		/// </returns>
-		internal static string ComputeLibraryHash(ShaderCompilerContext cctx, string libraryId)
-		{
-			StringBuilder hashMessage = new StringBuilder();
-
-			// Take into account the shader program name
-			hashMessage.Append(libraryId);
-			// Take into account the shader version
-			hashMessage.Append(cctx.ShaderVersion);
-
-			// Do NOT take into account the shader program compilation symbols: they are considered
-			// in attached shader objects.
-
-			// Take into account the shader program include paths
-			foreach (string includePath in cctx.Includes)
-				hashMessage.AppendFormat("{0}", includePath);
-
-			// Hash all information
-			byte[] hashBytes;
-			using (System.Security.Cryptography.HashAlgorithm hash = System.Security.Cryptography.HashAlgorithm.Create("SHA256")) {
-				hashBytes = hash.ComputeHash(Encoding.ASCII.GetBytes(hashMessage.ToString()));
-			}
-
-			// ConvertItemType has to string
-			return (Convert.ToBase64String(hashBytes));
-		}
-
-		/// <summary>
-		/// The result of ComputeCompilerHash for this ShaderObject instance.
-		/// </summary>
-		internal string CompiledHash = String.Empty;
 
 		#endregion
 

@@ -61,7 +61,7 @@ namespace HelloObjects
 			cubeGeometry.ObjectState.DefineState(new TransformState());
 
 			MaterialState cubeMaterialState = new MaterialState();
-			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
+			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite * 0.5f);
 			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.5f;
 			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorMagenta;
 			cubeMaterialState.FrontMaterial.Shininess = 0.5f;
@@ -100,13 +100,7 @@ namespace HelloObjects
 
 			#region Program
 
-			if (_CubeProgram == null) {
-				_CubeProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex");
-				_CubeProgram.CompilationParams.Defines.Add("GLO_COLOR_PER_VERTEX");
-				_CubeProgram.CompilationParams.Defines.Add("GLO_MAX_LIGHTS_COUNT 4");
-			}
-
-			cubeGeometry.Program = _CubeProgram;
+			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX", "GLO_MAX_LIGHTS_COUNT 4"));
 			cubeGeometry.BoundingVolume = new BoundingBox(-Vertex3f.One * _CubeSize, Vertex3f.One * _CubeSize);
 
 			#endregion
@@ -135,11 +129,6 @@ namespace HelloObjects
 		ArrayBufferObject<Vertex3f> _CubeArrayNormal;
 
 		VertexArrayObject _CubeArrays;
-
-		/// <summary>
-		/// Shared program.
-		/// </summary>
-		ShaderProgram _CubeProgram;
 
 		private const float _CubeSize = 1.0f;
 
@@ -379,15 +368,21 @@ namespace HelloObjects
 			_CubeScene.AddChild(globalLightZone);
 
 			// Cube
-			float Size = (float)Math.Sqrt(3000.0f);
+			float Size = (float)Math.Sqrt(4.0f);
 			const float Multiplier = 10.0f;
 
+			int materialIndex = 0;
+
 			for (float x = -Size / 2.0f * Multiplier; x < Size / 2.0f * Multiplier; x += Multiplier) {
-				for (float y = -Size / 2.0f * Multiplier; y < Size / 2.0f * Multiplier; y += Multiplier) {
+				for (float y = -Size / 2.0f * Multiplier; y < Size / 2.0f * Multiplier; y += Multiplier, materialIndex++) {
 					SceneObject cubeInstance = CreateCubeGeometry();
 
 					cubeInstance.LocalModel.Translate(x, 0.0f, y);
 					cubeInstance.LocalModel.Scale(0.25f);
+
+					// Enable/Disable blending
+					if ((materialIndex % 2) == 0)
+						cubeInstance.ObjectState.DefineState(new BlendState(BlendEquationModeEXT.FuncAdd, BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha));
 
 					globalLightZone.AddChild(cubeInstance);
 				}

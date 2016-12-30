@@ -543,12 +543,8 @@ namespace OpenGL.Objects.Scene
 					ArrayBufferObject<Vertex4f> positionArrayBuffer = (ArrayBufferObject<Vertex4f>)positionArray.Array;
 					Vertex4f min = Vertex4f.Maximum, max = Vertex4f.Minimum;
 					
-					Stopwatch sw = Stopwatch.StartNew();
-					for (int i = 0; i < 1; i++)
-						positionArrayBuffer.MinMax(out min, out max);
-					sw.Stop();
+					positionArrayBuffer.MinMax(out min, out max);
 
-					Console.WriteLine("Min: {0} ms", sw.ElapsedMilliseconds);
 					sceneGeometry.BoundingVolume = new BoundingBox((Vertex3f)min, (Vertex3f)max);
 
 					sceneGroup.AddChild(sceneGeometry);

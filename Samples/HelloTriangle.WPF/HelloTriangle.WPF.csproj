@@ -100,9 +100,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms.csproj">
+    <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net35.csproj">
       <Project>{b65d2a92-28fb-400c-990a-c805a8586b60}</Project>
-      <Name>OpenGL.Net.WinForms</Name>
+      <Name>OpenGL.Net.WinForms_net35</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net35.csproj">
       <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8ADB90D-C402-448D-A0E9-60F71883FFAC}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{1DA7D767-B83A-416E-A235-2EBE0FBE1769}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HelloObjects</RootNamespace>
-    <AssemblyName>HelloObjects</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <AssemblyName>OpenGL.Net.WinForms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,15 +21,16 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\OpenGL.Net.WinForms.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -41,7 +41,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -51,6 +51,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -58,62 +59,24 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SampleForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="GlControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SampleForm.Designer.cs">
-      <DependentUpon>SampleForm.cs</DependentUpon>
+    <Compile Include="GlControl.Designer.cs">
+      <DependentUpon>GlControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SampleForm.resx">
-      <DependentUpon>SampleForm.cs</DependentUpon>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GlControl.resx">
+      <DependentUpon>GlControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\OpenGL.Net.Objects\OpenGL.Net.Objects.csproj">
-      <Project>{01314a39-ae2a-44f6-ba14-8c961583c75c}</Project>
-      <Name>OpenGL.Net.Objects</Name>
+    <ProjectReference Include="..\OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj">
+      <Project>{2c30c91a-47db-4d35-8fa1-4bce4dc4c1fe}</Project>
+      <Name>OpenGL.Net.Test_net461</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net461.csproj">
-      <Project>{1da7d767-b83a-416e-a235-2ebe0fbe1769}</Project>
-      <Name>OpenGL.Net.WinForms_net461</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net461.csproj">
-      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
-      <Name>OpenGL.Net_net461</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Data\PiazzaDelPopolo\negx.jpg" />
-    <EmbeddedResource Include="Data\PiazzaDelPopolo\negy.jpg" />
-    <EmbeddedResource Include="Data\PiazzaDelPopolo\negz.jpg" />
-    <EmbeddedResource Include="Data\PiazzaDelPopolo\posx.jpg" />
-    <EmbeddedResource Include="Data\PiazzaDelPopolo\posy.jpg" />
-    <EmbeddedResource Include="Data\PiazzaDelPopolo\posz.jpg" />
-    <Content Include="Data\PiazzaDelPopolo\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

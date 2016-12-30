@@ -386,7 +386,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
-		private static readonly ILogger sLog = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+		private static readonly ILogger _Log = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 

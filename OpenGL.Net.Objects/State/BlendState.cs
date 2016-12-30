@@ -466,14 +466,26 @@ namespace OpenGL.Objects.State
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="sProgram"/>.
 		/// </param>
-		/// <param name="sProgram">
+		/// <param name="program">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram sProgram)
+		public override void ApplyState(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+			BlendState currentState = (BlendState)ctx.GetCurrentState(StateId);
+
+			if (currentState != null)
+				ApplyStateCore(ctx, program, currentState);
+			else
+				ApplyStateCore(ctx, program);
+
+			ctx.SetCurrentState(this);
+		}
+
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
+		{
 			if (Enabled) {
 				// Enable blending
 				Gl.Enable(EnableCap.Blend);
@@ -499,6 +511,44 @@ namespace OpenGL.Objects.State
 			} else {
 				// Disable blending
 				Gl.Disable(EnableCap.Blend);
+			}
+		}
+
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, BlendState currentState)
+		{
+			if (Enabled) {
+				// Enable blending
+				if (currentState.Enabled == false)
+					Gl.Enable(EnableCap.Blend);
+
+				// Set blending equation
+				if (Gl.CurrentExtensions.BlendMinmax_EXT) {
+					if (EquationSeparated) {
+						if (currentState.RgbEquation != RgbEquation || currentState.AlphaEquation != AlphaEquation)
+							Gl.BlendEquationSeparate(RgbEquation, AlphaEquation);
+					} else {
+						if (currentState.RgbEquation != RgbEquation)
+							Gl.BlendEquation((int)RgbEquation);
+					}
+				}
+
+				// Set blending function
+				if (FunctionSeparated) {
+					if (currentState._RgbSrcFactor != _RgbSrcFactor || currentState._RgbDstFactor != _RgbDstFactor || currentState._AlphaSrcFactor != _AlphaSrcFactor || currentState._AlphaDstFactor != _AlphaDstFactor)
+						Gl.BlendFuncSeparate((int)_RgbSrcFactor, (int)_RgbDstFactor, (int)_AlphaSrcFactor, (int)_AlphaDstFactor);
+				} else {
+					if (currentState._RgbSrcFactor != _RgbSrcFactor || currentState._RgbDstFactor != _RgbDstFactor)
+						Gl.BlendFunc(_RgbSrcFactor, _RgbDstFactor);
+				}
+
+				// Set blend color, if required
+				if (RequiresConstColor(_RgbSrcFactor) || RequiresConstColor(_AlphaSrcFactor) || RequiresConstColor(_RgbDstFactor) || RequiresConstColor(_AlphaDstFactor)) {
+					Gl.BlendColor(_BlendColor.Red, _BlendColor.Green, _BlendColor.Blue, _BlendColor.Alpha);
+				}
+			} else {
+				// Disable blending
+				if (currentState.Enabled == true)
+					Gl.Disable(EnableCap.Blend);
 			}
 		}
 

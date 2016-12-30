@@ -37,7 +37,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\net461\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_NUMERICS</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;HAVE_NUMERICS GL_DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

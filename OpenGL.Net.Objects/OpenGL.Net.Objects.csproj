@@ -72,6 +72,9 @@
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Scene\SceneGraphFlags.cs" />
+    <Compile Include="Scene\SceneGraphSorter.cs" />
+    <Compile Include="Scene\SceneObjectBatch.cs" />
     <Compile Include="Scene\SceneObjectCodecWavefront.cs" />
     <Compile Include="Scene\SceneObjectFormat.cs" />
     <Compile Include="Scene\SceneObjectCodecCriteria.cs" />

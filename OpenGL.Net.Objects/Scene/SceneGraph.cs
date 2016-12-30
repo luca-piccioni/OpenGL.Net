@@ -45,6 +45,20 @@ namespace OpenGL.Objects.Scene
 		#region Draw
 
 		/// <summary>
+		/// Get or set the scene graph flags.
+		/// </summary>
+		public SceneGraphFlags Flags
+		{
+			get { return (_Flags); }
+			set { _Flags = value; }
+		}
+
+		/// <summary>
+		/// Scene graph flags.
+		/// </summary>
+		private SceneGraphFlags _Flags = SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting;
+
+		/// <summary>
 		/// Draw this SceneGraph.
 		/// </summary>
 		/// <param name="ctx">
@@ -68,20 +82,26 @@ namespace OpenGL.Objects.Scene
 				// Collect geometries to be batched
 				Stopwatch sw = Stopwatch.StartNew();
 				TraverseDirect(ctx, ctxScene, _TraverseDrawContext, objectBatchContext);
-				sw.Stop();
+				
 				// Sort geometries
-				// ...
+				List<SceneObjectBatch> sceneObjects = objectBatchContext.Objects;
 
-				// Console.WriteLine("Objects selection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				if (((Flags & SceneGraphFlags.StateSorting) != 0) && (_SorterRoot != null))
+					sceneObjects = _SorterRoot.Sort(objectBatchContext.Objects);
+
+				sw.Stop();
+
+				Console.WriteLine("Objects selection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
 
 				// Draw all batches
 				sw = Stopwatch.StartNew();
-				foreach (ObjectBatch objectBatch in objectBatchContext.Objects)
+				foreach (SceneObjectBatch objectBatch in sceneObjects)
 					objectBatch.Draw(ctx);
 				sw.Stop();
-				// Console.WriteLine("Objects drawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				Console.WriteLine("Objects drawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				Console.WriteLine();
 
-				Resource.CheckResourceLeaks();
+				CheckResourceLeaks();
 			}
 		}
 
@@ -102,17 +122,19 @@ namespace OpenGL.Objects.Scene
 			SceneObjectGeometry sceneGeometry = sceneObject as SceneObjectGeometry;
 			if (sceneGeometry != null) {
 				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
-				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
 
-				// Test geometry culling
-				if (sceneGeometry.BoundingVolume != null) {
-					if (sceneGeometry.BoundingVolume.IsClipped(objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView))
-						return (true);		// Continue traversing
+				// View-frustum culling
+				if ((ctxScene.Scene.Flags & SceneGraphFlags.CullingViewFrustum) != 0) {
+					TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
+
+					if (sceneGeometry.BoundingVolume != null) {
+						if (sceneGeometry.BoundingVolume.IsClipped(objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView))
+							return (true);		// Continue traversing
+					}
 				}
+				
 				// Object is drawn
-				objectBatchContext.Objects.Add(new ObjectBatch(sceneGeometry.Program, sceneGeometry.VertexArray, sceneGeometryState.Copy()));
-
-				Vertex3f.Min(new Vertex3f[] { Vertex3f.Zero, Vertex3f.One });
+				objectBatchContext.Objects.Add(new SceneObjectBatch(sceneGeometry.Program, sceneGeometry.VertexArray, sceneGeometryState.Copy()));
 			}
 
 			return (true);
@@ -131,66 +153,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Objects to be drawn.
 			/// </summary>
-			public readonly List<ObjectBatch> Objects = new List<ObjectBatch>();
-		}
-
-		/// <summary>
-		/// Basic drawing unit.
-		/// </summary>
-		class ObjectBatch
-		{
-			#region Constructors
-
-			/// <summary>
-			/// Construct an ObjectBatch.
-			/// </summary>
-			/// <param name="program"></param>
-			/// <param name="vertexArray"></param>
-			/// <param name="state"></param>
-			public ObjectBatch(ShaderProgram program, VertexArrayObject vertexArray, State.GraphicsStateSet state)
-			{
-				if (vertexArray == null)
-					throw new ArgumentNullException("vertexArray");
-				if (state == null)
-					throw new ArgumentNullException("state");
-
-				Program = program;      // It may be null to support fixed pipeline
-				VertexArray = vertexArray;
-				State = state;
-			}
-
-			#endregion
-
-			#region Batch Drawing
-
-			/// <summary>
-			/// Optional shader program used for drawing.
-			/// </summary>
-			public readonly ShaderProgram Program;
-
-			/// <summary>
-			/// Vertex arrays to be rasterized.
-			/// </summary>
-			public readonly VertexArrayObject VertexArray;
-
-			/// <summary>
-			/// Current state to be applied to <see cref="Program"/> and the current server state.
-			/// </summary>
-			public readonly State.GraphicsStateSet State;
-
-			/// <summary>
-			/// Draw this batch.
-			/// </summary>
-			/// <param name="ctx">
-			/// The <see cref="GraphicsContext"/> used for drawing.
-			/// </param>
-			public void Draw(GraphicsContext ctx)
-			{
-				State.Apply(ctx, Program);
-				VertexArray.Draw(ctx, Program);
-			}
-
-			#endregion
+			public readonly List<SceneObjectBatch> Objects = new List<SceneObjectBatch>();
 		}
 
 		/// <summary>
@@ -200,137 +163,20 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
-		#region Objects Ordering
+		#region State Sorting
 
-		/// <summary>
-		/// Base interface for object sorters.
-		/// </summary>
-		abstract class ObjectSorterBase
+		private static SceneGraphSorter CreateDefaultSorter()
 		{
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="objects"></param>
-			/// <returns></returns>
-			public abstract List<ObjectBatch> Sort(List<ObjectBatch> objects);
+			// Object are discrimated by translucent ones and opaque ones
+			SceneObjectSorterBlend sorterBlend = new SceneObjectSorterBlend();
+
+			// Blend enabled -> Sort by distance
+			// Note: 
+
+			return (sorterBlend);
 		}
 
-		abstract class ObjectSorterBinary : ObjectSorterBase
-		{
-			#region Binary Chaining
-
-			public ObjectSorter SorterA
-			{
-				get; set;
-			}
-
-			public ObjectSorter SorterB
-			{
-				get; set;
-			}
-
-			protected abstract bool ComparePriority(ObjectBatch objectBatch);
-
-			private void Split(List<ObjectBatch> objects, out List<ObjectBatch> a, out List<ObjectBatch> b)
-			{
-				if (objects == null)
-					throw new ArgumentNullException("objects");
-
-				a = new List<ObjectBatch>(objects.Count);
-				b = new List<ObjectBatch>();
-
-				foreach (ObjectBatch objectBatch in objects) {
-					if (ComparePriority(objectBatch))
-						a.Add(objectBatch);
-					else
-						b.Add(objectBatch);
-				}
-			}
-
-			#endregion
-
-			#region ObjectSorter Overrides
-
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="objects"></param>
-			/// <returns></returns>
-			public override List<ObjectBatch> Sort(List<ObjectBatch> objects)
-			{
-				if (objects == null)
-					throw new ArgumentNullException("objects");
-
-				List<ObjectBatch> a, b;
-
-				Split(objects, out a, out b);
-
-				if (SorterA != null)
-					a = SorterA.Sort(a);
-				if (SorterB != null)
-					b = SorterB.Sort(b);
-
-				a.AddRange(b);
-
-				return (a);
-			}
-
-			#endregion
-		}
-
-		abstract class ObjectSorter : ObjectSorterBase, IComparer<ObjectBatch>
-		{
-			#region IComparer<ObjectBatch> Implementation
-
-			public abstract int Compare(ObjectBatch x, ObjectBatch y);
-
-			#endregion
-
-			#region ObjectSorterBase Overrides
-
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="objects"></param>
-			/// <returns></returns>
-			public override List<ObjectBatch> Sort(List<ObjectBatch> objects)
-			{
-				if (objects == null)
-					throw new ArgumentNullException("objects");
-
-				objects.Sort(this);
-
-				return (objects);
-			}
-
-			#endregion
-		}
-
-		class BlendSorter : ObjectSorterBinary
-		{
-			#region ObjectSorterBinary Overrides
-
-			protected override bool ComparePriority(ObjectBatch objectBatch)
-			{
-				BlendState blendState = (BlendState)objectBatch.State[BlendState.StateSetIndex];
-
-				return (blendState != null && blendState.Enabled);
-			}
-
-			#endregion
-		}
-
-		class DistanceSorter : ObjectSorter
-		{
-			#region ObjectSorter Overrides
-
-			public override int Compare(ObjectBatch x, ObjectBatch y)
-			{
-				return (0);
-			}
-
-			#endregion
-		}
+		private SceneGraphSorter _SorterRoot = CreateDefaultSorter();
 
 		#endregion
 
