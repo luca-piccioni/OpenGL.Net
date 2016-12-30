@@ -163,13 +163,6 @@ namespace OpenGL
 		/// </param>
 		protected static void ComputeMatrixProduct(MatrixDouble4x4 result, MatrixDouble4x4 m, MatrixDouble4x4 n)
 		{
-			if (result == null)
-				throw new ArgumentNullException("result");
-			if (m == null)
-				throw new ArgumentNullException("m");
-			if (n == null)
-				throw new ArgumentNullException("n");
-
 			unsafe {
 				fixed (double* prodFix = result.MatrixBuffer)
 				fixed (double* pm = m.MatrixBuffer)

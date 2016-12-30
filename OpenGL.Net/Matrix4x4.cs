@@ -161,9 +161,6 @@ namespace OpenGL
 		/// </param>
 		protected static Vertex4f ComputeMatrixProduct(Matrix4x4 m, Vertex4f v)
 		{
-			if (m == null)
-				throw new ArgumentNullException("m");
-
 			float x, y, z, w;
 
 			unsafe {
@@ -193,13 +190,6 @@ namespace OpenGL
 		/// </param>
 		protected static void ComputeMatrixProduct(Matrix4x4 result, Matrix4x4 m, Matrix4x4 n)
 		{
-			if (result == null)
-				throw new ArgumentNullException("result");
-			if (m == null)
-				throw new ArgumentNullException("m");
-			if (n == null)
-				throw new ArgumentNullException("n");
-
 			unsafe {
 				fixed (float* prodFix = result.MatrixBuffer)
 				fixed (float* pm = m.MatrixBuffer)

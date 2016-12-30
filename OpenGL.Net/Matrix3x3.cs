@@ -200,13 +200,6 @@ namespace OpenGL
 		/// </exception>
 		private static void ComputeMatrixProduct(Matrix3x3 result, Matrix3x3 m, Matrix3x3 n)
 		{
-			if (result == null)
-				throw new ArgumentNullException("result");
-			if (m == null)
-				throw new ArgumentNullException("m");
-			if (n == null)
-				throw new ArgumentNullException("n");
-
 			unsafe {
 				fixed (float* prodFix = result.MatrixBuffer)
 				fixed (float* pm = m.MatrixBuffer)
