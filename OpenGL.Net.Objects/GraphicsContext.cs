@@ -706,7 +706,7 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("state");
 			Debug.Assert(state.IsContextBound);
 
-			_ServerState[state.StateIdentifier] = state;
+			_ServerState[state.StateIndex] = state;
 		}
 
 		/// <summary>
@@ -714,23 +714,15 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="stateId"></param>
 		/// <returns></returns>
-		internal State.IGraphicsState GetCurrentState(string stateId)
+		internal State.IGraphicsState GetCurrentState(int stateIndex)
 		{
-			if (stateId == null)
-				throw new ArgumentNullException("stateId");
-
-			State.IGraphicsState state;
-
-			if (_ServerState.TryGetValue(stateId, out state))
-				return (state);
-
-			return (null);
+			return (_ServerState[stateIndex]);
 		}
 
 		/// <summary>
 		/// Current state of this GraphicsContext.
 		/// </summary>
-		private readonly Dictionary<string, State.IGraphicsState> _ServerState = new Dictionary<string, State.IGraphicsState>();
+		private readonly State.GraphicsStateSet _ServerState = new State.GraphicsStateSet();
 
 		#endregion
 
@@ -822,6 +814,95 @@ namespace OpenGL.Objects
 				_BoundObjects.Remove(Gl.CURRENT_PROGRAM);
 			}
 		}
+
+		#endregion
+
+		#region Program Creation/Caching
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="programId"></param>
+		/// <returns></returns>
+		public ShaderProgram CreateProgram(string programId)
+		{
+			return (CreateProgram(programId, null));
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="programId"></param>
+		/// <returns></returns>
+		public ShaderProgram CreateProgram(string programId, ShaderCompilerContext cctx)
+		{
+			if (String.IsNullOrEmpty(programId))
+				throw new ArgumentException("invalid program identifier", "programId");
+
+			ShadersLibrary.Program libraryProgram = ShadersLibrary.Instance.GetProgram(programId);
+			if (libraryProgram == null)
+				throw new ArgumentException("no program with such identifier", "programId");
+
+			ShaderCompilerContext compilerContext = cctx ?? libraryProgram.GetCompilerContext();
+
+			// Try to find cached program
+			ShaderProgram shaderProgram;
+			string cacheHash = ComputeLibraryHash(libraryProgram, compilerContext);
+
+			if (_ProgramCache.TryGetValue(cacheHash, out shaderProgram))
+				return (shaderProgram);
+
+			// Create the program instance
+			shaderProgram = libraryProgram.Create(compilerContext);
+
+			if (_ProgramCache.ContainsKey(cacheHash) == false)
+				_ProgramCache.Add(cacheHash, shaderProgram);
+
+			return (shaderProgram);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="programTag"></param>
+		/// <returns></returns>
+		public ShaderProgram CreateProgram(ShadersLibrary.ProgramTag programTag)
+		{
+			return (CreateProgram(programTag.Id, programTag.CompilerContext));
+		}
+
+		/// <summary>
+		/// Determine an unique identifier that specify the linked shader program.
+		/// </summary>
+		/// <param name="libraryId">
+		/// A <see cref="String"/> that identifies the shader object in library.
+		/// </param>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> determining the compiler parameteres.
+		/// </param>
+		/// <returns>
+		/// It returns a string that identify the a shader program classified with <paramref name="libraryId"/> by
+		/// specifying <paramref name="cctx"/> as compiled parameters.
+		/// </returns>
+		private static string ComputeLibraryHash(ShadersLibrary.Program libraryProgram, ShaderCompilerContext cctx)
+		{
+			if (libraryProgram == null)
+				throw new ArgumentNullException("libraryProgram");
+
+			byte[] hashBytes;
+
+			using (System.Security.Cryptography.HashAlgorithm hash = System.Security.Cryptography.HashAlgorithm.Create("SHA256")) {
+				hashBytes = hash.ComputeHash(System.Text.Encoding.ASCII.GetBytes(libraryProgram.GetHashInfo(cctx)));
+			}
+
+			// ConvertItemType has to string
+			return (Convert.ToBase64String(hashBytes));
+		}
+
+		/// <summary>
+		/// Program cache, indexed by compilation hash.
+		/// </summary>
+		private readonly Dictionary<string, ShaderProgram> _ProgramCache = new Dictionary<string, ShaderProgram>();
 
 		#endregion
 

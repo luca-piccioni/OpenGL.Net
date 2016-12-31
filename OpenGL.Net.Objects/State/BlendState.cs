@@ -474,7 +474,7 @@ namespace OpenGL.Objects.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			BlendState currentState = (BlendState)ctx.GetCurrentState(StateId);
+			BlendState currentState = (BlendState)ctx.GetCurrentState(StateIndex);
 
 			if (currentState != null)
 				ApplyStateCore(ctx, program, currentState);

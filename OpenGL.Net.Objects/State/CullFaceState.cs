@@ -199,7 +199,7 @@ namespace OpenGL.Objects.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			CullFaceState currentState = (CullFaceState)ctx.GetCurrentState(StateId);
+			CullFaceState currentState = (CullFaceState)ctx.GetCurrentState(StateIndex);
 
 			if (currentState != null)
 				ApplyStateCore(ctx, program, currentState);

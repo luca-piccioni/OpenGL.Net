@@ -526,7 +526,7 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentNullException("objContext");
 
 			SceneObject sceneObject = new SceneObject();
-			ShaderProgram objProgram = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+PhongFragment");
+			ShadersLibrary.ProgramTag objProgram = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
 
 			foreach (ObjGroup objGroup in objContext.Groups) {
 				SceneObject sceneGroup = new SceneObject();
@@ -534,7 +534,7 @@ namespace OpenGL.Objects.Scene
 				foreach (ObjGeometry objGeometry in objGroup.MergeGeometries()) {
 					SceneObjectGeometry sceneGeometry = new SceneObjectGeometry();
 
-					sceneGeometry.Program = objProgram;
+					sceneGeometry.ProgramTag = objProgram;
 					sceneGeometry.VertexArray = objGeometry.CreateArrays(objContext);
 					sceneGeometry.ObjectState.DefineState(objGeometry.CreateMaterialState());
 

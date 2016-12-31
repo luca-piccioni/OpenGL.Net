@@ -43,32 +43,12 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if the parameter <paramref name="programName"/> is not a valid name.
 		/// </exception>
-		public ShaderProgram(string programName) : this(programName, null)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a ShaderProgram.
-		/// </summary>
-		/// <param name="programName">
-		/// A <see cref="String"/> that specify the shader program name.
-		/// </param>
-		/// <param name="compilationParams">
-		/// A <see cref="ShaderCompilerContext"/>
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if the parameter <paramref name="programName"/> is not a valid name.
-		/// </exception>
-		public ShaderProgram(string programName, ShaderCompilerContext compilationParams) : base(programName)
+		public ShaderProgram(string programName) : base(programName)
 		{
 			try {
 				// GraphicsResource allows empty string, enforce check
 				if (String.IsNullOrEmpty(programName))
 					throw new ArgumentException("invalid", "programName");
-
-				// Default compilation parameter
-				_CompilationParams = compilationParams ?? new ShaderCompilerContext();
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -600,6 +580,42 @@ namespace OpenGL.Objects
 		#region Program Creation
 
 		/// <summary>
+		/// ShaderCompilerContext used for linkage. This property will not ever be null. If users set this property
+		/// to null, it reset to the default one.
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if the property setter is executed after the program has been created (i.e. linked).
+		/// </exception>
+		public ShaderCompilerContext CompilationParams
+		{
+			get { return (_CompilationParams); }
+			set
+			{
+				if (IsLinked)
+					throw new InvalidOperationException("already linked");
+				_CompilationParams = value ?? new ShaderCompilerContext();
+			}
+		}
+
+		/// <summary>
+		/// ShaderCompilerContext used for compilation.
+		/// </summary>
+		private ShaderCompilerContext _CompilationParams;
+
+		/// <summary>
+		/// Create this ShaderProgram, specifying the compiler parameters.
+		/// </summary>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameters used for compiling and
+		/// linking this ShaderProgram.
+		/// </param>
+		public void Create(ShaderCompilerContext cctx)
+		{
+			// Cache compilation parameters (used by CreateObject)
+			CompilationParams = cctx;
+		}
+
+		/// <summary>
 		/// Create this ShaderProgram, specifying the compiler parameters.
 		/// </summary>
 		/// <param name="ctx">
@@ -621,25 +637,6 @@ namespace OpenGL.Objects
 			// Base implementation
 			base.Create(ctx);
 		}
-
-		/// <summary>
-		/// ShaderCompilerContext used for linkage.
-		/// </summary>
-		public ShaderCompilerContext CompilationParams
-		{
-			get { return (_CompilationParams); }
-			set
-			{
-				if (IsLinked)
-					throw new InvalidOperationException("already linked");
-				_CompilationParams = value ?? new ShaderCompilerContext();
-			}
-		}
-
-		/// <summary>
-		/// ShaderCompilerContext used for compilation.
-		/// </summary>
-		private ShaderCompilerContext _CompilationParams;
 
 		#endregion
 

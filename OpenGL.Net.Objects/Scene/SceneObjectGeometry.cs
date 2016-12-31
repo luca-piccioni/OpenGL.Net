@@ -98,7 +98,16 @@ namespace OpenGL.Objects.Scene
 		private VertexArrayObject _VertexArray;
 
 		/// <summary>
-		/// Get or set the shader used for drawing the geometry.
+		/// Shader tag used for creating the actual program at run-time.
+		/// </summary>
+		public ShadersLibrary.ProgramTag ProgramTag
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Get or set the shader used for drawing the geometry. It is automatically created if this property
+		/// is null and <see cref="ProgramTag"/> is not null.
 		/// </summary>
 		public ShaderProgram Program
 		{
@@ -152,9 +161,13 @@ namespace OpenGL.Objects.Scene
 		/// </remarks>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			// Create geometry state
+			// Create geometry state, if necessary
 			if (VertexArray.Exists(ctx) == false)
 				VertexArray.Create(ctx);
+			// Define program, if necessary
+			if (Program == null && ProgramTag != null)
+				Program = ctx.CreateProgram(ProgramTag);
+			// Create program, if necessary
 			if (Program != null && Program.Exists(ctx) == false)
 				Program.Create(ctx);
 

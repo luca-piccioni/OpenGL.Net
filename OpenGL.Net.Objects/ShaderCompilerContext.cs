@@ -24,10 +24,17 @@ using System.Xml.Serialization;
 namespace OpenGL.Objects
 {
 	/// <summary>
-	/// The shader compiler context.
+	/// Shader compiler parameters abstraction..
 	/// </summary>
 	/// <remarks>
-	/// This class shall group all elements which influence the compilation process.
+	/// <para>
+	/// This class shall group all elements which influence the compilation process:
+	/// - Shading Language version
+	/// - Preprocessor symbols (i.e. #define statements)
+	/// - Preprocessor include paths
+	/// - Extension directives (i.e. #extension statements)
+	/// - Feedback buffer format
+	/// </para>
 	/// </remarks>
 	[XmlType("ShaderCompilerContext")]
 	public class ShaderCompilerContext : IEquatable<ShaderCompilerContext>
@@ -37,8 +44,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Default compilation context.
 		/// </summary>
-		public ShaderCompilerContext() :
-			this(Gl.CurrentShadingVersion, null)
+		public ShaderCompilerContext() : this(Gl.CurrentShadingVersion, null)
 		{
 
 		}
@@ -49,8 +55,7 @@ namespace OpenGL.Objects
 		/// <param name="defines">
 		/// The list of preprocessor definitions included in each shader source.
 		/// </param>
-		public ShaderCompilerContext(params string[] defines) :
-			this(Gl.CurrentShadingVersion, defines)
+		public ShaderCompilerContext(params string[] defines) : this(Gl.CurrentShadingVersion, defines)
 		{
 
 		}
@@ -92,6 +97,8 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+		#region Compiler Parameters
 
 		#region Shading Language Version
 
@@ -340,7 +347,7 @@ namespace OpenGL.Objects
 		
 		#endregion
 		
-		#region Various Compiler Parameters
+		#region Various
 
 		/// <summary>
 		/// Get/set the feedback varyings format.
@@ -357,7 +364,25 @@ namespace OpenGL.Objects
 		private FeedbackBufferFormat _FeedbackVaryingsFormat = FeedbackBufferFormat.Interleaved;
 
 		#endregion
-		
+
+		#endregion
+
+		#region Merge
+
+		public void Merge(ShaderCompilerContext cctx)
+		{
+			if (cctx == null)
+				throw new ArgumentNullException("cctx");
+
+			foreach (string symbol in cctx.Defines) {
+				if (Defines.Contains(symbol) == false)
+					Defines.Add(symbol);
+			}
+			Defines.Sort();
+		}
+
+		#endregion
+
 		#region Equality Operators
 
 		/// <summary>
@@ -378,15 +403,6 @@ namespace OpenGL.Objects
 		{
 			return (a.Equals(b));
 		}
-
-		#endregion
-		
-		#region Logging
-
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		private static readonly ILogger _Log = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 

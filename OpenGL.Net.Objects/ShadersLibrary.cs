@@ -165,6 +165,51 @@ namespace OpenGL.Objects
 		#region Programs
 
 		/// <summary>
+		/// Shader program tag.
+		/// </summary>
+		public class ProgramTag
+		{
+			/// <summary>
+			/// Create a ProgramTag from a <see cref="Program"/>.
+			/// </summary>
+			/// <param name="program">
+			/// The <see cref="Program"/> that specifies how to build the shader.
+			/// </param>
+			internal ProgramTag(Program program)
+			{
+				if (program == null)
+					throw new ArgumentNullException("program");
+
+				Id = program.Id;
+				CompilerContext = program.GetCompilerContext();
+			}
+
+			/// <summary>
+			/// Create a ProgramTag from a <see cref="Program"/>.
+			/// </summary>
+			/// <param name="program">
+			/// The <see cref="Program"/> that specifies how to build the shader.
+			/// </param>
+			internal ProgramTag(Program program, ShaderCompilerContext cctx) : this(program)
+			{
+				if (cctx == null)
+					throw new ArgumentNullException("cctx");
+
+				CompilerContext.Merge(cctx);
+			}
+
+			/// <summary>
+			/// The program identifier.
+			/// </summary>
+			public readonly string Id;
+
+			/// <summary>
+			/// Shader compiler paramaters.
+			/// </summary>
+			public ShaderCompilerContext CompilerContext;
+		}
+
+		/// <summary>
 		/// Program object.
 		/// </summary>
 		[XmlType("Program")]
@@ -247,8 +292,7 @@ namespace OpenGL.Objects
 				if (cctx == null)
 					throw new ArgumentNullException("cctx");
 
-				ShaderProgram shaderProgram = new ShaderProgram(Id, cctx);
-				shaderProgram.CompilationParams = cctx;
+				ShaderProgram shaderProgram = new ShaderProgram(Id);
 
 				// Attach required objects
 				foreach (Object shaderProgramObject in Objects) {
@@ -266,6 +310,8 @@ namespace OpenGL.Objects
 				// Register uniforms semantic
 				foreach (Uniform uniform in Uniforms)
 					shaderProgram.SetUniformSemantic(uniform.Name, uniform.Semantic);
+
+				shaderProgram.Create(cctx);
 
 				return (shaderProgram);
 			}
@@ -337,6 +383,46 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("programId");
 
 			return (Programs.Find(delegate(Program item) { return (item.Id == programId); }));
+		}
+
+		/// <summary>
+		/// Create a <see cref="ProgramTag"/> used for creating (lazily) a <see cref="ShaderProgram"/>.
+		/// </summary>
+		/// <param name="programId">
+		/// A <see cref="String"/> that specifies the program identifier.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="ProgramTag"/> for creating the program identified with <paramref name="programId"/>.
+		/// </returns>
+		public ProgramTag CreateProgramTag(string programId)
+		{
+			Program libraryProgram = GetProgram(programId);
+			if (libraryProgram == null)
+				throw new ArgumentException("no program with such identifier", "programId");
+
+			return (new ProgramTag(libraryProgram));
+		}
+
+		/// <summary>
+		/// Create a <see cref="ProgramTag"/> used for creating (lazily) a <see cref="ShaderProgram"/>.
+		/// </summary>
+		/// <param name="programId">
+		/// A <see cref="String"/> that specifies the program identifier.
+		/// </param>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> that specifies *additional* parameters to be applied/merged to the default
+		/// compiler parameters.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="ProgramTag"/> for creating the program identified with <paramref name="programId"/>.
+		/// </returns>
+		public ProgramTag CreateProgramTag(string programId, ShaderCompilerContext cctx)
+		{
+			Program libraryProgram = GetProgram(programId);
+			if (libraryProgram == null)
+				throw new ArgumentException("no program with such identifier", "programId");
+
+			return (new ProgramTag(libraryProgram, cctx));
 		}
 
 		#endregion
@@ -441,85 +527,6 @@ namespace OpenGL.Objects
 		/// The reference instance of <see cref="ShadersLibrary"/>.
 		/// </summary>
 		private static readonly ShadersLibrary _ShadersLibrary = new ShadersLibrary();
-
-		#endregion
-
-		#region Program Cache
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="programId"></param>
-		/// <returns></returns>
-		public ShaderProgram CreateProgram(string programId)
-		{
-			return (CreateProgram(programId, null));
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="programId"></param>
-		/// <returns></returns>
-		public ShaderProgram CreateProgram(string programId, ShaderCompilerContext cctx)
-		{
-			if (String.IsNullOrEmpty(programId))
-				throw new ArgumentException("invalid program identifier", "programId");
-
-			Program libraryProgram = GetProgram(programId);
-			if (libraryProgram == null)
-				throw new ArgumentException("no program with such identifier", "programId");
-
-			ShaderCompilerContext compilerContext = cctx ?? libraryProgram.GetCompilerContext();
-
-			// Try to find cached program
-			ShaderProgram shaderProgram;
-			string cacheHash = ComputeLibraryHash(libraryProgram, compilerContext);
-
-			if (_ProgramCache.TryGetValue(cacheHash, out shaderProgram))
-				return (shaderProgram);
-
-			// Create the program instance
-			shaderProgram = libraryProgram.Create(compilerContext);
-
-			if (_ProgramCache.ContainsKey(cacheHash) == false)
-				_ProgramCache.Add(cacheHash, shaderProgram);
-
-			return (shaderProgram);
-		}
-
-		/// <summary>
-		/// Determine an unique identifier that specify the linked shader program.
-		/// </summary>
-		/// <param name="libraryId">
-		/// A <see cref="String"/> that identifies the shader object in library.
-		/// </param>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> determining the compiler parameteres.
-		/// </param>
-		/// <returns>
-		/// It returns a string that identify the a shader program classified with <paramref name="libraryId"/> by
-		/// specifying <paramref name="cctx"/> as compiled parameters.
-		/// </returns>
-		private static string ComputeLibraryHash(Program libraryProgram, ShaderCompilerContext cctx)
-		{
-			if (libraryProgram == null)
-				throw new ArgumentNullException("libraryProgram");
-
-			byte[] hashBytes;
-
-			using (System.Security.Cryptography.HashAlgorithm hash = System.Security.Cryptography.HashAlgorithm.Create("SHA256")) {
-				hashBytes = hash.ComputeHash(Encoding.ASCII.GetBytes(libraryProgram.GetHashInfo(cctx)));
-			}
-
-			// ConvertItemType has to string
-			return (Convert.ToBase64String(hashBytes));
-		}
-
-		/// <summary>
-		/// Program cache, indexed by compilation hash.
-		/// </summary>
-		private readonly Dictionary<string, ShaderProgram> _ProgramCache = new Dictionary<string, ShaderProgram>();
 
 		#endregion
 	}

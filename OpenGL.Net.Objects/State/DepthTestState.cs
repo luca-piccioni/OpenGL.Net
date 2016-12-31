@@ -159,7 +159,7 @@ namespace OpenGL.Objects.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			DepthTestState currentState = (DepthTestState)ctx.GetCurrentState(StateId);
+			DepthTestState currentState = (DepthTestState)ctx.GetCurrentState(StateIndex);
 
 			if (currentState != null)
 				ApplyStateCore(ctx, program, currentState);
