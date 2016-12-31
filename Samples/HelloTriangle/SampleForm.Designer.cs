@@ -27,7 +27,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.RenderControl = new OpenGL.GlControl();
+			this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// RenderControl
@@ -46,6 +48,12 @@
 			this.RenderControl.ContextDestroying += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextDestroying);
 			this.RenderControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_Render);
 			// 
+			// AnimationTimer
+			// 
+			this.AnimationTimer.Enabled = true;
+			this.AnimationTimer.Interval = 33;
+			this.AnimationTimer.Tick += new System.EventHandler(this.AnimationTimer_Tick);
+			// 
 			// SampleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -61,6 +69,7 @@
 		#endregion
 
 		private OpenGL.GlControl RenderControl;
+		private System.Windows.Forms.Timer AnimationTimer;
 	}
 }
 

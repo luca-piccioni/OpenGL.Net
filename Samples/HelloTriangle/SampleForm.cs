@@ -49,9 +49,6 @@ namespace HelloTriangle
 				Gl.LoadIdentity();
 				Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
 
-				Gl.MatrixMode(MatrixMode.Modelview);
-				Gl.LoadIdentity();
-
 				// Uses multisampling, if available
 				if (glControl.MultisampleBits > 0)
 					Gl.Enable(EnableCap.Multisample);
@@ -73,6 +70,8 @@ namespace HelloTriangle
 		}
 
 		#region Common Data
+
+		private static float _Angle;
 
 		/// <summary>
 		/// Vertex position array.
@@ -103,8 +102,10 @@ namespace HelloTriangle
 			Gl.Viewport(0, 0, senderControl.ClientSize.Width, senderControl.ClientSize.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
-			if (Gl.CurrentVersion.Api == KhronosVersion.ApiGles2)
-				return;
+			// Animate triangle
+			Gl.MatrixMode(MatrixMode.Modelview);
+			Gl.LoadIdentity();
+			Gl.Rotate(_Angle, 0.0f, 0.0f, 1.0f);
 
 			if (Gl.CurrentVersion >= Gl.Version_110) {
 				// Old school OpenGL 1.1
@@ -141,6 +142,10 @@ namespace HelloTriangle
 		{
 			Control control = (Control)sender;
 			OrthoProjectionMatrix projectionMatrix = new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
+			ModelMatrix modelMatrix = new ModelMatrix();
+
+			// Animate triangle
+			modelMatrix.RotateZ(_Angle);
 
 			Gl.Viewport(0, 0, control.Width, control.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
@@ -156,7 +161,7 @@ namespace HelloTriangle
 				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, Gl.FLOAT, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
 
-				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, projectionMatrix.ToArray());
+				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, (projectionMatrix * modelMatrix).ToArray());
 
 				Gl.DrawArrays(PrimitiveType.Triangles,  0, 3);
 			}
@@ -241,5 +246,14 @@ namespace HelloTriangle
 		};
 
 		#endregion
+
+		private void AnimationTimer_Tick(object sender, EventArgs e)
+		{
+			// Change triangle rotation
+			_Angle = (_Angle + 0.1f) % 90.0f;
+
+			// Issue a new frame after this render
+			RenderControl.Invalidate();
+		}
 	}
 }
