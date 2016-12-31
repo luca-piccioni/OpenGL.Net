@@ -37,9 +37,9 @@ Follow the command below to clone and build the repository.
 
     git clone https://github.com/luca-piccioni/OpenGL.Net.git
     cd OpenGL.Net
-    msbuild /p:Configuration=Release OpenGL.Net.sln`
+    msbuild /p:Configuration=Release OpenGL.Net_VC14.sln`
 
-The executable will be located at `OpenGL.Net/OpenGL.Net/bin/Release/OpenGL.Net.dll`.
+The executable will be located at `OpenGL.Net/OpenGL.Net/bin/net35/Release/OpenGL.Net.dll` and `OpenGL.Net/OpenGL.Net/bin/net461/Release/OpenGL.Net.dll`.
 
 ### NuGet
 

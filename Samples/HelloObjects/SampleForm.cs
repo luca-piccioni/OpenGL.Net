@@ -100,7 +100,7 @@ namespace HelloObjects
 
 			#region Program
 
-			cubeGeometry.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX", "GLO_MAX_LIGHTS_COUNT 4"));
+			cubeGeometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX", "GLO_MAX_LIGHTS_COUNT 4"));
 			cubeGeometry.BoundingVolume = new BoundingBox(-Vertex3f.One * _CubeSize, Vertex3f.One * _CubeSize);
 
 			#endregion
@@ -290,7 +290,7 @@ namespace HelloObjects
 
 			#region Program
 
-			skyboxObject.Program = ShadersLibrary.Instance.CreateProgram("OpenGL.Skybox");
+			skyboxObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Skybox");
 			skyboxObject.Program.Create(_Context);
 
 			#endregion
@@ -368,7 +368,7 @@ namespace HelloObjects
 			_CubeScene.AddChild(globalLightZone);
 
 			// Cube
-			float Size = (float)Math.Sqrt(4.0f);
+			float Size = (float)Math.Sqrt(3000.0f);
 			const float Multiplier = 10.0f;
 
 			int materialIndex = 0;

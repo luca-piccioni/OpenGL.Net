@@ -73,9 +73,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj">
-      <Project>{2c30c91a-47db-4d35-8fa1-4bce4dc4c1fe}</Project>
-      <Name>OpenGL.Net.Test_net461</Name>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj">
+      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
+      <Name>OpenGL.Net_net461</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

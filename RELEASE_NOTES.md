@@ -1,4 +1,8 @@
 
+Changes with OpenGL.Net 0.4.0													03 Nov 2016
+- Mantain OpenGL.Net binaries support .NET Framework 3.5 and .NET Framework 4.6.1.
+- Performance improvements.
+
 Changes with OpenGL.Net 0.3.0													03 Nov 2016
 
 - Decoupled from System.Window.Forms dependency. OpenGL.Gl static initialization uses P/Invoke on the detected platform
