@@ -36,7 +36,9 @@
 		<tags>WinForms OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 	</metadata>
 	<files>
-		<file src="OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.dll" target="lib/net35" />
-		<file src="OpenGL.Net.WinForms/bin/Release/OpenGL.Net.WinForms.xml" target="lib/net35" />
+		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.dll" target="lib/net35" />
+		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.xml" target="lib/net35" />
+		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.dll" target="lib/net461" />
+		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.xml" target="lib/net461" />
 	</files>
 </package>
