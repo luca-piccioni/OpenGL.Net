@@ -368,13 +368,24 @@ namespace OpenGL
 		/// <param name="returnValue">
 		/// A <see cref="Object"/> that specifies the function returned value, if any.
 		/// </param>
-		[Conditional("GL_DEBUG")]
-		private static void DebugCheckErrors(object returnValue)
+		public static void CheckErrors()
 		{
 			ErrorCode error = GetError();
 
 			if (error != ErrorCode.NoError)
 				throw new GlException(error);
+		}
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		[Conditional("GL_DEBUG")]
+		private static void DebugCheckErrors(object returnValue)
+		{
+			CheckErrors();
 		}
 
 		#endregion
