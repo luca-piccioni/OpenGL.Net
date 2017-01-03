@@ -55,7 +55,7 @@
 					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Light.Light.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment">
 				<Symbols>
@@ -85,7 +85,7 @@
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" Stage="Fragment" />
+			<Object Path="OpenGL.Objects.Shaders.Light.Light.glsl" Stage="Fragment" />
 			<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" Stage="Fragment" />
 
 			<Attribute Name="glo_Position" Semantic="Position" />

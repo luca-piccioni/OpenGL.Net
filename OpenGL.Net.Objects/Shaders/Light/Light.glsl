@@ -16,7 +16,17 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#include </OpenGL/Compatibility.glsl>
 #include </OpenGL/Light/LightState.glsl>
+
+BLOCK_BEGIN(LightState)
+	// The light model
+	BLOCK_FIELD glo_LightModelType glo_LightModel;
+	// The lights
+	BLOCK_FIELD glo_LightType glo_Light[GLO_MAX_LIGHTS_COUNT];
+	// The enabled lights count
+	BLOCK_FIELD int glo_LightsCount;
+BLOCK_END_ANON()
 
 /// - Forward declarations ----------------------------------------------------
 
@@ -53,6 +63,8 @@ void ComputeLightContributions(vec4 eyePosition, inout vec4 ambient)
 		else if (glo_Light[i].FallOff[0] == 180.0)
 			ComputePointLight(i, ecPosition3, ambient);
 	}
+
+	ambient = ambient * glo_LightModel.AmbientLighting;
 }
 
 void ComputeLightContributions(vec4 eyePosition, in vec3 normal, inout vec4 ambient, inout vec4 diffuse)
@@ -69,6 +81,8 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, inout vec4 ambi
 			ComputeSpotLight(i, normal, ambient, diffuse);
 #endif
 	}
+
+	ambient = ambient * glo_LightModel.AmbientLighting;
 }
 
 void ComputeLightContributions(float materialShininess, in vec3 normal, inout vec4 specular)
@@ -90,6 +104,8 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialS
 			ComputeSpotLight(i, normal, materialShininess, ambient, diffuse, specular);
 #endif
 	}
+
+	ambient = ambient * glo_LightModel.AmbientLighting;
 }
 
 /// -----------------------------------------------------------------------------------------------

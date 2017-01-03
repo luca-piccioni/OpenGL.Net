@@ -288,8 +288,14 @@ namespace OpenGL.Objects
 
 			// Append required shader extensions - ARB_shading_language_include
 			// Note: this extension, if supported, is required by the framework to compile correctly
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB)
+			if (ctx.Extensions.ShadingLanguageInclude_ARB)
 				shaderSource.Add("#extension GL_ARB_shading_language_include : require\n");
+
+			if (ctx.Extensions.UniformBufferObject_ARB == false) {
+				shaderSource.Add("#extension GL_ARB_uniform_buffer_object : disable\n");
+				shaderSource.Add("#define GL_ARB_uniform_buffer_object_disabled\n");
+			} else
+				shaderSource.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
 
 			// Append required #define statments
 			if (cctx.Defines != null) {
@@ -300,53 +306,41 @@ namespace OpenGL.Objects
 			// Append specific source for composing shader essence
 			AppendSourceStrings(shaderSource, shaderSourceStrings);
 
-			// Log shader source
-			uint sourcelineNo;
-
-			_Log.Verbose("Original source code for shader '{0}' (comments hidden).", _SourcePath);
-			_Log.Verbose("--------------------------------------------------------------------------------");
-			sourcelineNo = 0;
-			foreach (string sourceline in shaderSource) {
-				++sourcelineNo;
-
-				if (IsCommentLine(sourceline))
-					continue;
-				_Log.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Remove(sourceline.Length - 1, 1));
-			}
-			_Log.Verbose("--------------------------------------------------------------------------------");
-
 			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB == false)
+			if (ctx.Extensions.ShadingLanguageInclude_ARB == false)
 				shaderSource = ShaderIncludePreprocessor.Process(ctx.IncludeLibrary, cctx, shaderSource);
 
 			// Remove comment lines
-			shaderSource.RemoveAll(delegate(string item) { return (IsCommentLine(item)); });
-
-			_Log.Verbose("Preprocessed source code for shader '{0}' (comments stripped).", _SourcePath);
-			_Log.Verbose("--------------------------------------------------------------------------------");
-			sourcelineNo = 0;
-			foreach (string sourceline in shaderSource)
-				_Log.Verbose("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
-			_Log.Verbose("--------------------------------------------------------------------------------");
+			shaderSource = CleanSource(shaderSource);
 
 			return (shaderSource);
 		}
 
 		/// <summary>
-		/// Determine whether a line is composed only by a comment line.
+		/// Clean the source code lines.
 		/// </summary>
-		/// <param name="sourceLine">
-		/// 
+		/// <param name="sourceLines">
 		/// </param>
 		/// <returns></returns>
-		public static bool IsCommentLine(string sourceLine)
+		public static List<string> CleanSource(IEnumerable<string> sourceLines)
 		{
-			if (_RegexCppCommentLine.IsMatch(sourceLine))
-				return (true);
-			if (_RegexCCommentLine.IsMatch(sourceLine))
-				return (true);
+			List<string> cleanSource = new List<string>();
 
-			return (false);
+			foreach (string item in sourceLines) {
+				// Non-meaninful
+				if (String.IsNullOrEmpty(item))
+					continue;
+				// C++ comments
+				if (_RegexCppCommentLine.IsMatch(item))
+					continue;
+				// C comment
+				if (_RegexCCommentLine.IsMatch(item))
+					continue;
+
+				cleanSource.Add(item);
+			}
+
+			return (cleanSource);
 		}
 
 		/// <summary>
@@ -362,7 +356,7 @@ namespace OpenGL.Objects
 				/// <summary>
 		/// Regular expression for matching C comments.
 		/// </summary>
-		private static readonly Regex _RegexCCommentLine = new Regex(@"^\s*/\*(.|$)*\*/ *$");
+		private static readonly Regex _RegexCCommentLine = new Regex(@"^\s*/\*(.|$)*\*/\s*$");
 
 		/// <summary>
 		/// Append default source header.
@@ -374,10 +368,10 @@ namespace OpenGL.Objects
 		/// A <see cref="List{String}"/> which represent the current shader object
 		/// source lines.
 		/// </param>
-		/// <param name="sVersion">
+		/// <param name="version">
 		/// A <see cref="Int32"/> representing the shader language version to use in generated shader.
 		/// </param>
-		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sourceLines, int sVersion)
+		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sourceLines, int version)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -387,15 +381,15 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("sLines");
 			
 			// Prepend required shader version
-			if (sVersion >= 150) {
+			if (version >= 150) {
 				// Starting from GLSL 1.50, profiles are implemented
 				
 				if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
-					sourceLines.Add(String.Format("#version {0} core\n", sVersion));
+					sourceLines.Add(String.Format("#version {0} core\n", version));
 				else
-					sourceLines.Add(String.Format("#version {0} compatibility\n", sVersion));
+					sourceLines.Add(String.Format("#version {0} compatibility\n", version));
 			} else {
-				sourceLines.Add(String.Format("#version {0}\n", sVersion));
+				sourceLines.Add(String.Format("#version {0}\n", version));
 			}
 			
 			// #extension
@@ -407,48 +401,14 @@ namespace OpenGL.Objects
 					shaderExtensions.Add(contextShaderExtension);
 			}
 
-#if false
-			// #extension GL_ARB_shading_language_include (required by framework)
-			shaderExtensions.RemoveAll(delegate(ShaderExtension item) { return (item.Name == "GL_ARB_shading_language_include"); });
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB) {
-				RenderCapabilities.ShadingExtSupport shaderExtension = ctx.Caps.GetShadingExtensionSupport("GL_ARB_shading_language_include");
-				
-				// ARB_shading_language_include may become a core feature? Who knows...
-				
-				if ((shaderExtension == null) || (!shaderExtension.IsCoreSupported((GraphicsContext.GLSLVersion)sVersion)))
-					sLines.Add(String.Format("#extension GL_ARB_shading_language_include : require\n"));
-			}
-			
-			// Remaining extension
-			foreach (ShaderExtension extension in shaderExtensions) {
-				RenderCapabilities.ShadingExtSupport shaderExtension = ctx.Caps.GetShadingExtensionSupport(extension.Name);
-				
-				if (shaderExtension == null)
-					continue;
-				
-				switch (extension.Behavior) {
-					case ShaderExtensionBehavior.ForceEnable:
-						if (shaderExtension.Supported)
-							sLines.Add(String.Format("#extension {0} : enable\n"));
-						break;
-					default:
-						// Default behavior: enable extension only if the current version is not supported by the actual version used
-						// for compiling the shader object
-						if (shaderExtension.Supported && !shaderExtension.IsCoreSupported((GraphicsContext.GLSLVersion)sVersion))
-							sLines.Add(String.Format("#extension {0} : {1}\n", shaderExtension.ExtensionString, extension.Behavior.ToString().ToLower()));
-						break;
-				}
-			}
-#endif
-
 			// #pragma
 #if DEBUG
 			// Debug directives
-			sourceLines.Add("#pragma optimization(off)\n");
-			sourceLines.Add("#pragma debug(on)\n");
+			//sourceLines.Add("#pragma optimization(off)\n");
+			//sourceLines.Add("#pragma debug(on)\n");
 #else
-			sourceLines.Add("#pragma optimization(on)\n");
-			sourceLines.Add("#pragma debug(off)\n");
+			//sourceLines.Add("#pragma optimization(on)\n");
+			//sourceLines.Add("#pragma debug(off)\n");
 #endif
 		}
 
@@ -754,7 +714,7 @@ namespace OpenGL.Objects
 			// Set shader source
 			Gl.ShaderSource(ObjectName, source.ToArray());
 
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB) {
+			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
 				string[] includePaths = new string[cctx.Includes.Count];
 
 				cctx.Includes.CopyTo(includePaths, 0);
@@ -767,11 +727,11 @@ namespace OpenGL.Objects
 			}
 
 			// Check for compilation errors
-			int cStatus;
+			int compilationStatus;
 
-			Gl.GetObjectParameterARB(ObjectName, Gl.COMPILE_STATUS, out cStatus);
+			Gl.GetObjectParameterARB(ObjectName, Gl.COMPILE_STATUS, out compilationStatus);
 
-			if (cStatus != Gl.TRUE) {
+			if (compilationStatus != Gl.TRUE) {
 				StringBuilder sb = GetInfoLog();
 
 				// Stop compilation process

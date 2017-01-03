@@ -16,7 +16,11 @@
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Objects.Shaders.Light.Lights.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.Light.glsl">
+			<Symbols>
+				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
+			</Symbols>
+		</Object>
 		<Object Path="OpenGL.Objects.Shaders.Light.ConstantShading.glsl" />
 		<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" />
 		<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" />

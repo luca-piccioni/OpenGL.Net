@@ -16,7 +16,6 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#include </OpenGL/Light/LightState.glsl>
 #include </OpenGL/Light/MaterialState.glsl>
 
 // Compute a light contribution combining ambient, diffuse and specular components.

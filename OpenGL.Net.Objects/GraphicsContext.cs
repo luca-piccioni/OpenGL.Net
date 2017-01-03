@@ -16,6 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Symbol for disabling redundant bind operations via IBindingResource
+#define ENABLE_REDUNDANT_BIND
+
+// Symbol for disabling at compile-time features derived from GL_ARB_shading_language_include
+#undef DISABLE_GL_ARB_shading_language_include
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -239,6 +245,12 @@ namespace OpenGL.Objects
 
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
+				Extensions.Query();
+				ExtensionsOrig = Extensions.Clone();
+#if DISABLE_GL_ARB_shading_language_include
+				Extensions.ShadingLanguageInclude_ARB = false;
+#endif
+				Extensions.UniformBufferObject_ARB = false;
 				// Initialize resources
 				InitializeResources();
 				// Get GL context flags
@@ -369,6 +381,8 @@ namespace OpenGL.Objects
 					// Reference shader include library (GLSL #include support)
 					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 				}
+
+				Extensions.Query();
 
 				// Leave current
 			} catch {
@@ -635,7 +649,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region OpenGL Versioning
+		#region OpenGL Versioning & Extensions
 
 		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
@@ -671,6 +685,13 @@ namespace OpenGL.Objects
 		/// Flags used to create this GraphicsContext.
 		/// </summary>
 		private GraphicsContextFlags _ContextFlags;
+
+		/// <summary>
+		/// OpenGL extensions supported by this GraphicsContext instance.
+		/// </summary>
+		public readonly Gl.Extensions Extensions = new Gl.Extensions();
+
+		internal readonly Gl.Extensions ExtensionsOrig;
 
 		#endregion
 
@@ -742,6 +763,7 @@ namespace OpenGL.Objects
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");
 
+#if ENABLE_REDUNDANT_BIND
 			WeakReference<IBindingResource> boundResourceRef;
 			int bindingTarget = bindingResource.BindingTarget;
 
@@ -759,13 +781,15 @@ namespace OpenGL.Objects
 					return;
 				}
 			}
-
+#endif
 			// Debug.Assert(!bindingResource.IsBound(this));
 			bindingResource.Bind(this);
 
+#if ENABLE_REDUNDANT_BIND
 			// Remind this object as bound
 			if (bindingTarget != 0)
 				_BoundObjects[bindingTarget] = new WeakReference<IBindingResource>(bindingResource);
+#endif
 		}
 
 		/// <summary>
@@ -782,6 +806,7 @@ namespace OpenGL.Objects
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");
 
+#if ENABLE_REDUNDANT_BIND
 			int bindingTarget = bindingResource.BindingTarget;
 
 			if (bindingTarget != 0) {
@@ -789,7 +814,7 @@ namespace OpenGL.Objects
 				bool res = _BoundObjects.Remove(bindingTarget);
 				Debug.Assert(res);
 			}
-
+#endif
 			bindingResource.Unbind(this);
 		}
 

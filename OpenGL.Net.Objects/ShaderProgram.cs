@@ -30,6 +30,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Shader program.
 	/// </summary>
+	[DebuggerDisplay("ShaderProgram: Name={ObjectName} Id={Identifier} Linked={IsLinked}")]
 	public partial class ShaderProgram : GraphicsResource, IBindingResource
 	{
 		#region Constructors
@@ -467,8 +468,10 @@ namespace OpenGL.Objects
 				foreach (string feedbackName in _FeedbacksMap.Keys)
 					_Log.Debug("\tFeedback {0} (Type: {1})", feedbackName, _FeedbacksMap[feedbackName].Type);
 			}
-			
+
 			#endregion
+
+			CollectActiveUniformBlocks(ctx);
 		}
 
 		/// <summary>

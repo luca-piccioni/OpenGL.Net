@@ -19,12 +19,12 @@
 #ifndef GLO_COMPATIBILITY
 #define GLO_COMPATIBILITY
 
-// Shader inputs and outputs keywords
-//
-// - ATTRIBUTE: used to mark a vertex shader inputs
-// - SHADER_IN: used to mark a non-vertex shader inputs
-// - SHADER_OUT: used to mark a non-fragment shader output
-// - OUT: used to mark a fragment shader output
+#if __VERSION__ >= 120
+#define INVARIANT invariant
+#else
+#define INVARIANT
+#endif
+
 #if __VERSION__ >= 130
 
 #define ATTRIBUTE in
@@ -32,104 +32,69 @@
 #define SHADER_OUT out
 #define OUT out
 
+#define TEXTURE_2D							texture
+#define TEXTURE_3D							texture
+#define TEXTURE_RECT						texture
+#define TEXTURE_CUBE						texture
+
 #else
 
-#define ATTRIBUTE attribute
-#define SHADER_IN varying
-#define SHADER_OUT varying
+#define ATTRIBUTE							attribute
+#define SHADER_IN							varying
+#define SHADER_OUT							varying
 #define OUT
 
-#endif
-
-// Support array attributes
-#if __VERSION__ >= 130
-
-#define ARRAY_ATTRIBUTE(name, size)	name[size]
-
-#else
-
-#define ARRAY_ATTRIBUTE(name, size)	name[size]
+#define TEXTURE_2D							texture2D
+#define TEXTURE_3D							texture3D
+#define TEXTURE_RECT						texture2DRect
+#define TEXTURE_CUBE						textureCube
 
 #endif
 
-// Uniform blocks
-#if __VERSION__ >= 130
-
-#define BEGIN_UNIFORM_BLOCK(name)	uniform name {
-
-#define END_UNIFORM_BLOCK() };
-
-#else
-
-#define BEGIN_UNIFORM_BLOCK(name)
-
-#define END_UNIFORM_BLOCK()
-
-#endif
-
-// Input and output blocks
 #if __VERSION__ >= 150
 
-#define BEGIN_INPUT_BLOCK(name)	in name {
-#define END_INPUT_BLOCK() };
+#define BEGIN_INPUT_BLOCK(name)				in name {
+#define END_INPUT_BLOCK_ANON()				};
+#define BEGIN_OUTPUT_BLOCK(name)			out name {
+#define END_OUTPUT_BLOCK_ANON()				};
 
-#define BEGIN_OUTPUT_BLOCK(name) out name {
-#define END_OUTPUT_BLOCK() };
+#define TEXTURE_SIZE(sampler)				textureSize(sampler)
+
+#define GEOMETRY_LAYOUT_IN(from)			layout (from) in
+#define GEOMETRY_LAYOUT(to, max)			layout (to, max_vertices = max) out
 
 #else
 
 #define BEGIN_INPUT_BLOCK(name)
-#define END_INPUT_BLOCK()
-
+#define END_INPUT_BLOCK_ANON()
 #define BEGIN_OUTPUT_BLOCK(name)
-#define END_OUTPUT_BLOCK()
+#define END_INPUT_BLOCK_ANON()
+
+#define TEXTURE_SIZE(sampler)				sampler ## _Size
+
+#define GEOMETRY_LAYOUT_IN(from)
+#define GEOMETRY_LAYOUT(to, max)
 
 #endif
 
-// Texturing functions
-#if __VERSION__ >= 130
-
-#define TEXTURE_2D texture
-#define TEXTURE_3D texture
-#define TEXTURE_RECT texture
-#define TEXTURE_CUBE texture
-
-#if __VERSION__ >= 150
-#define TEXTURE_SIZE(sampler) textureSize(sampler)
-#else
-#define TEXTURE_SIZE(sampler) sampler ## _Size
-#endif
-
-#else
-
-#define TEXTURE_2D texture2D
-#define TEXTURE_3D texture3D
-#define TEXTURE_RECT texture2DRect
-#define TEXTURE_CUBE textureCube
-
-#endif
-
-// Invariance
-#if __VERSION__ >= 120
-#define INVARIANT invariant
-#else
-#define INVARIANT
-#endif
-
-// Attribute location
 #if defined(GL_ARB_explicit_attrib_location)
-#define LOCATION(loc)		layout(location = loc)
+#define LOCATION(loc)						layout(location = loc)
 #else
 #define LOCATION(loc)
 #endif
 
-// Geometry shader layout
-#if __VERSION__ >= 150
-#define GEOMETRY_LAYOUT_IN(from) layout (from) in
-#define GEOMETRY_LAYOUT(to, max) layout (to, max_vertices = max) out
+#if defined(GL_ARB_uniform_buffer_object) && !defined(GL_ARB_uniform_buffer_object_disabled)
+#define BLOCK_BEGIN(block_name)					layout(std140) uniform block_name {
+#define BLOCK_END(instance_name)				} instance_name;
+#define BLOCK_END_ANON()						};
+#define BLOCK_FIELD
+#define BLOCK_GET(instance_name, field_name)	instance_name.field_name
 #else
-#define GEOMETRY_LAYOUT_IN(from)
-#define GEOMETRY_LAYOUT(to, max)
+#define BLOCK_BEGIN(name)
+#define BLOCK_END(instance_name)
+#define BLOCK_END_ANON()
+#define BLOCK_FIELD								uniform
+#define BLOCK_GET(instance_name, field_name)	field_name
 #endif
 
 #endif

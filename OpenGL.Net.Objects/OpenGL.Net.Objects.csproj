@@ -65,6 +65,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +81,7 @@
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="Collections\StringDictionary.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
     <Compile Include="Scene\SceneGraphSorter.cs" />
     <Compile Include="Scene\SceneObjectBatch.cs" />
@@ -94,6 +104,7 @@
     <Compile Include="Scene\SceneObjectLightDirectional.cs" />
     <Compile Include="Scene\SceneObjectLight.cs" />
     <Compile Include="Scene\SceneObjectLightZone.cs" />
+    <Compile Include="ShaderProgram.UniformBlock.cs" />
     <Compile Include="Single.Extensions.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="BufferObjectHint.cs" />
@@ -201,7 +212,7 @@
     <EmbeddedResource Include="Shaders\Light\ConstantShading.glsl" />
     <EmbeddedResource Include="Shaders\Light\Lighting.glsl" />
     <EmbeddedResource Include="Shaders\Light\LambertShading.glsl" />
-    <EmbeddedResource Include="Shaders\Light\Lights.glsl" />
+    <EmbeddedResource Include="Shaders\Light\Light.glsl" />
     <EmbeddedResource Include="Shaders\Light\LightState.glsl" />
     <EmbeddedResource Include="Shaders\Light\MaterialState.glsl" />
     <EmbeddedResource Include="Shaders\Light\PhongShading.glsl" />

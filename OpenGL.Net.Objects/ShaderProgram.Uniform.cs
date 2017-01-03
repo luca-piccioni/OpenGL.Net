@@ -20,10 +20,11 @@
 // redundant Uniform* calls
 #define ENABLE_UNIFORM_VALUE_CACHING
 
+using UniformDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.ShaderProgram.UniformBinding>;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace OpenGL.Objects
 {
@@ -2765,7 +2766,7 @@ namespace OpenGL.Objects
 		/// Shader program uniform binding.
 		/// </summary>
 		[DebuggerDisplay("UniformBinding: Name={Name} Location={Location} Type={UniformType}")]
-		private class UniformBinding
+		internal class UniformBinding
 		{
 			/// <summary>
 			/// Construct a UniformBinding.
@@ -2815,7 +2816,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Map active uniform location with uniform name.
 		/// </summary>
-		private readonly Dictionary<string, UniformBinding> _UniformMap = new Dictionary<string, UniformBinding>();
+		private readonly UniformDictionary _UniformMap = new UniformDictionary();
 
 		/// <summary>
 		/// Uniform slots used by the default block of this shader program.

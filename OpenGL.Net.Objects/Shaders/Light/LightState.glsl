@@ -19,6 +19,7 @@
 #ifndef GLO_LIGHT_STATE
 #define GLO_LIGHT_STATE
 
+#include </OpenGL/Compatibility.glsl>
 #include </OpenGL/Light/MaterialState.glsl>
 
 // The light model applied
@@ -51,17 +52,8 @@ struct glo_LightType
 
 // If not overriden, define the maximum number of lights
 #ifndef GLO_MAX_LIGHTS_COUNT
-#define GLO_MAX_LIGHTS_COUNT			8
+#define GLO_MAX_LIGHTS_COUNT			4
 #endif
-
-// The light model
-uniform glo_LightModelType glo_LightModel;
-
-// The lights
-uniform glo_LightType glo_Light[GLO_MAX_LIGHTS_COUNT];
-
-// The enabled lights count
-uniform int glo_LightsCount;
 
 // Compute the color contribution of all enabled lights (ambient)
 void ComputeLightContributions(vec4 eyePosition, inout vec4 ambient);

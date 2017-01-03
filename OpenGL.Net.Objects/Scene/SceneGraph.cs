@@ -169,9 +169,14 @@ namespace OpenGL.Objects.Scene
 		{
 			// Object are discrimated by translucent ones and opaque ones
 			SceneObjectSorterBlend sorterBlend = new SceneObjectSorterBlend();
-
-			// Blend enabled -> Sort by distance
+			// Blend disabled -> Split by Program
 			// Note: 
+			SceneObjectSorterProgram sorterProgram = new SceneObjectSorterProgram();
+			// Blend enabled -> Sort by distance
+			// Note: distance sorting is required for having a correct visual of transparencies
+
+			// Link
+			sorterBlend.SorterA = sorterProgram;
 
 			return (sorterBlend);
 		}

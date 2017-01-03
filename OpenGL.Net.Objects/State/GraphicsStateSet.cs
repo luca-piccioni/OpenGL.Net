@@ -241,7 +241,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public void Apply(GraphicsContext ctx)
 		{
-			Apply(ctx, null, null);
+			Apply(ctx, null);
 		}
 
 		/// <summary>
@@ -255,23 +255,6 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
-			Apply(ctx, program, null);
-		}
-
-		/// <summary>
-		/// Apply the set of GraphicsState collected by this instance.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> defining the state vector.
-		/// </param>
-		/// <param name="program">
-		/// A <see cref="ShaderProgram"/> defining the uniform state.
-		/// </param>
-		/// <param name="currentStateSet">
-		/// 
-		/// </param>
-		private void Apply(GraphicsContext ctx, ShaderProgram program, GraphicsStateSet currentStateSet)
-		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
@@ -283,13 +266,6 @@ namespace OpenGL.Objects.State
 			foreach (IGraphicsState state in _RenderStates) {
 				if (state == null)
 					continue;
-
-				if (state.IsContextBound && (currentStateSet != null) && (currentStateSet.IsDefinedState(state.StateIndex))) {
-					IGraphicsState currentState = currentStateSet[state.StateIndex];
-
-					if (state.Equals(currentState))
-						continue;
-				}
 
 				// Apply state if:
 				// - the state is context-bound, or

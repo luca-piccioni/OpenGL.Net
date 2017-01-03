@@ -215,8 +215,8 @@ namespace OpenGL.Objects
 			// Base implementation
 			if (!base.Exists(ctx))
 				return (false);
-			
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB == true)
+
+			if (ctx.Extensions.ShadingLanguageInclude_ARB == true)
 				return (Gl.IsNamedStringARB(IncludePath.Length, IncludePath));
 
 			return (true);
@@ -246,12 +246,13 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB) {
-				StringBuilder sb = new StringBuilder();
+			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
+				List<string> source = ShaderObject.CleanSource(Source);
 
 				// Build include source string
+				StringBuilder sb = new StringBuilder();
 				foreach (string line in Source)
-					sb.AppendLine(line);
+					sb.Append(line);
 
 				// Create shader include
 				Gl.NamedStringARB(Gl.SHADER_INCLUDE_ARB, -1, IncludePath, -1, sb.ToString());
@@ -272,7 +273,7 @@ namespace OpenGL.Objects
 			// Base implementation
 			base.Delete(ctx);
 			// Delete named string
-			if (Gl.CurrentExtensions.ShadingLanguageInclude_ARB)
+			if (ctx.Extensions.ShadingLanguageInclude_ARB)
 				Gl.DeleteNamedStringARB(-1, IncludePath);
 		}
 

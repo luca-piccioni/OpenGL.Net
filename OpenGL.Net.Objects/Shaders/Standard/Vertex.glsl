@@ -21,17 +21,17 @@
 #include </OpenGL/Light/Lighting.glsl>
 
 // Vertex position
-ATTRIBUTE vec4 glo_Position;
+LOCATION(0) ATTRIBUTE vec4 glo_Position;
 // Vertex color
-ATTRIBUTE vec4 glo_Color;
+LOCATION(1) ATTRIBUTE vec4 glo_Color;
 // Vertex normal
-ATTRIBUTE vec3 glo_Normal;
+LOCATION(2) ATTRIBUTE vec3 glo_Normal;
 // Vertex texture coordinates
-ATTRIBUTE vec2 glo_TexCoord0;
+LOCATION(3) ATTRIBUTE vec2 glo_TexCoord0;
 // Vertex texture coordinates
-ATTRIBUTE vec2 glo_TexCoord1;
+LOCATION(4) ATTRIBUTE vec2 glo_TexCoord1;
 // Vertex texture coordinates
-ATTRIBUTE vec2 glo_TexCoord2;
+LOCATION(5) ATTRIBUTE vec2 glo_TexCoord2;
 
 // Vertex/Fragment color
 SHADER_OUT vec4 glo_VertexColor;
