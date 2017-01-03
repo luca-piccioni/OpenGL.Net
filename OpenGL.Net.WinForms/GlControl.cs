@@ -439,7 +439,7 @@ namespace OpenGL
 			if (exception != null) {
 				StringBuilder exceptionMessage = new StringBuilder();
 
-				exceptionMessage.AppendFormat("Exception of type {0}: {1}\n", exception.GetType().Name, exception.Message);
+				exceptionMessage.AppendFormat("Exception of type {0}: {1}\n", exception.GetType().Name, exception.ToString());
 				exceptionMessage.AppendFormat("Exception stacktrace: {0}\n", exception.StackTrace);
 
 				e.Graphics.DrawString(exceptionMessage.ToString(), _DesignFont, _FailureBrush, new RectangleF(PointF.Empty, clientSize));
@@ -942,13 +942,21 @@ namespace OpenGL
 					try {
 						handler(this, glControlEventArgs);
 					} catch (Exception exception) {
-						// Fail-safe
-						Trace.TraceError(exception.ToString());
+						if (_ContextCreatedExceptions == null)
+							_ContextCreatedExceptions = new List<Exception>();
+						_ContextCreatedExceptions.Add(exception);
 					}
 				}
+
+				if (_ContextCreatedExceptions != null)
+					throw new InvalidOperationException(String.Format("exception ({0}) on ContextCreated", _ContextCreatedExceptions.Count), _ContextCreatedExceptions[0]);
 			}
-				
 		}
+
+		/// <summary>
+		/// Exceptions caught during the context creation phase.
+		/// </summary>
+		private List<Exception> _ContextCreatedExceptions;
 
 		/// <summary>
 		/// Event raised on control disposition time, allow user to dispose resources on control.
