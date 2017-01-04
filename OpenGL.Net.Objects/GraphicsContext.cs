@@ -246,7 +246,6 @@ namespace OpenGL.Objects
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
 				Extensions.Query();
-				ExtensionsOrig = Extensions.Clone();
 #if DISABLE_GL_ARB_shading_language_include
 				Extensions.ShadingLanguageInclude_ARB = false;
 #endif
@@ -690,8 +689,6 @@ namespace OpenGL.Objects
 		/// OpenGL extensions supported by this GraphicsContext instance.
 		/// </summary>
 		public readonly Gl.Extensions Extensions = new Gl.Extensions();
-
-		internal readonly Gl.Extensions ExtensionsOrig;
 
 		#endregion
 

@@ -80,7 +80,7 @@ namespace OpenGL.Objects.Scene
 				// View-frustum culling
 				objectBatchContext.ViewFrustumPlanes = Plane.GetFrustumPlanes(LocalProjection);
 				// Collect geometries to be batched
-				Stopwatch sw = Stopwatch.StartNew();
+				Stopwatch swSelection = Stopwatch.StartNew();
 				TraverseDirect(ctx, ctxScene, _TraverseDrawContext, objectBatchContext);
 				
 				// Sort geometries
@@ -89,16 +89,15 @@ namespace OpenGL.Objects.Scene
 				if (((Flags & SceneGraphFlags.StateSorting) != 0) && (_SorterRoot != null))
 					sceneObjects = _SorterRoot.Sort(objectBatchContext.Objects);
 
-				sw.Stop();
-
-				Console.WriteLine("Objects selection: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				swSelection.Stop();
 
 				// Draw all batches
-				sw = Stopwatch.StartNew();
+				Stopwatch swDraw = Stopwatch.StartNew();
 				foreach (SceneObjectBatch objectBatch in sceneObjects)
 					objectBatch.Draw(ctx);
-				sw.Stop();
-				Console.WriteLine("Objects drawing: {0} objects in {1} ms", objectBatchContext.Objects.Count, sw.ElapsedMilliseconds);
+				swDraw.Stop();
+
+				Console.WriteLine("Objects drawing ({0} objects): Selection={1:D5} Draw={2:D5} ms", objectBatchContext.Objects.Count, swSelection.ElapsedMilliseconds, swDraw.ElapsedMilliseconds);
 				Console.WriteLine();
 
 				CheckResourceLeaks();

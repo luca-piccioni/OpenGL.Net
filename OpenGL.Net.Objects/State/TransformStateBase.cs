@@ -194,25 +194,20 @@ namespace OpenGL.Objects.State
 					Gl.LoadMatrix(ModelView.ToArray());
 				}
 			} else {
+				if (shaderProgram.IsUniformBlockChanged(this) == false)
+					return;
+
 				// Custom implementation
 				ctx.Bind(shaderProgram);
 
-				if (shaderProgram.IsActiveUniform("glo_Projection"))
-					shaderProgram.SetUniform(ctx, "glo_Projection", Projection);
-				if (shaderProgram.IsActiveUniform("glo_DepthDistances"))
-					shaderProgram.SetUniform(ctx, "glo_DepthDistances", DepthDistances);
-				if (shaderProgram.IsActiveUniform("glo_InverseProjection"))
-					shaderProgram.SetUniform(ctx, "glo_InverseProjection", InverseProjection);
-				if (shaderProgram.IsActiveUniform("glo_ModelView"))
-					shaderProgram.SetUniform(ctx, "glo_ModelView", ModelView);
-				if (shaderProgram.IsActiveUniform("glo_ModelViewProjection"))
-					shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection);
-				if (shaderProgram.IsActiveUniform("glo_InverseModelView"))
-					shaderProgram.SetUniform(ctx, "glo_InverseModelView", InverseModelView);
-				if (shaderProgram.IsActiveUniform("glo_InverseModelViewProjection"))
-					shaderProgram.SetUniform(ctx, "glo_InverseModelViewProjection", InverseModelViewProjection);
-				if (shaderProgram.IsActiveUniform("glo_NormalMatrix"))
-					shaderProgram.SetUniform(ctx, "glo_NormalMatrix", NormalMatrix);
+				shaderProgram.SetUniform(ctx, "glo_Projection", Projection);
+				shaderProgram.SetUniform(ctx, "glo_DepthDistances", DepthDistances);
+				shaderProgram.SetUniform(ctx, "glo_InverseProjection", InverseProjection);
+				shaderProgram.SetUniform(ctx, "glo_ModelView", ModelView);
+				shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection);
+				shaderProgram.SetUniform(ctx, "glo_InverseModelView", InverseModelView);
+				shaderProgram.SetUniform(ctx, "glo_InverseModelViewProjection", InverseModelViewProjection);
+				shaderProgram.SetUniform(ctx, "glo_NormalMatrix", NormalMatrix);
 			}
 		}
 
@@ -228,16 +223,17 @@ namespace OpenGL.Objects.State
 			if (state == null)
 				throw new ArgumentNullException("state");
 
-			TransformStateBase otherState = state as TransformStateBase;
+			try {
+				TransformStateBase otherState = (TransformStateBase)state;
 
-			if (otherState == null)
+				// Override projection matrix, if defined
+				if (otherState.LocalProjection != null)
+					LocalProjection = otherState.LocalProjection;
+				// Affine local model
+				LocalModel.Set(LocalModel.Multiply(otherState.LocalModel));
+			} catch (InvalidCastException) {
 				throw new ArgumentException("not a TransformStateBase", "state");
-
-			// Override projection matrix, if defined
-			if (otherState.LocalProjection != null)
-				LocalProjection = otherState.LocalProjection;
-			// Affine local model
-			LocalModel.Set(LocalModel.Multiply(otherState.LocalModel));
+			}
 		}
 
 		/// <summary>

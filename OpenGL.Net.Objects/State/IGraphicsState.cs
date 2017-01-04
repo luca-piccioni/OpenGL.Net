@@ -97,6 +97,15 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
+		#region Uniform Block
+
+		/// <summary>
+		/// The name of the uniform buffer object used for holding uniform state information.
+		/// </summary>
+		int UniformBlockName { get; }
+
+		#endregion
+
 		#region State Copy
 
 		/// <summary>

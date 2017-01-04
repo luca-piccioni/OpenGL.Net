@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,8 +17,13 @@
 // USA
 
 using System;
+using System.Runtime.CompilerServices;
 using System.Globalization;
 using System.Text;
+
+#if HAVE_NUMERICS
+using System.Numerics;
+#endif
 
 namespace OpenGL
 {
@@ -1096,13 +1101,29 @@ namespace OpenGL
 				return (false);
 
 			unsafe {
-				fixed (float* m1Fix = MatrixBuffer)
-				fixed (float* m2Fix = other.MatrixBuffer) {
-					uint w = _Width, h = Height;
+				fixed (float* m1 = MatrixBuffer)
+				fixed (float* m2 = other.MatrixBuffer) {
+					const float Epsilon = 1e-6f;
 
-					// Compute matrix product
-					for (uint c = 0; c < w * h; c++) {
-						if (Math.Abs(m1Fix[c] - m2Fix[c]) > 1e-6f)
+					float* m1Ptr = m1, m2Ptr = m2;
+					uint w = _Width, h = Height, l = w * h;
+
+					// Compare matrix elements
+#if HAVE_NUMERICS
+					if (Vector.IsHardwareAccelerated) {
+						uint vecLen = l / (uint)Vector<float>.Count;
+
+						for (uint i = 0; i < vecLen; i++, m1Ptr += Vector<float>.Count, m2Ptr += Vector<float>.Count) {
+							if (Vector.EqualsAll(Unsafe.Read<Vector<float>>(m1Ptr), Unsafe.Read<Vector<float>>(m2Ptr)) == false)
+								return (false);
+						}
+
+						l -= vecLen * (uint)Vector<float>.Count;
+					}
+#endif
+					// Compare (remaining) matrix elements
+					for (uint i = 0; i < l; i++) {
+						if (Math.Abs(m1Ptr[i] - m2Ptr[i]) > Epsilon)
 							return (false);
 					}
 				}
@@ -1122,14 +1143,11 @@ namespace OpenGL
 		/// </returns>
 		public override bool Equals(object obj)
 		{
-			if (ReferenceEquals(null, obj))
+			try {
+				return (Equals((Matrix)obj));
+			} catch (InvalidCastException) {
 				return (false);
-			if (ReferenceEquals(this, obj))
-				return (true);
-			if ((obj.GetType() != typeof(Matrix)) && (obj.GetType().IsSubclassOf(typeof(Matrix)) == false))
-				return (false);
-
-			return (Equals((Matrix)obj));
+			}
 		}
 
 		/// <summary>

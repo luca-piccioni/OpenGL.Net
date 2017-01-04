@@ -127,10 +127,11 @@ namespace OpenGL.Objects.State
 			if (ReferenceEquals(this, obj))
 				return (true);
 
-			if (obj.GetType().IsSubclassOf(typeof(GraphicsState)) == false)
+			try {
+				return Equals((GraphicsState)obj);
+			} catch (InvalidCastException) {
 				return (false);
-
-			return Equals((GraphicsState) obj);
+			}
 		}
 
 		/// <summary>
@@ -243,8 +244,13 @@ namespace OpenGL.Objects.State
 			if (other == null)
 				throw new ArgumentNullException("other");
 
-			return (other.StateIdentifier == StateIdentifier);
+			return (other.StateIndex == StateIndex);
 		}
+
+		/// <summary>
+		/// The name of the uniform buffer object used for holding uniform state information.
+		/// </summary>
+		public virtual int UniformBlockName { get { return (0); } }
 
 		/// <summary>
 		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
@@ -255,9 +261,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public virtual IGraphicsState Copy()
 		{
-			GraphicsState copiedState = (GraphicsState)MemberwiseClone();
-
-			return (copiedState);
+			return ((GraphicsState)MemberwiseClone());
 		}
 
 		/// <summary>

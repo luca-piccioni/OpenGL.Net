@@ -20,6 +20,10 @@
 // redundant Uniform* calls
 #define ENABLE_UNIFORM_VALUE_CACHING
 
+// Symbol for enabling shader program uniforms bindings caching: performance gain avoiding
+// redundant hash-table lookups for uniform names.
+#define ENABLE_UNIFORM_BLOCK_CACHING
+
 using UniformDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.ShaderProgram.UniformBinding>;
 
 using System;
@@ -137,11 +141,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
@@ -185,11 +186,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
@@ -231,11 +229,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
@@ -280,11 +275,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -319,11 +311,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
@@ -362,11 +351,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
@@ -404,11 +390,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
@@ -445,11 +428,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
@@ -488,11 +468,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -529,11 +506,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -572,11 +546,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -804,11 +775,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE);
@@ -838,11 +806,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
@@ -875,11 +840,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
@@ -915,11 +877,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
@@ -945,11 +904,8 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
@@ -976,11 +932,8 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
@@ -1007,11 +960,8 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
@@ -1201,11 +1151,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
@@ -1245,11 +1192,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
@@ -1292,11 +1236,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -1342,11 +1283,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
@@ -1381,11 +1319,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
@@ -1422,11 +1357,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -1463,11 +1395,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
@@ -1656,11 +1585,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
@@ -1690,11 +1616,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
@@ -1727,11 +1650,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
@@ -1767,11 +1687,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
@@ -1954,11 +1871,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL);
@@ -1988,11 +1902,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
@@ -2025,11 +1936,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
@@ -2065,11 +1973,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
@@ -2259,11 +2164,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 
@@ -2347,11 +2249,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
@@ -2389,11 +2288,8 @@ namespace OpenGL.Objects
 #endif
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
@@ -2430,11 +2326,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("m");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 
@@ -2507,11 +2400,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_MAT3);
@@ -2538,11 +2428,8 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
@@ -2592,11 +2479,8 @@ namespace OpenGL.Objects
 			CheckThatExistence(ctx, tex);
 
 			UniformBinding uniform = GetUniform(uniformName);
-
-			if (uniform == null) {
-				Debug.Fail(String.Format("uniform {0} is not active", uniformName));
+			if (uniform == null)
 				return;
-			}
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, tex.SamplerType);
@@ -2872,6 +2756,29 @@ namespace OpenGL.Objects
 		/// of checking for values equality, per program instance.
 		/// </summary>
 		private readonly Dictionary<string, object> _UniformValues = new Dictionary<string, object>();
+
+#endif
+
+		#endregion
+
+		#region Uniform Block Caching
+
+#if ENABLE_UNIFORM_BLOCK_CACHING
+
+		internal bool IsUniformBlockChanged(State.IGraphicsState uniformBlock)
+		{
+			if (uniformBlock == null)
+				throw new ArgumentNullException("uniformBlock");
+
+			int currentUniformBlock = _UniformBlockName[uniformBlock.StateIndex];
+
+			return (uniformBlock.UniformBlockName != currentUniformBlock);
+		}
+
+		/// <summary>
+		/// Uniform block names currently set on this ShaderProgram.
+		/// </summary>
+		private int[] _UniformBlockName = new int[State.GraphicsState.GetStateCount()];
 
 #endif
 

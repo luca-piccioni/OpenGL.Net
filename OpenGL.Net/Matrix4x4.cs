@@ -17,15 +17,17 @@
 // USA
 
 // Enable gluInvertMatrix implementation
-#define ENABLE_INVERSE
+#define ENABLE_GLU_INVERSE
 
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-
 #if HAVE_NUMERICS
 using System.Numerics;
+#endif
+#if NET45
+using System.Runtime.CompilerServices;
+#endif
 
+#if HAVE_NUMERICS
 using Mat4x4 = System.Numerics.Matrix4x4;
 #endif
 
@@ -188,6 +190,9 @@ namespace OpenGL
 		/// <param name="n">
 		/// A <see cref="Matrix4x4"/> that specify the right multiplication operand.
 		/// </param>
+#if NET45
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
 		protected static void ComputeMatrixProduct(Matrix4x4 result, Matrix4x4 m, Matrix4x4 n)
 		{
 			unsafe {
@@ -195,25 +200,33 @@ namespace OpenGL
 				fixed (float* pm = m.MatrixBuffer)
 				fixed (float* pn = n.MatrixBuffer)
 				{
-					prodFix[0x0] = pm[0x0] * pn[0x0] + pm[0x4] * pn[0x1] + pm[0x8] * pn[0x2] + pm[0xC] * pn[0x3];
-					prodFix[0x4] = pm[0x0] * pn[0x4] + pm[0x4] * pn[0x5] + pm[0x8] * pn[0x6] + pm[0xC] * pn[0x7];
-					prodFix[0x8] = pm[0x0] * pn[0x8] + pm[0x4] * pn[0x9] + pm[0x8] * pn[0xA] + pm[0xC] * pn[0xB];
-					prodFix[0xC] = pm[0x0] * pn[0xC] + pm[0x4] * pn[0xD] + pm[0x8] * pn[0xE] + pm[0xC] * pn[0xF];
+#if HAVE_NUMERICS
+					if (Vector.IsHardwareAccelerated) {
+						Unsafe.Write(prodFix, Unsafe.Read<Mat4x4>(pn) * Unsafe.Read<Mat4x4>(pm));
+					} else {
+#endif
+						prodFix[0x0] = pm[0x0] * pn[0x0] + pm[0x4] * pn[0x1] + pm[0x8] * pn[0x2] + pm[0xC] * pn[0x3];
+						prodFix[0x4] = pm[0x0] * pn[0x4] + pm[0x4] * pn[0x5] + pm[0x8] * pn[0x6] + pm[0xC] * pn[0x7];
+						prodFix[0x8] = pm[0x0] * pn[0x8] + pm[0x4] * pn[0x9] + pm[0x8] * pn[0xA] + pm[0xC] * pn[0xB];
+						prodFix[0xC] = pm[0x0] * pn[0xC] + pm[0x4] * pn[0xD] + pm[0x8] * pn[0xE] + pm[0xC] * pn[0xF];
 
-					prodFix[0x1] = pm[0x1] * pn[0x0] + pm[0x5] * pn[0x1] + pm[0x9] * pn[0x2] + pm[0xD] * pn[0x3];
-					prodFix[0x5] = pm[0x1] * pn[0x4] + pm[0x5] * pn[0x5] + pm[0x9] * pn[0x6] + pm[0xD] * pn[0x7];
-					prodFix[0x9] = pm[0x1] * pn[0x8] + pm[0x5] * pn[0x9] + pm[0x9] * pn[0xA] + pm[0xD] * pn[0xB];
-					prodFix[0xD] = pm[0x1] * pn[0xC] + pm[0x5] * pn[0xD] + pm[0x9] * pn[0xE] + pm[0xD] * pn[0xF];
+						prodFix[0x1] = pm[0x1] * pn[0x0] + pm[0x5] * pn[0x1] + pm[0x9] * pn[0x2] + pm[0xD] * pn[0x3];
+						prodFix[0x5] = pm[0x1] * pn[0x4] + pm[0x5] * pn[0x5] + pm[0x9] * pn[0x6] + pm[0xD] * pn[0x7];
+						prodFix[0x9] = pm[0x1] * pn[0x8] + pm[0x5] * pn[0x9] + pm[0x9] * pn[0xA] + pm[0xD] * pn[0xB];
+						prodFix[0xD] = pm[0x1] * pn[0xC] + pm[0x5] * pn[0xD] + pm[0x9] * pn[0xE] + pm[0xD] * pn[0xF];
 
-					prodFix[0x2] = pm[0x2] * pn[0x0] + pm[0x6] * pn[0x1] + pm[0xA] * pn[0x2] + pm[0xE] * pn[0x3];
-					prodFix[0x6] = pm[0x2] * pn[0x4] + pm[0x6] * pn[0x5] + pm[0xA] * pn[0x6] + pm[0xE] * pn[0x7];
-					prodFix[0xA] = pm[0x2] * pn[0x8] + pm[0x6] * pn[0x9] + pm[0xA] * pn[0xA] + pm[0xE] * pn[0xB];
-					prodFix[0xE] = pm[0x2] * pn[0xC] + pm[0x6] * pn[0xD] + pm[0xA] * pn[0xE] + pm[0xE] * pn[0xF];
+						prodFix[0x2] = pm[0x2] * pn[0x0] + pm[0x6] * pn[0x1] + pm[0xA] * pn[0x2] + pm[0xE] * pn[0x3];
+						prodFix[0x6] = pm[0x2] * pn[0x4] + pm[0x6] * pn[0x5] + pm[0xA] * pn[0x6] + pm[0xE] * pn[0x7];
+						prodFix[0xA] = pm[0x2] * pn[0x8] + pm[0x6] * pn[0x9] + pm[0xA] * pn[0xA] + pm[0xE] * pn[0xB];
+						prodFix[0xE] = pm[0x2] * pn[0xC] + pm[0x6] * pn[0xD] + pm[0xA] * pn[0xE] + pm[0xE] * pn[0xF];
 
-					prodFix[0x3] = pm[0x3] * pn[0x0] + pm[0x7] * pn[0x1] + pm[0xB] * pn[0x2] + pm[0xF] * pn[0x3];
-					prodFix[0x7] = pm[0x3] * pn[0x4] + pm[0x7] * pn[0x5] + pm[0xB] * pn[0x6] + pm[0xF] * pn[0x7];
-					prodFix[0xB] = pm[0x3] * pn[0x8] + pm[0x7] * pn[0x9] + pm[0xB] * pn[0xA] + pm[0xF] * pn[0xB];
-					prodFix[0xF] = pm[0x3] * pn[0xC] + pm[0x7] * pn[0xD] + pm[0xB] * pn[0xE] + pm[0xF] * pn[0xF];
+						prodFix[0x3] = pm[0x3] * pn[0x0] + pm[0x7] * pn[0x1] + pm[0xB] * pn[0x2] + pm[0xF] * pn[0x3];
+						prodFix[0x7] = pm[0x3] * pn[0x4] + pm[0x7] * pn[0x5] + pm[0xB] * pn[0x6] + pm[0xF] * pn[0x7];
+						prodFix[0xB] = pm[0x3] * pn[0x8] + pm[0x7] * pn[0x9] + pm[0xB] * pn[0xA] + pm[0xF] * pn[0xB];
+						prodFix[0xF] = pm[0x3] * pn[0xC] + pm[0x7] * pn[0xD] + pm[0xB] * pn[0xE] + pm[0xF] * pn[0xF];
+#if HAVE_NUMERICS
+					}
+#endif
 				}
 			}
 		}
@@ -233,6 +246,9 @@ namespace OpenGL
 		/// <remarks>
 		/// If you to store the result in a <see cref="MatrixDouble4x4"/>, use the <see cref="MatrixDouble4x4.ComputeMatrixProduct(MatrixDouble4x4,MatrixDouble4x4,Matrix4x4)"/>.
 		/// </remarks>
+#if NET45
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
 		protected static void ComputeMatrixProduct(Matrix4x4 result, Matrix4x4 m, MatrixDouble4x4 n)
 		{
 			if (result == null)
@@ -294,50 +310,6 @@ namespace OpenGL
 
 			return (matrix);
 		}
-
-#if HAVE_NUMERICS
-
-		/// <summary>
-		/// Cast from Matrix4x4 to System.Numerics.Matrix4x4.
-		/// </summary>
-		/// <param name="m"></param>
-		public static implicit operator Mat4x4(Matrix4x4 m)
-		{
-			return (new Mat4x4(
-				m.MatrixBuffer[0x0], m.MatrixBuffer[0x4], m.MatrixBuffer[0x8], m.MatrixBuffer[0xC],
-				m.MatrixBuffer[0x1], m.MatrixBuffer[0x5], m.MatrixBuffer[0x9], m.MatrixBuffer[0xD],
-				m.MatrixBuffer[0x2], m.MatrixBuffer[0x6], m.MatrixBuffer[0xA], m.MatrixBuffer[0xE],
-				m.MatrixBuffer[0x3], m.MatrixBuffer[0x7], m.MatrixBuffer[0xB], m.MatrixBuffer[0xF]
-			));
-		}
-
-		/// <summary>
-		/// Cast from System.Numerics.Matrix4x4 to Matrix4x4.
-		/// </summary>
-		/// <param name="m"></param>
-		public static implicit operator Matrix4x4(Mat4x4 m)
-		{
-			Matrix4x4 v = new Matrix4x4();
-
-			CopyMat4x4(v, m);
-
-			return (v);
-		}
-
-		private static void CopyMat4x4(Matrix4x4 matrix, Mat4x4 m)
-		{
-			unsafe
-			{
-				fixed (float *vm = matrix.MatrixBuffer) {
-					vm[0x0] = m.M11; vm[0x4] = m.M12; vm[0x8] = m.M13; vm[0xC] = m.M14;
-					vm[0x1] = m.M21; vm[0x5] = m.M22; vm[0x9] = m.M23; vm[0xD] = m.M24;
-					vm[0x2] = m.M31; vm[0x6] = m.M32; vm[0xA] = m.M33; vm[0xE] = m.M34;
-					vm[0x3] = m.M41; vm[0x7] = m.M42; vm[0xB] = m.M43; vm[0xF] = m.M44;
-				}
-			}
-		}
-
-#endif
 
 		#endregion
 		
@@ -405,127 +377,151 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// The exception is thrown if this Matrix is not square, or it's determinant is 0.0.
 		/// </exception>
+#if NET45
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
 		public new Matrix4x4 GetInverseMatrix()
 		{
-#if ENABLE_INVERSE
-			float[] m = ToArray();
+#if HAVE_NUMERICS
+			if (Vector.IsHardwareAccelerated) {
+				Matrix4x4 invMatrix4x4 = (Matrix4x4)Clone();
+
+				unsafe {
+					fixed (float* invVecPtr = invMatrix4x4.MatrixBuffer)
+					fixed (float* mVecPtr = MatrixBuffer)
+					{
+						Mat4x4 mVec = Unsafe.Read<Mat4x4>(mVecPtr), invVec;
+
+						if (Mat4x4.Invert(mVec, out invVec) == false)
+							throw new InvalidOperationException("not invertible");
+
+						Unsafe.Write(invVecPtr, invVec);
+					}
+				}
+
+				return (invMatrix4x4);
+			}
+#endif
+
+#if ENABLE_GLU_INVERSE
+			float[] m = MatrixBuffer;
 			float[] inv = new float[16], invOut = new float[16];
 			float det;
 			int i;
 
-			inv[0] = m[5]  * m[10] * m[15] - 
-					 m[5]  * m[11] * m[14] - 
-					 m[9]  * m[6]  * m[15] + 
-					 m[9]  * m[7]  * m[14] +
-					 m[13] * m[6]  * m[11] - 
-					 m[13] * m[7]  * m[10];
+			inv[0x0] =  m[0x5] * m[0xA] * m[0xF] - 
+					    m[0x5] * m[0xB] * m[0xE] - 
+					    m[0x9] * m[0x6] * m[0xF] + 
+					    m[0x9] * m[0x7] * m[0xE] +
+					    m[0xD] * m[0x6] * m[0xB] - 
+					    m[0xD] * m[0x7] * m[0xA];
 
-			inv[4] = -m[4]  * m[10] * m[15] + 
-					  m[4]  * m[11] * m[14] + 
-					  m[8]  * m[6]  * m[15] - 
-					  m[8]  * m[7]  * m[14] - 
-					  m[12] * m[6]  * m[11] + 
-					  m[12] * m[7]  * m[10];
+			inv[0x4] = -m[0x4] * m[0xA] * m[0xF] + 
+					    m[0x4] * m[0xB] * m[0xE] + 
+					    m[0x8] * m[0x6] * m[0xF] - 
+					    m[0x8] * m[0x7] * m[0xE] - 
+					    m[0xC] * m[0x6] * m[0xB] + 
+					    m[0xC] * m[0x7] * m[0xA];
 
-			inv[8] = m[4]  * m[9] * m[15] - 
-					 m[4]  * m[11] * m[13] - 
-					 m[8]  * m[5] * m[15] + 
-					 m[8]  * m[7] * m[13] + 
-					 m[12] * m[5] * m[11] - 
-					 m[12] * m[7] * m[9];
+			inv[0x8] =  m[0x4] * m[0x9] * m[0xF] - 
+					    m[0x4] * m[0xB] * m[0xD] - 
+					    m[0x8] * m[0x5] * m[0xF] + 
+					    m[0x8] * m[0x7] * m[0xD] + 
+					    m[0xC] * m[0x5] * m[0xB] - 
+					    m[0xC] * m[0x7] * m[0x9];
 
-			inv[12] = -m[4]  * m[9] * m[14] + 
-					   m[4]  * m[10] * m[13] +
-					   m[8]  * m[5] * m[14] - 
-					   m[8]  * m[6] * m[13] - 
-					   m[12] * m[5] * m[10] + 
-					   m[12] * m[6] * m[9];
+			inv[0xC] = -m[0x4] * m[0x9] * m[0xE] + 
+					    m[0x4] * m[0xA] * m[0xD] +
+					    m[0x8] * m[0x5] * m[0xE] - 
+					    m[0x8] * m[0x6] * m[0xD] - 
+					    m[0xC] * m[0x5] * m[0xA] + 
+					    m[0xC] * m[0x6] * m[0x9];
 
-			inv[1] = -m[1]  * m[10] * m[15] + 
-					  m[1]  * m[11] * m[14] + 
-					  m[9]  * m[2] * m[15] - 
-					  m[9]  * m[3] * m[14] - 
-					  m[13] * m[2] * m[11] + 
-					  m[13] * m[3] * m[10];
+			inv[0x1] = -m[0x1] * m[0xA] * m[0xF] + 
+					    m[0x1] * m[0xB] * m[0xE] + 
+					    m[0x9] * m[0x2] * m[0xF] - 
+					    m[0x9] * m[0x3] * m[0xE] - 
+					    m[0xD] * m[0x2] * m[0xB] + 
+					    m[0xD] * m[0x3] * m[0xA];
 
-			inv[5] = m[0]  * m[10] * m[15] - 
-					 m[0]  * m[11] * m[14] - 
-					 m[8]  * m[2] * m[15] + 
-					 m[8]  * m[3] * m[14] + 
-					 m[12] * m[2] * m[11] - 
-					 m[12] * m[3] * m[10];
+			inv[0x5] =  m[0x0] * m[0xA] * m[0xF] - 
+					    m[0x0] * m[0xB] * m[0xE] - 
+					    m[0x8] * m[0x2] * m[0xF] + 
+					    m[0x8] * m[0x3] * m[0xE] + 
+					    m[0xC] * m[0x2] * m[0xB] - 
+					    m[0xC] * m[0x3] * m[0xA];
 
-			inv[9] = -m[0]  * m[9] * m[15] + 
-					  m[0]  * m[11] * m[13] + 
-					  m[8]  * m[1] * m[15] - 
-					  m[8]  * m[3] * m[13] - 
-					  m[12] * m[1] * m[11] + 
-					  m[12] * m[3] * m[9];
+			inv[0x9] = -m[0x0] * m[0x9] * m[0xF] + 
+					    m[0x0] * m[0xB] * m[0xD] + 
+					    m[0x8] * m[0x1] * m[0xF] - 
+					    m[0x8] * m[0x3] * m[0xD] - 
+					    m[0xC] * m[0x1] * m[0xB] + 
+					    m[0xC] * m[0x3] * m[0x9];
 
-			inv[13] = m[0]  * m[9] * m[14] - 
-					  m[0]  * m[10] * m[13] - 
-					  m[8]  * m[1] * m[14] + 
-					  m[8]  * m[2] * m[13] + 
-					  m[12] * m[1] * m[10] - 
-					  m[12] * m[2] * m[9];
+			inv[0xD] =  m[0x0] * m[0x9] * m[0xE] - 
+					    m[0x0] * m[0xA] * m[0xD] - 
+					    m[0x8] * m[0x1] * m[0xE] + 
+					    m[0x8] * m[0x2] * m[0xD] + 
+					    m[0xC] * m[0x1] * m[0xA] - 
+					    m[0xC] * m[0x2] * m[0x9];
 
-			inv[2] = m[1]  * m[6] * m[15] - 
-					 m[1]  * m[7] * m[14] - 
-					 m[5]  * m[2] * m[15] + 
-					 m[5]  * m[3] * m[14] + 
-					 m[13] * m[2] * m[7] - 
-					 m[13] * m[3] * m[6];
+			inv[0x2] =  m[0x1] * m[0x6] * m[0xF] - 
+					    m[0x1] * m[0x7] * m[0xE] - 
+					    m[0x5] * m[0x2] * m[0xF] + 
+					    m[0x5] * m[0x3] * m[0xE] + 
+					    m[0xD] * m[0x2] * m[0x7] - 
+					    m[0xD] * m[0x3] * m[0x6];
 
-			inv[6] = -m[0]  * m[6] * m[15] + 
-					  m[0]  * m[7] * m[14] + 
-					  m[4]  * m[2] * m[15] - 
-					  m[4]  * m[3] * m[14] - 
-					  m[12] * m[2] * m[7] + 
-					  m[12] * m[3] * m[6];
+			inv[0x6] = -m[0x0] * m[0x6] * m[0xF] + 
+					    m[0x0] * m[0x7] * m[0xE] + 
+					    m[0x4] * m[0x2] * m[0xF] - 
+					    m[0x4] * m[0x3] * m[0xE] - 
+					    m[0xC] * m[0x2] * m[0x7] + 
+					    m[0xC] * m[0x3] * m[0x6];
 
-			inv[10] = m[0]  * m[5] * m[15] - 
-					  m[0]  * m[7] * m[13] - 
-					  m[4]  * m[1] * m[15] + 
-					  m[4]  * m[3] * m[13] + 
-					  m[12] * m[1] * m[7] - 
-					  m[12] * m[3] * m[5];
+			inv[0xA] =  m[0x0] * m[0x5] * m[0xF] - 
+					    m[0x0] * m[0x7] * m[0xD] - 
+					    m[0x4] * m[0x1] * m[0xF] + 
+					    m[0x4] * m[0x3] * m[0xD] + 
+					    m[0xC] * m[0x1] * m[0x7] - 
+					    m[0xC] * m[0x3] * m[0x5];
 
-			inv[14] = -m[0]  * m[5] * m[14] + 
-					   m[0]  * m[6] * m[13] + 
-					   m[4]  * m[1] * m[14] - 
-					   m[4]  * m[2] * m[13] - 
-					   m[12] * m[1] * m[6] + 
-					   m[12] * m[2] * m[5];
+			inv[0xE] = -m[0x0] * m[0x5] * m[0xE] + 
+					    m[0x0] * m[0x6] * m[0xD] + 
+					    m[0x4] * m[0x1] * m[0xE] - 
+					    m[0x4] * m[0x2] * m[0xD] - 
+					    m[0xC] * m[0x1] * m[0x6] + 
+					    m[0xC] * m[0x2] * m[0x5];
 
-			inv[3] = -m[1] * m[6] * m[11] + 
-					  m[1] * m[7] * m[10] + 
-					  m[5] * m[2] * m[11] - 
-					  m[5] * m[3] * m[10] - 
-					  m[9] * m[2] * m[7] + 
-					  m[9] * m[3] * m[6];
+			inv[0x3] = -m[0x1] * m[0x6] * m[0xB] + 
+					    m[0x1] * m[0x7] * m[0xA] + 
+					    m[0x5] * m[0x2] * m[0xB] - 
+					    m[0x5] * m[0x3] * m[0xA] - 
+					    m[0x9] * m[0x2] * m[0x7] + 
+					    m[0x9] * m[0x3] * m[0x6];
 
-			inv[7] = m[0] * m[6] * m[11] - 
-					 m[0] * m[7] * m[10] - 
-					 m[4] * m[2] * m[11] + 
-					 m[4] * m[3] * m[10] + 
-					 m[8] * m[2] * m[7] - 
-					 m[8] * m[3] * m[6];
+			inv[0x7] =  m[0x0] * m[0x6] * m[0xB] - 
+					    m[0x0] * m[0x7] * m[0xA] - 
+					    m[0x4] * m[0x2] * m[0xB] + 
+					    m[0x4] * m[0x3] * m[0xA] + 
+					    m[0x8] * m[0x2] * m[0x7] - 
+					    m[0x8] * m[0x3] * m[0x6];
 
-			inv[11] = -m[0] * m[5] * m[11] + 
-					   m[0] * m[7] * m[9] + 
-					   m[4] * m[1] * m[11] - 
-					   m[4] * m[3] * m[9] - 
-					   m[8] * m[1] * m[7] + 
-					   m[8] * m[3] * m[5];
+			inv[0xB] = -m[0x0] * m[0x5] * m[0xB] + 
+					    m[0x0] * m[0x7] * m[0x9] + 
+					    m[0x4] * m[0x1] * m[0xB] - 
+					    m[0x4] * m[0x3] * m[0x9] - 
+					    m[0x8] * m[0x1] * m[0x7] + 
+					    m[0x8] * m[0x3] * m[0x5];
 
-			inv[15] = m[0] * m[5] * m[10] - 
-					  m[0] * m[6] * m[9] - 
-					  m[4] * m[1] * m[10] + 
-					  m[4] * m[2] * m[9] + 
-					  m[8] * m[1] * m[6] - 
-					  m[8] * m[2] * m[5];
+			inv[0xF] =  m[0x0] * m[0x5] * m[0xA] - 
+					    m[0x0] * m[0x6] * m[0x9] - 
+					    m[0x4] * m[0x1] * m[0xA] + 
+					    m[0x4] * m[0x2] * m[0x9] + 
+					    m[0x8] * m[0x1] * m[0x6] - 
+					    m[0x8] * m[0x2] * m[0x5];
 
-			det = m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] + m[3] * inv[12];
+			det = m[0x0] * inv[0x0] + m[0x1] * inv[0x4] + m[0x2] * inv[0x8] + m[0x3] * inv[0xC];
 
 			if (det == 0)
 				throw new InvalidOperationException("not invertible");

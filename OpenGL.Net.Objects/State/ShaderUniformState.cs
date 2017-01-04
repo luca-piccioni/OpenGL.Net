@@ -432,6 +432,26 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
+		#region Uniform Block
+
+		protected bool UniformBlockDirty
+		{
+			get { return (_UniformBlockDirty); }
+			set { _UniformBlockDirty |= value; }
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private bool _UniformBlockDirty = true;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private int _UniformBlockSupportId = 1;
+
+		#endregion
+
 		#region GraphicsState Overrides
 
 		/// <summary>
@@ -525,15 +545,24 @@ namespace OpenGL.Objects.State
 		{
 			if (base.Equals(other) == false)
 				return (false);
-			Debug.Assert(other is ShaderUniformStateBase);
 
-			ShaderUniformStateBase otherState = (ShaderUniformStateBase) other;
-			GraphicsContext ctx = GraphicsContext.GetCurrentContext();
+			throw new NotImplementedException();
+		}
 
-			if (ctx == null)
-				throw new InvalidOperationException("no current context");
+		/// <summary>
+		/// The name of the uniform buffer object used for holding uniform state information.
+		/// </summary>
+		public override int UniformBlockName
+		{
+			get
+			{
+				if (_UniformBlockDirty) {
+					_UniformBlockSupportId = Math.Min(1, _UniformBlockSupportId++);
+					_UniformBlockDirty = false;
+				}
 
-			return (false);
+				return (_UniformBlockSupportId);
+			}
 		}
 
 		/// <summary>

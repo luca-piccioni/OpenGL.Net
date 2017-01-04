@@ -28,7 +28,7 @@ namespace OpenGL.Test
 	/// Abstract base test creating benchmarking methods.
 	/// </summary>
 	[TestFixture, RequiresSTA]
-	abstract class BenchmarkBase
+	public abstract class BenchmarkBase
 	{
 		protected static void RunBenchmarks<T>(string prefix) where T : BenchmarkBase
 		{

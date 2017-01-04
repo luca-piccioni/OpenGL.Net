@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace OpenGL
 {
@@ -128,6 +129,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Plane normal.
+		/// </summary>
+		private Vertex3f _Normal;
+
+		/// <summary>
 		/// 
 		/// </summary>
 		public float Distance
@@ -135,11 +141,6 @@ namespace OpenGL
 			get { return (_Distance); }
 			set { _Distance = value; }
 		}
-
-		/// <summary>
-		/// Plane normal.
-		/// </summary>
-		private Vertex3f _Normal;
 
 		/// <summary>
 		/// Distance from origin.
@@ -346,6 +347,7 @@ namespace OpenGL
 		/// It returns the distance between a point and this plane. In the case the distance is positive, the point is on the positive side of the
 		/// plane (following Normal direction), otherwise the distance is negative.
 		/// </returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public float GetDistance(Vertex3f p)
 		{
 			return ((Normal * p) - Distance);

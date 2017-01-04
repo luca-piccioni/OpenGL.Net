@@ -82,7 +82,8 @@ namespace OpenGL.Test
 
 		[Test]
 		public void TestVector3Min_VecImpl()
-		{Stopwatch sw = Stopwatch.StartNew();
+		{
+			Stopwatch sw = Stopwatch.StartNew();
 
 			for (int r = 0; r < 10000; r++) {
 				unsafe

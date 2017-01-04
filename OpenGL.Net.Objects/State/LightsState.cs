@@ -85,11 +85,7 @@ namespace OpenGL.Objects.State
 			/// </param>
 			public void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
 			{
-				string uniformName;
-
-				uniformName = String.Format("{0}.AmbientLighting", prefix);
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, AmbientLighting);
+				shaderProgram.SetUniform(ctx, prefix + ".AmbientLighting", AmbientLighting);
 			}
 		}
 
@@ -177,7 +173,7 @@ namespace OpenGL.Objects.State
 			#endregion
 
 			/// <summary>
-			/// Apply this MaterialState
+			/// Apply this Light
 			/// </summary>
 			/// <param name="ctx">
 			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
@@ -187,39 +183,14 @@ namespace OpenGL.Objects.State
 			/// </param>
 			public void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
 			{
-				string uniformName;
-
-				uniformName = prefix + ".AmbientColor";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, AmbientColor);
-
-				uniformName = prefix + ".DiffuseColor";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, DiffuseColor);
-
-				uniformName = prefix + ".SpecularColor";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, SpecularColor);
-
-				uniformName = prefix + ".Direction";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, Direction);
-
-				uniformName = prefix + ".Position";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, Position);
-
-				uniformName = prefix + ".HalfVector";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, HalfVector);
-
-				uniformName = prefix + ".AttenuationFactors";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, AttenuationFactors);
-
-				uniformName = prefix + ".FallOff";
-				if (shaderProgram.IsActiveUniform(uniformName))
-					shaderProgram.SetUniform(ctx, uniformName, FallOff);
+				shaderProgram.SetUniform(ctx, prefix + ".AmbientColor", AmbientColor);
+				shaderProgram.SetUniform(ctx, prefix + ".DiffuseColor", DiffuseColor);
+				shaderProgram.SetUniform(ctx, prefix + ".SpecularColor", SpecularColor);
+				shaderProgram.SetUniform(ctx, prefix + ".Direction", Direction);
+				shaderProgram.SetUniform(ctx, prefix + ".Position", Position);
+				shaderProgram.SetUniform(ctx, prefix + ".HalfVector", HalfVector);
+				shaderProgram.SetUniform(ctx, prefix + ".AttenuationFactors", AttenuationFactors);
+				shaderProgram.SetUniform(ctx, prefix + ".FallOff", FallOff);
 			}
 		}
 
@@ -228,10 +199,23 @@ namespace OpenGL.Objects.State
 		#region Lights State
 
 		/// <summary>
-		/// The actual projection matrix used for projecting vertex arrays.
+		/// Get or set the actual light model parameters.
 		/// </summary>
 		[ShaderUniformState()]
-		public LightModelType LightModel;
+		public LightModelType LightModel
+		{
+			get { return (_LightModel); }
+			set
+			{
+				_LightModel = value;
+				UniformBlockDirty = true;
+			}
+		}
+
+		/// <summary>
+		/// The actual light model parameters.
+		/// </summary>
+		private LightModelType _LightModel;
 
 		/// <summary>
 		/// Lights state.
@@ -306,6 +290,9 @@ namespace OpenGL.Objects.State
 
 				throw new NotImplementedException();
 			} else {
+				if (shaderProgram.IsUniformBlockChanged(this) == false)
+					return;
+
 				// Custom implementation
 				ctx.Bind(shaderProgram);
 
@@ -323,8 +310,7 @@ namespace OpenGL.Objects.State
 					}
 				}
 
-				if (shaderProgram.IsActiveUniform("glo_LightsCount"))
-					shaderProgram.SetUniform(ctx, "glo_LightsCount", LightsCount);
+				shaderProgram.SetUniform(ctx, "glo_LightsCount", LightsCount);
 			}
 		}
 
@@ -340,10 +326,7 @@ namespace OpenGL.Objects.State
 			if (state == null)
 				throw new ArgumentNullException("state");
 
-			LightsState otherState = state as LightsState;
-
-			if (otherState == null)
-				throw new ArgumentException("not a LightsState", "state");
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -403,6 +386,7 @@ namespace OpenGL.Objects.State
 		public void ResetLights()
 		{
 			_LightsCount = 0;
+			UniformBlockDirty = true;
 		}
 
 		public void AddLight(Light light)
@@ -412,6 +396,7 @@ namespace OpenGL.Objects.State
 
 			_Lights[_LightsCount] = light;
 			_LightsCount++;
+			UniformBlockDirty = true;
 		}
 
 		#endregion
