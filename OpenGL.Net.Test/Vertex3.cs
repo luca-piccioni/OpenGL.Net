@@ -21,7 +21,9 @@ using System.Diagnostics;
 
 using NUnit.Framework;
 
+#if HAVE_NUMERICS
 using System.Numerics;
+#endif
 
 namespace OpenGL.Test
 {
@@ -80,6 +82,8 @@ namespace OpenGL.Test
 			Console.WriteLine("Min: {0} ms", sw.ElapsedMilliseconds);
 		}
 
+#if HAVE_NUMERICS
+
 		[Test]
 		public void TestVector3Min_VecImpl()
 		{
@@ -125,6 +129,8 @@ namespace OpenGL.Test
 
 			Console.WriteLine("Min: {0} ms", sw.ElapsedMilliseconds);
 		}
+
+#endif
 
 		private Vertex3f[] _MinArray;
 

@@ -249,7 +249,6 @@ namespace OpenGL.Objects
 #if DISABLE_GL_ARB_shading_language_include
 				Extensions.ShadingLanguageInclude_ARB = false;
 #endif
-				Extensions.UniformBufferObject_ARB = false;
 				// Initialize resources
 				InitializeResources();
 				// Get GL context flags
