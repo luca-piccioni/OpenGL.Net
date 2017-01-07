@@ -20,6 +20,7 @@ using System;
 using System.Windows.Forms;
 
 using OpenGL;
+using OpenGL.Objects;
 
 namespace HelloObjects
 {
@@ -38,6 +39,12 @@ namespace HelloObjects
 
 			if (envDebug == "GL") {
 				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
+					Console.WriteLine(format, args);
+				});
+			}
+
+			if (envDebug == "OBJECTS" || true) {
+				Resource.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
 					Console.WriteLine(format, args);
 				});
 			}

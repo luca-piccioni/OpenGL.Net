@@ -482,6 +482,45 @@ namespace OpenGL.Objects.Scene
 		#region Drawing
 
 		/// <summary>
+		/// Get or set the scene graph flags (not recursive).
+		/// </summary>
+		public SceneObjectFlags ObjectFlags
+		{
+			get { return (_Flags); }
+			set { _Flags = value; }
+		}
+
+		public void SetObjectFlags(SceneObjectFlags flags, bool recursive)
+		{
+			_Flags = flags;
+			if (recursive)
+				_FlagsRecursive = flags;
+		}
+
+		public void AddObjectFlags(SceneObjectFlags flags, bool recursive)
+		{
+			_Flags |= flags;
+			if (recursive)
+				_FlagsRecursive |= flags;
+		}
+
+		public void RemoveObjectFlags(SceneObjectFlags flags)
+		{
+			_Flags &= ~flags;
+			_FlagsRecursive &= ~flags;
+		}
+
+		/// <summary>
+		/// Scene object flags.
+		/// </summary>
+		private SceneObjectFlags _Flags = SceneObjectFlags.None;
+
+		/// <summary>
+		/// Flags indicating which values are recursive.
+		/// </summary>
+		private SceneObjectFlags _FlagsRecursive = SceneObjectFlags.None;
+
+		/// <summary>
 		/// Draw this SceneGraphObject hierarchy.
 		/// </summary>
 		/// <param name="ctx">
@@ -564,9 +603,61 @@ namespace OpenGL.Objects.Scene
 		#region Culling
 
 		/// <summary>
+		/// Set bounding volume used for testing visibility.
+		/// </summary>
+		public IBoundingVolume BoundingVolume
+		{
+			get { return (_BoundingVolume); }
+			set
+			{
+				_BoundingVolume = value;
+				_BoundingVolumeDirty = true;
+			}
+		}
+
+		/// <summary>
 		/// Bounding volume used for testing visibility.
 		/// </summary>
-		public IBoundingVolume BoundingVolume;
+		private IBoundingVolume _BoundingVolume;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		internal bool _BoundingVolumeDirty;
+
+		/// <summary>
+		/// The graphics state of the bounding volume.
+		/// </summary>
+		internal VertexArrayObject BoundingVolumeArray
+		{
+			get { return (_BoundingVolumeArray); }
+			set
+			{
+				SwapGpuResources(value, ref _BoundingVolumeArray);
+			}
+		}
+
+		/// <summary>
+		/// Vertex arrays representing the bounding box.
+		/// </summary>
+		private VertexArrayObject _BoundingVolumeArray;
+
+		/// <summary>
+		/// The graphics state of the bounding volume.
+		/// </summary>
+		internal GraphicsStateSet BoundingState
+		{
+			get { return (_BoundingState); }
+			set
+			{
+				SwapResources(value, ref _BoundingState);
+			}
+		}
+
+		/// <summary>
+		/// The graphics state of the bounding volume.
+		/// </summary>
+		private GraphicsStateSet _BoundingState;
 
 		#endregion
 

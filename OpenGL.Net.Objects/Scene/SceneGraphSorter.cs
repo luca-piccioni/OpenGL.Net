@@ -186,17 +186,17 @@ namespace OpenGL.Objects.Scene
 		{
 			Dictionary<ShaderProgram, List<SceneObjectBatch>> programLists = new Dictionary<ShaderProgram, List<SceneObjectBatch>>();
 
-			foreach (SceneObjectBatch objectBacth in objects) {
+			foreach (SceneObjectBatch objectBatch in objects) {
 				List<SceneObjectBatch> programList;
 
-				if (programLists.TryGetValue(objectBacth.Program, out programList)) {
-					programList.Add(objectBacth);
+				if (programLists.TryGetValue(objectBatch.Program, out programList)) {
+					programList.Add(objectBatch);
 					continue;
 				}
 
 				programList = new List<SceneObjectBatch>();
-				programList.Add(objectBacth);
-				programLists.Add(objectBacth.Program, programList);
+				programList.Add(objectBatch);
+				programLists.Add(objectBatch.Program, programList);
 			}
 
 			List<KeyValuePair<SceneGraphSorter, List<SceneObjectBatch>>> subseqs = new List<KeyValuePair<SceneGraphSorter, List<SceneObjectBatch>>>();

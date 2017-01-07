@@ -173,7 +173,7 @@ namespace OpenGL.Objects
 
 			List<T> pluginList = new List<T>();
 
-			_Log.Debug("Loading plugins from '{0}'.", pluginDir);
+			Resource.Log("Loading plugins from '{0}'.", pluginDir);
 
 			// Managed plugins, and unmanaged plugins on Windows platforms
 			string[] sharedLibraries = Directory.GetFiles(pluginDir, "*.dll", SearchOption.TopDirectoryOnly);
@@ -248,11 +248,11 @@ namespace OpenGL.Objects
 					if (invalidOperationException.InnerException != null && invalidOperationException.InnerException is MissingMethodException)
 						invalidLibrary = true;
 					else
-						_Log.Warn(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), invalidOperationException);
+						Resource.Log(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), invalidOperationException);
 				} catch (TypeLoadException) {
 					invalidLibrary = true;
 				} catch (Exception exception) {
-					_Log.Warn(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), exception);
+					Resource.Log(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), exception);
 				}
 			}
 
@@ -263,15 +263,15 @@ namespace OpenGL.Objects
 				if (invalidOperationException.InnerException != null && invalidOperationException.InnerException is MissingMethodException)
 					invalidLibrary = true;
 				else
-					_Log.Warn(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), invalidOperationException);
+					Resource.Log(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), invalidOperationException);
 			} catch (TypeLoadException) {
 				invalidLibrary = true;
 			} catch (Exception exception) {
-				_Log.Warn(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), exception);
+				Resource.Log(String.Format("Unable to load plugin ({0}) from {1}.", pluginFactoryType, pluginPath), exception);
 			}
 
 			if (invalidLibrary)
-				_Log.Warn("Library '{0}' is not a plugin for {1}.", libraryName, pluginFactoryType);
+				Resource.Log("Library '{0}' is not a plugin for {1}.", libraryName, pluginFactoryType);
 
 			return (null);
 		}
@@ -305,7 +305,7 @@ namespace OpenGL.Objects
 			if (pluginFactoryType == null)
 				throw new ArgumentNullException("pluginFactoryType");
 
-			_Log.Debug("Loading managed plugin {0} from '{1}'.", Path.GetFileName(pluginPath), pluginFactoryType);
+			Resource.Log("Loading managed plugin {0} from '{1}'.", Path.GetFileName(pluginPath), pluginFactoryType);
 
 			// Load managed library
 			Assembly hLibrary = Assembly.LoadFile(pluginPath);
@@ -351,15 +351,6 @@ namespace OpenGL.Objects
 
 			return (Activator.CreateInstance(unmanagedPluginType, pluginPath) as T);
 		}
-
-		#endregion
-
-		#region Logging
-
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		private static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 	}

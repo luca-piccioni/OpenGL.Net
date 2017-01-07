@@ -316,11 +316,11 @@ namespace OpenGL.Objects.Scene
 				positionBuffer.Create(position);
 				vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
-				ArrayBufferObject<Vertex4f> normalBuffer = new ArrayBufferObject<Vertex4f>(BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 				normalBuffer.Create(normal);
 				vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 
-				ArrayBufferObject<Vertex4f> texCoordBuffer = new ArrayBufferObject<Vertex4f>(BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObject<Vertex3f> texCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
 				texCoordBuffer.Create(texcoord);
 				vertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
 
@@ -526,7 +526,7 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentNullException("objContext");
 
 			SceneObject sceneObject = new SceneObject();
-			ShadersLibrary.ProgramTag objProgram = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+			ShadersLibrary.ProgramTag objProgram = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex");
 
 			foreach (ObjGroup objGroup in objContext.Groups) {
 				SceneObject sceneGroup = new SceneObject();

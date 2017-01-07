@@ -344,15 +344,6 @@ namespace OpenGL.Objects.State
 		}
 
 		#endregion
-		
-		#region Logging
-
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		private static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
-		#endregion
 
 		#region IResource Implementation
 

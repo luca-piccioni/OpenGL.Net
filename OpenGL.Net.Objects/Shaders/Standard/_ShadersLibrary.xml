@@ -28,7 +28,7 @@
 		<Program Id="OpenGL.Standard">
 			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment" />
-			<Attribute Name="glo_Position" Semantic="Position" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_UniformColor" Semantic="Color"/>
@@ -42,8 +42,8 @@
 					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				</Symbols>
 			</Object>
-			<Attribute Name="glo_Position" Semantic="Position" />
-			<Attribute Name="glo_Color" Semantic="Color" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
 			
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 		</Program>
@@ -63,10 +63,10 @@
 				</Symbols>
 			</Object>
 
-			<Attribute Name="glo_Position" Semantic="Position" />
-			<Attribute Name="glo_Color" Semantic="Color" />
-			<Attribute Name="glo_Normal" Semantic="Normal" />
-			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
+			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
+			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />
@@ -88,9 +88,9 @@
 			<Object Path="OpenGL.Objects.Shaders.Light.Light.glsl" Stage="Fragment" />
 			<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" Stage="Fragment" />
 
-			<Attribute Name="glo_Position" Semantic="Position" />
-			<Attribute Name="glo_Normal" Semantic="Normal" />
-			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
+			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />

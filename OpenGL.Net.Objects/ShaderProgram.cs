@@ -198,11 +198,9 @@ namespace OpenGL.Objects
 			IntPtr[] feedbackVaryingsPtrs = null;
 
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				_Log.Debug("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
-				_Log.Indent();
+				Log("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
 				foreach (string feedbackVarying in _FeedbackVaryings)
-					_Log.Debug("- {0}", feedbackVarying);
-				_Log.Unindent();
+					Log("- {0}", feedbackVarying);
 
 				if (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT) {
 					string[] feedbackVaryings = _FeedbackVaryings.ToArray();
@@ -218,6 +216,19 @@ namespace OpenGL.Objects
 					// Nothing to do ATM
 				} else
 					throw new InvalidOperationException("transform feedback not supported");
+			}
+
+			#endregion
+
+			#region Bind Attribute Locations
+
+			if (ctx.Extensions.ExplicitAttribLocation_ARB == false) {
+				foreach (KeyValuePair<string, AttributeMetadata> pair in _AttributeMetadata) {
+					if (pair.Value.Location < 0)
+						continue;
+
+					Gl.BindAttribLocation(ObjectName, (uint)pair.Value.Location, pair.Key);
+				}
 			}
 
 			#endregion
@@ -238,7 +249,7 @@ namespace OpenGL.Objects
 
 			int lStatus;
 
-			_Log.Debug("Link shader program {0}", Identifier ?? "<Unnamed>");
+			Log("Link shader program {0}", Identifier ?? "<Unnamed>");
 
 			// Link shader program
 			Gl.LinkProgram(ObjectName);
@@ -265,7 +276,7 @@ namespace OpenGL.Objects
 				foreach (string logLine in compilerLogLines)
 					sb.AppendLine("  $ " + logLine);
 
-				_Log.Error("Shader program \"{0}\" linkage failed: {1}", Identifier ?? "<Unnamed>", sb.ToString());
+				Log("Shader program \"{0}\" linkage failed: {1}", Identifier ?? "<Unnamed>", sb.ToString());
 
 				throw new ShaderException("shader program is not valid. Linker output for {0}: {1}\n", Identifier ?? "<Unnamed>", sb.ToString());
 			}
@@ -343,15 +354,14 @@ namespace OpenGL.Objects
 			// Make uniform list invariant respect the used driver (ease log comparation)
 			uniformNames.Sort();
 
-			_Log.Debug("Shader program active uniforms:");
+			Log("Shader program active uniforms:");
 			foreach (string uniformName in uniformNames) {
 				UniformBinding uniformBinding = _UniformMap[uniformName];
 				if (uniformBinding != null)
-					_Log.Debug("\tUniform {0} (Type: {1}, Location: {2})", uniformName, uniformBinding.UniformType, uniformBinding.Location);
+					Log("\tUniform {0} (Type: {1}, Location: {2})", uniformName, uniformBinding.UniformType, uniformBinding.Location);
 			}
-				
 
-			_Log.Debug("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
+			Log("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
 
 			#endregion
 
@@ -391,9 +401,9 @@ namespace OpenGL.Objects
 			// Make attribute list invariant respect the used driver (ease log comparation)
 			attributeNames.Sort();
 
-			_Log.Debug("Shader program active attributes:");
+			Log("Shader program active attributes:");
 			foreach (string attributeName in attributeNames)
-				_Log.Debug("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, _AttributesMap[attributeName].Type, _AttributesMap[attributeName].Location);
+				Log("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, _AttributesMap[attributeName].Type, _AttributesMap[attributeName].Location);
 
 			#endregion
 
@@ -464,9 +474,9 @@ namespace OpenGL.Objects
 				Debug.Assert(_FeedbacksMap.Count > 0);
 
 				// Log feedback mapping
-				_Log.Debug("Shader program active feedbacks:");
+				Log("Shader program active feedbacks:");
 				foreach (string feedbackName in _FeedbacksMap.Keys)
-					_Log.Debug("\tFeedback {0} (Type: {1})", feedbackName, _FeedbacksMap[feedbackName].Type);
+					Log("\tFeedback {0} (Type: {1})", feedbackName, _FeedbacksMap[feedbackName].Type);
 			}
 
 			#endregion
@@ -713,7 +723,60 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Program Attributes Semantic
+		#region Program Attributes Metadata
+
+		/// <summary>
+		/// Set a shader program attribute location.
+		/// </summary>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
+		/// shader program attributes, but it is usually.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="Int32"/> that specify the attribute location.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="attributeName"/> is null.
+		/// </exception>
+		public void SetAttributeLocation(string attributeName, int location)
+		{
+			if (attributeName == null)
+				throw new ArgumentNullException("attributeName");
+
+			AttributeMetadata attributeMetadata;
+
+			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata) == false)
+				_AttributeMetadata.Add(attributeName, attributeMetadata = new AttributeMetadata());
+			attributeMetadata.Location = location;
+		}
+
+		/// <summary>
+		/// Get a shader program attribute location.
+		/// </summary>
+		/// <param name="attributeName">
+		/// A <see cref="String"/> that specify the attribute name. This value doesn't have to match with the actual
+		/// shader program attributes, but it is usually.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Int32"/> that specify the location associated to <paramref name="attributeName"/>, if defined. In
+		/// the case no semantic was associated to <paramref name="attributeName"/>, it returns -1.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="attributeName"/> is null.
+		/// </exception>
+		public int GetAttributeLocation(string attributeName)
+		{
+			if (attributeName == null)
+				throw new ArgumentNullException("attributeName");
+
+			// Extract array name
+			AttributeMetadata attributeMetadata;
+
+			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata))
+				return (attributeMetadata.Location);
+
+			return (-1);
+		}
 
 		/// <summary>
 		/// Set a shader program attribute semantic.
@@ -736,7 +799,11 @@ namespace OpenGL.Objects
 			if (semantic == null)
 				throw new ArgumentNullException("semantic");
 
-			_AttributeSemantic[attributeName] = semantic;
+			AttributeMetadata attributeMetadata;
+
+			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata) == false)
+				_AttributeMetadata.Add(attributeName, attributeMetadata = new AttributeMetadata());
+			attributeMetadata.Semantic = semantic;
 		}
 
 		/// <summary>
@@ -765,11 +832,15 @@ namespace OpenGL.Objects
 			if (arrayMatch.Success)
 				attributeName = arrayMatch.Groups["AttributeName"].Value;
 
-			if (_AttributeSemantic.TryGetValue(attributeName, out semantic)) {
-				if (arrayMatch.Success)
-					semantic = String.Format("{0}[{1}]", semantic, arrayMatch.Groups["AttributeIndex"].Value);
+			AttributeMetadata attributeMetadata;
 
-				return (semantic);
+			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata)) {
+				if (attributeMetadata.Semantic == null)
+					return (null);
+				if (arrayMatch.Success)
+					semantic = String.Format("{0}[{1}]", attributeMetadata.Semantic, arrayMatch.Groups["AttributeIndex"].Value);
+
+				return (attributeMetadata.Semantic);
 			}
 
 			return (null);
@@ -790,21 +861,31 @@ namespace OpenGL.Objects
 			if (attributeName == null)
 				throw new ArgumentNullException("attributeName");
 
-			_AttributeSemantic.Remove(attributeName);
+			AttributeMetadata attributeMetadata;
+
+			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata))
+				attributeMetadata.Semantic = null;
 		}
 
 		/// <summary>
 		/// Remove all defined attribute semantics.
 		/// </summary>
-		public void ClearAttributeSemantic()
+		public void ClearAttributesMetadata()
 		{
-			_AttributeSemantic.Clear();
+			_AttributeMetadata.Clear();
+		}
+
+		private class AttributeMetadata
+		{
+			public string Semantic;
+
+			public int Location;
 		}
 
 		/// <summary>
-		/// Map between program attribute names and attribute semantic.
+		/// Map between program attribute names and attribute metadata.
 		/// </summary>
-		private readonly Dictionary<string, string> _AttributeSemantic = new Dictionary<string, string>();
+		private readonly Dictionary<string, AttributeMetadata> _AttributeMetadata = new Dictionary<string, AttributeMetadata>();
 
 		#endregion
 
@@ -1080,15 +1161,6 @@ namespace OpenGL.Objects
 				fs.Write(programCache, 0, programCache.Length);
 			}
 		}
-
-		#endregion
-
-		#region Logging
-
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		protected static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 

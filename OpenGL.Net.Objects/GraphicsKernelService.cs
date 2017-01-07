@@ -542,15 +542,6 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Logging
-
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		private static readonly ILogger sLog = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-		#endregion
-
 		#region GraphicsResource Overrides
 
 		/// <summary>

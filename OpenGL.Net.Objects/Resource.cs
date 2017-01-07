@@ -109,6 +109,70 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Resource Logging
+
+		/// <summary>
+		/// Delegate used for logging using application procedures.
+		/// </summary>
+		public delegate void ProcedureLogDelegate(string format, params object[] args);
+
+		/// <summary>
+		/// Register a callback used to notify the application about a procedure log.
+		/// </summary>
+		/// <param name="callback">
+		/// The <see cref="ProcedureLogDelegate"/> used to notify application about a procedure log event.
+		/// </param>
+		public static void RegisterApplicationLogDelegate(ProcedureLogDelegate callback)
+		{
+			_ProcLogCallbacks.Add(callback);
+
+			// Automatically query information
+			_ProcLogEnabled = _ProcLogCallbacks.Count == 1;
+		}
+
+		/// <summary>
+		/// Delegate for logging using application framework.
+		/// </summary>
+		private static readonly List<ProcedureLogDelegate> _ProcLogCallbacks = new List<ProcedureLogDelegate>();
+
+		/// <summary>
+		/// Flag used for enabling/disabling procedure logging.
+		/// </summary>
+		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
+
+		/// <summary>
+		/// Flag used for enabling/disabling procedure logging.
+		/// </summary>
+		private static bool _ProcLogEnabled;
+
+		/// <summary>
+		/// Log a procedure call.
+		/// </summary>
+		/// <param name="format">
+		/// A <see cref="String"/> that specifies the format string.
+		/// </param>
+		/// <param name="args">
+		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
+		/// </param>
+		[Conditional("GL_DEBUG")]
+		protected internal static void Log(string format, params object[] args)
+		{
+			if (format == null)
+				throw new ArgumentNullException("format");
+
+			// Global flag
+			if (_ProcLogEnabled == false)
+				return;
+
+			foreach (ProcedureLogDelegate logDelegate in _ProcLogCallbacks) {
+				try {
+					logDelegate(format, args);
+				} catch { }
+			}
+		}
+
+		#endregion
+
 		#region IResource Implementation
 
 		/// <summary>

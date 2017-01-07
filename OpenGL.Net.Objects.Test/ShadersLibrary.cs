@@ -16,6 +16,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
 using System.Collections.Generic;
 
 using NUnit.Framework;
@@ -35,39 +36,44 @@ namespace OpenGL.Objects.Test
 			ShadersLibrary.Program shaderProgramInfo = ShadersLibrary.Instance.GetProgram(programId);
 			Assert.IsNotNull(shaderProgramInfo);
 
-			//ShaderProgram shaderProgram = ShadersLibrary.Instance.CreateProgram(programId);
-			//try {
-			//	Assert.IsNotNull(shaderProgram);
-			//	Assert.DoesNotThrow(delegate { shaderProgram.Create(_Context); });
+			ShaderProgram shaderProgram = _Context.CreateProgram(programId);
+			try {
+				Assert.IsNotNull(shaderProgram);
+				Assert.DoesNotThrow(delegate {
+					shaderProgram.Create(_Context);
+				});
 
-			//	Assert.AreEqual(shaderProgramInfo.Attributes.Count, shaderProgram.ActiveAttributes.Count);
-			//	foreach (ShadersLibrary.Program.Attribute attribute in shaderProgramInfo.Attributes) {
-			//		Assert.IsTrue(shaderProgram.IsActiveAttribute(attribute.Name));
-			//		Assert.AreEqual(attribute.Semantic, shaderProgram.GetAttributeSemantic(attribute.Name));
-			//	}
+				// Output program information
+				Console.WriteLine("Shader program: {0}", shaderProgram.Identifier);
+				Console.WriteLine("Active attributes: {0}", shaderProgram.ActiveAttributes.Count);
+				foreach (string attributeName in shaderProgram.ActiveAttributes)
+					Console.WriteLine("  - {0}", attributeName);
+				Console.WriteLine("Active uniforms: {0}", shaderProgram.ActiveUniforms.Count);
+				foreach (string attributeName in shaderProgram.ActiveUniforms)
+					Console.WriteLine("  - {0}", attributeName);
 
-			//	Assert.AreEqual(shaderProgramInfo.Uniforms.Count, shaderProgram.ActiveUniforms.Count);
-			//	foreach (ShadersLibrary.Program.Uniform uniform in shaderProgramInfo.Uniforms) {
-			//		Assert.IsTrue(shaderProgram.IsActiveUniform(uniform.Name));
-			//	}
-			//} finally {
-			//	if (shaderProgram != null)
-			//		shaderProgram.Dispose();
-			//}
+				Assert.GreaterOrEqual(shaderProgram.ActiveAttributes.Count, shaderProgramInfo.Attributes.Count);
+				foreach (ShadersLibrary.Program.Attribute attribute in shaderProgramInfo.Attributes) {
+					Assert.IsTrue(shaderProgram.IsActiveAttribute(attribute.Name));
+					Assert.AreEqual(attribute.Semantic, shaderProgram.GetAttributeSemantic(attribute.Name));
+					Assert.AreEqual(attribute.Location, shaderProgram.GetAttributeLocation(attribute.Name));
+				}
+
+				Assert.GreaterOrEqual(shaderProgram.ActiveUniforms.Count, shaderProgramInfo.Uniforms.Count);
+				foreach (ShadersLibrary.Program.Uniform uniform in shaderProgramInfo.Uniforms) {
+					Assert.IsTrue(shaderProgram.IsActiveUniform(uniform.Name));
+				}
+			} finally {
+				if (shaderProgram != null)
+					shaderProgram.Dispose();
+			}
 		}
 
 		public string[] ProgramIds
 		{
 			get
 			{
-				List<string> programIds = new List<string>();
-
-				programIds.Add("OpenGL.Standard");
-				programIds.Add("OpenGL.Standard+Color");
-				programIds.Add("OpenGL.Standard+VertexLighting");
-				programIds.Add("OpenGL.CubeMapping");
-
-				return (programIds.ToArray());
+				return (ShadersLibrary.Instance.Programs.ConvertAll(delegate (ShadersLibrary.Program item) { return (item.Id); }).ToArray());
 			}
 		}
 

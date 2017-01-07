@@ -628,7 +628,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
+			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (<#= baseType #>)Math.Min(x, v[i].x);

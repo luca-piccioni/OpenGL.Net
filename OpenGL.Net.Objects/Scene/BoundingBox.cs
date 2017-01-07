@@ -58,6 +58,20 @@ namespace OpenGL.Objects.Scene
 
 		#region Box Definition
 
+		public Vertex3f MinPosition
+		{
+			get { return (_Bounds[0]); }
+			set { _Bounds[0] = value; }
+		}
+
+		public Vertex3f MaxPosition
+		{
+			get { return (_Bounds[1]); }
+			set { _Bounds[1] = value; }
+		}
+
+		public Vertex3f Size { get { return (MaxPosition - MinPosition); } }
+
 		/// <summary>
 		/// Box vertices bounds.
 		/// </summary>
@@ -69,6 +83,22 @@ namespace OpenGL.Objects.Scene
 		#endregion
 
 		#region IBoundVolume Implementation
+
+		/// <summary>
+		/// Offset of the bounding volume w.r.t. the underlying object origin.
+		/// </summary>
+		public Vertex3f Position
+		{
+			get
+			{
+				return ((MaxPosition + MinPosition) / 2.0f);
+			}
+		}
+
+		/// <summary>
+		/// Minimum distance at which the volume cannot be intersected w.r.t. <see cref="Position"/>.
+		/// </summary>
+		public float Radius { get { return (MaxPosition.Module()); } }
 
 		/// <summary>
 		/// Determine whether this bound volume is clipped by all specified planes.
@@ -113,17 +143,6 @@ namespace OpenGL.Objects.Scene
 			}
 
 			return (false);
-		}
-
-		/// <summary>
-		/// Draw the bounding volume.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		public void Draw(GraphicsContext ctx, IModelMatrix objectViewModel)
-		{
-
 		}
 
 		#endregion

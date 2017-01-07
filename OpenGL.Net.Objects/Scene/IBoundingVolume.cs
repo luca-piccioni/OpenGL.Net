@@ -26,6 +26,16 @@ namespace OpenGL.Objects.Scene
 	public interface IBoundingVolume
 	{
 		/// <summary>
+		/// Offset of the bounding volume w.r.t. the underlying object origin.
+		/// </summary>
+		Vertex3f Position { get; }
+
+		/// <summary>
+		/// Minimum distance at which the volume cannot be intersected w.r.t. <see cref="Position"/>.
+		/// </summary>
+		float Radius { get; }
+
+		/// <summary>
 		/// Determine whether this bound volume is clipped by all specified planes.
 		/// </summary>
 		/// <param name="clippingPlanes">
@@ -36,13 +46,5 @@ namespace OpenGL.Objects.Scene
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
 		bool IsClipped(IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel);
-
-		/// <summary>
-		/// Draw the bounding volume.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		void Draw(GraphicsContext ctx, IModelMatrix objectViewModel);
 	}
 }

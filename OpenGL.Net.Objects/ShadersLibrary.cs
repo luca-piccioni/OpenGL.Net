@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -241,6 +242,13 @@ namespace OpenGL.Objects
 				/// </summary>
 				[XmlAttribute("Semantic")]
 				public string Semantic;
+
+				/// <summary>
+				/// Attribute location.
+				/// </summary>
+				[XmlAttribute("Location")]
+				[DefaultValue(-1)]
+				public int Location = -1;
 			}
 
 			/// <summary>
@@ -305,8 +313,12 @@ namespace OpenGL.Objects
 				}
 
 				// Register attributes semantic
-				foreach (Attribute attribute in Attributes)
+				foreach (Attribute attribute in Attributes) {
 					shaderProgram.SetAttributeSemantic(attribute.Name, attribute.Semantic);
+					if (attribute.Location >= 0)
+						shaderProgram.SetAttributeLocation(attribute.Name, attribute.Location);
+				}
+					
 				// Register uniforms semantic
 				foreach (Uniform uniform in Uniforms)
 					shaderProgram.SetUniformSemantic(uniform.Name, uniform.Semantic);

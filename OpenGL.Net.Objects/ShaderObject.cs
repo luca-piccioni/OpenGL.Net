@@ -281,7 +281,7 @@ namespace OpenGL.Objects
 			string[] shaderSourceStrings = _SourceStrings.ToArray();
 
 			if (_SourcePath != null)
-				_Log.Debug("Generate shader source for '{0}'.", _SourcePath);
+				Log("Generate shader source for '{0}'.", _SourcePath);
 
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
@@ -606,15 +606,6 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Logging
-		
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		private static readonly ILogger _Log = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-		#endregion
-
 		#region GraphicsResource Overrides
 
 		/// <summary>
@@ -707,7 +698,7 @@ namespace OpenGL.Objects
 			// instance and the attached ShaderObject instances
 			ShaderCompilerContext cctx = new ShaderCompilerContext(_CompilationParams);
 
-			_Log.Debug("Compilation of shader object '{0}'.", _SourcePath);
+			Log("Compilation of shader object '{0}'.", _SourcePath);
 
 			List<string> source = GenerateSource(ctx, cctx);        // Source generation!
 
@@ -735,22 +726,22 @@ namespace OpenGL.Objects
 				StringBuilder sb = GetInfoLog();
 
 				// Stop compilation process
-				_Log.Error("Shader object \"{0}\" compilation failed:\n{1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
+				Log("Shader object \"{0}\" compilation failed:\n{1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
 
 				// Log the source code referred to the shader log
-				_Log.Error("Source code for shader '{0}' that has generated the compiler error.", _SourcePath);
-				_Log.Error("--------------------------------------------------------------------------------");
+				Log("Source code for shader '{0}' that has generated the compiler error.", _SourcePath);
+				Log("--------------------------------------------------------------------------------");
 				uint sourcelineNo = 0;
 				foreach (string sourceline in source)
-					_Log.Error("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
-				_Log.Error("--------------------------------------------------------------------------------");
+					Log("{0,4} | {1}", ++sourcelineNo, sourceline.Length > 0 ? sourceline.Remove(sourceline.Length - 1, 1) : String.Empty);
+				Log("--------------------------------------------------------------------------------");
 
 				throw new ShaderException("shader object is not valid. Compiler output for {0}: {1}\n", _SourcePath, sb.ToString());
 			} else {
 				StringBuilder sb = GetInfoLog();
 
 				if (sb.Length > 0)
-					_Log.Warn("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
+					Log("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
 			}
 
 			_Compiled = true;

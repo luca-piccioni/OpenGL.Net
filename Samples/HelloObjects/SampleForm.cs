@@ -325,6 +325,8 @@ namespace HelloObjects
 			bumbleBee.LocalModel.RotateX(-90.0f);
 			bumbleBee.LocalModel.RotateZ(90.0f);
 
+			bumbleBee.ObjectFlags = SceneObjectFlags.BoundingBox;
+
 			return bumbleBee;
 		}
 
@@ -368,7 +370,7 @@ namespace HelloObjects
 			_CubeScene.AddChild(globalLightZone);
 
 			// Cube
-			float Size = (float)Math.Sqrt(300.0f);
+			float Size = (float)Math.Sqrt(0);
 			const float Multiplier = 10.0f;
 
 			int materialIndex = 0;
@@ -386,7 +388,7 @@ namespace HelloObjects
 					}
 
 					// Enable/Disable blending
-					switch (materialIndex % 3) {
+					switch (materialIndex % 1) {
 						case 0:
 							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
 							break;
@@ -401,6 +403,22 @@ namespace HelloObjects
 					globalLightZone.AddChild(cubeInstance);
 				}
 			}
+
+			//SceneObjectGeometry cubeLambert = CreateCubeGeometry();
+			//cubeLambert.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
+
+			//globalLightZone.AddChild(cubeLambert);
+
+			//SceneObjectGeometry cubeBlinn = CreateCubeGeometry();
+			//cubeBlinn.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+			//cubeBlinn.LocalModel.Translate(10.0f, 0.0f, 0.0f);
+			//globalLightZone.AddChild(cubeBlinn);
+
+			//SceneObjectGeometry cubeColored = CreateCubeGeometry();
+			//cubeColored.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+Color");
+			//cubeColored.LocalModel.Translate(-10.0f, 0.0f, 0.0f);
+			//globalLightZone.AddChild(cubeColored);
+
 			globalLightZone.AddChild(CreateMesh());
 			// Skybox
 			//if ((sceneObject = CreateSkyBoxObject()) != null)

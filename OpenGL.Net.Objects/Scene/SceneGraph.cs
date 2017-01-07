@@ -26,7 +26,7 @@ namespace OpenGL.Objects.Scene
 	/// <summary>
 	/// Directed graphs of <see cref="SceneObject"/>.
 	/// </summary>
-	public class SceneGraph : SceneObject
+	public sealed class SceneGraph : SceneObject
 	{
 		#region Scene References
 
@@ -47,7 +47,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get or set the scene graph flags.
 		/// </summary>
-		public SceneGraphFlags Flags
+		public SceneGraphFlags SceneFlags
 		{
 			get { return (_Flags); }
 			set { _Flags = value; }
@@ -56,7 +56,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Scene graph flags.
 		/// </summary>
-		private SceneGraphFlags _Flags = SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting;
+		private SceneGraphFlags _Flags = SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting; // | SceneGraphFlags.BoundingVolumes;
 
 		/// <summary>
 		/// Draw this SceneGraph.
@@ -86,7 +86,7 @@ namespace OpenGL.Objects.Scene
 				// Sort geometries
 				List<SceneObjectBatch> sceneObjects = objectBatchContext.Objects;
 
-				if (((Flags & SceneGraphFlags.StateSorting) != 0) && (_SorterRoot != null))
+				if (((SceneFlags & SceneGraphFlags.StateSorting) != 0) && (_SorterRoot != null))
 					sceneObjects = _SorterRoot.Sort(objectBatchContext.Objects);
 
 				swSelection.Stop();
@@ -121,19 +121,45 @@ namespace OpenGL.Objects.Scene
 			SceneObjectGeometry sceneGeometry = sceneObject as SceneObjectGeometry;
 			if (sceneGeometry != null) {
 				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
+				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
 
 				// View-frustum culling
-				if ((ctxScene.Scene.Flags & SceneGraphFlags.CullingViewFrustum) != 0) {
-					TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
-
+				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0) {
 					if (sceneGeometry.BoundingVolume != null) {
 						if (sceneGeometry.BoundingVolume.IsClipped(objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView))
 							return (true);		// Continue traversing
 					}
 				}
-				
+
 				// Object is drawn
-				objectBatchContext.Objects.Add(new SceneObjectBatch(sceneGeometry.Program, sceneGeometry.VertexArray, sceneGeometryState.Copy()));
+				objectBatchContext.Objects.Add(new SceneObjectBatch(
+					sceneGeometry.Program,
+					sceneGeometry.VertexArray,
+					sceneGeometryState.Copy()
+				));
+
+				// Bounding volumes
+				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
+					if ((sceneGeometry.BoundingVolume != null) && (sceneGeometry.ObjectFlags & SceneObjectFlags.BoundingBox) != 0) {
+						// Cache resources, if necessary
+						if (sceneGeometry._BoundingVolumeDirty) {
+							sceneGeometry.BoundingVolumeArray = ctxScene.Scene.CreateBBoxVertexArray(sceneGeometry.BoundingVolume);
+							sceneGeometry.BoundingState = ctxScene.Scene.CreateBBoxState(sceneGeometry.BoundingVolume);
+
+							sceneGeometry._BoundingVolumeDirty = false;
+						}
+
+						// Emulates GraphicsStateSet.Push
+						GraphicsStateSet bboxState = sceneGeometryState.Copy();
+						bboxState.Merge(sceneGeometry.BoundingState);
+						
+						//objectBatchContext.Objects.Add(new SceneObjectBatch(
+						//	ctxScene.Scene._BoundingVolumeProgram,
+						//	ctxScene.Scene._BoundingBoxArray,
+						//	bboxState
+						//));
+					}
+				}
 			}
 
 			return (true);
@@ -184,6 +210,83 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
+		#region Bounding Volumes Resources
+
+		private VertexArrayObject CreateBBoxVertexArray(IBoundingVolume bbox)
+		{
+			if (bbox.GetType() == typeof(BoundingBox))
+				return (_BoundingBoxArray);
+			else
+				throw new NotImplementedException();
+		}
+
+		private VertexArrayObject CreateBBoxVertexArray()
+		{
+			VertexArrayObject bboxArray = new VertexArrayObject();
+			ArrayBufferObject<Vertex3f> bboxVPositionArray = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			bboxVPositionArray.Create(new Vertex3f[] {
+				// Lower
+				new Vertex3f(-0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, -0.5f, -0.5f),
+				new Vertex3f(+0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, -0.5f, +0.5f),
+				new Vertex3f(+0.5f, -0.5f, +0.5f), new Vertex3f(-0.5f, -0.5f, +0.5f),
+				new Vertex3f(-0.5f, -0.5f, +0.5f), new Vertex3f(-0.5f, -0.5f, -0.5f),
+				// Upper
+				new Vertex3f(-0.5f, +0.5f, -0.5f), new Vertex3f(+0.5f, +0.5f, -0.5f),
+				new Vertex3f(+0.5f, +0.5f, -0.5f), new Vertex3f(+0.5f, +0.5f, +0.5f),
+				new Vertex3f(+0.5f, +0.5f, +0.5f), new Vertex3f(-0.5f, +0.5f, +0.5f),
+				new Vertex3f(-0.5f, +0.5f, +0.5f), new Vertex3f(-0.5f, +0.5f, -0.5f),
+				// Verticals
+				new Vertex3f(-0.5f, -0.5f, -0.5f), new Vertex3f(-0.5f, +0.5f, -0.5f),
+				new Vertex3f(+0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, +0.5f, -0.5f),
+				new Vertex3f(+0.5f, -0.5f, +0.5f), new Vertex3f(+0.5f, +0.5f, +0.5f),
+				new Vertex3f(-0.5f, -0.5f, +0.5f), new Vertex3f(-0.5f, +0.5f, +0.5f),
+			});
+			bboxArray.SetArray(bboxVPositionArray, VertexArraySemantic.Position);
+
+			bboxArray.SetElementArray(PrimitiveType.Lines);
+
+			return (bboxArray);
+		}
+
+		private GraphicsStateSet CreateBBoxState(IBoundingVolume bbox)
+		{
+			GraphicsStateSet bboxState;
+
+			if (bbox.GetType() == typeof(BoundingBox))
+				bboxState = CreateBBoxState((BoundingBox)bbox);
+			else
+				throw new NotImplementedException();
+
+			// No blending
+			bboxState.DefineState(new BlendState());
+
+			return (bboxState);
+		}
+
+		private GraphicsStateSet CreateBBoxState(BoundingBox bbox)
+		{
+			GraphicsStateSet bboxState = new GraphicsStateSet();
+			TransformState bboxTransformState = new TransformState();
+
+			bboxTransformState.LocalModel.Translate(bbox.Position);
+			bboxTransformState.LocalModel.Scale(bbox.Size);
+			bboxState.DefineState(bboxTransformState);
+
+			return (bboxState);
+		}
+
+		/// <summary>
+		/// Vertex arrays for drawing bounding boxes.
+		/// </summary>
+		private VertexArrayObject _BoundingBoxArray = new VertexArrayObject();
+
+		/// <summary>
+		/// Shader program used for drawing bounding volumes.
+		/// </summary>
+		private ShaderProgram _BoundingVolumeProgram;
+
+		#endregion
+
 		#region SceneGraphObject Overrides
 
 		/// <summary>
@@ -226,6 +329,26 @@ namespace OpenGL.Objects.Scene
 			} finally {
 				ctxScene.GraphicsStateStack.Pop();
 			}
+		}
+
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		/// <remarks>
+		/// All resources linked with <see cref="LinkResource(IGraphicsResource)"/> will be automatically created.
+		/// </remarks>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			// Bounding volume program
+			LinkResource(_BoundingVolumeProgram = ctx.CreateProgram("OpenGL.Standard"));
+			// Bounding volume arrays
+			LinkResource(_BoundingBoxArray = CreateBBoxVertexArray());
+
+			// Base implementation
+			base.CreateObject(ctx);
 		}
 
 		#endregion

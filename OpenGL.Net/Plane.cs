@@ -347,7 +347,9 @@ namespace OpenGL
 		/// It returns the distance between a point and this plane. In the case the distance is positive, the point is on the positive side of the
 		/// plane (following Normal direction), otherwise the distance is negative.
 		/// </returns>
+#if NET45
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
 		public float GetDistance(Vertex3f p)
 		{
 			return ((Normal * p) - Distance);

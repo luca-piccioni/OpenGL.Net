@@ -665,6 +665,15 @@ namespace OpenGL.Objects
 			graphicsResource.DecRef();
 		}
 
+		protected void SwapGpuResources<T>(T value, ref T current) where T : IGraphicsResource
+		{
+			if (current != null)
+				UnlinkResource(current);
+			current = value;
+			if (value != null)
+				LinkResource(value);
+		}
+
 		/// <summary>
 		/// Resources used by this UserGraphicsResource.
 		/// </summary>
@@ -711,6 +720,15 @@ namespace OpenGL.Objects
 			Debug.Assert(res);
 			// No more referenced
 			resource.DecRef();
+		}
+
+		protected void SwapResources<T>(T value, ref T current) where T : IResource
+		{
+			if (current != null)
+				UnlinkResource(current);
+			current = value;
+			if (value != null)
+				LinkResource(value);
 		}
 
 		/// <summary>

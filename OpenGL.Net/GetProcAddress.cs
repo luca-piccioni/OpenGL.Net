@@ -162,6 +162,15 @@ namespace OpenGL
 	/// </summary>
 	internal class GetProcAddressWindows : IGetProcAddress
 	{
+		#region Singleton
+
+		/// <summary>
+		/// The <see cref="GetProcAddressEgl"/> singleton instance.
+		/// </summary>
+		public static readonly GetProcAddressWindows Instance = new GetProcAddressWindows();
+
+		#endregion
+
 		#region Windows Platform Imports
 
 		private enum LoadLibraryExFlags : uint
@@ -299,7 +308,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a <see cref="IntPtr"/> that represents the handle of the library loaded from <paramref name="libraryPath"/>.
 		/// </returns>
-		private IntPtr GetLibraryHandle(string libraryPath)
+		public IntPtr GetLibraryHandle(string libraryPath)
 		{
 			IntPtr libraryHandle;
 

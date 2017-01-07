@@ -37,7 +37,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\net461\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_NUMERICS;NET45</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_NUMERICS;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -59,7 +59,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net461\x86\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_NUMERICS;NET45</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_NUMERICS;NET45</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>

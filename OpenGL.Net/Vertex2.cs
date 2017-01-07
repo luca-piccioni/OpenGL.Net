@@ -563,7 +563,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
+			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (byte)Math.Min(x, v[i].x);
@@ -1431,7 +1431,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
+			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (sbyte)Math.Min(x, v[i].x);
@@ -2285,7 +2285,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
+			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (ushort)Math.Min(x, v[i].x);
@@ -3153,7 +3153,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
+			short x = (short)short.MaxValue, y = (short)short.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (short)Math.Min(x, v[i].x);
@@ -4007,7 +4007,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
+			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (uint)Math.Min(x, v[i].x);
@@ -4875,7 +4875,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
+			int x = (int)int.MaxValue, y = (int)int.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (int)Math.Min(x, v[i].x);
@@ -5686,7 +5686,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
+			float x = (float)float.MaxValue, y = (float)float.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (float)Math.Min(x, v[i].x);
@@ -6488,7 +6488,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
+			double x = (double)double.MaxValue, y = (double)double.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (double)Math.Min(x, v[i].x);
@@ -7303,7 +7303,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
+			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
 				x = (HalfFloat)Math.Min(x, v[i].x);

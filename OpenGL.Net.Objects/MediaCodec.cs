@@ -376,7 +376,7 @@ namespace OpenGL.Objects
 
 			foreach (KeyValuePair<string, MediaFormatAttribute> pair in formatDescriptions) {
 				if (mCodecDescriptions.ContainsKey(pair.Key)) {
-					_Log.Warn("The type {0} define media {1}, but it is ignored because it is already defined elsewhere.", type, pair.Key);
+					Resource.Log("The type {0} define media {1}, but it is ignored because it is already defined elsewhere.", type, pair.Key);
 					continue;
 				}
 
@@ -1026,15 +1026,6 @@ namespace OpenGL.Objects
 
 			return (localPath);
 		}
-
-		#endregion
-
-		#region Logging
-
-		/// <summary>
-		/// Logger of this class.
-		/// </summary>
-		private static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 

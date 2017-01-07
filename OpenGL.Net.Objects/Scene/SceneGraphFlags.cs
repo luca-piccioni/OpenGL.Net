@@ -40,5 +40,10 @@ namespace OpenGL.Objects.Scene
 		/// Sort scene objects depending on their state.
 		/// </summary>
 		StateSorting =				0x0002,
+
+		/// <summary>
+		/// Bounding boxes are visible.
+		/// </summary>
+		BoundingVolumes =			0x0004,
 	}
 }
