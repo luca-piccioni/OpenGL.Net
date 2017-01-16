@@ -31,7 +31,7 @@ namespace OpenGL.Objects.State
 	/// </remarks>
 	public interface IGraphicsState : IResource, IEquatable<IGraphicsState>
 	{
-		#region State Properties
+		#region Identification
 
 		/// <summary>
 		/// The identifier of this IGraphicsState implementation.
@@ -43,6 +43,10 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		int StateIndex { get; }
 
+		#endregion
+
+		#region Application
+
 		/// <summary>
 		/// Flag indicating whether the state is applied to a <see cref="GraphicsContext"/>.
 		/// </summary>
@@ -53,17 +57,16 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		bool IsShaderProgramBound { get; }
 
-		#endregion
-
-		#region State Application
-
 		/// <summary>
-		/// Create or update resources defined by this IGraphicsState.
+		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
 		/// </param>
-		void CreateState(GraphicsContext ctx);
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
+		/// </param>
+		void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram);
 
 		/// <summary>
 		/// Apply the render state defined by this IGraphicsState.
@@ -76,8 +79,20 @@ namespace OpenGL.Objects.State
 		/// </param>
 		void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram);
 
+		#endregion
+
+		#region Stack Support
+
 		/// <summary>
-		/// Merge this state with another one.
+		/// Push/copy this state onto the stack, to be restored later.
+		/// </summary>
+		/// <returns>
+		/// It returns the most appropriate IGraphicsState for managing a set of state on a stack structure.
+		/// </returns>
+		IGraphicsState Push();
+
+		/// <summary>
+		/// Merge this state with another one, generally after a <see cref="Push"/> execution.
 		/// </summary>
 		/// <param name="state">
 		/// A <see cref="IGraphicsState"/> having the same <see cref="StateIdentifier"/> of this state.
@@ -102,20 +117,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The name of the uniform buffer object used for holding uniform state information.
 		/// </summary>
-		int UniformBlockName { get; }
-
-		#endregion
-
-		#region State Copy
-
-		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
-		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		IGraphicsState Copy();
+		uint UniformBlockName { get; }
 
 		#endregion
 	}

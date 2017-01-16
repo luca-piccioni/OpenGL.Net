@@ -20,7 +20,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -97,7 +96,7 @@ namespace OpenGL.Objects
 
 			// Remove shader
 			_ProgramObjects.Remove(shaderObject);
-        }
+		}
 
 		/// <summary>
 		/// Check the attachment state of a ShaderObject on this ShaderProgram.
@@ -249,7 +248,7 @@ namespace OpenGL.Objects
 
 			int lStatus;
 
-			Log("Link shader program {0}", Identifier ?? "<Unnamed>");
+			Log("=== Link shader program {0}", Identifier ?? "<Unnamed>");
 
 			// Link shader program
 			Gl.LinkProgram(ObjectName);
@@ -285,90 +284,13 @@ namespace OpenGL.Objects
 
 			#endregion
 
-			#region Collect Active Program Uniforms
-
-			int uniformBufferSize, attributeBufferSize;
-			int uniformCount;
-
-			// Get active uniforms count
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORMS, out uniformCount);
-			// Get uniforms maximum length for name
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORM_MAX_LENGTH, out uniformBufferSize);
-
-			// Clear uniform mapping
-			_UniformMap.Clear();
-			_DefaultBlockUniformSlots = 0;
-
-			// Collect uniform information
-			for (uint i = 0; i < (uint)uniformCount; i++) {
-				int uniformNameLength, uniformSize, uniformType;
-
-				// Mono optimize StringBuilder capacity after P/Invoke... ensure enought room
-				StringBuilder uNameBuilder = new StringBuilder(uniformBufferSize + 2);
-				uNameBuilder.EnsureCapacity(uniformBufferSize);
-
-				// Obtain active uniform informations
-				Gl.GetActiveUniform(ObjectName, i, uniformBufferSize, out uniformNameLength, out uniformSize, out uniformType, uNameBuilder);
-
-				string uniformName = uNameBuilder.ToString();
-
-				// Obtain active uniform location
-				int uLocation = Gl.GetUniformLocation(ObjectName, uniformName);
-
-				UniformBinding uniformBinding = new UniformBinding(uniformName, i, uLocation, (ShaderUniformType)uniformType);
-
-				// Map active uniform
-				_UniformMap[uniformName] = uniformBinding;
-				// Check for structured uniform
-				Match uniformStructure = Regex.Match(uniformName, @"((?<Struct>[\w\d_]+(\[\d+\])?)(\.))+");
-
-				if (uniformStructure.Success) {
-					string structurePattern = null;
-
-					for (int j = 0; j < uniformStructure.Groups["Struct"].Captures.Count; j++) {
-						string structureName = uniformStructure.Groups["Struct"].Captures[j].Value;
-
-						if (structurePattern != null) {
-							structurePattern = String.Format("{0}.{1}", structurePattern, structureName);
-						} else
-							structurePattern = structureName;
-
-						Match uniformArrayMatch = Regex.Match(structurePattern, @"(?<ArrayName>[\w\d_]+)(?<Indexer>\[\d+\])");
-						if (uniformArrayMatch.Success) {
-							string arrayPattern = uniformArrayMatch.Groups["ArrayName"].Value;
-							if (_UniformMap.ContainsKey(arrayPattern) == false)
-								_UniformMap.Add(arrayPattern, null);
-						}
-
-						if (_UniformMap.ContainsKey(structurePattern) == false)
-							_UniformMap.Add(structurePattern, null);
-					}
-				}
-				// Keep track of used slot
-				_DefaultBlockUniformSlots += GetUniformSlotCount(uniformBinding.UniformType);
-			}
-
-			// Log uniform location mapping
-			List<string> uniformNames = new List<string>(_UniformMap.Keys);
-
-			// Make uniform list invariant respect the used driver (ease log comparation)
-			uniformNames.Sort();
-
-			Log("Shader program active uniforms:");
-			foreach (string uniformName in uniformNames) {
-				UniformBinding uniformBinding = _UniformMap[uniformName];
-				if (uniformBinding != null)
-					Log("\tUniform {0} (Type: {1}, Location: {2})", uniformName, uniformBinding.UniformType, uniformBinding.Location);
-			}
-
-			Log("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
-
-			#endregion
+			CollectActiveUniforms(ctx);
+			CollectActiveUniformBlocks(ctx);
 
 			#region Collect Active Program Inputs
 
 			// Get active inputs count
-			int activeInputs;
+			int activeInputs, attributeBufferSize;
 
 			Gl.GetProgram(ObjectName, Gl.ACTIVE_ATTRIBUTES, out activeInputs);
 			// Get inputs maximum length for name
@@ -395,15 +317,19 @@ namespace OpenGL.Objects
 				_AttributesMap[name] = new AttributeBinding((uint)location, (ShaderAttributeType)type);
 			}
 
-			// Log attribute mapping
-			List<string> attributeNames = new List<string>(_AttributesMap.Keys);
+			if (LogEnabled) {
+				// Log attribute mapping
+				List<KeyValuePair<string, AttributeBinding>> attributeNames = new List<KeyValuePair<string, AttributeBinding>>(_AttributesMap);
 
-			// Make attribute list invariant respect the used driver (ease log comparation)
-			attributeNames.Sort();
-
-			Log("Shader program active attributes:");
-			foreach (string attributeName in attributeNames)
-				Log("\tAttribute {0} (Type: {1}, Location: {2})", attributeName, _AttributesMap[attributeName].Type, _AttributesMap[attributeName].Location);
+				// Make attribute list invariant respect the used driver (ease log comparation)
+				attributeNames.Sort(delegate(KeyValuePair<string, AttributeBinding> x, KeyValuePair<string, AttributeBinding> y) {
+					return (x.Value.Location.CompareTo(y.Value.Location));
+				});
+			
+				Log("Shader program active attributes:");
+				foreach (KeyValuePair<string, AttributeBinding> pair in attributeNames)
+					Log("\tAttribute {0} (Type: {1}, Location: {2})", pair.Key, pair.Value.Type, pair.Value.Location);
+			}
 
 			#endregion
 
@@ -480,8 +406,6 @@ namespace OpenGL.Objects
 			}
 
 			#endregion
-
-			CollectActiveUniformBlocks(ctx);
 		}
 
 		/// <summary>
@@ -549,7 +473,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Throw an Exception in the case the validation has failed.
 		/// </exception>
-		[Conditional("GL_DEBUG")]
+		[Conditional("DEBUG")]
 		private void Validate()
 		{
 			int lStatus;
@@ -875,11 +799,20 @@ namespace OpenGL.Objects
 			_AttributeMetadata.Clear();
 		}
 
+		/// <summary>
+		/// Attribute metadata information.
+		/// </summary>
 		private class AttributeMetadata
 		{
+			/// <summary>
+			/// The semantic associated to the attribute.
+			/// </summary>
 			public string Semantic;
 
-			public int Location;
+			/// <summary>
+			/// The location of attribute.
+			/// </summary>
+			public int Location = -1;
 		}
 
 		/// <summary>
@@ -1246,17 +1179,8 @@ namespace OpenGL.Objects
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			// Link this shader program
-			Link(ctx, _CompilationParams);
-
-			//// Lazy cache service registration
-			//// Give a chance of caching this shader program: if the shader cache service is defined, and it has not cached
-			//// this shader program, indeed this instance is a candidate for being cached.
-			//ShaderCacheService cacheService = ShaderCacheService.GetService(ctx);
-
-			//if (cacheService != null) {
-			//	if (!cacheService.IsCachedShaderProgram(mCompilationParams, Identifier))
-			//		cacheService.CacheShaderProgram(this);
-			//}
+			if (IsLinked == false)
+				Link(ctx, _CompilationParams);
 		}
 
 		/// <summary>

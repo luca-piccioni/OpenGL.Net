@@ -1136,6 +1136,15 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Active Texture Unit
+
+		/// <summary>
+		/// Current texture unit index operating with this Texture instance.
+		/// </summary>
+		internal uint ActiveTextureUnit = GraphicsContext.InvalidBindingIndex;
+
+		#endregion
+
 		#region GraphicsResource Overrides
 
 		/// <summary>

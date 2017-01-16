@@ -324,9 +324,13 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(Gl.CurrentExtensions.VertexBufferObject_ARB || _GpuBuffer != null);
-			// Map GPU buffer (actual or fake)
-			_MappedBuffer = Gl.CurrentExtensions.VertexBufferObject_ARB ? Gl.MapBuffer(BufferType, mask) : _GpuBuffer.AlignedBuffer;
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || _GpuBuffer != null);
+			if (ctx.Extensions.VertexBufferObject_ARB) {
+				BindCore(ctx);
+
+				_MappedBuffer = Gl.MapBuffer(BufferType, mask);
+			} else
+				_MappedBuffer = _GpuBuffer.AlignedBuffer;
 		}
 
 		/// <summary>
@@ -383,7 +387,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the mapped buffer address.
 		/// </summary>
-		protected IntPtr MappedBuffer { get { return (_MappedBuffer); } }
+		public IntPtr MappedBuffer { get { return (_MappedBuffer); } }
 
 		/// <summary>
 		/// Mapped buffer.
@@ -776,6 +780,8 @@ namespace OpenGL.Objects
 						return (Gl.ELEMENT_ARRAY_BUFFER_BINDING);
 					case BufferTargetARB.TransformFeedbackBuffer:
 						return (Gl.TRANSFORM_FEEDBACK_BINDING);
+					case BufferTargetARB.UniformBuffer:
+						return (Gl.UNIFORM_BUFFER);
 
 					default:
 						throw new NotSupportedException(String.Format("buffer target {0} not supported", BufferType));

@@ -194,9 +194,6 @@ namespace OpenGL.Objects.State
 					Gl.LoadMatrix(ModelView.ToArray());
 				}
 			} else {
-				if (shaderProgram.IsUniformBlockChanged(this) == false)
-					return;
-
 				// Custom implementation
 				ctx.Bind(shaderProgram);
 

@@ -82,12 +82,12 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Push a copy of the current state set onto the stack.
 		/// </summary>
-		public void Push()
+		private void Push()
 		{
 			if (IsDisposed)
 				throw new ObjectDisposedException("GraphicsStateSetStack");
 
-			GraphicsStateSet currentStateSetCopy = Current.Copy();
+			GraphicsStateSet currentStateSetCopy = Current.Push();
 
 			// Avoid a disposition of this state set
 			currentStateSetCopy.IncRef();

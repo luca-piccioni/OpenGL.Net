@@ -57,7 +57,7 @@ namespace OpenGL.Objects.State
 			index = PolygonModeState.StateSetIndex;
 			index = PolygonOffsetState.StateSetIndex;
 			index = ShaderUniformState.StateSetIndex;
-			index = LightsStateBase.StateSetIndex;
+			index = LightsState.StateSetIndex;
 			index = MaterialState.StateSetIndex;
 		}
 
@@ -224,13 +224,13 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
-		#region State Set Application
+		#region Application
 
-		public void Create(GraphicsContext ctx)
+		public void Create(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			foreach (IGraphicsState state in _RenderStates)
 				if (state != null)
-					state.CreateState(ctx);
+					state.CreateState(ctx, shaderProgram);
 		}
 
 		/// <summary>
@@ -258,10 +258,6 @@ namespace OpenGL.Objects.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			// Reset texture unit state
-			if (program != null)
-				program.ResetTextureUnits();
-
 			// Apply known states
 			foreach (IGraphicsState state in _RenderStates) {
 				if (state == null)
@@ -273,6 +269,27 @@ namespace OpenGL.Objects.State
 				if (state.IsContextBound || (state.IsShaderProgramBound && program != null))
 					state.ApplyState(ctx, program);
 			}
+		}
+
+		#endregion
+
+		#region Stack Support
+
+		/// <summary>
+		/// Clone this GraphicsStateSet.
+		/// </summary>
+		/// <returns>
+		/// It returns a deep copy of this GraphicsStateSet.
+		/// </returns>
+		public GraphicsStateSet Push()
+		{
+			GraphicsStateSet clone = new GraphicsStateSet();
+
+			foreach (IGraphicsState state in _RenderStates)
+				if (state != null)
+					clone.DefineState(state.Push());
+
+			return (clone);
 		}
 
 		/// <summary>
@@ -308,9 +325,6 @@ namespace OpenGL.Objects.State
 			if (stateSet == null)
 				throw new ArgumentNullException("stateSet");
 
-			List<IGraphicsState> thisSetStates = new List<IGraphicsState>(States);
-
-			// Merge states defined by stateSet
 			for (int i = 0; i < _RenderStates.Length; i++) {
 				IGraphicsState currentState = _RenderStates[i];
 				IGraphicsState otherState = stateSet[i];
@@ -318,29 +332,8 @@ namespace OpenGL.Objects.State
 				if (currentState != null && otherState != null)
 					_RenderStates[i].Merge(otherState);
 				else if (currentState == null && otherState != null)
-					_RenderStates[i] = otherState.Copy();
+					_RenderStates[i] = otherState.Push();
 			}
-		}
-
-		#endregion
-
-		#region Deep Copy
-
-		/// <summary>
-		/// Clone this GraphicsStateSet.
-		/// </summary>
-		/// <returns>
-		/// It returns a deep copy of this GraphicsStateSet.
-		/// </returns>
-		public GraphicsStateSet Copy()
-		{
-			GraphicsStateSet clone = new GraphicsStateSet();
-
-			foreach (IGraphicsState state in _RenderStates)
-				if (state != null)
-					clone.DefineState(state.Copy());
-
-			return (clone);
 		}
 
 		#endregion

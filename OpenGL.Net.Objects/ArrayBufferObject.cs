@@ -724,7 +724,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Methods
+		#region Min/Max
 
 		/// <summary>
 		/// Get the minimum of the values
@@ -886,6 +886,11 @@ namespace OpenGL.Objects
 			}
 		}
 
+		/// <summary>
+		/// Get the minimum and the maximum of the values.
+		/// </summary>
+		/// <param name="min"></param>
+		/// <param name="max"></param>
 		public void MinMax(out T min, out T max)
 		{
 			try {

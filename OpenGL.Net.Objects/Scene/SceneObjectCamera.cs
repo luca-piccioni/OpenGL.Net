@@ -44,6 +44,14 @@ namespace OpenGL.Objects.Scene
 			
 		}
 
+		/// <summary>
+		/// Force static initialization for this class.
+		/// </summary>
+		internal static void Touch()
+		{
+			// Static initialization
+		}
+
 		#endregion
 
 		#region Camera Properties
@@ -61,6 +69,25 @@ namespace OpenGL.Objects.Scene
 		/// The projection defined for this SceneGraphCameraObject.
 		/// </summary>
 		private IProjectionMatrix _ProjectionMatrix;
+
+		#endregion
+
+		#region SceneObject Overrides
+
+		/// <summary>
+		/// Get the object type. Used for avoiding reflection.
+		/// </summary>
+		public override uint ObjectType { get { return (_ObjectType); } }
+
+		/// <summary>
+		/// Get the object type of this SceneObject class.
+		/// </summary>
+		public static uint ClassObjectType { get { return (_ObjectType); } }
+
+		/// <summary>
+		/// The object identifier for this class of SceneObject.
+		/// </summary>
+		private static readonly uint _ObjectType = NextObjectType();
 
 		#endregion
 	}

@@ -34,8 +34,6 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		static MaterialState()
 		{
-			// Has nested types
-			DetectTypeProperties(typeof(MaterialState));
 			// Statically initialize uniform properties
 			_UniformProperties = DetectUniformProperties(typeof(MaterialState));
 		}
@@ -174,7 +172,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier for the TransformStateBase derived classes.
 		/// </summary>
-		public static string StateId = "OpenGL.Net.MaterialState";
+		public static string StateId = "OpenGL.MaterialState";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.
@@ -223,14 +221,9 @@ namespace OpenGL.Objects.State
 			GraphicsResource.CheckCurrentContext(ctx);
 
 			if (shaderProgram == null) {
-
 				// Fixed pipeline rendering requires server state
-
 				throw new NotImplementedException();
 			} else {
-				if (shaderProgram.IsUniformBlockChanged(this) == false)
-					return;
-
 				// Custom implementation
 				ctx.Bind(shaderProgram);
 

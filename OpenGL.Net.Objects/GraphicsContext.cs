@@ -21,11 +21,12 @@
 
 // Symbol for disabling at compile-time features derived from GL_ARB_shading_language_include
 #undef DISABLE_GL_ARB_shading_language_include
+// Symbol for disabling at compile-time features derived from GL_ARB_uniform_buffer_object
+#define DISABLE_GL_ARB_uniform_buffer_object
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -248,6 +249,9 @@ namespace OpenGL.Objects
 				Extensions.Query();
 #if DISABLE_GL_ARB_shading_language_include
 				Extensions.ShadingLanguageInclude_ARB = false;
+#endif
+#if DISABLE_GL_ARB_uniform_buffer_object
+				Extensions.UniformBufferObject_ARB = false;
 #endif
 				// Initialize resources
 				InitializeResources();
@@ -789,7 +793,36 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Unbind the specified resource XXX It should be really applicable?.
+		/// Bind the specified resource.
+		/// </summary>
+		/// <param name="bindingResource">
+		/// The <see cref="IBindingResource"/> to be bound on this GraphicsContext.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="bindingResource"/> is null.
+		/// </exception>
+		internal void Bind(IBindingResource bindingResource, bool force)
+		{
+			if (bindingResource == null)
+				throw new ArgumentNullException("bindingResource");
+
+			if (force) {
+				// Forcing binding
+				bindingResource.Bind(this);
+
+#if ENABLE_REDUNDANT_BIND
+				int bindingTarget = bindingResource.BindingTarget;
+
+				// Remind this object as bound
+				if (bindingTarget != 0)
+					_BoundObjects[bindingTarget] = new WeakReference<IBindingResource>(bindingResource);
+#endif
+			} else
+				Bind(bindingResource);
+		}
+
+		/// <summary>
+		/// Unbind the specified resource.
 		/// </summary>
 		/// <param name="bindingResource">
 		/// The <see cref="IBindingResource"/> to be bound on this GraphicsContext.
@@ -818,6 +851,98 @@ namespace OpenGL.Objects
 		/// Map between binding points.
 		/// </summary>
 		private readonly Dictionary<int, WeakReference<IBindingResource>> _BoundObjects = new Dictionary<int, WeakReference<IBindingResource>>();
+
+		#endregion
+
+		#region Lazy Objects Binding (Active Texture Unit)
+
+		internal void SetActiveTextureUnit(Texture texture)
+		{
+			if (texture == null)
+				throw new ArgumentNullException("texture");
+
+			if (texture.ActiveTextureUnit == InvalidBindingIndex)
+				BindTextureUnit(texture);
+			if (texture.ActiveTextureUnit == _ActiveTextureUnit)
+				return;
+
+			Gl.ActiveTexture(Gl.TEXTURE0 + (int)texture.ActiveTextureUnit);
+			_ActiveTextureUnit = texture.ActiveTextureUnit;
+		}
+
+		/// <summary>
+		/// Current active texture unit index.
+		/// </summary>
+		private uint _ActiveTextureUnit;
+
+		private void BindTextureUnit(Texture texture)
+		{
+			if (texture == null)
+				throw new ArgumentNullException("texture");
+			if (texture.ActiveTextureUnit != InvalidBindingIndex)
+				return;		// Already bound
+
+			uint textureUnitIndex = (_BindingsTexturesIndex + 1) % (uint)_BindingsTextures.Length;
+
+			Texture previousTexture = _BindingsTextures[textureUnitIndex];
+
+			// Set the index for the next Bind
+			_BindingsTexturesIndex = textureUnitIndex;
+			// Align object state
+			if (previousTexture != null)
+				previousTexture.ActiveTextureUnit = InvalidBindingIndex;
+			texture.ActiveTextureUnit = textureUnitIndex;
+		}
+
+		/// <summary>
+		/// Array reflecting the state of the active texture units.
+		/// </summary>
+		private readonly Texture[] _BindingsTextures = new Texture[Gl.CurrentLimits.MaxCombinedTextureImageUnits];
+
+		/// <summary>
+		/// Index of the least recently used binding point for <see cref="_BindingsTextures"/>
+		/// </summary>
+		private uint _BindingsTexturesIndex = (uint)(Gl.CurrentLimits.MaxCombinedTextureImageUnits - 1);
+
+		#endregion
+
+		#region Lazy Objects Binding (Uniform Buffer Index)
+
+		public void Bind(UniformBufferObject uniformBufferObject)
+		{
+			if (uniformBufferObject == null)
+				throw new ArgumentNullException("uniformBufferObject");
+			if (uniformBufferObject.BindingIndex != InvalidBindingIndex)
+				return;		// Already bound
+
+			uint bindingIndex = (_BindingsUniformLruIndex + 1) % (uint)_BindingsUniform.Length;
+
+			UniformBufferObject previousUniformBuffer = _BindingsUniform[bindingIndex];
+
+			// Bind the uniform buffer
+			Gl.BindBufferBase(Gl.UNIFORM_BUFFER, bindingIndex, uniformBufferObject.ObjectName);
+			// Set the index for the next Bind
+			_BindingsUniformLruIndex = bindingIndex;
+			// Align object state
+			if (previousUniformBuffer != null)
+				previousUniformBuffer.BindingIndex = InvalidBindingIndex;
+			uniformBufferObject.BindingIndex = bindingIndex;
+		}
+
+		/// <summary>
+		/// Array reflecting the state of the context bindings for uniform buffers (<see cref="Gl.UNIFORM_BUFFER"/> target).
+		/// </summary>
+		private readonly UniformBufferObject[] _BindingsUniform = new UniformBufferObject[Gl.CurrentLimits.MaxUniformBufferBindings];
+
+		/// <summary>
+		/// Index of the least recently used binding point for <see cref="_BindingsUniform"/>
+		/// </summary>
+		private uint _BindingsUniformLruIndex = (uint)(Gl.CurrentLimits.MaxUniformBufferBindings - 1);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		internal static readonly uint InvalidBindingIndex = UInt32.MaxValue;
 
 		#endregion
 

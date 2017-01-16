@@ -29,16 +29,18 @@ namespace OpenGL.Objects.Scene
 	{
 		#region Constructors
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="currentView"></param>
+		public SceneGraphContext(SceneGraph sceneGraph) : this(sceneGraph, null)
+		{
+			if (sceneGraph == null)
+				throw new ArgumentNullException("sceneGraph");
+
+			Scene = sceneGraph;
+		}
+
 		public SceneGraphContext(SceneGraph sceneGraph, SceneObjectCamera currentView)
 		{
 			if (sceneGraph == null)
 				throw new ArgumentNullException("sceneGraph");
-			if (currentView == null)
-				throw new ArgumentNullException("currentView");
 
 			Scene = sceneGraph;
 			CurrentView = currentView;

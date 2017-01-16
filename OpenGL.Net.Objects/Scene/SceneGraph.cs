@@ -28,6 +28,18 @@ namespace OpenGL.Objects.Scene
 	/// </summary>
 	public sealed class SceneGraph : SceneObject
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Force static initialization for this class.
+		/// </summary>
+		internal static void Touch()
+		{
+			// Static initialization
+		}
+
+		#endregion
+
 		#region Scene References
 
 		/// <summary>
@@ -56,7 +68,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Scene graph flags.
 		/// </summary>
-		private SceneGraphFlags _Flags = SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting; // | SceneGraphFlags.BoundingVolumes;
+		private SceneGraphFlags _Flags = SceneGraphFlags.None; // SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting; // | SceneGraphFlags.BoundingVolumes;
 
 		/// <summary>
 		/// Draw this SceneGraph.
@@ -80,27 +92,16 @@ namespace OpenGL.Objects.Scene
 				// View-frustum culling
 				objectBatchContext.ViewFrustumPlanes = Plane.GetFrustumPlanes(LocalProjection);
 				// Collect geometries to be batched
-				Stopwatch swSelection = Stopwatch.StartNew();
 				TraverseDirect(ctx, ctxScene, _TraverseDrawContext, objectBatchContext);
 				
 				// Sort geometries
 				List<SceneObjectBatch> sceneObjects = objectBatchContext.Objects;
-
 				if (((SceneFlags & SceneGraphFlags.StateSorting) != 0) && (_SorterRoot != null))
 					sceneObjects = _SorterRoot.Sort(objectBatchContext.Objects);
 
-				swSelection.Stop();
-
 				// Draw all batches
-				Stopwatch swDraw = Stopwatch.StartNew();
 				foreach (SceneObjectBatch objectBatch in sceneObjects)
 					objectBatch.Draw(ctx);
-				swDraw.Stop();
-
-				Console.WriteLine("Objects drawing ({0} objects): Selection={1:D5} Draw={2:D5} ms", objectBatchContext.Objects.Count, swSelection.ElapsedMilliseconds, swDraw.ElapsedMilliseconds);
-				Console.WriteLine();
-
-				CheckResourceLeaks();
 			}
 		}
 
@@ -114,53 +115,53 @@ namespace OpenGL.Objects.Scene
 		/// <param name="sceneObject"></param>
 		/// <param name="data"></param>
 		/// <returns></returns>
-		private static bool DrawDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		private static bool GraphDrawDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
 		{
 			ObjectBatchContext objectBatchContext = (ObjectBatchContext)data;
 
-			SceneObjectGeometry sceneGeometry = sceneObject as SceneObjectGeometry;
-			if (sceneGeometry != null) {
+			if (sceneObject.ObjectType == SceneObjectGeometry.ClassObjectType) {
+				SceneObjectGeometry sceneGeometry = (SceneObjectGeometry)sceneObject;
 				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
 				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
 
-				// View-frustum culling
-				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0) {
-					if (sceneGeometry.BoundingVolume != null) {
-						if (sceneGeometry.BoundingVolume.IsClipped(objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView))
-							return (true);		// Continue traversing
-					}
-				}
-
-				// Object is drawn
-				objectBatchContext.Objects.Add(new SceneObjectBatch(
-					sceneGeometry.Program,
-					sceneGeometry.VertexArray,
-					sceneGeometryState.Copy()
-				));
+				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
+					// View-frustum culling
+					objectBatchContext.Objects.AddRange(sceneGeometry.GetGeometries(sceneGeometryState, objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView));
+				else
+					// All geometries
+					objectBatchContext.Objects.AddRange(sceneGeometry.GetGeometries(sceneGeometryState));
 
 				// Bounding volumes
 				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
-					if ((sceneGeometry.BoundingVolume != null) && (sceneGeometry.ObjectFlags & SceneObjectFlags.BoundingBox) != 0) {
-						// Cache resources, if necessary
-						if (sceneGeometry._BoundingVolumeDirty) {
-							sceneGeometry.BoundingVolumeArray = ctxScene.Scene.CreateBBoxVertexArray(sceneGeometry.BoundingVolume);
-							sceneGeometry.BoundingState = ctxScene.Scene.CreateBBoxState(sceneGeometry.BoundingVolume);
-
-							sceneGeometry._BoundingVolumeDirty = false;
-						}
-
-						// Emulates GraphicsStateSet.Push
-						GraphicsStateSet bboxState = sceneGeometryState.Copy();
-						bboxState.Merge(sceneGeometry.BoundingState);
-						
-						//objectBatchContext.Objects.Add(new SceneObjectBatch(
-						//	ctxScene.Scene._BoundingVolumeProgram,
-						//	ctxScene.Scene._BoundingBoxArray,
-						//	bboxState
-						//));
-					}
+					
 				}
+			} else if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType) {
+				SceneObjectLightZone sceneObjectLightZone = (SceneObjectLightZone)sceneObject;
+
+				// TODO: Push instead of Clear to support stacked zones
+				objectBatchContext.Lights.Clear();
+				objectBatchContext.LightZone = sceneObjectLightZone;
+			} else if (sceneObject.ObjectType == SceneObjectLight.ClassObjectType) {
+				objectBatchContext.Lights.Add((SceneObjectLight)sceneObject);
 			}
+
+			return (true);
+		}
+
+		private static bool GraphDrawPostDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			ObjectBatchContext objectBatchContext = (ObjectBatchContext)data;
+
+			if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType) {
+				SceneObjectLightZone sceneObjectLightZone = (SceneObjectLightZone)sceneObject;
+
+				sceneObjectLightZone.ResetLights(ctxScene, objectBatchContext.Lights);
+				// TODO: Pop instead of Clear to support stacked zones
+				objectBatchContext.Lights.Clear();
+			}
+
+			// Restore previous state
+			ctxScene.GraphicsStateStack.Pop();
 
 			return (true);
 		}
@@ -179,12 +180,22 @@ namespace OpenGL.Objects.Scene
 			/// Objects to be drawn.
 			/// </summary>
 			public readonly List<SceneObjectBatch> Objects = new List<SceneObjectBatch>();
+
+			/// <summary>
+			/// The current light zone, if any.
+			/// </summary>
+			public SceneObjectLightZone LightZone;
+
+			/// <summary>
+			/// Lights to be associated to the current light zone.
+			/// </summary>
+			public readonly List<SceneObjectLight> Lights = new List<SceneObjectLight>();
 		}
 
 		/// <summary>
 		/// The <see cref="TraverseContext"/> used for processing the scene graph
 		/// </summary>
-		private static TraverseContext _TraverseDrawContext = new TraverseContext(DrawDelegate, DrawPreDelegate, DrawPostDelegate);
+		private static TraverseContext _TraverseDrawContext = new TraverseContext(GraphDrawDelegate, DrawPreDelegate, GraphDrawPostDelegate);
 
 		#endregion
 
@@ -290,15 +301,30 @@ namespace OpenGL.Objects.Scene
 		#region SceneGraphObject Overrides
 
 		/// <summary>
+		/// Get the object type. Used for avoiding reflection.
+		/// </summary>
+		public override uint ObjectType { get { return (_ObjectType); } }
+
+		/// <summary>
+		/// Get the object type of this SceneObject class.
+		/// </summary>
+		public static uint ClassObjectType { get { return (_ObjectType); } }
+
+		/// <summary>
+		/// The object identifier for this class of SceneObject.
+		/// </summary>
+		private static readonly uint _ObjectType = NextObjectType();
+
+		/// <summary>
 		/// Add a <see cref="SceneObject"/> as child of this instance.
 		/// </summary>
 		/// <param name="sceneGraphObject">
 		/// The <see cref="SceneObject"/> to be included in the children list of this instance.
 		/// </param>
-		public override void AddChild(SceneObject sceneGraphObject)
+		public override void Link(SceneObject sceneGraphObject)
 		{
 			// Base implementation
-			base.AddChild(sceneGraphObject);
+			base.Link(sceneGraphObject);
 			// Set default view
 			if ((_CurrentView == null) && (sceneGraphObject is SceneObjectCamera))
 				_CurrentView = (SceneObjectCamera)sceneGraphObject;
@@ -349,7 +375,47 @@ namespace OpenGL.Objects.Scene
 
 			// Base implementation
 			base.CreateObject(ctx);
+
+			// Collect geometries to be batched
+			using (SceneGraphContext ctxScene = new SceneGraphContext(this)) {
+				TraverseDirect(ctx, ctxScene, _TraverseCreateContext, null);
+			}
 		}
+
+		/// <summary>
+		/// Traverse delegate for creating resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for creating resources.
+		/// </param>
+		/// <param name="ctxScene"></param>
+		/// <param name="sceneObject"></param>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		private static bool CreateDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			SceneObjectGeometry sceneGeometry = sceneObject as SceneObjectGeometry;
+			if (sceneGeometry != null) {
+				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
+
+				sceneGeometryState.Create(ctx, sceneGeometry.Program);
+			}
+
+			return (true);
+		}
+
+		private static bool CreatePreDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
+		{
+			// Push and merge the graphics state
+			ctxScene.GraphicsStateStack.Push(sceneObject.ObjectState);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// The <see cref="TraverseContext"/> used for processing the scene graph
+		/// </summary>
+		private static TraverseContext _TraverseCreateContext = new TraverseContext(CreateDelegate, CreatePreDelegate, DrawPostDelegate);
 
 		#endregion
 	}

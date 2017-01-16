@@ -450,7 +450,6 @@ namespace OpenGL.Objects.Scene
 			if (fileStream == null)
 				throw new InvalidOperationException("only FileStream are supported");
 
-			SceneObject sceneObject = new SceneObject();
 			ObjContext objContext = new ObjContext(fileStream.Name);
 
 			using (StreamReader sr = new StreamReader(stream)) {
@@ -525,32 +524,20 @@ namespace OpenGL.Objects.Scene
 			if (objContext == null)
 				throw new ArgumentNullException("objContext");
 
-			SceneObject sceneObject = new SceneObject();
-			ShadersLibrary.ProgramTag objProgram = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex");
+			SceneObjectGeometry sceneObject = new SceneObjectGeometry();
+
+			// Program shader to all objects
+			sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
 
 			foreach (ObjGroup objGroup in objContext.Groups) {
-				SceneObject sceneGroup = new SceneObject();
-
 				foreach (ObjGeometry objGeometry in objGroup.MergeGeometries()) {
-					SceneObjectGeometry sceneGeometry = new SceneObjectGeometry();
+					VertexArrayObject vertexArray = objGeometry.CreateArrays(objContext);
+					GraphicsStateSet objectState = new GraphicsStateSet();
 
-					sceneGeometry.ProgramTag = objProgram;
-					sceneGeometry.VertexArray = objGeometry.CreateArrays(objContext);
-					sceneGeometry.ObjectState.DefineState(objGeometry.CreateMaterialState());
+					objectState.DefineState(objGeometry.CreateMaterialState());
 
-					// Compute bounding box
-					VertexArrayObject.IVertexArray positionArray = sceneGeometry.VertexArray.GetVertexArray(VertexArraySemantic.Position);
-					ArrayBufferObject<Vertex4f> positionArrayBuffer = (ArrayBufferObject<Vertex4f>)positionArray.Array;
-					Vertex4f min = Vertex4f.Maximum, max = Vertex4f.Minimum;
-					
-					positionArrayBuffer.MinMax(out min, out max);
-
-					sceneGeometry.BoundingVolume = new BoundingBox((Vertex3f)min, (Vertex3f)max);
-
-					sceneGroup.AddChild(sceneGeometry);
+					sceneObject.AddGeometry(vertexArray, objectState);
 				}
-
-				sceneObject.AddChild(sceneGroup);
 			}
 
 			return (sceneObject);

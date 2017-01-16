@@ -54,27 +54,20 @@ void main()
 	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
 	int index;
 
-	// Emission color from texture
 	index = glo_FrontMaterialEmissionTexCoord;
-	if (index >= 0) {
+	if (index >= 0)
 		fragmentMaterial.EmissiveColor = fragmentMaterial.EmissiveColor * TEXTURE_2D(glo_FrontMaterialEmissionTexture, glo_VertexTexCoord[index]);
-	}
 
-	// Ambient color from texture
 	index = glo_FrontMaterialAmbientTexCoord;
-	if (index >= 0) {
+	if (index >= 0)
 		fragmentMaterial.AmbientColor = fragmentMaterial.AmbientColor * TEXTURE_2D(glo_FrontMaterialAmbientTexture, glo_VertexTexCoord[index]);
-	}
 
-	// Diffuse color from texture
-	index = glo_FrontMaterialDiffuseTexCoord;
-	if (index >= 0) {
-		fragmentMaterial.DiffuseColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
 #if defined(GLO_COLOR_PER_VERTEX)
-		// Modulate diffuse texture with vertex color, if defined
-		fragmentMaterial.DiffuseColor = fragmentMaterial.DiffuseColor * glo_VertexColor;
+	fragmentMaterial.DiffuseColor = fragmentMaterial.DiffuseColor * glo_VertexColor;
 #endif
-	}
+	index = glo_FrontMaterialDiffuseTexCoord;
+	if (index >= 0)
+		fragmentMaterial.DiffuseColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
 
 	// Fragment color
 	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, normalize(glo_VertexNormal));

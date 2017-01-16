@@ -83,18 +83,20 @@
 #define LOCATION(loc)
 #endif
 
-#if defined(GL_ARB_uniform_buffer_object) && !defined(GL_ARB_uniform_buffer_object_disabled)
-#define BLOCK_BEGIN(block_name)					layout(std140) uniform block_name {
-#define BLOCK_END(instance_name)				} instance_name;
-#define BLOCK_END_ANON()						};
+#if defined(GL_ARB_uniform_buffer_object) && !defined(DISABLE_GL_ARB_uniform_buffer_object)
+#define BLOCK_BEGIN(block_name)						layout(std140) uniform block_name {
+#define BLOCK_BEGIN_LAYOUT(block_name, layoutName)	layout(layoutName) uniform block_name {
+#define BLOCK_END(instance_name)					} instance_name;
+#define BLOCK_END_ANON()							};
 #define BLOCK_FIELD
-#define BLOCK_GET(instance_name, field_name)	instance_name.field_name
+#define BLOCK_GET(instance_name, field_name)		instance_name.field_name
 #else
 #define BLOCK_BEGIN(name)
+#define BLOCK_BEGIN_LAYOUT(block_name, layout)
 #define BLOCK_END(instance_name)
 #define BLOCK_END_ANON()
-#define BLOCK_FIELD								uniform
-#define BLOCK_GET(instance_name, field_name)	field_name
+#define BLOCK_FIELD									uniform
+#define BLOCK_GET(instance_name, field_name)		field_name
 #endif
 
 #endif

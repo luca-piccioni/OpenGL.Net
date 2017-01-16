@@ -59,6 +59,24 @@ namespace OpenGL.Objects.State
 		#region TransformStateBase Overrides
 
 		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public override IGraphicsState Push()
+		{
+			TransformState copiedState = (TransformState)base.Push();
+
+			if (_LocalProjection != null)
+				copiedState._LocalProjection = (ProjectionMatrix)_LocalProjection.Clone();
+			copiedState._LocalModel = new ModelMatrix(_LocalModel);
+
+			return (copiedState);
+		}
+
+		/// <summary>
 		/// The local projection: the projection matrix of the current verte arrays, without considering inherited
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
@@ -93,24 +111,6 @@ namespace OpenGL.Objects.State
 		/// The local model-view matrix of this state.
 		/// </summary>
 		private ModelMatrix _LocalModel = new ModelMatrix();
-
-		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
-		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		public override IGraphicsState Copy()
-		{
-			TransformState copiedState = (TransformState)base.Copy();
-
-			if (_LocalProjection != null)
-				copiedState._LocalProjection = (ProjectionMatrix)_LocalProjection.Clone();
-			copiedState._LocalModel = new ModelMatrix(_LocalModel);
-
-			return (copiedState);
-		}
 
 		#endregion
 	}

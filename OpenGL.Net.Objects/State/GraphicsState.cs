@@ -182,12 +182,15 @@ namespace OpenGL.Objects.State
 		public virtual bool IsShaderProgramBound { get { return (false); } }
 
 		/// <summary>
-		/// Create or update resources defined by this IGraphicsState.
+		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
 		/// </param>
-		public virtual void CreateState(GraphicsContext ctx)
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
+		/// </param>
+		public virtual void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 
 		}
@@ -202,6 +205,18 @@ namespace OpenGL.Objects.State
 		/// The <see cref="ShaderProgram"/> holding the uniform state.
 		/// </param>
 		public abstract void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram);
+
+		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public virtual IGraphicsState Push()
+		{
+			return ((GraphicsState)MemberwiseClone());
+		}
 
 		/// <summary>
 		/// Merge this state with another one.
@@ -250,19 +265,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The name of the uniform buffer object used for holding uniform state information.
 		/// </summary>
-		public virtual int UniformBlockName { get { return (0); } }
-
-		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
-		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		public virtual IGraphicsState Copy()
-		{
-			return ((GraphicsState)MemberwiseClone());
-		}
+		public virtual uint UniformBlockName { get { return (0); } }
 
 		/// <summary>
 		/// Flag indicating whether this state is inheritable.

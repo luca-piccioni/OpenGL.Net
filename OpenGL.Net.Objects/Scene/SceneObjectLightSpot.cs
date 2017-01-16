@@ -70,18 +70,20 @@ namespace OpenGL.Objects.Scene
 		#region SceneObjectLight Overrides
 
 		/// <summary>
-		/// Convert to <see cref="LightsStateBase.Light"/>.
+		/// Create the corresponding <see cref="LightsState.Light"/> for this object.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="LightsStateBase.Light"/> corresponding o this Light.
+		/// It returns the <see cref="LightsState.Light"/> equivalent to this SceneObjectLight.
 		/// </returns>
-		internal override LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
+		public override LightsState.Light ToLight(SceneGraphContext sceneCtx)
 		{
-			LightsStateBase.Light lightState = base.ToLightState(sceneCtx);
+			LightsState.LightSpot light = new LightsState.LightSpot();
 
-			lightState.FallOff = new Vertex2f(FalloffAngle, FalloffExponent);
+			SetLightParameters(sceneCtx, light);
 
-			return (lightState);
+			light.FallOff = new Vertex2f(FalloffAngle, FalloffExponent);
+
+			return (light);
 		}
 
 		#endregion

@@ -20,7 +20,10 @@ using System.Collections.Generic;
 
 namespace OpenGL.Objects.Scene
 {
-	public class SceneObjectLightZone : SceneObjectLight
+	/// <summary>
+	/// Node for enabling lights linked to the object's hierarchy.
+	/// </summary>
+	public class SceneObjectLightZone : SceneObject
 	{
 		#region Constructors
 
@@ -29,7 +32,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public SceneObjectLightZone()
 		{
-			ObjectState.DefineState(new SceneLightingState());
+			ObjectState.DefineState(new State.LightsState());
 		}
 
 		/// <summary>
@@ -40,12 +43,48 @@ namespace OpenGL.Objects.Scene
 		/// </param>
 		public SceneObjectLightZone(string id) : base(id)
 		{
-			ObjectState.DefineState(new SceneLightingState());
+			ObjectState.DefineState(new State.LightsState());
+		}
+
+		/// <summary>
+		/// Force static initialization for this class.
+		/// </summary>
+		internal static void Touch()
+		{
+			// Static initialization
 		}
 
 		#endregion
 
-		#region SceneObjectLight Overrides
+		#region State Application
+
+		internal void ResetLights(SceneGraphContext ctxScene, List<SceneObjectLight> lights)
+		{
+			State.LightsState lightState = (State.LightsState)ObjectState[State.LightsState.StateSetIndex];
+
+			lightState.Lights.Clear();
+			foreach (SceneObjectLight lightObject in lights)
+				lightState.Lights.Add(lightObject.ToLight(ctxScene));
+		}
+
+		#endregion
+
+		#region SceneObject Overrides
+
+		/// <summary>
+		/// Get the object type. Used for avoiding reflection.
+		/// </summary>
+		public override uint ObjectType { get { return (_ObjectType); } }
+
+		/// <summary>
+		/// Get the object type of this SceneObject class.
+		/// </summary>
+		public static uint ClassObjectType { get { return (_ObjectType); } }
+
+		/// <summary>
+		/// The object identifier for this class of SceneObject.
+		/// </summary>
+		private static readonly uint _ObjectType = NextObjectType();
 
 		/// <summary>
 		/// Update this SceneGraphObject instance.
@@ -58,13 +97,13 @@ namespace OpenGL.Objects.Scene
 		/// </param>
 		protected internal override void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			List<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
+			//List<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
 
-			SceneLightingState lightingState = (SceneLightingState)ObjectState[SceneLightingState.StateSetIndex];
+			//SceneLightingState lightingState = (SceneLightingState)ObjectState[SceneLightingState.StateSetIndex];
 
-			lightingState.CurrentSceneContext = ctxScene;
-			lightingState.ResetLights();
-			lightingState.AddLights(lightObjects.ConvertAll(delegate(SceneObject item) { return ((SceneObjectLight)item); }));
+			//lightingState.CurrentSceneContext = ctxScene;
+			//lightingState.ResetLights();
+			//lightingState.AddLights(lightObjects.ConvertAll(delegate(SceneObject item) { return ((SceneObjectLight)item); }));
 		}
 
 		#endregion

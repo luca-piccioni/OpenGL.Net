@@ -60,22 +60,24 @@ namespace OpenGL.Objects.Scene
 		#region SceneObjectLight Overrides
 
 		/// <summary>
-		/// Convert to <see cref="LightsStateBase.Light"/>.
+		/// Create the corresponding <see cref="LightsState.Light"/> for this object.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="LightsStateBase.Light"/> corresponding o this Light.
+		/// It returns the <see cref="LightsState.Light"/> equivalent to this SceneObjectLight.
 		/// </returns>
-		internal override LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
+		public override LightsState.Light ToLight(SceneGraphContext sceneCtx)
 		{
-			LightsStateBase.Light lightState = base.ToLightState(sceneCtx);
-			Vertex3f lightDir = Vertex3f.UnitY;
+			LightsState.LightDirectional light = new LightsState.LightDirectional();
+
+			SetLightParameters(sceneCtx, light);
 
 			// Note: avoiding to invert the view matrix twice
 			IMatrix3x3 normalMatrix = sceneCtx.CurrentView.LocalModel.GetComplementMatrix(3, 3).Transpose();
-			lightState.Direction = (Vertex3f)normalMatrix.Multiply((Vertex3f)Direction);
-			lightState.HalfVector = (Vertex3f.UnitZ + lightState.Direction).Normalized;
 
-			return (lightState);
+			light.Direction = (Vertex3f)normalMatrix.Multiply((Vertex3f)Direction);
+			light.HalfVector = (Vertex3f.UnitZ + light.Direction).Normalized;
+
+			return (light);
 		}
 
 		#endregion

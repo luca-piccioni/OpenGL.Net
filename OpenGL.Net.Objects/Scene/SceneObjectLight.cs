@@ -46,9 +46,38 @@ namespace OpenGL.Objects.Scene
 			
 		}
 
+		/// <summary>
+		/// Force static initialization for this class.
+		/// </summary>
+		internal static void Touch()
+		{
+			// Static initialization
+		}
+
 		#endregion
 
 		#region Light Model
+
+		/// <summary>
+		/// Create the corresponding <see cref="LightsState.Light"/> for this object.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="LightsState.Light"/> equivalent to this SceneObjectLight.
+		/// </returns>
+		public abstract LightsState.Light ToLight(SceneGraphContext sceneCtx);
+
+		/// <summary>
+		/// The internal light parameters.
+		/// </summary>
+		/// <param name="light">
+		/// The <see cref="LightsState.Light"/> to be set.
+		/// </param>
+		protected void SetLightParameters(SceneGraphContext sceneCtx, LightsState.Light light)
+		{
+			light.AmbientColor = AmbientColor;
+			light.DiffuseColor = DiffuseColor;
+			light.SpecularColor = SpecularColor;
+		}
 
 		/// <summary>
 		/// Light ambient color.
@@ -65,22 +94,24 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public ColorRGBA SpecularColor = ColorRGBA.ColorWhite;
 
+		#endregion
+
+		#region SceneObject Overrides
+
 		/// <summary>
-		/// Convert to <see cref="LightsStateBase.Light"/>.
+		/// Get the object type. Used for avoiding reflection.
 		/// </summary>
-		/// <returns>
-		/// It returns the <see cref="LightsStateBase.Light"/> corresponding o this Light.
-		/// </returns>
-		internal virtual LightsStateBase.Light ToLightState(SceneGraphContext sceneCtx)
-		{
-			LightsStateBase.Light lightState = new LightsStateBase.Light();
+		public override uint ObjectType { get { return (_ObjectType); } }
 
-			lightState.AmbientColor = AmbientColor;
-			lightState.DiffuseColor = DiffuseColor;
-			lightState.SpecularColor = SpecularColor;
+		/// <summary>
+		/// Get the object type of this SceneObject class.
+		/// </summary>
+		public static uint ClassObjectType { get { return (_ObjectType); } }
 
-			return (lightState);
-		}
+		/// <summary>
+		/// The object identifier for this class of SceneObject.
+		/// </summary>
+		private static readonly uint _ObjectType = NextObjectType();
 
 		#endregion
 	}

@@ -19,7 +19,7 @@
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/Light/LightState.glsl>
 
-BLOCK_BEGIN(LightState)
+BLOCK_BEGIN_LAYOUT(LightState, shared)
 	// The light model
 	BLOCK_FIELD glo_LightModelType glo_LightModel;
 	// The lights

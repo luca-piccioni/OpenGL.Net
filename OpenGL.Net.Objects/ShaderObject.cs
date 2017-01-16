@@ -74,30 +74,6 @@ namespace OpenGL.Objects
 			_Stage = shaderStage;
 		}
 
-		/// <summary>
-		/// Construct a ShaderObject defining its main class.
-		/// </summary>
-		/// <param name="shaderStage">
-		/// A <see cref="ShaderStage"/> indicating the shader stage of this ShaderObject.
-		/// </param>
-		/// <param name="sourcePath">
-		/// A <see cref="String"/> that specify the file containing the shader object source strings.
-		/// </param>
-		protected ShaderObject(ShaderStage shaderStage, string sourcePath) :
-			this(shaderStage)
-		{
-			try {
-				if (sourcePath == null)
-					throw new ArgumentNullException("sourcePath");
-				// Store shader path (for debugging)
-				_SourcePath = sourcePath;
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
-		}
-
 		#endregion
 
 		#region Shader Stage
@@ -221,6 +197,7 @@ namespace OpenGL.Objects
 		public void LoadSource(string resourcePath)
 		{
 			_SourceStrings = LoadSourceLines(resourcePath);
+			_SourcePath = resourcePath;
 		}
 
 		/// <summary>
@@ -280,27 +257,24 @@ namespace OpenGL.Objects
 			List<string> shaderSource = new List<string>(256);
 			string[] shaderSourceStrings = _SourceStrings.ToArray();
 
-			if (_SourcePath != null)
-				Log("Generate shader source for '{0}'.", _SourcePath);
-
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
 
-			// Append required shader extensions - ARB_shading_language_include
-			// Note: this extension, if supported, is required by the framework to compile correctly
+			// Shader extension behavior
 			if (ctx.Extensions.ShadingLanguageInclude_ARB)
 				shaderSource.Add("#extension GL_ARB_shading_language_include : require\n");
 
-			if (ctx.Extensions.UniformBufferObject_ARB == false) {
-				shaderSource.Add("#extension GL_ARB_uniform_buffer_object : disable\n");
-				shaderSource.Add("#define GL_ARB_uniform_buffer_object_disabled\n");
-			} else
+			if (ctx.Extensions.UniformBufferObject_ARB)
 				shaderSource.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
+			else
+				shaderSource.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
 
 			// Append required #define statments
 			if (cctx.Defines != null) {
-				foreach (string def in cctx.Defines)
+				foreach (string def in cctx.Defines) {
 					shaderSource.Add(String.Format("#define {0}\n", def));
+					Log("  Symbol: {0}", def);
+				}
 			}
 
 			// Append specific source for composing shader essence
@@ -548,64 +522,6 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Shader Objects Caching Support
-
-		/// <summary>
-		/// Determine an unique identifier that specify the compiled shader object.
-		/// </summary>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> determining the compiler parameteres.
-		/// </param>
-		/// <param name="libraryId">
-		/// A <see cref="String"/> that identifies the shader object in library.
-		/// </param>
-		/// <param name="sObjectStage">
-		/// A <see cref="ShaderObject.ShaderStage"/> that specify the shader object stage.
-		/// </param>
-		/// <returns>
-		/// It returns a string that identify the a shader object classified with <paramref name="libraryId"/>, by
-		/// specifying <paramref name="cctx"/> as compiled parameters, for the shader stage <paramref name="sObjectStage"/>.
-		/// </returns>
-		internal static string ComputeCompilerHash(ShaderCompilerContext cctx, string libraryId, ShaderStage sObjectStage)
-		{
-			StringBuilder hashMessage = new StringBuilder();
-
-			if (cctx == null)
-				throw new ArgumentNullException("cctx");
-			if (libraryId == null)
-				throw new ArgumentNullException("libraryId");
-
-			// Take into account the shader object library identifier
-			hashMessage.Append(libraryId);
-			// Take into account the shader object library stage
-			hashMessage.Append(sObjectStage.ToString());
-			// Take into account the shader version
-			hashMessage.Append(cctx.ShaderVersion);
-			// Take into account the shader program compilation symbols
-			foreach (String define in cctx.Defines)
-				hashMessage.AppendFormat("{0}", define);
-			// Take into account the shader program include paths
-			foreach (string includePath in cctx.Includes)
-				hashMessage.AppendFormat("{0}", includePath);
-
-			// Hash all information
-			byte[] hashBytes;
-
-			using (HashAlgorithm hashAlgorithm = HashAlgorithm.Create("SHA256")) {
-				hashBytes = hashAlgorithm.ComputeHash(Encoding.ASCII.GetBytes(hashMessage.ToString()));
-			}
-
-			// ConvertItemType has to string
-			return (Convert.ToBase64String(hashBytes));
-		}
-
-		/// <summary>
-		/// The result of ComputeCompilerHash for this ShaderObject instance.
-		/// </summary>
-		internal string CompiledHash = String.Empty;
-
-		#endregion
-
 		#region GraphicsResource Overrides
 
 		/// <summary>
@@ -698,7 +614,7 @@ namespace OpenGL.Objects
 			// instance and the attached ShaderObject instances
 			ShaderCompilerContext cctx = new ShaderCompilerContext(_CompilationParams);
 
-			Log("Compilation of shader object '{0}'.", _SourcePath);
+			Log("=== Compilation of shader object '{0}'.", _SourcePath);
 
 			List<string> source = GenerateSource(ctx, cctx);        // Source generation!
 

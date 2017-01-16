@@ -18,32 +18,29 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
 namespace OpenGL.Objects.State
 {
 	/// <summary>
 	/// OpenGL.Net light shading model.
 	/// </summary>
-	public abstract class LightsStateBase : ShaderUniformStateBase
+	public class LightsState : ShaderUniformStateBase
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Static constructor.
 		/// </summary>
-		static LightsStateBase()
+		static LightsState()
 		{
-			// Has nested types
-			DetectTypeProperties(typeof(LightsStateBase));
 			// Statically initialize uniform properties
-			_UniformProperties = DetectUniformProperties(typeof(LightsStateBase));
+			_UniformProperties = DetectUniformProperties(typeof(LightsState));
 		}
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public LightsStateBase()
+		public LightsState()
 		{
 			LightModel = new LightModelType(ColorRGBAF.ColorWhite);
 		}
@@ -55,12 +52,19 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Light model global parameters.
 		/// </summary>
-		[StructLayout(LayoutKind.Sequential)]
 		[ShaderUniformState()]
-		public struct LightModelType
+		public class LightModelType
 		{
 			/// <summary>
-			/// Construct a LightModelType with a specific ambientLighting.
+			/// Construct a LightModelType with the default ambient light.
+			/// </summary>
+			public LightModelType()
+			{
+				
+			}
+
+			/// <summary>
+			/// Construct a LightModelType with a specific ambient light.
 			/// </summary>
 			/// <param name="ambientLighting"></param>
 			public LightModelType(ColorRGBAF ambientLighting)
@@ -72,7 +76,7 @@ namespace OpenGL.Objects.State
 			/// The ambient lighting.
 			/// </summary>
 			[ShaderUniformState("AmbientLighting")]
-			public ColorRGBAF AmbientLighting;
+			public ColorRGBAF AmbientLighting = ColorRGBAF.ColorWhite;
 
 			/// <summary>
 			/// Apply this MaterialState
@@ -92,31 +96,10 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Light structure.
 		/// </summary>
-		[StructLayout(LayoutKind.Sequential)]
 		[ShaderUniformState()]
-		public struct Light
+		public abstract class Light
 		{
-			#region Constructors
-
-			/// <summary>
-			/// Construct Light with a diffuse color.
-			/// </summary>
-			/// <param name="diffuse"></param>
-			public Light(ColorRGBAF diffuse)
-			{
-				AmbientColor = ColorRGBAF.ColorBlack;
-				DiffuseColor = diffuse;
-				SpecularColor = ColorRGBAF.ColorBlack;
-				Direction = Vertex3f.UnitY;
-				Position = Vertex4f.Zero;
-				HalfVector = Vertex3f.Zero;
-				AttenuationFactors = Vertex3f.Zero;
-				FallOff = Vertex2f.Zero;
-			}
-
-			#endregion
-
-			#region Common Parameters (All Lights)
+			#region Model
 
 			/// <summary>
 			/// Light ambient color.
@@ -128,7 +111,7 @@ namespace OpenGL.Objects.State
 			/// Light diffuse color.
 			/// </summary>
 			[ShaderUniformState("DiffuseColor")]
-			public ColorRGBAF DiffuseColor;
+			public ColorRGBAF DiffuseColor = ColorRGBAF.ColorWhite;
 
 			/// <summary>
 			/// Light specular color.
@@ -138,39 +121,7 @@ namespace OpenGL.Objects.State
 
 			#endregion
 
-			#region Model Parameters
-
-			/// <summary>
-			/// The light position vector (used by directional and spot lights).
-			/// </summary>
-			[ShaderUniformState("Direction")]
-			public Vertex3f Direction;
-
-			/// <summary>
-			/// The light position vector (used by point and spot lights).
-			/// </summary>
-			[ShaderUniformState("Position")]
-			public Vertex4f Position;
-
-			/// <summary>
-			/// The light half-vector (used by directional lights).
-			/// </summary>
-			[ShaderUniformState("HalfVector")]
-			public Vertex3f HalfVector;
-
-			/// <summary>
-			/// The light attenuation factors (X: constant; Y: linear; Z: quadratic; used by point and spot lights).
-			/// </summary>
-			[ShaderUniformState("AttenuationFactors")]
-			public Vertex3f AttenuationFactors;
-
-			/// <summary>
-			/// The spot fall-off parameters (X: fall-off angle in degrees; Y: fall-off exponent, used by spot lights).
-			/// </summary>
-			[ShaderUniformState("FallOff")]
-			public Vertex2f FallOff;
-
-			#endregion
+			#region Structure State Application
 
 			/// <summary>
 			/// Apply this Light
@@ -181,17 +132,141 @@ namespace OpenGL.Objects.State
 			/// <param name="shaderProgram">
 			/// The <see cref="ShaderProgram"/> which has the state set.
 			/// </param>
-			public void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			public virtual void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
 			{
 				shaderProgram.SetUniform(ctx, prefix + ".AmbientColor", AmbientColor);
 				shaderProgram.SetUniform(ctx, prefix + ".DiffuseColor", DiffuseColor);
 				shaderProgram.SetUniform(ctx, prefix + ".SpecularColor", SpecularColor);
+			}
+
+			#endregion
+		}
+
+		[ShaderUniformState()]
+		public class LightDirectional : Light
+		{
+			#region Model
+
+			/// <summary>
+			/// The light position vector (used by directional and spot lights).
+			/// </summary>
+			[ShaderUniformState("Direction")]
+			public Vertex3f Direction;
+
+			/// <summary>
+			/// The light half-vector (used by directional lights).
+			/// </summary>
+			[ShaderUniformState("HalfVector")]
+			public Vertex3f HalfVector;
+			
+			#endregion
+
+			#region Light Overrides
+
+			/// <summary>
+			/// Apply this Light
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+			/// </param>
+			/// <param name="shaderProgram">
+			/// The <see cref="ShaderProgram"/> which has the state set.
+			/// </param>
+			public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			{
+				// Base implementation
+				base.ApplyState(ctx, shaderProgram, prefix);
+
 				shaderProgram.SetUniform(ctx, prefix + ".Direction", Direction);
-				shaderProgram.SetUniform(ctx, prefix + ".Position", Position);
 				shaderProgram.SetUniform(ctx, prefix + ".HalfVector", HalfVector);
+			}
+
+			#endregion
+		}
+
+		[ShaderUniformState()]
+		public class LightPoint : Light
+		{
+			#region Model
+
+			/// <summary>
+			/// The light position vector (used by point and spot lights).
+			/// </summary>
+			[ShaderUniformState("Position")]
+			public Vertex4f Position;
+
+			/// <summary>
+			/// The light attenuation factors (X: constant; Y: linear; Z: quadratic; used by point and spot lights).
+			/// </summary>
+			[ShaderUniformState("AttenuationFactors")]
+			public Vertex3f AttenuationFactors;
+
+			#endregion
+
+			#region Light Overrides
+
+			/// <summary>
+			/// Apply this Light
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+			/// </param>
+			/// <param name="shaderProgram">
+			/// The <see cref="ShaderProgram"/> which has the state set.
+			/// </param>
+			public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			{
+				// Base implementation
+				base.ApplyState(ctx, shaderProgram, prefix);
+
+				shaderProgram.SetUniform(ctx, prefix + ".Position", Position);
 				shaderProgram.SetUniform(ctx, prefix + ".AttenuationFactors", AttenuationFactors);
+				shaderProgram.SetUniform(ctx, prefix + ".FallOff.X", 180.0f);
+			}
+
+			#endregion
+		}
+
+		[ShaderUniformState()]
+		public class LightSpot : LightPoint
+		{
+			#region Model
+
+			/// <summary>
+			/// The light position vector (used by directional and spot lights).
+			/// </summary>
+			[ShaderUniformState("Direction")]
+			public Vertex3f Direction;
+
+			/// <summary>
+			/// The spot fall-off parameters (X: fall-off angle in degrees; Y: fall-off exponent, used by spot lights).
+			/// </summary>
+			[ShaderUniformState("FallOff")]
+			public Vertex2f FallOff;
+
+			#endregion
+
+			#region LightPoint Overrides
+
+			/// <summary>
+			/// Apply this Light
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+			/// </param>
+			/// <param name="shaderProgram">
+			/// The <see cref="ShaderProgram"/> which has the state set.
+			/// </param>
+			public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string prefix)
+			{
+				// Base implementation
+				base.ApplyState(ctx, shaderProgram, prefix);
+
+				shaderProgram.SetUniform(ctx, prefix + ".Direction", Direction);
 				shaderProgram.SetUniform(ctx, prefix + ".FallOff", FallOff);
 			}
+
+			#endregion
 		}
 
 		#endregion
@@ -208,7 +283,6 @@ namespace OpenGL.Objects.State
 			set
 			{
 				_LightModel = value;
-				UniformBlockDirty = true;
 			}
 		}
 
@@ -218,16 +292,21 @@ namespace OpenGL.Objects.State
 		private LightModelType _LightModel;
 
 		/// <summary>
-		/// Lights state.
+		/// Lights
+		/// </summary>
+		public readonly List<Light> Lights = new List<Light>();
+
+		/// <summary>
+		/// Lights state array.
 		/// </summary>
 		[ShaderUniformState("glo_Light")]
-		public abstract Light[] Lights { get; }
+		private Light[] LightsInternal { get { return (Lights.ToArray()); } }
 
 		/// <summary>
 		/// The enabled lights count.
 		/// </summary>
 		[ShaderUniformState()]
-		public abstract int LightsCount { get; }
+		private int LightsCount { get { return (Lights.Count); } }
 
 		#endregion
 
@@ -236,7 +315,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier for the TransformStateBase derived classes.
 		/// </summary>
-		public static string StateId = "OpenGL.Net.LightsState";
+		public static string StateId = "OpenGL.LightsState";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.
@@ -272,6 +351,31 @@ namespace OpenGL.Objects.State
 		public override bool IsShaderProgramBound { get { return (true); } }
 
 		/// <summary>
+		/// The tag the identifies the uniform block.
+		/// </summary>
+		protected override string UniformBlockTag { get { return ("LightState"); } }
+
+		/// <summary>
+		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
+		/// </param>
+		public override void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+			// Create uniform buffer, if supported
+			base.CreateState(ctx, shaderProgram);
+
+			if (shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
+				// Get uniform offsets
+
+			}
+		}
+
+		/// <summary>
 		/// Apply this TransformStateBase.
 		/// </summary>
 		/// <param name="ctx">
@@ -284,34 +388,47 @@ namespace OpenGL.Objects.State
 		{
 			GraphicsResource.CheckCurrentContext(ctx);
 
-			if (shaderProgram == null) {
+			if (!ctx.Extensions.UniformBufferObject_ARB) {
+				if (shaderProgram == null) {
+					// Fixed pipeline rendering requires server state
+					throw new NotImplementedException();
+				} else {
+					// Custom implementation
+					ctx.Bind(shaderProgram);
 
-				// Fixed pipeline rendering requires server state
+					if (shaderProgram.IsActiveUniform("glo_LightModel"))
+						LightModel.ApplyState(ctx, shaderProgram, "glo_LightModel");
 
-				throw new NotImplementedException();
-			} else {
-				if (shaderProgram.IsUniformBlockChanged(this) == false)
-					return;
+					if (shaderProgram.IsActiveUniform("glo_Light")) {
+						for (int i = 0; i < Lights.Count; i++) {
+							string uniformName = "glo_Light[" + i + "]";
 
-				// Custom implementation
-				ctx.Bind(shaderProgram);
+							if (shaderProgram.IsActiveUniform(uniformName) == false)
+								break;
 
-				if (shaderProgram.IsActiveUniform("glo_LightModel"))
-					LightModel.ApplyState(ctx, shaderProgram, "glo_LightModel");
-
-				if (shaderProgram.IsActiveUniform("glo_Light")) {
-					for (int i = 0; i < Lights.Length; i++) {
-						string uniformName = "glo_Light[" + i + "]";
-
-						if (shaderProgram.IsActiveUniform(uniformName) == false)
-							break;
-
-						Lights[i].ApplyState(ctx, shaderProgram, uniformName);
+							Lights[i].ApplyState(ctx, shaderProgram, uniformName);
+						}
 					}
-				}
 
-				shaderProgram.SetUniform(ctx, "glo_LightsCount", LightsCount);
-			}
+					shaderProgram.SetUniform(ctx, "glo_LightsCount", LightsCount);
+				}
+			} else
+				base.ApplyState(ctx, shaderProgram);		// Uniform block
+		}
+
+		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public override IGraphicsState Push()
+		{
+			// Light state is shared among instances
+			IncRef();
+
+			return (this);
 		}
 
 		/// <summary>
@@ -349,83 +466,6 @@ namespace OpenGL.Objects.State
 		/// The uniform state of this TransformStateBase.
 		/// </summary>
 		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
-
-		#endregion
-	}
-
-	/// <summary>
-	/// OpenGL.Net light shading model.
-	/// </summary>
-	public class LightsState : LightsStateBase
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Default constructor.
-		/// </summary>
-		public LightsState() : this(8)
-		{
-			
-		}
-
-		/// <summary>
-		/// Construct a LightsState specifying the maximum number of active lights.
-		/// </summary>
-		/// <param name="maxCount">
-		/// A <see cref="UInt32"/> that specifies the maximum number of active lights.
-		/// </param>
-		public LightsState(uint maxCount)
-		{
-			_Lights = new Light[maxCount];
-		}
-
-		#endregion
-
-		#region Lights Management
-
-		public void ResetLights()
-		{
-			_LightsCount = 0;
-			UniformBlockDirty = true;
-		}
-
-		public void AddLight(Light light)
-		{
-			if (_LightsCount >= _Lights.Length)
-				throw new InvalidOperationException("lights overflow");
-
-			_Lights[_LightsCount] = light;
-			_LightsCount++;
-			UniformBlockDirty = true;
-		}
-
-		#endregion
-
-		#region LightsStateBase Overrides
-
-		/// <summary>
-		/// Lights state.
-		/// </summary>
-		public override Light[] Lights { get { return (_Lights); } }
-
-		/// <summary>
-		/// Lights state.
-		/// </summary>
-		private Light[] _Lights;
-
-		/// <summary>
-		/// Get the enabled lights count.
-		/// </summary>
-		[ShaderUniformState()]
-		public override int LightsCount
-		{
-			get { return (_LightsCount); }
-		}
-
-		/// <summary>
-		/// The enabled lights count.
-		/// </summary>
-		private int _LightsCount;
 
 		#endregion
 	}

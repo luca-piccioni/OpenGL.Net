@@ -43,7 +43,7 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
-		#region Uniform State
+		#region Uniform State (via Reflection)
 
 		/// <summary>
 		/// Attribute applied to those fields that are bound to a shader program uniform state.
@@ -241,26 +241,46 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		protected static Dictionary<string, UniformStateMember> DetectUniformProperties(Type shaderUniformStateType)
 		{
+			DetectTypeUniformProperties(shaderUniformStateType);
+
+			List<UniformStateMember> uniformState = _TypeUniformState[shaderUniformStateType];
+
+			Dictionary<string, UniformStateMember> uniformMembers = new Dictionary<string, UniformStateMember>();
+			foreach (UniformStateMember uniformStateMember in uniformState)
+				uniformMembers.Add(uniformStateMember.UniformName, uniformStateMember);
+
+			return (uniformMembers);
+		}
+
+		private static void DetectTypeUniformProperties(Type shaderUniformStateType)
+		{
 			if (shaderUniformStateType == null)
 				throw new ArgumentNullException("shaderUniformStateType");
 
-			Dictionary<string, UniformStateMember> uniformMembers = new Dictionary<string, UniformStateMember>();
+			if (_TypeUniformState.ContainsKey(shaderUniformStateType))
+				return;
+
+			List<UniformStateMember> typeMembers = new List<UniformStateMember>();
 
 			// Fields
-			FieldInfo[] uniformFields = shaderUniformStateType.GetFields(BindingFlags.Public | BindingFlags.Instance);
+			FieldInfo[] uniformFields = shaderUniformStateType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
 			foreach (FieldInfo uniformField in uniformFields) {
 				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformField, typeof(ShaderUniformStateAttribute));
 				if (attribute == null)
 					continue;
 
+				// If the uniform name is unspecified, it's implictly defined with the "glo_" 'namespace'
 				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformField.Name;
 
-				uniformMembers.Add(uniformName, new UniformStateMember(uniformName, uniformField, GetFieldUniformValue));
+				typeMembers.Add(new UniformStateMember(uniformName, uniformField, GetFieldUniformValue));
+
+				// Recurse on uniform type
+				CheckUniformType(uniformField.FieldType);
 			}
 
 			// Properties
-			PropertyInfo[] uniformProperties = shaderUniformStateType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+			PropertyInfo[] uniformProperties = shaderUniformStateType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
 			foreach (PropertyInfo uniformProperty in uniformProperties) {
 				if (uniformProperty.CanRead == false)
@@ -272,72 +292,43 @@ namespace OpenGL.Objects.State
 				if (attribute == null)
 					continue;
 
+				// If the uniform name is unspecified, it's implictly defined with the "glo_" 'namespace'
 				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformProperty.Name;
 
-				uniformMembers.Add(uniformName, new UniformStateMember(uniformName, uniformProperty, GetPropertyUniformValue));
+				typeMembers.Add(new UniformStateMember(uniformName, uniformProperty, GetPropertyUniformValue));
+
+				// Recurse on uniform type
+				CheckUniformType(uniformProperty.PropertyType);
 			}
 
-			return (uniformMembers);
+			// Nested types (and because this it's not possible to support public ShaderUniformStateAttribute)
+			foreach (Type nestedType in shaderUniformStateType.GetNestedTypes(BindingFlags.Public)) {
+				CheckUniformType(nestedType);
+			}
+
+			_TypeUniformState.Add(shaderUniformStateType, typeMembers);
+		}
+
+		private static void CheckUniformType(Type uniformType)
+		{
+			if (uniformType == null)
+				throw new ArgumentNullException("uniformType");
+
+			if (uniformType.IsAbstract)
+				return;
+
+			if (uniformType.IsArray)
+				uniformType = uniformType.GetElementType();
+
+			ShaderUniformStateAttribute typeAttribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformType, typeof(ShaderUniformStateAttribute));
+			if (typeAttribute != null)
+				DetectTypeUniformProperties(uniformType);
 		}
 
 		/// <summary>
 		/// Get the uniform state associated with this instance.
 		/// </summary>
 		protected abstract Dictionary<string, UniformStateMember> UniformState { get; }
-
-		protected static void DetectTypeProperties(Type shaderUniformStateType)
-		{
-			foreach (Type nestedType in shaderUniformStateType.GetNestedTypes(BindingFlags.Public)) {
-				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(nestedType, typeof(ShaderUniformStateAttribute));
-				if (attribute == null)
-					continue;
-
-				DetetectNestedTypeProperties(nestedType);
-			}
-		}
-
-		private static void DetetectNestedTypeProperties(Type shaderUniformStateType)
-		{
-			if (shaderUniformStateType == null)
-				throw new ArgumentNullException("shaderUniformStateType");
-			if (_TypeUniformState.ContainsKey(shaderUniformStateType))
-				throw new ArgumentException("type known already");
-
-			List<UniformStateMember> typeMembers = new List<UniformStateMember>();
-
-			// Fields
-			FieldInfo[] uniformFields = shaderUniformStateType.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-			foreach (FieldInfo uniformField in uniformFields) {
-				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformField, typeof(ShaderUniformStateAttribute));
-				if (attribute == null)
-					continue;
-
-				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformField.Name;
-
-				typeMembers.Add(new UniformStateMember(uniformName, uniformField, GetFieldUniformValue));
-			}
-
-			// Properties
-			PropertyInfo[] uniformProperties = shaderUniformStateType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-			foreach (PropertyInfo uniformProperty in uniformProperties) {
-				if (uniformProperty.CanRead == false)
-					continue;
-				if (uniformProperty.GetIndexParameters().Length > 0)
-					continue;
-
-				ShaderUniformStateAttribute attribute = (ShaderUniformStateAttribute)Attribute.GetCustomAttribute(uniformProperty, typeof(ShaderUniformStateAttribute));
-				if (attribute == null)
-					continue;
-
-				string uniformName = attribute.UniformName != null ? attribute.UniformName : "glo_" + uniformProperty.Name;
-
-				typeMembers.Add(new UniformStateMember(uniformName, uniformProperty, GetPropertyUniformValue));
-			}
-
-			_TypeUniformState.Add(shaderUniformStateType, typeMembers);
-		}
 
 		/// <summary>
 		/// 
@@ -363,7 +354,10 @@ namespace OpenGL.Objects.State
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
 
-			ApplyState(ctx, shaderProgram, null, UniformState.Values, this);
+			if (ctx.Extensions.UniformBufferObject_ARB == false || _UniformBuffer == null)
+				ApplyState(ctx, shaderProgram, null, UniformState.Values, this);
+			else
+				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, _UniformBuffer);
 		}
 
 		/// <summary>
@@ -432,23 +426,38 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
-		#region Uniform Block
+		#region Uniform Block Support
 
-		protected bool UniformBlockDirty
+		/// <summary>
+		/// The tag the identifies the uniform block.
+		/// </summary>
+		protected virtual string UniformBlockTag { get { return (null); } }
+
+		private void UpdateUniformBlock(GraphicsContext ctx)
 		{
-			get { return (_UniformBlockDirty); }
-			set { _UniformBlockDirty |= value; }
+			_UniformBuffer.Map(ctx, BufferAccessARB.WriteOnly);
+			try {
+				UpdateUniformBlock(_UniformBuffer.MappedBuffer);
+			} finally {
+				_UniformBuffer.Unmap(ctx);
+			}
+		}
+
+		protected virtual void UpdateUniformBlock(IntPtr uniformBuffer)
+		{
+			throw new NotImplementedException(GetType().Name + "does not implement UpdateUniformBlock(IntPtr)");
 		}
 
 		/// <summary>
-		/// 
+		/// The hint required for the uniform block instance associated to this state.
 		/// </summary>
-		private bool _UniformBlockDirty = true;
+		protected virtual BufferObjectHint UniformBlockHint { get { return (BufferObjectHint.StaticCpuDraw); } }
 
 		/// <summary>
-		/// 
+		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
+		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
 		/// </summary>
-		private int _UniformBlockSupportId = 1;
+		private UniformBufferObject _UniformBuffer;
 
 		#endregion
 
@@ -468,13 +477,17 @@ namespace OpenGL.Objects.State
 		public override bool IsShaderProgramBound { get { return (true); } }
 
 		/// <summary>
-		/// Create or update resources defined by this IGraphicsState.
+		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
 		/// </param>
-		public override void CreateState(GraphicsContext ctx)
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
+		/// </param>
+		public override void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
+			// Create IGraphicsResource uniforms (i.e. textures)
 			Dictionary<string, UniformStateMember> uniformState = UniformState;
 
 			foreach (KeyValuePair<string, UniformStateMember> pair in uniformState) {
@@ -488,6 +501,43 @@ namespace OpenGL.Objects.State
 				// Create the IGraphicsResource associated with the uniform state variable
 				graphicsResource.Create(ctx);
 			}
+
+			// Uniform buffer is created depending on program
+			// It is assumed that the uniform buffer layout is shared across all shader programs, otherwise
+			// we need a way to identify the specific uniform buffer layout and map them based on ShaderProgram
+			// instances
+			CreateUniformBuffer(ctx, shaderProgram);
+		}
+
+		/// <summary>
+		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
+		/// </param>
+		private void CreateUniformBuffer(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+			
+			if (ctx.Extensions.UniformBufferObject_ARB == false)
+				return;		// No uniform buffer support
+			if (UniformBlockTag == null)
+				return;		// No uniform block support by this class
+			if (shaderProgram == null)
+				return;     // No uniform buffer support by fixed pipeline
+
+			Debug.Assert(_UniformBuffer == null);
+
+			if (shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
+				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, UniformBlockHint);
+				_UniformBuffer.Create(ctx);
+				_UniformBuffer.IncRef();
+			}
+
+			// Base implementation
+			base.CreateState(ctx, shaderProgram);
 		}
 
 		/// <summary>
@@ -505,6 +555,37 @@ namespace OpenGL.Objects.State
 			ctx.Bind(shaderProgram);
 			// Apply uniforms found using reflection
 			ApplyState(ctx, shaderProgram, String.Empty);
+		}
+
+		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public override IGraphicsState Push()
+		{
+			ShaderUniformStateBase copiedState = (ShaderUniformStateBase)base.Push();
+
+			if (copiedState._UniformBuffer != null)
+				copiedState._UniformBuffer.IncRef();
+
+#if ENABLE_REFS_ON_COPY
+			foreach (KeyValuePair<string, UniformStateMember> pair in copiedState.UniformState) {
+				//if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
+				//	continue;
+
+				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
+				if (graphicsResource == null)
+					continue;
+
+				// Copied share references
+				graphicsResource.IncRef();
+			}
+#endif
+
+			return (copiedState);
 		}
 
 		/// <summary>
@@ -552,45 +633,12 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The name of the uniform buffer object used for holding uniform state information.
 		/// </summary>
-		public override int UniformBlockName
+		public override uint UniformBlockName
 		{
 			get
 			{
-				if (_UniformBlockDirty) {
-					_UniformBlockSupportId = Math.Min(1, _UniformBlockSupportId++);
-					_UniformBlockDirty = false;
-				}
-
-				return (_UniformBlockSupportId);
+				return (_UniformBuffer != null ? _UniformBuffer.ObjectName : 0);
 			}
-		}
-
-		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
-		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		public override IGraphicsState Copy()
-		{
-			ShaderUniformStateBase copiedState = (ShaderUniformStateBase)base.Copy();
-
-#if ENABLE_REFS_ON_COPY
-			foreach (KeyValuePair<string, UniformStateMember> pair in copiedState.UniformState) {
-				//if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
-				//	continue;
-
-				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
-				if (graphicsResource == null)
-					continue;
-
-				// Copied share references
-				graphicsResource.IncRef();
-			}
-#endif
-
-			return (copiedState);
 		}
 
 		/// <summary>
@@ -598,6 +646,9 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		public override void Dispose()
 		{
+			if (_UniformBuffer != null)
+				_UniformBuffer.DecRef();
+
 #if ENABLE_REFS_ON_COPY
 
 			foreach (KeyValuePair<string, UniformStateMember> pair in UniformState) {

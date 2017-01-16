@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL.Objects
@@ -102,24 +103,25 @@ namespace OpenGL.Objects
 		/// <param name="shaderProgram">
 		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
 		/// </param>
-		protected void SetVertexArrayState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		private void SetVertexArrayState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			CheckThisExistence(ctx);
 
 			ctx.Bind(this);
 
-			// Note: when the GL_ARB_vertex_array_object is supported, there's no need
-			// to define vertex attribute each time
-			if (Gl.CurrentExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
-				// CheckVertexAttributes(ctx, shaderProgram);
-				return;
-			}
-
 			if (shaderProgram != null) {
+				ICollection<string> activeAttributes = shaderProgram.ActiveAttributes;
+
+				// Note: when the GL_ARB_vertex_array_object is supported, there's no need to define vertex attributes each time
+				if (Gl.CurrentExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
+					// CheckVertexAttributes(ctx, shaderProgram);
+					return;
+				}
+
 				uint attributesSet = 0;
 
 				// Set vertex array state
-				foreach (string attributeName in shaderProgram.ActiveAttributes) {
+				foreach (string attributeName in activeAttributes) {
 					IVertexArray shaderVertexArray = GetVertexArray(attributeName, shaderProgram);
 					if (shaderVertexArray == null)
 						continue;
@@ -130,6 +132,8 @@ namespace OpenGL.Objects
 
 				if (attributesSet == 0)
 					throw new InvalidOperationException("no attribute is set");
+				_VertexArrayCount = attributesSet;
+
 			} else {
 				IVertexArray attributeArray;
 
@@ -160,6 +164,7 @@ namespace OpenGL.Objects
 		/// <param name="shaderProgram">
 		/// A <see cref="ShaderProgram"/> on which the vertex arrays shall be bound.
 		/// </param>
+		[Conditional("GL_DEBUG")]
 		private void CheckVertexAttributes(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			// Vertex array state overall check
@@ -169,7 +174,7 @@ namespace OpenGL.Objects
 				if (shaderVertexArray == null)
 					continue;
 
-				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding);
+				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding.Location);
 			}
 		}
 	
@@ -177,6 +182,11 @@ namespace OpenGL.Objects
 		/// Flag indicating whether the vertex array is dirty due buffer object changes.
 		/// </summary>
 		private bool _VertexArrayDirty = true;
+
+		/// <summary>
+		/// Number of attributes enabled/defined.
+		/// </summary>
+		private uint _VertexArrayCount = 0;
 
 		#endregion
 

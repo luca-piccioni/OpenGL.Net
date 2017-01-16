@@ -91,7 +91,6 @@
     <None Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\IBoundingVolume.cs" />
     <Compile Include="Scene\SceneGraph.cs" />
-    <Compile Include="Scene\SceneLightingState.cs" />
     <Compile Include="Scene\SceneObjectCamera.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />
     <Compile Include="Scene\SceneObject.cs" />

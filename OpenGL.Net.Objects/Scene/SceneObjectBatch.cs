@@ -25,13 +25,36 @@ namespace OpenGL.Objects.Scene
 	{
 		#region Constructors
 
+		internal SceneObjectBatch(VertexArrayObject vertexArray)
+		{
+			if (vertexArray == null)
+				throw new ArgumentNullException("vertexArray");
+			VertexArray = vertexArray;
+		}
+
+		internal SceneObjectBatch(State.GraphicsStateSet state)
+		{
+			if (state == null)
+				throw new ArgumentNullException("state");
+			State = state;
+		}
+
+		internal SceneObjectBatch(ShaderProgram program)
+		{
+			if (program == null)
+				throw new ArgumentNullException("program");
+			Program = program;
+		}
+
 		/// <summary>
-		/// Construct an ObjectBatch.
+		/// Construct an SceneObjectBatch.
 		/// </summary>
-		/// <param name="program"></param>
-		/// <param name="vertexArray"></param>
+		/// <param name="vertexArray">
+		/// 
+		/// </param>
 		/// <param name="state"></param>
-		public SceneObjectBatch(ShaderProgram program, VertexArrayObject vertexArray, State.GraphicsStateSet state)
+		/// <param name="program"></param>
+		public SceneObjectBatch(VertexArrayObject vertexArray, State.GraphicsStateSet state, ShaderProgram program)
 		{
 			if (vertexArray == null)
 				throw new ArgumentNullException("vertexArray");
@@ -50,12 +73,30 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Optional shader program used for drawing.
 		/// </summary>
-		public readonly ShaderProgram Program;
+		public ShaderProgram Program
+		{
+			get { return (_Program); }
+			protected set { _Program = value; }
+		}
+
+		/// <summary>
+		/// Optional shader program used for drawing.
+		/// </summary>
+		private ShaderProgram _Program;
 
 		/// <summary>
 		/// Vertex arrays to be rasterized.
 		/// </summary>
-		public readonly VertexArrayObject VertexArray;
+		public virtual VertexArrayObject VertexArray
+		{
+			get { return (_VertexArray); }
+			protected set { _VertexArray = value; }
+		}
+
+		/// <summary>
+		/// Vertex arrays to be rasterized.
+		/// </summary>
+		private VertexArrayObject _VertexArray;
 
 		/// <summary>
 		/// Current state to be applied to <see cref="Program"/> and the current server state.
