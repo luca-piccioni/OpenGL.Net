@@ -275,7 +275,7 @@ namespace OpenGL.Objects
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.IsTransformFeedback(ObjectName));
+			return (!ctx.Extensions.TransformFeedback2_ARB || Gl.IsTransformFeedback(ObjectName));
 		}
 		
 		/// <summary>
@@ -294,7 +294,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			return (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT);
+			return (ctx.Extensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT);
 		}
 
 		/// <summary>
@@ -313,7 +313,7 @@ namespace OpenGL.Objects
 			
 			uint name;
 			
-			if (Gl.CurrentExtensions.TransformFeedback2_ARB) {
+			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Create buffer object
 				name = Gl.GenTransformFeedback();
 			} else
@@ -336,7 +336,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			if (Gl.CurrentExtensions.TransformFeedback2_ARB) {
+			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Delete buffer object
 				Gl.DeleteTransformFeedbacks(name);
 			} else
@@ -356,7 +356,7 @@ namespace OpenGL.Objects
 			if (_AttachedArrays.Count == 0)
 				throw new InvalidOperationException("no feedback attachments");
 			
-			if (Gl.CurrentExtensions.TransformFeedback2_ARB) {
+			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Bind/create feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
 				
@@ -421,7 +421,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void BindCore(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.TransformFeedback2_ARB) {
+			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Bind this feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
 			} else {
@@ -438,7 +438,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void UnbindCore(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.TransformFeedback2_ARB) {
+			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Bind this  feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, InvalidObjectName);
 			} else

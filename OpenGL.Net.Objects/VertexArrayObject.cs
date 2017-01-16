@@ -113,7 +113,7 @@ namespace OpenGL.Objects
 				ICollection<string> activeAttributes = shaderProgram.ActiveAttributes;
 
 				// Note: when the GL_ARB_vertex_array_object is supported, there's no need to define vertex attributes each time
-				if (Gl.CurrentExtensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
+				if (ctx.Extensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
 					// CheckVertexAttributes(ctx, shaderProgram);
 					return;
 				}
@@ -333,7 +333,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			return (Gl.CurrentExtensions.VertexArrayObject_ARB);
+			return (ctx.Extensions.VertexArrayObject_ARB);
 		}
 
 		/// <summary>
@@ -358,7 +358,7 @@ namespace OpenGL.Objects
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current");
 
-			Debug.Assert(Gl.CurrentExtensions.VertexArrayObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB);
 
 			return (Gl.GenVertexArray());
 		}
@@ -385,7 +385,7 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(Gl.CurrentExtensions.VertexArrayObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB);
 
 			// Delete buffer object
 			Gl.DeleteVertexArrays(name);
@@ -461,16 +461,16 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the identifier of the binding point.
 		/// </summary>
-		int IBindingResource.BindingTarget
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
 		{
-			get
-			{
-				// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
-				if (Gl.CurrentExtensions.VertexArrayObject_ARB == false)
-					return (0);
+			// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
+			if (ctx.Extensions.VertexArrayObject_ARB == false)
+				return (0);
 
-				return (Gl.VERTEX_ARRAY_BINDING);
-			}
+			return (Gl.VERTEX_ARRAY_BINDING);
 		}
 
 		/// <summary>
@@ -481,7 +481,7 @@ namespace OpenGL.Objects
 		/// </param>
 		void IBindingResource.Bind(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.VertexArrayObject_ARB)
+			if (ctx.Extensions.VertexArrayObject_ARB)
 				Gl.BindVertexArray(ObjectName);
 		}
 
@@ -493,7 +493,7 @@ namespace OpenGL.Objects
 		/// </param>
 		void IBindingResource.Unbind(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.VertexArrayObject_ARB) {
+			if (ctx.Extensions.VertexArrayObject_ARB) {
 				CheckThisExistence(ctx);
 				Gl.BindVertexArray(InvalidObjectName);
 			}
@@ -510,10 +510,11 @@ namespace OpenGL.Objects
 		/// </returns>
 		bool IBindingResource.IsBound(GraphicsContext ctx)
 		{
+			int bindingTarget = ((IBindingResource)this).GetBindingTarget(ctx);
 			int currentBufferObject;
 
-			Debug.Assert(((IBindingResource)this).BindingTarget != 0);
-			Gl.Get(((IBindingResource)this).BindingTarget, out currentBufferObject);
+			Debug.Assert(bindingTarget != 0);
+			Gl.Get(bindingTarget, out currentBufferObject);
 
 			return (currentBufferObject == (int)ObjectName);
 		}

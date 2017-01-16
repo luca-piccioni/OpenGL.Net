@@ -201,7 +201,7 @@ namespace OpenGL.Objects
 				foreach (string feedbackVarying in _FeedbackVaryings)
 					Log("- {0}", feedbackVarying);
 
-				if (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT) {
+				if (ctx.Extensions.TransformFeedback2_ARB || ctx.Extensions.TransformFeedback_EXT) {
 					string[] feedbackVaryings = _FeedbackVaryings.ToArray();
 
 					// Bug in NVIDIA drivers? Not exactly, but the NVIDIA driver hold the 'feedbackVaryings' pointer until
@@ -211,7 +211,7 @@ namespace OpenGL.Objects
 
 					// Specify feedback varyings
 					Gl.TransformFeedbackVaryings(ObjectName, feedbackVaryingsPtrs, (int)cctx.FeedbackVaryingsFormat);
-				} else if (Gl.CurrentExtensions.TransformFeedback2_NV) {
+				} else if (ctx.Extensions.TransformFeedback2_NV) {
 					// Nothing to do ATM
 				} else
 					throw new InvalidOperationException("transform feedback not supported");
@@ -234,7 +234,7 @@ namespace OpenGL.Objects
 
 			#region Bind Fragment Locations
 
-			if (Gl.CurrentExtensions.GpuShader4_EXT) {
+			if (ctx.Extensions.GpuShader4_EXT) {
 				// Setup fragment locations, where defined
 				foreach (KeyValuePair<string, int> pair in _FragLocations) {
 					if (pair.Value >= 0)
@@ -335,7 +335,7 @@ namespace OpenGL.Objects
 
 			#region Collect Fragment Locations
 
-			if (Gl.CurrentExtensions.GpuShader4_EXT) {
+			if (ctx.Extensions.GpuShader4_EXT) {
 				// Get fragment locations, just in the case automatically assigned
 				foreach (string fragOutputName in new List<string>(_FragLocations.Keys))
 					_FragLocations[fragOutputName] = Gl.GetFragDataLocation(ObjectName, fragOutputName);
@@ -346,7 +346,7 @@ namespace OpenGL.Objects
 			#region Collect Feedback Varyings
 			
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				if (Gl.CurrentExtensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT) {
+				if (ctx.Extensions.TransformFeedback2_ARB || ctx.Extensions.TransformFeedback_EXT) {
 					// Map active feedback
 					int feebackVaryings, feebackVaryingsMaxLength;
 
@@ -1045,7 +1045,7 @@ namespace OpenGL.Objects
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!Gl.CurrentExtensions.GetProgramBinary_ARB)
+			if (!ctx.Extensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 
 			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -1066,7 +1066,7 @@ namespace OpenGL.Objects
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!Gl.CurrentExtensions.GetProgramBinary_ARB)
+			if (!ctx.Extensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 			if (!IsLinked)
 				throw new InvalidOperationException("not linked");
@@ -1223,7 +1223,13 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the identifier of the binding point.
 		/// </summary>
-		int IBindingResource.BindingTarget { get { return (Gl.CURRENT_PROGRAM); } }
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
+		{
+			return (Gl.CURRENT_PROGRAM);
+		}
 
 		/// <summary>
 		/// Bind this IBindingResource.

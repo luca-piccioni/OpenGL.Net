@@ -580,13 +580,14 @@ namespace OpenGL.Objects
 		{
 			// Get the current OpenGL implementation version
 			_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+			Resource.Log("Running on OpenGL {0}", _Version);
+
 			// Get the current OpenGL Shading Language implementation version
 			switch (_Version.Api) {
 				case KhronosVersion.ApiGl:
-					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
-					break;
 				case KhronosVersion.ApiGles2:
 					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
+					Resource.Log("  Shading Language: {0}", _ShadingVersion);
 					break;
 				default:
 					// No Shading Language support
@@ -765,7 +766,7 @@ namespace OpenGL.Objects
 
 #if ENABLE_REDUNDANT_BIND
 			WeakReference<IBindingResource> boundResourceRef;
-			int bindingTarget = bindingResource.BindingTarget;
+			int bindingTarget = bindingResource.GetBindingTarget(this);
 
 			if (bindingTarget != 0 && _BoundObjects.TryGetValue(bindingTarget, out boundResourceRef)) {
 				IBindingResource boundResource;
@@ -811,7 +812,7 @@ namespace OpenGL.Objects
 				bindingResource.Bind(this);
 
 #if ENABLE_REDUNDANT_BIND
-				int bindingTarget = bindingResource.BindingTarget;
+				int bindingTarget = bindingResource.GetBindingTarget(this);
 
 				// Remind this object as bound
 				if (bindingTarget != 0)
@@ -836,7 +837,7 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("bindingResource");
 
 #if ENABLE_REDUNDANT_BIND
-			int bindingTarget = bindingResource.BindingTarget;
+			int bindingTarget = bindingResource.GetBindingTarget(this);
 
 			if (bindingTarget != 0) {
 				Debug.Assert(bindingResource.IsBound(this));

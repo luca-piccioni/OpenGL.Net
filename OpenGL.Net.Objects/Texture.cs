@@ -1185,7 +1185,7 @@ namespace OpenGL.Objects
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!Gl.CurrentExtensions.TextureObject_EXT || Gl.IsTexture(ObjectName));
+			return (!ctx.Extensions.TextureObject_EXT || Gl.IsTexture(ObjectName));
 		}
 
 		/// <summary>
@@ -1259,45 +1259,44 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the identifier of the binding point.
 		/// </summary>
-		int IBindingResource.BindingTarget
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
 		{
-			get
-			{
-				// Cannot lazy binding on textures if GL_EXT_texture_object is not supported
-				if (Gl.CurrentExtensions.TextureObject_EXT == false)
-					return (0);
+			// Cannot lazy binding on textures if GL_EXT_texture_object is not supported
+			if (ctx.Extensions.TextureObject_EXT == false)
+				return (0);
 
-				// All-in-one implementation for all targets
-				switch ((int)TextureTarget) {
-					case Gl.TEXTURE_1D:
-						return (Gl.TEXTURE_BINDING_1D);
-					case Gl.TEXTURE_2D:
-						return (Gl.TEXTURE_BINDING_2D);
-					case Gl.TEXTURE_3D:
-						return (Gl.TEXTURE_BINDING_3D);
+			// All-in-one implementation for all targets
+			switch ((int)TextureTarget) {
+				case Gl.TEXTURE_1D:
+					return (Gl.TEXTURE_BINDING_1D);
+				case Gl.TEXTURE_2D:
+					return (Gl.TEXTURE_BINDING_2D);
+				case Gl.TEXTURE_3D:
+					return (Gl.TEXTURE_BINDING_3D);
 
-					case Gl.TEXTURE_CUBE_MAP:
-						return (Gl.TEXTURE_BINDING_CUBE_MAP);
+				case Gl.TEXTURE_CUBE_MAP:
+					return (Gl.TEXTURE_BINDING_CUBE_MAP);
 
-					case Gl.TEXTURE_RECTANGLE:
-						return (Gl.TEXTURE_BINDING_RECTANGLE);
+				case Gl.TEXTURE_RECTANGLE:
+					return (Gl.TEXTURE_BINDING_RECTANGLE);
 
-					case Gl.TEXTURE_1D_ARRAY:
-						return (Gl.TEXTURE_BINDING_1D_ARRAY);
-					case Gl.TEXTURE_2D_ARRAY:
-						return (Gl.TEXTURE_BINDING_2D_ARRAY);
-					case Gl.TEXTURE_CUBE_MAP_ARRAY:
-						return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
+				case Gl.TEXTURE_1D_ARRAY:
+					return (Gl.TEXTURE_BINDING_1D_ARRAY);
+				case Gl.TEXTURE_2D_ARRAY:
+					return (Gl.TEXTURE_BINDING_2D_ARRAY);
+				case Gl.TEXTURE_CUBE_MAP_ARRAY:
+					return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
 
-					case Gl.TEXTURE_2D_MULTISAMPLE:
-						return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
-					case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
-						return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
+				case Gl.TEXTURE_2D_MULTISAMPLE:
+					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
+				case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
+					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
 
-					default:
-						throw new NotSupportedException(String.Format("texture target 0x{0:X2} not supported", (int)TextureTarget));
-				}
-				
+				default:
+					throw new NotSupportedException(String.Format("texture target 0x{0:X2} not supported", (int)TextureTarget));
 			}
 		}
 
@@ -1340,12 +1339,13 @@ namespace OpenGL.Objects
 		/// </returns>
 		bool IBindingResource.IsBound(GraphicsContext ctx)
 		{
-			int currentTexture;
+			int bindingTarget = ((IBindingResource)this).GetBindingTarget(ctx);
+			int currentBufferObject;
 
-			Debug.Assert(((IBindingResource)this).BindingTarget != 0);
-			Gl.Get(((IBindingResource)this).BindingTarget, out currentTexture);
+			Debug.Assert(bindingTarget != 0);
+			Gl.Get(bindingTarget, out currentBufferObject);
 
-			return (currentTexture == (int)ObjectName);
+			return (currentBufferObject == (int)ObjectName);
 		}
 
 		#endregion

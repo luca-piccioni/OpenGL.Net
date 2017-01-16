@@ -26,7 +26,10 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the identifier of the binding point.
 		/// </summary>
-		int BindingTarget { get; }
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		int GetBindingTarget(GraphicsContext ctx);
 
 		/// <summary>
 		/// Bind this IBindingResource.

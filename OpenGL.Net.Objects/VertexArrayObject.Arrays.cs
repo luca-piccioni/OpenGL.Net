@@ -196,7 +196,7 @@ namespace OpenGL.Objects
 				int arrayStride = arraySection.Stride.ToInt32();
 
 				// Avoid rendundant buffer binding and relative vertex array setup
-				if (Gl.CurrentExtensions.VertexArrayObject_ARB && IsDirty == false) {
+				if (ctx.Extensions.VertexArrayObject_ARB && IsDirty == false) {
 					// CheckVertexAttribute(ctx, location);
 					return;
 				}
@@ -394,7 +394,7 @@ namespace OpenGL.Objects
 					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
 
 					// Avoid rendundant buffer binding and relative vertex array setup
-					if (Gl.CurrentExtensions.VertexArrayObject_ARB && IsDirty == false) {
+					if (ctx.Extensions.VertexArrayObject_ARB && IsDirty == false) {
 						// CheckVertexAttribute(ctx, attributeBinding.Location);
 						return;
 					}

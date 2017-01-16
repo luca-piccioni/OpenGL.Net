@@ -368,7 +368,7 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			if (Exists(ctx) && Gl.CurrentExtensions.VertexBufferObject_ARB) {
+			if (Exists(ctx) && ctx.Extensions.VertexBufferObject_ARB) {
 				// Unmap buffer object data (resident on server)
 				bool uncorrupted = Gl.UnmapBuffer(BufferType);
 
@@ -546,7 +546,7 @@ namespace OpenGL.Objects
 				Debug.Assert(ClientBufferSize == BufferSize);
 			}
 
-			if (Gl.CurrentExtensions.VertexBufferObject_ARB) {
+			if (ctx.Extensions.VertexBufferObject_ARB) {
 				// Read this buffer object
 				ctx.Bind(this);
 				// Get the GPU buffer content
@@ -599,7 +599,7 @@ namespace OpenGL.Objects
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (Gl.CurrentExtensions.VertexBufferObject_ARB ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
+			return (ctx.Extensions.VertexBufferObject_ARB ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
 		}
 
 		/// <summary>
@@ -621,7 +621,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			Debug.Assert(Gl.CurrentExtensions.VertexBufferObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB);
 
 			return (Gl.GenBuffer());
 		}
@@ -648,7 +648,7 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(Gl.CurrentExtensions.VertexBufferObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB);
 
 			// Delete buffer object
 			Gl.DeleteBuffers(name);
@@ -693,7 +693,7 @@ namespace OpenGL.Objects
 			// Buffer must be bound
 			ctx.Bind(this);
 
-			if (Gl.CurrentExtensions.VertexBufferObject_ARB) {
+			if (ctx.Extensions.VertexBufferObject_ARB) {
 				if (IsMapped)
 					throw new InvalidOperationException("mapped");
 
@@ -764,28 +764,28 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the identifier of the binding point.
 		/// </summary>
-		int IBindingResource.BindingTarget
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
 		{
-			get
-			{
-				// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
-				if (Gl.CurrentExtensions.VertexArrayObject_ARB == false)
-					return (0);
+			// Cannot lazy binding on buffer objects if GL_ARB_vertex_array_object is not supported
+			if (ctx.Extensions.VertexArrayObject_ARB == false)
+				return (0);
 				
-				// All-in-one implementation for all targets
-				switch (BufferType) {
-					case BufferTargetARB.ArrayBuffer:
-						return (Gl.ARRAY_BUFFER_BINDING);
-					case BufferTargetARB.ElementArrayBuffer:
-						return (Gl.ELEMENT_ARRAY_BUFFER_BINDING);
-					case BufferTargetARB.TransformFeedbackBuffer:
-						return (Gl.TRANSFORM_FEEDBACK_BINDING);
-					case BufferTargetARB.UniformBuffer:
-						return (Gl.UNIFORM_BUFFER);
+			// All-in-one implementation for all targets
+			switch (BufferType) {
+				case BufferTargetARB.ArrayBuffer:
+					return (Gl.ARRAY_BUFFER_BINDING);
+				case BufferTargetARB.ElementArrayBuffer:
+					return (Gl.ELEMENT_ARRAY_BUFFER_BINDING);
+				case BufferTargetARB.TransformFeedbackBuffer:
+					return (Gl.TRANSFORM_FEEDBACK_BINDING);
+				case BufferTargetARB.UniformBuffer:
+					return (Gl.UNIFORM_BUFFER);
 
-					default:
-						throw new NotSupportedException(String.Format("buffer target {0} not supported", BufferType));
-				}
+				default:
+					throw new NotSupportedException(String.Format("buffer target {0} not supported", BufferType));
 			}
 		}
 
@@ -808,7 +808,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected virtual void BindCore(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.VertexBufferObject_ARB)
+			if (ctx.Extensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, ObjectName);
 		}
 
@@ -833,7 +833,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected virtual void UnbindCore(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.VertexBufferObject_ARB)
+			if (ctx.Extensions.VertexBufferObject_ARB)
 				Gl.BindBuffer(BufferType, InvalidObjectName);
 		}
 
@@ -848,10 +848,11 @@ namespace OpenGL.Objects
 		/// </returns>
 		bool IBindingResource.IsBound(GraphicsContext ctx)
 		{
+			int bindingTarget = ((IBindingResource)this).GetBindingTarget(ctx);
 			int currentBufferObject;
 
-			Debug.Assert(((IBindingResource)this).BindingTarget != 0);
-			Gl.Get(((IBindingResource)this).BindingTarget, out currentBufferObject);
+			Debug.Assert(bindingTarget != 0);
+			Gl.Get(bindingTarget, out currentBufferObject);
 
 			return (currentBufferObject == (int)ObjectName);
 		}

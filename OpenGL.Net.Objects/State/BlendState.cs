@@ -183,13 +183,13 @@ namespace OpenGL.Objects.State
 			// Blend enabled
 			_Enabled = Gl.IsEnabled(EnableCap.Blend);
 
-			if (Gl.CurrentExtensions.BlendEquationSeparate_EXT) {
+			if (ctx.Extensions.BlendEquationSeparate_EXT) {
 				// Blend equation (RGB)
 				Gl.Get(Gl.BLEND_EQUATION_RGB, out blendRgbEquation);
 				// Blend equation (Alpha)
 				Gl.Get(Gl.BLEND_EQUATION_ALPHA, out blendAlphaEquation);
 			} else {
-				if (Gl.CurrentExtensions.BlendMinmax_EXT) {
+				if (ctx.Extensions.BlendMinmax_EXT) {
 					// Blend equation (RGBA)
 					Gl.Get(GetPName.BlendEquation, out blendRgbEquation);
 					// Alpha equation is the same for RGB!
@@ -199,7 +199,7 @@ namespace OpenGL.Objects.State
 				}
 			}
 
-			if (Gl.CurrentExtensions.BlendFuncSeparate_EXT) {
+			if (ctx.Extensions.BlendFuncSeparate_EXT) {
 				// Blend source function (RGB)
 				Gl.Get(Gl.BLEND_SRC_RGB, out blendRgbSrcFunct);
 				// Blend source function (Alpha)
@@ -228,7 +228,7 @@ namespace OpenGL.Objects.State
 			_AlphaDstFactor = (BlendingFactorDest)blendAlphaDstFunct;
 
 			// Store blend color
-			if (Gl.CurrentExtensions.BlendColor_EXT) {
+			if (ctx.Extensions.BlendColor_EXT) {
 				float[] blendColor = new float[4];
 
 				Gl.Get(GetPName.BlendColor, blendColor);
@@ -311,10 +311,10 @@ namespace OpenGL.Objects.State
 			switch (equation) {
 				case BlendEquationModeEXT.Min:
 				case BlendEquationModeEXT.Max:
-					return (Gl.CurrentExtensions.BlendMinmax_EXT);
+					return (Gl.CurrentExtensions.BlendMinmax_EXT);				// XXX Use GraphicsContext
 				case BlendEquationModeEXT.FuncSubtract:
 				case BlendEquationModeEXT.FuncReverseSubtract:
-					return (Gl.CurrentExtensions.BlendSubtract_EXT);
+					return (Gl.CurrentExtensions.BlendSubtract_EXT);			// XXX Use GraphicsContext
 				default:
 					return (true);
 			}
@@ -332,7 +332,7 @@ namespace OpenGL.Objects.State
 				case BlendingFactorSrc.OneMinusConstantColor:
 				case BlendingFactorSrc.ConstantAlpha:
 				case BlendingFactorSrc.OneMinusConstantAlpha:
-					return (Gl.CurrentExtensions.BlendColor_EXT);
+					return (Gl.CurrentExtensions.BlendColor_EXT);				// XXX Use GraphicsContext
 				default:
 					return (true);
 			}
@@ -350,7 +350,7 @@ namespace OpenGL.Objects.State
 				case BlendingFactorDest.OneMinusConstantColor:
 				case BlendingFactorDest.ConstantAlpha:
 				case BlendingFactorDest.OneMinusConstantAlpha:
-					return (Gl.CurrentExtensions.BlendColor_EXT);
+					return (Gl.CurrentExtensions.BlendColor_EXT);				// XXX Use GraphicsContext
 				default:
 					return (true);
 			}
@@ -491,7 +491,7 @@ namespace OpenGL.Objects.State
 				Gl.Enable(EnableCap.Blend);
 
 				// Set blending equation
-				if (Gl.CurrentExtensions.BlendMinmax_EXT) {
+				if (ctx.Extensions.BlendMinmax_EXT) {
 					if (EquationSeparated)
 						Gl.BlendEquationSeparate(RgbEquation, AlphaEquation);
 					else
@@ -522,7 +522,7 @@ namespace OpenGL.Objects.State
 					Gl.Enable(EnableCap.Blend);
 
 				// Set blending equation
-				if (Gl.CurrentExtensions.BlendMinmax_EXT) {
+				if (ctx.Extensions.BlendMinmax_EXT) {
 					if (EquationSeparated) {
 						if (currentState.RgbEquation != RgbEquation || currentState.AlphaEquation != AlphaEquation)
 							Gl.BlendEquationSeparate(RgbEquation, AlphaEquation);
