@@ -62,8 +62,6 @@ namespace OpenGL
 				return;
 #endif
 
-			System.Threading.Thread.Sleep(1000);
-
 			LogComment("OpenGL.Net is initializing");
 
 			// Loader function			OS API			GL API
