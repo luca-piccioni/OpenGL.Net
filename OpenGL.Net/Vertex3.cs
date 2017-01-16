@@ -804,6 +804,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -1697,6 +1698,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -2576,6 +2578,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -3469,6 +3472,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -4348,6 +4352,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -5241,6 +5246,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -5808,19 +5814,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-#if HAVE_NUMERICS
-			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
-
-			unsafe
-			{
-				fixed (Vertex3f *pv = v) {
-					for (int i = 0; i < v.Length; i++)
-						min = Vector3.Min(min, new Vector3(pv[i].x, pv[i].y, pv[i].z));
-				}
-			}
-
-			return (new Vertex3f(min.X, min.Y, min.Z));
-#else
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5830,7 +5823,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex3f(x, y, z));
-#endif
 		}
 
 		/// <summary>
@@ -6074,6 +6066,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -6893,6 +6886,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -7686,6 +7680,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}

@@ -27,9 +27,9 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-#ifdef HAVE_NUMERICS
+#if HAVE_NUMERICS
 using System.Numerics;
-#endregion
+#endif
 
 namespace OpenGL
 {
@@ -37,7 +37,7 @@ namespace OpenGL
 	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
 	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
-	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     null };
+	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "1.0f" };
 	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
 	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
@@ -47,6 +47,7 @@ namespace OpenGL
 		string className = String.Format("Vertex3{0}", postfixes[i]);
 		string baseType = underlyingType[i];
 		int structSize = structSizes[i];
+		string zero = zeroes[i], one = ones[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
@@ -758,8 +759,6 @@ namespace OpenGL
 
 		#endregion
 <#
-		string zero = zeroes[i], one = ones[i];
-
 		if (zero != null && one != null) {
 #>
 
@@ -957,6 +956,7 @@ namespace OpenGL
 					case 0: return (X);
 					case 1: return (Y);
 					case 2: return (Z);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}

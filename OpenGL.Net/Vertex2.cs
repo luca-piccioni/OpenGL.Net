@@ -779,6 +779,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -1647,6 +1649,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -2501,6 +2505,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -3369,6 +3375,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -4223,6 +4231,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -5091,6 +5101,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -5892,6 +5904,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -6694,6 +6708,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
@@ -7474,6 +7490,8 @@ namespace OpenGL
 				switch (idx) {
 					case 0: return (X);
 					case 1: return (Y);
+					case 2: return (0.0f);
+					case 3: return (1.0f);
 					default:
 						throw new ArgumentOutOfRangeException("idx");
 				}
