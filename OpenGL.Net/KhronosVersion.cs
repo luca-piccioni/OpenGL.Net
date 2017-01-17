@@ -458,7 +458,7 @@ namespace OpenGL
 		#region Object Overrides
 
 		///<summary>
-		/// Converts this PIXELFORMATDESCRIPTOR into a human-legible string representation.
+		/// Converts this KhronosVersion into a human-legible string representation.
 		///</summary>
 		///<returns>
 		/// The string representation of this instance.

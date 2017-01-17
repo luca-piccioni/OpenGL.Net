@@ -287,16 +287,20 @@ namespace OpenGL
 		/// </returns>
 		protected static new string LogEnumName(int[] enumValues)
 		{
-			StringBuilder sb = new StringBuilder();
+			if (enumValues.Length > 4) {
+				return ("{ ... }");
+			} else {
+				StringBuilder sb = new StringBuilder();
 
-			sb.Append("{");
-			foreach (int enumValue in enumValues)
-				sb.AppendFormat("{0},", LogEnumName(enumValue));
-			if (enumValues.Length > 0)
-				sb.Remove(sb.Length - 1, 1);
-			sb.Append("}");
+				sb.Append("{");
+				foreach (int enumValue in enumValues)
+					sb.AppendFormat("{0},", LogEnumName(enumValue));
+				if (enumValues.Length > 0)
+					sb.Remove(sb.Length - 1, 1);
+				sb.Append("}");
 
-			return (sb.ToString());
+				return (sb.ToString());
+			}
 		}
 
 		/// <summary>
