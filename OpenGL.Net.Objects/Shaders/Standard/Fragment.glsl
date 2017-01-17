@@ -50,6 +50,7 @@ OUT vec4		glo_FragColor;
 void main()
 {
 #if defined(GLO_LIGHTING_PER_FRAGMENT)
+
 	// Material initially defined by uniform colors
 	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
 	int index;
@@ -65,24 +66,20 @@ void main()
 #if defined(GLO_COLOR_PER_VERTEX)
 	fragmentMaterial.DiffuseColor = fragmentMaterial.DiffuseColor * glo_VertexColor;
 #endif
+
 	index = glo_FrontMaterialDiffuseTexCoord;
 	if (index >= 0)
 		fragmentMaterial.DiffuseColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
 
 	// Fragment color
-	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, normalize(glo_VertexNormal));
-	
+	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, glo_VertexNormal);
+
 #elif defined(GLO_LIGHTING_PER_VERTEX)
 
 	int index;
 
 	// Default
-	glo_FragColor = glo_UniformColor;
-
-#if defined(GLO_COLOR_PER_VERTEX)
-	// Vertex shader computes fragment color
 	glo_FragColor = glo_VertexColor;
-#endif
 
 	// No emission texture support!
 

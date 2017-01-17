@@ -301,9 +301,6 @@ namespace OpenGL.Objects
 			// Download texture contents
 			Gl.GetTexImage(target, (int)level, pixelType.GetGlFormat(), pixelType.GetPixelType(), image.ImageBuffer);
 
-			// Unbind this texture
-			ctx.Unbind(this);
-
 			return (image);
 		}
 
@@ -570,8 +567,6 @@ namespace OpenGL.Objects
 			ctx.Bind(this);
 			// Generate mipmaps
 			Gl.GenerateMipmap((int)target);
-			// Unbind this texture
-			ctx.Unbind(this);
 
 			Debug.Assert(_Mipmaps.Length >= MipmapLevels);
 			for (uint i = MipmapBaseLevel + 1; i < MipmapLevels; i++) {
@@ -1132,7 +1127,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Flag for releasing data on upload.
 		/// </summary>
-		private bool _TechniquesAutoRelease = Gl.CurrentExtensions.TextureObject_EXT;
+		private bool _TechniquesAutoRelease;
 
 		#endregion
 
@@ -1228,10 +1223,16 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			// Let create this texture
-			Gl.BindTexture(TextureTarget, ObjectName);
-			// Bind this texture
-			ctx.Bind(this);
+			if (!_NameCreated) {
+				// Let create this texture
+				Gl.BindTexture(TextureTarget, ObjectName);
+				_NameCreated = true;
+				// Bind this texture
+				ctx.Bind(this);
+
+				// Determine whether to release texture data
+				_TechniquesAutoRelease = ctx.Extensions.TextureObject_EXT;
+			}
 
 			// In the case of no techniques, texture will exists but it will be undefined
 
@@ -1243,14 +1244,17 @@ namespace OpenGL.Objects
 					if (_TechniquesAutoRelease)
 						technique.Dispose();
 				}
-				if (_TechniquesAutoRelease)
-					_Techniques.Clear();
 			
 				// Generate mipmaps, if requested
 				if (_RequiresMipMaps)
 					GenerateMipmaps(ctx);
+
+				if (_TechniquesAutoRelease)
+					_Techniques.Clear();
 			}
 		}
+
+		private bool _NameCreated;
 
 		#endregion
 

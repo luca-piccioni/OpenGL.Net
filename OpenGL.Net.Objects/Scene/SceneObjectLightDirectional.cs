@@ -74,7 +74,7 @@ namespace OpenGL.Objects.Scene
 			// Note: avoiding to invert the view matrix twice
 			IMatrix3x3 normalMatrix = sceneCtx.CurrentView.LocalModel.GetComplementMatrix(3, 3).Transpose();
 
-			light.Direction = (Vertex3f)normalMatrix.Multiply((Vertex3f)Direction);
+			light.Direction = ((Vertex3f)normalMatrix.Multiply((Vertex3f)Direction)).Normalized;
 			light.HalfVector = (Vertex3f.UnitZ + light.Direction).Normalized;
 
 			return (light);

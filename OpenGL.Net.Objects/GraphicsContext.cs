@@ -16,8 +16,11 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#define ENABLE_LAZY_SERVER_STATE
 // Symbol for disabling redundant bind operations via IBindingResource
-#define ENABLE_REDUNDANT_BIND
+#define ENABLE_LAZY_BINDING
+// Symbol for disabling redundant texture unit selection
+#define ENABLE_LAZY_TEXTURE_UNIT
 
 // Symbol for disabling at compile-time features derived from GL_ARB_shading_language_include
 #undef DISABLE_GL_ARB_shading_language_include
@@ -246,13 +249,21 @@ namespace OpenGL.Objects
 
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
+
+				#region Extension 
+				
 				Extensions.Query();
+
+				Extensions.TextureObject_EXT = true;
 #if DISABLE_GL_ARB_shading_language_include
 				Extensions.ShadingLanguageInclude_ARB = false;
 #endif
 #if DISABLE_GL_ARB_uniform_buffer_object
 				Extensions.UniformBufferObject_ARB = false;
 #endif
+
+				#endregion
+
 				// Initialize resources
 				InitializeResources();
 				// Get GL context flags
@@ -728,7 +739,9 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("state");
 			Debug.Assert(state.IsContextBound);
 
+#if ENABLE_LAZY_SERVER_STATE
 			_ServerState[state.StateIndex] = state;
+#endif
 		}
 
 		/// <summary>
@@ -764,7 +777,7 @@ namespace OpenGL.Objects
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");
 
-#if ENABLE_REDUNDANT_BIND
+#if ENABLE_LAZY_BINDING
 			WeakReference<IBindingResource> boundResourceRef;
 			int bindingTarget = bindingResource.GetBindingTarget(this);
 
@@ -782,11 +795,11 @@ namespace OpenGL.Objects
 					return;
 				}
 			}
+			// Debug.Assert(!bindingResource.IsBound(this));		It may not be true in case of textures and other objects requiring a Bind
 #endif
-			// Debug.Assert(!bindingResource.IsBound(this));
 			bindingResource.Bind(this);
 
-#if ENABLE_REDUNDANT_BIND
+#if ENABLE_LAZY_BINDING
 			// Remind this object as bound
 			if (bindingTarget != 0)
 				_BoundObjects[bindingTarget] = new WeakReference<IBindingResource>(bindingResource);
@@ -802,7 +815,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="bindingResource"/> is null.
 		/// </exception>
-		internal void Bind(IBindingResource bindingResource, bool force)
+		private void Bind(IBindingResource bindingResource, bool force)
 		{
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");
@@ -811,7 +824,7 @@ namespace OpenGL.Objects
 				// Forcing binding
 				bindingResource.Bind(this);
 
-#if ENABLE_REDUNDANT_BIND
+#if ENABLE_LAZY_BINDING
 				int bindingTarget = bindingResource.GetBindingTarget(this);
 
 				// Remind this object as bound
@@ -836,7 +849,7 @@ namespace OpenGL.Objects
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");
 
-#if ENABLE_REDUNDANT_BIND
+#if ENABLE_LAZY_BINDING
 			int bindingTarget = bindingResource.GetBindingTarget(this);
 
 			if (bindingTarget != 0) {
@@ -864,11 +877,16 @@ namespace OpenGL.Objects
 
 			if (texture.ActiveTextureUnit == InvalidBindingIndex)
 				BindTextureUnit(texture);
+#if ENABLE_LAZY_TEXTURE_UNIT
 			if (texture.ActiveTextureUnit == _ActiveTextureUnit)
 				return;
+#endif
 
 			Gl.ActiveTexture(Gl.TEXTURE0 + (int)texture.ActiveTextureUnit);
 			_ActiveTextureUnit = texture.ActiveTextureUnit;
+
+			// Bind texture (on active texture unit)
+			Bind(texture, true);
 		}
 
 		/// <summary>

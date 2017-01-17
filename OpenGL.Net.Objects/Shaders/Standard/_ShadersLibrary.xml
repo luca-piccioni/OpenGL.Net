@@ -89,7 +89,7 @@
 			<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" Stage="Fragment" />
 
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
-			<Attribute Name="glo_Color" Semantic="Normal" Location="1" />
+			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
 			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
 			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
 

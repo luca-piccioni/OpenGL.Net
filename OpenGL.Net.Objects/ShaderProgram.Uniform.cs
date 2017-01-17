@@ -16,9 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-// Symbol for enabling shader program uniforms value caching: performance gain avoding
-// redundant Uniform* calls
-#define ENABLE_UNIFORM_VALUE_CACHING
+// Symbol for enabling shader program uniforms value caching: performance gain avoding redundant Uniform* calls
+#define ENABLE_LAZY_UNIFORM_VALUE
 
 using UniformDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.ShaderProgram.UniformBinding>;
 
@@ -506,7 +505,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -514,7 +513,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform1(uniform.Location, v);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -539,7 +538,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, new Vertex2f(x, y)) == false)
 				return;
 #endif
@@ -554,7 +553,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform2(uniform.Location, x, y);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, new Vertex2f(x, y));
 #endif
 		}
@@ -582,7 +581,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, new Vertex3f(x, y, z)) == false)
 				return;
 #endif
@@ -597,7 +596,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform3(uniform.Location, x, y, z);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, new Vertex3f(x, y, z));
 #endif
 		}
@@ -628,7 +627,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, new Vertex4f(x, y, z, w)) == false)
 				return;
 #endif
@@ -643,7 +642,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform4(uniform.Location, x, y, z, w);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, new Vertex4f(x, y, z, w));
 #endif
 		}
@@ -664,7 +663,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -680,7 +679,7 @@ namespace OpenGL.Objects
 				Gl.Uniform2(uniform.Location, 1, (float*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -704,7 +703,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -722,7 +721,7 @@ namespace OpenGL.Objects
 				}
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -743,7 +742,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -760,7 +759,7 @@ namespace OpenGL.Objects
 				Gl.Uniform3(uniform.Location, 1, (float*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -781,7 +780,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -800,7 +799,7 @@ namespace OpenGL.Objects
 				}
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -821,7 +820,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -838,7 +837,7 @@ namespace OpenGL.Objects
 				Gl.Uniform4(uniform.Location, 1, (float*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -859,7 +858,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -878,7 +877,7 @@ namespace OpenGL.Objects
 				}
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -899,7 +898,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -915,7 +914,7 @@ namespace OpenGL.Objects
 				Gl.Uniform4(uniform.Location, 1, (float*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1504,7 +1503,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -1519,7 +1518,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform1(uniform.Location, v);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1544,7 +1543,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			Vertex2i v = new Vertex2i(x, y);
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
@@ -1560,7 +1559,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform2(uniform.Location, x, y);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1588,7 +1587,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			Vertex3i v = new Vertex3i(x, y, z);
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
@@ -1604,7 +1603,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform3(uniform.Location, x, y, z);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1635,7 +1634,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			Vertex4i v = new Vertex4i(x, y, z, w);
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
@@ -1651,7 +1650,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.Uniform4(uniform.Location, x, y, z, w);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1672,7 +1671,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -1689,7 +1688,7 @@ namespace OpenGL.Objects
 				Gl.Uniform2(uniform.Location, 1, (int*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1710,7 +1709,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -1727,7 +1726,7 @@ namespace OpenGL.Objects
 				Gl.Uniform3(uniform.Location, 1, (int*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -1748,7 +1747,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, v) == false)
 				return;
 #endif
@@ -1765,7 +1764,7 @@ namespace OpenGL.Objects
 				Gl.Uniform4(uniform.Location, 1, (int*)&v);
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
 #endif
 		}
@@ -2517,7 +2516,7 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, m) == false)
 				return;
 #endif
@@ -2578,7 +2577,7 @@ namespace OpenGL.Objects
 					throw new NotSupportedException(String.Format("uniform type {0} not assignable from Matrix{1}x{2}", uniform.UniformType, m.Width, m.Height));
 			}
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
 #endif
 		}
@@ -2602,7 +2601,7 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, m) == false)
 				return;
 #endif
@@ -2617,7 +2616,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.UniformMatrix3(uniform.Location, 1, false, m.Buffer);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
 #endif
 		}
@@ -2641,7 +2640,7 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			if (IsUniformValueChanged(uniformName, m) == false)
 				return;
 #endif
@@ -2656,7 +2655,7 @@ namespace OpenGL.Objects
 			// Set uniform value
 			Gl.UniformMatrix4(uniform.Location, 1, false, m.Buffer);
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
 #endif
 		}
@@ -2826,8 +2825,6 @@ namespace OpenGL.Objects
 
 			// Activate texture unit
 			ctx.SetActiveTextureUnit(texture);
-			// Bind texture (on active texture unit)
-			ctx.Bind(texture, true);
 			// Apply texture parameters
 			texture.ApplyParameters(ctx);
 
@@ -2845,7 +2842,7 @@ namespace OpenGL.Objects
 
 		#region Uniform State Caching
 
-#if ENABLE_UNIFORM_VALUE_CACHING
+#if ENABLE_LAZY_UNIFORM_VALUE
 
 		/// <summary>
 		/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached

@@ -53,9 +53,9 @@ void main()
 	// Position is required for lighting
 	glo_VertexPosition = glo_ModelView * glo_Position;
 	// Normal is required for lighting
-	glo_VertexNormal = glo_NormalMatrix * normalize(glo_Normal);
+	glo_VertexNormal =  normalize(glo_NormalMatrix * normalize(glo_Normal));
 	// Normal (model) is required for environment mapping
-	glo_VertexNormalModel = mat3x3(glo_ModelView) * normalize(glo_Normal);
+	glo_VertexNormalModel = normalize(mat3x3(glo_ModelView) * normalize(glo_Normal));
 	// Vertex texture coordinate "as is"
 	glo_VertexTexCoord[0] = glo_TexCoord0;
 	glo_VertexTexCoord[1] = glo_TexCoord1;
@@ -72,7 +72,7 @@ void main()
 #endif
 
 	// Vertex color
-	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_ModelView * glo_Position, glo_VertexNormal);
+	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, glo_VertexNormal);
 
 #endif
 }

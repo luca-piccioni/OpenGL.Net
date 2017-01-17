@@ -86,6 +86,11 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
+		/// Depth test enabled flag.
+		/// </summary>
+		private bool _Enabled = true;
+
+		/// <summary>
 		/// Get or set the depth test function.
 		/// </summary>
 		/// <remarks>
@@ -96,11 +101,6 @@ namespace OpenGL.Objects.State
 			get { return (_Function); }
 			set { _Function = value; }
 		}
-
-		/// <summary>
-		/// Depth test enabled flag.
-		/// </summary>
-		private bool _Enabled = true;
 
 		/// <summary>
 		/// Depth test function.

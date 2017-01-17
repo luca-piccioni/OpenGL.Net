@@ -76,10 +76,6 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, inout vec4 ambi
 			ComputeDirectionalLight(i, normal, ambient, diffuse);
 		else if (glo_Light[i].FallOff[0] == 180.0)
 			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, ambient, diffuse);
-#if 0
-		else
-			ComputeSpotLight(i, normal, ambient, diffuse);
-#endif
 	}
 
 	ambient = ambient * glo_LightModel.AmbientLighting;
@@ -99,10 +95,6 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialS
 			ComputeDirectionalLight(i, normal, materialShininess, ambient, diffuse, specular);
 		else if (glo_Light[i].FallOff[0] == 180.0)
 			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, ambient, diffuse, specular);
-#if 0
-		else
-			ComputeSpotLight(i, normal, materialShininess, ambient, diffuse, specular);
-#endif
 	}
 
 	ambient = ambient * glo_LightModel.AmbientLighting;
@@ -119,7 +111,7 @@ float ComputeAttenuationFactor(int lightIdx, float distance)
 		glo_Light[lightIdx].AttenuationFactors[0] +
 		glo_Light[lightIdx].AttenuationFactors[1] * distance +
 		glo_Light[lightIdx].AttenuationFactors[2] * distance * distance
-		);
+	);
 }
 
 /// -----------------------------------------------------------------------------------------------
@@ -156,7 +148,7 @@ void ComputeDirectionalLight(int lightIdx, vec3 normal, float materialShininess,
 
 	// Compute specular power factor
 	float powerFactor = 0.0;
-	if (dotNL != 0) {
+	if (dotNL > 0.0) {
 		// Effective power factor
 		powerFactor = pow(dotNH, materialShininess);
 	}
@@ -177,7 +169,7 @@ void ComputeDirectionalLight(int lightIdx, vec3 normal, float materialShininess,
 
 	// Compute specular power factor
 	float powerFactor = 0.0;
-	if (dotNL != 0) {
+	if (dotNL > 0.0) {
 		// Effective power factor
 		powerFactor = pow(dotNH, materialShininess);
 	}

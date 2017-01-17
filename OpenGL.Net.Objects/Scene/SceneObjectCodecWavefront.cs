@@ -816,6 +816,7 @@ namespace OpenGL.Objects.Scene
 				Texture2d texture = new Texture2d();
 
 				texture.RequestMipmapsCreation();
+				texture.MipmapMaxLevel = 0;
 				texture.Create(textureImage);
 
 				return (texture);
