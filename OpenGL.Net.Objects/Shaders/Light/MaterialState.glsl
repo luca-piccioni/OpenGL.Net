@@ -37,19 +37,17 @@ struct glo_MaterialType
 // The front face material
 uniform glo_MaterialType glo_FrontMaterial;
 
-// The front face material texture for emission component, if any
+// Emission texture
 uniform sampler2D glo_FrontMaterialEmissionTexture;
-// The front face material texture for emission component, if any
 uniform int glo_FrontMaterialEmissionTexCoord = -1;
-
-// The front face material texture for ambient component, if any
+// Ambient texture
 uniform sampler2D glo_FrontMaterialAmbientTexture;
-// The front face material texture for ambient component, if any
 uniform int glo_FrontMaterialAmbientTexCoord = -1;
-
-// The front face material texture for diffuse component, if any
+// Diffuse texture
 uniform sampler2D glo_FrontMaterialDiffuseTexture;
-// The front face material texture for diffuse component, if any
 uniform int glo_FrontMaterialDiffuseTexCoord = -1;
+// Normal texture
+uniform sampler2D glo_FrontMaterialNormalTexture;
+uniform int glo_FrontMaterialNormalTexCoord = -1;
 
 #endif

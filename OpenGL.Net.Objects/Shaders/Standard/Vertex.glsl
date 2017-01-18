@@ -29,37 +29,40 @@ LOCATION(2) ATTRIBUTE vec3 glo_Normal;
 // Vertex texture coordinates
 LOCATION(3) ATTRIBUTE vec2 glo_TexCoord0;
 // Vertex texture coordinates
-LOCATION(4) ATTRIBUTE vec2 glo_TexCoord1;
-// Vertex texture coordinates
-LOCATION(5) ATTRIBUTE vec2 glo_TexCoord2;
+LOCATION(3) ATTRIBUTE vec3 glo_Tangent;
 
 // Vertex/Fragment color
 SHADER_OUT vec4 glo_VertexColor;
-// Vertex/Fragment position (model space)
-SHADER_OUT vec4 glo_VertexPosition;
 // Vertex/Fragment normal (view space)
 SHADER_OUT vec3 glo_VertexNormal;
+// Vertex/Fragment texture coordinates
+SHADER_OUT vec2 glo_VertexTexCoord[1];
+// Vertex/Fragment TBN space matrix
+SHADER_OUT mat3 glo_VertexTBN;
+
+// Vertex/Fragment position (model space)
+SHADER_OUT vec4 glo_VertexPosition;
 // Vertex/Fragment normal (model space)
 SHADER_OUT vec3 glo_VertexNormalModel;
-// Vertex/Fragment texture coordinates
-SHADER_OUT vec2 glo_VertexTexCoord[3];
 
 void main()
 {
-	// Compute transformed vertex position
 	gl_Position = glo_ModelViewProjection * glo_Position;
-	// Vertex color "as is"
+
 	glo_VertexColor = glo_Color;
+	glo_VertexNormal =  normalize(glo_NormalMatrix * normalize(glo_Normal));
+	glo_VertexTexCoord[0] = glo_TexCoord0;
+
+	vec3 tbnT = normalize(vec3(glo_ModelView * vec4(glo_Tangent, 0.0)));
+	vec3 tbnB = normalize(vec3(glo_ModelView * vec4(cross(glo_Tangent, glo_Normal), 0.0)));
+	vec3 tbnN = normalize(vec3(glo_ModelView * vec4(glo_Normal, 0.0)));
+	
+	glo_VertexTBN = mat3(tbnT, tbnB, tbnN);
+
 	// Position is required for lighting
 	glo_VertexPosition = glo_ModelView * glo_Position;
-	// Normal is required for lighting
-	glo_VertexNormal =  normalize(glo_NormalMatrix * normalize(glo_Normal));
 	// Normal (model) is required for environment mapping
 	glo_VertexNormalModel = normalize(mat3x3(glo_ModelView) * normalize(glo_Normal));
-	// Vertex texture coordinate "as is"
-	glo_VertexTexCoord[0] = glo_TexCoord0;
-	glo_VertexTexCoord[1] = glo_TexCoord1;
-	glo_VertexTexCoord[2] = glo_TexCoord2;
 
 #if defined(GLO_LIGHTING_PER_VERTEX)
 
@@ -71,8 +74,11 @@ void main()
 	fragmentMaterial.DiffuseColor = glo_Color;
 #endif
 
-	// Vertex color
+#if !defined(GLO_DEBUG_NORMAL)
 	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, glo_VertexNormal);
+#else
+	glo_VertexColor = vec4(normalize(glo_Normal), 1.0);
+#endif
 
 #endif
 }

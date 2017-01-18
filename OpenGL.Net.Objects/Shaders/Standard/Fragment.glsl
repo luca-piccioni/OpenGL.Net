@@ -17,6 +17,7 @@
 // USA
 
 #include </OpenGL/Compatibility.glsl>
+#include </OpenGL/TransformState.glsl>
 #include </OpenGL/Light/Lighting.glsl>
 //#include </OpenGL/EnvironMap/EnvironReflection>
 //#include </OpenGL/EnvironMap/EnvironRefraction>
@@ -34,14 +35,17 @@ uniform float glo_Transparency = 1.0;
 
 // Fragment color
 SHADER_IN vec4 glo_VertexColor;
-// Fragment vertex position (model space)
-SHADER_IN vec4 glo_VertexPosition;
 // Fragment normal (view space)
 SHADER_IN vec3 glo_VertexNormal;
+// Fragment texture coordinates
+SHADER_IN vec2 glo_VertexTexCoord[1];
+// Vertex/Fragment TBN space matrix
+SHADER_IN mat3 glo_VertexTBN;
+
+// Fragment vertex position (model space)
+SHADER_IN vec4 glo_VertexPosition;
 // Fragment normal (model space)
 SHADER_IN vec3 glo_VertexNormalModel;
-// Fragment texture coordinates
-SHADER_IN vec2 glo_VertexTexCoord[3];
 
 // Fragment color
 OUT vec4		glo_FragColor;
@@ -71,8 +75,20 @@ void main()
 	if (index >= 0)
 		fragmentMaterial.DiffuseColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
 
-	// Fragment color
-	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, glo_VertexNormal);
+	// Normal
+	vec3 normal = normalize(glo_VertexNormal);
+
+	index = glo_FrontMaterialNormalTexCoord;
+	if (index >= 0) {
+		normal = TEXTURE_2D(glo_FrontMaterialNormalTexture, glo_VertexTexCoord[index]).xyz * 2.0 - 1.0;
+		normal = normalize(glo_VertexTBN * normal);
+	}
+
+#if !defined(GLO_DEBUG_NORMAL)
+	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, normal);
+#else
+	glo_FragColor = vec4(normalize(inverse(glo_NormalMatrix) * normal), 1.0);
+#endif
 
 #elif defined(GLO_LIGHTING_PER_VERTEX)
 

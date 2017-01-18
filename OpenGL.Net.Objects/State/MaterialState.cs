@@ -165,6 +165,18 @@ namespace OpenGL.Objects.State
 		[ShaderUniformState()]
 		public int FrontMaterialDiffuseTexCoord = -1;
 
+		/// <summary>
+		/// The front face material texture for normal component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public Texture2d FrontMaterialNormalTexture;
+
+		/// <summary>
+		/// The front face material texture for normal component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public int FrontMaterialNormalTexCoord = -1;
+
 		#endregion
 
 		#region ShaderUniformState Overrides
@@ -240,6 +252,10 @@ namespace OpenGL.Objects.State
 				if (FrontMaterialDiffuseTexture != null)
 					shaderProgram.SetUniform(ctx, "glo_FrontMaterialDiffuseTexture", FrontMaterialDiffuseTexture);
 				shaderProgram.SetUniform(ctx, "glo_FrontMaterialDiffuseTexCoord", FrontMaterialDiffuseTexCoord);
+
+				if (FrontMaterialNormalTexture != null)
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialNormalTexture", FrontMaterialNormalTexture);
+				shaderProgram.SetUniform(ctx, "glo_FrontMaterialNormalTexCoord", FrontMaterialNormalTexCoord);
 			}
 		}
 

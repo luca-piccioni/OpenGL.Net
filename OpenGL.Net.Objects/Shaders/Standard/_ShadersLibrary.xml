@@ -78,11 +78,13 @@
 			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+					<!-- +GLO_COLOR_PER_VERTEX -->
 				</Symbols>
 			</Object>
 			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+					<!-- +GLO_COLOR_PER_VERTEX -->
 				</Symbols>
 			</Object>
 			<Object Path="OpenGL.Objects.Shaders.Light.Light.glsl" Stage="Fragment" />
@@ -92,6 +94,7 @@
 			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
 			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
 			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
+			<Attribute Name="glo_Tangent" Semantic="Tangent" Location="4" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />

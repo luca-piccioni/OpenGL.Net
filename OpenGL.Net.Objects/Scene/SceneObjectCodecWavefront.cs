@@ -106,6 +106,11 @@ namespace OpenGL.Objects.Scene
 			/// </summary>
 			public float SpecularExponent;
 
+			/// <summary>
+			/// Normal texture.
+			/// </summary>
+			public Texture2d NormalTexture;
+
 			#endregion
 
 			#region Equality Operators
@@ -299,7 +304,8 @@ namespace OpenGL.Objects.Scene
 
 				Vertex4f[] position = new Vertex4f[coords.Count];
 				Vertex3f[] normal = new Vertex3f[coords.Count];
-				Vertex3f[] texcoord = new Vertex3f[coords.Count];
+				Vertex2f[] texcoord = new Vertex2f[coords.Count];
+				Vertex3f[] tangent = new Vertex3f[coords.Count];
 
 				for (int i = 0; i < position.Length; i++) {
 					Debug.Assert(coords[i].VertexIndex < objContext.Vertices.Count);
@@ -310,6 +316,23 @@ namespace OpenGL.Objects.Scene
 
 					Debug.Assert(coords[i].TexCoordIndex < objContext.TextureCoords.Count);
 					texcoord[i] = objContext.TextureCoords[coords[i].TexCoordIndex];
+
+					// Compute tangent vector (on triangle)
+					if ((i % 3) == 2) {
+						Vertex3f v0 = (Vertex3f)position[i - 2], v1 = (Vertex3f)position[i - 1], v2 = (Vertex3f)position[i];
+						Vertex2f t0 = texcoord[i - 2], t1 = texcoord[i - 1], t2 = texcoord[i];
+
+						Vertex3f dv1 = v1 - v0, dv2 = v2 - v0;
+						Vertex2f dt1 = t1 - t0, dt2 = t2 - t0;
+
+						float r = 1.0f / (dt1.x * dt2.y - dt1.y * dt2.x);
+						Vertex3f tgVector   = ((dv1 * dt2.y - dv2 * dt1.y) * r).Normalized;
+						// Vertex3f bitangent = (dv2 * dt1.x - dv1 * dt2.x) * r;
+
+						tangent[i - 2] = tgVector;
+						tangent[i - 1] = tgVector;
+						tangent[i + 0] = tgVector;
+					}
 				}
 
 				ArrayBufferObject<Vertex4f> positionBuffer = new ArrayBufferObject<Vertex4f>(BufferObjectHint.StaticCpuDraw);
@@ -320,9 +343,13 @@ namespace OpenGL.Objects.Scene
 				normalBuffer.Create(normal);
 				vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 
-				ArrayBufferObject<Vertex3f> texCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+				ArrayBufferObject<Vertex2f> texCoordBuffer = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
 				texCoordBuffer.Create(texcoord);
 				vertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
+
+				ArrayBufferObject<Vertex3f> tanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+				tanCoordBuffer.Create(tangent);
+				vertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
 
 				vertexArray.SetElementArray(PrimitiveType.Triangles);
 
@@ -347,6 +374,11 @@ namespace OpenGL.Objects.Scene
 
 				objMaterial.FrontMaterial.Specular = Material.Specular;
 				objMaterial.FrontMaterial.Shininess = Material.SpecularExponent;
+
+				if (Material.NormalTexture != null) {
+					objMaterial.FrontMaterialNormalTexture = Material.NormalTexture;
+					objMaterial.FrontMaterialNormalTexCoord = 0;
+				}
 
 				return (objMaterial);
 			}
@@ -764,6 +796,11 @@ namespace OpenGL.Objects.Scene
 					default:
 						// Ignore
 						break;
+
+						// Custom
+					case "map_n":
+						objMaterial.NormalTexture = ParseMaterialTexture(objContext, objMaterial, commandTokens);
+						break;
 				}
 			}
 
@@ -831,7 +868,7 @@ namespace OpenGL.Objects.Scene
 
 		private static readonly Regex _MtlCommandLine = new Regex(@"^(?<Command>(newmtl)) (?<Tokens>.*)$");
 
-		private static readonly Regex _MtlParamLine = new Regex(@"^(?<Command>((map_)?Ka|(map_)?Kd|(map_)?Ks|Tf|illum|(map_)?d|(map_)?Ns|sharpness|Ni|map_aat|decal|disp|bump|refl)) (?<Tokens>.*)$");
+		private static readonly Regex _MtlParamLine = new Regex(@"^(?<Command>((map_)?Ka|(map_)?Kd|(map_)?Ks|Tf|illum|(map_)?d|(map_)?Ns|sharpness|Ni|map_aat|decal|disp|bump|refl|map_n)) (?<Tokens>.*)$");
 
 		#endregion
 

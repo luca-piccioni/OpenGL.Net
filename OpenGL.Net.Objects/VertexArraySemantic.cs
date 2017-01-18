@@ -44,43 +44,18 @@ namespace OpenGL.Objects
 		public const string Color = "Color";
 
 		/// <summary>
-		/// Texture coordinate.
-		/// </summary>
-		public const string TexCoord = "TexCoord";
-
-		/// <summary>
-		/// Skinning bones count.
-		/// </summary>
-		public const string BonesCount = "BonesCount";
-
-		/// <summary>
-		/// Skinning bones indices assigned of the vertex.
-		/// </summary>
-		public const string BonesIndices = "BonesIndices";
-
-		/// <summary>
-		/// Skinning bones weights assigned of the vertex.
-		/// </summary>
-		public const string BonesWeights = "BonesWeights";
-
-		/// <summary>
 		/// Normal vector.
 		/// </summary>
 		public const string Normal = "Normal";
 
 		/// <summary>
-		/// Speed vector.
+		/// Tangent vector.
 		/// </summary>
-		public const string Speed = "Speed";
-		
-		/// <summary>
-		/// Acceleration vector.
-		/// </summary>
-		public const string Acceleration = "Acceleration";
+		public const string Tangent = "Tangent";
 
 		/// <summary>
-		/// Mass scalar.
+		/// Texture coordinate.
 		/// </summary>
-		public const string Mass = "Mass";
+		public const string TexCoord = "TexCoord";
 	}
 }
