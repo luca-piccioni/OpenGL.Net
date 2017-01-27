@@ -502,10 +502,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -1396,10 +1395,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -2276,10 +2274,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -3170,10 +3167,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -4050,10 +4046,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -4944,10 +4939,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -5779,10 +5773,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -6599,10 +6592,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
@@ -7433,10 +7425,9 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			if (Math.Abs(length) < Single.Epsilon)
-				throw new DivideByZeroException("zero length normalization");
-
-			this /= length;
+			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
+			if (Math.Abs(length) >= Single.Epsilon)
+				this /= length;
 		}
 
 		/// <summary>
