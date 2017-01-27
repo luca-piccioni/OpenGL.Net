@@ -23,6 +23,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Reflection.Emit;
 
 namespace OpenGL
 {
@@ -60,7 +61,44 @@ namespace OpenGL
 
 		#endregion
 
-		#region Memory Copy
+		#region Set
+
+		public static void Set(IntPtr addr, byte value, uint count)
+		{
+			_MemsetDelegate(addr, value, count);
+		}
+
+		/// <summary>
+		/// Utility route for generating 'memset' delegate.
+		/// </summary>
+		/// <returns></returns>
+		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
+		{
+			DynamicMethod dynamicMethod = new DynamicMethod(
+				"Memset", MethodAttributes.Public | MethodAttributes.Static, CallingConventions.Standard,
+				null,
+				new [] { typeof(IntPtr), typeof(byte), typeof(uint) },
+				typeof(Memory), true
+			);
+
+			ILGenerator generator = dynamicMethod.GetILGenerator();
+			generator.Emit(OpCodes.Ldarg_0);
+			generator.Emit(OpCodes.Ldarg_1);
+			generator.Emit(OpCodes.Ldarg_2);
+			generator.Emit(OpCodes.Initblk);
+			generator.Emit(OpCodes.Ret);
+
+			return (Action<IntPtr, byte, uint>)dynamicMethod.CreateDelegate(typeof(Action<IntPtr, byte, uint>));
+		}
+
+		/// <summary>
+		/// Delegate executing a memory set operation.
+		/// </summary>
+		private static Action<IntPtr, byte, uint> _MemsetDelegate = GenerateMemsetDelegate();
+
+		#endregion
+
+		#region Copy
 
 		/// <summary>
 		/// Delegate used for copy memory.
