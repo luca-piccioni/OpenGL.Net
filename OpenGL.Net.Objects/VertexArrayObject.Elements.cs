@@ -427,21 +427,29 @@ namespace OpenGL.Objects
 					Vertex2f t1 = texArray.GetElement<Vertex2f>(v + 1);
 					Vertex2f t2 = texArray.GetElement<Vertex2f>(v + 2);
 
-					Vertex3f n = normalArray.GetElement<Vertex3f>(v).Normalized;
-
 					Vertex3f dv1 = v1 - v0, dv2 = v2 - v0;
 					Vertex2f dt1 = t1 - t0, dt2 = t2 - t0;
-
 					float w = 1.0f / (dt1.x * dt2.y - dt1.y * dt2.x);
 
-					Vertex3f tgVector = (dv1 * dt2.y - dv2 * dt1.y) * w;
-					Vertex3f btVector = (dv2 * dt1.x - dv1 * dt2.x) * w;
+					Vertex3f tgVector, btVector;
 
-					tgVector.Normalize();
-					btVector.Normalize();
+					if (Single.IsInfinity(w) == false) {
+						tgVector = (dv1 * dt2.y - dv2 * dt1.y) * w;
+						tgVector.Normalize();
 
-					if (((n ^ tgVector) * btVector) < 0.0f)
-						tgVector = tgVector * -1.0f;
+						btVector = (dv2 * dt1.x - dv1 * dt2.x) * w;
+						btVector.Normalize();
+
+						Vertex3f n = normalArray.GetElement<Vertex3f>(v).Normalized;
+
+						n.Normalize();
+
+						if (((n ^ tgVector) * btVector) < 0.0f)
+							tgVector = tgVector * -1.0f;
+					} else {
+						// Degenerate triangles does not contribute
+						tgVector = btVector = Vertex3f.Zero;
+					}
 
 					tanArray.SetElement<Vertex3f>(tgVector, v);
 					tanArray.SetElement<Vertex3f>(tgVector, v + 1);

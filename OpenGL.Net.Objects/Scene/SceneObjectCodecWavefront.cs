@@ -305,7 +305,7 @@ namespace OpenGL.Objects.Scene
 					throw new ArgumentNullException("objContext");
 
 				VertexArrayObject vertexArray = new VertexArrayObject();
-				List<ObjFaceCoord> coords = new List<ObjFaceCoord>(Faces.Count * 4);
+				List<ObjFaceCoord> coords = new List<ObjFaceCoord>();
 				bool hasTexCoord = Material.DiffuseTexture != null;
 				bool hasNormals = true;
 				bool hasTanCoord = hasTexCoord && Material.NormalTexture != null;

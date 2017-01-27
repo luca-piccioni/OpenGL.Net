@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +46,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -83,6 +85,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Data\BumbleBee\RB-BumbleBee.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\BumbleBee\RB-BumbleBee.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\BumbleBee\VH-BumbleBee.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\BumbleBee\VH-BumbleBee.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,9 +131,127 @@
     <EmbeddedResource Include="Data\PiazzaDelPopolo\posx.jpg" />
     <EmbeddedResource Include="Data\PiazzaDelPopolo\posy.jpg" />
     <EmbeddedResource Include="Data\PiazzaDelPopolo\posz.jpg" />
+    <None Include="Data\BumbleBee\RB_BumblebeeEye_MASK.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\BumbleBee\RB_Bumblebee_TEXTSET_Color_NormX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\BumbleBee\RB_Bumblebee_TEXTSET_Masks_NormY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Data\Brickwall\brickwall.jpg" />
+    <Content Include="Data\Brickwall\brickwall_normal.jpg" />
+    <Content Include="Data\BumbleBee\VH_BumblebeeEngineCasters_TEXTSET_Color_NormX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BumbleBee\VH_BumblebeeEngineCasters_TEXTSET_Masks_NormY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BumbleBee\VH_BumblebeeNew_TEXTSET_Color_NormX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BumbleBee\VH_BumblebeeNew_TEXTSET_Masks_NormY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-autumnleaves-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-autumnleaves-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-autumnleaves-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-autumnleaves-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-autumnleaves-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-autumnleaves.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-creeper-ambientocclusion.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-creeper-diffuse.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-creeper-displace.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-creeper-normal.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-creeper-specular.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-creeper.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-graystonewall-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-graystonewall-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-graystonewall-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-graystonewall-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-graystonewall-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-graystonewall.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-horizontalstone-ambientocclusion.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-horizontalstone-diffuse.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-horizontalstone-displace.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-horizontalstone-normal.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-horizontalstone-specular.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-horizontalstone.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mixedstones-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mixedstones-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mixedstones-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mixedstones-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mixedstones-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mixedstones.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mud-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mud-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mud-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mud-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mud-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-mud.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-orangestonewall-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-orangestonewall-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-orangestonewall-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-orangestonewall-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-orangestonewall-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-orangestonewall.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-pebbles-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-pebbles-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-pebbles-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-pebbles-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-pebbles-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-pebbles.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarebricks-ambientocclusion.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarebricks-diffuse.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarebricks-displace.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarebricks-normal.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarebricks-specular.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarebricks.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarerock-ambientocclusion.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarerock-diffuse.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarerock-displace.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarerock-normal.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarerock-specular.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt-squarerock.jpg" />
+    <Content Include="Data\PhotosculptTextures\photosculpt_tutorial_7-HowTo.jpg" />
     <Content Include="Data\PiazzaDelPopolo\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

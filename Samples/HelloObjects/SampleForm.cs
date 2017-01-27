@@ -18,8 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -56,16 +54,16 @@ namespace HelloObjects
 
 			#region State
 
-			cubeGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			cubeGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			cubeGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			cubeGeometry.ObjectState.DefineState(new TransformState());
 
 			MaterialState cubeMaterialState = new MaterialState();
 			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite * 0.5f);
-			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.5f;
-			cubeMaterialState.FrontMaterial.Diffuse = ColorRGBAF.ColorRed;
-			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorWhite * 0.05f;
-			cubeMaterialState.FrontMaterial.Shininess = 0.5f;
+			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorBlack;
+			cubeMaterialState.FrontMaterial.Diffuse = ColorRGBAF.ColorWhite * 0.5f;
+			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorWhite * 0.5f;
+			cubeMaterialState.FrontMaterial.Shininess = 10.0f;
 			cubeGeometry.ObjectState.DefineState(cubeMaterialState);
 
 			#endregion
@@ -241,6 +239,159 @@ namespace HelloObjects
 
 		#endregion
 
+		#region Material Sphere
+
+		private SceneObjectGeometry CreateSphere(string material)
+		{
+			SceneObjectGeometry sphereGeometry = new SceneObjectGeometry("Sphere");
+
+			sphereGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
+			sphereGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
+			sphereGeometry.ObjectState.DefineState(new TransformState());
+
+			sphereGeometry.VertexArray = VertexArrayObject.CreateSphere(4.0f, 32, 32);
+
+			ArrayBufferObject<Vertex2f> texCoordBuffer = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+			texCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
+			sphereGeometry.VertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
+
+			ArrayBufferObject<Vertex3f> tanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			tanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
+			sphereGeometry.VertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
+
+			ArrayBufferObject<Vertex3f> bitanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			bitanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
+			sphereGeometry.VertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
+
+			sphereGeometry.VertexArray.GenerateTexCoords(new VertexArrayTexGen.Sphere());
+			sphereGeometry.VertexArray.GenerateTangents();
+
+			sphereGeometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+
+			SetSphereMaterial(sphereGeometry, material);
+
+			return (sphereGeometry);
+		}
+
+		private void SetSphereMaterial(SceneObjectGeometry sphere, string material)
+		{
+			MaterialState sphereMaterial = new MaterialState();
+			sphereMaterial.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
+			sphereMaterial.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.2f;
+			sphereMaterial.FrontMaterial.Diffuse = ColorRGBAF.ColorWhite * 0.8f;
+			sphereMaterial.FrontMaterial.Specular = ColorRGBAF.ColorWhite * 1.0f;
+			sphereMaterial.FrontMaterial.Shininess = 32.0f;
+
+			sphere.ObjectState.DefineState(sphereMaterial);
+
+			if (material == null)
+				return;
+
+			string basePath = Path.Combine("Data", "PhotosculptTextures");
+			string textureFilename, texturePath;
+
+			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "diffuse");
+			texturePath = Path.Combine(basePath, textureFilename);
+			if (File.Exists(texturePath)) {
+				try {
+					Image textureImage = ImageCodec.Instance.Load(texturePath);
+					Texture2d texture = new Texture2d();
+
+					texture.RequestMipmapsCreation();
+					texture.WrapCoordR = Texture.Wrap.MirroredRepeat;
+					texture.WrapCoordS = Texture.Wrap.MirroredRepeat;
+					texture.Create(textureImage);
+
+					sphereMaterial.FrontMaterialDiffuseTexture = texture;
+					sphereMaterial.FrontMaterialDiffuseTexCoord = 0;
+				} catch (Exception exception) {
+					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
+				}
+			}
+
+			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "normal");
+			texturePath = Path.Combine(basePath, textureFilename);
+			if (File.Exists(texturePath)) {
+				try {
+					Image textureImage = ImageCodec.Instance.Load(texturePath);
+					Texture2d texture = new Texture2d();
+
+					texture.RequestMipmapsCreation();
+					texture.WrapCoordR = Texture.Wrap.MirroredRepeat;
+					texture.WrapCoordS = Texture.Wrap.MirroredRepeat;
+					texture.Create(textureImage);
+
+					sphereMaterial.FrontMaterialNormalTexture = texture;
+					sphereMaterial.FrontMaterialNormalTexCoord = 0;
+				} catch (Exception exception) {
+					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
+				}
+			}
+
+			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "specular");
+			texturePath = Path.Combine(basePath, textureFilename);
+			if (File.Exists(texturePath)) {
+				try {
+					Image textureImage = ImageCodec.Instance.Load(texturePath);
+					Texture2d texture = new Texture2d();
+
+					texture.RequestMipmapsCreation();
+					texture.WrapCoordR = Texture.Wrap.MirroredRepeat;
+					texture.WrapCoordS = Texture.Wrap.MirroredRepeat;
+					texture.Create(textureImage);
+
+					sphereMaterial.FrontMaterialSpecularTexture = texture;
+					sphereMaterial.FrontMaterialSpecularTexCoord = 0;
+				} catch (Exception exception) {
+					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
+				}
+			}
+
+			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "ambientocclusion");
+			texturePath = Path.Combine(basePath, textureFilename);
+			if (File.Exists(texturePath)) {
+				try {
+					Image textureImage = ImageCodec.Instance.Load(texturePath);
+					Texture2d texture = new Texture2d();
+
+					texture.RequestMipmapsCreation();
+					texture.WrapCoordR = Texture.Wrap.MirroredRepeat;
+					texture.WrapCoordS = Texture.Wrap.MirroredRepeat;
+					texture.Create(textureImage);
+
+					sphereMaterial.FrontMaterialAmbientTexture = texture;
+					sphereMaterial.FrontMaterialAmbientTexCoord = 0;
+				} catch (Exception exception) {
+					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
+				}
+			}
+
+			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "displace");
+			texturePath = Path.Combine(basePath, textureFilename);
+			if (File.Exists(texturePath)) {
+				try {
+					Image textureImage = ImageCodec.Instance.Load(texturePath);
+					Texture2d texture = new Texture2d();
+
+					// texture.RequestMipmapsCreation();
+					texture.WrapCoordR = Texture.Wrap.Repeat;
+					texture.WrapCoordS = Texture.Wrap.Repeat;
+					texture.MinFilter = Texture.Filter.Nearest;
+					texture.MagFilter = Texture.Filter.Nearest;
+					texture.MipmapMaxLevel = 0;
+					texture.Create(textureImage);
+
+					sphereMaterial.FrontMaterialDisplacementTexture = texture;
+					// sphereMaterial.FrontMaterialDisplacementTexCoord = 0;
+					sphereMaterial.FrontMaterialDisplacementFactor = 0.2f;
+				} catch (Exception exception) {
+					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
+				}
+			}
+		}
+
+		#endregion
+
 		#region Cube Mapping
 
 		private SceneObject CreateSkyBoxObject()
@@ -279,7 +430,7 @@ namespace HelloObjects
 
 			skyboxObject.LocalModel.Scale(170.0f);
 
-			skyboxObject.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			skyboxObject.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			skyboxObject.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Cw, CullFaceMode.Back));
 
 			ShaderUniformState skyboxUniformState = new ShaderUniformState("OpenGL.Skybox");
@@ -312,15 +463,29 @@ namespace HelloObjects
 
 		#region Mesh Loading
 
-		private SceneObject CreateMesh()
+		private SceneObject CreateBumbleBeeRB()
 		{
-			// C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\RB-BumbleBee.obj | VH-BumbleBee.obj
-			// 
-			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"C:\Users\Luca\Source\Repos\OpenGL.Net\Samples\HelloObjects\Data\dongu8n0am0w-BumbleBee\BumbleBee\RB-BumbleBee.obj");
+			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\RB-BumbleBee.obj");
 
-			bumbleBee.ObjectState.DefineState(new DepthTestState(DepthFunction.Lequal));
+			bumbleBee.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			bumbleBee.LocalModel.Translate(0.0f, -10.0f);
+			bumbleBee.LocalModel.Translate(0.0f, 0.0f);
+			bumbleBee.LocalModel.Scale(0.03f);
+			bumbleBee.LocalModel.RotateX(-90.0f);
+			bumbleBee.LocalModel.RotateZ(90.0f);
+
+			bumbleBee.ObjectFlags = SceneObjectFlags.BoundingBox;
+
+			return bumbleBee;
+		}
+
+		private SceneObject CreateBumbleBeeVH()
+		{
+			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\VH-BumbleBee.obj");
+
+			bumbleBee.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
+			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
+			bumbleBee.LocalModel.Translate(-10.0f, 0.0f);
 			bumbleBee.LocalModel.Scale(0.03f);
 			bumbleBee.LocalModel.RotateX(-90.0f);
 			bumbleBee.LocalModel.RotateZ(90.0f);
@@ -353,21 +518,21 @@ namespace HelloObjects
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
 			// Scene
 			_CubeScene = new SceneGraph();
-			_CubeScene.AddChild(new SceneObjectCamera());
+			_CubeScene.Link(new SceneObjectCamera());
 
 			// Global lighting
 			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
 
-			SceneObjectLightDirectional globalLightObject = new SceneObjectLightDirectional();
-			globalLightObject.Direction = (-Vertex3f.UnitX + Vertex3f.UnitY - Vertex3f.UnitZ).Normalized;
-			globalLightZone.AddChild(globalLightObject);
+			_GlobalLightObject = new SceneObjectLightDirectional();
+			_GlobalLightObject.Direction = (-Vertex3f.UnitX + Vertex3f.UnitY - Vertex3f.UnitZ).Normalized;
+			globalLightZone.Link(_GlobalLightObject);
 
 			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
 			localLightObject.LocalModel.Translate(0.0, -5.0f, 0.0);
 			localLightObject.AttenuationFactors.Y = 0.1f;
 			//globalLightZone.AddChild(localLightObject);
 
-			_CubeScene.AddChild(globalLightZone);
+			_CubeScene.Link(globalLightZone);
 
 			// Cube
 			float Size = (float)Math.Sqrt(0);
@@ -400,35 +565,35 @@ namespace HelloObjects
 							break;
 					}
 
-					globalLightZone.AddChild(cubeInstance);
+					globalLightZone.Link(cubeInstance);
 				}
 			}
 
 			//SceneObjectGeometry cubeLambert = CreateCubeGeometry();
 			//cubeLambert.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
-
-			//globalLightZone.AddChild(cubeLambert);
+			//globalLightZone.Link(cubeLambert);
 
 			//SceneObjectGeometry cubeBlinn = CreateCubeGeometry();
-			//cubeBlinn.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
-			//cubeBlinn.LocalModel.Translate(10.0f, 0.0f, 0.0f);
-			//globalLightZone.AddChild(cubeBlinn);
+			//cubeBlinn.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
+			//cubeBlinn.LocalModel.Translate(0.0f, 10.0f, 0.0f);
+			//globalLightZone.Link(cubeBlinn);
 
 			//SceneObjectGeometry cubeColored = CreateCubeGeometry();
 			//cubeColored.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+Color");
-			//cubeColored.LocalModel.Translate(-10.0f, 0.0f, 0.0f);
-			//globalLightZone.AddChild(cubeColored);
+			//cubeColored.LocalModel.Translate(0.0f, 5.0f, 0.0f);
+			//globalLightZone.Link(cubeColored);
 
-			globalLightZone.AddChild(CreateMesh());
+			globalLightZone.Link(CreateBumbleBeeVH());
+			globalLightZone.Link(CreateBumbleBeeRB());
+			globalLightZone.Link(CreateSphere("squarebricks"));
+
 			// Skybox
 			//if ((sceneObject = CreateSkyBoxObject()) != null)
 			//	_CubeScene.AddChild(sceneObject);
 
-			KhronosApi.LogEnabled = false;
-
 			_CubeScene.Create(_Context);
 
-			KhronosApi.LogEnabled = true;
+			Gl.ClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 		}
 
 		/// <summary>
@@ -488,6 +653,24 @@ namespace HelloObjects
 
 		private float _ViewStrideLat, _ViewStrideAlt;
 
+		private SceneObjectLightDirectional _GlobalLightObject;
+
+		private void UpdateGlobalLight()
+		{
+			float az = Angle.ToRadians(_GlobalLightAz);
+			float el = Angle.ToRadians(_GlobalLightEl);
+			float xAz = (float)Math.Cos(az), yAz = (float)Math.Sin(az);
+			float xEl = (float)Math.Cos(el), yEl = (float)Math.Sin(el);
+
+			Vertex3f dir = new Vertex3f(
+				xAz, yEl, yAz
+			);
+
+			_GlobalLightObject.Direction = dir.Normalized;
+		}
+
+		private float _GlobalLightAz, _GlobalLightEl;
+
 		#endregion
 
 		#region Mouse Input
@@ -501,7 +684,7 @@ namespace HelloObjects
 		private void ObjectsControl_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (_Mouse.HasValue) {
-				Point delta = _Mouse.Value - (Size)e.Location;
+				System.Drawing.Point delta = _Mouse.Value - (System.Drawing.Size)e.Location;
 
 				_ViewAzimuth += delta.X * 0.5f;
 				_ViewElevation += delta.Y * 0.5f;
@@ -515,7 +698,7 @@ namespace HelloObjects
 			_Mouse = null;
 		}
 
-		private Point? _Mouse;
+		private System.Drawing.Point? _Mouse;
 
 		private void ObjectsControl_MouseWheel(object sender, MouseEventArgs e)
 		{
@@ -558,6 +741,23 @@ namespace HelloObjects
 						break;
 					case Keys.S:
 						_ViewStrideAlt -= 0.1f;
+						break;
+
+					case Keys.J:
+						_GlobalLightAz += 1.0f;
+						UpdateGlobalLight();
+						break;
+					case Keys.L:
+						_GlobalLightAz -= 1.0f;
+						UpdateGlobalLight();
+						break;
+					case Keys.I:
+						_GlobalLightEl += 1.0f;
+						UpdateGlobalLight();
+						break;
+					case Keys.K:
+						_GlobalLightEl -= 1.0f;
+						UpdateGlobalLight();
 						break;
 				}
 			}
