@@ -41,6 +41,18 @@ namespace OpenGL.Objects
 	/// </remarks>
 	public partial class VertexArrayObject : GraphicsResource, IBindingResource
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct an empty vertex array.
+		/// </summary>
+		public VertexArrayObject()
+		{
+
+		}
+
+		#endregion
+
 		#region Draw
 
 		/// <summary>
@@ -63,19 +75,17 @@ namespace OpenGL.Objects
 		/// <param name="shader">
 		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
 		/// </param>
-		public virtual void Draw(GraphicsContext ctx, ShaderProgram shader)
+		public void Draw(GraphicsContext ctx, ShaderProgram shader)
 		{
 			CheckThisExistence(ctx);
 
-			//if (shader != null && shader.Exists(ctx) == false)
-			//	throw new ArgumentException("not existing", "shader");
-
 			// If vertex was modified after creation, don't miss to create array buffers
-			if (_VertexArrayDirty) CreateObject(ctx);
+			if (_VertexArrayDirty)
+				CreateObject(ctx);
 
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
-			
+
 			// Fixed or programmable pipeline?
 			if (shader != null)
 				ctx.Bind(shader);
@@ -88,7 +98,7 @@ namespace OpenGL.Objects
 					_FeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
 
 				attributeElement.Draw(ctx);
-				
+
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.End(ctx);
 			}
@@ -107,7 +117,7 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			ctx.Bind(this);
+			ctx.Bind(this, true);
 
 			if (shaderProgram != null) {
 				ICollection<string> activeAttributes = shaderProgram.ActiveAttributes;
@@ -127,7 +137,8 @@ namespace OpenGL.Objects
 						continue;
 
 					// Set array attribute
-					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName); attributesSet++;
+					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName);
+					attributesSet++;
 				}
 
 				if (attributesSet == 0)
@@ -177,7 +188,7 @@ namespace OpenGL.Objects
 				shaderVertexArray.CheckVertexAttribute(ctx, attributeBinding.Location);
 			}
 		}
-	
+
 		/// <summary>
 		/// Flag indicating whether the vertex array is dirty due buffer object changes.
 		/// </summary>
@@ -226,7 +237,8 @@ namespace OpenGL.Objects
 				throw new ArgumentException("not existing", "shader");
 
 			// If vertex was modified after creation, don't miss to create array buffers
-			if (_VertexArrayDirty) CreateObject(ctx);
+			if (_VertexArrayDirty)
+				CreateObject(ctx);
 
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
@@ -257,18 +269,250 @@ namespace OpenGL.Objects
 		{
 			if (_FeedbackBuffer != null)
 				_FeedbackBuffer.DecRef();
-		
+
 			_FeedbackBuffer = feedbackObject;
-		
+
 			if (_FeedbackBuffer != null)
 				_FeedbackBuffer.IncRef();
 		}
-	
+
 		/// <summary>
 		/// The feedback buffer object that specify the feedback array buffers.
 		/// </summary>
 		private FeedbackBufferObject _FeedbackBuffer;
-		
+
+		#endregion
+
+		#region Generation Methods
+
+		/// <summary>
+		/// Generate normals for the elements defined in this vertex array.
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thown in the case the vertex array does not defines the requires arrays. Normals
+		/// generation requires user to allocate normal buffer following the other elements; and the position semantic
+		/// must be defined and meaninfull.
+		/// </exception>
+		public void GenerateNormals()
+		{
+			foreach (Element vertexElement in DrawElements)
+				vertexElement.GenerateNormals(this);
+		}
+
+		/// <summary>
+		/// Generate texture coordinates for the elements defined in this vertex array.
+		/// </summary>
+		/// <param name="genTexCoordCallback">
+		/// A <see cref="VertexArrayTexGenDelegate"/> used for generating texture coordinates.
+		/// </param>
+		public void GenerateTexCoords(VertexArrayTexGenDelegate genTexCoordCallback)
+		{
+			foreach (Element vertexElement in DrawElements)
+				vertexElement.GenerateTexCoord(this, genTexCoordCallback);
+		}
+
+		/// <summary>
+		/// Generate texture coordinates for the elements defined in this vertex array.
+		/// </summary>
+		/// <param name="vertexArrayTexGen">
+		/// A <see cref="IVertexArrayTexGen"/> used for generating texture coordinates.
+		/// </param>
+		public void GenerateTexCoords(IVertexArrayTexGen vertexArrayTexGen)
+		{
+			// Interface initialization (i.e. stats and other information)
+			vertexArrayTexGen.Initialize(this);
+			// Process texture coords as usual
+			GenerateTexCoords(delegate(Vertex3f position) {
+				return (vertexArrayTexGen.Generate(position));
+			});
+		}
+
+		/// <summary>
+		/// Generate tangents and bitangents for the elements defined in this vertex array.
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// This exception is thown in the case the vertex array does not defines the requires arrays. Tangent and bitangents
+		/// generation requires user to allocate relatives buffer following the other elements; and the position semantic
+		/// and the texture coordinate semantic must be defined and meaninfull.
+		/// </exception>
+		public void GenerateTangents()
+		{
+			foreach (Element vertexElement in DrawElements)
+				vertexElement.GenerateTangents(this);
+		}
+
+		#endregion
+
+		#region Polygon Generation - Sphere
+
+		/// <summary>
+		/// Create a sphere.
+		/// </summary>
+		/// <param name="radius">
+		/// A <see cref="Single"/> that specifies the radius of the sphere.
+		/// </param>
+		/// <param name="slices">
+		/// A <see cref="Int32"/> that specifies the number of horizontal subdivisions of the sphere.
+		/// </param>
+		/// <param name="stacks">
+		/// A <see cref="Int32"/> that specifies the number of vertical subdivisions of the sphere.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="VertexArrayObject"/> defining the following semantics:
+		/// - Positions
+		/// - Normals
+		/// </returns>
+		public static VertexArrayObject CreateSphere(float radius, int slices, int stacks)
+		{
+			VertexArrayObject vertexArray = new VertexArrayObject();
+
+			// Vertex generation
+			Vertex3f[] position, normal;
+			ushort[] indices;
+			int vertexCount;
+
+			GenerateSphere(radius, slices, stacks, out position, out normal, out indices, out vertexCount);
+
+			// Buffer definition
+			ArrayBufferObject<Vertex3f> positionBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			positionBuffer.Create(position);
+			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
+
+			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			normalBuffer.Create(normal);
+			vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
+
+			ElementBufferObject<ushort> elementBuffer = new ElementBufferObject<ushort>(BufferObjectHint.StaticCpuDraw);
+			elementBuffer.Create(indices);
+			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
+
+			return (vertexArray);
+		}
+
+		/// <summary>
+		/// Utility method for <see cref="CreateSphere"/>.
+		/// </summary>
+		/// <param name="radius"></param>
+		/// <param name="slices"></param>
+		/// <param name="stacks"></param>
+		/// <param name="vertices"></param>
+		/// <param name="normals"></param>
+		/// <param name="indices"></param>
+		/// <param name="vertexCount"></param>
+		private static void GenerateSphere(float radius, int slices, int stacks, out Vertex3f[] vertices, out Vertex3f[] normals, out ushort[] indices, out int vertexCount)
+		{
+			if (slices == 0 || stacks < 2)
+				throw new ArgumentException();
+
+			// Generate geometry vertices
+			float[] sint1, cost1;
+			float[] sint2, cost2;
+
+			vertexCount = slices * (stacks - 1) + 2;
+			vertexCount = Math.Min(vertexCount, UInt16.MaxValue);
+
+			GenerateCircleTable(out sint1, out cost1, -slices, false);
+			GenerateCircleTable(out sint2, out cost2, stacks, true);
+
+			vertices = new Vertex3f[vertexCount];
+			normals = new Vertex3f[vertexCount];
+
+			vertices[0] = new Vertex3f(0.0f, 0.0f, radius);
+			normals[0] = Vertex3f.UnitZ;
+
+			int idx = 1;
+
+			for (int i = 1; i < stacks; i++) {
+				for (int j = 0; j < slices; j++, idx++) {
+					float x = cost1[j] * sint2[i];
+					float y = sint1[j] * sint2[i];
+					float z = cost2[i];
+
+					vertices[idx] = new Vertex3f(x * radius, y * radius, z * radius);
+					normals[idx] = new Vertex3f(x, y, z);
+					Debug.Assert(normals[idx].Module() > 0.1f);
+				}
+			}
+
+			vertices[idx] = new Vertex3f(0.0f, 0.0f, -radius);
+			normals[idx] = -Vertex3f.UnitZ;
+
+			// Generate indices for triangle strip
+			indices = new UInt16[(slices + 1) * stacks * 2];
+			/* Create index vector */
+			int offset;
+
+			idx = 0;
+
+			/* top stack */
+			for (int j = 0; j < slices; j++, idx += 2) {
+				indices[idx] = (ushort)(j + 1);	/* 0 is top vertex, 1 is first for first stack */
+				indices[idx + 1] = 0;
+			}
+			indices[idx] = 1;						/* repeat first slice's idx for closing off shape */
+			indices[idx + 1] = 0;
+			idx += 2;
+
+			/* middle stacks: */
+			/* Strip indices are relative to first index belonging to strip, NOT relative to first vertex/normal pair in array */
+			for (int i = 0; i < stacks - 2; i++, idx += 2) {
+				offset = 1 + i * slices;						/* triangle_strip indices start at 1 (0 is top vertex), and we advance one stack down as we go along */
+				for (int j = 0; j < slices; j++, idx += 2) {
+					indices[idx] = (ushort)(offset + j + slices);
+					indices[idx + 1] = (ushort)(offset + j);
+				}
+				indices[idx] = (ushort)(offset + slices);		/* repeat first slice's idx for closing off shape */
+				indices[idx + 1] = (ushort)offset;
+			}
+
+			/* bottom stack */
+			offset = 1 + (stacks - 2) * slices;					/* triangle_strip indices start at 1 (0 is top vertex), and we advance one stack down as we go along */
+			for (int j = 0; j < slices; j++, idx += 2) {
+				indices[idx] = (ushort)(vertexCount - 1);		/* zero based index, last element in array (bottom vertex)... */
+				indices[idx + 1] = (ushort)(offset + j);
+			}
+			indices[idx] = (ushort)(vertexCount - 1);			/* repeat first slice's idx for closing off shape */
+			indices[idx + 1] = (ushort)(offset);
+		}
+
+		/// <summary>
+		/// Utility method for <see cref="GenerateSphere"/>.
+		/// </summary>
+		/// <param name="sint"></param>
+		/// <param name="cost"></param>
+		/// <param name="n"></param>
+		/// <param name="halfCircle"></param>
+		private static void GenerateCircleTable(out float[] sint, out float[] cost, int n, bool halfCircle)
+		{
+			/* Table size, the sign of n flips the circle direction */
+			int size = Math.Abs(n);
+
+			/* Determine the angle between samples */
+			float angle = (halfCircle ? 1 : 2) * (float)Math.PI / (float)((n == 0) ? 1 : n);
+
+			/* Allocate memory for n samples, plus duplicate of first entry at the end */
+			sint = new float[size + 1];
+			cost = new float[size + 1];
+
+			/* Compute cos and sin around the circle */
+			sint[0] = 0.0f;
+			cost[0] = 1.0f;
+
+			for (int i = 1; i < size; i++) {
+				sint[i] = (float)Math.Sin(angle * i);
+				cost[i] = (float)Math.Cos(angle * i);
+			}
+
+			if (halfCircle) {
+				sint[size] = 0.0f;  /* sin PI */
+				cost[size] = -1.0f;  /* cos PI */
+			} else {
+				/* Last sample is duplicate of the first (sin or cos of 2 PI) */
+				sint[size] = sint[0];
+				cost[size] = cost[0];
+			}
+		}
+
 		#endregion
 
 		#region GraphicsResource Overrides
@@ -281,7 +525,13 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Vertex array object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass
+		{
+			get
+			{
+				return (ThisObjectClass);
+			}
+		}
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.
@@ -424,7 +674,7 @@ namespace OpenGL.Objects
 			// Create element arrays
 			foreach (Element element in DrawElements)
 				element.Create(ctx);
-		
+
 			// Create feedback buffer
 			if (_FeedbackBuffer != null)
 				_FeedbackBuffer.Create(ctx);

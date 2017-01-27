@@ -124,17 +124,22 @@ namespace OpenGL.Objects.Scene
 				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
 				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
 
+				IEnumerable<SceneObjectBatch> geometries;
+
 				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
 					// View-frustum culling
-					objectBatchContext.Objects.AddRange(sceneGeometry.GetGeometries(sceneGeometryState, objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView));
+					geometries = sceneGeometry.GetGeometries(sceneGeometryState, objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView);
 				else
 					// All geometries
-					objectBatchContext.Objects.AddRange(sceneGeometry.GetGeometries(sceneGeometryState));
+					geometries = sceneGeometry.GetGeometries(sceneGeometryState);
+
+				objectBatchContext.Objects.AddRange(geometries);
 
 				// Bounding volumes
 				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
 					
 				}
+
 			} else if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType) {
 				SceneObjectLightZone sceneObjectLightZone = (SceneObjectLightZone)sceneObject;
 
@@ -398,6 +403,7 @@ namespace OpenGL.Objects.Scene
 			if (sceneGeometry != null) {
 				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current;
 
+				sceneGeometry.Create(ctx);
 				sceneGeometryState.Create(ctx, sceneGeometry.Program);
 			}
 

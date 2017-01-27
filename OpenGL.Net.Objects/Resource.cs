@@ -109,6 +109,67 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Resource Management
+
+		/// <summary>
+		/// Link a resource used by this UserGraphicsResource.
+		/// </summary>
+		/// <param name="resource">
+		/// The <see cref="IResource"/> that will be linked by this UserGraphicsResource. It will be referenced till
+		/// this instance disposition. You should not manually reference this instance for the UserGraphicsResource lifetime.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resource"/> is null.
+		/// </exception>
+		protected void LinkResource(IResource resource)
+		{
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+
+			// Reference resources
+			resource.IncRef();
+			// Unreference at disposition
+			Debug.Assert(!_Resources.Contains(resource));
+			_Resources.Add(resource);
+		}
+
+		/// <summary>
+		/// Unlink a resource used by this UserGraphicsResource.
+		/// </summary>
+		/// <param name="resource">
+		/// The <see cref="IResource"/> that will be unlinked from this UserGraphicsResource. It will be unreferenced.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="resource"/> is null.
+		/// </exception>
+		protected void UnlinkResource(IResource resource)
+		{
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+
+			// Unreference at disposition
+			bool res = _Resources.Remove(resource);
+			Debug.Assert(res);
+			// No more referenced
+			resource.DecRef();
+		}
+
+		protected void SwapResources<T>(T value, ref T current) where T : IResource
+		{
+			if (current != null)
+				UnlinkResource(current);
+			current = value;
+			if (value != null)
+				LinkResource(value);
+		}
+
+		/// <summary>
+		/// Resources used by this UserGraphicsResource.
+		/// </summary>
+		private readonly List<IResource> _Resources = new List<IResource>();
+
+		#endregion
+
 		#region Resource Logging
 
 		/// <summary>
@@ -257,7 +318,12 @@ namespace OpenGL.Objects
 		/// A <see cref="Boolean"/> indicating whether this method is called by <see cref="Dispose()"/>. If it is false,
 		/// this method is called by the finalizer.
 		/// </param>
-		protected virtual void Dispose(bool disposing) { }
+		protected virtual void Dispose(bool disposing)
+		{
+			foreach (IResource resource in _Resources)
+				resource.DecRef();
+			_Resources.Clear();
+		}
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

@@ -103,13 +103,13 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Buffer Map Access
+		#region Element Access
 
 		/// <summary>
-		/// Set an element to this mapped BufferObject.
+		/// Set an element to this mapped ArrayBufferObjectBase.
 		/// </summary>
 		/// <typeparam name="T">
-		/// A structure representing this BufferObject element.
+		/// A structure representing this ArrayBufferObjectBase element.
 		/// </typeparam>
 		/// <param name="value">
 		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
@@ -117,46 +117,19 @@ namespace OpenGL.Objects
 		/// <param name="index">
 		/// A <see cref="UInt32"/> that specify the index of the element to set.
 		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="UInt32"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// </param>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(T value, UInt32 index) where T : struct
+		public void SetElement<T>(T value, UInt32 index, uint sectionIndex) where T : struct
 		{
-			Set(value, GetItemOffset(index));
-		}
+			IArraySection arraySection = GetArraySection(sectionIndex);
+			uint stride = arraySection.Stride != IntPtr.Zero ? (uint)arraySection.Stride.ToInt32() : ItemSize;
+			ulong itemOffset = (ulong)arraySection.Offset.ToInt64() + stride * index;
 
-		/// <summary>
-		/// Set an element to this mapped BufferObject.
-		/// </summary>
-		/// <param name="value">
-		/// A <see cref="Vertex2f"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the index of the element to set.
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public void Set(Vertex2f value, UInt32 index)
-		{
-			Set(value, GetItemOffset(index));
-		}
-
-		/// <summary>
-		/// Set an element to this mapped BufferObject.
-		/// </summary>
-		/// <param name="value">
-		/// A <see cref="Vertex3f"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the index of the element to set.
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public void Set(Vertex3f value, UInt32 index)
-		{
-			Set(value, GetItemOffset(index));
+			Set<T>(value, itemOffset);
 		}
 
 		/// <summary>
@@ -168,46 +141,22 @@ namespace OpenGL.Objects
 		/// <param name="index">
 		/// A <see cref="UInt32"/> that specify the index of the element to get.
 		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="UInt32"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// </param>
 		/// <returns>
 		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public T Get<T>(UInt32 index) where T : struct
+		public T GetElement<T>(UInt32 index, uint sectionIndex) where T : struct
 		{
-			return (Get<T>(GetItemOffset(index)));
-		}
+			IArraySection arraySection = GetArraySection(sectionIndex);
+			uint stride = arraySection.Stride != IntPtr.Zero ? (uint)arraySection.Stride.ToInt32() : ItemSize;
+			ulong itemOffset = (ulong)arraySection.Offset.ToInt64() + stride * index;
 
-		/// <summary>
-		/// Get an element from this mapped BufferObject.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the index of the element to get.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/>, read from the mapped BufferObject at the specified offset.
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public Vertex3f Get(UInt32 index)
-		{
-			return (Get(GetItemOffset(index)));
-		}
-
-		/// <summary>
-		/// Compute the offset, in bytes, of the item with the specified index.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the item index.
-		/// </param>
-		/// <returns>
-		/// It returns <see cref="UInt64"/> that is the offset of the item indexed by <paramref name="index"/>, in bytes.
-		/// </returns>
-		private UInt64 GetItemOffset(UInt32 index)
-		{
-			return ((UInt64)(ItemSize * index));
+			return (Get<T>(itemOffset));
 		}
 
 		#endregion

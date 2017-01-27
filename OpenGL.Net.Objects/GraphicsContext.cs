@@ -815,7 +815,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="bindingResource"/> is null.
 		/// </exception>
-		private void Bind(IBindingResource bindingResource, bool force)
+		internal void Bind(IBindingResource bindingResource, bool force)
 		{
 			if (bindingResource == null)
 				throw new ArgumentNullException("bindingResource");

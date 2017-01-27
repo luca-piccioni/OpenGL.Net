@@ -82,7 +82,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Light ambient color.
 		/// </summary>
-		public ColorRGBA AmbientColor = ColorRGBA.ColorBlack;
+		public ColorRGBA AmbientColor = ColorRGBA.ColorWhite;
 
 		/// <summary>
 		/// Light diffuse color.

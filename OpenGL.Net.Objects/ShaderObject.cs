@@ -269,6 +269,9 @@ namespace OpenGL.Objects
 			else
 				shaderSource.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
 
+			if (ObjectStage == ShaderStage.Geometry && ctx.Extensions.GeometryShader4_ARB)
+				shaderSource.Add("#extension GL_ARB_geometry_shader4 : enable\n");
+
 			// Append required #define statments
 			if (cctx.Defines != null) {
 				foreach (string def in cctx.Defines) {

@@ -62,6 +62,11 @@ namespace OpenGL.Objects
 			/// </summary>
 			public readonly PrimitiveType ElementsMode;
 
+			/// <summary>
+			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// </summary>
+			public abstract Element AsPoint();
+
 			#endregion
 
 			#region Operations
@@ -92,6 +97,54 @@ namespace OpenGL.Objects
 			/// A <see cref="UInt32"/> that specify the number of instances to draw.
 			/// </param>
 			public abstract void DrawInstanced(GraphicsContext ctx, uint instances);
+
+			#endregion
+
+			#region Generation Methods
+
+			/// <summary>
+			/// Generate normals for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public virtual void GenerateNormals(VertexArrayObject vertexArray)
+			{
+				throw new NotImplementedException();
+			}
+
+			/// <summary>
+			/// Generate texture coordinates for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public virtual void GenerateTexCoord(VertexArrayObject vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			{
+				throw new NotImplementedException();
+			}
+
+			/// <summary>
+			/// Generate tangents for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public virtual void GenerateTangents(VertexArrayObject vertexArray)
+			{
+				throw new NotImplementedException();
+			}
+
+			/// <summary>
+			/// Generate bitangents for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public virtual void GenerateBitangents(VertexArrayObject vertexArray)
+			{
+				throw new NotImplementedException();
+			}
 
 			#endregion
 
@@ -176,6 +229,11 @@ namespace OpenGL.Objects
 			#region Element Overrides
 
 			/// <summary>
+			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// </summary>
+			public override Element AsPoint() { return (new ArrayElement(_VertexArrayObject, PrimitiveType.Points, ElementOffset, ElementCount)); }
+
+			/// <summary>
 			/// Draw the elements.
 			/// </summary>
 			/// <param name="ctx">
@@ -203,6 +261,199 @@ namespace OpenGL.Objects
 
 				Gl.DrawArraysInstanced(ElementsMode, (int)ElementOffset, (int)count, (int)instances);
 			}
+
+			/// <summary>
+			/// Generate normals for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public override void GenerateNormals(VertexArrayObject vertexArray)
+			{
+				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
+				if (positionArray == null)
+					throw new InvalidOperationException("position semantic not set");
+
+				IVertexArray normalArray = vertexArray.GetVertexArray(VertexArraySemantic.Normal);
+				if (normalArray == null)
+					throw new InvalidOperationException("normal semantic not set");
+				if (normalArray.Array == null)
+					throw new InvalidOperationException("normal array not set");
+
+				if (positionArray.Array != null)
+					positionArray.Array.Map();
+				normalArray.Array.Map();
+
+				try {
+					switch (ElementsMode) {
+						case PrimitiveType.Triangles:
+							switch (positionArray.ArraySection.ItemType) {
+								case ArrayBufferItemType.Float3:
+									GenerateNormalsTriangle3f(positionArray, normalArray);
+									break;
+								case ArrayBufferItemType.Float4:
+									GenerateNormalsTriangle4f(positionArray, normalArray);
+									break;
+								default:
+									throw new NotSupportedException("normals generation not supported for elements of type " + positionArray.ArraySection.ItemType);
+							}
+							break;
+						default:
+							throw new NotSupportedException("normals generation not supported for primitive " + ElementsMode);
+					}
+				} finally {
+					if (positionArray.Array != null)
+						positionArray.Array.Unmap();
+					normalArray.Array.Unmap();
+				}
+			}
+
+			#region Normals Generation
+
+			private void GenerateNormalsTriangle4f(IVertexArray positionArray, IVertexArray normalArray)
+			{
+				uint count = (ElementCount != 0 ? ElementCount : _VertexArrayObject.ArrayLength) / 3;
+
+				for (uint i = 0, v = ElementOffset; i < count; i++) {
+					Vertex3f v0 = (Vertex3f)positionArray.GetElement<Vertex4f>(v++);
+					Vertex3f v1 = (Vertex3f)positionArray.GetElement<Vertex4f>(v++);
+					Vertex3f v2 = (Vertex3f)positionArray.GetElement<Vertex4f>(v++);
+
+					Vertex3f n = ((v2 - v0) ^ (v1 - v0)).Normalized;
+
+					normalArray.SetElement<Vertex3f>(n, v - 2);
+					normalArray.SetElement<Vertex3f>(n, v - 1);
+					normalArray.SetElement<Vertex3f>(n, v - 0);
+				}
+			}
+
+			private void GenerateNormalsTriangle3f(IVertexArray positionArray, IVertexArray normalArray)
+			{
+				uint count = (ElementCount != 0 ? ElementCount : _VertexArrayObject.ArrayLength) / 3;
+
+				for (uint i = 0, v = ElementOffset; i < count; i++) {
+					Vertex3f v0 = positionArray.GetElement<Vertex3f>(v++);
+					Vertex3f v1 = positionArray.GetElement<Vertex3f>(v++);
+					Vertex3f v2 = positionArray.GetElement<Vertex3f>(v++);
+
+					Vertex3f n = ((v2 - v0) ^ (v1 - v0)).Normalized;
+
+					normalArray.SetElement<Vertex3f>(n, v - 2);
+					normalArray.SetElement<Vertex3f>(n, v - 1);
+					normalArray.SetElement<Vertex3f>(n, v - 0);
+				}
+			}
+
+			#endregion
+
+			/// <summary>
+			/// Generate tangents for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public override void GenerateTangents(VertexArrayObject vertexArray)
+			{
+				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
+				if (positionArray == null)
+					throw new InvalidOperationException("position semantic not set");
+				IVertexArray texArray = vertexArray.GetVertexArray(VertexArraySemantic.TexCoord);
+				if (texArray == null)
+					throw new InvalidOperationException("texture semantic not set");
+
+				IVertexArray normalArray = vertexArray.GetVertexArray(VertexArraySemantic.Normal);
+				if (normalArray == null)
+					throw new InvalidOperationException("normal semantic not set");
+				if (normalArray.Array == null)
+					throw new InvalidOperationException("normal array not set");
+
+				IVertexArray tanArray = vertexArray.GetVertexArray(VertexArraySemantic.Tangent);
+				if (tanArray == null)
+					throw new InvalidOperationException("tangent semantic not set");
+				if (tanArray.Array == null)
+					throw new InvalidOperationException("tangent array not set");
+
+				IVertexArray bitanArray = vertexArray.GetVertexArray(VertexArraySemantic.Bitangent);
+				if (bitanArray == null)
+					throw new InvalidOperationException("bitangent semantic not set");
+				if (bitanArray.Array == null)
+					throw new InvalidOperationException("bitangent array not set");
+
+				if (positionArray.Array != null)
+					positionArray.Array.Map();
+				if (texArray.Array != null)
+					texArray.Array.Map();
+				normalArray.Array.Map();
+				tanArray.Array.Map();
+				bitanArray.Array.Map();
+
+				try {
+					switch (ElementsMode) {
+						case PrimitiveType.Triangles:
+							switch (positionArray.ArraySection.ItemType) {
+								case ArrayBufferItemType.Float4:
+									GenerateTangentsTriangle4f(positionArray, normalArray, texArray, tanArray, bitanArray);
+									break;
+								default:
+									throw new NotSupportedException("normals generation not supported for elements of type " + positionArray.ArraySection.ItemType);
+							}
+							break;
+						default:
+							throw new NotSupportedException("normals generation not supported for primitive " + ElementsMode);
+					}
+				} finally {
+					if (positionArray.Array != null)
+						positionArray.Array.Unmap();
+					if (texArray.Array != null)
+						texArray.Array.Unmap();
+					normalArray.Array.Unmap();
+					tanArray.Array.Unmap();
+					bitanArray.Array.Unmap();
+				}
+			}
+
+			#region Tangents Generation
+
+			private void GenerateTangentsTriangle4f(IVertexArray positionArray, IVertexArray normalArray, IVertexArray texArray, IVertexArray tanArray, IVertexArray bitanArray)
+			{
+				uint count = (ElementCount != 0 ? ElementCount : _VertexArrayObject.ArrayLength) / 3;
+
+				for (uint i = 0, v = ElementOffset; i < count; i++, v += 3) {
+					Vertex3f v0 = (Vertex3f)positionArray.GetElement<Vertex4f>(v);
+					Vertex3f v1 = (Vertex3f)positionArray.GetElement<Vertex4f>(v + 1);
+					Vertex3f v2 = (Vertex3f)positionArray.GetElement<Vertex4f>(v + 2);
+
+					Vertex2f t0 = texArray.GetElement<Vertex2f>(v);
+					Vertex2f t1 = texArray.GetElement<Vertex2f>(v + 1);
+					Vertex2f t2 = texArray.GetElement<Vertex2f>(v + 2);
+
+					Vertex3f n = normalArray.GetElement<Vertex3f>(v).Normalized;
+
+					Vertex3f dv1 = v1 - v0, dv2 = v2 - v0;
+					Vertex2f dt1 = t1 - t0, dt2 = t2 - t0;
+
+					float w = 1.0f / (dt1.x * dt2.y - dt1.y * dt2.x);
+
+					Vertex3f tgVector = (dv1 * dt2.y - dv2 * dt1.y) * w;
+					Vertex3f btVector = (dv2 * dt1.x - dv1 * dt2.x) * w;
+
+					tgVector.Normalize();
+					btVector.Normalize();
+
+					if (((n ^ tgVector) * btVector) < 0.0f)
+						tgVector = tgVector * -1.0f;
+
+					tanArray.SetElement<Vertex3f>(tgVector, v);
+					tanArray.SetElement<Vertex3f>(tgVector, v + 1);
+					tanArray.SetElement<Vertex3f>(tgVector, v + 2);
+
+					bitanArray.SetElement<Vertex3f>(btVector, v);
+					bitanArray.SetElement<Vertex3f>(btVector, v + 1);
+					bitanArray.SetElement<Vertex3f>(btVector, v + 2);
+				}
+			}
+
+			#endregion
 
 			#endregion
 		}
@@ -266,6 +517,11 @@ namespace OpenGL.Objects
 			#endregion
 
 			#region Element Overrides
+
+			/// <summary>
+			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// </summary>
+			public override Element AsPoint() { return (new MultiArrayElement(_VertexArrayObject, PrimitiveType.Points, ArrayOffsets, ArrayCounts)); }
 
 			/// <summary>
 			/// Draw the elements.
@@ -374,6 +630,14 @@ namespace OpenGL.Objects
 			#region ArrayElement Overrides
 
 			/// <summary>
+			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// </summary>
+			public override Element AsPoint()
+			{
+				return (new IndexedElement(_VertexArrayObject, PrimitiveType.Points, ArrayIndices, ElementOffset, ElementCount));
+			}
+
+			/// <summary>
 			/// Ensure that all required resources are created.
 			/// </summary>
 			/// <param name="ctx">
@@ -381,10 +645,7 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				if (ctx == null)
-					throw new ArgumentNullException("ctx");
-				if (ctx.IsCurrent == false)
-					throw new ArgumentException("not current", "ctx");
+				CheckCurrentContext(ctx);
 
 				if (ArrayIndices.Exists(ctx) == false)
 					ArrayIndices.Create(ctx);
@@ -398,25 +659,20 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Draw(GraphicsContext ctx)
 			{
-				if (ctx == null)
-					throw new ArgumentNullException("ctx");
-				if (ctx.IsCurrent == false)
-					throw new ArgumentException("not current", "ctx");
+				CheckCurrentContext(ctx);
 
 				ArrayBufferObjectBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
 				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
-				ctx.Bind(ArrayIndices);
+				ctx.Bind(ArrayIndices, true);
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
 					if (PrimitiveRestart.IsPrimitiveRestartSupported(ctx)) {
-						// Enable primitive restart
+						// Draw elements with primitive restart
 						PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
-						// Draw elements as usual
 						DrawElements(ctx, arraySection.Pointer);
-						// Disable primitive restart
 						PrimitiveRestart.DisablePrimitiveRestart(ctx);
 					} else {
 						// Note: uses MultiDrawElements to emulate the primitive restart feature; PrimitiveRestartOffsets and
@@ -443,16 +699,13 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void DrawInstanced(GraphicsContext ctx, uint instances)
 			{
-				if (ctx == null)
-					throw new ArgumentNullException("ctx");
-				if (ctx.IsCurrent == false)
-					throw new ArgumentException("not current", "ctx");
+				CheckCurrentContext(ctx);
 
 				ArrayBufferObjectBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
 				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
-				ctx.Bind(ArrayIndices);
+				ctx.Bind(ArrayIndices, true);
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
@@ -504,6 +757,207 @@ namespace OpenGL.Objects
 				// Draw elements
 				Gl.DrawElementsInstanced(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer, (int)instances);
 			}
+
+			/// <summary>
+			/// Generate texture coordinates for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public override void GenerateTexCoord(VertexArrayObject vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			{
+				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
+				if (positionArray == null)
+					throw new InvalidOperationException("position semantic not set");
+
+				IVertexArray texArray = vertexArray.GetVertexArray(VertexArraySemantic.TexCoord);
+				if (texArray == null)
+					throw new InvalidOperationException("texture semantic not set");
+				if (texArray.Array == null)
+					throw new InvalidOperationException("texture array not set");
+
+				if (positionArray.Array != null)
+					positionArray.Array.Map();
+				texArray.Array.Map();
+				ArrayIndices.Map();
+
+				try {
+					switch (ElementsMode) {
+						case PrimitiveType.Triangles:
+						case PrimitiveType.TriangleStrip:
+							switch (positionArray.ArraySection.ItemType) {
+								case ArrayBufferItemType.Float3:
+									GenerateTexCoordsTriangle3f(positionArray, texArray, genTexCoordCallback);
+									break;
+								default:
+									throw new NotSupportedException("normals generation not supported for elements of type " + positionArray.ArraySection.ItemType);
+							}
+							break;
+						default:
+							throw new NotSupportedException("normals generation not supported for primitive " + ElementsMode);
+					}
+				} finally {
+					if (positionArray.Array != null)
+						positionArray.Array.Unmap();
+					texArray.Array.Unmap();
+					ArrayIndices.Unmap();
+				}
+			}
+
+			private void GenerateTexCoordsTriangle3f(IVertexArray positionArray, IVertexArray texArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			{
+				for (uint i = 0, v = ElementOffset; i < ArrayIndices.ItemCount; i++, v++) {
+					uint vIndex = ArrayIndices.GetIndex(v);
+
+					Vertex3f v0 = positionArray.GetElement<Vertex3f>(vIndex);
+
+					texArray.SetElement<Vertex2f>(genTexCoordCallback(v0), vIndex);
+				}
+			}
+
+			/// <summary>
+			/// Generate tangents for this Element.
+			/// </summary>
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrayObject"/>
+			/// </param>
+			public override void GenerateTangents(VertexArrayObject vertexArray)
+			{
+				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
+				if (positionArray == null)
+					throw new InvalidOperationException("position semantic not set");
+				IVertexArray texArray = vertexArray.GetVertexArray(VertexArraySemantic.TexCoord);
+				if (texArray == null)
+					throw new InvalidOperationException("texture semantic not set");
+
+				IVertexArray normalArray = vertexArray.GetVertexArray(VertexArraySemantic.Normal);
+				if (normalArray == null)
+					throw new InvalidOperationException("normal semantic not set");
+				if (normalArray.Array == null)
+					throw new InvalidOperationException("normal array not set");
+
+				IVertexArray tanArray = vertexArray.GetVertexArray(VertexArraySemantic.Tangent);
+				if (tanArray == null)
+					throw new InvalidOperationException("tangent semantic not set");
+				if (tanArray.Array == null)
+					throw new InvalidOperationException("tangent array not set");
+
+				IVertexArray bitanArray = vertexArray.GetVertexArray(VertexArraySemantic.Bitangent);
+				if (bitanArray == null)
+					throw new InvalidOperationException("bitangent semantic not set");
+				if (bitanArray.Array == null)
+					throw new InvalidOperationException("bitangent array not set");
+
+				if (positionArray.Array != null)
+					positionArray.Array.Map();
+				if (texArray.Array != null)
+					texArray.Array.Map();
+				normalArray.Array.Map();
+				tanArray.Array.Map();
+				bitanArray.Array.Map();
+				ArrayIndices.Map();
+
+				try {
+					switch (ElementsMode) {
+						case PrimitiveType.TriangleStrip:
+							switch (positionArray.ArraySection.ItemType) {
+								case ArrayBufferItemType.Float3:
+									GenerateTangentsTriangleStrip3f(positionArray, normalArray, texArray, tanArray, bitanArray);
+									break;
+								default:
+									throw new NotSupportedException("normals generation not supported for elements of type " + positionArray.ArraySection.ItemType);
+							}
+							break;
+						default:
+							throw new NotSupportedException("normals generation not supported for primitive " + ElementsMode);
+					}
+				} finally {
+					if (positionArray.Array != null)
+						positionArray.Array.Unmap();
+					if (texArray.Array != null)
+						texArray.Array.Unmap();
+					normalArray.Array.Unmap();
+					tanArray.Array.Unmap();
+					bitanArray.Array.Unmap();
+					ArrayIndices.Unmap();
+				}
+			}
+
+			#region Tangents Generation
+
+			private void GenerateTangentsTriangleStrip3f(IVertexArray positionArray, IVertexArray normalArray, IVertexArray texArray, IVertexArray tanArray, IVertexArray bitanArray)
+			{
+				uint count = ElementCount != 0 ? ElementCount : ArrayIndices.ItemCount;
+
+				uint     i0, i1, i2;
+				Vertex3f v0, v1, v2;
+				Vertex2f t0, t1, t2;
+
+				i0 = ArrayIndices.GetIndex(ElementOffset);
+				i1 = ArrayIndices.GetIndex(ElementOffset + 1);
+
+				v0 = positionArray.GetElement<Vertex3f>(i0);
+				v1 = positionArray.GetElement<Vertex3f>(i1);
+
+				t0 = texArray.GetElement<Vertex2f>(i0);
+				t1 = texArray.GetElement<Vertex2f>(i1);
+
+				for (uint i = 0, v = ElementOffset + 2; i < count - 2; i++, v++) {
+					// Next triangle
+					i2 = ArrayIndices.GetIndex(v);
+					v2 = positionArray.GetElement<Vertex3f>(i2);
+					t2 = texArray.GetElement<Vertex2f>(i2);
+
+					// Compute tangent & bitangent
+					Vertex3f dv1 = v1 - v0, dv2 = v2 - v0;
+					Vertex2f dt1 = t1 - t0, dt2 = t2 - t0;
+
+					float w = 1.0f / (dt1.x * dt2.y - dt1.y * dt2.x);
+
+					Vertex3f tgVector, btVector;
+
+					if (Single.IsInfinity(w) == false) {
+						tgVector = (dv1 * dt2.y - dv2 * dt1.y) * w;
+						tgVector.Normalize();
+
+						btVector = (dv2 * dt1.x - dv1 * dt2.x) * w;
+						btVector.Normalize();
+
+						//Vertex3f n = normalArray.GetElement<Vertex3f>(i2);
+							
+						//n.Normalize();
+
+						//if (((n ^ tgVector) * btVector) < 0.0f)
+						//	tgVector = tgVector * -1.0f;
+					} else {
+						// Degenerate triangles does not contribute
+						tgVector = btVector = Vertex3f.Zero;
+					}
+
+					// Store (accumulate adjacent triangles)
+					Vertex3f tg0 = tanArray.GetElement<Vertex3f>(i0) + tgVector;
+					Vertex3f tg1 = tanArray.GetElement<Vertex3f>(i1) + tgVector;
+					Vertex3f tg2 = tanArray.GetElement<Vertex3f>(i2) + tgVector;
+
+					tanArray.SetElement<Vertex3f>(tg0, i0);
+					tanArray.SetElement<Vertex3f>(tg1, i1);
+					tanArray.SetElement<Vertex3f>(tg2, i2);
+
+					Vertex3f bt0 = bitanArray.GetElement<Vertex3f>(i0) + btVector;
+					Vertex3f bt1 = bitanArray.GetElement<Vertex3f>(i1) + btVector;
+					Vertex3f bt2 = bitanArray.GetElement<Vertex3f>(i2) + btVector;
+
+					bitanArray.SetElement<Vertex3f>(bt0, i0);
+					bitanArray.SetElement<Vertex3f>(bt1, i1);
+					bitanArray.SetElement<Vertex3f>(bt2, i2);
+
+					// Prepare for next triangle
+					i0 = i1;
+					i1 = i2;
+				}
+			}
+
+			#endregion
 
 			/// <summary>
 			/// Dispose this VertexArray.
@@ -602,6 +1056,6 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Collection of elements for drawing arrays.
 		/// </summary>
-		protected readonly List<Element> _Elements = new List<Element>();
+		private readonly List<Element> _Elements = new List<Element>();
 	}
 }

@@ -59,13 +59,21 @@ void main()
 	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
 	int index;
 
+	index = glo_FrontMaterialAmbientTexCoord;
+	if (index >= 0)
+		fragmentMaterial.AmbientColor = fragmentMaterial.AmbientColor * TEXTURE_2D(glo_FrontMaterialAmbientTexture, glo_VertexTexCoord[index]);
+
 	index = glo_FrontMaterialEmissionTexCoord;
 	if (index >= 0)
 		fragmentMaterial.EmissiveColor = fragmentMaterial.EmissiveColor * TEXTURE_2D(glo_FrontMaterialEmissionTexture, glo_VertexTexCoord[index]);
 
-	index = glo_FrontMaterialAmbientTexCoord;
+	index = glo_FrontMaterialEmissionTexCoord;
 	if (index >= 0)
-		fragmentMaterial.AmbientColor = fragmentMaterial.AmbientColor * TEXTURE_2D(glo_FrontMaterialAmbientTexture, glo_VertexTexCoord[index]);
+		fragmentMaterial.EmissiveColor = fragmentMaterial.EmissiveColor * TEXTURE_2D(glo_FrontMaterialEmissionTexture, glo_VertexTexCoord[index]);
+
+	index = glo_FrontMaterialSpecularTexCoord;
+	if (index >= 0)
+		fragmentMaterial.SpecularColor = fragmentMaterial.SpecularColor * TEXTURE_2D(glo_FrontMaterialSpecularTexture, glo_VertexTexCoord[index]);
 
 #if defined(GLO_COLOR_PER_VERTEX)
 	fragmentMaterial.DiffuseColor = fragmentMaterial.DiffuseColor * glo_VertexColor;
@@ -73,7 +81,7 @@ void main()
 
 	index = glo_FrontMaterialDiffuseTexCoord;
 	if (index >= 0)
-		fragmentMaterial.DiffuseColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
+		fragmentMaterial.DiffuseColor = fragmentMaterial.DiffuseColor * TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]);
 
 	// Normal
 	vec3 normal = normalize(glo_VertexNormal);
@@ -81,13 +89,19 @@ void main()
 	index = glo_FrontMaterialNormalTexCoord;
 	if (index >= 0) {
 		normal = TEXTURE_2D(glo_FrontMaterialNormalTexture, glo_VertexTexCoord[index]).xyz * 2.0 - 1.0;
-		normal = normalize(glo_VertexTBN * normal);
+		normal = normalize(glo_VertexTBN * normalize(normal));
 	}
 
-#if !defined(GLO_DEBUG_NORMAL)
-	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, normal);
+#if   defined(GLO_DEBUG_NORMAL)
+	glo_FragColor = vec4(abs(normalize(inverse(glo_NormalMatrix) * normal)), 1.0);
+#elif defined(GLO_DEBUG_TANGENT)
+	glo_FragColor = vec4(abs(glo_VertexTBN[0]), 1.0);
+#elif defined(GLO_DEBUG_BITANGENT)
+	glo_FragColor = vec4(abs(glo_VertexTBN[1]), 1.0);
+#elif defined(GLO_DEBUG_TEXCOORD)
+	glo_FragColor = vec4(abs(glo_VertexTexCoord[0].x), 0.0, 0.0, 1.0);
 #else
-	glo_FragColor = vec4(normalize(inverse(glo_NormalMatrix) * normal), 1.0);
+	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, normal);
 #endif
 
 #elif defined(GLO_LIGHTING_PER_VERTEX)

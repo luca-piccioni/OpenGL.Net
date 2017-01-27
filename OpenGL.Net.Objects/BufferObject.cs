@@ -18,6 +18,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace OpenGL.Objects
@@ -42,7 +43,7 @@ namespace OpenGL.Objects
 	/// this is implemented by defining up to two client buffers to emulate the "simulated" GPU buffer allocation behavior.
 	/// </para>
 	/// </remarks>
-	public abstract partial class BufferObject : GraphicsResource, IBindingResource
+	public abstract class BufferObject : GraphicsResource, IBindingResource
 	{
 		#region Constructors
 
@@ -143,6 +144,7 @@ namespace OpenGL.Objects
 			ReleaseClientBuffer();
 			// Allocate memory, if required
 			_ClientBuffer = new AlignedMemoryBuffer(size, MinimumBufferAlignment);
+			_ClientBuffer.ResetBuffer();
 		}
 
 		/// <summary>
@@ -394,10 +396,6 @@ namespace OpenGL.Objects
 		/// </summary>
 		private IntPtr _MappedBuffer = IntPtr.Zero;
 
-		#endregion
-
-		#region Buffer Map Access
-
 		/// <summary>
 		/// Set an element to this mapped BufferObject.
 		/// </summary>
@@ -419,60 +417,9 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			Marshal.StructureToPtr(value, new IntPtr(_MappedBuffer.ToInt64() + (Int64)offset), false);
-		}
-
-		/// <summary>
-		/// Set an element to this mapped BufferObject.
-		/// </summary>
-		/// <param name="value">
-		/// A <see cref="Vertex2f"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
-		/// is stored. This value is expressed in basic machine units (bytes).
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public void Set(Vertex2f value, UInt64 offset)
-		{
-			if (IsMapped == false)
-				throw new InvalidOperationException("not mapped");
-
 			unsafe
 			{
-				byte* bufferPtr = (byte*)MappedBuffer.ToPointer();
-				Vertex2f* bufferItemPtr = (Vertex2f*)(bufferPtr + offset);
-
-				bufferItemPtr[0] = value;
-			}
-		}
-
-		/// <summary>
-		/// Set an element to this mapped BufferObject.
-		/// </summary>
-		/// <param name="value">
-		/// A <see cref="Vertex3f"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
-		/// is stored. This value is expressed in basic machine units (bytes).
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public void Set(Vertex3f value, UInt64 offset)
-		{
-			if (IsMapped == false)
-				throw new InvalidOperationException("not mapped");
-
-			unsafe
-			{
-				byte* bufferPtr = (byte*)MappedBuffer.ToPointer();
-				Vertex3f* bufferItemPtr = (Vertex3f*)(bufferPtr + offset);
-
-				bufferItemPtr[0] = value;
+				Unsafe.Write<T>((byte*)MappedBuffer.ToPointer() + offset, value);
 			}
 		}
 
@@ -497,30 +444,9 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			return ((T)Marshal.PtrToStructure(new IntPtr(_MappedBuffer.ToInt64() + (Int64)offset), typeof(T)));
-		}
-
-		/// <summary>
-		/// Get an element from this mapped BufferObject.
-		/// </summary>
-		/// <param name="offset">
-		/// A <see cref="Int64"/> that specify the offset applied to the mapped BufferObject to get the stored
-		/// value, in bytes.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/>, read from the mapped BufferObject at the specified offset.
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
-		/// </exception>
-		public Vertex3f Get(UInt64 offset)
-		{
 			unsafe
 			{
-				byte* bufferPtr = (byte*)MappedBuffer.ToPointer();
-				Vertex3f* bufferItemPtr = (Vertex3f*)(bufferPtr + offset);
-
-				return (bufferItemPtr[0]);
+				return (Unsafe.Read<T>((byte*)MappedBuffer.ToPointer() + offset));
 			}
 		}
 
@@ -691,7 +617,7 @@ namespace OpenGL.Objects
 			Debug.Assert(clientBufferSize > 0);
 
 			// Buffer must be bound
-			ctx.Bind(this);
+			ctx.Bind(this, true);
 
 			if (ctx.Extensions.VertexBufferObject_ARB) {
 				if (IsMapped)

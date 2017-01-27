@@ -24,19 +24,6 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Single array buffer object.
 	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// This class is a <see cref="BufferObject"/> specialized for storing data to be issued to a shader program execution.
-	/// </para>
-	/// <para>
-	/// The following information defines the array items layout:
-	/// - <see cref="ArrayType"/>: the property describe entirely the single item data layout.
-	/// - <see cref="ArrayBaseType"/>: the base type of the data component.
-	/// - <see cref="ItemCount"/>: the number of items stored in this ArrayBufferObject.
-	/// - <see cref="ItemSize"/>: the size of each item in array, in basic machine units.
-	/// - <see cref="Interleaved"/>: a boolean flag indicating whether different data types are interleaved regularly in the array.
-	/// </para>
-	/// </remarks>
 	public class ArrayBufferObject : ArrayBufferObjectBase, ArrayBufferObjectBase.IArraySection
 	{
 		#region Constructors
@@ -700,7 +687,7 @@ namespace OpenGL.Objects
 	}
 
 	/// <summary>
-	/// Stronly typed array buffer object.
+	/// Strongly typed array buffer object.
 	/// </summary>
 	/// <typeparam name="T">
 	/// A structure that holds the array item data. Typically this type match a <see cref="IVertex"/> or <see cref="IColor"/> implementation,

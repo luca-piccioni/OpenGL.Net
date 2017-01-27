@@ -148,10 +148,8 @@ void ComputeDirectionalLight(int lightIdx, vec3 normal, float materialShininess,
 
 	// Compute specular power factor
 	float powerFactor = 0.0;
-	if (dotNL > 0.0) {
-		// Effective power factor
+	if (dotNL > 0.0)
 		powerFactor = pow(dotNH, materialShininess);
-	}
 
 	// Emit light color contribution
 	specular += glo_Light[lightIdx].SpecularColor * powerFactor;

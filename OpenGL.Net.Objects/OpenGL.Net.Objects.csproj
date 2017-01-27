@@ -187,7 +187,9 @@
     <Compile Include="VertexArrayObject.cs" />
     <Compile Include="VertexArrayObject.Elements.cs" />
     <Compile Include="VertexArraySemantic.cs" />
+    <Compile Include="VertexArrayTexGen.cs" />
     <Compile Include="Vincenty.cs" />
+    <EmbeddedResource Include="Shaders\Standard\Geometry.Normals.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

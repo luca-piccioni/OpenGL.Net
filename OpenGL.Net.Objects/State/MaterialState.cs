@@ -67,7 +67,7 @@ namespace OpenGL.Objects.State
 				Emissive = ColorRGBAF.ColorBlack;
 				Diffuse = diffuse;
 				Specular = ColorRGBAF.ColorBlack;
-				Shininess = 1.0f;
+				Shininess = 32.0f;
 			}
 
 			/// <summary>
@@ -142,18 +142,6 @@ namespace OpenGL.Objects.State
 		public int FrontMaterialEmissionTexCoord = -1;
 
 		/// <summary>
-		/// The front face material texture for ambient component, if any.
-		/// </summary>
-		[ShaderUniformState()]
-		public Texture2d FrontMaterialAmbientTexture;
-
-		/// <summary>
-		/// The front face material texture for ambient component, if any.
-		/// </summary>
-		[ShaderUniformState()]
-		public int FrontMaterialAmbientTexCoord = -1;
-
-		/// <summary>
 		/// The front face material texture for diffuse component, if any.
 		/// </summary>
 		[ShaderUniformState()]
@@ -176,6 +164,48 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		[ShaderUniformState()]
 		public int FrontMaterialNormalTexCoord = -1;
+
+		/// <summary>
+		/// The front face material texture for specular component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public Texture2d FrontMaterialSpecularTexture;
+
+		/// <summary>
+		/// The front face material texture for specular component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public int FrontMaterialSpecularTexCoord = -1;
+
+		/// <summary>
+		/// The front face material texture for ambient component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public Texture2d FrontMaterialAmbientTexture;
+
+		/// <summary>
+		/// The front face material texture for ambient component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public int FrontMaterialAmbientTexCoord = -1;
+
+		/// <summary>
+		/// The front face material texture for displacement component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public Texture2d FrontMaterialDisplacementTexture;
+
+		/// <summary>
+		/// The front face material texture for displacement component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public int FrontMaterialDisplacementTexCoord = -1;
+
+		/// <summary>
+		/// The front face material texture for displacement component, if any.
+		/// </summary>
+		[ShaderUniformState()]
+		public float FrontMaterialDisplacementFactor = 1.0f;
 
 		#endregion
 
@@ -245,10 +275,6 @@ namespace OpenGL.Objects.State
 					shaderProgram.SetUniform(ctx, "glo_FrontMaterialEmissionTexture", FrontMaterialEmissionTexture);
 				shaderProgram.SetUniform(ctx, "glo_FrontMaterialEmissionTexCoord", FrontMaterialEmissionTexCoord);
 
-				if (FrontMaterialAmbientTexture != null)
-					shaderProgram.SetUniform(ctx, "glo_FrontMaterialAmbientTexture", FrontMaterialAmbientTexture);
-				shaderProgram.SetUniform(ctx, "glo_FrontMaterialAmbientTexCoord", FrontMaterialAmbientTexCoord);
-
 				if (FrontMaterialDiffuseTexture != null)
 					shaderProgram.SetUniform(ctx, "glo_FrontMaterialDiffuseTexture", FrontMaterialDiffuseTexture);
 				shaderProgram.SetUniform(ctx, "glo_FrontMaterialDiffuseTexCoord", FrontMaterialDiffuseTexCoord);
@@ -256,6 +282,20 @@ namespace OpenGL.Objects.State
 				if (FrontMaterialNormalTexture != null)
 					shaderProgram.SetUniform(ctx, "glo_FrontMaterialNormalTexture", FrontMaterialNormalTexture);
 				shaderProgram.SetUniform(ctx, "glo_FrontMaterialNormalTexCoord", FrontMaterialNormalTexCoord);
+
+				if (FrontMaterialSpecularTexture != null)
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialSpecularTexture", FrontMaterialSpecularTexture);
+				shaderProgram.SetUniform(ctx, "glo_FrontMaterialSpecularTexCoord", FrontMaterialSpecularTexCoord);
+
+				if (FrontMaterialAmbientTexture != null)
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialAmbientTexture", FrontMaterialAmbientTexture);
+				shaderProgram.SetUniform(ctx, "glo_FrontMaterialAmbientTexCoord", FrontMaterialAmbientTexCoord);
+
+				if (FrontMaterialDisplacementTexture != null) {
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialDisplacementTexture", FrontMaterialDisplacementTexture);
+					shaderProgram.SetUniform(ctx, "glo_FrontMaterialDisplacementFactor", FrontMaterialDisplacementFactor);
+				}
+				shaderProgram.SetUniform(ctx, "glo_FrontMaterialDisplacementTexCoord", FrontMaterialDisplacementTexCoord);
 			}
 		}
 

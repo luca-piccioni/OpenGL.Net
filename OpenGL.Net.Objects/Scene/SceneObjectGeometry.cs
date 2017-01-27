@@ -184,6 +184,12 @@ namespace OpenGL.Objects.Scene
 				get; set;
 			}
 
+			/// <summary>
+			/// Allocate resources requires for rendering this geometry.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
 			public void Create(GraphicsContext ctx)
 			{
 				// Create geometry state, if necessary
@@ -233,9 +239,6 @@ namespace OpenGL.Objects.Scene
 			#endregion
 		}
 
-		/// <summary>
-		/// Scene object geometries.
-		/// </summary>
 		internal IEnumerable<SceneObjectBatch> GetGeometries(State.GraphicsStateSet currentState)
 		{
 			if (_GeometryInstances.Count > 0) {

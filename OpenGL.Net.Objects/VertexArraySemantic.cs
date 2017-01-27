@@ -54,6 +54,11 @@ namespace OpenGL.Objects
 		public const string Tangent = "Tangent";
 
 		/// <summary>
+		/// Bitangent vector.
+		/// </summary>
+		public const string Bitangent = "Bitangent";
+
+		/// <summary>
 		/// Texture coordinate.
 		/// </summary>
 		public const string TexCoord = "TexCoord";

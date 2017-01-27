@@ -280,6 +280,31 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Get Index
+
+		public uint GetIndex(uint index)
+		{
+			uint vIndex;
+
+			switch (ElementsType) {
+				case DrawElementsType.UnsignedByte:
+					vIndex = GetElement<byte>(index, 0);
+					break;
+				case DrawElementsType.UnsignedShort:
+					vIndex = GetElement<ushort>(index, 0);
+					break;
+				case DrawElementsType.UnsignedInt:
+					vIndex = GetElement<uint>(index, 0);
+					break;
+				default:
+					throw new NotSupportedException(ElementsType + " not supported");
+			}
+
+			return (vIndex);
+		}
+
+		#endregion
+
 		#region ArrayBufferObjectBase Overrides
 
 		/// <summary>

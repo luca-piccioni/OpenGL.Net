@@ -95,10 +95,24 @@
 			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
 			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
 			<Attribute Name="glo_Tangent" Semantic="Tangent" Location="4" />
+			<Attribute Name="glo_Bitangent" Semantic="Bitangent" Location="5" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_ModelView" Semantic="ModelView" />
 			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
+		</Program>
+
+		<!-- Normal debuggng-->
+		<Program Id="OpenGL.Standard+DebugNormals">
+			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment" />
+			<Object Path="OpenGL.Objects.Shaders.Standard.Geometry.Normals.glsl" Stage="Geometry" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
+			<Attribute Name="glo_Tangent" Semantic="Tangent" Location="4" />
+			<Attribute Name="glo_Bitangent" Semantic="Bitangent" Location="5" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 		</Program>
 	
 	</Programs>

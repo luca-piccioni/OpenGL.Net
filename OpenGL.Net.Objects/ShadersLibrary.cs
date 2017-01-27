@@ -437,6 +437,28 @@ namespace OpenGL.Objects
 			return (new ProgramTag(libraryProgram, cctx));
 		}
 
+		/// <summary>
+		/// Create a <see cref="ProgramTag"/> used for creating (lazily) a <see cref="ShaderProgram"/>.
+		/// </summary>
+		/// <param name="programId">
+		/// A <see cref="String"/> that specifies the program identifier.
+		/// </param>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> that specifies *additional* parameters to be applied/merged to the default
+		/// compiler parameters.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="ProgramTag"/> for creating the program identified with <paramref name="programId"/>.
+		/// </returns>
+		public ProgramTag CreateProgramTag(string programId, params string[] defines)
+		{
+			Program libraryProgram = GetProgram(programId);
+			if (libraryProgram == null)
+				throw new ArgumentException("no program with such identifier", "programId");
+
+			return (new ProgramTag(libraryProgram, new ShaderCompilerContext(defines)));
+		}
+
 		#endregion
 
 		#region Serialization

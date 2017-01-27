@@ -28,8 +28,10 @@ LOCATION(1) ATTRIBUTE vec4 glo_Color;
 LOCATION(2) ATTRIBUTE vec3 glo_Normal;
 // Vertex texture coordinates
 LOCATION(3) ATTRIBUTE vec2 glo_TexCoord0;
-// Vertex texture coordinates
-LOCATION(3) ATTRIBUTE vec3 glo_Tangent;
+// Vertex tangent
+LOCATION(4) ATTRIBUTE vec3 glo_Tangent;
+// Vertex bitangent
+LOCATION(5) ATTRIBUTE vec3 glo_Bitangent;
 
 // Vertex/Fragment color
 SHADER_OUT vec4 glo_VertexColor;
@@ -40,6 +42,11 @@ SHADER_OUT vec2 glo_VertexTexCoord[1];
 // Vertex/Fragment TBN space matrix
 SHADER_OUT mat3 glo_VertexTBN;
 
+// Vertex position (object space)
+SHADER_OUT vec4 glo_VertexPositionObject;
+// Vertex normal (object space)
+SHADER_OUT vec3 glo_VertexNormalObject;
+
 // Vertex/Fragment position (model space)
 SHADER_OUT vec4 glo_VertexPosition;
 // Vertex/Fragment normal (model space)
@@ -47,17 +54,38 @@ SHADER_OUT vec3 glo_VertexNormalModel;
 
 void main()
 {
-	gl_Position = glo_ModelViewProjection * glo_Position;
+	vec4 vPosition = glo_Position;
+	vec3 vNormal = normalize(glo_Normal);
+
+	// Displacement mapping
+	if (glo_FrontMaterialDisplacementTexCoord >= 0) {
+		vec3 vPosition3 = vPosition.xyz / vPosition.w;
+		float vDisplacementLength = glo_FrontMaterialDisplacementFactor * TEXTURE_2D(glo_FrontMaterialDisplacementTexture, glo_VertexTexCoord[glo_FrontMaterialDisplacementTexCoord]).x;
+
+		vPosition = vec4(vPosition3 + vNormal * vDisplacementLength, 1.0);
+	}
+
+	gl_Position = glo_ModelViewProjection * vPosition;
+
+	vec3 vNormalView = normalize(glo_NormalMatrix * vNormal);
+	vec3 vTangent = normalize(glo_Tangent);
 
 	glo_VertexColor = glo_Color;
-	glo_VertexNormal =  normalize(glo_NormalMatrix * normalize(glo_Normal));
+	glo_VertexNormal = vNormalView;
 	glo_VertexTexCoord[0] = glo_TexCoord0;
 
-	vec3 tbnT = normalize(vec3(glo_ModelView * vec4(glo_Tangent, 0.0)));
-	vec3 tbnB = normalize(vec3(glo_ModelView * vec4(cross(glo_Tangent, glo_Normal), 0.0)));
-	vec3 tbnN = normalize(vec3(glo_ModelView * vec4(glo_Normal, 0.0)));
+	// Tangent to view
+	vec3 tbnT = normalize(glo_NormalMatrix * vTangent);
+	vec3 tbnB = normalize(glo_NormalMatrix * glo_Bitangent);
+	vec3 tbnN = vNormalView;
+	// re-orthogonalize T with respect to N
+	// tbnT = normalize(tbnT - dot(tbnT, tbnN) * tbnN);
 	
 	glo_VertexTBN = mat3(tbnT, tbnB, tbnN);
+
+	// Object space information
+	glo_VertexPositionObject = glo_Position;
+	glo_VertexNormalObject = glo_Normal;
 
 	// Position is required for lighting
 	glo_VertexPosition = glo_ModelView * glo_Position;

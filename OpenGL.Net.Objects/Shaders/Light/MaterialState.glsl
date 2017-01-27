@@ -40,14 +40,26 @@ uniform glo_MaterialType glo_FrontMaterial;
 // Emission texture
 uniform sampler2D glo_FrontMaterialEmissionTexture;
 uniform int glo_FrontMaterialEmissionTexCoord = -1;
-// Ambient texture
-uniform sampler2D glo_FrontMaterialAmbientTexture;
-uniform int glo_FrontMaterialAmbientTexCoord = -1;
+
 // Diffuse texture
 uniform sampler2D glo_FrontMaterialDiffuseTexture;
 uniform int glo_FrontMaterialDiffuseTexCoord = -1;
+
 // Normal texture
 uniform sampler2D glo_FrontMaterialNormalTexture;
 uniform int glo_FrontMaterialNormalTexCoord = -1;
+
+// Specular texture
+uniform sampler2D glo_FrontMaterialSpecularTexture;
+uniform int glo_FrontMaterialSpecularTexCoord = -1;
+
+// Ambient texture
+uniform sampler2D glo_FrontMaterialAmbientTexture;
+uniform int glo_FrontMaterialAmbientTexCoord = -1;
+
+// Displacement texture
+uniform sampler2D glo_FrontMaterialDisplacementTexture;
+uniform int glo_FrontMaterialDisplacementTexCoord = -1;
+uniform float glo_FrontMaterialDisplacementFactor = 1.0;
 
 #endif

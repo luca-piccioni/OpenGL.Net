@@ -140,7 +140,19 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Memory Buffer Copy
+		#region Reset
+
+		public void ResetBuffer()
+		{
+			if (IsDisposed)
+				throw new ObjectDisposedException("AlignedMemoryBuffer");
+
+			Memory.Set(AlignedBuffer, 0, _Size);
+		}
+
+		#endregion
+
+		#region Copy
 
 		/// <summary>
 		/// Copy data from another AlignedMemoryBuffer. 

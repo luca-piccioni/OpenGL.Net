@@ -19,6 +19,7 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace OpenGL.Objects
 {
@@ -27,7 +28,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Vertex array buffer interface.
 		/// </summary>
-		protected internal interface IVertexArray : IDisposable
+		internal interface IVertexArray : IDisposable
 		{
 			/// <summary>
 			/// Allocate resources used by this vertex array.
@@ -41,6 +42,11 @@ namespace OpenGL.Objects
 			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
 			/// </summary>
 			ArrayBufferObjectBase Array { get; }
+
+			/// <summary>
+			/// The section of the array referred by this vertex array.
+			/// </summary>
+			ArrayBufferObjectBase.IArraySection ArraySection { get; }
 
 			/// <summary>
 			/// Get the length of the vertex array.
@@ -60,12 +66,28 @@ namespace OpenGL.Objects
 			/// A <see cref="String"/> that specify the attribute which binds to this vertex array.
 			/// </param>
 			void SetVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, string attributeName);
+
+			/// <summary>
+			/// Get an element from the array, as defined in the underlying VertexArrayObject instance.
+			/// </summary>
+			/// <typeparam name="T"></typeparam>
+			/// <param name="index"></param>
+			/// <returns></returns>
+			T GetElement<T>(uint index) where T : struct;
+
+			/// <summary>
+			/// Set an element from the array, as defined in the underlying VertexArrayObject instance.
+			/// </summary>
+			/// <typeparam name="T"></typeparam>
+			/// <param name="index"></param>
+			/// <returns></returns>
+			void SetElement<T>(T element, uint index) where T : struct;
 		}
 
 		/// <summary>
 		/// A vertex array buffer.
 		/// </summary>
-		protected internal class VertexArray : IVertexArray
+		internal class VertexArray : IVertexArray
 		{
 			#region Constructors
 
@@ -369,6 +391,11 @@ namespace OpenGL.Objects
 			public ArrayBufferObjectBase Array { get { return (ArrayBuffer); } }
 
 			/// <summary>
+			/// The section of the array referred by this vertex array.
+			/// </summary>
+			public ArrayBufferObjectBase.IArraySection ArraySection { get { return (ArrayBuffer.GetArraySection(ArraySectionIndex)); } }
+
+			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
 			public uint Length { get { return (ArrayBuffer.ItemCount); } }
@@ -428,6 +455,16 @@ namespace OpenGL.Objects
 				IsDirty = false;
 			}
 
+			public T GetElement<T>(uint index) where T : struct
+			{
+				return (ArrayBuffer.GetElement<T>(index, ArraySectionIndex));
+			}
+
+			public void SetElement<T>(T element, uint index) where T : struct
+			{
+				ArrayBuffer.SetElement<T>(element, index, ArraySectionIndex);
+			}
+
 			#endregion
 
 			#region IDisposable Implementation
@@ -447,7 +484,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// A vertex default value.
 		/// </summary>
-		protected internal class DefaultVertexArray : IVertexArray
+		internal class DefaultVertexArray : IVertexArray
 		{
 			#region Constructors
 
@@ -496,6 +533,11 @@ namespace OpenGL.Objects
 			public ArrayBufferObjectBase Array { get { return (null); } }
 
 			/// <summary>
+			/// The section of the array referred by this vertex array.
+			/// </summary>
+			public ArrayBufferObjectBase.IArraySection ArraySection { get { return (null); } }
+
+			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
 			public uint Length { get { return (0); } }
@@ -537,6 +579,16 @@ namespace OpenGL.Objects
 				}
 			}
 
+			public T GetElement<T>(uint index) where T : struct
+			{
+				throw new NotImplementedException();
+			}
+
+			public void SetElement<T>(T element, uint index) where T : struct
+			{
+				throw new NotImplementedException();
+			}
+
 			#endregion
 
 			#region IDisposable Implementation
@@ -555,7 +607,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// An instanced vertex array buffer.
 		/// </summary>
-		protected internal class InstancedVertexArray : VertexArray
+		internal class InstancedVertexArray : VertexArray
 		{
 			#region Constructors
 
@@ -939,7 +991,7 @@ namespace OpenGL.Objects
 		/// <param name="blockName">
 		/// A <see cref="String"/> that specify the attribute block declaring <paramref name="attributeName"/>.
 		/// </param>
-		protected void SetVertexArray(IVertexArray vertexArray, string attributeName, string blockName)
+		internal void SetVertexArray(IVertexArray vertexArray, string attributeName, string blockName)
 		{
 			if (vertexArray == null)
 				throw new ArgumentNullException("vertexArray");
@@ -982,7 +1034,7 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// It returns the array corresponding to the attribute having the name <paramref name="attributeName"/>.
 		/// </returns>
-		protected internal IVertexArray GetVertexArray(string attributeName, string attributeBlock)
+		internal IVertexArray GetVertexArray(string attributeName, string attributeBlock)
 		{
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid attribute name", "attributeName");
@@ -1007,12 +1059,12 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// It returns the array corresponding to the semantic <paramref name="semantic"/>.
 		/// </returns>
-		protected internal IVertexArray GetVertexArray(string semantic)
+		internal IVertexArray GetVertexArray(string semantic)
 		{
 			return (GetVertexArray(semantic, SemanticBlockName));
 		}
 
-		protected internal IVertexArray GetVertexArray(string attributeName, ShaderProgram shaderProgram)
+		internal IVertexArray GetVertexArray(string attributeName, ShaderProgram shaderProgram)
 		{
 			IVertexArray shaderVertexArray;
 
@@ -1072,12 +1124,12 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Determine the actual <see cref="IVertexArray"/> instances used for drawing.
 		/// </summary>
-		protected virtual IEnumerable<IVertexArray> DrawArrays { get { return (_VertexArrays.Values); } }
+		internal virtual IEnumerable<IVertexArray> DrawArrays { get { return (_VertexArrays.Values); } }
 
 		/// <summary>
 		/// Array buffer objects required by this vertex array object.
 		/// </summary>
-		protected readonly Dictionary<string, IVertexArray> _VertexArrays = new Dictionary<string, IVertexArray>();
+		private readonly Dictionary<string, IVertexArray> _VertexArrays = new Dictionary<string, IVertexArray>();
 
 		/// <summary>
 		/// Special name for the attributes relative to a semantic.

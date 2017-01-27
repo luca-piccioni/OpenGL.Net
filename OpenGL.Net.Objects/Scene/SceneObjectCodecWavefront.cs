@@ -221,9 +221,13 @@ namespace OpenGL.Objects.Scene
 		{
 			public int VertexIndex;
 
-			public int NormalIndex;
+			public int NormalIndex = Int32.MinValue;
 
-			public int TexCoordIndex;
+			public bool HasNormal { get { return (NormalIndex != Int32.MinValue); } }
+
+			public int TexCoordIndex = Int32.MinValue;
+
+			public bool HasTexCoord { get { return (NormalIndex != Int32.MinValue); } }
 		}
 
 		/// <summary>
@@ -232,6 +236,10 @@ namespace OpenGL.Objects.Scene
 		class ObjFace
 		{
 			public readonly List<ObjFaceCoord> Coords = new List<ObjFaceCoord>();
+
+			public bool HasNormal { get { return (Coords.TrueForAll(delegate (ObjFaceCoord item) { return (item.HasNormal); })); } }
+
+			public bool HasTexCoord { get { return (Coords.TrueForAll(delegate (ObjFaceCoord item) { return (item.HasTexCoord); })); } }
 
 			public List<ObjFaceCoord> Triangulate()
 			{
@@ -298,60 +306,76 @@ namespace OpenGL.Objects.Scene
 
 				VertexArrayObject vertexArray = new VertexArrayObject();
 				List<ObjFaceCoord> coords = new List<ObjFaceCoord>(Faces.Count * 4);
+				bool hasTexCoord = Material.DiffuseTexture != null;
+				bool hasNormals = true;
+				bool hasTanCoord = hasTexCoord && Material.NormalTexture != null;
 
-				foreach (ObjFace f in Faces)
+				foreach (ObjFace f in Faces) {
+					hasTexCoord |= f.HasTexCoord;
+					hasNormals |= f.HasNormal;
 					coords.AddRange(f.Triangulate());
+				}
 
-				Vertex4f[] position = new Vertex4f[coords.Count];
-				Vertex3f[] normal = new Vertex3f[coords.Count];
-				Vertex2f[] texcoord = new Vertex2f[coords.Count];
-				Vertex3f[] tangent = new Vertex3f[coords.Count];
+				uint vertexCount = (uint)coords.Count;
+
+				Vertex4f[] position = new Vertex4f[vertexCount];
+				Vertex3f[] normal = hasNormals ? new Vertex3f[vertexCount] : null;
+				Vertex2f[] texcoord = new Vertex2f[vertexCount];
 
 				for (int i = 0; i < position.Length; i++) {
 					Debug.Assert(coords[i].VertexIndex < objContext.Vertices.Count);
 					position[i] = objContext.Vertices[coords[i].VertexIndex];
 
-					Debug.Assert(coords[i].NormalIndex < objContext.Normals.Count);
-					normal[i] = objContext.Normals[coords[i].NormalIndex];
+					if (hasTexCoord) {
+						Debug.Assert(coords[i].TexCoordIndex < objContext.TextureCoords.Count);
+						texcoord[i] = objContext.TextureCoords[coords[i].TexCoordIndex];
+					}
 
-					Debug.Assert(coords[i].TexCoordIndex < objContext.TextureCoords.Count);
-					texcoord[i] = objContext.TextureCoords[coords[i].TexCoordIndex];
-
-					// Compute tangent vector (on triangle)
-					if ((i % 3) == 2) {
-						Vertex3f v0 = (Vertex3f)position[i - 2], v1 = (Vertex3f)position[i - 1], v2 = (Vertex3f)position[i];
-						Vertex2f t0 = texcoord[i - 2], t1 = texcoord[i - 1], t2 = texcoord[i];
-
-						Vertex3f dv1 = v1 - v0, dv2 = v2 - v0;
-						Vertex2f dt1 = t1 - t0, dt2 = t2 - t0;
-
-						float r = 1.0f / (dt1.x * dt2.y - dt1.y * dt2.x);
-						Vertex3f tgVector   = ((dv1 * dt2.y - dv2 * dt1.y) * r).Normalized;
-						// Vertex3f bitangent = (dv2 * dt1.x - dv1 * dt2.x) * r;
-
-						tangent[i - 2] = tgVector;
-						tangent[i - 1] = tgVector;
-						tangent[i + 0] = tgVector;
+					if (hasNormals) {
+						Debug.Assert(coords[i].NormalIndex < objContext.Normals.Count);
+						normal[i] = objContext.Normals[coords[i].NormalIndex];
 					}
 				}
 
+				// Position (mandatory)
 				ArrayBufferObject<Vertex4f> positionBuffer = new ArrayBufferObject<Vertex4f>(BufferObjectHint.StaticCpuDraw);
 				positionBuffer.Create(position);
 				vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
-				ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
-				normalBuffer.Create(normal);
-				vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
-
-				ArrayBufferObject<Vertex2f> texCoordBuffer = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
-				texCoordBuffer.Create(texcoord);
-				vertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
-
-				ArrayBufferObject<Vertex3f> tanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
-				tanCoordBuffer.Create(tangent);
-				vertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
-
+				// Layout (triangles)
 				vertexArray.SetElementArray(PrimitiveType.Triangles);
+
+				// Texture
+				if (hasTexCoord) {
+					ArrayBufferObject<Vertex2f> texCoordBuffer = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+					texCoordBuffer.Create(texcoord);
+					vertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
+				}
+
+				// Normals
+				if (hasNormals) {
+					ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					normalBuffer.Create(normal);
+					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
+				} else {
+					ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					normalBuffer.Create(vertexCount);
+					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
+					vertexArray.GenerateNormals();
+				}
+
+				// Tangents
+				if (hasTanCoord) {
+					ArrayBufferObject<Vertex3f> tanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					tanCoordBuffer.Create(vertexCount);
+					vertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
+
+					ArrayBufferObject<Vertex3f> bitanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					bitanCoordBuffer.Create(vertexCount);
+					vertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
+
+					vertexArray.GenerateTangents();
+				}
 
 				return (vertexArray);
 			}
@@ -559,6 +583,7 @@ namespace OpenGL.Objects.Scene
 			SceneObjectGeometry sceneObject = new SceneObjectGeometry();
 
 			// Program shader to all objects
+			sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment", new ShaderCompilerContext("GLO_DEBUG_NORMAL"));
 			sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
 
 			foreach (ObjGroup objGroup in objContext.Groups) {
@@ -602,7 +627,7 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentException("array too short", "token");
 
 			float[] values = Array.ConvertAll(token, delegate(string item) {
-				return (Single.Parse(item, System.Globalization.NumberFormatInfo.InvariantInfo));
+				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
 			});
 
 			objContext.Vertices.Add(new Vertex4f(values[0], values[1], values[2], values.Length > 3 ? values[3] : 1.0f));
@@ -618,7 +643,7 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentException("wrong array length", "token");
 
 			float[] values = Array.ConvertAll(token, delegate(string item) {
-				return (Single.Parse(item, System.Globalization.NumberFormatInfo.InvariantInfo));
+				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
 			});
 
 			objContext.Normals.Add(new Vertex3f(values[0], values[1], values[2]));
@@ -665,31 +690,33 @@ namespace OpenGL.Objects.Scene
 					if (String.IsNullOrEmpty(item) == false)
 						return (Int32.Parse(item, NumberFormatInfo.InvariantInfo));
 					else
-						return (-1);
+						return (Int32.MinValue);
 				});
 
 				int indexVertex = indicesValues[0];
 				int indexNormal = indicesValues[2];
 				int indexTexCoord = indicesValues[1];
 
-				// Convert relative to absolute
-				if (indexVertex < 0)
-					indexVertex = objContext.Vertices.Count + indexVertex + 1;
-				if (indexNormal < 0)
-					indexNormal = objContext.Normals.Count + indexNormal + 1;
-				if (indexTexCoord < 0)
-					indexTexCoord = objContext.TextureCoords.Count + indexTexCoord + 1;
-
-				// Normalize to zero-based
-				indexVertex -= 1;
-				indexNormal -= 1;
-				indexTexCoord -= 1;
-
 				ObjFaceCoord objFaceCoord = new ObjFaceCoord();
 
-				objFaceCoord.VertexIndex = indexVertex;
-				objFaceCoord.NormalIndex = indexNormal;
-				objFaceCoord.TexCoordIndex = indexTexCoord;
+				// Position
+				if (indexVertex < 0)
+					indexVertex = objContext.Vertices.Count + indexVertex + 1;
+				objFaceCoord.VertexIndex = indexVertex - 1;
+
+				// Normal (optional)
+				if (indexNormal != Int32.MinValue) {
+					if (indexNormal < 0)
+						indexNormal = objContext.Normals.Count + indexNormal + 1;
+					objFaceCoord.NormalIndex = indexNormal - 1;
+				}
+				
+				// Tex coord (optional)
+				if (indexTexCoord != Int32.MinValue) {
+					if (indexTexCoord < 0)
+					indexTexCoord = objContext.TextureCoords.Count + indexTexCoord + 1;
+					objFaceCoord.TexCoordIndex = indexTexCoord - 1;
+				}
 
 				objFace.Coords.Add(objFaceCoord);
 			}
