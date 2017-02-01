@@ -500,6 +500,175 @@ namespace OpenGL
 			public int MaxVertexOutputsComponents = 0;
 
 			#endregion
+
+			#region OpenGL 4.0 Limits
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_PATCH_VERTICES)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxPatchVertices = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_GEN_LEVEL)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessGenLevel = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_EVALUATION_UNIFORM_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessEvaluationUniformComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessControlTextureImageUnits = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessEvaluationTextureImageUnits = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_CONTROL_OUTPUT_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessControlOutputComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_PATCH_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessPatchComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessControlTotalOutputComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_EVALUATION_OUTPUT_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessEvaluationOutputComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_CONTROL_UNIFORM_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessControlUniformBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_EVALUATION_UNIFORM_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessEvaluationUniformBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_CONTROL_INPUT_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessControlInputComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_EVALUATION_INPUT_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxTessEvaluationInputComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxCombinedTessControlUniformComponents = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS)]
+			[RequiredByFeature("GL_VERSION_4_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			public int MaxCombinedTessEvaluationUniformComponents = 0;
+
+			#endregion
 		}
 	}
 }

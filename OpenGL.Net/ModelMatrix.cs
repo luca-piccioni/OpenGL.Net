@@ -300,12 +300,12 @@ namespace OpenGL
 		/// </param>
 		public void Translate(float x, float y)
 		{
-			ModelMatrix translationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
-			translationMatrix[3, 0] = x;
-			translationMatrix[3, 1] = y;
+			matrix[3, 0] = x;
+			matrix[3, 1] = y;
 
-			Set(this * translationMatrix);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -322,13 +322,13 @@ namespace OpenGL
 		/// </param>
 		public void Translate(float x, float y, float z)
 		{
-			ModelMatrix translationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
-			translationMatrix[3, 0] = x;
-			translationMatrix[3, 1] = y;
-			translationMatrix[3, 2] = z;
+			matrix[3, 0] = x;
+			matrix[3, 1] = y;
+			matrix[3, 2] = z;
 
-			Set(this * translationMatrix);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -339,12 +339,12 @@ namespace OpenGL
 		/// </param>
 		public void Translate(Vertex2f p)
 		{
-			ModelMatrix translationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
-			translationMatrix[3, 0] = p.x;
-			translationMatrix[3, 1] = p.y;
+			matrix[3, 0] = p.x;
+			matrix[3, 1] = p.y;
 
-			Set(this * translationMatrix);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -355,13 +355,13 @@ namespace OpenGL
 		/// </param>
 		public void Translate(Vertex3f p)
 		{
-			ModelMatrix translationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
-			translationMatrix[3, 0] = p.x;
-			translationMatrix[3, 1] = p.y;
-			translationMatrix[3, 2] = p.z;
+			matrix[3, 0] = p.x;
+			matrix[3, 1] = p.y;
+			matrix[3, 2] = p.z;
 
-			Set(this * translationMatrix);
+			Set(this * matrix);
 		}
 
 		#endregion
@@ -376,17 +376,17 @@ namespace OpenGL
 		/// </param>
 		public void RotateX(float angle)
 		{
-			ModelMatrix rotationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
 			float cosa = (float)Math.Cos(Angle.ToRadians(angle));
 			float sina = (float)Math.Sin(Angle.ToRadians(angle));
 
-			rotationMatrix[1, 1] = +cosa;
-			rotationMatrix[2, 1] = -sina;
-			rotationMatrix[1, 2] = +sina;
-			rotationMatrix[2, 2] = +cosa;
+			matrix[1, 1] = +cosa;
+			matrix[2, 1] = -sina;
+			matrix[1, 2] = +sina;
+			matrix[2, 2] = +cosa;
 
-			Set(this * rotationMatrix);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -397,17 +397,17 @@ namespace OpenGL
 		/// </param>
 		public void RotateY(float angle)
 		{
-			ModelMatrix rotationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
 			float cosa = (float)Math.Cos(Angle.ToRadians(angle));
 			float sina = (float)Math.Sin(Angle.ToRadians(angle));
 
-			rotationMatrix[0, 0] = +cosa;
-			rotationMatrix[2, 0] = +sina;
-			rotationMatrix[0, 2] = -sina;
-			rotationMatrix[2, 2] = +cosa;
+			matrix[0, 0] = +cosa;
+			matrix[2, 0] = +sina;
+			matrix[0, 2] = -sina;
+			matrix[2, 2] = +cosa;
 
-			Set(this * rotationMatrix);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -418,17 +418,17 @@ namespace OpenGL
 		/// </param>
 		public void RotateZ(float angle)
 		{
-			ModelMatrix rotationMatrix = new ModelMatrix();
+			ModelMatrix matrix = new ModelMatrix();
 
 			float cosa = (float)Math.Cos(Angle.ToRadians(angle));
 			float sina = (float)Math.Sin(Angle.ToRadians(angle));
 
-			rotationMatrix[0, 0] = +cosa;
-			rotationMatrix[1, 0] = -sina;
-			rotationMatrix[0, 1] = +sina;
-			rotationMatrix[1, 1] = +cosa;
+			matrix[0, 0] = +cosa;
+			matrix[1, 0] = -sina;
+			matrix[0, 1] = +sina;
+			matrix[1, 1] = +cosa;
 
-			Set(this * rotationMatrix);
+			Set(this * matrix);
 		}
 
 		#endregion
@@ -443,10 +443,10 @@ namespace OpenGL
 		/// </param>
 		public void Scale(float s)
 		{
-			ModelMatrix scaleModel = new ModelMatrix();
-			scaleModel.SetScale(s);
+			ModelMatrix matrix = new ModelMatrix();
+			matrix.SetScale(s);
 
-			Set(this * scaleModel);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -460,10 +460,10 @@ namespace OpenGL
 		/// </param>
 		public void Scale(float x, float y)
 		{
-			ModelMatrix scaleModel = new ModelMatrix();
-			scaleModel.SetScale(x, y);
+			ModelMatrix matrix = new ModelMatrix();
+			matrix.SetScale(x, y);
 
-			Set(this * scaleModel);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -480,10 +480,10 @@ namespace OpenGL
 		/// </param>
 		public void Scale(float x, float y, float z)
 		{
-			ModelMatrix scaleModel = new ModelMatrix();
-			scaleModel.SetScale(x, y, z);
+			ModelMatrix matrix = new ModelMatrix();
+			matrix.SetScale(x, y, z);
 
-			Set(this * scaleModel);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -494,10 +494,10 @@ namespace OpenGL
 		/// </param>
 		public void Scale(Vertex2f s)
 		{
-			ModelMatrix scaleModel = new ModelMatrix();
-			scaleModel.SetScale(s.x, s.y);
+			ModelMatrix matrix = new ModelMatrix();
+			matrix.SetScale(s.x, s.y);
 
-			Set(this * scaleModel);
+			Set(this * matrix);
 		}
 
 		/// <summary>
@@ -508,10 +508,10 @@ namespace OpenGL
 		/// </param>
 		public void Scale(Vertex3f s)
 		{
-			ModelMatrix scaleModel = new ModelMatrix();
-			scaleModel.SetScale(s);
+			ModelMatrix matrix = new ModelMatrix();
+			matrix.SetScale(s);
 
-			Set(this * scaleModel);
+			Set(this * matrix);
 		}
 
 		/// <summary>
