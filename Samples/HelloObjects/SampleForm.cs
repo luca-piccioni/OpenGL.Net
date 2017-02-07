@@ -48,6 +48,29 @@ namespace HelloObjects
 
 		#region Colored Cube
 
+		private SceneObjectGeometry CreatePlane()
+		{
+			SceneObjectGeometry geometry = new SceneObjectGeometry("Plane");
+
+			geometry.VertexArray = VertexArrayObject.CreatePlane(50.0f, 50.0f, 0.0f, 1, 1);
+			geometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
+			geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
+			geometry.ObjectState.DefineState(new TransformState());
+
+			MaterialState cubeMaterialState = new MaterialState();
+			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite * 0.5f);
+			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorBlack;
+			cubeMaterialState.FrontMaterial.Diffuse = ColorRGBAF.ColorWhite * 0.5f;
+			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorBlack;
+			geometry.ObjectState.DefineState(cubeMaterialState);
+
+			geometry.LocalModel.RotateX(-90.0);
+
+			geometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+
+			return (geometry);
+		}
+
 		private SceneObjectGeometry CreateCubeGeometry()
 		{
 			SceneObjectGeometry cubeGeometry = new SceneObjectGeometry("Cube");
@@ -248,6 +271,7 @@ namespace HelloObjects
 			sphereGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			sphereGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			sphereGeometry.ObjectState.DefineState(new TransformState());
+			sphereGeometry.LocalModel.Translate(0.0f, 4.0f);
 
 			sphereGeometry.VertexArray = VertexArrayObject.CreateSphere(4.0f, 32, 32);
 
@@ -507,6 +531,10 @@ namespace HelloObjects
 
 		#region Rendering
 
+		IFont fontTitle, fontTitleV;
+
+		IFont fontPatch;
+
 		/// <summary>
 		/// Allocate resources for rendering.
 		/// </summary>
@@ -519,6 +547,15 @@ namespace HelloObjects
 			// Scene
 			_CubeScene = new SceneGraph();
 			_CubeScene.Link(new SceneObjectCamera());
+
+			fontTitle = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Textured);
+			fontTitle.Create(_Context);
+
+			fontTitleV = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector);
+			fontTitleV.Create(_Context);
+
+			fontPatch = FontFactory.CreateFont(System.Drawing.FontFamily.GenericMonospace, 16, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector);
+			fontPatch.Create(_Context);
 
 			// Global lighting
 			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
@@ -533,6 +570,9 @@ namespace HelloObjects
 			//globalLightZone.AddChild(localLightObject);
 
 			_CubeScene.Link(globalLightZone);
+
+			// Horizontal plane
+			globalLightZone.Link(CreatePlane());
 
 			// Cube
 			float Size = (float)Math.Sqrt(0);
@@ -594,6 +634,8 @@ namespace HelloObjects
 			_CubeScene.Create(_Context);
 
 			Gl.ClearColor(0.1f, 0.1f, 0.1f, 0.0f);
+
+			Gl.Enable(EnableCap.Multisample);
 		}
 
 		/// <summary>
@@ -614,7 +656,7 @@ namespace HelloObjects
 		/// <param name="e"></param>
 		private void ObjectsControl_Render(object sender, GlControlEventArgs e)
 		{
-			Control senderControl = (Control)sender;
+			GlControl senderControl = (GlControl)sender;
 			float senderAspectRatio = (float)senderControl.Width / senderControl.Height;
 
 			// Clear
@@ -626,9 +668,48 @@ namespace HelloObjects
 			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
 			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
+			
 			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.5f, 10000.0f);
 
 			_CubeScene.Draw(_Context);
+
+			// Overlay
+			ProjectionMatrix overlayProjection = new OrthoProjectionMatrix(0.0f, ClientSize.Width, 0.0f, ClientSize.Height);
+			ModelMatrix overlayModel = new ModelMatrix();
+
+			overlayModel.Translate(0.375f, 0.375f);
+
+			Gl.Clear(ClearBufferMask.DepthBufferBit);
+
+			ColorRGBAF fpsColor = ColorRGBAF.ColorGreen;
+			int fps = senderControl.Fps;
+
+			if      (fps >= 59)
+				fpsColor = ColorRGBAF.ColorGreen;
+			else if (fps >= 29)
+				fpsColor = ColorRGBAF.ColorBlue;
+			else if (fps >= 24)
+				fpsColor = ColorRGBAF.ColorYellow;
+			else
+				fpsColor = ColorRGBAF.ColorRed;
+
+			fontPatch.DrawString(
+				_Context, overlayProjection * overlayModel, fpsColor,
+				String.Format("FPS: {0}", senderControl.Fps)
+			);
+
+			overlayModel.SetIdentity();
+			overlayModel.Translate(0.375f, ClientSize.Height - 64 + 0.375f);
+			fontTitle.DrawString(
+				_Context, overlayProjection * overlayModel, ColorRGBAF.ColorGreen,
+				"Hello Objects example ~(^.^)~"
+			);
+
+			overlayModel.SetIdentity();
+			overlayModel.Translate(0.375f, ClientSize.Height - 128 + 0.375f);
+			fontTitleV.DrawString(_Context, overlayProjection * overlayModel, ColorRGBAF.ColorGreen,
+				"Hello Objects example ~(^.^)~"
+			);
 		}
 
 		/// <summary>

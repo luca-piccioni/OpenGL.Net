@@ -39,7 +39,7 @@
 			this.ObjectsControl.DepthBits = ((uint)(24u));
 			this.ObjectsControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ObjectsControl.Location = new System.Drawing.Point(0, 0);
-			this.ObjectsControl.MultisampleBits = ((uint)(0u));
+			this.ObjectsControl.MultisampleBits = ((uint)(8u));
 			this.ObjectsControl.Name = "ObjectsControl";
 			this.ObjectsControl.Size = new System.Drawing.Size(568, 406);
 			this.ObjectsControl.StencilBits = ((uint)(0u));
@@ -55,7 +55,7 @@
 			// 
 			// AnimationTimer
 			// 
-			this.AnimationTimer.Interval = 16;
+			this.AnimationTimer.Interval = 10;
 			this.AnimationTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
 			// 
 			// SampleForm
