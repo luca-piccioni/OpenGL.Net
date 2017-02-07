@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+
+	<!-- Program Objects -->
+	<Objects>
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.glsl">
+			<Symbols>
+				<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
+			</Symbols>
+		</Object>
+
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.glsl">
+			<Symbols>
+				<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
+			</Symbols>
+		</Object>
+	</Objects>
+
+	<Programs>
+
+		<!-- FontPatch -->
+		<Program Id="OpenGL.FontPatch">
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.glsl" Stage="Fragment" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="glo_UniformColor" Semantic="Color"/>
+		</Program>
+
+		<!-- FontTextureArray -->
+		<Program Id="OpenGL.FontTextureArray">
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.glsl" Stage="Vertex">
+				<Symbols>
+					<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
+				</Symbols>
+			</Object>
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.glsl" Stage="Fragment">
+				<Symbols>
+					<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
+				</Symbols>
+			</Object>
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="glo_UniformColor" Semantic="Color"/>
+		</Program>
+
+	</Programs>
+
+</ShadersLibrary>

@@ -119,9 +119,9 @@ namespace OpenGL.Objects
 
 #endif
 
-			if        ((flags & (int)System.Drawing.Imaging.ImageFlags.ColorSpaceRgb) != 0) {
+			if        ((flags & (int)ImageFlags.ColorSpaceRgb) != 0) {
 				ConvertPixelFormatRgb(from, out to, sRGB);
-			} else if ((flags & (int)System.Drawing.Imaging.ImageFlags.ColorSpaceGray) != 0) {
+			} else if ((flags & (int)ImageFlags.ColorSpaceGray) != 0) {
 				switch (from) {
 					case System.Drawing.Imaging.PixelFormat.Format1bppIndexed:
 					case System.Drawing.Imaging.PixelFormat.Format4bppIndexed:
@@ -138,14 +138,53 @@ namespace OpenGL.Objects
 						throw new ArgumentException(String.Format("GRAY pixel format {0} not supported", from));
 				}
 				
-			} else if ((flags & (int)System.Drawing.Imaging.ImageFlags.ColorSpaceYcck) != 0) {
+			} else if ((flags & (int)ImageFlags.ColorSpaceYcck) != 0) {
 				throw new ArgumentException(String.Format("YCCK pixel format {0} not supported", from));
-			} else if ((flags & (int)System.Drawing.Imaging.ImageFlags.ColorSpaceYcbcr) != 0) {
+			} else if ((flags & (int)ImageFlags.ColorSpaceYcbcr) != 0) {
 				ConvertPixelFormatRgb(from, out to, sRGB);
-			} else if ((flags & (int)System.Drawing.Imaging.ImageFlags.ColorSpaceCmyk) != 0) {
+			} else if ((flags & (int)ImageFlags.ColorSpaceCmyk) != 0) {
 				throw new ArgumentException(String.Format("CMYK pixel format {0} not supported", from));
 			} else {
-				throw new ArgumentException(String.Format("not RGB/GRAY pixel format {0} not supported", from));
+				ConvertPixelFormatNoFlags(from, out to, sRGB);
+			}
+		}
+
+		private static void ConvertPixelFormatNoFlags(System.Drawing.Imaging.PixelFormat from, out PixelLayout to, bool sRGB)
+		{
+			switch (from) {
+				case System.Drawing.Imaging.PixelFormat.Format16bppRgb555:
+					to = PixelLayout.BGR15;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format16bppRgb565:
+					to = PixelLayout.BGR16;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format24bppRgb:
+					to = sRGB ? PixelLayout.SBGR24 : PixelLayout.BGR24;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format32bppRgb:
+					to = PixelLayout.BGRA32;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format16bppArgb1555:
+					to = PixelLayout.BGR15;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format16bppGrayScale:
+					to = PixelLayout.R16;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format48bppRgb:
+					to = PixelLayout.BGR48;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format64bppPArgb:
+					throw new ArgumentException(String.Format("RGB pixel format {0} not supported", from));
+				case System.Drawing.Imaging.PixelFormat.Canonical:
+					to = (sRGB) ? PixelLayout.SBGR24 : PixelLayout.BGR24;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format32bppArgb:
+					to = PixelLayout.BGRA32;
+					break;
+				case System.Drawing.Imaging.PixelFormat.Format64bppArgb:
+					throw new ArgumentException(String.Format("RGB pixel format {0} not supported", from));
+				default:
+					throw new ArgumentException(String.Format("RGB pixel format {0} not supported", from));
 			}
 		}
 

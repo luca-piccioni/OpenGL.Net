@@ -68,7 +68,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Scene graph flags.
 		/// </summary>
-		private SceneGraphFlags _Flags = SceneGraphFlags.None; // SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting; // | SceneGraphFlags.BoundingVolumes;
+		private SceneGraphFlags _Flags = SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting; // | SceneGraphFlags.BoundingVolumes;
 
 		/// <summary>
 		/// Draw this SceneGraph.

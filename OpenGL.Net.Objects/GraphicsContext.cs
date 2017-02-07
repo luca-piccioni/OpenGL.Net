@@ -1071,6 +1071,57 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Resource Caching/Sharing
+
+		public void SetSharedResource(string id, object resource)
+		{
+			if (id == null)
+				throw new ArgumentNullException("id");
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+
+			_SharedObjects[id] = resource;
+		}
+
+		public void SetSharedResource(string id, IGraphicsResource resource)
+		{
+			if (id == null)
+				throw new ArgumentNullException("id");
+			if (resource == null)
+				throw new ArgumentNullException("resource");
+
+			resource.IncRef();
+			_SharedResources[id] = resource;
+		}
+
+		public object GetSharedResource(string id)
+		{
+			if (id == null)
+				throw new ArgumentNullException("id");
+
+			IGraphicsResource sharedResource;
+			if (_SharedResources.TryGetValue(id, out sharedResource))
+				return (sharedResource);
+
+			object sharedObject;
+			if (_SharedObjects.TryGetValue(id, out sharedObject))
+				return (sharedObject);
+
+			return (null);
+		}
+
+		/// <summary>
+		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
+		/// </summary>
+		private readonly Dictionary<string, object> _SharedObjects = new Dictionary<string, object>();
+
+		/// <summary>
+		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
+		/// </summary>
+		private readonly Dictionary<string, IGraphicsResource> _SharedResources = new Dictionary<string, IGraphicsResource>();
+
+		#endregion
+
 		#region Context Currency
 
 		/// <summary>

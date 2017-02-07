@@ -17,8 +17,7 @@
 // USA
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+using System.Drawing;
 
 namespace OpenGL.Objects
 {
@@ -165,7 +164,7 @@ namespace OpenGL.Objects
 				// Define empty texture
 				Gl.TexImage3D(_Target, 0, internalFormat, (int)_Width, (int)_Height, (int)_Layers, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 				// Define texture properties
-				_TextureArray2d.DefineExtents(_PixelFormat, _Width, _Height, 1, 0);
+				_TextureArray2d.DefineExtents(_PixelFormat, _Width, _Height, _Layers, 0);
 			}
 		}
 
@@ -296,8 +295,6 @@ namespace OpenGL.Objects
 					throw new ArgumentNullException("images");
 				if (images.Length == 0)
 					throw new ArgumentException("no image layers", "images");
-				//if (Array.TrueForAll(images, delegate (Image item) { return ((item == null) || (item.Width == images[0].Width && item.Height == images[0].Height)); }) == false)
-				//	throw new ArgumentException("non-uniform image layers extents", "images");
 
 				_TextureArray2d = texture;
 				_Target = target;
@@ -509,9 +506,59 @@ namespace OpenGL.Objects
 		{
 			if (layer >= Depth)
 				throw new ArgumentOutOfRangeException("layer", "exceeding upper boundary");
+			
 			// Fictive array for defining only one layer
 			Image[] images = new Image[Depth];
+
 			images[layer] = image;
+			// Define texture technique
+			Create(internalFormat, images, false);
+			// Define texture
+			Create(ctx);
+		}
+
+		#endregion
+
+		#region Create(GraphicsContext, PixelLayout, Image, uint)
+
+		/// <summary>
+		/// Create Texture2d from a Image instance.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
+		/// will be used.
+		/// </param>
+		/// <param name="image">
+		/// An <see cref="Bitmap"/> holding the texture data.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception throw if <paramref name="image"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> pixel data is not allocated (i.e. image not defined).
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if <paramref name="ctx"/> is null and no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> width or height are greater than the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by <paramref name="ctx"/> (or the current context if <paramref name="ctx"/> is
+		/// null), and <paramref name="image"/> width or height are not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> format (<see cref="Image.PixelFormat"/> is not a supported internal format.
+		/// </exception>
+		public void Create(GraphicsContext ctx, PixelLayout internalFormat, Bitmap image, uint layer)
+		{
+			if (layer >= Depth)
+				throw new ArgumentOutOfRangeException("layer", "exceeding upper boundary");
+			
+			// Fictive array for defining only one layer
+			Image[] images = new Image[Depth];
+
+			images[layer] = CoreImagingImageCodecPlugin.LoadFromBitmap(image, new ImageCodecCriteria());
 			// Define texture technique
 			Create(internalFormat, images, false);
 			// Define texture

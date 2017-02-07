@@ -211,51 +211,102 @@ namespace OpenGL.Objects
 			/// </param>
 			internal virtual void EnableVertexAttribute(GraphicsContext ctx, uint location, ShaderAttributeType type)
 			{
-				ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
-
-				int arrayBaseType = (int)arraySection.ItemType.GetVertexBaseType();
-				int arrayLength = (int)arraySection.ItemType.GetArrayLength();
-				int arrayStride = arraySection.Stride.ToInt32();
-
 				// Avoid rendundant buffer binding and relative vertex array setup
 				if (ctx.Extensions.VertexArrayObject_ARB && IsDirty == false) {
 					// CheckVertexAttribute(ctx, location);
 					return;
 				}
 
-				// Bind the array buffer
+				ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+				int arrayStride = arraySection.Stride.ToInt32();
+
 				ctx.Bind(ArrayBuffer);
 
-				// Bind varying attribute to currently bound buffer object
-				switch (ArrayBufferItem.GetArrayBaseType(type)) {
-					case VertexBaseType.Float:
-						Gl.VertexAttribPointer(
-							location,
-							arrayLength, arrayBaseType, arraySection.Normalized,
-							arrayStride, arraySection.Offset
-						);
-						break;
-					case VertexBaseType.Int:
-					case VertexBaseType.UInt:
-						Gl.VertexAttribIPointer(
-							location,
-							arrayLength, arrayBaseType,
-							arrayStride, arraySection.Offset
-							);
-						break;
-					case VertexBaseType.Double:
-						Gl.VertexAttribLPointer(
-							location,
-							arrayLength, arrayBaseType,
-							arrayStride, arraySection.Offset
-							);
-						break;
-					default:
-						throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
-				}
+				uint arrayRank = arraySection.ItemType.GetArrayRank();
 
-				// Enable vertex attribute
-				Gl.EnableVertexAttribArray(location);
+				if (arrayRank == 1) {
+					int arrayBaseType = (int)arraySection.ItemType.GetVertexBaseType();
+					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
+
+					// Bind varying attribute to currently bound buffer object
+					switch (ArrayBufferItem.GetArrayBaseType(type)) {
+						case VertexBaseType.Float:
+							Gl.VertexAttribPointer(
+								location,
+								arrayLength, arrayBaseType, arraySection.Normalized,
+								arrayStride, arraySection.Offset
+							);
+							break;
+						case VertexBaseType.Int:
+						case VertexBaseType.UInt:
+							Gl.VertexAttribIPointer(
+								location,
+								arrayLength, arrayBaseType,
+								arrayStride, arraySection.Offset
+								);
+							break;
+						case VertexBaseType.Double:
+							Gl.VertexAttribLPointer(
+								location,
+								arrayLength, arrayBaseType,
+								arrayStride, arraySection.Offset
+								);
+							break;
+						default:
+							throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
+					}
+
+					// Enable vertex attribute
+					Gl.EnableVertexAttribArray(location);
+					// Set attribute divisor
+					SetAttributeDivisor(ctx, location, type);
+				} else {
+					ArrayBufferItemType columnType = arraySection.ItemType.GetMatrixColumnType();
+					uint columnOffset = columnType.GetItemSize();
+
+					int arrayBaseType = (int)columnType.GetVertexBaseType();
+					int arrayLength = (int)columnType.GetArrayLength();
+
+					for (int i = 0; i < arrayRank; i++) {
+						// Bind varying attribute to currently bound buffer object
+						switch (ArrayBufferItem.GetArrayBaseType(type)) {
+							case VertexBaseType.Float:
+								Gl.VertexAttribPointer(
+									(uint)(location + i),
+									arrayLength, arrayBaseType, arraySection.Normalized,
+									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
+								);
+								break;
+							case VertexBaseType.Int:
+							case VertexBaseType.UInt:
+								Gl.VertexAttribIPointer(
+									(uint)(location + i),
+									arrayLength, arrayBaseType,
+									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
+									);
+								break;
+							case VertexBaseType.Double:
+								Gl.VertexAttribLPointer(
+									(uint)(location + i),
+									arrayLength, arrayBaseType,
+									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
+									);
+								break;
+							default:
+								throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
+						}
+						// Enable vertex attribute
+						Gl.EnableVertexAttribArray((uint)(location + i));
+						// Set attribute divisor
+						SetAttributeDivisor(ctx, (uint)(location + i), type);
+					}
+				}
+			}
+
+			internal virtual void SetAttributeDivisor(GraphicsContext ctx, uint location, ShaderAttributeType type)
+			{
+				if (ctx.Version >= Gl.Version_330)
+					Gl.VertexAttribDivisor(location, 0);
 			}
 
 			/// <summary>
@@ -645,38 +696,11 @@ namespace OpenGL.Objects
 
 			#region VertexArray Overrides
 
-			/// <summary>
-			/// Enable the generic vertex attribute.
-			/// </summary>
-			/// <param name="ctx">
-			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
-			/// </param>
-			/// <param name="attributeBinding">
-			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
-			/// </param>
-			internal override void EnableVertexAttribute(GraphicsContext ctx, uint location, ShaderAttributeType type)
+			internal override void SetAttributeDivisor(GraphicsContext ctx, uint location, ShaderAttributeType type)
 			{
-				// Base implementation
-				base.EnableVertexAttribute(ctx, location, type);
 				// Attribute divisor
-				Gl.VertexAttribDivisor(location, Divisor);
-			}
-
-			/// <summary>
-			/// Disable the generic vertex attribute.
-			/// </summary>
-			/// <param name="ctx">
-			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
-			/// </param>
-			/// <param name="attributeBinding">
-			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
-			/// </param>
-			internal override void DisableVertexAttribute(GraphicsContext ctx, uint location)
-			{
-				// Base implementation
-				base.DisableVertexAttribute(ctx, location);
-				// Attribute divisor (not instanced)
-				Gl.VertexAttribDivisor(location, 0);
+				for (int i = 0; i < type.GetArrayRank(); i++)
+					Gl.VertexAttribDivisor((uint)(location + i), Divisor);
 			}
 
 			#endregion

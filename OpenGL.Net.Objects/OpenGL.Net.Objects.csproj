@@ -77,7 +77,13 @@
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferObject.cs" />
     <Compile Include="ArrayBufferObjectBase.cs" />
+    <Compile Include="ArrayBufferObjectInterleaved.cs" />
     <Compile Include="Collections\StringDictionary.cs" />
+    <Compile Include="Font.cs" />
+    <Compile Include="FontFactory.cs" />
+    <Compile Include="FontPatch.cs" />
+    <Compile Include="FontTextureArray2d.cs" />
+    <Compile Include="IFont.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
     <Compile Include="Scene\SceneGraphSorter.cs" />
     <Compile Include="Scene\SceneObjectBatch.cs" />
@@ -100,6 +106,7 @@
     <Compile Include="Scene\SceneObjectLightDirectional.cs" />
     <Compile Include="Scene\SceneObjectLight.cs" />
     <Compile Include="Scene\SceneObjectLightZone.cs" />
+    <Compile Include="Scene\ShadowMap.cs" />
     <Compile Include="ShaderProgram.UniformBlock.cs" />
     <Compile Include="Single.Extensions.cs" />
     <Compile Include="BufferObject.cs" />
@@ -175,6 +182,7 @@
     <Compile Include="State\TransformStateBase.cs" />
     <Compile Include="State\TransformStateDouble.cs" />
     <Compile Include="String.Extensions.cs" />
+    <Compile Include="Tessellator.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Texture1d.cs" />
     <Compile Include="Texture2d.cs" />
@@ -190,6 +198,8 @@
     <Compile Include="VertexArrayTexGen.cs" />
     <Compile Include="Vincenty.cs" />
     <EmbeddedResource Include="Shaders\Standard\Geometry.Normals.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -213,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\Font\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shaders\Skybox\_ShadersLibrary.xml" />
     <EmbeddedResource Include="Shaders\Standard\_ShadersLibrary.xml">
       <SubType>Designer</SubType>

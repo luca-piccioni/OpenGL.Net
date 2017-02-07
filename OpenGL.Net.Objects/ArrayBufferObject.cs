@@ -703,8 +703,7 @@ namespace OpenGL.Objects
 		/// <param name="hint">
 		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObject(BufferObjectHint hint)
-			: base(ArrayBufferItem.GetArrayType(typeof(T)), hint)
+		public ArrayBufferObject(BufferObjectHint hint) : base(ArrayBufferItem.GetArrayType(typeof(T)), hint)
 		{
 			
 		}

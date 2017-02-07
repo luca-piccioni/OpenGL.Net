@@ -1244,14 +1244,14 @@ namespace OpenGL.Objects
 					if (_TechniquesAutoRelease)
 						technique.Dispose();
 				}
-			
-				// Generate mipmaps, if requested
-				if (_RequiresMipMaps)
-					GenerateMipmaps(ctx);
 
 				if (_TechniquesAutoRelease)
 					_Techniques.Clear();
 			}
+
+			// Generate mipmaps, if requested
+			if (_RequiresMipMaps)
+				GenerateMipmaps(ctx);
 		}
 
 		private bool _NameCreated;

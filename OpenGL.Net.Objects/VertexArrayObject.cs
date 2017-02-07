@@ -56,18 +56,7 @@ namespace OpenGL.Objects
 		#region Draw
 
 		/// <summary>
-		/// Draw the attributes of this vertex array.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for rendering.
-		/// </param>
-		public void Draw(GraphicsContext ctx)
-		{
-			Draw(ctx, null);
-		}
-
-		/// <summary>
-		/// Draw the attributes of this vertex array.
+		/// Draw all elements.
 		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for rendering.
@@ -76,6 +65,42 @@ namespace OpenGL.Objects
 		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
 		/// </param>
 		public void Draw(GraphicsContext ctx, ShaderProgram shader)
+		{
+			Draw(ctx, shader, null);
+		}
+
+		/// <summary>
+		/// Draw a specific element set.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for rendering.
+		/// </param>
+		/// <param name="shader">
+		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
+		/// </param>
+		/// <param name="elementIndex">
+		/// A <see cref="Int32"/> that specifies the index of the element to draw. If it is less than 0, it draws
+		/// all elements set. The index can be obtained by the value returned by <see cref="SetElementArray"/>.
+		/// </param>
+		public void Draw(GraphicsContext ctx, ShaderProgram shader, int elementIndex)
+		{
+			Draw(ctx, shader, GetElementArray(elementIndex));
+		}
+
+		/// <summary>
+		/// Draw a specific element set.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for rendering.
+		/// </param>
+		/// <param name="shader">
+		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
+		/// </param>
+		/// <param name="elementIndex">
+		/// A <see cref="Int32"/> that specifies the index of the element to draw. If it is less than 0, it draws
+		/// all elements set. The index can be obtained by the value returned by <see cref="SetElementArray"/>.
+		/// </param>
+		public void Draw(GraphicsContext ctx, ShaderProgram shader, params IElement[] elements)
 		{
 			CheckThisExistence(ctx);
 
@@ -92,8 +117,9 @@ namespace OpenGL.Objects
 			else
 				ctx.ResetProgram();
 
-			// Issue rendering using shader
-			foreach (Element attributeElement in DrawElements) {
+			IEnumerable<IElement> drawElements = (IEnumerable<IElement>)elements ?? DrawElements;
+
+			foreach (Element attributeElement in drawElements) {
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
 
@@ -511,6 +537,73 @@ namespace OpenGL.Objects
 				sint[size] = sint[0];
 				cost[size] = cost[0];
 			}
+		}
+
+		#endregion
+
+		#region Polygon Generation - Plane
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="dx"></param>
+		/// <param name="dy"></param>
+		/// <returns></returns>
+		public static VertexArrayObject CreatePlane(float x, float y, float z, uint dx, uint dy)
+		{
+			VertexArrayObject vertexArray = new VertexArrayObject();
+
+			// Vertex generation
+			Vertex3f[] position = new Vertex3f[(dx + 1) * (dy + 1)];
+			float x2 = x / 2.0f, y2 = y / 2.0f;
+			float vdx = x / dx, vdy = y / dy;
+			int vidx = 0;
+
+			for (float vy = -y2; vy <= y2; vy += vdy) {
+				for (float vx = -x2; vx <= x2; vx += vdx) {
+					Debug.Assert(vidx < position.Length);
+					position[vidx++] = new Vertex3f(vx, vy, z);
+				}
+			}
+
+			// Elements generation
+			List<uint> indices = new List<uint>();
+			uint vstride = dx + 1;
+
+			for (uint i = 0; i < dy; i++) {
+				uint yoffset = i * vstride;
+
+				// Triangle strip start
+				indices.Add(yoffset + vstride);
+
+				for (uint ix = 0; ix < dx; ix++) {
+					uint xoffset = yoffset + ix;
+
+					indices.Add(xoffset);
+					indices.Add(xoffset + vstride + 1);
+				}
+
+				indices.Add(yoffset + vstride - 1);
+
+				if (Gl.CurrentExtensions.PrimitiveRestart == false) {
+					throw new NotImplementedException();
+				} else
+					indices.Add(uint.MaxValue);
+			}
+
+			// Buffer definition
+			ArrayBufferObject<Vertex3f> positionBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			positionBuffer.Create(position);
+			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
+
+			ElementBufferObject<uint> elementBuffer = new ElementBufferObject<uint>(BufferObjectHint.StaticCpuDraw);
+			elementBuffer.Create(indices.ToArray());
+			elementBuffer.RestartIndexEnabled = Gl.CurrentExtensions.PrimitiveRestart;
+			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
+
+			return (vertexArray);
 		}
 
 		#endregion

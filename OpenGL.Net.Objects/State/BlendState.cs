@@ -433,6 +433,15 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
+		#region Frequent States
+
+		/// <summary>
+		/// The default state for alpha blending.
+		/// </summary>
+		public static BlendState AlphaBlending { get { return (new BlendState(BlendEquationModeEXT.FuncAdd, BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha)); } }
+
+		#endregion
+
 		#region GraphicsState Overrides
 
 		/// <summary>

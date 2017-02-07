@@ -2860,6 +2860,21 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached
+		/// object with the call arguments.
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the uniform variable name.
+		/// </param>
+		/// <param name="uniformValue">
+		/// A <see cref="Object"/> that specifies the uniform variable value.
+		/// </param>
+		private void CacheUniformValue(string uniformName, ICloneable uniformValue)
+		{
+			CacheUniformValue(uniformName, uniformValue.Clone());
+		}
+
+		/// <summary>
 		/// Determine whether if an uniform value is different from the one currently cached.
 		/// </summary>
 		/// <param name="uniformName">

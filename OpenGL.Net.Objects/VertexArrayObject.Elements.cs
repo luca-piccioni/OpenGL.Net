@@ -25,9 +25,17 @@ namespace OpenGL.Objects
 	public partial class VertexArrayObject
 	{
 		/// <summary>
+		/// Vertex array element interface.
+		/// </summary>
+		public interface IElement
+		{
+
+		}
+
+		/// <summary>
 		/// Abstract vertex array element.
 		/// </summary>
-		protected internal abstract class Element : IDisposable
+		protected internal abstract class Element : IElement, IDisposable
 		{
 			#region Constructors
 
@@ -988,10 +996,15 @@ namespace OpenGL.Objects
 		/// <param name="mode">
 		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
 		/// </param>
-		public void SetElementArray(PrimitiveType mode)
+		/// <returns>
+		/// It returns the index of the element set.
+		/// </returns>
+		public int SetElementArray(PrimitiveType mode)
 		{
 			// Store element array (entire buffer)
 			_Elements.Add(new ArrayElement(this, mode));
+
+			return (_Elements.Count - 1);
 		}
 
 		/// <summary>
@@ -1006,10 +1019,12 @@ namespace OpenGL.Objects
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 		/// </param>
-		public void SetElementArray(PrimitiveType mode, uint offset, uint count)
+		public int SetElementArray(PrimitiveType mode, uint offset, uint count)
 		{
 			// Store element array (entire buffer)
 			_Elements.Add(new ArrayElement(this, mode, offset, count));
+
+			return (_Elements.Count - 1);
 		}
 
 		/// <summary>
@@ -1022,13 +1037,15 @@ namespace OpenGL.Objects
 		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
 		/// array element sequence.
 		/// </param>
-		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
+		public int SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
 		{
 			if (bufferObject == null)
 				throw new ArgumentNullException("bufferObject");
 
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject));
+
+			return (_Elements.Count - 1);
 		}
 
 		/// <summary>
@@ -1047,13 +1064,36 @@ namespace OpenGL.Objects
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of element indices drawn.
 		/// </param>
-		public void SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
+		public int SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
 		{
 			if (bufferObject == null)
 				throw new ArgumentNullException("bufferObject");
 
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject, offset, count));
+
+			return (_Elements.Count - 1);
+		}
+
+		/// <summary>
+		/// Get the vertex array element by its index.
+		/// </summary>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		public IElement GetElementArray(int index)
+		{
+			if (index < 0 || index >= _Elements.Count)
+				throw new ArgumentOutOfRangeException("index");
+
+			return (_Elements[index]);
+		}
+
+		public IElement GetMultiElement(IEnumerable<IElement> multiElements)
+		{
+			if (multiElements == null)
+				throw new ArgumentNullException("multiElements");
+
+			return (new MultiArrayElement(this, PrimitiveType.Triangles, null, null));
 		}
 
 		/// <summary>

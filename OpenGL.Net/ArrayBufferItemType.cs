@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Diagnostics;
 
 namespace OpenGL
 {
@@ -592,6 +593,47 @@ namespace OpenGL
 		public static bool IsArrayMatrixType(this ArrayBufferItemType vertexArrayType)
 		{
 			return (GetArrayRank(vertexArrayType) > 1);
+		}
+
+		/// <summary>
+		/// Get the correponding type for the column of the matrix type.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ArrayBufferItemType"/> that describe the vertex array buffer item.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether <paramref name="vertexArrayType"/> is a matrix type.
+		/// </returns>
+		public static ArrayBufferItemType GetMatrixColumnType(this ArrayBufferItemType vertexArrayType)
+		{
+			switch (vertexArrayType) {
+				case ArrayBufferItemType.Float2x2:
+				case ArrayBufferItemType.Float2x3:
+				case ArrayBufferItemType.Float2x4:
+					return (ArrayBufferItemType.Float2);
+				case ArrayBufferItemType.Float3x2:
+				case ArrayBufferItemType.Float3x3:
+				case ArrayBufferItemType.Float3x4:
+					return (ArrayBufferItemType.Float3);
+				case ArrayBufferItemType.Float4x2:
+				case ArrayBufferItemType.Float4x3:
+				case ArrayBufferItemType.Float4x4:
+					return (ArrayBufferItemType.Float4);
+				case ArrayBufferItemType.Double2x2:
+				case ArrayBufferItemType.Double2x3:
+				case ArrayBufferItemType.Double2x4:
+					return (ArrayBufferItemType.Double2);
+				case ArrayBufferItemType.Double3x2:
+				case ArrayBufferItemType.Double3x3:
+				case ArrayBufferItemType.Double3x4:
+					return (ArrayBufferItemType.Double3);
+				case ArrayBufferItemType.Double4x2:
+				case ArrayBufferItemType.Double4x3:
+				case ArrayBufferItemType.Double4x4:
+					return (ArrayBufferItemType.Double4);
+				default:
+					throw new NotImplementedException();
+			}
 		}
 
 		#endregion
