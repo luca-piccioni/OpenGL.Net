@@ -988,6 +988,60 @@ namespace OpenGL
 
 		#endregion
 
+		#region Statistics
+
+		/// <summary>
+		/// Get the time spent for drawing a frame.
+		/// </summary>
+		public TimeSpan FrameDrawTime
+		{
+			get { return (_FrameDrawTime); }
+		}
+
+		/// <summary>
+		/// The time spent for drawing a frame.
+		/// </summary>
+		private TimeSpan _FrameDrawTime;
+
+		/// <summary>
+		/// Get the frames per second.
+		/// </summary>
+		public int Fps
+		{
+			get
+			{
+				if (_FrameTs.Count > 1) {
+					TimeSpan fpsInterval = _FrameTs[_FrameTs.Count - 1] - _FrameTs[0];
+
+					return (int)(Math.Floor(_FrameTs.Count / fpsInterval.TotalSeconds + 0.5f));
+				} else
+					return (0);
+			}
+		}
+
+		/// <summary>
+		/// Record
+		/// </summary>
+		private void RecFrameTimestamp()
+		{
+			DateTime now = DateTime.UtcNow;
+
+			_FrameTs.Add(now);
+			_FrameTs.RemoveAll(delegate(DateTime item) { return (now - item > _FpsInterval); });
+		}
+
+		/// <summary>
+		/// Frame timestamps.
+		/// </summary>
+		private readonly List<DateTime> _FrameTs = new List<DateTime>();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private TimeSpan _FpsInterval = new TimeSpan(0, 0, 0, 0, 1667);
+
+		#endregion
+
 		#region UserControl Overrides
 
 		/// <summary>
@@ -1052,12 +1106,18 @@ namespace OpenGL
 			if (DesignMode == false) {
 				if (_FailureException == null) {
 					try {
+						Stopwatch sw = Stopwatch.StartNew();
+
 						// Ensure that context is actually current on this device
 						MakeCurrentContext();
 						// Event handling
 						OnRender();
+
+						_FrameDrawTime = sw.Elapsed;
+
 						// Swap buffers if double-buffering
 						_DeviceContext.SwapBuffers();
+						RecFrameTimestamp();
 					} catch (Exception exception) {
 						DrawFailure(e, exception);
 					}
