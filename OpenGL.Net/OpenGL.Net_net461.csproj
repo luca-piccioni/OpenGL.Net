@@ -285,6 +285,7 @@
     <Compile Include="Gl.PlatformExtensions.cs" />
     <Compile Include="Gl.Vb.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />
+    <Compile Include="Glu.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="ICopiable.cs" />
     <Compile Include="IFragment.cs" />
