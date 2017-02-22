@@ -92,6 +92,7 @@ namespace OpenGL.Objects
 
 			_ShaderVersion = otherCompilerContext._ShaderVersion;
 			_Define = new List<string>(otherCompilerContext._Define);
+			Extensions = new List<ShaderExtension>(otherCompilerContext.Extensions);
 			_Includes = new List<string>(otherCompilerContext._Includes);
 			_FeedbackVaryingsFormat = otherCompilerContext._FeedbackVaryingsFormat;
 		}

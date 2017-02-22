@@ -216,15 +216,6 @@ namespace OpenGL.Objects
 
 		#endregion
 		
-		#region Extension Behavior
-		
-		/// <summary>
-		/// The extensions behavior used for compiling this ShaderObject.
-		/// </summary>
-		public readonly List<ShaderExtension> Extensions = new List<ShaderExtension>();
-		
-		#endregion
-
 		#region Source Generation
 
 		/// <summary>
@@ -259,18 +250,6 @@ namespace OpenGL.Objects
 
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
-
-			// Shader extension behavior
-			if (ctx.Extensions.ShadingLanguageInclude_ARB)
-				shaderSource.Add("#extension GL_ARB_shading_language_include : require\n");
-
-			if (ctx.Extensions.UniformBufferObject_ARB)
-				shaderSource.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
-			else
-				shaderSource.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
-
-			if (ObjectStage == ShaderStage.Geometry && ctx.Extensions.GeometryShader4_ARB)
-				shaderSource.Add("#extension GL_ARB_geometry_shader4 : enable\n");
 
 			// Append required #define statments
 			if (cctx.Defines != null) {
@@ -370,12 +349,24 @@ namespace OpenGL.Objects
 			}
 			
 			// #extension
-			List<ShaderExtension> shaderExtensions = new List<ShaderExtension>(Extensions);
-			
-			// Includes generic extension from compiler
-			foreach (ShaderExtension contextShaderExtension in cctx.Extensions) {
-				if (!shaderExtensions.Exists(delegate(ShaderExtension item) { return (item.Name == contextShaderExtension.Name); }))
-					shaderExtensions.Add(contextShaderExtension);
+			if (ctx.Extensions.ShadingLanguageInclude_ARB)
+				sourceLines.Add("#extension GL_ARB_shading_language_include : require\n");
+
+			if (ctx.Extensions.UniformBufferObject_ARB)
+				sourceLines.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
+			else
+				sourceLines.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
+
+			if (ObjectStage == ShaderStage.Geometry && ctx.Extensions.GeometryShader4_ARB)
+				sourceLines.Add("#extension GL_ARB_geometry_shader4 : enable\n");
+
+			foreach (ShaderExtension shaderExtension in cctx.Extensions) {
+				// Do not include any #extension directive on extensions not supported by driver
+				if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
+					continue;
+				sourceLines.Add(String.Format(
+					"#extension {0} : {1}\n", shaderExtension.Name, shaderExtension.Behavior.ToString().ToLowerInvariant())
+				);
 			}
 
 			// #pragma

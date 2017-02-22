@@ -24,7 +24,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// Generic render state.
 	/// </summary>
-	[DebuggerDisplay("GraphicsState: Id={StateIdentifier} Inheritable={Inheritable}")]
+	[DebuggerDisplay("GraphicsState: Id={StateIdentifier}")]
 	public abstract class GraphicsState : IGraphicsState
 	{
 		#region Constructors

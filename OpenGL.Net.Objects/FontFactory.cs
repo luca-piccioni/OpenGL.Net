@@ -49,13 +49,13 @@ namespace OpenGL.Objects
 		/// <param name="emSize"></param>
 		/// <param name="fontType"></param>
 		/// <returns></returns>
-		public static IFont CreateFont(FontFamily fontFamily, uint emSize, FontStyle fontStyle, FontType fontType)
+		public static IFont CreateFont(FontFamily fontFamily, uint emSize, FontStyle fontStyle, FontType fontType, params FontFx[] effects)
 		{
 			switch (fontType) {
 				case FontType.Vector:
-					return new FontPatch(fontFamily, emSize, fontStyle);
+					return new FontPatch(fontFamily, emSize, fontStyle, effects);
 				case FontType.Textured:
-					return new FontTextureArray2d(fontFamily, emSize, fontStyle);
+					return new FontTextureArray2d(fontFamily, emSize, fontStyle, effects);
 				default:
 					throw new NotSupportedException(fontType + " is not supported");
 			}

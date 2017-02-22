@@ -20,20 +20,11 @@
 
 // Uniform color
 uniform vec4 glo_UniformColor = vec4(1.0, 1.0, 1.0, 1.0);
-// Glyph texture
-uniform sampler2DArray glo_FontGlyph;
-
-// Fragment texture coordinates
-SHADER_IN vec3 glo_VertexTexCoord;
 
 // Fragment color
 OUT vec4		glo_FragColor;
 
 void main()
 {
-#if defined(GLO_FONT_TEXTURE_ARRAY)
-	glo_FragColor = vec4(glo_UniformColor.rgb, glo_UniformColor.a * texture(glo_FontGlyph, glo_VertexTexCoord).r);
-#else
 	glo_FragColor = glo_UniformColor;
-#endif
 }

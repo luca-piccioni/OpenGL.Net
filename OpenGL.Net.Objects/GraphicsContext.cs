@@ -724,13 +724,30 @@ namespace OpenGL.Objects
 		#region Lazy Server State
 
 		/// <summary>
+		/// Push the current server state.
+		/// </summary>
+		public void PushState()
+		{
+			_ServerState.Push();
+		}
+
+		/// <summary>
+		/// Pop the current server state.
+		/// </summary>
+		public void PopState()
+		{
+			_ServerState.Pop();
+			_ServerState.Current.Apply(this);
+		}
+
+		/// <summary>
 		/// Set the current state of this GraphicsContext.
 		/// </summary>
 		/// <param name="state">
 		/// The <see cref="State.IGraphicsState"/> applied on the this GraphicsContext.
 		/// </param>
 		/// <remarks>
-		/// This method is excepted to be called by <see cref="State.IGraphicsState.ApplyState(GraphicsContext, ShaderProgram)"/>
+		/// This method is expected to be called by <see cref="State.IGraphicsState.ApplyState(GraphicsContext, ShaderProgram)"/>
 		/// implementations.
 		/// </remarks>
 		internal void SetCurrentState(State.IGraphicsState state)
@@ -740,7 +757,7 @@ namespace OpenGL.Objects
 			Debug.Assert(state.IsContextBound);
 
 #if ENABLE_LAZY_SERVER_STATE
-			_ServerState[state.StateIndex] = state;
+			_ServerState.Current[state.StateIndex] = state;
 #endif
 		}
 
@@ -751,13 +768,13 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		internal State.IGraphicsState GetCurrentState(int stateIndex)
 		{
-			return (_ServerState[stateIndex]);
+			return (_ServerState.Current[stateIndex]);
 		}
 
 		/// <summary>
 		/// Current state of this GraphicsContext.
 		/// </summary>
-		private readonly State.GraphicsStateSet _ServerState = new State.GraphicsStateSet();
+		private readonly State.GraphicsStateSetStack _ServerState = new State.GraphicsStateSetStack();
 
 		#endregion
 

@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2011-2016 Luca Piccioni
+// Copyright (C) 2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,7 +17,6 @@
 // USA
 
 #include </OpenGL/Compatibility.glsl>
-#include </OpenGL/TransformState.glsl>
 
 // Vertex position
 LOCATION(0) ATTRIBUTE vec2 glo_Position;
@@ -25,7 +24,7 @@ LOCATION(0) ATTRIBUTE vec2 glo_Position;
 LOCATION(1) ATTRIBUTE mat4 glo_GlyphModelViewProjection;
 // Glyph vertex parameters (instanced); xy=vertex scale z=texture layer
 LOCATION(5) ATTRIBUTE vec3 glo_GlyphVertexParams;
-// Glyph vertex parameters (instanced); xy=vertex scale z=texture layer
+// Glyph vertex parameters (instanced);
 LOCATION(6) ATTRIBUTE vec2 glo_GlyphTexParams;
 
 // Vertex/Fragment texture coordinates
@@ -33,10 +32,6 @@ SHADER_OUT vec3 glo_VertexTexCoord;
 
 void main()
 {
-#if defined(GLO_FONT_TEXTURE_ARRAY)
 	gl_Position = glo_GlyphModelViewProjection * vec4(glo_Position * glo_GlyphVertexParams.xy, 0.0, 1.0);
 	glo_VertexTexCoord = vec3(glo_Position * glo_GlyphTexParams, glo_GlyphVertexParams.z);
-#else
-	gl_Position = glo_ModelViewProjection * vec4(glo_Position, 0.0, 1.0);
-#endif
 }

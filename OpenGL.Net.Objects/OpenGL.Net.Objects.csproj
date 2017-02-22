@@ -82,6 +82,7 @@
     <Compile Include="Font.cs" />
     <Compile Include="FontFactory.cs" />
     <Compile Include="FontPatch.cs" />
+    <Compile Include="FontFx.cs" />
     <Compile Include="FontTextureArray2d.cs" />
     <Compile Include="IFont.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
@@ -107,6 +108,8 @@
     <Compile Include="Scene\SceneObjectLight.cs" />
     <Compile Include="Scene\SceneObjectLightZone.cs" />
     <Compile Include="Scene\ShadowMap.cs" />
+    <Compile Include="ShaderProgram.GetUniform.cs" />
+    <Compile Include="ShaderProgram.SetUniform.cs" />
     <Compile Include="ShaderProgram.UniformBlock.cs" />
     <Compile Include="Single.Extensions.cs" />
     <Compile Include="BufferObject.cs" />
@@ -198,8 +201,10 @@
     <Compile Include="VertexArrayTexGen.cs" />
     <Compile Include="Vincenty.cs" />
     <EmbeddedResource Include="Shaders\Standard\Geometry.Normals.glsl" />
-    <EmbeddedResource Include="Shaders\Font\Fragment.glsl" />
-    <EmbeddedResource Include="Shaders\Font\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.FontPatch.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.FontPatch.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.FontTextureArray.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.FontTextureArray.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -238,6 +243,9 @@
       <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
       <Name>OpenGL.Net_net461</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,14 +31,10 @@ namespace OpenGL.Objects
 	{
 		#region Constructors
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="fontFamily"></param>
-		/// <param name="emSize"></param>
-		public FontTextureArray2d(FontFamily fontFamily, uint emSize, FontStyle fontStyle) : base(fontFamily, emSize, fontStyle)
+		public FontTextureArray2d(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects)
+			: base(fontFamily, emSize, fontStyle, effects)
 		{
-			
+
 		}
 
 		#endregion
@@ -46,7 +42,7 @@ namespace OpenGL.Objects
 		#region Vertex Array
 
 		/// <summary>
-		/// Glyph for FontPatch.
+		/// Glyph metadata.
 		/// </summary>
 		class Glyph : GlyphBase
 		{
@@ -75,7 +71,10 @@ namespace OpenGL.Objects
 			#endregion
 		}
 
-		private Dictionary<char, Glyph> _GlyphDb;
+		/// <summary>
+		/// Characters set metadata.
+		/// </summary>
+		private Dictionary<char, Glyph> _GlyphMetadata;
 
 		/// <summary>
 		/// Instanced glyph array element.
@@ -102,22 +101,22 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Create a <see cref="VertexArrayObject"/> for rendering glyphs.
 		/// </summary>
-		/// <param name="fontFamily"></param>
-		/// <param name="emSize"></param>
-		/// <param name="glyphs"></param>
 		/// <returns></returns>
 		private void LinkSharedResources(GraphicsContext ctx)
 		{
 			CheckCurrentContext(ctx);
 
+			StringFormat stringFormat = StringFormat.GenericTypographic;
+
 			// Font-wide resources
 			string resourceClassId = "OpenGL.Objects.FontTextureArray2d";
+			string resourceBaseId = String.Format("{0}.{1}-{2}-{3}", resourceClassId, Family, Size, Style);
+
+			#region Instances Array
 
 			string instanceArrayId = resourceClassId + ".InstanceArray";
-			string vertexArrayId = resourceClassId + ".VertexArray";
 
 			_GlyphInstances = (ArrayBufferObjectInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
-			_VertexArrays = (VertexArrayObject)ctx.GetSharedResource(vertexArrayId);
 
 			if (_GlyphInstances == null) {
 				_GlyphInstances = new ArrayBufferObjectInterleaved<GlyphInstance>(BufferObjectHint.DynamicCpuDraw);
@@ -126,6 +125,14 @@ namespace OpenGL.Objects
 				ctx.SetSharedResource(instanceArrayId, _GlyphInstances);
 			}
 			LinkResource(_GlyphInstances);
+
+			#endregion
+
+			#region Vertex Array
+
+			string vertexArrayId = resourceClassId + ".VertexArray";
+
+			_VertexArrays = (VertexArrayObject)ctx.GetSharedResource(vertexArrayId);
 
 			if (_VertexArrays == null) {
 				_VertexArrays = new VertexArrayObject();
@@ -147,19 +154,16 @@ namespace OpenGL.Objects
 			}
 			LinkResource(_VertexArrays);
 
-			// Font resources
-			string resourceBaseId = String.Format("{0}.{1}-{2}-{3}", resourceClassId, Family, Size, Style);
-			
+			#endregion
+
+			#region Glyphs Metadata
+
 			string glyphDbId = resourceBaseId + ".GlyphDb";
-			string textureId = resourceBaseId + ".Texture";
-
-			_GlyphDb = (Dictionary<char, Glyph>)ctx.GetSharedResource(glyphDbId);
-			_FontTexture = (TextureArray2d)ctx.GetSharedResource(textureId);
 			
-			StringFormat stringFormat = StringFormat.GenericTypographic;
-
-			if (_GlyphDb == null) {
-				_GlyphDb = new Dictionary<char, Glyph>();
+			_GlyphMetadata = (Dictionary<char, Glyph>)ctx.GetSharedResource(glyphDbId);
+			
+			if (_GlyphMetadata == null) {
+				_GlyphMetadata = new Dictionary<char, Glyph>();
 
 				char[] fontChars = GetFontCharacters().ToCharArray();
 				uint layer = 0;
@@ -187,20 +191,28 @@ namespace OpenGL.Objects
 						
 						Glyph glyph = new Glyph(c, glyphSize, layer++, new SizeF(1.0f, 1.0f));
 
-						_GlyphDb.Add(c, glyph);
+						_GlyphMetadata.Add(c, glyph);
 					}
 				}
 
 				// Share
-				ctx.SetSharedResource(glyphDbId, _GlyphDb);
+				ctx.SetSharedResource(glyphDbId, _GlyphMetadata);
 			}
+
+			#endregion
+
+			#region Glyph Texture
+
+			string textureId = resourceBaseId + ".Texture";
+
+			_FontTexture = (TextureArray2d)ctx.GetSharedResource(textureId);
 
 			if (_FontTexture == null) {
 				// Get the size required for all glyphs
 				float w = 0.0f, h = 0.0f;
 				uint z = 0;
 
-				foreach (Glyph glyph in _GlyphDb.Values) {
+				foreach (Glyph glyph in _GlyphMetadata.Values) {
 					w = Math.Max(w, glyph.GlyphSize.Width);
 					h = Math.Max(h, glyph.GlyphSize.Height);
 					z = Math.Max(z, glyph.Layer);
@@ -213,7 +225,7 @@ namespace OpenGL.Objects
 				using (System.Drawing.Font font = new System.Drawing.Font(Family, Size, Style))
 				using (Brush brush = new SolidBrush(Color.White))
 				{
-					foreach (Glyph glyph in _GlyphDb.Values) {
+					foreach (Glyph glyph in _GlyphMetadata.Values) {
 						using (Bitmap bitmap = new Bitmap((int)_FontTexture.Width, (int)_FontTexture.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb))
 						using (Graphics g = Graphics.FromImage(bitmap)) {
 							// Recompute texture scaling
@@ -225,6 +237,7 @@ namespace OpenGL.Objects
 							// Avoid grid fitting
 							g.TextRenderingHint = TextRenderingHint.AntiAlias;
 							g.Clear(Color.Black);
+
 							g.DrawString(glyph.GlyphChar.ToString(), font, brush, 0.0f, 0.0f, stringFormat);
 
 							_FontTexture.Create(ctx, PixelLayout.R8, bitmap, glyph.Layer);
@@ -236,6 +249,8 @@ namespace OpenGL.Objects
 				ctx.SetSharedResource(textureId, _FontTexture);
 			}
 			LinkResource(_FontTexture);
+
+			#endregion
 		}
 
 		#endregion
@@ -250,10 +265,14 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			// Get shared resources
-			LinkSharedResources(ctx);
-			// Get shader program for drawing font
-			LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray"));
+			if (ctx.Version >= Gl.Version_310 || ctx.Extensions.InstancedArrays) {
+				// Get shared resources
+				LinkSharedResources(ctx);
+				// Get shader program for drawing font
+				LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray"));
+			} else {
+
+			}
 			// Base implementation
 			base.CreateObject(ctx);
 		}
@@ -275,13 +294,44 @@ namespace OpenGL.Objects
 		/// </param>
 		public override void DrawString(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
 		{
+			// Draw the string
+			DrawStringCore(ctx, modelview, _FontTexture, color, s);
+
+			// Shadow effect
+			if (_FxShadow != null) {
+				ModelMatrix shadowModel = new ModelMatrix(modelview);
+
+				shadowModel.Translate(_FxShadow.Offset);
+
+				DrawStringCore(ctx, shadowModel, _FontTexture, _FxShadow.Color, s);
+			}
+		}
+
+		/// <summary>
+		/// Draw a character sequence (base method).
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="modelview">
+		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
+		/// </param>
+		/// <param name="color">
+		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
+		/// </param>
+		/// <param name="s">
+		/// A <see cref="String"/> that specifies the characters for be drawn.
+		/// </param>
+		private void DrawStringCore(GraphicsContext ctx, Matrix4x4 modelview, TextureArray2d texture, ColorRGBAF color, string s)
+		{
 			ModelMatrix charModel = new ModelMatrix(modelview);
 
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
-			_FontProgram.SetUniform(ctx, "glo_FontGlyph", _FontTexture);
+			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
+
 			// Set instances
 			char[] fontChars = s.ToCharArray();
 			uint instances = 0;
@@ -291,7 +341,7 @@ namespace OpenGL.Objects
 				for (int i = 0; i < fontChars.Length; i++) {
 					Glyph glyph;
 
-					if (_GlyphDb.TryGetValue(fontChars[i], out glyph) == false)
+					if (_GlyphMetadata.TryGetValue(fontChars[i], out glyph) == false)
 						continue;
 					
 					// Set instance information
@@ -322,12 +372,13 @@ namespace OpenGL.Objects
 			} finally {
 				_GlyphInstances.Unmap(ctx);
 			}
+
 			// Rasterize it
 			using (State.BlendState stateBlend = State.BlendState.AlphaBlending) {
 				stateBlend.ApplyState(ctx, _FontProgram);
+
 				_VertexArrays.DrawInstanced(ctx, _FontProgram, instances);
 			}
-			
 		}
 
 		/// <summary>

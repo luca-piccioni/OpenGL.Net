@@ -244,6 +244,15 @@ namespace OpenGL.Objects
 
 			#endregion
 
+			#region Separable Program
+
+			if (ctx.Version >= Gl.Version_410 || ctx.Extensions.SeparateShaderObjects_ARB)
+				_UniformBackend = new UniformBackendSeparable();
+			else
+				_UniformBackend = new UniformBackendCompatible();		// Defaults to compatible
+
+			#endregion
+
 			#region Link Shader Program Objects
 
 			int lStatus;

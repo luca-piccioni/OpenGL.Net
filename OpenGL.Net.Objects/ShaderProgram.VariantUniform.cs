@@ -220,7 +220,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Float:
@@ -529,7 +529,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Float:
@@ -657,7 +657,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat3x3:
@@ -688,7 +688,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat4x4:
@@ -723,7 +723,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat3x3:
@@ -754,7 +754,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat4x4:
@@ -789,7 +789,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat3x3:
@@ -820,7 +820,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			UniformBinding uniform = GetUniform(uniformName);
+			UniformBinding uniform = GetUniform(ctx, uniformName);
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat4x4:

@@ -82,7 +82,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Push a copy of the current state set onto the stack.
 		/// </summary>
-		private void Push()
+		public void Push()
 		{
 			if (IsDisposed)
 				throw new ObjectDisposedException("GraphicsStateSetStack");

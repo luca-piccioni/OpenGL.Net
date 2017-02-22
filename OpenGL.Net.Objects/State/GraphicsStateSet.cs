@@ -80,12 +80,7 @@ namespace OpenGL.Objects.State
 			renderStateSet.DefineState(DepthTestState.DefaultState);
 			renderStateSet.DefineState(BlendState.DefaultState);
 			renderStateSet.DefineState(CullFaceState.DefaultState);
-
-			// renderStateSet.DefineState(UniformColorState.DefaultState);
-			//renderStateSet.DefineState(PolygonModeState.DefaultState);
-			//renderStateSet.DefineState(CullFaceState.DefaultState);
-			//renderStateSet.DefineState(RenderBufferState.DefaultState);
-			//renderStateSet.DefineState(ViewportState.DefaultState);
+			renderStateSet.DefineState(PolygonOffsetState.DefaultState);
 
 			return (renderStateSet);
 		}

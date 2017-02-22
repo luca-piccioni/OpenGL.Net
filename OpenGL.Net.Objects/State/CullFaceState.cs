@@ -24,6 +24,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// Culling face state
 	/// </summary>
+	[DebuggerDisplay("CullFaceState: FrontFaceMode={FrontFaceMode} Culling={Culling} CulledFace={CulledFace}")]
 	public class CullFaceState : GraphicsState
 	{
 		#region Constructors
@@ -103,7 +104,7 @@ namespace OpenGL.Objects.State
 		
 		#endregion
 		
-		#region Cull Face State Definition
+		#region Information
 
 		/// <summary>
 		/// Front face determination mode property.

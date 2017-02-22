@@ -909,8 +909,6 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor, string attributeName, string blockName)
 		{
-			if (Gl.CurrentExtensions.InstancedArrays == false)
-				throw new InvalidOperationException("instanced arrays not support by current implementation");
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");
 

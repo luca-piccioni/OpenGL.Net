@@ -24,7 +24,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// Blend render state (buffer group, color).
 	/// </summary>
-	[DebuggerDisplay("BlendState: Enabled={Enabled} Src={SrcFactor} Dst={DstFactor} Eq={Equation} SrcAlpha={AlphaSrcFactor} DstAlpha={AlphaDstFactor} Inheritable={Inheritable}")]
+	[DebuggerDisplay("BlendState: Enabled={Enabled} Src={SrcFactor} Dst={DstFactor} RgbEq={RgbEquation} AlphaEq={AlphaEquation} SrcAlpha={AlphaSrcFactor} DstAlpha={AlphaDstFactor}")]
 	public class BlendState : GraphicsState
 	{
 		#region Constructors
@@ -239,7 +239,7 @@ namespace OpenGL.Objects.State
 
 		#endregion
 		
-		#region Blend Render State Definition
+		#region Information
 
 		/// <summary>
 		/// Determine whether the blending is enabled.

@@ -79,17 +79,6 @@ namespace OpenGL.Objects
 		Disable,
 		
 		#endregion
-		
-		#region Sophisticated Behaviors
-		
-		/// <summary>
-		/// Behave as specified by the extension, but declare the extension even in the case
-		/// the extension is supported by the actual GLSL version.
-		/// </summary>
-		[XmlEnum("ForceEnable")] 
-		ForceEnable,
-		
-		#endregion
 	}
 }
 

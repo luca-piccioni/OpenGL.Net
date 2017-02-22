@@ -3,43 +3,32 @@
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.glsl">
-			<Symbols>
-				<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
-			</Symbols>
-		</Object>
-
-		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.glsl">
-			<Symbols>
-				<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
-			</Symbols>
-		</Object>
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" />
 	</Objects>
 
 	<Programs>
 
 		<!-- FontPatch -->
 		<Program Id="OpenGL.FontPatch">
-			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.glsl" Stage="Vertex" />
-			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.glsl" Stage="Fragment" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" Stage="Fragment" />
+			
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_UniformColor" Semantic="Color"/>
+
+			<Extension Name="GL_ARB_shader_draw_parameters" Behavior="Enable" />
 		</Program>
 
 		<!-- FontTextureArray -->
 		<Program Id="OpenGL.FontTextureArray">
-			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.glsl" Stage="Vertex">
-				<Symbols>
-					<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.glsl" Stage="Fragment">
-				<Symbols>
-					<Symbol>GLO_FONT_TEXTURE_ARRAY</Symbol>
-				</Symbols>
-			</Object>
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="Vertex" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="Fragment" />
+			
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />

@@ -1088,12 +1088,40 @@ namespace OpenGL.Objects
 			return (_Elements[index]);
 		}
 
-		public IElement GetMultiElement(IEnumerable<IElement> multiElements)
+		/// <summary>
+		/// Combine a set of array elements to form a multi-draw compatible element.
+		/// </summary>
+		/// <param name="multiElements">
+		/// A <see cref="IEnumerable{IElement}"/> that specifies all elements to be drawn using multi-draw
+		/// primitive.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IElement"/> that allow drawing <paramref name="multiElements"/> at once
+		/// using the multi-draw primitive.
+		/// </returns>
+		public IElement CombineArrayElements(IEnumerable<IElement> multiElements)
 		{
 			if (multiElements == null)
 				throw new ArgumentNullException("multiElements");
 
-			return (new MultiArrayElement(this, PrimitiveType.Triangles, null, null));
+			List<int> multiOffsets = new List<int>();
+			List<int> multiCounts = new List<int>();
+			PrimitiveType? multiPrimitive = null;
+
+			foreach (IElement element in multiElements) {
+				ArrayElement arrayElement = (ArrayElement)element;
+
+				if (multiPrimitive.HasValue && (multiPrimitive.Value != arrayElement.ElementsMode))
+					throw new ArgumentException("multi-draw with multiple element modes", "multiElements");
+				multiPrimitive = arrayElement.ElementsMode;
+				multiOffsets.Add((int)arrayElement.ElementOffset);
+				multiCounts.Add((int)arrayElement.ElementCount);
+			}
+
+			if (multiPrimitive.HasValue == false)
+				throw new ArgumentException("no items", "multiElements");
+
+			return (new MultiArrayElement(this, multiPrimitive.Value, multiOffsets.ToArray(), multiCounts.ToArray()));
 		}
 
 		/// <summary>

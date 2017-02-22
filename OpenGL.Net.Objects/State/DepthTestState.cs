@@ -24,7 +24,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// Depth test render state.
 	/// </summary>
-	[DebuggerDisplay("DepthTestState: Function={Function} Inheritable={Inheritable}")]
+	[DebuggerDisplay("DepthTestState: Enabled={Enabled} Function={Function}")]
 	public class DepthTestState : GraphicsState
 	{
 		#region Constructors
@@ -45,6 +45,7 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public DepthTestState(DepthFunction depthFunction)
 		{
+			_Enabled = true;
 			_Function = depthFunction;
 		}
 
@@ -88,7 +89,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Depth test enabled flag.
 		/// </summary>
-		private bool _Enabled = true;
+		private bool _Enabled;
 
 		/// <summary>
 		/// Get or set the depth test function.
@@ -214,6 +215,7 @@ namespace OpenGL.Objects.State
 			if (otherState == null)
 				throw new ArgumentException("not a DepthTestState", "state");
 
+			_Enabled = otherState._Enabled;
 			_Function = otherState._Function;
 		}
 
@@ -242,6 +244,8 @@ namespace OpenGL.Objects.State
 
 			DepthTestState otherState = (DepthTestState)other;
 
+			if (otherState.Enabled != Enabled)
+				return (false);
 			if (otherState.Function != Function)
 				return (false);
 

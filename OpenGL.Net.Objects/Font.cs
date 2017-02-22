@@ -30,27 +30,61 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
-		/// 
+		/// Construct a Font specifying the font properties.
 		/// </summary>
-		/// <param name="fontFamily"></param>
-		/// <param name="emSize"></param>
-		/// <param name="fontStyle"></param>
-		protected Font(FontFamily fontFamily, uint emSize, FontStyle fontStyle) : base(fontFamily.Name + "+" + emSize)
+		/// <param name="fontFamily">
+		/// The <see cref="FontFamily"/> that specifies the family of the font.
+		/// </param>
+		/// <param name="emSize">
+		/// The <see cref="UInt32"/> that specifies the font size.
+		/// </param>
+		/// <param name="fontStyle">
+		/// The <see cref="FontStyle"/> that specifies the stryle of the font.
+		/// </param>
+		protected Font(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects) : base(fontFamily.Name + "+" + emSize)
 		{
 			Family = fontFamily;
 			Size = emSize;
 			Style = fontStyle;
+
+			if (effects != null) {
+				_FxShadow = (FontFxShadow)Array.FindLast(effects, delegate(FontFx item) { return (item is FontFxShadow); });
+				_FxHalo = (FontFxHalo)Array.FindLast(effects, delegate(FontFx item) { return (item is FontFxHalo); });
+			}
 		}
 
 		#endregion
 
 		#region Font Information
 
+		/// <summary>
+		/// The family of the font.
+		/// </summary>
 		public readonly FontFamily Family;
 
+		/// <summary>
+		/// The size of the font.
+		/// </summary>
 		public uint Size;
 
+		/// <summary>
+		/// The style of the font.
+		/// </summary>
 		public FontStyle Style;
+
+		#endregion
+
+		#region Effect Support
+
+		/// <summary>
+		/// Shadow effect.
+		/// </summary>
+		protected FontFxShadow _FxShadow;
+
+		/// <summary>
+		/// Halo effect.
+		/// </summary>
+		protected FontFxHalo _FxHalo;
 
 		#endregion
 

@@ -36,7 +36,8 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="fontFamily"></param>
 		/// <param name="emSize"></param>
-		public FontPatch(FontFamily fontFamily, uint emSize, FontStyle fontStyle) : base(fontFamily, emSize, fontStyle)
+		public FontPatch(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects)
+			: base(fontFamily, emSize, fontStyle, effects)
 		{
 			
 		}
@@ -48,7 +49,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Character glyph polygon.
 		/// </summary>
-		protected class GlyphPolygons : GlyphBase
+		class GlyphPolygons : GlyphBase
 		{
 			#region Constructors
 
@@ -188,79 +189,86 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Create a <see cref="VertexArrayObject"/> for rendering glyphs.
 		/// </summary>
-		/// <param name="fontFamily"></param>
-		/// <param name="emSize"></param>
-		/// <param name="glyphs"></param>
-		/// <returns></returns>
-		private static VertexArrayObject CreateVertexArray(GraphicsContext ctx, FontFamily fontFamily, uint emSize, FontStyle fontStyle, out Dictionary<char, Glyph> glyphs)
+		private void LinkSharedResources(GraphicsContext ctx)
 		{
 			CheckCurrentContext(ctx);
 
-			string resourceBaseId = String.Format("OpenGL.Objects.FontPatch.{0}-{1}-{2}", fontFamily, emSize, fontStyle);
+			string resourceClassId = "OpenGL.Objects.FontPatch";
+			string resourceBaseId = String.Format("{0}.{1}-{2}-{3}", resourceClassId, Family, Size, Style);
+
 			string vertexArrayId = resourceBaseId + ".VertexArray";
 			string glyphDbId = resourceBaseId + ".GlyphDb";
 
-			VertexArrayObject vertexArrays = (VertexArrayObject)ctx.GetSharedResource(vertexArrayId);
-			Dictionary<char, Glyph> glyphsDb = (Dictionary<char, Glyph>)ctx.GetSharedResource(glyphDbId);
+			#region Vertex Arrays
 
-			if (vertexArrays != null && glyphsDb != null) {
-				glyphs = glyphsDb;
-				return (vertexArrays);
-			}
+			_VertexArrays = (VertexArrayObject)ctx.GetSharedResource(vertexArrayId);
+			Dictionary<char, Glyph> glyphsDb = null;
 
-			vertexArrays = new VertexArrayObject();
-			glyphsDb = new Dictionary<char, Glyph>();
+			if (_VertexArrays == null) {
+				_VertexArrays = new VertexArrayObject();
 
-			List<GlyphPolygons> glyphPolygons = GenerateGlyphs(fontFamily, emSize, fontStyle);
-			List<Vertex2f> glyphsVertices = new List<Vertex2f>();
-			GlyphPolygons gGlyph = null;
-			uint gVertexIndex = 0;
+				List<GlyphPolygons> glyphPolygons = GenerateGlyphs(Family, Size, Style);
+				List<Vertex2f> glyphsVertices = new List<Vertex2f>();
+				GlyphPolygons gGlyph = null;
+				uint gVertexIndex = 0;
 
-			glyphs = new Dictionary<char, Glyph>();
+				glyphsDb = new Dictionary<char, Glyph>();
 
-			using (Tessellator tessellator = new Tessellator()) {
-				tessellator.Begin += delegate(object sender, TessellatorBeginEventArgs e) {
-					gVertexIndex = (uint)glyphsVertices.Count;
-				};
-				tessellator.End += delegate(object sender, EventArgs e) {
-					// Create element (range)
-					int glyphIndex = vertexArrays.SetElementArray(PrimitiveType.Triangles, gVertexIndex, (uint)glyphsVertices.Count - gVertexIndex);
+				using (Tessellator tessellator = new Tessellator()) {
+					tessellator.Begin += delegate(object sender, TessellatorBeginEventArgs e) {
+						gVertexIndex = (uint)glyphsVertices.Count;
+					};
+					tessellator.End += delegate(object sender, EventArgs e) {
+						// Create element (range)
+						int glyphIndex = _VertexArrays.SetElementArray(PrimitiveType.Triangles, gVertexIndex, (uint)glyphsVertices.Count - gVertexIndex);
 
-					glyphsDb.Add(gGlyph.GlyphChar, new Glyph(gGlyph.GlyphChar, gGlyph.GlyphSize, glyphIndex));
-				};
-				tessellator.Vertex += delegate(object sender, TessellatorVertexEventArgs e) {
-					glyphsVertices.Add((Vertex2f)e.Vertex);
-				};
+						glyphsDb.Add(gGlyph.GlyphChar, new Glyph(gGlyph.GlyphChar, gGlyph.GlyphSize, glyphIndex));
+					};
+					tessellator.Vertex += delegate(object sender, TessellatorVertexEventArgs e) {
+						glyphsVertices.Add((Vertex2f)e.Vertex);
+					};
 
-				// Tessellate all glyphs
-				foreach (GlyphPolygons glyph in glyphPolygons) {
-					gGlyph = glyph;
+					// Tessellate all glyphs
+					foreach (GlyphPolygons glyph in glyphPolygons) {
+						gGlyph = glyph;
 
-					if (glyph.Contours.Count == 0) {
-						glyphsDb.Add(gGlyph.GlyphChar, new Glyph(gGlyph.GlyphChar, gGlyph.GlyphSize, -1));
-						continue;
+						if (glyph.Contours.Count == 0) {
+							glyphsDb.Add(gGlyph.GlyphChar, new Glyph(gGlyph.GlyphChar, gGlyph.GlyphSize, -1));
+							continue;
+						}
+
+						tessellator.BeginPolygon();
+						foreach (List<Vertex2f> countour in glyph.Contours)
+							tessellator.AddContour(countour.ToArray(), Vertex3f.UnitZ);
+						tessellator.EndPolygon();
 					}
-
-					tessellator.BeginPolygon();
-					foreach (List<Vertex2f> countour in glyph.Contours)
-						tessellator.AddContour(countour.ToArray(), Vertex3f.UnitZ);
-					tessellator.EndPolygon();
 				}
+
+				// Element vertices
+				ArrayBufferObject<Vertex2f> gVertexPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+				gVertexPosition.Create(glyphsVertices.ToArray());
+				_VertexArrays.SetArray(gVertexPosition, VertexArraySemantic.Position);
+
+				// Share
+				ctx.SetSharedResource(vertexArrayId, _VertexArrays);
 			}
+			LinkResource(_VertexArrays);
 
-			// Element vertices
-			ArrayBufferObject<Vertex2f> gVertexPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
-			gVertexPosition.Create(glyphsVertices.ToArray());
-			vertexArrays.SetArray(gVertexPosition, VertexArraySemantic.Position);
+			#endregion
 
-			// Returns glyphs database
-			glyphs = glyphsDb;
+			#region Glyph Metadata
 
-			// Share resources
-			ctx.SetSharedResource(vertexArrayId, vertexArrays);
-			ctx.SetSharedResource(glyphDbId, glyphsDb);
+			_Glyphs = (Dictionary<char, Glyph> )ctx.GetSharedResource(glyphDbId);
 
-			return (vertexArrays);
+			if (glyphsDb != null)
+				_Glyphs = glyphsDb;
+			if (_Glyphs == null)
+				throw new InvalidProgramException("no glyph metadata");
+
+			// Share
+			ctx.SetSharedResource(glyphDbId, _Glyphs);
+
+			#endregion
 		}
 
 		/// <summary>
@@ -281,7 +289,7 @@ namespace OpenGL.Objects
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			// Get vertex array
-			LinkResource(_VertexArrays = CreateVertexArray(ctx, Family, Size, Style, out _Glyphs));
+			LinkSharedResources(ctx);
 			// Get shader program for drawing font
 			LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontPatch"));
 			// Base implementation
@@ -305,26 +313,85 @@ namespace OpenGL.Objects
 		/// </param>
 		public override void DrawString(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
 		{
+			// Draw the string
+			DrawStringCore(ctx, modelview, color, s);
+
+			// Shadow effect
+			if (_FxShadow != null) {
+				ModelMatrix shadowModel = new ModelMatrix(modelview);
+
+				shadowModel.Translate(_FxShadow.Offset);
+
+				DrawStringCore(ctx, shadowModel, _FxShadow.Color, s);
+			}
+		}
+
+		/// <summary>
+		/// Draw a character sequence.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="modelview">
+		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
+		/// </param>
+		/// <param name="color">
+		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
+		/// </param>
+		/// <param name="s">
+		/// A <see cref="String"/> that specifies the characters for be drawn.
+		/// </param>
+		private void DrawStringCore(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
+		{
 			ModelMatrix charModel = new ModelMatrix(modelview);
 
 			ctx.Bind(_FontProgram);
 
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 
-			foreach (char c in s) {
-				Glyph glyph;
+			if (ctx.Extensions.ShaderDrawParameters_ARB) {
+				List<VertexArrayObject.IElement> glyphElements = new List<VertexArrayObject.IElement>();
+				int drawInstanceId = 0;
 
-				if (_Glyphs.TryGetValue(c, out glyph) == false)
-					continue;
+				foreach (char c in s) {
+					Glyph glyph;
 
-				if (glyph.ElementIndex >= 0) {
-					// Set model-view
-					_FontProgram.SetUniform(ctx, "glo_ModelViewProjection", charModel);
-					// Rasterize it
-					_VertexArrays.Draw(ctx, _FontProgram, glyph.ElementIndex);
+					if (_Glyphs.TryGetValue(c, out glyph) == false)
+						continue;
+
+					if (glyph.ElementIndex >= 0) {
+						// Collect draw instance element
+						glyphElements.Add(_VertexArrays.GetElementArray(glyph.ElementIndex));
+						// Set model-view
+						_FontProgram.SetUniform(ctx, "glo_CharModelViewProjection[" + drawInstanceId + "]", charModel);
+						// Next instance
+						drawInstanceId++;
+					}
+					// Move next
+					charModel.Translate(glyph.GlyphSize.Width, 0.0f);
 				}
-				// Move next
-				charModel.Translate(glyph.GlyphSize.Width, 0.0f);
+
+				// Draw using Multi-Draw primitive
+				VertexArrayObject.IElement multiElement = _VertexArrays.CombineArrayElements(glyphElements);
+
+				_VertexArrays.Draw(ctx, _FontProgram, multiElement);
+
+			} else {
+				foreach (char c in s) {
+					Glyph glyph;
+
+					if (_Glyphs.TryGetValue(c, out glyph) == false)
+						continue;
+
+					if (glyph.ElementIndex >= 0) {
+						// Set model-view
+						_FontProgram.SetUniform(ctx, "glo_ModelViewProjection", charModel);
+						// Rasterize it
+						_VertexArrays.Draw(ctx, _FontProgram, glyph.ElementIndex);
+					}
+					// Move next
+					charModel.Translate(glyph.GlyphSize.Width, 0.0f);
+				}
 			}
 		}
 

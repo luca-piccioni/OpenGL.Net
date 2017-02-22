@@ -24,6 +24,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// Specify how polygons are rasterized.
 	/// </summary>
+	[DebuggerDisplay("PolygonOffsetState: Modes={Modes} Factor={Factor} Units={Units}")]
 	public class PolygonOffsetState : GraphicsState
 	{
 		#region Constructors
@@ -71,13 +72,22 @@ namespace OpenGL.Objects.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
+			Mode modes = Mode.None;
+
+			if (Gl.IsEnabled(EnableCap.PolygonOffsetPoint))
+				modes |= Mode.Point;
+			if (Gl.IsEnabled(EnableCap.PolygonOffsetLine))
+				modes |= Mode.Line;
+			if (Gl.IsEnabled(EnableCap.PolygonOffsetFill))
+				modes |= Mode.Fill;
+
 			Gl.Get(Gl.POLYGON_OFFSET_FACTOR, out _Factor);
 			Gl.Get(Gl.POLYGON_OFFSET_UNITS, out _Units);
 		}
 
 		#endregion
 
-		#region Polygon Offset State Definition
+		#region Information
 
 		/// <summary>
 		/// Modes affected by this state.
@@ -88,7 +98,7 @@ namespace OpenGL.Objects.State
 			/// <summary>
 			/// No offset.
 			/// </summary>
-			Disabled =		0x00,
+			None =			0x00,
 
 			/// <summary>
 			/// Offset applied to rasterized points.
@@ -117,9 +127,19 @@ namespace OpenGL.Objects.State
 		public Mode Modes { get { return (_Modes); } set { _Modes = value; } }
 
 		/// <summary>
+		/// Modes affected
+		/// </summary>
+		private Mode _Modes = Mode.None;
+
+		/// <summary>
 		/// Specify the offset applied to depth of the polygon.
 		/// </summary>
 		public float Factor { get { return (_Factor); } set { _Factor = value; } }
+
+		/// <summary>
+		/// Specifies a scale factor that is used to create a variable depth offset for each polygon.
+		/// </summary>
+		private float _Factor;
 
 		/// <summary>
 		/// Specify the units of <see cref="Factor"/>.
@@ -127,28 +147,18 @@ namespace OpenGL.Objects.State
 		public float Units { get { return (_Units); } set { _Units = value; } }
 
 		/// <summary>
-		/// Modes affected
+		/// Is multiplied by an implementation-specific value to create a constant depth offset.
 		/// </summary>
-		private Mode _Modes = Mode.All;
-
-		/// <summary>
-		/// Specify the offset applied to depth of the polygon.
-		/// </summary>
-		private float _Factor;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private float _Units = 1.0f;
+		private float _Units;
 
 		#endregion
 
 		#region Default State
 
 		/// <summary>
-		/// The system default state for BlendState.
+		/// The system default state for PolygonOffsetState.
 		/// </summary>
-		public static PolygonModeState DefaultState { get { return (new PolygonModeState()); } }
+		public static PolygonOffsetState DefaultState { get { return (new PolygonOffsetState()); } }
 
 		#endregion
 
@@ -183,15 +193,17 @@ namespace OpenGL.Objects.State
 		/// Set ShaderProgram state.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="sProgram"/>.
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="program"/>.
 		/// </param>
-		/// <param name="sProgram">
+		/// <param name="program">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram sProgram)
+		public override void ApplyState(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
+
+			// PolygonOffsetState currentState = (PolygonOffsetState)ctx.GetCurrentState(StateIndex);
 
 			// Enable polygon offset for all primitive
 			if ((_Modes & Mode.Point) != 0) {
@@ -264,9 +276,9 @@ namespace OpenGL.Objects.State
 
 			if (_Modes != otherState._Modes)
 				return (false);
-			if (Math.Abs(_Factor - otherState._Factor) >= Double.Epsilon)
+			if (Math.Abs(_Factor - otherState._Factor) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(_Units - otherState._Units) >= Double.Epsilon)
+			if (Math.Abs(_Units - otherState._Units) >= Single.Epsilon)
 				return (false);
 
 			return (true);

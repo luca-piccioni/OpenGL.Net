@@ -281,6 +281,12 @@ namespace OpenGL.Objects
 			public readonly List<Uniform> Uniforms = new List<Uniform>();
 
 			/// <summary>
+			/// 
+			/// </summary>
+			[XmlElement("Extension")]
+			public readonly List<ShaderExtension> Extensions = new List<ShaderExtension>();
+
+			/// <summary>
 			/// Create a program from this Program.
 			/// </summary>
 			/// <returns></returns>
@@ -333,11 +339,13 @@ namespace OpenGL.Objects
 			{
 				ShaderCompilerContext shaderCompilerParams = new ShaderCompilerContext();
 
+				// Preprocessor symbols
 				foreach (Object shaderProgramObject in Objects) {
-					// Take into account required preprocessor symbols
 					foreach (string preprocessorSymbol in shaderProgramObject.Symbols)
 						shaderCompilerParams.Defines.Add(preprocessorSymbol);
 				}
+				// Shader extensions
+				shaderCompilerParams.Extensions.AddRange(Extensions);
 
 				return (shaderCompilerParams);
 			}
