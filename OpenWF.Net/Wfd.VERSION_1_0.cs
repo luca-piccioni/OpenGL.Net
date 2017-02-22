@@ -743,6 +743,21 @@ namespace OpenWF
 		/// </summary>
 		public const int TRANSITION_FORCE_32BIT = 0x7FFFFFFF;
 
+		/// <summary>
+		/// Binding for wfdGetStrings.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="name">
+		/// A <see cref="T:WFDStringID"/>.
+		/// </param>
+		/// <param name="strings">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		/// <param name="stringsCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static int GetStrings(UInt32 device, WFDStringID name, [Out] IntPtr[] strings, int stringsCount)
 		{
 			int retValue;
@@ -760,6 +775,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdIsExtensionSupported.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="string">
+		/// A <see cref="T:char[]"/>.
+		/// </param>
 		public static bool IsExtensionSupported(UInt32 device, [Out] char[] @string)
 		{
 			bool retValue;
@@ -777,6 +801,12 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetError.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static WFDErrorCode GetError(UInt32 device)
 		{
 			WFDErrorCode retValue;
@@ -789,6 +819,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdEnumerateDevices.
+		/// </summary>
+		/// <param name="deviceIds">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="deviceIdsCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="filterList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static int EnumerateDevices(int[] deviceIds, int deviceIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -807,6 +849,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreateDevice.
+		/// </summary>
+		/// <param name="deviceId">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreateDevice(int deviceId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -824,6 +875,12 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDestroyDevice.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static WFDErrorCode DestroyDevice(UInt32 device)
 		{
 			WFDErrorCode retValue;
@@ -836,6 +893,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDeviceCommit.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:WFDCommitType"/>.
+		/// </param>
+		/// <param name="handle">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DeviceCommit(UInt32 device, WFDCommitType type, UInt32 handle)
 		{
 			Debug.Assert(Delegates.pwfdDeviceCommit != null, "pwfdDeviceCommit not implemented");
@@ -844,6 +913,15 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetDeviceAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDDeviceAttrib"/>.
+		/// </param>
 		public static int GetDeviceAttrib(UInt32 device, WFDDeviceAttrib attrib)
 		{
 			int retValue;
@@ -856,6 +934,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetDeviceAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDDeviceAttrib"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static void SetDeviceAttrib(UInt32 device, WFDDeviceAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfdSetDeviceAttribi != null, "pwfdSetDeviceAttribi not implemented");
@@ -864,6 +954,15 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreateEvent.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreateEvent(UInt32 device, int[] attribList)
 		{
 			UInt32 retValue;
@@ -881,6 +980,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDestroyEvent.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="event">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DestroyEvent(UInt32 device, UInt32 @event)
 		{
 			Debug.Assert(Delegates.pwfdDestroyEvent != null, "pwfdDestroyEvent not implemented");
@@ -889,6 +997,18 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetEventAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="event">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDEventAttrib"/>.
+		/// </param>
 		public static int GetEventAttrib(UInt32 device, UInt32 @event, WFDEventAttrib attrib)
 		{
 			int retValue;
@@ -901,6 +1021,21 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDeviceEventAsync.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="event">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="display">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="sync">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
 		public static void DeviceEventAsync(UInt32 device, UInt32 @event, IntPtr display, IntPtr sync)
 		{
 			Debug.Assert(Delegates.pwfdDeviceEventAsync != null, "pwfdDeviceEventAsync not implemented");
@@ -909,6 +1044,18 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdDeviceEventWait.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="event">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="timeout">
+		/// A <see cref="T:ulong"/>.
+		/// </param>
 		public static WFDEventType DeviceEventWait(UInt32 device, UInt32 @event, ulong timeout)
 		{
 			WFDEventType retValue;
@@ -921,6 +1068,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDeviceEventFilter.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="event">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="filter">
+		/// A <see cref="T:WFDEventType[]"/>.
+		/// </param>
 		public static void DeviceEventFilter(UInt32 device, UInt32 @event, WFDEventType[] filter)
 		{
 			unsafe {
@@ -934,6 +1093,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdEnumeratePorts.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="portIds">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="portIdsCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="filterList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static int EnumeratePorts(UInt32 device, int[] portIds, int portIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -952,6 +1126,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreatePort.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="portId">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreatePort(UInt32 device, int portId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -969,6 +1155,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDestroyPort.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DestroyPort(UInt32 device, UInt32 port)
 		{
 			Debug.Assert(Delegates.pwfdDestroyPort != null, "pwfdDestroyPort not implemented");
@@ -977,6 +1172,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortModes.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="modes">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="modesCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static int GetPortModes(UInt32 device, UInt32 port, [Out] UInt32[] modes, int modesCount)
 		{
 			int retValue;
@@ -994,6 +1204,21 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortModeAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="mode">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortModeAttrib"/>.
+		/// </param>
 		public static int GetPortModeAttrib(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib)
 		{
 			int retValue;
@@ -1006,6 +1231,21 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortModeAttribf.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="mode">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortModeAttrib"/>.
+		/// </param>
 		public static float GetPortModeAttrib(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib)
 		{
 			float retValue;
@@ -1018,6 +1258,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPortMode.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="mode">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void SetPortMode(UInt32 device, UInt32 port, UInt32 mode)
 		{
 			Debug.Assert(Delegates.pwfdSetPortMode != null, "pwfdSetPortMode not implemented");
@@ -1026,6 +1278,15 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetCurrentPortMode.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static UInt32 GetCurrentPortMode(UInt32 device, UInt32 port)
 		{
 			UInt32 retValue;
@@ -1038,6 +1299,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
 		public static int GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib)
 		{
 			int retValue;
@@ -1050,6 +1323,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortAttribf.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
 		public static float GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib)
 		{
 			float retValue;
@@ -1062,6 +1347,24 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortAttribiv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static void GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, [Out] int[] value)
 		{
 			unsafe {
@@ -1075,6 +1378,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPortAttribfv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
 		public static void GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, [Out] float[] value)
 		{
 			unsafe {
@@ -1088,6 +1409,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPortAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfdSetPortAttribi != null, "pwfdSetPortAttribi not implemented");
@@ -1096,6 +1432,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPortAttribf.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float"/>.
+		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, float value)
 		{
 			Debug.Assert(Delegates.pwfdSetPortAttribf != null, "pwfdSetPortAttribf not implemented");
@@ -1104,6 +1455,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPortAttribiv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, int[] value)
 		{
 			unsafe {
@@ -1117,6 +1486,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPortAttribfv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPortConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, float[] value)
 		{
 			unsafe {
@@ -1130,6 +1517,18 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdBindPipelineToPort.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void BindPipelineToPort(UInt32 device, UInt32 port, UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pwfdBindPipelineToPort != null, "pwfdBindPipelineToPort not implemented");
@@ -1138,6 +1537,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetDisplayDataFormats.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:WFDDisplayDataFormat[]"/>.
+		/// </param>
+		/// <param name="formatCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static int GetDisplayDataFormat(UInt32 device, UInt32 port, [Out] WFDDisplayDataFormat[] format, int formatCount)
 		{
 			int retValue;
@@ -1155,6 +1569,24 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetDisplayData.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:WFDDisplayDataFormat"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:byte[]"/>.
+		/// </param>
+		/// <param name="dataCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static int GetDisplayData(UInt32 device, UInt32 port, WFDDisplayDataFormat format, [Out] byte[] data, int dataCount)
 		{
 			int retValue;
@@ -1172,6 +1604,21 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdEnumeratePipelines.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipelineIds">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="pipelineIdsCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="filterList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static int EnumeratePipelines(UInt32 device, int[] pipelineIds, int pipelineIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -1190,6 +1637,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreatePipeline.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipelineId">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreatePipeline(UInt32 device, int pipelineId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1207,6 +1666,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDestroyPipeline.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DestroyPipeline(UInt32 device, UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pwfdDestroyPipeline != null, "pwfdDestroyPipeline not implemented");
@@ -1215,6 +1683,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreateSourceFromImage.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreateSourceFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1232,6 +1715,21 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreateSourceFromStream.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="stream">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreateSourceFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1249,6 +1747,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDestroySource.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="source">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DestroySource(UInt32 device, UInt32 source)
 		{
 			Debug.Assert(Delegates.pwfdDestroySource != null, "pwfdDestroySource not implemented");
@@ -1257,6 +1764,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreateMaskFromImage.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreateMaskFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1274,6 +1796,21 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdCreateMaskFromStream.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="stream">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attribList">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static UInt32 CreateMaskFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1291,6 +1828,15 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdDestroyMask.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="mask">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DestroyMask(UInt32 device, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pwfdDestroyMask != null, "pwfdDestroyMask not implemented");
@@ -1299,6 +1845,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdBindSourceToPipeline.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="source">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="transition">
+		/// A <see cref="T:WFDTransition"/>.
+		/// </param>
+		/// <param name="region">
+		/// A <see cref="T:WFDRect[]"/>.
+		/// </param>
 		public static void BindSourceToPipeline(UInt32 device, UInt32 pipeline, UInt32 source, WFDTransition transition, WFDRect[] region)
 		{
 			unsafe {
@@ -1312,6 +1876,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdBindMaskToPipeline.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="mask">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="transition">
+		/// A <see cref="T:WFDTransition"/>.
+		/// </param>
 		public static void BindMaskToPipeline(UInt32 device, UInt32 pipeline, UInt32 mask, WFDTransition transition)
 		{
 			Debug.Assert(Delegates.pwfdBindMaskToPipeline != null, "pwfdBindMaskToPipeline not implemented");
@@ -1320,6 +1899,18 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPipelineAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
 		public static int GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib)
 		{
 			int retValue;
@@ -1332,6 +1923,18 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPipelineAttribf.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
 		public static float GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib)
 		{
 			float retValue;
@@ -1344,6 +1947,24 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPipelineAttribiv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static void GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, [Out] int[] value)
 		{
 			unsafe {
@@ -1357,6 +1978,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPipelineAttribfv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
 		public static void GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, [Out] float[] value)
 		{
 			unsafe {
@@ -1370,6 +2009,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPipelineAttribi.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineAttribi != null, "pwfdSetPipelineAttribi not implemented");
@@ -1378,6 +2032,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPipelineAttribf.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float"/>.
+		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, float value)
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineAttribf != null, "pwfdSetPipelineAttribf not implemented");
@@ -1386,6 +2055,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPipelineAttribiv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, int[] value)
 		{
 			unsafe {
@@ -1399,6 +2086,24 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPipelineAttribfv.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, float[] value)
 		{
 			unsafe {
@@ -1412,6 +2117,21 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPipelineTransparency.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="trans">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="transCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		public static int GetPipelineTransparency(UInt32 device, UInt32 pipeline, [Out] UInt32[] trans, int transCount)
 		{
 			int retValue;
@@ -1429,6 +2149,24 @@ namespace OpenWF
 			return (retValue);
 		}
 
+		/// <summary>
+		/// Binding for wfdSetPipelineTSColor.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="colorFormat">
+		/// A <see cref="T:WFDTSColorFormat"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="color">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
 		public static void SetPipelineTSColor(UInt32 device, UInt32 pipeline, WFDTSColorFormat colorFormat, int count, IntPtr color)
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineTSColor != null, "pwfdSetPipelineTSColor not implemented");
@@ -1437,6 +2175,18 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
+		/// <summary>
+		/// Binding for wfdGetPipelineLayerOrder.
+		/// </summary>
+		/// <param name="device">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="port">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static int GetPipelineLayerOrder(UInt32 device, UInt32 port, UInt32 pipeline)
 		{
 			int retValue;
