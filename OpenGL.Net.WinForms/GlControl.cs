@@ -520,6 +520,17 @@ namespace OpenGL
 			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 
+			if ((matchingPixelFormats.Count == 0) && controlReqFormat.MultisampleBits > 0) {
+				// Try to select the maximum multisample configuration
+				int multisampleBits = 0;
+
+				pixelFormats.ForEach(delegate (DevicePixelFormat item) { multisampleBits = Math.Max(multisampleBits, item.MultisampleBits); });
+
+				controlReqFormat.MultisampleBits = multisampleBits;
+
+				matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
+			}
+
 			if ((matchingPixelFormats.Count == 0) && controlReqFormat.DoubleBuffer) {
 				// Try single buffered pixel formats
 				controlReqFormat.DoubleBuffer = false;
