@@ -548,10 +548,10 @@ namespace HelloObjects
 			_CubeScene = new SceneGraph();
 			_CubeScene.Link(new SceneObjectCamera());
 
-			fontTitle = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Textured);
+			fontTitle = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Textured, new FontFxShadow());
 			fontTitle.Create(_Context);
 
-			fontTitleV = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector);
+			fontTitleV = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector, new FontFxShadow());
 			fontTitleV.Create(_Context);
 
 			fontPatch = FontFactory.CreateFont(System.Drawing.FontFamily.GenericMonospace, 16, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector);
