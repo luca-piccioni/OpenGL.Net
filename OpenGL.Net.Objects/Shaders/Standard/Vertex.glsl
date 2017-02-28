@@ -57,14 +57,6 @@ void main()
 	vec4 vPosition = glo_Position;
 	vec3 vNormal = normalize(glo_Normal);
 
-	// Displacement mapping
-	if (glo_FrontMaterialDisplacementTexCoord >= 0) {
-		vec3 vPosition3 = vPosition.xyz / vPosition.w;
-		float vDisplacementLength = glo_FrontMaterialDisplacementFactor * TEXTURE_2D(glo_FrontMaterialDisplacementTexture, glo_VertexTexCoord[glo_FrontMaterialDisplacementTexCoord]).x;
-
-		vPosition = vec4(vPosition3 + vNormal * vDisplacementLength, 1.0);
-	}
-
 	gl_Position = glo_ModelViewProjection * vPosition;
 
 	vec3 vNormalView = normalize(glo_NormalMatrix * vNormal);

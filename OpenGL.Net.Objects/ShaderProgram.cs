@@ -1250,7 +1250,6 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			// Bind
 			Gl.UseProgram(ObjectName);
 		}
 
@@ -1264,7 +1263,6 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			// Bind
 			Gl.UseProgram(InvalidObjectName);
 		}
 

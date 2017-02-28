@@ -19,9 +19,6 @@
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
 #include </OpenGL/Light/Lighting.glsl>
-//#include </OpenGL/EnvironMap/EnvironReflection>
-//#include </OpenGL/EnvironMap/EnvironRefraction>
-//#include </OpenGL/Shadow/ShadowMap>
 
 // Vertex uniform color
 uniform vec4 glo_UniformColor = vec4(1.0, 1.0, 1.0, 1.0);
@@ -127,57 +124,6 @@ void main()
 
 	// Default to uniform color
 	glo_FragColor = glo_UniformColor;
-
-#endif
-
-#if defined(GLO_SHADOW_MAP2)
-
-	// Test shadow map
-	vec4 shadowAttenuation = ComputeShadowShading();
-	// Modulate color
-	glo_FragColor = glo_FragColor * shadowAttenuation;
-
-#endif
-
-	// --- Reflection effect --------------------------------------------------
-
-#if defined(GLO_REFLECTION_PER_FRAGMENT)
-
-	// Perform reflection computation
-	vec4 reflectedColor = ComputeEnvironmentReflection(-vec3(glo_VertexPosition), glo_VertexNormalModel);
-	// Mix reflected color with material color
-	glo_FragColor += reflectedColor;
-
-#endif
-
-	// --- Refraction effect --------------------------------------------------
-
-#if defined(GLO_REFRACTION_PER_FRAGMENT)
-
-	// Perform reflection computation
-	vec4 refractedColor = ComputeEnvironmentRefraction(-vec3(glo_VertexPosition), glo_VertexNormalModel);
-	// Mix reflected color with material color
-	glo_FragColor += refractedColor;
-
-#endif
-
-	// --- COLLADA blending ---------------------------------------------------
-
-#if defined(GLO_COLLADA_TRASPARENCY_PER_FRAGMENT2)
-
-	if (glo_TransparentTexCoord >= 0) {
-		// Get transparency value
-		vec4 alphaFragment = TEXTURE_2D(glo_TransparentTexture, glo_VertexTexCoord[glo_TransparentTexCoord]);
-
-		// Module transparency value
-		alphaFragment *= glo_Transparency;
-
-		// Blend functions: Src=ONE Dst=ONE_MINUS_ALPHA
-		// -> Blend Src in shader (because blend function is ONE)
-		glo_FragColor *= alphaFragment.a;
-		// -> Set Src.a to blend Dst
-		glo_FragColor.a = alphaFragment.a;
-	}
 
 #endif
 }

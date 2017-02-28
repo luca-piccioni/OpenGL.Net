@@ -583,10 +583,11 @@ namespace OpenGL.Objects.Scene
 			SceneObjectGeometry sceneObject = new SceneObjectGeometry();
 
 			// Program shader to all objects
-			sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment", new ShaderCompilerContext("GLO_DEBUG_NORMAL"));
-			sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+			// sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_DEBUG_NORMAL"));
+            sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+            // sceneObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex");
 
-			foreach (ObjGroup objGroup in objContext.Groups) {
+            foreach (ObjGroup objGroup in objContext.Groups) {
 				foreach (ObjGeometry objGeometry in objGroup.MergeGeometries()) {
 					VertexArrayObject vertexArray = objGeometry.CreateArrays(objContext);
 					GraphicsStateSet objectState = new GraphicsStateSet();

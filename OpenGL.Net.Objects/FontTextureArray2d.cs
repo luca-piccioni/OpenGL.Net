@@ -265,13 +265,13 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
-			if (ctx.Version >= Gl.Version_310 || ctx.Extensions.InstancedArrays) {
+			if (ctx.Extensions.DrawInstanced_ARB) {
 				// Get shared resources
 				LinkSharedResources(ctx);
 				// Get shader program for drawing font
 				LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray"));
 			} else {
-
+				throw new NotImplementedException();
 			}
 			// Base implementation
 			base.CreateObject(ctx);
