@@ -300,7 +300,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		public const int ZERO = 0;
@@ -695,6 +695,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 		public const int DEPTH_RANGE = 0x0B70;
 
 		/// <summary>
@@ -837,6 +838,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 		public const int VIEWPORT = 0x0BA2;
 
 		/// <summary>
@@ -927,6 +929,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 		public const int SCISSOR_BOX = 0x0C10;
 
 		/// <summary>
@@ -938,6 +941,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 		public const int SCISSOR_TEST = 0x0C11;
 
 		/// <summary>
@@ -1498,7 +1502,7 @@ namespace OpenGL
 		[AliasOf("GL_XOR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int XOR = 0x1506;
 
 		/// <summary>
@@ -1533,7 +1537,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int INVERT = 0x150A;
 
 		/// <summary>
@@ -1737,7 +1741,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int RED = 0x1903;
 
 		/// <summary>
@@ -1769,7 +1773,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int GREEN = 0x1904;
 
 		/// <summary>
@@ -1801,7 +1805,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int BLUE = 0x1905;
 
 		/// <summary>
@@ -2157,7 +2161,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
 		public const int RGB8 = 0x8051;
 
 		/// <summary>
@@ -2228,7 +2232,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
 		public const int RGBA8 = 0x8058;
 
 		/// <summary>
@@ -5283,12 +5287,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.TexParameter: specifies the texture residence priority of the currently bound texture. Permissible values are in the 
-		/// range 01. See Gl.PrioritizeTextures and Gl.BindTexture for more information.
-		/// </para>
-		/// <para>
 		/// Gl.GetTexParameter: returns the residence priority of the target texture (or the named texture bound to it). The initial 
 		/// value is 1. See Gl.PrioritizeTextures.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: specifies the texture residence priority of the currently bound texture. Permissible values are in the 
+		/// range 01. See Gl.PrioritizeTextures and Gl.BindTexture for more information.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_PRIORITY_EXT")]
@@ -5602,7 +5606,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_2_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5616,7 +5620,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_3_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -5631,7 +5635,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_4_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6062,7 +6066,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_EYE_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -6074,7 +6078,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_OBJECT_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -9187,6 +9191,10 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArrays(Int32 mode, Int32 first, Int32 count);
 
@@ -9195,12 +9203,22 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawArrays pglDrawArrays;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElements(Int32 mode, Int32 count, Int32 type, IntPtr indices);
 
 			[ThreadStatic]
 			internal static glDrawElements pglDrawElements;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_vertex_array")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointerv(Int32 pname, IntPtr* @params);
 
@@ -9210,12 +9228,17 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetPointerv pglGetPointerv;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffset(float factor, float units);
 
 			[ThreadStatic]
 			internal static glPolygonOffset pglPolygonOffset;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
@@ -9224,6 +9247,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glCopyTexImage1D pglCopyTexImage1D;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
@@ -9232,6 +9259,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glCopyTexImage2D pglCopyTexImage2D;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
@@ -9240,6 +9269,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glCopyTexSubImage1D pglCopyTexSubImage1D;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
@@ -9248,6 +9281,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glCopyTexSubImage2D pglCopyTexSubImage2D;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
@@ -9256,6 +9291,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexSubImage1D pglTexSubImage1D;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
@@ -9264,6 +9303,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexSubImage2D pglTexSubImage2D;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindTexture(Int32 target, UInt32 texture);
 
@@ -9272,24 +9315,36 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBindTexture pglBindTexture;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteTextures(Int32 n, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glDeleteTextures pglDeleteTextures;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenTextures(Int32 n, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glGenTextures pglGenTextures;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsTexture(UInt32 texture);
 
 			[ThreadStatic]
 			internal static glIsTexture pglIsTexture;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_EXT_vertex_array")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glArrayElement(Int32 i);
 
@@ -9298,66 +9353,95 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glArrayElement pglArrayElement;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glColorPointer pglColorPointer;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableClientState(Int32 array);
 
 			[ThreadStatic]
 			internal static glDisableClientState pglDisableClientState;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEdgeFlagPointer(Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glEdgeFlagPointer pglEdgeFlagPointer;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableClientState(Int32 array);
 
 			[ThreadStatic]
 			internal static glEnableClientState pglEnableClientState;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexPointer(Int32 type, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glIndexPointer pglIndexPointer;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInterleavedArrays(Int32 format, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glInterleavedArrays pglInterleavedArrays;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormalPointer(Int32 type, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glNormalPointer pglNormalPointer;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glTexCoordPointer pglTexCoordPointer;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glVertexPointer pglVertexPointer;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glAreTexturesResident(Int32 n, UInt32* textures, bool* residences);
 
 			[ThreadStatic]
 			internal static glAreTexturesResident pglAreTexturesResident;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_EXT_texture_object")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPrioritizeTextures(Int32 n, UInt32* textures, float* priorities);
 
@@ -9366,24 +9450,32 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glPrioritizeTextures pglPrioritizeTextures;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexub(byte c);
 
 			[ThreadStatic]
 			internal static glIndexub pglIndexub;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexubv(byte* c);
 
 			[ThreadStatic]
 			internal static glIndexubv pglIndexubv;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopClientAttrib();
 
 			[ThreadStatic]
 			internal static glPopClientAttrib pglPopClientAttrib;
 
+			[RequiredByFeature("GL_VERSION_1_1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushClientAttrib(UInt32 mask);
 

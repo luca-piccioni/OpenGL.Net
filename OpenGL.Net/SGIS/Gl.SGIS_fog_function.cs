@@ -103,12 +103,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIS_fog_function")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogFuncSGIS(Int32 n, float* points);
 
 			[ThreadStatic]
 			internal static glFogFuncSGIS pglFogFuncSGIS;
 
+			[RequiredByFeature("GL_SGIS_fog_function")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFogFuncSGIS(float* points);
 

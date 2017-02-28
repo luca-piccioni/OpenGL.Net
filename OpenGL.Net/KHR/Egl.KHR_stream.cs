@@ -35,12 +35,6 @@ namespace OpenGL
 		public const int NO_STREAM_KHR = 0;
 
 		/// <summary>
-		/// Value of EGL_CONSUMER_LATENCY_USEC_KHR symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_KHR_stream")]
-		public const int CONSUMER_LATENCY_USEC_KHR = 0x3210;
-
-		/// <summary>
 		/// Value of EGL_PRODUCER_FRAME_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
@@ -51,24 +45,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int CONSUMER_FRAME_KHR = 0x3213;
-
-		/// <summary>
-		/// Value of EGL_STREAM_STATE_KHR symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_KHR_stream")]
-		public const int STREAM_STATE_KHR = 0x3214;
-
-		/// <summary>
-		/// Value of EGL_STREAM_STATE_CREATED_KHR symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_KHR_stream")]
-		public const int STREAM_STATE_CREATED_KHR = 0x3215;
-
-		/// <summary>
-		/// Value of EGL_STREAM_STATE_CONNECTING_KHR symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_KHR_stream")]
-		public const int STREAM_STATE_CONNECTING_KHR = 0x3216;
 
 		/// <summary>
 		/// Value of EGL_STREAM_STATE_EMPTY_KHR symbol.
@@ -275,26 +251,31 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
 
 			internal static eglCreateStreamKHR peglCreateStreamKHR;
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
 
 			internal static eglDestroyStreamKHR peglDestroyStreamKHR;
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
 
 			internal static eglStreamAttribKHR peglStreamAttribKHR;
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
 
 			internal static eglQueryStreamKHR peglQueryStreamKHR;
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
 

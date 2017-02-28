@@ -288,48 +288,56 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
 
 			[ThreadStatic]
 			internal static wglDXSetResourceShareHandleNV pwglDXSetResourceShareHandleNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
 
 			[ThreadStatic]
 			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
 
 			[ThreadStatic]
 			internal static wglDXCloseDeviceNV pwglDXCloseDeviceNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
 
 			[ThreadStatic]
 			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
 
 			[ThreadStatic]
 			internal static wglDXUnregisterObjectNV pwglDXUnregisterObjectNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
 
 			[ThreadStatic]
 			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
 
 			[ThreadStatic]
 			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
+			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
 

@@ -57,6 +57,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_SGI_swap_control")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int glXSwapIntervalSGI(int interval);
 

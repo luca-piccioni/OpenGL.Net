@@ -142,16 +142,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_KHR_fence_sync")]
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
 
 			internal static eglCreateSyncKHR peglCreateSyncKHR;
 
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
 
 			internal static eglSignalSyncKHR peglSignalSyncKHR;
 
+			[RequiredByFeature("EGL_KHR_fence_sync")]
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
 

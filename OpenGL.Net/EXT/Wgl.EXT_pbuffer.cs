@@ -194,30 +194,35 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
 			[ThreadStatic]
 			internal static wglCreatePbufferEXT pwglCreatePbufferEXT;
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
 
 			[ThreadStatic]
 			internal static wglGetPbufferDCEXT pwglGetPbufferDCEXT;
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
 
 			[ThreadStatic]
 			internal static wglReleasePbufferDCEXT pwglReleasePbufferDCEXT;
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDestroyPbufferEXT(IntPtr hPbuffer);
 
 			[ThreadStatic]
 			internal static wglDestroyPbufferEXT pwglDestroyPbufferEXT;
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
 

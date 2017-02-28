@@ -61,6 +61,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_NV_delay_before_swap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDelayBeforeSwapNV(IntPtr hDC, float seconds);
 

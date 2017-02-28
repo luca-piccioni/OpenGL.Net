@@ -95,6 +95,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_KHR_stream_fifo")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
 

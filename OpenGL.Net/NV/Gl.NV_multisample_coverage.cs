@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_SAMPLES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_multisample_coverage")]
 		public const int COLOR_SAMPLES_NV = 0x8E20;
 

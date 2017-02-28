@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FILL_RECTANGLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_fill_rectangle", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_fill_rectangle", Api = "gl|glcore|gles2")]
 		public const int FILL_RECTANGLE_NV = 0x933C;
 
 	}

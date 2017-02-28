@@ -75,6 +75,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, UInt32 flags);
 

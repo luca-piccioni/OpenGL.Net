@@ -131,18 +131,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
 
 			[ThreadStatic]
 			internal static glVertexAttribArrayObjectATI pglVertexAttribArrayObjectATI;
 
+			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexAttribArrayObjectfvATI(UInt32 index, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetVertexAttribArrayObjectfvATI pglGetVertexAttribArrayObjectfvATI;
 
+			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexAttribArrayObjectivATI(UInt32 index, Int32 pname, Int32* @params);
 

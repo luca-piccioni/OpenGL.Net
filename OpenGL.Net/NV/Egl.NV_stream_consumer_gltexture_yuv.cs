@@ -100,6 +100,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglStreamConsumerGLTextureExternalAttribsNV(IntPtr dpy, IntPtr stream, IntPtr* attrib_list);
 

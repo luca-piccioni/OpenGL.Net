@@ -68,6 +68,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_polygon_offset")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffsetEXT(float factor, float bias);
 

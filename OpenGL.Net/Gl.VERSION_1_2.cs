@@ -1295,6 +1295,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawRangeElements(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices);
 
@@ -1303,6 +1306,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawRangeElements pglDrawRangeElements;
 
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
@@ -1312,6 +1319,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexImage3D pglTexImage3D;
 
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
@@ -1321,6 +1332,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexSubImage3D pglTexSubImage3D;
 
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 

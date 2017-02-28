@@ -2252,6 +2252,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
 
@@ -2260,6 +2263,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBindFragDataLocationIndexed pglBindFragDataLocationIndexed;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetFragDataIndex(UInt32 program, String name);
 
@@ -2268,54 +2274,83 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetFragDataIndex pglGetFragDataIndex;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenSamplers(Int32 count, UInt32* samplers);
 
 			[ThreadStatic]
 			internal static glGenSamplers pglGenSamplers;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteSamplers(Int32 count, UInt32* samplers);
 
 			[ThreadStatic]
 			internal static glDeleteSamplers pglDeleteSamplers;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsSampler(UInt32 sampler);
 
 			[ThreadStatic]
 			internal static glIsSampler pglIsSampler;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindSampler(UInt32 unit, UInt32 sampler);
 
 			[ThreadStatic]
 			internal static glBindSampler pglBindSampler;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSamplerParameteri(UInt32 sampler, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glSamplerParameteri pglSamplerParameteri;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glSamplerParameteriv pglSamplerParameteriv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSamplerParameterf(UInt32 sampler, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glSamplerParameterf pglSamplerParameterf;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterfv(UInt32 sampler, Int32 pname, float* param);
 
 			[ThreadStatic]
 			internal static glSamplerParameterfv pglSamplerParameterfv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
 
@@ -2325,6 +2360,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSamplerParameterIiv pglSamplerParameterIiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
 
@@ -2334,12 +2374,20 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSamplerParameterIuiv pglSamplerParameterIuiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetSamplerParameteriv pglGetSamplerParameteriv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
 
@@ -2349,12 +2397,20 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetSamplerParameterIiv pglGetSamplerParameterIiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterfv(UInt32 sampler, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetSamplerParameterfv pglGetSamplerParameterfv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
 
@@ -2364,6 +2420,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetSamplerParameterIuiv pglGetSamplerParameterIuiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glQueryCounter(UInt32 id, Int32 target);
 
@@ -2372,6 +2431,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glQueryCounter pglQueryCounter;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_timer_query")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryObjecti64v(UInt32 id, Int32 pname, Int64* @params);
 
@@ -2380,6 +2443,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetQueryObjecti64v pglGetQueryObjecti64v;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_timer_query")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
 
@@ -2388,6 +2455,12 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetQueryObjectui64v pglGetQueryObjectui64v;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_instanced_arrays")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
 
@@ -2399,228 +2472,304 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glVertexAttribDivisor pglVertexAttribDivisor;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP1ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP1ui pglVertexAttribP1ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP1uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP1uiv pglVertexAttribP1uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP2ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP2ui pglVertexAttribP2ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP2uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP2uiv pglVertexAttribP2uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP3ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP3ui pglVertexAttribP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP3uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP3uiv pglVertexAttribP3uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP4ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP4ui pglVertexAttribP4ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP4uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexAttribP4uiv pglVertexAttribP4uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP2ui(Int32 type, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexP2ui pglVertexP2ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP2uiv(Int32 type, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexP2uiv pglVertexP2uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP3ui(Int32 type, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexP3ui pglVertexP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP3uiv(Int32 type, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexP3uiv pglVertexP3uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP4ui(Int32 type, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexP4ui pglVertexP4ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP4uiv(Int32 type, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexP4uiv pglVertexP4uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP1ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP1ui pglTexCoordP1ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP1uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP1uiv pglTexCoordP1uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP2ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP2ui pglTexCoordP2ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP2uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP2uiv pglTexCoordP2uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP3ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP3ui pglTexCoordP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP3uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP3uiv pglTexCoordP3uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP4ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP4ui pglTexCoordP4ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP4uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP4uiv pglTexCoordP4uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP1ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP1ui pglMultiTexCoordP1ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP1uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP1uiv pglMultiTexCoordP1uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP2ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP2ui pglMultiTexCoordP2ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP2uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP2uiv pglMultiTexCoordP2uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP3ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP3ui pglMultiTexCoordP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP3uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP3uiv pglMultiTexCoordP3uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP4ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP4ui pglMultiTexCoordP4ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP4uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP4uiv pglMultiTexCoordP4uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormalP3ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glNormalP3ui pglNormalP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormalP3uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glNormalP3uiv pglNormalP3uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorP3ui(Int32 type, UInt32 color);
 
 			[ThreadStatic]
 			internal static glColorP3ui pglColorP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorP3uiv(Int32 type, UInt32* color);
 
 			[ThreadStatic]
 			internal static glColorP3uiv pglColorP3uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorP4ui(Int32 type, UInt32 color);
 
 			[ThreadStatic]
 			internal static glColorP4ui pglColorP4ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorP4uiv(Int32 type, UInt32* color);
 
 			[ThreadStatic]
 			internal static glColorP4uiv pglColorP4uiv;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColorP3ui(Int32 type, UInt32 color);
 
 			[ThreadStatic]
 			internal static glSecondaryColorP3ui pglSecondaryColorP3ui;
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColorP3uiv(Int32 type, UInt32* color);
 

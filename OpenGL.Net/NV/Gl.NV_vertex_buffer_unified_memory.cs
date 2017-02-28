@@ -486,72 +486,84 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBufferAddressRangeNV(Int32 pname, UInt32 index, UInt64 address, UInt32 length);
 
 			[ThreadStatic]
 			internal static glBufferAddressRangeNV pglBufferAddressRangeNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glVertexFormatNV pglVertexFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormalFormatNV(Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glNormalFormatNV pglNormalFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glColorFormatNV pglColorFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexFormatNV(Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glIndexFormatNV pglIndexFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glTexCoordFormatNV pglTexCoordFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEdgeFlagFormatNV(Int32 stride);
 
 			[ThreadStatic]
 			internal static glEdgeFlagFormatNV pglEdgeFlagFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColorFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glSecondaryColorFormatNV pglSecondaryColorFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogCoordFormatNV(Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glFogCoordFormatNV pglFogCoordFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride);
 
 			[ThreadStatic]
 			internal static glVertexAttribFormatNV pglVertexAttribFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribIFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
 
 			[ThreadStatic]
 			internal static glVertexAttribIFormatNV pglVertexAttribIFormatNV;
 
+			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegerui64i_vNV(Int32 value, UInt32 index, UInt64* result);
 

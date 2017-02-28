@@ -9284,7 +9284,6 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FeedbackBuffer(Int32 size, FeedbackType type, params float[] buffer)
 		{
-			Debug.Assert(buffer.Length >= size);
 			unsafe {
 				fixed (float* p_buffer = buffer)
 				{
@@ -10919,7 +10918,6 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, float[] values)
 		{
-			Debug.Assert(values.Length >= mapsize);
 			unsafe {
 				fixed (float* p_values = values)
 				{
@@ -11099,7 +11097,6 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt32[] values)
 		{
-			Debug.Assert(values.Length >= mapsize);
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
@@ -11279,7 +11276,6 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt16[] values)
 		{
-			Debug.Assert(values.Length >= mapsize);
 			unsafe {
 				fixed (UInt16* p_values = values)
 				{
@@ -14286,36 +14282,52 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCullFace(Int32 mode);
 
 			[ThreadStatic]
 			internal static glCullFace pglCullFace;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrontFace(Int32 mode);
 
 			[ThreadStatic]
 			internal static glFrontFace pglFrontFace;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glHint(Int32 target, Int32 mode);
 
 			[ThreadStatic]
 			internal static glHint pglHint;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLineWidth(float width);
 
 			[ThreadStatic]
 			internal static glLineWidth pglLineWidth;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPointSize(float size);
 
 			[ThreadStatic]
 			internal static glPointSize pglPointSize;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonMode(Int32 face, Int32 mode);
 
@@ -14324,1800 +14336,2454 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glPolygonMode pglPolygonMode;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScissor(Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glScissor pglScissor;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexParameterf(Int32 target, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glTexParameterf pglTexParameterf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterfv(Int32 target, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glTexParameterfv pglTexParameterfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexParameteri(Int32 target, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glTexParameteri pglTexParameteri;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameteriv(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glTexParameteriv pglTexParameteriv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glTexImage1D pglTexImage1D;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glTexImage2D pglTexImage2D;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawBuffer(Int32 buf);
 
 			[ThreadStatic]
 			internal static glDrawBuffer pglDrawBuffer;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClear(UInt32 mask);
 
 			[ThreadStatic]
 			internal static glClear pglClear;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearColor(float red, float green, float blue, float alpha);
 
 			[ThreadStatic]
 			internal static glClearColor pglClearColor;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearStencil(Int32 s);
 
 			[ThreadStatic]
 			internal static glClearStencil pglClearStencil;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearDepth(double depth);
 
 			[ThreadStatic]
 			internal static glClearDepth pglClearDepth;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilMask(UInt32 mask);
 
 			[ThreadStatic]
 			internal static glStencilMask pglStencilMask;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorMask(bool red, bool green, bool blue, bool alpha);
 
 			[ThreadStatic]
 			internal static glColorMask pglColorMask;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthMask(bool flag);
 
 			[ThreadStatic]
 			internal static glDepthMask pglDepthMask;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisable(Int32 cap);
 
 			[ThreadStatic]
 			internal static glDisable pglDisable;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnable(Int32 cap);
 
 			[ThreadStatic]
 			internal static glEnable pglEnable;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinish();
 
 			[ThreadStatic]
 			internal static glFinish pglFinish;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFlush();
 
 			[ThreadStatic]
 			internal static glFlush pglFlush;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFunc(Int32 sfactor, Int32 dfactor);
 
 			[ThreadStatic]
 			internal static glBlendFunc pglBlendFunc;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLogicOp(Int32 opcode);
 
 			[ThreadStatic]
 			internal static glLogicOp pglLogicOp;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilFunc(Int32 func, Int32 @ref, UInt32 mask);
 
 			[ThreadStatic]
 			internal static glStencilFunc pglStencilFunc;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilOp(Int32 fail, Int32 zfail, Int32 zpass);
 
 			[ThreadStatic]
 			internal static glStencilOp pglStencilOp;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthFunc(Int32 func);
 
 			[ThreadStatic]
 			internal static glDepthFunc pglDepthFunc;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelStoref(Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glPixelStoref pglPixelStoref;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelStorei(Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glPixelStorei pglPixelStorei;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReadBuffer(Int32 src);
 
 			[ThreadStatic]
 			internal static glReadBuffer pglReadBuffer;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glReadPixels pglReadPixels;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBooleanv(Int32 pname, bool* data);
 
 			[ThreadStatic]
 			internal static glGetBooleanv pglGetBooleanv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetDoublev(Int32 pname, double* data);
 
 			[ThreadStatic]
 			internal static glGetDoublev pglGetDoublev;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetError();
 
 			[ThreadStatic]
 			internal static glGetError pglGetError;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFloatv(Int32 pname, float* data);
 
 			[ThreadStatic]
 			internal static glGetFloatv pglGetFloatv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegerv(Int32 pname, Int32* data);
 
 			[ThreadStatic]
 			internal static glGetIntegerv pglGetIntegerv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glGetString(Int32 name);
 
 			[ThreadStatic]
 			internal static glGetString pglGetString;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexImage(Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetTexImage pglGetTexImage;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterfv(Int32 target, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetTexParameterfv pglGetTexParameterfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameteriv(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTexParameteriv pglGetTexParameteriv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexLevelParameterfv(Int32 target, Int32 level, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetTexLevelParameterfv pglGetTexLevelParameterfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexLevelParameteriv(Int32 target, Int32 level, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTexLevelParameteriv pglGetTexLevelParameteriv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsEnabled(Int32 cap);
 
 			[ThreadStatic]
 			internal static glIsEnabled pglIsEnabled;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRange(double near, double far);
 
 			[ThreadStatic]
 			internal static glDepthRange pglDepthRange;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewport(Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glViewport pglViewport;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNewList(UInt32 list, Int32 mode);
 
 			[ThreadStatic]
 			internal static glNewList pglNewList;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndList();
 
 			[ThreadStatic]
 			internal static glEndList pglEndList;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCallList(UInt32 list);
 
 			[ThreadStatic]
 			internal static glCallList pglCallList;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCallLists(Int32 n, Int32 type, IntPtr lists);
 
 			[ThreadStatic]
 			internal static glCallLists pglCallLists;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteLists(UInt32 list, Int32 range);
 
 			[ThreadStatic]
 			internal static glDeleteLists pglDeleteLists;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenLists(Int32 range);
 
 			[ThreadStatic]
 			internal static glGenLists pglGenLists;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glListBase(UInt32 @base);
 
 			[ThreadStatic]
 			internal static glListBase pglListBase;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBegin(Int32 mode);
 
 			[ThreadStatic]
 			internal static glBegin pglBegin;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte* bitmap);
 
 			[ThreadStatic]
 			internal static glBitmap pglBitmap;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3b(sbyte red, sbyte green, sbyte blue);
 
 			[ThreadStatic]
 			internal static glColor3b pglColor3b;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3bv(sbyte* v);
 
 			[ThreadStatic]
 			internal static glColor3bv pglColor3bv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3d(double red, double green, double blue);
 
 			[ThreadStatic]
 			internal static glColor3d pglColor3d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3dv(double* v);
 
 			[ThreadStatic]
 			internal static glColor3dv pglColor3dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3f(float red, float green, float blue);
 
 			[ThreadStatic]
 			internal static glColor3f pglColor3f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3fv(float* v);
 
 			[ThreadStatic]
 			internal static glColor3fv pglColor3fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3i(Int32 red, Int32 green, Int32 blue);
 
 			[ThreadStatic]
 			internal static glColor3i pglColor3i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glColor3iv pglColor3iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3s(Int16 red, Int16 green, Int16 blue);
 
 			[ThreadStatic]
 			internal static glColor3s pglColor3s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glColor3sv pglColor3sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3ub(byte red, byte green, byte blue);
 
 			[ThreadStatic]
 			internal static glColor3ub pglColor3ub;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3ubv(byte* v);
 
 			[ThreadStatic]
 			internal static glColor3ubv pglColor3ubv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3ui(UInt32 red, UInt32 green, UInt32 blue);
 
 			[ThreadStatic]
 			internal static glColor3ui pglColor3ui;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3uiv(UInt32* v);
 
 			[ThreadStatic]
 			internal static glColor3uiv pglColor3uiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3us(UInt16 red, UInt16 green, UInt16 blue);
 
 			[ThreadStatic]
 			internal static glColor3us pglColor3us;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3usv(UInt16* v);
 
 			[ThreadStatic]
 			internal static glColor3usv pglColor3usv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4b(sbyte red, sbyte green, sbyte blue, sbyte alpha);
 
 			[ThreadStatic]
 			internal static glColor4b pglColor4b;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4bv(sbyte* v);
 
 			[ThreadStatic]
 			internal static glColor4bv pglColor4bv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4d(double red, double green, double blue, double alpha);
 
 			[ThreadStatic]
 			internal static glColor4d pglColor4d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4dv(double* v);
 
 			[ThreadStatic]
 			internal static glColor4dv pglColor4dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4f(float red, float green, float blue, float alpha);
 
 			[ThreadStatic]
 			internal static glColor4f pglColor4f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4fv(float* v);
 
 			[ThreadStatic]
 			internal static glColor4fv pglColor4fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4i(Int32 red, Int32 green, Int32 blue, Int32 alpha);
 
 			[ThreadStatic]
 			internal static glColor4i pglColor4i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glColor4iv pglColor4iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4s(Int16 red, Int16 green, Int16 blue, Int16 alpha);
 
 			[ThreadStatic]
 			internal static glColor4s pglColor4s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glColor4sv pglColor4sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4ub(byte red, byte green, byte blue, byte alpha);
 
 			[ThreadStatic]
 			internal static glColor4ub pglColor4ub;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4ubv(byte* v);
 
 			[ThreadStatic]
 			internal static glColor4ubv pglColor4ubv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4ui(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 
 			[ThreadStatic]
 			internal static glColor4ui pglColor4ui;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4uiv(UInt32* v);
 
 			[ThreadStatic]
 			internal static glColor4uiv pglColor4uiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4us(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha);
 
 			[ThreadStatic]
 			internal static glColor4us pglColor4us;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4usv(UInt16* v);
 
 			[ThreadStatic]
 			internal static glColor4usv pglColor4usv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEdgeFlag(bool flag);
 
 			[ThreadStatic]
 			internal static glEdgeFlag pglEdgeFlag;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEdgeFlagv(bool* flag);
 
 			[ThreadStatic]
 			internal static glEdgeFlagv pglEdgeFlagv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnd();
 
 			[ThreadStatic]
 			internal static glEnd pglEnd;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexd(double c);
 
 			[ThreadStatic]
 			internal static glIndexd pglIndexd;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexdv(double* c);
 
 			[ThreadStatic]
 			internal static glIndexdv pglIndexdv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexf(float c);
 
 			[ThreadStatic]
 			internal static glIndexf pglIndexf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexfv(float* c);
 
 			[ThreadStatic]
 			internal static glIndexfv pglIndexfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexi(Int32 c);
 
 			[ThreadStatic]
 			internal static glIndexi pglIndexi;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexiv(Int32* c);
 
 			[ThreadStatic]
 			internal static glIndexiv pglIndexiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexs(Int16 c);
 
 			[ThreadStatic]
 			internal static glIndexs pglIndexs;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexsv(Int16* c);
 
 			[ThreadStatic]
 			internal static glIndexsv pglIndexsv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3b(sbyte nx, sbyte ny, sbyte nz);
 
 			[ThreadStatic]
 			internal static glNormal3b pglNormal3b;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3bv(sbyte* v);
 
 			[ThreadStatic]
 			internal static glNormal3bv pglNormal3bv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3d(double nx, double ny, double nz);
 
 			[ThreadStatic]
 			internal static glNormal3d pglNormal3d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3dv(double* v);
 
 			[ThreadStatic]
 			internal static glNormal3dv pglNormal3dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3f(float nx, float ny, float nz);
 
 			[ThreadStatic]
 			internal static glNormal3f pglNormal3f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3fv(float* v);
 
 			[ThreadStatic]
 			internal static glNormal3fv pglNormal3fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3i(Int32 nx, Int32 ny, Int32 nz);
 
 			[ThreadStatic]
 			internal static glNormal3i pglNormal3i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glNormal3iv pglNormal3iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3s(Int16 nx, Int16 ny, Int16 nz);
 
 			[ThreadStatic]
 			internal static glNormal3s pglNormal3s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glNormal3sv pglNormal3sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2d(double x, double y);
 
 			[ThreadStatic]
 			internal static glRasterPos2d pglRasterPos2d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2dv(double* v);
 
 			[ThreadStatic]
 			internal static glRasterPos2dv pglRasterPos2dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2f(float x, float y);
 
 			[ThreadStatic]
 			internal static glRasterPos2f pglRasterPos2f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2fv(float* v);
 
 			[ThreadStatic]
 			internal static glRasterPos2fv pglRasterPos2fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2i(Int32 x, Int32 y);
 
 			[ThreadStatic]
 			internal static glRasterPos2i pglRasterPos2i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glRasterPos2iv pglRasterPos2iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2s(Int16 x, Int16 y);
 
 			[ThreadStatic]
 			internal static glRasterPos2s pglRasterPos2s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glRasterPos2sv pglRasterPos2sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3d(double x, double y, double z);
 
 			[ThreadStatic]
 			internal static glRasterPos3d pglRasterPos3d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3dv(double* v);
 
 			[ThreadStatic]
 			internal static glRasterPos3dv pglRasterPos3dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3f(float x, float y, float z);
 
 			[ThreadStatic]
 			internal static glRasterPos3f pglRasterPos3f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3fv(float* v);
 
 			[ThreadStatic]
 			internal static glRasterPos3fv pglRasterPos3fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3i(Int32 x, Int32 y, Int32 z);
 
 			[ThreadStatic]
 			internal static glRasterPos3i pglRasterPos3i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glRasterPos3iv pglRasterPos3iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3s(Int16 x, Int16 y, Int16 z);
 
 			[ThreadStatic]
 			internal static glRasterPos3s pglRasterPos3s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glRasterPos3sv pglRasterPos3sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4d(double x, double y, double z, double w);
 
 			[ThreadStatic]
 			internal static glRasterPos4d pglRasterPos4d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4dv(double* v);
 
 			[ThreadStatic]
 			internal static glRasterPos4dv pglRasterPos4dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4f(float x, float y, float z, float w);
 
 			[ThreadStatic]
 			internal static glRasterPos4f pglRasterPos4f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4fv(float* v);
 
 			[ThreadStatic]
 			internal static glRasterPos4fv pglRasterPos4fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4i(Int32 x, Int32 y, Int32 z, Int32 w);
 
 			[ThreadStatic]
 			internal static glRasterPos4i pglRasterPos4i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glRasterPos4iv pglRasterPos4iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4s(Int16 x, Int16 y, Int16 z, Int16 w);
 
 			[ThreadStatic]
 			internal static glRasterPos4s pglRasterPos4s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glRasterPos4sv pglRasterPos4sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRectd(double x1, double y1, double x2, double y2);
 
 			[ThreadStatic]
 			internal static glRectd pglRectd;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectdv(double* v1, double* v2);
 
 			[ThreadStatic]
 			internal static glRectdv pglRectdv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRectf(float x1, float y1, float x2, float y2);
 
 			[ThreadStatic]
 			internal static glRectf pglRectf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectfv(float* v1, float* v2);
 
 			[ThreadStatic]
 			internal static glRectfv pglRectfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRecti(Int32 x1, Int32 y1, Int32 x2, Int32 y2);
 
 			[ThreadStatic]
 			internal static glRecti pglRecti;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectiv(Int32* v1, Int32* v2);
 
 			[ThreadStatic]
 			internal static glRectiv pglRectiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRects(Int16 x1, Int16 y1, Int16 x2, Int16 y2);
 
 			[ThreadStatic]
 			internal static glRects pglRects;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectsv(Int16* v1, Int16* v2);
 
 			[ThreadStatic]
 			internal static glRectsv pglRectsv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1d(double s);
 
 			[ThreadStatic]
 			internal static glTexCoord1d pglTexCoord1d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1dv(double* v);
 
 			[ThreadStatic]
 			internal static glTexCoord1dv pglTexCoord1dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1f(float s);
 
 			[ThreadStatic]
 			internal static glTexCoord1f pglTexCoord1f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1fv(float* v);
 
 			[ThreadStatic]
 			internal static glTexCoord1fv pglTexCoord1fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1i(Int32 s);
 
 			[ThreadStatic]
 			internal static glTexCoord1i pglTexCoord1i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glTexCoord1iv pglTexCoord1iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1s(Int16 s);
 
 			[ThreadStatic]
 			internal static glTexCoord1s pglTexCoord1s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glTexCoord1sv pglTexCoord1sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2d(double s, double t);
 
 			[ThreadStatic]
 			internal static glTexCoord2d pglTexCoord2d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2dv(double* v);
 
 			[ThreadStatic]
 			internal static glTexCoord2dv pglTexCoord2dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2f(float s, float t);
 
 			[ThreadStatic]
 			internal static glTexCoord2f pglTexCoord2f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2fv(float* v);
 
 			[ThreadStatic]
 			internal static glTexCoord2fv pglTexCoord2fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2i(Int32 s, Int32 t);
 
 			[ThreadStatic]
 			internal static glTexCoord2i pglTexCoord2i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glTexCoord2iv pglTexCoord2iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2s(Int16 s, Int16 t);
 
 			[ThreadStatic]
 			internal static glTexCoord2s pglTexCoord2s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glTexCoord2sv pglTexCoord2sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3d(double s, double t, double r);
 
 			[ThreadStatic]
 			internal static glTexCoord3d pglTexCoord3d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3dv(double* v);
 
 			[ThreadStatic]
 			internal static glTexCoord3dv pglTexCoord3dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3f(float s, float t, float r);
 
 			[ThreadStatic]
 			internal static glTexCoord3f pglTexCoord3f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3fv(float* v);
 
 			[ThreadStatic]
 			internal static glTexCoord3fv pglTexCoord3fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3i(Int32 s, Int32 t, Int32 r);
 
 			[ThreadStatic]
 			internal static glTexCoord3i pglTexCoord3i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glTexCoord3iv pglTexCoord3iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3s(Int16 s, Int16 t, Int16 r);
 
 			[ThreadStatic]
 			internal static glTexCoord3s pglTexCoord3s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glTexCoord3sv pglTexCoord3sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4d(double s, double t, double r, double q);
 
 			[ThreadStatic]
 			internal static glTexCoord4d pglTexCoord4d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4dv(double* v);
 
 			[ThreadStatic]
 			internal static glTexCoord4dv pglTexCoord4dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4f(float s, float t, float r, float q);
 
 			[ThreadStatic]
 			internal static glTexCoord4f pglTexCoord4f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4fv(float* v);
 
 			[ThreadStatic]
 			internal static glTexCoord4fv pglTexCoord4fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4i(Int32 s, Int32 t, Int32 r, Int32 q);
 
 			[ThreadStatic]
 			internal static glTexCoord4i pglTexCoord4i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glTexCoord4iv pglTexCoord4iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4s(Int16 s, Int16 t, Int16 r, Int16 q);
 
 			[ThreadStatic]
 			internal static glTexCoord4s pglTexCoord4s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glTexCoord4sv pglTexCoord4sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2d(double x, double y);
 
 			[ThreadStatic]
 			internal static glVertex2d pglVertex2d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2dv(double* v);
 
 			[ThreadStatic]
 			internal static glVertex2dv pglVertex2dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2f(float x, float y);
 
 			[ThreadStatic]
 			internal static glVertex2f pglVertex2f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2fv(float* v);
 
 			[ThreadStatic]
 			internal static glVertex2fv pglVertex2fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2i(Int32 x, Int32 y);
 
 			[ThreadStatic]
 			internal static glVertex2i pglVertex2i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glVertex2iv pglVertex2iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2s(Int16 x, Int16 y);
 
 			[ThreadStatic]
 			internal static glVertex2s pglVertex2s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glVertex2sv pglVertex2sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3d(double x, double y, double z);
 
 			[ThreadStatic]
 			internal static glVertex3d pglVertex3d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3dv(double* v);
 
 			[ThreadStatic]
 			internal static glVertex3dv pglVertex3dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3f(float x, float y, float z);
 
 			[ThreadStatic]
 			internal static glVertex3f pglVertex3f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3fv(float* v);
 
 			[ThreadStatic]
 			internal static glVertex3fv pglVertex3fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3i(Int32 x, Int32 y, Int32 z);
 
 			[ThreadStatic]
 			internal static glVertex3i pglVertex3i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glVertex3iv pglVertex3iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3s(Int16 x, Int16 y, Int16 z);
 
 			[ThreadStatic]
 			internal static glVertex3s pglVertex3s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glVertex3sv pglVertex3sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4d(double x, double y, double z, double w);
 
 			[ThreadStatic]
 			internal static glVertex4d pglVertex4d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4dv(double* v);
 
 			[ThreadStatic]
 			internal static glVertex4dv pglVertex4dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4f(float x, float y, float z, float w);
 
 			[ThreadStatic]
 			internal static glVertex4f pglVertex4f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4fv(float* v);
 
 			[ThreadStatic]
 			internal static glVertex4fv pglVertex4fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4i(Int32 x, Int32 y, Int32 z, Int32 w);
 
 			[ThreadStatic]
 			internal static glVertex4i pglVertex4i;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4iv(Int32* v);
 
 			[ThreadStatic]
 			internal static glVertex4iv pglVertex4iv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4s(Int16 x, Int16 y, Int16 z, Int16 w);
 
 			[ThreadStatic]
 			internal static glVertex4s pglVertex4s;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4sv(Int16* v);
 
 			[ThreadStatic]
 			internal static glVertex4sv pglVertex4sv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlane(Int32 plane, double* equation);
 
 			[ThreadStatic]
 			internal static glClipPlane pglClipPlane;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorMaterial(Int32 face, Int32 mode);
 
 			[ThreadStatic]
 			internal static glColorMaterial pglColorMaterial;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogf(Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glFogf pglFogf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogfv(Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glFogfv pglFogfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogi(Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glFogi pglFogi;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogiv(Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glFogiv pglFogiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLightf(Int32 light, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glLightf pglLightf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightfv(Int32 light, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glLightfv pglLightfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLighti(Int32 light, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glLighti pglLighti;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightiv(Int32 light, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glLightiv pglLightiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLightModelf(Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glLightModelf pglLightModelf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModelfv(Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glLightModelfv pglLightModelfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLightModeli(Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glLightModeli pglLightModeli;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModeliv(Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glLightModeliv pglLightModeliv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLineStipple(Int32 factor, UInt16 pattern);
 
 			[ThreadStatic]
 			internal static glLineStipple pglLineStipple;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMaterialf(Int32 face, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glMaterialf pglMaterialf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialfv(Int32 face, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glMaterialfv pglMaterialfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMateriali(Int32 face, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glMateriali pglMateriali;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialiv(Int32 face, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glMaterialiv pglMaterialiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPolygonStipple(byte* mask);
 
 			[ThreadStatic]
 			internal static glPolygonStipple pglPolygonStipple;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glShadeModel(Int32 mode);
 
 			[ThreadStatic]
 			internal static glShadeModel pglShadeModel;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexEnvf(Int32 target, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glTexEnvf pglTexEnvf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnvfv(Int32 target, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glTexEnvfv pglTexEnvfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexEnvi(Int32 target, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glTexEnvi pglTexEnvi;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnviv(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glTexEnviv pglTexEnviv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGend(Int32 coord, Int32 pname, double param);
 
 			[ThreadStatic]
 			internal static glTexGend pglTexGend;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGendv(Int32 coord, Int32 pname, double* @params);
 
 			[ThreadStatic]
 			internal static glTexGendv pglTexGendv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGenf(Int32 coord, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glTexGenf pglTexGenf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGenfv(Int32 coord, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glTexGenfv pglTexGenfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGeni(Int32 coord, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glTexGeni pglTexGeni;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGeniv(Int32 coord, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glTexGeniv pglTexGeniv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFeedbackBuffer(Int32 size, Int32 type, float* buffer);
 
 			[ThreadStatic]
 			internal static glFeedbackBuffer pglFeedbackBuffer;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSelectBuffer(Int32 size, UInt32* buffer);
 
 			[ThreadStatic]
 			internal static glSelectBuffer pglSelectBuffer;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glRenderMode(Int32 mode);
 
 			[ThreadStatic]
 			internal static glRenderMode pglRenderMode;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInitNames();
 
 			[ThreadStatic]
 			internal static glInitNames pglInitNames;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLoadName(UInt32 name);
 
 			[ThreadStatic]
 			internal static glLoadName pglLoadName;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPassThrough(float token);
 
 			[ThreadStatic]
 			internal static glPassThrough pglPassThrough;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopName();
 
 			[ThreadStatic]
 			internal static glPopName pglPopName;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushName(UInt32 name);
 
 			[ThreadStatic]
 			internal static glPushName pglPushName;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearAccum(float red, float green, float blue, float alpha);
 
 			[ThreadStatic]
 			internal static glClearAccum pglClearAccum;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearIndex(float c);
 
 			[ThreadStatic]
 			internal static glClearIndex pglClearIndex;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexMask(UInt32 mask);
 
 			[ThreadStatic]
 			internal static glIndexMask pglIndexMask;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAccum(Int32 op, float value);
 
 			[ThreadStatic]
 			internal static glAccum pglAccum;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopAttrib();
 
 			[ThreadStatic]
 			internal static glPopAttrib pglPopAttrib;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushAttrib(UInt32 mask);
 
 			[ThreadStatic]
 			internal static glPushAttrib pglPushAttrib;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap1d(Int32 target, double u1, double u2, Int32 stride, Int32 order, double* points);
 
 			[ThreadStatic]
 			internal static glMap1d pglMap1d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap1f(Int32 target, float u1, float u2, Int32 stride, Int32 order, float* points);
 
 			[ThreadStatic]
 			internal static glMap1f pglMap1f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap2d(Int32 target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double* points);
 
 			[ThreadStatic]
 			internal static glMap2d pglMap2d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap2f(Int32 target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float* points);
 
 			[ThreadStatic]
 			internal static glMap2f pglMap2f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid1d(Int32 un, double u1, double u2);
 
 			[ThreadStatic]
 			internal static glMapGrid1d pglMapGrid1d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid1f(Int32 un, float u1, float u2);
 
 			[ThreadStatic]
 			internal static glMapGrid1f pglMapGrid1f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid2d(Int32 un, double u1, double u2, Int32 vn, double v1, double v2);
 
 			[ThreadStatic]
 			internal static glMapGrid2d pglMapGrid2d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid2f(Int32 un, float u1, float u2, Int32 vn, float v1, float v2);
 
 			[ThreadStatic]
 			internal static glMapGrid2f pglMapGrid2f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord1d(double u);
 
 			[ThreadStatic]
 			internal static glEvalCoord1d pglEvalCoord1d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord1dv(double* u);
 
 			[ThreadStatic]
 			internal static glEvalCoord1dv pglEvalCoord1dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord1f(float u);
 
 			[ThreadStatic]
 			internal static glEvalCoord1f pglEvalCoord1f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord1fv(float* u);
 
 			[ThreadStatic]
 			internal static glEvalCoord1fv pglEvalCoord1fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord2d(double u, double v);
 
 			[ThreadStatic]
 			internal static glEvalCoord2d pglEvalCoord2d;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord2dv(double* u);
 
 			[ThreadStatic]
 			internal static glEvalCoord2dv pglEvalCoord2dv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord2f(float u, float v);
 
 			[ThreadStatic]
 			internal static glEvalCoord2f pglEvalCoord2f;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord2fv(float* u);
 
 			[ThreadStatic]
 			internal static glEvalCoord2fv pglEvalCoord2fv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalMesh1(Int32 mode, Int32 i1, Int32 i2);
 
 			[ThreadStatic]
 			internal static glEvalMesh1 pglEvalMesh1;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalPoint1(Int32 i);
 
 			[ThreadStatic]
 			internal static glEvalPoint1 pglEvalPoint1;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalMesh2(Int32 mode, Int32 i1, Int32 i2, Int32 j1, Int32 j2);
 
 			[ThreadStatic]
 			internal static glEvalMesh2 pglEvalMesh2;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalPoint2(Int32 i, Int32 j);
 
 			[ThreadStatic]
 			internal static glEvalPoint2 pglEvalPoint2;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAlphaFunc(Int32 func, float @ref);
 
 			[ThreadStatic]
 			internal static glAlphaFunc pglAlphaFunc;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelZoom(float xfactor, float yfactor);
 
 			[ThreadStatic]
 			internal static glPixelZoom pglPixelZoom;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTransferf(Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glPixelTransferf pglPixelTransferf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTransferi(Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glPixelTransferi pglPixelTransferi;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelMapfv(Int32 map, Int32 mapsize, float* values);
 
 			[ThreadStatic]
 			internal static glPixelMapfv pglPixelMapfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelMapuiv(Int32 map, Int32 mapsize, UInt32* values);
 
 			[ThreadStatic]
 			internal static glPixelMapuiv pglPixelMapuiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelMapusv(Int32 map, Int32 mapsize, UInt16* values);
 
 			[ThreadStatic]
 			internal static glPixelMapusv pglPixelMapusv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 type);
 
 			[ThreadStatic]
 			internal static glCopyPixels pglCopyPixels;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawPixels(Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glDrawPixels pglDrawPixels;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlane(Int32 plane, double* equation);
 
 			[ThreadStatic]
 			internal static glGetClipPlane pglGetClipPlane;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLightfv(Int32 light, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetLightfv pglGetLightfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLightiv(Int32 light, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetLightiv pglGetLightiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMapdv(Int32 target, Int32 query, double* v);
 
 			[ThreadStatic]
 			internal static glGetMapdv pglGetMapdv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMapfv(Int32 target, Int32 query, float* v);
 
 			[ThreadStatic]
 			internal static glGetMapfv pglGetMapfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMapiv(Int32 target, Int32 query, Int32* v);
 
 			[ThreadStatic]
 			internal static glGetMapiv pglGetMapiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMaterialfv(Int32 face, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetMaterialfv pglGetMaterialfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMaterialiv(Int32 face, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetMaterialiv pglGetMaterialiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelMapfv(Int32 map, float* values);
 
 			[ThreadStatic]
 			internal static glGetPixelMapfv pglGetPixelMapfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelMapuiv(Int32 map, UInt32* values);
 
 			[ThreadStatic]
 			internal static glGetPixelMapuiv pglGetPixelMapuiv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelMapusv(Int32 map, UInt16* values);
 
 			[ThreadStatic]
 			internal static glGetPixelMapusv pglGetPixelMapusv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPolygonStipple(byte* mask);
 
 			[ThreadStatic]
 			internal static glGetPolygonStipple pglGetPolygonStipple;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexEnvfv(Int32 target, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetTexEnvfv pglGetTexEnvfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexEnviv(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTexEnviv pglGetTexEnviv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGendv(Int32 coord, Int32 pname, double* @params);
 
 			[ThreadStatic]
 			internal static glGetTexGendv pglGetTexGendv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGenfv(Int32 coord, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetTexGenfv pglGetTexGenfv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGeniv(Int32 coord, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTexGeniv pglGetTexGeniv;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsList(UInt32 list);
 
 			[ThreadStatic]
 			internal static glIsList pglIsList;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrustum(double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[ThreadStatic]
 			internal static glFrustum pglFrustum;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLoadIdentity();
 
 			[ThreadStatic]
 			internal static glLoadIdentity pglLoadIdentity;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadMatrixf(float* m);
 
 			[ThreadStatic]
 			internal static glLoadMatrixf pglLoadMatrixf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadMatrixd(double* m);
 
 			[ThreadStatic]
 			internal static glLoadMatrixd pglLoadMatrixd;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixMode(Int32 mode);
 
 			[ThreadStatic]
 			internal static glMatrixMode pglMatrixMode;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultMatrixf(float* m);
 
 			[ThreadStatic]
 			internal static glMultMatrixf pglMultMatrixf;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultMatrixd(double* m);
 
 			[ThreadStatic]
 			internal static glMultMatrixd pglMultMatrixd;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glOrtho(double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[ThreadStatic]
 			internal static glOrtho pglOrtho;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopMatrix();
 
 			[ThreadStatic]
 			internal static glPopMatrix pglPopMatrix;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushMatrix();
 
 			[ThreadStatic]
 			internal static glPushMatrix pglPushMatrix;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRotated(double angle, double x, double y, double z);
 
 			[ThreadStatic]
 			internal static glRotated pglRotated;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRotatef(float angle, float x, float y, float z);
 
 			[ThreadStatic]
 			internal static glRotatef pglRotatef;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScaled(double x, double y, double z);
 
 			[ThreadStatic]
 			internal static glScaled pglScaled;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScalef(float x, float y, float z);
 
 			[ThreadStatic]
 			internal static glScalef pglScalef;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTranslated(double x, double y, double z);
 
 			[ThreadStatic]
 			internal static glTranslated pglTranslated;
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTranslatef(float x, float y, float z);
 

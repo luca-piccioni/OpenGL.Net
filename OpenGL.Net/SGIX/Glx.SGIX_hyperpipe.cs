@@ -365,41 +365,49 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr* glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
 
 			internal static glXQueryHyperpipeNetworkSGIX pglXQueryHyperpipeNetworkSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXHyperpipeConfigSGIX(IntPtr dpy, int networkId, int npipes, IntPtr cfg, int* hpId);
 
 			internal static glXHyperpipeConfigSGIX pglXHyperpipeConfigSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXQueryHyperpipeConfigSGIX(IntPtr dpy, int hpId, int* npipes);
 
 			internal static glXQueryHyperpipeConfigSGIX pglXQueryHyperpipeConfigSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXDestroyHyperpipeConfigSGIX(IntPtr dpy, int hpId);
 
 			internal static glXDestroyHyperpipeConfigSGIX pglXDestroyHyperpipeConfigSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXBindHyperpipeSGIX(IntPtr dpy, int hpId);
 
 			internal static glXBindHyperpipeSGIX pglXBindHyperpipeSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryHyperpipeBestAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList, IntPtr returnAttribList);
 
 			internal static glXQueryHyperpipeBestAttribSGIX pglXQueryHyperpipeBestAttribSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList);
 
 			internal static glXHyperpipeAttribSGIX pglXHyperpipeAttribSGIX;
 
+			[RequiredByFeature("GLX_SGIX_hyperpipe")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr returnAttribList);
 

@@ -408,8 +408,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[AliasOf("glClearTexImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
@@ -482,8 +484,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[AliasOf("glClearTexImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -577,8 +581,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[AliasOf("glClearTexSubImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
@@ -670,8 +676,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[AliasOf("glClearTexSubImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1040,6 +1048,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
 
@@ -1048,48 +1059,70 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBufferStorage pglBufferStorage;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
 
+			[AliasOf("glClearTexImage")]
+			[AliasOf("glClearTexImageEXT")]
 			[ThreadStatic]
 			internal static glClearTexImage pglClearTexImage;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
 
+			[AliasOf("glClearTexSubImage")]
+			[AliasOf("glClearTexSubImageEXT")]
 			[ThreadStatic]
 			internal static glClearTexSubImage pglClearTexSubImage;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindBuffersBase(Int32 target, UInt32 first, Int32 count, UInt32* buffers);
 
 			[ThreadStatic]
 			internal static glBindBuffersBase pglBindBuffersBase;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindBuffersRange(Int32 target, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, UInt32* sizes);
 
 			[ThreadStatic]
 			internal static glBindBuffersRange pglBindBuffersRange;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindTextures(UInt32 first, Int32 count, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glBindTextures pglBindTextures;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindSamplers(UInt32 first, Int32 count, UInt32* samplers);
 
 			[ThreadStatic]
 			internal static glBindSamplers pglBindSamplers;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindImageTextures(UInt32 first, Int32 count, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glBindImageTextures pglBindImageTextures;
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindVertexBuffers(UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
 

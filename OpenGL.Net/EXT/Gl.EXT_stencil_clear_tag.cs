@@ -68,6 +68,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag);
 

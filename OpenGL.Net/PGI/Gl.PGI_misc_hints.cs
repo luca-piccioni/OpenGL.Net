@@ -176,6 +176,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_PGI_misc_hints")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glHintPGI(Int32 target, Int32 mode);
 

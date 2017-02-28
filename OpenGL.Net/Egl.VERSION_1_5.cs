@@ -624,6 +624,8 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_VERSION_1_5")]
+			[RequiredByFeature("EGL_KHR_cl_event2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
 
@@ -631,6 +633,9 @@ namespace OpenGL
 			[AliasOf("eglCreateSync64KHR")]
 			internal static eglCreateSync peglCreateSync;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
+			[RequiredByFeature("EGL_KHR_fence_sync")]
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroySync(IntPtr dpy, IntPtr sync);
 
@@ -638,6 +643,9 @@ namespace OpenGL
 			[AliasOf("eglDestroySyncKHR")]
 			internal static eglDestroySync peglDestroySync;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
+			[RequiredByFeature("EGL_KHR_fence_sync")]
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
 
@@ -645,16 +653,21 @@ namespace OpenGL
 			[AliasOf("eglClientWaitSyncKHR")]
 			internal static eglClientWaitSync peglClientWaitSync;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglGetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr* value);
 
 			internal static eglGetSyncAttrib peglGetSyncAttrib;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateImage(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, IntPtr* attrib_list);
 
 			internal static eglCreateImage peglCreateImage;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
+			[RequiredByFeature("EGL_KHR_image")]
+			[RequiredByFeature("EGL_KHR_image_base")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroyImage(IntPtr dpy, IntPtr image);
 
@@ -662,21 +675,25 @@ namespace OpenGL
 			[AliasOf("eglDestroyImageKHR")]
 			internal static eglDestroyImage peglDestroyImage;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglGetPlatformDisplay(uint platform, IntPtr native_display, IntPtr* attrib_list);
 
 			internal static eglGetPlatformDisplay peglGetPlatformDisplay;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreatePlatformWindowSurface(IntPtr dpy, IntPtr config, IntPtr native_window, IntPtr* attrib_list);
 
 			internal static eglCreatePlatformWindowSurface peglCreatePlatformWindowSurface;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreatePlatformPixmapSurface(IntPtr dpy, IntPtr config, IntPtr native_pixmap, IntPtr* attrib_list);
 
 			internal static eglCreatePlatformPixmapSurface peglCreatePlatformPixmapSurface;
 
+			[RequiredByFeature("EGL_VERSION_1_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglWaitSync(IntPtr dpy, IntPtr sync, int flags);
 

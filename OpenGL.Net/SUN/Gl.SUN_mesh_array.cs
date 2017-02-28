@@ -74,6 +74,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SUN_mesh_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawMeshArraysSUN(Int32 mode, Int32 first, Int32 count, Int32 width);
 

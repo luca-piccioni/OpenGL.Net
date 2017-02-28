@@ -115,6 +115,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_VERSION_1_4")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr eglGetCurrentContext();
 

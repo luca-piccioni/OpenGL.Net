@@ -65,6 +65,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ARB_parallel_shader_compile")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMaxShaderCompilerThreadsARB(UInt32 count);
 

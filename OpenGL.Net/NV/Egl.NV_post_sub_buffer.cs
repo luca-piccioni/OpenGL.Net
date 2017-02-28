@@ -78,6 +78,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_NV_post_sub_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglPostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height);
 

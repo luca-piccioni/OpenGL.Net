@@ -58,6 +58,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glXGetCurrentDisplay();
 

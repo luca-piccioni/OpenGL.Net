@@ -71,6 +71,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_AMD_interleaved_elements")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribParameteriAMD(UInt32 index, Int32 pname, Int32 param);
 

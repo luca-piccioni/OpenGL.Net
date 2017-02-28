@@ -134,24 +134,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool wglEnableFrameLockI3D();
 
 			[ThreadStatic]
 			internal static wglEnableFrameLockI3D pwglEnableFrameLockI3D;
 
+			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool wglDisableFrameLockI3D();
 
 			[ThreadStatic]
 			internal static wglDisableFrameLockI3D pwglDisableFrameLockI3D;
 
+			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
 
 			[ThreadStatic]
 			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
 
+			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
 

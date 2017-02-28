@@ -110,6 +110,8 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ARB_geometry_shader4")]
+			[RequiredByFeature("GL_NV_geometry_program4")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
 

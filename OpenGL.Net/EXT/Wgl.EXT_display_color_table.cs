@@ -133,24 +133,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
 
 			[ThreadStatic]
 			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
 
+			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
 
 			[ThreadStatic]
 			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
 
+			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
 
 			[ThreadStatic]
 			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
 
+			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void wglDestroyDisplayColorTableEXT(UInt16 id);
 

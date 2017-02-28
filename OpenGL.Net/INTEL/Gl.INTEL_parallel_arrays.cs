@@ -181,24 +181,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
 			[ThreadStatic]
 			internal static glVertexPointervINTEL pglVertexPointervINTEL;
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
 
 			[ThreadStatic]
 			internal static glNormalPointervINTEL pglNormalPointervINTEL;
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
 			[ThreadStatic]
 			internal static glColorPointervINTEL pglColorPointervINTEL;
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 

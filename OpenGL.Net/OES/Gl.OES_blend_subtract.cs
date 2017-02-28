@@ -53,6 +53,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationOES(Int32 mode);
 

@@ -71,6 +71,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_KHR_swap_buffers_with_damage")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
 

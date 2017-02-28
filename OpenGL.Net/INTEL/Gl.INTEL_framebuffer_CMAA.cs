@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glApplyFramebufferAttachmentCMAAINTEL.
 		/// </summary>
-		[RequiredByFeature("GL_INTEL_framebuffer_CMAA", Api = "gl|gles2")]
+		[RequiredByFeature("GL_INTEL_framebuffer_CMAA", Api = "gl|glcore|gles2")]
 		public static void ApplyFramebufferAttachmentINTEL()
 		{
 			Debug.Assert(Delegates.pglApplyFramebufferAttachmentCMAAINTEL != null, "pglApplyFramebufferAttachmentCMAAINTEL not implemented");
@@ -50,6 +50,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_INTEL_framebuffer_CMAA", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glApplyFramebufferAttachmentCMAAINTEL();
 

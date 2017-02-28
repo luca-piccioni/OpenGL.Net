@@ -143,16 +143,19 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
 			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
+			[RequiredByFeature("GLX_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
 			internal static glXQueryServerString pglXQueryServerString;
 
+			[RequiredByFeature("GLX_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXGetClientString(IntPtr dpy, int name);
 

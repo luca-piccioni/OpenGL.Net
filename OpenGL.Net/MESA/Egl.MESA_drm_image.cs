@@ -151,11 +151,13 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_MESA_drm_image")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateDRMImageMESA(IntPtr dpy, int* attrib_list);
 
 			internal static eglCreateDRMImageMESA peglCreateDRMImageMESA;
 
+			[RequiredByFeature("EGL_MESA_drm_image")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglExportDRMImageMESA(IntPtr dpy, IntPtr image, int* name, int* handle, int* stride);
 

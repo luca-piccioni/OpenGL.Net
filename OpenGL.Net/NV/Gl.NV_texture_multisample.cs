@@ -283,36 +283,42 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexImage2DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations);
 
 			[ThreadStatic]
 			internal static glTexImage2DMultisampleCoverageNV pglTexImage2DMultisampleCoverageNV;
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexImage3DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 
 			[ThreadStatic]
 			internal static glTexImage3DMultisampleCoverageNV pglTexImage3DMultisampleCoverageNV;
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage2DMultisampleNV(UInt32 texture, Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations);
 
 			[ThreadStatic]
 			internal static glTextureImage2DMultisampleNV pglTextureImage2DMultisampleNV;
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage3DMultisampleNV(UInt32 texture, Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 
 			[ThreadStatic]
 			internal static glTextureImage3DMultisampleNV pglTextureImage3DMultisampleNV;
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage2DMultisampleCoverageNV(UInt32 texture, Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations);
 
 			[ThreadStatic]
 			internal static glTextureImage2DMultisampleCoverageNV pglTextureImage2DMultisampleCoverageNV;
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage3DMultisampleCoverageNV(UInt32 texture, Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 

@@ -585,132 +585,154 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord1bOES(Int32 texture, sbyte s);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord1bOES pglMultiTexCoord1bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord1bvOES(Int32 texture, sbyte* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord1bvOES pglMultiTexCoord1bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord2bOES(Int32 texture, sbyte s, sbyte t);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord2bOES pglMultiTexCoord2bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord2bvOES(Int32 texture, sbyte* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord2bvOES pglMultiTexCoord2bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord3bOES(Int32 texture, sbyte s, sbyte t, sbyte r);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord3bOES pglMultiTexCoord3bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord3bvOES(Int32 texture, sbyte* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord3bvOES pglMultiTexCoord3bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord4bOES(Int32 texture, sbyte s, sbyte t, sbyte r, sbyte q);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord4bOES pglMultiTexCoord4bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord4bvOES(Int32 texture, sbyte* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoord4bvOES pglMultiTexCoord4bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1bOES(sbyte s);
 
 			[ThreadStatic]
 			internal static glTexCoord1bOES pglTexCoord1bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1bvOES(sbyte* coords);
 
 			[ThreadStatic]
 			internal static glTexCoord1bvOES pglTexCoord1bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2bOES(sbyte s, sbyte t);
 
 			[ThreadStatic]
 			internal static glTexCoord2bOES pglTexCoord2bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2bvOES(sbyte* coords);
 
 			[ThreadStatic]
 			internal static glTexCoord2bvOES pglTexCoord2bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3bOES(sbyte s, sbyte t, sbyte r);
 
 			[ThreadStatic]
 			internal static glTexCoord3bOES pglTexCoord3bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3bvOES(sbyte* coords);
 
 			[ThreadStatic]
 			internal static glTexCoord3bvOES pglTexCoord3bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4bOES(sbyte s, sbyte t, sbyte r, sbyte q);
 
 			[ThreadStatic]
 			internal static glTexCoord4bOES pglTexCoord4bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4bvOES(sbyte* coords);
 
 			[ThreadStatic]
 			internal static glTexCoord4bvOES pglTexCoord4bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2bOES(sbyte x, sbyte y);
 
 			[ThreadStatic]
 			internal static glVertex2bOES pglVertex2bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2bvOES(sbyte* coords);
 
 			[ThreadStatic]
 			internal static glVertex2bvOES pglVertex2bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3bOES(sbyte x, sbyte y, sbyte z);
 
 			[ThreadStatic]
 			internal static glVertex3bOES pglVertex3bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3bvOES(sbyte* coords);
 
 			[ThreadStatic]
 			internal static glVertex3bvOES pglVertex3bvOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4bOES(sbyte x, sbyte y, sbyte z, sbyte w);
 
 			[ThreadStatic]
 			internal static glVertex4bOES pglVertex4bOES;
 
+			[RequiredByFeature("GL_OES_byte_coordinates", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4bvOES(sbyte* coords);
 

@@ -1,0 +1,51 @@
+
+// Copyright (C) 2015-2016 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+#pragma warning disable 649, 1572, 1573
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Security;
+using System.Text;
+
+namespace OpenGL
+{
+	public partial class Egl
+	{
+		/// <summary>
+		/// Value of EGL_STREAM_PROTOCOL_SOCKET_NV symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_NV_stream_socket")]
+		public const int STREAM_PROTOCOL_SOCKET_NV = 0x324B;
+
+		/// <summary>
+		/// Value of EGL_SOCKET_HANDLE_NV symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_NV_stream_socket")]
+		public const int SOCKET_HANDLE_NV = 0x324C;
+
+		/// <summary>
+		/// Value of EGL_SOCKET_TYPE_NV symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_NV_stream_socket")]
+		public const int SOCKET_TYPE_NV = 0x324D;
+
+	}
+
+}

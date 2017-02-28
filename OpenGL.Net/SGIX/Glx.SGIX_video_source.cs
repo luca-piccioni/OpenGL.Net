@@ -94,11 +94,13 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_SGIX_video_source")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
 
 			internal static glXCreateGLXVideoSourceSGIX pglXCreateGLXVideoSourceSGIX;
 
+			[RequiredByFeature("GLX_SGIX_video_source")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
 

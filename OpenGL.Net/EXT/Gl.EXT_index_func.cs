@@ -74,6 +74,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_index_func")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexFuncEXT(Int32 func, float @ref);
 

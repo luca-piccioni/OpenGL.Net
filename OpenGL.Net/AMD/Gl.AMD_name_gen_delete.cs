@@ -147,18 +147,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
 			[ThreadStatic]
 			internal static glGenNamesAMD pglGenNamesAMD;
 
+			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
 			[ThreadStatic]
 			internal static glDeleteNamesAMD pglDeleteNamesAMD;
 
+			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsNameAMD(Int32 identifier, UInt32 name);
 

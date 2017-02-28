@@ -226,42 +226,56 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenQueriesEXT(Int32 n, UInt32* ids);
 
 			[ThreadStatic]
 			internal static glGenQueriesEXT pglGenQueriesEXT;
 
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteQueriesEXT(Int32 n, UInt32* ids);
 
 			[ThreadStatic]
 			internal static glDeleteQueriesEXT pglDeleteQueriesEXT;
 
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsQueryEXT(UInt32 id);
 
 			[ThreadStatic]
 			internal static glIsQueryEXT pglIsQueryEXT;
 
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginQueryEXT(Int32 target, UInt32 id);
 
 			[ThreadStatic]
 			internal static glBeginQueryEXT pglBeginQueryEXT;
 
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndQueryEXT(Int32 target);
 
 			[ThreadStatic]
 			internal static glEndQueryEXT pglEndQueryEXT;
 
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetQueryivEXT pglGetQueryivEXT;
 
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
 

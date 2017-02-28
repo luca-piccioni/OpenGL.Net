@@ -251,26 +251,31 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_SGIX_video_resize")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
 
 			internal static glXBindChannelToWindowSGIX pglXBindChannelToWindowSGIX;
 
+			[RequiredByFeature("GLX_SGIX_video_resize")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
 
 			internal static glXChannelRectSGIX pglXChannelRectSGIX;
 
+			[RequiredByFeature("GLX_SGIX_video_resize")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
 
 			internal static glXQueryChannelRectSGIX pglXQueryChannelRectSGIX;
 
+			[RequiredByFeature("GLX_SGIX_video_resize")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
 
 			internal static glXQueryChannelDeltasSGIX pglXQueryChannelDeltasSGIX;
 
+			[RequiredByFeature("GLX_SGIX_video_resize")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype);
 

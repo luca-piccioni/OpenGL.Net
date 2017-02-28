@@ -195,30 +195,35 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglEnumGpusNV(UInt32 iGpuIndex, IntPtr* phGpu);
 
 			[ThreadStatic]
 			internal static wglEnumGpusNV pwglEnumGpusNV;
 
+			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglEnumGpuDevicesNV(IntPtr hGpu, UInt32 iDeviceIndex, IntPtr lpGpuDevice);
 
 			[ThreadStatic]
 			internal static wglEnumGpuDevicesNV pwglEnumGpuDevicesNV;
 
+			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglCreateAffinityDCNV(IntPtr* phGpuList);
 
 			[ThreadStatic]
 			internal static wglCreateAffinityDCNV pwglCreateAffinityDCNV;
 
+			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglEnumGpusFromAffinityDCNV(IntPtr hAffinityDC, UInt32 iGpuIndex, IntPtr* hGpu);
 
 			[ThreadStatic]
 			internal static wglEnumGpusFromAffinityDCNV pwglEnumGpusFromAffinityDCNV;
 
+			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDeleteDCNV(IntPtr hdc);
 

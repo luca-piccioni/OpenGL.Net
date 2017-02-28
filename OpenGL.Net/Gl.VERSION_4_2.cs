@@ -1540,8 +1540,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawTransformFeedback"/>
 		/// <seealso cref="Gl.DrawTransformFeedbackStreamInstanced"/>
+		[AliasOf("glDrawTransformFeedbackInstancedEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
 		public static void DrawTransformFeedbackInstanced(PrimitiveType mode, UInt32 id, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackInstanced != null, "pglDrawTransformFeedbackInstanced not implemented");
@@ -1664,6 +1666,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArraysInstancedBaseInstance(Int32 mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance);
 
@@ -1672,6 +1677,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawArraysInstancedBaseInstance pglDrawArraysInstancedBaseInstance;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance);
 
@@ -1680,6 +1688,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseInstance pglDrawElementsInstancedBaseInstance;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseVertexBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
 
@@ -1688,24 +1699,36 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseVertexBaseInstance pglDrawElementsInstancedBaseVertexBaseInstance;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInternalformativ(Int32 target, Int32 internalformat, Int32 pname, Int32 bufSize, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetInternalformativ pglGetInternalformativ;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveAtomicCounterBufferiv(UInt32 program, UInt32 bufferIndex, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetActiveAtomicCounterBufferiv pglGetActiveAtomicCounterBufferiv;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 access, Int32 format);
 
 			[ThreadStatic]
 			internal static glBindImageTexture pglBindImageTexture;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_shader_image_load_store")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMemoryBarrier(UInt32 barriers);
 
@@ -1714,6 +1737,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glMemoryBarrier pglMemoryBarrier;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
@@ -1722,6 +1748,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexStorage1D pglTexStorage1D;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
@@ -1730,6 +1760,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexStorage2D pglTexStorage2D;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
@@ -1738,12 +1772,19 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glTexStorage3D pglTexStorage3D;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTransformFeedbackInstanced(Int32 mode, UInt32 id, Int32 instancecount);
 
+			[AliasOf("glDrawTransformFeedbackInstanced")]
+			[AliasOf("glDrawTransformFeedbackInstancedEXT")]
 			[ThreadStatic]
 			internal static glDrawTransformFeedbackInstanced pglDrawTransformFeedbackInstanced;
 
+			[RequiredByFeature("GL_VERSION_4_2")]
+			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTransformFeedbackStreamInstanced(Int32 mode, UInt32 id, UInt32 stream, Int32 instancecount);
 

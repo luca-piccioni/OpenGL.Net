@@ -567,60 +567,70 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightbvARB(Int32 size, sbyte* weights);
 
 			[ThreadStatic]
 			internal static glWeightbvARB pglWeightbvARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightsvARB(Int32 size, Int16* weights);
 
 			[ThreadStatic]
 			internal static glWeightsvARB pglWeightsvARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightivARB(Int32 size, Int32* weights);
 
 			[ThreadStatic]
 			internal static glWeightivARB pglWeightivARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightfvARB(Int32 size, float* weights);
 
 			[ThreadStatic]
 			internal static glWeightfvARB pglWeightfvARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightdvARB(Int32 size, double* weights);
 
 			[ThreadStatic]
 			internal static glWeightdvARB pglWeightdvARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightubvARB(Int32 size, byte* weights);
 
 			[ThreadStatic]
 			internal static glWeightubvARB pglWeightubvARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightusvARB(Int32 size, UInt16* weights);
 
 			[ThreadStatic]
 			internal static glWeightusvARB pglWeightusvARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightuivARB(Int32 size, UInt32* weights);
 
 			[ThreadStatic]
 			internal static glWeightuivARB pglWeightuivARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glWeightPointerARB pglWeightPointerARB;
 
+			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexBlendARB(Int32 count);
 

@@ -65,6 +65,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_pixel_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTexGenSGIX(Int32 mode);
 

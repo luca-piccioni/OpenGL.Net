@@ -147,18 +147,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
 
 			[ThreadStatic]
 			internal static glUniformBufferEXT pglUniformBufferEXT;
 
+			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
 
 			[ThreadStatic]
 			internal static glGetUniformBufferSizeEXT pglGetUniformBufferSizeEXT;
 
+			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
 

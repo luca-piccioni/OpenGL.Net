@@ -62,6 +62,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SUNX_constant_data")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinishTextureSUNX();
 

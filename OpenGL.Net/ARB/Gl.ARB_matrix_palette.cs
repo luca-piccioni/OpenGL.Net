@@ -255,30 +255,35 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ARB_matrix_palette")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCurrentPaletteMatrixARB(Int32 index);
 
 			[ThreadStatic]
 			internal static glCurrentPaletteMatrixARB pglCurrentPaletteMatrixARB;
 
+			[RequiredByFeature("GL_ARB_matrix_palette")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixIndexubvARB(Int32 size, byte* indices);
 
 			[ThreadStatic]
 			internal static glMatrixIndexubvARB pglMatrixIndexubvARB;
 
+			[RequiredByFeature("GL_ARB_matrix_palette")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixIndexusvARB(Int32 size, UInt16* indices);
 
 			[ThreadStatic]
 			internal static glMatrixIndexusvARB pglMatrixIndexusvARB;
 
+			[RequiredByFeature("GL_ARB_matrix_palette")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixIndexuivARB(Int32 size, UInt32* indices);
 
 			[ThreadStatic]
 			internal static glMatrixIndexuivARB pglMatrixIndexuivARB;
 
+			[RequiredByFeature("GL_ARB_matrix_palette")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixIndexPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 

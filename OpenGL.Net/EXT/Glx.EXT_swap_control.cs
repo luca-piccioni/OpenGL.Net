@@ -71,6 +71,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_EXT_swap_control")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
 

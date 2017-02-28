@@ -745,6 +745,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, float* value);
 
@@ -753,6 +756,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glUniformMatrix2x3fv pglUniformMatrix2x3fv;
 
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, float* value);
 
@@ -761,6 +767,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glUniformMatrix3x2fv pglUniformMatrix3x2fv;
 
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, float* value);
 
@@ -769,6 +778,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glUniformMatrix2x4fv pglUniformMatrix2x4fv;
 
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, float* value);
 
@@ -777,6 +789,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glUniformMatrix4x2fv pglUniformMatrix4x2fv;
 
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, float* value);
 
@@ -785,6 +800,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glUniformMatrix3x4fv pglUniformMatrix3x4fv;
 
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, float* value);
 

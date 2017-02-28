@@ -37,7 +37,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:String"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 		public static void InsertEventMarkerEXT(Int32 length, String marker)
 		{
 			Debug.Assert(Delegates.pglInsertEventMarkerEXT != null, "pglInsertEventMarkerEXT not implemented");
@@ -55,7 +55,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:String"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 		public static void PushGroupMarkerEXT(Int32 length, String marker)
 		{
 			Debug.Assert(Delegates.pglPushGroupMarkerEXT != null, "pglPushGroupMarkerEXT not implemented");
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glPopGroupMarkerEXT.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 		public static void PopGroupMarkerEXT()
 		{
 			Debug.Assert(Delegates.pglPopGroupMarkerEXT != null, "pglPopGroupMarkerEXT not implemented");
@@ -94,18 +94,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInsertEventMarkerEXT(Int32 length, String marker);
 
 			[ThreadStatic]
 			internal static glInsertEventMarkerEXT pglInsertEventMarkerEXT;
 
+			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushGroupMarkerEXT(Int32 length, String marker);
 
 			[ThreadStatic]
 			internal static glPushGroupMarkerEXT pglPushGroupMarkerEXT;
 
+			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopGroupMarkerEXT();
 

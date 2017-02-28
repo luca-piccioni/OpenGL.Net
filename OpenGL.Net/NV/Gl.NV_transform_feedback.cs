@@ -349,42 +349,49 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackAttribsNV(Int32 count, Int32* attribs, Int32 bufferMode);
 
 			[ThreadStatic]
 			internal static glTransformFeedbackAttribsNV pglTransformFeedbackAttribsNV;
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackVaryingsNV(UInt32 program, Int32 count, Int32* locations, Int32 bufferMode);
 
 			[ThreadStatic]
 			internal static glTransformFeedbackVaryingsNV pglTransformFeedbackVaryingsNV;
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveVaryingNV(UInt32 program, String name);
 
 			[ThreadStatic]
 			internal static glActiveVaryingNV pglActiveVaryingNV;
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetVaryingLocationNV(UInt32 program, String name);
 
 			[ThreadStatic]
 			internal static glGetVaryingLocationNV pglGetVaryingLocationNV;
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, [Out] StringBuilder name);
 
 			[ThreadStatic]
 			internal static glGetActiveVaryingNV pglGetActiveVaryingNV;
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, Int32* location);
 
 			[ThreadStatic]
 			internal static glGetTransformFeedbackVaryingNV pglGetTransformFeedbackVaryingNV;
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackStreamAttribsNV(Int32 count, Int32* attribs, Int32 nbuffers, Int32* bufstreams, Int32 bufferMode);
 

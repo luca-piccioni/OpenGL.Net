@@ -114,18 +114,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatusEXT();
 
 			[ThreadStatic]
 			internal static glGetGraphicsResetStatusEXT pglGetGraphicsResetStatusEXT;
 
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformfvEXT(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
 			[ThreadStatic]
 			internal static glGetnUniformfvEXT pglGetnUniformfvEXT;
 
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformivEXT(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 

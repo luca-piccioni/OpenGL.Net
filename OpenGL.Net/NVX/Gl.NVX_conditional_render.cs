@@ -53,6 +53,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NVX_conditional_render")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginConditionalRenderNVX(UInt32 id);
 

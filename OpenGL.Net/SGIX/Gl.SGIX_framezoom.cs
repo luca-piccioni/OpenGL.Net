@@ -71,6 +71,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_framezoom")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrameZoomSGIX(Int32 factor);
 

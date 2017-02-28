@@ -214,26 +214,31 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int* attrib_list);
 
 			internal static glXCreateGLXPbufferSGIX pglXCreateGLXPbufferSGIX;
 
+			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
 
 			internal static glXDestroyGLXPbufferSGIX pglXDestroyGLXPbufferSGIX;
 
+			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, UInt32* value);
 
 			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
 
+			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask);
 
 			internal static glXSelectEventSGIX pglXSelectEventSGIX;
 
+			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32* mask);
 

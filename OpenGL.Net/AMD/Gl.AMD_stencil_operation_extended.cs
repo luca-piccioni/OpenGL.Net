@@ -80,6 +80,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilOpValueAMD(Int32 face, UInt32 value);
 

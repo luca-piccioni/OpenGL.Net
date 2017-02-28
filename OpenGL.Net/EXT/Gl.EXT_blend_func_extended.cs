@@ -63,6 +63,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name);
 

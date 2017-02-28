@@ -112,6 +112,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer);
 

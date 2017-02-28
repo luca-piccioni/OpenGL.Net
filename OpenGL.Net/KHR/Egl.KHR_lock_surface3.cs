@@ -291,16 +291,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_KHR_lock_surface")]
+			[RequiredByFeature("EGL_KHR_lock_surface3")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
 			internal static eglLockSurfaceKHR peglLockSurfaceKHR;
 
+			[RequiredByFeature("EGL_KHR_lock_surface")]
+			[RequiredByFeature("EGL_KHR_lock_surface3")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
 
 			internal static eglUnlockSurfaceKHR peglUnlockSurfaceKHR;
 
+			[RequiredByFeature("EGL_KHR_lock_surface3")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 

@@ -139,12 +139,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDetailTexFuncSGIS(Int32 target, Int32 n, float* points);
 
 			[ThreadStatic]
 			internal static glDetailTexFuncSGIS pglDetailTexFuncSGIS;
 
+			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetDetailTexFuncSGIS(Int32 target, float* points);
 

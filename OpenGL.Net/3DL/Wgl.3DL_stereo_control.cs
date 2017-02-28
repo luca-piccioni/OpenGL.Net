@@ -85,6 +85,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_3DL_stereo_control")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglSetStereoEmitterState3DL(IntPtr hDC, UInt32 uState);
 

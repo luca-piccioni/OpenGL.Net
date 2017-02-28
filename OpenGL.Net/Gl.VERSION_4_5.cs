@@ -8385,54 +8385,73 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClipControl(Int32 origin, Int32 depth);
 
 			[ThreadStatic]
 			internal static glClipControl pglClipControl;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateTransformFeedbacks(Int32 n, UInt32* ids);
 
 			[ThreadStatic]
 			internal static glCreateTransformFeedbacks pglCreateTransformFeedbacks;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTransformFeedbackBufferBase(UInt32 xfb, UInt32 index, UInt32 buffer);
 
 			[ThreadStatic]
 			internal static glTransformFeedbackBufferBase pglTransformFeedbackBufferBase;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackBufferRange(UInt32 xfb, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size);
 
 			[ThreadStatic]
 			internal static glTransformFeedbackBufferRange pglTransformFeedbackBufferRange;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTransformFeedbackiv(UInt32 xfb, Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glGetTransformFeedbackiv pglGetTransformFeedbackiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTransformFeedbacki_v(UInt32 xfb, Int32 pname, UInt32 index, Int32* param);
 
 			[ThreadStatic]
 			internal static glGetTransformFeedbacki_v pglGetTransformFeedbacki_v;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTransformFeedbacki64_v(UInt32 xfb, Int32 pname, UInt32 index, Int64* param);
 
 			[ThreadStatic]
 			internal static glGetTransformFeedbacki64_v pglGetTransformFeedbacki64_v;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateBuffers(Int32 n, UInt32* buffers);
 
 			[ThreadStatic]
 			internal static glCreateBuffers pglCreateBuffers;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags);
 
@@ -8441,12 +8460,17 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glNamedBufferStorage pglNamedBufferStorage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
 
 			[ThreadStatic]
 			internal static glNamedBufferData pglNamedBufferData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
@@ -8455,546 +8479,730 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glNamedBufferSubData pglNamedBufferSubData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCopyNamedBufferSubData(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
 			[ThreadStatic]
 			internal static glCopyNamedBufferSubData pglCopyNamedBufferSubData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
 
 			[ThreadStatic]
 			internal static glClearNamedBufferData pglClearNamedBufferData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
 
 			[ThreadStatic]
 			internal static glClearNamedBufferSubData pglClearNamedBufferSubData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glMapNamedBuffer(UInt32 buffer, Int32 access);
 
 			[ThreadStatic]
 			internal static glMapNamedBuffer pglMapNamedBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glMapNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
 
 			[ThreadStatic]
 			internal static glMapNamedBufferRange pglMapNamedBufferRange;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glUnmapNamedBuffer(UInt32 buffer);
 
 			[ThreadStatic]
 			internal static glUnmapNamedBuffer pglUnmapNamedBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFlushMappedNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length);
 
 			[ThreadStatic]
 			internal static glFlushMappedNamedBufferRange pglFlushMappedNamedBufferRange;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferParameteriv(UInt32 buffer, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetNamedBufferParameteriv pglGetNamedBufferParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferParameteri64v(UInt32 buffer, Int32 pname, Int64* @params);
 
 			[ThreadStatic]
 			internal static glGetNamedBufferParameteri64v pglGetNamedBufferParameteri64v;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferPointerv(UInt32 buffer, Int32 pname, IntPtr* @params);
 
 			[ThreadStatic]
 			internal static glGetNamedBufferPointerv pglGetNamedBufferPointerv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
 			[ThreadStatic]
 			internal static glGetNamedBufferSubData pglGetNamedBufferSubData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateFramebuffers(Int32 n, UInt32* framebuffers);
 
 			[ThreadStatic]
 			internal static glCreateFramebuffers pglCreateFramebuffers;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferRenderbuffer(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferRenderbuffer pglNamedFramebufferRenderbuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferParameteri(UInt32 framebuffer, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferParameteri pglNamedFramebufferParameteri;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferTexture pglNamedFramebufferTexture;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTextureLayer(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferTextureLayer pglNamedFramebufferTextureLayer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferDrawBuffer(UInt32 framebuffer, Int32 buf);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferDrawBuffer pglNamedFramebufferDrawBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedFramebufferDrawBuffers(UInt32 framebuffer, Int32 n, Int32* bufs);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferDrawBuffers pglNamedFramebufferDrawBuffers;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferReadBuffer(UInt32 framebuffer, Int32 src);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferReadBuffer pglNamedFramebufferReadBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInvalidateNamedFramebufferData(UInt32 framebuffer, Int32 numAttachments, Int32* attachments);
 
 			[ThreadStatic]
 			internal static glInvalidateNamedFramebufferData pglInvalidateNamedFramebufferData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInvalidateNamedFramebufferSubData(UInt32 framebuffer, Int32 numAttachments, Int32* attachments, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glInvalidateNamedFramebufferSubData pglInvalidateNamedFramebufferSubData;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedFramebufferiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, Int32* value);
 
 			[ThreadStatic]
 			internal static glClearNamedFramebufferiv pglClearNamedFramebufferiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedFramebufferuiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, UInt32* value);
 
 			[ThreadStatic]
 			internal static glClearNamedFramebufferuiv pglClearNamedFramebufferuiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedFramebufferfv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float* value);
 
 			[ThreadStatic]
 			internal static glClearNamedFramebufferfv pglClearNamedFramebufferfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearNamedFramebufferfi(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil);
 
 			[ThreadStatic]
 			internal static glClearNamedFramebufferfi pglClearNamedFramebufferfi;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[ThreadStatic]
 			internal static glBlitNamedFramebuffer pglBlitNamedFramebuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glCheckNamedFramebufferStatus(UInt32 framebuffer, Int32 target);
 
 			[ThreadStatic]
 			internal static glCheckNamedFramebufferStatus pglCheckNamedFramebufferStatus;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedFramebufferParameteriv(UInt32 framebuffer, Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glGetNamedFramebufferParameteriv pglGetNamedFramebufferParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedFramebufferAttachmentParameteriv(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetNamedFramebufferAttachmentParameteriv pglGetNamedFramebufferAttachmentParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateRenderbuffers(Int32 n, UInt32* renderbuffers);
 
 			[ThreadStatic]
 			internal static glCreateRenderbuffers pglCreateRenderbuffers;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedRenderbufferStorage(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glNamedRenderbufferStorage pglNamedRenderbufferStorage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glNamedRenderbufferStorageMultisample pglNamedRenderbufferStorageMultisample;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedRenderbufferParameteriv(UInt32 renderbuffer, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetNamedRenderbufferParameteriv pglGetNamedRenderbufferParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateTextures(Int32 target, Int32 n, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glCreateTextures pglCreateTextures;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureBuffer(UInt32 texture, Int32 internalformat, UInt32 buffer);
 
 			[ThreadStatic]
 			internal static glTextureBuffer pglTextureBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureBufferRange(UInt32 texture, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
 			[ThreadStatic]
 			internal static glTextureBufferRange pglTextureBufferRange;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage1D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width);
 
 			[ThreadStatic]
 			internal static glTextureStorage1D pglTextureStorage1D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage2D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glTextureStorage2D pglTextureStorage2D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage3D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
 			[ThreadStatic]
 			internal static glTextureStorage3D pglTextureStorage3D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage2DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
 			[ThreadStatic]
 			internal static glTextureStorage2DMultisample pglTextureStorage2DMultisample;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage3DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
 			[ThreadStatic]
 			internal static glTextureStorage3DMultisample pglTextureStorage3DMultisample;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glTextureSubImage1D pglTextureSubImage1D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glTextureSubImage2D pglTextureSubImage2D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glTextureSubImage3D pglTextureSubImage3D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
 
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage1D pglCompressedTextureSubImage1D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
 
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage2D pglCompressedTextureSubImage2D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
 
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage3D pglCompressedTextureSubImage3D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
 			[ThreadStatic]
 			internal static glCopyTextureSubImage1D pglCopyTextureSubImage1D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glCopyTextureSubImage2D pglCopyTextureSubImage2D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glCopyTextureSubImage3D pglCopyTextureSubImage3D;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureParameterf(UInt32 texture, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glTextureParameterf pglTextureParameterf;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterfv(UInt32 texture, Int32 pname, float* param);
 
 			[ThreadStatic]
 			internal static glTextureParameterfv pglTextureParameterfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureParameteri(UInt32 texture, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glTextureParameteri pglTextureParameteri;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterIiv(UInt32 texture, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glTextureParameterIiv pglTextureParameterIiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterIuiv(UInt32 texture, Int32 pname, UInt32* @params);
 
 			[ThreadStatic]
 			internal static glTextureParameterIuiv pglTextureParameterIuiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameteriv(UInt32 texture, Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glTextureParameteriv pglTextureParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGenerateTextureMipmap(UInt32 texture);
 
 			[ThreadStatic]
 			internal static glGenerateTextureMipmap pglGenerateTextureMipmap;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindTextureUnit(UInt32 unit, UInt32 texture);
 
 			[ThreadStatic]
 			internal static glBindTextureUnit pglBindTextureUnit;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetTextureImage pglGetTextureImage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetCompressedTextureImage pglGetCompressedTextureImage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureLevelParameterfv(UInt32 texture, Int32 level, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetTextureLevelParameterfv pglGetTextureLevelParameterfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureLevelParameteriv(UInt32 texture, Int32 level, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTextureLevelParameteriv pglGetTextureLevelParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterfv(UInt32 texture, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glGetTextureParameterfv pglGetTextureParameterfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterIiv(UInt32 texture, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTextureParameterIiv pglGetTextureParameterIiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterIuiv(UInt32 texture, Int32 pname, UInt32* @params);
 
 			[ThreadStatic]
 			internal static glGetTextureParameterIuiv pglGetTextureParameterIuiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameteriv(UInt32 texture, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetTextureParameteriv pglGetTextureParameteriv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateVertexArrays(Int32 n, UInt32* arrays);
 
 			[ThreadStatic]
 			internal static glCreateVertexArrays pglCreateVertexArrays;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableVertexArrayAttrib(UInt32 vaobj, UInt32 index);
 
 			[ThreadStatic]
 			internal static glDisableVertexArrayAttrib pglDisableVertexArrayAttrib;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableVertexArrayAttrib(UInt32 vaobj, UInt32 index);
 
 			[ThreadStatic]
 			internal static glEnableVertexArrayAttrib pglEnableVertexArrayAttrib;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayElementBuffer(UInt32 vaobj, UInt32 buffer);
 
 			[ThreadStatic]
 			internal static glVertexArrayElementBuffer pglVertexArrayElementBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayVertexBuffer(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
 
 			[ThreadStatic]
 			internal static glVertexArrayVertexBuffer pglVertexArrayVertexBuffer;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayVertexBuffers(UInt32 vaobj, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
 
 			[ThreadStatic]
 			internal static glVertexArrayVertexBuffers pglVertexArrayVertexBuffers;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayAttribBinding(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
 
 			[ThreadStatic]
 			internal static glVertexArrayAttribBinding pglVertexArrayAttribBinding;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
 
 			[ThreadStatic]
 			internal static glVertexArrayAttribFormat pglVertexArrayAttribFormat;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
 			[ThreadStatic]
 			internal static glVertexArrayAttribIFormat pglVertexArrayAttribIFormat;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
 			[ThreadStatic]
 			internal static glVertexArrayAttribLFormat pglVertexArrayAttribLFormat;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayBindingDivisor(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
 
 			[ThreadStatic]
 			internal static glVertexArrayBindingDivisor pglVertexArrayBindingDivisor;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayiv(UInt32 vaobj, Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glGetVertexArrayiv pglGetVertexArrayiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayIndexediv(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glGetVertexArrayIndexediv pglGetVertexArrayIndexediv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayIndexed64iv(UInt32 vaobj, UInt32 index, Int32 pname, Int64* param);
 
 			[ThreadStatic]
 			internal static glGetVertexArrayIndexed64iv pglGetVertexArrayIndexed64iv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateSamplers(Int32 n, UInt32* samplers);
 
 			[ThreadStatic]
 			internal static glCreateSamplers pglCreateSamplers;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateProgramPipelines(Int32 n, UInt32* pipelines);
 
 			[ThreadStatic]
 			internal static glCreateProgramPipelines pglCreateProgramPipelines;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateQueries(Int32 target, Int32 n, UInt32* ids);
 
 			[ThreadStatic]
 			internal static glCreateQueries pglCreateQueries;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryBufferObjecti64v(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
 			[ThreadStatic]
 			internal static glGetQueryBufferObjecti64v pglGetQueryBufferObjecti64v;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryBufferObjectiv(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
 			[ThreadStatic]
 			internal static glGetQueryBufferObjectiv pglGetQueryBufferObjectiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryBufferObjectui64v(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
 			[ThreadStatic]
 			internal static glGetQueryBufferObjectui64v pglGetQueryBufferObjectui64v;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryBufferObjectuiv(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
 			[ThreadStatic]
 			internal static glGetQueryBufferObjectuiv pglGetQueryBufferObjectuiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_ES3_1_compatibility", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMemoryBarrierByRegion(UInt32 barriers);
 
 			[ThreadStatic]
 			internal static glMemoryBarrierByRegion pglMemoryBarrierByRegion;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetTextureSubImage pglGetTextureSubImage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetCompressedTextureSubImage pglGetCompressedTextureSubImage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatus();
 
@@ -9003,24 +9211,30 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetGraphicsResetStatus pglGetGraphicsResetStatus;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnCompressedTexImage(Int32 target, Int32 lod, Int32 bufSize, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetnCompressedTexImage pglGetnCompressedTexImage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnTexImage(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
 
 			[ThreadStatic]
 			internal static glGetnTexImage pglGetnTexImage;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformdv(UInt32 program, Int32 location, Int32 bufSize, double* @params);
 
 			[ThreadStatic]
 			internal static glGetnUniformdv pglGetnUniformdv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
@@ -9029,6 +9243,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetnUniformfv pglGetnUniformfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
@@ -9037,6 +9254,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetnUniformiv pglGetnUniformiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
@@ -9045,6 +9265,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetnUniformuiv pglGetnUniformuiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 
@@ -9055,78 +9280,92 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glReadnPixels pglReadnPixels;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapdv(Int32 target, Int32 query, Int32 bufSize, double* v);
 
 			[ThreadStatic]
 			internal static glGetnMapdv pglGetnMapdv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapfv(Int32 target, Int32 query, Int32 bufSize, float* v);
 
 			[ThreadStatic]
 			internal static glGetnMapfv pglGetnMapfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapiv(Int32 target, Int32 query, Int32 bufSize, Int32* v);
 
 			[ThreadStatic]
 			internal static glGetnMapiv pglGetnMapiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapfv(Int32 map, Int32 bufSize, float* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapfv pglGetnPixelMapfv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapuiv(Int32 map, Int32 bufSize, UInt32* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapuiv pglGetnPixelMapuiv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapusv(Int32 map, Int32 bufSize, UInt16* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapusv pglGetnPixelMapusv;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPolygonStipple(Int32 bufSize, byte* pattern);
 
 			[ThreadStatic]
 			internal static glGetnPolygonStipple pglGetnPolygonStipple;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
 
 			[ThreadStatic]
 			internal static glGetnColorTable pglGetnColorTable;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
 
 			[ThreadStatic]
 			internal static glGetnConvolutionFilter pglGetnConvolutionFilter;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
 
 			[ThreadStatic]
 			internal static glGetnSeparableFilter pglGetnSeparableFilter;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[ThreadStatic]
 			internal static glGetnHistogram pglGetnHistogram;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[ThreadStatic]
 			internal static glGetnMinmax pglGetnMinmax;
 
+			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_ARB_texture_barrier", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureBarrier();
 

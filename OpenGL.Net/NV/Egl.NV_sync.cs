@@ -263,31 +263,37 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
 
 			internal static eglCreateFenceSyncNV peglCreateFenceSyncNV;
 
+			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroySyncNV(IntPtr sync);
 
 			internal static eglDestroySyncNV peglDestroySyncNV;
 
+			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglFenceNV(IntPtr sync);
 
 			internal static eglFenceNV peglFenceNV;
 
+			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
 
 			internal static eglClientWaitSyncNV peglClientWaitSyncNV;
 
+			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSignalSyncNV(IntPtr sync, uint mode);
 
 			internal static eglSignalSyncNV peglSignalSyncNV;
 
+			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
 

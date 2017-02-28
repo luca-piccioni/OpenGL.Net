@@ -66,6 +66,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glQueryMatrixxOES(IntPtr* mantissa, Int32* exponent);
 

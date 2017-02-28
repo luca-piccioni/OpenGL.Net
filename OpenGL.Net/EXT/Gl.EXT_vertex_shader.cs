@@ -1882,252 +1882,294 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginVertexShaderEXT();
 
 			[ThreadStatic]
 			internal static glBeginVertexShaderEXT pglBeginVertexShaderEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndVertexShaderEXT();
 
 			[ThreadStatic]
 			internal static glEndVertexShaderEXT pglEndVertexShaderEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindVertexShaderEXT(UInt32 id);
 
 			[ThreadStatic]
 			internal static glBindVertexShaderEXT pglBindVertexShaderEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenVertexShadersEXT(UInt32 range);
 
 			[ThreadStatic]
 			internal static glGenVertexShadersEXT pglGenVertexShadersEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteVertexShaderEXT(UInt32 id);
 
 			[ThreadStatic]
 			internal static glDeleteVertexShaderEXT pglDeleteVertexShaderEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1);
 
 			[ThreadStatic]
 			internal static glShaderOp1EXT pglShaderOp1EXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2);
 
 			[ThreadStatic]
 			internal static glShaderOp2EXT pglShaderOp2EXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3);
 
 			[ThreadStatic]
 			internal static glShaderOp3EXT pglShaderOp3EXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
 
 			[ThreadStatic]
 			internal static glSwizzleEXT pglSwizzleEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
 
 			[ThreadStatic]
 			internal static glWriteMaskEXT pglWriteMaskEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInsertComponentEXT(UInt32 res, UInt32 src, UInt32 num);
 
 			[ThreadStatic]
 			internal static glInsertComponentEXT pglInsertComponentEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
 
 			[ThreadStatic]
 			internal static glExtractComponentEXT pglExtractComponentEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components);
 
 			[ThreadStatic]
 			internal static glGenSymbolsEXT pglGenSymbolsEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSetInvariantEXT(UInt32 id, Int32 type, IntPtr addr);
 
 			[ThreadStatic]
 			internal static glSetInvariantEXT pglSetInvariantEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr);
 
 			[ThreadStatic]
 			internal static glSetLocalConstantEXT pglSetLocalConstantEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantbvEXT(UInt32 id, sbyte* addr);
 
 			[ThreadStatic]
 			internal static glVariantbvEXT pglVariantbvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantsvEXT(UInt32 id, Int16* addr);
 
 			[ThreadStatic]
 			internal static glVariantsvEXT pglVariantsvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantivEXT(UInt32 id, Int32* addr);
 
 			[ThreadStatic]
 			internal static glVariantivEXT pglVariantivEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantfvEXT(UInt32 id, float* addr);
 
 			[ThreadStatic]
 			internal static glVariantfvEXT pglVariantfvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantdvEXT(UInt32 id, double* addr);
 
 			[ThreadStatic]
 			internal static glVariantdvEXT pglVariantdvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantubvEXT(UInt32 id, byte* addr);
 
 			[ThreadStatic]
 			internal static glVariantubvEXT pglVariantubvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantusvEXT(UInt32 id, UInt16* addr);
 
 			[ThreadStatic]
 			internal static glVariantusvEXT pglVariantusvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantuivEXT(UInt32 id, UInt32* addr);
 
 			[ThreadStatic]
 			internal static glVariantuivEXT pglVariantuivEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr);
 
 			[ThreadStatic]
 			internal static glVariantPointerEXT pglVariantPointerEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableVariantClientStateEXT(UInt32 id);
 
 			[ThreadStatic]
 			internal static glEnableVariantClientStateEXT pglEnableVariantClientStateEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableVariantClientStateEXT(UInt32 id);
 
 			[ThreadStatic]
 			internal static glDisableVariantClientStateEXT pglDisableVariantClientStateEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glBindLightParameterEXT(Int32 light, Int32 value);
 
 			[ThreadStatic]
 			internal static glBindLightParameterEXT pglBindLightParameterEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glBindMaterialParameterEXT(Int32 face, Int32 value);
 
 			[ThreadStatic]
 			internal static glBindMaterialParameterEXT pglBindMaterialParameterEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glBindTexGenParameterEXT(Int32 unit, Int32 coord, Int32 value);
 
 			[ThreadStatic]
 			internal static glBindTexGenParameterEXT pglBindTexGenParameterEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glBindTextureUnitParameterEXT(Int32 unit, Int32 value);
 
 			[ThreadStatic]
 			internal static glBindTextureUnitParameterEXT pglBindTextureUnitParameterEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glBindParameterEXT(Int32 value);
 
 			[ThreadStatic]
 			internal static glBindParameterEXT pglBindParameterEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
 
 			[ThreadStatic]
 			internal static glIsVariantEnabledEXT pglIsVariantEnabledEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
 
 			[ThreadStatic]
 			internal static glGetVariantBooleanvEXT pglGetVariantBooleanvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
 
 			[ThreadStatic]
 			internal static glGetVariantIntegervEXT pglGetVariantIntegervEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVariantFloatvEXT(UInt32 id, Int32 value, float* data);
 
 			[ThreadStatic]
 			internal static glGetVariantFloatvEXT pglGetVariantFloatvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVariantPointervEXT(UInt32 id, Int32 value, IntPtr* data);
 
 			[ThreadStatic]
 			internal static glGetVariantPointervEXT pglGetVariantPointervEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
 
 			[ThreadStatic]
 			internal static glGetInvariantBooleanvEXT pglGetInvariantBooleanvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInvariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
 
 			[ThreadStatic]
 			internal static glGetInvariantIntegervEXT pglGetInvariantIntegervEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInvariantFloatvEXT(UInt32 id, Int32 value, float* data);
 
 			[ThreadStatic]
 			internal static glGetInvariantFloatvEXT pglGetInvariantFloatvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, bool* data);
 
 			[ThreadStatic]
 			internal static glGetLocalConstantBooleanvEXT pglGetLocalConstantBooleanvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLocalConstantIntegervEXT(UInt32 id, Int32 value, Int32* data);
 
 			[ThreadStatic]
 			internal static glGetLocalConstantIntegervEXT pglGetLocalConstantIntegervEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLocalConstantFloatvEXT(UInt32 id, Int32 value, float* data);
 

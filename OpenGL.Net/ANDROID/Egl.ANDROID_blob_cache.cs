@@ -59,6 +59,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_ANDROID_blob_cache")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void eglSetBlobCacheFuncsANDROID(IntPtr dpy, SetBlobFuncDelegate set, GetBlobFuncDelegate get);
 

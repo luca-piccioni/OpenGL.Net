@@ -84,7 +84,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void TexFilterFuncSGIS(TextureTarget target, Int32 filter, Int32 n, float[] weights)
 		{
-			Debug.Assert(weights.Length >= n);
 			unsafe {
 				fixed (float* p_weights = weights)
 				{
@@ -136,12 +135,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIS_texture_filter4")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexFilterFuncSGIS(Int32 target, Int32 filter, float* weights);
 
 			[ThreadStatic]
 			internal static glGetTexFilterFuncSGIS pglGetTexFilterFuncSGIS;
 
+			[RequiredByFeature("GL_SGIS_texture_filter4")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexFilterFuncSGIS(Int32 target, Int32 filter, Int32 n, float* weights);
 

@@ -1100,86 +1100,103 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
 
 			internal static glXChooseVisual pglXChooseVisual;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
 
 			internal static glXCreateContext pglXCreateContext;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXDestroyContext(IntPtr dpy, IntPtr ctx);
 
 			internal static glXDestroyContext pglXDestroyContext;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
 
 			internal static glXMakeCurrent pglXMakeCurrent;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
 
 			internal static glXCopyContext pglXCopyContext;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
 
 			internal static glXSwapBuffers pglXSwapBuffers;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
 
 			internal static glXCreateGLXPixmap pglXCreateGLXPixmap;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
 
 			internal static glXDestroyGLXPixmap pglXDestroyGLXPixmap;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
 
 			internal static glXQueryExtension pglXQueryExtension;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
 
 			internal static glXQueryVersion pglXQueryVersion;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glXIsDirect(IntPtr dpy, IntPtr ctx);
 
 			internal static glXIsDirect pglXIsDirect;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
 
 			internal static glXGetConfig pglXGetConfig;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glXGetCurrentContext();
 
 			internal static glXGetCurrentContext pglXGetCurrentContext;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glXGetCurrentDrawable();
 
 			internal static glXGetCurrentDrawable pglXGetCurrentDrawable;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glXWaitGL();
 
 			internal static glXWaitGL pglXWaitGL;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glXWaitX();
 
 			internal static glXWaitX pglXWaitX;
 
+			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glXUseXFont(Int32 font, int first, int count, int list);
 

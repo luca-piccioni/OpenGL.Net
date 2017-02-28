@@ -174,24 +174,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSpriteParameterfSGIX(Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glSpriteParameterfSGIX pglSpriteParameterfSGIX;
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSpriteParameterfvSGIX(Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glSpriteParameterfvSGIX pglSpriteParameterfvSGIX;
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSpriteParameteriSGIX(Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glSpriteParameteriSGIX pglSpriteParameteriSGIX;
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSpriteParameterivSGIX(Int32 pname, Int32* @params);
 

@@ -98,12 +98,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_ARB_make_current_read")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
 			[ThreadStatic]
 			internal static wglMakeContextCurrentARB pwglMakeContextCurrentARB;
 
+			[RequiredByFeature("WGL_ARB_make_current_read")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr wglGetCurrentReadDCARB();
 

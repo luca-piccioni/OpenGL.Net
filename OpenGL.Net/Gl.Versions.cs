@@ -137,6 +137,11 @@ namespace OpenGL
 		/// </summary>
 		public static readonly KhronosVersion Version_320_ES = new KhronosVersion(3, 2, KhronosVersion.ApiGles2);
 
+		/// <summary>
+		/// Version for OpenGL Security Critical (SC)2.0 API.
+		/// </summary>
+		public static readonly KhronosVersion Version_200_SC = new KhronosVersion(2, 0, KhronosVersion.ApiGlsc2);
+
 		#endregion
 
 	}

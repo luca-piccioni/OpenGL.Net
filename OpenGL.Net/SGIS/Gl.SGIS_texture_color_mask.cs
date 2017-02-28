@@ -68,6 +68,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIS_texture_color_mask")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha);
 

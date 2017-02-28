@@ -25,7 +25,7 @@ namespace OpenGL
 	/// <summary>
 	/// Attribute asserting the features requiring the underlying member.
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method, AllowMultiple = true)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Delegate, AllowMultiple = true)]
 	public sealed class RequiredByFeatureAttribute : Attribute
 	{
 		#region Constructors
@@ -64,30 +64,45 @@ namespace OpenGL
 
 		#region Support Detection
 
-		/// <summary>
-		/// Determine whether the feature specified by this Attribute is supported by the current
-		/// implementation.
-		/// </summary>
-		public bool IsSupported
+		public bool IsSupportedApi(string api)
 		{
-			get
-			{
-				// Check version
-				KhronosVersion featureVersion = KhronosVersion.ParseFeature(FeatureName, false);
-				if (featureVersion != null) {
-					if (Gl.CurrentVersion.Api != featureVersion.Api)
-						return (false);
+			if (api == null)
+				throw new ArgumentNullException("api");
 
-					return (Gl.CurrentVersion >= featureVersion);
-				}
+			KhronosVersion featureVersion = KhronosVersion.ParseFeature(FeatureName, false);
+			if (featureVersion != null)
+				return (false);     // Ignore version features
 
+			return (Regex.IsMatch(api, Api));
+		}
+
+		public bool IsSupported(KhronosVersion version)
+		{
+			return (IsSupported(version, null));
+		}
+
+		public bool IsSupported(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)
+		{
+			if (version == null)
+				throw new ArgumentNullException("version");
+
+			KhronosVersion featureVersion = KhronosVersion.ParseFeature(FeatureName, false);
+			if (featureVersion != null) {
+				if (version.Api != featureVersion.Api)
+					return (false);
+
+				return (version >= featureVersion);
+			}
+
+			if (extensions != null) {
 				// Check compatible API
-				if (Regex.IsMatch(Gl.CurrentVersion.Api, Api) == false)
+				if (Regex.IsMatch(version.Api, Api) == false)
 					return (false);
 
 				// Last chance: extension name
-				return (Gl.CurrentExtensions.HasExtensions(FeatureName));
-			}
+				return (extensions.HasExtensions(FeatureName));
+			} else
+				return (false);
 		}
 
 		#endregion

@@ -163,18 +163,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramBufferParametersfvNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, float* @params);
 
 			[ThreadStatic]
 			internal static glProgramBufferParametersfvNV pglProgramBufferParametersfvNV;
 
+			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramBufferParametersIivNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, Int32* @params);
 
 			[ThreadStatic]
 			internal static glProgramBufferParametersIivNV pglProgramBufferParametersIivNV;
 
+			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramBufferParametersIuivNV(Int32 target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, UInt32* @params);
 

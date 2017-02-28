@@ -62,6 +62,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OES_blend_func_separate", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFuncSeparateOES(Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 

@@ -823,114 +823,133 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatusARB();
 
 			[ThreadStatic]
 			internal static glGetGraphicsResetStatusARB pglGetGraphicsResetStatusARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr img);
 
 			[ThreadStatic]
 			internal static glGetnTexImageARB pglGetnTexImageARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, IntPtr img);
 
 			[ThreadStatic]
 			internal static glGetnCompressedTexImageARB pglGetnCompressedTexImageARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformfvARB(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
 			[ThreadStatic]
 			internal static glGetnUniformfvARB pglGetnUniformfvARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformivARB(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetnUniformivARB pglGetnUniformivARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuivARB(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
 			[ThreadStatic]
 			internal static glGetnUniformuivARB pglGetnUniformuivARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformdvARB(UInt32 program, Int32 location, Int32 bufSize, double* @params);
 
 			[ThreadStatic]
 			internal static glGetnUniformdvARB pglGetnUniformdvARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapdvARB(Int32 target, Int32 query, Int32 bufSize, double* v);
 
 			[ThreadStatic]
 			internal static glGetnMapdvARB pglGetnMapdvARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapfvARB(Int32 target, Int32 query, Int32 bufSize, float* v);
 
 			[ThreadStatic]
 			internal static glGetnMapfvARB pglGetnMapfvARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapivARB(Int32 target, Int32 query, Int32 bufSize, Int32* v);
 
 			[ThreadStatic]
 			internal static glGetnMapivARB pglGetnMapivARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapfvARB(Int32 map, Int32 bufSize, float* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapfvARB pglGetnPixelMapfvARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapuivARB(Int32 map, Int32 bufSize, UInt32* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapuivARB pglGetnPixelMapuivARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapusvARB(Int32 map, Int32 bufSize, UInt16* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapusvARB pglGetnPixelMapusvARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPolygonStippleARB(Int32 bufSize, byte* pattern);
 
 			[ThreadStatic]
 			internal static glGetnPolygonStippleARB pglGetnPolygonStippleARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
 
 			[ThreadStatic]
 			internal static glGetnColorTableARB pglGetnColorTableARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
 
 			[ThreadStatic]
 			internal static glGetnConvolutionFilterARB pglGetnConvolutionFilterARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
 
 			[ThreadStatic]
 			internal static glGetnSeparableFilterARB pglGetnSeparableFilterARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[ThreadStatic]
 			internal static glGetnHistogramARB pglGetnHistogramARB;
 
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 

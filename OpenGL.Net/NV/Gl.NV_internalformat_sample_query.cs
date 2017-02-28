@@ -31,25 +31,25 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MULTISAMPLES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		public const int MULTISAMPLES_NV = 0x9371;
 
 		/// <summary>
 		/// Value of GL_SUPERSAMPLE_SCALE_X_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		public const int SUPERSAMPLE_SCALE_X_NV = 0x9372;
 
 		/// <summary>
 		/// Value of GL_SUPERSAMPLE_SCALE_Y_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		public const int SUPERSAMPLE_SCALE_Y_NV = 0x9373;
 
 		/// <summary>
 		/// Value of GL_CONFORMANT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		public const int CONFORMANT_NV = 0x9374;
 
 		/// <summary>
@@ -70,7 +70,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		public static void GetInternalformatSampleNV(Int32 target, Int32 internalformat, Int32 samples, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -94,6 +94,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInternalformatSampleivNV(Int32 target, Int32 internalformat, Int32 samples, Int32 pname, Int32 bufSize, Int32* @params);
 

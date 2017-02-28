@@ -115,18 +115,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_depth_buffer_float")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRangedNV(double zNear, double zFar);
 
 			[ThreadStatic]
 			internal static glDepthRangedNV pglDepthRangedNV;
 
+			[RequiredByFeature("GL_NV_depth_buffer_float")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearDepthdNV(double depth);
 
 			[ThreadStatic]
 			internal static glClearDepthdNV pglClearDepthdNV;
 
+			[RequiredByFeature("GL_NV_depth_buffer_float")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthBoundsdNV(double zmin, double zmax);
 

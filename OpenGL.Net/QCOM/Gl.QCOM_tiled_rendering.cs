@@ -308,12 +308,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStartTilingQCOM(UInt32 x, UInt32 y, UInt32 width, UInt32 height, UInt32 preserveMask);
 
 			[ThreadStatic]
 			internal static glStartTilingQCOM pglStartTilingQCOM;
 
+			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndTilingQCOM(UInt32 preserveMask);
 

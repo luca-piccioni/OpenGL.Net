@@ -31,20 +31,26 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OVR_multiview", Api = "gl|gles2")]
+		[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR = 0x9630;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OVR_multiview", Api = "gl|gles2")]
+		[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR = 0x9632;
 
 		/// <summary>
 		/// Value of GL_MAX_VIEWS_OVR symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OVR_multiview", Api = "gl|gles2")]
+		[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 		public const int MAX_VIEWS_OVR = 0x9631;
+
+		/// <summary>
+		/// Value of GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR symbol.
+		/// </summary>
+		[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
+		public const int FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
 		/// <summary>
 		/// Binding for glFramebufferTextureMultiviewOVR.
@@ -67,7 +73,7 @@ namespace OpenGL
 		/// <param name="numViews">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_OVR_multiview", Api = "gl|gles2")]
+		[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 		public static void FramebufferTextureMultiOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 baseViewIndex, Int32 numViews)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureMultiviewOVR != null, "pglFramebufferTextureMultiviewOVR not implemented");
@@ -86,6 +92,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 baseViewIndex, Int32 numViews);
 

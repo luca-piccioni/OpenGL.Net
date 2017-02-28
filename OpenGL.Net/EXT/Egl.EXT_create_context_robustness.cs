@@ -29,6 +29,12 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_EXT_create_context_robustness")]
+		public const int CONTEXT_OPENGL_ROBUST_ACCESS_EXT = 0x30BF;
+
+		/// <summary>
 		/// Value of EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_create_context_robustness")]

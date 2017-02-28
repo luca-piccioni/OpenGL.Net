@@ -114,12 +114,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTessellationFactorAMD(float factor);
 
 			[ThreadStatic]
 			internal static glTessellationFactorAMD pglTessellationFactorAMD;
 
+			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTessellationModeAMD(Int32 mode);
 

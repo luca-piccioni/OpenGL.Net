@@ -70,6 +70,8 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_enumeration")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);
 

@@ -344,6 +344,12 @@ namespace OpenGL
 			public bool MultisampleCoverage_NV;
 
 			/// <summary>
+			/// Support for extension WGL_EXT_colorspace.
+			/// </summary>
+			[Extension("WGL_EXT_colorspace")]
+			public bool Colorspace_EXT;
+
+			/// <summary>
 			/// Support for extension WGL_NV_vertex_array_range.
 			/// </summary>
 			[Extension("WGL_NV_vertex_array_range")]

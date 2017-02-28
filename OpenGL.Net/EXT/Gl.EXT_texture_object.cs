@@ -168,24 +168,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
 
 			[ThreadStatic]
 			internal static glAreTexturesResidentEXT pglAreTexturesResidentEXT;
 
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteTexturesEXT(Int32 n, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glDeleteTexturesEXT pglDeleteTexturesEXT;
 
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenTexturesEXT(Int32 n, UInt32* textures);
 
 			[ThreadStatic]
 			internal static glGenTexturesEXT pglGenTexturesEXT;
 
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsTextureEXT(UInt32 texture);
 

@@ -25,7 +25,7 @@ namespace OpenGL
 	/// <summary>
 	/// Attribute asserting the features requiring the underlying member.
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method, AllowMultiple = true)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Delegate, AllowMultiple = true)]
 	public sealed class RemovedByFeatureAttribute : Attribute
 	{
 		/// <summary>

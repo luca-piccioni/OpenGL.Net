@@ -252,12 +252,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_texture_integer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
 
 			[ThreadStatic]
 			internal static glClearColorIiEXT pglClearColorIiEXT;
 
+			[RequiredByFeature("GL_EXT_texture_integer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 

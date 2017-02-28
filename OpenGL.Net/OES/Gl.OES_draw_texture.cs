@@ -260,48 +260,56 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
 
 			[ThreadStatic]
 			internal static glDrawTexsOES pglDrawTexsOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
 
 			[ThreadStatic]
 			internal static glDrawTexiOES pglDrawTexiOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
 
 			[ThreadStatic]
 			internal static glDrawTexxOES pglDrawTexxOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawTexsvOES(Int16* coords);
 
 			[ThreadStatic]
 			internal static glDrawTexsvOES pglDrawTexsvOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawTexivOES(Int32* coords);
 
 			[ThreadStatic]
 			internal static glDrawTexivOES pglDrawTexivOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawTexxvOES(IntPtr* coords);
 
 			[ThreadStatic]
 			internal static glDrawTexxvOES pglDrawTexxvOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTexfOES(float x, float y, float z, float width, float height);
 
 			[ThreadStatic]
 			internal static glDrawTexfOES pglDrawTexfOES;
 
+			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawTexfvOES(float* coords);
 

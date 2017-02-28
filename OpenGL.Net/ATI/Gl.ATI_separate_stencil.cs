@@ -62,6 +62,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ATI_separate_stencil")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilFuncSeparateATI(Int32 frontfunc, Int32 backfunc, Int32 @ref, UInt32 mask);
 

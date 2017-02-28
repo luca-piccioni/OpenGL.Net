@@ -63,6 +63,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_EXT_stream_consumer_egloutput")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglStreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer);
 

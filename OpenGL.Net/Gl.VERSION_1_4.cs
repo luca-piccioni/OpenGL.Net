@@ -127,7 +127,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_depth_texture")]
-		[RequiredByFeature("GL_OES_depth24", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_depth24", Api = "gles1|gles2|glsc2")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_SGIX_depth_texture")]
 		public const int DEPTH_COMPONENT24 = 0x81A6;
@@ -141,7 +141,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_depth_texture")]
 		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
-		[RequiredByFeature("GL_OES_depth32", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_depth32", Api = "gles1|gles2|glsc2")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_SGIX_depth_texture")]
 		public const int DEPTH_COMPONENT32 = 0x81A7;
@@ -263,12 +263,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.PointParameter: params is a single floating-point value that specifies the minimum point size. The default value is 
-		/// 0.0.
-		/// </para>
-		/// <para>
 		/// Gl.Get: params returns one value, the lower bound for the attenuated point sizes. The initial value is 1.0. See 
 		/// Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// Gl.PointParameter: params is a single floating-point value that specifies the minimum point size. The default value is 
+		/// 0.0.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SIZE_MIN_ARB")]
@@ -287,12 +287,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.PointParameter: params is a single floating-point value that specifies the maximum point size. The default value is 
-		/// 1.0.
-		/// </para>
-		/// <para>
 		/// Gl.Get: params returns one value, the upper bound for the attenuated point sizes. The initial value is 0.0. See 
 		/// Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// Gl.PointParameter: params is a single floating-point value that specifies the maximum point size. The default value is 
+		/// 1.0.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SIZE_MAX_ARB")]
@@ -311,12 +311,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.PointParameter: params is an array of three floating-point values that specify the coefficients used for scaling the 
-		/// computed point size. The default values are 100.
-		/// </para>
-		/// <para>
 		/// Gl.Get: params returns three values, the coefficients for computing the attenuation value for points. See 
 		/// Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// Gl.PointParameter: params is an array of three floating-point values that specify the coefficients used for scaling the 
+		/// computed point size. The default values are 100.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_DISTANCE_ATTENUATION_ARB")]
@@ -331,12 +331,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.TexParameter: specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
-		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
-		/// </para>
-		/// <para>
 		/// Gl.GetTexParameter: returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
 		/// Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
+		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
@@ -587,12 +587,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.TexParameter: specifies a single symbolic constant indicating how depth values should be treated during filtering and 
-		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
-		/// </para>
-		/// <para>
 		/// Gl.GetTexParameter: returns a single-valued texture format indicating how the depth values should be converted into 
 		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: specifies a single symbolic constant indicating how depth values should be treated during filtering and 
+		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]
@@ -2707,6 +2707,10 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_blend_func_separate")]
+			[RequiredByFeature("GL_INGR_blend_func_separate")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha);
 
@@ -2716,6 +2720,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBlendFuncSeparate pglBlendFuncSeparate;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawArrays(Int32 mode, Int32* first, Int32* count, Int32 drawcount);
 
@@ -2724,6 +2730,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glMultiDrawArrays pglMultiDrawArrays;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElements(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount);
 
@@ -2732,6 +2740,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glMultiDrawElements pglMultiDrawElements;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ARB_point_parameters")]
+			[RequiredByFeature("GL_EXT_point_parameters")]
+			[RequiredByFeature("GL_SGIS_point_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPointParameterf(Int32 pname, float param);
 
@@ -2742,6 +2755,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glPointParameterf pglPointParameterf;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ARB_point_parameters")]
+			[RequiredByFeature("GL_EXT_point_parameters")]
+			[RequiredByFeature("GL_SGIS_point_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointParameterfv(Int32 pname, float* @params);
 
@@ -2752,6 +2770,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glPointParameterfv pglPointParameterfv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_NV_point_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPointParameteri(Int32 pname, Int32 param);
 
@@ -2760,6 +2780,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glPointParameteri pglPointParameteri;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_NV_point_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointParameteriv(Int32 pname, Int32* @params);
 
@@ -2768,6 +2790,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glPointParameteriv pglPointParameteriv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_fog_coord")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogCoordf(float coord);
 
@@ -2776,6 +2801,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFogCoordf pglFogCoordf;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_fog_coord")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogCoordfv(float* coord);
 
@@ -2784,6 +2812,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFogCoordfv pglFogCoordfv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_fog_coord")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogCoordd(double coord);
 
@@ -2792,6 +2823,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFogCoordd pglFogCoordd;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_fog_coord")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogCoorddv(double* coord);
 
@@ -2800,6 +2834,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFogCoorddv pglFogCoorddv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_fog_coord")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogCoordPointer(Int32 type, Int32 stride, IntPtr pointer);
 
@@ -2808,6 +2845,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFogCoordPointer pglFogCoordPointer;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3b(sbyte red, sbyte green, sbyte blue);
 
@@ -2816,6 +2856,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3b pglSecondaryColor3b;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3bv(sbyte* v);
 
@@ -2824,6 +2867,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3bv pglSecondaryColor3bv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3d(double red, double green, double blue);
 
@@ -2832,6 +2878,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3d pglSecondaryColor3d;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3dv(double* v);
 
@@ -2840,6 +2889,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3dv pglSecondaryColor3dv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3f(float red, float green, float blue);
 
@@ -2848,6 +2900,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3f pglSecondaryColor3f;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3fv(float* v);
 
@@ -2856,6 +2911,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3fv pglSecondaryColor3fv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3i(Int32 red, Int32 green, Int32 blue);
 
@@ -2864,6 +2922,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3i pglSecondaryColor3i;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3iv(Int32* v);
 
@@ -2872,6 +2933,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3iv pglSecondaryColor3iv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3s(Int16 red, Int16 green, Int16 blue);
 
@@ -2880,6 +2944,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3s pglSecondaryColor3s;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3sv(Int16* v);
 
@@ -2888,6 +2955,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3sv pglSecondaryColor3sv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3ub(byte red, byte green, byte blue);
 
@@ -2896,6 +2966,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3ub pglSecondaryColor3ub;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3ubv(byte* v);
 
@@ -2904,6 +2977,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3ubv pglSecondaryColor3ubv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3ui(UInt32 red, UInt32 green, UInt32 blue);
 
@@ -2912,6 +2988,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3ui pglSecondaryColor3ui;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3uiv(UInt32* v);
 
@@ -2920,6 +2999,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3uiv pglSecondaryColor3uiv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3us(UInt16 red, UInt16 green, UInt16 blue);
 
@@ -2928,6 +3010,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3us pglSecondaryColor3us;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColor3usv(UInt16* v);
 
@@ -2936,6 +3021,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColor3usv pglSecondaryColor3usv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_EXT_secondary_color")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
@@ -2944,6 +3032,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glSecondaryColorPointer pglSecondaryColorPointer;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos2d(double x, double y);
 
@@ -2953,6 +3045,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2d pglWindowPos2d;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos2dv(double* v);
 
@@ -2962,6 +3058,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2dv pglWindowPos2dv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos2f(float x, float y);
 
@@ -2971,6 +3071,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2f pglWindowPos2f;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos2fv(float* v);
 
@@ -2980,6 +3084,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2fv pglWindowPos2fv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos2i(Int32 x, Int32 y);
 
@@ -2989,6 +3097,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2i pglWindowPos2i;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos2iv(Int32* v);
 
@@ -2998,6 +3110,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2iv pglWindowPos2iv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos2s(Int16 x, Int16 y);
 
@@ -3007,6 +3123,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2s pglWindowPos2s;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos2sv(Int16* v);
 
@@ -3016,6 +3136,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos2sv pglWindowPos2sv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos3d(double x, double y, double z);
 
@@ -3025,6 +3149,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3d pglWindowPos3d;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos3dv(double* v);
 
@@ -3034,6 +3162,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3dv pglWindowPos3dv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos3f(float x, float y, float z);
 
@@ -3043,6 +3175,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3f pglWindowPos3f;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos3fv(float* v);
 
@@ -3052,6 +3188,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3fv pglWindowPos3fv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos3i(Int32 x, Int32 y, Int32 z);
 
@@ -3061,6 +3201,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3i pglWindowPos3i;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos3iv(Int32* v);
 
@@ -3070,6 +3214,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3iv pglWindowPos3iv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos3s(Int16 x, Int16 y, Int16 z);
 
@@ -3079,6 +3227,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3s pglWindowPos3s;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ARB_window_pos")]
+			[RequiredByFeature("GL_MESA_window_pos")]
+			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos3sv(Int16* v);
 
@@ -3088,6 +3240,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWindowPos3sv pglWindowPos3sv;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_blend_color")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendColor(float red, float green, float blue, float alpha);
 
@@ -3096,6 +3252,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBlendColor pglBlendColor;
 
+			[RequiredByFeature("GL_VERSION_1_4")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquation(Int32 mode);
 

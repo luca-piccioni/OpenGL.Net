@@ -74,6 +74,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_conservative_raster_dilate")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glConservativeRasterParameterfNV(Int32 pname, float value);
 

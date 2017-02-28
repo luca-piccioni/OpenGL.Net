@@ -53,6 +53,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindVertexArrayAPPLE(UInt32 array);
 

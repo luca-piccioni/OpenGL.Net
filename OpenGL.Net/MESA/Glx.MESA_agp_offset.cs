@@ -57,6 +57,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_MESA_agp_offset")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glXGetAGPOffsetMESA(IntPtr pointer);
 

@@ -31,13 +31,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAGMENT_COVERAGE_TO_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 		public const int FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_COVERAGE_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 		public const int FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
 		/// <summary>
@@ -46,7 +46,7 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 		public static void FragmentCoverageColorNV(UInt32 color)
 		{
 			Debug.Assert(Delegates.pglFragmentCoverageColorNV != null, "pglFragmentCoverageColorNV not implemented");
@@ -65,6 +65,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFragmentCoverageColorNV(UInt32 color);
 

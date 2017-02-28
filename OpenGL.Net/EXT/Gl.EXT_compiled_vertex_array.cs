@@ -84,12 +84,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLockArraysEXT(Int32 first, Int32 count);
 
 			[ThreadStatic]
 			internal static glLockArraysEXT pglLockArraysEXT;
 
+			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUnlockArraysEXT();
 

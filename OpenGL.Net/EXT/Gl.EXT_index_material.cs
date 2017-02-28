@@ -74,6 +74,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_index_material")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexMaterialEXT(Int32 face, Int32 mode);
 

@@ -150,8 +150,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
-			Debug.Assert(first.Length >= primcount);
-			Debug.Assert(count.Length >= primcount);
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -215,8 +213,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count, Int32 primcount)
 		{
-			Debug.Assert(first.Length >= primcount);
-			Debug.Assert(count.Length >= primcount);
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -288,30 +284,35 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_APPLE_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glElementPointerAPPLE(Int32 type, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glElementPointerAPPLE pglElementPointerAPPLE;
 
+			[RequiredByFeature("GL_APPLE_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawElementArrayAPPLE(Int32 mode, Int32 first, Int32 count);
 
 			[ThreadStatic]
 			internal static glDrawElementArrayAPPLE pglDrawElementArrayAPPLE;
 
+			[RequiredByFeature("GL_APPLE_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32 first, Int32 count);
 
 			[ThreadStatic]
 			internal static glDrawRangeElementArrayAPPLE pglDrawRangeElementArrayAPPLE;
 
+			[RequiredByFeature("GL_APPLE_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElementArrayAPPLE(Int32 mode, Int32* first, Int32* count, Int32 primcount);
 
 			[ThreadStatic]
 			internal static glMultiDrawElementArrayAPPLE pglMultiDrawElementArrayAPPLE;
 
+			[RequiredByFeature("GL_APPLE_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32* first, Int32* count, Int32 primcount);
 

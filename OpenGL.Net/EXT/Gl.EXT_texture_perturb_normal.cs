@@ -65,6 +65,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_texture_perturb_normal")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureNormalEXT(Int32 mode);
 

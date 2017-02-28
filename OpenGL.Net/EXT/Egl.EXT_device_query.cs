@@ -154,16 +154,23 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_query")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
 
 			internal static eglQueryDeviceAttribEXT peglQueryDeviceAttribEXT;
 
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_query")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
 
 			internal static eglQueryDeviceStringEXT peglQueryDeviceStringEXT;
 
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_query")]
+			[RequiredByFeature("EGL_NV_stream_metadata")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
 

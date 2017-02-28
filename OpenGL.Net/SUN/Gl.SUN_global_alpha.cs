@@ -198,48 +198,56 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorbSUN pglGlobalAlphaFactorbSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorsSUN(Int16 factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorsSUN pglGlobalAlphaFactorsSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactoriSUN(Int32 factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactoriSUN pglGlobalAlphaFactoriSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorfSUN(float factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorfSUN pglGlobalAlphaFactorfSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactordSUN(double factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactordSUN pglGlobalAlphaFactordSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorubSUN(byte factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorubSUN pglGlobalAlphaFactorubSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorusSUN(UInt16 factor);
 
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorusSUN pglGlobalAlphaFactorusSUN;
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactoruiSUN(UInt32 factor);
 

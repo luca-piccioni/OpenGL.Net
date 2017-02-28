@@ -281,11 +281,13 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXBindTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer, int* attrib_list);
 
 			internal static glXBindTexImageEXT pglXBindTexImageEXT;
 
+			[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXReleaseTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer);
 

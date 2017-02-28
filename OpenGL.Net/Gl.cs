@@ -116,8 +116,13 @@ namespace OpenGL
 					_CurrentExtensions = new Extensions();
 					_CurrentExtensions.Query();
 
+#if GL_DEBUG
+					Debug.Assert(CurrentVersion != null && CurrentExtensions != null);
+					CheckExtensionCommands<Gl>(CurrentVersion, CurrentExtensions, false);
+#endif
+
 					// Query OpenGL limits
-					_CurrentLimits = Limits.Query(_CurrentExtensions);
+					_CurrentLimits = Limits.Query(Gl.CurrentVersion, _CurrentExtensions);
 
 					// Query platform extensions
 					windowDevice.QueryPlatformExtensions();
@@ -250,6 +255,26 @@ namespace OpenGL
 		/// Stack of <see cref="Extensions"/> to emulate specific environments.
 		/// </summary>
 		private static readonly Stack<Extensions> _StackExtensions = new Stack<Extensions>();
+
+		#endregion
+
+		#region Experimental Extensions
+
+		/// <summary>
+		/// Check whether commands implemented by the current driver have a corresponding extension not enabled by driver.
+		/// </summary>
+		public static void EnableExperimentalExtensions()
+		{
+			CheckExtensionCommands<Gl>(CurrentVersion, CurrentExtensions, true);
+		}
+
+		/// <summary>
+		/// Check whether commands implemented by the current driver have a corresponding extension not enabled by driver.
+		/// </summary>
+		public static void EnableExperimentalExtensions(KhronosVersion version, Extensions extensions)
+		{
+			CheckExtensionCommands<Gl>(version, extensions, true);
+		}
 
 		#endregion
 

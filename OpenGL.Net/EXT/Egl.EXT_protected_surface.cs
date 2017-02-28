@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of EGL_PROTECTED_CONTENT_EXT symbol.
 		/// </summary>
+		[RequiredByFeature("EGL_EXT_protected_content")]
 		[RequiredByFeature("EGL_EXT_protected_surface")]
 		public const int PROTECTED_CONTENT_EXT = 0x32C0;
 

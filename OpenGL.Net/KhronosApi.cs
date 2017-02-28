@@ -16,6 +16,9 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Preprocessor symbol for enabling function logging output
+#undef DEBUG_VERBOSE
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -256,7 +259,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the <see cref="DelegateList"/> for <paramref name="type"/>.
 		/// </returns>
-		protected static DelegateList GetDelegateList(Type type)
+		private static DelegateList GetDelegateList(Type type)
 		{
 			if (type == null)
 				throw new ArgumentNullException("type");
@@ -267,33 +270,6 @@ namespace OpenGL
 				throw new NotImplementedException("missing Delegates class");
 
 			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
-		}
-
-		/// <summary>
-		/// Get the delegate method for the specified type and function tuple.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="Type"/> that specifies the type used for detecting delegates declarations.
-		/// </param>
-		/// <param name="function">
-		/// A <see cref="String"/> function that specifies the function name.
-		/// </param>
-		/// <returns>
-		/// It returns the <see cref="FieldInfo"/> for <paramref name="type"/>.
-		/// </returns>
-		protected static FieldInfo GetFunctionDelegate(Type type, string function)
-		{
-			if (type == null)
-				throw new ArgumentNullException("type");
-			if (function == null)
-				throw new ArgumentNullException("function");
-
-			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
-
-			return (delegatesClass.GetField(function, BindingFlags.Static | BindingFlags.NonPublic));
 		}
 
 		/// <summary>
@@ -555,6 +531,20 @@ namespace OpenGL
 			}
 
 			/// <summary>
+			/// Force extension support.
+			/// </summary>
+			/// <param name="extensionName">
+			/// A <see cref="String"/> that specifies the extension name.
+			/// </param>
+			internal void EnableExtension(string extensionName)
+			{
+				if (extensionName == null)
+					throw new ArgumentNullException("extensionName");
+
+				_ExtensionsRegistry[extensionName] = true;
+			}
+
+			/// <summary>
 			/// Query the supported extensions.
 			/// </summary>
 			/// <param name="version">
@@ -599,7 +589,15 @@ namespace OpenGL
 					if (!_ExtensionsRegistry.ContainsKey(extension))
 						_ExtensionsRegistry.Add(extension, true);
 
-				// Set all extension fields
+				// Sync fields
+				SyncMembers(version);
+			}
+
+			protected internal void SyncMembers(KhronosVersion version)
+			{
+				if (version == null)
+					throw new ArgumentNullException("version");
+
 				Type thisType = GetType();
 
 				foreach (FieldInfo fieldInfo in thisType.GetFields(BindingFlags.Instance | BindingFlags.Public)) {
@@ -672,8 +670,150 @@ namespace OpenGL
 
 		#endregion
 
+		#region Procedure Checking
+
+		/// <summary>
+		/// Check whether commands implemented by the current driver have a corresponding extension declaring the
+		/// support of them.
+		/// </summary>
+		/// <typeparam name="T">
+		/// The type of the KhronosApi to inspect for commands.
+		/// </typeparam>
+		/// <param name="version">
+		/// The <see cref="KhronosVersion"/> currently implemented by the current context on this thread.
+		/// </param>
+		/// <param name="extensions">
+		/// The <see cref="ExtensionsCollection"/> that specifies the extensions supported by the driver.
+		/// </param>
+		protected static void CheckExtensionCommands<T>(KhronosVersion version, ExtensionsCollection extensions, bool enableExtensions) where T : KhronosApi
+		{
+			if (version == null)
+				throw new ArgumentNullException("version");
+			if (extensions == null)
+				throw new ArgumentNullException("extensions");
+
+			Type apiType = typeof(T);
+			FunctionContext functionContext = GetFunctionContext(apiType);
+
+			Debug.Assert(functionContext != null);
+			if (functionContext == null)
+				throw new InvalidOperationException("unrecognized API type");
+
+			LogComment("Checking commands for {0}", version);
+
+			Dictionary<string, List<Type>> hiddenVersions = new Dictionary<string, List<Type>>();
+			Dictionary<string, bool> hiddenExtensions = new Dictionary<string, bool>();
+			
+			foreach (FieldInfo fi in functionContext.Delegates) {
+				Delegate fiDelegateType = (Delegate)fi.GetValue(null);
+				string commandName = fi.Name.Substring(3);
+				bool commandDefined = fiDelegateType != null;
+				bool supportedByFeature = false;
+
+				Type delegateType = fi.DeclaringType.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
+				object[] requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
+
+				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes)
+					supportedByFeature |= requiredByFeatureAttribute.IsSupported(version, extensions);
+
+				// Find the underlying extension
+				RequiredByFeatureAttribute hiddenVersionAttrib = null;
+				RequiredByFeatureAttribute hiddenExtensionAttrib = null;
+
+				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes) {
+					if (requiredByFeatureAttribute.IsSupportedApi(version.Api) == false) {
+						// Version attribute
+						if (hiddenVersionAttrib == null)
+							hiddenVersionAttrib = requiredByFeatureAttribute;
+					} else {
+						// Extension attribute
+						if (hiddenExtensionAttrib == null)
+							hiddenExtensionAttrib = requiredByFeatureAttribute;
+					}
+				}
+
+				if (commandDefined != supportedByFeature) {
+#if DEBUG_VERBOSE
+					string supportString = "any feature";
+
+					if (hiddenVersionAttrib != null) {
+						supportString = hiddenVersionAttrib.FeatureName;
+						if (hiddenExtensionAttrib != null)
+							supportString += " or ";
+					}
+
+					if (hiddenExtensionAttrib != null) {
+						if (hiddenVersionAttrib == null)
+							supportString = String.Empty;
+						supportString += hiddenExtensionAttrib.FeatureName;
+					}
+#endif
+
+					if (commandDefined) {
+#if DEBUG_VERBOSE
+						LogComment("The command {0} is defined, but {1} support is not advertised.", commandName, supportString);
+#endif
+						if (hiddenVersionAttrib != null && hiddenExtensionAttrib == null) {
+							List<Type> versionDelegates = new List<Type>();
+
+							if (hiddenVersions.TryGetValue(hiddenVersionAttrib.FeatureName, out versionDelegates) == false)
+								hiddenVersions.Add(hiddenVersionAttrib.FeatureName, versionDelegates = new List<Type>());
+							versionDelegates.Add(delegateType);
+						}
+
+						if (hiddenExtensionAttrib != null) {
+							// Eventually leave to false for incomplete extensions
+							if (hiddenExtensions.ContainsKey(hiddenExtensionAttrib.FeatureName) == false)
+								hiddenExtensions.Add(hiddenExtensionAttrib.FeatureName, true);
+						}
+					} else {
+#if DEBUG_VERBOSE
+						LogComment("The command {0} is not defined, but required by some feature.", commandName);
+#endif
+					}
+				}
+
+				// Partial extensions are not supported
+				if (hiddenExtensionAttrib != null && commandDefined == false && hiddenExtensions.ContainsKey(hiddenExtensionAttrib.FeatureName))
+					hiddenExtensions[hiddenExtensionAttrib.FeatureName] = false;
+			}
+
+			if (hiddenExtensions.Count > 0) {
+				LogComment("Found {0} experimental extensions:", hiddenExtensions.Count);
+				foreach (KeyValuePair<string, bool> hiddenExtension in hiddenExtensions) {
+					LogComment("- {0}: {1}", hiddenExtension.Key, hiddenExtension.Value ? "experimental" : "experimental (partial, unsupported)");
+				}
+			}
+
+			if (hiddenVersions.Count > 0) {
+				LogComment("Found {0} experimental version commands:", hiddenVersions.Count);
+				foreach (KeyValuePair<string, List<Type>> hiddenVersion in hiddenVersions) {
+					LogComment("- {0}", hiddenVersion.Key);
+					foreach (Type delegateType in hiddenVersion.Value)
+						LogComment("    > {0}", delegateType.Name);
+				}
+			}
+
+			if (enableExtensions) {
+				bool sync = false;
+
+				foreach (KeyValuePair<string, bool> hiddenExtension in hiddenExtensions) {
+					if (hiddenExtension.Value == false)
+						continue;       // Do not enable partial extension
+
+					extensions.EnableExtension(hiddenExtension.Key);
+					sync = true;
+				}
+
+				if (sync)
+					extensions.SyncMembers(version);
+			}
+		}
+
+		#endregion
+
 		#region Procedure Logging
-		
+
 		/// <summary>
 		/// Delegate used for logging procedure using application procedures.
 		/// </summary>
@@ -748,10 +888,6 @@ namespace OpenGL
 		/// </param>
 		public static void LogComment(string format, params object[] args)
 		{
-			if (format == null)
-				throw new ArgumentNullException("format");
-
-			// Write a comment line
 			LogFunction(String.Format("// " + format, args));
 		}
 

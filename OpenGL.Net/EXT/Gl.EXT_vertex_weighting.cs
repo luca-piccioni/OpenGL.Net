@@ -197,18 +197,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexWeightfEXT(float weight);
 
 			[ThreadStatic]
 			internal static glVertexWeightfEXT pglVertexWeightfEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexWeightfvEXT(float* weight);
 
 			[ThreadStatic]
 			internal static glVertexWeightfvEXT pglVertexWeightfvEXT;
 
+			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 

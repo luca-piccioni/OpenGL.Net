@@ -76,6 +76,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_GREMEDY_string_marker")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glStringMarkerGREMEDY(Int32 len, IntPtr @string);
 

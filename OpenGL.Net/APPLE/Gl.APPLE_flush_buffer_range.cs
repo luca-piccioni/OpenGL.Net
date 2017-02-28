@@ -71,6 +71,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBufferParameteriAPPLE(Int32 target, Int32 pname, Int32 param);
 

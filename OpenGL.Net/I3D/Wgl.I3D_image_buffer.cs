@@ -182,24 +182,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
 
 			[ThreadStatic]
 			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
 
+			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
 
 			[ThreadStatic]
 			internal static wglDestroyImageBufferI3D pwglDestroyImageBufferI3D;
 
+			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
 
 			[ThreadStatic]
 			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
 
+			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
 

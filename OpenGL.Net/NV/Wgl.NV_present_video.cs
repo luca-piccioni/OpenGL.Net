@@ -141,18 +141,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
 
 			[ThreadStatic]
 			internal static wglEnumerateVideoDevicesNV pwglEnumerateVideoDevicesNV;
 
+			[RequiredByFeature("WGL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
 
 			[ThreadStatic]
 			internal static wglBindVideoDeviceNV pwglBindVideoDeviceNV;
 
+			[RequiredByFeature("WGL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
 

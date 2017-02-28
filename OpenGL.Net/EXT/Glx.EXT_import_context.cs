@@ -210,26 +210,31 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_EXT_import_context")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glXGetCurrentDisplayEXT();
 
 			internal static glXGetCurrentDisplayEXT pglXGetCurrentDisplayEXT;
 
+			[RequiredByFeature("GLX_EXT_import_context")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
 
 			internal static glXQueryContextInfoEXT pglXQueryContextInfoEXT;
 
+			[RequiredByFeature("GLX_EXT_import_context")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXGetContextIDEXT(IntPtr context);
 
 			internal static glXGetContextIDEXT pglXGetContextIDEXT;
 
+			[RequiredByFeature("GLX_EXT_import_context")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
 
 			internal static glXImportContextEXT pglXImportContextEXT;
 
+			[RequiredByFeature("GLX_EXT_import_context")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXFreeContextEXT(IntPtr dpy, IntPtr context);
 

@@ -95,6 +95,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_geometry_program4")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramVertexLimitNV(Int32 target, Int32 limit);
 

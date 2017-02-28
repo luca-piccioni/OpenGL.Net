@@ -258,36 +258,42 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTransformParameteriEXT(Int32 target, Int32 pname, Int32 param);
 
 			[ThreadStatic]
 			internal static glPixelTransformParameteriEXT pglPixelTransformParameteriEXT;
 
+			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTransformParameterfEXT(Int32 target, Int32 pname, float param);
 
 			[ThreadStatic]
 			internal static glPixelTransformParameterfEXT pglPixelTransformParameterfEXT;
 
+			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelTransformParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glPixelTransformParameterivEXT pglPixelTransformParameterivEXT;
 
+			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelTransformParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
 			[ThreadStatic]
 			internal static glPixelTransformParameterfvEXT pglPixelTransformParameterfvEXT;
 
+			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelTransformParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetPixelTransformParameterivEXT pglGetPixelTransformParameterivEXT;
 
+			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelTransformParameterfvEXT(Int32 target, Int32 pname, float* @params);
 

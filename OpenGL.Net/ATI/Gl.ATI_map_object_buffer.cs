@@ -76,12 +76,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glMapObjectBufferATI(UInt32 buffer);
 
 			[ThreadStatic]
 			internal static glMapObjectBufferATI pglMapObjectBufferATI;
 
+			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUnmapObjectBufferATI(UInt32 buffer);
 

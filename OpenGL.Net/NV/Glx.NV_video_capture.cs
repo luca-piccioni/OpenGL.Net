@@ -196,26 +196,31 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXBindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device);
 
 			internal static glXBindVideoCaptureDeviceNV pglXBindVideoCaptureDeviceNV;
 
+			[RequiredByFeature("GLX_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXEnumerateVideoCaptureDevicesNV(IntPtr dpy, int screen, int* nelements);
 
 			internal static glXEnumerateVideoCaptureDevicesNV pglXEnumerateVideoCaptureDevicesNV;
 
+			[RequiredByFeature("GLX_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXLockVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
 
 			internal static glXLockVideoCaptureDeviceNV pglXLockVideoCaptureDeviceNV;
 
+			[RequiredByFeature("GLX_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXQueryVideoCaptureDeviceNV(IntPtr dpy, IntPtr device, int attribute, int* value);
 
 			internal static glXQueryVideoCaptureDeviceNV pglXQueryVideoCaptureDeviceNV;
 
+			[RequiredByFeature("GLX_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXReleaseVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
 

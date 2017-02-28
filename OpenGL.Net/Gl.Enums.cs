@@ -712,6 +712,11 @@ namespace OpenGL
 		/// </summary>
 		ContextFlagRobustAccessBit = Gl.CONTEXT_FLAG_ROBUST_ACCESS_BIT,
 
+		/// <summary>
+		/// Strongly typed for value GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT.
+		/// </summary>
+		ContextFlagProtectedContentBitExt = Gl.CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT,
+
 	}
 
 	/// <summary>

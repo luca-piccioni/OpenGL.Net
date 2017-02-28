@@ -302,21 +302,25 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
 
 			internal static eglBindTexImage peglBindTexImage;
 
+			[RequiredByFeature("EGL_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
 
 			internal static eglReleaseTexImage peglReleaseTexImage;
 
+			[RequiredByFeature("EGL_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
 
 			internal static eglSurfaceAttrib peglSurfaceAttrib;
 
+			[RequiredByFeature("EGL_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSwapInterval(IntPtr dpy, int interval);
 

@@ -100,12 +100,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramEnvParameters4fvEXT(Int32 target, UInt32 index, Int32 count, float* @params);
 
 			[ThreadStatic]
 			internal static glProgramEnvParameters4fvEXT pglProgramEnvParameters4fvEXT;
 
+			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramLocalParameters4fvEXT(Int32 target, UInt32 index, Int32 count, float* @params);
 

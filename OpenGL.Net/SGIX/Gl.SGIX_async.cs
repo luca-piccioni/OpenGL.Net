@@ -184,36 +184,42 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAsyncMarkerSGIX(UInt32 marker);
 
 			[ThreadStatic]
 			internal static glAsyncMarkerSGIX pglAsyncMarkerSGIX;
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glFinishAsyncSGIX(UInt32* markerp);
 
 			[ThreadStatic]
 			internal static glFinishAsyncSGIX pglFinishAsyncSGIX;
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glPollAsyncSGIX(UInt32* markerp);
 
 			[ThreadStatic]
 			internal static glPollAsyncSGIX pglPollAsyncSGIX;
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenAsyncMarkersSGIX(Int32 range);
 
 			[ThreadStatic]
 			internal static glGenAsyncMarkersSGIX pglGenAsyncMarkersSGIX;
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
 
 			[ThreadStatic]
 			internal static glDeleteAsyncMarkersSGIX pglDeleteAsyncMarkersSGIX;
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsAsyncMarkerSGIX(UInt32 marker);
 

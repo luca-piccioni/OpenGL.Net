@@ -144,18 +144,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glVertexArrayRangeAPPLE pglVertexArrayRangeAPPLE;
 
+			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glFlushVertexArrayRangeAPPLE pglFlushVertexArrayRangeAPPLE;
 
+			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayParameteriAPPLE(Int32 pname, Int32 param);
 

@@ -352,6 +352,12 @@ namespace OpenGL
 			public bool Multisample_3DFX;
 
 			/// <summary>
+			/// Support for extension GLX_EXT_libglvnd.
+			/// </summary>
+			[Extension("GLX_EXT_libglvnd")]
+			public bool Libglvnd_EXT;
+
+			/// <summary>
 			/// Support for extension GLX_EXT_stereo_tree.
 			/// </summary>
 			[Extension("GLX_EXT_stereo_tree")]
@@ -374,6 +380,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GLX_NV_multisample_coverage")]
 			public bool MultisampleCoverage_NV;
+
+			/// <summary>
+			/// Support for extension GLX_NV_robustness_video_memory_purge.
+			/// </summary>
+			[Extension("GLX_NV_robustness_video_memory_purge")]
+			public bool RobustnessVideoMemoryPurge_NV;
 
 			/// <summary>
 			/// Support for extension GLX_SGIS_shared_multisample.

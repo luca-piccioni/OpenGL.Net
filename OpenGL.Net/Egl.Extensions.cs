@@ -28,11 +28,11 @@ namespace OpenGL
 		public partial class Extensions : ExtensionsCollection
 		{
 			/// <summary>
-			/// Support for extension EGL_KHR_gl_renderbuffer_image.
+			/// Support for extension EGL_KHR_gl_texture_cubemap_image.
 			/// </summary>
-			[Extension("EGL_KHR_gl_renderbuffer_image")]
+			[Extension("EGL_KHR_gl_texture_cubemap_image")]
 			[ExtensionSupport("egl")]
-			public bool GlRenderbufferImage_KHR;
+			public bool GlTextureCubemapImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_wait_sync.
@@ -98,6 +98,13 @@ namespace OpenGL
 			public bool StreamConsumerGltexture_KHR;
 
 			/// <summary>
+			/// Support for extension EGL_KHR_stream_attrib.
+			/// </summary>
+			[Extension("EGL_KHR_stream_attrib")]
+			[ExtensionSupport("egl")]
+			public bool StreamAttrib_KHR;
+
+			/// <summary>
 			/// Support for extension EGL_KHR_stream.
 			/// </summary>
 			[Extension("EGL_KHR_stream")]
@@ -147,6 +154,20 @@ namespace OpenGL
 			public bool PartialUpdate_KHR;
 
 			/// <summary>
+			/// Support for extension EGL_KHR_no_config_context.
+			/// </summary>
+			[Extension("EGL_KHR_no_config_context")]
+			[ExtensionSupport("egl")]
+			public bool NoConfigContext_KHR;
+
+			/// <summary>
+			/// Support for extension EGL_KHR_mutable_render_buffer.
+			/// </summary>
+			[Extension("EGL_KHR_mutable_render_buffer")]
+			[ExtensionSupport("egl")]
+			public bool MutableRenderBuffer_KHR;
+
+			/// <summary>
 			/// Support for extension EGL_KHR_lock_surface3.
 			/// </summary>
 			[Extension("EGL_KHR_lock_surface3")]
@@ -189,13 +210,6 @@ namespace OpenGL
 			public bool Image_KHR;
 
 			/// <summary>
-			/// Support for extension EGL_KHR_gl_texture_cubemap_image.
-			/// </summary>
-			[Extension("EGL_KHR_gl_texture_cubemap_image")]
-			[ExtensionSupport("egl")]
-			public bool GlTextureCubemapImage_KHR;
-
-			/// <summary>
 			/// Support for extension EGL_KHR_gl_texture_3D_image.
 			/// </summary>
 			[Extension("EGL_KHR_gl_texture_3D_image")]
@@ -208,6 +222,13 @@ namespace OpenGL
 			[Extension("EGL_KHR_gl_texture_2D_image")]
 			[ExtensionSupport("egl")]
 			public bool GlTexture2DImage_KHR;
+
+			/// <summary>
+			/// Support for extension EGL_KHR_gl_renderbuffer_image.
+			/// </summary>
+			[Extension("EGL_KHR_gl_renderbuffer_image")]
+			[ExtensionSupport("egl")]
+			public bool GlRenderbufferImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_gl_colorspace.
@@ -252,6 +273,13 @@ namespace OpenGL
 			public bool CreateContext_KHR;
 
 			/// <summary>
+			/// Support for extension EGL_KHR_context_flush_control.
+			/// </summary>
+			[Extension("EGL_KHR_context_flush_control")]
+			[ExtensionSupport("egl")]
+			public bool ContextFlushControl_KHR;
+
+			/// <summary>
 			/// Support for extension EGL_KHR_client_get_all_proc_addresses.
 			/// </summary>
 			[Extension("EGL_KHR_client_get_all_proc_addresses")]
@@ -292,10 +320,10 @@ namespace OpenGL
 			public bool ImageNativeSurface_TIZEN;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_framebuffer_target.
+			/// Support for extension EGL_ANDROID_create_native_client_buffer.
 			/// </summary>
-			[Extension("EGL_ANDROID_framebuffer_target")]
-			public bool FramebufferTarget_ANDROID;
+			[Extension("EGL_ANDROID_create_native_client_buffer")]
+			public bool CreateNativeClientBuffer_ANDROID;
 
 			/// <summary>
 			/// Support for extension EGL_NV_system_time.
@@ -316,16 +344,100 @@ namespace OpenGL
 			public bool StreamSync_NV;
 
 			/// <summary>
+			/// Support for extension EGL_NV_stream_socket_unix.
+			/// </summary>
+			[Extension("EGL_NV_stream_socket_unix")]
+			public bool StreamSocketUnix_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_socket_inet.
+			/// </summary>
+			[Extension("EGL_NV_stream_socket_inet")]
+			public bool StreamSocketInet_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_socket.
+			/// </summary>
+			[Extension("EGL_NV_stream_socket")]
+			public bool StreamSocket_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_remote.
+			/// </summary>
+			[Extension("EGL_NV_stream_remote")]
+			public bool StreamRemote_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_reset.
+			/// </summary>
+			[Extension("EGL_NV_stream_reset")]
+			public bool StreamReset_NV;
+
+			/// <summary>
 			/// Support for extension EGL_NV_stream_metadata.
 			/// </summary>
 			[Extension("EGL_NV_stream_metadata")]
 			public bool StreamMetadata_NV;
 
 			/// <summary>
+			/// Support for extension EGL_NV_stream_frame_limits.
+			/// </summary>
+			[Extension("EGL_NV_stream_frame_limits")]
+			public bool StreamFrameLimits_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_fifo_synchronous.
+			/// </summary>
+			[Extension("EGL_NV_stream_fifo_synchronous")]
+			public bool StreamFifoSynchronous_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_fifo_next.
+			/// </summary>
+			[Extension("EGL_NV_stream_fifo_next")]
+			public bool StreamFifoNext_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_cross_system.
+			/// </summary>
+			[Extension("EGL_NV_stream_cross_system")]
+			public bool StreamCrossSystem_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_cross_process.
+			/// </summary>
+			[Extension("EGL_NV_stream_cross_process")]
+			public bool StreamCrossProcess_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_cross_partition.
+			/// </summary>
+			[Extension("EGL_NV_stream_cross_partition")]
+			public bool StreamCrossPartition_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_cross_display.
+			/// </summary>
+			[Extension("EGL_NV_stream_cross_display")]
+			public bool StreamCrossDisplay_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_stream_cross_object.
+			/// </summary>
+			[Extension("EGL_NV_stream_cross_object")]
+			public bool StreamCrossObject_NV;
+
+			/// <summary>
 			/// Support for extension EGL_NV_stream_consumer_gltexture_yuv.
 			/// </summary>
 			[Extension("EGL_NV_stream_consumer_gltexture_yuv")]
 			public bool StreamConsumerGltextureYuv_NV;
+
+			/// <summary>
+			/// Support for extension EGL_NV_robustness_video_memory_purge.
+			/// </summary>
+			[Extension("EGL_NV_robustness_video_memory_purge")]
+			public bool RobustnessVideoMemoryPurge_NV;
 
 			/// <summary>
 			/// Support for extension EGL_NV_post_sub_buffer.
@@ -400,6 +512,12 @@ namespace OpenGL
 			public bool SwapRegion_NOK;
 
 			/// <summary>
+			/// Support for extension EGL_MESA_platform_surfaceless.
+			/// </summary>
+			[Extension("EGL_MESA_platform_surfaceless")]
+			public bool PlatformSurfaceless_MESA;
+
+			/// <summary>
 			/// Support for extension EGL_MESA_platform_gbm.
 			/// </summary>
 			[Extension("EGL_MESA_platform_gbm")]
@@ -460,6 +578,12 @@ namespace OpenGL
 			public bool SwapBuffersWithDamage_EXT;
 
 			/// <summary>
+			/// Support for extension EGL_EXT_surface_SMPTE2086_metadata.
+			/// </summary>
+			[Extension("EGL_EXT_surface_SMPTE2086_metadata")]
+			public bool SurfaceSMPTE2086Metadata_EXT;
+
+			/// <summary>
 			/// Support for extension EGL_EXT_stream_consumer_egloutput.
 			/// </summary>
 			[Extension("EGL_EXT_stream_consumer_egloutput")]
@@ -470,6 +594,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_EXT_protected_surface")]
 			public bool ProtectedSurface_EXT;
+
+			/// <summary>
+			/// Support for extension EGL_EXT_protected_content.
+			/// </summary>
+			[Extension("EGL_EXT_protected_content")]
+			public bool ProtectedContent_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_platform_x11.
@@ -496,6 +626,12 @@ namespace OpenGL
 			public bool PlatformBase_EXT;
 
 			/// <summary>
+			/// Support for extension EGL_EXT_pixel_format_float.
+			/// </summary>
+			[Extension("EGL_EXT_pixel_format_float")]
+			public bool PixelFormatFloat_EXT;
+
+			/// <summary>
 			/// Support for extension EGL_EXT_output_openwf.
 			/// </summary>
 			[Extension("EGL_EXT_output_openwf")]
@@ -520,10 +656,34 @@ namespace OpenGL
 			public bool MultiviewWindow_EXT;
 
 			/// <summary>
+			/// Support for extension EGL_EXT_image_dma_buf_import_modifiers.
+			/// </summary>
+			[Extension("EGL_EXT_image_dma_buf_import_modifiers")]
+			public bool ImageDmaBufImportModifiers_EXT;
+
+			/// <summary>
 			/// Support for extension EGL_EXT_image_dma_buf_import.
 			/// </summary>
 			[Extension("EGL_EXT_image_dma_buf_import")]
 			public bool ImageDmaBufImport_EXT;
+
+			/// <summary>
+			/// Support for extension EGL_EXT_gl_colorspace_scrgb_linear.
+			/// </summary>
+			[Extension("EGL_EXT_gl_colorspace_scrgb_linear")]
+			public bool GlColorspaceScrgbLinear_EXT;
+
+			/// <summary>
+			/// Support for extension EGL_EXT_gl_colorspace_bt2020_pq.
+			/// </summary>
+			[Extension("EGL_EXT_gl_colorspace_bt2020_pq")]
+			public bool GlColorspaceBt2020Pq_EXT;
+
+			/// <summary>
+			/// Support for extension EGL_EXT_gl_colorspace_bt2020_linear.
+			/// </summary>
+			[Extension("EGL_EXT_gl_colorspace_bt2020_linear")]
+			public bool GlColorspaceBt2020Linear_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_device_query.
@@ -580,6 +740,12 @@ namespace OpenGL
 			public bool PixmapMultisampleDiscard_ARM;
 
 			/// <summary>
+			/// Support for extension EGL_ARM_implicit_external_sync.
+			/// </summary>
+			[Extension("EGL_ARM_implicit_external_sync")]
+			public bool ImplicitExternalSync_ARM;
+
+			/// <summary>
 			/// Support for extension EGL_ANGLE_window_fixed_size.
 			/// </summary>
 			[Extension("EGL_ANGLE_window_fixed_size")]
@@ -616,6 +782,12 @@ namespace OpenGL
 			public bool Recordable_ANDROID;
 
 			/// <summary>
+			/// Support for extension EGL_ANDROID_presentation_time.
+			/// </summary>
+			[Extension("EGL_ANDROID_presentation_time")]
+			public bool PresentationTime_ANDROID;
+
+			/// <summary>
 			/// Support for extension EGL_ANDROID_native_fence_sync.
 			/// </summary>
 			[Extension("EGL_ANDROID_native_fence_sync")]
@@ -626,6 +798,18 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_ANDROID_image_native_buffer")]
 			public bool ImageNativeBuffer_ANDROID;
+
+			/// <summary>
+			/// Support for extension EGL_ANDROID_front_buffer_auto_refresh.
+			/// </summary>
+			[Extension("EGL_ANDROID_front_buffer_auto_refresh")]
+			public bool FrontBufferAutoRefresh_ANDROID;
+
+			/// <summary>
+			/// Support for extension EGL_ANDROID_framebuffer_target.
+			/// </summary>
+			[Extension("EGL_ANDROID_framebuffer_target")]
+			public bool FramebufferTarget_ANDROID;
 
 		}
 }

@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_ADVANCED_COHERENT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_blend_equation_advanced_coherent", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced_coherent", Api = "gl|glcore|gles2")]
 		public const int BLEND_ADVANCED_COHERENT_NV = 0x9285;
 
 	}

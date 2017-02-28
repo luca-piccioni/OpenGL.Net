@@ -65,6 +65,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_EXT_stencil_two_side")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveStencilFaceEXT(Int32 face);
 

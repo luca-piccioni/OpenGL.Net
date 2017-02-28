@@ -43,7 +43,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public static void FramebufferSampleLocationNV(Int32 target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -72,7 +72,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public static void NamedFramebufferSampleLocationNV(UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -89,7 +89,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glResolveDepthValuesNV.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public static void ResolveDepthValuesNV()
 		{
 			Debug.Assert(Delegates.pglResolveDepthValuesNV != null, "pglResolveDepthValuesNV not implemented");
@@ -116,18 +116,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
 
 			[ThreadStatic]
 			internal static glFramebufferSampleLocationsfvNV pglFramebufferSampleLocationsfvNV;
 
+			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferSampleLocationsfvNV pglNamedFramebufferSampleLocationsfvNV;
 
+			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResolveDepthValuesNV();
 

@@ -76,6 +76,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_igloo_interface")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIglooInterfaceSGIX(Int32 pname, IntPtr @params);
 

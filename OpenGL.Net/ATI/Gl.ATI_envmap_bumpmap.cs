@@ -190,24 +190,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexBumpParameterivATI(Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glTexBumpParameterivATI pglTexBumpParameterivATI;
 
+			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexBumpParameterfvATI(Int32 pname, float* param);
 
 			[ThreadStatic]
 			internal static glTexBumpParameterfvATI pglTexBumpParameterfvATI;
 
+			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
 
 			[ThreadStatic]
 			internal static glGetTexBumpParameterivATI pglGetTexBumpParameterivATI;
 
+			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexBumpParameterfvATI(Int32 pname, float* param);
 

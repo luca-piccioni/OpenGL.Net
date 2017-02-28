@@ -379,26 +379,31 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool eglBindAPI(uint api);
 
 			internal static eglBindAPI peglBindAPI;
 
+			[RequiredByFeature("EGL_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate uint eglQueryAPI();
 
 			internal static eglQueryAPI peglQueryAPI;
 
+			[RequiredByFeature("EGL_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
 
 			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;
 
+			[RequiredByFeature("EGL_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool eglReleaseThread();
 
 			internal static eglReleaseThread peglReleaseThread;
 
+			[RequiredByFeature("EGL_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool eglWaitClient();
 

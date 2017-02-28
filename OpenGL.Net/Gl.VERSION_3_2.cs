@@ -538,7 +538,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		public const int TEXTURE_2D_MULTISAMPLE = 0x9100;
 
 		/// <summary>
@@ -556,7 +556,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|gles2")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
 		public const int TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9102;
 
@@ -2007,6 +2007,11 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
@@ -2016,6 +2021,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawElementsBaseVertex pglDrawElementsBaseVertex;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawRangeElementsBaseVertex(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
@@ -2025,6 +2035,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawRangeElementsBaseVertex pglDrawRangeElementsBaseVertex;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
 
@@ -2034,6 +2049,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseVertex pglDrawElementsInstancedBaseVertex;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElementsBaseVertex(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount, Int32* basevertex);
 
@@ -2043,6 +2062,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glMultiDrawElementsBaseVertex pglMultiDrawElementsBaseVertex;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_provoking_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProvokingVertex(Int32 mode);
 
@@ -2051,6 +2073,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glProvokingVertex pglProvokingVertex;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glFenceSync(Int32 condition, UInt32 flags);
 
@@ -2059,6 +2085,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFenceSync pglFenceSync;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsSync(Int32 sync);
 
@@ -2067,6 +2097,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glIsSync pglIsSync;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteSync(Int32 sync);
 
@@ -2075,6 +2109,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glDeleteSync pglDeleteSync;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
@@ -2083,6 +2121,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glClientWaitSync pglClientWaitSync;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
@@ -2091,6 +2133,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glWaitSync pglWaitSync;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInteger64v(Int32 pname, Int64* data);
 
@@ -2099,6 +2145,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetInteger64v pglGetInteger64v;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSynciv(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
 
@@ -2107,18 +2157,28 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetSynciv pglGetSynciv;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInteger64i_v(Int32 target, UInt32 index, Int64* data);
 
 			[ThreadStatic]
 			internal static glGetInteger64i_v pglGetInteger64i_v;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBufferParameteri64v(Int32 target, Int32 pname, Int64* @params);
 
 			[ThreadStatic]
 			internal static glGetBufferParameteri64v pglGetBufferParameteri64v;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_geometry_shader4")]
+			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+			[RequiredByFeature("GL_NV_geometry_program4")]
+			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level);
 
@@ -2129,18 +2189,26 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFramebufferTexture pglFramebufferTexture;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexImage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
 			[ThreadStatic]
 			internal static glTexImage2DMultisample pglTexImage2DMultisample;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexImage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
 			[ThreadStatic]
 			internal static glTexImage3DMultisample pglTexImage3DMultisample;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultisamplefv(Int32 pname, UInt32 index, float* val);
 
@@ -2149,6 +2217,9 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetMultisamplefv pglGetMultisamplefv;
 
+			[RequiredByFeature("GL_VERSION_3_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSampleMaski(UInt32 maskNumber, UInt32 mask);
 

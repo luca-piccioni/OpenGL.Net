@@ -1358,121 +1358,145 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
 
 			internal static eglChooseConfig peglChooseConfig;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
 
 			internal static eglCopyBuffers peglCopyBuffers;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
 
 			internal static eglCreateContext peglCreateContext;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
 
 			internal static eglCreatePbufferSurface peglCreatePbufferSurface;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
 
 			internal static eglCreatePixmapSurface peglCreatePixmapSurface;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
 
 			internal static eglCreateWindowSurface peglCreateWindowSurface;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroyContext(IntPtr dpy, IntPtr ctx);
 
 			internal static eglDestroyContext peglDestroyContext;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroySurface(IntPtr dpy, IntPtr surface);
 
 			internal static eglDestroySurface peglDestroySurface;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
 
 			internal static eglGetConfigAttrib peglGetConfigAttrib;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
 
 			internal static eglGetConfigs peglGetConfigs;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr eglGetCurrentDisplay();
 
 			internal static eglGetCurrentDisplay peglGetCurrentDisplay;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr eglGetCurrentSurface(int readdraw);
 
 			internal static eglGetCurrentSurface peglGetCurrentSurface;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglGetDisplay(IntPtr display_id);
 
 			internal static eglGetDisplay peglGetDisplay;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int eglGetError();
 
 			internal static eglGetError peglGetError;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr eglGetProcAddress(string procname);
 
 			internal static eglGetProcAddress peglGetProcAddress;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglInitialize(IntPtr dpy, int* major, int* minor);
 
 			internal static eglInitialize peglInitialize;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
 
 			internal static eglMakeCurrent peglMakeCurrent;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
 
 			internal static eglQueryContext peglQueryContext;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglQueryString(IntPtr dpy, int name);
 
 			internal static eglQueryString peglQueryString;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
 
 			internal static eglQuerySurface peglQuerySurface;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSwapBuffers(IntPtr dpy, IntPtr surface);
 
 			internal static eglSwapBuffers peglSwapBuffers;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglTerminate(IntPtr dpy);
 
 			internal static eglTerminate peglTerminate;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool eglWaitGL();
 
 			internal static eglWaitGL peglWaitGL;
 
+			[RequiredByFeature("EGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool eglWaitNative(int engine);
 

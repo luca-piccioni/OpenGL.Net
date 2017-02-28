@@ -70,6 +70,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_AMD_sample_positions")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSetMultisamplefvAMD(Int32 pname, UInt32 index, float* val);
 

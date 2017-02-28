@@ -159,12 +159,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_APPLE_texture_range")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureRangeAPPLE(Int32 target, Int32 length, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glTextureRangeAPPLE pglTextureRangeAPPLE;
 
+			[RequiredByFeature("GL_APPLE_texture_range")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterPointervAPPLE(Int32 target, Int32 pname, IntPtr* @params);
 

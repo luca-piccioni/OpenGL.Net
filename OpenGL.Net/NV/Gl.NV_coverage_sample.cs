@@ -127,12 +127,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCoverageMaskNV(bool mask);
 
 			[ThreadStatic]
 			internal static glCoverageMaskNV pglCoverageMaskNV;
 
+			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCoverageOperationNV(Int32 operation);
 

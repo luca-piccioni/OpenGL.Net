@@ -111,11 +111,13 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
 
 			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
 
+			[RequiredByFeature("GLX_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
 

@@ -50,8 +50,8 @@ namespace OpenGL
 		[AliasOf("GL_MULTIPLY_KHR")]
 		[AliasOf("GL_MULTIPLY_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int MULTIPLY = 0x9294;
 
 		/// <summary>
@@ -60,8 +60,8 @@ namespace OpenGL
 		[AliasOf("GL_SCREEN_KHR")]
 		[AliasOf("GL_SCREEN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int SCREEN = 0x9295;
 
 		/// <summary>
@@ -70,8 +70,8 @@ namespace OpenGL
 		[AliasOf("GL_OVERLAY_KHR")]
 		[AliasOf("GL_OVERLAY_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int OVERLAY = 0x9296;
 
 		/// <summary>
@@ -80,8 +80,8 @@ namespace OpenGL
 		[AliasOf("GL_DARKEN_KHR")]
 		[AliasOf("GL_DARKEN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int DARKEN = 0x9297;
 
 		/// <summary>
@@ -90,8 +90,8 @@ namespace OpenGL
 		[AliasOf("GL_LIGHTEN_KHR")]
 		[AliasOf("GL_LIGHTEN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int LIGHTEN = 0x9298;
 
 		/// <summary>
@@ -100,8 +100,8 @@ namespace OpenGL
 		[AliasOf("GL_COLORDODGE_KHR")]
 		[AliasOf("GL_COLORDODGE_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int COLORDODGE = 0x9299;
 
 		/// <summary>
@@ -110,8 +110,8 @@ namespace OpenGL
 		[AliasOf("GL_COLORBURN_KHR")]
 		[AliasOf("GL_COLORBURN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int COLORBURN = 0x929A;
 
 		/// <summary>
@@ -120,8 +120,8 @@ namespace OpenGL
 		[AliasOf("GL_HARDLIGHT_KHR")]
 		[AliasOf("GL_HARDLIGHT_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int HARDLIGHT = 0x929B;
 
 		/// <summary>
@@ -130,8 +130,8 @@ namespace OpenGL
 		[AliasOf("GL_SOFTLIGHT_KHR")]
 		[AliasOf("GL_SOFTLIGHT_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int SOFTLIGHT = 0x929C;
 
 		/// <summary>
@@ -140,8 +140,8 @@ namespace OpenGL
 		[AliasOf("GL_DIFFERENCE_KHR")]
 		[AliasOf("GL_DIFFERENCE_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int DIFFERENCE = 0x929E;
 
 		/// <summary>
@@ -150,8 +150,8 @@ namespace OpenGL
 		[AliasOf("GL_EXCLUSION_KHR")]
 		[AliasOf("GL_EXCLUSION_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int EXCLUSION = 0x92A0;
 
 		/// <summary>
@@ -160,8 +160,8 @@ namespace OpenGL
 		[AliasOf("GL_HSL_HUE_KHR")]
 		[AliasOf("GL_HSL_HUE_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int HSL_HUE = 0x92AD;
 
 		/// <summary>
@@ -170,8 +170,8 @@ namespace OpenGL
 		[AliasOf("GL_HSL_SATURATION_KHR")]
 		[AliasOf("GL_HSL_SATURATION_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int HSL_SATURATION = 0x92AE;
 
 		/// <summary>
@@ -180,8 +180,8 @@ namespace OpenGL
 		[AliasOf("GL_HSL_COLOR_KHR")]
 		[AliasOf("GL_HSL_COLOR_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int HSL_COLOR = 0x92AF;
 
 		/// <summary>
@@ -190,8 +190,8 @@ namespace OpenGL
 		[AliasOf("GL_HSL_LUMINOSITY_KHR")]
 		[AliasOf("GL_HSL_LUMINOSITY_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public const int HSL_LUMINOSITY = 0x92B0;
 
 		/// <summary>
@@ -492,8 +492,8 @@ namespace OpenGL
 		[AliasOf("glBlendBarrierKHR")]
 		[AliasOf("glBlendBarrierNV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|gles2")]
-		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|gles2")]
+		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		public static void BlendBarrier()
 		{
 			Debug.Assert(Delegates.pglBlendBarrier != null, "pglBlendBarrier not implemented");
@@ -558,6 +558,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendBarrier();
 
@@ -567,6 +570,10 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBlendBarrier pglBlendBarrier;
 
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
+			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 

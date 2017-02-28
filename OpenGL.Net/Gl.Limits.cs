@@ -33,6 +33,9 @@ namespace OpenGL
 			/// <summary>
 			/// Query the OpenGL implementation limits.
 			/// </summary>
+			/// <param name="version">
+			/// The <see cref="KhronosVersion"/> that specifies the GL version.
+			/// </param>
 			/// <param name="glExtensions">
 			/// A <see cref="Gl.Extensions"/> that specify the supported OpenGL extension by the current
 			/// implementation.
@@ -43,7 +46,7 @@ namespace OpenGL
 			/// <remarks>
 			/// It is assumed to have a valid OpenGL context current on the calling thread.
 			/// </remarks>
-			public static Limits Query(Extensions glExtensions)
+			public static Limits Query(KhronosVersion version, Extensions glExtensions)
 			{
 				if (glExtensions == null)
 					throw new ArgumentNullException("glExtensions");
@@ -65,7 +68,7 @@ namespace OpenGL
 					if ((graphicsExtensionAttributes != null) && (graphicsExtensionAttributes.Length > 0)) {
 						bool supported = Array.Exists(graphicsExtensionAttributes, delegate(Attribute item) {
 							RequiredByFeatureAttribute featureAttribute = (RequiredByFeatureAttribute)item;
-							return (featureAttribute.IsSupported);
+							return (featureAttribute.IsSupported(version, glExtensions));
 						});
 
 						if (supported == false)

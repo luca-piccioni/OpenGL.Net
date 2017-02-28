@@ -96,11 +96,13 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GLX_SGI_video_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXGetVideoSyncSGI(UInt32* count);
 
 			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
+			[RequiredByFeature("GLX_SGI_video_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, UInt32* count);
 

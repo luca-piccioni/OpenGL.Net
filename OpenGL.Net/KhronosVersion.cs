@@ -146,6 +146,11 @@ namespace OpenGL
 		public const string ApiGles2 = "gles2";
 
 		/// <summary>
+		/// OpenGL SC 2.0+ API.
+		/// </summary>
+		public const string ApiGlsc2= "glsc2";
+
+		/// <summary>
 		/// OpenGL VG API.
 		/// </summary>
 		public const string ApiVg = "vg";
@@ -367,16 +372,28 @@ namespace OpenGL
 			if (featureName == "GL_VERSION_ES_CM_1_0")
 				return (new KhronosVersion(1, 0, 0, ApiGles1));
 
+			Match versionMatch;
+			int major, minor;
+
+			// Match SC versions
+			versionMatch = Regex.Match(featureName, @"GL_SC_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
+			if (versionMatch.Success == true) {
+				major = Int32.Parse(versionMatch.Groups["Major"].Value);
+				minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
+
+				return (new KhronosVersion(major, minor, ApiGlsc2));
+			}
+
 			// Matches GL and GL ES versions
-			Match versionMatch = Regex.Match(featureName, @"GL(?<Embedded>_ES)?_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
+			versionMatch = Regex.Match(featureName, @"GL(?<Embedded>_ES)?_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
 			if (versionMatch.Success == false) {
 				if (throwException)
 					throw new ArgumentException("unrecognized pattern", "featureName");
 				return (null);
 			}
 
-			int major = Int32.Parse(versionMatch.Groups["Major"].Value);
-			int minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
+			major = Int32.Parse(versionMatch.Groups["Major"].Value);
+			minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			bool embedded = versionMatch.Groups["Embedded"].Success;
 
 			return (new KhronosVersion(major, minor, embedded ? ApiGles2 : ApiGl));
@@ -467,11 +484,12 @@ namespace OpenGL
 		{
 			StringBuilder sb = new StringBuilder();
 
-			sb.AppendFormat("{0}.{1}", Major, Minor);
+			if (String.IsNullOrEmpty(Api) == false)
+				sb.AppendFormat("API={0}, ", Api);
+			sb.AppendFormat("Version={0}.{1}", Major, Minor);
 			if (Revision != 0)
 				sb.AppendFormat("{0}", Revision);
-			if (String.IsNullOrEmpty(Api) == false)
-				sb.AppendFormat(" API={0}", Api);
+			
 
 			return (sb.ToString());
 		}

@@ -144,18 +144,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glElementPointerATI(Int32 type, IntPtr pointer);
 
 			[ThreadStatic]
 			internal static glElementPointerATI pglElementPointerATI;
 
+			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawElementArrayATI(Int32 mode, Int32 count);
 
 			[ThreadStatic]
 			internal static glDrawElementArrayATI pglDrawElementArrayATI;
 
+			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawRangeElementArrayATI(Int32 mode, UInt32 start, UInt32 end, Int32 count);
 

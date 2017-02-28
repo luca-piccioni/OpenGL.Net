@@ -294,36 +294,42 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, UInt32 key0, Int32 target1, UInt32 fill1, UInt32 key1);
 
 			[ThreadStatic]
 			internal static glPresentFrameKeyedNV pglPresentFrameKeyedNV;
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPresentFrameDualFillNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, Int32 target1, UInt32 fill1, Int32 target2, UInt32 fill2, Int32 target3, UInt32 fill3);
 
 			[ThreadStatic]
 			internal static glPresentFrameDualFillNV pglPresentFrameDualFillNV;
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoivNV(UInt32 video_slot, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetVideoivNV pglGetVideoivNV;
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideouivNV(UInt32 video_slot, Int32 pname, UInt32* @params);
 
 			[ThreadStatic]
 			internal static glGetVideouivNV pglGetVideouivNV;
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoi64vNV(UInt32 video_slot, Int32 pname, Int64* @params);
 
 			[ThreadStatic]
 			internal static glGetVideoi64vNV pglGetVideoi64vNV;
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoui64vNV(UInt32 video_slot, Int32 pname, UInt64* @params);
 

@@ -172,36 +172,42 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetInstrumentsSGIX();
 
 			[ThreadStatic]
 			internal static glGetInstrumentsSGIX pglGetInstrumentsSGIX;
 
+			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInstrumentsBufferSGIX(Int32 size, Int32* buffer);
 
 			[ThreadStatic]
 			internal static glInstrumentsBufferSGIX pglInstrumentsBufferSGIX;
 
+			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glPollInstrumentsSGIX(Int32* marker_p);
 
 			[ThreadStatic]
 			internal static glPollInstrumentsSGIX pglPollInstrumentsSGIX;
 
+			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReadInstrumentsSGIX(Int32 marker);
 
 			[ThreadStatic]
 			internal static glReadInstrumentsSGIX pglReadInstrumentsSGIX;
 
+			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStartInstrumentsSGIX();
 
 			[ThreadStatic]
 			internal static glStartInstrumentsSGIX pglStartInstrumentsSGIX;
 
+			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStopInstrumentsSGIX(Int32 marker);
 

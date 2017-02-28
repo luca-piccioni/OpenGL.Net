@@ -713,6 +713,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			public const int VIEWPORT = 0x0BA2;
 
 			/// <summary>

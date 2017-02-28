@@ -53,6 +53,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_3DFX_tbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTbufferMask3DFX(UInt32 mask);
 

@@ -242,48 +242,56 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4dMESA(double x, double y, double z, double w);
 
 			[ThreadStatic]
 			internal static glWindowPos4dMESA pglWindowPos4dMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4dvMESA(double* v);
 
 			[ThreadStatic]
 			internal static glWindowPos4dvMESA pglWindowPos4dvMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4fMESA(float x, float y, float z, float w);
 
 			[ThreadStatic]
 			internal static glWindowPos4fMESA pglWindowPos4fMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4fvMESA(float* v);
 
 			[ThreadStatic]
 			internal static glWindowPos4fvMESA pglWindowPos4fvMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4iMESA(Int32 x, Int32 y, Int32 z, Int32 w);
 
 			[ThreadStatic]
 			internal static glWindowPos4iMESA pglWindowPos4iMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4ivMESA(Int32* v);
 
 			[ThreadStatic]
 			internal static glWindowPos4ivMESA pglWindowPos4ivMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4sMESA(Int16 x, Int16 y, Int16 z, Int16 w);
 
 			[ThreadStatic]
 			internal static glWindowPos4sMESA pglWindowPos4sMESA;
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4svMESA(Int16* v);
 

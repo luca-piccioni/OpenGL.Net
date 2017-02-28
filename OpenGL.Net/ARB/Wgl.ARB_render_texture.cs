@@ -318,18 +318,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("WGL_ARB_render_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[ThreadStatic]
 			internal static wglBindTexImageARB pwglBindTexImageARB;
 
+			[RequiredByFeature("WGL_ARB_render_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[ThreadStatic]
 			internal static wglReleaseTexImageARB pwglReleaseTexImageARB;
 
+			[RequiredByFeature("WGL_ARB_render_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
 

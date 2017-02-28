@@ -236,24 +236,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeformationMap3dSGIX(Int32 target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double* points);
 
 			[ThreadStatic]
 			internal static glDeformationMap3dSGIX pglDeformationMap3dSGIX;
 
+			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeformationMap3fSGIX(Int32 target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float* points);
 
 			[ThreadStatic]
 			internal static glDeformationMap3fSGIX pglDeformationMap3fSGIX;
 
+			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeformSGIX(UInt32 mask);
 
 			[ThreadStatic]
 			internal static glDeformSGIX pglDeformSGIX;
 
+			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLoadIdentityDeformationMapSGIX(UInt32 mask);
 

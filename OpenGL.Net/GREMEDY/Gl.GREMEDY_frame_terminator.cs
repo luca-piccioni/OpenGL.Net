@@ -50,6 +50,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_GREMEDY_frame_terminator")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrameTerminatorGREMEDY();
 

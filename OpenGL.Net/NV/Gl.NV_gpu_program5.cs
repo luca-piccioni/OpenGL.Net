@@ -115,12 +115,14 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			[RequiredByFeature("GL_NV_gpu_program5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramSubroutineParametersuivNV(Int32 target, Int32 count, UInt32* @params);
 
 			[ThreadStatic]
 			internal static glProgramSubroutineParametersuivNV pglProgramSubroutineParametersuivNV;
 
+			[RequiredByFeature("GL_NV_gpu_program5")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramSubroutineParameteruivNV(Int32 target, UInt32 index, UInt32* param);
 
