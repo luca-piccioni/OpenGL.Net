@@ -124,7 +124,7 @@ namespace BindingsGen
 		/// <summary>
 		/// Base path to construct correct file paths.
 		/// </summary>
-		internal static readonly string BasePath = "../../../..";
+		internal static readonly string BasePath = "../../..";
 
 		/// <summary>
 		/// The directory where the output files are placed.
@@ -622,6 +622,9 @@ namespace BindingsGen
 								api = "Gles2";
 								break;
 						}
+					} else if (featureVersion.IsScVersion) {
+						versionName = String.Format("Version_{0}_SC", versionValue);
+						api = "Glsc2";
 					}
 
 					sw.WriteLine("/// <summary>");

@@ -25,11 +25,13 @@
 	<word>Devices</word>
 	<word>Device</word>
 	<word>Display</word>
+	<word>DmaBuf</word>
 	<word>DRM</word>
 	<word>Dup</word>
 	<word>Export</word>
 	<word>External</word>
 	<word>Error</word>
+	<word>Formats</word>
 	<word>Frequency</word>
 	<word>Funcs</word>
 	<word>Get</word>
@@ -41,6 +43,7 @@
 	<word>Layers</word>
 	<word>Lock</word>
 	<word>Make</word>
+	<word>Modifiers</word>
 	<word>Native</word>
 	<word>Output</word>
 	<word>Fence</word>

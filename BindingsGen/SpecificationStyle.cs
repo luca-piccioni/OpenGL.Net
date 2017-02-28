@@ -169,6 +169,21 @@ namespace BindingsGen
 				return (sb.ToString());
 			}
 
+			if ((match = Regex.Match(token, @"GL_SC_VERSION_(?<Major>\d+).(?<Minor>\d+)(.(?<Revision>\d+))?")).Success) {
+				StringBuilder sb = new StringBuilder();
+
+				sb.Append("OpenGL Security Critical (SC)");
+				sb.Append(match.Groups["Major"]);
+				sb.Append(".");
+				sb.Append(match.Groups["Minor"]);
+				if (match.Groups["Revision"].Success) {
+					sb.Append(".");
+					sb.Append(match.Groups["Revision"]);
+				}
+
+				return (sb.ToString());
+			}
+
 			return (token);
 		}
 

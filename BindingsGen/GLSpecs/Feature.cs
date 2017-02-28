@@ -91,6 +91,17 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		/// <summary>
+		/// Determine whether the version of this feature relates to OpenGL SC.
+		/// </summary>
+		public bool IsScVersion
+		{
+			get
+			{
+				return (Name != null && Regex.IsMatch(Name, "GL_SC_VERSION_.*"));
+			}
+		}
+
 		#endregion
 
 		#region IFeature Implementation

@@ -303,7 +303,24 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		internal void GenerateDelegate(SourceStreamWriter sw, RegistryContext ctx)
 		{
-			// No sure if it is really necessary
+			// Attributes required for checking API commands support
+			string classDefaultApi = ctx.Class.ToLower();
+
+			foreach (IFeature feature in RequiredBy) {
+				if (feature.Api != null && feature.Api != classDefaultApi)
+					sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+				else
+					sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+			}
+
+			foreach (IFeature feature in RemovedBy) {
+				if (feature.Api != null && feature.Api != classDefaultApi)
+					sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+				else
+					sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
+			}
+
+			// Not yet sure if it is really necessary
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
 
 			// Delegate type definition

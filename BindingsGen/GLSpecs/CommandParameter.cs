@@ -424,7 +424,7 @@ namespace BindingsGen.GLSpecs
 			if (Length == null)
 				return;
 
-			if (CommandParameterArrayLength.IsCompatible(ctx, parentCommand, this))
+			if (CommandParameterArrayLength.IsCompatible(ctx, parentCommand, this) && IsSafe)
 				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
 #if false
 			if (Regex.IsMatch(Length, @"[0-9]+"))

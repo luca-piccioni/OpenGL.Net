@@ -1487,7 +1487,7 @@ namespace BindingsGen
 
 		public static void CreateLog()
 		{
-			mWarningLog = new StreamWriter("../../DocWarnings.txt");
+			mWarningLog = new StreamWriter("../../../DocWarnings.txt");
 		}
 
 		public static void CloseLog()

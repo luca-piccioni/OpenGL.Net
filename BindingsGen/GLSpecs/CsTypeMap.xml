@@ -231,12 +231,14 @@
 	<type name="EGLint" value="int" />
 	<type name="EGLint*" value="int*" />
 	<type name="EGLBoolean" value="bool" />												<!-- 'unsigned int' -->
+  <type name="EGLBoolean*" value="bool*" />
 	<type name="EGLenum" value="uint" />
 	<type name="EGLAttribKHR" value="IntPtr" />
 	<type name="EGLAttribKHR*" value="IntPtr*" />
 	<type name="EGLAttrib" value="IntPtr" />
 	<type name="EGLAttrib*" value="IntPtr*" />
-	<type name="EGLClientBuffer" value="IntPtr" />
+  <type name="EGLAttrib*const" value="IntPtr*" />
+  <type name="EGLClientBuffer" value="IntPtr" />
 	<type name="EGLConfig" value="IntPtr" />
 	<type name="EGLConfig*" value="IntPtr*" />
 	<type name="EGLContext" value="IntPtr" />
@@ -247,6 +249,7 @@
 	<type name="EGLImageKHR" value="IntPtr" />
 	<type name="EGLObjectKHR" value="IntPtr" />
 	<type name="EGLLabelKHR" value="IntPtr" />
+  <type name="EGLnsecsANDROID" value="Int64" />
 	<type name="EGLOutputLayerEXT" value="IntPtr" />
 	<type name="EGLOutputLayerEXT*" value="IntPtr*" />
 	<type name="EGLOutputPortEXT" value="IntPtr" />
