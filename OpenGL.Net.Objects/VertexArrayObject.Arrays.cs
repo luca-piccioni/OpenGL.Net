@@ -305,7 +305,7 @@ namespace OpenGL.Objects
 
 			internal virtual void SetAttributeDivisor(GraphicsContext ctx, uint location, ShaderAttributeType type)
 			{
-				if (ctx.Version >= Gl.Version_330)
+				if (ctx.Extensions.InstancedArrays)
 					Gl.VertexAttribDivisor(location, 0);
 			}
 
@@ -695,6 +695,24 @@ namespace OpenGL.Objects
 			#endregion
 
 			#region VertexArray Overrides
+
+			/// <summary>
+			/// Enable the generic vertex attribute.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
+			/// </param>
+			/// <param name="attributeBinding">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
+			/// </param>
+			internal override void EnableVertexAttribute(GraphicsContext ctx, uint location, ShaderAttributeType type)
+			{
+				if (!ctx.Extensions.InstancedArrays)
+					throw new NotSupportedException("GL_ARB_instanced_arrays not implemented");
+
+				// Base implementation
+				base.EnableVertexAttribute(ctx, location, type);
+			}
 
 			internal override void SetAttributeDivisor(GraphicsContext ctx, uint location, ShaderAttributeType type)
 			{

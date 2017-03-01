@@ -259,6 +259,8 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
+			if (!ctx.Extensions.DrawInstanced_ARB)
+				throw new NotSupportedException("GL_ARB_draw_instanced not implemented");
 			if (shader != null && shader.Exists(ctx) == false)
 				throw new ArgumentException("not existing", "shader");
 
