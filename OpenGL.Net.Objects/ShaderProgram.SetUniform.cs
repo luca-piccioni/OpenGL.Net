@@ -1073,6 +1073,43 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Set uniform state variable (mat3 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix3x3f"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Matrix3x3 v = m.ToMatrix();
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_MAT3);
+
+			_UniformBackend.SetUniform(this, uniform, m);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			CacheUniformValue(uniformName, v);
+#endif
+		}
+
+		/// <summary>
 		/// Set uniform state variable (mat4 variable).
 		/// </summary>
 		/// <param name="ctx">
@@ -1107,6 +1144,43 @@ namespace OpenGL.Objects
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
+#endif
+		}
+
+		/// <summary>
+		/// Set uniform state variable (mat4 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix4x4f"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4f m)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Matrix4x4 v = m.ToMatrix();
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT_MAT4);
+
+			_UniformBackend.SetUniform(this, uniform, m);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			CacheUniformValue(uniformName, v);
 #endif
 		}
 

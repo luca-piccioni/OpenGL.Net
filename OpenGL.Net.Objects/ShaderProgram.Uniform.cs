@@ -511,7 +511,11 @@ namespace OpenGL.Objects
 
 			void SetUniform(ShaderProgram program, UniformBinding uniform, Matrix3x3 m);
 
+			void SetUniform(ShaderProgram program, UniformBinding uniform, Matrix3x3f m);
+
 			void SetUniform(ShaderProgram program, UniformBinding uniform, Matrix4x4 m);
+
+			void SetUniform(ShaderProgram program, UniformBinding uniform, Matrix4x4f m);
 
 			#endregion
 
@@ -889,9 +893,25 @@ namespace OpenGL.Objects
 				Gl.UniformMatrix3(uniform.Location, 1, false, m.Buffer);
 			}
 
+			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
+			{
+				unsafe
+				{
+					Gl.UniformMatrix3(uniform.Location, 1, false, (float*)&m);
+				}
+			}
+
 			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Matrix4x4 m)
 			{
 				Gl.UniformMatrix4(uniform.Location, 1, false, m.Buffer);
+			}
+
+			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
+			{
+				unsafe
+				{
+					Gl.UniformMatrix4(uniform.Location, 1, false, (float*)&m);
+				}
 			}
 
 			#endregion
@@ -1377,9 +1397,25 @@ namespace OpenGL.Objects
 				Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, 1, false, m.Buffer);
 			}
 
+			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
+			{
+				unsafe
+				{
+					Gl.UniformMatrix3(uniform.Location, 1, false, (double*)&m);
+				}
+			}
+
 			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Matrix4x4 m)
 			{
 				Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, 1, false, m.Buffer);
+			}
+
+			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
+			{
+				unsafe
+				{
+					Gl.UniformMatrix4(uniform.Location, 1, false, (double*)&m);
+				}
 			}
 
 			#endregion
