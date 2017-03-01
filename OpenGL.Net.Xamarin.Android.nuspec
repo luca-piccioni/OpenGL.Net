@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.Xamarin.Android</id>
-		<version>0.3.2-beta</version>
+		<version>0.4.0</version>
 		<title>OpenGL for .Net - Xamarin.Android utilities</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -16,15 +16,15 @@
 
 			It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
 		</description>
-    <dependencies>
-      <dependency id="OpenGL.Net" version="0.3.2-beta" />
-    </dependencies>
 		<releaseNotes>
-			*** Version 0.3.X
-			- First release.
+			This package includes the targets:
+			- MonoAndroid
 		</releaseNotes>
-		<copyright>Copyright 2015-2016</copyright>
+		<copyright>Copyright 2015-2017</copyright>
 		<tags>Android Xamarin OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>
+		<dependencies>
+			<dependency id="OpenGL.Net" version="0.4.0" />
+		</dependencies>
 	</metadata>
 	<files>
 		<file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.dll" target="lib\MonoAndroid" />

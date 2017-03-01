@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set di attributi. Modificare i valori di questi attributi per modificare le informazioni
 // associate a un assembly.
 [assembly: AssemblyTitle("OpenGL.Net.WinForms")]
-[assembly: AssemblyDescription("WinForms Control for Modern C# bindings for OpenGL.")]
+[assembly: AssemblyDescription("WinForms Control for OpenGL.Net.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Luca Piccioni")]
 [assembly: AssemblyProduct("OpenGL.Net.WinForms")]
-[assembly: AssemblyCopyright("Copyright © Luca Piccioni 2016")]
+[assembly: AssemblyCopyright("Copyright © Luca Piccioni 2016-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 //      Versione secondaria 
 //      Numero di build
 //      Revisione
-[assembly: AssemblyVersion("0.3.2")]
-[assembly: AssemblyFileVersion("0.3.2")]
+[assembly: AssemblyVersion("0.4.0")]
+[assembly: AssemblyFileVersion("0.4.0")]

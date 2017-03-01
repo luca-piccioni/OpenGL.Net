@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.WinForms</id>
-		<version>0.3.2</version>
+		<version>0.4.0</version>
 		<title>OpenGL for .Net - WinForms utilities</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -22,23 +22,30 @@
 			
 			The package depends on OpenGL.Net.
 		</description>
+		<releaseNotes>
+			This package includes the targets:
+			- .NET 3.5
+			- .NET 4.6.1
+		</releaseNotes>
+		<copyright>Copyright 2015-2017</copyright>
+		<tags>WinForms OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Windows.Forms" />
 		</frameworkAssemblies>
 		<dependencies>
-			<dependency id="OpenGL.Net" version="0.3.2" />
+			<group>
+				<dependency id="OpenGL.Net" version="0.4.0" />
+			</group>
+			<group targetFramework="net461">
+				<dependency id="System.Numerics.Vector" version="4.3.0" />
+				<dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
+			</group>
 		</dependencies>
-		<releaseNotes>
-			*** Version 0.3.0
-			- First release. Code extracted from OpenGL.Net.
-		</releaseNotes>
-		<copyright>Copyright 2015-2016</copyright>
-		<tags>WinForms OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 	</metadata>
 	<files>
-		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.dll" target="lib/net35" />
-		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.xml" target="lib/net35" />
-		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.dll" target="lib/net461" />
-		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.xml" target="lib/net461" />
+		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.dll" target="lib\net35" />
+		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.xml" target="lib\net35" />
+		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.dll" target="lib\net461" />
+		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.xml" target="lib\net461" />
 	</files>
 </package>
