@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015-2016 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -4852,6 +4852,80 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glProgramUniformMatrix2x3fvEXT")]
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		public static unsafe void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x3fv != null, "pglProgramUniformMatrix2x3fv not implemented");
+			Delegates.pglProgramUniformMatrix2x3fv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix2x3fv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
+		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
+		/// Gl.ProgramUniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glProgramUniformMatrix3x2fvEXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -4868,6 +4942,80 @@ namespace OpenGL
 					LogFunction("glProgramUniformMatrix3x2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
+		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
+		/// Gl.ProgramUniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glProgramUniformMatrix3x2fvEXT")]
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		public static unsafe void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x2fv != null, "pglProgramUniformMatrix3x2fv not implemented");
+			Delegates.pglProgramUniformMatrix3x2fv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix3x2fv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -5010,6 +5158,80 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glProgramUniformMatrix2x4fvEXT")]
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		public static unsafe void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x4fv != null, "pglProgramUniformMatrix2x4fv not implemented");
+			Delegates.pglProgramUniformMatrix2x4fv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix2x4fv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
+		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
+		/// Gl.ProgramUniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glProgramUniformMatrix4x2fvEXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -5026,6 +5248,80 @@ namespace OpenGL
 					LogFunction("glProgramUniformMatrix4x2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
+		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
+		/// Gl.ProgramUniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glProgramUniformMatrix4x2fvEXT")]
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		public static unsafe void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x2fv != null, "pglProgramUniformMatrix4x2fv not implemented");
+			Delegates.pglProgramUniformMatrix4x2fv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix4x2fv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -5168,6 +5464,80 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glProgramUniformMatrix3x4fvEXT")]
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		public static unsafe void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x4fv != null, "pglProgramUniformMatrix3x4fv not implemented");
+			Delegates.pglProgramUniformMatrix3x4fv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix3x4fv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
+		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
+		/// Gl.ProgramUniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glProgramUniformMatrix4x3fvEXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -5184,6 +5554,80 @@ namespace OpenGL
 					LogFunction("glProgramUniformMatrix4x3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
+		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
+		/// Gl.ProgramUniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		[AliasOf("glProgramUniformMatrix4x3fvEXT")]
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		public static unsafe void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x3fv != null, "pglProgramUniformMatrix4x3fv not implemented");
+			Delegates.pglProgramUniformMatrix4x3fv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix4x3fv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -5221,6 +5665,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix2x3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static unsafe void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x3dv != null, "pglProgramUniformMatrix2x3dv not implemented");
+			Delegates.pglProgramUniformMatrix2x3dv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix2x3dv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix3x2dv.
 		/// </summary>
 		/// <param name="program">
@@ -5250,6 +5722,34 @@ namespace OpenGL
 					LogFunction("glProgramUniformMatrix3x2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix3x2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static unsafe void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x2dv != null, "pglProgramUniformMatrix3x2dv not implemented");
+			Delegates.pglProgramUniformMatrix3x2dv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix3x2dv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -5287,6 +5787,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix2x4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static unsafe void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x4dv != null, "pglProgramUniformMatrix2x4dv not implemented");
+			Delegates.pglProgramUniformMatrix2x4dv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix2x4dv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix4x2dv.
 		/// </summary>
 		/// <param name="program">
@@ -5316,6 +5844,34 @@ namespace OpenGL
 					LogFunction("glProgramUniformMatrix4x2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix4x2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static unsafe void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x2dv != null, "pglProgramUniformMatrix4x2dv not implemented");
+			Delegates.pglProgramUniformMatrix4x2dv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix4x2dv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -5353,6 +5909,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix3x4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static unsafe void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x4dv != null, "pglProgramUniformMatrix3x4dv not implemented");
+			Delegates.pglProgramUniformMatrix3x4dv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix3x4dv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix4x3dv.
 		/// </summary>
 		/// <param name="program">
@@ -5382,6 +5966,34 @@ namespace OpenGL
 					LogFunction("glProgramUniformMatrix4x3dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix4x3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static unsafe void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x3dv != null, "pglProgramUniformMatrix4x3dv not implemented");
+			Delegates.pglProgramUniformMatrix4x3dv(program, location, count, transpose, value);
+			LogFunction("glProgramUniformMatrix4x3dv({0}, {1}, {2}, {3}, 0x{4})", program, location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

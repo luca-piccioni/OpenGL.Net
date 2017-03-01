@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015-2016 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -1664,6 +1664,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glUniformMatrix2x3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglUniformMatrix2x3dv != null, "pglUniformMatrix2x3dv not implemented");
+			Delegates.pglUniformMatrix2x3dv(location, count, transpose, value);
+			LogFunction("glUniformMatrix2x3dv({0}, {1}, {2}, 0x{3})", location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glUniformMatrix2x4dv.
 		/// </summary>
 		/// <param name="location">
@@ -1690,6 +1715,31 @@ namespace OpenGL
 					LogFunction("glUniformMatrix2x4dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glUniformMatrix2x4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglUniformMatrix2x4dv != null, "pglUniformMatrix2x4dv not implemented");
+			Delegates.pglUniformMatrix2x4dv(location, count, transpose, value);
+			LogFunction("glUniformMatrix2x4dv({0}, {1}, {2}, 0x{3})", location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1724,6 +1774,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glUniformMatrix3x2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglUniformMatrix3x2dv != null, "pglUniformMatrix3x2dv not implemented");
+			Delegates.pglUniformMatrix3x2dv(location, count, transpose, value);
+			LogFunction("glUniformMatrix3x2dv({0}, {1}, {2}, 0x{3})", location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glUniformMatrix3x4dv.
 		/// </summary>
 		/// <param name="location">
@@ -1750,6 +1825,31 @@ namespace OpenGL
 					LogFunction("glUniformMatrix3x4dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glUniformMatrix3x4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglUniformMatrix3x4dv != null, "pglUniformMatrix3x4dv not implemented");
+			Delegates.pglUniformMatrix3x4dv(location, count, transpose, value);
+			LogFunction("glUniformMatrix3x4dv({0}, {1}, {2}, 0x{3})", location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1784,6 +1884,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glUniformMatrix4x2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglUniformMatrix4x2dv != null, "pglUniformMatrix4x2dv not implemented");
+			Delegates.pglUniformMatrix4x2dv(location, count, transpose, value);
+			LogFunction("glUniformMatrix4x2dv({0}, {1}, {2}, 0x{3})", location, count, transpose, new IntPtr(value).ToString("X8"));
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glUniformMatrix4x3dv.
 		/// </summary>
 		/// <param name="location">
@@ -1810,6 +1935,31 @@ namespace OpenGL
 					LogFunction("glUniformMatrix4x3dv({0}, {1}, {2}, {3})", location, count, transpose, LogValue(value));
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glUniformMatrix4x3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, double* value)
+		{
+			Debug.Assert(Delegates.pglUniformMatrix4x3dv != null, "pglUniformMatrix4x3dv not implemented");
+			Delegates.pglUniformMatrix4x3dv(location, count, transpose, value);
+			LogFunction("glUniformMatrix4x3dv({0}, {1}, {2}, 0x{3})", location, count, transpose, new IntPtr(value).ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
