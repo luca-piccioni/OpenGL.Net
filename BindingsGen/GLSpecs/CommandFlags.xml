@@ -200,7 +200,7 @@
 	
 	<!-- Unsafe parameters -->
 	
-	<command name="^gl(Program)?Uniform(1|2|3|4)(d|f|i|ui)v$">
+	<command name="^gl(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)(d|f|i|ui)v$">
 		<flags>UnsafeParams</flags>
 	</command>
 
