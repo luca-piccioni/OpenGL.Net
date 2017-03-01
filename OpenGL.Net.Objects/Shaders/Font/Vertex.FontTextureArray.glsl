@@ -20,18 +20,61 @@
 
 // Vertex position
 LOCATION(0) ATTRIBUTE vec2 glo_Position;
-// Glyph model-view-projection matrix (instanced)
+
+#if defined(GLO_INSTANCED_ARRAY)
+
+// Glyph model-view-projection matrix (instanced array)
 LOCATION(1) ATTRIBUTE mat4 glo_GlyphModelViewProjection;
-// Glyph vertex parameters (instanced); xy=vertex scale z=texture layer
+// Glyph vertex parameters (instanced); xy=vertex scale z=texture layer (instanced array)
 LOCATION(5) ATTRIBUTE vec3 glo_GlyphVertexParams;
-// Glyph vertex parameters (instanced);
+// Glyph vertex parameters  (instanced array)
 LOCATION(6) ATTRIBUTE vec2 glo_GlyphTexParams;
+
+#elif defined(GLO_INSTANCED)
+
+// The glyph model applied
+struct glo_GlyphType
+{
+	// Glyph model-view-projection matrix.
+	mat4 ModelViewProjection;
+	// Glyph model-view-projection matrix.
+	vec3 VertexParams;
+	// Glyph vertex parameters
+	vec2 TexParams;
+};
+
+// Glyphs information (instanced)
+uniform glo_GlyphType glo_Glyphs[256];
+
+#else
+
+#include </OpenGL/TransformState.glsl>
+
+// Glyph model-view-projection matrix.
+uniform vec3 glo_VertexParams;
+// Glyph vertex parameters
+uniform vec2 glo_TexParams;
+
+#endif
+
 
 // Vertex/Fragment texture coordinates
 SHADER_OUT vec3 glo_VertexTexCoord;
 
 void main()
 {
+#if defined(GLO_INSTANCED_ARRAY)
 	gl_Position = glo_GlyphModelViewProjection * vec4(glo_Position * glo_GlyphVertexParams.xy, 0.0, 1.0);
 	glo_VertexTexCoord = vec3(glo_Position * glo_GlyphTexParams, glo_GlyphVertexParams.z);
+#elif defined(GLO_INSTANCED)
+	mat4 mvp = glo_Glyphs[gl_InstanceID].ModelViewProjection;
+	vec3 vparams = glo_Glyphs[gl_InstanceID].VertexParams;
+	vec2 tparams = glo_Glyphs[gl_InstanceID].TexParams;
+
+	gl_Position = mvp * vec4(glo_Position * vparams.xy, 0.0, 1.0);
+	glo_VertexTexCoord = vec3(glo_Position * tparams, vparams.z);
+#else
+	gl_Position = glo_ModelViewProjection * vec4(glo_Position * glo_VertexParams.xy, 0.0, 1.0);
+	glo_VertexTexCoord = vec3(glo_Position * glo_TexParams, glo_VertexParams.z);
+#endif
 }

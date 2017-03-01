@@ -24,14 +24,42 @@
 			<Extension Name="GL_ARB_shader_draw_parameters" Behavior="Enable" />
 		</Program>
 
-		<!-- FontTextureArray -->
-		<Program Id="OpenGL.FontTextureArray">
-			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="Vertex" />
+    <!-- FontTextureArray+Instanced -->
+    <Program Id="OpenGL.FontTextureArray">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="Vertex" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="Fragment" />
+
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+      <Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+    </Program>
+
+    <!-- FontTextureArray+Instanced -->
+    <Program Id="OpenGL.FontTextureArray+Instanced">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="Vertex">
+        <Symbols>
+          <Symbol>GLO_INSTANCED</Symbol>
+        </Symbols>
+      </Object>
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="Fragment" />
+
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+    </Program>
+
+		<!-- FontTextureArray+InstancedArrays -->
+		<Program Id="OpenGL.FontTextureArray+InstancedArrays">
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="Vertex">
+        <Symbols>
+          <Symbol>GLO_INSTANCED_ARRAY</Symbol>
+        </Symbols>
+      </Object>
 			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="Fragment" />
 			
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 			<Uniform Name="glo_UniformColor" Semantic="Color"/>
 		</Program>
 
