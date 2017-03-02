@@ -3525,6 +3525,66 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// query a property of an interface in a program
+		/// </summary>
+		/// <param name="program">
+		/// The name of a program object whose interface to query.
+		/// </param>
+		/// <param name="programInterface">
+		/// A token identifying the interface within <paramref name="program"/> to query.
+		/// </param>
+		/// <param name="pname">
+		/// The name of the parameter within <paramref name="programInterface"/> to query.
+		/// </param>
+		/// <param name="params">
+		/// The address of a variable to retrieve the value of <paramref name="pname"/> for the program interface.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="identifier"/> is not one of the accepted object types.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing sync object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufSize"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="pname"/> is Gl.MAX_NAME_LENGTH and <paramref 
+		/// name="programInterface"/> is Gl.ATOMIC_COUNTER_BUFFER or Gl.TRANSFORM_FEEDBACK_BUFFER, since active atomic counter and 
+		/// transform feedback buffer resources are not assigned name strings.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION error is generated if <paramref name="pname"/> is Gl.MAX_NUM_ACTIVE_VARIABLES and <paramref 
+		/// name="programInterface"/> is not Gl.UNIFORM_BLOCK, Gl.SHADER_STORAGE_BLOCK, Gl.ATOMIC_COUNTER_BUFFER, or 
+		/// Gl.TRANSFORM_FEEDBACK_BUFFER.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// If not NULL, <paramref name="length"/> and <paramref name="label"/> should be addresses to which the client has write 
+		/// access, otherwise undefined behavior, including process termination may occur.
+		/// </exception>
+		/// <seealso cref="Gl.PushDebugGroup"/>
+		/// <seealso cref="Gl.PopDebugGroup"/>
+		/// <seealso cref="Gl.ObjectLabel"/>
+		/// <seealso cref="Gl.GetObjectLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		public static void GetProgramInterface(UInt32 program, Int32 programInterface, Int32 pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetProgramInterfaceiv != null, "pglGetProgramInterfaceiv not implemented");
+					Delegates.pglGetProgramInterfaceiv(program, programInterface, pname, p_params);
+					LogFunction("glGetProgramInterfaceiv({0}, {1}, {2}, {3})", program, LogEnumName(programInterface), LogEnumName(pname), @params);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// query the index of a named resource within a program
 		/// </summary>
 		/// <param name="program">
