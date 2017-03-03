@@ -237,6 +237,35 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Set uniform state variable (array of float variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="Single"/> holding the uniform variabile data (first component).
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="Single"/> holding the uniform variabile data (second component).
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, float[] v)
+		{
+			CheckCurrentContext(ctx);
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
+
+			_UniformBackend.SetUniform(this, uniform, v);
+		}
+
+		/// <summary>
 		/// Set uniform state variable (array of vec2 variable).
 		/// </summary>
 		/// <param name="ctx">
@@ -813,6 +842,111 @@ namespace OpenGL.Objects
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
+
+			_UniformBackend.SetUniform(this, uniform, v);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			CacheUniformValue(uniformName, v);
+#endif
+		}
+
+		/// <summary>
+		/// Set uniform state variable (uvec2 variable or bvec2 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex2ui"/> holding the uniform variabile data (first component).
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2ui v)
+		{
+			CheckCurrentContext(ctx);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
+
+			_UniformBackend.SetUniform(this, uniform, v);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			CacheUniformValue(uniformName, v);
+#endif
+		}
+
+		/// <summary>
+		/// Set uniform state variable (uvec3 variable or bvec3 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex3ui"/> holding the uniform variabile data (first component).
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3ui v)
+		{
+			CheckCurrentContext(ctx);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
+
+			_UniformBackend.SetUniform(this, uniform, v);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			CacheUniformValue(uniformName, v);
+#endif
+		}
+
+		/// <summary>
+		/// Set uniform state variable (uvec4 variable or bvec4 variable).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex4ui"/> holding the uniform variabile data (first component).
+		/// </param>
+		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4ui v)
+		{
+			CheckCurrentContext(ctx);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (IsUniformValueChanged(uniformName, v) == false)
+				return;
+#endif
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(this, uniform, v);
 

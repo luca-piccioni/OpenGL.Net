@@ -25,11 +25,6 @@ namespace OpenGL.Objects
 	/// </summary>
 	static class PrimitiveRestart
 	{
-		public static bool IsPrimitiveRestartSupported()
-		{
-			return (Gl.CurrentExtensions.PrimitiveRestart || Gl.CurrentExtensions.PrimitiveRestart_NV);
-		}
-
 		public static bool IsPrimitiveRestartSupported(GraphicsContext ctx)
 		{
 			if (ctx == null)

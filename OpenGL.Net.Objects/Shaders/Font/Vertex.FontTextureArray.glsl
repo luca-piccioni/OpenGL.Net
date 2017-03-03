@@ -43,8 +43,10 @@ struct glo_GlyphType
 	vec2 TexParams;
 };
 
-// Glyphs information (instanced)
-uniform glo_GlyphType glo_Glyphs[256];
+BLOCK_BEGIN_LAYOUT(Glyphs, std140)
+	// Glyphs information (instanced)
+	BLOCK_FIELD glo_GlyphType glo_Glyphs[64];
+BLOCK_END_ANON()
 
 #else
 

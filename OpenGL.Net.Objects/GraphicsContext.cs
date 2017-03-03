@@ -22,10 +22,18 @@
 // Symbol for disabling redundant texture unit selection
 #define ENABLE_LAZY_TEXTURE_UNIT
 
+// Symbol for disabling at compile-time features derived from GL_ARB_draw_instanced
+#undef DISABLE_GL_ARB_draw_instanced
 // Symbol for disabling at compile-time features derived from GL_ARB_shading_language_include
 #undef DISABLE_GL_ARB_shading_language_include
 // Symbol for disabling at compile-time features derived from GL_ARB_uniform_buffer_object
-#define DISABLE_GL_ARB_uniform_buffer_object
+#undef DISABLE_GL_ARB_uniform_buffer_object
+// Symbol for disabling at compile-time features derived from GL_ARB_instanced_arrays
+#undef DISABLE_GL_ARB_instanced_arrays
+// Symbol for disabling at compile-time features derived from GL_ARB_program_interface_query
+#undef DISABLE_GL_ARB_program_interface_query
+// Symbol for disabling at compile-time features derived from GL_ARB_separate_shader_objects
+#undef DISABLE_GL_ARB_separate_shader_objects
 
 using System;
 using System.Collections.Generic;
@@ -255,11 +263,24 @@ namespace OpenGL.Objects
 				Extensions.Query();
 
 				Extensions.TextureObject_EXT = true;
+#if DISABLE_GL_ARB_draw_instanced
+				Extensions.DrawInstanced_ARB = false;
+#endif
 #if DISABLE_GL_ARB_shading_language_include
 				Extensions.ShadingLanguageInclude_ARB = false;
 #endif
 #if DISABLE_GL_ARB_uniform_buffer_object
 				Extensions.UniformBufferObject_ARB = false;
+#endif
+#if DISABLE_GL_ARB_instanced_arrays
+				Extensions.InstancedArrays = false;
+				Extensions.InstancedArrays_ARB = false;
+#endif
+#if DISABLE_GL_ARB_program_interface_query
+				Extensions.ProgramInterfaceQuery_ARB = false;
+#endif
+#if DISABLE_GL_ARB_separate_shader_objects
+				Extensions.SeparateShaderObjects_ARB = false;
 #endif
 
 				#endregion

@@ -28,6 +28,6 @@
 	</metadata>
 	<files>
 		<file src="OpenGL.Net.VideoCore/bin/Release/OpenGL.Net.VideoCore.dll" target="lib\net35" />
-		<file src="OpenGL.Net.VideoCore/bin/Release/OpenGL.Net.VideoCore.xml" target="lib\net35" />
+		<!--<file src="OpenGL.Net.VideoCore/bin/Release/OpenGL.Net.VideoCore.xml" target="lib\net35" />-->
 	</files>
 </package>

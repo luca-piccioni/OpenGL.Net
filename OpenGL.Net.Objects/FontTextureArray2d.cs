@@ -31,6 +31,18 @@ namespace OpenGL.Objects
 	{
 		#region Constructors
 
+		/// <summary>
+		/// Construct a Font based on texture arrays.
+		/// </summary>
+		/// <param name="fontFamily">
+		/// The <see cref="FontFamily"/> that specifies the family of the font.
+		/// </param>
+		/// <param name="emSize">
+		/// The <see cref="UInt32"/> that specifies the font size.
+		/// </param>
+		/// <param name="fontStyle">
+		/// The <see cref="FontStyle"/> that specifies the stryle of the font.
+		/// </param>
 		public FontTextureArray2d(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects)
 			: base(fontFamily, emSize, fontStyle, effects)
 		{
@@ -99,9 +111,100 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create a <see cref="VertexArrayObject"/> for rendering glyphs.
+		/// Get a list of <see cref="GlyphModelType"/> for a specific string and model-view-projection matrix.
 		/// </summary>
+		/// <param name="modelview"></param>
+		/// <param name="s"></param>
 		/// <returns></returns>
+		private List<GlyphModelType> GetGlyphsInstances(Matrix4x4 modelview, string s)
+		{
+			ModelMatrix charModel = new ModelMatrix(modelview);
+
+			List<GlyphModelType> glyphsInstances = new List<GlyphModelType>();
+			char[] fontChars = s.ToCharArray();
+
+			for (int i = 0; i < fontChars.Length; i++) {
+				Glyph glyph;
+
+				if (_GlyphMetadata.TryGetValue(fontChars[i], out glyph) == false)
+					continue;
+
+				// Set instance information
+				Matrix4x4f modelViewProjection = new Matrix4x4f(
+					new Vertex4f(charModel.GetColumn(0)),
+					new Vertex4f(charModel.GetColumn(1)),
+					new Vertex4f(charModel.GetColumn(2)),
+					new Vertex4f(charModel.GetColumn(3))
+				);
+				Vertex3f glyphVertexParams = new Vertex3f(
+					glyph.GlyphSize.Width, glyph.GlyphSize.Height,
+					glyph.Layer
+				);
+				Vertex2f glyphTexParams = new Vertex2f(
+					glyph.TexScale.Width, glyph.TexScale.Height
+				);
+
+				GlyphModelType glyphModel = new GlyphModelType();
+
+				glyphModel.ModelViewProjection = modelViewProjection;
+				glyphModel.VertexParams = glyphVertexParams;
+				glyphModel.TexParams = glyphTexParams;
+				glyphsInstances.Add(glyphModel);
+
+				// Move next
+				charModel.Translate(glyph.GlyphSize.Width, 0.0f);
+			}
+
+			return (glyphsInstances);
+		}
+
+		/// <summary>
+		/// Update eventual buffers required to hold glyph instances information.
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="glyphsInstances"></param>
+		private void UpdateGlyphBuffer(GraphicsContext ctx, List<GlyphModelType> glyphsInstances)
+		{
+			// Set instances (in case of GL_ARB_draw_instanced and GL_ARB_uniform_buffer_object)
+			// Note: update only once the uniform buffer
+			if (_GlyphUniformBuffer != null) {
+				_GlyphUniformBuffer.Map(ctx, BufferAccessARB.WriteOnly);
+				try {
+					for (int i = 0; i < glyphsInstances.Count; i++) {
+						GlyphModelType glyph = glyphsInstances[i];
+						string structName = "glo_Glyphs[" + i + "]";
+
+						_GlyphUniformBuffer.SetUniform(structName + ".ModelViewProjection", glyph.ModelViewProjection);
+						_GlyphUniformBuffer.SetUniform(structName + ".VertexParams", glyph.VertexParams);
+						_GlyphUniformBuffer.SetUniform(structName + ".TexParams", glyph.TexParams);
+					}
+				} finally {
+					_GlyphUniformBuffer.Unmap(ctx);
+				}
+			}
+
+			// Set instances (in case of GL_ARB_instanced_arrays)
+			// Note: update only once the array buffer
+			if (_GlyphInstances != null) {
+				_GlyphInstances.Map(ctx, BufferAccessARB.WriteOnly);
+				try {
+					for (uint i = 0; i < glyphsInstances.Count; i++) {
+						GlyphModelType glyph = glyphsInstances[(int)i];
+
+						_GlyphInstances.SetElement(glyph.ModelViewProjection, i, 0);
+						_GlyphInstances.SetElement(glyph.VertexParams, i, 1);
+						_GlyphInstances.SetElement(glyph.TexParams, i, 2);
+					}
+				} finally {
+					_GlyphInstances.Unmap(ctx);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Create resources for rendering glyphs.
+		/// </summary>
+		/// <param name="ctx"></param>
 		private void LinkSharedResources(GraphicsContext ctx)
 		{
 			CheckCurrentContext(ctx);
@@ -258,6 +361,19 @@ namespace OpenGL.Objects
 			#endregion
 		}
 
+		/// <summary>
+		/// Process resources created.
+		/// </summary>
+		/// <param name="ctx"></param>
+		private void PostSharedResources(GraphicsContext ctx)
+		{
+			if (_FontProgram.Identifier == "OpenGL.FontTextureArray+Instanced" && ctx.Extensions.UniformBufferObject_ARB) {
+				// Note: the above program uses uniform buffers, if supported
+				_GlyphUniformBuffer = _FontProgram.CreateUniformBlock("Glyphs", BufferObjectHint.DynamicCpuDraw);
+				_GlyphUniformBuffer.Create(ctx);
+			}
+		}
+
 		#endregion
 
 		#region FontBase Overrides
@@ -283,6 +399,8 @@ namespace OpenGL.Objects
 			}
 			// Base implementation
 			base.CreateObject(ctx);
+			// Process resources
+			PostSharedResources(ctx);
 		}
 
 		/// <summary>
@@ -302,17 +420,18 @@ namespace OpenGL.Objects
 		/// </param>
 		public override void DrawString(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
 		{
-			// Draw the string
-			DrawStringCore(ctx, modelview, _FontTexture, color, s);
+			List<GlyphModelType> glyphsInstances = GetGlyphsInstances(modelview, s);
+
+			UpdateGlyphBuffer(ctx, glyphsInstances);
 
 			// Shadow effect
 			if (_FxShadow != null) {
-				ModelMatrix shadowModel = new ModelMatrix(modelview);
-
-				shadowModel.Translate(_FxShadow.Offset);
-
-				DrawStringCore(ctx, shadowModel, _FontTexture, _FxShadow.Color, s);
+				// XXX
+				DrawStringCore(ctx, _FontTexture, _FxShadow.Color, glyphsInstances);
 			}
+
+			// Draw the string
+			DrawStringCore(ctx, _FontTexture, color, glyphsInstances);
 		}
 
 		/// <summary>
@@ -330,14 +449,14 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore(GraphicsContext ctx, Matrix4x4 modelview, TextureArray2d texture, ColorRGBAF color, string s)
+		private void DrawStringCore(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
 		{
 			if (ctx.Extensions.InstancedArrays)
-				DrawStringCore_InstancedArrays(ctx, modelview, texture, color, s);
+				DrawStringCore_InstancedArrays(ctx, texture, color, glyphInstances);
 			else if (ctx.Extensions.DrawInstanced_ARB)
-				DrawStringCore_Instanced(ctx, modelview, texture, color, s);
+				DrawStringCore_Instanced(ctx, texture, color, glyphInstances);
 			else
-				DrawStringCore_Compatibility(ctx, modelview, texture, color, s);
+				DrawStringCore_Compatibility(ctx, texture, color, glyphInstances);
 		}
 
 		/// <summary>
@@ -355,51 +474,13 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_Compatibility(GraphicsContext ctx, Matrix4x4 modelview, TextureArray2d texture, ColorRGBAF color, string s)
+		private void DrawStringCore_Compatibility(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
 		{
-			ModelMatrix charModel = new ModelMatrix(modelview);
-
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
-
-			// Set instances
-			List<GlyphModelType> glyphsInstances = new List<GlyphModelType>();
-			char[] fontChars = s.ToCharArray();
-
-			for (int i = 0; i < fontChars.Length; i++) {
-				Glyph glyph;
-
-				if (_GlyphMetadata.TryGetValue(fontChars[i], out glyph) == false)
-					continue;
-
-				// Set instance information
-				Matrix4x4f modelViewProjection = new Matrix4x4f(
-					new Vertex4f(charModel.GetColumn(0)),
-					new Vertex4f(charModel.GetColumn(1)),
-					new Vertex4f(charModel.GetColumn(2)),
-					new Vertex4f(charModel.GetColumn(3))
-				);
-				Vertex3f glyphVertexParams = new Vertex3f(
-					glyph.GlyphSize.Width, glyph.GlyphSize.Height,
-					glyph.Layer
-				);
-				Vertex2f glyphTexParams = new Vertex2f(
-					glyph.TexScale.Width, glyph.TexScale.Height
-				);
-
-				GlyphModelType glyphModel = new GlyphModelType();
-
-				glyphModel.ModelViewProjection = modelViewProjection;
-				glyphModel.VertexParams = glyphVertexParams;
-				glyphModel.TexParams = glyphTexParams;
-				glyphsInstances.Add(glyphModel);
-
-				// Move next
-				charModel.Translate(glyph.GlyphSize.Width, 0.0f);
-			}
 
 			// Rasterize it
 			using (State.BlendState stateBlend = State.BlendState.AlphaBlending) {
@@ -443,10 +524,8 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_Instanced(GraphicsContext ctx, Matrix4x4 modelview, TextureArray2d texture, ColorRGBAF color, string s)
+		private void DrawStringCore_Instanced(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
 		{
-			ModelMatrix charModel = new ModelMatrix(modelview);
-
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
@@ -454,48 +533,19 @@ namespace OpenGL.Objects
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
 
 			// Set instances
-			List<GlyphModelType> glyphsInstances = new List<GlyphModelType>();
-			char[] fontChars = s.ToCharArray();
+			if (_GlyphUniformBuffer == null) {
+				// Set instances
+				for (int i = 0; i < glyphsInstances.Count; i++) {
+					string structName = "glo_Glyphs[" + i + "]";
 
-			for (int i = 0; i < fontChars.Length; i++) {
-				Glyph glyph;
-
-				if (_GlyphMetadata.TryGetValue(fontChars[i], out glyph) == false)
-					continue;
-
-				// Set instance information
-				Matrix4x4f modelViewProjection = new Matrix4x4f(
-					new Vertex4f(charModel.GetColumn(0)),
-					new Vertex4f(charModel.GetColumn(1)),
-					new Vertex4f(charModel.GetColumn(2)),
-					new Vertex4f(charModel.GetColumn(3))
-				);
-				Vertex3f glyphVertexParams = new Vertex3f(
-					glyph.GlyphSize.Width, glyph.GlyphSize.Height,
-					glyph.Layer
-				);
-				Vertex2f glyphTexParams = new Vertex2f(
-					glyph.TexScale.Width, glyph.TexScale.Height
-				);
-
-				GlyphModelType glyphModel = new GlyphModelType();
-
-				glyphModel.ModelViewProjection = modelViewProjection;
-				glyphModel.VertexParams = glyphVertexParams;
-				glyphModel.TexParams = glyphTexParams;
-				glyphsInstances.Add(glyphModel);
-
-				// Move next
-				charModel.Translate(glyph.GlyphSize.Width, 0.0f);
-			}
-
-			// Set instances
-			for (int i = 0; i < glyphsInstances.Count; i++) {
-				string structName = "glo_Glyphs[" + i + "]";
-
-				_FontProgram.SetUniform(ctx, structName + ".ModelViewProjection", glyphsInstances[i].ModelViewProjection);
-				_FontProgram.SetUniform(ctx, structName + ".VertexParams", glyphsInstances[i].VertexParams);
-				_FontProgram.SetUniform(ctx, structName + ".TexParams", glyphsInstances[i].TexParams);
+					_FontProgram.SetUniform(ctx, structName + ".ModelViewProjection", glyphsInstances[i].ModelViewProjection);
+					_FontProgram.SetUniform(ctx, structName + ".VertexParams", glyphsInstances[i].VertexParams);
+					_FontProgram.SetUniform(ctx, structName + ".TexParams", glyphsInstances[i].TexParams);
+				}
+			} else {
+				// Bind uniform block
+				// Note: already updated by DrawString
+				_FontProgram.SetUniformBlock(ctx, "Glyphs", _GlyphUniformBuffer);
 			}
 
 			// Rasterize it
@@ -512,71 +562,25 @@ namespace OpenGL.Objects
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for drawing.
 		/// </param>
-		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
-		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_InstancedArrays(GraphicsContext ctx, Matrix4x4 modelview, TextureArray2d texture, ColorRGBAF color, string s)
+		private void DrawStringCore_InstancedArrays(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
 		{
-			ModelMatrix charModel = new ModelMatrix(modelview);
-
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
 
-			// Set instances
-			char[] fontChars = s.ToCharArray();
-			uint instances = 0;
-
-			_GlyphInstances.Map(ctx, BufferAccessARB.WriteOnly);
-			try {
-				for (int i = 0; i < fontChars.Length; i++) {
-					Glyph glyph;
-
-					if (_GlyphMetadata.TryGetValue(fontChars[i], out glyph) == false)
-						continue;
-					
-					// Set instance information
-					Matrix4x4f modelViewProjection = new Matrix4x4f(
-						new Vertex4f(charModel.GetColumn(0)),
-						new Vertex4f(charModel.GetColumn(1)),
-						new Vertex4f(charModel.GetColumn(2)),
-						new Vertex4f(charModel.GetColumn(3))
-					);
-					Vertex3f glyphVertexParams = new Vertex3f(
-						glyph.GlyphSize.Width, glyph.GlyphSize.Height,
-						glyph.Layer
-					);
-					Vertex2f glyphTexParams = new Vertex2f(
-						glyph.TexScale.Width, glyph.TexScale.Height
-					);
-
-					_GlyphInstances.SetElement(modelViewProjection, instances, 0);
-					_GlyphInstances.SetElement(glyphVertexParams, instances, 1);
-					_GlyphInstances.SetElement(glyphTexParams, instances, 2);
-
-					// Count the instance
-					instances++;
-
-					// Move next
-					charModel.Translate(glyph.GlyphSize.Width, 0.0f);
-				}
-			} finally {
-				_GlyphInstances.Unmap(ctx);
-			}
-
 			// Rasterize it
 			using (State.BlendState stateBlend = State.BlendState.AlphaBlending) {
 				stateBlend.ApplyState(ctx, _FontProgram);
 
-				_VertexArrays.DrawInstanced(ctx, _FontProgram, instances);
+				_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphInstances.Count);
 			}
 		}
 
@@ -588,7 +592,18 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Glyph instances array buffer.
 		/// </summary>
+		/// <remarks>
+		/// Used only if GL_ARB_instanced_array is implemented
+		/// </remarks>
 		private ArrayBufferObjectInterleaved<GlyphInstance> _GlyphInstances;
+
+		/// <summary>
+		/// Uniform buffer backing the instanced glyph uniform information.
+		/// </summary>
+		/// <remarks>
+		/// Used only if GL_ARB_draw_instanced and GL_ARB_uniform_buffer_object are implemented.
+		/// </remarks>
+		private UniformBufferObject _GlyphUniformBuffer;
 
 		/// <summary>
 		/// Glyphs in texture array

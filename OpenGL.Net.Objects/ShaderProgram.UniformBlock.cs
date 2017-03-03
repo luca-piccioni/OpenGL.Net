@@ -18,7 +18,7 @@
 
 // Symbol for enabling shader program uniforms bindings caching: performance gain avoiding
 // redundant hash-table lookups for uniform names.
-#undef ENABLE_UNIFORM_BLOCK_CACHING
+#define ENABLE_UNIFORM_BLOCK_CACHING
 
 using System;
 using System.Collections.Generic;
@@ -89,7 +89,7 @@ namespace OpenGL.Objects
 				uniformBlockParams = new int[ActiveUniforms];
 				Gl.GetActiveUniformBlock(program.ObjectName, Index, Gl.UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES, uniformBlockParams);
 
-				UniformIndices = uniformBlockParams;
+				UniformIndices = Array.ConvertAll(uniformBlockParams, delegate(int item) { return ((uint)item); });
 			}
 
 			#endregion
@@ -117,9 +117,9 @@ namespace OpenGL.Objects
 			public readonly uint ActiveUniforms;
 
 			/// <summary>
-			/// 
+			/// Indices of the uniforms belonging to this uniform buffer.
 			/// </summary>
-			public readonly int[] UniformIndices;
+			public readonly uint[] UniformIndices;
 
 			#endregion
 		}
@@ -211,8 +211,14 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Uniform Block Creation
+		#region Uniform Block Mapping/Creation
 
+		/// <summary>
+		/// Create an <see cref="UniformBufferObject"/> useful for backing with a buffer object the specified uniform block.
+		/// </summary>
+		/// <param name="uniformBlockName"></param>
+		/// <param name="hint"></param>
+		/// <returns></returns>
 		public UniformBufferObject CreateUniformBlock(string uniformBlockName, BufferObjectHint hint)
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
@@ -221,22 +227,39 @@ namespace OpenGL.Objects
 
 			UniformBufferObject uniformBuffer = new UniformBufferObject(hint);
 
+			// Allocate client storage
 			uniformBuffer.Create(uniformBlockBinding.DataSize);
+			// Map uniform names with 
+			MapUniformBlock(uniformBlockName, uniformBuffer);
 
 			return (uniformBuffer);
 		}
 
-		public void CreateUniformBlock(string uniformBlockName, UniformBufferObject uniformBuffer)
+		private void MapUniformBlock(string uniformBlockName, UniformBufferObject uniformBuffer)
 		{
-			if (uniformBuffer == null)
-				throw new ArgumentNullException("uniformBuffer");
-
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
 				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
 
-			// Create/Update
-			uniformBuffer.Create(uniformBlockBinding.DataSize);
+			for (int i = 0; i < uniformBlockBinding.UniformIndices.Length; i++) {
+				uint uniformIndex = uniformBlockBinding.UniformIndices[i];
+
+				UniformBinding uniformBinding;
+
+				if (_UniformIndexMap.TryGetValue(uniformIndex, out uniformBinding) == false)
+					throw new InvalidOperationException("uniform buffer index mismatch with uniforms");
+
+				UniformBufferObject.UniformSegment uniformSegment = new UniformBufferObject.UniformSegment();
+
+				uniformSegment.UniformIndex = uniformIndex;
+				uniformSegment.Type = uniformBinding.UniformType;
+				uniformSegment.Offset = uniformBinding.BlockOffset;
+				uniformSegment.ArrayStride = uniformBinding.BlockArrayStride;
+				uniformSegment.MatrixStride = uniformBinding.BlockMatrixStride;
+				uniformSegment.RowMajor = uniformBinding.BlockMatrixRowMajor;
+
+				uniformBuffer._UniformSegments[uniformBinding.Name] = uniformSegment;
+			}
 		}
 
 		#endregion
@@ -262,15 +285,73 @@ namespace OpenGL.Objects
 			if (uniformBuffer == null)
 				throw new ArgumentNullException("uniformBuffer");
 
+			// Select a binding point, if still invalid
+			ctx.Bind(uniformBuffer);
+
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
 				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
 
-			// Select a binding point
-			ctx.Bind(uniformBuffer);
+#if ENABLE_UNIFORM_BLOCK_CACHING
+			if (IsUniformBlockChanged(uniformBlockBinding.Index, uniformBuffer) == false)
+				return;
+#endif
+
 			// Link the uniform buffer
 			Gl.UniformBlockBinding(ObjectName, uniformBlockBinding.Index, uniformBuffer.BindingIndex);
+
+#if ENABLE_UNIFORM_BLOCK_CACHING
+			CacheUniformBlock(uniformBlockBinding.Index, uniformBuffer);
+#endif
 		}
+
+		#endregion
+
+		#region Uniform Block Caching
+
+		/// <summary>
+		/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached
+		/// object with the call arguments.
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the uniform variable name.
+		/// </param>
+		/// <param name="uniformValue">
+		/// A <see cref="Object"/> that specifies the uniform variable value.
+		/// </param>
+		private void CacheUniformBlock(uint index, UniformBufferObject uniformBuffer)
+		{
+			Debug.Assert(uniformBuffer != null);
+			_UniformBlocks[index] = uniformBuffer.BindingIndex;
+		}
+
+		/// <summary>
+		/// Determine whether if an uniform value is different from the one currently cached.
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the uniform variable name.
+		/// </param>
+		/// <param name="uniformValue">
+		/// A <see cref="Object"/> that specifies the uniform variable value updated.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether <paramref name="uniformValue"/> is actually
+		/// different from the current uniform value.
+		/// </returns>
+		private bool IsUniformBlockChanged(uint index, UniformBufferObject uniformBuffer)
+		{
+			uint cachedBindingIndex;
+
+			if (_UniformBlocks.TryGetValue(index, out cachedBindingIndex) == false)
+				return (true);
+
+			return (cachedBindingIndex != uniformBuffer.BindingIndex);
+		}
+
+		/// <summary>
+		/// Map program uniform blocks with the last value set with UniformBlockBinding method.
+		/// </summary>
+		private readonly Dictionary<uint, uint> _UniformBlocks = new Dictionary<uint, uint>();
 
 		#endregion
 	}

@@ -1,5 +1,5 @@
 
-// Copyright (C) 2010-2016 Luca Piccioni
+// Copyright (C) 2010-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,13 +17,15 @@
 // USA
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace OpenGL.Objects
 {
 	/// <summary>
 	/// A buffer object containing a set of uniform variables, which can be bound to a <see cref="ShaderProgram"/>.
 	/// </summary>
-	public class UniformBufferObject : BufferObject
+	public partial class UniformBufferObject : BufferObject, IShaderUniformContainer
 	{
 		#region Constructors
 
@@ -118,6 +120,73 @@ namespace OpenGL.Objects
 		/// The UNIFORM_BUFFER target has a binding index.
 		/// </remarks>
 		internal uint BindingIndex = GraphicsContext.InvalidBindingIndex;
+
+		#endregion
+
+		#region Elements Mapping
+
+		internal class UniformSegment
+		{
+			public uint UniformIndex;
+
+			public ShaderUniformType Type;
+
+			/// <summary>
+			/// Check uniform variable coherence.
+			/// </summary>
+			/// <param name="uniform">
+			/// A <see cref="UniformBinding"/> that specify the uniform name to check.
+			/// </param>
+			/// <param name="uniformRequestTypes">
+			/// A sequence of OpenGL constants that are the allowed types for the specified uniform.
+			/// </param>
+			/// <exception cref="InvalidOperationException">
+			/// Exception thrown if the type of the uniform variable <paramref name="uniform"/> does not match any value specified by <paramref name="uniformRequestTypes"/>.
+			/// </exception>
+			[Conditional("GL_DEBUG_PENDANTIC")]
+			public void CheckType(params int[] uniformRequestTypes)
+			{
+				if (uniformRequestTypes == null)
+					throw new ArgumentNullException("uniformRequestTypes");
+
+				/* ! Check: required uniform type shall correspond */
+				foreach (int uniformReqtype in uniformRequestTypes)
+					if ((int)Type == uniformReqtype)
+						return;
+
+				// 3.3.0 NVIDIA 310.44 confuse float uniforms (maybe in structs?) as vec4
+				if (Type == ShaderUniformType.Vec4)
+					return;
+				// Allow unknown uniform type
+				if (Type == ShaderUniformType.Unknown)
+					return;
+
+				throw new InvalidOperationException("uniform type mismatch");
+			}
+
+			public int Offset;
+
+			public int ArrayStride;
+
+			public int MatrixStride;
+
+			public bool RowMajor;
+		}
+
+		private UniformSegment GetUniform(string uniformName)
+		{
+			if (uniformName == null)
+				throw new ArgumentNullException("uniformName");
+
+			UniformSegment uniformSegment;
+
+			if (_UniformSegments.TryGetValue(uniformName, out uniformSegment))
+				return (uniformSegment);
+
+			return (null);
+		}
+
+		internal readonly Dictionary<string, UniformSegment> _UniformSegments = new Dictionary<string, UniformSegment>();
 
 		#endregion
 	}

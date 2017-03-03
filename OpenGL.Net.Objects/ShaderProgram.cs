@@ -30,7 +30,7 @@ namespace OpenGL.Objects
 	/// Shader program.
 	/// </summary>
 	[DebuggerDisplay("ShaderProgram: Name={ObjectName} Id={Identifier} Linked={IsLinked}")]
-	public partial class ShaderProgram : GraphicsResource, IBindingResource
+	public partial class ShaderProgram : GraphicsResource, IBindingResource, IShaderUniformContainer
 	{
 		#region Constructors
 
@@ -246,7 +246,7 @@ namespace OpenGL.Objects
 
 			#region Separable Program
 
-			if (ctx.Version >= Gl.Version_410 || ctx.Extensions.SeparateShaderObjects_ARB)
+			if (ctx.Extensions.SeparateShaderObjects_ARB)
 				_UniformBackend = new UniformBackendSeparable();
 			else
 				_UniformBackend = new UniformBackendCompatible();		// Defaults to compatible

@@ -1,4 +1,4 @@
-
+﻿
 // Copyright (C) 2009-2016 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -38,72 +38,64 @@ namespace OpenGL.Objects
 		[DebuggerDisplay("UniformBinding: Name={Name} Location={Location} Type={UniformType} BlockIndex={BlockIndex}")]
 		internal class UniformBinding
 		{
-			public UniformBinding(string name, int location)
+			#region Constructors
+
+			/// <summary>
+			/// Construct a non-indexed uniform specifying only the location.
+			/// </summary>
+			/// <param name="name">
+			/// A <see cref="String"/> that specifies the uniform name.
+			/// </param>
+			/// <param name="location">
+			/// A <see cref="Int32"/> that specifies the uniform location. It can -1 to indicate that the uniform
+			/// is not active.
+			/// </param>
+			public UniformBinding(string name, int location) :
+				this(UInt32.MaxValue, name, location, ShaderUniformType.Unknown)
+			{
+				
+			}
+
+			/// <summary>
+			/// Construct a non-indexed uniform specifying only the location.
+			/// </summary>
+			/// <param name="name">
+			/// A <see cref="String"/> that specifies the uniform name.
+			/// </param>
+			/// <param name="location">
+			/// A <see cref="Int32"/> that specifies the uniform location. It can -1 to indicate that the uniform
+			/// is not active.
+			/// </param>
+			public UniformBinding(uint index, string name, int location, ShaderUniformType type)
 			{
 				if (name == null)
 					throw new ArgumentNullException("name");
 
-				Index = UInt32.MaxValue;
+				Index = index;
 				Name = name;
 				Location = location;
+				UniformType = type;
 			}
 
-			public UniformBinding(GraphicsContext ctx, ShaderProgram program, uint uniformIndex)
+			public UniformBinding(uint index, string name, int location, ShaderUniformType type, int blockIndex, int blockOffset, int blockArrayStride, int blockMatrixStride, bool blockMatrixRowMajor)
 			{
-				// Name, size, type
-				int uniformBufferSize;
+				if (name == null)
+					throw new ArgumentNullException("name");
 
-				Gl.GetProgram(program.ObjectName, Gl.ACTIVE_UNIFORM_MAX_LENGTH, out uniformBufferSize);
-
-				StringBuilder uniformNameBuilder = new StringBuilder(uniformBufferSize + 2);
-				int uniformNameLength, uniformSize, uniformType;
-
-				uniformNameBuilder.EnsureCapacity(uniformBufferSize);
-
-				Gl.GetActiveUniform(program.ObjectName, uniformIndex, uniformBufferSize, out uniformNameLength, out uniformSize, out uniformType, uniformNameBuilder);
-
-				// Uniform information
-				Index = uniformIndex;
-				Name = uniformNameBuilder.ToString();
-				UniformType = (ShaderUniformType)uniformType;
-				Location = Gl.GetUniformLocation(program.ObjectName, Name);
-
-				// Uniform block information
-				BlockIndex = -1;
-				BlockOffset = -1;
-				BlockArrayStride = -1;
-				BlockMatrixStride = -1;
-				BlockMatrixRowMajor = false;
-			}
-
-			public UniformBinding(
-				GraphicsContext ctx, ShaderProgram program, uint uniformIndex, int nameLen, int uniformType,
-				int blockIndex, int blockOffset, int blockArrayStride, int blockMatrixStride, bool rowMajor
-				)
-			{
-				Debug.Assert(ctx.Version >= Gl.Version_310 || ctx.Extensions.UniformBufferObject_ARB);
-
-				// Name
-				StringBuilder uniformNameBuilder = new StringBuilder(nameLen + 2);
-				int uniformNameLength;
-
-				uniformNameBuilder.EnsureCapacity(nameLen);
-
-				Gl.GetActiveUniformName(program.ObjectName, uniformIndex, nameLen, out uniformNameLength, uniformNameBuilder);
-
-				// Uniform information
-				Index = uniformIndex;
-				Name = uniformNameBuilder.ToString();
-				UniformType = (ShaderUniformType)uniformType;
-				Location = Gl.GetUniformLocation(program.ObjectName, Name);
-
-				// Uniform block information
+				Index = index;
+				Name = name;
+				Location = location;
+				UniformType = type;
 				BlockIndex = blockIndex;
 				BlockOffset = blockOffset;
 				BlockArrayStride = blockArrayStride;
 				BlockMatrixStride = blockMatrixStride;
-				BlockMatrixRowMajor = rowMajor;
+				BlockMatrixRowMajor = blockMatrixRowMajor;
 			}
+
+			#endregion
+
+			#region Information
 
 			/// <summary>
 			/// Uniform index.
@@ -123,153 +115,289 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Uniform type.
 			/// </summary>
-			public readonly ShaderUniformType UniformType = ShaderUniformType.Unknown;
+			public readonly ShaderUniformType UniformType;
 
 			/// <summary>
 			/// The uniform block index for this uniform, which can be used to query information about this block. If this
 			/// uniform is not in a block, the value will be -1.
 			/// </summary>
-			public readonly int BlockIndex;
+			public readonly int BlockIndex = -1;
 
 			/// <summary>
 			/// The byte offset into the beginning of the uniform block for this uniform. If the uniform is not in a block,
 			/// the value will be -1.
 			/// </summary>
-			public readonly int BlockOffset;
+			public readonly int BlockOffset = -1;
 
 			/// <summary>
 			/// The byte stride for elements of the array, for uniforms in a uniform block. For non-array uniforms in a block,
 			/// this value is 0. For uniforms not in a block, the value will be -1.
 			/// </summary>
-			public readonly int BlockArrayStride;
+			public readonly int BlockArrayStride = -1;
 
 			/// <summary>
 			/// The byte stride for columns of a column-major matrix or rows for a row-major matrix, for uniforms in a uniform
 			/// block. For non-matrix uniforms in a block, this value is 0. For uniforms not in a block, the value will be -1.
 			/// </summary>
-			public readonly int BlockMatrixStride;
+			public readonly int BlockMatrixStride = -1;
 
 			/// <summary>
 			/// It's true if the matrix is row-major and the uniform is in a block. false is returned if the uniform is column-major,
 			/// the uniform is not in a block (all non-block matrices are column-major), or simply not a matrix type.
 			/// </summary>
 			public readonly bool BlockMatrixRowMajor;
+
+			#endregion
 		}
 
+		/// <summary>
+		/// Collect program active uniforms.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> on which this program was created.
+		/// </param>
 		private void CollectActiveUniforms(GraphicsContext ctx)
+		{
+			// Clear uniform mapping
+			_UniformMap.Clear();
+
+			// Query
+			if      (ctx.Extensions.ProgramInterfaceQuery_ARB)
+				CollectActiveUniforms_ProgramInterfaceQuery(ctx);
+			else if (ctx.Extensions.UniformBufferObject_ARB)
+				CollectActiveUniforms_UniformBufferObject(ctx);
+			else
+				CollectActiveUniforms_Compatible(ctx);
+
+			LogActiveUniforms();
+		}
+
+		/// <summary>
+		/// Collect uniform information using GL_ARB_program_interface_query.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> on which this program was created.
+		/// </param>
+		private void CollectActiveUniforms_ProgramInterfaceQuery(GraphicsContext ctx)
+		{
+			int activeUniforms;
+
+			Gl.GetProgramInterface(ObjectName, Gl.UNIFORM, Gl.ACTIVE_RESOURCES, out activeUniforms);
+
+			int[] properties = new int[] {
+				Gl.TYPE​,
+				Gl.NAME_LENGTH,
+				Gl.BLOCK_INDEX​,
+				Gl.OFFSET,
+				Gl.ARRAY_STRIDE,
+				Gl.MATRIX_STRIDE,
+				Gl.IS_ROW_MAJOR,
+				Gl.LOCATION
+			};
+
+			int[] values = new int[properties.Length];
+			int valuesLength;
+
+			for (uint i = 0; i < activeUniforms; i++) {
+				// Get uniform information
+				Gl.GetProgramResource(ObjectName, Gl.UNIFORM, i, properties, out valuesLength, values);
+
+				// Get uniform name
+				int nameLength, nameBufferSize = values[Array.IndexOf(properties, Gl.NAME_LENGTH)] + 2;
+
+				StringBuilder uniformNameBuilder = new StringBuilder(nameBufferSize + 2);
+				uniformNameBuilder.EnsureCapacity(nameBufferSize);
+
+				Gl.GetProgramResourceName(ObjectName, Gl.UNIFORM, i, nameBufferSize, out nameLength, uniformNameBuilder);
+
+				// Track uniform
+				UniformBinding uniformBinding = new UniformBinding(i, uniformNameBuilder.ToString(),
+					values[Array.IndexOf(properties, Gl.LOCATION)],
+					(ShaderUniformType)values[Array.IndexOf(properties, Gl.TYPE​)],
+					values[Array.IndexOf(properties, Gl.BLOCK_INDEX​)],
+					values[Array.IndexOf(properties, Gl.OFFSET)],
+					values[Array.IndexOf(properties, Gl.ARRAY_STRIDE)],
+					values[Array.IndexOf(properties, Gl.MATRIX_STRIDE)],
+					values[Array.IndexOf(properties, Gl.IS_ROW_MAJOR)] != 0
+				);
+
+				_UniformMap.Add(uniformBinding.Name, uniformBinding);
+				_UniformIndexMap.Add(uniformBinding.Index, uniformBinding);
+
+				CheckStructuredUniform(uniformBinding);
+			}
+		}
+
+		/// <summary>
+		/// Collect uniform information using GL_ARB_uniform_buffer_object.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> on which this program was created.
+		/// </param>
+		private void CollectActiveUniforms_UniformBufferObject(GraphicsContext ctx)
 		{
 			int activeUniforms;
 
 			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORMS, out activeUniforms);
 
-			// Clear uniform mapping
-			_UniformMap.Clear();
-			_DefaultBlockUniformSlots = 0;
+			// Get uniform information
+			uint[] uniformIndices = new uint[activeUniforms];
+			for (uint i = 0; i < activeUniforms; i++)
+				uniformIndices[i] = i;
 
-			if ((ctx.Version >= Gl.Version_310) || (ctx.Extensions.UniformBufferObject_ARB == true)) {
-				uint[] uniformIndices = new uint[activeUniforms];
-				for (uint i = 0; i < activeUniforms; i++) uniformIndices[i] = i;
+			int[] uniformType = new int[activeUniforms];
+			int[] uniformNameLen = new int[activeUniforms];
+			int[] uniformBlockIndex = new int[activeUniforms];
+			int[] uniformOffset = new int[activeUniforms];
+			int[] uniformArrayStride = new int[activeUniforms];
+			int[] uniformMatrixStride = new int[activeUniforms];
+			int[] uniformRowMajor = new int[activeUniforms];
 
-				int[] uniformType = new int[activeUniforms];
-				int[] uniformNameLen = new int[activeUniforms];
-				int[] uniformBlockIndex = new int[activeUniforms];
-				int[] uniformOffset = new int[activeUniforms];
-				int[] uniformArrayStride = new int[activeUniforms];
-				int[] uniformMatrixStride = new int[activeUniforms];
-				int[] uniformRowMajor = new int[activeUniforms];
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_TYPE, uniformType);
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_NAME_LENGTH, uniformNameLen);
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_BLOCK_INDEX, uniformBlockIndex);
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_OFFSET, uniformOffset);
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_ARRAY_STRIDE, uniformArrayStride);
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_MATRIX_STRIDE, uniformMatrixStride);
+			Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_IS_ROW_MAJOR, uniformRowMajor);
 
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_TYPE, uniformType);
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_NAME_LENGTH, uniformNameLen);
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_BLOCK_INDEX, uniformBlockIndex);
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_OFFSET, uniformOffset);
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_ARRAY_STRIDE, uniformArrayStride);
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_MATRIX_STRIDE, uniformMatrixStride);
-				Gl.GetActiveUniforms(ObjectName, uniformIndices, Gl.UNIFORM_IS_ROW_MAJOR, uniformRowMajor);
+			for (uint i = 0; i < activeUniforms; i++) {
+				// Get uniform name
+				int uniformBufferSize = uniformNameLen[i] + 2;
+				// Get uniform information
+				StringBuilder uniformNameBuilder = new StringBuilder(uniformBufferSize + 2);
+				int uniformNameLength;
 
-				for (int i = 0; i < activeUniforms; i++) {
-					UniformBinding uniformBinding = new UniformBinding(
-						ctx, this, (uint)i, uniformNameLen[i], uniformType[i],
-						uniformBlockIndex[i], uniformOffset[i], uniformArrayStride[i], uniformMatrixStride[i], uniformRowMajor[i] != Gl.FALSE
-					);
+				uniformNameBuilder.EnsureCapacity(uniformBufferSize);
 
-					_UniformMap.Add(uniformBinding.Name, uniformBinding);
+				Gl.GetActiveUniformName(ObjectName, i, uniformBufferSize, out uniformNameLength, uniformNameBuilder);
 
-					CheckStructuredUniform(uniformBinding);
-				}
-			} else {
-				for (int i = 0; i < activeUniforms; i++) {
-					UniformBinding uniformBinding = new UniformBinding(ctx, this, (uint)i);
+				string uniformName = uniformNameBuilder.ToString();
 
-					_UniformMap.Add(uniformBinding.Name, uniformBinding);
+				// Track uniform
+				UniformBinding uniformBinding = new UniformBinding(i, uniformName,
+					Gl.GetUniformLocation(ObjectName, uniformName),
+					(ShaderUniformType)uniformType[i],
+					uniformBlockIndex[i],
+					uniformOffset[i],
+					uniformArrayStride[i],
+					uniformMatrixStride[i],
+					uniformRowMajor[i] != 0
+				);
 
-					CheckStructuredUniform(uniformBinding);
-				}
+				_UniformMap.Add(uniformBinding.Name, uniformBinding);
+				_UniformIndexMap.Add(uniformBinding.Index, uniformBinding);
+
+				CheckStructuredUniform(uniformBinding);
 			}
+		}
 
-			// Log uniform location mapping
+		/// <summary>
+		/// Collect uniform information using GL_ARB_shader_objects.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> on which this program was created.
+		/// </param>
+		private void CollectActiveUniforms_Compatible(GraphicsContext ctx)
+		{
+			int activeUniforms, uniformBufferSize;
+
+			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORMS, out activeUniforms);
+			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORM_MAX_LENGTH, out uniformBufferSize);
+
+			for (uint i = 0; i < activeUniforms; i++) {
+				// Get uniform information
+				StringBuilder uniformNameBuilder = new StringBuilder(uniformBufferSize + 2);
+				int uniformNameLength, uniformSize, uniformType;
+
+				uniformNameBuilder.EnsureCapacity(uniformBufferSize);
+
+				Gl.GetActiveUniform(ObjectName, i, uniformBufferSize, out uniformNameLength, out uniformSize, out uniformType, uniformNameBuilder);
+
+				string uniformName = uniformNameBuilder.ToString();
+
+				// Track uniform
+				UniformBinding uniformBinding = new UniformBinding(i, uniformName,
+					Gl.GetUniformLocation(ObjectName, uniformName),
+					(ShaderUniformType)uniformType
+				);
+
+				_UniformMap.Add(uniformBinding.Name, uniformBinding);
+				_UniformIndexMap.Add(uniformBinding.Index, uniformBinding);
+
+				CheckStructuredUniform(uniformBinding);
+			}
+		}
+
+		/// <summary>
+		/// If an active uniform represent a structure or an array, it extract the basic string to detect
+		/// active uniforms (of type of structure, or of type of array) by using the basic name.
+		/// </summary>
+		/// <param name="uniformBinding">
+		/// The <see cref="UniformBinding"/> representing the active uniform.
+		/// </param>
+		private void CheckStructuredUniform(UniformBinding uniformBinding)
+		{
+			Match uniformStructure = Regex.Match(uniformBinding.Name, @"((?<Struct>[\w\d_]+(\[\d+\])?)(\.))+");
+			if (uniformStructure.Success == false)
+				return;
+
+			string structurePattern = null;
+
+			for (int j = 0; j < uniformStructure.Groups["Struct"].Captures.Count; j++) {
+				string structureName = uniformStructure.Groups["Struct"].Captures[j].Value;
+
+				if (structurePattern != null) {
+					structurePattern = String.Format("{0}.{1}", structurePattern, structureName);
+				} else
+					structurePattern = structureName;
+
+				Match uniformArrayMatch = Regex.Match(structurePattern, @"(?<ArrayName>[\w\d_]+)(?<Indexer>\[\d+\])");
+				if (uniformArrayMatch.Success) {
+					string arrayPattern = uniformArrayMatch.Groups["ArrayName"].Value;
+					if (_UniformMap.ContainsKey(arrayPattern) == false)
+						_UniformMap.Add(arrayPattern, null);
+				}
+
+				if (_UniformMap.ContainsKey(structurePattern) == false)
+					_UniformMap.Add(structurePattern, null);
+			}
+		}
+
+		/// <summary>
+		/// Log program active uniforms.
+		/// </summary>
+		private void LogActiveUniforms()
+		{
+			if (LogEnabled == false)
+				return;
+
 			List<string> uniformNames = new List<string>(_UniformMap.Keys);
 
 			// Make uniform list invariant respect the used driver (ease log comparation)
 			uniformNames.Sort();
 
-			if (LogEnabled) {
-				Log("Shader program active uniforms:");
-				foreach (string uniformName in uniformNames) {
-					UniformBinding uniformBinding = _UniformMap[uniformName];
-					if (uniformBinding != null)
-						Log(
-							"\tUniform {0} (Type: {1}, Location: {2}, BlockIndex: {3}, BlockOffset: {4})",
-							uniformName, uniformBinding.UniformType, uniformBinding.Location,
-							uniformBinding.BlockIndex, uniformBinding.BlockOffset
-						);
-				}
-
-				Log("Shader program active uniform slots: {0}", _DefaultBlockUniformSlots);
-			}
-		}
-
-		private void CheckStructuredUniform(UniformBinding uniformBinding)
-		{
-			Match uniformStructure = Regex.Match(uniformBinding.Name, @"((?<Struct>[\w\d_]+(\[\d+\])?)(\.))+");
-
-			if (uniformStructure.Success) {
-				string structurePattern = null;
-
-				for (int j = 0; j < uniformStructure.Groups["Struct"].Captures.Count; j++) {
-					string structureName = uniformStructure.Groups["Struct"].Captures[j].Value;
-
-					if (structurePattern != null) {
-						structurePattern = String.Format("{0}.{1}", structurePattern, structureName);
-					} else
-						structurePattern = structureName;
-
-					Match uniformArrayMatch = Regex.Match(structurePattern, @"(?<ArrayName>[\w\d_]+)(?<Indexer>\[\d+\])");
-					if (uniformArrayMatch.Success) {
-						string arrayPattern = uniformArrayMatch.Groups["ArrayName"].Value;
-						if (_UniformMap.ContainsKey(arrayPattern) == false)
-							_UniformMap.Add(arrayPattern, null);
-					}
-
-					if (_UniformMap.ContainsKey(structurePattern) == false)
-						_UniformMap.Add(structurePattern, null);
-				}
+			Log("Shader program active uniforms:");
+			foreach (string uniformName in uniformNames) {
+				UniformBinding uniformBinding = _UniformMap[uniformName];
+				if (uniformBinding != null)
+					Log(
+						"\tUniform {0} (Type: {1}, Location: {2}, BlockIndex: {3}, BlockOffset: {4})",
+						uniformName, uniformBinding.UniformType, uniformBinding.Location,
+						uniformBinding.BlockIndex, uniformBinding.BlockOffset
+					);
 			}
 		}
 
 		/// <summary>
-		/// Map active uniform location with uniform name.
+		/// Map active uniform information with uniform name.
 		/// </summary>
 		private readonly UniformDictionary _UniformMap = new UniformDictionary();
 
 		/// <summary>
-		/// The number of slots used for storing uniform data.
+		/// Map active uniform information with uniform index.
 		/// </summary>
-		public uint UniformSlots { get { return (_DefaultBlockUniformSlots); } }
-
-		/// <summary>
-		/// Uniform slots used by the default block of this shader program.
-		/// </summary>
-		private uint _DefaultBlockUniformSlots;
+		private readonly Dictionary<uint, UniformBinding> _UniformIndexMap = new Dictionary<uint, UniformBinding>();
 
 		/// <summary>
 		/// Collection of active uniforms on this ShaderProgram.
@@ -426,6 +554,8 @@ namespace OpenGL.Objects
 			void SetUniform(ShaderProgram program, UniformBinding uniform, float x, float y, float z);
 
 			void SetUniform(ShaderProgram program, UniformBinding uniform, float x, float y, float z, float w);
+
+			void SetUniform(ShaderProgram program, UniformBinding uniform, float[] v);
 
 			void SetUniform(ShaderProgram program, UniformBinding uniform, Vertex2f v);
 
@@ -617,6 +747,15 @@ namespace OpenGL.Objects
 			{
 				unsafe {
 					Gl.Uniform4(uniform.Location, 1, (float*)&v);
+				}
+			}
+
+			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, float[] v)
+			{
+				unsafe {
+					fixed (float* p_v = v) {
+						Gl.Uniform2(uniform.Location, v.Length, p_v);
+					}
 				}
 			}
 
@@ -1124,6 +1263,15 @@ namespace OpenGL.Objects
 				}
 			}
 
+			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, float[] v)
+			{
+				unsafe {
+					fixed (float* p_v = v) {
+						Gl.ProgramUniform1(program.ObjectName, uniform.Location, v.Length, p_v);
+					}
+				}
+			}
+
 			void IUniformBackend.SetUniform(ShaderProgram program, UniformBinding uniform, Vertex2f[] v)
 			{
 				unsafe {
@@ -1401,7 +1549,7 @@ namespace OpenGL.Objects
 			{
 				unsafe
 				{
-					Gl.UniformMatrix3(uniform.Location, 1, false, (double*)&m);
+					Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, 1, false, (double*)&m);
 				}
 			}
 
@@ -1414,7 +1562,7 @@ namespace OpenGL.Objects
 			{
 				unsafe
 				{
-					Gl.UniformMatrix4(uniform.Location, 1, false, (double*)&m);
+					Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, 1, false, (double*)&m);
 				}
 			}
 

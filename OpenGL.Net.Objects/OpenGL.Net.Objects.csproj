@@ -85,6 +85,7 @@
     <Compile Include="FontFx.cs" />
     <Compile Include="FontTextureArray2d.cs" />
     <Compile Include="IFont.cs" />
+    <Compile Include="IShaderUniformContainer.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
     <Compile Include="Scene\SceneGraphSorter.cs" />
     <Compile Include="Scene\SceneObjectBatch.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="TextureCube.cs" />
     <Compile Include="TextureRectangle.cs" />
     <Compile Include="UniformBufferObject.cs" />
+    <Compile Include="UniformBufferObject.SetUniform.cs" />
     <Compile Include="VertexArrayObject.Arrays.cs" />
     <Compile Include="VertexArrayObject.cs" />
     <Compile Include="VertexArrayObject.Elements.cs" />
