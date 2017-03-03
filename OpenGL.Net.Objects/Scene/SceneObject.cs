@@ -64,7 +64,6 @@ namespace OpenGL.Objects.Scene
 		public SceneObject(string id) : base(id)
 		{
 			// The graphics state TransformState is always defined
-			LinkResource(ObjectState);
 			ObjectState.DefineState(new TransformState());
 		}
 
@@ -732,7 +731,7 @@ namespace OpenGL.Objects.Scene
 			get { return (_BoundingState); }
 			set
 			{
-				SwapResources(value, ref _BoundingState);
+				_BoundingState = value;
 			}
 		}
 
@@ -775,8 +774,6 @@ namespace OpenGL.Objects.Scene
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				// Dispose object state
-				ObjectState.Dispose();
 				// Propagate disposition to hierarchy
 				foreach (SceneObject sceneGraphObject in _Children)
 					sceneGraphObject.Dispose();

@@ -425,9 +425,6 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override IGraphicsState Push()
 		{
-			// Light state is shared among instances
-			IncRef();
-
 			return (this);
 		}
 

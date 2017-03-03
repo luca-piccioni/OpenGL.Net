@@ -483,16 +483,14 @@ namespace OpenGL.Objects
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
 
 			// Rasterize it
-			using (State.BlendState stateBlend = State.BlendState.AlphaBlending) {
-				stateBlend.ApplyState(ctx, _FontProgram);
+			State.BlendState.AlphaBlending.ApplyState(ctx, _FontProgram);
 
-				for (int i = 0; i < glyphsInstances.Count; i++) {
-					_FontProgram.SetUniform(ctx, "glo_ModelViewProjection", glyphsInstances[i].ModelViewProjection);
-					_FontProgram.SetUniform(ctx, "glo_VertexParams", glyphsInstances[i].VertexParams);
-					_FontProgram.SetUniform(ctx, "glo_TexParams", glyphsInstances[i].TexParams);
+			for (int i = 0; i < glyphsInstances.Count; i++) {
+				_FontProgram.SetUniform(ctx, "glo_ModelViewProjection", glyphsInstances[i].ModelViewProjection);
+				_FontProgram.SetUniform(ctx, "glo_VertexParams", glyphsInstances[i].VertexParams);
+				_FontProgram.SetUniform(ctx, "glo_TexParams", glyphsInstances[i].TexParams);
 
-					_VertexArrays.Draw(ctx, _FontProgram);
-				}
+				_VertexArrays.Draw(ctx, _FontProgram);
 			}
 		}
 
@@ -549,11 +547,9 @@ namespace OpenGL.Objects
 			}
 
 			// Rasterize it
-			using (State.BlendState stateBlend = State.BlendState.AlphaBlending) {
-				stateBlend.ApplyState(ctx, _FontProgram);
+			State.BlendState.AlphaBlending.ApplyState(ctx, _FontProgram);
 
-				_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphsInstances.Count);
-			}
+			_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphsInstances.Count);
 		}
 
 		/// <summary>
@@ -577,11 +573,9 @@ namespace OpenGL.Objects
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
 
 			// Rasterize it
-			using (State.BlendState stateBlend = State.BlendState.AlphaBlending) {
-				stateBlend.ApplyState(ctx, _FontProgram);
+			State.BlendState.AlphaBlending.ApplyState(ctx, _FontProgram);
 
-				_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphInstances.Count);
-			}
+			_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphInstances.Count);
 		}
 
 		/// <summary>

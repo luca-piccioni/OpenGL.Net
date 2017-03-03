@@ -502,40 +502,6 @@ namespace OpenGL.Objects.State
 				graphicsResource.Create(ctx);
 			}
 
-			// Uniform buffer is created depending on program
-			// It is assumed that the uniform buffer layout is shared across all shader programs, otherwise
-			// we need a way to identify the specific uniform buffer layout and map them based on ShaderProgram
-			// instances
-			CreateUniformBuffer(ctx, shaderProgram);
-		}
-
-		/// <summary>
-		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		/// <param name="shaderProgram">
-		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
-		/// </param>
-		private void CreateUniformBuffer(GraphicsContext ctx, ShaderProgram shaderProgram)
-		{
-			
-			if (ctx.Extensions.UniformBufferObject_ARB == false)
-				return;		// No uniform buffer support
-			if (UniformBlockTag == null)
-				return;		// No uniform block support by this class
-			if (shaderProgram == null)
-				return;     // No uniform buffer support by fixed pipeline
-
-			Debug.Assert(_UniformBuffer == null);
-
-			if (shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
-				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, UniformBlockHint);
-				_UniformBuffer.Create(ctx);
-				_UniformBuffer.IncRef();
-			}
-
 			// Base implementation
 			base.CreateState(ctx, shaderProgram);
 		}
@@ -555,37 +521,6 @@ namespace OpenGL.Objects.State
 			ctx.Bind(shaderProgram);
 			// Apply uniforms found using reflection
 			ApplyState(ctx, shaderProgram, String.Empty);
-		}
-
-		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
-		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		public override IGraphicsState Push()
-		{
-			ShaderUniformStateBase copiedState = (ShaderUniformStateBase)base.Push();
-
-			if (copiedState._UniformBuffer != null)
-				copiedState._UniformBuffer.IncRef();
-
-#if ENABLE_REFS_ON_COPY
-			foreach (KeyValuePair<string, UniformStateMember> pair in copiedState.UniformState) {
-				//if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
-				//	continue;
-
-				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
-				if (graphicsResource == null)
-					continue;
-
-				// Copied share references
-				graphicsResource.IncRef();
-			}
-#endif
-
-			return (copiedState);
 		}
 
 		/// <summary>
@@ -639,28 +574,6 @@ namespace OpenGL.Objects.State
 			{
 				return (_UniformBuffer != null ? _UniformBuffer.ObjectName : 0);
 			}
-		}
-
-		/// <summary>
-		/// Dispose resources hold by this GraphicsState.
-		/// </summary>
-		public override void Dispose()
-		{
-			if (_UniformBuffer != null)
-				_UniformBuffer.DecRef();
-
-#if ENABLE_REFS_ON_COPY
-
-			foreach (KeyValuePair<string, UniformStateMember> pair in UniformState) {
-				if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
-					continue;
-
-				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
-				if (graphicsResource == null)
-					continue;
-				graphicsResource.DecRef();
-			}
-#endif
 		}
 
 		#endregion

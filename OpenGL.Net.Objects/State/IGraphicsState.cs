@@ -29,7 +29,7 @@ namespace OpenGL.Objects.State
 	/// for rendering.
 	/// </para>
 	/// </remarks>
-	public interface IGraphicsState : IResource, IEquatable<IGraphicsState>
+	public interface IGraphicsState : IEquatable<IGraphicsState>
 	{
 		#region Identification
 

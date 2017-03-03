@@ -74,8 +74,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public void Dispose()
 		{
-			GraphicsStateStack.DecRef();
-			Debug.Assert(GraphicsStateStack.IsDisposed);
+
 		}
 
 		#endregion

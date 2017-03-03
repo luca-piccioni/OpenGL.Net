@@ -25,7 +25,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// A stack of <see cref="GraphicsStateSet"/>.
 	/// </summary>
-	public class GraphicsStateSetStack : IDisposable
+	public class GraphicsStateSetStack
 	{
 		#region Constructors
 
@@ -36,8 +36,6 @@ namespace OpenGL.Objects.State
 		{
 			GraphicsStateSet defaultSet = GraphicsStateSet.GetDefaultSet();
 
-			// Avoid a disposition of this state set
-			defaultSet.IncRef();
 			// The stack always defines a current state
 			_StateSetStack.AddLast(defaultSet);
 		}
@@ -52,8 +50,6 @@ namespace OpenGL.Objects.State
 		{
 			GraphicsStateSet defaultSet = GraphicsStateSet.GetCurrentStateSet(ctx);
 
-			// Avoid a disposition of this state set
-			defaultSet.IncRef();
 			// The stack always defines a current state
 			_StateSetStack.AddLast(defaultSet);
 		}
@@ -69,8 +65,6 @@ namespace OpenGL.Objects.State
 		{
 			get
 			{
-				if (IsDisposed)
-					throw new ObjectDisposedException("GraphicsStateSetStack");
 				return (_StateSetStack.Last.Value);
 			}
 		}
@@ -84,13 +78,8 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		public void Push()
 		{
-			if (IsDisposed)
-				throw new ObjectDisposedException("GraphicsStateSetStack");
-
 			GraphicsStateSet currentStateSetCopy = Current.Push();
 
-			// Avoid a disposition of this state set
-			currentStateSetCopy.IncRef();
 			// Set the copy as the current state set
 			_StateSetStack.AddLast(currentStateSetCopy);
 		}
@@ -104,8 +93,6 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public void Push(GraphicsStateSet mergedState)
 		{
-			if (IsDisposed)
-				throw new ObjectDisposedException("GraphicsStateSetStack");
 			if (mergedState == null)
 				throw new ArgumentNullException("mergedState");
 
@@ -120,15 +107,11 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		public void Pop()
 		{
-			if (IsDisposed)
-				throw new ObjectDisposedException("GraphicsStateSetStack");
 			if (_StateSetStack.Count == 1)
 				throw new InvalidOperationException("stack underflow");
 
 			GraphicsStateSet currentStateSet = Current;
 
-			// Possibly dispose this state set
-			currentStateSet.DecRef();
 			// Restore previous state set
 			_StateSetStack.RemoveLast();
 		}
@@ -138,12 +121,8 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		public void Clear()
 		{
-			if (IsDisposed)
-				throw new ObjectDisposedException("GraphicsStateSetStack");
-
 			// Remove every state set included on the stack, except the first one
 			while (_StateSetStack.Count > 1) {
-				_StateSetStack.Last.Value.DecRef();
 				_StateSetStack.RemoveLast();
 			}
 		}
@@ -152,58 +131,6 @@ namespace OpenGL.Objects.State
 		/// The GraphicsStateSet stack.
 		/// </summary>
 		private readonly LinkedList<GraphicsStateSet> _StateSetStack = new LinkedList<GraphicsStateSet>();
-
-		#endregion
-
-		#region IDisposable Implementation
-
-		/// <summary>
-		/// Finalizer.
-		/// </summary>
-		~GraphicsStateSetStack()
-		{
-			Debug.Assert(IsDisposed);
-			Dispose(false);
-		}
-
-		/// <summary>
-		/// Get whether this instance has been disposed.
-		/// </summary>
-		public bool IsDisposed { get { return (_Disposed); } }
-
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
-		/// </summary>
-		/// <param name="disposing">
-		/// </param>
-		private void Dispose(bool disposing)
-		{
-			if (disposing) {
-				// Remove EVERY state set on this stack, even the first one
-				while (_StateSetStack.Count > 0) {
-					_StateSetStack.Last.Value.DecRef();
-					_StateSetStack.RemoveLast();
-				}
-			}
-		}
-
-		/// <summary>
-		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-		/// </summary>
-		public void Dispose()
-		{
-			// Do not call dispose twice
-			GC.SuppressFinalize(this);
-			// Dispose this instance
-			Dispose(true);
-			// Mark as disposed
-			_Disposed = true;
-		}
-
-		/// <summary>
-		/// Flag indicating that this instance has been disposed.
-		/// </summary>
-		private bool _Disposed;
 
 		#endregion
 	}
