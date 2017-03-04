@@ -424,6 +424,37 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Set an array of elements to this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="value">
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt64"/> that specify the offset applied to the mapped BufferObject where <paramref name="value"/>
+		/// is stored. This value is expressed in basic machine units (bytes).
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// </exception>
+		public void Set<T>(T[] array, UInt64 offset) where T : struct
+		{
+			if (IsMapped == false)
+				throw new InvalidOperationException("not mapped");
+
+			unsafe
+			{
+				byte* ptr = (byte*)MappedBuffer.ToPointer() + offset;
+				int stride = Marshal.SizeOf(typeof(T));
+
+				for (int i = 0; i < array.Length; i++, ptr += stride)
+					Unsafe.Write(ptr, array[i]);
+			}
+		}
+
+		/// <summary>
 		/// Get an element from this mapped BufferObject.
 		/// </summary>
 		/// <typeparam name="T">

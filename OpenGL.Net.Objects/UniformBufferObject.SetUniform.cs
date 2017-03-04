@@ -130,6 +130,97 @@ namespace OpenGL.Objects
 				Set(v[i], offset);
 		}
 
+		#endregion
+
+		#region Set/Get Uniform (single-precision floating-point matrix data)
+
+		/// <summary>
+		/// Set uniform state variable (mat* variable).
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(string uniformName, Matrix m)
+		{
+			UniformSegment uniform = GetUniform(uniformName);
+			if (uniform == null)
+				return;
+
+			Set(m.ToArray(), (ulong)uniform.Offset);
+		}
+
+		/// <summary>
+		/// Set uniform state variable (mat3 variable).
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(string uniformName, Matrix3x3 m)
+		{
+			UniformSegment uniform = GetUniform(uniformName);
+			if (uniform == null)
+				return;
+
+			uniform.CheckType(Gl.FLOAT_MAT3);
+
+			Set(m.ToArray(), (ulong)uniform.Offset);
+		}
+
+		/// <summary>
+		/// Set uniform state variable (mat3 variable).
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix3x3f"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(string uniformName, Matrix3x3f m)
+		{
+			UniformSegment uniform = GetUniform(uniformName);
+			if (uniform == null)
+				return;
+
+			uniform.CheckType(Gl.FLOAT_MAT3);
+
+			Set(m, (ulong)uniform.Offset);
+		}
+
+		/// <summary>
+		/// Set uniform state variable (mat4 variable).
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
+		/// </param>
+		public void SetUniform(string uniformName, Matrix4x4 m)
+		{
+			UniformSegment uniform = GetUniform(uniformName);
+			if (uniform == null)
+				return;
+
+			uniform.CheckType(Gl.FLOAT_MAT4);
+
+			Set(m.ToArray(), (ulong)uniform.Offset);
+		}
+
+		/// <summary>
+		/// Set uniform state variable (mat4 variable).
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="Matrix4x4f"/> holding the uniform variabile data.
+		/// </param>
 		public void SetUniform(string uniformName, Matrix4x4f m)
 		{
 			UniformSegment uniform = GetUniform(uniformName);
@@ -159,6 +250,11 @@ namespace OpenGL.Objects
 		#endregion
 
 		#region IShaderUniformContainer Implementation
+		
+		bool IShaderUniformContainer.IsActiveUniform(string uniformName)
+		{
+			return (_UniformSegments.ContainsKey(uniformName));
+		}
 
 		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, float v)
 		{
@@ -337,7 +433,48 @@ namespace OpenGL.Objects
 
 		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, object value)
 		{
-			throw new NotImplementedException();
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (value == null)
+				throw new ArgumentNullException("value");
+
+			Type valueType = value.GetType();
+
+			Matrix valueMatrix = value as Matrix;
+			if (valueMatrix != null) {
+				Matrix4x4 matrix4x4 = value as Matrix4x4;
+				if (matrix4x4 != null) {
+					SetUniform(uniformName, matrix4x4);
+					return;
+				}
+
+				Matrix3x3 matrix3x3 = value as Matrix3x3;
+				if (matrix3x3 != null) {
+					SetUniform(uniformName, matrix3x3);
+					return;
+				}
+
+				throw new NotSupportedException(valueType + "is not supported by SetUniform(GraphicsContext, string, object");
+			} else if (valueType == typeof(Vertex2f)) {
+				SetUniform(uniformName, (Vertex2f)value);
+			} else if (valueType == typeof(Vertex3f)) {
+				SetUniform(uniformName, (Vertex3f)value);
+			} else if (valueType == typeof(Vertex4f)) {
+				SetUniform(uniformName, (Vertex4f)value);
+			} else if (valueType == typeof(Vertex2i)) {
+				SetUniform(uniformName, (Vertex2i)value);
+			} else if (valueType == typeof(Vertex3i)) {
+				SetUniform(uniformName, (Vertex3i)value);
+			} else if (valueType == typeof(Vertex4i)) {
+				SetUniform(uniformName, (Vertex4i)value);
+			} else if (valueType == typeof(int)) {
+				SetUniform(uniformName, (int)value);
+			} else if (valueType == typeof(float)) {
+				SetUniform(uniformName, (float)value);
+			} else if (valueType == typeof(ColorRGBAF)) {
+				SetUniform(uniformName, (ColorRGBAF)value);
+			} else
+				throw new NotSupportedException(valueType + "is not supported by SetUniform(GraphicsContext, string, object");
 		}
 
 		#endregion
