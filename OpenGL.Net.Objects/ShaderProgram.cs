@@ -247,7 +247,7 @@ namespace OpenGL.Objects
 			#region Separable Program
 
 			if (ctx.Extensions.SeparateShaderObjects_ARB)
-				_UniformBackend = new UniformBackendSeparable();
+				_UniformBackend = new UniformBackendSeparate();
 			else
 				_UniformBackend = new UniformBackendCompatible();		// Defaults to compatible
 

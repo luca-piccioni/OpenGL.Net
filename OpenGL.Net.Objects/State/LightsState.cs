@@ -356,26 +356,6 @@ namespace OpenGL.Objects.State
 		protected override string UniformBlockTag { get { return ("LightState"); } }
 
 		/// <summary>
-		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		/// <param name="shaderProgram">
-		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
-		/// </param>
-		public override void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram)
-		{
-			// Create uniform buffer, if supported
-			base.CreateState(ctx, shaderProgram);
-
-			if (shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
-				// Get uniform offsets
-
-			}
-		}
-
-		/// <summary>
 		/// Apply this TransformStateBase.
 		/// </summary>
 		/// <param name="ctx">
@@ -399,15 +379,13 @@ namespace OpenGL.Objects.State
 					if (shaderProgram.IsActiveUniform("glo_LightModel"))
 						LightModel.ApplyState(ctx, shaderProgram, "glo_LightModel");
 
-					if (shaderProgram.IsActiveUniform("glo_Light")) {
-						for (int i = 0; i < Lights.Count; i++) {
-							string uniformName = "glo_Light[" + i + "]";
+					for (int i = 0; i < Lights.Count; i++) {
+						string uniformName = "glo_Light[" + i + "]";
 
-							if (shaderProgram.IsActiveUniform(uniformName) == false)
-								break;
+						if (shaderProgram.IsActiveUniform(uniformName) == false)
+							break;
 
-							Lights[i].ApplyState(ctx, shaderProgram, uniformName);
-						}
+						Lights[i].ApplyState(ctx, shaderProgram, uniformName);
 					}
 
 					shaderProgram.SetUniform(ctx, "glo_LightsCount", LightsCount);

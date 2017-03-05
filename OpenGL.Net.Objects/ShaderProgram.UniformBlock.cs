@@ -260,6 +260,13 @@ namespace OpenGL.Objects
 
 				uniformBuffer._UniformSegments[uniformBinding.Name] = uniformSegment;
 			}
+
+			foreach (KeyValuePair<string, UniformBinding> pair in _UniformMap) {
+				if (pair.Value != null)
+					continue;
+
+				uniformBuffer._UniformSegments[pair.Key] = null;
+			}
 		}
 
 		#endregion

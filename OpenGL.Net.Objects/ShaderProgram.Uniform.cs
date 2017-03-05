@@ -541,10 +541,36 @@ namespace OpenGL.Objects
 		#region Uniform Backend Interface
 
 		/// <summary>
+		/// Bind this program for setting uniform values, if necessary.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+		/// </param>
+		public void BindUniform(GraphicsContext ctx)
+		{
+			_UniformBackend.Bind(ctx, this);
+		}
+
+		/// <summary>
 		/// Backend implemented for loading uniform state.
 		/// </summary>
 		interface IUniformBackend
 		{
+			#region Program Binding
+
+			/// <summary>
+			/// Bind the program for setting uniforms.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+			/// </param>
+			/// <param name="program">
+			/// The <see cref="ShaderProgram"/> to be bound for setting uniforms.
+			/// </param>
+			void Bind(GraphicsContext ctx, ShaderProgram program);
+
+			#endregion
+
 			#region Set/Get Uniform (single-precision floating-point vector data)
 
 			void SetUniform(ShaderProgram program, UniformBinding uniform, float v);
@@ -697,7 +723,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Uniform Backend (Compatible)
+		#region Uniform Backend (GL_ARB_shader_objects)
 
 		/// <summary>
 		/// The <see cref="IUniformBackend"/> implementation for compatibility implementation based on glUniform*
@@ -706,6 +732,24 @@ namespace OpenGL.Objects
 		class UniformBackendCompatible : IUniformBackend
 		{
 			#region IUniformBackend Implementation
+
+			#region Program Binding
+
+			/// <summary>
+			/// Bind the program for setting uniforms.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+			/// </param>
+			/// <param name="program">
+			/// The <see cref="ShaderProgram"/> to be bound for setting uniforms.
+			/// </param>
+			public void Bind(GraphicsContext ctx, ShaderProgram program)
+			{
+				ctx.Bind(program);
+			}
+
+			#endregion
 
 			#region Set/Get Uniform (single-precision floating-point vector data)
 
@@ -1210,15 +1254,33 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Uniform Backend (Separable)
+		#region Uniform Backend (GL_ARB_separate_shader_objects)
 
 		/// <summary>
 		/// The <see cref="IUniformBackend"/> implementation for compatibility implementation based on glProgramUniform*
 		/// commands.
 		/// </summary>
-		class UniformBackendSeparable : IUniformBackend
+		class UniformBackendSeparate : IUniformBackend
 		{
 			#region IUniformBackend Implementation
+
+			#region Program Binding
+
+			/// <summary>
+			/// Bind the program for setting uniforms.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+			/// </param>
+			/// <param name="program">
+			/// The <see cref="ShaderProgram"/> to be bound for setting uniforms.
+			/// </param>
+			public void Bind(GraphicsContext ctx, ShaderProgram program)
+			{
+				// Program is not required to be bound
+			}
+
+			#endregion
 
 			#region Set/Get Uniform (single-precision floating-point vector data)
 

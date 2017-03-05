@@ -62,6 +62,10 @@ namespace OpenGL.Objects.State
 			return (_StateIndex++);
 		}
 
+		/// <summary>
+		/// Get the total number of <see cref="IGraphicsState"/> implementations.
+		/// </summary>
+		/// <returns></returns>
 		protected internal static int GetStateCount() { return (_StateIndex); }
 
 		/// <summary>

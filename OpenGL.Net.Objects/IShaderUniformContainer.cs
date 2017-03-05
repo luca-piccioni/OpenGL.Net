@@ -25,6 +25,17 @@ namespace OpenGL.Objects
 	/// </summary>
 	public interface IShaderUniformContainer
 	{
+		/// <summary>
+		/// Determine whether an uniform is active or not.
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> which specify the uniform name.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the specified uniform is currently active.
+		/// </returns>
+		bool IsActiveUniform(string uniformName);
+
 		#region Set Uniform (single-precision floating-point vector data)
 
 		/// <summary>

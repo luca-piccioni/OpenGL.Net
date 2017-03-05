@@ -16,8 +16,6 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#undef ENABLE_REFS_ON_COPY
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,15 +32,6 @@ namespace OpenGL.Objects.State
 	/// </remarks>
 	public abstract class ShaderUniformStateBase : GraphicsState
 	{
-		#region Uniform Block Support
-
-		/// <summary>
-		/// Get the shader uniform block semantic (used if the renderer support OpenGL uniform blocks).
-		/// </summary>
-		public virtual string BlockSemantic { get { return (null); } }
-
-		#endregion
-
 		#region Uniform State (via Reflection)
 
 		/// <summary>
@@ -349,15 +338,24 @@ namespace OpenGL.Objects.State
 		/// </param>
 		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope)
 		{
-			GraphicsResource.CheckCurrentContext(ctx);
-
 			if (shaderProgram == null)
 				throw new ArgumentNullException("shaderProgram");
 
-			if (ctx.Extensions.UniformBufferObject_ARB == false || _UniformBuffer == null)
+			GraphicsResource.CheckCurrentContext(ctx);
+
+			if (UniformBlockTag != null && UniformBuffer != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
+				// Update uniform buffer
+				UniformBuffer.Map(ctx, BufferAccessARB.WriteOnly);
+				try {
+					ApplyState(ctx, UniformBuffer, null, UniformState.Values, this);
+				} finally {
+					UniformBuffer.Unmap(ctx);
+				}
+				// All uniforms at once
+				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, UniformBuffer);
+			} else {
 				ApplyState(ctx, shaderProgram, null, UniformState.Values, this);
-			else
-				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, _UniformBuffer);
+			}
 		}
 
 		/// <summary>
@@ -366,24 +364,31 @@ namespace OpenGL.Objects.State
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used to share common state between shaders.
 		/// </param>
-		/// <param name="shaderProgram">
-		/// A <see cref="ShaderProgram"/> that specify this uniform state.
+		/// <param name="uniformContainer">
+		/// A <see cref="IShaderUniformContainer"/> that specify this uniform state.
 		/// </param>
 		/// <param name="uniformScope">
 		/// A <see cref="String"/> that specify the scope the uniform variable.
 		/// </param>
-		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope, IEnumerable<UniformStateMember> uniforms, object uniformContainer)
+		private void ApplyState(GraphicsContext ctx, IShaderUniformContainer uniformContainer, string uniformScope, IEnumerable<UniformStateMember> uniforms, object instance)
 		{
+			if (uniformContainer == null)
+				throw new ArgumentNullException("shaderProgram");
+			if (uniforms == null)
+				throw new ArgumentNullException("uniforms");
+			if (instance == null)
+				throw new ArgumentNullException("instance");
+
 			foreach (UniformStateMember uniform in uniforms) {
 				// Set the program uniform
 				string uniformPattern = uniformScope != null ? String.Format("{0}.{1}", uniformScope, uniform.UniformName) : uniform.UniformName;
 
 				// Matches also partial uniform variables (i.e. glo_Struct[0] or glo_Struct while glo_Struct[0].Member is active)
 				// Indeed quite efficient when structures are not active (skip all members)
-				if (shaderProgram.IsActiveUniform(uniformPattern) == false)
+				if (uniformContainer.IsActiveUniform(uniformPattern) == false)
 					continue;
 
-				object uniformValue = uniform.GetUniformValue(uniformContainer);
+				object uniformValue = uniform.GetUniformValue(instance);
 
 				// Silently skip null references
 				if (uniformValue == null)
@@ -397,7 +402,7 @@ namespace OpenGL.Objects.State
 					for (int i = 0; i < uniformArray.Length; i++) {
 						string uniformArrayPattern = String.Format("{0}[{1}]", uniformPattern, i);
 
-						if (shaderProgram.IsActiveUniform(uniformArrayPattern) == false)
+						if (uniformContainer.IsActiveUniform(uniformArrayPattern) == false)
 							continue;
 
 						object uniformArrayValue = uniformArray.GetValue(i);
@@ -406,22 +411,33 @@ namespace OpenGL.Objects.State
 						if (uniformArrayValue == null)
 							continue;
 
-						ApplyUniform(ctx, shaderProgram, uniformArrayPattern, uniformArrayValue);
+						ApplyUniform(ctx, uniformContainer, uniformArrayPattern, uniformArrayValue);
 					}
 				} else
-					ApplyUniform(ctx, shaderProgram, uniformPattern, uniformValue);
+					ApplyUniform(ctx, uniformContainer, uniformPattern, uniformValue);
 			}
 		}
 
-		private void ApplyUniform(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformPattern, object uniformValue)
+		/// <summary>
+		/// Set a single uniform, optionally structured.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used to share common state between shaders.
+		/// </param>
+		/// <param name="uniformContainer">
+		/// A <see cref="IShaderUniformContainer"/> that specify this uniform state.
+		/// </param>
+		/// <param name="uniformPattern"></param>
+		/// <param name="uniformValue"></param>
+		private void ApplyUniform(GraphicsContext ctx, IShaderUniformContainer uniformContainer, string uniformPattern, object uniformValue)
 		{
 			List<UniformStateMember> structuredTypeMembers;
 
 			if (_TypeUniformState.TryGetValue(uniformValue.GetType(), out structuredTypeMembers)) {
 				// Recurse over structure fields
-				ApplyState(ctx, shaderProgram, uniformPattern, structuredTypeMembers, uniformValue);
+				ApplyState(ctx, uniformContainer, uniformPattern, structuredTypeMembers, uniformValue);
 			} else
-				shaderProgram.SetUniform(ctx, uniformPattern, uniformValue);
+				uniformContainer.SetUniform(ctx, uniformPattern, uniformValue);
 		}
 
 		#endregion
@@ -429,35 +445,24 @@ namespace OpenGL.Objects.State
 		#region Uniform Block Support
 
 		/// <summary>
-		/// The tag the identifies the uniform block.
+		/// Get or set the buffer holding the uniform state.
 		/// </summary>
-		protected virtual string UniformBlockTag { get { return (null); } }
-
-		private void UpdateUniformBlock(GraphicsContext ctx)
+		public UniformBufferObject UniformBuffer
 		{
-			_UniformBuffer.Map(ctx, BufferAccessARB.WriteOnly);
-			try {
-				UpdateUniformBlock(_UniformBuffer.MappedBuffer);
-			} finally {
-				_UniformBuffer.Unmap(ctx);
-			}
+			get { return (_UniformBuffer); }
+			set { _UniformBuffer = value; }
 		}
-
-		protected virtual void UpdateUniformBlock(IntPtr uniformBuffer)
-		{
-			throw new NotImplementedException(GetType().Name + "does not implement UpdateUniformBlock(IntPtr)");
-		}
-
-		/// <summary>
-		/// The hint required for the uniform block instance associated to this state.
-		/// </summary>
-		protected virtual BufferObjectHint UniformBlockHint { get { return (BufferObjectHint.StaticCpuDraw); } }
 
 		/// <summary>
 		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
 		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
 		/// </summary>
 		private UniformBufferObject _UniformBuffer;
+
+		/// <summary>
+		/// The tag the identifies the uniform block.
+		/// </summary>
+		protected virtual string UniformBlockTag { get { return (null); } }
 
 		#endregion
 
@@ -502,6 +507,12 @@ namespace OpenGL.Objects.State
 				graphicsResource.Create(ctx);
 			}
 
+			// Create uniform buffer, if supported
+			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag) && UniformBuffer == null) {
+				UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferObjectHint.DynamicCpuDraw);
+				UniformBuffer.Create(ctx);
+			}
+
 			// Base implementation
 			base.CreateState(ctx, shaderProgram);
 		}
@@ -517,10 +528,17 @@ namespace OpenGL.Objects.State
 		/// </param>
 		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
-			// Program must be bound
-			ctx.Bind(shaderProgram);
-			// Apply uniforms found using reflection
-			ApplyState(ctx, shaderProgram, String.Empty);
+			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
+				// Apply uniforms to uniform buffer
+				ApplyState(ctx, shaderProgram, String.Empty);
+				// Set uniform block
+				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, UniformBuffer);
+			} else {
+				// Start setting uniforms
+				shaderProgram.BindUniform(ctx);
+				// Apply uniforms to program
+				ApplyState(ctx, shaderProgram, String.Empty);
+			}
 		}
 
 		/// <summary>

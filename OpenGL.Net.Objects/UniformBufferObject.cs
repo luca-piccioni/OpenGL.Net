@@ -16,8 +16,9 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using UniformSegmentDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.UniformBufferObject.UniformSegment>;
+
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace OpenGL.Objects
@@ -125,10 +126,19 @@ namespace OpenGL.Objects
 
 		#region Elements Mapping
 
+		/// <summary>
+		/// Uniform segment localizing an uniform buffer variable.
+		/// </summary>
 		internal class UniformSegment
 		{
+			/// <summary>
+			/// The index of the uniform variable.
+			/// </summary>
 			public uint UniformIndex;
 
+			/// <summary>
+			/// The type of the uniform variable.
+			/// </summary>
 			public ShaderUniformType Type;
 
 			/// <summary>
@@ -164,15 +174,37 @@ namespace OpenGL.Objects
 				throw new InvalidOperationException("uniform type mismatch");
 			}
 
+			/// <summary>
+			/// The offset of the uniform variable from the beginning of the uniform buffer, in bytes.
+			/// </summary>
 			public int Offset;
 
+			/// <summary>
+			/// The stride between array elements, in case the uniform variable is an array variable, in bytes.
+			/// </summary>
 			public int ArrayStride;
 
+			/// <summary>
+			/// The stride between matrix elements, in case the uniform variable is an array of matrix variable, in bytes.
+			/// </summary>
 			public int MatrixStride;
 
+			/// <summary>
+			/// The flag indicating whether the the matrix components are stored in row-major order.
+			/// </summary>
 			public bool RowMajor;
 		}
 
+		/// <summary>
+		/// Get the <see cref="UniformSegment"/> corresponding to the specified uniform variable name.
+		/// </summary>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specifies the uniform varialble name.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="UniformSegment"/> correponding to <paramref name="uniformName"/>, or null if
+		/// no corrispondence was found.
+		/// </returns>
 		private UniformSegment GetUniform(string uniformName)
 		{
 			if (uniformName == null)
@@ -186,7 +218,10 @@ namespace OpenGL.Objects
 			return (null);
 		}
 
-		internal readonly Dictionary<string, UniformSegment> _UniformSegments = new Dictionary<string, UniformSegment>();
+		/// <summary>
+		/// Maap between <see cref="UniformSegment"/> and uniform names.
+		/// </summary>
+		internal readonly UniformSegmentDictionary _UniformSegments = new UniformSegmentDictionary();
 
 		#endregion
 	}

@@ -367,7 +367,7 @@ namespace OpenGL.Objects
 		/// <param name="ctx"></param>
 		private void PostSharedResources(GraphicsContext ctx)
 		{
-			if (_FontProgram.Identifier == "OpenGL.FontTextureArray+Instanced" && ctx.Extensions.UniformBufferObject_ARB) {
+			if (ctx.Extensions.UniformBufferObject_ARB && _FontProgram.IsActiveUniformBlock("Glyphs")) {
 				// Note: the above program uses uniform buffers, if supported
 				_GlyphUniformBuffer = _FontProgram.CreateUniformBlock("Glyphs", BufferObjectHint.DynamicCpuDraw);
 				_GlyphUniformBuffer.Create(ctx);
@@ -424,13 +424,6 @@ namespace OpenGL.Objects
 
 			UpdateGlyphBuffer(ctx, glyphsInstances);
 
-			// Shadow effect
-			if (_FxShadow != null) {
-				// XXX
-				DrawStringCore(ctx, _FontTexture, _FxShadow.Color, glyphsInstances);
-			}
-
-			// Draw the string
 			DrawStringCore(ctx, _FontTexture, color, glyphsInstances);
 		}
 
