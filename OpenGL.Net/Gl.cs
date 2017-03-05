@@ -541,6 +541,11 @@ namespace OpenGL
 			/// The source of the generated message is not any source not listed in enumeration.
 			/// </summary>
 			Other =					Gl.DEBUG_SOURCE_OTHER,
+
+			/// <summary>
+			/// Special value for <see cref="Gl.DebugMessageControl"/>.
+			/// </summary>
+			DontCare =				Gl.DONT_CARE,
 		}
 
 		/// <summary>
@@ -592,6 +597,11 @@ namespace OpenGL
 			/// The type of the generated message is not any type not listed in enumeration.
 			/// </summary>
 			Other =					Gl.DEBUG_TYPE_OTHER,
+
+			/// <summary>
+			/// Special value for <see cref="Gl.DebugMessageControl"/>.
+			/// </summary>
+			DontCare =				Gl.DONT_CARE,
 		}
 
 		/// <summary>
@@ -618,6 +628,11 @@ namespace OpenGL
 			/// Anything that isn't an error or performance issue.
 			/// </summary>
 			Notification =			Gl.DEBUG_SEVERITY_NOTIFICATION,
+
+			/// <summary>
+			/// Special value for <see cref="Gl.DebugMessageControl"/>.
+			/// </summary>
+			DontCare =				Gl.DONT_CARE,
 		}
 
 		/// <summary>

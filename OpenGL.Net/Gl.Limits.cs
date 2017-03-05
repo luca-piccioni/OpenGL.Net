@@ -672,6 +672,30 @@ namespace OpenGL
 			public int MaxCombinedTessEvaluationUniformComponents = 0;
 
 			#endregion
+
+			#region GL_ARB_debug_output/GL_AMD_debug_output/GL_KHR_debug
+
+			/// <summary>
+			/// The maximum length of a debug message string, including its null terminator.
+			/// </summary>
+			[Limit(MAX_DEBUG_MESSAGE_LENGTH)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_debug_output")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			public int MaxDebugMessageLength = 0;
+
+			/// <summary>
+			/// Maximum length of a label string.
+			/// </summary>
+			[Limit(MAX_LABEL_LENGTH)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			public int MaxLabelLength = 0;
+
+			#endregion
 		}
 	}
 }

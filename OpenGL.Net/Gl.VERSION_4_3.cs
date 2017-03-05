@@ -4812,7 +4812,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void Object(Int32 identifier, UInt32 name, Int32 length, String label)
+		public static void ObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectLabel != null, "pglObjectLabel not implemented");
 			Delegates.pglObjectLabel(identifier, name, length, label);
@@ -4862,7 +4862,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void GetObject(Int32 identifier, UInt32 name, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
+		public static void GetObjectLabel(Int32 identifier, UInt32 name, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
@@ -4903,7 +4903,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void Object(IntPtr ptr, Int32 length, String label)
+		public static void ObjectPtrLabel(IntPtr ptr, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectPtrLabel != null, "pglObjectPtrLabel not implemented");
 			Delegates.pglObjectPtrLabel(ptr, length, label);
@@ -4939,11 +4939,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void Object(Object ptr, Int32 length, String label)
+		public static void ObjectPtrLabel(Object ptr, Int32 length, String label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
 			try {
-				Object(pin_ptr.AddrOfPinnedObject(), length, label);
+				ObjectPtrLabel(pin_ptr.AddrOfPinnedObject(), length, label);
 			} finally {
 				pin_ptr.Free();
 			}
@@ -4987,7 +4987,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void GetObject(IntPtr ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
+		public static void GetObjectPtrLabel(IntPtr ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
@@ -5038,11 +5038,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		public static void GetObject(Object ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
+		public static void GetObjectPtrLabel(Object ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
 			try {
-				GetObject(pin_ptr.AddrOfPinnedObject(), bufSize, out length, label);
+				GetObjectPtrLabel(pin_ptr.AddrOfPinnedObject(), bufSize, out length, label);
 			} finally {
 				pin_ptr.Free();
 			}

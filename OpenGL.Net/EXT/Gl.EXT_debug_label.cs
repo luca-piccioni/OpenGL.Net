@@ -99,7 +99,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		public static void GetObjectEXT(Int32 type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
+		public static void GetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
