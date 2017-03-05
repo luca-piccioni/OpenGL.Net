@@ -45,15 +45,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public ShaderProgram(string programName) : base(programName)
 		{
-			try {
-				// GraphicsResource allows empty string, enforce check
-				if (String.IsNullOrEmpty(programName))
-					throw new ArgumentException("invalid", "programName");
-			} catch {
-				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
-				GC.SuppressFinalize(this);
-				throw;
-			}
+			
 		}
 
 		#endregion
@@ -1187,6 +1179,10 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
+			// Debug label
+			if (Identifier != null)
+				ctx.DebugObjectLabel(this, Identifier);
+
 			// Link this shader program
 			if (IsLinked == false)
 				Link(ctx, _CompilationParams);

@@ -258,35 +258,9 @@ namespace OpenGL.Objects
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
 
-				#region Extension 
-				
-				Extensions.Query();
-
-				Extensions.TextureObject_EXT = true;
-#if DISABLE_GL_ARB_draw_instanced
-				Extensions.DrawInstanced_ARB = false;
-#endif
-#if DISABLE_GL_ARB_shading_language_include
-				Extensions.ShadingLanguageInclude_ARB = false;
-#endif
-#if DISABLE_GL_ARB_uniform_buffer_object
-				Extensions.UniformBufferObject_ARB = false;
-#endif
-#if DISABLE_GL_ARB_instanced_arrays
-				Extensions.InstancedArrays = false;
-				Extensions.InstancedArrays_ARB = false;
-#endif
-#if DISABLE_GL_ARB_program_interface_query
-				Extensions.ProgramInterfaceQuery_ARB = false;
-#endif
-#if DISABLE_GL_ARB_separate_shader_objects
-				Extensions.SeparateShaderObjects_ARB = false;
-#endif
-
-				#endregion
-
 				// Initialize resources
 				InitializeResources();
+
 				// Get GL context flags
 				Debug.Assert(_Version != null);
 				switch (_Version.Api) {
@@ -298,6 +272,9 @@ namespace OpenGL.Objects
 						QueryEmbeddedContextInformation();
 						break;
 				}
+
+				// Debugging utility
+				InitializeDebugProfile();
 
 				// Leave current
 			} catch {
@@ -397,26 +374,14 @@ namespace OpenGL.Objects
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
 
-				if (sharedContext == null) {
-					// Initialize resources
+				// Initialize resources
+				if (sharedContext == null)
 					InitializeResources();
-				} else {
-					// Not sure if really necessary
-					_CurrentDeviceContext = sharedContext._CurrentDeviceContext;
+				else
+					InitializeResources(sharedContext);
 
-					// Same version
-					_Version = sharedContext._Version;
-					_ShadingVersion = sharedContext._ShadingVersion;
-					// Sharing same object name space
-					_ObjectNameSpace = sharedContext._ObjectNameSpace;
-					// Texture download
-					_TextureDownloadFramebuffer = sharedContext._TextureDownloadFramebuffer;
-					_TextureDownloadFramebuffer.IncRef();
-					// Reference shader include library (GLSL #include support)
-					_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
-				}
-
-				Extensions.Query();
+				// Debugging utility
+				InitializeDebugProfile();
 
 				// Leave current
 			} catch {
@@ -610,6 +575,8 @@ namespace OpenGL.Objects
 		/// </summary>
 		private void InitializeResources()
 		{
+			InitializeExtensions();
+
 			// Get the current OpenGL implementation version
 			_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
 			Resource.Log("Running on OpenGL {0}", _Version);
@@ -641,12 +608,66 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Initialize resources required by this GraphicsContext.
+		/// </summary>
+		private void InitializeResources(GraphicsContext sharedContext)
+		{
+			if (sharedContext == null)
+				throw new ArgumentNullException("sharedContext");
+
+			// Not sure if really necessary
+			_CurrentDeviceContext = sharedContext._CurrentDeviceContext;
+
+			// Same version
+			_Version = sharedContext._Version;
+			_ShadingVersion = sharedContext._ShadingVersion;
+			// Sharing same object name space
+			_ObjectNameSpace = sharedContext._ObjectNameSpace;
+			// Texture download
+			_TextureDownloadFramebuffer = sharedContext._TextureDownloadFramebuffer;
+			_TextureDownloadFramebuffer.IncRef();
+			// Reference shader include library (GLSL #include support)
+			_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
+		}
+
+		/// <summary>
+		/// Query available extensions.
+		/// </summary>
+		private void InitializeExtensions()
+		{
+			Extensions.Query();
+
+			Extensions.TextureObject_EXT = true;
+#if DISABLE_GL_ARB_draw_instanced
+			Extensions.DrawInstanced_ARB = false;
+#endif
+#if DISABLE_GL_ARB_shading_language_include
+			Extensions.ShadingLanguageInclude_ARB = false;
+#endif
+#if DISABLE_GL_ARB_uniform_buffer_object
+			Extensions.UniformBufferObject_ARB = false;
+#endif
+#if DISABLE_GL_ARB_instanced_arrays
+			Extensions.InstancedArrays = false;
+			Extensions.InstancedArrays_ARB = false;
+#endif
+#if DISABLE_GL_ARB_program_interface_query
+			Extensions.ProgramInterfaceQuery_ARB = false;
+#endif
+#if DISABLE_GL_ARB_separate_shader_objects
+			Extensions.SeparateShaderObjects_ARB = false;
+#endif
+		}
+
+		/// <summary>
 		/// Dispose resources required by this GraphicsContext.
 		/// </summary>
 		private void TerminateResources()
 		{
 			_TextureDownloadFramebuffer.DecRef();
 			_ShaderIncludeLibrary.DecRef();
+
+			TerminateDebugProfile();
 		}
 
 		/// <summary>
@@ -739,6 +760,241 @@ namespace OpenGL.Objects
 		/// Object namespace identifier.
 		/// </summary>
 		private Guid _ObjectNameSpace = Guid.Empty;
+
+		#endregion
+
+		#region Debugging
+
+		/// <summary>
+		/// Enable or disable debugging messages.
+		/// </summary>
+		/// <param name="enabled">
+		/// The <see cref="Boolean"/> that specifies whether affected messages must be enabled.
+		/// </param>
+		public void DebugEnableMessage(bool enabled)
+		{
+			if (Extensions.Debug_KHR) {
+				if (enabled)
+					Gl.Enable((EnableCap)Gl.DEBUG_OUTPUT);
+				else
+					Gl.Disable((EnableCap)Gl.DEBUG_OUTPUT);
+			} else
+				DebugEnableMessage(Gl.DebugSource.DontCare, Gl.DebugType.DontCare, Gl.DebugSeverity.DontCare, enabled);
+		}
+
+		/// <summary>
+		/// Enable or disable debugging messages.
+		/// </summary>
+		/// <param name="severity">
+		/// The <see cref="Gl.DebugSeverity"/> that specifies the affected messages.
+		/// </param>
+		/// <param name="enabled">
+		/// The <see cref="Boolean"/> that specifies whether affected messages must be enabled.
+		/// </param>
+		public void DebugEnableMessage(Gl.DebugSeverity severity, bool enabled, params uint[] ids)
+		{
+			DebugEnableMessage(Gl.DebugSource.DontCare, Gl.DebugType.DontCare, severity, enabled, ids);
+		}
+
+		/// <summary>
+		/// Enable or disable debugging messages.
+		/// </summary>
+		/// <param name="source">
+		/// The <see cref="Gl.DebugSource"/> that specifies the affected messages.
+		/// </param>
+		/// <param name="type">
+		/// The <see cref="Gl.DebugType"/> that specifies the affected messages.
+		/// </param>
+		/// <param name="severity">
+		/// The <see cref="Gl.DebugSeverity"/> that specifies the affected messages.
+		/// </param>
+		/// <param name="enabled">
+		/// The <see cref="Boolean"/> that specifies whether affected messages must be enabled.
+		/// </param>
+		public void DebugEnableMessage(Gl.DebugSource source, Gl.DebugType type, Gl.DebugSeverity severity, bool enabled, params uint[] ids)
+		{
+			// Notification messages are supported only when GL_KHR_debug is implemented
+			if (severity == Gl.DebugSeverity.Notification && Extensions.Debug_KHR == false)
+				return;
+
+			Gl.DebugMessageControl((int)source, (int)type, (int)severity, ids ?? new uint[0], enabled);
+		}
+
+		/// <summary>
+		/// Initialize debugging utilities offered by OpenGL implementation.
+		/// </summary>
+		private void InitializeDebugProfile()
+		{
+			if (Extensions.DebugOutput_ARB == false)
+				return;
+
+			// Hold a reference to avoid garbage collection
+			_DebugMessageCallback = DebugMessageCallback;
+			// Register callback
+			Gl.DebugMessageCallback(_DebugMessageCallback, IntPtr.Zero);
+			// By default, disable notification severity messages
+			DebugEnableMessage(Gl.DebugSeverity.Notification, false);
+		}
+
+		/// <summary>
+		/// Dispose resources allocated by <see cref="InitializeDebugProfile"/>.
+		/// </summary>
+		private void TerminateDebugProfile()
+		{
+			if (_DebugMessageCallback != null) {
+				// Unregister callback
+				Gl.DebugMessageCallback(null, IntPtr.Zero);
+				_DebugMessageCallback = null;
+			}
+		}
+
+		/// <summary>
+		/// Debug message callback.
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="type"></param>
+		/// <param name="id"></param>
+		/// <param name="severity"></param>
+		/// <param name="length"></param>
+		/// <param name="message"></param>
+		/// <param name="userParam"></param>
+		private void DebugMessageCallback(Gl.DebugSource source, Gl.DebugType type, uint id, Gl.DebugSeverity severity, int length, IntPtr message, IntPtr userParam)
+		{
+			Resource.Log("[{0} - {1}] {2}(0x{3:X8}): {4}", source, type, severity, id, Marshal.PtrToStringAnsi(message));
+		}
+
+		/// <summary>
+		/// Debug callback (GL_ARB_debug_output).
+		/// </summary>
+		private Gl.DebugProc _DebugMessageCallback;
+
+		#endregion
+
+		#region Debugging Label
+
+		/// <summary>
+		/// Assign a label to a <see cref="BufferObject"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="BufferObject"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(BufferObject debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.BUFFER, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="ShaderObject"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="ShaderProgram"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(ShaderObject debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.SHADER, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="ShaderProgram"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="ShaderProgram"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(ShaderProgram debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.PROGRAM, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="VertexArrayObject"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="VertexArrayObject"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(VertexArrayObject debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.VERTEX_ARRAY, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="Texture"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="Texture"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(Texture debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.TEXTURE, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="RenderBuffer"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="RenderBuffer"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(RenderBuffer debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.RENDERBUFFER, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="Framebuffer"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="Framebuffer"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		internal void DebugObjectLabel(Framebuffer debugObject, string debugLabel)
+		{
+			DebugObjectLabel(Gl.FRAMEBUFFER, debugObject, debugLabel);
+		}
+
+		/// <summary>
+		/// Assign a label to a <see cref="IGraphicsResource"/>.
+		/// </summary>
+		/// <param name="debugObject">
+		/// The <see cref="BufferObject"/> labelled for debugging.
+		/// </param>
+		/// <param name="debugLabel">
+		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
+		/// </param>
+		private void DebugObjectLabel(int id, IGraphicsResource debugObject, string debugLabel)
+		{
+			if (debugObject == null)
+				throw new ArgumentNullException("debugObject");
+			if (debugLabel == null)
+				throw new ArgumentNullException("debugLabel");
+
+			if (Extensions.Debug_KHR == false)
+				return;
+
+			// Check length
+			if (debugLabel.Length > Gl.CurrentLimits.MaxLabelLength)
+				debugLabel = debugLabel.Substring(0, Gl.CurrentLimits.MaxLabelLength);
+
+			Gl.ObjectLabel(id, debugObject.ObjectName, debugLabel.Length, debugLabel);
+		}
 
 		#endregion
 
