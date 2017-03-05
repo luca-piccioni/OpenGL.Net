@@ -148,7 +148,6 @@
     <Compile Include="MediaFormatAttribute.cs" />
     <Compile Include="MediaInfo.cs" />
     <Compile Include="PluginLoader.cs" />
-    <Compile Include="PrimitiveRestart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryObject.cs" />
     <Compile Include="QueryTarget.cs" />
@@ -181,6 +180,7 @@
     <Compile Include="State\LightsState.cs" />
     <Compile Include="State\PolygonModeState.cs" />
     <Compile Include="State\PolygonOffsetState.cs" />
+    <Compile Include="State\PrimitiveRestartState.cs" />
     <Compile Include="State\ShaderUniformState.cs" />
     <Compile Include="State\TransformState.cs" />
     <Compile Include="State\TransformStateBase.cs" />

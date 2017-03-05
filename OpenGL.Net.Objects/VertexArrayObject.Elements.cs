@@ -685,11 +685,11 @@ namespace OpenGL.Objects
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
-					if (PrimitiveRestart.IsPrimitiveRestartSupported(ctx)) {
+					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV) {
+						new State.PrimitiveRestartState(ArrayIndices.RestartIndexKey).ApplyState(ctx, null);
+
 						// Draw elements with primitive restart
-						PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
 						DrawElements(ctx, arraySection.Pointer);
-						PrimitiveRestart.DisablePrimitiveRestart(ctx);
 					} else {
 						// Note: uses MultiDrawElements to emulate the primitive restart feature; PrimitiveRestartOffsets and
 						// PrimitiveRestartCounts are computed at element buffer creation time
@@ -698,6 +698,10 @@ namespace OpenGL.Objects
 				} else {
 					uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
 					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+
+					// Disable primitive restart, if enabled
+					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
+						State.PrimitiveRestartState.DefaultState.ApplyState(ctx, null);
 
 					// Draw vertex arrays by indices
 					DrawElements(ctx, arraySection.Pointer);
@@ -725,19 +729,20 @@ namespace OpenGL.Objects
 
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
-					if (PrimitiveRestart.IsPrimitiveRestartSupported(ctx)) {
-						// Enable primitive restart
-						PrimitiveRestart.EnablePrimitiveRestart(ctx, ArrayIndices.ElementsType);
-						// Draw elements as usual
+					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV) {
+						new State.PrimitiveRestartState(ArrayIndices.RestartIndexKey).ApplyState(ctx, null);
+
 						DrawElementsInstanced(ctx, arraySection.Pointer, instances);
-						// Disable primitive restart
-						PrimitiveRestart.DisablePrimitiveRestart(ctx);
 					} else {
-						throw new NotSupportedException();
+						throw new NotSupportedException("DrawInstanced primitive restart emulation not supported");
 					}
 				} else {
 					uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
 					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+
+					// Disable primitive restart, if enabled
+					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
+						State.PrimitiveRestartState.DefaultState.ApplyState(ctx, null);
 
 					// Draw vertex arrays by indices
 					DrawElementsInstanced(ctx, arraySection.Pointer, instances);

@@ -1799,7 +1799,6 @@ namespace OpenGL.Objects
 		/// </param>
 		private void CacheUniformValue(string uniformName, object uniformValue)
 		{
-			Log("  Set uniform: {0} = {1}", uniformName, uniformValue);
 			_UniformValues[uniformName] = uniformValue;
 		}
 

@@ -403,7 +403,7 @@ namespace OpenGL.Objects
 			// Base implementation
 			base.CreateObject(ctx);
 			// Compute necessary information to support primitive restart even if the platform does not implement it
-			if (!PrimitiveRestart.IsPrimitiveRestartSupported(ctx)  && RestartIndexEnabled)
+			if (!ctx.Extensions.PrimitiveRestart && !ctx.Extensions.PrimitiveRestart_NV && RestartIndexEnabled)
 				PrimitiveRestartOffsets = GetRestartIndices(out PrimitiveRestartCounts);
 		}
 

@@ -278,7 +278,7 @@ namespace OpenGL.Objects
 		/// <param name="sourceLines">
 		/// </param>
 		/// <returns></returns>
-		public static List<string> CleanSource(IEnumerable<string> sourceLines)
+		internal static List<string> CleanSource(IEnumerable<string> sourceLines)
 		{
 			List<string> cleanSource = new List<string>();
 
@@ -372,11 +372,11 @@ namespace OpenGL.Objects
 			// #pragma
 #if DEBUG
 			// Debug directives
-			//sourceLines.Add("#pragma optimization(off)\n");
-			//sourceLines.Add("#pragma debug(on)\n");
+			sourceLines.Add("#pragma optimization(off)\n");
+			sourceLines.Add("#pragma debug(on)\n");
 #else
-			//sourceLines.Add("#pragma optimization(on)\n");
-			//sourceLines.Add("#pragma debug(off)\n");
+			sourceLines.Add("#pragma optimization(on)\n");
+			sourceLines.Add("#pragma debug(off)\n");
 #endif
 		}
 
@@ -404,11 +404,15 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("source");
 
 			foreach (string line in source) {
-				
+
 				// Ensure that no multi-line string is passed
 
-				foreach (string subline in Regex.Split(line, @"\n"))
+				foreach (string subline in Regex.Split(line, @"\n")) {
+					if (subline.Length == 0)
+						continue;
+
 					sourceLines.Add(subline + "\n");
+				}
 			}
 		}
 

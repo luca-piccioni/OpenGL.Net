@@ -575,7 +575,7 @@ namespace HelloObjects
 			globalLightZone.Link(CreatePlane());
 
 			// Cube
-			float Size = (float)Math.Sqrt(0);
+			float Size = (float)Math.Sqrt(1);
 			const float Multiplier = 10.0f;
 
 			int materialIndex = 0;
@@ -587,18 +587,20 @@ namespace HelloObjects
 					cubeInstance.LocalModel.Translate(x, 0.0f, y);
 					cubeInstance.LocalModel.Scale(0.25f);
 
+					// materialIndex = 1;
+
 					// Enable/Disable blending
 					if ((materialIndex % 2) == 0) {
 						cubeInstance.ObjectState.DefineState(new BlendState(BlendEquationModeEXT.FuncAdd, BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha));
 					}
 
 					// Enable/Disable blending
-					switch (materialIndex % 1) {
+					switch (materialIndex % 3) {
 						case 0:
-							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
+							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+Color");
 							break;
 						case 1:
-							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+Color");
+							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
 							break;
 						case 2:
 							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");

@@ -19,7 +19,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace OpenGL.Objects.State
 {
@@ -50,6 +49,7 @@ namespace OpenGL.Objects.State
 		{
 			int index;
 
+			index = PrimitiveRestartState.StateSetIndex;
 			index = TransformStateBase.StateSetIndex;
 			index = CullFaceState.StateSetIndex;
 			index = BlendState.StateSetIndex;

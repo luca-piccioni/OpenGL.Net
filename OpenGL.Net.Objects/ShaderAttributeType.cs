@@ -260,6 +260,7 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
 		#region Length & Rank
 
 		/// <summary>
