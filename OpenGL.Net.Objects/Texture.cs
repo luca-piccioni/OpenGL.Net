@@ -36,8 +36,21 @@ namespace OpenGL.Objects
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("Texture: Pixel={PixelLayout}")]
-	public abstract class Texture : GraphicsResource, IBindingResource
+	public abstract class Texture : GraphicsResource
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a Texture.
+		/// </summary>
+		protected Texture()
+		{
+			// Link sampler parameters (not really a sampler)
+			LinkResource(_Sampler);
+		}
+
+		#endregion
+
 		#region Texture Properties
 
 		/// <summary>
@@ -58,7 +71,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Texture size, in pixels, of the level 0 of the texture.
+		/// Texture size, in pixels, of the base level of the texture.
 		/// </summary>
 		public virtual Vertex3ui BaseSize
 		{
@@ -152,6 +165,25 @@ namespace OpenGL.Objects
 			_Mipmaps[lod].InternalFormat = pixelFormat;
 			_Mipmaps[lod].Size = new Vertex3ui(w, h, z);
 		}
+
+		/// <summary>
+		/// Get whether this Texture is immutable (GL_ARB_texture_storage support).
+		/// </summary>
+		public bool Immutable
+		{
+			get { return (_Immutable); }
+			set
+			{
+				if (ObjectName != InvalidObjectName)
+					throw new InvalidOperationException("object already defined");
+				_Immutable = value;
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether this Texture is immutable (GL_ARB_texture_storage).
+		/// </summary>
+		private bool _Immutable;
 
 		#endregion
 
@@ -497,6 +529,18 @@ namespace OpenGL.Objects
 			return (mipmapSize);
 		}
 
+		internal void ApplyMipmapLevels(GraphicsContext ctx, bool force)
+		{
+			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
+			if (_MipmapMinLevel >= 0 || _MipmapMinLevelDirty)
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_BASE_LEVEL, _MipmapMinLevel);
+			_MipmapMinLevelDirty = false;
+
+			if (_MipmapMaxLevel >= 0 || _MipmapMaxLevelDirty)
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_MAX_LEVEL, _MipmapMaxLevel);
+			_MipmapMaxLevelDirty = false;
+		}
+
 		/// <summary>
 		/// Mipmaps properties.
 		/// </summary>
@@ -584,191 +628,28 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Filter
+		#region Sampler
 
 		/// <summary>
-		/// Texture filter.
+		/// The texture sampler.
 		/// </summary>
-		public enum Filter
+		public Sampler Sampler
 		{
-			/// <summary>
-			/// Keep the nearest pixel.
-			/// </summary>
-			Nearest,
-			/// <summary>
-			/// Linearly interpolate pixels in neightboor.
-			/// </summary>
-			Linear
-		}
-		
-		/// <summary>
-		/// Minification filter property.
-		/// </summary>
-		public Filter MinFilter
-		{
-			get { return (_MinFilter); }
-			set
+			get
 			{
-				if (_MinFilter != value)
-					_MinFilterDirty = true;
-				_MinFilter = value;
+				return (_SamplerObject ?? _Sampler);
 			}
 		}
 
 		/// <summary>
-		/// Minification filter consider mipmaps for filtering.
+		/// Texture sampler parameters.
 		/// </summary>
-		public Filter MipFilter
-		{
-			get { return (_MipFilter); }
-			set
-			{
-				if (_MipFilter != value)
-					_MipFilterDirty = true;
-				_MipFilter = value;
-			}
-		}
-		
-		/// <summary>
-		/// Magnification filter property.
-		/// </summary>
-		public Filter MagFilter
-		{
-			get { return (_MagFilter); }
-			set
-			{
-				if (_MagFilter != value)
-					_MagFilterDirty = true;
-				_MagFilter = value;
-			}
-		}
+		private readonly Sampler _Sampler = new Sampler(false);
 
 		/// <summary>
-		/// Minification filter.
+		/// The <see cref="Sampler"/> overriding this Texture sampler parameters.
 		/// </summary>
-		private Filter _MinFilter = Filter.Linear;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _MinFilterDirty = true;
-
-		/// <summary>
-		/// Minification filter consider mipmaps (relevant only when texture has mipmaps).
-		/// </summary>
-		private Filter _MipFilter = Filter.Nearest;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MipFilter"/> only if changes.
-		/// </summary>
-		private bool _MipFilterDirty = true;
-
-		/// <summary>
-		/// Magnification filter.
-		/// </summary>
-		private Filter _MagFilter = Filter.Nearest;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MagFilter"/> only if changes.
-		/// </summary>
-		private bool _MagFilterDirty = true;
-		
-		#endregion
-
-		#region Wrapping
-
-		/// <summary>
-		/// Texture wrapping mode.
-		/// </summary>
-		public enum Wrap
-		{
-			/// <summary>
-			/// Texture coordinates are clamped to the valid range.
-			/// </summary>
-			Clamp = Gl.CLAMP_TO_EDGE,
-
-			/// <summary>
-			/// Texture coordinates are wrapped around the valid range.
-			/// </summary>
-			Repeat = Gl.REPEAT,
-
-			/// <summary>
-			/// Texture coordinates are wrapped around the valid range, but mirrored.
-			/// </summary>
-			MirroredRepeat = Gl.MIRRORED_REPEAT
-		}
-
-		/// <summary>
-		/// Wrapping on texture S coordinate.
-		/// </summary>
-		public Wrap WrapCoordS
-		{
-			get { return (_WrapS); }
-			set
-			{
-				if (_WrapS != value)
-					_WrapSDirty = true;
-				_WrapS = value;
-			}
-		}
-
-		/// <summary>
-		/// Wrapping on texture T coordinate.
-		/// </summary>
-		public Wrap WrapCoordT
-		{
-			get { return (_WrapT); }
-			set
-			{
-				if (_WrapT != value)
-					_WrapTDirty = true;
-				_WrapT = value;
-			}
-		}
-
-		/// <summary>
-		/// Wrapping on texture R coordinate.
-		/// </summary>
-		public Wrap WrapCoordR
-		{
-			get { return (_WrapR); }
-			set
-			{
-				if (_WrapR != value)
-					_WrapRDirty = true;
-				_WrapR = value;
-			}
-		}
-
-		/// <summary>
-		/// Wrapping on S coordinate.
-		/// </summary>
-		private Wrap _WrapS = Wrap.Repeat;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _WrapSDirty = true;
-
-		/// <summary>
-		/// Wrapping on T coordinate.
-		/// </summary>
-		private Wrap _WrapT = Wrap.Repeat;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _WrapTDirty = true;
-
-		/// <summary>
-		/// Wrapping on R coordinate.
-		/// </summary>
-		private Wrap _WrapR = Wrap.Repeat;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _WrapRDirty = true;
+		private Sampler _SamplerObject;
 
 		#endregion
 
@@ -824,43 +705,16 @@ namespace OpenGL.Objects
 		/// Get or set the swizzle map for alpha component.
 		/// </summary>
 		public Swizzle SizzleAlpha { get { return (_TextelSwizzle[3]); } set { _TextelSwizzle[3] = value; } }
-
+		
 		/// <summary>
-		/// Setup texture textel components swizzle.
+		/// Apply texture swizzle, if required and supported.
 		/// </summary>
-		/// <remarks>
-		/// Texture swizzle is a way to set/clone/mix textel components during the shaders execution. It
-		/// is mainly used for grayscale textures, cloning the R component in the G and B components;
-		/// sometimes is used to ignore A components, since the data specify it by it is not meaninfull.
-		/// </remarks>
-		private void SetupTextelSwizzle()
+		/// <param name="ctx"></param>
+		internal void ApplySwizzle(GraphicsContext ctx)
 		{
-			if (Gl.CurrentExtensions.TextureSwizzle_ARB) {
-				switch (PixelLayout) {
-
-					#region GRAY Internal Formats
-
-					case PixelLayout.R8:
-					case PixelLayout.R16:
-					case PixelLayout.GRAY16S:
-					case PixelLayout.RF:
-					case PixelLayout.RHF:
-						// Emulated Gl.LUMINANCE textel format
-						_TextelSwizzleRGBA = new int[] {
-							Gl.RED,
-							Gl.RED,
-							Gl.RED,
-							Gl.ONE
-						};
-						break;
-
-					#endregion
-
-					default:
-						// By default, no swizzle is required
-						_TextelSwizzleRGBA = null;
-						break;
-				}
+			if ((_TextelSwizzleRGBA != null) && (Gl.CurrentExtensions.TextureSwizzle_ARB)) {
+				// Set components swizzle setup
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, _TextelSwizzleRGBA);
 			}
 		}
 
@@ -880,168 +734,6 @@ namespace OpenGL.Objects
 		/// is required.
 		/// </remarks>
 		private readonly Swizzle[] _TextelSwizzle = new Swizzle[] { Swizzle.Red, Swizzle.Green, Swizzle.Blue, Swizzle.Alpha };
-
-		#endregion
-
-		#region Parameters
-
-		/// <summary>
-		/// Apply this Texture parameters.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for setting texture parameter.
-		/// </param>
-		/// <remarks>
-		/// Tipically this routine is implemented by simply calling the routine
-		/// <see cref="ApplyParameters(GraphicsContext,int)"/>.
-		/// </remarks>
-		public virtual void ApplyParameters(GraphicsContext ctx)
-		{
-			ApplyParameters(ctx, TextureTarget);
-		}
-
-		/// <summary>
-		/// Apply Texture parameters of specific target.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for setting texture parameter.
-		/// </param>
-		/// <param name="target">
-		/// A <see cref="TextureTarget"/> that specify the Texture target.
-		/// </param>
-		protected void ApplyParameters(GraphicsContext ctx, TextureTarget target)
-		{
-			int iParam;
-
-			#region Minification Filter
-
-			if (IsMipmapComplete) {
-				switch (MinFilter) {
-					case Filter.Nearest:
-						switch (MipFilter) {
-							case Filter.Nearest:
-								iParam = Gl.NEAREST_MIPMAP_NEAREST;
-								break;
-							case Filter.Linear:
-								iParam = Gl.NEAREST_MIPMAP_LINEAR;
-								break;
-							default:
-								throw new NotSupportedException(String.Format("unknown mipmap minification filter {0}", MipFilter));
-						}
-						break;
-					case Filter.Linear:
-						switch (MipFilter) {
-							case Filter.Nearest:
-								iParam = Gl.LINEAR_MIPMAP_NEAREST;
-								break;
-							case Filter.Linear:
-								iParam = Gl.LINEAR_MIPMAP_LINEAR;
-								break;
-							default:
-								throw new NotSupportedException(String.Format("unknown mipmap minification filter {0}", MipFilter));
-						}
-						break;
-					default:
-						throw new NotSupportedException(String.Format("unknown minification filter {0}", MinFilter));
-				}
-
-				// Set minification filter (with mipmaps)
-				if (_MinFilterDirty || _MipFilterDirty)
-					Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
-				_MinFilterDirty = _MipFilterDirty = false;
-			} else {
-				switch (MinFilter) {
-					case Filter.Nearest:
-						iParam = Gl.NEAREST;
-						break;
-					case Filter.Linear:
-						iParam = Gl.LINEAR;
-						break;
-					default:
-						throw new NotSupportedException(String.Format("unknown minification filter {0}", MinFilter));
-				}
-				// Set minification filter (without mipmaps)
-				if (_MinFilterDirty)
-					Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
-				_MinFilterDirty = false;
-			}
-
-			#endregion
-
-			#region Magnification Filter
-
-			switch (MagFilter) {
-				case Filter.Nearest:
-					iParam = Gl.NEAREST;
-					break;
-				case Filter.Linear:
-					iParam = Gl.LINEAR;
-					break;
-				default:
-					throw new NotSupportedException(String.Format("unknown magnification filter {0}", MagFilter));
-			}
-
-			// Set minification filter (without mipmaps)
-			if (_MagFilterDirty)
-				Gl.TexParameter(target, TextureParameterName.TextureMagFilter, iParam);
-			_MagFilterDirty = false;
-
-			#endregion
-
-			#region Wrapping
-
-			if (target != TextureTarget.TextureRectangle) {
-				// Wrap S coordinate
-				if (_WrapRDirty)
-					Gl.TexParameter(target, TextureParameterName.TextureWrapS, (int)WrapCoordS);
-				_WrapRDirty = false;
-				// Wrap T coordinate
-				if (_WrapTDirty)
-					Gl.TexParameter(target, TextureParameterName.TextureWrapT, (int)WrapCoordT);
-				_WrapTDirty = false;
-				// Wrap R coordinate
-				if (_WrapRDirty)
-					Gl.TexParameter(target, TextureParameterName.TextureWrapR, (int)WrapCoordR);
-				_WrapRDirty = false;
-			}
-
-			#endregion
-
-			#region Textel Components Swizzle
-
-			if ((_TextelSwizzleRGBA != null) && (Gl.CurrentExtensions.TextureSwizzle_ARB)) {
-				// Set components swizzle setup
-				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, _TextelSwizzleRGBA);
-			}
-
-			#endregion
-
-			#region Mipmap Levels
-
-			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
-			if (_MipmapMinLevel >= 0 || _MipmapMinLevelDirty)
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_BASE_LEVEL, _MipmapMinLevel);
-			_MipmapMinLevelDirty = false;
-
-			if (_MipmapMaxLevel >= 0 || _MipmapMaxLevelDirty)
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_MAX_LEVEL, _MipmapMaxLevel);
-			_MipmapMaxLevelDirty = false;
-
-			#endregion
-		}
-
-		#endregion
-
-		#region Binding
-
-		/// <summary>
-		/// Determine the derived Texture target.
-		/// </summary>
-		/// <remarks>
-		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
-		/// shall returns always 0.
-		/// </remarks>
-		public abstract TextureTarget TextureTarget { get; }
 
 		#endregion
 
@@ -1131,12 +823,89 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Active Texture Unit
+		#region Texture Units
 
 		/// <summary>
-		/// Current texture unit index operating with this Texture instance.
+		/// Determine the derived Texture target.
 		/// </summary>
-		internal uint ActiveTextureUnit = GraphicsContext.InvalidBindingIndex;
+		/// <remarks>
+		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
+		/// shall returns always 0.
+		/// </remarks>
+		public abstract TextureTarget TextureTarget { get; }
+
+		/// <summary>
+		/// Get the index of the default texture unit associated with this Texture. It is <see cref="UInt32.MaxValue"/>
+		/// to indicate that no texture unit is associated with this Texture.
+		/// </summary>
+		public uint DefaultTextureUnit { get { return (_ActiveTextureUnits.Count > 0 ? _ActiveTextureUnits[0] : UInt32.MaxValue); } }
+
+		/// <summary>
+		/// Get the index of the texture unit associated with this Texture. IN the case the Texture has no texture unit associated,
+		/// bound this Texture onto the most appropriate texture unit.
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <returns></returns>
+		public uint GetTextureUnit(GraphicsContext ctx)
+		{
+			uint textureUnitIndex = DefaultTextureUnit;
+
+			if (textureUnitIndex == UInt32.MaxValue) {
+				ctx.Bind(this);
+				textureUnitIndex = DefaultTextureUnit;
+			}
+
+			return (textureUnitIndex);
+		}
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		internal int GetBindingTarget(GraphicsContext ctx)
+		{
+			// Cannot lazy binding on textures if GL_EXT_texture_object is not supported
+			if (ctx.Extensions.TextureObject_EXT == false)
+				return (0);
+
+			// All-in-one implementation for all targets
+			switch ((int)TextureTarget) {
+				case Gl.TEXTURE_1D:
+					return (Gl.TEXTURE_BINDING_1D);
+				case Gl.TEXTURE_2D:
+					return (Gl.TEXTURE_BINDING_2D);
+				case Gl.TEXTURE_3D:
+					return (Gl.TEXTURE_BINDING_3D);
+
+				case Gl.TEXTURE_CUBE_MAP:
+					return (Gl.TEXTURE_BINDING_CUBE_MAP);
+
+				case Gl.TEXTURE_RECTANGLE:
+					return (Gl.TEXTURE_BINDING_RECTANGLE);
+
+				case Gl.TEXTURE_1D_ARRAY:
+					return (Gl.TEXTURE_BINDING_1D_ARRAY);
+				case Gl.TEXTURE_2D_ARRAY:
+					return (Gl.TEXTURE_BINDING_2D_ARRAY);
+				case Gl.TEXTURE_CUBE_MAP_ARRAY:
+					return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
+
+				case Gl.TEXTURE_2D_MULTISAMPLE:
+					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
+				case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
+					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
+
+				default:
+					throw new NotSupportedException(String.Format("texture target 0x{0:X2} not supported", (int)TextureTarget));
+			}
+		}
+
+		/// <summary>
+		/// Index of the active texture units on which this texture is bound.
+		/// </summary>
+		internal readonly List<uint> _ActiveTextureUnits = new List<uint>();
 
 		#endregion
 
@@ -1223,20 +992,17 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			if (!_NameCreated) {
-				// Let create this texture
-				Gl.BindTexture(TextureTarget, ObjectName);
-				_NameCreated = true;
-				// Bind this texture
-				ctx.Bind(this);
+			// Base implementation
+			base.CreateObject(ctx);
 
-				// Determine whether to release texture data
-				_TechniquesAutoRelease = ctx.Extensions.TextureObject_EXT;
-			}
+			// Selects the texture unit for this texture
+			ctx.Bind(this);
 
-			// In the case of no techniques, texture will exists but it will be undefined
+			// Determine whether to release texture data
+			_TechniquesAutoRelease = ctx.Extensions.TextureObject_EXT;
 
 			if (_Techniques.Count > 0) {
+				// In the case of no techniques, texture will exists but it will be undefined
 				foreach (Technique technique in _Techniques) {
 					// Create/update texture using technique
 					technique.Create(ctx);
@@ -1252,104 +1018,6 @@ namespace OpenGL.Objects
 			// Generate mipmaps, if requested
 			if (_RequiresMipMaps)
 				GenerateMipmaps(ctx);
-		}
-
-		private bool _NameCreated;
-
-		#endregion
-
-		#region IBindingResource Implementation
-
-		/// <summary>
-		/// Get the identifier of the binding point.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding.
-		/// </param>
-		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
-		{
-			// Cannot lazy binding on textures if GL_EXT_texture_object is not supported
-			if (ctx.Extensions.TextureObject_EXT == false)
-				return (0);
-
-			// All-in-one implementation for all targets
-			switch ((int)TextureTarget) {
-				case Gl.TEXTURE_1D:
-					return (Gl.TEXTURE_BINDING_1D);
-				case Gl.TEXTURE_2D:
-					return (Gl.TEXTURE_BINDING_2D);
-				case Gl.TEXTURE_3D:
-					return (Gl.TEXTURE_BINDING_3D);
-
-				case Gl.TEXTURE_CUBE_MAP:
-					return (Gl.TEXTURE_BINDING_CUBE_MAP);
-
-				case Gl.TEXTURE_RECTANGLE:
-					return (Gl.TEXTURE_BINDING_RECTANGLE);
-
-				case Gl.TEXTURE_1D_ARRAY:
-					return (Gl.TEXTURE_BINDING_1D_ARRAY);
-				case Gl.TEXTURE_2D_ARRAY:
-					return (Gl.TEXTURE_BINDING_2D_ARRAY);
-				case Gl.TEXTURE_CUBE_MAP_ARRAY:
-					return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
-
-				case Gl.TEXTURE_2D_MULTISAMPLE:
-					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
-				case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
-					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
-
-				default:
-					throw new NotSupportedException(String.Format("texture target 0x{0:X2} not supported", (int)TextureTarget));
-			}
-		}
-
-		/// <summary>
-		/// Bind this IBindingResource.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding.
-		/// </param>
-		void IBindingResource.Bind(GraphicsContext ctx)
-		{
-			CheckThisExistence(ctx);
-
-			// Bind
-			Gl.BindTexture(TextureTarget, ObjectName);
-		}
-
-		/// <summary>
-		/// Bind this IBindingResource.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding.
-		/// </param>
-		void IBindingResource.Unbind(GraphicsContext ctx)
-		{
-			CheckThisExistence(ctx);
-
-			// Bind
-			Gl.BindTexture(TextureTarget, InvalidObjectName);
-		}
-
-		/// <summary>
-		/// Check whether this IBindingResource is currently bound on the specified graphics context.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for querying the current binding state.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether this IBindingResource is currently bound on <paramref name="ctx"/>.
-		/// </returns>
-		bool IBindingResource.IsBound(GraphicsContext ctx)
-		{
-			int bindingTarget = ((IBindingResource)this).GetBindingTarget(ctx);
-			int currentBufferObject;
-
-			Debug.Assert(bindingTarget != 0);
-			Gl.Get(bindingTarget, out currentBufferObject);
-
-			return (currentBufferObject == (int)ObjectName);
 		}
 
 		#endregion

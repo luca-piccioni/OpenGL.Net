@@ -86,6 +86,7 @@
     <Compile Include="FontTextureArray2d.cs" />
     <Compile Include="IFont.cs" />
     <Compile Include="IShaderUniformContainer.cs" />
+    <Compile Include="Sampler.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
     <Compile Include="Scene\SceneGraphSorter.cs" />
     <Compile Include="Scene\SceneObjectBatch.cs" />

@@ -161,10 +161,17 @@ namespace OpenGL.Objects
 				int internalFormat = _PixelFormat.GetGlInternalFormat();
 				PixelFormat format = _PixelFormat.GetGlFormat();
 
-				// Define empty texture
-				Gl.TexImage3D(_Target, 0, internalFormat, (int)_Width, (int)_Height, (int)_Layers, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
-				// Define texture properties
-				_TextureArray2d.DefineExtents(_PixelFormat, _Width, _Height, _Layers, 0);
+				if (_TextureArray2d.Immutable && ctx.Extensions.TextureStorage_ARB) {
+					// Define empty (immutable) texture
+					Gl.TexStorage3D((int)_Target, 1, internalFormat, (int)_Width, (int)_Height, (int)_Layers);
+					// Define texture properties
+					_TextureArray2d.DefineExtents(_PixelFormat, _Width, _Height, _Layers, 0);
+				} else {
+					// Define empty texture
+					Gl.TexImage3D(_Target, 0, internalFormat, (int)_Width, (int)_Height, (int)_Layers, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+					// Define texture properties
+					_TextureArray2d.DefineExtents(_PixelFormat, _Width, _Height, _Layers, 0);
+				}
 			}
 		}
 
@@ -364,6 +371,7 @@ namespace OpenGL.Objects
 
 					width  = _Images[layer].Width;
 					height = _Images[layer].Height;
+
 					// Upload texture contents
 					Gl.TexSubImage3D(_Target, 0, 0, 0, layer, (int)_Images[layer].Width, (int)_Images[layer].Height, 1, format, type, _Images[layer].ImageBuffer);
 				}
@@ -424,6 +432,9 @@ namespace OpenGL.Objects
 		/// <param name="resetLayers"></param>
 		public void Create(PixelLayout internalFormat, Image[] images, bool resetLayers)
 		{
+			if (Immutable && resetLayers)
+				throw new InvalidOperationException("immutable texture");
+
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, TextureTarget, internalFormat, images, resetLayers));
 		}

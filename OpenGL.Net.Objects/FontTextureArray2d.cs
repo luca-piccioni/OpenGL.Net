@@ -328,6 +328,7 @@ namespace OpenGL.Objects
 
 				// Create texture
 				_FontTexture = new TextureArray2d((uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.R8);
+				_FontTexture.Sampler.MinFilter = TextureMinFilter.Linear;
 				_FontTexture.Create(ctx);
 
 				using (System.Drawing.Font font = new System.Drawing.Font(Family, Size, Style))

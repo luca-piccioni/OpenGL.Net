@@ -55,7 +55,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -159,7 +159,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -194,7 +194,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -229,7 +229,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -262,7 +262,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 		}
 
 		/// <summary>
@@ -291,7 +291,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 		}
 
 		/// <summary>
@@ -317,7 +317,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 		}
 
 		/// <summary>
@@ -343,7 +343,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 		}
 
 		/// <summary>
@@ -374,7 +374,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -404,7 +404,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 		}
 
 		#endregion
@@ -440,7 +440,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -480,7 +480,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, x, y);
+			_UniformBackend.SetUniform(ctx, this, uniform, x, y);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -523,7 +523,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, x, y, z);
+			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -569,7 +569,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, x, y, z, w);
+			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z, w);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -604,7 +604,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -639,7 +639,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -674,7 +674,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -714,7 +714,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -754,7 +754,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -797,7 +797,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -843,7 +843,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -878,7 +878,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -913,7 +913,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -948,7 +948,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -988,7 +988,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1029,7 +1029,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1073,7 +1073,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1120,7 +1120,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1161,7 +1161,7 @@ namespace OpenGL.Objects
 
 			CheckProgramBinding();
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
@@ -1199,7 +1199,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
@@ -1236,7 +1236,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1274,7 +1274,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, m);
@@ -1311,7 +1311,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1338,8 +1338,10 @@ namespace OpenGL.Objects
 		{
 			CheckThatExistence(ctx, texture);
 
+			uint textureUnitIndex = texture.GetTextureUnit(ctx);
+
 #if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, texture.ActiveTextureUnit) == false)
+			if (IsUniformValueChanged(uniformName, textureUnitIndex) == false)
 				return;
 #endif
 
@@ -1350,20 +1352,15 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, texture.SamplerType);
 
-			// Activate texture unit
-			ctx.SetActiveTextureUnit(texture);
-			// Apply texture parameters
-			texture.ApplyParameters(ctx);
-
 			// Set uniform value (sampler)
 			// Cast to Int32 since the sampler type can be set only with glUniform1i
-			_UniformBackend.SetUniform(this, uniform, (int)texture.ActiveTextureUnit);
+			_UniformBackend.SetUniform(ctx, this, uniform, (int)textureUnitIndex);
 
 			// Validate program
 			Validate();
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, texture.ActiveTextureUnit);
+			CacheUniformValue(uniformName, textureUnitIndex);
 #endif
 		}
 
@@ -1400,7 +1397,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1505,7 +1502,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1541,7 +1538,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1577,7 +1574,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
 
-			_UniformBackend.SetUniform(this, uniform, v);
+			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
 			CacheUniformValue(uniformName, v);
@@ -1613,7 +1610,7 @@ namespace OpenGL.Objects
 
 			CheckProgramBinding();
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 		}
 
 		/// <summary>
@@ -1640,7 +1637,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_MAT3);
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 		}
 
 		/// <summary>
@@ -1667,7 +1664,7 @@ namespace OpenGL.Objects
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
-			_UniformBackend.SetUniform(this, uniform, m);
+			_UniformBackend.SetUniform(ctx, this, uniform, m);
 		}
 
 		#endregion

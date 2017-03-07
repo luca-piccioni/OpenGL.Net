@@ -21,6 +21,8 @@
 #define ENABLE_LAZY_BINDING
 // Symbol for disabling redundant texture unit selection
 #define ENABLE_LAZY_TEXTURE_UNIT
+// Symbol for disabling redundant texture unit object binding
+#define ENABLE_LAZY_TEXTURE_UNIT_BINDING
 
 // Symbol for disabling at compile-time features derived from GL_ARB_draw_instanced
 #undef DISABLE_GL_ARB_draw_instanced
@@ -33,7 +35,7 @@
 // Symbol for disabling at compile-time features derived from GL_ARB_program_interface_query
 #undef DISABLE_GL_ARB_program_interface_query
 // Symbol for disabling at compile-time features derived from GL_ARB_separate_shader_objects
-#undef DISABLE_GL_ARB_separate_shader_objects
+#define DISABLE_GL_ARB_separate_shader_objects
 
 using System;
 using System.Collections.Generic;
@@ -1055,6 +1057,36 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Lazy Server State - Active Texture Unit
+
+		/// <summary>
+		/// Activate the specified texture unit.
+		/// </summary>
+		/// <param name="textureUnitIndex">
+		/// The <see cref="UInt32"/> that specifies the texture unit index.
+		/// </param>
+		public void ActiveTexture(uint textureUnitIndex)
+		{
+			if (textureUnitIndex >= Gl.CurrentLimits.MaxCombinedTextureImageUnits)
+				throw new ArgumentNullException("textureUnitIndex");
+
+#if ENABLE_LAZY_TEXTURE_UNIT
+			if (textureUnitIndex == _ActiveTextureUnit)
+				return;
+#endif
+			// Select active texture unit
+			Gl.ActiveTexture(Gl.TEXTURE0 + (int)textureUnitIndex);
+			// Keep track of the server state
+			_ActiveTextureUnit = textureUnitIndex;
+		}
+
+		/// <summary>
+		/// Current active texture unit index.
+		/// </summary>
+		private uint _ActiveTextureUnit;
+
+		#endregion
+
 		#region Lazy Objects Binding
 
 		/// <summary>
@@ -1162,60 +1194,108 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Lazy Objects Binding (Active Texture Unit)
+		#region Texture Units
 
-		internal void SetActiveTextureUnit(Texture texture)
+		/// <summary>
+		/// Bind the specified Texture to the most appropriate texture unit.
+		/// </summary>
+		/// <param name="texture">
+		/// The <see cref="Texture"/> to be bound to a texture unit.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="texture"/> is null.
+		/// </exception>
+		public void Bind(Texture texture)
 		{
 			if (texture == null)
 				throw new ArgumentNullException("texture");
 
-			if (texture.ActiveTextureUnit == InvalidBindingIndex)
-				BindTextureUnit(texture);
-#if ENABLE_LAZY_TEXTURE_UNIT
-			if (texture.ActiveTextureUnit == _ActiveTextureUnit)
-				return;
+			// Get the texture unit index associated with texture
+			uint textureUnitIndex;
+			bool textureUnitDirty = false;
+
+			if (texture._ActiveTextureUnits.Count > 0) {
+				textureUnitIndex = texture._ActiveTextureUnits[0];
+			} else {
+				textureUnitIndex = (++_TextureUnitsIndex) % (uint)_TextureUnits.Length;
+				textureUnitDirty = true;
+			}
+
+			// Get the texture unit for texture
+			TextureUnit textureUnit = _TextureUnits[textureUnitIndex];
+
+			if ((textureUnit = _TextureUnits[textureUnitIndex]) == null)
+				 _TextureUnits[textureUnitIndex] = textureUnit = new TextureUnit();
+
+			// Selects the texture unit for this texture
+			ActiveTexture(textureUnitIndex);
+
+			Texture currTexture = null;
+
+			if (textureUnit.Texture != null)
+				textureUnit.Texture.TryGetTarget(out currTexture);
+
+			// Bind the texture on the texture unit, if necessary
+#if ENABLE_LAZY_TEXTURE_UNIT_BINDING
+			if (ReferenceEquals(texture, currTexture) == false) {
+#else
+			if (true) {
 #endif
+				// Since here the texture is bound to the texture unit
+				Gl.BindTexture(texture.TextureTarget, texture.ObjectName);
 
-			Gl.ActiveTexture(Gl.TEXTURE0 + (int)texture.ActiveTextureUnit);
-			_ActiveTextureUnit = texture.ActiveTextureUnit;
+				// Break previous texture relationship, if any
+				if (currTexture != null)
+					currTexture._ActiveTextureUnits.Remove(_ActiveTextureUnit);
 
-			// Bind texture (on active texture unit)
-			Bind(texture, true);
+				// Add texture relationship
+				textureUnit.Texture = new WeakReference<Texture>(texture);
+				Debug.Assert(texture._ActiveTextureUnits.Contains(_ActiveTextureUnit) == false);
+				texture._ActiveTextureUnits.Add(_ActiveTextureUnit);
+			} else {
+				// Texture already bound to texture unit, Gl.BindTexture not necessary
+#if DEBUG
+				int textureBindingTarget = texture.GetBindingTarget(this);
+				int currentTextureObject;
+		
+				Debug.Assert(textureBindingTarget != 0);
+				Gl.Get(textureBindingTarget, out currentTextureObject);
+
+				Debug.Assert(currentTextureObject == texture.ObjectName);
+#endif
+			}
+
+			// Apply texture parameters
+			texture.Sampler.Apply(this, texture, textureUnitDirty);
+			texture.ApplyMipmapLevels(this, textureUnitDirty);
+			texture.ApplySwizzle(this);
 		}
 
 		/// <summary>
-		/// Current active texture unit index.
+		/// Texture unit abstraction.
 		/// </summary>
-		private uint _ActiveTextureUnit;
-
-		private void BindTextureUnit(Texture texture)
+		private class TextureUnit
 		{
-			if (texture == null)
-				throw new ArgumentNullException("texture");
-			if (texture.ActiveTextureUnit != InvalidBindingIndex)
-				return;		// Already bound
+			/// <summary>
+			/// Texture currently bound on texture unit.
+			/// </summary>
+			public WeakReference<Texture> Texture;
 
-			uint textureUnitIndex = (_BindingsTexturesIndex + 1) % (uint)_BindingsTextures.Length;
-
-			Texture previousTexture = _BindingsTextures[textureUnitIndex];
-
-			// Set the index for the next Bind
-			_BindingsTexturesIndex = textureUnitIndex;
-			// Align object state
-			if (previousTexture != null)
-				previousTexture.ActiveTextureUnit = InvalidBindingIndex;
-			texture.ActiveTextureUnit = textureUnitIndex;
+			/// <summary>
+			/// Sampler currently bound on texture unit (GL_ARB_sampler_objects support).
+			/// </summary>
+			public WeakReference<Sampler> Sampler;
 		}
 
 		/// <summary>
-		/// Array reflecting the state of the active texture units.
+		/// Texture units available for context.
 		/// </summary>
-		private readonly Texture[] _BindingsTextures = new Texture[Gl.CurrentLimits.MaxCombinedTextureImageUnits];
+		private TextureUnit[] _TextureUnits = new TextureUnit[Gl.CurrentLimits.MaxCombinedTextureImageUnits];
 
 		/// <summary>
-		/// Index of the least recently used binding point for <see cref="_BindingsTextures"/>
+		/// Index of the least recently used binding point for <see cref="_TextureUnits"/>
 		/// </summary>
-		private uint _BindingsTexturesIndex = (uint)(Gl.CurrentLimits.MaxCombinedTextureImageUnits - 1);
+		private uint _TextureUnitsIndex = (uint)(Gl.CurrentLimits.MaxCombinedTextureImageUnits - 1);
 
 		#endregion
 
