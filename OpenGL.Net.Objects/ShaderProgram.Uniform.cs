@@ -148,6 +148,49 @@ namespace OpenGL.Objects
 			public readonly bool BlockMatrixRowMajor;
 
 			#endregion
+
+			#region Value Caching
+
+			/// <summary>
+			/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached
+			/// object with the call arguments.
+			/// </summary>
+			/// <param name="uniformValue">
+			/// A <see cref="Object"/> that specifies the uniform variable value.
+			/// </param>
+			public void CacheValue(object uniformValue)
+			{
+				_CachedValue = uniformValue;
+			}
+
+			/// <summary>
+			/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached
+			/// object with the call arguments.
+			/// </summary>
+			/// <param name="uniformValue">
+			/// A <see cref="Object"/> that specifies the uniform variable value.
+			/// </param>
+			public void CacheValue(ICloneable uniformValue)
+			{
+				CacheValue(uniformValue.Clone());
+			}
+
+			/// <summary>
+			/// Check whether the uniform value is chanding
+			/// </summary>
+			/// <param name="uniformValue"></param>
+			/// <returns></returns>
+			public bool IsValueChanged(object uniformValue)
+			{
+				return (uniformValue.Equals(_CachedValue) == false);
+			}
+
+			/// <summary>
+			/// Current value cached.
+			/// </summary>
+			private object _CachedValue;
+
+			#endregion
 		}
 
 		/// <summary>
@@ -1754,69 +1797,6 @@ namespace OpenGL.Objects
 
 			#endregion
 		}
-
-		#endregion
-
-		#region Uniform State Caching
-
-		/// <summary>
-		/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached
-		/// object with the call arguments.
-		/// </summary>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the uniform variable name.
-		/// </param>
-		/// <param name="uniformValue">
-		/// A <see cref="Object"/> that specifies the uniform variable value.
-		/// </param>
-		private void CacheUniformValue(string uniformName, object uniformValue)
-		{
-			_UniformValues[uniformName] = uniformValue;
-		}
-
-		/// <summary>
-		/// Cache the current uniform value. Used to minimize Uniform* calls at the cost of comparing the cached
-		/// object with the call arguments.
-		/// </summary>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the uniform variable name.
-		/// </param>
-		/// <param name="uniformValue">
-		/// A <see cref="Object"/> that specifies the uniform variable value.
-		/// </param>
-		private void CacheUniformValue(string uniformName, ICloneable uniformValue)
-		{
-			CacheUniformValue(uniformName, uniformValue.Clone());
-		}
-
-		/// <summary>
-		/// Determine whether if an uniform value is different from the one currently cached.
-		/// </summary>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specifies the uniform variable name.
-		/// </param>
-		/// <param name="uniformValue">
-		/// A <see cref="Object"/> that specifies the uniform variable value updated.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="uniformValue"/> is actually
-		/// different from the current uniform value.
-		/// </returns>
-		private bool IsUniformValueChanged(string uniformName, object uniformValue)
-		{
-			object cachedValue;
-
-			if (_UniformValues.TryGetValue(uniformName, out cachedValue) == false)
-				return (true);
-
-			return (uniformValue.Equals(cachedValue) == false);
-		}
-
-		/// <summary>
-		/// Map program uniforms with the last value set with SetUniform methods. Used to avoid redundant calls at the cost
-		/// of checking for values equality, per program instance.
-		/// </summary>
-		private readonly UniformCacheDictionary _UniformValues = new UniformCacheDictionary();
 
 		#endregion
 	}

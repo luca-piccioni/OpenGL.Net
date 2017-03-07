@@ -43,14 +43,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
@@ -58,7 +58,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -147,14 +147,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
@@ -162,7 +162,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -182,14 +182,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
@@ -197,7 +197,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -217,14 +217,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -232,7 +232,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -362,14 +362,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
@@ -377,7 +377,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -428,14 +428,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
@@ -443,7 +443,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -467,15 +467,15 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Vertex2i v = new Vertex2i(x, y);
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Vertex2i v = new Vertex2i(x, y);
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
@@ -483,7 +483,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -510,15 +510,15 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Vertex3i v = new Vertex3i(x, y, z);
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Vertex3i v = new Vertex3i(x, y, z);
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -526,7 +526,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -556,15 +556,15 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Vertex4i v = new Vertex4i(x, y, z, w);
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Vertex4i v = new Vertex4i(x, y, z, w);
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
@@ -572,7 +572,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z, w);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -592,14 +592,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
@@ -607,7 +607,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -627,14 +627,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -642,7 +642,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -662,14 +662,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
@@ -677,7 +677,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -702,14 +702,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
@@ -717,7 +717,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -741,15 +741,16 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Vertex2ui v = new Vertex2ui(x, y);
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+			Vertex2ui v = new Vertex2ui(x, y);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
@@ -757,7 +758,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -784,15 +785,16 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Vertex3ui v = new Vertex3ui(x, y, z);
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+			Vertex3ui v = new Vertex3ui(x, y, z);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
@@ -800,7 +802,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -830,15 +832,16 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Vertex4ui v = new Vertex4ui(x, y, z, w);
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+			Vertex4ui v = new Vertex4ui(x, y, z, w);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
@@ -846,7 +849,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -866,14 +869,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
@@ -881,7 +884,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -901,14 +904,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
@@ -916,7 +919,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -936,14 +939,14 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
@@ -951,7 +954,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -976,14 +979,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL);
@@ -991,7 +994,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1015,16 +1018,16 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			Vertex2i v = new Vertex2i(x ? 1 : 0, y ? 1 : 0);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+			Vertex2i v = new Vertex2i(x ? 1 : 0, y ? 1 : 0);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
@@ -1032,7 +1035,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1059,16 +1062,16 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			Vertex3i v = new Vertex3i(x ? 1 : 0, y ? 1 : 0, z ? 1 : 0);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+			Vertex3i v = new Vertex3i(x ? 1 : 0, y ? 1 : 0, z ? 1 : 0);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
@@ -1076,7 +1079,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1106,16 +1109,16 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			Vertex4i v = new Vertex4i(x ? 1 : 0, y ? 1 : 0, z ? 1 : 0, w ? 1 : 0);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+			Vertex4i v = new Vertex4i(x ? 1 : 0, y ? 1 : 0, z ? 1 : 0, w ? 1 : 0);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
@@ -1123,7 +1126,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1150,21 +1153,21 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, m) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(m) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, m);
+			uniform.CacheValue(m);
 #endif
 		}
 
@@ -1187,14 +1190,14 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, m) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(m) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
@@ -1202,7 +1205,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, m);
+			uniform.CacheValue(m);
 #endif
 		}
 
@@ -1223,15 +1226,15 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Matrix3x3 v = m.ToMatrix();
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Matrix3x3 v = m.ToMatrix();
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
@@ -1239,7 +1242,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1262,14 +1265,14 @@ namespace OpenGL.Objects
 			if (m == null)
 				throw new ArgumentNullException("m");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, m) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(m) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
@@ -1277,7 +1280,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, m);
+			uniform.CacheValue(m);
 #endif
 		}
 
@@ -1298,15 +1301,15 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			Matrix4x4 v = m.ToMatrix();
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			Matrix4x4 v = m.ToMatrix();
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
@@ -1314,7 +1317,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1340,14 +1343,14 @@ namespace OpenGL.Objects
 
 			uint textureUnitIndex = texture.GetTextureUnit(ctx);
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, textureUnitIndex) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(textureUnitIndex) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, texture.SamplerType);
@@ -1360,7 +1363,7 @@ namespace OpenGL.Objects
 			Validate();
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, textureUnitIndex);
+			uniform.CacheValue(textureUnitIndex);
 #endif
 		}
 
@@ -1385,14 +1388,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE);
@@ -1400,7 +1403,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1490,14 +1493,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
@@ -1505,7 +1508,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1526,14 +1529,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
@@ -1541,7 +1544,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
@@ -1562,14 +1565,14 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (IsUniformValueChanged(uniformName, v) == false)
-				return;
-#endif
-
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged(v) == false)
+				return;
+#endif
 
 			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
@@ -1577,7 +1580,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			CacheUniformValue(uniformName, v);
+			uniform.CacheValue(v);
 #endif
 		}
 
