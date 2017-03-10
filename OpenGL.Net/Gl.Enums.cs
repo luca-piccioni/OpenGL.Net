@@ -7769,19 +7769,39 @@ namespace OpenGL
 		Texture1dArray = Gl.TEXTURE_1D_ARRAY,
 
 		/// <summary>
-		/// Strongly typed for value GL_PROXY_TEXTURE_1D_ARRAY.
-		/// </summary>
-		ProxyTexture1dArray = Gl.PROXY_TEXTURE_1D_ARRAY,
-
-		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_2D_ARRAY.
 		/// </summary>
 		Texture2dArray = Gl.TEXTURE_2D_ARRAY,
 
 		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_2D_MULTISAMPLE.
+		/// </summary>
+		Texture2dMultisample = Gl.TEXTURE_2D_MULTISAMPLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// </summary>
+		Texture2dMultisampleArray = Gl.TEXTURE_2D_MULTISAMPLE_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_1D_ARRAY.
+		/// </summary>
+		ProxyTexture1dArray = Gl.PROXY_TEXTURE_1D_ARRAY,
+
+		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_2D_ARRAY.
 		/// </summary>
 		ProxyTexture2dArray = Gl.PROXY_TEXTURE_2D_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D_MULTISAMPLE.
+		/// </summary>
+		ProxyTexture2dMultisample = Gl.PROXY_TEXTURE_2D_MULTISAMPLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// </summary>
+		ProxyTexture2dMultisampleArray = Gl.PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY,
 
 	}
 
