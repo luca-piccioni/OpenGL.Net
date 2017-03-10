@@ -410,24 +410,22 @@ namespace OpenGL
 				throw new ArgumentException("matrices width/height mismatch");
 
 			// Allocate product matrix
-			Matrix prod = new Matrix(n._Height, m._Width);
+			Matrix prod = new Matrix(n._Width, m._Height);
 
 			unsafe {
 				fixed (float* pm = m.MatrixBuffer)
 				fixed (float* pn = n.MatrixBuffer)
 				fixed (float* prodMatrix = prod.MatrixBuffer)
 				{
-					uint w = m._Width, h = m.Height;
-
 					// Compute matrix product
-					for (uint r = 0; r < h; r++) {
-						for (uint c = 0; c < w; c++) {
+					for (uint c = 0; c < n._Width; c++) {
+						for (uint r = 0; r < prod._Height; r++) {
 							float s = 0.0f;
 
-							for (uint i = 0; i < h; i++)
-								s += pm[i * h + r] * pn[c * h + i];
+							for (uint i = 0; i < m._Width; i++)
+								s += pm[i * m._Height + r] * pn[c * n._Height + i];
 
-							prodMatrix[c * h + r] = s;
+							prodMatrix[c * prod._Height + r] = s;
 						}
 					}
 				}
