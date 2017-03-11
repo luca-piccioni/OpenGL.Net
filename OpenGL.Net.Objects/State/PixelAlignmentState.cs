@@ -1,5 +1,5 @@
-
-// Copyright (C) 2009-2016 Luca Piccioni
+﻿
+// Copyright (C) 2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -25,49 +25,32 @@ namespace OpenGL.Objects.State
 	/// Depth test render state.
 	/// </summary>
 	[DebuggerDisplay("DepthTestState: Enabled={Enabled} Function={Function}")]
-	public class DepthTestState : GraphicsState
+	public class PixelAlignmentState : GraphicsState
 	{
 		#region Constructors
 		
 		/// <summary>
-		/// Construct a default DepthTestState.
+		/// Construct a default PixelAlignmentState.
 		/// </summary>
-		public DepthTestState()
+		public PixelAlignmentState()
 		{
 			
 		}
 
 		/// <summary>
-		/// Construct a DepthTestState.
+		/// Construct a PixelAlignmentState specifying the pack/unpack alignments.
 		/// </summary>
-		/// <param name="depthFunction">
-		/// A <see cref="DepthFunction"/> that specify the test function to apply.
-		/// </param>
-		public DepthTestState(DepthFunction depthFunction)
+		/// <param name="packAlign"></param>
+		/// <param name="unpackAlign"></param>
+		public PixelAlignmentState(int packAlign, int unpackAlign)
 		{
-			_Enabled = true;
-			_Function = depthFunction;
-		}
+			if (packAlign != 1 && packAlign != 2 && packAlign != 4 && packAlign != 8)
+				throw new ArgumentException("invalid value", "packAlign");
+			if (unpackAlign != 1 && unpackAlign != 2 && unpackAlign != 4 && unpackAlign != 8)
+				throw new ArgumentException("invalid value", "unpackAlign");
 
-		/// <summary>
-		/// Construct the current DepthTestState.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> defining this GraphicsState.
-		/// </param>
-		public DepthTestState(GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
-			// Depth test enabled
-			_Enabled = Gl.IsEnabled(EnableCap.DepthTest);
-
-			// Depth function
-			int depthFunction;
-
-			Gl.Get(GetPName.DepthFunc, out depthFunction);
-			_Function = (DepthFunction)depthFunction;
+			PackAlignment = packAlign;
+			UnpackAlignment = unpackAlign;
 		}
 
 		#endregion
@@ -75,56 +58,80 @@ namespace OpenGL.Objects.State
 		#region Information
 
 		/// <summary>
-		/// Get or set the enable flag of the depth test.
+		/// Get or set the pixel pack alignment (GPU to CPU).
 		/// </summary>
 		/// <remarks>
-		/// The default value is <see cref="DepthFunction.Less"/>.
+		/// The default value is <see cref="4"/>.
 		/// </remarks>
-		public bool Enabled
+		public int PackAlignment
 		{
-			get { return (_Enabled); }
-			set { _Enabled = value; }
+			get { return (_PackAlignment); }
+			set { _PackAlignment = value; }
 		}
 
 		/// <summary>
-		/// Depth test enabled flag.
+		/// Pixel pack alignment.
 		/// </summary>
-		private bool _Enabled;
+		private int _PackAlignment = 4;
 
 		/// <summary>
-		/// Get or set the depth test function.
+		/// Get or set the pixel unpack alignment (CPU to GPU).
 		/// </summary>
 		/// <remarks>
-		/// The default value is <see cref="DepthFunction.Less"/>.
+		/// The default value is <see cref="4"/>.
 		/// </remarks>
-		public DepthFunction Function
+		public int UnpackAlignment
 		{
-			get { return (_Function); }
-			set { _Function = value; }
+			get { return (_UnpackAlignment); }
+			set { _UnpackAlignment = value; }
 		}
 
 		/// <summary>
-		/// Depth test function.
+		/// Pixel pack alignment.
 		/// </summary>
-		private DepthFunction _Function = DepthFunction.Less;
+		private int _UnpackAlignment = 4;
 		
 		#endregion
 
 		#region Default State
 
 		/// <summary>
-		/// The system default state for DepthTestState.
+		/// The system default state for PixelAlignmentState.
 		/// </summary>
-		public static DepthTestState DefaultState { get { return (new DepthTestState()); } }
+		public static PixelAlignmentState DefaultState { get { return (new PixelAlignmentState()); } }
 
 		#endregion
-		
+
+		#region Pack/Unpack States
+
+		public static PixelAlignmentState Pack(uint stride)
+		{
+			return (new PixelAlignmentState(GetStrideAlignment(stride), 4));
+		}
+
+		public static PixelAlignmentState Unpack(uint stride)
+		{
+			return (new PixelAlignmentState(4, GetStrideAlignment(stride)));
+		}
+
+		private static int GetStrideAlignment(uint stride)
+		{
+			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
+				if (stride % alignment == 0)
+					return (alignment);
+			}
+
+			return (1);
+		}
+
+		#endregion
+
 		#region GraphicsState Overrides
 
 		/// <summary>
 		/// The identifier of the state.
 		/// </summary>
-		public static string StateId = "OpenGL.Depth";
+		public static string StateId = "OpenGL.PixelAlignment";
 
 		/// <summary>
 		/// The identifier of this GraphicsState.
@@ -160,7 +167,7 @@ namespace OpenGL.Objects.State
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			DepthTestState currentState = (DepthTestState)ctx.GetCurrentState(StateIndex);
+			PixelAlignmentState currentState = (PixelAlignmentState)ctx.GetCurrentState(StateIndex);
 
 			if (currentState != null)
 				ApplyStateCore(ctx, program, currentState);
@@ -172,31 +179,16 @@ namespace OpenGL.Objects.State
 
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
 		{
-			if (_Enabled) {
-				// Enable depth test
-				Gl.Enable(EnableCap.DepthTest);
-				// Specify depth function
-				Gl.DepthFunc(Function);
-			} else {
-				// Disable depth test
-				Gl.Disable(EnableCap.DepthTest);
-			}
+			Gl.PixelStore(PixelStoreParameter.PackAlignment, PackAlignment);
+			Gl.PixelStore(PixelStoreParameter.UnpackAlignment, UnpackAlignment);
 		}
 
-		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, DepthTestState currentState)
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, PixelAlignmentState currentState)
 		{
-			if (_Enabled) {
-				// Enable depth test
-				if (currentState.Enabled == false)
-					Gl.Enable(EnableCap.DepthTest);
-				// Specify depth function
-				if (currentState.Function != Function)
-					Gl.DepthFunc(Function);
-			} else {
-				// Disable depth test
-				if (currentState != null && currentState.Enabled == true)
-					Gl.Disable(EnableCap.DepthTest);
-			}
+			if (currentState.PackAlignment != PackAlignment)
+				Gl.PixelStore(PixelStoreParameter.PackAlignment, PackAlignment);
+			if (currentState.UnpackAlignment != UnpackAlignment)
+				Gl.PixelStore(PixelStoreParameter.UnpackAlignment, UnpackAlignment);
 		}
 
 		/// <summary>
@@ -210,13 +202,13 @@ namespace OpenGL.Objects.State
 			if (state == null)
 				throw new ArgumentNullException("state");
 
-			DepthTestState otherState = state as DepthTestState;
+			PixelAlignmentState otherState = state as PixelAlignmentState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a DepthTestState", "state");
+				throw new ArgumentException("not a PixelAlignmentState", "state");
 
-			_Enabled = otherState._Enabled;
-			_Function = otherState._Function;
+			PackAlignment = otherState.PackAlignment;
+			UnpackAlignment = otherState.UnpackAlignment;
 		}
 
 		/// <summary>
@@ -240,13 +232,13 @@ namespace OpenGL.Objects.State
 		{
 			if (base.Equals(other) == false)
 				return (false);
-			Debug.Assert(other is DepthTestState);
+			Debug.Assert(other is PixelAlignmentState);
 
-			DepthTestState otherState = (DepthTestState)other;
+			PixelAlignmentState otherState = (PixelAlignmentState)other;
 
-			if (otherState.Enabled != Enabled)
+			if (otherState.PackAlignment != PackAlignment)
 				return (false);
-			if (otherState.Function != Function)
+			if (otherState.UnpackAlignment != UnpackAlignment)
 				return (false);
 
 			return (true);
@@ -260,7 +252,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("{0}: Function={1}", StateIdentifier, Function));
+			return (String.Format("{0}: PackAlign={1} UnpackAlign", StateIdentifier, PackAlignment, UnpackAlignment));
 		}
 
 		#endregion

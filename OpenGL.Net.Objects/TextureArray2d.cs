@@ -361,13 +361,8 @@ namespace OpenGL.Objects
 					PixelFormat format = _Images[layer].PixelLayout.GetGlFormat();
 					PixelType type = _Images[layer].PixelLayout.GetPixelType();
 
-					// Set pixel transfer
-					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-						if ((_Images[layer].Stride % alignment) != 0)
-							continue;
-						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-						break;
-					}
+					// Set pixel alignment
+					State.PixelAlignmentState.Unpack(_Images[layer].Stride).ApplyState(ctx, null);
 
 					width  = _Images[layer].Width;
 					height = _Images[layer].Height;

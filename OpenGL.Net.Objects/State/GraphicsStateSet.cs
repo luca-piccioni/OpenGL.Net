@@ -49,6 +49,7 @@ namespace OpenGL.Objects.State
 		{
 			int index;
 
+			index = PixelAlignmentState.StateSetIndex;
 			index = PrimitiveRestartState.StateSetIndex;
 			index = TransformStateBase.StateSetIndex;
 			index = CullFaceState.StateSetIndex;
@@ -76,6 +77,7 @@ namespace OpenGL.Objects.State
 			GraphicsStateSet renderStateSet = new GraphicsStateSet();
 
 			// Instantiate all context-bound states
+			renderStateSet.DefineState(PixelAlignmentState.DefaultState);
 			renderStateSet.DefineState(TransformState.DefaultState);
 			renderStateSet.DefineState(DepthTestState.DefaultState);
 			renderStateSet.DefineState(BlendState.DefaultState);

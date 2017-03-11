@@ -339,12 +339,7 @@ namespace OpenGL.Objects
 			image.Create(pType, width, height);
 
 			// Set pixel transfer
-			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-				if (image.Stride % alignment == 0) {
-					Gl.PixelStore(PixelStoreParameter.PackAlignment, alignment);
-					break;
-				}
-			}
+			State.PixelAlignmentState.Pack(image.Stride).ApplyState(ctx, null);
 
 			// Grab frame buffer pixels
 			PixelFormat rFormat = pType.GetGlFormat();

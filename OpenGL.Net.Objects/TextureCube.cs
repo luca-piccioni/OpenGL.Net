@@ -234,13 +234,8 @@ namespace OpenGL.Objects
 				for (int i = 0; i < 6; i++) {
 					Image image = _Images[i];
 
-					// Set pixel transfer
-					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-						if ((image.Stride % alignment) != 0)
-							continue;
-						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-						break;
-					}
+					// Set pixel alignment
+					State.PixelAlignmentState.Unpack(image.Stride).ApplyState(ctx, null);
 
 					// Upload texture contents
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);

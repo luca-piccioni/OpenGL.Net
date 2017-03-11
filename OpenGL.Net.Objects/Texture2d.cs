@@ -496,14 +496,9 @@ namespace OpenGL.Objects
 				PixelFormat format = _Image.PixelLayout.GetGlFormat();
 				PixelType type = _Image.PixelLayout.GetPixelType();
 
-				// Set pixel transfer
-				foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
-					if ((_Image.Stride % alignment) != 0)
-						continue;
-					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-					break;
-				}
-
+				// Set pixel alignment
+				State.PixelAlignmentState.Unpack(_Image.Stride).ApplyState(ctx, null);
+				
 				// Upload texture contents
 				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Image.Width, (int)_Image.Height, 0, format, type, _Image.ImageBuffer);
 				// Define texture properties
