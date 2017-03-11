@@ -716,6 +716,9 @@ namespace HelloObjects
 			fontTitleV.DrawString(_Context, overlayProjection * overlayModel, ColorRGBAF.ColorGreen,
 				"Hello Objects example ~(^.^)~"
 			);
+
+			// Release resources
+			_Context.DisposeResources();
 		}
 
 		/// <summary>
