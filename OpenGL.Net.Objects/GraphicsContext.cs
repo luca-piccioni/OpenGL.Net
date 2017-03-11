@@ -596,7 +596,7 @@ namespace OpenGL.Objects
 			}
 			
 			// Reserved object name space
-			_ObjectNameSpace = Guid.NewGuid();
+			InitializeNamespace();
 
 			// Texture download
 			_TextureDownloadFramebuffer = new Framebuffer();
@@ -754,6 +754,28 @@ namespace OpenGL.Objects
 		#region Object Namespace
 
 		/// <summary>
+		/// Get the default context for the specified object namespace.
+		/// </summary>
+		/// <param name="objectNamespace">
+		/// A <see cref="Guid"/> that specifies the GraphicsContext namespace.
+		/// </param>
+		/// <returns>
+		/// It returns the first GraphicsContext having <paramref name="objectNamespace"/> as object namespace.
+		/// </returns>
+		public static GraphicsContext GetDefaultContext(Guid objectNamespace)
+		{
+			if (objectNamespace == Guid.Empty)
+				throw new ArgumentNullException("objectNamespace");
+
+			List<GraphicsContext> namespaceContextes;
+
+			if (_ContextByNamespace.TryGetValue(objectNamespace, out namespaceContextes) == false || namespaceContextes.Count == 0)
+				throw new ArgumentException("no context associated to namespace");
+
+			return (namespaceContextes[0]);
+		}
+
+		/// <summary>
 		/// GraphicsContext object namespace.
 		/// </summary>
 		public Guid ObjectNameSpace { get { return (_ObjectNameSpace); } }
@@ -762,6 +784,45 @@ namespace OpenGL.Objects
 		/// Object namespace identifier.
 		/// </summary>
 		private Guid _ObjectNameSpace = Guid.Empty;
+
+		/// <summary>
+		/// Initialize the GraphicsContext namespace.
+		/// </summary>
+		private void InitializeNamespace()
+		{
+			_ObjectNameSpace = Guid.NewGuid();
+
+			List<GraphicsContext> namespaceContextes;
+
+			if (_ContextByNamespace.TryGetValue(ObjectNameSpace, out namespaceContextes) == false)
+				_ContextByNamespace[ObjectNameSpace] = namespaceContextes = new List<GraphicsContext>();
+
+			Debug.Assert(namespaceContextes.Contains(this) == false);
+			namespaceContextes.Add(this);
+		}
+
+		/// <summary>
+		/// Terminate the GraphicsContext namespace.
+		/// </summary>
+		private void TerminateNamespace()
+		{
+			List<GraphicsContext> namespaceContextes;
+
+			Debug.Assert(_ContextByNamespace.ContainsKey(ObjectNameSpace));
+			if (_ContextByNamespace.TryGetValue(ObjectNameSpace, out namespaceContextes) == false)
+				return;
+
+			Debug.Assert(namespaceContextes.Contains(this));
+			bool res = namespaceContextes.Remove(this);
+			Debug.Assert(res);
+
+			_ObjectNameSpace = Guid.Empty;
+		}
+
+		/// <summary>
+		/// Collection of GraphicsContext instances by their namespace.
+		/// </summary>
+		private static readonly Dictionary<Guid, List<GraphicsContext>> _ContextByNamespace = new Dictionary<Guid, List<GraphicsContext>>();
 
 		#endregion
 
@@ -1000,24 +1061,9 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Lazyness
+
 		#region Lazy Server State
-
-		/// <summary>
-		/// Push the current server state.
-		/// </summary>
-		public void PushState()
-		{
-			_ServerState.Push();
-		}
-
-		/// <summary>
-		/// Pop the current server state.
-		/// </summary>
-		public void PopState()
-		{
-			_ServerState.Pop();
-			_ServerState.Current.Apply(this);
-		}
 
 		/// <summary>
 		/// Set the current state of this GraphicsContext.
@@ -1035,9 +1081,7 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("state");
 			Debug.Assert(state.IsContextBound);
 
-#if ENABLE_LAZY_SERVER_STATE
-			_ServerState.Current[state.StateIndex] = state;
-#endif
+			_ServerState[state.StateIndex] = state;
 		}
 
 		/// <summary>
@@ -1047,13 +1091,17 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		internal State.IGraphicsState GetCurrentState(int stateIndex)
 		{
-			return (_ServerState.Current[stateIndex]);
+#if ENABLE_LAZY_SERVER_STATE
+			return (_ServerState[stateIndex]);
+#else
+			return (null);
+#endif
 		}
 
 		/// <summary>
 		/// Current state of this GraphicsContext.
 		/// </summary>
-		private readonly State.GraphicsStateSetStack _ServerState = new State.GraphicsStateSetStack();
+		private readonly State.GraphicsStateSet _ServerState = State.GraphicsStateSet.GetDefaultSet();
 
 		#endregion
 
@@ -1087,7 +1135,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Lazy Objects Binding
+		#region Lazy Objects Binding (IBindingResource)
 
 		/// <summary>
 		/// Bind the specified resource.
@@ -1194,7 +1242,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Texture Units
+		#region Lazy Texture Units (Texture Binding)
 
 		/// <summary>
 		/// Bind the specified Texture to the most appropriate texture unit.
@@ -1339,6 +1387,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#endregion
+
 		#region Fixed Pipeline
 
 		/// <summary>
@@ -1447,6 +1497,18 @@ namespace OpenGL.Objects
 
 		#region Resource Caching/Sharing
 
+		/// <summary>
+		/// Set a shared instance.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="String"/> that specifies the resource identified. It cannot be null.
+		/// </param>
+		/// <param name="resource">
+		/// The <see cref="Object"/> that specifies the shared resource. It cannot be null.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="id"/> or <paramref name="resource"/> is null.
+		/// </exception>
 		public void SetSharedResource(string id, object resource)
 		{
 			if (id == null)
@@ -1457,6 +1519,18 @@ namespace OpenGL.Objects
 			_SharedObjects[id] = resource;
 		}
 
+		/// <summary>
+		/// Set a shared <see cref="IGraphicsResource"/> instance.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="String"/> that specifies the resource identified. It cannot be null.
+		/// </param>
+		/// <param name="resource">
+		/// The <see cref="IGraphicsResource"/> that specifies the shared resource. It can be null.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="id"/> or <paramref name="resource"/> is null.
+		/// </exception>
 		public void SetSharedResource(string id, IGraphicsResource resource)
 		{
 			if (id == null)
@@ -1468,6 +1542,16 @@ namespace OpenGL.Objects
 			_SharedResources[id] = resource;
 		}
 
+		/// <summary>
+		/// Get the shared resource by its identifier.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="String"/> that specifies the resource identified. It cannot be null.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="Object"/> associated to <paramref name="id"/>. If no association is found,
+		/// it returns null.
+		/// </returns>
 		public object GetSharedResource(string id)
 		{
 			if (id == null)
@@ -1485,6 +1569,16 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Dispose all shared resources.
+		/// </summary>
+		private void DisposeSharedResources()
+		{
+			foreach (IGraphicsResource graphicsResource in _SharedResources.Values)
+				graphicsResource.Dispose(this);
+			_SharedResources.Clear();
+		}
+
+		/// <summary>
 		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
 		/// </summary>
 		private readonly Dictionary<string, object> _SharedObjects = new Dictionary<string, object>();
@@ -1493,6 +1587,43 @@ namespace OpenGL.Objects
 		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
 		/// </summary>
 		private readonly Dictionary<string, IGraphicsResource> _SharedResources = new Dictionary<string, IGraphicsResource>();
+
+		#endregion
+
+		#region Resource Disposition
+
+		/// <summary>
+		/// Dispose all resources
+		/// </summary>
+		public void DisposeResources()
+		{
+			GraphicsResource.CheckCurrentContext(this);
+
+			foreach (IGraphicsResource resource in _DisposingGpuResources)
+				resource.Dispose(this);
+			_DisposingGpuResources.Clear();
+		}
+
+		/// <summary>
+		/// Dispose a specific resource, later.
+		/// </summary>
+		/// <param name="resource">
+		/// The <see cref="IGraphicsResource"/> to be disposed when <see cref=""/> is called.
+		/// </param>
+		public void DisposeResource(IGraphicsResource resource)
+		{
+			if (resource == null)
+				throw new ArgumentException("resource");
+			if (resource.ObjectNamespace != ObjectNameSpace)
+				throw new ArgumentException("object namespace mismatch", "resource");
+
+			_DisposingGpuResources.Add(resource);
+		}
+
+		/// <summary>
+		/// List of <see cref="IGraphicsResource"/> to be disposed when more appropriate.
+		/// </summary>
+		private readonly List<IGraphicsResource> _DisposingGpuResources = new List<IGraphicsResource>();
 
 		#endregion
 
@@ -1908,9 +2039,9 @@ namespace OpenGL.Objects
 			if (disposing == true) {
 
 				// Dispose resources
-				TerminateResources();
-
 				StopResourceThread();
+				DisposeSharedResources();
+				TerminateResources();
 
 				if (_RenderContext != IntPtr.Zero) {
 					if (_RenderContextOwned) {
@@ -1919,7 +2050,7 @@ namespace OpenGL.Objects
 					}
 					_RenderContext = IntPtr.Zero;
 				}
-				_ObjectNameSpace = Guid.Empty;
+				TerminateNamespace();
 
 				if (_DeviceContextThreadId != Thread.CurrentThread.ManagedThreadId)
 					throw new InvalidOperationException("disposing on a different thread context");

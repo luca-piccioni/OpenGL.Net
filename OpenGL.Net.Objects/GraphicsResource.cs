@@ -242,6 +242,32 @@ namespace OpenGL.Objects
 			graphicsResource.DecRef();
 		}
 
+		/// <summary>
+		/// Unlink all resources.
+		/// </summary>
+		private void UnlinkGpuResources()
+		{
+			foreach (IGraphicsResource graphicsResource in _GpuResources)
+				graphicsResource.DecRef();
+			_GpuResources.Clear();
+		}
+
+		/// <summary>
+		/// Unlink all resources.
+		/// </summary>
+		private void UnlinkGpuResources(GraphicsContext ctx)
+		{
+			foreach (IGraphicsResource graphicsResource in _GpuResources)
+				graphicsResource.Dispose(ctx);
+			_GpuResources.Clear();
+		}
+
+		/// <summary>
+		/// Replace a linked resource with another one.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="value"></param>
+		/// <param name="current"></param>
 		protected void SwapGpuResources<T>(T value, ref T current) where T : IGraphicsResource
 		{
 			if (current != null)
@@ -371,28 +397,20 @@ namespace OpenGL.Objects
 			if (disposing) {
 				// Release resources allocated by this GraphicsResource
 				if (ObjectName != InvalidObjectName) {
-					GraphicsContext currentContext = GraphicsContext.GetCurrentContext();
+					GraphicsContext resourceContext = GraphicsContext.GetDefaultContext(_ObjectNameSpace);
 
-					if ((currentContext == null) || (currentContext.ObjectNameSpace != _ObjectNameSpace)) {
+					if (resourceContext == null) {
+						GraphicsContext currentContext = GraphicsContext.GetCurrentContext();
 
-						// No current context, or current context not managing this resource. Indeed, use
-						// the GraphicsGarbageService to collect this resource
-
-						if (_ObjectNameSpace != Guid.Empty) {
-							GraphicsGarbageService garbageService = GraphicsGarbageService.GetService(_ObjectNameSpace);
-							if (garbageService == null)
-								throw new InvalidOperationException("no garbage service");
-							garbageService.CollectGarbage(this);
-						}
+						if ((currentContext != null) && (currentContext.ObjectNameSpace == _ObjectNameSpace))
+							Delete(currentContext);
 					} else {
-						Delete(currentContext);
+
 					}
 				}
 
 				// Dereference linked resources
-				foreach (GraphicsResource graphicsResource in _GpuResources)
-					graphicsResource.DecRef();
-				_GpuResources.Clear();
+				UnlinkGpuResources();
 			}
 
 			// Base implementation
@@ -626,16 +644,20 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+			// Dispose is equivalent to DecRef()...
+			// This allow using{} even on referenced variables, as long the GraphicsResource is referenced in the using block
 			if (RefCount > 0)
-				throw new InvalidOperationException("reference count greater than zero");
+				DecRef();
+			if (RefCount > 0)
+				return;
 
-			// Do not call Dispose(bool) twice
-			GC.SuppressFinalize(this);
-			// Remove this GraphicsResource from the living ones
-			NotifyDiedResource();
-			// By default, delete object
+			// Delete object and linked resources
 			if (ObjectName != InvalidObjectName)
 				Delete(ctx);
+			UnlinkGpuResources(ctx);
+
+			// Dispose 
+			Dispose();
 		}
 
 		/// <summary>

@@ -60,8 +60,6 @@ namespace OpenGL.Objects
 
 		protected void NotifyDiedResource()
 		{
-			// Mark as disposed
-			_Disposed = true;
 			// Remove this GraphicsResource from the living ones
 			//_LivingResources.RemoveAll(delegate (Resource resource) { return ReferenceEquals(resource, this); });
 			_LivingResources.Remove(this);
@@ -154,6 +152,28 @@ namespace OpenGL.Objects
 			resource.DecRef();
 		}
 
+		/// <summary>
+		/// Unlink all resources.
+		/// </summary>
+		private void UnlinkResources()
+		{
+			foreach (IResource resource in _Resources)
+				resource.DecRef();
+			_Resources.Clear();
+		}
+
+		/// <summary>
+		/// Replace a linked resource with another one.
+		/// </summary>
+		/// <typeparam name="T">
+		/// Any type implementing <see cref="IResource"/>
+		/// </typeparam>
+		/// <param name="value">
+		/// The <typeparamref name="T"/> that replace the current resource.
+		/// </param>
+		/// <param name="current">
+		/// The <typeparamref name="T"/> currently linked to this Resource.
+		/// </param>
 		protected void SwapResources<T>(T value, ref T current) where T : IResource
 		{
 			if (current != null)
@@ -320,9 +340,8 @@ namespace OpenGL.Objects
 		/// </param>
 		protected virtual void Dispose(bool disposing)
 		{
-			foreach (IResource resource in _Resources)
-				resource.DecRef();
-			_Resources.Clear();
+			if (disposing)
+				UnlinkResources();
 		}
 
 		/// <summary>
@@ -348,7 +367,7 @@ namespace OpenGL.Objects
 			// Do not call Dispose(bool) twice
 			GC.SuppressFinalize(this);
 			// Dispose this object
-			Dispose(true);
+			Dispose(_Disposed = true);
 			// Mark as disposed
 			NotifyDiedResource();
 		}

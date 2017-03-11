@@ -123,8 +123,6 @@
     <Compile Include="Framebuffer.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsContextFlags.cs" />
-    <Compile Include="GraphicsGarbageService.cs" />
-    <Compile Include="GraphicsKernelService.cs" />
     <Compile Include="GraphicsResource.cs" />
     <Compile Include="GraphicsSurface.cs" />
     <Compile Include="IBindingResource.cs" />
@@ -179,6 +177,7 @@
     <Compile Include="State\IGraphicsState.cs" />
     <Compile Include="State\MaterialState.cs" />
     <Compile Include="State\LightsState.cs" />
+    <Compile Include="State\PixelAlignmentState.cs" />
     <Compile Include="State\PolygonModeState.cs" />
     <Compile Include="State\PolygonOffsetState.cs" />
     <Compile Include="State\PrimitiveRestartState.cs" />
