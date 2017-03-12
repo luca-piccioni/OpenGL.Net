@@ -340,9 +340,9 @@ namespace OpenGL.Objects
 				}
 
 				// Create texture
-				_FontTexture = new TextureArray2d((uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.R8);
+				_FontTexture = new TextureArray2d();
 				_FontTexture.Sampler = sampler;
-				_FontTexture.Create(ctx);
+				_FontTexture.Create(ctx, (uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.R8, 1);
 
 				using (System.Drawing.Font font = new System.Drawing.Font(Family, Size, Style))
 				using (Brush brush = new SolidBrush(Color.White))

@@ -143,7 +143,7 @@ namespace OpenGL.Objects
 				for (int i = 0; i < 6; i++)
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)_Size, (int)_Size, 0, /* Unused */ PixelFormat.Rgb, /* Unused */ PixelType.UnsignedByte, null);
 				// Define texture properties
-				_TextureCube.DefineExtents(_PixelFormat, _Size, _Size, 1, 0);
+				_TextureCube.SetMipmap(_PixelFormat, _Size, _Size, 1, 0);
 			}
 		}
 
@@ -242,7 +242,7 @@ namespace OpenGL.Objects
 				}
 
 				// Define texture properties
-				_TextureCube.DefineExtents(_PixelFormat, _Images[0].Width, _Images[0].Height, 1, 0);
+				_TextureCube.SetMipmap(_PixelFormat, _Images[0].Width, _Images[0].Height, 1, 0);
 			}
 		}
 

@@ -216,7 +216,7 @@ namespace OpenGL.Objects
 				// Define empty texture
 				Gl.TexImage3D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, (int)_Depth, 0, format, /* Unused */ PixelType.UnsignedByte, null);
 				// Define texture properties
-				_Texture3d.DefineExtents(_PixelFormat, _Width, _Height, _Depth, _Level);
+				_Texture3d.SetMipmap(_PixelFormat, _Width, _Height, _Depth, _Level);
 			}
 		}
 
@@ -404,7 +404,7 @@ namespace OpenGL.Objects
 				}
 
 				// Define texture properties
-				_Texture3d.DefineExtents(_PixelFormat, width, height, (uint)_Images.Length, 0);
+				_Texture3d.SetMipmap(_PixelFormat, width, height, (uint)_Images.Length, 0);
 			}
 
 			/// <summary>

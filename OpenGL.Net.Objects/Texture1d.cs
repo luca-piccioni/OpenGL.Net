@@ -180,7 +180,7 @@ namespace OpenGL.Objects
 				// Define empty texture
 				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Width, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 				// Define texture properties
-				_Texture1d.DefineExtents(_PixelFormat, _Width, 1, 1, _Level);
+				_Texture1d.SetMipmap(_PixelFormat, _Width, 1, 1, _Level);
 			}
 		}
 
@@ -357,7 +357,7 @@ namespace OpenGL.Objects
 				// Upload texture contents
 				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Image.Width, 0, format, type, _Image.ImageBuffer);
 				// Define texture properties
-				_Texture1d.DefineExtents(_PixelFormat, _Image.Width, 1, 1, _Level);
+				_Texture1d.SetMipmap(_PixelFormat, _Image.Width, 1, 1, _Level);
 			}
 
 			/// <summary>

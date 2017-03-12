@@ -130,6 +130,8 @@ namespace OpenGL.Objects
 		/// </summary>
 		class EmptyTechnique : Technique
 		{
+			#region Constructors
+
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
@@ -140,7 +142,7 @@ namespace OpenGL.Objects
 			/// A <see cref="TextureTarget"/> that specify the texture target.
 			/// </param>
 			/// <param name="level">
-			/// The specific level of the target to define. Defaults to zero.
+			/// The specific level of the target to be defined.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -162,35 +164,39 @@ namespace OpenGL.Objects
 				_Height = height;
 			}
 
+			#endregion
+
+			#region Technique Overrides
+
 			/// <summary>
 			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </summary>
-			private readonly Texture2d _Texture2d;
+			protected readonly Texture2d _Texture2d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
 			/// </summary>
-			private readonly TextureTarget _Target;
+			protected readonly TextureTarget _Target;
 
 			/// <summary>
 			/// The specific level of the target to define. Defaults to zero.
 			/// </summary>
-			private readonly uint _Level;
+			protected readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			private readonly PixelLayout _PixelFormat;
+			protected readonly PixelLayout _PixelFormat;
 
 			/// <summary>
 			/// Texture width.
 			/// </summary>
-			private readonly uint _Width;
+			protected readonly uint _Width;
 
 			/// <summary>
 			/// Texture height.
 			/// </summary>
-			private readonly uint _Height;
+			protected readonly uint _Height;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -206,11 +212,110 @@ namespace OpenGL.Objects
 				// Define empty texture
 				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 				// Define texture properties
-				_Texture2d.DefineExtents(_PixelFormat, _Width, _Height, 1, _Level);
+				_Texture2d.SetMipmap(_PixelFormat, _Width, _Height, 1, _Level);
 			}
+
+			#endregion
 		}
 
-		#region Create(uint, uint, PixelLayout)
+		/// <summary>
+		/// Technique defining an immutable empty texture.
+		/// </summary>
+		class ImmutableEmptyTechnique : EmptyTechnique
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ImmutableEmptyTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="target">
+			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="width">
+			/// The width of the texture.
+			/// </param>
+			/// <param name="height">
+			/// The height of the texture.
+			/// </param>
+			public ImmutableEmptyTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height) :
+				this(texture, target, pixelFormat, width, height, GetMipmapCompleteLevels(width, height, 1, 0))
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a ImmutableEmptyTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="target">
+			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="width">
+			/// The width of the texture.
+			/// </param>
+			/// <param name="height">
+			/// The height of the texture.
+			/// </param>
+			/// <param name="levels">
+			/// A <see cref="UInt32"/> that specify the number of levels defining the texture.
+			/// </param>
+			public ImmutableEmptyTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height, uint levels) :
+				base(texture, target, 0, pixelFormat, width, height)
+			{
+				if (levels == 0)
+					throw new ArgumentException("invalid value", "levels");
+				_MipmapLevels = levels;
+			}
+
+			#endregion
+
+			#region EmptyTechnique Overrides
+
+			/// <summary>
+			/// Texture mipmaps levels.
+			/// </summary>
+			protected readonly uint _MipmapLevels;
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				// Define storage
+				int internalFormat = _PixelFormat.GetGlInternalFormat();
+
+				if (ctx.Extensions.TextureStorage_ARB == false) {
+					PixelFormat format = _PixelFormat.GetGlFormat();
+
+					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2))
+						Gl.TexImage2D(_Target, (int)level, internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+				} else {
+					Gl.TexStorage2D((int)_Target, (int)_MipmapLevels, internalFormat, (int)_Width, (int)_Height);
+				}
+
+				// Define mipmap array
+				for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2))
+					_Texture2d.SetMipmap(_PixelFormat, w, h, 1, level);
+			}
+
+			#endregion
+		}
+
+		#region Create(width, height, pixelformat)
 
 		/// <summary>
 		/// Create a Texture2d, defining the texture extents and the internal format.
@@ -246,58 +351,15 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format)
 		{
-			// Set creation technique
-			SetTechnique(new EmptyTechnique(this, TextureTarget, 0, format, width, height));
+			Technique technique;
+
+			if (Immutable)
+				technique = new ImmutableEmptyTechnique(this, TextureTarget, format, width, height);
+			else
+				technique = new EmptyTechnique(this, TextureTarget, 0, format, width, height);
+
+			SetTechnique(technique);
 		}
-
-		#endregion
-
-		#region Create(uint, uint, PixelLayout, uint)
-
-		/// <summary>
-		/// Create a Texture2d, defining the texture extents and the internal format.
-		/// </summary>
-		/// <param name="width">
-		/// A <see cref="UInt32"/> that specify the texture width.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="UInt32"/> that specify the texture height.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="PixelLayout"/> determining the texture internal format.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="UInt32"/> that specify the texture level to create/update.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if no context is current to the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is greater than
-		/// the maximum allowed for 2D textures.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="width"/> or <paramref name="height"/>
-		/// is not a power-of-two value.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
-		/// </exception>
-		public void Create(uint width, uint height, PixelLayout format, uint level)
-		{
-			// Set creation technique
-			SetTechnique(new EmptyTechnique(this, TextureTarget, level, format, width, height));
-		}
-
-		#endregion
-
-		#region Create(GraphicsContext, uint, uint, PixelLayout)
 
 		/// <summary>
 		/// Create Texture2d data, defining only the extents and the internal format.
@@ -346,7 +408,50 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Create(GraphicsContext, uint, uint, PixelLayout, uint)
+		#region Create(width, height, level, pixelformat)
+
+		/// <summary>
+		/// Create a Texture2d, defining the texture extents and the internal format.
+		/// </summary>
+		/// <param name="width">
+		/// A <see cref="UInt32"/> that specify the texture width.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="UInt32"/> that specify the texture height.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the texture level to create/update.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is greater than
+		/// the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="width"/> or <paramref name="height"/>
+		/// is not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
+		/// </exception>
+		public void Create(uint width, uint height, uint level, PixelLayout format)
+		{
+			if (Immutable)
+				throw new InvalidOperationException("immutable texture");
+
+			SetTechnique(new EmptyTechnique(this, TextureTarget, level, format, width, height));
+		}
 
 		/// <summary>
 		/// Create Texture2d data, defining only the extents and the internal format.
@@ -360,11 +465,11 @@ namespace OpenGL.Objects
 		/// <param name="height">
 		/// A <see cref="UInt32"/> that specify the texture height.
 		/// </param>
-		/// <param name="format">
-		/// A <see cref="PixelLayout"/> determining the texture internal format.
-		/// </param>
 		/// <param name="level">
 		/// A <see cref="UInt32"/> that specify the texture level to create/update.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
@@ -386,12 +491,105 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format, uint level)
+		public void Create(GraphicsContext ctx, uint width, uint height, uint level, PixelLayout format)
 		{
 			CheckCurrentContext(ctx);
 
 			// Define technique
-			Create(width, height, format, level);
+			Create(width, height, level, format);
+			// Actually create texture
+			Create(ctx);
+		}
+
+		#endregion
+
+		#region Create(width, height, pixelformat, levels)
+
+		/// <summary>
+		/// Create a Texture2d, defining the texture extents and the internal format.
+		/// </summary>
+		/// <param name="width">
+		/// A <see cref="UInt32"/> that specify the texture width.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="UInt32"/> that specify the texture height.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is greater than
+		/// the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="width"/> or <paramref name="height"/>
+		/// is not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
+		/// </exception>
+		public void Create(uint width, uint height, PixelLayout format, uint levels)
+		{
+			Technique technique;
+
+			if (Immutable)
+				technique = new ImmutableEmptyTechnique(this, TextureTarget, format, width, height, levels);
+			else
+				technique = new EmptyTechnique(this, TextureTarget, 0, format, width, height);
+
+			SetTechnique(technique);
+		}
+
+		/// <summary>
+		/// Create Texture2d data, defining only the extents and the internal format.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this Texture.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="UInt32"/> that specify the texture width.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="UInt32"/> that specify the texture height.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if <paramref name="ctx"/> is null and no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is greater than
+		/// the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by <paramref name="ctx"/>, and <paramref name="width"/> or <paramref name="height"/>
+		/// is not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
+		/// </exception>
+		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format, uint levels)
+		{
+			CheckCurrentContext(ctx);
+
+			// Define technique
+			Create(width, height, format, levels);
 			// Actually create texture
 			Create(ctx);
 		}
@@ -403,6 +601,8 @@ namespace OpenGL.Objects
 		/// </summary>
 		class ImageTechnique : Technique
 		{
+			#region Constructors
+
 			/// <summary>
 			/// Construct a EmptyTechnique.
 			/// </summary>
@@ -459,6 +659,10 @@ namespace OpenGL.Objects
 				_Image.IncRef();		// Referenced
 			}
 
+			#endregion
+
+			#region Technique Overrides
+
 			/// <summary>
 			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </summary>
@@ -492,7 +696,6 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = _PixelFormat.GetGlInternalFormat();
 				PixelFormat format = _Image.PixelLayout.GetGlFormat();
 				PixelType type = _Image.PixelLayout.GetPixelType();
 
@@ -500,9 +703,7 @@ namespace OpenGL.Objects
 				State.PixelAlignmentState.Unpack(_Image.Stride).ApplyState(ctx, null);
 				
 				// Upload texture contents
-				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Image.Width, (int)_Image.Height, 0, format, type, _Image.ImageBuffer);
-				// Define texture properties
-				_Texture2d.DefineExtents(_PixelFormat, _Image.Width, _Image.Height, 1, _Level);
+				Gl.TexSubImage2D(_Target, (int)_Level, 0, 0, (int)_Image.Width, (int)_Image.Height, format, type, _Image.ImageBuffer);
 			}
 
 			/// <summary>
@@ -513,6 +714,8 @@ namespace OpenGL.Objects
 				if (_Image != null)
 					_Image.DecRef();
 			}
+
+			#endregion
 		}
 
 		#region Create(Image)
@@ -547,54 +750,10 @@ namespace OpenGL.Objects
 			if (image == null)
 				throw new ArgumentNullException("image");
 
-			// Setup technique for creation
+			// Define storage, the uploads image
+			Create(image.Width, image.Height, image.PixelLayout);
 			SetTechnique(new ImageTechnique(this, TextureTarget, image.PixelLayout, image));
 		}
-
-		#endregion
-
-		#region Create(Image, uint)
-
-		/// <summary>
-		/// Create Texture2d data from a Image instance.
-		/// </summary>
-		/// <param name="image">
-		/// An <see cref="Image"/> holding the texture data.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="UInt32"/> that specify the texture level to create/update.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="image"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="image"/> pixel data is not allocated (i.e. image not defined).
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if no context is current to the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="image"/> width or height are greater than the maximum allowed for 2D textures.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="image"/> width or height are
-		/// not a power-of-two value.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="image"/> format (<see cref="Image.PixelFormat"/> is not a supported internal format.
-		/// </exception>
-		public void Create(Image image, uint level)
-		{
-			if (image == null)
-				throw new ArgumentNullException("image");
-
-			// Setup technique for creation
-			SetTechnique(new ImageTechnique(this, TextureTarget, level, image.PixelLayout, image));
-		}
-
-		#endregion
-
-		#region Create(GraphicsContext, Image)
 
 		/// <summary>
 		/// Create Texture2d from a Image instance.
@@ -646,14 +805,9 @@ namespace OpenGL.Objects
 			Image image = CoreImagingImageCodecPlugin.LoadFromBitmap(bitmap, new ImageCodecCriteria());
 			// Bitmaps must be flipped
 			image.FlipVertically();
-
 			// Create with Image as usual
 			Create(image);
 		}
-
-		#endregion
-
-		#region Create(GraphicsContext, Bitmap)
 
 		public void Create(GraphicsContext ctx, Bitmap bitmap)
 		{
@@ -661,6 +815,47 @@ namespace OpenGL.Objects
 			Create(bitmap);
 			// Define texture
 			Create(ctx);
+		}
+
+		#endregion
+
+		#region Create(Image, level)
+
+		/// <summary>
+		/// Create Texture2d data from a Image instance.
+		/// </summary>
+		/// <param name="image">
+		/// An <see cref="Image"/> holding the texture data.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the texture level to create/update.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception throw if <paramref name="image"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> pixel data is not allocated (i.e. image not defined).
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> width or height are greater than the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="image"/> width or height are
+		/// not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> format (<see cref="Image.PixelFormat"/> is not a supported internal format.
+		/// </exception>
+		public void Create(Image image, uint level)
+		{
+			if (image == null)
+				throw new ArgumentNullException("image");
+
+			// Setup technique for creation
+			SetTechnique(new ImageTechnique(this, TextureTarget, level, image.PixelLayout, image));
 		}
 
 		#endregion

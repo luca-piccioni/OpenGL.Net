@@ -70,7 +70,8 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Texture size, in pixels, of the base level of the texture.
+		/// Texture size, in pixels, of the level 0 of the texture. In the case the level 0 is not defined,
+		/// find the closest mipmap and guess the level 0 size from it.
 		/// </summary>
 		public virtual Vertex3ui BaseSize
 		{
@@ -132,57 +133,6 @@ namespace OpenGL.Objects
 		/// In case the Texture implementation does not have three or more dimension, it shall return 1.
 		/// </remarks>
 		public uint Depth { get { return (Size.z); } }
-
-		/// <summary>
-		/// Define texture mipmap level properties.
-		/// </summary>
-		/// <param name="pixelFormat">
-		/// The <see cref="PixelLayout"/> that specify the texture mipmap internal format.
-		/// </param>
-		/// <param name="w">
-		/// A <see cref="UInt32"/> that specify the width of the texture mipmap.
-		/// </param>
-		/// <param name="h">
-		/// A <see cref="UInt32"/> that specify the height of the texture mipmap.
-		/// </param>
-		/// <param name="z">
-		/// A <see cref="UInt32"/> that specify the depth of the texture mipmap.
-		/// </param>
-		/// <param name="lod">
-		/// A <see cref="UInt32"/> that specify the level texture mipmap.
-		/// </param>
-		protected void DefineExtents(PixelLayout pixelFormat, uint w, uint h, uint z, uint lod)
-		{
-			if (pixelFormat == PixelLayout.None)
-				throw new ArgumentException("invalid pixel format", "pixelFormat");
-			// Define mipmaps array
-			if (_Mipmaps == null)
-				_Mipmaps = new Mipmap[GetMipmapLevels(w, h, z, lod)];
-
-			if (_Mipmaps[lod] == null)
-				_Mipmaps[lod] = new Mipmap();
-			_Mipmaps[lod].InternalFormat = pixelFormat;
-			_Mipmaps[lod].Size = new Vertex3ui(w, h, z);
-		}
-
-		/// <summary>
-		/// Get whether this Texture is immutable (GL_ARB_texture_storage support).
-		/// </summary>
-		public bool Immutable
-		{
-			get { return (_Immutable); }
-			set
-			{
-				if (ObjectName != InvalidObjectName)
-					throw new InvalidOperationException("object already defined");
-				_Immutable = value;
-			}
-		}
-
-		/// <summary>
-		/// Flag indicating whether this Texture is immutable (GL_ARB_texture_storage).
-		/// </summary>
-		private bool _Immutable;
 
 		#endregion
 
@@ -335,7 +285,7 @@ namespace OpenGL.Objects
 		#region Mipmaps
 
 		/// <summary>
-		/// Get the level indicating the base mipmap level.
+		/// Get the level indicating the base mipmap level defined.
 		/// </summary>
 		public uint BaseLevel
 		{
@@ -346,7 +296,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Get the level indicating the maximum mipmap level.
+		/// Get the level indicating the maximum mipmap level defined.
 		/// </summary>
 		public uint MaxLevel
 		{
@@ -403,6 +353,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Mipmap properties.
 		/// </summary>
+		[DebuggerDisplay("Mipmap: Format={InternalFormat} Size={Size}")]
 		protected class Mipmap
 		{
 			/// <summary>
@@ -433,7 +384,7 @@ namespace OpenGL.Objects
 			{
 				Vertex3ui baseSize = BaseSize;
 
-				return (GetMipmapLevels(baseSize.x, baseSize.y, baseSize.z, 0));
+				return (GetMipmapCompleteLevels(baseSize.x, baseSize.y, baseSize.z, 0));
 			}
 		}
 
@@ -450,7 +401,7 @@ namespace OpenGL.Objects
 		/// A <see cref="UInt32"/> that specify the texture depth.
 		/// </param>
 		/// <returns></returns>
-		protected static uint GetMipmapLevels(uint w, uint h, uint z, uint lod)
+		protected static uint GetMipmapCompleteLevels(uint w, uint h, uint z, uint lod)
 		{
 			lod = (uint)Math.Pow(2.0, lod);
 			w *= lod; h *= lod; z *= lod;
@@ -461,6 +412,41 @@ namespace OpenGL.Objects
 				return (1 + (uint)Math.Floor(Math.Log(maxSize, 2.0)));
 			else
 				return (0);
+		}
+
+		/// <summary>
+		/// Define texture mipmap level properties.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// The <see cref="PixelLayout"/> that specify the texture mipmap internal format.
+		/// </param>
+		/// <param name="w">
+		/// A <see cref="UInt32"/> that specify the width of the texture mipmap.
+		/// </param>
+		/// <param name="h">
+		/// A <see cref="UInt32"/> that specify the height of the texture mipmap.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="UInt32"/> that specify the depth of the texture mipmap.
+		/// </param>
+		/// <param name="lod">
+		/// A <see cref="UInt32"/> that specify the level texture mipmap.
+		/// </param>
+		protected void SetMipmap(PixelLayout pixelFormat, uint w, uint h, uint z, uint lod)
+		{
+			if (pixelFormat == PixelLayout.None)
+				throw new ArgumentException("invalid pixel format", "pixelFormat");
+
+			// Define mipmaps array
+			if (_Mipmaps == null) _Mipmaps = new Mipmap[0];
+			// Extend mipmaps array, if necessary
+			if (lod >= _Mipmaps.Length)
+				Array.Resize(ref _Mipmaps, (int)(lod + 1));
+
+			if (_Mipmaps[lod] == null)
+				_Mipmaps[lod] = new Mipmap();
+			_Mipmaps[lod].InternalFormat = pixelFormat;
+			_Mipmaps[lod].Size = new Vertex3ui(w, h, z);
 		}
 
 		/// <summary>
@@ -536,17 +522,14 @@ namespace OpenGL.Objects
 			if (ctx.Version >= Gl.Version_300) {
 				// Bind this Texture
 				ctx.Bind(this);
-
 				// Generate mipmaps
 				Gl.GenerateMipmap((int)target);
 			}
 
-			Debug.Assert(_Mipmaps.Length >= MipmapLevels);
 			for (uint i = MipmapMinLevel + 1; i < MipmapLevels; i++) {
-				if (_Mipmaps[i] == null)
-					_Mipmaps[i] = new Mipmap();
-				_Mipmaps[i].InternalFormat = _Mipmaps[MipmapMinLevel].InternalFormat;
-				_Mipmaps[i].Size = GetMipmapSize(i);
+				Vertex3ui mipmapSize = GetMipmapSize(i);
+
+				SetMipmap(_Mipmaps[MipmapMinLevel].InternalFormat, mipmapSize.x, mipmapSize.y, mipmapSize.z, i);
 			}
 		}
 
@@ -775,7 +758,7 @@ namespace OpenGL.Objects
 		public bool IsDirty { get { return (_Techniques.Count > 0); } }
 
 		/// <summary>
-		/// Technique for creating Texture2d objects.
+		/// Technique for creating Texture layer(s).
 		/// </summary>
 		protected abstract class Technique : IDisposable
 		{
@@ -837,10 +820,28 @@ namespace OpenGL.Objects
 		/// </summary>
 		private readonly List<Technique> _Techniques = new List<Technique>();
 
+		#endregion
+
+		#region Immutable Storage
+
 		/// <summary>
-		/// Flag for releasing data on upload.
+		/// Get or set whether this Texture is immutable (GL_ARB_texture_storage support).
 		/// </summary>
-		private bool _TechniquesAutoRelease;
+		public bool Immutable
+		{
+			get { return (_Immutable); }
+			set
+			{
+				if (ObjectName != InvalidObjectName)
+					throw new InvalidOperationException("object already defined");
+				_Immutable = value;
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether this Texture is immutable (GL_ARB_texture_storage).
+		/// </summary>
+		private bool _Immutable = true;
 
 		#endregion
 
@@ -1029,9 +1030,6 @@ namespace OpenGL.Objects
 			// Note: if Sampler is defined, automatically bind the sampler on texture unit
 			ctx.Bind(this);
 
-			// Determine whether to release texture data
-			_TechniquesAutoRelease = ctx.Extensions.TextureObject_EXT;
-
 			if (_Techniques.Count > 0) {
 				
 				// Note: in the case of no techniques, texture will exists but it will be undefined (no storage defined)
@@ -1040,12 +1038,11 @@ namespace OpenGL.Objects
 					// Create/update texture using technique
 					technique.Create(ctx);
 					// Technique no more useful: dispose it
-					if (_TechniquesAutoRelease)
-						technique.Dispose();
+					technique.Dispose();
 				}
 
-				if (_TechniquesAutoRelease)
-					_Techniques.Clear();
+				// Layers updated only once
+				_Techniques.Clear();
 			}
 
 			if (_RequiresMipMaps) {
