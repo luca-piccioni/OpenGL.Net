@@ -87,6 +87,7 @@
     <Compile Include="IFont.cs" />
     <Compile Include="IShaderUniformContainer.cs" />
     <Compile Include="Sampler.cs" />
+    <Compile Include="SamplerParameters.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
     <Compile Include="Scene\SceneGraphSorter.cs" />
     <Compile Include="Scene\SceneObjectBatch.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="TextureArray2d.cs" />
     <Compile Include="TextureCube.cs" />
     <Compile Include="TextureRectangle.cs" />
+    <Compile Include="TextureUnit.cs" />
     <Compile Include="UniformBufferObject.cs" />
     <Compile Include="UniformBufferObject.SetUniform.cs" />
     <Compile Include="VertexArrayObject.Arrays.cs" />

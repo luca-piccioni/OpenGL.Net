@@ -1129,6 +1129,11 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Get the currently active texture unit index.
+		/// </summary>
+		public uint ActiveTextureUnit { get { return (_ActiveTextureUnit); } }
+
+		/// <summary>
 		/// Current active texture unit index.
 		/// </summary>
 		private uint _ActiveTextureUnit;
@@ -1273,66 +1278,12 @@ namespace OpenGL.Objects
 			TextureUnit textureUnit = _TextureUnits[textureUnitIndex];
 
 			if ((textureUnit = _TextureUnits[textureUnitIndex]) == null)
-				 _TextureUnits[textureUnitIndex] = textureUnit = new TextureUnit();
+				 _TextureUnits[textureUnitIndex] = textureUnit = new TextureUnit(textureUnitIndex);
 
 			// Selects the texture unit for this texture
-			ActiveTexture(textureUnitIndex);
-
-			Texture currTexture = null;
-
-			if (textureUnit.Texture != null)
-				textureUnit.Texture.TryGetTarget(out currTexture);
-
-			// Bind the texture on the texture unit, if necessary
-#if ENABLE_LAZY_TEXTURE_UNIT_BINDING
-			if (ReferenceEquals(texture, currTexture) == false) {
-#else
-			if (true) {
-#endif
-				// Since here the texture is bound to the texture unit
-				Gl.BindTexture(texture.TextureTarget, texture.ObjectName);
-
-				// Break previous texture relationship, if any
-				if (currTexture != null)
-					currTexture._ActiveTextureUnits.Remove(_ActiveTextureUnit);
-
-				// Add texture relationship
-				textureUnit.Texture = new WeakReference<Texture>(texture);
-				Debug.Assert(texture._ActiveTextureUnits.Contains(_ActiveTextureUnit) == false);
-				texture._ActiveTextureUnits.Add(_ActiveTextureUnit);
-			} else {
-				// Texture already bound to texture unit, Gl.BindTexture not necessary
-#if DEBUG
-				int textureBindingTarget = texture.GetBindingTarget(this);
-				int currentTextureObject;
-		
-				Debug.Assert(textureBindingTarget != 0);
-				Gl.Get(textureBindingTarget, out currentTextureObject);
-
-				Debug.Assert(currentTextureObject == texture.ObjectName);
-#endif
-			}
-
-			// Apply texture parameters
-			texture.Sampler.Apply(this, texture, textureUnitDirty);
-			texture.ApplyMipmapLevels(this, textureUnitDirty);
-			texture.ApplySwizzle(this);
-		}
-
-		/// <summary>
-		/// Texture unit abstraction.
-		/// </summary>
-		private class TextureUnit
-		{
-			/// <summary>
-			/// Texture currently bound on texture unit.
-			/// </summary>
-			public WeakReference<Texture> Texture;
-
-			/// <summary>
-			/// Sampler currently bound on texture unit (GL_ARB_sampler_objects support).
-			/// </summary>
-			public WeakReference<Sampler> Sampler;
+			textureUnit.Bind(this, texture);
+			textureUnit.Bind(this, texture.Sampler);
+			textureUnit.SamplerParameters(this);
 		}
 
 		/// <summary>

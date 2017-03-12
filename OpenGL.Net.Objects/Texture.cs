@@ -45,8 +45,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		protected Texture()
 		{
-			// Link sampler parameters (not really a sampler)
-			LinkResource(_Sampler);
+			
 		}
 
 		#endregion
@@ -63,10 +62,10 @@ namespace OpenGL.Objects
 				if (_Mipmaps == null)
 					return (PixelLayout.None);
 
-				if (_Mipmaps[MipmapBaseLevel] == null)
+				if (_Mipmaps[MipmapMinLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return (_Mipmaps[MipmapBaseLevel].InternalFormat);
+				return (_Mipmaps[MipmapMinLevel].InternalFormat);
 			}
 		}
 
@@ -97,7 +96,7 @@ namespace OpenGL.Objects
 		/// Texture size, in pixels, of the base level of the texture.
 		/// </summary>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the mipmap level specified by <see cref="MipmapBaseLevel"/> is not defined.
+		/// Exception thrown if the mipmap level specified by <see cref="MipmapMinLevel"/> is not defined.
 		/// </exception>
 		public Vertex3ui Size
 		{
@@ -106,10 +105,10 @@ namespace OpenGL.Objects
 				if (_Mipmaps == null)
 					return (Vertex3ui.Zero);
 
-				if (_Mipmaps[MipmapBaseLevel] == null)
+				if (_Mipmaps[MipmapMinLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return (_Mipmaps[MipmapBaseLevel].Size);
+				return (_Mipmaps[MipmapMinLevel].Size);
 			}
 		}
 
@@ -372,46 +371,6 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Get or set the level indicating the base mipmap level used for drawing.
-		/// </summary>
-		public uint MipmapBaseLevel
-		{
-			get
-			{
-				return (_MipmapMinLevel >= 0 ? (uint)_MipmapMinLevel : 0);
-			}
-			set
-			{
-				if (value > MipmapMaxLevel)
-					throw new InvalidOperationException("exceed maximum mipmap level");
-				if (_MipmapMinLevel != (int)value)
-					_MipmapMinLevelDirty = true;
-				_MipmapMinLevel = (int)value;
-			}
-		}
-
-		/// <summary>
-		/// Get or set the level indicating the maximum mipmap level used for drawing.
-		/// </summary>
-		public uint MipmapMaxLevel
-		{
-			get
-			{
-				return (_MipmapMaxLevel >= 0 ? (uint)_MipmapMaxLevel : MipmapLevels);
-			}
-			set
-			{
-				if (value < MipmapBaseLevel)
-					throw new InvalidOperationException("exceeded mipmap base level");
-				if (value > MipmapLevels)
-					throw new InvalidOperationException("exceeded mipmap levels count");
-				if (_MipmapMaxLevel != (int)value)
-					_MipmapMaxLevelDirty = true;
-				_MipmapMaxLevel = (int)value;
-			}
-		}
-
-		/// <summary>
 		/// Get whether this Texture is mipmap-complete.
 		/// </summary>
 		public bool IsMipmapComplete
@@ -423,9 +382,9 @@ namespace OpenGL.Objects
 
 				Debug.Assert(_Mipmaps.Length == MipmapLevels);
 
-				uint mipmapBaseLevel = MipmapBaseLevel;
+				uint mipmapBaseLevel = MipmapMinLevel;
 				
-				for (uint i = MipmapBaseLevel; i < MipmapMaxLevel; i++) {
+				for (uint i = MipmapMinLevel; i < MipmapMaxLevel; i++) {
 					// Mipmap level must be defined
 					if (_Mipmaps[i] == null)
 						return (false);
@@ -524,58 +483,14 @@ namespace OpenGL.Objects
 			return (mipmapSize);
 		}
 
-		internal void ApplyMipmapLevels(GraphicsContext ctx, bool force)
-		{
-			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
-			if (_MipmapMinLevel >= 0 || _MipmapMinLevelDirty)
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_BASE_LEVEL, _MipmapMinLevel);
-			_MipmapMinLevelDirty = false;
-
-			if (_MipmapMaxLevel >= 0 || _MipmapMaxLevelDirty)
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_MAX_LEVEL, _MipmapMaxLevel);
-			_MipmapMaxLevelDirty = false;
-		}
-
 		/// <summary>
 		/// Mipmaps properties.
 		/// </summary>
 		private Mipmap[] _Mipmaps;
 
-		/// <summary>
-		/// The index of the lowest (base) define mipmap level.
-		/// </summary>
-		private int _MipmapMinLevel = -1;
-
-		/// <summary>
-		/// Flag for indicating whether <see cref="_MipmapMinLevel"/> has changed.
-		/// </summary>
-		private bool _MipmapMinLevelDirty;
-
-		/// <summary>
-		/// The index of the highest (base) define mipmap level.
-		/// </summary>
-		private int _MipmapMaxLevel = -1;
-
-		/// <summary>
-		/// Flag for indicating whether <see cref="_MipmapMaxLevel"/> has changed.
-		/// </summary>
-		private bool _MipmapMaxLevelDirty;
-
 		#endregion
 
 		#region Automatic Mipmap Generation
-
-		/// <summary>
-		/// Request the creation of this Texture mipmaps.
-		/// </summary>
-		/// <remarks>
-		/// This routine shall be called before Texture creation. In the case it is called after the texture has
-		/// been created, it has not effect untill the texture is updated.
-		/// </remarks>
-		public void RequestMipmapsCreation()
-		{
-			_RequiresMipMaps = true;
-		}
 
 		/// <summary>
 		/// Generate mipmaps for this Texture.
@@ -583,10 +498,26 @@ namespace OpenGL.Objects
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for generating texture mipmaps.
 		/// </param>
-		protected virtual void GenerateMipmaps(GraphicsContext ctx)
+		public virtual void GenerateMipmaps(GraphicsContext ctx)
 		{
 			GenerateMipmaps(ctx, TextureTarget);
 		}
+
+		/// <summary>
+		/// Generate mipmaps for this Texture.
+		/// </summary>
+		/// <remarks>
+		/// The mipmaps are generated when executing <see cref="CreateName(GraphicsContext)"/>.
+		/// </remarks>
+		public virtual void GenerateMipmaps()
+		{
+			_RequiresMipMaps = true;
+		}
+
+		/// <summary>
+		/// Flag indicating whether this Texture shall ghave mipmaps created automatically at creationg time.
+		/// </summary>
+		private bool _RequiresMipMaps;
 
 		/// <summary>
 		/// Generate mipmaps for this Texture, replacing mipmaps level from 1 to <see cref="MipmapLevels"/> - 1.
@@ -602,49 +533,128 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			// Bind this Texture
-			ctx.Bind(this);
-			// Generate mipmaps
-			Gl.GenerateMipmap((int)target);
+			if (ctx.Version >= Gl.Version_300) {
+				// Bind this Texture
+				ctx.Bind(this);
+
+				// Generate mipmaps
+				Gl.GenerateMipmap((int)target);
+			}
 
 			Debug.Assert(_Mipmaps.Length >= MipmapLevels);
-			for (uint i = MipmapBaseLevel + 1; i < MipmapLevels; i++) {
+			for (uint i = MipmapMinLevel + 1; i < MipmapLevels; i++) {
 				if (_Mipmaps[i] == null)
 					_Mipmaps[i] = new Mipmap();
-				_Mipmaps[i].InternalFormat = _Mipmaps[MipmapBaseLevel].InternalFormat;
+				_Mipmaps[i].InternalFormat = _Mipmaps[MipmapMinLevel].InternalFormat;
 				_Mipmaps[i].Size = GetMipmapSize(i);
 			}
 		}
 
+		#endregion
+
+		#region Mipmapping Levels
+
 		/// <summary>
-		/// Flag indicating whether this Texture shall ghave mipmaps created automatically at creationg time.
+		/// Get or set the level indicating the base mipmap level used for drawing.
 		/// </summary>
-		private bool _RequiresMipMaps;
+		public uint MipmapMinLevel
+		{
+			get
+			{
+				return (_MipmapMinLevel >= 0 ? (uint)_MipmapMinLevel : 0);
+			}
+			set
+			{
+				if (value > MipmapMaxLevel)
+					throw new InvalidOperationException("exceed maximum mipmap level");
+				if (_MipmapMinLevel != (int)value)
+					_MipmapMinLevelDirty = true;
+				_MipmapMinLevel = (int)value;
+			}
+		}
+
+		/// <summary>
+		/// The index of the lowest (base) define mipmap level.
+		/// </summary>
+		private int _MipmapMinLevel = -1;
+
+		/// <summary>
+		/// Flag for indicating whether <see cref="_MipmapMinLevel"/> has changed.
+		/// </summary>
+		private bool _MipmapMinLevelDirty;
+
+		/// <summary>
+		/// Get or set the level indicating the maximum mipmap level used for drawing.
+		/// </summary>
+		public uint MipmapMaxLevel
+		{
+			get
+			{
+				return (_MipmapMaxLevel >= 0 ? (uint)_MipmapMaxLevel : MipmapLevels);
+			}
+			set
+			{
+				if (value < MipmapMinLevel)
+					throw new InvalidOperationException("exceeded mipmap base level");
+				if (value > MipmapLevels)
+					throw new InvalidOperationException("exceeded mipmap levels count");
+				if (_MipmapMaxLevel != (int)value)
+					_MipmapMaxLevelDirty = true;
+				_MipmapMaxLevel = (int)value;
+			}
+		}
+
+		/// <summary>
+		/// The index of the highest (base) define mipmap level.
+		/// </summary>
+		private int _MipmapMaxLevel = -1;
+
+		/// <summary>
+		/// Flag for indicating whether <see cref="_MipmapMaxLevel"/> has changed.
+		/// </summary>
+		private bool _MipmapMaxLevelDirty;
+
+		/// <summary>
+		/// Set texture mipmapping levels (base and maximum(.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> that has created this texture.
+		/// </param>
+		private void SetMipmapLevelRange(GraphicsContext ctx)
+		{
+			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
+			if (_MipmapMinLevel >= 0 || _MipmapMinLevelDirty)
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_BASE_LEVEL, _MipmapMinLevel);
+			_MipmapMinLevelDirty = false;
+
+			if (_MipmapMaxLevel >= 0 || _MipmapMaxLevelDirty)
+				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_MAX_LEVEL, _MipmapMaxLevel);
+			_MipmapMaxLevelDirty = false;
+		}
 
 		#endregion
 
 		#region Sampler
 
 		/// <summary>
-		/// The texture sampler.
+		/// Texture unit parameters applied to the bound texture unit. Ignored if <see cref="Sampler"/> is not null.
+		/// </summary>
+		public readonly SamplerParameters SamplerParams = new SamplerParameters();
+
+		/// <summary>
+		/// The texture sampler applied to the bound texture unit. It can be null; in this case the texture unit
+		/// will apply <see cref="SamplerParams"/>.
 		/// </summary>
 		public Sampler Sampler
 		{
-			get
-			{
-				return (_SamplerObject ?? _Sampler);
-			}
+			get { return (_Sampler); }
+			set { SwapGpuResources(value, ref _Sampler); }
 		}
 
 		/// <summary>
 		/// Texture sampler parameters.
 		/// </summary>
-		private readonly Sampler _Sampler = new Sampler(false);
-
-		/// <summary>
-		/// The <see cref="Sampler"/> overriding this Texture sampler parameters.
-		/// </summary>
-		private Sampler _SamplerObject;
+		private Sampler _Sampler;
 
 		#endregion
 
@@ -653,28 +663,33 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Texture swizzled components.
 		/// </summary>
-		public enum Swizzle
+		public enum SwizzleValue
 		{
 			/// <summary>
 			/// Zero.
 			/// </summary>
 			Zero = Gl.ZERO,
+
 			/// <summary>
 			/// One.
 			/// </summary>
 			One = Gl.ONE,
+
 			/// <summary>
 			/// Red.
 			/// </summary>
 			Red = Gl.RED,
+
 			/// <summary>
 			/// Green.
 			/// </summary>
 			Green = Gl.GREEN,
+
 			/// <summary>
 			/// Blue.
 			/// </summary>
 			Blue = Gl.BLUE,
+
 			/// <summary>
 			/// Alpha.
 			/// </summary>
@@ -682,53 +697,73 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Set texture swizzle.
+		/// </summary>
+		/// <param name="r">
+		/// A <see cref="SwizzleValue"/> that specifies the source of the swizzled red component.
+		/// </param>
+		/// <param name="g">
+		/// A <see cref="SwizzleValue"/> that specifies the source of the swizzled green component.
+		/// </param>
+		/// <param name="b">
+		/// A <see cref="SwizzleValue"/> that specifies the source of the swizzled blue component.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="SwizzleValue"/> that specifies the source of the swizzled alpha component.
+		/// </param>
+		public void Swizzle(SwizzleValue r, SwizzleValue g, SwizzleValue b, SwizzleValue a)
+		{
+			_Swizzle[0] = r; _Swizzle[1] = g; _Swizzle[2] = b; _Swizzle[3] = a;
+			_SwizzleDirty = true;
+		}
+
+		/// <summary>
 		/// Get or set the swizzle map for red component.
 		/// </summary>
-		public Swizzle SizzleRed { get { return (_TextelSwizzle[0]); } set { _TextelSwizzle[0] = value; } }
+		public SwizzleValue SwizzleRed { get { return (_Swizzle[0]); } set { _Swizzle[0] = value; _SwizzleDirty = true; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for green component.
 		/// </summary>
-		public Swizzle SizzleGreen { get { return (_TextelSwizzle[1]); } set { _TextelSwizzle[1] = value; } }
+		public SwizzleValue SwizzleGreen { get { return (_Swizzle[1]); } set { _Swizzle[1] = value; _SwizzleDirty = true; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for blue component.
 		/// </summary>
-		public Swizzle SizzleBlue { get { return (_TextelSwizzle[2]); } set { _TextelSwizzle[2] = value; } }
+		public SwizzleValue SwizzleBlue { get { return (_Swizzle[2]); } set { _Swizzle[2] = value; _SwizzleDirty = true; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for alpha component.
 		/// </summary>
-		public Swizzle SizzleAlpha { get { return (_TextelSwizzle[3]); } set { _TextelSwizzle[3] = value; } }
+		public SwizzleValue SwizzleAlpha { get { return (_Swizzle[3]); } set { _Swizzle[3] = value; _SwizzleDirty = true; } }
 		
+		/// <summary>
+		/// Texture textel swizzle setup.
+		/// </summary>
+		private readonly SwizzleValue[] _Swizzle = new SwizzleValue[] { SwizzleValue.Red, SwizzleValue.Green, SwizzleValue.Blue, SwizzleValue.Alpha };
+
+		/// <summary>
+		/// Flag indicating whether the swizzle has changed.
+		/// </summary>
+		private bool _SwizzleDirty;
+
 		/// <summary>
 		/// Apply texture swizzle, if required and supported.
 		/// </summary>
-		/// <param name="ctx"></param>
-		internal void ApplySwizzle(GraphicsContext ctx)
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> that has created this texture.
+		/// </param>
+		private void ApplySwizzle(GraphicsContext ctx)
 		{
-			if ((_TextelSwizzleRGBA != null) && (Gl.CurrentExtensions.TextureSwizzle_ARB)) {
-				// Set components swizzle setup
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, _TextelSwizzleRGBA);
-			}
+			if (_SwizzleDirty == false)
+				return;
+			if (ctx.Extensions.TextureSwizzle_ARB == false)
+				throw new InvalidOperationException("ARB_texture_swizzle not supported");
+
+			int[] rgbaSwizzle = Array.ConvertAll(_Swizzle, delegate(SwizzleValue item) { return ((int)item); });
+
+			Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, rgbaSwizzle);
 		}
-
-		/// <summary>
-		/// Texture textel swizzle setup.
-		/// </summary>
-		/// <remarks>
-		/// When this member is set to null, no textel components swizzle is required.
-		/// </remarks>
-		private int[] _TextelSwizzleRGBA;
-
-		/// <summary>
-		/// Texture textel swizzle setup.
-		/// </summary>
-		/// <remarks>
-		/// When this member is set to null, not textel components swizzle
-		/// is required.
-		/// </remarks>
-		private readonly Swizzle[] _TextelSwizzle = new Swizzle[] { Swizzle.Red, Swizzle.Green, Swizzle.Blue, Swizzle.Alpha };
 
 		#endregion
 
@@ -988,16 +1023,19 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			// Base implementation
+			// Note: here Sampler can be created; required before ctx.Bind(this)
 			base.CreateObject(ctx);
-
 			// Selects the texture unit for this texture
+			// Note: if Sampler is defined, automatically bind the sampler on texture unit
 			ctx.Bind(this);
 
 			// Determine whether to release texture data
 			_TechniquesAutoRelease = ctx.Extensions.TextureObject_EXT;
 
 			if (_Techniques.Count > 0) {
-				// In the case of no techniques, texture will exists but it will be undefined
+				
+				// Note: in the case of no techniques, texture will exists but it will be undefined (no storage defined)
+
 				foreach (Technique technique in _Techniques) {
 					// Create/update texture using technique
 					technique.Create(ctx);
@@ -1010,9 +1048,17 @@ namespace OpenGL.Objects
 					_Techniques.Clear();
 			}
 
-			// Generate mipmaps, if requested
-			if (_RequiresMipMaps)
+			if (_RequiresMipMaps) {
+				// Generate mipmaps
 				GenerateMipmaps(ctx);
+				// ...and don't repeat
+				_RequiresMipMaps = false;
+			}
+			
+			// Mipmap levels, if any
+			SetMipmapLevelRange(ctx);
+			// Swizzle, if supported
+			ApplySwizzle(ctx);
 		}
 
 		#endregion

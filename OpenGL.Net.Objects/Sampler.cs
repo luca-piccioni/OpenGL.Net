@@ -30,230 +30,41 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Construct the default Sampler.
 		/// </summary>
-		public Sampler() : this(true)
+		public Sampler()
 		{
 
-		}
-
-		/// <summary>
-		/// Construct a Sampler with the possibility to choose compatible implementation.
-		/// </summary>
-		/// <param name="samplerObject">
-		/// A <see cref="Boolean"/> that specifies whether this is a sampler object in terms of
-		/// GL_ARB_sampler_objects. If false, it acts as immediate sampler (using <see cref="Gl.TexParameter"/>).
-		/// </param>
-		internal Sampler(bool samplerObject)
-		{
-			_SamplerObject = samplerObject;
 		}
 
 		#endregion
 
-		#region Filtering
+		#region Parameters
 
 		/// <summary>
-		/// Minification filter property.
+		/// Sampler parameters.
 		/// </summary>
-		public TextureMinFilter MinFilter
-		{
-			get { return (_MinFilter); }
-			set
-			{
-				if (_MinFilter != value)
-					_MinFilterDirty = true;
-				_MinFilter = value;
-			}
-		}
-
-		/// <summary>
-		/// Minification filter.
-		/// </summary>
-		private TextureMinFilter _MinFilter = TextureMinFilter.NearestMipmapLinear;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _MinFilterDirty = true;
-
-		/// <summary>
-		/// Magnification filter property.
-		/// </summary>
-		public TextureMagFilter MagFilter
-		{
-			get { return (_MagFilter); }
-			set
-			{
-				if (_MagFilter != value)
-					_MagFilterDirty = true;
-				_MagFilter = value;
-			}
-		}
-
-		/// <summary>
-		/// Magnification filter.
-		/// </summary>
-		private TextureMagFilter _MagFilter = TextureMagFilter.Linear;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MagFilter"/> only if changes.
-		/// </summary>
-		private bool _MagFilterDirty = true;
+		public readonly SamplerParameters Parameters = new SamplerParameters();
 
 		#endregion
 
-		#region Wrap Mode
+		#region Texture Unit Parameters
 
-		/// <summary>
-		/// Wrapping on texture S coordinate.
-		/// </summary>
-		public TextureWrapMode WrapCoordS
+		internal void Bind(GraphicsContext ctx, TextureUnit textureUnit)
 		{
-			get { return (_WrapS); }
-			set
-			{
-				if (_WrapS != value)
-					_WrapSDirty = true;
-				_WrapS = value;
-			}
-		}
-
-		/// <summary>
-		/// Wrapping on S coordinate.
-		/// </summary>
-		private TextureWrapMode _WrapS = TextureWrapMode.Repeat;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _WrapSDirty = true;
-
-		/// <summary>
-		/// Wrapping on texture T coordinate.
-		/// </summary>
-		public TextureWrapMode WrapCoordT
-		{
-			get { return (_WrapT); }
-			set
-			{
-				if (_WrapT != value)
-					_WrapTDirty = true;
-				_WrapT = value;
-			}
-		}
-
-		/// <summary>
-		/// Wrapping on T coordinate.
-		/// </summary>
-		private TextureWrapMode _WrapT = TextureWrapMode.Repeat;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _WrapTDirty = true;
-
-		/// <summary>
-		/// Wrapping on texture R coordinate.
-		/// </summary>
-		public TextureWrapMode WrapCoordR
-		{
-			get { return (_WrapR); }
-			set
-			{
-				if (_WrapR != value)
-					_WrapRDirty = true;
-				_WrapR = value;
-			}
-		}
-
-		/// <summary>
-		/// Wrapping on R coordinate.
-		/// </summary>
-		private TextureWrapMode _WrapR = TextureWrapMode.Repeat;
-
-		/// <summary>
-		/// Flag for applying <see cref="_MinFilter"/> only if changes.
-		/// </summary>
-		private bool _WrapRDirty = true;
-
-		#endregion
-
-		#region Parameters Application
-
-		/// <summary>
-		/// Apply sampler parameters the active texture unit.
-		/// </summary>
-		/// <param name="ctx"></param>
-		/// <param name="texture"></param>
-		/// <param name="force"></param>
-		public void Apply(GraphicsContext ctx, Texture texture, bool force)
-		{
-			if (!_SamplerObject || !ctx.Extensions.SamplerObjects_ARB) {
-
-				// Affect currently active texture unit
-
-				if (_MinFilterDirty || force) {
-					Gl.TexParameter(texture.TextureTarget, TextureParameterName.TextureMinFilter, (int)MinFilter);
-					_MinFilterDirty = false;
-				}
-			
-				if (_MagFilterDirty || force) {
-					Gl.TexParameter(texture.TextureTarget, TextureParameterName.TextureMagFilter, (int)MagFilter);
-					_MagFilterDirty = false;
-				}
-			
-				if (_WrapRDirty || force) {
-					Gl.TexParameter(texture.TextureTarget, TextureParameterName.TextureWrapR, (int)WrapCoordR);
-					_WrapRDirty = false;
-				}
-			
-				if (_WrapSDirty || force) {
-					Gl.TexParameter(texture.TextureTarget, TextureParameterName.TextureWrapS, (int)WrapCoordS);
-					_WrapSDirty = false;
-				}
-			
-				if (_WrapTDirty || force) {
-					Gl.TexParameter(texture.TextureTarget, TextureParameterName.TextureWrapT, (int)WrapCoordT);
-					_WrapTDirty = false;
-				}
-			} else {
+			if (ctx.Extensions.SamplerObjects_ARB) {
+				// Associate sampler to texture unit
+				Gl.BindSampler(textureUnit.Index, ObjectName);
 				// Update sampler parameters
-				UpdateSamplerParameters(ctx);
+				Parameters.TexParameters(this);
 			}
 		}
 
-		private void UpdateSamplerParameters(GraphicsContext ctx)
+		internal static void Unbind(GraphicsContext ctx, TextureUnit textureUnit)
 		{
-			if (_MinFilterDirty) {
-				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureMinFilter, (int)MinFilter);
-				_MinFilterDirty = false;
-			}
-			
-			if (_MagFilterDirty) {
-				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureMagFilter, (int)MagFilter);
-				_MagFilterDirty = false;
-			}
-			
-			if (_WrapRDirty) {
-				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapR, (int)WrapCoordR);
-				_WrapRDirty = false;
-			}
-			
-			if (_WrapSDirty) {
-				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapS, (int)WrapCoordS);
-				_WrapSDirty = false;
-			}
-			
-			if (_WrapTDirty) {
-				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapT, (int)WrapCoordT);
-				_WrapTDirty = false;
+			if (ctx.Extensions.SamplerObjects_ARB) {
+				// Associate sampler to texture unit
+				Gl.BindSampler(textureUnit.Index, InvalidObjectName);
 			}
 		}
-
-		/// <summary>
-		/// Flag indicating whether this instance is taking advantage of GL_ARB_sampler_object, if supported. If false,
-		/// it emulates sampler interface using texture parameters.
-		/// </summary>
-		private bool _SamplerObject;
 
 		#endregion
 
@@ -297,7 +108,7 @@ namespace OpenGL.Objects
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!_SamplerObject || !ctx.Extensions.SamplerObjects_ARB || Gl.IsSampler(ObjectName));
+			return (!ctx.Extensions.SamplerObjects_ARB || Gl.IsSampler(ObjectName));
 		}
 
 		/// <summary>
@@ -311,7 +122,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (_SamplerObject && ctx.Extensions.SamplerObjects_ARB);
+			return (ctx.Extensions.SamplerObjects_ARB);
 		}
 
 		/// <summary>
@@ -353,9 +164,6 @@ namespace OpenGL.Objects
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			CheckCurrentContext(ctx);
-
-			if (_SamplerObject && ctx.Extensions.SamplerObjects_ARB)
-				UpdateSamplerParameters(ctx);
 		}
 
 		#endregion

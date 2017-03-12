@@ -880,9 +880,8 @@ namespace OpenGL.Objects.Scene
 				Image textureImage = ImageCodec.Instance.Load(textureFilePath);
 				Texture2d texture = new Texture2d();
 
-				texture.RequestMipmapsCreation();
-				texture.MipmapMaxLevel = 0;
 				texture.Create(textureImage);
+				texture.GenerateMipmaps();
 
 				return (texture);
 			} catch (Exception exception) {
