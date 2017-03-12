@@ -56,9 +56,9 @@ namespace OpenGL
 				throw new ArgumentException("invalid", "r");
 
 			// Store matrix extents
-			mWidth = c; mHeight = r;
+			_Width = c; _Height = r;
 			// Allocate matrix
-			MatrixBuffer = new double[mWidth * mHeight];
+			MatrixBuffer = new double[_Width * _Height];
 		}
 
 		/// <summary>
@@ -89,20 +89,20 @@ namespace OpenGL
 		{
 			if (m == null)
 				throw new ArgumentNullException("m");
-			if ((m.mWidth <= 1) || (m.mHeight <= 1))
+			if ((m._Width <= 1) || (m._Height <= 1))
 				throw new ArgumentException("too small", "m");
-			if (c >= m.mWidth)
+			if (c >= m._Width)
 				throw new ArgumentOutOfRangeException("c", c, "column index greater than matrix width");
-			if (r >= m.mHeight)
+			if (r >= m._Height)
 				throw new ArgumentOutOfRangeException("r", r, "row index greater than matrix height");
 
 			// Store matrix extents
-			mWidth = m.mWidth - 1; mHeight = m.mHeight - 1;
+			_Width = m._Width - 1; _Height = m._Height - 1;
 			// Allocate matrix
-			MatrixBuffer = new double[mWidth * mHeight];
+			MatrixBuffer = new double[_Width * _Height];
 			// Copy complement matrix components (exclude colum c and row r)
-			for (uint ic = 0; ic < mWidth; ic++)
-				for (uint ir = 0; ir < mHeight; ir++)
+			for (uint ic = 0; ic < _Width; ic++)
+				for (uint ir = 0; ir < _Height; ir++)
 					this[ic,ir] = m[(ic<c)?ic:ic+1,(ir<r)?ir:ir+1];
 		}
 
@@ -139,7 +139,7 @@ namespace OpenGL
 				throw new ArgumentException("array length mismatch");
 
 			// Store matrix extents
-			mWidth = c; mHeight = r;
+			_Width = c; _Height = r;
 			// Allocate matrix
 			MatrixBuffer = new double[values.Length];
 			// Copy complement matrix components (exclude colum c and row r)
@@ -161,16 +161,16 @@ namespace OpenGL
 				throw new ArgumentNullException("m");
 
 			// Store matrix extents
-			mWidth = m.mWidth; mHeight = m.mHeight;
+			_Width = m._Width; _Height = m._Height;
 			// Allocate matrix
-			MatrixBuffer = new double[mWidth * mHeight];
+			MatrixBuffer = new double[_Width * _Height];
 
 			// Copy matrix components
 			unsafe {
 				fixed (double* matrix = MatrixBuffer)
 				fixed (double* otherMatrix = m.MatrixBuffer)
 				{
-					uint length = mWidth * mHeight;
+					uint length = _Width * _Height;
 
 					for (int i = 0; i < length; i++)
 						matrix[i] = otherMatrix[i];
@@ -194,16 +194,16 @@ namespace OpenGL
 			
 			if (m is MatrixDouble) {
 				// Store matrix extents
-				mWidth = m.Width; mHeight = m.Height;
+				_Width = m.Width; _Height = m.Height;
 				// Allocate matrix
-				MatrixBuffer = new double[mWidth * mHeight];
+				MatrixBuffer = new double[_Width * _Height];
 	
 				// Copy matrix components
 				unsafe {
 					fixed (double* matrix = MatrixBuffer)
 					fixed (double* otherMatrix = ((MatrixDouble)m).MatrixBuffer)
 					{
-						uint length = mWidth * mHeight;
+						uint length = _Width * _Height;
 	
 						for (int i = 0; i < length; i++)
 							matrix[i] = otherMatrix[i];
@@ -211,16 +211,16 @@ namespace OpenGL
 				}
 			} else {
 				// Store matrix extents
-				mWidth = m.Width; mHeight = m.Height;
+				_Width = m.Width; _Height = m.Height;
 				// Allocate matrix
-				MatrixBuffer = new double[mWidth * mHeight];
+				MatrixBuffer = new double[_Width * _Height];
 	
 				// Copy matrix components
 				unsafe {
 					fixed (double* matrix = MatrixBuffer)
 					fixed (float* otherMatrix = ((Matrix)m).MatrixBuffer)
 					{
-						uint length = mWidth * mHeight;
+						uint length = _Width * _Height;
 	
 						for (int i = 0; i < length; i++)
 							matrix[i] = otherMatrix[i];
@@ -281,20 +281,20 @@ namespace OpenGL
 				throw new ArgumentNullException("m1");
 			if (m2 == null)
 				throw new ArgumentNullException("m2");
-			if (m1.mWidth != m2.mWidth)
+			if (m1._Width != m2._Width)
 				throw new ArgumentException("matrices width mismatch");
-			if (m1.mHeight != m2.mHeight)
+			if (m1._Height != m2._Height)
 				throw new ArgumentException("matrices height mismatch");
 
 			// Allocate product matrix
-			MatrixDouble sum = new MatrixDouble(m1.mWidth, m1.mHeight);
+			MatrixDouble sum = new MatrixDouble(m1._Width, m1._Height);
 
 			unsafe {
 				fixed (double* matrix1 = m1.MatrixBuffer)
 				fixed (double* matrix2 = m2.MatrixBuffer)
 				fixed (double* sumMatrix = sum.MatrixBuffer)
 				{
-					uint length = m1.mWidth * m1.Height;
+					uint length = m1._Width * m1.Height;
 
 					for (uint i = 0; i < length; i++)
 						sumMatrix[i] = matrix1[i] + matrix2[i];	
@@ -325,12 +325,12 @@ namespace OpenGL
 				throw new ArgumentNullException("m");
 
 			// Allocate product matrix
-			MatrixDouble prod = new MatrixDouble(m.mWidth, m.mHeight);
+			MatrixDouble prod = new MatrixDouble(m._Width, m._Height);
 
 			unsafe {
 				fixed (double* matrix = m.MatrixBuffer)
 				fixed (double* prodMatrix = prod.MatrixBuffer) {
-					uint length = m.mWidth * m.Height;
+					uint length = m._Width * m.Height;
 
 					for (uint i = 0; i < length; i++)
 						prodMatrix[i] = matrix[i] * scalar;	
@@ -361,13 +361,13 @@ namespace OpenGL
 				throw new ArgumentNullException("m");
 
 			// Allocate product matrix
-			MatrixDouble div = new MatrixDouble(m.mWidth, m.mHeight);
+			MatrixDouble div = new MatrixDouble(m._Width, m._Height);
 
 			unsafe {
 				fixed (double* matrix = m.MatrixBuffer)
 				fixed (double* divMatrix = div.MatrixBuffer)
 				{
-					uint length = m.mWidth * m.Height;
+					uint length = m._Width * m.Height;
 
 					for (uint i = 0; i < length; i++)
 						divMatrix[i] = matrix[i] / scalar;
@@ -401,28 +401,26 @@ namespace OpenGL
 				throw new ArgumentNullException("m");
 			if (n == null)
 				throw new ArgumentNullException("n");
-			if (m.mWidth != n.mHeight)
+			if (m._Width != n._Height)
 				throw new ArgumentException("matrices width/height mismatch");
 
 			// Allocate product matrix
-			MatrixDouble prod = new MatrixDouble(n.mHeight, m.mWidth);
+			MatrixDouble prod = new MatrixDouble(n._Width, m._Height);
 
 			unsafe {
 				fixed (double* pm = m.MatrixBuffer)
 				fixed (double* pn = n.MatrixBuffer)
 				fixed (double* prodMatrix = prod.MatrixBuffer)
 				{
-					uint w = m.mWidth, h1 = m.Height;
-
 					// Compute matrix product
-					for (uint r = 0; r < h1; r++) {
-						for (uint c = 0; c < w; c++) {
-							double s = 0.0f;
+					for (uint c = 0; c < n._Width; c++) {
+						for (uint r = 0; r < prod._Height; r++) {
+							double s = 0.0;
 
-							for (uint i = 0; i < h1; i++)
-								s += pm[i * h1 + r] * pn[c * h1 + i];
+							for (uint i = 0; i < m._Width; i++)
+								s += pm[i * m._Height + r] * pn[c * n._Height + i];
 
-							prodMatrix[c * h1 + r] = s;
+							prodMatrix[c * prod._Height + r] = s;
 						}
 					}
 				}
@@ -500,16 +498,16 @@ namespace OpenGL
 		{
 			if (m == null)
 				throw new ArgumentNullException("m");
-			if (m.mWidth != Width)
+			if (m._Width != Width)
 				throw new ArgumentException("matrix width mismatch");
-			if (m.mHeight != Height)
+			if (m._Height != Height)
 				throw new ArgumentException("matrix height mismatch");
 
 			unsafe {
 				fixed (double* matrix = MatrixBuffer)
 				fixed (double* otherMatrix = m.MatrixBuffer)
 				{
-					uint length = m.mWidth * m.Height;
+					uint length = m._Width * m.Height;
 
 					for (uint i = 0; i < length; i++)
 						matrix[i] = otherMatrix[i];
@@ -599,7 +597,7 @@ namespace OpenGL
 			if (IsSquare == false)
 				throw new InvalidOperationException("not square");
 
-			if (mWidth > 2) {
+			if (_Width > 2) {
 				double d = 0.0f;
 
 				for (uint r = 0; r < Height; r++) {
@@ -646,16 +644,16 @@ namespace OpenGL
 				throw new ArgumentNullException("m");
 			if (m.IsSquare == false)
 				throw new InvalidOperationException("non-square");
-			if (c >= m.mWidth)
+			if (c >= m._Width)
 				throw new ArgumentException("out of bounds", "c");
-			if (r >= m.mHeight)
+			if (r >= m._Height)
 				throw new ArgumentException("out of bounds", "r");
 
 			// Determine complement sign
 			if (((c + r) % 2) == 0) sign = 1.0f; else sign = -1.0f;
 
 			// Compute matrix component complement
-			if (m.mWidth > 2) {
+			if (m._Width > 2) {
 				MatrixDouble complement = new MatrixDouble(m, c, r);
 
 				return (sign * complement.GetDeterminant());
@@ -727,7 +725,7 @@ namespace OpenGL
 		/// </summary>
 		public uint Width
 		{
-			get { return (mWidth); }
+			get { return (_Width); }
 		}
 
 		/// <summary>
@@ -735,7 +733,7 @@ namespace OpenGL
 		/// </summary>
 		public uint Height
 		{
-			get { return (mHeight); }
+			get { return (_Height); }
 		}
 
 		/// <summary>
@@ -773,7 +771,7 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (double* matrix = MatrixBuffer) {
-					uint length = mWidth * Height;
+					uint length = _Width * Height;
 
 					for (uint i = 0; i < length; i++)
 						matrix[i] = 0.0f;
@@ -794,9 +792,9 @@ namespace OpenGL
 
 			unsafe {
 				fixed (double* matrix = MatrixBuffer) {
-					for (uint c = 0; c < mWidth; c++)
-						for (uint r = 0; r < mHeight; r++)
-							if (c == r) matrix[c * mWidth + r] = 1.0; else matrix[c * mWidth + r] = 0.0;
+					for (uint c = 0; c < _Width; c++)
+						for (uint r = 0; r < _Height; r++)
+							if (c == r) matrix[c * _Width + r] = 1.0; else matrix[c * _Width + r] = 0.0;
 				}
 			}
 		}
@@ -832,9 +830,9 @@ namespace OpenGL
 
 			unsafe {
 				fixed (double* matrix = MatrixBuffer) {
-					for (uint c = 0; c < mWidth; c++) {
-						for (uint r = 0; r < mHeight; r++) {
-							double value = matrix[c * mWidth + r];
+					for (uint c = 0; c < _Width; c++) {
+						for (uint r = 0; r < _Height; r++) {
+							double value = matrix[c * _Width + r];
 
 							if ((c != r) && (Math.Abs(value) > precision))
 								return (false);
@@ -911,9 +909,9 @@ namespace OpenGL
 				return (this * otherMatrix);
 			
 			// Allocate product matrix
-			MatrixDouble prod = new MatrixDouble(a.Height, mWidth);
+			MatrixDouble prod = new MatrixDouble(a.Height, _Width);
 
-			uint w = mWidth, h = mHeight;
+			uint w = _Width, h = _Height;
 
 			// Compute matrix product
 			for (uint r = 0; r < h; r++) {
@@ -1011,26 +1009,26 @@ namespace OpenGL
 		{
 			get
 			{
-				if (c >= mWidth)
+				if (c >= _Width)
 					throw new ArgumentException("colum index greater than column count", "c");
-				if (r >= mHeight)
+				if (r >= _Height)
 					throw new ArgumentException("row index greater than row count", "r");
 
 				unsafe {
 					fixed (double* matrix = MatrixBuffer) {
-						return (matrix[c * mHeight + r]);
+						return (matrix[c * _Height + r]);
 					}
 				}
 			}
 			set
 			{
-				if (c >= mWidth)
+				if (c >= _Width)
 					throw new ArgumentException("colum index greater than column count", "c");
-				if (r >= mHeight)
+				if (r >= _Height)
 					throw new ArgumentException("row index greater than row count", "r");
 				unsafe {
 					fixed (double* matrix = MatrixBuffer) {
-						matrix[c * mHeight + r] = value;
+						matrix[c * _Height + r] = value;
 					}
 				}
 			}
@@ -1053,12 +1051,12 @@ namespace OpenGL
 		/// <summary>
 		/// Matrix width (column count).
 		/// </summary>
-		private readonly uint mWidth;
+		private readonly uint _Width;
 
 		/// <summary>
 		/// Matrix height (row count).
 		/// </summary>
-		private readonly uint mHeight;
+		private readonly uint _Height;
 
 		#endregion
 
@@ -1079,14 +1077,14 @@ namespace OpenGL
 				return (false);
 			if (ReferenceEquals(this, other))
 				return (true);
-			if ((mWidth != other.Width) || (mHeight != other.mHeight))
+			if ((_Width != other.Width) || (_Height != other._Height))
 				return (false);
 
 			unsafe {
 				fixed (double* m1Fix = MatrixBuffer)
 				fixed (double* m2Fix = other.MatrixBuffer)
 				{
-					uint w = mWidth, h = Height;
+					uint w = _Width, h = Height;
 
 					// Compute matrix product
 					for (uint c = 0; c < w * h; c++) {
@@ -1132,9 +1130,9 @@ namespace OpenGL
 			unchecked {
 				int result = MatrixBuffer.GetHashCode();
 
-				result = (result * 397) ^ mWidth.GetHashCode();
+				result = (result * 397) ^ _Width.GetHashCode();
 
-				result = (result * 397) ^ mHeight.GetHashCode();
+				result = (result * 397) ^ _Height.GetHashCode();
 
 				return result;
 			}
