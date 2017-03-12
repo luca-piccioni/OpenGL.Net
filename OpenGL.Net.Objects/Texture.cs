@@ -332,7 +332,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Mipmapping
+		#region Mipmaps
 
 		/// <summary>
 		/// Get the level indicating the base mipmap level.
@@ -767,15 +767,6 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Shader Uniform Binding
-
-		/// <summary>
-		/// Uniform sampler type for managing this Texture.
-		/// </summary>
-		internal abstract int SamplerType { get; }
-
-		#endregion
-
 		#region Technique
 
 		/// <summary>
@@ -936,6 +927,15 @@ namespace OpenGL.Objects
 		/// Index of the active texture units on which this texture is bound.
 		/// </summary>
 		internal readonly List<uint> _ActiveTextureUnits = new List<uint>();
+
+		#endregion
+
+		#region Shader Uniform Binding (Internal)
+
+		/// <summary>
+		/// Uniform sampler type for managing this Texture.
+		/// </summary>
+		internal abstract int SamplerType { get; }
 
 		#endregion
 

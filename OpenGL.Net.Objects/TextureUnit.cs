@@ -205,6 +205,11 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Texture currently bound on texture unit.
 		/// </summary>
+		/// <remarks>
+		/// From specification: "If a sampler object that is currently bound to one or more texture units is deleted, it
+		/// is as though BindSampler is called once for each texture unit to which the sampler is bound, with unit set to the texture
+		/// unit and sampler set to zero."
+		/// </remarks>
 		private WeakReference<Sampler> _Sampler;
 
 		#endregion
@@ -233,7 +238,7 @@ namespace OpenGL.Objects
 			if (sampler != null) {
 				if (ctx.Extensions.SamplerObjects_ARB) {
 					// Ensure sampler parameters in sync
-					sampler.Parameters.TexParameters(sampler);
+					sampler.Bind(ctx, this);
 					// Fast path? No need to update texture unit parameters
 					return;		
 				} else {

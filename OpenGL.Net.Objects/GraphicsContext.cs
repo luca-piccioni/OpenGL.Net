@@ -16,13 +16,10 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Symbol for enabling redundant server-state operations reduction
 #define ENABLE_LAZY_SERVER_STATE
-// Symbol for disabling redundant bind operations via IBindingResource
+// Symbol for enabling redundant bind operations reduction via IBindingResource
 #define ENABLE_LAZY_BINDING
-// Symbol for disabling redundant texture unit selection
-#define ENABLE_LAZY_TEXTURE_UNIT
-// Symbol for disabling redundant texture unit object binding
-#define ENABLE_LAZY_TEXTURE_UNIT_BINDING
 
 // Symbol for disabling at compile-time features derived from GL_ARB_draw_instanced
 #undef DISABLE_GL_ARB_draw_instanced
@@ -598,11 +595,6 @@ namespace OpenGL.Objects
 			// Reserved object name space
 			InitializeNamespace();
 
-			// Texture download
-			_TextureDownloadFramebuffer = new Framebuffer();
-			_TextureDownloadFramebuffer.IncRef();
-			_TextureDownloadFramebuffer.Create(this);
-
 			// Shader include library (GLSL #include support)
 			_ShaderIncludeLibrary = new ShaderIncludeLibrary();
 			_ShaderIncludeLibrary.IncRef();
@@ -625,9 +617,6 @@ namespace OpenGL.Objects
 			_ShadingVersion = sharedContext._ShadingVersion;
 			// Sharing same object name space
 			_ObjectNameSpace = sharedContext._ObjectNameSpace;
-			// Texture download
-			_TextureDownloadFramebuffer = sharedContext._TextureDownloadFramebuffer;
-			_TextureDownloadFramebuffer.IncRef();
 			// Reference shader include library (GLSL #include support)
 			_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
 		}
@@ -666,7 +655,6 @@ namespace OpenGL.Objects
 		/// </summary>
 		private void TerminateResources()
 		{
-			_TextureDownloadFramebuffer.DecRef();
 			_ShaderIncludeLibrary.DecRef();
 
 			TerminateDebugProfile();
@@ -1118,10 +1106,9 @@ namespace OpenGL.Objects
 			if (textureUnitIndex >= Gl.CurrentLimits.MaxCombinedTextureImageUnits)
 				throw new ArgumentNullException("textureUnitIndex");
 
-#if ENABLE_LAZY_TEXTURE_UNIT
 			if (textureUnitIndex == _ActiveTextureUnit)
 				return;
-#endif
+
 			// Select active texture unit
 			Gl.ActiveTexture(Gl.TEXTURE0 + (int)textureUnitIndex);
 			// Keep track of the server state
@@ -1264,15 +1251,10 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("texture");
 
 			// Get the texture unit index associated with texture
-			uint textureUnitIndex;
-			bool textureUnitDirty = false;
+			uint textureUnitIndex = texture.DefaultTextureUnit;
 
-			if (texture._ActiveTextureUnits.Count > 0) {
-				textureUnitIndex = texture._ActiveTextureUnits[0];
-			} else {
+			if (textureUnitIndex == UInt32.MaxValue)
 				textureUnitIndex = (++_TextureUnitsIndex) % (uint)_TextureUnits.Length;
-				textureUnitDirty = true;
-			}
 
 			// Get the texture unit for texture
 			TextureUnit textureUnit = _TextureUnits[textureUnitIndex];
@@ -1907,35 +1889,6 @@ namespace OpenGL.Objects
 		/// Semaphore used for synchronizing accesses to <see cref="_ResourceQueue"/>.
 		/// </summary>
 		private readonly SemaphoreSlim _ResourceQueueSem = new SemaphoreSlim(0, 4);
-
-		#endregion
-
-		#region Texture Download
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="texture"></param>
-		/// <param name="layer"></param>
-		internal Image GetTextureImage(TextureArray2d texture, uint layer)
-		{
-			Image textureImage;
-
-			_TextureDownloadFramebuffer.BindDraw(this);
-			_TextureDownloadFramebuffer.DetachColors();
-			_TextureDownloadFramebuffer.AttachColor(0, texture, layer);
-
-			textureImage = _TextureDownloadFramebuffer.ReadColorBuffer(this, 0, 0, 0, texture.Width, texture.Height, texture.PixelLayout);
-
-			_TextureDownloadFramebuffer.UnbindDraw(this);
-
-			return (textureImage);
-		}
-
-		/// <summary>
-		/// Framebuffer used to support layered/3d texture data download.
-		/// </summary>
-		private Framebuffer _TextureDownloadFramebuffer;
 
 		#endregion
 

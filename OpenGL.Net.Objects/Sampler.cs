@@ -44,6 +44,11 @@ namespace OpenGL.Objects
 		/// </summary>
 		public readonly SamplerParameters Parameters = new SamplerParameters();
 
+		/// <summary>
+		/// Currently applied sampler parameters.
+		/// </summary>
+		private readonly SamplerParameters _ObjectParams = new SamplerParameters();
+
 		#endregion
 
 		#region Texture Unit Parameters
@@ -54,7 +59,7 @@ namespace OpenGL.Objects
 				// Associate sampler to texture unit
 				Gl.BindSampler(textureUnit.Index, ObjectName);
 				// Update sampler parameters
-				Parameters.TexParameters(this);
+				TexParameters(Parameters);
 			}
 		}
 
@@ -63,6 +68,34 @@ namespace OpenGL.Objects
 			if (ctx.Extensions.SamplerObjects_ARB) {
 				// Associate sampler to texture unit
 				Gl.BindSampler(textureUnit.Index, InvalidObjectName);
+			}
+		}
+
+		private void TexParameters(SamplerParameters samplerParams)
+		{
+			if (samplerParams.MinFilter != _ObjectParams.MinFilter) {
+				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureMinFilter, (int)samplerParams.MinFilter);
+				_ObjectParams.MinFilter = samplerParams.MinFilter;
+			}
+			
+			if (samplerParams.MagFilter != _ObjectParams.MagFilter) {
+				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureMagFilter, (int)samplerParams.MagFilter);
+				_ObjectParams.MagFilter = samplerParams.MagFilter;
+			}
+			
+			if (samplerParams.WrapCoordR != _ObjectParams.WrapCoordR) {
+				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapR, (int)samplerParams.WrapCoordR);
+				_ObjectParams.WrapCoordR = samplerParams.WrapCoordR;
+			}
+			
+			if (samplerParams.WrapCoordS != _ObjectParams.WrapCoordS) {
+				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapS, (int)samplerParams.WrapCoordS);
+				_ObjectParams.WrapCoordS = samplerParams.WrapCoordS;
+			}
+			
+			if (samplerParams.WrapCoordT != _ObjectParams.WrapCoordT) {
+				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapT, (int)samplerParams.WrapCoordT);
+				_ObjectParams.WrapCoordT = samplerParams.WrapCoordT;
 			}
 		}
 
