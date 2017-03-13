@@ -619,6 +619,7 @@ namespace OpenGL.Objects
 			_ObjectNameSpace = sharedContext._ObjectNameSpace;
 			// Reference shader include library (GLSL #include support)
 			_ShaderIncludeLibrary = sharedContext._ShaderIncludeLibrary;
+			_ShaderIncludeLibrary.IncRef();
 		}
 
 		/// <summary>
@@ -1060,7 +1061,7 @@ namespace OpenGL.Objects
 		/// The <see cref="State.IGraphicsState"/> applied on the this GraphicsContext.
 		/// </param>
 		/// <remarks>
-		/// This method is expected to be called by <see cref="State.IGraphicsState.ApplyState(GraphicsContext, ShaderProgram)"/>
+		/// This method is expected to be called by <see cref="State.IGraphicsState.Apply(GraphicsContext, ShaderProgram)"/>
 		/// implementations.
 		/// </remarks>
 		internal void SetCurrentState(State.IGraphicsState state)

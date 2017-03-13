@@ -700,7 +700,7 @@ namespace OpenGL.Objects
 				PixelType type = _Image.PixelLayout.GetPixelType();
 
 				// Set pixel alignment
-				State.PixelAlignmentState.Unpack(_Image.Stride).ApplyState(ctx, null);
+				State.PixelAlignmentState.Unpack(_Image.Stride).Apply(ctx, null);
 				
 				// Upload texture contents
 				Gl.TexSubImage2D(_Target, (int)_Level, 0, 0, (int)_Image.Width, (int)_Image.Height, format, type, _Image.ImageBuffer);

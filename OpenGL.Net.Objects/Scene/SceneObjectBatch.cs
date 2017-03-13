@@ -76,7 +76,7 @@ namespace OpenGL.Objects.Scene
 		public ShaderProgram Program
 		{
 			get { return (_Program); }
-			protected set { _Program = value; }
+			set { _Program = value; }
 		}
 
 		/// <summary>
@@ -90,7 +90,7 @@ namespace OpenGL.Objects.Scene
 		public virtual VertexArrayObject VertexArray
 		{
 			get { return (_VertexArray); }
-			protected set { _VertexArray = value; }
+			set { _VertexArray = value;; }
 		}
 
 		/// <summary>

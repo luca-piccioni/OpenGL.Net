@@ -51,21 +51,27 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// 
 		/// </summary>
-		[Conditional("GL_DEBUG")]
+		[Conditional("DEBUG")]
 		public static void CheckResourceLeaks()
 		{
-			foreach (Resource resource in _LivingResources)
-				Debug.Assert(!resource.IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", resource.RefCount, resource._ConstructorStackTrace));
+			if (_LivingResources.Count > 0) {
+				Log("Leaking {0} resources.", _LivingResources.Count);
+				foreach (Resource resource in _LivingResources) {
+					Log("Resource {0} (ref count: {1}, disposed: {2})", resource.GetType().Name, resource.RefCount, resource.IsDisposed);
+				}
+			} else
+				Log("No resource leak.");
 		}
 
+		[Conditional("DEBUG")]
 		protected void NotifyDiedResource()
 		{
 			// Remove this GraphicsResource from the living ones
-			//_LivingResources.RemoveAll(delegate (Resource resource) { return ReferenceEquals(resource, this); });
-			_LivingResources.Remove(this);
+			bool res = _LivingResources.Remove(this);
+			Debug.Assert(res);
 		}
 
-		[Conditional("GL_DEBUG")]
+		[Conditional("DEBUG")]
 		private void TrackResourceLifetime()
 		{
 			// Store stack trace
@@ -322,7 +328,6 @@ namespace OpenGL.Objects
 		/// </summary>
 		~Resource()
 		{
-			Debug.Assert(IsDisposed, String.Format("resource not disposed ({0} references), created at {1}", RefCount, _ConstructorStackTrace));
 			Dispose(false);
 		}
 
@@ -357,6 +362,9 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public virtual void Dispose()
 		{
+			// Avoid re-run of Dispose
+			if (_Disposed) return;
+
 			// Dispose is equivalent to DecRef()...
 			// This allow using{} even on referenced variables, as long the GraphicsResource is referenced in the using block
 			if (_RefCount > 0)

@@ -235,7 +235,7 @@ namespace OpenGL.Objects
 					Image image = _Images[i];
 
 					// Set pixel alignment
-					State.PixelAlignmentState.Unpack(image.Stride).ApplyState(ctx, null);
+					State.PixelAlignmentState.Unpack(image.Stride).Apply(ctx, null);
 
 					// Upload texture contents
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);

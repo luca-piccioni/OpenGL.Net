@@ -278,6 +278,21 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Replace a referenced resource with another one.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="value"></param>
+		/// <param name="current"></param>
+		public static void Swap<T>(T value, ref T current) where T : IGraphicsResource
+		{
+			if (current != null)
+				current.DecRef();
+			current = value;
+			if (value != null)
+				value.IncRef();
+		}
+
+		/// <summary>
 		/// Resources used by this UserGraphicsResource.
 		/// </summary>
 		private readonly List<IGraphicsResource> _GpuResources = new List<IGraphicsResource>();
@@ -405,7 +420,7 @@ namespace OpenGL.Objects
 						if ((currentContext != null) && (currentContext.ObjectNameSpace == _ObjectNameSpace))
 							Delete(currentContext);
 					} else {
-
+						Delete(resourceContext);
 					}
 				}
 

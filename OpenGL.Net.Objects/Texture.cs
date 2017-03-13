@@ -272,7 +272,7 @@ namespace OpenGL.Objects
 			Image image = new Image(pixelType, (uint)width, (uint)height);
 
 			// Set pixel transfer
-			State.PixelAlignmentState.Pack(image.Stride).ApplyState(ctx, null);
+			State.PixelAlignmentState.Pack(image.Stride).Apply(ctx, null);
 
 			// Download texture contents
 			Gl.GetTexImage(target, (int)level, pixelType.GetGlFormat(), pixelType.GetPixelType(), image.ImageBuffer);

@@ -183,7 +183,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public virtual bool IsShaderProgramBound { get { return (false); } }
+		public virtual bool IsProgramBound { get { return (false); } }
 
 		/// <summary>
 		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
@@ -194,7 +194,15 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
 		/// </param>
-		public virtual void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		public virtual void Create(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+
+		}
+
+		/// <summary>
+		/// Dispose resources allocated by <see cref="Create(GraphicsContext, ShaderProgram)"/>.
+		/// </summary>
+		public virtual void Delete()
 		{
 
 		}
@@ -208,7 +216,7 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> holding the uniform state.
 		/// </param>
-		public abstract void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram);
+		public abstract void Apply(GraphicsContext ctx, ShaderProgram shaderProgram);
 
 		/// <summary>
 		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
@@ -265,11 +273,6 @@ namespace OpenGL.Objects.State
 
 			return (other.StateIndex == StateIndex);
 		}
-
-		/// <summary>
-		/// The name of the uniform buffer object used for holding uniform state information.
-		/// </summary>
-		public virtual uint UniformBlockName { get { return (0); } }
 
 		/// <summary>
 		/// Flag indicating whether this state is inheritable.

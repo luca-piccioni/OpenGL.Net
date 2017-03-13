@@ -122,7 +122,7 @@ namespace OpenGL.Objects.State
 		/// <param name="sProgram">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram sProgram)
+		public override void Apply(GraphicsContext ctx, ShaderProgram sProgram)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");

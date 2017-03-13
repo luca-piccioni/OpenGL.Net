@@ -162,7 +162,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public override bool IsShaderProgramBound { get { return (true); } }
+		public override bool IsProgramBound { get { return (true); } }
 
 		/// <summary>
 		/// Apply this TransformStateBase.
@@ -173,7 +173,7 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		public override void Apply(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			GraphicsResource.CheckCurrentContext(ctx);
 

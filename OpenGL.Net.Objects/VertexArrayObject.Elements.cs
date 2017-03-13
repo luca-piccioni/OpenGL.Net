@@ -686,7 +686,7 @@ namespace OpenGL.Objects
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV) {
-						new State.PrimitiveRestartState(ArrayIndices.RestartIndexKey).ApplyState(ctx, null);
+						new State.PrimitiveRestartState(ArrayIndices.RestartIndexKey).Apply(ctx, null);
 
 						// Draw elements with primitive restart
 						DrawElements(ctx, arraySection.Pointer);
@@ -701,7 +701,7 @@ namespace OpenGL.Objects
 
 					// Disable primitive restart, if enabled
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
-						State.PrimitiveRestartState.DefaultState.ApplyState(ctx, null);
+						State.PrimitiveRestartState.DefaultState.Apply(ctx, null);
 
 					// Draw vertex arrays by indices
 					DrawElements(ctx, arraySection.Pointer);
@@ -730,7 +730,7 @@ namespace OpenGL.Objects
 				// Enable restart primitive?
 				if (ArrayIndices.RestartIndexEnabled) {
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV) {
-						new State.PrimitiveRestartState(ArrayIndices.RestartIndexKey).ApplyState(ctx, null);
+						new State.PrimitiveRestartState(ArrayIndices.RestartIndexKey).Apply(ctx, null);
 
 						DrawElementsInstanced(ctx, arraySection.Pointer, instances);
 					} else {
@@ -742,7 +742,7 @@ namespace OpenGL.Objects
 
 					// Disable primitive restart, if enabled
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
-						State.PrimitiveRestartState.DefaultState.ApplyState(ctx, null);
+						State.PrimitiveRestartState.DefaultState.Apply(ctx, null);
 
 					// Draw vertex arrays by indices
 					DrawElementsInstanced(ctx, arraySection.Pointer, instances);

@@ -45,7 +45,7 @@ namespace OpenGL.Objects.State
 
 		#endregion
 
-		#region Application
+		#region State Information
 
 		/// <summary>
 		/// Flag indicating whether the state is applied to a <see cref="GraphicsContext"/>.
@@ -55,7 +55,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		bool IsShaderProgramBound { get; }
+		bool IsProgramBound { get; }
 
 		/// <summary>
 		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
@@ -66,7 +66,12 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
 		/// </param>
-		void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram);
+		void Create(GraphicsContext ctx, ShaderProgram shaderProgram);
+
+		/// <summary>
+		/// Dispose resources allocated by <see cref="Create(GraphicsContext, ShaderProgram)"/>.
+		/// </summary>
+		void Delete();
 
 		/// <summary>
 		/// Apply the render state defined by this IGraphicsState.
@@ -77,7 +82,7 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> holding the uniform state.
 		/// </param>
-		void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram);
+		void Apply(GraphicsContext ctx, ShaderProgram shaderProgram);
 
 		#endregion
 
@@ -109,15 +114,6 @@ namespace OpenGL.Objects.State
 		/// </para>
 		/// </remarks>
 		void Merge(IGraphicsState state);
-
-		#endregion
-
-		#region Uniform Block
-
-		/// <summary>
-		/// The name of the uniform buffer object used for holding uniform state information.
-		/// </summary>
-		uint UniformBlockName { get; }
 
 		#endregion
 	}

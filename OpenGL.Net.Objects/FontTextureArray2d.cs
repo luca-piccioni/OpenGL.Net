@@ -490,7 +490,7 @@ namespace OpenGL.Objects
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
 
 			// Rasterize it
-			State.BlendState.AlphaBlending.ApplyState(ctx, _FontProgram);
+			State.BlendState.AlphaBlending.Apply(ctx, _FontProgram);
 
 			for (int i = 0; i < glyphsInstances.Count; i++) {
 				_FontProgram.SetUniform(ctx, "glo_ModelViewProjection", glyphsInstances[i].ModelViewProjection);
@@ -554,7 +554,7 @@ namespace OpenGL.Objects
 			}
 
 			// Rasterize it
-			State.BlendState.AlphaBlending.ApplyState(ctx, _FontProgram);
+			State.BlendState.AlphaBlending.Apply(ctx, _FontProgram);
 
 			_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphsInstances.Count);
 		}
@@ -580,7 +580,7 @@ namespace OpenGL.Objects
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
 
 			// Rasterize it
-			State.BlendState.AlphaBlending.ApplyState(ctx, _FontProgram);
+			State.BlendState.AlphaBlending.Apply(ctx, _FontProgram);
 
 			_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphInstances.Count);
 		}

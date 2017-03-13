@@ -565,7 +565,7 @@ namespace OpenGL.Objects
 				PixelType type = _Image.PixelLayout.GetPixelType();
 
 				// Set pixel alignment
-				State.PixelAlignmentState.Unpack(_Image.Stride).ApplyState(ctx, null);
+				State.PixelAlignmentState.Unpack(_Image.Stride).Apply(ctx, null);
 
 				width  = _Image.Width;
 				height = _Image.Height;

@@ -213,7 +213,14 @@ namespace OpenGL.Objects.State
 		{
 			foreach (IGraphicsState state in _RenderStates)
 				if (state != null)
-					state.CreateState(ctx, shaderProgram);
+					state.Create(ctx, shaderProgram);
+		}
+
+		public void Delete()
+		{
+			foreach (IGraphicsState state in _RenderStates)
+				if (state != null)
+					state.Delete();
 		}
 
 		/// <summary>
@@ -249,8 +256,8 @@ namespace OpenGL.Objects.State
 				// Apply state if:
 				// - the state is context-bound, or
 				// - the state is program-bound and a shader program is currently in use
-				if (state.IsContextBound || (state.IsShaderProgramBound && program != null))
-					state.ApplyState(ctx, program);
+				if (state.IsContextBound || (state.IsProgramBound && program != null))
+					state.Apply(ctx, program);
 			}
 		}
 

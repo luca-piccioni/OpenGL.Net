@@ -339,7 +339,7 @@ namespace OpenGL.Objects
 			image.Create(pType, width, height);
 
 			// Set pixel transfer
-			State.PixelAlignmentState.Pack(image.Stride).ApplyState(ctx, null);
+			State.PixelAlignmentState.Pack(image.Stride).Apply(ctx, null);
 
 			// Grab frame buffer pixels
 			PixelFormat rFormat = pType.GetGlFormat();

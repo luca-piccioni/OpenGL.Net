@@ -133,7 +133,16 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for emission component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialEmissionTexture;
+		public Texture2d FrontMaterialEmissionTexture
+		{
+			get { return (_FrontMaterialEmissionTexture); }
+			set { GraphicsResource.Swap(value, ref _FrontMaterialEmissionTexture); }
+		}
+
+		/// <summary>
+		/// The front face material texture for emission component, if any.
+		/// </summary>
+		private Texture2d _FrontMaterialEmissionTexture;
 
 		/// <summary>
 		/// The front face material texture for emission component, if any.
@@ -145,7 +154,16 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for diffuse component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialDiffuseTexture;
+		public Texture2d FrontMaterialDiffuseTexture
+		{
+			get { return (_FrontMaterialDiffuseTexture); }
+			set { GraphicsResource.Swap(value, ref _FrontMaterialDiffuseTexture); }
+		}
+
+		/// <summary>
+		/// The front face material texture for diffuse component, if any.
+		/// </summary>
+		private Texture2d _FrontMaterialDiffuseTexture;
 
 		/// <summary>
 		/// The front face material texture for diffuse component, if any.
@@ -157,7 +175,16 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for normal component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialNormalTexture;
+		public Texture2d FrontMaterialNormalTexture
+		{
+			get { return (_FrontMaterialNormalTexture); }
+			set { GraphicsResource.Swap(value, ref _FrontMaterialNormalTexture); }
+		}
+
+		/// <summary>
+		/// The front face material texture for normal component, if any.
+		/// </summary>
+		private Texture2d _FrontMaterialNormalTexture;
 
 		/// <summary>
 		/// The front face material texture for normal component, if any.
@@ -169,7 +196,16 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for specular component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialSpecularTexture;
+		public Texture2d FrontMaterialSpecularTexture
+		{
+			get { return (_FrontMaterialSpecularTexture); }
+			set { GraphicsResource.Swap(value, ref _FrontMaterialSpecularTexture); }
+		}
+
+		/// <summary>
+		/// The front face material texture for specular component, if any.
+		/// </summary>
+		private Texture2d _FrontMaterialSpecularTexture;
 
 		/// <summary>
 		/// The front face material texture for specular component, if any.
@@ -181,7 +217,16 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for ambient component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialAmbientTexture;
+		public Texture2d FrontMaterialAmbientTexture
+		{
+			get { return (_FrontMaterialAmbientTexture); }
+			set { GraphicsResource.Swap(value, ref _FrontMaterialAmbientTexture); }
+		}
+
+		/// <summary>
+		/// The front face material texture for ambient component, if any.
+		/// </summary>
+		private Texture2d _FrontMaterialAmbientTexture;
 
 		/// <summary>
 		/// The front face material texture for ambient component, if any.
@@ -193,7 +238,16 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for displacement component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialDisplacementTexture;
+		public Texture2d FrontMaterialDisplacementTexture
+		{
+			get { return (_FrontMaterialDisplacementTexture); }
+			set { GraphicsResource.Swap(value, ref _FrontMaterialDisplacementTexture); }
+		}
+
+		/// <summary>
+		/// The front face material texture for displacement component, if any.
+		/// </summary>
+		private Texture2d _FrontMaterialDisplacementTexture;
 
 		/// <summary>
 		/// The front face material texture for displacement component, if any.
@@ -247,7 +301,20 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public override bool IsShaderProgramBound { get { return (true); } }
+		public override bool IsProgramBound { get { return (true); } }
+
+		/// <summary>
+		/// Dispose resources allocated by <see cref="Create(GraphicsContext, ShaderProgram)"/>.
+		/// </summary>
+		public override void Delete()
+		{
+			FrontMaterialEmissionTexture = null;
+			FrontMaterialDiffuseTexture = null;
+			FrontMaterialNormalTexture = null;
+			FrontMaterialSpecularTexture = null;
+			FrontMaterialAmbientTexture = null;
+			FrontMaterialDisplacementTexture = null;
+		}
 
 		/// <summary>
 		/// Apply this MaterialState
@@ -258,7 +325,7 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		public override void Apply(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			GraphicsResource.CheckCurrentContext(ctx);
 
@@ -315,8 +382,6 @@ namespace OpenGL.Objects.State
 
 			if (otherState == null)
 				throw new ArgumentException("not a TransformStateBase", "state");
-
-			
 		}
 
 		/// <summary>

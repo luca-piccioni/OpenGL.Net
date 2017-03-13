@@ -294,7 +294,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Vertex arrays for drawing bounding boxes.
 		/// </summary>
-		private VertexArrayObject _BoundingBoxArray = new VertexArrayObject();
+		private VertexArrayObject _BoundingBoxArray;
 
 		/// <summary>
 		/// Shader program used for drawing bounding volumes.

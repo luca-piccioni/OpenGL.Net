@@ -136,14 +136,14 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Geometry instance.
 		/// </summary>
-		internal class Geometry : SceneObjectBatch
+		internal class Geometry : SceneObjectBatch, IDisposable
 		{
 			#region Constructors
 
 			public Geometry(VertexArrayObject vertexArray) :
 				base(vertexArray)
 			{
-				
+				vertexArray.IncRef();
 			}
 
 			public Geometry(State.GraphicsStateSet state) :
@@ -155,7 +155,7 @@ namespace OpenGL.Objects.Scene
 			public Geometry(ShaderProgram program) :
 				base(program)
 			{
-				
+				program.IncRef();
 			}
 
 			/// <summary>
@@ -169,7 +169,9 @@ namespace OpenGL.Objects.Scene
 			public Geometry(VertexArrayObject vertexArray, State.GraphicsStateSet state, ShaderProgram program) :
 				base(vertexArray, state, program)
 			{
-				
+				vertexArray.IncRef();
+				if (program != null)
+					program.IncRef();
 			}
 
 			#endregion
@@ -226,7 +228,7 @@ namespace OpenGL.Objects.Scene
 			public override VertexArrayObject VertexArray
 			{
 				get { return (base.VertexArray); }
-				protected set
+				set
 				{
 					// Base implementation
 					base.VertexArray = value;
@@ -234,6 +236,19 @@ namespace OpenGL.Objects.Scene
 					if (value != null)
 						BoundingVolume = SceneObjectGeometry.ComputeBoundingVolume(value);
 				}
+			}
+
+			#endregion
+
+			#region IDisposable Implementation
+
+			public void Dispose()
+			{
+				if (VertexArray != null)
+					VertexArray.DecRef();
+				if (Program != null)
+					Program.DecRef();
+				State.Delete();
 			}
 
 			#endregion
@@ -446,6 +461,9 @@ namespace OpenGL.Objects.Scene
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
+				foreach (Geometry geometry in _GeometryInstances)
+					geometry.Dispose();
+
 				VertexArray = null;
 				Program = null;
 			}

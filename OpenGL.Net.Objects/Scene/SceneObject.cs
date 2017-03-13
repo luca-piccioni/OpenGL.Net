@@ -777,6 +777,8 @@ namespace OpenGL.Objects.Scene
 				// Propagate disposition to hierarchy
 				foreach (SceneObject sceneGraphObject in _Children)
 					sceneGraphObject.Dispose();
+				// Dispose resources associated to the graphics state
+				ObjectState.Delete();
 			}
 
 			// Base implementation

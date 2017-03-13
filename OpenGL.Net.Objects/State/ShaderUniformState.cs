@@ -445,24 +445,21 @@ namespace OpenGL.Objects.State
 		#region Uniform Block Support
 
 		/// <summary>
-		/// Get or set the buffer holding the uniform state.
+		/// The tag the identifies the uniform block.
 		/// </summary>
-		public UniformBufferObject UniformBuffer
-		{
-			get { return (_UniformBuffer); }
-			set { _UniformBuffer = value; }
-		}
+		protected virtual string UniformBlockTag { get { return (null); } }
+
+		/// <summary>
+		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
+		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
+		/// </summary>
+		protected UniformBufferObject UniformBuffer { get { return (_UniformBuffer); } }
 
 		/// <summary>
 		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
 		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
 		/// </summary>
 		private UniformBufferObject _UniformBuffer;
-
-		/// <summary>
-		/// The tag the identifies the uniform block.
-		/// </summary>
-		protected virtual string UniformBlockTag { get { return (null); } }
 
 		#endregion
 
@@ -479,7 +476,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public override bool IsShaderProgramBound { get { return (true); } }
+		public override bool IsProgramBound { get { return (true); } }
 
 		/// <summary>
 		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
@@ -490,7 +487,7 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// A <see cref="ShaderProgram"/> that will be used in conjunction with this IGraphicsState.
 		/// </param>
-		public override void CreateState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		public override void Create(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			// Create IGraphicsResource uniforms (i.e. textures)
 			Dictionary<string, UniformStateMember> uniformState = UniformState;
@@ -509,12 +506,35 @@ namespace OpenGL.Objects.State
 
 			// Create uniform buffer, if supported
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag) && UniformBuffer == null) {
-				UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferObjectHint.DynamicCpuDraw);
-				UniformBuffer.Create(ctx);
+				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferObjectHint.DynamicCpuDraw);
+				_UniformBuffer.Create(ctx);
 			}
 
 			// Base implementation
-			base.CreateState(ctx, shaderProgram);
+			base.Create(ctx, shaderProgram);
+		}
+
+		/// <summary>
+		/// Dispose resources allocated by <see cref="Create(GraphicsContext, ShaderProgram)"/>.
+		/// </summary>
+		public override void Delete()
+		{
+			if (_UniformBuffer != null) {
+				_UniformBuffer.Dispose();
+				_UniformBuffer = null;
+			}
+
+			Dictionary<string, UniformStateMember> uniformState = UniformState;
+
+			foreach (KeyValuePair<string, UniformStateMember> pair in uniformState) {
+				if (pair.Value.GetUniformType().GetInterface("IGraphicsResource") == null)
+					continue;
+
+				IGraphicsResource graphicsResource = pair.Value.GetUniformValue(this) as IGraphicsResource;
+				if (graphicsResource == null)
+					continue;
+				
+			}
 		}
 
 		/// <summary>
@@ -526,13 +546,13 @@ namespace OpenGL.Objects.State
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> which has the state set.
 		/// </param>
-		public override void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram)
+		public override void Apply(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
 				// Apply uniforms to uniform buffer
 				ApplyState(ctx, shaderProgram, String.Empty);
 				// Set uniform block
-				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, UniformBuffer);
+				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, _UniformBuffer);
 			} else {
 				// Start setting uniforms
 				shaderProgram.BindUniform(ctx);
@@ -556,6 +576,8 @@ namespace OpenGL.Objects.State
 
 			if (otherState == null)
 				throw new ArgumentException("not a ShaderUniformState", "state");
+
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -581,17 +603,6 @@ namespace OpenGL.Objects.State
 				return (false);
 
 			throw new NotImplementedException();
-		}
-
-		/// <summary>
-		/// The name of the uniform buffer object used for holding uniform state information.
-		/// </summary>
-		public override uint UniformBlockName
-		{
-			get
-			{
-				return (_UniformBuffer != null ? _UniformBuffer.ObjectName : 0);
-			}
 		}
 
 		#endregion
