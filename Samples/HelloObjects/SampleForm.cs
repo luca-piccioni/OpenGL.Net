@@ -321,10 +321,10 @@ namespace HelloObjects
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
 					Texture2d texture = new Texture2d();
 
-					texture.RequestMipmapsCreation();
-					texture.Sampler.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.Sampler.WrapCoordR = TextureWrapMode.Repeat; // Texture.Wrap.MirroredRepeat;
-					texture.Sampler.WrapCoordS = TextureWrapMode.Repeat;
+					texture.GenerateMipmaps();
+					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
+					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat; // Texture.Wrap.MirroredRepeat;
+					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
 					texture.Create(textureImage);
 
 					sphereMaterial.FrontMaterialDiffuseTexture = texture;
@@ -341,10 +341,10 @@ namespace HelloObjects
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
 					Texture2d texture = new Texture2d();
 
-					texture.RequestMipmapsCreation();
-					texture.Sampler.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.Sampler.WrapCoordR = TextureWrapMode.Repeat;
-					texture.Sampler.WrapCoordS = TextureWrapMode.Repeat;
+					texture.GenerateMipmaps();
+					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
+					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
+					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
 					texture.Create(textureImage);
 
 					sphereMaterial.FrontMaterialNormalTexture = texture;
@@ -361,10 +361,10 @@ namespace HelloObjects
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
 					Texture2d texture = new Texture2d();
 
-					texture.RequestMipmapsCreation();
-					texture.Sampler.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.Sampler.WrapCoordR = TextureWrapMode.Repeat;
-					texture.Sampler.WrapCoordS = TextureWrapMode.Repeat;
+					texture.GenerateMipmaps();
+					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
+					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
+					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
 					texture.Create(textureImage);
 
 					sphereMaterial.FrontMaterialSpecularTexture = texture;
@@ -381,10 +381,10 @@ namespace HelloObjects
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
 					Texture2d texture = new Texture2d();
 
-					texture.RequestMipmapsCreation();
-					texture.Sampler.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.Sampler.WrapCoordR = TextureWrapMode.Repeat;
-					texture.Sampler.WrapCoordS = TextureWrapMode.Repeat;
+					texture.GenerateMipmaps();
+					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
+					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
+					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
 					texture.Create(textureImage);
 
 					sphereMaterial.FrontMaterialAmbientTexture = texture;
@@ -402,10 +402,10 @@ namespace HelloObjects
 					Texture2d texture = new Texture2d();
 
 					// texture.RequestMipmapsCreation();
-					texture.Sampler.WrapCoordR = TextureWrapMode.Repeat;
-					texture.Sampler.WrapCoordS = TextureWrapMode.Repeat;
-					texture.Sampler.MinFilter = TextureMinFilter.Nearest;
-					texture.Sampler.MagFilter = TextureMagFilter.Nearest;
+					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
+					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
+					texture.SamplerParams.MinFilter = TextureMinFilter.Nearest;
+					texture.SamplerParams.MagFilter = TextureMagFilter.Nearest;
 					texture.MipmapMaxLevel = 0;
 					texture.Create(textureImage);
 
