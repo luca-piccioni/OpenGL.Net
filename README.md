@@ -1,7 +1,5 @@
 # OpenGL.Net
 
-[![Build Status](https://travis-ci.org/luca-piccioni/OpenGL.Net.svg?branch=master)](https://travis-ci.org/luca-piccioni/OpenGL.Net)
-
 Modern OpenGL binding for C#.
 
 Generated from the lastest official XML specification, OpenGL.Net provides:
@@ -51,15 +49,7 @@ or just download the [nuget binary package](https://www.nuget.org/packages/OpenG
 
 # Documentation
 
-- Project [introduction](https://github.com/luca-piccioni/OpenGL.Net/wiki)
-- [Procedures query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Procedures-query)
-- [Version and extensions query](https://github.com/luca-piccioni/OpenGL.Net/wiki/Version-and-extensions-query)
-- [Device Context & GL Context](https://github.com/luca-piccioni/OpenGL.Net/wiki/Device-Context-and-GL-Context)
-- [Math library and data structures](https://github.com/luca-piccioni/OpenGL.Net/wiki/Math-library-and-data-structures)
-- Using the [OpenGL.GlControl](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL.GlControl)
-- [OpenGL ES on ANGLE](https://github.com/luca-piccioni/OpenGL.Net/wiki/OpenGL-ES-using-ANGLE)
-- [Common programming mistakes](https://github.com/luca-piccioni/OpenGL.Net/wiki/Common-mistakes)
-- [Update OpenGL bindings](https://github.com/luca-piccioni/OpenGL.Net/wiki/Generate-an-updated-OpenGL.Net-(API-update)) from Khronos registry
+Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project.
 
 # Basic Samples
 
