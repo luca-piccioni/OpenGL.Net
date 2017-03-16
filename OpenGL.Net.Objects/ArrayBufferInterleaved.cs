@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL.Objects
 {
-	public class ArrayBufferObjectInterleaved<T> : ArrayBufferObjectBase where T : struct
+	public class ArrayBufferObjectInterleaved<T> : ArrayBufferBase where T : struct
 	{
 		#region Constructors
 
@@ -35,9 +35,9 @@ namespace OpenGL.Objects
 		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObjectInterleaved(BufferObjectHint hint) : base(hint)
+		public ArrayBufferObjectInterleaved(BufferHint hint) : base(hint)
 		{
 			try {
 				// Determine array item size
@@ -96,7 +96,7 @@ namespace OpenGL.Objects
 
 		class InterleavedSection : InterleavedSectionBase
 		{
-			public InterleavedSection(ArrayBufferObjectBase arrayBuffer, InterleavedSectionBase otherSection)
+			public InterleavedSection(ArrayBufferBase arrayBuffer, InterleavedSectionBase otherSection)
 			{
 				_ParentArray = arrayBuffer;
 
@@ -106,7 +106,7 @@ namespace OpenGL.Objects
 				Stride = otherSection.Stride;
 			}
 
-			private ArrayBufferObjectBase _ParentArray;
+			private ArrayBufferBase _ParentArray;
 
 			public override IntPtr Pointer
 			{

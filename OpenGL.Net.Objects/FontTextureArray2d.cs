@@ -223,7 +223,7 @@ namespace OpenGL.Objects
 				_GlyphInstances = (ArrayBufferObjectInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
 
 				if (_GlyphInstances == null) {
-					_GlyphInstances = new ArrayBufferObjectInterleaved<GlyphInstance>(BufferObjectHint.DynamicCpuDraw);
+					_GlyphInstances = new ArrayBufferObjectInterleaved<GlyphInstance>(BufferHint.DynamicCpuDraw);
 					_GlyphInstances.Create(256);
 					// Share
 					ctx.SetSharedResource(instanceArrayId, _GlyphInstances);
@@ -238,12 +238,12 @@ namespace OpenGL.Objects
 
 			string vertexArrayId = resourceClassId + ".VertexArray";
 
-			_VertexArrays = (VertexArrayObject)ctx.GetSharedResource(vertexArrayId);
+			_VertexArrays = (VertexArrays)ctx.GetSharedResource(vertexArrayId);
 
 			if (_VertexArrays == null) {
-				_VertexArrays = new VertexArrayObject();
+				_VertexArrays = new VertexArrays();
 
-				ArrayBufferObject<Vertex2f> arrayPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+				ArrayBuffer<Vertex2f> arrayPosition = new ArrayBuffer<Vertex2f>(BufferHint.StaticCpuDraw);
 				arrayPosition.Create(new Vertex2f[] {
 					new Vertex2f(0.0f, 1.0f),
 					new Vertex2f(0.0f, 0.0f),
@@ -383,7 +383,7 @@ namespace OpenGL.Objects
 		{
 			if (ctx.Extensions.UniformBufferObject_ARB && _FontProgram.IsActiveUniformBlock("Glyphs")) {
 				// Note: the above program uses uniform buffers, if supported
-				_GlyphUniformBuffer = _FontProgram.CreateUniformBlock("Glyphs", BufferObjectHint.DynamicCpuDraw);
+				_GlyphUniformBuffer = _FontProgram.CreateUniformBlock("Glyphs", BufferHint.DynamicCpuDraw);
 				_GlyphUniformBuffer.Create(ctx);
 			}
 		}
@@ -588,7 +588,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The font glyph vertex array.
 		/// </summary>
-		private VertexArrayObject _VertexArrays;
+		private VertexArrays _VertexArrays;
 
 		/// <summary>
 		/// Glyph instances array buffer.
@@ -604,7 +604,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// Used only if GL_ARB_draw_instanced and GL_ARB_uniform_buffer_object are implemented.
 		/// </remarks>
-		private UniformBufferObject _GlyphUniformBuffer;
+		private UniformBuffer _GlyphUniformBuffer;
 
 		/// <summary>
 		/// Glyphs in texture array

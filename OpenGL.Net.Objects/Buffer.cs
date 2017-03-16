@@ -43,7 +43,7 @@ namespace OpenGL.Objects
 	/// this is implemented by defining up to two client buffers to emulate the "simulated" GPU buffer allocation behavior.
 	/// </para>
 	/// </remarks>
-	public abstract class BufferObject : GraphicsResource, IBindingResource
+	public abstract class Buffer : GraphicsResource, IBindingResource
 	{
 		#region Constructors
 
@@ -54,9 +54,9 @@ namespace OpenGL.Objects
 		/// A <see cref="BufferTargetARB"/> that specify the buffer object type.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected BufferObject(BufferTargetARB type, BufferObjectHint hint)
+		protected Buffer(BufferTargetARB type, BufferHint hint)
 		{
 			// Store the buffer object type
 			BufferType = type;
@@ -78,7 +78,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The usage hint of this BufferObject.
 		/// </summary>
-		public readonly BufferObjectHint Hint;
+		public readonly BufferHint Hint;
 
 		/// <summary>
 		/// Get the size of the storage allocated for this buffer object, in bytes. In the case this BufferObject
@@ -252,12 +252,12 @@ namespace OpenGL.Objects
 		/// Determine the default value of <see cref="AutoDisposeClientBuffer"/>.
 		/// </summary>
 		/// <param name="hint">
-		/// A <see cref="BufferObjectHint"/> that hints the buffer usage.
+		/// A <see cref="BufferHint"/> that hints the buffer usage.
 		/// </param>
 		/// <returns></returns>
-		protected static bool IsClientBufferAutoDisposable(BufferObjectHint hint)
+		protected static bool IsClientBufferAutoDisposable(BufferHint hint)
 		{
-			return (hint == BufferObjectHint.StaticCpuDraw);
+			return (hint == BufferHint.StaticCpuDraw);
 		}
 
 		/// <summary>
@@ -627,7 +627,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject has not client memory allocated and the hint is different from
-		/// <see cref="BufferObjectHint.StaticCpuDraw"/> or <see cref="BufferObjectHint.DynamicCpuDraw"/>.
+		/// <see cref="BufferHint.StaticCpuDraw"/> or <see cref="BufferHint.DynamicCpuDraw"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is currently mapped.
@@ -636,7 +636,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			if ((ClientBufferAddress == IntPtr.Zero) && ((Hint != BufferObjectHint.StaticCpuDraw) && (Hint != BufferObjectHint.DynamicCpuDraw)))
+			if ((ClientBufferAddress == IntPtr.Zero) && ((Hint != BufferHint.StaticCpuDraw) && (Hint != BufferHint.DynamicCpuDraw)))
 				throw new InvalidOperationException("no client buffer");
 
 			// Determine the client buffer size
@@ -823,7 +823,7 @@ namespace OpenGL.Objects
 	/// <remarks>
 	/// This derivation allows to allocate the client buffer using a strongly typed array.
 	/// </remarks>
-	public abstract class BufferObject<T> : BufferObject where T : struct
+	public abstract class BufferObject<T> : Buffer where T : struct
 	{
 		#region Constructors
 
@@ -834,9 +834,9 @@ namespace OpenGL.Objects
 		/// A <see cref="BufferTargetARB"/> that specify the buffer object type.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected BufferObject(BufferTargetARB type, BufferObjectHint hint) :
+		protected BufferObject(BufferTargetARB type, BufferHint hint) :
 			base(type, hint)
 		{
 			_ClientBufferElementSize = (uint)Marshal.SizeOf(typeof(T));

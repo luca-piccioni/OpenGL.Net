@@ -925,21 +925,21 @@ namespace OpenGL.Objects
 		#region Debugging Label
 
 		/// <summary>
-		/// Assign a label to a <see cref="BufferObject"/>.
+		/// Assign a label to a <see cref="Buffer"/>.
 		/// </summary>
 		/// <param name="debugObject">
-		/// The <see cref="BufferObject"/> labelled for debugging.
+		/// The <see cref="Buffer"/> labelled for debugging.
 		/// </param>
 		/// <param name="debugLabel">
 		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
 		/// </param>
-		internal void DebugObjectLabel(BufferObject debugObject, string debugLabel)
+		internal void DebugObjectLabel(Buffer debugObject, string debugLabel)
 		{
 			DebugObjectLabel(Gl.BUFFER, debugObject, debugLabel);
 		}
 
 		/// <summary>
-		/// Assign a label to a <see cref="ShaderObject"/>.
+		/// Assign a label to a <see cref="Shader"/>.
 		/// </summary>
 		/// <param name="debugObject">
 		/// The <see cref="ShaderProgram"/> labelled for debugging.
@@ -947,7 +947,7 @@ namespace OpenGL.Objects
 		/// <param name="debugLabel">
 		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
 		/// </param>
-		internal void DebugObjectLabel(ShaderObject debugObject, string debugLabel)
+		internal void DebugObjectLabel(Shader debugObject, string debugLabel)
 		{
 			DebugObjectLabel(Gl.SHADER, debugObject, debugLabel);
 		}
@@ -967,15 +967,15 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Assign a label to a <see cref="VertexArrayObject"/>.
+		/// Assign a label to a <see cref="VertexArrays"/>.
 		/// </summary>
 		/// <param name="debugObject">
-		/// The <see cref="VertexArrayObject"/> labelled for debugging.
+		/// The <see cref="VertexArrays"/> labelled for debugging.
 		/// </param>
 		/// <param name="debugLabel">
 		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
 		/// </param>
-		internal void DebugObjectLabel(VertexArrayObject debugObject, string debugLabel)
+		internal void DebugObjectLabel(VertexArrays debugObject, string debugLabel)
 		{
 			DebugObjectLabel(Gl.VERTEX_ARRAY, debugObject, debugLabel);
 		}
@@ -1026,7 +1026,7 @@ namespace OpenGL.Objects
 		/// Assign a label to a <see cref="IGraphicsResource"/>.
 		/// </summary>
 		/// <param name="debugObject">
-		/// The <see cref="BufferObject"/> labelled for debugging.
+		/// The <see cref="Buffer"/> labelled for debugging.
 		/// </param>
 		/// <param name="debugLabel">
 		/// The <see cref="String"/> that specifies the debug label assigned to <paramref name="debugObject"/>.
@@ -1283,7 +1283,7 @@ namespace OpenGL.Objects
 
 		#region Lazy Objects Binding (Uniform Buffer Index)
 
-		public void Bind(UniformBufferObject uniformBufferObject)
+		public void Bind(UniformBuffer uniformBufferObject)
 		{
 			if (uniformBufferObject == null)
 				throw new ArgumentNullException("uniformBufferObject");
@@ -1292,7 +1292,7 @@ namespace OpenGL.Objects
 
 			uint bindingIndex = (_BindingsUniformLruIndex + 1) % (uint)_BindingsUniform.Length;
 
-			UniformBufferObject previousUniformBuffer = _BindingsUniform[bindingIndex];
+			UniformBuffer previousUniformBuffer = _BindingsUniform[bindingIndex];
 
 			// Bind the uniform buffer
 			Gl.BindBufferBase(Gl.UNIFORM_BUFFER, bindingIndex, uniformBufferObject.ObjectName);
@@ -1307,7 +1307,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Array reflecting the state of the context bindings for uniform buffers (<see cref="Gl.UNIFORM_BUFFER"/> target).
 		/// </summary>
-		private readonly UniformBufferObject[] _BindingsUniform = new UniformBufferObject[Gl.CurrentLimits.MaxUniformBufferBindings];
+		private readonly UniformBuffer[] _BindingsUniform = new UniformBuffer[Gl.CurrentLimits.MaxUniformBufferBindings];
 
 		/// <summary>
 		/// Index of the least recently used binding point for <see cref="_BindingsUniform"/>

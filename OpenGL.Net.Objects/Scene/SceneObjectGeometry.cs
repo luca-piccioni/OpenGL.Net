@@ -54,7 +54,7 @@ namespace OpenGL.Objects.Scene
 		/// A <see cref="String"/> that specify the node identifier. It can be null for unnamed objects.
 		/// </param>
 		/// <param name="vertexArray">
-		/// A <see cref="VertexArrayObject"/> that specifies the geometry primitive arrays.
+		/// A <see cref="Objects.VertexArrays"/> that specifies the geometry primitive arrays.
 		/// </param>
 		/// <param name="program">
 		/// A <see cref="ShaderProgram"/> that specifies the program used for shading <paramref name="vertexArray"/>.
@@ -62,7 +62,7 @@ namespace OpenGL.Objects.Scene
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="vertexArray"/> is null.
 		/// </exception>
-		public SceneObjectGeometry(string id, VertexArrayObject vertexArray, ShaderProgram program) : base(id)
+		public SceneObjectGeometry(string id, VertexArrays vertexArray, ShaderProgram program) : base(id)
 		{
 			if (vertexArray == null)
 				throw new ArgumentNullException("vertexArray");
@@ -86,7 +86,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get or set the geometry primitive arrays, shared to all geometry instances, if any.
 		/// </summary>
-		public VertexArrayObject VertexArray
+		public VertexArrays VertexArray
 		{
 			get { return (_VertexArray); }
 			set
@@ -102,7 +102,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Primitive arrays.
 		/// </summary>
-		private VertexArrayObject _VertexArray;
+		private VertexArrays _VertexArray;
 
 		/// <summary>
 		/// Shader tag used for creating the actual program at run-time. The program is shared , shared to all
@@ -140,7 +140,7 @@ namespace OpenGL.Objects.Scene
 		{
 			#region Constructors
 
-			public Geometry(VertexArrayObject vertexArray) :
+			public Geometry(VertexArrays vertexArray) :
 				base(vertexArray)
 			{
 				vertexArray.IncRef();
@@ -166,7 +166,7 @@ namespace OpenGL.Objects.Scene
 			/// </param>
 			/// <param name="state"></param>
 			/// <param name="program"></param>
-			public Geometry(VertexArrayObject vertexArray, State.GraphicsStateSet state, ShaderProgram program) :
+			public Geometry(VertexArrays vertexArray, State.GraphicsStateSet state, ShaderProgram program) :
 				base(vertexArray, state, program)
 			{
 				vertexArray.IncRef();
@@ -225,7 +225,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Vertex arrays to be rasterized.
 			/// </summary>
-			public override VertexArrayObject VertexArray
+			public override VertexArrays VertexArray
 			{
 				get { return (base.VertexArray); }
 				set
@@ -277,12 +277,12 @@ namespace OpenGL.Objects.Scene
 			}
 		}
 
-		public void AddGeometry(VertexArrayObject vertexArray)
+		public void AddGeometry(VertexArrays vertexArray)
 		{
 			_GeometryInstances.Add(new Geometry(vertexArray));
 		}
 
-		public void AddGeometry(VertexArrayObject vertexArray, State.GraphicsStateSet state)
+		public void AddGeometry(VertexArrays vertexArray, State.GraphicsStateSet state)
 		{
 			_GeometryInstances.Add(new Geometry(vertexArray, state, null));
 		}
@@ -346,26 +346,26 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns the <see cref="IBoundingVolume"/> for <paramref name="vertexArrayObject"/>, if possible.
 		/// </returns>
-		private static IBoundingVolume ComputeBoundingVolume(VertexArrayObject vertexArrayObject)
+		private static IBoundingVolume ComputeBoundingVolume(VertexArrays vertexArrayObject)
 		{
 			if (vertexArrayObject == null)
 				throw new ArgumentNullException("vertexArrayObject");
 
-			VertexArrayObject.IVertexArray vertexArray = vertexArrayObject.GetVertexArray(VertexArraySemantic.Position);
+			VertexArrays.IVertexArray vertexArray = vertexArrayObject.GetVertexArray(VertexArraySemantic.Position);
 			if (vertexArray == null)
 				return (null);
 
-			ArrayBufferObjectBase positionArray = vertexArray.Array;
+			ArrayBufferBase positionArray = vertexArray.Array;
 			Type positionArrayType = positionArray.GetType();
 
-			if (positionArrayType == typeof(ArrayBufferObject<Vertex4f>)) {
-				ArrayBufferObject<Vertex4f> positionArray4f = (ArrayBufferObject<Vertex4f>)positionArray;
+			if (positionArrayType == typeof(ArrayBuffer<Vertex4f>)) {
+				ArrayBuffer<Vertex4f> positionArray4f = (ArrayBuffer<Vertex4f>)positionArray;
 				Vertex4f min = Vertex4f.Maximum, max = Vertex4f.Minimum;
 				positionArray4f.MinMax(out min, out max);
 
 				return (new BoundingBox((Vertex3f)min, (Vertex3f)max));
-			} else if (positionArrayType == typeof(ArrayBufferObject<Vertex3f>)) {
-				ArrayBufferObject<Vertex3f> positionArray3f = (ArrayBufferObject<Vertex3f>)positionArray;
+			} else if (positionArrayType == typeof(ArrayBuffer<Vertex3f>)) {
+				ArrayBuffer<Vertex3f> positionArray3f = (ArrayBuffer<Vertex3f>)positionArray;
 				Vertex3f min = Vertex3f.Maximum, max = Vertex3f.Minimum;
 				positionArray3f.MinMax(out min, out max);
 

@@ -56,12 +56,12 @@ namespace OpenGL.Objects
 		/// Attach a ShaderObject to this ShaderProgram.
 		/// </summary>
 		/// <param name="shaderObject">
-		/// A <see cref="ShaderObject"/> to be attached to this ShaderProgram.
+		/// A <see cref="Shader"/> to be attached to this ShaderProgram.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="shaderObject"/> is null.
 		/// </exception>
-		public void AttachShader(ShaderObject shaderObject)
+		public void AttachShader(Shader shaderObject)
 		{
 			if (shaderObject == null)
 				throw new ArgumentNullException("sObject");
@@ -76,12 +76,12 @@ namespace OpenGL.Objects
 		/// Detach an attached ShaderObject from this ShaderProgram.
 		/// </summary>
 		/// <param name="shaderObject">
-		/// A <see cref="ShaderObject"/> to be detached to this ShaderProgram.
+		/// A <see cref="Shader"/> to be detached to this ShaderProgram.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="shaderObject"/> is null.
 		/// </exception>
-		public void DetachShader(ShaderObject shaderObject)
+		public void DetachShader(Shader shaderObject)
 		{
 			if (shaderObject == null)
 				throw new ArgumentNullException("shaderObject");
@@ -100,7 +100,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="shaderObject"/> is null.
 		/// </exception>
-		public bool IsAttachedShader(ShaderObject shaderObject)
+		public bool IsAttachedShader(Shader shaderObject)
 		{
 			if (shaderObject == null)
 				throw new ArgumentNullException("shaderObject");
@@ -111,7 +111,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// List of cached shader objects composing this shader program.
 		/// </summary>
-		private readonly List<ShaderObject> _ProgramObjects = new List<ShaderObject>();
+		private readonly List<Shader> _ProgramObjects = new List<Shader>();
 
 		/// <summary>
 		/// Link this ShaderProgram.
@@ -169,7 +169,7 @@ namespace OpenGL.Objects
 				Debug.Assert(shadersCount == shadersObject.Length);
 			}
 
-			foreach (ShaderObject shaderObject in _ProgramObjects) {
+			foreach (Shader shaderObject in _ProgramObjects) {
 				// Create shader object, if necessary
 				if (shaderObject.Exists(ctx) == false)
 					shaderObject.Create(ctx, cctx);
@@ -1214,7 +1214,7 @@ namespace OpenGL.Objects
 		{
 			if (disposing) {
 				// Release reference to attached program objects
-				foreach (ShaderObject programObject in _ProgramObjects)
+				foreach (Shader programObject in _ProgramObjects)
 					programObject.DecRef();
 			}
 			// Base implementation

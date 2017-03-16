@@ -22,21 +22,21 @@ using System.Diagnostics;
 namespace OpenGL.Objects
 {
 	/// <summary>
-	/// Delegate used for generating texture coordinates on <see cref="VertexArrayObject"/>.
+	/// Delegate used for generating texture coordinates on <see cref="VertexArrays"/>.
 	/// </summary>
 	/// <param name="position"></param>
 	/// <returns></returns>
 	public delegate Vertex2f VertexArrayTexGenDelegate(Vertex3f position);
 
 	/// <summary>
-	/// Interface used for generating texture coordinates on <see cref="VertexArrayObject"/>.
+	/// Interface used for generating texture coordinates on <see cref="VertexArrays"/>.
 	/// </summary>
 	public interface IVertexArrayTexGen
 	{
 		/// <summary>
 		/// Initialize the IVertexArrayTexGen instance.
 		/// </summary>
-		void Initialize(VertexArrayObject vertexArray);
+		void Initialize(VertexArrays vertexArray);
 
 		/// <summary>
 		/// Generate the texture coordinate for the specified vertex.
@@ -89,7 +89,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Initialize the IVertexArrayTexGen instance.
 			/// </summary>
-			public virtual void Initialize(VertexArrayObject vertexArray)
+			public virtual void Initialize(VertexArrays vertexArray)
 			{
 
 			}
@@ -145,7 +145,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Initialize the IVertexArrayTexGen instance.
 			/// </summary>
-			public override void Initialize(VertexArrayObject vertexArray)
+			public override void Initialize(VertexArrays vertexArray)
 			{
 
 			}

@@ -25,18 +25,18 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Element buffer object.
 	/// </summary>
-	public class ElementBufferObject : ArrayBufferObjectBase, ArrayBufferObjectBase.IArraySection
+	public class ElementBuffer : ArrayBufferBase, ArrayBufferBase.IArraySection
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ElementBufferObject, implictly used with <see cref="BufferObjectHint.StaticCpuDraw"/>.
+		/// Construct an ElementBufferObject, implictly used with <see cref="BufferHint.StaticCpuDraw"/>.
 		/// </summary>
 		/// <param name="elementType">
 		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
 		/// </param>
-		public ElementBufferObject(DrawElementsType elementType) :
-			this(elementType, BufferObjectHint.StaticCpuDraw)
+		public ElementBuffer(DrawElementsType elementType) :
+			this(elementType, BufferHint.StaticCpuDraw)
 		{
 
 		}
@@ -48,9 +48,9 @@ namespace OpenGL.Objects
 		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBufferObject(DrawElementsType elementType, BufferObjectHint hint)
+		public ElementBuffer(DrawElementsType elementType, BufferHint hint)
 			: base(BufferTargetARB.ElementArrayBuffer, hint)
 		{
 			try {
@@ -86,9 +86,9 @@ namespace OpenGL.Objects
 		/// 
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected ElementBufferObject(Type elementType, BufferObjectHint hint)
+		protected ElementBuffer(Type elementType, BufferHint hint)
 			: base(BufferTargetARB.ElementArrayBuffer, hint)
 		{
 			try {
@@ -393,7 +393,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject has not client memory allocated and the hint is different from
-		/// <see cref="BufferObjectHint.StaticCpuDraw"/> or <see cref="BufferObjectHint.DynamicCpuDraw"/>.
+		/// <see cref="BufferHint.StaticCpuDraw"/> or <see cref="BufferHint.DynamicCpuDraw"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is currently mapped.
@@ -447,15 +447,15 @@ namespace OpenGL.Objects
 	/// The generic type must be <see cref="Byte"/>, <see cref="UInt16"/> or <see cref="UInt32"/>, otherwise
 	/// the constructors will throw an exception.
 	/// </typeparam>
-	public class ElementBufferObject<T> : ElementBufferObject where T : struct, IConvertible
+	public class ElementBuffer<T> : ElementBuffer where T : struct, IConvertible
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ElementBufferObject, implictly used with <see cref="BufferObjectHint.StaticCpuDraw"/>.
+		/// Construct an ElementBufferObject, implictly used with <see cref="BufferHint.StaticCpuDraw"/>.
 		/// </summary>
-		public ElementBufferObject() :
-			this(BufferObjectHint.StaticCpuDraw)
+		public ElementBuffer() :
+			this(BufferHint.StaticCpuDraw)
 		{
 
 		}
@@ -464,9 +464,9 @@ namespace OpenGL.Objects
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBufferObject(BufferObjectHint hint) :
+		public ElementBuffer(BufferHint hint) :
 			base(typeof(T), hint)
 		{
 			

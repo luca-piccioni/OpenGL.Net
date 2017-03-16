@@ -103,7 +103,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void LoadSource(Stream sourceStream)
 		{
-			_SourceStrings = ShaderObject.LoadSourceLines(sourceStream);
+			_SourceStrings = Shader.LoadSourceLines(sourceStream);
 		}
 
 		/// <summary>
@@ -120,7 +120,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void LoadSource(string resourcePath)
 		{
-			_SourceStrings = ShaderObject.LoadSourceLines(resourcePath);
+			_SourceStrings = Shader.LoadSourceLines(resourcePath);
 		}
 
 		/// <summary>
@@ -247,7 +247,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
-				List<string> source = ShaderObject.CleanSource(Source);
+				List<string> source = Shader.CleanSource(Source);
 
 				// Build include source string
 				StringBuilder sb = new StringBuilder();

@@ -214,18 +214,18 @@ namespace OpenGL.Objects
 		#region Uniform Block Mapping/Creation
 
 		/// <summary>
-		/// Create an <see cref="UniformBufferObject"/> useful for backing with a buffer object the specified uniform block.
+		/// Create an <see cref="UniformBuffer"/> useful for backing with a buffer object the specified uniform block.
 		/// </summary>
 		/// <param name="uniformBlockName"></param>
 		/// <param name="hint"></param>
 		/// <returns></returns>
-		public UniformBufferObject CreateUniformBlock(string uniformBlockName, BufferObjectHint hint)
+		public UniformBuffer CreateUniformBlock(string uniformBlockName, BufferHint hint)
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
 				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
 
-			UniformBufferObject uniformBuffer = new UniformBufferObject(hint);
+			UniformBuffer uniformBuffer = new UniformBuffer(hint);
 
 			// Allocate client storage
 			uniformBuffer.Create(uniformBlockBinding.DataSize);
@@ -235,7 +235,7 @@ namespace OpenGL.Objects
 			return (uniformBuffer);
 		}
 
-		private void MapUniformBlock(string uniformBlockName, UniformBufferObject uniformBuffer)
+		private void MapUniformBlock(string uniformBlockName, UniformBuffer uniformBuffer)
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
@@ -249,7 +249,7 @@ namespace OpenGL.Objects
 				if (_UniformIndexMap.TryGetValue(uniformIndex, out uniformBinding) == false)
 					throw new InvalidOperationException("uniform buffer index mismatch with uniforms");
 
-				UniformBufferObject.UniformSegment uniformSegment = new UniformBufferObject.UniformSegment();
+				UniformBuffer.UniformSegment uniformSegment = new UniformBuffer.UniformSegment();
 
 				uniformSegment.UniformIndex = uniformIndex;
 				uniformSegment.Type = uniformBinding.UniformType;
@@ -285,7 +285,7 @@ namespace OpenGL.Objects
 		/// <param name="v">
 		/// A <see cref="Single"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniformBlock(GraphicsContext ctx, string uniformBlockName, UniformBufferObject uniformBuffer)
+		public void SetUniformBlock(GraphicsContext ctx, string uniformBlockName, UniformBuffer uniformBuffer)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -326,7 +326,7 @@ namespace OpenGL.Objects
 		/// <param name="uniformValue">
 		/// A <see cref="Object"/> that specifies the uniform variable value.
 		/// </param>
-		private void CacheUniformBlock(uint index, UniformBufferObject uniformBuffer)
+		private void CacheUniformBlock(uint index, UniformBuffer uniformBuffer)
 		{
 			Debug.Assert(uniformBuffer != null);
 			_UniformBlocks[index] = uniformBuffer.BindingIndex;
@@ -345,7 +345,7 @@ namespace OpenGL.Objects
 		/// It returns a boolean value indicating whether <paramref name="uniformValue"/> is actually
 		/// different from the current uniform value.
 		/// </returns>
-		private bool IsUniformBlockChanged(uint index, UniformBufferObject uniformBuffer)
+		private bool IsUniformBlockChanged(uint index, UniformBuffer uniformBuffer)
 		{
 			uint cachedBindingIndex;
 

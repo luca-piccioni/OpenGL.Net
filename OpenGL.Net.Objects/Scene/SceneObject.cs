@@ -709,7 +709,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The graphics state of the bounding volume.
 		/// </summary>
-		internal VertexArrayObject BoundingVolumeArray
+		internal VertexArrays BoundingVolumeArray
 		{
 			get { return (_BoundingVolumeArray); }
 			set
@@ -721,7 +721,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Vertex arrays representing the bounding box.
 		/// </summary>
-		private VertexArrayObject _BoundingVolumeArray;
+		private VertexArrays _BoundingVolumeArray;
 
 		/// <summary>
 		/// The graphics state of the bounding volume.

@@ -110,9 +110,9 @@ namespace OpenGL.Objects
 			/// Create a shader object from this Object.
 			/// </summary>
 			/// <returns></returns>
-			public ShaderObject Create()
+			public Shader Create()
 			{
-				ShaderObject shaderObject = new ShaderObject(Stage);
+				Shader shaderObject = new Shader(Stage);
 
 				// Load source
 				shaderObject.LoadSource(Path);
@@ -311,7 +311,7 @@ namespace OpenGL.Objects
 
 				// Attach required objects
 				foreach (Object shaderProgramObject in Objects) {
-					ShaderObject shaderObject = new ShaderObject(shaderProgramObject.Stage);
+					Shader shaderObject = new Shader(shaderProgramObject.Stage);
 
 					// Load source
 					shaderObject.LoadSource(shaderProgramObject.Path);

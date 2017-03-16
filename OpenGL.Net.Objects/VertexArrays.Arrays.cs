@@ -23,7 +23,7 @@ using System.Runtime.CompilerServices;
 
 namespace OpenGL.Objects
 {
-	public partial class VertexArrayObject
+	public partial class VertexArrays
 	{
 		/// <summary>
 		/// Vertex array buffer interface.
@@ -39,14 +39,14 @@ namespace OpenGL.Objects
 			void Create(GraphicsContext ctx);
 
 			/// <summary>
-			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
+			/// The <see cref="ArrayBufferBase"/> holding the array information.
 			/// </summary>
-			ArrayBufferObjectBase Array { get; }
+			ArrayBufferBase Array { get; }
 
 			/// <summary>
 			/// The section of the array referred by this vertex array.
 			/// </summary>
-			ArrayBufferObjectBase.IArraySection ArraySection { get; }
+			ArrayBufferBase.IArraySection ArraySection { get; }
 
 			/// <summary>
 			/// Get the length of the vertex array.
@@ -95,12 +95,12 @@ namespace OpenGL.Objects
 			/// Construct an VertexArray for enabling vertex attribute.
 			/// </summary>
 			/// <param name="arrayBuffer">
-			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array buffer.
+			/// A <see cref="ArrayBufferBase"/> which defines a vertex array buffer.
 			/// </param>
 			/// <param name="sectionIndex">
 			/// A <see cref="UInt32"/> that specify the section of <paramref name="arrayBuffer"/>.
 			/// </param>
-			public VertexArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex)
+			public VertexArray(ArrayBufferBase arrayBuffer, uint sectionIndex)
 			{
 				if (arrayBuffer != null && arrayBuffer.ItemCount == 0)
 					throw new ArgumentException("zero items", "arrayBuffer");
@@ -133,7 +133,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The vertex array buffer object.
 			/// </summary>
-			public readonly ArrayBufferObjectBase ArrayBuffer;
+			public readonly ArrayBufferBase ArrayBuffer;
 
 			/// <summary>
 			/// The vertex array sub-buffer index.
@@ -153,7 +153,7 @@ namespace OpenGL.Objects
 			internal void CheckVertexAttribute(GraphicsContext ctx, uint location)
 			{
 				if (ArrayBuffer != null) {
-					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+					ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
 					int arrayBaseType = (int)arraySection.ItemType.GetVertexBaseType();
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
@@ -217,7 +217,7 @@ namespace OpenGL.Objects
 					return;
 				}
 
-				ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+				ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 				int arrayStride = arraySection.Stride.ToInt32();
 
 				ctx.Bind(ArrayBuffer);
@@ -331,7 +331,7 @@ namespace OpenGL.Objects
 			private void SetPositionAttribute(GraphicsContext ctx)
 			{
 				if (ArrayBuffer != null) {
-					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+					ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
@@ -354,7 +354,7 @@ namespace OpenGL.Objects
 			private void SetColorAttribute(GraphicsContext ctx)
 			{
 				if (ArrayBuffer != null) {
-					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+					ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
@@ -376,7 +376,7 @@ namespace OpenGL.Objects
 			private void SetNormalAttribute(GraphicsContext ctx)
 			{
 				if (ArrayBuffer != null) {
-					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+					ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					if (arrayLength != 3)
@@ -399,7 +399,7 @@ namespace OpenGL.Objects
 			private void SetTexCoordAttribute(GraphicsContext ctx)
 			{
 				if (ArrayBuffer != null) {
-					ArrayBufferObjectBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
+					ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					int arrayStride = arraySection.Stride.ToInt32();
@@ -437,14 +437,14 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
+			/// The <see cref="ArrayBufferBase"/> holding the array information.
 			/// </summary>
-			public ArrayBufferObjectBase Array { get { return (ArrayBuffer); } }
+			public ArrayBufferBase Array { get { return (ArrayBuffer); } }
 
 			/// <summary>
 			/// The section of the array referred by this vertex array.
 			/// </summary>
-			public ArrayBufferObjectBase.IArraySection ArraySection { get { return (ArrayBuffer.GetArraySection(ArraySectionIndex)); } }
+			public ArrayBufferBase.IArraySection ArraySection { get { return (ArrayBuffer.GetArraySection(ArraySectionIndex)); } }
 
 			/// <summary>
 			/// Get the length of the vertex array.
@@ -544,7 +544,7 @@ namespace OpenGL.Objects
 			/// shader programs using the attribute all the same.
 			/// </summary>
 			/// <param name="defaultAttribValue">
-			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array buffer.
+			/// A <see cref="ArrayBufferBase"/> which defines a vertex array buffer.
 			/// </param>
 			/// <param name="sectionIndex">
 			/// A <see cref="UInt32"/> that specify the section of <paramref name="arrayBuffer"/>.
@@ -579,14 +579,14 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="ArrayBufferObjectBase"/> holding the array information.
+			/// The <see cref="ArrayBufferBase"/> holding the array information.
 			/// </summary>
-			public ArrayBufferObjectBase Array { get { return (null); } }
+			public ArrayBufferBase Array { get { return (null); } }
 
 			/// <summary>
 			/// The section of the array referred by this vertex array.
 			/// </summary>
-			public ArrayBufferObjectBase.IArraySection ArraySection { get { return (null); } }
+			public ArrayBufferBase.IArraySection ArraySection { get { return (null); } }
 
 			/// <summary>
 			/// Get the length of the vertex array.
@@ -666,7 +666,7 @@ namespace OpenGL.Objects
 			/// Construct an InstancedVertexArray for enabling instanced vertex attribute.
 			/// </summary>
 			/// <param name="arrayBuffer">
-			/// A <see cref="ArrayBufferObjectBase"/> which defines a vertex array buffer.
+			/// A <see cref="ArrayBufferBase"/> which defines a vertex array buffer.
 			/// </param>
 			/// <param name="sectionIndex">
 			/// A <see cref="UInt32"/> that specify the section of <paramref name="arrayBuffer"/>.
@@ -674,7 +674,7 @@ namespace OpenGL.Objects
 			/// <param name="divisor">
 			/// A <see cref="UInt32"/> that specify the number of instances that will pass between updates of the generic attribute.
 			/// </param>
-			public InstancedVertexArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor) :
+			public InstancedVertexArray(ArrayBufferBase arrayBuffer, uint sectionIndex, uint divisor) :
 				base(arrayBuffer, sectionIndex)
 			{
 				if (divisor == 0)
@@ -730,7 +730,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to a shader attribute.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="sectionIndex">
 		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
@@ -754,7 +754,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid input name.
 		/// </exception>
-		public void SetArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, string attributeName, string blockName)
+		public void SetArray(ArrayBufferBase arrayBuffer, uint sectionIndex, string attributeName, string blockName)
 		{
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");
@@ -769,7 +769,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to a shader attribute.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="sectionIndex">
 		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
@@ -790,7 +790,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
 		/// </exception>
-		public void SetArray(ArrayBufferObjectBase arrayBuffer, string inputName, string blockName)
+		public void SetArray(ArrayBufferBase arrayBuffer, string inputName, string blockName)
 		{
 			SetArray(arrayBuffer, 0, inputName, blockName);
 		}
@@ -799,7 +799,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to a shader attribute.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="sectionIndex">
 		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
@@ -819,7 +819,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
 		/// </exception>
-		public void SetArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, string semantic)
+		public void SetArray(ArrayBufferBase arrayBuffer, uint sectionIndex, string semantic)
 		{
 			SetArray(arrayBuffer, sectionIndex, semantic, SemanticBlockName);
 		}
@@ -828,7 +828,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to a shader attribute.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="semantic">
 		/// A <see cref="String"/> that specify the attribute semantic. Normally a constant of <see cref="VertexArraySemantic"/>.
@@ -842,7 +842,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
 		/// </exception>
-		public void SetArray(ArrayBufferObjectBase arrayBuffer, string semantic)
+		public void SetArray(ArrayBufferBase arrayBuffer, string semantic)
 		{
 			SetArray(arrayBuffer, 0, semantic, SemanticBlockName);
 		}
@@ -901,7 +901,7 @@ namespace OpenGL.Objects
 		/// Link an array buffer to an attribute of this vertex array.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="sectionIndex">
 		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
@@ -925,7 +925,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid input name.
 		/// </exception>
-		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor, string attributeName, string blockName)
+		public void SetInstancedArray(ArrayBufferBase arrayBuffer, uint sectionIndex, uint divisor, string attributeName, string blockName)
 		{
 			if (String.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");
@@ -939,7 +939,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to this vertex array.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="sectionIndex">
 		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
@@ -960,7 +960,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="inputName"/> is null or is not a valid input name.
 		/// </exception>
-		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint divisor, string inputName, string blockName)
+		public void SetInstancedArray(ArrayBufferBase arrayBuffer, uint divisor, string inputName, string blockName)
 		{
 			SetInstancedArray(arrayBuffer, 0, divisor, inputName, blockName);
 		}
@@ -969,7 +969,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to this vertex array.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="sectionIndex">
 		/// A <see cref="UInt32"/> that specify the <paramref name="arrayBuffer"/> sub-array index.
@@ -989,7 +989,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
 		/// </exception>
-		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint sectionIndex, uint divisor, string semantic)
+		public void SetInstancedArray(ArrayBufferBase arrayBuffer, uint sectionIndex, uint divisor, string semantic)
 		{
 			SetInstancedArray(arrayBuffer, sectionIndex, divisor, semantic, SemanticBlockName);
 		}
@@ -998,7 +998,7 @@ namespace OpenGL.Objects
 		/// Set an array buffer to this vertex array.
 		/// </summary>
 		/// <param name="arrayBuffer">
-		/// A <see cref="ArrayBufferObjectBase"/> that specify the contents of the array.
+		/// A <see cref="ArrayBufferBase"/> that specify the contents of the array.
 		/// </param>
 		/// <param name="semantic">
 		/// A <see cref="String"/> that specify the attribute semantic. Normally a constant of <see cref="VertexArraySemantic"/>.
@@ -1012,7 +1012,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="semantic"/> is null or is not a valid semantic name.
 		/// </exception>
-		public void SetInstancedArray(ArrayBufferObjectBase arrayBuffer, uint divisor, string semantic)
+		public void SetInstancedArray(ArrayBufferBase arrayBuffer, uint divisor, string semantic)
 		{
 			SetInstancedArray(arrayBuffer, 0, divisor, semantic, SemanticBlockName);
 		}
@@ -1121,7 +1121,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// The vertex array length, based on the property <see cref="ArrayBufferObjectBase.ItemCount"/> of the
+		/// The vertex array length, based on the property <see cref="ArrayBufferBase.ItemCount"/> of the
 		/// array objects compositing this vertex array.
 		/// </summary>
 		public uint ArrayLength

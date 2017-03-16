@@ -228,7 +228,7 @@ namespace OpenGL.Objects.Scene
 
 		#region Bounding Volumes Resources
 
-		private VertexArrayObject CreateBBoxVertexArray(IBoundingVolume bbox)
+		private VertexArrays CreateBBoxVertexArray(IBoundingVolume bbox)
 		{
 			if (bbox.GetType() == typeof(BoundingBox))
 				return (_BoundingBoxArray);
@@ -236,10 +236,10 @@ namespace OpenGL.Objects.Scene
 				throw new NotImplementedException();
 		}
 
-		private VertexArrayObject CreateBBoxVertexArray()
+		private VertexArrays CreateBBoxVertexArray()
 		{
-			VertexArrayObject bboxArray = new VertexArrayObject();
-			ArrayBufferObject<Vertex3f> bboxVPositionArray = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			VertexArrays bboxArray = new VertexArrays();
+			ArrayBuffer<Vertex3f> bboxVPositionArray = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 			bboxVPositionArray.Create(new Vertex3f[] {
 				// Lower
 				new Vertex3f(-0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, -0.5f, -0.5f),
@@ -294,7 +294,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Vertex arrays for drawing bounding boxes.
 		/// </summary>
-		private VertexArrayObject _BoundingBoxArray;
+		private VertexArrays _BoundingBoxArray;
 
 		/// <summary>
 		/// Shader program used for drawing bounding volumes.

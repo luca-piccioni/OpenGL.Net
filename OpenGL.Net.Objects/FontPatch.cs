@@ -187,7 +187,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create a <see cref="VertexArrayObject"/> for rendering glyphs.
+		/// Create a <see cref="VertexArrays"/> for rendering glyphs.
 		/// </summary>
 		private void LinkSharedResources(GraphicsContext ctx)
 		{
@@ -201,11 +201,11 @@ namespace OpenGL.Objects
 
 			#region Vertex Arrays
 
-			_VertexArrays = (VertexArrayObject)ctx.GetSharedResource(vertexArrayId);
+			_VertexArrays = (VertexArrays)ctx.GetSharedResource(vertexArrayId);
 			Dictionary<char, Glyph> glyphsDb = null;
 
 			if (_VertexArrays == null) {
-				_VertexArrays = new VertexArrayObject();
+				_VertexArrays = new VertexArrays();
 
 				List<GlyphPolygons> glyphPolygons = GenerateGlyphs(Family, Size, Style);
 				List<Vertex2f> glyphsVertices = new List<Vertex2f>();
@@ -245,7 +245,7 @@ namespace OpenGL.Objects
 				}
 
 				// Element vertices
-				ArrayBufferObject<Vertex2f> gVertexPosition = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+				ArrayBuffer<Vertex2f> gVertexPosition = new ArrayBuffer<Vertex2f>(BufferHint.StaticCpuDraw);
 				gVertexPosition.Create(glyphsVertices.ToArray());
 				_VertexArrays.SetArray(gVertexPosition, VertexArraySemantic.Position);
 
@@ -350,7 +350,7 @@ namespace OpenGL.Objects
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 
 			if (ctx.Extensions.ShaderDrawParameters_ARB) {
-				List<VertexArrayObject.IElement> glyphElements = new List<VertexArrayObject.IElement>();
+				List<VertexArrays.IElement> glyphElements = new List<VertexArrays.IElement>();
 				int drawInstanceId = 0;
 
 				foreach (char c in s) {
@@ -372,7 +372,7 @@ namespace OpenGL.Objects
 				}
 
 				// Draw using Multi-Draw primitive
-				VertexArrayObject.IElement multiElement = _VertexArrays.CombineArrayElements(glyphElements);
+				VertexArrays.IElement multiElement = _VertexArrays.CombineArrayElements(glyphElements);
 
 				_VertexArrays.Draw(ctx, _FontProgram, multiElement);
 
@@ -398,7 +398,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The font glyph vertex array.
 		/// </summary>
-		private VertexArrayObject _VertexArrays;
+		private VertexArrays _VertexArrays;
 
 		/// <summary>
 		/// Shader program used for drawing font glyphs.

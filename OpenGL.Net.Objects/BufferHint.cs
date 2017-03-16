@@ -31,7 +31,7 @@ namespace OpenGL.Objects
 	/// updates and draw updates.
 	/// </para>
 	/// </remarks>
-	public enum BufferObjectHint
+	public enum BufferHint
 	{
 		/// <summary>
 		/// Buffer used for drawing, specified once by application data.

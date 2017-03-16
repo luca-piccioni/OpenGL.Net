@@ -20,7 +20,7 @@ using System;
 
 namespace OpenGL.Objects
 {
-	public class QueryObject : GraphicsResource
+	public class Query : GraphicsResource
 	{
 		#region Constructors
 
@@ -28,7 +28,7 @@ namespace OpenGL.Objects
 		/// Construct a QueryObject specify its target.
 		/// </summary>
 		/// <param name="target"></param>
-		public QueryObject(QueryTarget target)
+		public Query(QueryTarget target)
 		{
 			mTarget = target;
 		}

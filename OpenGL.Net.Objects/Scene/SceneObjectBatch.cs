@@ -25,7 +25,7 @@ namespace OpenGL.Objects.Scene
 	{
 		#region Constructors
 
-		internal SceneObjectBatch(VertexArrayObject vertexArray)
+		internal SceneObjectBatch(VertexArrays vertexArray)
 		{
 			if (vertexArray == null)
 				throw new ArgumentNullException("vertexArray");
@@ -54,7 +54,7 @@ namespace OpenGL.Objects.Scene
 		/// </param>
 		/// <param name="state"></param>
 		/// <param name="program"></param>
-		public SceneObjectBatch(VertexArrayObject vertexArray, State.GraphicsStateSet state, ShaderProgram program)
+		public SceneObjectBatch(VertexArrays vertexArray, State.GraphicsStateSet state, ShaderProgram program)
 		{
 			if (vertexArray == null)
 				throw new ArgumentNullException("vertexArray");
@@ -87,7 +87,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Vertex arrays to be rasterized.
 		/// </summary>
-		public virtual VertexArrayObject VertexArray
+		public virtual VertexArrays VertexArray
 		{
 			get { return (_VertexArray); }
 			set { _VertexArray = value;; }
@@ -96,7 +96,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Vertex arrays to be rasterized.
 		/// </summary>
-		private VertexArrayObject _VertexArray;
+		private VertexArrays _VertexArray;
 
 		/// <summary>
 		/// Current state to be applied to <see cref="Program"/> and the current server state.

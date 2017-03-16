@@ -299,12 +299,12 @@ namespace OpenGL.Objects.Scene
 			/// </summary>
 			public readonly List<ObjFace> Faces = new List<ObjFace>();
 
-			public VertexArrayObject CreateArrays(ObjContext objContext)
+			public VertexArrays CreateArrays(ObjContext objContext)
 			{
 				if (objContext == null)
 					throw new ArgumentNullException("objContext");
 
-				VertexArrayObject vertexArray = new VertexArrayObject();
+				VertexArrays vertexArray = new VertexArrays();
 				List<ObjFaceCoord> coords = new List<ObjFaceCoord>();
 				bool hasTexCoord = Material.DiffuseTexture != null;
 				bool hasNormals = true;
@@ -338,7 +338,7 @@ namespace OpenGL.Objects.Scene
 				}
 
 				// Position (mandatory)
-				ArrayBufferObject<Vertex4f> positionBuffer = new ArrayBufferObject<Vertex4f>(BufferObjectHint.StaticCpuDraw);
+				ArrayBuffer<Vertex4f> positionBuffer = new ArrayBuffer<Vertex4f>(BufferHint.StaticCpuDraw);
 				positionBuffer.Create(position);
 				vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
@@ -347,18 +347,18 @@ namespace OpenGL.Objects.Scene
 
 				// Texture
 				if (hasTexCoord) {
-					ArrayBufferObject<Vertex2f> texCoordBuffer = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+					ArrayBuffer<Vertex2f> texCoordBuffer = new ArrayBuffer<Vertex2f>(BufferHint.StaticCpuDraw);
 					texCoordBuffer.Create(texcoord);
 					vertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
 				}
 
 				// Normals
 				if (hasNormals) {
-					ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 					normalBuffer.Create(normal);
 					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 				} else {
-					ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 					normalBuffer.Create(vertexCount);
 					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 					vertexArray.GenerateNormals();
@@ -366,11 +366,11 @@ namespace OpenGL.Objects.Scene
 
 				// Tangents
 				if (hasTanCoord) {
-					ArrayBufferObject<Vertex3f> tanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> tanCoordBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 					tanCoordBuffer.Create(vertexCount);
 					vertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
 
-					ArrayBufferObject<Vertex3f> bitanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> bitanCoordBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 					bitanCoordBuffer.Create(vertexCount);
 					vertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
 
@@ -589,7 +589,7 @@ namespace OpenGL.Objects.Scene
 
             foreach (ObjGroup objGroup in objContext.Groups) {
 				foreach (ObjGeometry objGeometry in objGroup.MergeGeometries()) {
-					VertexArrayObject vertexArray = objGeometry.CreateArrays(objContext);
+					VertexArrays vertexArray = objGeometry.CreateArrays(objContext);
 					GraphicsStateSet objectState = new GraphicsStateSet();
 
 					objectState.DefineState(objGeometry.CreateMaterialState());

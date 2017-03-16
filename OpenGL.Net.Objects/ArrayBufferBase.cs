@@ -26,10 +26,10 @@ namespace OpenGL.Objects
 	/// </summary>
 	/// <remarks>
 	/// <para>
-	/// This class is a <see cref="BufferObject"/> specialized for storing data to be issued to a shader program execution.
+	/// This class is a <see cref="Buffer"/> specialized for storing data to be issued to a shader program execution.
 	/// </para>
 	/// </remarks>
-	public abstract class ArrayBufferObjectBase : BufferObject
+	public abstract class ArrayBufferBase : Buffer
 	{
 		#region Constructors
 
@@ -37,9 +37,9 @@ namespace OpenGL.Objects
 		/// Construct an ArrayBufferObjectBase.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected ArrayBufferObjectBase(BufferObjectHint hint) :
+		protected ArrayBufferBase(BufferHint hint) :
 			base(BufferTargetARB.ArrayBuffer, hint)
 		{
 			
@@ -52,9 +52,9 @@ namespace OpenGL.Objects
 		/// A <see cref="BufferTargetARB"/> that specify the buffer target.
 		/// </param>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		protected ArrayBufferObjectBase(BufferTargetARB bufferTarget, BufferObjectHint hint) :
+		protected ArrayBufferBase(BufferTargetARB bufferTarget, BufferHint hint) :
 			base(bufferTarget, hint)
 		{
 
@@ -300,7 +300,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="array"/> is null.
@@ -310,7 +310,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
@@ -347,7 +347,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="array"/> is null.
@@ -357,7 +357,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
@@ -381,7 +381,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="array"/> is null.
@@ -391,7 +391,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
@@ -419,7 +419,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -432,7 +432,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
@@ -476,7 +476,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -489,7 +489,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
@@ -516,7 +516,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -529,7 +529,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
@@ -558,7 +558,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		protected virtual void CopyBuffer(IntPtr buffer, Array array, uint arrayItemSize, uint offset, uint count)
 		{
@@ -623,7 +623,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -636,7 +636,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		public virtual void Update(GraphicsContext ctx, Array array, uint offset, uint count)
 		{
@@ -677,7 +677,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -690,7 +690,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		public void Update(GraphicsContext ctx, Array array, uint count)
 		{
@@ -708,7 +708,7 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBufferObject"/>, not of the element type of <paramref name="array"/>!
+		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -721,7 +721,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBufferObject"/>.
+		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
 		/// </exception>
 		public void Update(GraphicsContext ctx, Array array)
 		{

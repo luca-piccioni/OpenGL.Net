@@ -16,7 +16,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-using UniformSegmentDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.UniformBufferObject.UniformSegment>;
+using UniformSegmentDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.UniformBuffer.UniformSegment>;
 
 using System;
 using System.Diagnostics;
@@ -26,7 +26,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// A buffer object containing a set of uniform variables, which can be bound to a <see cref="ShaderProgram"/>.
 	/// </summary>
-	public partial class UniformBufferObject : BufferObject, IShaderUniformContainer
+	public partial class UniformBuffer : Buffer, IShaderUniformContainer
 	{
 		#region Constructors
 
@@ -34,9 +34,9 @@ namespace OpenGL.Objects
 		/// Construct an UniformBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferObjectHint"/> that specify the data buffer usage hint.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hint.
 		/// </param>
-		public UniformBufferObject(BufferObjectHint hint) :
+		public UniformBuffer(BufferHint hint) :
 			base(BufferTargetARB.UniformBuffer, hint)
 		{
 			

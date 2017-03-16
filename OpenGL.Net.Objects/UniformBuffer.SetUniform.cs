@@ -20,7 +20,7 @@ using System;
 
 namespace OpenGL.Objects
 {
-	public partial class UniformBufferObject
+	public partial class UniformBuffer
 	{
 		#region Set Uniform (single-precision floating-point vector data)
 

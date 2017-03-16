@@ -24,15 +24,15 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Feedback buffer object.
 	/// </summary>
-	public class FeedbackBufferObject : BufferObject
+	public class FeedbackBuffer : Buffer
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Construct an FeedbackBufferObject.
 		/// </summary>
-		public FeedbackBufferObject()
-			: base(BufferTargetARB.TransformFeedbackBuffer, BufferObjectHint.DynamicGpuDraw)
+		public FeedbackBuffer()
+			: base(BufferTargetARB.TransformFeedbackBuffer, BufferHint.DynamicGpuDraw)
 		{
 
 		}
@@ -41,12 +41,12 @@ namespace OpenGL.Objects
 
 		#region Array Buffer Attachment
 
-		public void AttachArray(uint varyingLocation, ArrayBufferObjectBase arrayBuffer)
+		public void AttachArray(uint varyingLocation, ArrayBufferBase arrayBuffer)
 		{
 			AttachArray(varyingLocation, arrayBuffer, 0);
 		}
 
-		public void AttachArray(uint varyingLocation, ArrayBufferObjectBase arrayBuffer, uint sectionIndex)
+		public void AttachArray(uint varyingLocation, ArrayBufferBase arrayBuffer, uint sectionIndex)
 		{
 			_AttachedArrays[varyingLocation] = new ArrayAttachment(arrayBuffer, sectionIndex);
 		}
@@ -60,7 +60,7 @@ namespace OpenGL.Objects
 			/// </summary>
 			/// <param name="arrayBuffer"></param>
 			/// <param name="sectionIndex"></param>
-			public ArrayAttachment(ArrayBufferObjectBase arrayBuffer, uint sectionIndex)
+			public ArrayAttachment(ArrayBufferBase arrayBuffer, uint sectionIndex)
 			{
 				if (arrayBuffer == null)
 					throw new ArgumentNullException("arrayBuffer");
@@ -77,7 +77,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The array buffer object used as transform feedback target.
 			/// </summary>
-			public readonly ArrayBufferObjectBase ArrayBuffer;
+			public readonly ArrayBufferBase ArrayBuffer;
 
 			/// <summary>
 			/// The vertex array sub-buffer index.
@@ -103,7 +103,7 @@ namespace OpenGL.Objects
 		{
 			foreach (KeyValuePair<uint,ArrayAttachment> pair in _AttachedArrays) {
 				ArrayAttachment arrayAttachment = pair.Value;
-				ArrayBufferObjectBase.IArraySection arraySection = arrayAttachment.ArrayBuffer.GetArraySection(arrayAttachment.ArraySectionIndex);
+				ArrayBufferBase.IArraySection arraySection = arrayAttachment.ArrayBuffer.GetArraySection(arrayAttachment.ArraySectionIndex);
 
 				Gl.BindBufferRange(Gl.TRANSFORM_FEEDBACK_BUFFER, pair.Key, arrayAttachment.ArrayBuffer.ObjectName, arraySection.Offset, arrayAttachment.ArrayBuffer.BufferSize - (uint)arraySection.Offset.ToInt32());
 			}
@@ -219,11 +219,11 @@ namespace OpenGL.Objects
 		
 		public bool Overflow { get { return (mPrimitivesWrittenCached != 0 && mPrimitivesGeneratedCached > mPrimitivesWrittenCached); } }
 		
-		private QueryObject _PrimitivesGenerated;
+		private Query _PrimitivesGenerated;
 		
 		private ulong mPrimitivesGeneratedCached;
 		
-		private QueryObject _PrimitivesWritten;
+		private Query _PrimitivesWritten;
 		
 		private ulong mPrimitivesWrittenCached;
 		
@@ -374,10 +374,10 @@ namespace OpenGL.Objects
 			}
 			
 			// Create queries
-			_PrimitivesGenerated = new QueryObject(QueryTarget.PrimitivesGenerated);
+			_PrimitivesGenerated = new Query(QueryTarget.PrimitivesGenerated);
 			_PrimitivesGenerated.Create(ctx);
 			
-			_PrimitivesWritten = new QueryObject(QueryTarget.TransformFeedbackPrimitivesGenerated);
+			_PrimitivesWritten = new Query(QueryTarget.TransformFeedbackPrimitivesGenerated);
 			_PrimitivesWritten.Create(ctx);
 		}
 

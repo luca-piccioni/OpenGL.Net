@@ -341,7 +341,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <remarks>
 		/// This property determine the default extension behavior for each object attached to
-		/// a <see cref="ShaderProgram"/>; however, each <see cref="ShaderObject"/> can override
+		/// a <see cref="ShaderProgram"/>; however, each <see cref="Shader"/> can override
 		/// the behavior for its compilation.
 		/// </remarks>
 		public readonly List<ShaderExtension> Extensions = new List<ShaderExtension>();

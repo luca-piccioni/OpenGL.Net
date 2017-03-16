@@ -29,8 +29,8 @@ namespace OpenGL.Objects
 	/// objects belongs to one of the following classes:
 	/// - Display list (actually not supported)
 	/// - Textures object (<see cref="Texture"/>)
-	/// - Buffer object (<see cref="BufferObject"/>)
-	/// - Shader object (<see cref="ShaderObject"/>)
+	/// - Buffer object (<see cref="Buffer"/>)
+	/// - Shader object (<see cref="Shader"/>)
 	/// - Shader program (<see cref="ShaderProgram"/>)
 	/// - Shader program pipeline (actually not supported)
 	/// - Render buffer object (<see cref="RenderBuffer"/>)

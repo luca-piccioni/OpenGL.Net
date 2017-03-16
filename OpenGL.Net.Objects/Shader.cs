@@ -58,7 +58,7 @@ namespace OpenGL.Objects
 	/// with the same ShaderProgram.
 	/// </para>
 	/// </remarks>
-	public class ShaderObject : GraphicsResource
+	public class Shader : GraphicsResource
 	{
 		#region Constructors
 
@@ -68,7 +68,7 @@ namespace OpenGL.Objects
 		/// <param name="shaderStage">
 		/// A <see cref="ShaderStage"/> indicating the shader stage of this ShaderObject.
 		/// </param>
-		public ShaderObject(ShaderStage shaderStage)
+		public Shader(ShaderStage shaderStage)
 		{
 			// Store shader type
 			_Stage = shaderStage;

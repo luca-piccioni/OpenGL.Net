@@ -39,14 +39,14 @@ namespace OpenGL.Objects
 	/// the rendering result of the collected arrays.
 	/// </para>
 	/// </remarks>
-	public partial class VertexArrayObject : GraphicsResource, IBindingResource
+	public partial class VertexArrays : GraphicsResource, IBindingResource
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Construct an empty vertex array.
 		/// </summary>
-		public VertexArrayObject()
+		public VertexArrays()
 		{
 
 		}
@@ -293,7 +293,7 @@ namespace OpenGL.Objects
 
 		#region Transform Feedback
 
-		public void SetTransformFeedback(FeedbackBufferObject feedbackObject)
+		public void SetTransformFeedback(FeedbackBuffer feedbackObject)
 		{
 			if (_FeedbackBuffer != null)
 				_FeedbackBuffer.DecRef();
@@ -307,7 +307,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The feedback buffer object that specify the feedback array buffers.
 		/// </summary>
-		private FeedbackBufferObject _FeedbackBuffer;
+		private FeedbackBuffer _FeedbackBuffer;
 
 		#endregion
 
@@ -386,13 +386,13 @@ namespace OpenGL.Objects
 		/// A <see cref="Int32"/> that specifies the number of vertical subdivisions of the sphere.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="VertexArrayObject"/> defining the following semantics:
+		/// It returns a <see cref="Objects.VertexArrays"/> defining the following semantics:
 		/// - Positions
 		/// - Normals
 		/// </returns>
-		public static VertexArrayObject CreateSphere(float radius, int slices, int stacks)
+		public static VertexArrays CreateSphere(float radius, int slices, int stacks)
 		{
-			VertexArrayObject vertexArray = new VertexArrayObject();
+			VertexArrays vertexArray = new VertexArrays();
 
 			// Vertex generation
 			Vertex3f[] position, normal;
@@ -402,15 +402,15 @@ namespace OpenGL.Objects
 			GenerateSphere(radius, slices, stacks, out position, out normal, out indices, out vertexCount);
 
 			// Buffer definition
-			ArrayBufferObject<Vertex3f> positionBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 			positionBuffer.Create(position);
 			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
-			ArrayBufferObject<Vertex3f> normalBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 			normalBuffer.Create(normal);
 			vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 
-			ElementBufferObject<ushort> elementBuffer = new ElementBufferObject<ushort>(BufferObjectHint.StaticCpuDraw);
+			ElementBuffer<ushort> elementBuffer = new ElementBuffer<ushort>(BufferHint.StaticCpuDraw);
 			elementBuffer.Create(indices);
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
 
@@ -553,9 +553,9 @@ namespace OpenGL.Objects
 		/// <param name="dx"></param>
 		/// <param name="dy"></param>
 		/// <returns></returns>
-		public static VertexArrayObject CreatePlane(float x, float y, float z, uint dx, uint dy)
+		public static VertexArrays CreatePlane(float x, float y, float z, uint dx, uint dy)
 		{
-			VertexArrayObject vertexArray = new VertexArrayObject();
+			VertexArrays vertexArray = new VertexArrays();
 
 			// Vertex generation
 			Vertex3f[] position = new Vertex3f[(dx + 1) * (dy + 1)];
@@ -596,11 +596,11 @@ namespace OpenGL.Objects
 			}
 
 			// Buffer definition
-			ArrayBufferObject<Vertex3f> positionBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
 			positionBuffer.Create(position);
 			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
-			ElementBufferObject<uint> elementBuffer = new ElementBufferObject<uint>(BufferObjectHint.StaticCpuDraw);
+			ElementBuffer<uint> elementBuffer = new ElementBuffer<uint>(BufferHint.StaticCpuDraw);
 			elementBuffer.Create(indices.ToArray());
 			elementBuffer.RestartIndexEnabled = Gl.CurrentExtensions.PrimitiveRestart;
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
@@ -750,7 +750,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject has not client memory allocated and the hint is different from
-		/// <see cref="BufferObjectHint.StaticCpuDraw"/> or <see cref="BufferObjectHint.DynamicCpuDraw"/>.
+		/// <see cref="BufferHint.StaticCpuDraw"/> or <see cref="BufferHint.DynamicCpuDraw"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is currently mapped.

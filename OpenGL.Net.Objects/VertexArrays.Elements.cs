@@ -22,7 +22,7 @@ using System.Diagnostics;
 
 namespace OpenGL.Objects
 {
-	public partial class VertexArrayObject
+	public partial class VertexArrays
 	{
 		/// <summary>
 		/// Vertex array element interface.
@@ -43,12 +43,12 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how elements are interpreted.
 			/// </param>
-			protected Element(VertexArrayObject vao, PrimitiveType mode)
+			protected Element(Objects.VertexArrays vao, PrimitiveType mode)
 			{
 				if (vao == null)
 					throw new ArgumentNullException("vao");
@@ -57,9 +57,9 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
 			/// </summary>
-			protected readonly VertexArrayObject _VertexArrayObject;
+			protected readonly Objects.VertexArrays _VertexArrayObject;
 
 			#endregion
 
@@ -114,9 +114,9 @@ namespace OpenGL.Objects
 			/// Generate normals for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public virtual void GenerateNormals(VertexArrayObject vertexArray)
+			public virtual void GenerateNormals(Objects.VertexArrays vertexArray)
 			{
 				throw new NotImplementedException();
 			}
@@ -125,9 +125,9 @@ namespace OpenGL.Objects
 			/// Generate texture coordinates for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public virtual void GenerateTexCoord(VertexArrayObject vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			public virtual void GenerateTexCoord(Objects.VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
 				throw new NotImplementedException();
 			}
@@ -136,9 +136,9 @@ namespace OpenGL.Objects
 			/// Generate tangents for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public virtual void GenerateTangents(VertexArrayObject vertexArray)
+			public virtual void GenerateTangents(Objects.VertexArrays vertexArray)
 			{
 				throw new NotImplementedException();
 			}
@@ -147,9 +147,9 @@ namespace OpenGL.Objects
 			/// Generate bitangents for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public virtual void GenerateBitangents(VertexArrayObject vertexArray)
+			public virtual void GenerateBitangents(Objects.VertexArrays vertexArray)
 			{
 				throw new NotImplementedException();
 			}
@@ -180,7 +180,7 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
@@ -191,7 +191,7 @@ namespace OpenGL.Objects
 			/// <param name="count">
 			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
-			public ArrayElement(VertexArrayObject vao, PrimitiveType mode, uint offset, uint count) :
+			public ArrayElement(Objects.VertexArrays vao, PrimitiveType mode, uint offset, uint count) :
 				base(vao, mode)
 			{
 				ElementOffset = offset;
@@ -208,7 +208,7 @@ namespace OpenGL.Objects
 			/// The array elements count is implictly defined as the vertex array length at <see cref="Draw(GraphicsContext)"/>
 			/// execution time.
 			/// </remarks>
-			public ArrayElement(VertexArrayObject vao, PrimitiveType mode) :
+			public ArrayElement(Objects.VertexArrays vao, PrimitiveType mode) :
 				this(vao, mode, 0, 0)
 			{
 				
@@ -274,9 +274,9 @@ namespace OpenGL.Objects
 			/// Generate normals for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public override void GenerateNormals(VertexArrayObject vertexArray)
+			public override void GenerateNormals(Objects.VertexArrays vertexArray)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -358,9 +358,9 @@ namespace OpenGL.Objects
 			/// Generate tangents for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public override void GenerateTangents(VertexArrayObject vertexArray)
+			public override void GenerateTangents(Objects.VertexArrays vertexArray)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -485,7 +485,7 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
@@ -496,7 +496,7 @@ namespace OpenGL.Objects
 			/// <param name="counts">
 			/// A <see cref="Int32[]"/> that specify the number of array elements drawn.
 			/// </param>
-			public MultiArrayElement(VertexArrayObject vao, PrimitiveType mode, int[] offsets, int[] counts) :
+			public MultiArrayElement(Objects.VertexArrays vao, PrimitiveType mode, int[] offsets, int[] counts) :
 				base(vao, mode)
 			{
 				if (offsets == null)
@@ -583,13 +583,13 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of element indices.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="VertexArrayObject"/> to which this element belongs to.
+			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
 			/// <param name="indices">
-			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices.
+			/// A <see cref="ElementBuffer"/> containing the indices of the drawn vertices.
 			/// </param>
 			/// <param name="offset">
 			/// A <see cref="UInt32"/> that specify the offset applied to the drawn elements indices.
@@ -600,7 +600,7 @@ namespace OpenGL.Objects
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="indices"/> is null.
 			/// </exception>
-			public IndexedElement(VertexArrayObject vao, PrimitiveType mode, ElementBufferObject indices, uint offset, uint count) :
+			public IndexedElement(Objects.VertexArrays vao, PrimitiveType mode, ElementBuffer indices, uint offset, uint count) :
 				base(vao, mode, offset, count)
 			{
 				if (indices == null)
@@ -617,7 +617,7 @@ namespace OpenGL.Objects
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
 			/// <param name="indices">
-			/// A <see cref="ElementBufferObject"/> containing the indices of the drawn vertices.
+			/// A <see cref="ElementBuffer"/> containing the indices of the drawn vertices.
 			/// </param>
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="indices"/> is null.
@@ -626,7 +626,7 @@ namespace OpenGL.Objects
 			/// The element indices count is implictly defined by <paramref name="indices"/> at <see cref="Draw(GraphicsContext)"/>
 			/// execution time.
 			/// </remarks>
-			public IndexedElement(VertexArrayObject vao, PrimitiveType mode, ElementBufferObject indices) :
+			public IndexedElement(Objects.VertexArrays vao, PrimitiveType mode, ElementBuffer indices) :
 				this(vao, mode, indices, 0, 0)
 			{
 
@@ -639,7 +639,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// An integral buffer that specify vertices by they index.
 			/// </summary>
-			public readonly ElementBufferObject ArrayIndices;
+			public readonly ElementBuffer ArrayIndices;
 
 			#endregion
 
@@ -677,7 +677,7 @@ namespace OpenGL.Objects
 			{
 				CheckCurrentContext(ctx);
 
-				ArrayBufferObjectBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
+				ArrayBufferBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
 				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
@@ -721,7 +721,7 @@ namespace OpenGL.Objects
 			{
 				CheckCurrentContext(ctx);
 
-				ArrayBufferObjectBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
+				ArrayBufferBase.IArraySection arraySection = ArrayIndices.GetArraySection(0);
 				Debug.Assert(arraySection != null);
 
 				// Element array must be (re)bound
@@ -783,9 +783,9 @@ namespace OpenGL.Objects
 			/// Generate texture coordinates for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public override void GenerateTexCoord(VertexArrayObject vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			public override void GenerateTexCoord(Objects.VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -840,9 +840,9 @@ namespace OpenGL.Objects
 			/// Generate tangents for this Element.
 			/// </summary>
 			/// <param name="vertexArray">
-			/// The <see cref="VertexArrayObject"/>
+			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public override void GenerateTangents(VertexArrayObject vertexArray)
+			public override void GenerateTangents(Objects.VertexArrays vertexArray)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -1039,10 +1039,10 @@ namespace OpenGL.Objects
 		/// A <see cref="Primitive"/> that specify how arrays elements are interpreted.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
+		/// A <see cref="ElementBuffer"/> that specify a sequence of indices that defines the
 		/// array element sequence.
 		/// </param>
-		public int SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject)
+		public int SetElementArray(PrimitiveType mode, ElementBuffer bufferObject)
 		{
 			if (bufferObject == null)
 				throw new ArgumentNullException("bufferObject");
@@ -1060,7 +1060,7 @@ namespace OpenGL.Objects
 		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
 		/// </param>
 		/// <param name="bufferObject">
-		/// A <see cref="ElementBufferObject"/> that specify a sequence of indices that defines the
+		/// A <see cref="ElementBuffer"/> that specify a sequence of indices that defines the
 		/// array element sequence.
 		/// </param>
 		/// <param name="offset">
@@ -1069,7 +1069,7 @@ namespace OpenGL.Objects
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of element indices drawn.
 		/// </param>
-		public int SetElementArray(PrimitiveType mode, ElementBufferObject bufferObject, uint offset, uint count)
+		public int SetElementArray(PrimitiveType mode, ElementBuffer bufferObject, uint offset, uint count)
 		{
 			if (bufferObject == null)
 				throw new ArgumentNullException("bufferObject");

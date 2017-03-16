@@ -64,7 +64,7 @@ namespace OpenGL.Objects
 		}
 
 		[Conditional("DEBUG")]
-		protected void NotifyDiedResource()
+		private void NotifyDiedResource()
 		{
 			// Remove this GraphicsResource from the living ones
 			bool res = _LivingResources.Remove(this);

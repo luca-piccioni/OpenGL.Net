@@ -453,13 +453,13 @@ namespace OpenGL.Objects.State
 		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
 		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
 		/// </summary>
-		protected UniformBufferObject UniformBuffer { get { return (_UniformBuffer); } }
+		protected UniformBuffer UniformBuffer { get { return (_UniformBuffer); } }
 
 		/// <summary>
 		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
 		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
 		/// </summary>
-		private UniformBufferObject _UniformBuffer;
+		private UniformBuffer _UniformBuffer;
 
 		#endregion
 
@@ -506,7 +506,7 @@ namespace OpenGL.Objects.State
 
 			// Create uniform buffer, if supported
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag) && UniformBuffer == null) {
-				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferObjectHint.DynamicCpuDraw);
+				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferHint.DynamicCpuDraw);
 				_UniformBuffer.Create(ctx);
 			}
 
