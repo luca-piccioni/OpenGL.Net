@@ -195,7 +195,7 @@ namespace OpenGL.Objects
 			unsafe {
 				List<int> offsets = new List<int>();
 				List<IntPtr> counts = new List<IntPtr>();
-				byte* indicesPtr = (byte*)ClientBufferAddress.ToPointer();
+				byte* indicesPtr = (byte*)CpuBufferAddress.ToPointer();
 				byte restartIndex = (byte)(RestartIndexKey & 0x000000FF);
 
 				offsets.Add(0);
@@ -222,7 +222,7 @@ namespace OpenGL.Objects
 			{
 				List<int> offsets = new List<int>();
 				List<IntPtr> counts = new List<IntPtr>();
-				ushort* indicesPtr = (ushort*)ClientBufferAddress.ToPointer();
+				ushort* indicesPtr = (ushort*)CpuBufferAddress.ToPointer();
 				ushort restartIndex = (ushort)(RestartIndexKey & 0x0000FFFF);
 
 				for (int i = 0; i < ItemCount; i++) {
@@ -248,7 +248,7 @@ namespace OpenGL.Objects
 			{
 				List<int> offsets = new List<int>();
 				List<IntPtr> counts = new List<IntPtr>();
-				uint* indicesPtr = (uint*)ClientBufferAddress.ToPointer();
+				uint* indicesPtr = (uint*)CpuBufferAddress.ToPointer();
 				uint restartIndex = RestartIndexKey;
 
 				for (int i = 0; i < ItemCount; i++) {
@@ -337,13 +337,13 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override Array ToArray()
 		{
-			if (ClientBufferAddress == IntPtr.Zero)
+			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
 			Array genericArray = CreateArray(ArrayType, ItemCount);
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, ClientBufferAddress, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, CpuBufferAddress, ItemCount * ItemSize);
 
 			return (genericArray);
 		}

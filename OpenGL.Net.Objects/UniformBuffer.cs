@@ -68,7 +68,7 @@ namespace OpenGL.Objects
 				throw new ArgumentException("invalid", "itemsCount");
 
 			// Allocate buffer
-			AllocateClientBuffer(dataSize);
+			CreateCpuBuffer(dataSize);
 		}
 
 		#endregion
@@ -100,10 +100,10 @@ namespace OpenGL.Objects
 				throw new ArgumentException("invalid", "itemsCount");
 
 			// Object already existing: resize client buffer, if any
-			if (ClientBufferAddress != IntPtr.Zero)
-				AllocateClientBuffer(dataSize);
+			if (CpuBufferAddress != IntPtr.Zero)
+				CreateCpuBuffer(dataSize);
 			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
-			ClientBufferSize = dataSize;
+			CpuBufferSize = dataSize;
 			// Allocate object
 			Create(ctx);
 		}

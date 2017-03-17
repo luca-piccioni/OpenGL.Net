@@ -84,7 +84,7 @@ namespace OpenGL.Objects.Test
 			ShadersLibrary.Object shaderObjectInfo = ShadersLibrary.Instance.GetObject(objectId);
 			Assert.IsNotNull(shaderObjectInfo);
 
-			ShaderObject shaderObject = shaderObjectInfo.Create();
+			Shader shaderObject = shaderObjectInfo.Create();
 			try {
 				Assert.IsNotNull(shaderObject);
 				Assert.DoesNotThrow(delegate { shaderObject.Create(_Context); });

@@ -139,7 +139,7 @@ namespace OpenGL.Objects
 		{
 			if (arrayLength > ItemCount)
 				throw new ArgumentOutOfRangeException("arrayLength", arrayLength, "cannot exceed items count");
-			if (ClientBufferAddress == IntPtr.Zero)
+			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
 			Type arrayElementType = typeof(T);
@@ -159,7 +159,7 @@ namespace OpenGL.Objects
 			T[] array = new T[arrayLength];
 
 			// Copy from buffer data to array data
-			CopyArray(array, arrayItemSize, ClientBufferAddress, ItemSize, 0, arrayLength);
+			CopyArray(array, arrayItemSize, CpuBufferAddress, ItemSize, 0, arrayLength);
 
 			return (array);
 		}
@@ -328,13 +328,13 @@ namespace OpenGL.Objects
 			Create(count);
 
 			unsafe {
-				byte* dstPtr = (byte*)ClientBufferAddress.ToPointer();
+				byte* dstPtr = (byte*)CpuBufferAddress.ToPointer();
 
 				for (uint i = 0; i < count; i++, dstPtr += ItemSize) {
 					uint arrayIndex = indices[(i * stride) + offset];
 
 					// Position 'srcPtr' to the indexed element
-					byte* srcPtr = ((byte*)buffer.ClientBufferAddress.ToPointer()) + (ItemSize * arrayIndex);
+					byte* srcPtr = ((byte*)buffer.CpuBufferAddress.ToPointer()) + (ItemSize * arrayIndex);
 
 					// Copy the 'arrayIndex'th element
 					Memory.MemoryCopy(dstPtr, srcPtr, ItemSize);
@@ -419,7 +419,7 @@ namespace OpenGL.Objects
 			uint count = 0;
 
 			unsafe {
-				byte* dstPtr = (byte*)ClientBufferAddress.ToPointer();
+				byte* dstPtr = (byte*)CpuBufferAddress.ToPointer();
 				uint indicesIndex = offset;
 
 				for (uint i = 0; i < vcount.Length; i++) {
@@ -460,7 +460,7 @@ namespace OpenGL.Objects
 
 					for (uint j = 0; j < verticesIndices.Length; j++, dstPtr += ItemSize) {
 						// Position 'srcPtr' to the indexed element
-						byte* srcPtr = ((byte*)buffer.ClientBufferAddress.ToPointer()) + (ItemSize * verticesIndices[j]);
+						byte* srcPtr = ((byte*)buffer.CpuBufferAddress.ToPointer()) + (ItemSize * verticesIndices[j]);
 						// Copy the 'arrayIndex'th element
 						Memory.MemoryCopy(dstPtr, srcPtr, ItemSize);
 					}
@@ -573,7 +573,7 @@ namespace OpenGL.Objects
 			// Different item count due different lengths
 			arrayObject.Create(componentsCount / convComponentsCount);
 			// Memory is copied
-			Memory.MemoryCopy(arrayObject.ClientBufferAddress, ClientBufferAddress, ClientBufferSize);
+			Memory.MemoryCopy(arrayObject.CpuBufferAddress, CpuBufferAddress, CpuBufferSize);
 
 			return (arrayObject);
 		}
@@ -612,13 +612,13 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override Array ToArray()
 		{
-			if (ClientBufferAddress == IntPtr.Zero)
+			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
 			Array genericArray = CreateArray(ArrayType, ItemCount);
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, ClientBufferAddress, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, CpuBufferAddress, ItemCount * ItemSize);
 
 			return (genericArray);
 		}
@@ -735,7 +735,7 @@ namespace OpenGL.Objects
 					} else
 
 					if        (typeof(T) == typeof(Vertex2b)) {
-						maxValue = Vertex2b.Min((Vertex2b*)arrayPtr, ClientBufferSize / Vertex2b.Size);
+						maxValue = Vertex2b.Min((Vertex2b*)arrayPtr, CpuBufferSize / Vertex2b.Size);
 					} else if (typeof(T) == typeof(Vertex2ub)) {
 						maxValue = Vertex2ub.Min((Vertex2ub*)arrayPtr, BufferSize /  Vertex2ub.Size);
 					} else if (typeof(T) == typeof(Vertex2s)) {

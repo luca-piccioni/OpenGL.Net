@@ -150,13 +150,13 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override Array ToArray()
 		{
-			if (ClientBufferAddress == IntPtr.Zero)
+			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
 			T[] genericArray = new T[ItemCount];
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, ClientBufferAddress, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, CpuBufferAddress, ItemCount * ItemSize);
 
 			return (genericArray);
 		}

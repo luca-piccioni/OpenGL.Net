@@ -22,22 +22,22 @@ using NUnit.Framework;
 
 namespace OpenGL.Objects.Test
 {
-	[TestFixture(typeof(ArrayBufferObject))]
-	[TestFixture(typeof(ElementBufferObject))]
-	class BufferObjectTest<T> : TestBase where T : BufferObject
+	[TestFixture(typeof(ArrayBuffer))]
+	[TestFixture(typeof(ElementBuffer))]
+	class BufferObjectTest<T> : TestBase where T : Buffer
 	{
 		/// <summary>
-		/// Create a <see cref="ArrayBufferObjectBase"/> for testing.
+		/// Create a <see cref="ArrayBufferBase"/> for testing.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="ArrayBufferObjectBase"/> instance to test.
+		/// It returns the <see cref="ArrayBufferBase"/> instance to test.
 		/// </returns>
-		private static BufferObject CreateInstance()
+		private static Buffer CreateInstance()
 		{
-			if (typeof(T) == typeof(ArrayBufferObject))
-				return (new ArrayBufferObject(ArrayBufferItemType.Float3, BufferObjectHint.StaticCpuDraw));
-			else if (typeof(T) == typeof(ElementBufferObject))
-				return (new ElementBufferObject(DrawElementsType.UnsignedInt, BufferObjectHint.StaticCpuDraw));
+			if (typeof(T) == typeof(ArrayBuffer))
+				return (new ArrayBuffer(ArrayBufferItemType.Float3, BufferHint.StaticCpuDraw));
+			else if (typeof(T) == typeof(ElementBuffer))
+				return (new ElementBuffer(DrawElementsType.UnsignedInt, BufferHint.StaticCpuDraw));
 
 			Assert.Inconclusive("Type argument not implemented");
 
@@ -45,38 +45,38 @@ namespace OpenGL.Objects.Test
 		}
 
 		/// <summary>
-		/// Create a <see cref="ArrayBufferObjectBase"/> for testing.
+		/// Create a <see cref="ArrayBufferBase"/> for testing.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="ArrayBufferObjectBase"/> instance to test.
+		/// It returns the <see cref="ArrayBufferBase"/> instance to test.
 		/// </returns>
-		private void CreateClientInstance(BufferObject buffer)
+		private void CreateClientInstance(Buffer buffer)
 		{
-			if (buffer.GetType() == typeof(ArrayBufferObject)) {
-				ArrayBufferObject arrayBufferObject = (ArrayBufferObject)buffer;
+			if (buffer.GetType() == typeof(ArrayBuffer)) {
+				ArrayBuffer arrayBufferObject = (ArrayBuffer)buffer;
 
 				arrayBufferObject.Create(CreateTestArray());
-			} else if (buffer.GetType() == typeof(ElementBufferObject)) {
-				ElementBufferObject elementBufferObject = (ElementBufferObject)buffer;
+			} else if (buffer.GetType() == typeof(ElementBuffer)) {
+				ElementBuffer elementBufferObject = (ElementBuffer)buffer;
 
 				elementBufferObject.Create(CreateTestArray());
 			}
 		}
 
 		/// <summary>
-		/// Create a <see cref="ArrayBufferObjectBase"/> for testing.
+		/// Create a <see cref="ArrayBufferBase"/> for testing.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="ArrayBufferObjectBase"/> instance to test.
+		/// It returns the <see cref="ArrayBufferBase"/> instance to test.
 		/// </returns>
-		private void CreateGpuInstance(BufferObject buffer)
+		private void CreateGpuInstance(Buffer buffer)
 		{
-			if (buffer.GetType() == typeof(ArrayBufferObject)) {
-				ArrayBufferObject arrayBufferObject = (ArrayBufferObject)buffer;
+			if (buffer.GetType() == typeof(ArrayBuffer)) {
+				ArrayBuffer arrayBufferObject = (ArrayBuffer)buffer;
 
 				arrayBufferObject.Create(_Context, CreateTestArray());
-			} else if (buffer.GetType() == typeof(ElementBufferObject)) {
-				ElementBufferObject elementBufferObject = (ElementBufferObject)buffer;
+			} else if (buffer.GetType() == typeof(ElementBuffer)) {
+				ElementBuffer elementBufferObject = (ElementBuffer)buffer;
 
 				elementBufferObject.Create(_Context, CreateTestArray());
 			}
@@ -84,9 +84,9 @@ namespace OpenGL.Objects.Test
 
 		private static Array CreateTestArray()
 		{
-			if (typeof(T) == typeof(ArrayBufferObject)) {
+			if (typeof(T) == typeof(ArrayBuffer)) {
 				return (new float[16]);
-			} else if (typeof(T) == typeof(ElementBufferObject)) {
+			} else if (typeof(T) == typeof(ElementBuffer)) {
 				return (new uint[16]);
 			}
 
@@ -99,29 +99,29 @@ namespace OpenGL.Objects.Test
 		/// Test for default values after construction.
 		/// </summary>
 		/// <param name="buffer"></param>
-		private void ConstructionDefaulValues(BufferObject buffer)
+		private void ConstructionDefaulValues(Buffer buffer)
 		{
 			Assert.AreEqual(0U, buffer.BufferSize);
-			Assert.AreEqual(0U, buffer.ClientBufferSize);
+			Assert.AreEqual(0U, buffer.CpuBufferSize);
 		}
 
 		/// <summary>
 		/// Test for default values after construction.
 		/// </summary>
 		/// <param name="buffer"></param>
-		private void DispositionDefaulValues(BufferObject buffer)
+		private void DispositionDefaulValues(Buffer buffer)
 		{
 			Assert.AreEqual(0U, buffer.BufferSize);
-			Assert.AreEqual(0U, buffer.ClientBufferSize);
+			Assert.AreEqual(0U, buffer.CpuBufferSize);
 		}
 
 		#region ArrayBufferObjectBase.Map()
 
 		public void Map_Core()
 		{
-			BufferObject bufferRef = null;
+			Buffer bufferRef = null;
 
-			using (BufferObject buffer = CreateInstance()) {
+			using (Buffer buffer = CreateInstance()) {
 				ConstructionDefaulValues(buffer);
 
 				// Initially not existing
@@ -153,7 +153,7 @@ namespace OpenGL.Objects.Test
 		}
 
 		/// <summary>
-		/// Test <see cref="ArrayBufferObject.Create(uint)"/>.
+		/// Test <see cref="ArrayBuffer.Create(uint)"/>.
 		/// </summary>
 		[Test]
 		public void Map()
@@ -162,7 +162,7 @@ namespace OpenGL.Objects.Test
 		}
 
 		/// <summary>
-		/// Test <see cref="ArrayBufferObject.Create(uint)"/>.
+		/// Test <see cref="ArrayBuffer.Create(uint)"/>.
 		/// </summary>
 		[Test]
 		public void Map_NoExtension()
@@ -184,9 +184,9 @@ namespace OpenGL.Objects.Test
 
 		public void MapCtx_Core()
 		{
-			BufferObject bufferRef = null;
+			Buffer bufferRef = null;
 
-			using (BufferObject buffer = CreateInstance()) {
+			using (Buffer buffer = CreateInstance()) {
 				ConstructionDefaulValues(buffer);
 
 				// Initially not existing
@@ -233,7 +233,7 @@ namespace OpenGL.Objects.Test
 		}
 
 		/// <summary>
-		/// Test <see cref="ArrayBufferObject.Create(uint)"/>.
+		/// Test <see cref="ArrayBuffer.Create(uint)"/>.
 		/// </summary>
 		[Test]
 		public void MapCtx()
@@ -242,7 +242,7 @@ namespace OpenGL.Objects.Test
 		}
 
 		/// <summary>
-		/// Test <see cref="ArrayBufferObject.Create(uint)"/>.
+		/// Test <see cref="ArrayBuffer.Create(uint)"/>.
 		/// </summary>
 		[Test]
 		public void MapCtx_NoExtension()

@@ -70,7 +70,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint ItemCount
 		{
-			get { return (BufferSize != 0 ? BufferSize / ItemSize : ClientBufferSize / ItemSize); }
+			get { return (BufferSize != 0 ? BufferSize / ItemSize : CpuBufferSize / ItemSize); }
 		}
 
 		/// <summary>
@@ -79,7 +79,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint ClientItemCount
 		{
-			get { return (ClientBufferSize / ItemSize); }
+			get { return (CpuBufferSize / ItemSize); }
 		}
 
 		/// <summary>
@@ -245,7 +245,7 @@ namespace OpenGL.Objects
 				throw new ArgumentException("invalid", "itemsCount");
 
 			// Allocate buffer
-			AllocateClientBuffer(itemsCount * ItemSize);
+			CreateCpuBuffer(itemsCount * ItemSize);
 		}
 
 		#endregion
@@ -277,10 +277,10 @@ namespace OpenGL.Objects
 				throw new ArgumentException("invalid", "itemsCount");
 
 			// Object already existing: resize client buffer, if any
-			if (ClientBufferAddress != IntPtr.Zero)
-				AllocateClientBuffer(itemsCount * ItemSize);
+			if (CpuBufferAddress != IntPtr.Zero)
+				CreateCpuBuffer(itemsCount * ItemSize);
 			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
-			ClientBufferSize = itemsCount * ItemSize;
+			CpuBufferSize = itemsCount * ItemSize;
 			// Allocate object
 			Create(ctx);
 		}
@@ -327,13 +327,13 @@ namespace OpenGL.Objects
 			uint arrayItemSize = CheckArrayItemSize(array);
 
 			// Ensure that ClientBufferSize returns the correct client buffer size
-			ClientBufferSize = 0;
+			CpuBufferSize = 0;
 			// Memory buffer shall be able to contains all data
-			if (ClientBufferSize < ItemSize * count)
-				AllocateClientBuffer(ItemSize * count);
+			if (CpuBufferSize < ItemSize * count)
+				CreateCpuBuffer(ItemSize * count);
 
 			// Copy on buffer
-			CopyBuffer(ClientBufferAddress, array, arrayItemSize, offset, count);
+			CopyBuffer(CpuBufferAddress, array, arrayItemSize, offset, count);
 		}
 
 		/// <summary>
@@ -654,7 +654,7 @@ namespace OpenGL.Objects
 			ctx.Bind(this);
 
 			if (arrayItemSize * count > GpuBufferSize)
-				AllocateGpuBuffer(arrayItemSize * count, null);
+				CreateGpuBuffer(arrayItemSize * count, null);
 
 			// Copy data mapping GPU buffer
 			Map(ctx, BufferAccessARB.WriteOnly);
