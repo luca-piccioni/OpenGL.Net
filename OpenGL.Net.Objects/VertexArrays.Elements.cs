@@ -696,8 +696,8 @@ namespace OpenGL.Objects
 						Gl.MultiDrawElements(ElementsMode, ArrayIndices.PrimitiveRestartOffsets, ArrayIndices.ElementsType, ArrayIndices.PrimitiveRestartCounts, ArrayIndices.PrimitiveRestartOffsets.Length);
 					}
 				} else {
-					uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
-					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+					uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
+					Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
 
 					// Disable primitive restart, if enabled
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
@@ -737,8 +737,8 @@ namespace OpenGL.Objects
 						throw new NotSupportedException("DrawInstanced primitive restart emulation not supported");
 					}
 				} else {
-					uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
-					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+					uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
+					Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
 
 					// Disable primitive restart, if enabled
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
@@ -757,8 +757,8 @@ namespace OpenGL.Objects
 			/// </param>
 			protected virtual void DrawElements(GraphicsContext ctx, IntPtr pointer)
 			{
-				uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
-				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+				uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
+				Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
 
 				// Draw elements as usual
 				Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer);
@@ -772,8 +772,8 @@ namespace OpenGL.Objects
 			/// </param>
 			protected virtual void DrawElementsInstanced(GraphicsContext ctx, IntPtr pointer, uint instances)
 			{
-				uint count = (ElementCount == 0) ? ArrayIndices.ItemCount : ElementCount;
-				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemCount, "element indices array out of bounds");
+				uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
+				Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
 
 				// Draw elements
 				Gl.DrawElementsInstanced(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer, (int)instances);
@@ -785,7 +785,7 @@ namespace OpenGL.Objects
 			/// <param name="vertexArray">
 			/// The <see cref="Objects.VertexArrays"/>
 			/// </param>
-			public override void GenerateTexCoord(Objects.VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			public override void GenerateTexCoord(VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -827,7 +827,7 @@ namespace OpenGL.Objects
 
 			private void GenerateTexCoordsTriangle3f(IVertexArray positionArray, IVertexArray texArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
-				for (uint i = 0, v = ElementOffset; i < ArrayIndices.ItemCount; i++, v++) {
+				for (uint i = 0, v = ElementOffset; i < ArrayIndices.CpuItemsCount; i++, v++) {
 					uint vIndex = ArrayIndices.GetIndex(v);
 
 					Vertex3f v0 = positionArray.GetElement<Vertex3f>(vIndex);
@@ -908,7 +908,7 @@ namespace OpenGL.Objects
 
 			private void GenerateTangentsTriangleStrip3f(IVertexArray positionArray, IVertexArray normalArray, IVertexArray texArray, IVertexArray tanArray, IVertexArray bitanArray)
 			{
-				uint count = ElementCount != 0 ? ElementCount : ArrayIndices.ItemCount;
+				uint count = ElementCount != 0 ? ElementCount : ArrayIndices.CpuItemsCount;
 
 				uint     i0, i1, i2;
 				Vertex3f v0, v1, v2;

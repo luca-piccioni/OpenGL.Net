@@ -199,7 +199,7 @@ namespace OpenGL.Objects
 				byte restartIndex = (byte)(RestartIndexKey & 0x000000FF);
 
 				offsets.Add(0);
-				for (int i = 0; i < ItemCount; i++, indicesPtr++) {
+				for (int i = 0; i < GpuItemsCount; i++, indicesPtr++) {
 					if (indicesPtr[i] == restartIndex) {
 						int previousIndex = offsets[offsets.Count - 1];
 
@@ -207,7 +207,7 @@ namespace OpenGL.Objects
 						offsets.Add(i + 1);
 					}
 				}
-				counts.Add(new IntPtr((int)ItemCount - offsets[offsets.Count - 1]));
+				counts.Add(new IntPtr((int)GpuItemsCount - offsets[offsets.Count - 1]));
 
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
@@ -225,7 +225,7 @@ namespace OpenGL.Objects
 				ushort* indicesPtr = (ushort*)CpuBufferAddress.ToPointer();
 				ushort restartIndex = (ushort)(RestartIndexKey & 0x0000FFFF);
 
-				for (int i = 0; i < ItemCount; i++) {
+				for (int i = 0; i < GpuItemsCount; i++) {
 					if (indicesPtr[i] == restartIndex) {
 						int previousIndex = offsets[offsets.Count - 1];
 
@@ -233,7 +233,7 @@ namespace OpenGL.Objects
 						offsets.Add(i + 1);
 					}
 				}
-				counts.Add(new IntPtr((int)ItemCount - offsets[offsets.Count - 1]));
+				counts.Add(new IntPtr((int)GpuItemsCount - offsets[offsets.Count - 1]));
 
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
@@ -251,7 +251,7 @@ namespace OpenGL.Objects
 				uint* indicesPtr = (uint*)CpuBufferAddress.ToPointer();
 				uint restartIndex = RestartIndexKey;
 
-				for (int i = 0; i < ItemCount; i++) {
+				for (int i = 0; i < GpuItemsCount; i++) {
 					if (indicesPtr[i] == restartIndex) {
 						int previousIndex = offsets[offsets.Count - 1];
 
@@ -259,7 +259,7 @@ namespace OpenGL.Objects
 						offsets.Add(i + 1);
 					}
 				}
-				counts.Add(new IntPtr((int)ItemCount - offsets[offsets.Count - 1]));
+				counts.Add(new IntPtr((int)GpuItemsCount - offsets[offsets.Count - 1]));
 
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
@@ -340,10 +340,10 @@ namespace OpenGL.Objects
 			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
-			Array genericArray = CreateArray(ArrayType, ItemCount);
+			Array genericArray = CreateArray(ArrayType, CpuItemsCount);
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, CpuBufferAddress, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
 			return (genericArray);
 		}
@@ -365,13 +365,13 @@ namespace OpenGL.Objects
 			if (Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 
-			Array genericArray = CreateArray(ArrayType, ItemCount);
+			Array genericArray = CreateArray(ArrayType, GpuItemsCount);
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccessARB.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.MemoryCopy(genericArray, MappedBuffer, ItemCount * ItemSize);
+				Memory.MemoryCopy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}

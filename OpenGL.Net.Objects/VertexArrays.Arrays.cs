@@ -102,7 +102,7 @@ namespace OpenGL.Objects
 			/// </param>
 			public VertexArray(ArrayBufferBase arrayBuffer, uint sectionIndex)
 			{
-				if (arrayBuffer != null && arrayBuffer.ItemCount == 0)
+				if (arrayBuffer != null && arrayBuffer.ItemsCount == 0)
 					throw new ArgumentException("zero items", "arrayBuffer");
 				if (arrayBuffer != null && sectionIndex >= arrayBuffer.ArraySectionsCount)
 					throw new ArgumentOutOfRangeException("out of bounds", "sectionIndex");
@@ -449,7 +449,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
-			public uint Length { get { return (ArrayBuffer.ItemCount); } }
+			public uint Length { get { return (ArrayBuffer.ItemsCount); } }
 
 			/// <summary>
 			/// Set the vertex attribute.
@@ -1121,7 +1121,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// The vertex array length, based on the property <see cref="ArrayBufferBase.ItemCount"/> of the
+		/// The vertex array length, based on the property <see cref="ArrayBufferBase.GpuItemsCount"/> of the
 		/// array objects compositing this vertex array.
 		/// </summary>
 		public uint ArrayLength

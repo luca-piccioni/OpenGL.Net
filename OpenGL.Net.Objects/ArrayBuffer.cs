@@ -120,7 +120,7 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// It returns an array having all items stored by this ArrayBufferObject.
 		/// </returns>
-		public T[] ToArray<T>() where T : struct { return (ToArray<T>(ItemCount)); }
+		public T[] ToArray<T>() where T : struct { return (ToArray<T>(CpuItemsCount)); }
 
 		/// <summary>
 		/// Convert this array buffer object in a strongly-typed array.
@@ -137,7 +137,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public T[] ToArray<T>(uint arrayLength) where T : struct
 		{
-			if (arrayLength > ItemCount)
+			if (arrayLength > CpuItemsCount)
 				throw new ArgumentOutOfRangeException("arrayLength", arrayLength, "cannot exceed items count");
 			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
@@ -561,7 +561,7 @@ namespace OpenGL.Objects
 			if (_ArrayType.GetVertexBaseType() != vertexArrayType.GetVertexBaseType())
 				throw new ArgumentException("base type mismatch", "vertexArrayType");
 
-			uint componentsCount = ItemCount * ArrayType.GetArrayLength() * ArrayType.GetArrayRank();
+			uint componentsCount = CpuItemsCount * ArrayType.GetArrayLength() * ArrayType.GetArrayRank();
 			uint convComponentsCount = vertexArrayType.GetArrayLength() * vertexArrayType.GetArrayRank();
 
 			Debug.Assert(componentsCount >= convComponentsCount);
@@ -585,7 +585,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		protected internal override uint ArraySectionsCount { get { return (ItemCount > 0 ? 1U : 0U); } }
+		protected internal override uint ArraySectionsCount { get { return (ItemsCount > 0 ? 1U : 0U); } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -615,10 +615,10 @@ namespace OpenGL.Objects
 			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
-			Array genericArray = CreateArray(ArrayType, ItemCount);
+			Array genericArray = CreateArray(ArrayType, CpuItemsCount);
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, CpuBufferAddress, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
 			return (genericArray);
 		}
@@ -639,13 +639,13 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Array genericArray = CreateArray(ArrayType, ItemCount);
+			Array genericArray = CreateArray(ArrayType, GpuItemsCount);
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccessARB.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.MemoryCopy(genericArray, MappedBuffer, ItemCount * ItemSize);
+				Memory.MemoryCopy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}
@@ -727,61 +727,61 @@ namespace OpenGL.Objects
 					// Note: support JIT optimization based on typeof(T)
 
 					if        (typeof(T) == typeof(Vertex4f)) {
-						maxValue = Vertex4f.Min((Vertex4f*)arrayPtr, BufferSize /  Vertex4f.Size);
+						maxValue = Vertex4f.Min((Vertex4f*)arrayPtr, CpuBufferSize /  Vertex4f.Size);
 					} else if (typeof(T) == typeof(Vertex3f)) {
-						maxValue = Vertex3f.Min((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size);
+						maxValue = Vertex3f.Min((Vertex3f*)arrayPtr, CpuBufferSize / Vertex3f.Size);
 					} else if (typeof(T) == typeof(Vertex2f)) {
-						maxValue = Vertex2f.Min((Vertex2f*)arrayPtr, BufferSize /  Vertex2f.Size);
+						maxValue = Vertex2f.Min((Vertex2f*)arrayPtr, CpuBufferSize /  Vertex2f.Size);
 					} else
 
 					if        (typeof(T) == typeof(Vertex2b)) {
 						maxValue = Vertex2b.Min((Vertex2b*)arrayPtr, CpuBufferSize / Vertex2b.Size);
 					} else if (typeof(T) == typeof(Vertex2ub)) {
-						maxValue = Vertex2ub.Min((Vertex2ub*)arrayPtr, BufferSize /  Vertex2ub.Size);
+						maxValue = Vertex2ub.Min((Vertex2ub*)arrayPtr, CpuBufferSize /  Vertex2ub.Size);
 					} else if (typeof(T) == typeof(Vertex2s)) {
-						maxValue = Vertex2s.Min((Vertex2s*)arrayPtr, BufferSize /  Vertex2s.Size);
+						maxValue = Vertex2s.Min((Vertex2s*)arrayPtr, CpuBufferSize /  Vertex2s.Size);
 					} else if (typeof(T) == typeof(Vertex2us)) {
-						maxValue = Vertex2us.Min((Vertex2us*)arrayPtr, BufferSize /  Vertex2us.Size);
+						maxValue = Vertex2us.Min((Vertex2us*)arrayPtr, CpuBufferSize /  Vertex2us.Size);
 					} else if (typeof(T) == typeof(Vertex2i)) {
-						maxValue = Vertex2i.Min((Vertex2i*)arrayPtr, BufferSize /  Vertex2i.Size);
+						maxValue = Vertex2i.Min((Vertex2i*)arrayPtr, CpuBufferSize /  Vertex2i.Size);
 					} else if (typeof(T) == typeof(Vertex2ui)) {
-						maxValue = Vertex2ui.Min((Vertex2ui*)arrayPtr, BufferSize /  Vertex2ui.Size);
+						maxValue = Vertex2ui.Min((Vertex2ui*)arrayPtr, CpuBufferSize /  Vertex2ui.Size);
 					} else if (typeof(T) == typeof(Vertex2d)) {
-						maxValue = Vertex2d.Min((Vertex2d*)arrayPtr, BufferSize /  Vertex2d.Size);
+						maxValue = Vertex2d.Min((Vertex2d*)arrayPtr, CpuBufferSize /  Vertex2d.Size);
 					} else if (typeof(T) == typeof(Vertex2hf)) {
-						maxValue = Vertex2hf.Min((Vertex2hf*)arrayPtr, BufferSize /  Vertex2hf.Size);
+						maxValue = Vertex2hf.Min((Vertex2hf*)arrayPtr, CpuBufferSize /  Vertex2hf.Size);
 					} else if (typeof(T) == typeof(Vertex3b)) {
-						maxValue = Vertex3b.Min((Vertex3b*)arrayPtr, BufferSize /  Vertex3b.Size);
+						maxValue = Vertex3b.Min((Vertex3b*)arrayPtr, CpuBufferSize /  Vertex3b.Size);
 					} else if (typeof(T) == typeof(Vertex3ub)) {
-						maxValue = Vertex3ub.Min((Vertex3ub*)arrayPtr, BufferSize /  Vertex3ub.Size);
+						maxValue = Vertex3ub.Min((Vertex3ub*)arrayPtr, CpuBufferSize /  Vertex3ub.Size);
 					} else if (typeof(T) == typeof(Vertex3s)) {
-						maxValue = Vertex3s.Min((Vertex3s*)arrayPtr, BufferSize /  Vertex3s.Size);
+						maxValue = Vertex3s.Min((Vertex3s*)arrayPtr, CpuBufferSize /  Vertex3s.Size);
 					} else if (typeof(T) == typeof(Vertex3us)) {
-						maxValue = Vertex3us.Min((Vertex3us*)arrayPtr, BufferSize /  Vertex3us.Size);
+						maxValue = Vertex3us.Min((Vertex3us*)arrayPtr, CpuBufferSize /  Vertex3us.Size);
 					} else if (typeof(T) == typeof(Vertex3i)) {
-						maxValue = Vertex3i.Min((Vertex3i*)arrayPtr, BufferSize /  Vertex3i.Size);
+						maxValue = Vertex3i.Min((Vertex3i*)arrayPtr, CpuBufferSize /  Vertex3i.Size);
 					} else if (typeof(T) == typeof(Vertex3ui)) {
-						maxValue = Vertex3ui.Min((Vertex3ui*)arrayPtr, BufferSize /  Vertex3ui.Size);
+						maxValue = Vertex3ui.Min((Vertex3ui*)arrayPtr, CpuBufferSize /  Vertex3ui.Size);
 					} else if (typeof(T) == typeof(Vertex3d)) {
-						maxValue = Vertex3d.Min((Vertex3d*)arrayPtr, BufferSize /  Vertex3d.Size);
+						maxValue = Vertex3d.Min((Vertex3d*)arrayPtr, CpuBufferSize /  Vertex3d.Size);
 					} else if (typeof(T) == typeof(Vertex3hf)) {
-						maxValue = Vertex3hf.Min((Vertex3hf*)arrayPtr, BufferSize /  Vertex3hf.Size);
+						maxValue = Vertex3hf.Min((Vertex3hf*)arrayPtr, CpuBufferSize /  Vertex3hf.Size);
 					} else if (typeof(T) == typeof(Vertex4b)) {
-						maxValue = Vertex4b.Min((Vertex4b*)arrayPtr, BufferSize /  Vertex4b.Size);
+						maxValue = Vertex4b.Min((Vertex4b*)arrayPtr, CpuBufferSize /  Vertex4b.Size);
 					} else if (typeof(T) == typeof(Vertex4ub)) {
-						maxValue = Vertex4ub.Min((Vertex4ub*)arrayPtr, BufferSize /  Vertex4ub.Size);
+						maxValue = Vertex4ub.Min((Vertex4ub*)arrayPtr, CpuBufferSize /  Vertex4ub.Size);
 					} else if (typeof(T) == typeof(Vertex4s)) {
-						maxValue = Vertex4s.Min((Vertex4s*)arrayPtr, BufferSize /  Vertex4s.Size);
+						maxValue = Vertex4s.Min((Vertex4s*)arrayPtr, CpuBufferSize /  Vertex4s.Size);
 					} else if (typeof(T) == typeof(Vertex4us)) {
-						maxValue = Vertex4us.Min((Vertex4us*)arrayPtr, BufferSize /  Vertex4us.Size);
+						maxValue = Vertex4us.Min((Vertex4us*)arrayPtr, CpuBufferSize /  Vertex4us.Size);
 					} else if (typeof(T) == typeof(Vertex4i)) {
-						maxValue = Vertex4i.Min((Vertex4i*)arrayPtr, BufferSize /  Vertex4i.Size);
+						maxValue = Vertex4i.Min((Vertex4i*)arrayPtr, CpuBufferSize /  Vertex4i.Size);
 					} else if (typeof(T) == typeof(Vertex4ui)) {
-						maxValue = Vertex4ui.Min((Vertex4ui*)arrayPtr, BufferSize /  Vertex4ui.Size);
+						maxValue = Vertex4ui.Min((Vertex4ui*)arrayPtr, CpuBufferSize /  Vertex4ui.Size);
 					} else if (typeof(T) == typeof(Vertex4d)) {
-						maxValue = Vertex4d.Min((Vertex4d*)arrayPtr, BufferSize /  Vertex4d.Size);
+						maxValue = Vertex4d.Min((Vertex4d*)arrayPtr, CpuBufferSize /  Vertex4d.Size);
 					} else if (typeof(T) == typeof(Vertex4hf)) {
-						maxValue = Vertex4hf.Min((Vertex4hf*)arrayPtr, BufferSize /  Vertex4hf.Size);
+						maxValue = Vertex4hf.Min((Vertex4hf*)arrayPtr, CpuBufferSize /  Vertex4hf.Size);
 					} else
 						throw new NotSupportedException(String.Format("the type {0} is not supported", typeof(T)));
 			
@@ -807,61 +807,61 @@ namespace OpenGL.Objects
 					// Note: support JIT optimization based on typeof(T)
 
 					if        (typeof(T) == typeof(Vertex4f)) {
-						maxValue = Vertex4f.Max((Vertex4f*)arrayPtr, BufferSize / Vertex4f.Size);
+						maxValue = Vertex4f.Max((Vertex4f*)arrayPtr, CpuBufferSize / Vertex4f.Size);
 					} else if (typeof(T) == typeof(Vertex3f)) {
-						maxValue = Vertex3f.Max((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size);
+						maxValue = Vertex3f.Max((Vertex3f*)arrayPtr, CpuBufferSize / Vertex3f.Size);
 					} else if (typeof(T) == typeof(Vertex2f)) {
-						maxValue = Vertex2f.Max((Vertex2f*)arrayPtr, BufferSize / Vertex2f.Size);
+						maxValue = Vertex2f.Max((Vertex2f*)arrayPtr, CpuBufferSize / Vertex2f.Size);
 					} else
 
 					if        (typeof(T) == typeof(Vertex2b)) {
-						maxValue = Vertex2b.Max((Vertex2b*)arrayPtr, BufferSize / Vertex2b.Size);
+						maxValue = Vertex2b.Max((Vertex2b*)arrayPtr, CpuBufferSize / Vertex2b.Size);
 					} else if (typeof(T) == typeof(Vertex2ub)) {
-						maxValue = Vertex2ub.Max((Vertex2ub*)arrayPtr, BufferSize / Vertex2ub.Size);
+						maxValue = Vertex2ub.Max((Vertex2ub*)arrayPtr, CpuBufferSize / Vertex2ub.Size);
 					} else if (typeof(T) == typeof(Vertex2s)) {
-						maxValue = Vertex2s.Max((Vertex2s*)arrayPtr, BufferSize / Vertex2s.Size);
+						maxValue = Vertex2s.Max((Vertex2s*)arrayPtr, CpuBufferSize / Vertex2s.Size);
 					} else if (typeof(T) == typeof(Vertex2us)) {
-						maxValue = Vertex2us.Max((Vertex2us*)arrayPtr, BufferSize / Vertex2us.Size);
+						maxValue = Vertex2us.Max((Vertex2us*)arrayPtr, CpuBufferSize / Vertex2us.Size);
 					} else if (typeof(T) == typeof(Vertex2i)) {
-						maxValue = Vertex2i.Max((Vertex2i*)arrayPtr, BufferSize / Vertex2i.Size);
+						maxValue = Vertex2i.Max((Vertex2i*)arrayPtr, CpuBufferSize / Vertex2i.Size);
 					} else if (typeof(T) == typeof(Vertex2ui)) {
-						maxValue = Vertex2ui.Max((Vertex2ui*)arrayPtr, BufferSize / Vertex2ui.Size);
+						maxValue = Vertex2ui.Max((Vertex2ui*)arrayPtr, CpuBufferSize / Vertex2ui.Size);
 					} else if (typeof(T) == typeof(Vertex2d)) {
-						maxValue = Vertex2d.Max((Vertex2d*)arrayPtr, BufferSize / Vertex2d.Size);
+						maxValue = Vertex2d.Max((Vertex2d*)arrayPtr, CpuBufferSize / Vertex2d.Size);
 					} else if (typeof(T) == typeof(Vertex2hf)) {
-						maxValue = Vertex2hf.Max((Vertex2hf*)arrayPtr, BufferSize / Vertex2hf.Size);
+						maxValue = Vertex2hf.Max((Vertex2hf*)arrayPtr, CpuBufferSize / Vertex2hf.Size);
 					} else if (typeof(T) == typeof(Vertex3b)) {
-						maxValue = Vertex3b.Max((Vertex3b*)arrayPtr, BufferSize / Vertex3b.Size);
+						maxValue = Vertex3b.Max((Vertex3b*)arrayPtr, CpuBufferSize / Vertex3b.Size);
 					} else if (typeof(T) == typeof(Vertex3ub)) {
-						maxValue = Vertex3ub.Max((Vertex3ub*)arrayPtr, BufferSize / Vertex3ub.Size);
+						maxValue = Vertex3ub.Max((Vertex3ub*)arrayPtr, CpuBufferSize / Vertex3ub.Size);
 					} else if (typeof(T) == typeof(Vertex3s)) {
-						maxValue = Vertex3s.Max((Vertex3s*)arrayPtr, BufferSize / Vertex3s.Size);
+						maxValue = Vertex3s.Max((Vertex3s*)arrayPtr, CpuBufferSize / Vertex3s.Size);
 					} else if (typeof(T) == typeof(Vertex3us)) {
-						maxValue = Vertex3us.Max((Vertex3us*)arrayPtr, BufferSize / Vertex3us.Size);
+						maxValue = Vertex3us.Max((Vertex3us*)arrayPtr, CpuBufferSize / Vertex3us.Size);
 					} else if (typeof(T) == typeof(Vertex3i)) {
-						maxValue = Vertex3i.Max((Vertex3i*)arrayPtr, BufferSize / Vertex3i.Size);
+						maxValue = Vertex3i.Max((Vertex3i*)arrayPtr, CpuBufferSize / Vertex3i.Size);
 					} else if (typeof(T) == typeof(Vertex3ui)) {
-						maxValue = Vertex3ui.Max((Vertex3ui*)arrayPtr, BufferSize / Vertex3ui.Size);
+						maxValue = Vertex3ui.Max((Vertex3ui*)arrayPtr, CpuBufferSize / Vertex3ui.Size);
 					} else if (typeof(T) == typeof(Vertex3d)) {
-						maxValue = Vertex3d.Max((Vertex3d*)arrayPtr, BufferSize / Vertex3d.Size);
+						maxValue = Vertex3d.Max((Vertex3d*)arrayPtr, CpuBufferSize / Vertex3d.Size);
 					} else if (typeof(T) == typeof(Vertex3hf)) {
-						maxValue = Vertex3hf.Max((Vertex3hf*)arrayPtr, BufferSize / Vertex3hf.Size);
+						maxValue = Vertex3hf.Max((Vertex3hf*)arrayPtr, CpuBufferSize / Vertex3hf.Size);
 					} else if (typeof(T) == typeof(Vertex4b)) {
-						maxValue = Vertex4b.Max((Vertex4b*)arrayPtr, BufferSize / Vertex4b.Size);
+						maxValue = Vertex4b.Max((Vertex4b*)arrayPtr, CpuBufferSize / Vertex4b.Size);
 					} else if (typeof(T) == typeof(Vertex4ub)) {
-						maxValue = Vertex4ub.Max((Vertex4ub*)arrayPtr, BufferSize / Vertex4ub.Size);
+						maxValue = Vertex4ub.Max((Vertex4ub*)arrayPtr, CpuBufferSize / Vertex4ub.Size);
 					} else if (typeof(T) == typeof(Vertex4s)) {
-						maxValue = Vertex4s.Max((Vertex4s*)arrayPtr, BufferSize / Vertex4s.Size);
+						maxValue = Vertex4s.Max((Vertex4s*)arrayPtr, CpuBufferSize / Vertex4s.Size);
 					} else if (typeof(T) == typeof(Vertex4us)) {
-						maxValue = Vertex4us.Max((Vertex4us*)arrayPtr, BufferSize / Vertex4us.Size);
+						maxValue = Vertex4us.Max((Vertex4us*)arrayPtr, CpuBufferSize / Vertex4us.Size);
 					} else if (typeof(T) == typeof(Vertex4i)) {
-						maxValue = Vertex4i.Max((Vertex4i*)arrayPtr, BufferSize / Vertex4i.Size);
+						maxValue = Vertex4i.Max((Vertex4i*)arrayPtr, CpuBufferSize / Vertex4i.Size);
 					} else if (typeof(T) == typeof(Vertex4ui)) {
-						maxValue = Vertex4ui.Max((Vertex4ui*)arrayPtr, BufferSize / Vertex4ui.Size);
+						maxValue = Vertex4ui.Max((Vertex4ui*)arrayPtr, CpuBufferSize / Vertex4ui.Size);
 					} else if (typeof(T) == typeof(Vertex4d)) {
-						maxValue = Vertex4d.Max((Vertex4d*)arrayPtr, BufferSize / Vertex4d.Size);
+						maxValue = Vertex4d.Max((Vertex4d*)arrayPtr, CpuBufferSize / Vertex4d.Size);
 					} else if (typeof(T) == typeof(Vertex4hf)) {
-						maxValue = Vertex4hf.Max((Vertex4hf*)arrayPtr, BufferSize / Vertex4hf.Size);
+						maxValue = Vertex4hf.Max((Vertex4hf*)arrayPtr, CpuBufferSize / Vertex4hf.Size);
 					} else
 						throw new NotSupportedException(String.Format("the type {0} is not supported", typeof(T)));
 			
@@ -889,113 +889,113 @@ namespace OpenGL.Objects
 
 					if        (typeof(T) == typeof(Vertex4f)) {
 						Vertex4f vmin, vmax;
-						Vertex4f.MinMax((Vertex4f*)arrayPtr, BufferSize / Vertex4f.Size, out vmin, out vmax);
+						Vertex4f.MinMax((Vertex4f*)arrayPtr, CpuBufferSize / Vertex4f.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3f)) {
 						Vertex3f vmin, vmax;
-						Vertex3f.MinMax((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size, out vmin, out vmax);
+						Vertex3f.MinMax((Vertex3f*)arrayPtr, CpuBufferSize / Vertex3f.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2f)) {
 						Vertex2f vmin, vmax;
-						Vertex2f.MinMax((Vertex2f*)arrayPtr, BufferSize / Vertex2f.Size, out vmin, out vmax);
+						Vertex2f.MinMax((Vertex2f*)arrayPtr, CpuBufferSize / Vertex2f.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else 
 					
 					if (typeof(T) == typeof(Vertex2b)) {
 						Vertex2b vmin, vmax;
-						Vertex2b.MinMax((Vertex2b*)arrayPtr, BufferSize / Vertex2b.Size, out vmin, out vmax);
+						Vertex2b.MinMax((Vertex2b*)arrayPtr, CpuBufferSize / Vertex2b.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2ub)) {
 						Vertex2ub vmin, vmax;
-						Vertex2ub.MinMax((Vertex2ub*)arrayPtr, BufferSize / Vertex2ub.Size, out vmin, out vmax);
+						Vertex2ub.MinMax((Vertex2ub*)arrayPtr, CpuBufferSize / Vertex2ub.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2s)) {
 						Vertex3f vmin, vmax;
-						Vertex3f.MinMax((Vertex3f*)arrayPtr, BufferSize / Vertex3f.Size, out vmin, out vmax);
+						Vertex3f.MinMax((Vertex3f*)arrayPtr, CpuBufferSize / Vertex3f.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2us)) {
 						Vertex2us vmin, vmax;
-						Vertex2us.MinMax((Vertex2us*)arrayPtr, BufferSize / Vertex2us.Size, out vmin, out vmax);
+						Vertex2us.MinMax((Vertex2us*)arrayPtr, CpuBufferSize / Vertex2us.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2i)) {
 						Vertex2i vmin, vmax;
-						Vertex2i.MinMax((Vertex2i*)arrayPtr, BufferSize / Vertex2i.Size, out vmin, out vmax);
+						Vertex2i.MinMax((Vertex2i*)arrayPtr, CpuBufferSize / Vertex2i.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2ui)) {
 						Vertex2ui vmin, vmax;
-						Vertex2ui.MinMax((Vertex2ui*)arrayPtr, BufferSize / Vertex2ui.Size, out vmin, out vmax);
+						Vertex2ui.MinMax((Vertex2ui*)arrayPtr, CpuBufferSize / Vertex2ui.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2d)) {
 						Vertex2d vmin, vmax;
-						Vertex2d.MinMax((Vertex2d*)arrayPtr, BufferSize / Vertex2d.Size, out vmin, out vmax);
+						Vertex2d.MinMax((Vertex2d*)arrayPtr, CpuBufferSize / Vertex2d.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex2hf)) {
 						Vertex2hf vmin, vmax;
-						Vertex2hf.MinMax((Vertex2hf*)arrayPtr, BufferSize / Vertex2hf.Size, out vmin, out vmax);
+						Vertex2hf.MinMax((Vertex2hf*)arrayPtr, CpuBufferSize / Vertex2hf.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3b)) {
 						Vertex3b vmin, vmax;
-						Vertex3b.MinMax((Vertex3b*)arrayPtr, BufferSize / Vertex3b.Size, out vmin, out vmax);
+						Vertex3b.MinMax((Vertex3b*)arrayPtr, CpuBufferSize / Vertex3b.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3ub)) {
 						Vertex3ub vmin, vmax;
-						Vertex3ub.MinMax((Vertex3ub*)arrayPtr, BufferSize / Vertex3ub.Size, out vmin, out vmax);
+						Vertex3ub.MinMax((Vertex3ub*)arrayPtr, CpuBufferSize / Vertex3ub.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3s)) {
 						Vertex3s vmin, vmax;
-						Vertex3s.MinMax((Vertex3s*)arrayPtr, BufferSize / Vertex3s.Size, out vmin, out vmax);
+						Vertex3s.MinMax((Vertex3s*)arrayPtr, CpuBufferSize / Vertex3s.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3us)) {
 						Vertex3us vmin, vmax;
-						Vertex3us.MinMax((Vertex3us*)arrayPtr, BufferSize / Vertex3us.Size, out vmin, out vmax);
+						Vertex3us.MinMax((Vertex3us*)arrayPtr, CpuBufferSize / Vertex3us.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3i)) {
 						Vertex3i vmin, vmax;
-						Vertex3i.MinMax((Vertex3i*)arrayPtr, BufferSize / Vertex3i.Size, out vmin, out vmax);
+						Vertex3i.MinMax((Vertex3i*)arrayPtr, CpuBufferSize / Vertex3i.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3ui)) {
 						Vertex3ui vmin, vmax;
-						Vertex3ui.MinMax((Vertex3ui*)arrayPtr, BufferSize / Vertex3ui.Size, out vmin, out vmax);
+						Vertex3ui.MinMax((Vertex3ui*)arrayPtr, CpuBufferSize / Vertex3ui.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3d)) {
 						Vertex3d vmin, vmax;
-						Vertex3d.MinMax((Vertex3d*)arrayPtr, BufferSize / Vertex3d.Size, out vmin, out vmax);
+						Vertex3d.MinMax((Vertex3d*)arrayPtr, CpuBufferSize / Vertex3d.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex3hf)) {
 						Vertex3hf vmin, vmax;
-						Vertex3hf.MinMax((Vertex3hf*)arrayPtr, BufferSize / Vertex3hf.Size, out vmin, out vmax);
+						Vertex3hf.MinMax((Vertex3hf*)arrayPtr, CpuBufferSize / Vertex3hf.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4b)) {
 						Vertex4b vmin, vmax;
-						Vertex4b.MinMax((Vertex4b*)arrayPtr, BufferSize / Vertex4b.Size, out vmin, out vmax);
+						Vertex4b.MinMax((Vertex4b*)arrayPtr, CpuBufferSize / Vertex4b.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4ub)) {
 						Vertex4ub vmin, vmax;
-						Vertex4ub.MinMax((Vertex4ub*)arrayPtr, BufferSize / Vertex4ub.Size, out vmin, out vmax);
+						Vertex4ub.MinMax((Vertex4ub*)arrayPtr, CpuBufferSize / Vertex4ub.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4s)) {
 						Vertex4s vmin, vmax;
-						Vertex4s.MinMax((Vertex4s*)arrayPtr, BufferSize / Vertex4s.Size, out vmin, out vmax);
+						Vertex4s.MinMax((Vertex4s*)arrayPtr, CpuBufferSize / Vertex4s.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4us)) {
 						Vertex4us vmin, vmax;
-						Vertex4us.MinMax((Vertex4us*)arrayPtr, BufferSize / Vertex4us.Size, out vmin, out vmax);
+						Vertex4us.MinMax((Vertex4us*)arrayPtr, CpuBufferSize / Vertex4us.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4i)) {
 						Vertex4i vmin, vmax;
-						Vertex4i.MinMax((Vertex4i*)arrayPtr, BufferSize / Vertex4i.Size, out vmin, out vmax);
+						Vertex4i.MinMax((Vertex4i*)arrayPtr, CpuBufferSize / Vertex4i.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4ui)) {
 						Vertex4ui vmin, vmax;
-						Vertex4ui.MinMax((Vertex4ui*)arrayPtr, BufferSize / Vertex4ui.Size, out vmin, out vmax);
+						Vertex4ui.MinMax((Vertex4ui*)arrayPtr, CpuBufferSize / Vertex4ui.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4d)) {
 						Vertex4d vmin, vmax;
-						Vertex4d.MinMax((Vertex4d*)arrayPtr, BufferSize / Vertex4d.Size, out vmin, out vmax);
+						Vertex4d.MinMax((Vertex4d*)arrayPtr, CpuBufferSize / Vertex4d.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else if (typeof(T) == typeof(Vertex4hf)) {
 						Vertex4hf vmin, vmax;
-						Vertex4hf.MinMax((Vertex4hf*)arrayPtr, BufferSize / Vertex4hf.Size, out vmin, out vmax);
+						Vertex4hf.MinMax((Vertex4hf*)arrayPtr, CpuBufferSize / Vertex4hf.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else
 						throw new NotSupportedException(String.Format("the type {0} is not supported", typeof(T)));

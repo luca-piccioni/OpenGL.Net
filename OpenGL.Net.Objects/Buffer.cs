@@ -59,7 +59,7 @@ namespace OpenGL.Objects
 		protected Buffer(BufferTargetARB type, BufferHint hint)
 		{
 			// Store the buffer object type
-			BufferType = type;
+			Target = type;
 			// Store the buffer data usage hints
 			Hint = hint;
 			// Automatically dispose CPU buffer?
@@ -68,26 +68,17 @@ namespace OpenGL.Objects
 		
 		#endregion
 
-		#region Buffer Definition
+		#region Target
 
 		/// <summary>
-		/// Buffer type, indicatinvg the usage pattern.
+		/// Buffer target, indicating the buffer class.
 		/// </summary>
-		public readonly BufferTargetARB BufferType;
+		public readonly BufferTargetARB Target;
 
 		/// <summary>
 		/// The usage hint of this Buffer.
 		/// </summary>
 		public readonly BufferHint Hint;
-
-		/// <summary>
-		/// Get the size of the storage allocated for this buffer object, in bytes. In the case this Buffer
-		/// has not been created yet, it returns the size of the CPU buffer.
-		/// </summary>
-		public uint BufferSize
-		{
-			get { return (_GpuBufferSize != 0 ? _GpuBufferSize : CpuBufferSize); }
-		}
 
 		#endregion
 
@@ -185,7 +176,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
 		/// </summary>
-		protected uint GpuBufferSize { get { return (_GpuBufferSize); } }
+		protected internal uint GpuBufferSize { get { return (_GpuBufferSize); } }
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
@@ -201,7 +192,7 @@ namespace OpenGL.Objects
 		protected void CreateGpuBuffer(uint size, object data)
 		{
 			// Define buffer object (type, size and hints)
-			Gl.BufferData((int)BufferType, size, data, (int)Hint);
+			Gl.BufferData((int)Target, size, data, (int)Hint);
 			// Store GPU buffer size
 			_GpuBufferSize = size;
 		}
@@ -298,7 +289,7 @@ namespace OpenGL.Objects
 			if (ctx.Extensions.VertexBufferObject_ARB) {
 				BindCore(ctx);
 
-				_MappedBuffer = Gl.MapBuffer(BufferType, mask);
+				_MappedBuffer = Gl.MapBuffer(Target, mask);
 			} else
 				_MappedBuffer = _GpuBuffer.AlignedBuffer;
 		}
@@ -340,7 +331,7 @@ namespace OpenGL.Objects
 
 			if (Exists(ctx) && ctx.Extensions.VertexBufferObject_ARB) {
 				// Unmap buffer object data (resident on server)
-				bool uncorrupted = Gl.UnmapBuffer(BufferType);
+				bool uncorrupted = Gl.UnmapBuffer(Target);
 
 				if (uncorrupted == false)
 					throw new InvalidOperationException("corrupted buffer");
@@ -464,21 +455,19 @@ namespace OpenGL.Objects
 			CheckThisExistence(ctx);
 
 			// Discard CPU buffer, if required
-			if (CpuBufferSize != BufferSize) {
+			if (CpuBufferSize != GpuBufferSize) {
 				DeleteCpuBuffer();
-				CreateCpuBuffer(BufferSize);
-				Debug.Assert(CpuBufferAddress != IntPtr.Zero);
-				Debug.Assert(CpuBufferSize == BufferSize);
+				CreateCpuBuffer(GpuBufferSize);
 			}
 
 			if (ctx.Extensions.VertexBufferObject_ARB) {
 				// Read this buffer object
 				ctx.Bind(this);
 				// Get the GPU buffer content
-				Gl.GetBufferSubData(BufferType, IntPtr.Zero, _GpuBufferSize, CpuBufferAddress);
+				Gl.GetBufferSubData(Target, IntPtr.Zero, GpuBufferSize, CpuBufferAddress);
 			} else {
 				// Copy GPU buffer into CPU buffer
-				Memory.MemoryCopy(CpuBufferAddress, _GpuBuffer.AlignedBuffer, BufferSize);
+				Memory.MemoryCopy(CpuBufferAddress, GpuBufferAddress, GpuBufferSize);
 			}
 		}
 		
@@ -689,7 +678,7 @@ namespace OpenGL.Objects
 			// Define buffer object contents
 			if (CpuBufferAddress != IntPtr.Zero) {
 				// Provide buffer contents
-				Gl.BufferSubData(BufferType, IntPtr.Zero, _GpuBufferSize, CpuBufferAddress);
+				Gl.BufferSubData(Target, IntPtr.Zero, _GpuBufferSize, CpuBufferAddress);
 				// Release memory, if it is not required anymore
 				if (_MemoryBufferAutoDispose)
 					DeleteCpuBuffer();
@@ -739,7 +728,7 @@ namespace OpenGL.Objects
 				return (0);
 				
 			// All-in-one implementation for all targets
-			switch (BufferType) {
+			switch (Target) {
 				case BufferTargetARB.ArrayBuffer:
 					return (Gl.ARRAY_BUFFER_BINDING);
 				case BufferTargetARB.ElementArrayBuffer:
@@ -750,7 +739,7 @@ namespace OpenGL.Objects
 					return (Gl.UNIFORM_BUFFER);
 
 				default:
-					throw new NotSupportedException(String.Format("buffer target {0} not supported", BufferType));
+					throw new NotSupportedException(String.Format("buffer target {0} not supported", Target));
 			}
 		}
 
@@ -774,7 +763,7 @@ namespace OpenGL.Objects
 		protected virtual void BindCore(GraphicsContext ctx)
 		{
 			if (ctx.Extensions.VertexBufferObject_ARB)
-				Gl.BindBuffer(BufferType, ObjectName);
+				Gl.BindBuffer(Target, ObjectName);
 		}
 
 		/// <summary>
@@ -799,7 +788,7 @@ namespace OpenGL.Objects
 		protected virtual void UnbindCore(GraphicsContext ctx)
 		{
 			if (ctx.Extensions.VertexBufferObject_ARB)
-				Gl.BindBuffer(BufferType, InvalidObjectName);
+				Gl.BindBuffer(Target, InvalidObjectName);
 		}
 
 		/// <summary>

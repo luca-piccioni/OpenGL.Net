@@ -62,25 +62,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Array Buffer Information
-
-		/// <summary>
-		/// Get the item count allocated for this array buffer object. In the case this ArrayBufferObject
-		/// has not been created yet, it returns the size of the client buffer.
-		/// </summary>
-		public uint ItemCount
-		{
-			get { return (BufferSize != 0 ? BufferSize / ItemSize : CpuBufferSize / ItemSize); }
-		}
-
-		/// <summary>
-		/// Get the item count allocated in the client buffer of this buffer object. In the case this ArrayBufferObject
-		/// has not been defined yet, or the client buffer has been disposed due the context creation, it returns 0.
-		/// </summary>
-		public uint ClientItemCount
-		{
-			get { return (CpuBufferSize / ItemSize); }
-		}
+		#region Item Size
 
 		/// <summary>
 		/// Get the size of the item of this array buffer object, in bytes.
@@ -100,6 +82,44 @@ namespace OpenGL.Objects
 		/// Size of the storage of the array buffer object, in basic machine units (bytes).
 		/// </summary>
 		private uint _ItemSize;
+
+		#endregion
+
+		#region Items Count
+
+		/// <summary>
+		/// Get the GPU items count, if this ArrayBufferBase is created, otherwise it returns the
+		/// CPU items count.
+		/// </summary>
+		public uint ItemsCount
+		{
+			get {
+				uint gpuItemsCount = GpuItemsCount;
+
+				if (gpuItemsCount > 0)
+					return (gpuItemsCount);
+
+				return (CpuItemsCount);
+			}
+		}
+
+		/// <summary>
+		/// Get the item count allocated for this array buffer object. In the case this ArrayBufferObject
+		/// has not been created yet, it returns the size of the client buffer.
+		/// </summary>
+		public uint GpuItemsCount
+		{
+			get { return (GpuBufferSize / ItemSize); }
+		}
+
+		/// <summary>
+		/// Get the item count allocated in the client buffer of this buffer object. In the case this ArrayBufferObject
+		/// has not been defined yet, or the client buffer has been disposed due the context creation, it returns 0.
+		/// </summary>
+		public uint CpuItemsCount
+		{
+			get { return (CpuBufferSize / ItemSize); }
+		}
 
 		#endregion
 

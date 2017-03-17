@@ -101,7 +101,6 @@ namespace OpenGL.Objects.Test
 		/// <param name="buffer"></param>
 		private void ConstructionDefaulValues(Buffer buffer)
 		{
-			Assert.AreEqual(0U, buffer.BufferSize);
 			Assert.AreEqual(0U, buffer.CpuBufferSize);
 		}
 
@@ -111,7 +110,6 @@ namespace OpenGL.Objects.Test
 		/// <param name="buffer"></param>
 		private void DispositionDefaulValues(Buffer buffer)
 		{
-			Assert.AreEqual(0U, buffer.BufferSize);
 			Assert.AreEqual(0U, buffer.CpuBufferSize);
 		}
 

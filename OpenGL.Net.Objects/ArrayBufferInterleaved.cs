@@ -153,10 +153,10 @@ namespace OpenGL.Objects
 			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
-			T[] genericArray = new T[ItemCount];
+			T[] genericArray = new T[CpuItemsCount];
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, CpuBufferAddress, ItemCount * ItemSize);
+			Memory.MemoryCopy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
 			return (genericArray);
 		}
@@ -177,13 +177,13 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			T[] genericArray = new T[ItemCount];
+			T[] genericArray = new T[GpuItemsCount];
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccessARB.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.MemoryCopy(genericArray, MappedBuffer, ItemCount * ItemSize);
+				Memory.MemoryCopy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}
