@@ -1550,6 +1550,8 @@ namespace OpenGL.Objects
 				throw new ArgumentException("resource");
 			if (resource.ObjectNamespace != ObjectNameSpace)
 				throw new ArgumentException("object namespace mismatch", "resource");
+			if (resource.RefCount > 0)
+				throw new ArgumentException("resource referenced", "resource");
 
 			_DisposingGpuResources.Add(resource);
 		}
@@ -1947,6 +1949,7 @@ namespace OpenGL.Objects
 				StopResourceThread();
 				DisposeSharedResources();
 				TerminateResources();
+				DisposeResources();
 
 				if (_RenderContext != IntPtr.Zero) {
 					if (_RenderContextOwned) {

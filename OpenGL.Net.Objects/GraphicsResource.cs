@@ -57,10 +57,9 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Construct a GraphicsResource.
 		/// </summary>
-		protected GraphicsResource()
-			: this(String.Empty)
+		protected GraphicsResource() : this(String.Empty)
 		{
-			
+
 		}
 
 		/// <summary>
@@ -166,7 +165,7 @@ namespace OpenGL.Objects
 		/// This routine must not be used for those resource named managed directly by the underlying
 		/// OpenGL implementation.
 		/// </remarks>
-		internal static uint GetFakeObjectName(Guid objectClass)
+		private static uint GetFakeObjectName(Guid objectClass)
 		{
 			uint fakeObjectName = InvalidObjectName;
 
@@ -420,7 +419,10 @@ namespace OpenGL.Objects
 						if ((currentContext != null) && (currentContext.ObjectNameSpace == _ObjectNameSpace))
 							Delete(currentContext);
 					} else {
-						Delete(resourceContext);
+						if (resourceContext.IsCurrent)
+							Delete(resourceContext);
+						else
+							resourceContext.DisposeResource(this);
 					}
 				}
 
