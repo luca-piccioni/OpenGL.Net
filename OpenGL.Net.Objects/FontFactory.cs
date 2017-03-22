@@ -53,7 +53,7 @@ namespace OpenGL.Objects
 		{
 			switch (fontType) {
 				case FontType.Vector:
-					return new FontPatch(fontFamily, emSize, fontStyle, effects);
+					return new FontVertex(fontFamily, emSize, fontStyle, effects);
 				case FontType.Textured:
 					return new FontTextureArray2d(fontFamily, emSize, fontStyle, effects);
 				default:

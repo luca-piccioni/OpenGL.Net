@@ -81,7 +81,7 @@
     <Compile Include="Collections\StringDictionary.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="FontFactory.cs" />
-    <Compile Include="FontPatch.cs" />
+    <Compile Include="FontVertex.cs" />
     <Compile Include="FontFx.cs" />
     <Compile Include="FontTextureArray2d.cs" />
     <Compile Include="IFont.cs" />

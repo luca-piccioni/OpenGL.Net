@@ -27,7 +27,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Font renderer based on polygons.
 	/// </summary>
-	sealed class FontPatch : Font
+	sealed class FontVertex : Font
 	{
 		#region Constructors
 
@@ -36,7 +36,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="fontFamily"></param>
 		/// <param name="emSize"></param>
-		public FontPatch(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects)
+		public FontVertex(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects)
 			: base(fontFamily, emSize, fontStyle, effects)
 		{
 			
