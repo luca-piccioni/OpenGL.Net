@@ -88,7 +88,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Resource Name Management
+		#region Name
 
 		/// <summary>
 		/// Invalid object name.
@@ -192,7 +192,19 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Resource Management
+		#region GPU Resources Aggregation
+
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected virtual void CreateObject(GraphicsContext ctx)
+		{
+			foreach (GraphicsResource gpuResource in _GpuResources)
+				gpuResource.Create(ctx);
+		}
 
 		/// <summary>
 		/// Link a resource used by this UserGraphicsResource.
@@ -295,18 +307,6 @@ namespace OpenGL.Objects
 		/// Resources used by this UserGraphicsResource.
 		/// </summary>
 		private readonly List<IGraphicsResource> _GpuResources = new List<IGraphicsResource>();
-
-		/// <summary>
-		/// Actually create this GraphicsResource resources.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		protected virtual void CreateObject(GraphicsContext ctx)
-		{
-			foreach (GraphicsResource gpuResource in _GpuResources)
-				gpuResource.Create(ctx);
-		}
 
 		#endregion
 

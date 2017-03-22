@@ -402,15 +402,15 @@ namespace OpenGL.Objects
 			GenerateSphere(radius, slices, stacks, out position, out normal, out indices, out vertexCount);
 
 			// Buffer definition
-			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>();
 			positionBuffer.Create(position);
 			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
-			ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>();
 			normalBuffer.Create(normal);
 			vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 
-			ElementBuffer<ushort> elementBuffer = new ElementBuffer<ushort>(BufferHint.StaticCpuDraw);
+			ElementBuffer<ushort> elementBuffer = new ElementBuffer<ushort>();
 			elementBuffer.Create(indices);
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
 
@@ -596,11 +596,11 @@ namespace OpenGL.Objects
 			}
 
 			// Buffer definition
-			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>();
 			positionBuffer.Create(position);
 			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
-			ElementBuffer<uint> elementBuffer = new ElementBuffer<uint>(BufferHint.StaticCpuDraw);
+			ElementBuffer<uint> elementBuffer = new ElementBuffer<uint>();
 			elementBuffer.Create(indices.ToArray());
 			elementBuffer.RestartIndexEnabled = Gl.CurrentExtensions.PrimitiveRestart;
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);

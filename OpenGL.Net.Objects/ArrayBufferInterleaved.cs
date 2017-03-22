@@ -37,33 +37,14 @@ namespace OpenGL.Objects
 		/// <param name="hint">
 		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObjectInterleaved(BufferHint hint) : base(hint)
+		public ArrayBufferObjectInterleaved(BufferHint hint) :
+			base(hint)
 		{
 			try {
 				// Determine array item size
 				ItemSize = (uint)Marshal.SizeOf(typeof(T));
-
 				// Detect interleaved fields using reflection (cached)
-				List<InterleavedSectionBase> typeSections;
-
-				if (_TypeSections.TryGetValue(typeof(T), out typeSections) == false) {
-					// Cache for type
-					typeSections = new List<InterleavedSectionBase>();
-
-					foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
-						InterleavedSectionBase structSection = new InterleavedSectionBase();
-					
-						structSection.ItemType = ArrayBufferItem.GetArrayType(field.FieldType);
-						structSection.Normalized = false;
-						structSection.Offset = Marshal.OffsetOf<T>(field.Name);
-						structSection.Stride = new IntPtr(ItemSize);
-
-						typeSections.Add(structSection);
-					}
-
-					_TypeSections.Add(typeof(T), typeSections);
-				}
-
+				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
 				_InterleavedSections = typeSections.ConvertAll(delegate (InterleavedSectionBase item) {
 					return (new InterleavedSection(this, item));
@@ -73,6 +54,62 @@ namespace OpenGL.Objects
 				GC.SuppressFinalize(this);
 				throw;
 			}
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObjectInterleaved specifying its item layout on GPU side.
+		/// </summary>
+		/// <param name="format">
+		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
+		/// </param>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		public ArrayBufferObjectInterleaved(MapBufferUsageMask usageMask) :
+			base(usageMask)
+		{
+			try {
+				// Determine array item size
+				ItemSize = (uint)Marshal.SizeOf(typeof(T));
+				// Detect interleaved fields using reflection (cached)
+				List<InterleavedSectionBase> typeSections = ScanTypeSections();
+				// Get array sections for this instance
+				_InterleavedSections = typeSections.ConvertAll(delegate (InterleavedSectionBase item) {
+					return (new InterleavedSection(this, item));
+				});
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
+		}
+
+		private static List<InterleavedSectionBase> ScanTypeSections()
+		{
+			List<InterleavedSectionBase> typeSections;
+
+			// Determine array item size
+			uint itemSize = (uint)Marshal.SizeOf(typeof(T));
+
+			if (_TypeSections.TryGetValue(typeof(T), out typeSections) == false) {
+				// Cache for type
+				typeSections = new List<InterleavedSectionBase>();
+
+				foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
+					InterleavedSectionBase structSection = new InterleavedSectionBase();
+					
+					structSection.ItemType = ArrayBufferItem.GetArrayType(field.FieldType);
+					structSection.Normalized = false;
+					structSection.Offset = Marshal.OffsetOf<T>(field.Name);
+					structSection.Stride = new IntPtr(itemSize);
+
+					typeSections.Add(structSection);
+				}
+
+				_TypeSections.Add(typeof(T), typeSections);
+			}
+
+			return (typeSections);
 		}
 
 		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();

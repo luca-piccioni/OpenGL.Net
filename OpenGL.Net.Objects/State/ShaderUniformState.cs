@@ -506,7 +506,7 @@ namespace OpenGL.Objects.State
 
 			// Create uniform buffer, if supported
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag) && UniformBuffer == null) {
-				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferHint.DynamicCpuDraw);
+				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, MapBufferUsageMask.MapWriteBit);
 				_UniformBuffer.Create(ctx);
 			}
 

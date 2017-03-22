@@ -235,6 +235,28 @@ namespace OpenGL.Objects
 			return (uniformBuffer);
 		}
 
+		/// <summary>
+		/// Create an <see cref="UniformBuffer"/> useful for backing with a buffer object the specified uniform block.
+		/// </summary>
+		/// <param name="uniformBlockName"></param>
+		/// <param name="usageMask"></param>
+		/// <returns></returns>
+		public UniformBuffer CreateUniformBlock(string uniformBlockName, MapBufferUsageMask usageMask)
+		{
+			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
+			if (uniformBlockBinding == null)
+				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
+
+			UniformBuffer uniformBuffer = new UniformBuffer(usageMask);
+
+			// Allocate client storage
+			uniformBuffer.Create(uniformBlockBinding.DataSize);
+			// Map uniform names with 
+			MapUniformBlock(uniformBlockName, uniformBuffer);
+
+			return (uniformBuffer);
+		}
+
 		private void MapUniformBlock(string uniformBlockName, UniformBuffer uniformBuffer)
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);

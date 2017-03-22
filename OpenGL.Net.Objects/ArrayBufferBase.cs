@@ -37,7 +37,7 @@ namespace OpenGL.Objects
 		/// Construct an ArrayBufferObjectBase.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
+		/// An <see cref="BufferHint"/> that specifies the data buffer usage hints.
 		/// </param>
 		protected ArrayBufferBase(BufferHint hint) :
 			base(BufferTargetARB.ArrayBuffer, hint)
@@ -49,13 +49,40 @@ namespace OpenGL.Objects
 		/// Construct an ArrayBufferObjectBase.
 		/// </summary>
 		/// <param name="bufferTarget">
-		/// A <see cref="BufferTargetARB"/> that specify the buffer target.
+		/// A <see cref="BufferTargetARB"/> that specifies the buffer target.
 		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
 		protected ArrayBufferBase(BufferTargetARB bufferTarget, BufferHint hint) :
 			base(bufferTarget, hint)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObjectBase.
+		/// </summary>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		protected ArrayBufferBase(MapBufferUsageMask usageMask) :
+			base(BufferTargetARB.ArrayBuffer, usageMask)
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObjectBase.
+		/// </summary>
+		/// <param name="bufferTarget">
+		/// A <see cref="BufferTargetARB"/> that specify the buffer target.
+		/// </param>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		protected ArrayBufferBase(BufferTargetARB bufferTarget, MapBufferUsageMask usageMask) :
+			base(bufferTarget, usageMask)
 		{
 
 		}
@@ -674,7 +701,7 @@ namespace OpenGL.Objects
 			ctx.Bind(this);
 
 			if (arrayItemSize * count > GpuBufferSize)
-				CreateGpuBuffer(arrayItemSize * count, null);
+				CreateGpuBuffer(ctx, arrayItemSize * count, IntPtr.Zero);
 
 			// Copy data mapping GPU buffer
 			Map(ctx, BufferAccessARB.WriteOnly);

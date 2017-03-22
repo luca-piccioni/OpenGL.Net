@@ -91,6 +91,69 @@ namespace OpenGL.Objects
 			}
 		}
 
+		/// <summary>
+		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// </summary>
+		/// <param name="vertexBaseType">
+		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
+		/// </param>
+		/// <param name="vertexLength">
+		/// A <see cref="UInt32"/> that specify how many components have the array item.
+		/// </param>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		public ArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, MapBufferUsageMask usageMask) :
+			this(vertexBaseType, vertexLength, 1, usageMask)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// </summary>
+		/// <param name="vertexBaseType">
+		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
+		/// </param>
+		/// <param name="vertexLength">
+		/// A <see cref="UInt32"/> that specify how many components have the array item.
+		/// </param>
+		/// <param name="vertexRank">
+		/// A <see cref="UInt32"/> that specify how many columns have the array item of matrix type.
+		/// </param>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		public ArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, MapBufferUsageMask usageMask) :
+			this(vertexBaseType.GetArrayBufferType(vertexLength, vertexRank), usageMask)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObject specifying its item layout on GPU side.
+		/// </summary>
+		/// <param name="format">
+		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
+		/// </param>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		public ArrayBuffer(ArrayBufferItemType format, MapBufferUsageMask usageMask) :
+			base(usageMask)
+		{
+			try {
+				// Store array type
+				_ArrayType = format;
+				// Determine array item size
+				ItemSize = format.GetItemSize();
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
+		}
+
 		#endregion
 
 		#region Array Buffer Information
@@ -698,12 +761,34 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
+		/// Construct a static ArrayBufferObject.
+		/// </summary>
+		public ArrayBuffer() :
+			this(MapBufferUsageMask.None)
+		{
+
+		}
+
+		/// <summary>
 		/// Construct an ArrayBufferObject.
 		/// </summary>
 		/// <param name="hint">
 		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBuffer(BufferHint hint) : base(ArrayBufferItem.GetArrayType(typeof(T)), hint)
+		public ArrayBuffer(BufferHint hint) :
+			base(ArrayBufferItem.GetArrayType(typeof(T)), hint)
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct an ArrayBufferObject.
+		/// </summary>
+		/// <param name="usageMask">
+		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// </param>
+		public ArrayBuffer(MapBufferUsageMask usageMask) :
+			base(ArrayBufferItem.GetArrayType(typeof(T)), usageMask)
 		{
 			
 		}

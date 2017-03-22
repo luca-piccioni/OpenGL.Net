@@ -239,7 +239,7 @@ namespace OpenGL.Objects.Scene
 		private VertexArrays CreateBBoxVertexArray()
 		{
 			VertexArrays bboxArray = new VertexArrays();
-			ArrayBuffer<Vertex3f> bboxVPositionArray = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> bboxVPositionArray = new ArrayBuffer<Vertex3f>();
 			bboxVPositionArray.Create(new Vertex3f[] {
 				// Lower
 				new Vertex3f(-0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, -0.5f, -0.5f),

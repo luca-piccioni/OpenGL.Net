@@ -338,7 +338,7 @@ namespace OpenGL.Objects.Scene
 				}
 
 				// Position (mandatory)
-				ArrayBuffer<Vertex4f> positionBuffer = new ArrayBuffer<Vertex4f>(BufferHint.StaticCpuDraw);
+				ArrayBuffer<Vertex4f> positionBuffer = new ArrayBuffer<Vertex4f>();
 				positionBuffer.Create(position);
 				vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
 
@@ -347,18 +347,18 @@ namespace OpenGL.Objects.Scene
 
 				// Texture
 				if (hasTexCoord) {
-					ArrayBuffer<Vertex2f> texCoordBuffer = new ArrayBuffer<Vertex2f>(BufferHint.StaticCpuDraw);
+					ArrayBuffer<Vertex2f> texCoordBuffer = new ArrayBuffer<Vertex2f>();
 					texCoordBuffer.Create(texcoord);
 					vertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
 				}
 
 				// Normals
 				if (hasNormals) {
-					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>();
 					normalBuffer.Create(normal);
 					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 				} else {
-					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>();
 					normalBuffer.Create(vertexCount);
 					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
 					vertexArray.GenerateNormals();
@@ -366,11 +366,11 @@ namespace OpenGL.Objects.Scene
 
 				// Tangents
 				if (hasTanCoord) {
-					ArrayBuffer<Vertex3f> tanCoordBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> tanCoordBuffer = new ArrayBuffer<Vertex3f>();
 					tanCoordBuffer.Create(vertexCount);
 					vertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
 
-					ArrayBuffer<Vertex3f> bitanCoordBuffer = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
+					ArrayBuffer<Vertex3f> bitanCoordBuffer = new ArrayBuffer<Vertex3f>();
 					bitanCoordBuffer.Create(vertexCount);
 					vertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
 

@@ -245,7 +245,7 @@ namespace OpenGL.Objects
 				}
 
 				// Element vertices
-				ArrayBuffer<Vertex2f> gVertexPosition = new ArrayBuffer<Vertex2f>(BufferHint.StaticCpuDraw);
+				ArrayBuffer<Vertex2f> gVertexPosition = new ArrayBuffer<Vertex2f>();
 				gVertexPosition.Create(glyphsVertices.ToArray());
 				_VertexArrays.SetArray(gVertexPosition, VertexArraySemantic.Position);
 

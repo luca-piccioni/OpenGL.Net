@@ -42,6 +42,18 @@ namespace OpenGL.Objects
 			
 		}
 
+		/// <summary>
+		/// Construct an UniformBufferObject.
+		/// </summary>
+		/// <param name="usageMask">
+		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		public UniformBuffer(MapBufferUsageMask usageMask) :
+			base(BufferTargetARB.UniformBuffer, usageMask)
+		{
+			
+		}
+
 		#endregion
 
 		#region Create

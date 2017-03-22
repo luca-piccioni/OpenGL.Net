@@ -62,8 +62,27 @@ namespace OpenGL.Objects
 			Target = type;
 			// Store the buffer data usage hints
 			Hint = hint;
-			// Automatically dispose CPU buffer?
-			_MemoryBufferAutoDispose = IsClientBufferAutoDisposable(hint);
+			// Guess appropriate storage flags
+			_UsageMask = HintToUsageMask(hint);
+		}
+
+		/// <summary>
+		/// Construct a Buffer determining its type, data usage and transfer mode.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="BufferTargetARB"/> that specify the buffer object type.
+		/// </param>
+		/// <param name="usageMask">
+		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		protected Buffer(BufferTargetARB type, MapBufferUsageMask usageMask)
+		{
+			// Store the buffer object type
+			Target = type;
+			// Store the buffer data usage hints
+			Hint = UsageMaskToHint(usageMask);
+			// Guess appropriate storage flags
+			_UsageMask = usageMask;
 		}
 		
 		#endregion
@@ -186,48 +205,32 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Reset the allocated GPU buffer for this Buffer.
 		/// </summary>
+		/// <param name="ctx">
+		/// 
+		/// </param>
 		/// <param name="size">
 		/// A <see cref="UInt32"/> that determine the size of the buffer object GPU buffer, in bytes.
 		/// </param>
-		protected void CreateGpuBuffer(uint size, object data)
+		/// <param name="data">
+		/// 
+		/// </param>
+		protected void CreateGpuBuffer(GraphicsContext ctx, uint size, IntPtr data)
 		{
-			// Define buffer object (type, size and hints)
-			Gl.BufferData((int)Target, size, data, (int)Hint);
+			if (Immutable && _GpuBufferSize > 0)
+				throw new InvalidOperationException("buffer is immutable");
+
+			if (Immutable && ctx.Extensions.BufferStorage_ARB) {
+				Gl.BufferStorage((int)Target, size, data, (uint)_UsageMask);
+				Gl.CheckErrors();
+			} else {
+				Gl.BufferData((int)Target, size, data, (int)Hint);
+				if (CpuBufferAddress != IntPtr.Zero)
+					Gl.BufferSubData(Target, IntPtr.Zero, _GpuBufferSize, CpuBufferAddress);
+			}
+
 			// Store GPU buffer size
 			_GpuBufferSize = size;
 		}
-
-		#endregion
-
-		#region Static GPU Buffer
-
-		/// <summary>
-		/// Get or set whether the CPU buffer must be disposed once this Buffer is created; this
-		/// attribute is ignored when the required buffer cannot be managed at GPU side (i.e.
-		/// <see cref="IGraphicsResource.RequiresName(GraphicsContext)"/>.
-		/// </summary>
-		protected bool AutoDisposeClientBuffer
-		{
-			get { return (_MemoryBufferAutoDispose); }
-			set { _MemoryBufferAutoDispose = value; }
-		}
-
-		/// <summary>
-		/// Determine the default value of <see cref="AutoDisposeClientBuffer"/>.
-		/// </summary>
-		/// <param name="hint">
-		/// A <see cref="BufferHint"/> that hints the buffer usage.
-		/// </param>
-		/// <returns></returns>
-		protected static bool IsClientBufferAutoDisposable(BufferHint hint)
-		{
-			return (hint == BufferHint.StaticCpuDraw);
-		}
-
-		/// <summary>
-		/// Determine whether <see cref="_CpuBuffer"/> should be disposed have got it uploaded to GPU.
-		/// </summary>
-		private bool _MemoryBufferAutoDispose;
 
 		#endregion
 
@@ -473,6 +476,75 @@ namespace OpenGL.Objects
 		
 		#endregion
 
+		#region Immutable Storage
+
+		/// <summary>
+		/// Get or set whether this Buffer is immutable (GL_ARB_buffer_storage).
+		/// </summary>
+		public bool Immutable
+		{
+			get { return (_Immutable); }
+			set
+			{
+				if (ObjectName != InvalidObjectName)
+					throw new InvalidOperationException("object already defined");
+				_Immutable = value;
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether this Buffer is immutable (GL_ARB_buffer_storage).
+		/// </summary>
+		private bool _Immutable = true;
+
+		/// <summary>
+		/// Get the <see cref="MapBufferUsageMask"/> corresponding to a <see cref="BufferHint"/>.
+		/// </summary>
+		/// <param name="hint"></param>
+		/// <returns></returns>
+		private static MapBufferUsageMask HintToUsageMask(BufferHint hint)
+		{
+			switch (hint) {
+				case BufferHint.StaticCpuDraw:
+				case BufferHint.StaticGpuDraw:
+				case BufferHint.DynamicGpuDraw:
+					return (MapBufferUsageMask.None);
+				case BufferHint.DynamicCpuDraw:
+					return (MapBufferUsageMask.MapWriteBit);
+				case BufferHint.StaticRead:
+				case BufferHint.DynamicRead:
+					return (MapBufferUsageMask.MapReadBit);
+				default:
+					return (MapBufferUsageMask.None);
+			}
+		}
+
+		/// <summary>
+		/// Get the <see cref="BufferHint"/> corresponding to a <see cref="MapBufferUsageMask"/>.
+		/// </summary>
+		/// <param name="hint"></param>
+		/// <returns></returns>
+		private static BufferHint UsageMaskToHint(MapBufferUsageMask usageMask)
+		{
+			BufferHint hint = BufferHint.StaticCpuDraw;
+
+			// Common usage: map for writing before rendering
+			if ((usageMask & MapBufferUsageMask.MapWriteBit) != 0)
+				hint = BufferHint.DynamicCpuDraw;
+			// Common usage: transform feedback
+			if ((usageMask & MapBufferUsageMask.MapReadBit) != 0)
+				hint = BufferHint.DynamicRead;
+
+			return (hint);
+		}
+
+		/// <summary>
+		/// Map storage flags, valid when GL_ARB_buffer_storage is implemented.
+		/// </summary>
+		private readonly MapBufferUsageMask _UsageMask = MapBufferUsageMask.None;
+
+		#endregion
+
 		#region GraphicsResource Overrides
 
 		/// <summary>
@@ -632,26 +704,9 @@ namespace OpenGL.Objects
 				_GpuBuffer.Dispose();
 
 			if (CpuBufferAddress != IntPtr.Zero) {
-				if (_MemoryBufferAutoDispose == false) {
-
-					// Note: CPU buffer is expected to be allocated and modificable; even while the GPU is rendering
-					// using the simulated GPU buffer. We need to copy: in this way it is implemented the double buffer
-					// mechanism of the GL_ARB_vertex_buffer_object extension
-
-					// Allocate a new GPU buffer
-					_GpuBuffer = new AlignedMemoryBuffer(size, DefaultBufferAlignment);
-					// Copy from CPU buffer
-					Memory.MemoryCopy(_GpuBuffer.AlignedBuffer, CpuBufferAddress, size);
-
-				} else {
-
-					// Note: since CPU buffer need to be disposed (ending set to null), we do not copy
-					// CPU buffer to GPU buffer; instead, switch references and do not dispose the CPU buffer
-
-					// Allocate GPU buffer
-					_GpuBuffer = _CpuBuffer;
-					_CpuBuffer = null;
-				}
+				// Swap CPU/GPU buffers
+				_GpuBuffer = _CpuBuffer;
+				_CpuBuffer = null;
 			} else {
 				// Allocate simulated GPU buffer
 				_GpuBuffer = new AlignedMemoryBuffer(size, DefaultBufferAlignment);
@@ -673,16 +728,9 @@ namespace OpenGL.Objects
 		protected void CreateObject_VertexArrayObjectARB(GraphicsContext ctx, uint size)
 		{
 			// Define buffer object (type, size and hints)
-			CreateGpuBuffer(size, null);
-
-			// Define buffer object contents
-			if (CpuBufferAddress != IntPtr.Zero) {
-				// Provide buffer contents
-				Gl.BufferSubData(Target, IntPtr.Zero, _GpuBufferSize, CpuBufferAddress);
-				// Release memory, if it is not required anymore
-				if (_MemoryBufferAutoDispose)
-					DeleteCpuBuffer();
-			}
+			CreateGpuBuffer(ctx, size, CpuBufferAddress);
+			// Release memory, if it is not required anymore
+			DeleteCpuBuffer();
 		}
 
 		/// <summary>
