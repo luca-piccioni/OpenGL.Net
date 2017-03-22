@@ -36,7 +36,7 @@ namespace OpenGL.Objects
 		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
 		/// </param>
 		public ElementBuffer(DrawElementsType elementType) :
-			this(elementType, BufferHint.StaticCpuDraw)
+			this(elementType, MapBufferUsageMask.None)
 		{
 
 		}
@@ -50,22 +50,96 @@ namespace OpenGL.Objects
 		/// <param name="hint">
 		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
 		/// </param>
-		public ElementBuffer(DrawElementsType elementType, BufferHint hint)
-			: base(BufferTargetARB.ElementArrayBuffer, hint)
+		public ElementBuffer(DrawElementsType elementType, BufferHint hint) :
+			base(BufferTargetARB.ElementArrayBuffer, hint)
+		{
+			try {
+				ElementsType = elementType;
+				// Determine ElementsType and default RestartIndexKey
+				SetProperties(elementType);
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
+		}
+
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="elementType">
+		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
+		/// </param>
+		/// <param name="usageMask">
+		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		public ElementBuffer(DrawElementsType elementType, MapBufferUsageMask usageMask) :
+			base(BufferTargetARB.ElementArrayBuffer, usageMask)
+		{
+			try {
+				ElementsType = elementType;
+				// Determine ElementsType and default RestartIndexKey
+				SetProperties(elementType);
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
+		}
+
+		/// <summary>
+		/// Set ElementBuffer properties following element type.
+		/// </summary>
+		/// <param name="elementType">
+		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
+		/// </param>
+		private void SetProperties(DrawElementsType elementType)
+		{
+			switch (elementType) {
+				case DrawElementsType.UnsignedByte:
+					ItemSize = 1;
+					RestartIndexKey = 0x000000FF;
+					break;
+				case DrawElementsType.UnsignedShort:
+					ItemSize = 2;
+					RestartIndexKey = 0x0000FFFF;
+					break;
+				case DrawElementsType.UnsignedInt:
+					ItemSize = 4;
+					RestartIndexKey = 0xFFFFFFFF;
+					break;
+				default:
+					throw new ArgumentException("type not supported", "elementType");
+			}
+		}
+
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="elementType">
+		/// 
+		/// </param>
+		/// <param name="hint">
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
+		/// </param>
+		protected ElementBuffer(Type elementType, BufferHint hint) :
+			base(BufferTargetARB.ElementArrayBuffer, hint)
 		{
 			try {
 				// Determine ElementsType and default RestartIndexKey
-				ElementsType = elementType;
-				switch (elementType) {
-					case DrawElementsType.UnsignedByte:
+				switch (Type.GetTypeCode(elementType)) {
+					case TypeCode.Byte:
+						ElementsType = DrawElementsType.UnsignedByte;
 						ItemSize = 1;
 						RestartIndexKey = 0x000000FF;
 						break;
-					case DrawElementsType.UnsignedShort:
+					case TypeCode.UInt16:
+						ElementsType = DrawElementsType.UnsignedShort;
 						ItemSize = 2;
 						RestartIndexKey = 0x0000FFFF;
 						break;
-					case DrawElementsType.UnsignedInt:
+					case TypeCode.UInt32:
+						ElementsType = DrawElementsType.UnsignedInt;
 						ItemSize = 4;
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
@@ -85,11 +159,11 @@ namespace OpenGL.Objects
 		/// <param name="elementType">
 		/// 
 		/// </param>
-		/// <param name="hint">
-		/// An <see cref="BufferHint"/> that specify the data buffer usage hints.
+		/// <param name="usageMask">
+		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
 		/// </param>
-		protected ElementBuffer(Type elementType, BufferHint hint)
-			: base(BufferTargetARB.ElementArrayBuffer, hint)
+		protected ElementBuffer(Type elementType, MapBufferUsageMask usageMask) :
+			base(BufferTargetARB.ElementArrayBuffer, usageMask)
 		{
 			try {
 				// Determine ElementsType and default RestartIndexKey
@@ -160,7 +234,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The restart index value (fixed).
 		/// </summary>
-		public readonly uint RestartIndexKey;
+		public uint RestartIndexKey;
 
 		/// <summary>
 		/// Utility routine for extracting 
@@ -455,7 +529,7 @@ namespace OpenGL.Objects
 		/// Construct an ElementBufferObject, implictly used with <see cref="BufferHint.StaticCpuDraw"/>.
 		/// </summary>
 		public ElementBuffer() :
-			this(BufferHint.StaticCpuDraw)
+			this(MapBufferUsageMask.None)
 		{
 
 		}
@@ -468,6 +542,18 @@ namespace OpenGL.Objects
 		/// </param>
 		public ElementBuffer(BufferHint hint) :
 			base(typeof(T), hint)
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="usageMask">
+		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		public ElementBuffer(MapBufferUsageMask usageMask) :
+			base(typeof(T), usageMask)
 		{
 			
 		}

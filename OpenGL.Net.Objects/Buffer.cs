@@ -332,7 +332,7 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			if (Exists(ctx) && ctx.Extensions.VertexBufferObject_ARB) {
+			if (ctx.Extensions.VertexBufferObject_ARB) {
 				// Unmap buffer object data (resident on server)
 				bool uncorrupted = Gl.UnmapBuffer(Target);
 
