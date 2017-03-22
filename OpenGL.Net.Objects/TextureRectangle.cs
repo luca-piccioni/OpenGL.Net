@@ -173,7 +173,39 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Uniform sampler type for managing this Texture.
 		/// </summary>
-		internal override int SamplerType { get { return (Gl.SAMPLER_2D_RECT); } }
+		internal override int SamplerType
+		{
+			get
+			{
+				if (PixelLayout.IsGlIntegerPixel()) {
+					if (PixelLayout.IsGlSignedIntegerPixel())
+						return (Gl.INT_SAMPLER_2D_RECT);
+					if (PixelLayout.IsGlUnsignedIntegerPixel())
+						return (Gl.UNSIGNED_INT_SAMPLER_2D_RECT);
+
+					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
+				} else
+					return (Gl.SAMPLER_2D_RECT);
+			}
+		}
+
+		/// <summary>
+		/// Create this GraphicsResource, checking if the requires OpenGL extensions are.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object.
+		/// </param>
+		public override void Create(GraphicsContext ctx)
+		{
+			// Check extensions support
+			CheckValidContext(ctx);
+
+			if (!ctx.Extensions.TextureRectangle_ARB && !ctx.Extensions.TextureRectangle_NV)
+				throw new NotSupportedException("GL_ARB|NV_texture_rectangle not supported");
+
+			// Base implementation
+			base.Create(ctx);
+		}
 
 		#endregion
 	}

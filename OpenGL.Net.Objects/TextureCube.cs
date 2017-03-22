@@ -299,7 +299,39 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Uniform sampler type for managing this Texture.
 		/// </summary>
-		internal override int SamplerType { get { return (Gl.SAMPLER_CUBE); } }
+		internal override int SamplerType
+		{
+			get
+			{
+				if (PixelLayout.IsGlIntegerPixel()) {
+					if (PixelLayout.IsGlSignedIntegerPixel())
+						return (Gl.INT_SAMPLER_CUBE);
+					if (PixelLayout.IsGlUnsignedIntegerPixel())
+						return (Gl.UNSIGNED_INT_SAMPLER_CUBE);
+
+					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
+				} else
+					return (Gl.SAMPLER_CUBE);
+			}
+		}
+
+		/// <summary>
+		/// Create this GraphicsResource, checking if the requires OpenGL extensions are.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object.
+		/// </param>
+		public override void Create(GraphicsContext ctx)
+		{
+			// Check extensions support
+			CheckValidContext(ctx);
+
+			if (!ctx.Extensions.TextureCubeMap_ARB && !ctx.Extensions.TextureCubeMap_EXT && !ctx.Extensions.TextureCubeMap_OES)
+				throw new NotSupportedException("GL_ARB|EXT|OES_texture_cube_map not supported");
+
+			// Base implementation
+			base.Create(ctx);
+		}
 
 		#endregion
 	}

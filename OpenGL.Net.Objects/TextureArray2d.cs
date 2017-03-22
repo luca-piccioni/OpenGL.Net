@@ -706,6 +706,24 @@ namespace OpenGL.Objects
 			}
 		}
 
+		/// <summary>
+		/// Create this GraphicsResource, checking if the requires OpenGL extensions are.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object.
+		/// </param>
+		public override void Create(GraphicsContext ctx)
+		{
+			// Check extensions support
+			CheckValidContext(ctx);
+
+			if (ctx.Extensions.TextureArray_EXT == false)
+				throw new NotSupportedException("GL_EXT_texture_array not supported");
+
+			// Base implementation
+			base.Create(ctx);
+		}
+
 		#endregion
 	}
 }

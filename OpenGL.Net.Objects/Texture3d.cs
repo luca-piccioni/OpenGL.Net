@@ -519,7 +519,39 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Uniform sampler type for managing this texture.
 		/// </summary>
-		internal override int SamplerType { get { return (Gl.SAMPLER_3D); } }
+		internal override int SamplerType
+		{
+			get
+			{
+				if (PixelLayout.IsGlIntegerPixel()) {
+					if (PixelLayout.IsGlSignedIntegerPixel())
+						return (Gl.INT_SAMPLER_3D);
+					if (PixelLayout.IsGlUnsignedIntegerPixel())
+						return (Gl.UNSIGNED_INT_SAMPLER_3D);
+
+					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
+				} else
+					return (Gl.SAMPLER_3D);
+			}
+		}
+
+		/// <summary>
+		/// Create this GraphicsResource, checking if the requires OpenGL extensions are.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object.
+		/// </param>
+		public override void Create(GraphicsContext ctx)
+		{
+			// Check extensions support
+			CheckValidContext(ctx);
+
+			if (!ctx.Extensions.Texture3D_EXT && !ctx.Extensions.Texture3D_OES)
+				throw new NotSupportedException("GL_EXT|OES_texture3D not supported");
+
+			// Base implementation
+			base.Create(ctx);
+		}
 
 		#endregion
 	}
