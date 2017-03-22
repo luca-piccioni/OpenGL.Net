@@ -5122,6 +5122,11 @@ namespace OpenGL
 		/// </summary>
 		MapWriteBit = Gl.MAP_WRITE_BIT,
 
+		/// <summary>
+		/// Strongly typed for value GL_NONE.
+		/// </summary>
+		None = Gl.NONE,
+
 	}
 
 	/// <summary>

@@ -102,6 +102,10 @@
 		<add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE</add_enum>
 		<add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</add_enum>
 	</enumerant>
+
+	<enumerant name="^MapBufferUsageMask">
+		<add_enum>GL_NONE</add_enum>
+	</enumerant>
 	
 	<!-- GL - Special Cases -->
 
