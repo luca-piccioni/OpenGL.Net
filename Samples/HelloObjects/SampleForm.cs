@@ -52,7 +52,7 @@ namespace HelloObjects
 		{
 			SceneObjectGeometry geometry = new SceneObjectGeometry("Plane");
 
-			geometry.VertexArray = VertexArrayObject.CreatePlane(50.0f, 50.0f, 0.0f, 1, 1);
+			geometry.VertexArray = VertexArrays.CreatePlane(50.0f, 50.0f, 0.0f, 1, 1);
 			geometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			geometry.ObjectState.DefineState(new TransformState());
@@ -94,22 +94,22 @@ namespace HelloObjects
 			#region Vertex Arrays
 
 			if (_CubeArrayPosition == null) {
-				_CubeArrayPosition = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+				_CubeArrayPosition = new ArrayBuffer<Vertex3f>();
 				_CubeArrayPosition.Create(ArrayPosition);
 			}
 
 			if (_CubeArrayColor == null) {
-				_CubeArrayColor = new ArrayBufferObject<ColorRGBF>(BufferObjectHint.StaticCpuDraw);
+				_CubeArrayColor = new ArrayBuffer<ColorRGBF>();
 				_CubeArrayColor.Create(ArrayColors);
 			}
 
 			if (_CubeArrayNormal == null) {
-				_CubeArrayNormal = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+				_CubeArrayNormal = new ArrayBuffer<Vertex3f>();
 				_CubeArrayNormal.Create(ArrayNormals);
 			}
 
 			if (_CubeArrays == null) {
-				_CubeArrays = new VertexArrayObject();
+				_CubeArrays = new VertexArrays();
 				_CubeArrays.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
 				_CubeArrays.SetArray(_CubeArrayColor, VertexArraySemantic.Color);
 				_CubeArrays.SetArray(_CubeArrayNormal, VertexArraySemantic.Normal);
@@ -137,19 +137,19 @@ namespace HelloObjects
 		/// <summary>
 		/// Shared array buffer: vertex positions.
 		/// </summary>
-		ArrayBufferObject<Vertex3f> _CubeArrayPosition;
+		ArrayBuffer<Vertex3f> _CubeArrayPosition;
 
 		/// <summary>
 		/// Shared array buffer: vertex colors.
 		/// </summary>
-		ArrayBufferObject<ColorRGBF> _CubeArrayColor;
+		ArrayBuffer<ColorRGBF> _CubeArrayColor;
 
 		/// <summary>
 		/// Shared array buffer: vertex normals.
 		/// </summary>
-		ArrayBufferObject<Vertex3f> _CubeArrayNormal;
+		ArrayBuffer<Vertex3f> _CubeArrayNormal;
 
-		VertexArrayObject _CubeArrays;
+		VertexArrays _CubeArrays;
 
 		private const float _CubeSize = 1.0f;
 
@@ -273,17 +273,17 @@ namespace HelloObjects
 			sphereGeometry.ObjectState.DefineState(new TransformState());
 			sphereGeometry.LocalModel.Translate(0.0f, 4.0f);
 
-			sphereGeometry.VertexArray = VertexArrayObject.CreateSphere(4.0f, 32, 32);
+			sphereGeometry.VertexArray = VertexArrays.CreateSphere(4.0f, 32, 32);
 
-			ArrayBufferObject<Vertex2f> texCoordBuffer = new ArrayBufferObject<Vertex2f>(BufferObjectHint.StaticCpuDraw);
+			ArrayBuffer<Vertex2f> texCoordBuffer = new ArrayBuffer<Vertex2f>();
 			texCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
 			sphereGeometry.VertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
 
-			ArrayBufferObject<Vertex3f> tanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> tanCoordBuffer = new ArrayBuffer<Vertex3f>();
 			tanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
 			sphereGeometry.VertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
 
-			ArrayBufferObject<Vertex3f> bitanCoordBuffer = new ArrayBufferObject<Vertex3f>(BufferObjectHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> bitanCoordBuffer = new ArrayBuffer<Vertex3f>();
 			bitanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
 			sphereGeometry.VertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
 
@@ -477,7 +477,7 @@ namespace HelloObjects
 			#region Vertex Array
 
 			// Define vertex arrays
-			skyboxObject.VertexArray = new VertexArrayObject();
+			skyboxObject.VertexArray = new VertexArrays();
 			skyboxObject.VertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
 			skyboxObject.VertexArray.SetElementArray(PrimitiveType.Triangles);
 			skyboxObject.VertexArray.Create(_Context);

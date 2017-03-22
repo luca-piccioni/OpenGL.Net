@@ -953,21 +953,11 @@ namespace OpenGL
 					try {
 						handler(this, glControlEventArgs);
 					} catch (Exception exception) {
-						if (_ContextCreatedExceptions == null)
-							_ContextCreatedExceptions = new List<Exception>();
-						_ContextCreatedExceptions.Add(exception);
+						Debug.Fail(String.Format("OnContextCreated: exception ({0})\n{1}", exception.Message, exception.ToString()));
 					}
 				}
-
-				if (_ContextCreatedExceptions != null)
-					throw new InvalidOperationException(String.Format("exception ({0}) on ContextCreated", _ContextCreatedExceptions.Count), _ContextCreatedExceptions[0]);
 			}
 		}
-
-		/// <summary>
-		/// Exceptions caught during the context creation phase.
-		/// </summary>
-		private List<Exception> _ContextCreatedExceptions;
 
 		/// <summary>
 		/// Event raised on control disposition time, allow user to dispose resources on control.
