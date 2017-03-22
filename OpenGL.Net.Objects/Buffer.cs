@@ -445,37 +445,6 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Get Data
-
-		/// <summary>
-		/// Retrieve the buffer object content, and store it in the CPU buffer.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for creating this Buffer.
-		/// </param>
-		public virtual void GetBufferData(GraphicsContext ctx)
-		{
-			CheckThisExistence(ctx);
-
-			// Discard CPU buffer, if required
-			if (CpuBufferSize != GpuBufferSize) {
-				DeleteCpuBuffer();
-				CreateCpuBuffer(GpuBufferSize);
-			}
-
-			if (ctx.Extensions.VertexBufferObject_ARB) {
-				// Read this buffer object
-				ctx.Bind(this);
-				// Get the GPU buffer content
-				Gl.GetBufferSubData(Target, IntPtr.Zero, GpuBufferSize, CpuBufferAddress);
-			} else {
-				// Copy GPU buffer into CPU buffer
-				Memory.MemoryCopy(CpuBufferAddress, GpuBufferAddress, GpuBufferSize);
-			}
-		}
-		
-		#endregion
-
 		#region Immutable Storage
 
 		/// <summary>
