@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
+
 using OpenGL.Objects.State;
 
 namespace OpenGL.Objects.Scene
@@ -51,7 +53,7 @@ namespace OpenGL.Objects.Scene
 		#region Light Model
 
 		/// <summary>
-		/// Directoin of the spot.
+		/// Direction of the spot.
 		/// </summary>
 		public Vertex3 Direction;
 
@@ -81,7 +83,13 @@ namespace OpenGL.Objects.Scene
 
 			SetLightParameters(sceneCtx, light);
 
-			light.FallOff = new Vertex2f(FalloffAngle, FalloffExponent);
+			// Note: avoiding to invert the view matrix twice
+			IMatrix3x3 normalMatrix = sceneCtx.CurrentView.LocalModel.GetComplementMatrix(3, 3).Transpose();
+
+			light.Direction = ((Vertex3f)normalMatrix.Multiply((Vertex3f)Direction)).Normalized;
+			light.Position = (Vertex3f)WorldModel.Multiply(Vertex3f.Zero);
+			light.AttenuationFactors = AttenuationFactors;
+			light.FallOff = new Vertex2f((float)Math.Cos(Angle.ToRadians(FalloffAngle)), FalloffExponent);
 
 			return (light);
 		}

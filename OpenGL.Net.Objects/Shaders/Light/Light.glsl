@@ -76,6 +76,8 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, inout vec4 ambi
 			ComputeDirectionalLight(i, normal, ambient, diffuse);
 		else if (glo_Light[i].FallOff[0] == 180.0)
 			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, ambient, diffuse);
+		else
+			ComputeSpotLight(i, -normalize(ecPosition3), ecPosition3, normal, ambient, diffuse);
 	}
 
 	ambient = ambient * glo_LightModel.AmbientLighting;
@@ -95,6 +97,8 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialS
 			ComputeDirectionalLight(i, normal, materialShininess, ambient, diffuse, specular);
 		else if (glo_Light[i].FallOff[0] == 180.0)
 			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, ambient, diffuse, specular);
+		else
+			ComputeSpotLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, ambient, diffuse, specular);
 	}
 
 	ambient = ambient * glo_LightModel.AmbientLighting;
