@@ -234,7 +234,7 @@ namespace OpenGL.Objects.Scene
 					base.VertexArray = value;
 					// Compute bounding box, if possible
 					if (value != null)
-						BoundingVolume = SceneObjectGeometry.ComputeBoundingVolume(value);
+						BoundingVolume = ComputeBoundingVolume(value);
 				}
 			}
 
@@ -254,8 +254,21 @@ namespace OpenGL.Objects.Scene
 			#endregion
 		}
 
+		/// <summary>
+		/// Get all geometries compositing this SceneObjectGeometry.
+		/// </summary>
+		/// <param name="currentState">
+		/// A <see cref="State.GraphicsStateSet"/> that specifies the current graphics state to be merged with
+		/// each returned geometry.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IEnumerable{SceneObjectBatch}"/>.
+		/// </returns>
 		internal IEnumerable<SceneObjectBatch> GetGeometries(State.GraphicsStateSet currentState)
 		{
+			if (currentState == null)
+				throw new ArgumentNullException("currentState");
+
 			if (_GeometryInstances.Count > 0) {
 				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
 					State.GraphicsStateSet geometryState;
@@ -304,9 +317,9 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
-		#region View Frustum Culling
+		#region Bounding Volume
 
-		internal IEnumerable<SceneObjectBatch> GetGeometries(State.GraphicsStateSet currentState, IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
+		internal IEnumerable<SceneObjectBatch> GetBoundingVolumes(State.GraphicsStateSet currentState, IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
 		{
 			if (_GeometryInstances.Count > 0) {
 				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
@@ -315,26 +328,55 @@ namespace OpenGL.Objects.Scene
 					if (instanceVolume != null && instanceVolume.IsClipped(clippingPlanes, viewModel))
 						continue;
 
-					State.GraphicsStateSet geometryState;
+					State.GraphicsStateSet volumeState = currentState.Push();
 
-					if (sceneObjectBatch.State != null) {
-						geometryState = currentState.Push();
-						geometryState.Merge(sceneObjectBatch.State);
-					} else
-						geometryState = currentState;
+					SetBoundingVolumeState(instanceVolume, volumeState);
 
 					yield return (new SceneObjectBatch(
-						sceneObjectBatch.VertexArray ?? VertexArray,
-						geometryState,
-						sceneObjectBatch.Program ?? Program
+						_BoundingVolumeArray,
+						volumeState,
+						_BoundingVolumeProgram
 					));
 				}
 			} else {
 				if (_BoundingVolume != null && _BoundingVolume.IsClipped(clippingPlanes, viewModel))
 					yield break;
 
-				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
+				State.GraphicsStateSet volumeState = currentState.Push();
+
+				SetBoundingVolumeState(_BoundingVolume, volumeState);
+
+				yield return (new SceneObjectBatch(_BoundingVolumeArray, volumeState, _BoundingVolumeProgram));
 			}
+		}
+
+		private static void SetBoundingVolumeState(IBoundingVolume boundingVolume, State.GraphicsStateSet volumeState)
+		{
+			if (boundingVolume == null)
+				throw new ArgumentNullException("boundingVolume");
+			if (volumeState == null)
+				throw new ArgumentNullException("volumeState");
+
+			if (boundingVolume.GetType() == typeof(BoundingBox)) {
+				SetBoundingVolumeState((BoundingBox)boundingVolume, volumeState);
+			} else
+				throw new NotImplementedException();
+		}
+
+		private static void SetBoundingVolumeState(BoundingBox boundingVolume, State.GraphicsStateSet volumeState)
+		{
+			// Set transform state
+			State.TransformStateBase transformState = (State.TransformStateBase)volumeState[State.TransformStateBase.StateSetIndex];
+			if (transformState == null)
+				return;
+
+			Vertex3f min = boundingVolume.MinPosition, max = boundingVolume.MaxPosition;
+			Vertex3f size = boundingVolume.Size;
+
+			// Scale model matrix in order to represent the bounding box with the correct size and barycenter
+			transformState.LocalModel.Translate((max + min) / 2.0f);
+			transformState.LocalModel.Scale(size);
+			
 		}
 
 		/// <summary>
@@ -378,6 +420,114 @@ namespace OpenGL.Objects.Scene
 		/// Bounding volume for <see cref="VertexArray"/>, if any.
 		/// </summary>
 		private IBoundingVolume _BoundingVolume;
+
+		/// <summary>
+		/// Create vertex arrays representing the <see cref="IBoundingVolume"/>, using lines delimiting the box volume.
+		/// </summary>
+		/// <param name="bbox"></param>
+		/// <returns></returns>
+		private static VertexArrays CreateBoundingVolumeArrays(IBoundingVolume bbox)
+		{
+			if (bbox.GetType() == typeof(BoundingBox))
+				return (CreateBoundingBoxArrays());
+			else
+				throw new NotImplementedException();
+		}
+
+		/// <summary>
+		/// Create vertex arrays representing the bounding box, using lines delimiting the box volume.
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="VertexArrays"/> representing a normalized bounding box volume.
+		/// </returns>
+		private static VertexArrays CreateBoundingBoxArrays()
+		{
+			VertexArrays bboxArray = new VertexArrays();
+			ArrayBuffer<Vertex3f> bboxVPositionArray = new ArrayBuffer<Vertex3f>();
+			bboxVPositionArray.Create(new Vertex3f[] {
+				// Lower
+				new Vertex3f(-0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, -0.5f, -0.5f),
+				new Vertex3f(+0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, -0.5f, +0.5f),
+				new Vertex3f(+0.5f, -0.5f, +0.5f), new Vertex3f(-0.5f, -0.5f, +0.5f),
+				new Vertex3f(-0.5f, -0.5f, +0.5f), new Vertex3f(-0.5f, -0.5f, -0.5f),
+				// Upper
+				new Vertex3f(-0.5f, +0.5f, -0.5f), new Vertex3f(+0.5f, +0.5f, -0.5f),
+				new Vertex3f(+0.5f, +0.5f, -0.5f), new Vertex3f(+0.5f, +0.5f, +0.5f),
+				new Vertex3f(+0.5f, +0.5f, +0.5f), new Vertex3f(-0.5f, +0.5f, +0.5f),
+				new Vertex3f(-0.5f, +0.5f, +0.5f), new Vertex3f(-0.5f, +0.5f, -0.5f),
+				// Verticals
+				new Vertex3f(-0.5f, -0.5f, -0.5f), new Vertex3f(-0.5f, +0.5f, -0.5f),
+				new Vertex3f(+0.5f, -0.5f, -0.5f), new Vertex3f(+0.5f, +0.5f, -0.5f),
+				new Vertex3f(+0.5f, -0.5f, +0.5f), new Vertex3f(+0.5f, +0.5f, +0.5f),
+				new Vertex3f(-0.5f, -0.5f, +0.5f), new Vertex3f(-0.5f, +0.5f, +0.5f),
+			});
+			bboxArray.SetArray(bboxVPositionArray, VertexArraySemantic.Position);
+
+			bboxArray.SetElementArray(PrimitiveType.Lines);
+
+			return (bboxArray);
+		}
+
+		/// <summary>
+		/// Vertex arrays for drawing bounding boxes.
+		/// </summary>
+		private VertexArrays _BoundingVolumeArray;
+
+		/// <summary>
+		/// Shader program used for drawing bounding volumes.
+		/// </summary>
+		private ShaderProgram _BoundingVolumeProgram;
+
+		#endregion
+
+		#region View Frustum Culling
+
+		/// <summary>
+		/// Get all geometries compositing this SceneObjectGeometry, filtering them using view-frustum.
+		/// </summary>
+		/// <param name="currentState">
+		/// A <see cref="State.GraphicsStateSet"/> that specifies the current graphics state to be merged with
+		/// each returned geometry.
+		/// </param>
+		/// <param name="clippingPlanes">
+		/// 
+		/// </param>
+		/// <param name="viewModel">
+		/// 
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IEnumerable{SceneObjectBatch}"/>.
+		/// </returns>
+		internal IEnumerable<SceneObjectBatch> GetGeometries(State.GraphicsStateSet currentState, IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
+		{
+			if (_GeometryInstances.Count > 0) {
+				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
+					IBoundingVolume instanceVolume = sceneObjectBatch.BoundingVolume ?? _BoundingVolume;
+
+					if (instanceVolume != null && instanceVolume.IsClipped(clippingPlanes, viewModel))
+						continue;
+
+					State.GraphicsStateSet geometryState;
+
+					if (sceneObjectBatch.State != null) {
+						geometryState = currentState.Push();
+						geometryState.Merge(sceneObjectBatch.State);
+					} else
+						geometryState = currentState;
+
+					yield return (new SceneObjectBatch(
+						sceneObjectBatch.VertexArray ?? VertexArray,
+						geometryState,
+						sceneObjectBatch.Program ?? Program
+					));
+				}
+			} else {
+				if (_BoundingVolume != null && _BoundingVolume.IsClipped(clippingPlanes, viewModel))
+					yield break;
+
+				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
+			}
+		}
 
 		#endregion
 
@@ -426,6 +576,19 @@ namespace OpenGL.Objects.Scene
 		/// </remarks>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
+			// Bounding box - Shared program
+			LinkResource(_BoundingVolumeProgram = ctx.CreateProgram("OpenGL.Standard"));
+
+			// Bounding box - Shared arrays
+			const string BoundBoxArraysId = "SceneObjectGeometry.BoundingVolumeArrays";
+
+			VertexArrays boundingBoxArrays = (VertexArrays)ctx.GetSharedResource(BoundBoxArraysId);
+			if (boundingBoxArrays == null) {
+				boundingBoxArrays = CreateBoundingVolumeArrays(_BoundingVolume);
+				ctx.SetSharedResource(BoundBoxArraysId, boundingBoxArrays);
+			}
+			LinkResource(_BoundingVolumeArray = boundingBoxArrays);
+
 			// Create geometry state, if necessary
 			if (VertexArray != null && VertexArray.Exists(ctx) == false)
 				VertexArray.Create(ctx);
@@ -440,15 +603,8 @@ namespace OpenGL.Objects.Scene
 			foreach (Geometry geometry in _GeometryInstances)
 				geometry.Create(ctx);
 
-			// In place base.CreateObject implementation
-
-			// Create object state
-			ObjectState.Create(ctx, Program);
 			// Base implementation
 			base.CreateObject(ctx);
-			// Propagate creation to hierarchy
-			foreach (SceneObject sceneGraphObject in _Children)
-				sceneGraphObject.Create(ctx);
 		}
 
 		/// <summary>
@@ -463,7 +619,6 @@ namespace OpenGL.Objects.Scene
 			if (disposing) {
 				foreach (Geometry geometry in _GeometryInstances)
 					geometry.Dispose();
-
 				VertexArray = null;
 				Program = null;
 			}
