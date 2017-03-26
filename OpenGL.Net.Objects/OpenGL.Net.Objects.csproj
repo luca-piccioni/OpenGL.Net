@@ -209,6 +209,8 @@
     <EmbeddedResource Include="Shaders\Font\Vertex.FontPatch.glsl" />
     <EmbeddedResource Include="Shaders\Font\Vertex.FontTextureArray.glsl" />
     <EmbeddedResource Include="Shaders\Font\Fragment.FontTextureArray.glsl" />
+    <EmbeddedResource Include="Shaders\Shadow\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Shadow\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -232,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\Shadow\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shaders\Font\_ShadersLibrary.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
