@@ -226,7 +226,6 @@ namespace OpenGL.Objects
 			// Reference resources
 			graphicsResource.IncRef();
 			// Unreference at disposition
-			Debug.Assert(!_GpuResources.Contains(graphicsResource));
 			_GpuResources.Add(graphicsResource);
 		}
 
