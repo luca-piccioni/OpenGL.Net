@@ -22,35 +22,31 @@
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/Light/MaterialState.glsl>
 
-// The light model applied
 struct glo_LightModelType
 {
-	// The ambient lighting.
 	vec4 AmbientLighting;
 };
 
-// Light structure
 struct glo_LightType
 {
-	// Light ambient color (used by all lights).
+	// Light colors (all lights).
 	vec4 AmbientColor;
-	// Light diffuse color (used by all lights).
 	vec4 DiffuseColor;
-	// Light specular color (used by all lights).
 	vec4 SpecularColor;
-	// The light position vector (used by directional and spot lights).
+
+	// The light position vector (directional and spot lights).
 	vec3 Direction;
-	// The light position vector (used by point and spot lights).
+	// The light position vector (point and spot lights).
 	vec4 Position;
-	// The light half-vector (used by directional lights).
+	// The light half-vector (directional lights).
 	vec3 HalfVector;
-	// The light attenuation factors (X: constant; Y: linear; Z: quadratic; used by point and spot lights).
+	
+	// The light attenuation factors (X: constant; Y: linear; Z: quadratic; point and spot lights).
 	vec3 AttenuationFactors;
-	// The spot fall-off parameters (X: fall-off angle in degrees; Y: fall-off exponent, used by spot lights).
+	// The spot fall-off parameters (X: fall-off angle in degrees; Y: fall-off exponent, spot lights).
 	vec2 FallOff;
 };
 
-// If not overriden, define the maximum number of lights
 #ifndef GLO_MAX_LIGHTS_COUNT
 #define GLO_MAX_LIGHTS_COUNT			4
 #endif

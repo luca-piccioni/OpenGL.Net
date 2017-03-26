@@ -403,6 +403,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override IGraphicsState Push()
 		{
+			// Light state is deferred, indeed it cannot be merged
 			return (this);
 		}
 
@@ -415,10 +416,8 @@ namespace OpenGL.Objects.State
 		/// <remarks>
 		public override void Merge(IGraphicsState state)
 		{
-			if (state == null)
-				throw new ArgumentNullException("state");
-
-			throw new NotImplementedException();
+			// Avoid merging: state is passed as reference.
+			throw new InvalidOperationException();
 		}
 
 		/// <summary>
