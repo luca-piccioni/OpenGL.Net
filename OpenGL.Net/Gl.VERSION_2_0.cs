@@ -938,9 +938,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int VERTEX_PROGRAM_TWO_SIDE = 0x8643;
 
 		/// <summary>
@@ -960,9 +957,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_point_sprite")]
 		[RequiredByFeature("GL_OES_point_sprite", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int POINT_SPRITE = 0x8861;
 
 		/// <summary>
@@ -977,9 +971,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_point_sprite")]
 		[RequiredByFeature("GL_OES_point_sprite", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int COORD_REPLACE = 0x8862;
 
 		/// <summary>
@@ -993,9 +984,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_fragment_program")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int MAX_TEXTURE_COORDS = 0x8871;
 
 		/// <summary>

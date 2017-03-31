@@ -280,9 +280,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int POINT_SIZE_MIN = 0x8126;
 
 		/// <summary>
@@ -304,9 +301,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int POINT_SIZE_MAX = 0x8127;
 
 		/// <summary>
@@ -324,9 +318,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int POINT_DISTANCE_ATTENUATION = 0x8129;
 
 		/// <summary>
@@ -344,9 +335,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int GENERATE_MIPMAP = 0x8191;
 
 		/// <summary>
@@ -364,9 +352,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int GENERATE_MIPMAP_HINT = 0x8192;
 
 		/// <summary>
@@ -376,9 +361,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FOG_COORDINATE_SOURCE = 0x8450;
 
 		/// <summary>
@@ -388,9 +370,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FOG_COORDINATE = 0x8451;
 
 		/// <summary>
@@ -401,9 +380,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RequiredByFeature("GL_EXT_light_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FRAGMENT_DEPTH = 0x8452;
 
 		/// <summary>
@@ -413,9 +389,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int CURRENT_FOG_COORDINATE = 0x8453;
 
 		/// <summary>
@@ -425,9 +398,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FOG_COORDINATE_ARRAY_TYPE = 0x8454;
 
 		/// <summary>
@@ -437,9 +407,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FOG_COORDINATE_ARRAY_STRIDE = 0x8455;
 
 		/// <summary>
@@ -449,9 +416,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FOG_COORDINATE_ARRAY_POINTER = 0x8456;
 
 		/// <summary>
@@ -461,9 +425,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int FOG_COORDINATE_ARRAY = 0x8457;
 
 		/// <summary>
@@ -482,9 +443,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int COLOR_SUM = 0x8458;
 
 		/// <summary>
@@ -497,9 +455,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int CURRENT_SECONDARY_COLOR = 0x8459;
 
 		/// <summary>
@@ -510,9 +465,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SECONDARY_COLOR_ARRAY_SIZE = 0x845A;
 
 		/// <summary>
@@ -523,9 +475,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SECONDARY_COLOR_ARRAY_TYPE = 0x845B;
 
 		/// <summary>
@@ -536,9 +485,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SECONDARY_COLOR_ARRAY_STRIDE = 0x845C;
 
 		/// <summary>
@@ -548,9 +494,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SECONDARY_COLOR_ARRAY_POINTER = 0x845D;
 
 		/// <summary>
@@ -568,9 +511,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SECONDARY_COLOR_ARRAY = 0x845E;
 
 		/// <summary>
@@ -580,9 +520,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_texture_lod_bias", Api = "gl|gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int TEXTURE_FILTER_CONTROL = 0x8500;
 
 		/// <summary>
@@ -599,9 +536,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_depth_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int DEPTH_TEXTURE_MODE = 0x884B;
 
 		/// <summary>
@@ -611,9 +545,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_shadow")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int COMPARE_R_TO_TEXTURE = 0x884E;
 
 		/// <summary>

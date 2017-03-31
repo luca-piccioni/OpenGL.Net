@@ -419,9 +419,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_rescale_normal")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int RESCALE_NORMAL = 0x803A;
 
 		/// <summary>
@@ -441,9 +438,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int LIGHT_MODEL_COLOR_CONTROL = 0x81F8;
 
 		/// <summary>
@@ -453,9 +447,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SINGLE_COLOR = 0x81F9;
 
 		/// <summary>
@@ -465,9 +456,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SEPARATE_SPECULAR_COLOR = 0x81FA;
 
 		/// <summary>
@@ -477,9 +465,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int ALIASED_POINT_SIZE_RANGE = 0x846D;
 
 		/// <summary>

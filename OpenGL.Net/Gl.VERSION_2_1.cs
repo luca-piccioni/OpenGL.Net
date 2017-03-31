@@ -192,9 +192,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int CURRENT_RASTER_SECONDARY_COLOR = 0x845F;
 
 		/// <summary>
@@ -206,9 +203,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SLUMINANCE_ALPHA = 0x8C44;
 
 		/// <summary>
@@ -220,9 +214,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SLUMINANCE8_ALPHA8 = 0x8C45;
 
 		/// <summary>
@@ -234,9 +225,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SLUMINANCE = 0x8C46;
 
 		/// <summary>
@@ -248,9 +236,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int SLUMINANCE8 = 0x8C47;
 
 		/// <summary>
@@ -260,9 +245,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int COMPRESSED_SLUMINANCE = 0x8C4A;
 
 		/// <summary>
@@ -272,9 +254,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 		public const int COMPRESSED_SLUMINANCE_ALPHA = 0x8C4B;
 
 		/// <summary>

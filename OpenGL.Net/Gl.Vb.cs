@@ -721,9 +721,6 @@ namespace OpenGL
 			/// </summary>
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-			[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 			public const int BITMAP = 0x1A00;
 
 			/// <summary>
@@ -746,9 +743,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_NV_register_combiners")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-			[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 			public const int FOG = 0x0B60;
 
 			/// <summary>
@@ -759,9 +753,6 @@ namespace OpenGL
 			/// </summary>
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-#if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
-			[Obsolete("Deprecated/removed by OpenGL 3.2.")]
-#endif
 			public const int ACCUM = 0x0100;
 
 			/// <summary>
