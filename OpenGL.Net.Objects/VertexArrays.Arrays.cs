@@ -59,13 +59,13 @@ namespace OpenGL.Objects
 			/// <param name="ctx">
 			/// The <see cref="GraphicsContext"/> used for rendering.
 			/// </param>
-			/// <param name="shaderProgram">
-			/// The <see cref="ShaderProgram"/> that is used for rendering.
+			/// <param name="programAttrib">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> that specifies the attribute information.
 			/// </param>
 			/// <param name="attributeName">
 			/// A <see cref="String"/> that specify the attribute which binds to this vertex array.
 			/// </param>
-			void SetVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, string attributeName);
+			void SetVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding programAttrib, string attributeName);
 
 			/// <summary>
 			/// Get an element from the array, as defined in the underlying VertexArrayObject instance.
@@ -457,31 +457,23 @@ namespace OpenGL.Objects
 			/// <param name="ctx">
 			/// The <see cref="GraphicsContext"/> used for rendering.
 			/// </param>
-			/// <param name="shaderProgram">
-			/// The <see cref="ShaderProgram"/> that is used for rendering.
+			/// <param name="programAttrib">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> that specifies the attribute information.
 			/// </param>
 			/// <param name="attributeName">
 			/// A <see cref="String"/> that specify the attribute which binds to this vertex array.
 			/// </param>
-			public void SetVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, string attributeName)
+			public void SetVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding programAttrib, string attributeName)
 			{
 				if (attributeName == null)
 					throw new ArgumentNullException("attributeName");
 
-				if (shaderProgram != null) {
-					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
-
-					// Avoid rendundant buffer binding and relative vertex array setup
-					if (ctx.Extensions.VertexArrayObject_ARB && IsDirty == false) {
-						// CheckVertexAttribute(ctx, attributeBinding.Location);
-						return;
-					}
-
+				if (programAttrib != null) {
 					// Enable/Disable shader attribute
 					if (ArrayBuffer != null)
-						EnableVertexAttribute(ctx, attributeBinding.Location, attributeBinding.Type);
+						EnableVertexAttribute(ctx, programAttrib.Location, programAttrib.Type);
 					else
-						DisableVertexAttribute(ctx, attributeBinding.Location);
+						DisableVertexAttribute(ctx, programAttrib.Location);
 				} else {
 					switch (attributeName) {
 						case VertexArraySemantic.Position:
@@ -500,7 +492,6 @@ namespace OpenGL.Objects
 							throw new NotSupportedException(String.Format("attribute {0} not supported on fixed pipeline", attributeName));
 					}
 				}
-				
 
 				// Next time do not set bindings and array state if GL_ARB_vertex_array_object is supported
 				IsDirty = false;
@@ -599,34 +590,34 @@ namespace OpenGL.Objects
 			/// <param name="ctx">
 			/// The <see cref="GraphicsContext"/> used for rendering.
 			/// </param>
-			/// <param name="shaderProgram">
-			/// The <see cref="ShaderProgram"/> that is used for rendering.
+			/// <param name="programAttrib">
+			/// The <see cref="ShaderProgram.AttributeBinding"/> that specifies the attribute information.
 			/// </param>
 			/// <param name="attributeName">
 			/// A <see cref="String"/> that specify the attribute which binds to this vertex array.
 			/// </param>
-			public void SetVertexAttribute(GraphicsContext ctx, ShaderProgram shaderProgram, string attributeName)
+			public void SetVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding programAttrib, string attributeName)
 			{
+				if (programAttrib == null)
+					throw new ArgumentNullException("programAttrib");
 				if (attributeName == null)
 					throw new ArgumentNullException("attributeName");
 
-				ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
-
-				switch (attributeBinding.Type) {
+				switch (programAttrib.Type) {
 					case ShaderAttributeType.Float:
-						Gl.VertexAttrib1(attributeBinding.Location, (float)DefaultValue.x);
+						Gl.VertexAttrib1(programAttrib.Location, (float)DefaultValue.x);
 						break;
 					case ShaderAttributeType.Vec2:
-						Gl.VertexAttrib2(attributeBinding.Location, (float)DefaultValue.x, (float)DefaultValue.y);
+						Gl.VertexAttrib2(programAttrib.Location, (float)DefaultValue.x, (float)DefaultValue.y);
 						break;
 					case ShaderAttributeType.Vec3:
-						Gl.VertexAttrib3(attributeBinding.Location, (float)DefaultValue.x, (float)DefaultValue.y, (float)DefaultValue.z);
+						Gl.VertexAttrib3(programAttrib.Location, (float)DefaultValue.x, (float)DefaultValue.y, (float)DefaultValue.z);
 						break;
 					case ShaderAttributeType.Vec4:
-						Gl.VertexAttrib4(attributeBinding.Location, (float)DefaultValue.x, (float)DefaultValue.y, (float)DefaultValue.z, (float)DefaultValue.w);
+						Gl.VertexAttrib4(programAttrib.Location, (float)DefaultValue.x, (float)DefaultValue.y, (float)DefaultValue.z, (float)DefaultValue.w);
 						break;
 					default:
-						throw new NotImplementedException(String.Format("default value for attributes of type {0} not implemented", attributeBinding.Type));
+						throw new NotImplementedException(String.Format("default value for attributes of type {0} not implemented", programAttrib.Type));
 				}
 			}
 
@@ -1057,9 +1048,6 @@ namespace OpenGL.Objects
 				// Map buffer object with attribute name
 				_VertexArrays[attributeName] = vertexArray;
 			}
-
-			// Update vertex arrays
-			_VertexArrayDirty = true;
 		}
 
 		/// <summary>

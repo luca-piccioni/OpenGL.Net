@@ -104,10 +104,6 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			// If vertex was modified after creation, don't miss to create array buffers
-			if (_VertexArrayDirty)
-				CreateObject(ctx);
-
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
 
@@ -143,17 +139,11 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
+			// Set vertex array state all at once...
 			ctx.Bind(this, true);
 
 			if (shaderProgram != null) {
 				ICollection<string> activeAttributes = shaderProgram.ActiveAttributes;
-
-				// Note: when the GL_ARB_vertex_array_object is supported, there's no need to define vertex attributes each time
-				if (ctx.Extensions.VertexArrayObject_ARB && !_VertexArrayDirty) {
-					// CheckVertexAttributes(ctx, shaderProgram);
-					return;
-				}
-
 				uint attributesSet = 0;
 
 				// Set vertex array state
@@ -162,15 +152,19 @@ namespace OpenGL.Objects
 					if (shaderVertexArray == null)
 						continue;
 
-					// Set array attribute
-					shaderVertexArray.SetVertexAttribute(ctx, shaderProgram, attributeName);
+					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
+
+					IVertexArray currentVertexArray = _VertexArrayState[attributeBinding.Location];
+					if (ReferenceEquals(shaderVertexArray, currentVertexArray) == false) {
+						shaderVertexArray.SetVertexAttribute(ctx, attributeBinding, attributeName);
+						_VertexArrayState[attributeBinding.Location] = shaderVertexArray;
+					}
+					
 					attributesSet++;
 				}
 
 				if (attributesSet == 0)
 					throw new InvalidOperationException("no attribute is set");
-				_VertexArrayCount = attributesSet;
-
 			} else {
 				IVertexArray attributeArray;
 
@@ -187,9 +181,6 @@ namespace OpenGL.Objects
 				if ((attributeArray = GetVertexArray(VertexArraySemantic.TexCoord)) != null)
 					attributeArray.SetVertexAttribute(ctx, null, VertexArraySemantic.TexCoord);
 			}
-
-			// Next time do not set inputs if GL_ARB_vertex_array_object is supported
-			_VertexArrayDirty = false;
 		}
 
 		/// <summary>
@@ -216,14 +207,9 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Flag indicating whether the vertex array is dirty due buffer object changes.
+		/// Currently bound vertex array state.
 		/// </summary>
-		private bool _VertexArrayDirty = true;
-
-		/// <summary>
-		/// Number of attributes enabled/defined.
-		/// </summary>
-		private uint _VertexArrayCount = 0;
+		private IVertexArray[] _VertexArrayState = new IVertexArray[Gl.CurrentLimits.MaxVertexAttrib];
 
 		#endregion
 
@@ -263,10 +249,6 @@ namespace OpenGL.Objects
 				throw new NotSupportedException("GL_ARB_draw_instanced not implemented");
 			if (shader != null && shader.Exists(ctx) == false)
 				throw new ArgumentException("not existing", "shader");
-
-			// If vertex was modified after creation, don't miss to create array buffers
-			if (_VertexArrayDirty)
-				CreateObject(ctx);
 
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
@@ -775,6 +757,8 @@ namespace OpenGL.Objects
 				_FeedbackBuffer.Create(ctx);
 
 			ctx.Bind(this);
+
+
 		}
 
 		/// <summary>

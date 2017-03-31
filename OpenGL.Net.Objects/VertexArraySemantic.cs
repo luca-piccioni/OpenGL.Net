@@ -23,6 +23,31 @@ namespace OpenGL.Objects
 	/// </summary>
 	public static class VertexArraySemantic
 	{
+		/// <summary>
+		/// Get the default location for known attribute semantic.
+		/// </summary>
+		/// <param name="semantic"></param>
+		/// <returns></returns>
+		public static uint GetLocation(string semantic)
+		{
+			switch (semantic) {
+				case Position:
+					return (0);
+				case Color:
+					return (1);
+				case Normal:
+					return (2);
+				case TexCoord:
+					return (3);
+				case Tangent:
+					return (4);
+				case Bitangent:
+					return (5);
+				default:
+					return (ShaderProgram.AttributeBinding.InvalidLocation);
+			}
+		}
+
 		public static string ToArray(string semantic, int index)
 		{
 			return (string.Format("{0}[{1}]", semantic, index));
