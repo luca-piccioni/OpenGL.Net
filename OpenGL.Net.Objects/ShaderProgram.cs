@@ -631,6 +631,11 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
+			/// Invalid location index.
+			/// </summary>
+			public static readonly uint InvalidLocation = UInt32.MaxValue;
+
+			/// <summary>
 			/// Attribute location.
 			/// </summary>
 			public readonly uint Location;

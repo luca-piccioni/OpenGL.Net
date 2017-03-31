@@ -58,13 +58,13 @@ namespace OpenGL.Objects.Scene
 
 		#region State Application
 
-		internal void ResetLights(SceneGraphContext ctxScene, List<SceneObjectLight> lights)
+		internal void ResetLights(GraphicsContext ctx, SceneGraphContext ctxScene, List<SceneObjectLight> lights)
 		{
 			State.LightsState lightState = (State.LightsState)ObjectState[State.LightsState.StateSetIndex];
 
 			lightState.Lights.Clear();
 			foreach (SceneObjectLight lightObject in lights)
-				lightState.Lights.Add(lightObject.ToLight(ctxScene));
+				lightState.Lights.Add(lightObject.ToLight(ctx, ctxScene));
 		}
 
 		#endregion
@@ -85,26 +85,6 @@ namespace OpenGL.Objects.Scene
 		/// The object identifier for this class of SceneObject.
 		/// </summary>
 		private static readonly uint _ObjectType = NextObjectType();
-
-		/// <summary>
-		/// Update this SceneGraphObject instance.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
-		protected internal override void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
-		{
-			//List<SceneObject> lightObjects = FindChildren(delegate(SceneObject item) { return (item is SceneObjectLight); });
-
-			//SceneLightingState lightingState = (SceneLightingState)ObjectState[SceneLightingState.StateSetIndex];
-
-			//lightingState.CurrentSceneContext = ctxScene;
-			//lightingState.ResetLights();
-			//lightingState.AddLights(lightObjects.ConvertAll(delegate(SceneObject item) { return ((SceneObjectLight)item); }));
-		}
 
 		#endregion
 	}

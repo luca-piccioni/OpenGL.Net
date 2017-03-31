@@ -65,14 +65,14 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns the <see cref="LightsState.Light"/> equivalent to this SceneObjectLight.
 		/// </returns>
-		public override LightsState.Light ToLight(SceneGraphContext sceneCtx)
+		public override LightsState.Light ToLight(GraphicsContext ctx, SceneGraphContext sceneCtx)
 		{
 			LightsState.LightDirectional light = new LightsState.LightDirectional();
 
 			SetLightParameters(sceneCtx, light);
 
-			// Note: avoiding to invert the view matrix twice
-			IMatrix3x3 normalMatrix = sceneCtx.CurrentView.LocalModel.GetComplementMatrix(3, 3).Transpose();
+			TransformStateBase transformState = (TransformStateBase)sceneCtx.GraphicsStateStack.Current[TransformStateBase.StateSetIndex];
+			IMatrix3x3 normalMatrix = transformState.NormalMatrix;
 
 			light.Direction = ((Vertex3f)normalMatrix.Multiply((Vertex3f)Direction)).Normalized;
 			light.HalfVector = (Vertex3f.UnitZ + light.Direction).Normalized;

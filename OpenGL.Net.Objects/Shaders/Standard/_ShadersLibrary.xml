@@ -8,6 +8,7 @@
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
 				<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+				<Symbol>GLO_MAX_LIGHTS_COUNT</Symbol>
 			</Symbols>
 		</Object>
 
@@ -102,7 +103,7 @@
 			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
 		</Program>
 
-		<!-- Normal debuggng-->
+		<!-- Normal debugging-->
 		<Program Id="OpenGL.Standard+DebugNormals">
 			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="Vertex" />
 			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="Fragment" />

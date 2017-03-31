@@ -186,6 +186,7 @@
     <Compile Include="State\TransformState.cs" />
     <Compile Include="State\TransformStateBase.cs" />
     <Compile Include="State\TransformStateDouble.cs" />
+    <Compile Include="State\WriteMaskState.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="Tessellator.cs" />
     <Compile Include="Texture.cs" />

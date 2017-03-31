@@ -549,6 +549,11 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram shaderProgram)
 		{
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
+				// Ensure uniform buffer existing
+				if (UniformBuffer == null) {
+					_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, MapBufferUsageMask.MapWriteBit);
+					_UniformBuffer.Create(ctx);
+				}
 				// Apply uniforms to uniform buffer
 				ApplyState(ctx, shaderProgram, String.Empty);
 				// Set uniform block

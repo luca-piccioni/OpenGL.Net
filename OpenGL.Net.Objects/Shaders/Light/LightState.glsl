@@ -45,11 +45,28 @@ struct glo_LightType
 	vec3 AttenuationFactors;
 	// The spot fall-off parameters (X: fall-off angle in degrees; Y: fall-off exponent, spot lights).
 	vec2 FallOff;
+
+	// Index of the shadow map used for this light.
+	int ShadowMapIndex;
+	// Model-view-projection matrix for light-space transformation.
+	mat4 ShadowMapMvp;
 };
 
 #ifndef GLO_MAX_LIGHTS_COUNT
 #define GLO_MAX_LIGHTS_COUNT			4
 #endif
+
+BLOCK_BEGIN_LAYOUT(LightState, shared)
+	// The light model
+	BLOCK_FIELD glo_LightModelType glo_LightModel;
+	// The lights
+	BLOCK_FIELD glo_LightType glo_Light[GLO_MAX_LIGHTS_COUNT];
+	// The enabled lights count
+	BLOCK_FIELD int glo_LightsCount;
+BLOCK_END_ANON()
+
+// Shadow maps sampled using sampler2D
+uniform sampler2DShadow glo_ShadowMap2D[GLO_MAX_LIGHTS_COUNT];
 
 // Compute the color contribution of all enabled lights (ambient)
 void ComputeLightContributions(vec4 eyePosition, inout vec4 ambient);

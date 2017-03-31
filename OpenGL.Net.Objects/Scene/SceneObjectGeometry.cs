@@ -286,6 +286,9 @@ namespace OpenGL.Objects.Scene
 					));
 				}
 			} else {
+				if (VertexArray == null)
+					yield break;
+
 				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
 			}
 		}
@@ -339,7 +342,7 @@ namespace OpenGL.Objects.Scene
 					));
 				}
 			} else {
-				if (_BoundingVolume != null && _BoundingVolume.IsClipped(clippingPlanes, viewModel))
+				if (_BoundingVolume == null || _BoundingVolume.IsClipped(clippingPlanes, viewModel))
 					yield break;
 
 				State.GraphicsStateSet volumeState = currentState.Push();
@@ -525,6 +528,9 @@ namespace OpenGL.Objects.Scene
 				if (_BoundingVolume != null && _BoundingVolume.IsClipped(clippingPlanes, viewModel))
 					yield break;
 
+				if (VertexArray == null)
+					yield break;
+
 				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
 			}
 		}
@@ -583,11 +589,12 @@ namespace OpenGL.Objects.Scene
 			const string BoundBoxArraysId = "SceneObjectGeometry.BoundingVolumeArrays";
 
 			VertexArrays boundingBoxArrays = (VertexArrays)ctx.GetSharedResource(BoundBoxArraysId);
-			if (boundingBoxArrays == null) {
+			if (_BoundingVolume != null && boundingBoxArrays == null) {
 				boundingBoxArrays = CreateBoundingVolumeArrays(_BoundingVolume);
 				ctx.SetSharedResource(BoundBoxArraysId, boundingBoxArrays);
 			}
-			LinkResource(_BoundingVolumeArray = boundingBoxArrays);
+			if (boundingBoxArrays != null)
+				LinkResource(_BoundingVolumeArray = boundingBoxArrays);
 
 			// Create geometry state, if necessary
 			if (VertexArray != null && VertexArray.Exists(ctx) == false)
@@ -603,6 +610,8 @@ namespace OpenGL.Objects.Scene
 			foreach (Geometry geometry in _GeometryInstances)
 				geometry.Create(ctx);
 
+			// Create object state, but associating state to program
+			ObjectState.Create(ctx, Program);
 			// Base implementation
 			base.CreateObject(ctx);
 		}

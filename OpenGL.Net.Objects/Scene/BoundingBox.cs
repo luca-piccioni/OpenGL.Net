@@ -35,6 +35,21 @@ namespace OpenGL.Objects.Scene
 		/// <param name="max"></param>
 		public BoundingBox(Vertex3f min, Vertex3f max)
 		{
+			if (Math.Abs(min.x) < Single.Epsilon && Math.Abs(max.x) < Single.Epsilon) {
+				min.x = -0.1f;
+				max.x = +0.1f;
+			}
+
+			if (Math.Abs(min.y) < Single.Epsilon && Math.Abs(max.y) < Single.Epsilon) {
+				min.y = -0.1f;
+				max.y = +0.1f;
+			}
+
+			if (Math.Abs(min.z) < Single.Epsilon && Math.Abs(max.z) < Single.Epsilon) {
+				min.z = -0.1f;
+				max.z = +0.1f;
+			}
+
 			_Bounds[0] = min;
 			_Bounds[1] = max;
 		}
@@ -48,7 +63,11 @@ namespace OpenGL.Objects.Scene
 		/// <param name="d"></param>
 		public BoundingBox(Vertex3f o, float w, float h, float d)
 		{
-			float w2 = w/2.0f, h2 = h/2.0f, d2 = d/2.0f;
+			float w2 = w / 2.0f, h2 = h / 2.0f, d2 = d / 2.0f;
+
+			if (w2 < Single.Epsilon) w2 = 0.2f;
+			if (h2 < Single.Epsilon) h2 = 0.2f;
+			if (d2 < Single.Epsilon) d2 = 0.2f;
 
 			_Bounds[0] = new Vertex3f(o.x - w2, o.y - h2, o.z - d2);
 			_Bounds[1] = new Vertex3f(o.x + w2, o.y + h2, o.z + d2);

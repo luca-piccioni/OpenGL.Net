@@ -44,6 +44,9 @@ SHADER_IN vec4 glo_VertexPosition;
 // Fragment normal (model space)
 SHADER_IN vec3 glo_VertexNormalModel;
 
+// Vertex/Fragment position (light space)
+SHADER_IN vec3 glo_VertexShadowPosition[];
+
 // Fragment color
 OUT vec4		glo_FragColor;
 
@@ -126,4 +129,6 @@ void main()
 	glo_FragColor = glo_UniformColor;
 
 #endif
+
+	
 }

@@ -65,7 +65,7 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns the <see cref="LightsState.Light"/> equivalent to this SceneObjectLight.
 		/// </returns>
-		public override LightsState.Light ToLight(SceneGraphContext sceneCtx)
+		public override LightsState.Light ToLight(GraphicsContext ctx, SceneGraphContext sceneCtx)
 		{
 			LightsState.LightPoint light = new LightsState.LightPoint();
 

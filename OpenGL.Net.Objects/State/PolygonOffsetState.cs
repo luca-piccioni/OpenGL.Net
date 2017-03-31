@@ -189,32 +189,32 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		private static int _StateIndex = NextStateIndex();
 
-        /// <summary>
-        /// Set ShaderProgram state.
-        /// </summary>
-        /// <param name="ctx">
-        /// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="program"/>.
-        /// </param>
-        /// <param name="program">
-        /// The <see cref="ShaderProgram"/> which has the state set.
-        /// </param>
-        public override void Apply(GraphicsContext ctx, ShaderProgram program)
-        {
-            if (ctx == null)
-                throw new ArgumentNullException("ctx");
+		/// <summary>
+		/// Set ShaderProgram state.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="program"/>.
+		/// </param>
+		/// <param name="program">
+		/// The <see cref="ShaderProgram"/> which has the state set.
+		/// </param>
+		public override void Apply(GraphicsContext ctx, ShaderProgram program)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
 
-            PolygonOffsetState currentState = (PolygonOffsetState)ctx.GetCurrentState(StateIndex);
+			PolygonOffsetState currentState = (PolygonOffsetState)ctx.GetCurrentState(StateIndex);
 
-            if (currentState != null)
-                ApplyStateCore(ctx, program, currentState);
-            else
-                ApplyStateCore(ctx, program);
+			if (currentState != null)
+				ApplyStateCore(ctx, program, currentState);
+			else
+				ApplyStateCore(ctx, program);
 
-            ctx.SetCurrentState(this);
-        }
+			ctx.SetCurrentState(this);
+		}
 
-        private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
-        {
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
+		{
 			// Enable polygon offset for all primitive
 			if ((_Modes & Mode.Point) != 0) {
 				Gl.Enable(EnableCap.PolygonOffsetPoint);
@@ -238,8 +238,8 @@ namespace OpenGL.Objects.State
 			Gl.PolygonOffset(_Factor, _Units);
 		}
 
-        private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, PolygonOffsetState currentState)
-        {
+		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, PolygonOffsetState currentState)
+		{
 			if (currentState._Modes != _Modes) {
 				bool currentMode, thisMode;
 
@@ -271,18 +271,18 @@ namespace OpenGL.Objects.State
 				}
 			}
 
-            // Set polygon offset
-            if (Math.Abs(currentState._Factor - _Factor) >= Single.Epsilon || Math.Abs(currentState._Units - _Units) >= Single.Epsilon)
-                Gl.PolygonOffset(_Factor, _Units);
-        }
+			// Set polygon offset
+			if (Math.Abs(currentState._Factor - _Factor) >= Single.Epsilon || Math.Abs(currentState._Units - _Units) >= Single.Epsilon)
+				Gl.PolygonOffset(_Factor, _Units);
+		}
 
-        /// <summary>
-        /// Merge this state with another one.
-        /// </summary>
-        /// <param name="state">
-        /// A <see cref="IGraphicsState"/> having the same <see cref="StateIdentifier"/> of this state.
-        /// </param>
-        public override void Merge(IGraphicsState state)
+		/// <summary>
+		/// Merge this state with another one.
+		/// </summary>
+		/// <param name="state">
+		/// A <see cref="IGraphicsState"/> having the same <see cref="StateIdentifier"/> of this state.
+		/// </param>
+		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
 				throw new ArgumentNullException("state");

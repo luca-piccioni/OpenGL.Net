@@ -94,7 +94,7 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
-		/// Light structure.
+		/// Abstract light.
 		/// </summary>
 		[ShaderUniformState()]
 		public abstract class Light
@@ -119,6 +119,23 @@ namespace OpenGL.Objects.State
 			[ShaderUniformState("SpecularColor")]
 			public ColorRGBAF SpecularColor;
 
+			/// <summary>
+			/// Shadow map index.
+			/// </summary>
+			[ShaderUniformState("ShadowMapIndex")]
+			public int ShadowMapIndex = -1;
+
+			/// <summary>
+			/// Shadow map model-view-projection for light-space.
+			/// </summary>
+			[ShaderUniformState("ShadowMapMvp")]
+			public readonly ModelMatrix ShadowMapMvp = new ModelMatrix();
+
+			/// <summary>
+			/// Shadow map (2D).
+			/// </summary>
+			public Texture2d ShadowMap2D;
+
 			#endregion
 
 			#region Structure State Application
@@ -137,11 +154,17 @@ namespace OpenGL.Objects.State
 				shaderProgram.SetUniform(ctx, prefix + ".AmbientColor", AmbientColor);
 				shaderProgram.SetUniform(ctx, prefix + ".DiffuseColor", DiffuseColor);
 				shaderProgram.SetUniform(ctx, prefix + ".SpecularColor", SpecularColor);
+
+				shaderProgram.SetUniform(ctx, prefix + ".ShadowMapIndex", ShadowMapIndex);
+				shaderProgram.SetUniform(ctx, prefix + ".ShadowMapMvp", ShadowMapMvp);
 			}
 
 			#endregion
 		}
 
+		/// <summary>
+		/// Directional light.
+		/// </summary>
 		[ShaderUniformState()]
 		public class LightDirectional : Light
 		{
@@ -184,6 +207,9 @@ namespace OpenGL.Objects.State
 			#endregion
 		}
 
+		/// <summary>
+		/// Point light.
+		/// </summary>
 		[ShaderUniformState()]
 		public class LightPoint : Light
 		{
@@ -227,6 +253,9 @@ namespace OpenGL.Objects.State
 			#endregion
 		}
 
+		/// <summary>
+		/// Spot light.
+		/// </summary>
 		[ShaderUniformState()]
 		public class LightSpot : LightPoint
 		{
@@ -392,6 +421,31 @@ namespace OpenGL.Objects.State
 				}
 			} else
 				base.Apply(ctx, shaderProgram);		// Uniform block
+
+			// Dummy shadow map: Texture2d
+			// Note: necessary to avoid undefined behavior on glo_ShadowMap2D samplers
+			string resourceClassId = "OpenGL.Objects.ShadowMap.DummyTexture2d";
+
+			Texture2d dummyShadowMap = (Texture2d)ctx.GetSharedResource(resourceClassId);
+
+			if (dummyShadowMap == null) {
+				dummyShadowMap = new Texture2d(1, 1, PixelLayout.Depth16);
+				dummyShadowMap.SamplerParams.CompareMode = true;
+				dummyShadowMap.SamplerParams.CompareFunc = DepthFunction.Always;
+				dummyShadowMap.Create(ctx);
+
+				ctx.SetSharedResource(resourceClassId, dummyShadowMap);
+			}
+
+			// Dummy shadow map: TextureCube
+
+			// Apply depth maps
+			for (int i = 0; i < 4; i++) {
+				if (i < Lights.Count && Lights[i].ShadowMap2D != null)
+					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + i + "]", Lights[i].ShadowMap2D);
+				else
+					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + i + "]", dummyShadowMap);
+			}
 		}
 
 		/// <summary>

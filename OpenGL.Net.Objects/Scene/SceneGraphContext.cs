@@ -29,21 +29,12 @@ namespace OpenGL.Objects.Scene
 	{
 		#region Constructors
 
-		public SceneGraphContext(SceneGraph sceneGraph) : this(sceneGraph, null)
+		public SceneGraphContext(SceneGraph sceneGraph)
 		{
 			if (sceneGraph == null)
 				throw new ArgumentNullException("sceneGraph");
 
 			Scene = sceneGraph;
-		}
-
-		public SceneGraphContext(SceneGraph sceneGraph, SceneObjectCamera currentView)
-		{
-			if (sceneGraph == null)
-				throw new ArgumentNullException("sceneGraph");
-
-			Scene = sceneGraph;
-			CurrentView = currentView;
 		}
 
 		#endregion
@@ -54,11 +45,6 @@ namespace OpenGL.Objects.Scene
 		/// The scene currently rendering.
 		/// </summary>
 		public readonly SceneGraph Scene;
-
-		/// <summary>
-		/// The view used for setting the scene graph view matrix.
-		/// </summary>
-		public readonly SceneObjectCamera CurrentView;
 
 		/// <summary>
 		/// The <see cref="GraphicsStateSetStack"/> supporting state variation during the scene graph traversal.

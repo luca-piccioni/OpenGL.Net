@@ -19,6 +19,7 @@
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
 #include </OpenGL/Light/Lighting.glsl>
+#include </OpenGL/Light/LightState.glsl>
 
 // Vertex position
 LOCATION(0) ATTRIBUTE vec4 glo_Position;
@@ -51,6 +52,12 @@ SHADER_OUT vec3 glo_VertexNormalObject;
 SHADER_OUT vec4 glo_VertexPosition;
 // Vertex/Fragment normal (model space)
 SHADER_OUT vec3 glo_VertexNormalModel;
+
+// Vertex/Fragment position (light space)
+SHADER_OUT vec3 glo_VertexShadowPosition[GLO_MAX_LIGHTS_COUNT];
+
+// Shadow maps
+void ComputeVertexLightPositions();
 
 void main()
 {
@@ -101,4 +108,19 @@ void main()
 #endif
 
 #endif
+
+	// Shadow map support
+	ComputeVertexLightPositions();
+}
+
+void ComputeVertexLightPositions()
+{
+	for (int i = 0; i < glo_LightsCount; i++) {
+		if (glo_Light[i].ShadowMapIndex < 0)
+			continue;
+		
+		vec4 lightPosition = glo_Light[i].ShadowMapMvp * glo_Position;
+
+		glo_VertexShadowPosition[i] = lightPosition.xyz / lightPosition.w;
+	}
 }

@@ -60,6 +60,7 @@ namespace OpenGL.Objects.State
 			index = ShaderUniformState.StateSetIndex;
 			index = LightsState.StateSetIndex;
 			index = MaterialState.StateSetIndex;
+			index = WriteMaskState.StateSetIndex;
 		}
 
 		#endregion

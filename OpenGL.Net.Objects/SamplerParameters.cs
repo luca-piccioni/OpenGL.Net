@@ -58,6 +58,20 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Comparison Mode
+
+		/// <summary>
+		/// Enable texture compararison.
+		/// </summary>
+		public bool CompareMode;
+
+		/// <summary>
+		/// Texture comparison function.
+		/// </summary>
+		public DepthFunction CompareFunc = DepthFunction.Lequal;
+
+		#endregion
+
 		#region Cloning
 
 		/// <summary>

@@ -45,5 +45,10 @@ namespace OpenGL.Objects.Scene
 		/// Bounding boxes are visible.
 		/// </summary>
 		BoundingVolumes =			0x0004,
+
+		/// <summary>
+		/// Shadow maps are updated.
+		/// </summary>
+		ShadowMaps =				0x0008,
 	}
 }

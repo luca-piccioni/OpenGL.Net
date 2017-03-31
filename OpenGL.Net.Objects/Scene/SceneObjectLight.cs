@@ -28,6 +28,19 @@ namespace OpenGL.Objects.Scene
 		#region Constructors
 
 		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static SceneObjectLight()
+		{
+			_BiasMatrix = new Matrix4x4(new float[] {
+				0.5f, 0.0f, 0.0f, 0.0f,
+				0.0f, 0.5f, 0.0f, 0.0f,
+				0.0f, 0.0f, 0.5f, 0.0f,
+				0.5f, 0.5f, 0.5f, 1.0f,
+			});
+		}
+
+		/// <summary>
 		/// Construct a SceneObjectLight.
 		/// </summary>
 		public SceneObjectLight()
@@ -64,7 +77,7 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns the <see cref="LightsState.Light"/> equivalent to this SceneObjectLight.
 		/// </returns>
-		public abstract LightsState.Light ToLight(SceneGraphContext sceneCtx);
+		public abstract LightsState.Light ToLight(GraphicsContext ctx, SceneGraphContext sceneCtx);
 
 		/// <summary>
 		/// The internal light parameters.
@@ -77,6 +90,8 @@ namespace OpenGL.Objects.Scene
 			light.AmbientColor = AmbientColor;
 			light.DiffuseColor = DiffuseColor;
 			light.SpecularColor = SpecularColor;
+
+			light.ShadowMapIndex = -1;
 		}
 
 		/// <summary>
@@ -96,6 +111,42 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
+		#region Shadow Mapping
+
+		/// <summary>
+		/// Get or set whether this light defines a shadow map.
+		/// </summary>
+		public bool HasShadowMap = true;
+
+		/// <summary>
+		/// Allocate resources required for shadow mapping.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected virtual void LinkShadowMapResources(GraphicsContext ctx)
+		{
+
+		}
+
+		/// <summary>
+		/// Update shadow map.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		public virtual void UpdateShadowMap(GraphicsContext ctx, SceneGraph shadowGraph)
+		{
+
+		}
+
+		/// <summary>
+		/// Bias matrix for accessing shadow maps.
+		/// </summary>
+		protected static readonly Matrix4x4 _BiasMatrix;
+
+		#endregion
+
 		#region SceneObject Overrides
 
 		/// <summary>
@@ -112,6 +163,20 @@ namespace OpenGL.Objects.Scene
 		/// The object identifier for this class of SceneObject.
 		/// </summary>
 		private static readonly uint _ObjectType = NextObjectType();
+
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			// Allocate resources for 
+			LinkShadowMapResources(ctx);
+			// Base implementation
+			base.CreateObject(ctx);
+		}
 
 		#endregion
 	}

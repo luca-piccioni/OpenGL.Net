@@ -97,6 +97,16 @@ namespace OpenGL.Objects
 				Gl.SamplerParameter(ObjectName, (int)TextureParameterName.TextureWrapT, (int)samplerParams.WrapCoordT);
 				_ObjectParams.WrapCoordT = samplerParams.WrapCoordT;
 			}
+
+			if (samplerParams.CompareMode != _ObjectParams.CompareMode) {
+				Gl.SamplerParameter(ObjectName, Gl.TEXTURE_COMPARE_MODE, samplerParams.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
+				_ObjectParams.CompareMode = samplerParams.CompareMode;
+			}
+
+			if (samplerParams.CompareFunc != _ObjectParams.CompareFunc) {
+				Gl.SamplerParameter(ObjectName, Gl.TEXTURE_COMPARE_FUNC, (int)samplerParams.CompareFunc);
+				_ObjectParams.CompareFunc = samplerParams.CompareFunc;
+			}
 		}
 
 		#endregion

@@ -286,6 +286,16 @@ namespace OpenGL.Objects
 				Gl.TexParameter(textureTarget, TextureParameterName.TextureWrapT, (int)texParameters.WrapCoordT);
 				_CurrentSamplerParams.WrapCoordT = texParameters.WrapCoordT;
 			}
+
+			if (texParameters.CompareMode != _CurrentSamplerParams.CompareMode) {
+				Gl.TexParameter(textureTarget, (TextureParameterName)Gl.TEXTURE_COMPARE_MODE, texParameters.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
+				_CurrentSamplerParams.CompareMode = texParameters.CompareMode;
+			}
+
+			if (texParameters.CompareFunc != _CurrentSamplerParams.CompareFunc) {
+				Gl.TexParameter(textureTarget, (TextureParameterName)Gl.TEXTURE_COMPARE_FUNC, (int)texParameters.CompareFunc);
+				_CurrentSamplerParams.CompareFunc = texParameters.CompareFunc;
+			}
 		}
 
 		/// <summary>

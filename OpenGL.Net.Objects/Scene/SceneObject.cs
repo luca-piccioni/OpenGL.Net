@@ -208,7 +208,7 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns a <see cref="Boolean"/> indicating whether the traversal function shall continue.
 		/// </returns>
-		protected delegate bool TraverseBaseDelegate(SceneObject sceneObject, object data);
+		protected internal delegate bool TraverseBaseDelegate(SceneObject sceneObject, object data);
 
 		/// <summary>
 		/// Delegate for visiting <see cref="SceneObject"/> instanced during scene graph traversal.
@@ -225,12 +225,12 @@ namespace OpenGL.Objects.Scene
 		/// <returns>
 		/// It returns a <see cref="Boolean"/> indicating whether the traversal function shall continue.
 		/// </returns>
-		protected delegate bool TraverseDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data);
+		protected internal delegate bool TraverseDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data);
 
 		/// <summary>
 		/// Context holding information for executing scene graph traversal.
 		/// </summary>
-		protected class TraverseContext
+		protected internal class TraverseContext
 		{
 			#region Constructors
 
@@ -311,7 +311,7 @@ namespace OpenGL.Objects.Scene
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="traverseFunc"/> is null.
 		/// </exception>
-		protected void TraverseDirect(GraphicsContext ctx, SceneGraphContext ctxScene, TraverseContext traverseFunc, object data)
+		protected internal void TraverseDirect(GraphicsContext ctx, SceneGraphContext ctxScene, TraverseContext traverseFunc, object data)
 		{
 			CheckCurrentContext(ctx);
 
@@ -333,7 +333,7 @@ namespace OpenGL.Objects.Scene
 			}
 		}
 
-		protected void TraverseUpwards(TraverseBaseDelegate traverseFunc)
+		protected internal void TraverseUpwards(TraverseBaseDelegate traverseFunc)
 		{
 			if (traverseFunc == null)
 				throw new ArgumentNullException("traverseFunc");
@@ -706,40 +706,6 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		internal bool _BoundingVolumeDirty;
 
-		/// <summary>
-		/// The graphics state of the bounding volume.
-		/// </summary>
-		internal VertexArrays BoundingVolumeArray
-		{
-			get { return (_BoundingVolumeArray); }
-			set
-			{
-				SwapGpuResources(value, ref _BoundingVolumeArray);
-			}
-		}
-
-		/// <summary>
-		/// Vertex arrays representing the bounding box.
-		/// </summary>
-		private VertexArrays _BoundingVolumeArray;
-
-		/// <summary>
-		/// The graphics state of the bounding volume.
-		/// </summary>
-		internal GraphicsStateSet BoundingState
-		{
-			get { return (_BoundingState); }
-			set
-			{
-				_BoundingState = value;
-			}
-		}
-
-		/// <summary>
-		/// The graphics state of the bounding volume.
-		/// </summary>
-		private GraphicsStateSet _BoundingState;
-
 		#endregion
 
 		#region GraphicsResource Overrides
@@ -759,9 +725,6 @@ namespace OpenGL.Objects.Scene
 			ObjectState.Create(ctx, null);
 			// Base implementation
 			base.CreateObject(ctx);
-			// Propagate creation to hierarchy
-			foreach (SceneObject sceneGraphObject in _Children)
-				sceneGraphObject.Create(ctx);
 		}
 
 		/// <summary>
@@ -774,9 +737,6 @@ namespace OpenGL.Objects.Scene
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				// Propagate disposition to hierarchy
-				foreach (SceneObject sceneGraphObject in _Children)
-					sceneGraphObject.Dispose();
 				// Dispose resources associated to the graphics state
 				ObjectState.Delete();
 			}

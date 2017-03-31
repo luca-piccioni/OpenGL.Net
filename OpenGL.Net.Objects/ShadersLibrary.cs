@@ -345,6 +345,7 @@ namespace OpenGL.Objects
 					foreach (string preprocessorSymbol in shaderProgramObject.Symbols)
 						shaderCompilerParams.Defines.Add(preprocessorSymbol);
 				}
+
 				// Shader extensions
 				shaderCompilerParams.Extensions.AddRange(Extensions);
 

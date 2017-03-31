@@ -111,8 +111,22 @@ namespace OpenGL.Objects.Scene
 		/// </param>
 		public void Draw(GraphicsContext ctx)
 		{
-			State.Apply(ctx, Program);
-			VertexArray.Draw(ctx, Program);
+			Draw(ctx, null);
+		}
+
+		/// <summary>
+		/// Draw this batch.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for drawing.
+		/// </param>
+		/// <param name="programOverride">
+		/// A <see cref="ShaderProgram"/> that overrides the default one used for rendering the batch. It can be null.
+		/// </param>
+		public void Draw(GraphicsContext ctx, ShaderProgram programOverride)
+		{
+			State.Apply(ctx, programOverride ?? Program);
+			VertexArray.Draw(ctx, programOverride ?? Program);
 		}
 
 		#endregion

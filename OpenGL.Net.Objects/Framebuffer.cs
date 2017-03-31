@@ -911,6 +911,14 @@ namespace OpenGL.Objects
 					drawBuffers.Add(Gl.COLOR_ATTACHMENT0 + (int)i);
 			}
 
+			if (_DepthAttachment != null && _DepthAttachment.Dirty) {
+				// Ensure created buffer
+				_DepthAttachment.Create(ctx);
+				// Ensure attached buffer
+				_DepthAttachment.Attach(Gl.DRAW_FRAMEBUFFER, Gl.DEPTH_ATTACHMENT);
+				_DepthAttachment.Dirty = false;
+			}
+
 			// Validate completeness status
 			Validate(ctx);
 
@@ -927,7 +935,8 @@ namespace OpenGL.Objects
 		public override void UnbindDraw(GraphicsContext ctx)
 		{
 			// Switch to default framebuffer
-			Gl.BindFramebuffer(Gl.DRAW_FRAMEBUFFER, InvalidObjectName);
+			Gl.BindFramebuffer(Gl.FRAMEBUFFER, InvalidObjectName);
+			Gl.DrawBuffer(DrawBufferMode.BackLeft);
 		}
 
 		/// <summary>
@@ -1144,14 +1153,24 @@ namespace OpenGL.Objects
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				foreach (Attachment attachment in _ColorBuffers) {
-					if (attachment != null)
+				for (int i = 0; i < _ColorBuffers.Length; i++) {
+					Attachment attachment  = _ColorBuffers[i];
+
+					if (attachment != null) {
 						attachment.Dispose();
+						_ColorBuffers[i] = null;
+					}
 				}
-				if (_DepthAttachment != null)
+
+				if (_DepthAttachment != null) {
 					_DepthAttachment.Dispose();
-				if (_StencilBuffer != null)
+					_DepthAttachment = null;
+				}
+				
+				if (_StencilBuffer != null) {
 					_StencilBuffer.Dispose();
+					_StencilBuffer = null;
+				}
 			}
 
 			// Base implementation
