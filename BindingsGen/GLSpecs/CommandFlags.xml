@@ -103,6 +103,11 @@
 		<add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</add_enum>
 	</enumerant>
 
+	<enumerant name="^TextureParameterName$">
+		<add_enum>GL_TEXTURE_COMPARE_MODE</add_enum>
+		<add_enum>GL_TEXTURE_COMPARE_FUNC</add_enum>
+	</enumerant>
+
 	<enumerant name="^MapBufferUsageMask">
 		<add_enum>GL_NONE</add_enum>
 	</enumerant>

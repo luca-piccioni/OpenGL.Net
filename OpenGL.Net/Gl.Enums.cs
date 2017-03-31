@@ -7656,6 +7656,16 @@ namespace OpenGL
 		/// </summary>
 		TextureWrapT = Gl.TEXTURE_WRAP_T,
 
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_COMPARE_MODE.
+		/// </summary>
+		TextureCompareMode = Gl.TEXTURE_COMPARE_MODE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_COMPARE_FUNC.
+		/// </summary>
+		TextureCompareFunc = Gl.TEXTURE_COMPARE_FUNC,
+
 	}
 
 	/// <summary>
