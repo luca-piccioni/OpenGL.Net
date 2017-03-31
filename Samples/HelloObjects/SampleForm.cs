@@ -550,7 +550,10 @@ namespace HelloObjects
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
 			// Scene
 			_CubeScene = new SceneGraph();
-			_CubeScene.Link(new SceneObjectCamera());
+			_CubeScene.SceneRoot = new SceneObjectGeometry();
+			
+			_CubeScene.CurrentView = new SceneObjectCamera();
+			_CubeScene.SceneRoot.Link(_CubeScene.CurrentView);
 
 			fontTitle = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Textured, new FontFxShadow());
 			fontTitle.Create(_Context);
@@ -568,12 +571,19 @@ namespace HelloObjects
 			_GlobalLightObject.Direction = (-Vertex3f.UnitX + Vertex3f.UnitY - Vertex3f.UnitZ).Normalized;
 			globalLightZone.Link(_GlobalLightObject);
 
+			SceneObjectLightSpot spotLight = new SceneObjectLightSpot();
+			spotLight.LocalModel.Translate(0.0f, 56.0f, 0.0f);
+			spotLight.Direction = -Vertex3f.UnitY;
+			spotLight.FalloffAngle = 10.5f;
+			spotLight.FalloffExponent = 0.0f;
+			globalLightZone.Link(spotLight);
+
 			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
 			localLightObject.LocalModel.Translate(0.0, -5.0f, 0.0);
 			localLightObject.AttenuationFactors.Y = 0.1f;
 			//globalLightZone.AddChild(localLightObject);
 
-			_CubeScene.Link(globalLightZone);
+			_CubeScene.SceneRoot.Link(globalLightZone);
 
 			// Horizontal plane
 			globalLightZone.Link(CreatePlane());
@@ -665,19 +675,27 @@ namespace HelloObjects
 			GlControl senderControl = (GlControl)sender;
 			float senderAspectRatio = (float)senderControl.Width / senderControl.Height;
 
+			KhronosApi.LogEnabled = false;
+			KhronosApi.LogComment("--------------------------------------------------");
+			KhronosApi.LogComment("*** Draw");
+
 			// Clear
 			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
+			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.5f, 10000.0f);
 			_CubeScene.CurrentView.LocalModel.SetIdentity();
 			_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
 			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
 			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
 			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
-			
-			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.5f, 10000.0f);
+			_CubeScene.UpdateViewMatrix();
 
 			_CubeScene.Draw(_Context);
+
+			KhronosApi.LogEnabled = false;
+
+			return;
 
 			// Overlay
 			ProjectionMatrix overlayProjection = new OrthoProjectionMatrix(0.0f, ClientSize.Width, 0.0f, ClientSize.Height);

@@ -37,16 +37,20 @@ namespace HelloObjects
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 
-			if (envDebug == "GL") {
+			if (envDebug == "GL" || true) {
+				Gl.QueryLogContext();
+				Wgl.QueryLogContext();
 				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
 					Console.WriteLine(format, args);
 				});
+				KhronosApi.LogEnabled = false;
 			}
 
 			if (envDebug == "OBJECTS" || true) {
 				Resource.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
 					Console.WriteLine(format, args);
 				});
+				KhronosApi.LogEnabled = false;
 			}
 
 			Application.EnableVisualStyles();
