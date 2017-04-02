@@ -176,7 +176,7 @@ namespace OpenGL
 		/// </remarks>
 		public void SetEuler(Vertex3f rVector, float rAngle)
 		{
-			double qAngle = Angle.ToDegrees(rAngle / 2.0f);
+			double qAngle = Angle.ToRadians(rAngle / 2.0f);
 			double qAngleSin = Math.Sin(qAngle);
 
 			mVector.x = qAngleSin * rVector.x;
