@@ -24,7 +24,7 @@ namespace OpenGL.Objects.State
 	/// <summary>
 	/// Depth test render state.
 	/// </summary>
-	[DebuggerDisplay("DepthTestState: Enabled={Enabled} Function={Function}")]
+	[DebuggerDisplay("PixelAlignmentState: Pack={PackAlignment} Unpack={UnpackAlignment}")]
 	public class PixelAlignmentState : GraphicsState
 	{
 		#region Constructors
