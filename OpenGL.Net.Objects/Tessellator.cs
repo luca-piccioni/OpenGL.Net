@@ -107,6 +107,11 @@ namespace OpenGL.Objects
 		public void EndPolygon()
 		{
 			Glu.TessEndPolygon(_Tess);
+
+			// Release countours
+			foreach (MemoryLock memoryLock in _CountourLocks)
+				memoryLock.Dispose();
+			_CountourLocks.Clear();
 		}
 
 		/// <summary>
@@ -152,20 +157,29 @@ namespace OpenGL.Objects
 			if (contourVertices == null)
 				throw new ArgumentNullException("contourVertices");
 
+			MemoryLock countourLock = new MemoryLock(contourVertices);
+
+			// Dispose later
+			_CountourLocks.Add(countourLock);
+
 			// Set to Vertex3d.Zero to compute automatically
 			Glu.TessNormal(_Tess, normal.x, normal.x, normal.z);
 
-			using (MemoryLock vLock = new MemoryLock(contourVertices)) {
-				IntPtr vLockAddr = vLock.Address;
+			IntPtr vLockAddr = countourLock.Address;
 
-				Glu.TessBeginContour(_Tess);
-				foreach (Vertex2f v in contourVertices) {
-					Glu.TessVertex(_Tess, vLockAddr, vLockAddr);
-					vLockAddr = new IntPtr(vLockAddr.ToInt64() + 24);
-				}
-				Glu.TessEndContour(_Tess);
+			Glu.TessBeginContour(_Tess);
+			foreach (Vertex2f v in contourVertices) {
+				Glu.TessVertex(_Tess, vLockAddr, vLockAddr);
+				vLockAddr = new IntPtr(vLockAddr.ToInt64() + 24);
 			}
+			Glu.TessEndContour(_Tess);
 		}
+
+		/// <summary>
+		/// Collection of <see cref="MemoryLock"/> instances used for fixing countour
+		/// vertices to be tessellated. Release when tessellation process has ended.
+		/// </summary>
+		private readonly List<MemoryLock> _CountourLocks = new List<MemoryLock>();
 
 		#endregion
 
