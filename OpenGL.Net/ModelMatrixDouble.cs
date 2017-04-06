@@ -769,18 +769,16 @@ namespace OpenGL
 		{
 			Vertex3d rightVector;
 
-			// Normalize forward vector
 			forwardVector.Normalize();
-			// Normalize up vector (it should already be normalized)
 			upVector.Normalize();
-			// Compute the right vector (cross-product between forward and up vectors; right is perperndicular to the plane)
 			rightVector = forwardVector ^ upVector;
 			rightVector.Normalize();
-			// Derive up vector
+			if (rightVector.Module() <= 0.0f)
+				rightVector = Vertex3f.UnitX;
 			upVector = rightVector ^ forwardVector;
 
 			// Compute view matrix
-			ModelMatrixDouble lookatMatrix = new ModelMatrixDouble(), positionMatrix = new ModelMatrixDouble();
+			ModelMatrixDouble lookatMatrix = new ModelMatrixDouble();
 
 			// Row 0: right vector
 			lookatMatrix[0, 0] = rightVector.x;
@@ -796,10 +794,10 @@ namespace OpenGL
 			lookatMatrix[2, 2] = -forwardVector.z;
 
 			// Eye position
-			positionMatrix.Translate(eyePosition);
+			lookatMatrix.Translate(eyePosition);
 
 			// Complete look-at matrix
-			Set(positionMatrix * lookatMatrix);
+			Set(lookatMatrix);
 		}
 
 		/// <summary>

@@ -170,6 +170,20 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Vertex3f"/> equivalent to <paramref name="a"/>
 		/// </returns>
+		public static implicit operator Vertex3d(Vertex3 a)
+		{
+			return (new Vertex3d(a.X, a.Y, a.Z));
+		}
+
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3f"/> equivalent to <paramref name="a"/>
+		/// </returns>
 		public static implicit operator Vertex3(Vertex3f a)
 		{
 			return (new Vertex3(a.x, a.y, a.z));

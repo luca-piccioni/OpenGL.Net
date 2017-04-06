@@ -206,7 +206,7 @@ namespace OpenGL
 		/// </returns>
 		public void LookAtTarget(Vertex3f eyePosition, Vertex3f targetPosition, Vertex3f upVector)
 		{
-			LookAtDirection(eyePosition, eyePosition - targetPosition, upVector);
+			LookAtDirection(eyePosition, targetPosition - eyePosition, upVector);
 		}
 
 		/// <summary>
@@ -230,19 +230,17 @@ namespace OpenGL
 		{
 			Vertex3f rightVector;
 
-			// Normalize forward vector
 			forwardVector.Normalize();
-			// Normalize up vector
 			upVector.Normalize();
-			// Compute the right vector (cross-product between forward and up vectors; right is perperndicular to the plane)
 			rightVector = forwardVector ^ upVector;
+			if (rightVector.Module() <= 0.0f)
+				rightVector = Vertex3f.UnitX;
 			rightVector.Normalize();
-			// Derive up vector
 			upVector = rightVector ^ forwardVector;
 			upVector.Normalize();
 
 			// Compute view matrix
-			ModelMatrix lookatMatrix = new ModelMatrix(), positionMatrix = new ModelMatrix();
+			ModelMatrix lookatMatrix = new ModelMatrix();
 
 			// Row 0: right vector
 			lookatMatrix[0, 0] = rightVector.x;
@@ -253,16 +251,15 @@ namespace OpenGL
 			lookatMatrix[1, 1] = upVector.y;
 			lookatMatrix[2, 1] = upVector.z;
 			// Row 2: opposite of forward vector
-			lookatMatrix[0, 2] = forwardVector.x;
-			lookatMatrix[1, 2] = forwardVector.y;
-			lookatMatrix[2, 2] = forwardVector.z;
+			lookatMatrix[0, 2] = -forwardVector.x;
+			lookatMatrix[1, 2] = -forwardVector.y;
+			lookatMatrix[2, 2] = -forwardVector.z;
 
 			// Eye position
-			positionMatrix.Translate(-eyePosition);
+			lookatMatrix.Translate(-eyePosition);
 
 			// Complete look-at matrix
-			Set(lookatMatrix * positionMatrix);
-			Set(GetInverseMatrix());
+			Set(lookatMatrix);
 		}
 
 		#endregion
@@ -1131,7 +1128,7 @@ namespace OpenGL
 		/// </returns>
 		public void LookAtDirection(Vertex3d eyePosition, Vertex3d forwardVector, Vertex3d upVector)
 		{
-			LookAtTarget((Vertex3f)eyePosition, (Vertex3f)forwardVector, (Vertex3f)upVector);
+			LookAtDirection((Vertex3f)eyePosition, (Vertex3f)forwardVector, (Vertex3f)upVector);
 		}
 
 		/// <summary>
