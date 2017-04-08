@@ -53,7 +53,6 @@ namespace HelloObjects
 			SceneObjectGeometry geometry = new SceneObjectGeometry("Plane");
 
 			geometry.VertexArray = VertexArrays.CreatePlane(50.0f, 50.0f, 0.0f, 1, 1);
-			geometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			geometry.ObjectState.DefineState(new TransformState());
 
@@ -77,7 +76,6 @@ namespace HelloObjects
 
 			#region State
 
-			cubeGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			cubeGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			cubeGeometry.ObjectState.DefineState(new TransformState());
 
@@ -268,7 +266,6 @@ namespace HelloObjects
 		{
 			SceneObjectGeometry sphereGeometry = new SceneObjectGeometry("Sphere");
 
-			sphereGeometry.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			sphereGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			sphereGeometry.ObjectState.DefineState(new TransformState());
 			sphereGeometry.LocalModel.Translate(0.0f, 4.0f);
@@ -458,7 +455,6 @@ namespace HelloObjects
 
 			skyboxObject.LocalModel.Scale(170.0f);
 
-			skyboxObject.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			skyboxObject.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Cw, CullFaceMode.Back));
 
 			ShaderUniformState skyboxUniformState = new ShaderUniformState("OpenGL.Skybox");
@@ -495,7 +491,6 @@ namespace HelloObjects
 		{
 			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\RB-BumbleBee.obj");
 
-			bumbleBee.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			bumbleBee.LocalModel.Translate(0.0f, 0.0f);
 			bumbleBee.LocalModel.Scale(0.03f);
@@ -511,7 +506,6 @@ namespace HelloObjects
 		{
 			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\VH-BumbleBee.obj");
 
-			bumbleBee.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			bumbleBee.LocalModel.Translate(-10.0f, 0.0f);
 			bumbleBee.LocalModel.Scale(0.03f);
@@ -539,6 +533,8 @@ namespace HelloObjects
 
 		IFont fontPatch;
 
+		SceneObjectLightSpot spotLight;
+
 		/// <summary>
 		/// Allocate resources for rendering.
 		/// </summary>
@@ -549,8 +545,12 @@ namespace HelloObjects
 			// Wrap GL context with GraphicsContext
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
 			// Scene
-			_CubeScene = new SceneGraph();
+			_CubeScene = new SceneGraph(
+				SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting | SceneGraphFlags.Lighting | SceneGraphFlags.ShadowMaps
+				//| SceneGraphFlags.BoundingVolumes
+				);
 			_CubeScene.SceneRoot = new SceneObjectGeometry();
+			_CubeScene.SceneRoot.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			
 			_CubeScene.CurrentView = new SceneObjectCamera();
 			_CubeScene.SceneRoot.Link(_CubeScene.CurrentView);
@@ -569,10 +569,10 @@ namespace HelloObjects
 
 			_GlobalLightObject = new SceneObjectLightDirectional();
 			_GlobalLightObject.Direction = (-Vertex3f.UnitX + Vertex3f.UnitY - Vertex3f.UnitZ).Normalized;
-			globalLightZone.Link(_GlobalLightObject);
+			//globalLightZone.Link(_GlobalLightObject);
 
-			SceneObjectLightSpot spotLight = new SceneObjectLightSpot();
-			spotLight.LocalModel.Translate(0.0f, 56.0f, 0.0f);
+			spotLight = new SceneObjectLightSpot();
+			spotLight.LocalModel.Translate(0.0f, 35.0f, 0.0f);
 			spotLight.Direction = -Vertex3f.UnitY;
 			spotLight.FalloffAngle = 10.5f;
 			spotLight.FalloffExponent = 0.0f;
@@ -639,8 +639,8 @@ namespace HelloObjects
 			//cubeColored.LocalModel.Translate(0.0f, 5.0f, 0.0f);
 			//globalLightZone.Link(cubeColored);
 
-			globalLightZone.Link(CreateBumbleBeeVH());
-			globalLightZone.Link(CreateBumbleBeeRB());
+			//globalLightZone.Link(CreateBumbleBeeVH());
+			//globalLightZone.Link(CreateBumbleBeeRB());
 			globalLightZone.Link(CreateSphere("squarebricks"));
 
 			// Skybox
@@ -683,7 +683,7 @@ namespace HelloObjects
 			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.5f, 10000.0f);
+			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 100.0f);
 			_CubeScene.CurrentView.LocalModel.SetIdentity();
 			_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
 			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
@@ -866,6 +866,25 @@ namespace HelloObjects
 					case Keys.K:
 						_GlobalLightEl -= 1.0f;
 						UpdateGlobalLight();
+						break;
+
+					case Keys.T:
+						spotLight.LocalModel.Translate(0.0f, 0.1f);
+						break;
+					case Keys.G:
+						spotLight.LocalModel.Translate(0.0f, -0.1f);
+						break;
+					case Keys.F:
+						spotLight.LocalModel.Translate(-0.1f, 0.0f);
+						break;
+					case Keys.H:
+						spotLight.LocalModel.Translate(+0.1f, 0.0f);
+						break;
+					case Keys.R:
+						spotLight.LocalModel.Translate(0.0f, 0.0f, +0.1f);
+						break;
+					case Keys.Y:
+						spotLight.LocalModel.Translate(0.0f, 0.0f, -0.1f);
 						break;
 				}
 			}
