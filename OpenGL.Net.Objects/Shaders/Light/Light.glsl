@@ -22,6 +22,8 @@
 
 /// - Forward declarations ----------------------------------------------------
 
+SHADER_IN vec4 glo_VertexPositionModel;
+
 // Directional light methods
 // Ambient
 void ComputeDirectionalLight(int lightIdx, inout vec4 ambient);
@@ -75,12 +77,12 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, inout vec4 ambi
 			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, lightAmbient, lightDiffuse);
 		} else {
 			ComputeSpotLight(i, -normalize(ecPosition3), ecPosition3, normal, lightAmbient, lightDiffuse);
-			if (shadowIndex >= 0) {
-				vec4 lightPosition = glo_Light[i].ShadowMapMvp * eyePosition;
-				vec3 lightPosition3 = vec3(lightPosition) / lightPosition.w;
-
-				shadowFactor = texture(glo_ShadowMap2D[shadowIndex], lightPosition3);
-			}
+			
+			/*if (shadowIndex >= 0) {
+				vec4 shadowPosition = (glo_Light[i].ShadowMapMvp * glo_ModelView) * glo_VertexPositionModel;
+				vec3 shadowPosition3 = shadowPosition.xyz / vec3(shadowPosition.w);
+				shadowFactor = texture(glo_ShadowMap2D[shadowIndex], shadowPosition3);
+			}*/
 		}
 
 		ambient += lightAmbient;
@@ -95,28 +97,28 @@ void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialS
 	vec3 ecPosition3 = vec3(eyePosition) / eyePosition.w;		// Local viewer
 
 	for (int i = 0; i < glo_LightsCount; i++) {
-		vec4 lightAmbient, lightDiffuse;
+		vec4 lightAmbient = vec4(0.0), lightDiffuse = vec4(0.0), lightSpecular = vec4(0.0);
 
 		int shadowIndex = glo_Light[i].ShadowMapIndex;
 		float shadowFactor = 1.0;
 
 		if      (glo_Light[i].Position.w == 0.0)
-			ComputeDirectionalLight(i, normal, materialShininess, ambient, diffuse, specular);
+			ComputeDirectionalLight(i, normal, materialShininess, lightAmbient, lightDiffuse, lightSpecular);
 		else if (glo_Light[i].FallOff[0] == 180.0)
-			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, ambient, diffuse, specular);
+			ComputePointLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, lightAmbient, lightDiffuse, lightSpecular);
 		else {
-			ComputeSpotLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, ambient, diffuse, specular);
+			ComputeSpotLight(i, -normalize(ecPosition3), ecPosition3, normal, materialShininess, lightAmbient, lightDiffuse, lightSpecular);
 
 			if (shadowIndex >= 0) {
-				vec4 lightPosition = glo_Light[i].ShadowMapMvp * eyePosition;
-				vec3 lightPosition3 = vec3(lightPosition) / lightPosition.w;
-
-				shadowFactor = texture(glo_ShadowMap2D[shadowIndex], lightPosition3);
+				vec4 shadowPosition = glo_Light[i].ShadowMapMvp * glo_VertexPositionModel;
+				vec3 shadowPosition3 = shadowPosition.xyz / vec3(shadowPosition.w);
+				shadowFactor = texture(glo_ShadowMap2D[shadowIndex], shadowPosition3);
 			}
 		}
 
 		ambient += lightAmbient;
 		diffuse += lightDiffuse * shadowFactor;
+		specular += lightSpecular * shadowFactor;
 	}
 
 	ambient = ambient * glo_LightModel.AmbientLighting;

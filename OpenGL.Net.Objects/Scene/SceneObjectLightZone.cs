@@ -32,7 +32,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public SceneObjectLightZone()
 		{
-			ObjectState.DefineState(new State.LightsState());
+			
 		}
 
 		/// <summary>
@@ -43,7 +43,7 @@ namespace OpenGL.Objects.Scene
 		/// </param>
 		public SceneObjectLightZone(string id) : base(id)
 		{
-			ObjectState.DefineState(new State.LightsState());
+			
 		}
 
 		/// <summary>
@@ -52,19 +52,6 @@ namespace OpenGL.Objects.Scene
 		internal static void Touch()
 		{
 			// Static initialization
-		}
-
-		#endregion
-
-		#region State Application
-
-		internal void ResetLights(GraphicsContext ctx, SceneGraphContext ctxScene, List<SceneObjectLight> lights)
-		{
-			State.LightsState lightState = (State.LightsState)ObjectState[State.LightsState.StateSetIndex];
-
-			lightState.Lights.Clear();
-			foreach (SceneObjectLight lightObject in lights)
-				lightState.Lights.Add(lightObject.ToLight(ctx, ctxScene));
 		}
 
 		#endregion

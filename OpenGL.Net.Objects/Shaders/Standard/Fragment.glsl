@@ -39,22 +39,33 @@ SHADER_IN vec2 glo_VertexTexCoord[1];
 // Vertex/Fragment TBN space matrix
 SHADER_IN mat3 glo_VertexTBN;
 
-// Fragment vertex position (model space)
-SHADER_IN vec4 glo_VertexPosition;
-// Fragment normal (model space)
-SHADER_IN vec3 glo_VertexNormalModel;
-
-// Vertex/Fragment position (light space)
-SHADER_IN vec3 glo_VertexShadowPosition[];
+// Fragment vertex position (model-view space)
+SHADER_IN vec4 glo_VertexPositionModelView;
 
 // Fragment color
 OUT vec4		glo_FragColor;
 
-// Fragment shader entry point
+void mainLightingPerFragment();
+void mainLightingPerVertex();
+void mainTextured();
+
 void main()
 {
 #if defined(GLO_LIGHTING_PER_FRAGMENT)
+	mainLightingPerFragment();
+#elif defined(GLO_LIGHTING_PER_VERTEX)
+	mainLightingPerVertex();
+#elif defined(GLO_COLOR_PER_VERTEX)
+	glo_FragColor = glo_VertexColor;
+#elif defined(GLO_TEXTURED)
+	mainTextured();
+#else
+	glo_FragColor = glo_UniformColor;
+#endif
+}
 
+void mainLightingPerFragment()
+{
 	// Material initially defined by uniform colors
 	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
 	int index;
@@ -101,11 +112,12 @@ void main()
 #elif defined(GLO_DEBUG_TEXCOORD)
 	glo_FragColor = vec4(abs(glo_VertexTexCoord[0].x), 0.0, 0.0, 1.0);
 #else
-	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, normal);
+	glo_FragColor = ComputeLightShading(fragmentMaterial, glo_VertexPositionModelView, normal);
 #endif
+}
 
-#elif defined(GLO_LIGHTING_PER_VERTEX)
-
+void mainLightingPerVertex()
+{
 	int index;
 
 	// Default
@@ -117,18 +129,17 @@ void main()
 	index = glo_FrontMaterialDiffuseTexCoord;
 	if (glo_FrontMaterialDiffuseTexCoord >= 0)
 		glo_FragColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]) * glo_FragColor;
+}
 
-#elif defined(GLO_COLOR_PER_VERTEX)
+uniform sampler2D glo_Texture;
 
-	// Vertex shader computes fragment color
-	glo_FragColor = glo_VertexColor;
-
+void mainTextured()
+{
+#if defined(GLO_COLOR_PER_VERTEX)
+	vec4 envColor = glo_VertexColor;
 #else
-
-	// Default to uniform color
-	glo_FragColor = glo_UniformColor;
-
+	vec4 envColor = vec4(1.0);
 #endif
 
-	
+	glo_FragColor = TEXTURE_2D(glo_Texture, glo_VertexTexCoord[0]) * envColor;
 }

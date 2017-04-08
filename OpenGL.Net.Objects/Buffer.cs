@@ -122,9 +122,15 @@ namespace OpenGL.Objects
 				if (_CpuBuffer != null && !_CpuBuffer.IsDisposed)
 					return (_CpuBuffer.AlignedBuffer);
 
-				return (IntPtr.Zero);
+				return (_CpuBufferAddress);
 			}
+			set { _CpuBufferAddress = value; }
 		}
+
+		/// <summary>
+		/// Get the address of the CPU buffer of this Buffer.
+		/// </summary>
+		private IntPtr _CpuBufferAddress = IntPtr.Zero;
 
 		/// <summary>
 		/// The buffer object representation in CPU memory.

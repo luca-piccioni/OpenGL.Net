@@ -32,7 +32,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		static SceneObjectLight()
 		{
-			_BiasMatrix = new Matrix4x4(new float[] {
+			_BiasMatrix = new ModelMatrix(new float[] {
 				0.5f, 0.0f, 0.0f, 0.0f,
 				0.0f, 0.5f, 0.0f, 0.0f,
 				0.0f, 0.0f, 0.5f, 0.0f,
@@ -116,7 +116,21 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get or set whether this light defines a shadow map.
 		/// </summary>
-		public bool HasShadowMap = true;
+		public bool HasShadowMap
+		{
+			get { return (_HasShadowMap && ShadowTexture != null); }
+			set { _HasShadowMap = value; }
+		}
+
+		/// <summary>
+		/// Whether this light defines a shadow map.
+		/// </summary>
+		private bool _HasShadowMap = true;
+
+		/// <summary>
+		/// The shadow map texture.
+		/// </summary>
+		protected virtual Texture ShadowTexture { get { return (null); } }
 
 		/// <summary>
 		/// Allocate resources required for shadow mapping.
@@ -143,7 +157,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Bias matrix for accessing shadow maps.
 		/// </summary>
-		protected static readonly Matrix4x4 _BiasMatrix;
+		protected static readonly IModelMatrix _BiasMatrix;
 
 		#endregion
 

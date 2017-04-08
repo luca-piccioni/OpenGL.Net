@@ -19,6 +19,8 @@
 using System;
 using System.Collections.Generic;
 
+using OpenGL.Objects.State;
+
 namespace OpenGL.Objects.Scene
 {
 	/// <summary>
@@ -254,45 +256,6 @@ namespace OpenGL.Objects.Scene
 			#endregion
 		}
 
-		/// <summary>
-		/// Get all geometries compositing this SceneObjectGeometry.
-		/// </summary>
-		/// <param name="currentState">
-		/// A <see cref="State.GraphicsStateSet"/> that specifies the current graphics state to be merged with
-		/// each returned geometry.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="IEnumerable{SceneObjectBatch}"/>.
-		/// </returns>
-		internal IEnumerable<SceneObjectBatch> GetGeometries(State.GraphicsStateSet currentState)
-		{
-			if (currentState == null)
-				throw new ArgumentNullException("currentState");
-
-			if (_GeometryInstances.Count > 0) {
-				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
-					State.GraphicsStateSet geometryState;
-
-					if (sceneObjectBatch.State != null) {
-						geometryState = currentState.Push();
-						geometryState.Merge(sceneObjectBatch.State);
-					} else
-						geometryState = currentState;
-
-					yield return (new SceneObjectBatch(
-						sceneObjectBatch.VertexArray ?? VertexArray,
-						geometryState,
-						sceneObjectBatch.Program ?? Program
-					));
-				}
-			} else {
-				if (VertexArray == null)
-					yield break;
-
-				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
-			}
-		}
-
 		public void AddGeometry(VertexArrays vertexArray)
 		{
 			_GeometryInstances.Add(new Geometry(vertexArray));
@@ -314,6 +277,100 @@ namespace OpenGL.Objects.Scene
 		}
 
 		/// <summary>
+		/// Get all geometries compositing this SceneObjectGeometry.
+		/// </summary>
+		/// <param name="currentState">
+		/// A <see cref="State.GraphicsStateSet"/> that specifies the current graphics state to be merged with
+		/// each returned geometry.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IEnumerable{SceneObjectBatch}"/>.
+		/// </returns>
+		private IEnumerable<SceneObjectBatch> GetGeometries(GraphicsStateSet currentState)
+		{
+			if (currentState == null)
+				throw new ArgumentNullException("currentState");
+
+			if (_GeometryInstances.Count > 0) {
+				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
+					GraphicsStateSet geometryState;
+
+					if (sceneObjectBatch.State != null) {
+						geometryState = currentState.Push();
+						geometryState.Merge(sceneObjectBatch.State);
+					} else
+						geometryState = currentState;
+
+					yield return (new SceneObjectBatch(
+						sceneObjectBatch.VertexArray ?? VertexArray,
+						geometryState,
+						sceneObjectBatch.Program ?? Program
+					));
+				}
+			} else {
+				if (VertexArray == null)
+					yield break;
+
+				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
+			}
+		}
+
+		/// <summary>
+		/// Get all geometries compositing this SceneObjectGeometry, filtering them using view-frustum.
+		/// </summary>
+		/// <param name="currentState">
+		/// A <see cref="State.GraphicsStateSet"/> that specifies the current graphics state to be merged with
+		/// each returned geometry.
+		/// </param>
+		/// <param name="clippingPlanes">
+		/// 
+		/// </param>
+		/// <param name="viewModel">
+		/// 
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IEnumerable{SceneObjectBatch}"/>.
+		/// </returns>
+		private IEnumerable<SceneObjectBatch> GetGeometriesViewFrustum(SceneGraphContext ctxScene)
+		{
+			GraphicsStateSet currentState = ctxScene.GraphicsStateStack.Current.Push();
+			TransformStateBase sceneGeometryModel = (TransformStateBase)currentState[TransformStateBase.StateSetIndex];
+			IMatrix4x4 viewModel = sceneGeometryModel.ModelView;
+
+			if (_GeometryInstances.Count > 0) {
+				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
+					IBoundingVolume instanceVolume = sceneObjectBatch.BoundingVolume ?? _BoundingVolume;
+
+					if (instanceVolume != null && instanceVolume.IsClipped(ctxScene.ViewFrustumPlanes, viewModel))
+						continue;
+
+					GraphicsStateSet geometryState;
+
+					if (sceneObjectBatch.State != null) {
+						geometryState = currentState.Push();
+						geometryState.Merge(sceneObjectBatch.State);
+					} else
+						geometryState = currentState;
+
+					yield return (new SceneObjectBatch(
+						sceneObjectBatch.VertexArray ?? VertexArray,
+						geometryState,
+						sceneObjectBatch.Program ?? Program
+					));
+				}
+			} else {
+				if (_BoundingVolume != null && _BoundingVolume.IsClipped(ctxScene.ViewFrustumPlanes, viewModel))
+					yield break;
+
+				if (VertexArray == null)
+					yield break;
+
+				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
+			}
+		}
+
+
+		/// <summary>
 		/// Geometry instances.
 		/// </summary>
 		private readonly List<Geometry> _GeometryInstances = new List<Geometry>();
@@ -322,16 +379,20 @@ namespace OpenGL.Objects.Scene
 
 		#region Bounding Volume
 
-		internal IEnumerable<SceneObjectBatch> GetBoundingVolumes(State.GraphicsStateSet currentState, IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
+		internal IEnumerable<SceneObjectBatch> GetBoundingVolumes(SceneGraphContext ctxScene)
 		{
+			GraphicsStateSet currentState = ctxScene.GraphicsStateStack.Current.Push();
+			TransformStateBase sceneGeometryModel = (TransformStateBase)currentState[TransformStateBase.StateSetIndex];
+			IMatrix4x4 viewModel = sceneGeometryModel.ModelView;
+
 			if (_GeometryInstances.Count > 0) {
 				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
 					IBoundingVolume instanceVolume = sceneObjectBatch.BoundingVolume ?? _BoundingVolume;
 
-					if (instanceVolume != null && instanceVolume.IsClipped(clippingPlanes, viewModel))
+					if (instanceVolume != null && instanceVolume.IsClipped(ctxScene.ViewFrustumPlanes, viewModel))
 						continue;
 
-					State.GraphicsStateSet volumeState = currentState.Push();
+					GraphicsStateSet volumeState = currentState.Push();
 
 					SetBoundingVolumeState(instanceVolume, volumeState);
 
@@ -342,10 +403,10 @@ namespace OpenGL.Objects.Scene
 					));
 				}
 			} else {
-				if (_BoundingVolume == null || _BoundingVolume.IsClipped(clippingPlanes, viewModel))
+				if (_BoundingVolume == null || _BoundingVolume.IsClipped(ctxScene.ViewFrustumPlanes, viewModel))
 					yield break;
 
-				State.GraphicsStateSet volumeState = currentState.Push();
+				GraphicsStateSet volumeState = currentState.Push();
 
 				SetBoundingVolumeState(_BoundingVolume, volumeState);
 
@@ -353,7 +414,7 @@ namespace OpenGL.Objects.Scene
 			}
 		}
 
-		private static void SetBoundingVolumeState(IBoundingVolume boundingVolume, State.GraphicsStateSet volumeState)
+		private static void SetBoundingVolumeState(IBoundingVolume boundingVolume, GraphicsStateSet volumeState)
 		{
 			if (boundingVolume == null)
 				throw new ArgumentNullException("boundingVolume");
@@ -366,10 +427,10 @@ namespace OpenGL.Objects.Scene
 				throw new NotImplementedException();
 		}
 
-		private static void SetBoundingVolumeState(BoundingBox boundingVolume, State.GraphicsStateSet volumeState)
+		private static void SetBoundingVolumeState(BoundingBox boundingVolume, GraphicsStateSet volumeState)
 		{
 			// Set transform state
-			State.TransformStateBase transformState = (State.TransformStateBase)volumeState[State.TransformStateBase.StateSetIndex];
+			TransformStateBase transformState = (TransformStateBase)volumeState[TransformStateBase.StateSetIndex];
 			if (transformState == null)
 				return;
 
@@ -377,9 +438,8 @@ namespace OpenGL.Objects.Scene
 			Vertex3f size = boundingVolume.Size;
 
 			// Scale model matrix in order to represent the bounding box with the correct size and barycenter
-			transformState.LocalModel.Translate((max + min) / 2.0f);
-			transformState.LocalModel.Scale(size);
-			
+			transformState.LocalModelViewProjection.Translate((max + min) / 2.0f);
+			transformState.LocalModelViewProjection.Scale(size);
 		}
 
 		/// <summary>
@@ -483,60 +543,6 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
-		#region View Frustum Culling
-
-		/// <summary>
-		/// Get all geometries compositing this SceneObjectGeometry, filtering them using view-frustum.
-		/// </summary>
-		/// <param name="currentState">
-		/// A <see cref="State.GraphicsStateSet"/> that specifies the current graphics state to be merged with
-		/// each returned geometry.
-		/// </param>
-		/// <param name="clippingPlanes">
-		/// 
-		/// </param>
-		/// <param name="viewModel">
-		/// 
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="IEnumerable{SceneObjectBatch}"/>.
-		/// </returns>
-		internal IEnumerable<SceneObjectBatch> GetGeometries(State.GraphicsStateSet currentState, IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
-		{
-			if (_GeometryInstances.Count > 0) {
-				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
-					IBoundingVolume instanceVolume = sceneObjectBatch.BoundingVolume ?? _BoundingVolume;
-
-					if (instanceVolume != null && instanceVolume.IsClipped(clippingPlanes, viewModel))
-						continue;
-
-					State.GraphicsStateSet geometryState;
-
-					if (sceneObjectBatch.State != null) {
-						geometryState = currentState.Push();
-						geometryState.Merge(sceneObjectBatch.State);
-					} else
-						geometryState = currentState;
-
-					yield return (new SceneObjectBatch(
-						sceneObjectBatch.VertexArray ?? VertexArray,
-						geometryState,
-						sceneObjectBatch.Program ?? Program
-					));
-				}
-			} else {
-				if (_BoundingVolume != null && _BoundingVolume.IsClipped(clippingPlanes, viewModel))
-					yield break;
-
-				if (VertexArray == null)
-					yield break;
-
-				yield return (new SceneObjectBatch(VertexArray, currentState, Program));
-			}
-		}
-
-		#endregion
-
 		#region SceneObjectGeometry Overrides
 
 		/// <summary>
@@ -555,20 +561,33 @@ namespace OpenGL.Objects.Scene
 		private static readonly uint _ObjectType = NextObjectType();
 
 		/// <summary>
-		/// Draw this SceneGraphObject instance.
+		/// Get geometries related to this object.
 		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
-		protected override void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
+		/// <param name="ctx"></param>
+		/// <param name="ctxScene"></param>
+		/// <returns></returns>
+		internal override IEnumerable<SceneObjectBatch> GetGeometries(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			// Apply current state
-			ctxScene.GraphicsStateStack.Current.Apply(ctx, _Program);
-			// Draw arrays
-			_VertexArray.Draw(ctx, _Program);
+			List<SceneObjectBatch> geometries = new List<SceneObjectBatch>();
+
+			GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current.Push();
+			TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
+
+			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
+				// View-frustum culling
+				geometries.AddRange(GetGeometriesViewFrustum(ctxScene));
+			else
+				// All geometries
+				geometries.AddRange(GetGeometries(sceneGeometryState));
+
+			// Bounding volumes
+			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
+				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
+					// View-frustum culling
+					geometries.AddRange(GetBoundingVolumes(ctxScene));
+			}
+
+			return (geometries);
 		}
 
 		/// <summary>

@@ -471,6 +471,26 @@ namespace OpenGL.Objects.Scene
 		}
 
 		/// <summary>
+		/// The local model: the transformation of the current vertex arrays object space, without considering
+		/// inherited transform states of parent objects.
+		/// </summary>
+		public IModelMatrix LocalModelView
+		{
+			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelView); }
+			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelView = value; }
+		}
+
+		/// <summary>
+		/// The local model: the transformation of the current vertex arrays object space, without considering
+		/// inherited transform states of parent objects.
+		/// </summary>
+		public IModelMatrix LocalModelViewProjection
+		{
+			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelViewProjection); }
+			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelViewProjection = value; }
+		}
+
+		/// <summary>
 		/// The world model: the transform of the current vertex arrays object space, considering inherited
 		/// transform states from parent objects.
 		/// </summary>
@@ -495,64 +515,6 @@ namespace OpenGL.Objects.Scene
 				return (worldModel);
 			}
 		}
-
-		#endregion
-
-		#region Updating
-
-		/// <summary>
-		/// Update this SceneGraphObject hierarchy.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctxScene"/>.
-		/// </exception>
-		protected internal virtual void Update(GraphicsContext ctx, SceneGraphContext ctxScene)
-		{
-			CheckCurrentContext(ctx);
-
-			if (ctxScene == null)
-				throw new ArgumentNullException("ctxScene");
-
-			TraverseDirect(ctx, ctxScene, _TraverseUpdateContext, null);
-		}
-
-		/// <summary>
-		/// Update this SceneGraphObject instance.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
-		protected internal virtual void UpdateThis(GraphicsContext ctx, SceneGraphContext ctxScene)
-		{
-			
-		}
-
-		private static bool UpdateDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
-		{
-			sceneObject.UpdateThis(ctx, ctxScene);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// The <see cref="TraverseContext"/> used for updating the scene graph
-		/// </summary>
-		private static TraverseContext _TraverseUpdateContext = new TraverseContext(UpdateDelegate);
 
 		#endregion
 
@@ -602,77 +564,15 @@ namespace OpenGL.Objects.Scene
 		#region Drawing
 
 		/// <summary>
-		/// Draw this SceneGraphObject hierarchy.
+		/// Get geometries related to this object.
 		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctxScene"/>.
-		/// </exception>
-		protected internal virtual void Draw(GraphicsContext ctx, SceneGraphContext ctxScene)
+		/// <param name="ctx"></param>
+		/// <param name="ctxScene"></param>
+		/// <returns></returns>
+		internal virtual IEnumerable<SceneObjectBatch> GetGeometries(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			CheckCurrentContext(ctx);
-
-			if (ctxScene == null)
-				throw new ArgumentNullException("ctxScene");
-
-			TraverseDirect(ctx, ctxScene, _TraverseDrawContext, null);
+			return (null);
 		}
-
-		/// <summary>
-		/// Draw this SceneGraphObject instance.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="ctxScene">
-		/// The <see cref="SceneGraphContext"/> used for drawing.
-		/// </param>
-		protected virtual void DrawThis(GraphicsContext ctx, SceneGraphContext ctxScene)
-		{
-			
-		}
-
-		private static bool DrawDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
-		{
-			// Draw this object
-			sceneObject.DrawThis(ctx, ctxScene);
-
-			return (true);
-		}
-
-		protected static bool DrawPreDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
-		{
-			// Update object before applying state
-			sceneObject.UpdateThis(ctx, ctxScene);
-			// Push and merge the graphics state
-			ctxScene.GraphicsStateStack.Push(sceneObject.ObjectState);
-
-			return (true);
-		}
-
-		protected static bool DrawPostDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
-		{
-			// Restore previous state
-			ctxScene.GraphicsStateStack.Pop();
-
-			return (true);
-		}
-
-		/// <summary>
-		/// The <see cref="TraverseContext"/> used for drawing the scene graph
-		/// </summary>
-		private static TraverseContext _TraverseDrawContext = new TraverseContext(DrawDelegate, DrawPreDelegate, DrawPostDelegate);
 
 		/// <summary>
 		/// The state relative to this SceneGraphObject.

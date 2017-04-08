@@ -217,9 +217,9 @@ namespace OpenGL.Objects
 
 			#region Instanced Arrays
 
-			string instanceArrayId = resourceClassId + ".InstanceArray";
-
 			if (ctx.Extensions.InstancedArrays) {
+				string instanceArrayId = resourceClassId + ".InstanceArray";
+
 				_GlyphInstances = (ArrayBufferObjectInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
 
 				if (_GlyphInstances == null) {

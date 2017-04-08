@@ -47,8 +47,13 @@ namespace OpenGL.Objects.Scene
 		BoundingVolumes =			0x0004,
 
 		/// <summary>
+		/// Light management.
+		/// </summary>
+		Lighting =					0x0008,
+
+		/// <summary>
 		/// Shadow maps are updated.
 		/// </summary>
-		ShadowMaps =				0x0008,
+		ShadowMaps =				0x0010,
 	}
 }

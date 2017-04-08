@@ -90,6 +90,7 @@
     <Compile Include="SamplerParameters.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
     <Compile Include="Scene\SceneGraphSorter.cs" />
+    <Compile Include="Scene\SceneLightManager.cs" />
     <Compile Include="Scene\SceneObjectBatch.cs" />
     <Compile Include="Scene\SceneObjectCodecWavefront.cs" />
     <Compile Include="Scene\SceneObjectFlags.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="State\TransformState.cs" />
     <Compile Include="State\TransformStateBase.cs" />
     <Compile Include="State\TransformStateDouble.cs" />
+    <Compile Include="State\ViewportState.cs" />
     <Compile Include="State\WriteMaskState.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="Tessellator.cs" />
@@ -212,6 +214,10 @@
     <EmbeddedResource Include="Shaders\Font\Fragment.FontTextureArray.glsl" />
     <EmbeddedResource Include="Shaders\Shadow\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\Shadow\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\TextureVertex.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\TextureFragment.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\DepthFragment.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\DepthVertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -235,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\Specialized\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shaders\Shadow\_ShadersLibrary.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

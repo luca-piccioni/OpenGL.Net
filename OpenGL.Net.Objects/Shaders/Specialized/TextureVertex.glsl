@@ -16,11 +16,24 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-// #include </OpenGL/Compatibility.glsl>
+#include </OpenGL/Compatibility.glsl>
+#include </OpenGL/TransformState.glsl>
 
-// OUT float glo_FragDepth;
+// Vertex position
+LOCATION(0) ATTRIBUTE vec4 glo_Position;
+// Vertex color
+LOCATION(1) ATTRIBUTE vec4 glo_Color;
+// Vertex texture coordinates
+LOCATION(3) ATTRIBUTE vec2 glo_TexCoord0;
+
+// Vertex/Fragment color
+SHADER_OUT vec4 glo_VertexColor;
+// Vertex/Fragment texture coordinates
+SHADER_OUT vec2 glo_VertexTexCoord[1];
 
 void main()
 {
-	// glo_FragDepth = gl_FragCoord.z;
+	gl_Position = glo_ModelViewProjection * glo_Position;
+	glo_VertexColor = glo_Color;
+	glo_VertexTexCoord[0] = glo_TexCoord0;
 }

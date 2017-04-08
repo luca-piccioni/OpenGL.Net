@@ -1,4 +1,4 @@
-
+﻿
 // Copyright (C) 2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -16,11 +16,24 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-// #include </OpenGL/Compatibility.glsl>
+#include </OpenGL/Compatibility.glsl>
 
-// OUT float glo_FragDepth;
+uniform sampler2D glo_Texture;
+uniform vec2 glo_NearFar;
+
+SHADER_IN vec4 glo_VertexColor;
+SHADER_IN vec2 glo_VertexTexCoord[1];
+
+OUT vec4		glo_FragColor;
 
 void main()
 {
-	// glo_FragDepth = gl_FragCoord.z;
+	float depth = TEXTURE_2D(glo_Texture, glo_VertexTexCoord[0]).r;
+	
+	depth = depth * 2.0 - 1.0;			// To NDC
+	depth = (2.0 * glo_NearFar.x * glo_NearFar.y) / (glo_NearFar.x + glo_NearFar.y - depth * (glo_NearFar.y - glo_NearFar.x));
+	depth = depth / glo_NearFar.y;
+
+	glo_FragColor = vec4(vec3(depth), 1.0);
 }
+

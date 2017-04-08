@@ -59,27 +59,23 @@ namespace OpenGL.Objects.State
 		#region TransformStateBase Overrides
 
 		/// <summary>
-		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// The local model matrix. Transform object-space to universe-space. This property has a lazy initialization: if
+		/// not accessed, no model matrix is defined.
 		/// </summary>
-		/// <returns>
-		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
-		/// are not referred by both instances.
-		/// </returns>
-		public override IGraphicsState Push()
-		{
-			TransformState copiedState = (TransformState)base.Push();
-
-			if (_LocalProjection != null)
-				copiedState._LocalProjection = (ProjectionMatrix)_LocalProjection.Clone();
-			copiedState._LocalModel = new ModelMatrix(_LocalModel);
-
-			return (copiedState);
-		}
+		public override IModelMatrix LocalModel { get { return (_LocalModel ?? (_LocalModel = new ModelMatrix())); } }
 
 		/// <summary>
-		/// The local projection: the projection matrix of the current verte arrays, without considering inherited
-		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
-		/// previous state.
+		/// Utility routine for checking the actual definition of LocalModel, without triggering the lazy initialization.
+		/// </summary>
+		protected override bool HasLocalModel { get { return (_LocalModel != null); } }
+
+		/// <summary>
+		/// The local model-view matrix of this state.
+		/// </summary>
+		private ModelMatrix _LocalModel;
+
+		/// <summary>
+		/// The local projection: the projection matrix used for defining <see cref="LocalModelViewProjection"/>.
 		/// </summary>
 		public override IProjectionMatrix LocalProjection
 		{
@@ -92,7 +88,7 @@ namespace OpenGL.Objects.State
 						throw new InvalidOperationException("value is not ProjectionMatrix");
 					_LocalProjection = projectionMatrix;
 				} else
-					_LocalProjection = null;		// Inherited projection matrix
+					_LocalProjection = null;
 			}
 		}
 
@@ -102,15 +98,85 @@ namespace OpenGL.Objects.State
 		private ProjectionMatrix _LocalProjection;
 
 		/// <summary>
-		/// The local model: the transformation of the current vertex arrays object space, without considering
-		/// inherited transform states of parent objects.
+		/// Get or set the combined model-view matrix. This property defaults to null. It must be set manually to have a
+		/// meaninful value.
 		/// </summary>
-		public override IModelMatrix LocalModel { get { return (_LocalModel); } }
+		public override IModelMatrix LocalModelView
+		{
+			get { return (_LocalModelView); }
+			set
+			{
+				if (value != null) {
+					ModelMatrix modelviewMatrix = value.Clone() as ModelMatrix;
+					if (modelviewMatrix == null)
+						throw new InvalidOperationException("value is not ModelMatrix");
+					_LocalModelView = modelviewMatrix;
+				} else
+					_LocalModelView = null;
+			}
+		}
 
 		/// <summary>
 		/// The local model-view matrix of this state.
 		/// </summary>
-		private ModelMatrix _LocalModel = new ModelMatrix();
+		private ModelMatrix _LocalModelView;
+
+		/// <summary>
+		/// Get the combined model-view-projection matrix. This property has a lazy initialization: if not accessed, no
+		/// model-view-projection matrix is defined. To automatically initialize this property without exception, the
+		/// <see cref="LocalProjection"/> and <see cref="LocalModelView"/> must be defined. It is possible to set
+		/// manually this property: doing so it will return a copy of the value.
+		/// </summary>
+		public override IModelMatrix LocalModelViewProjection
+		{
+			get
+			{
+				if (_LocalModelViewProjection == null) {
+					if (_LocalModelView == null || _LocalProjection == null)
+						throw new InvalidOperationException("unable to compute LocalModelViewProjection");
+					return (_LocalModelViewProjection = new ModelMatrix(_LocalProjection * _LocalModelView));
+				} else
+					return (_LocalModelViewProjection);
+			}
+			set
+			{
+				if (value != null) {
+					ModelMatrix modelviewprojMatrix = value.Clone() as ModelMatrix;
+					if (modelviewprojMatrix == null)
+						throw new InvalidOperationException("value is not ModelMatrix");
+					_LocalModelViewProjection = modelviewprojMatrix;
+				} else
+					_LocalModelViewProjection = null;
+			}
+		}
+
+		/// <summary>
+		///  The local projection matrix of this state.
+		/// </summary>
+		private ModelMatrix _LocalModelViewProjection;
+
+		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public override IGraphicsState Push()
+		{
+			TransformState copiedState = (TransformState)base.Push();
+
+			if (_LocalProjection != null)
+				copiedState._LocalProjection = (ProjectionMatrix)_LocalProjection.Clone();
+			if (_LocalModel != null)
+				copiedState._LocalModel = new ModelMatrix(_LocalModel);
+			if (_LocalModelView != null)
+				copiedState._LocalModelView = new ModelMatrix(_LocalModelView);
+			if (_LocalModelViewProjection != null)
+				copiedState._LocalModelViewProjection = new ModelMatrix(_LocalModelViewProjection);
+
+			return (copiedState);
+		}
 
 		#endregion
 	}

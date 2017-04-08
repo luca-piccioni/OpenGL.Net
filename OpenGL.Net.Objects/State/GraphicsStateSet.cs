@@ -49,6 +49,7 @@ namespace OpenGL.Objects.State
 		{
 			int index;
 
+			index = ViewportState.StateSetIndex;
 			index = PixelAlignmentState.StateSetIndex;
 			index = PrimitiveRestartState.StateSetIndex;
 			index = TransformStateBase.StateSetIndex;

@@ -17,7 +17,7 @@
 // USA
 
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using OpenGL.Objects.State;
 
 namespace OpenGL.Objects.Scene
@@ -35,6 +35,7 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentNullException("sceneGraph");
 
 			Scene = sceneGraph;
+			ViewFrustumPlanes = Plane.GetFrustumPlanes(Scene.ProjectionMatrix);
 		}
 
 		#endregion
@@ -50,6 +51,11 @@ namespace OpenGL.Objects.Scene
 		/// The <see cref="GraphicsStateSetStack"/> supporting state variation during the scene graph traversal.
 		/// </summary>
 		public readonly GraphicsStateSetStack GraphicsStateStack = new GraphicsStateSetStack();
+
+		/// <summary>
+		/// Pre-compute view-frustum planes to cull scene objects.
+		/// </summary>
+		public readonly IEnumerable<Plane> ViewFrustumPlanes;
 
 		#endregion
 

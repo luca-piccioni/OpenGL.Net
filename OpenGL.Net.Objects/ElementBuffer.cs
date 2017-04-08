@@ -56,7 +56,22 @@ namespace OpenGL.Objects
 			try {
 				ElementsType = elementType;
 				// Determine ElementsType and default RestartIndexKey
-				SetProperties(elementType);
+				switch (elementType) {
+					case DrawElementsType.UnsignedByte:
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case DrawElementsType.UnsignedShort:
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case DrawElementsType.UnsignedInt:
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -79,37 +94,26 @@ namespace OpenGL.Objects
 			try {
 				ElementsType = elementType;
 				// Determine ElementsType and default RestartIndexKey
-				SetProperties(elementType);
+				switch (elementType) {
+					case DrawElementsType.UnsignedByte:
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case DrawElementsType.UnsignedShort:
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case DrawElementsType.UnsignedInt:
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
 				throw;
-			}
-		}
-
-		/// <summary>
-		/// Set ElementBuffer properties following element type.
-		/// </summary>
-		/// <param name="elementType">
-		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
-		/// </param>
-		private void SetProperties(DrawElementsType elementType)
-		{
-			switch (elementType) {
-				case DrawElementsType.UnsignedByte:
-					ItemSize = 1;
-					RestartIndexKey = 0x000000FF;
-					break;
-				case DrawElementsType.UnsignedShort:
-					ItemSize = 2;
-					RestartIndexKey = 0x0000FFFF;
-					break;
-				case DrawElementsType.UnsignedInt:
-					ItemSize = 4;
-					RestartIndexKey = 0xFFFFFFFF;
-					break;
-				default:
-					throw new ArgumentException("type not supported", "elementType");
 			}
 		}
 
@@ -227,14 +231,14 @@ namespace OpenGL.Objects
 		#region Primitive Restart
 		
 		/// <summary>
-		/// Flag that specify whether the restart index is enabled for this ElementBufferObject. It defaults always to false.
+		/// Flag that specify whether the restart index is enabled for this ElementBufferObject. It defaults to false.
 		/// </summary>
 		public bool RestartIndexEnabled;
 
 		/// <summary>
 		/// The restart index value (fixed).
 		/// </summary>
-		public uint RestartIndexKey;
+		public readonly uint RestartIndexKey;
 
 		/// <summary>
 		/// Utility routine for extracting 
@@ -556,6 +560,30 @@ namespace OpenGL.Objects
 			base(typeof(T), usageMask)
 		{
 			
+		}
+
+		#endregion
+
+		#region Restart Index
+
+		/// <summary>
+		/// The default restart index for this ElementBuffer.
+		/// </summary>
+		public static uint DefaultRestartIndex
+		{
+			get
+			{
+				switch (Type.GetTypeCode(typeof(T))) {
+					case TypeCode.Byte:
+						return (0x000000FF);
+					case TypeCode.UInt16:
+						return (0x0000FFFF);
+					case TypeCode.UInt32:
+						return (0xFFFFFFFF);
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			}
 		}
 
 		#endregion

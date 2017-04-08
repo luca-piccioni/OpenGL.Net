@@ -16,11 +16,24 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-// #include </OpenGL/Compatibility.glsl>
+#include </OpenGL/Compatibility.glsl>
 
-// OUT float glo_FragDepth;
+uniform vec4 glo_UniformColor = vec4(1.0, 1.0, 1.0, 1.0);
+uniform sampler2D glo_Texture;
+
+SHADER_IN vec4 glo_VertexColor;
+SHADER_IN vec2 glo_VertexTexCoord[1];
+
+OUT vec4		glo_FragColor;
 
 void main()
 {
-	// glo_FragDepth = gl_FragCoord.z;
+#if defined(GLO_COLOR_PER_VERTEX)
+	vec4 envColor = glo_VertexColor;
+#else
+	vec4 envColor = glo_UniformColor;
+#endif
+
+	glo_FragColor = TEXTURE_2D(glo_Texture, glo_VertexTexCoord[0]) * envColor;
 }
+

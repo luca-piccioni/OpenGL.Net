@@ -17,7 +17,7 @@
 // USA
 
 using System;
-
+using System.Collections.Generic;
 using OpenGL.Objects.State;
 
 namespace OpenGL.Objects.Scene
@@ -66,6 +66,23 @@ namespace OpenGL.Objects.Scene
 		/// Fall-off exponent.
 		/// </summary>
 		public float FalloffExponent;
+
+		/// <summary>
+		/// The matrix describing the orientation of the spot light.
+		/// </summary>
+		private IModelMatrix LightMatrix
+		{
+			get
+			{
+				ModelMatrix lightRotation = new ModelMatrix();
+				Vertex3f lightRotationAxis = Direction ^ -Vertex3f.UnitZ;
+				float lightRotationAngle = (float)Angle.ToDegrees(Math.Acos(-Vertex3f.UnitZ * Direction));
+
+				lightRotation.Rotate(new Quaternion(lightRotationAxis, lightRotationAngle));
+
+				return (lightRotation);
+			}
+		}
 
 		#endregion
 
@@ -127,7 +144,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Shadow map.
 		/// </summary>
-		private Texture2d _ShadowMap;
+		internal Texture2d _ShadowMap;
 
 		/// <summary>
 		/// Shadow program.
@@ -141,7 +158,83 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
+		#region Bounding Volume
+
+		private void LinkBoundingVolumeResources(GraphicsContext ctx)
+		{
+			string resourceClassId = "OpenGL.Objects.SceneObjectLightSpot.BoundingVolume";
+
+			#region Arrays
+
+			string arrayId = resourceClassId + ".Array";
+
+			if ((_BoundingVolumeArrays = (VertexArrays)ctx.GetSharedResource(arrayId)) == null) {
+				_BoundingVolumeArrays = VertexArrays.CreateCone(1.0f, 1.0f, 16);
+				_BoundingVolumeArrays.Create(ctx);
+				ctx.SetSharedResource(arrayId, _BoundingVolumeArrays);
+			}
+			LinkResource(_BoundingVolumeArrays);
+
+			#endregion
+
+			#region Program
+
+			string programId = resourceClassId + ".Program";
+
+			if ((_BoundingVolumeProgram = (ShaderProgram)ctx.GetSharedResource(programId)) == null) {
+				_BoundingVolumeProgram = ctx.CreateProgram("OpenGL.Standard");
+				ctx.SetSharedResource(programId, _BoundingVolumeProgram);
+			}
+			LinkResource(_BoundingVolumeArrays);
+
+			#endregion
+		}
+
+		/// <summary>
+		/// Arrays used for representing the light bounding volume.
+		/// </summary>
+		private VertexArrays _BoundingVolumeArrays;
+
+		/// <summary>
+		/// Program used for drawing <see cref="_BoundingVolumeArrays"/>.
+		/// </summary>
+		private ShaderProgram _BoundingVolumeProgram;
+
+		#endregion
+
 		#region SceneObjectLight Overrides
+
+		internal override IEnumerable<SceneObjectBatch> GetGeometries(GraphicsContext ctx, SceneGraphContext ctxScene)
+		{
+			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
+				GraphicsStateSet boundingVolumeState = ctxScene.GraphicsStateStack.Current.Push();
+
+				// Transform
+				TransformStateBase boundingVolumeModel = (TransformStateBase)boundingVolumeState[TransformStateBase.StateSetIndex];
+
+				float lightVolumeDepth = 100.0f;
+				float lightVolumeSize = lightVolumeDepth * (float)Math.Tan(Angle.ToRadians(FalloffAngle));
+
+				boundingVolumeModel.LocalModelViewProjection.Set(boundingVolumeModel.LocalModelViewProjection.Multiply(LightMatrix));
+				boundingVolumeModel.LocalModelViewProjection.Translate(0.0f, 0.0f, lightVolumeDepth);
+				boundingVolumeModel.LocalModelViewProjection.Scale(lightVolumeSize, lightVolumeSize, lightVolumeDepth);
+
+				// Uniform color
+				ShaderUniformState uniformState = new ShaderUniformState("UniformState");
+				uniformState.SetUniformState("glo_UniformColor", new ColorRGBAF(1.0f, 1.0f, 0.0f, 0.5f));
+				boundingVolumeState.DefineState(uniformState);
+				// Alpha blending
+				boundingVolumeState.DefineState(BlendState.AlphaBlending);
+
+				yield return new SceneObjectBatch(
+					_BoundingVolumeArrays,
+					boundingVolumeState,
+					_BoundingVolumeProgram
+				);
+			}
+
+			yield break;
+		}
 
 		/// <summary>
 		/// Create the corresponding <see cref="LightsState.Light"/> for this object.
@@ -151,11 +244,12 @@ namespace OpenGL.Objects.Scene
 		/// </returns>
 		public override LightsState.Light ToLight(GraphicsContext ctx, SceneGraphContext sceneCtx)
 		{
+			TransformStateBase transformState = (TransformStateBase)sceneCtx.GraphicsStateStack.Current[TransformStateBase.StateSetIndex];
 			LightsState.LightSpot light = new LightsState.LightSpot();
 
 			SetLightParameters(sceneCtx, light);
 
-			IModelMatrix worldModel = WorldModel;
+			IModelMatrix worldModel = transformState.LocalModelView;
 			IMatrix3x3 normalMatrix = worldModel.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose();
 
 			light.Direction = ((Vertex3f)normalMatrix.Multiply((Vertex3f)Direction)).Normalized;
@@ -165,8 +259,8 @@ namespace OpenGL.Objects.Scene
 
 			// Shadow mapping
 			if (_ShadowMap != null && _ShadowViewMatrix != null) {
-				light.ShadowMapIndex =  (int)_ShadowMap.GetTextureUnit(ctx);
-				light.ShadowMapMvp.Set(_BiasMatrix.Multiply(_ShadowViewMatrix));
+				// Determined later: light.ShadowMapIndex
+				light.ShadowMapMvp.Set(_ShadowViewMatrix);
 				light.ShadowMap2D = _ShadowMap;
 			} else {
 				light.ShadowMapIndex = -1;
@@ -175,6 +269,11 @@ namespace OpenGL.Objects.Scene
 
 			return (light);
 		}
+
+		/// <summary>
+		/// The shadow map texture.
+		/// </summary>
+		protected override Texture ShadowTexture { get { return (_ShadowMap); } }
 
 		/// <summary>
 		/// Allocate resources required for shadow mapping.
@@ -191,8 +290,9 @@ namespace OpenGL.Objects.Scene
 				LinkResource(_ShadowMap = new Texture2d(_ShadowMapSize, _ShadowMapSize, ShadowMapFormat));
 				_ShadowMap.SamplerParams.MinFilter = TextureMinFilter.Nearest;
 				_ShadowMap.SamplerParams.MagFilter = TextureMagFilter.Nearest;
-				_ShadowMap.SamplerParams.WrapCoordS = _ShadowMap.SamplerParams.WrapCoordT = TextureWrapMode.Repeat;
+				_ShadowMap.SamplerParams.WrapCoordS = _ShadowMap.SamplerParams.WrapCoordT = TextureWrapMode.Clamp;
 				_ShadowMap.SamplerParams.CompareMode = true;
+				_ShadowMap.SamplerParams.CompareFunc = DepthFunction.Less;
 			}
 
 			if (_ShadowFramebuffer == null) {
@@ -201,7 +301,7 @@ namespace OpenGL.Objects.Scene
 			}
 			
 			if (_ShadowProgram == null)
-				LinkResource(_ShadowProgram = ctx.CreateProgram("OpenGL.ShadowMap"));
+				LinkResource(_ShadowProgram = ctx.CreateProgram("OpenGL.Specialized+Depth"));
 		}
 
 		/// <summary>
@@ -216,23 +316,41 @@ namespace OpenGL.Objects.Scene
 			if (shadowGraph == null)
 				throw new ArgumentNullException("shadowGraph");
 
-			// Set light view
-			shadowGraph.LocalProjection = new PerspectiveProjectionMatrix(FalloffAngle, 1.0f, 0.1f, 100.0f);
-			shadowGraph.LocalModel = LocalModel;
+			// Compute light matrix
+			IModelMatrix viewMatrix = new ModelMatrix(); // LocalModel.Multiply(LightMatrix.GetInverseMatrix()).GetInverseMatrix();
+			viewMatrix.LookAtDirection((Vertex3d)LocalModel.Position, Direction, Vertex3d.UnitY);
+
+			// Set light scene view
+			shadowGraph.ProjectionMatrix = new PerspectiveProjectionMatrix(FalloffAngle * 2.0f, 1.0f, 0.1f, 100.0f);
+			shadowGraph.ViewMatrix = viewMatrix;
 
 			_ShadowFramebuffer.BindDraw(ctx);
-			_ShadowFramebuffer.Clear(ctx, ClearBufferMask.DepthBufferBit);
 
-			//WriteMaskState.NonColorMaskState.Apply(ctx, null);
+			// Reset viewport
+			new ViewportState(0, 0, (int)_ShadowMap.Width, (int)_ShadowMap.Height).Apply(ctx, null);
+
+			_ShadowFramebuffer.Clear(ctx, ClearBufferMask.DepthBufferBit);
 
 			shadowGraph.Draw(ctx, _ShadowProgram);
 
 			_ShadowFramebuffer.UnbindDraw(ctx);
 
-			// View matrix snapshot
-			_ShadowViewMatrix = LocalModel.GetInverseMatrix();
+			// Cache view matrix
+			_ShadowViewMatrix = _BiasMatrix.Multiply(shadowGraph.ProjectionMatrix.Multiply(viewMatrix));
+		}
 
-			//WriteMaskState.DefaultState.Apply(ctx, null);
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			// Allocate resources for light bounding volume rendering
+			LinkBoundingVolumeResources(ctx);
+			// Base implementation
+			base.CreateObject(ctx);
 		}
 
 		#endregion

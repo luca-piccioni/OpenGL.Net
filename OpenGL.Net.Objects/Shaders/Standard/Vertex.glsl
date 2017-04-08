@@ -43,21 +43,10 @@ SHADER_OUT vec2 glo_VertexTexCoord[1];
 // Vertex/Fragment TBN space matrix
 SHADER_OUT mat3 glo_VertexTBN;
 
-// Vertex position (object space)
-SHADER_OUT vec4 glo_VertexPositionObject;
-// Vertex normal (object space)
-SHADER_OUT vec3 glo_VertexNormalObject;
-
 // Vertex/Fragment position (model space)
-SHADER_OUT vec4 glo_VertexPosition;
-// Vertex/Fragment normal (model space)
-SHADER_OUT vec3 glo_VertexNormalModel;
-
-// Vertex/Fragment position (light space)
-SHADER_OUT vec3 glo_VertexShadowPosition[GLO_MAX_LIGHTS_COUNT];
-
-// Shadow maps
-void ComputeVertexLightPositions();
+SHADER_OUT vec4 glo_VertexPositionModel;
+// Vertex/Fragment position (model-view space)
+SHADER_OUT vec4 glo_VertexPositionModelView;
 
 void main()
 {
@@ -79,17 +68,11 @@ void main()
 	vec3 tbnN = vNormalView;
 	// re-orthogonalize T with respect to N
 	// tbnT = normalize(tbnT - dot(tbnT, tbnN) * tbnN);
-	
 	glo_VertexTBN = mat3(tbnT, tbnB, tbnN);
 
-	// Object space information
-	glo_VertexPositionObject = glo_Position;
-	glo_VertexNormalObject = glo_Normal;
-
-	// Position is required for lighting
-	glo_VertexPosition = glo_ModelView * glo_Position;
-	// Normal (model) is required for environment mapping
-	glo_VertexNormalModel = normalize(mat3x3(glo_ModelView) * normalize(glo_Normal));
+	// Positions required for lighting
+	glo_VertexPositionModel = glo_Model * glo_Position;
+	glo_VertexPositionModelView = glo_ModelView * glo_Position;
 
 #if defined(GLO_LIGHTING_PER_VERTEX)
 
@@ -102,25 +85,10 @@ void main()
 #endif
 
 #if !defined(GLO_DEBUG_NORMAL)
-	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_VertexPosition, glo_VertexNormal);
+	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_VertexPositionModelView, glo_VertexNormal);
 #else
 	glo_VertexColor = vec4(normalize(glo_Normal), 1.0);
 #endif
 
 #endif
-
-	// Shadow map support
-	ComputeVertexLightPositions();
-}
-
-void ComputeVertexLightPositions()
-{
-	for (int i = 0; i < glo_LightsCount; i++) {
-		if (glo_Light[i].ShadowMapIndex < 0)
-			continue;
-		
-		vec4 lightPosition = glo_Light[i].ShadowMapMvp * glo_Position;
-
-		glo_VertexShadowPosition[i] = lightPosition.xyz / lightPosition.w;
-	}
 }

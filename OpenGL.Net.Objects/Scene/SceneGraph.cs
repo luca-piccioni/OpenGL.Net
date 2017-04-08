@@ -19,7 +19,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using OpenGL.Objects.State;
 using static OpenGL.Objects.Scene.SceneObject;
 
 namespace OpenGL.Objects.Scene
@@ -35,8 +34,20 @@ namespace OpenGL.Objects.Scene
 		/// Construct a SceneGraph.
 		/// </summary>
 		public SceneGraph()
+			: this(SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting | SceneGraphFlags.Lighting | SceneGraphFlags.ShadowMaps)
 		{
+			
+		}
 
+		/// <summary>
+		/// Construct a SceneGraph.
+		/// </summary>
+		public SceneGraph(SceneGraphFlags flags)
+		{
+			_Flags = flags;
+
+			if ((_Flags & SceneGraphFlags.Lighting) != 0)
+				_LightManager = new SceneLightManager();
 		}
 
 		/// <summary>
@@ -45,15 +56,15 @@ namespace OpenGL.Objects.Scene
 		/// <param name="otherScene">
 		/// The <see cref="SceneGraph"/> to be copied.
 		/// </param>
-		public SceneGraph(SceneGraph otherScene)
+		public SceneGraph(SceneGraph otherScene, SceneGraphFlags flags)
+			: this(flags)
 		{
 			if (otherScene == null)
 				throw new ArgumentNullException("otherScene");
 
-			_Flags = otherScene._Flags;
 			CurrentView = otherScene.CurrentView;
-			LocalProjection = otherScene.LocalProjection;
-			LocalModel = otherScene.LocalModel;
+			ProjectionMatrix = otherScene.ProjectionMatrix;
+			ViewMatrix = otherScene.ViewMatrix;
 			SceneRoot = otherScene.SceneRoot;
 		}
 
@@ -70,37 +81,33 @@ namespace OpenGL.Objects.Scene
 		#region View
 
 		/// <summary>
-		/// The view projection.
+		/// The projection matrix.
 		/// </summary>
-		public IProjectionMatrix LocalProjection
+		public IProjectionMatrix ProjectionMatrix
 		{
-			get { return (_ViewProjection); }
-			set { _ViewProjection = value; }
+			get { return (_ProjectionMatrix); }
+			set { _ProjectionMatrix = value; }
 		}
 
 		/// <summary>
 		/// The view projection.
 		/// </summary>
-		private IProjectionMatrix _ViewProjection;
+		private IProjectionMatrix _ProjectionMatrix;
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
 		/// inherited transform states of parent objects.
 		/// </summary>
-		public IModelMatrix LocalModel
+		public IModelMatrix ViewMatrix
 		{
-			get { return (_ViewModel); }
-			set { _ViewModel = value; }
+			get { return (_ViewMatrix); }
+			set { _ViewMatrix = value; }
 		}
 
 		/// <summary>
 		/// The view projection.
 		/// </summary>
-		private IModelMatrix _ViewModel;
-
-		#endregion
-
-		#region Root Object
+		private IModelMatrix _ViewMatrix;
 
 		/// <summary>
 		/// 
@@ -112,20 +119,24 @@ namespace OpenGL.Objects.Scene
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private SceneObjectCamera _CurrentView;
+
+		/// <summary>
 		/// Set current graph view to <see cref="CurrentView"/>.
 		/// </summary>
 		public void UpdateViewMatrix()
 		{
 			if (_CurrentView != null) {
-				LocalProjection = _CurrentView.ProjectionMatrix;
-				LocalModel = _CurrentView.LocalModel.GetInverseMatrix();
+				ProjectionMatrix = _CurrentView.ProjectionMatrix;
+				ViewMatrix = _CurrentView.LocalModel.GetInverseMatrix();
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private SceneObjectCamera _CurrentView;
+		#endregion
+
+		#region Root Object
 
 		/// <summary>
 		/// Get or set the <see cref="SceneObject"/> defining the scene.
@@ -151,16 +162,12 @@ namespace OpenGL.Objects.Scene
 		public SceneGraphFlags SceneFlags
 		{
 			get { return (_Flags); }
-			set { _Flags = value; }
 		}
 
 		/// <summary>
 		/// Scene graph flags.
 		/// </summary>
-		private SceneGraphFlags _Flags =
-			SceneGraphFlags.CullingViewFrustum |
-			SceneGraphFlags.StateSorting |
-			SceneGraphFlags.ShadowMaps | SceneGraphFlags.BoundingVolumes;
+		private readonly SceneGraphFlags _Flags;
 
 		/// <summary>
 		/// Draw this SceneGraph.
@@ -187,42 +194,19 @@ namespace OpenGL.Objects.Scene
 			CheckCurrentContext(ctx);
 
 			// View parameters
-			SceneRoot.LocalProjection = LocalProjection;
-			SceneRoot.LocalModel = LocalModel;
+			SceneRoot.LocalProjection = ProjectionMatrix;
+			SceneRoot.LocalModel = new ModelMatrix();
+			SceneRoot.LocalModelView = ViewMatrix;
+			SceneRoot.LocalModelViewProjection = new ModelMatrix((Matrix4x4)ProjectionMatrix.Multiply(ViewMatrix));
 
 			using (SceneGraphContext ctxScene = new SceneGraphContext(this)) {
 				ObjectBatchContext objectBatchContext = new ObjectBatchContext();
 
-				#region Scene Graph Traversal
-
-				// View parameters - Frustum culling
-				objectBatchContext.ViewFrustumPlanes = Plane.GetFrustumPlanes(LocalProjection);
-				// Collect geometries to be batched
+				// Traverse the scene graph
 				SceneRoot.TraverseDirect(ctx, ctxScene, _TraverseDrawContext, objectBatchContext);
-
-				#endregion
-
-				#region Shadow Mapping
-
-				if ((SceneFlags & SceneGraphFlags.ShadowMaps) != 0) {
-
-					KhronosApi.LogComment("*** Update Shadow Maps");
-
-					foreach (SceneObjectLight sceneLight in objectBatchContext.ShadowLights) {
-						using (SceneGraph shadowGraph = new SceneGraph(this)) {
-							// Avoid stack overflow
-							shadowGraph.SceneFlags &= ~SceneGraphFlags.BoundingVolumes;
-							shadowGraph.SceneFlags &= ~SceneGraphFlags.ShadowMaps;
-							shadowGraph.SceneFlags &= ~SceneGraphFlags.CullingViewFrustum;
-
-							sceneLight.UpdateShadowMap(ctx, shadowGraph);
-						}
-					}
-				}
-
-				#endregion
-
-				#region Draw
+				// Generate shadow maps
+				if ((SceneFlags & SceneGraphFlags.Lighting) != 0 && (SceneFlags & SceneGraphFlags.ShadowMaps) != 0)
+					_LightManager.GenerateShadowMaps(ctx, this);
 
 				// Sort geometries
 				List<SceneObjectBatch> sceneObjects = objectBatchContext.Objects;
@@ -234,14 +218,14 @@ namespace OpenGL.Objects.Scene
 				foreach (SceneObjectBatch objectBatch in sceneObjects)
 					objectBatch.Draw(ctx, programOverride);
 
-				#endregion
+				// Debug: shadow maps
+				if ((SceneFlags & SceneGraphFlags.Lighting) != 0 && (SceneFlags & SceneGraphFlags.ShadowMaps) != 0)
+					DisplayShadowMaps(ctx);
 			}
 		}
 
 		private static bool GraphDrawPreDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
 		{
-			// Update object before applying state
-			sceneObject.UpdateThis(ctx, ctxScene);
 			// Push and merge the graphics state
 			ctxScene.GraphicsStateStack.Push(sceneObject.ObjectState);
 
@@ -262,59 +246,14 @@ namespace OpenGL.Objects.Scene
 		{
 			ObjectBatchContext objectBatchContext = (ObjectBatchContext)data;
 
-			if (sceneObject.ObjectType == SceneObjectGeometry.ClassObjectType) {
-
-				// SceneObjectGeometry
-
-				SceneObjectGeometry sceneGeometry = (SceneObjectGeometry)sceneObject;
-				GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current.Push();
-				TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
-
-				IEnumerable<SceneObjectBatch> geometries;
-
-				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
-					// View-frustum culling
-					geometries = sceneGeometry.GetGeometries(sceneGeometryState, objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView);
-				else
-					// All geometries
-					geometries = sceneGeometry.GetGeometries(sceneGeometryState);
-
+			// Collect available geometries
+			IEnumerable<SceneObjectBatch> geometries = sceneObject.GetGeometries(ctx, ctxScene);
+			if (geometries != null)
 				objectBatchContext.Objects.AddRange(geometries);
 
-				// Bounding volumes
-				if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
-					if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
-						// View-frustum culling
-						geometries = sceneGeometry.GetBoundingVolumes(sceneGeometryState, objectBatchContext.ViewFrustumPlanes, sceneGeometryModel.ModelView);
-					else
-						geometries = null;
-				} else
-					geometries = null;
-
-				if (geometries != null)
-					objectBatchContext.Objects.AddRange(geometries);
-
-			} else if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType && (ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
-
-				// SceneObjectLightZone
-
-				SceneObjectLightZone sceneObjectLightZone = (SceneObjectLightZone)sceneObject;
-
-				// TODO: Push instead of Clear to support stacked zones
-				objectBatchContext.Lights.Clear();
-				objectBatchContext.LightZone = sceneObjectLightZone;
-
-			} else if (sceneObject.ObjectType == SceneObjectLight.ClassObjectType && (ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
-
-				// SceneObjectLight
-				SceneObjectLight sceneObjectLight = (SceneObjectLight)sceneObject;
-
-				// Temporary store light to update the light zone
-				objectBatchContext.Lights.Add((SceneObjectLight)sceneObject);
-				// Collect lights requiring shadow map update
-				if (sceneObjectLight.HasShadowMap && objectBatchContext.ShadowLights.Contains(sceneObjectLight) == false)
-					objectBatchContext.ShadowLights.Add(sceneObjectLight);
-			}
+			// Perform lighting
+			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.Lighting) != 0)
+				ctxScene.Scene._LightManager.ManageObject(ctx, ctxScene, sceneObject);
 
 			return (true);
 		}
@@ -323,16 +262,12 @@ namespace OpenGL.Objects.Scene
 		{
 			ObjectBatchContext objectBatchContext = (ObjectBatchContext)data;
 
-			if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType && (ctxScene.Scene.SceneFlags & SceneGraphFlags.BoundingVolumes) != 0) {
-				SceneObjectLightZone sceneObjectLightZone = (SceneObjectLightZone)sceneObject;
-
-				sceneObjectLightZone.ResetLights(ctx, ctxScene, objectBatchContext.Lights);
-				// TODO: Pop instead of Clear to support stacked zones
-				objectBatchContext.Lights.Clear();
-			}
-
 			// Restore previous state
 			ctxScene.GraphicsStateStack.Pop();
+
+			// Perform lighting
+			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.Lighting) != 0)
+				ctxScene.Scene._LightManager.PostObject(ctx, ctxScene, sceneObject);
 
 			return (true);
 		}
@@ -342,40 +277,12 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		class ObjectBatchContext
 		{
-			#region Uniform Information
-
-			/// <summary>
-			/// Pre-compute view-frustum planes to cull scene objects.
-			/// </summary>
-			public IEnumerable<Plane> ViewFrustumPlanes;
-
-			#endregion
-
 			#region Collections
 
 			/// <summary>
 			/// Objects to be drawn.
 			/// </summary>
 			public readonly List<SceneObjectBatch> Objects = new List<SceneObjectBatch>();
-
-			#endregion
-
-			#region Lighting
-
-			/// <summary>
-			/// The current light zone, if any.
-			/// </summary>
-			public SceneObjectLightZone LightZone;
-
-			/// <summary>
-			/// Lights to be associated to the current light zone.
-			/// </summary>
-			public readonly List<SceneObjectLight> Lights = new List<SceneObjectLight>();
-
-			/// <summary>
-			/// Lights required to update the shadow map.
-			/// </summary>
-			public readonly List<SceneObjectLight> ShadowLights = new List<SceneObjectLight>();
 
 			#endregion
 		}
@@ -406,6 +313,100 @@ namespace OpenGL.Objects.Scene
 		}
 
 		private SceneGraphSorter _SorterRoot = CreateDefaultSorter();
+
+		#endregion
+
+		#region Lighting
+
+		[Conditional("DEBUG")]
+		private void LinkShadowMapResources(GraphicsContext ctx)
+		{
+			LinkResource(_ShadowMapQuad = new VertexArrays());
+
+			ArrayBuffer<Vertex2f> positionArray = new ArrayBuffer<Vertex2f>(BufferHint.StaticCpuDraw);
+			positionArray.Create(new Vertex2f[] {
+				new Vertex2f(0.0f, 0.0f), new Vertex2f(1.0f, 0.0f), new Vertex2f(1.0f, 1.0f),
+				new Vertex2f(0.0f, 1.0f), new Vertex2f(0.0f, 0.0f), new Vertex2f(1.0f, 1.0f),
+			});
+			positionArray.Create(ctx);
+
+			_ShadowMapQuad.SetArray(positionArray, VertexArraySemantic.Position);
+			_ShadowMapQuad.SetArray(positionArray, VertexArraySemantic.TexCoord);
+			_ShadowMapQuad.SetElementArray(PrimitiveType.Triangles);
+			_ShadowMapQuad.Create(ctx);
+
+			LinkResource(_ShadowMapDebugProgram = ctx.CreateProgram("OpenGL.Specialized+Depth"));
+		}
+
+		[Conditional("DEBUG")]
+		private void DisplayShadowMaps(GraphicsContext ctx)
+		{
+			State.ViewportState viewportState = new State.ViewportState(ctx);
+			OrthoProjectionMatrix orthoProjection = new OrthoProjectionMatrix(0.0f, viewportState.Width, 0.0f, viewportState.Height);
+			ModelMatrix model = new ModelMatrix();
+
+			// No depth test
+			State.DepthTestState.DefaultState.Apply(ctx, null);
+
+			ctx.Bind(_ShadowMapDebugProgram);
+
+			for (int i = 0; i < _LightManager.ShadowLights.Count; i++) {
+				SceneObjectLight shadowLight = _LightManager.ShadowLights[i];
+				SceneObjectLightSpot shadowSpotLight = shadowLight as SceneObjectLightSpot;
+				if (shadowSpotLight == null)
+					continue;
+
+				Texture2d shadowTex = shadowSpotLight._ShadowMap;
+				shadowTex.SamplerParams.CompareMode = false;
+
+				ModelMatrix quadModel = new ModelMatrix(model);
+				quadModel.Scale(shadowTex.Width / 4, shadowTex.Height / 4);
+
+				_ShadowMapDebugProgram.SetUniform(ctx, "glo_ModelViewProjection", orthoProjection * quadModel);
+				_ShadowMapDebugProgram.SetUniform(ctx, "glo_NearFar", new Vertex2f(0.1f, 100.0f));
+				_ShadowMapDebugProgram.SetUniform(ctx, "glo_Texture", shadowTex);
+				
+				_ShadowMapQuad.Draw(ctx, _ShadowMapDebugProgram);
+
+				shadowTex.SamplerParams.CompareMode = true;
+
+				// Stride right
+				model.Translate(shadowTex.Width, 0.0f);
+			}
+		}
+
+		/// <summary>
+		/// Program used for drawing shadow maps.
+		/// </summary>
+		private ShaderProgram _ShadowMapDebugProgram;
+
+		/// <summary>
+		/// Quadrilateral for drawing shadow maps.
+		/// </summary>
+		private VertexArrays _ShadowMapQuad;
+
+		/// <summary>
+		/// The scene graph light manager.
+		/// </summary>
+		private readonly SceneLightManager _LightManager;
+
+		#endregion
+
+		#region Overrides
+
+		/// <summary>
+		/// Actually create this GraphicsResource resources.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for allocating resources.
+		/// </param>
+		protected override void CreateObject(GraphicsContext ctx)
+		{
+			// Resources
+			LinkShadowMapResources(ctx);
+			// Base implementation
+			base.CreateObject(ctx);
+		}
 
 		#endregion
 	}

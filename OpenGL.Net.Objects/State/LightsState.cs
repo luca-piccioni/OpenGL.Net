@@ -431,7 +431,7 @@ namespace OpenGL.Objects.State
 			if (dummyShadowMap == null) {
 				dummyShadowMap = new Texture2d(1, 1, PixelLayout.Depth16);
 				dummyShadowMap.SamplerParams.CompareMode = true;
-				dummyShadowMap.SamplerParams.CompareFunc = DepthFunction.Always;
+				dummyShadowMap.SamplerParams.CompareFunc = DepthFunction.Never;
 				dummyShadowMap.Create(ctx);
 
 				ctx.SetSharedResource(resourceClassId, dummyShadowMap);
@@ -440,10 +440,21 @@ namespace OpenGL.Objects.State
 			// Dummy shadow map: TextureCube
 
 			// Apply depth maps
-			for (int i = 0; i < 4; i++) {
-				if (i < Lights.Count && Lights[i].ShadowMap2D != null)
-					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + i + "]", Lights[i].ShadowMap2D);
-				else
+			bool[] tex2dSet = new bool[4];
+
+			for (int i = 0; i < tex2dSet.Length; i++) {
+				if (i >= Lights.Count || Lights[i].ShadowMap2D == null)
+					continue;
+
+				int shadowMapIndex = Lights[i].ShadowMapIndex;
+
+				shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + shadowMapIndex + "]", Lights[i].ShadowMap2D);
+				tex2dSet[shadowMapIndex] = true;
+			}
+
+			// Avoid undefined behavior
+			for (int i = 0; i < tex2dSet.Length; i++) {
+				if (tex2dSet[i] == false)
 					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + i + "]", dummyShadowMap);
 			}
 		}

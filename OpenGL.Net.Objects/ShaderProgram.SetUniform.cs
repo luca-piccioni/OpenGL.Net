@@ -1347,6 +1347,9 @@ namespace OpenGL.Objects
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			// Force parameter application
+			ctx.Bind(texture);
+
 #if ENABLE_LAZY_UNIFORM_VALUE
 			if (uniform.IsValueChanged(textureUnitIndex) == false)
 				return;

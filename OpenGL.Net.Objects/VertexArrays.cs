@@ -554,6 +554,7 @@ namespace OpenGL.Objects
 
 			// Elements generation
 			List<uint> indices = new List<uint>();
+			uint restartIndex = ElementBuffer<uint>.DefaultRestartIndex;
 			uint vstride = dx + 1;
 
 			for (uint i = 0; i < dy; i++) {
@@ -571,10 +572,7 @@ namespace OpenGL.Objects
 
 				indices.Add(yoffset + vstride - 1);
 
-				if (Gl.CurrentExtensions.PrimitiveRestart == false) {
-					throw new NotImplementedException();
-				} else
-					indices.Add(uint.MaxValue);
+				indices.Add(restartIndex);
 			}
 
 			// Buffer definition
@@ -584,8 +582,43 @@ namespace OpenGL.Objects
 
 			ElementBuffer<uint> elementBuffer = new ElementBuffer<uint>();
 			elementBuffer.Create(indices.ToArray());
-			elementBuffer.RestartIndexEnabled = Gl.CurrentExtensions.PrimitiveRestart;
+			elementBuffer.RestartIndexEnabled = true;
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
+
+			return (vertexArray);
+		}
+
+		#endregion
+
+		#region Polygon Generation - Cone
+
+		public static VertexArrays CreateCone(float radius, float height, uint dr)
+		{
+			VertexArrays vertexArray = new VertexArrays();
+
+			// Vertex generation
+			Vertex3f[] position = new Vertex3f[dr + 2];
+			int positionIndex = 0;
+
+			position[positionIndex++] = new Vertex3f(0.0f, 0.0f, -height);
+			
+			double angleStep = Math.PI * 2.0 / dr;
+
+			for (double angle = 0.0f; angle <= Math.PI * 2.0; angle += angleStep) {
+				float x = radius * (float)Math.Cos(angle);
+				float y = radius * (float)Math.Sin(angle);
+
+				Debug.Assert(positionIndex < position.Length);
+				position[positionIndex++] = new Vertex3f(x, y, 0.0f);
+			}
+			position[positionIndex++] = position[1];
+
+			// Buffer definition
+			ArrayBuffer<Vertex3f> positionBuffer = new ArrayBuffer<Vertex3f>();
+			positionBuffer.Create(position);
+			vertexArray.SetArray(positionBuffer, VertexArraySemantic.Position);
+
+			vertexArray.SetElementArray(PrimitiveType.TriangleFan);
 
 			return (vertexArray);
 		}
