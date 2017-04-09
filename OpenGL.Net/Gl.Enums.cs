@@ -7657,6 +7657,11 @@ namespace OpenGL
 		TextureWrapT = Gl.TEXTURE_WRAP_T,
 
 		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_BASE_LEVEL.
+		/// </summary>
+		TextureBaseLevel = Gl.TEXTURE_BASE_LEVEL,
+
+		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_COMPARE_MODE.
 		/// </summary>
 		TextureCompareMode = Gl.TEXTURE_COMPARE_MODE,
@@ -7665,6 +7670,56 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_COMPARE_FUNC.
 		/// </summary>
 		TextureCompareFunc = Gl.TEXTURE_COMPARE_FUNC,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_LOD_BIAS.
+		/// </summary>
+		TextureLodBias = Gl.TEXTURE_LOD_BIAS,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MIN_LOD.
+		/// </summary>
+		TextureMinLod = Gl.TEXTURE_MIN_LOD,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MAX_LOD.
+		/// </summary>
+		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MAX_LEVEL.
+		/// </summary>
+		TextureMaxLevel = Gl.TEXTURE_MAX_LEVEL,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_SWIZZLE_R.
+		/// </summary>
+		TextureSwizzleR = Gl.TEXTURE_SWIZZLE_R,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_SWIZZLE_G.
+		/// </summary>
+		TextureSwizzleG = Gl.TEXTURE_SWIZZLE_G,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_SWIZZLE_B.
+		/// </summary>
+		TextureSwizzleB = Gl.TEXTURE_SWIZZLE_B,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_SWIZZLE_A.
+		/// </summary>
+		TextureSwizzleA = Gl.TEXTURE_SWIZZLE_A,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_SWIZZLE_RGBA.
+		/// </summary>
+		TextureSwizzleRgba = Gl.TEXTURE_SWIZZLE_RGBA,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_STENCIL_TEXTURE_MODE.
+		/// </summary>
+		DepthStencilTextureMode = Gl.DEPTH_STENCIL_TEXTURE_MODE,
 
 	}
 
