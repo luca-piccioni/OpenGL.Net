@@ -97,6 +97,7 @@
     <Compile Include="Scene\SceneObjectFormat.cs" />
     <Compile Include="Scene\SceneObjectCodecCriteria.cs" />
     <Compile Include="Scene\SceneObjectCodec.cs" />
+    <Compile Include="Scene\SceneObjectGeometryFlags.cs" />
     <Compile Include="Scene\SceneObjectInfo.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
     <None Include="Scene\BoundingSphere.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="State\PolygonOffsetState.cs" />
     <Compile Include="State\PrimitiveRestartState.cs" />
     <Compile Include="State\ShaderUniformState.cs" />
+    <Compile Include="State\ShadowsState.cs" />
     <Compile Include="State\TransformState.cs" />
     <Compile Include="State\TransformStateBase.cs" />
     <Compile Include="State\TransformStateDouble.cs" />
@@ -207,7 +209,6 @@
     <Compile Include="VertexArraySemantic.cs" />
     <Compile Include="VertexArrayTexGen.cs" />
     <Compile Include="Vincenty.cs" />
-    <EmbeddedResource Include="Shaders\Standard\Geometry.Normals.glsl" />
     <EmbeddedResource Include="Shaders\Font\Fragment.FontPatch.glsl" />
     <EmbeddedResource Include="Shaders\Font\Vertex.FontPatch.glsl" />
     <EmbeddedResource Include="Shaders\Font\Vertex.FontTextureArray.glsl" />
@@ -218,6 +219,13 @@
     <EmbeddedResource Include="Shaders\Specialized\TextureFragment.glsl" />
     <EmbeddedResource Include="Shaders\Specialized\DepthFragment.glsl" />
     <EmbeddedResource Include="Shaders\Specialized\DepthVertex.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadowState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightDirectional.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightDirectionalImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightPoint.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightPointImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightSpot.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightSpotImpl.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -230,14 +238,11 @@
     <EmbeddedResource Include="Shaders\TransformState.glsl" />
     <EmbeddedResource Include="Shaders\Skybox\Fragment.glsl" />
     <EmbeddedResource Include="Shaders\Skybox\Vertex.glsl" />
-    <EmbeddedResource Include="Shaders\Light\BlinnShading.glsl" />
-    <EmbeddedResource Include="Shaders\Light\ConstantShading.glsl" />
-    <EmbeddedResource Include="Shaders\Light\Lighting.glsl" />
-    <EmbeddedResource Include="Shaders\Light\LambertShading.glsl" />
-    <EmbeddedResource Include="Shaders\Light\Light.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadingLambert.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightMulti.glsl" />
     <EmbeddedResource Include="Shaders\Light\LightState.glsl" />
     <EmbeddedResource Include="Shaders\Light\MaterialState.glsl" />
-    <EmbeddedResource Include="Shaders\Light\PhongShading.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadingPhong.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shaders\CompatibilityNotes.txt" />

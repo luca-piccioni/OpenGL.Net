@@ -1,5 +1,5 @@
-
-// Copyright (C) 2012-2016 Luca Piccioni
+﻿
+// Copyright (C) 2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -16,29 +16,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#include </OpenGL/Compatibility.glsl>
 #include </OpenGL/Light/LightState.glsl>
-#include </OpenGL/Light/MaterialState.glsl>
 
-vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 normal)
-{
-	vec4 lightAmbient = vec4(0.0), lightDiffuse = vec4(0.0);
-
-	// Lambert equation:
-	//
-	// color =	<emission> +
-	//			<ambient> * al +
-	//			<diffuse> * max(N . L, 0) +
-	// 
-	// Where:
-	// - al: ambient lighting
-	// - N: normal vector
-	// - L: light vector
-
-	ComputeLightContributions(eyePosition, normal, lightAmbient, lightDiffuse);
-
-	return (
-		material.EmissiveColor +
-		material.AmbientColor * lightAmbient +
-		material.DiffuseColor * lightDiffuse
-		);
-}
+BLOCK_BEGIN_LAYOUT(LightState, shared)
+	// The light model
+	BLOCK_FIELD glo_LightModelType glo_LightModel;
+	// The directional light
+	BLOCK_FIELD glo_LightType glo_Light;
+BLOCK_END_ANON()

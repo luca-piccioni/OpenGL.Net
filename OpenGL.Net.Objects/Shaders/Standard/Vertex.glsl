@@ -18,7 +18,6 @@
 
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
-#include </OpenGL/Light/Lighting.glsl>
 #include </OpenGL/Light/LightState.glsl>
 
 // Vertex position
@@ -43,11 +42,8 @@ SHADER_OUT vec2 glo_VertexTexCoord[1];
 // Vertex/Fragment TBN space matrix
 SHADER_OUT mat3 glo_VertexTBN;
 
-// Vertex/Fragment position (model space)
-SHADER_OUT vec4 glo_VertexPositionModel;
 // Vertex/Fragment position (model-view space)
 SHADER_OUT vec4 glo_VertexPositionModelView;
-
 void main()
 {
 	vec4 vPosition = glo_Position;
@@ -71,7 +67,6 @@ void main()
 	glo_VertexTBN = mat3(tbnT, tbnB, tbnN);
 
 	// Positions required for lighting
-	glo_VertexPositionModel = glo_Model * glo_Position;
 	glo_VertexPositionModelView = glo_ModelView * glo_Position;
 
 #if defined(GLO_LIGHTING_PER_VERTEX)
@@ -84,11 +79,7 @@ void main()
 	fragmentMaterial.DiffuseColor = glo_Color;
 #endif
 
-#if !defined(GLO_DEBUG_NORMAL)
 	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_VertexPositionModelView, glo_VertexNormal);
-#else
-	glo_VertexColor = vec4(normalize(glo_Normal), 1.0);
-#endif
 
 #endif
 }

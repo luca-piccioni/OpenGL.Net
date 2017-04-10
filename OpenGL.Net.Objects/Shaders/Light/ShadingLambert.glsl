@@ -19,30 +19,29 @@
 #include </OpenGL/Light/LightState.glsl>
 #include </OpenGL/Light/MaterialState.glsl>
 
+void ComputeLightContributions(vec4 eyePosition, in vec3 normal, inout vec4 ambient, inout vec4 diffuse);
+
 vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 normal)
 {
-	vec4 lightAmbient = vec4(0.0), lightDiffuse = vec4(0.0), lightSpecular = vec4(0.0);
+	vec4 lightAmbient = vec4(0.0), lightDiffuse = vec4(0.0);
 
-	// Phong equation:
+	// Lambert equation:
 	//
 	// color =	<emission> +
 	//			<ambient> * al +
 	//			<diffuse> * max(N . L, 0) +
-	//			<specular> * max(R . I, 0) ^ <shininess>
 	// 
 	// Where:
 	// - al: ambient lighting
 	// - N: normal vector
 	// - L: light vector
-	// - I: eye vector
-	// - R: perfect reflection vector (reflect(L around N))
 
-	ComputeLightContributions(eyePosition, normal, material.Shininess, lightAmbient, lightDiffuse, lightSpecular);
+	ComputeLightContributions(eyePosition, normal, lightAmbient, lightDiffuse);
 
 	return (
 		material.EmissiveColor +
 		material.AmbientColor * lightAmbient +
-		material.DiffuseColor * lightDiffuse +
-		material.SpecularColor * lightSpecular
-	);
+		material.DiffuseColor * lightDiffuse
+		);
 }
+

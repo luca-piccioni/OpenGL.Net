@@ -1,5 +1,5 @@
-
-// Copyright (C) 2012-2016 Luca Piccioni
+﻿
+// Copyright (C) 2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -16,13 +16,29 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#include </OpenGL/Light/MaterialState.glsl>
+using System;
 
-// Compute a light contribution combining ambient, diffuse and specular components.
-vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 normal);
+namespace OpenGL.Objects.Scene
+{
+	/// <summary>
+	/// Flags for controlling <see cref="SceneObjectGeometry"/> aspects.
+	/// </summary>
+	[Flags]
+	public enum SceneObjectGeometryFlags
+	{
+		/// <summary>
+		/// No flags.
+		/// </summary>
+		None =					0x0000,
 
-// Compute a light contribution combining ambient and diffuse components.
-vec4 ComputeLightShadingDiffuse(glo_MaterialType material, vec3 normal);
+		/// <summary>
+		/// Geometries cast shadows.
+		/// </summary>
+		ShadowCaster =			0x0001,
 
-// Compute a light contribution combining only specular components.
-vec4 ComputeLightShadingSpecular(glo_MaterialType material, vec3 normal);
+		/// <summary>
+		/// Geometries receive shadows.
+		/// </summary>
+		ShadowReceiver =		0x0002,
+	}
+}

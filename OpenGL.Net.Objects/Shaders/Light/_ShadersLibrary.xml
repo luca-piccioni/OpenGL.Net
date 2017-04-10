@@ -9,22 +9,30 @@
 		<Include Id="/OpenGL/Light/LightState.glsl">
 			<Path>OpenGL.Objects.Shaders.Light.LightState.glsl</Path>
 		</Include>
-		<Include Id="/OpenGL/Light/Lighting.glsl">
-			<Path>OpenGL.Objects.Shaders.Light.Lighting.glsl</Path>
+		<Include Id="/OpenGL/Light/ShadowState.glsl">
+			<Path>OpenGL.Objects.Shaders.Light.ShadowState.glsl</Path>
 		</Include>
 	</Includes>
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Objects.Shaders.Light.Light.glsl">
+		<!-- Lights (Common Implementation) -->
+		<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" />
+		<!-- Lights (Single) -->
+		<Object Path="OpenGL.Objects.Shaders.Light.LightDirectional.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightPoint.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightSpot.glsl" />
+		<!-- Lights (Multiple) -->
+		<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl">
 			<Symbols>
-				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
+				<Symbol>GLO_MAX_LIGHTS_COUNT</Symbol>
 			</Symbols>
 		</Object>
-		<Object Path="OpenGL.Objects.Shaders.Light.ConstantShading.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.LambertShading.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.PhongShading.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.BlinnShading.glsl" />
+		<!-- Shading models -->
+		<Object Path="OpenGL.Objects.Shaders.Light.ShadingLambert.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" />
 	</Objects>
 	
 </ShadersLibrary>

@@ -1,0 +1,274 @@
+﻿
+// Copyright (C) 2017 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Collections.Generic;
+
+namespace OpenGL.Objects.State
+{
+	/// <summary>
+	/// OpenGL.Net shadow shading model.
+	/// </summary>
+	public class ShadowsState : ShaderUniformStateBase
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static ShadowsState()
+		{
+			// Statically initialize uniform properties
+			_UniformProperties = DetectUniformProperties(typeof(ShadowsState));
+		}
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public ShadowsState()
+		{
+			
+		}
+
+		#endregion
+
+		#region Shadows State
+
+		/// <summary>
+		/// Add a shadow map to ths state.
+		/// </summary>
+		/// <param name="shadowMap">
+		/// The <see cref="Texture2d"/> that specifies the shadow map texture.
+		/// </param>
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4"/> that specifies the model-view-projection-bias matrix to transform vertex
+		/// from object-space to light-space.
+		/// </param>
+		public void AddShadowMap(Texture2d shadowMap, Matrix4x4 mvp)
+		{
+			_ShadowMap2D.Add(new ShadowMap2DContext(shadowMap, mvp));
+		}
+
+		/// <summary>
+		/// Shadow map based on 2D texture.
+		/// </summary>
+		struct ShadowMap2DContext
+		{
+			/// <summary>
+			/// Construct a ShadowMap2DContext.
+			/// </summary>
+			/// <param name="shadowMap">
+			/// The <see cref="Texture2d"/> that specifies the shadow map texture.
+			/// </param>
+			/// <param name="mvp">
+			/// The <see cref="Matrix4x4"/> that specifies the model-view-projection-bias matrix to transform vertex
+			/// from object-space to light-space.
+			/// </param>
+			public ShadowMap2DContext(Texture2d shadowMap, Matrix4x4 mvp)
+			{
+				if (shadowMap == null)
+					throw new ArgumentNullException("shadowMap");
+				if (mvp == null)
+					throw new ArgumentNullException("mvp");
+
+				ShadowMap = shadowMap;
+				ModelViewProjectionBias = mvp;
+			}
+
+			/// <summary>
+			/// The shadow map backend (2D texture).
+			/// </summary>
+			public readonly Texture2d ShadowMap;
+
+			/// <summary>
+			/// The model-view-projection-bias matrix to transform vertex from object-space to light-space.
+			/// </summary>
+			public readonly Matrix4x4 ModelViewProjectionBias;
+		}
+
+		/// <summary>
+		/// List of shadow maps, based on 2D texture.
+		/// </summary>
+		private readonly List<ShadowMap2DContext> _ShadowMap2D = new List<ShadowMap2DContext>();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ShaderUniformState("glo_ShadowMap2D")]
+		private Texture2d[] ShadowMap2D
+		{
+			get
+			{
+				return (_ShadowMap2D.ConvertAll(delegate(ShadowMap2DContext item) { return (item.ShadowMap); }).ToArray());
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ShaderUniformState("glo_ShadowMap2D_MVP")]
+		private Matrix4x4[] ShadowMap2DMvp
+		{
+			get
+			{
+				return (_ShadowMap2D.ConvertAll(delegate(ShadowMap2DContext item) { return (item.ModelViewProjectionBias); }).ToArray());
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ShaderUniformState("glo_ShadowMap2D_Count")]
+		private int ShadowMap2DCount { get { return (_ShadowMap2D.Count); } }
+
+		#endregion
+
+		#region ShaderUniformState Overrides
+
+		/// <summary>
+		/// The identifier for the TransformStateBase derived classes.
+		/// </summary>
+		public static string StateId = "OpenGL.ShadowsState";
+
+		/// <summary>
+		/// The identifier of this GraphicsState.
+		/// </summary>
+		public override string StateIdentifier { get { return (StateId); } }
+
+		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public static int StateSetIndex { get { return (_StateIndex); } }
+
+		/// <summary>
+		/// Unique index assigned to this GraphicsState.
+		/// </summary>
+		public override int StateIndex { get { return (_StateIndex); } }
+
+		/// <summary>
+		/// The index for this GraphicsState.
+		/// </summary>
+		private static int _StateIndex = NextStateIndex();
+
+		/// <summary>
+		/// Flag indicating whether the state is context-bound.
+		/// </summary>
+		/// <remarks>
+		/// It returns always true, since it supports also fixed pipeline.
+		/// </remarks>
+		public override bool IsContextBound { get { return (false); } }
+
+		/// <summary>
+		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
+		/// </summary>
+		public override bool IsProgramBound { get { return (true); } }
+
+		/// <summary>
+		/// Apply this TransformStateBase.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
+		/// </param>
+		/// <param name="shaderProgram">
+		/// The <see cref="ShaderProgram"/> which has the state set.
+		/// </param>
+		public override void Apply(GraphicsContext ctx, ShaderProgram shaderProgram)
+		{
+			GraphicsResource.CheckCurrentContext(ctx);
+
+			#region Shadow Map 2D (Dummy)
+
+			// Dummy shadow map: Texture2d
+			// Note: necessary to avoid undefined behavior on glo_ShadowMap2D samplers
+			string resourceClassId = "OpenGL.Objects.ShadowMap.DummyTexture2d";
+
+			Texture2d dummyShadowMap = (Texture2d)ctx.GetSharedResource(resourceClassId);
+
+			if (dummyShadowMap == null) {
+				dummyShadowMap = new Texture2d(1, 1, PixelLayout.Depth16);
+				dummyShadowMap.SamplerParams.CompareMode = true;
+				dummyShadowMap.SamplerParams.CompareFunc = DepthFunction.Never;
+				dummyShadowMap.Create(ctx);
+
+				ctx.SetSharedResource(resourceClassId, dummyShadowMap);
+			}
+
+			#endregion
+
+			ctx.Bind(shaderProgram);
+
+			shaderProgram.SetUniform(ctx, "glo_ShadowMap2D_Count", _ShadowMap2D.Count);
+			for (int i = 0; i < 4; i++) {
+				if (i < _ShadowMap2D.Count) {
+					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D_MVP[" + i + "]", _ShadowMap2D[i].ModelViewProjectionBias);
+					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + i + "]", _ShadowMap2D[i].ShadowMap);
+				} else
+					shaderProgram.SetUniform(ctx, "glo_ShadowMap2D[" + i + "]", dummyShadowMap);
+			}
+		}
+
+		/// <summary>
+		/// Performs a deep copy of this <see cref="IGraphicsState"/>.
+		/// </summary>
+		/// <returns>
+		/// It returns the equivalent of this <see cref="IGraphicsState"/>, but all objects referenced
+		/// are not referred by both instances.
+		/// </returns>
+		public override IGraphicsState Push()
+		{
+			// LXXX
+			return (this);
+		}
+
+		/// <summary>
+		/// Merge this state with another one.
+		/// </summary>
+		/// <param name="state">
+		/// A <see cref="IGraphicsState"/> having the same <see cref="StateIdentifier"/> of this state.
+		/// </param>
+		/// <remarks>
+		public override void Merge(IGraphicsState state)
+		{
+			// Avoid merging: state is passed as reference.
+			throw new InvalidOperationException();
+		}
+
+		/// <summary>
+		/// Get the uniform state associated with this instance.
+		/// </summary>
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
+
+		/// <summary>
+		/// Represents the current <see cref="GraphicsState"/> for logging.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="String"/> that represents the current <see cref="GraphicsState"/>.
+		/// </returns>
+		public override string ToString()
+		{
+			return (String.Empty);
+		}
+
+		/// <summary>
+		/// The uniform state of this TransformStateBase.
+		/// </summary>
+		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
+
+		#endregion
+	}
+}

@@ -288,12 +288,12 @@ namespace OpenGL.Objects
 			}
 
 			if (texParameters.CompareMode != _CurrentSamplerParams.CompareMode) {
-				Gl.TexParameter(textureTarget, (TextureParameterName)Gl.TEXTURE_COMPARE_MODE, texParameters.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
+				Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareMode, texParameters.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
 				_CurrentSamplerParams.CompareMode = texParameters.CompareMode;
 			}
 
 			if (texParameters.CompareFunc != _CurrentSamplerParams.CompareFunc) {
-				Gl.TexParameter(textureTarget, (TextureParameterName)Gl.TEXTURE_COMPARE_FUNC, (int)texParameters.CompareFunc);
+				Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareFunc, (int)texParameters.CompareFunc);
 				_CurrentSamplerParams.CompareFunc = texParameters.CompareFunc;
 			}
 		}

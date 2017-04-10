@@ -83,7 +83,7 @@ namespace OpenGL.Objects.Scene
 
 		#endregion
 
-		#region Geometry Definition
+		#region Geometry Common Resources
 
 		/// <summary>
 		/// Get or set the geometry primitive arrays, shared to all geometry instances, if any.
@@ -130,6 +130,11 @@ namespace OpenGL.Objects.Scene
 		/// Shader used for drawing the geometry.
 		/// </summary>
 		private ShaderProgram _Program;
+
+		/// <summary>
+		/// Geometry object flags.
+		/// </summary>
+		public SceneObjectGeometryFlags Flags = SceneObjectGeometryFlags.ShadowCaster | SceneObjectGeometryFlags.ShadowReceiver;
 
 		#endregion
 

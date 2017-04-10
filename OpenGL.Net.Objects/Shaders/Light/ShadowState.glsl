@@ -1,5 +1,5 @@
-
-// Copyright (C) 2012-2016 Luca Piccioni
+﻿
+// Copyright (C) 2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -16,25 +16,18 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-#include </OpenGL/Light/LightState.glsl>
-#include </OpenGL/Light/MaterialState.glsl>
+#ifndef GLO_SHADOW_STATE
+#define GLO_SHADOW_STATE
 
-vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 normal)
-{
-	vec4 lightAmbient = vec4(0.0);
+#ifndef GLO_MAX_SHADOWS_COUNT
+#define GLO_MAX_SHADOWS_COUNT			4
+#endif
 
-	// Constant equation:
-	//
-	// color =	<emission> +
-	//			<ambient> * al
-	//
-	// Where:
-	// - al: ambient lighting
+// Model-view-projection matrix for object-space to light-space transformation
+uniform mat4 glo_ShadowMap2D_MVP[GLO_MAX_SHADOWS_COUNT];
+// Shadow maps sampled using sample2D
+uniform sampler2DShadow glo_ShadowMap2D[GLO_MAX_SHADOWS_COUNT];
+// Number of valid sampler2DShadow in glo_ShadowMap2D
+uniform int glo_ShadowMap2D_Count = 0;
 
-	ComputeLightContributions(eyePosition, lightAmbient);
-
-	return (
-		material.EmissiveColor +
-		lightAmbient
-		);
-}
+#endif

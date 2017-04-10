@@ -18,17 +18,11 @@
 
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
-#include </OpenGL/Light/Lighting.glsl>
+#include </OpenGL/Light/MaterialState.glsl>
+#include </OpenGL/Light/LightState.glsl>
 
 // Vertex uniform color
 uniform vec4 glo_UniformColor = vec4(1.0, 1.0, 1.0, 1.0);
-
-// Additional destination blend factor texture
-uniform sampler2D glo_TransparentTexture;
-// Additional destination blend factor texture coordinate index
-uniform int glo_TransparentTexCoord = -1;
-// Trasparency factor for modulating destination blend factor texture fragment
-uniform float glo_Transparency = 1.0;
 
 // Fragment color
 SHADER_IN vec4 glo_VertexColor;
@@ -38,7 +32,6 @@ SHADER_IN vec3 glo_VertexNormal;
 SHADER_IN vec2 glo_VertexTexCoord[1];
 // Vertex/Fragment TBN space matrix
 SHADER_IN mat3 glo_VertexTBN;
-
 // Fragment vertex position (model-view space)
 SHADER_IN vec4 glo_VertexPositionModelView;
 
@@ -138,7 +131,7 @@ void mainTextured()
 #if defined(GLO_COLOR_PER_VERTEX)
 	vec4 envColor = glo_VertexColor;
 #else
-	vec4 envColor = vec4(1.0);
+	vec4 envColor = vec4(1.0, 1.0, 1.0, 1.0);
 #endif
 
 	glo_FragColor = TEXTURE_2D(glo_Texture, glo_VertexTexCoord[0]) * envColor;

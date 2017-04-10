@@ -19,6 +19,9 @@
 #include </OpenGL/Light/LightState.glsl>
 #include </OpenGL/Light/MaterialState.glsl>
 
+// Generic light computation function
+void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialShininess, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
+
 vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 normal)
 {
 	vec4 lightAmbient = vec4(0.0), lightDiffuse = vec4(0.0), lightSpecular = vec4(0.0);
@@ -28,21 +31,21 @@ vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 norma
 	// color =	<emission> +
 	//			<ambient> * al +
 	//			<diffuse> * max(N . L, 0) +
-	//			<specular> * max(N . H, 0) ^ <shininess>
+	//			<specular> * max(R . I, 0) ^ <shininess>
 	// 
 	// Where:
 	// - al: ambient lighting
 	// - N: normal vector
 	// - L: light vector
 	// - I: eye vector
-	// - H: half-angle vectors, (normalize(I+L))
+	// - R: perfect reflection vector (reflect(L around N))
 
 	ComputeLightContributions(eyePosition, normal, material.Shininess, lightAmbient, lightDiffuse, lightSpecular);
 
 	return (
 		material.EmissiveColor +
-		material.AmbientColor  * lightAmbient +
-		material.DiffuseColor  * lightDiffuse +
+		material.AmbientColor * lightAmbient +
+		material.DiffuseColor * lightDiffuse +
 		material.SpecularColor * lightSpecular
 	);
 }

@@ -607,11 +607,11 @@ namespace OpenGL.Objects
 		{
 			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
 			if (_MipmapMinLevel >= 0 || _MipmapMinLevelDirty)
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_BASE_LEVEL, _MipmapMinLevel);
+				Gl.TexParameter(TextureTarget, TextureParameterName.TextureBaseLevel, _MipmapMinLevel);
 			_MipmapMinLevelDirty = false;
 
 			if (_MipmapMaxLevel >= 0 || _MipmapMaxLevelDirty)
-				Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_MAX_LEVEL, _MipmapMaxLevel);
+				Gl.TexParameter(TextureTarget, TextureParameterName.TextureMaxLevel, _MipmapMaxLevel);
 			_MipmapMaxLevelDirty = false;
 		}
 
@@ -745,7 +745,7 @@ namespace OpenGL.Objects
 
 			int[] rgbaSwizzle = Array.ConvertAll(_Swizzle, delegate(SwizzleValue item) { return ((int)item); });
 
-			Gl.TexParameter(TextureTarget, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, rgbaSwizzle);
+			Gl.TexParameter(TextureTarget, TextureParameterName.TextureSwizzleRgba, rgbaSwizzle);
 		}
 
 		#endregion
