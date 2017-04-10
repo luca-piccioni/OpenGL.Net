@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT")]
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB = 0x8DA9;
@@ -40,26 +40,26 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GEOMETRY_VERTICES_OUT_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		public const int GEOMETRY_VERTICES_OUT_ARB = 0x8DDA;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_INPUT_TYPE_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		public const int GEOMETRY_INPUT_TYPE_ARB = 0x8DDB;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_OUTPUT_TYPE_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		public const int GEOMETRY_OUTPUT_TYPE_ARB = 0x8DDC;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT")]
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_VARYING_COMPONENTS_ARB = 0x8DDD;
 
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT")]
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_VERTEX_VARYING_COMPONENTS_ARB = 0x8DDE;
 
@@ -90,7 +90,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[AliasOf("glFramebufferTextureFaceEXT")]
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, TextureTarget face)
 		{
@@ -110,7 +110,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_ARB_geometry_shader4")]
+			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_geometry_program4")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 face);

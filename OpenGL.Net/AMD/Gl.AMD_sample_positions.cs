@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SUBSAMPLE_DISTANCE_AMD symbol.
 		/// </summary>
+		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
 		[RequiredByFeature("GL_AMD_sample_positions")]
 		public const int SUBSAMPLE_DISTANCE_AMD = 0x883F;
 

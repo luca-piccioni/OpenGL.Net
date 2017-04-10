@@ -29,11 +29,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV symbol.
+		/// Value of GL_TEXTURE_ASTC_DECODE_PRECISION_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shader_buffer_store", Api = "gl|glcore")]
-		[Log(BitmaskName = "GL")]
-		public const uint SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV = 0x00000010;
+		[RequiredByFeature("GL_EXT_texture_compression_astc_decode_mode", Api = "gles2")]
+		public const int TEXTURE_ASTC_DECODE_PRECISION_EXT = 0x8F69;
 
 	}
 

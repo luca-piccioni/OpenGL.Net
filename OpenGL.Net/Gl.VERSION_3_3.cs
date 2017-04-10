@@ -39,7 +39,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_instanced_arrays")]
+		[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
 		[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR = 0x88FE;
@@ -1041,7 +1041,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_instanced_arrays")]
+		[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
 		[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 		public static void VertexAttribDivisor(UInt32 index, UInt32 divisor)
@@ -2458,7 +2458,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_instanced_arrays")]
+			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
 			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]

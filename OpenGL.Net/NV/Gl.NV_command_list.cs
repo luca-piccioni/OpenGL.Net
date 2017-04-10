@@ -31,115 +31,115 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TERMINATE_SEQUENCE_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int TERMINATE_SEQUENCE_COMMAND_NV = 0x0000;
 
 		/// <summary>
 		/// Value of GL_NOP_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int NOP_COMMAND_NV = 0x0001;
 
 		/// <summary>
 		/// Value of GL_DRAW_ELEMENTS_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ELEMENTS_COMMAND_NV = 0x0002;
 
 		/// <summary>
 		/// Value of GL_DRAW_ARRAYS_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ARRAYS_COMMAND_NV = 0x0003;
 
 		/// <summary>
 		/// Value of GL_DRAW_ELEMENTS_STRIP_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ELEMENTS_STRIP_COMMAND_NV = 0x0004;
 
 		/// <summary>
 		/// Value of GL_DRAW_ARRAYS_STRIP_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ARRAYS_STRIP_COMMAND_NV = 0x0005;
 
 		/// <summary>
 		/// Value of GL_DRAW_ELEMENTS_INSTANCED_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ELEMENTS_INSTANCED_COMMAND_NV = 0x0006;
 
 		/// <summary>
 		/// Value of GL_DRAW_ARRAYS_INSTANCED_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ARRAYS_INSTANCED_COMMAND_NV = 0x0007;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ADDRESS_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int ELEMENT_ADDRESS_COMMAND_NV = 0x0008;
 
 		/// <summary>
 		/// Value of GL_ATTRIBUTE_ADDRESS_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int ATTRIBUTE_ADDRESS_COMMAND_NV = 0x0009;
 
 		/// <summary>
 		/// Value of GL_UNIFORM_ADDRESS_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int UNIFORM_ADDRESS_COMMAND_NV = 0x000A;
 
 		/// <summary>
 		/// Value of GL_BLEND_COLOR_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int BLEND_COLOR_COMMAND_NV = 0x000B;
 
 		/// <summary>
 		/// Value of GL_STENCIL_REF_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int STENCIL_REF_COMMAND_NV = 0x000C;
 
 		/// <summary>
 		/// Value of GL_LINE_WIDTH_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int LINE_WIDTH_COMMAND_NV = 0x000D;
 
 		/// <summary>
 		/// Value of GL_POLYGON_OFFSET_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int POLYGON_OFFSET_COMMAND_NV = 0x000E;
 
 		/// <summary>
 		/// Value of GL_ALPHA_REF_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int ALPHA_REF_COMMAND_NV = 0x000F;
 
 		/// <summary>
 		/// Value of GL_VIEWPORT_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int VIEWPORT_COMMAND_NV = 0x0010;
 
 		/// <summary>
 		/// Value of GL_SCISSOR_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int SCISSOR_COMMAND_NV = 0x0011;
 
 		/// <summary>
 		/// Value of GL_FRONT_FACE_COMMAND_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int FRONT_FACE_COMMAND_NV = 0x0012;
 
 		/// <summary>
@@ -151,7 +151,7 @@ namespace OpenGL
 		/// <param name="states">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void CreateStateNV(Int32 n, UInt32[] states)
 		{
 			unsafe {
@@ -174,7 +174,7 @@ namespace OpenGL
 		/// <param name="states">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void DeleteStateNV(Int32 n, UInt32[] states)
 		{
 			unsafe {
@@ -194,7 +194,7 @@ namespace OpenGL
 		/// <param name="state">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static bool IsStateNV(UInt32 state)
 		{
 			bool retValue;
@@ -216,7 +216,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void StateCaptureNV(UInt32 state, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglStateCaptureNV != null, "pglStateCaptureNV not implemented");
@@ -234,7 +234,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static UInt32 GetNV(Int32 tokenID, UInt32 size)
 		{
 			UInt32 retValue;
@@ -253,7 +253,7 @@ namespace OpenGL
 		/// <param name="shadertype">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static UInt16 GetStageIndexNV(Int32 shadertype)
 		{
 			UInt16 retValue;
@@ -284,7 +284,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void DrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr[] indirects, Int32[] sizes, UInt32 count)
 		{
 			unsafe {
@@ -314,7 +314,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void DrawCommandsAddressNV(Int32 primitiveMode, UInt64[] indirects, Int32[] sizes, UInt32 count)
 		{
 			unsafe {
@@ -350,7 +350,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void DrawCommandsStateNV(UInt32 buffer, IntPtr[] indirects, Int32[] sizes, UInt32[] states, UInt32[] fbos, UInt32 count)
 		{
 			unsafe {
@@ -385,7 +385,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void DrawCommandsStatesAddresNV(UInt64[] indirects, Int32[] sizes, UInt32[] states, UInt32[] fbos, UInt32 count)
 		{
 			unsafe {
@@ -411,7 +411,7 @@ namespace OpenGL
 		/// <param name="lists">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void CreateCommandListsNV(Int32 n, UInt32[] lists)
 		{
 			unsafe {
@@ -434,7 +434,7 @@ namespace OpenGL
 		/// <param name="lists">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void DeleteCommandListsNV(Int32 n, UInt32[] lists)
 		{
 			unsafe {
@@ -454,7 +454,7 @@ namespace OpenGL
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static bool IsCommandListNV(UInt32 list)
 		{
 			bool retValue;
@@ -491,7 +491,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void ListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr[] indirects, Int32[] sizes, UInt32[] states, UInt32[] fbos, UInt32 count)
 		{
 			unsafe {
@@ -517,7 +517,7 @@ namespace OpenGL
 		/// <param name="segments">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void CommandListSegmentsNV(UInt32 list, UInt32 segments)
 		{
 			Debug.Assert(Delegates.pglCommandListSegmentsNV != null, "pglCommandListSegmentsNV not implemented");
@@ -532,7 +532,7 @@ namespace OpenGL
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void CompileCommandListNV(UInt32 list)
 		{
 			Debug.Assert(Delegates.pglCompileCommandListNV != null, "pglCompileCommandListNV not implemented");
@@ -547,7 +547,7 @@ namespace OpenGL
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_command_list")]
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static void CallCommandListNV(UInt32 list)
 		{
 			Debug.Assert(Delegates.pglCallCommandListNV != null, "pglCallCommandListNV not implemented");
@@ -632,119 +632,119 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateStatesNV(Int32 n, UInt32* states);
 
 			[ThreadStatic]
 			internal static glCreateStatesNV pglCreateStatesNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteStatesNV(Int32 n, UInt32* states);
 
 			[ThreadStatic]
 			internal static glDeleteStatesNV pglDeleteStatesNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsStateNV(UInt32 state);
 
 			[ThreadStatic]
 			internal static glIsStateNV pglIsStateNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStateCaptureNV(UInt32 state, Int32 mode);
 
 			[ThreadStatic]
 			internal static glStateCaptureNV pglStateCaptureNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGetCommandHeaderNV(Int32 tokenID, UInt32 size);
 
 			[ThreadStatic]
 			internal static glGetCommandHeaderNV pglGetCommandHeaderNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt16 glGetStageIndexNV(Int32 shadertype);
 
 			[ThreadStatic]
 			internal static glGetStageIndexNV pglGetStageIndexNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
 
 			[ThreadStatic]
 			internal static glDrawCommandsNV pglDrawCommandsNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawCommandsAddressNV(Int32 primitiveMode, UInt64* indirects, Int32* sizes, UInt32 count);
 
 			[ThreadStatic]
 			internal static glDrawCommandsAddressNV pglDrawCommandsAddressNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 
 			[ThreadStatic]
 			internal static glDrawCommandsStatesNV pglDrawCommandsStatesNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawCommandsStatesAddressNV(UInt64* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 
 			[ThreadStatic]
 			internal static glDrawCommandsStatesAddressNV pglDrawCommandsStatesAddressNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateCommandListsNV(Int32 n, UInt32* lists);
 
 			[ThreadStatic]
 			internal static glCreateCommandListsNV pglCreateCommandListsNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteCommandListsNV(Int32 n, UInt32* lists);
 
 			[ThreadStatic]
 			internal static glDeleteCommandListsNV pglDeleteCommandListsNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsCommandListNV(UInt32 list);
 
 			[ThreadStatic]
 			internal static glIsCommandListNV pglIsCommandListNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 
 			[ThreadStatic]
 			internal static glListDrawCommandsStatesClientNV pglListDrawCommandsStatesClientNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCommandListSegmentsNV(UInt32 list, UInt32 segments);
 
 			[ThreadStatic]
 			internal static glCommandListSegmentsNV pglCommandListSegmentsNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCompileCommandListNV(UInt32 list);
 
 			[ThreadStatic]
 			internal static glCompileCommandListNV pglCompileCommandListNV;
 
-			[RequiredByFeature("GL_NV_command_list")]
+			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCallCommandListNV(UInt32 list);
 

@@ -33,7 +33,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		public const int MULTISAMPLE_LINE_WIDTH_RANGE = 0x9381;
 
 		/// <summary>
@@ -41,7 +41,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		public const int MULTISAMPLE_LINE_WIDTH_GRANULARITY = 0x9382;
 
 		/// <summary>
@@ -201,7 +201,7 @@ namespace OpenGL
 		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_EXT")]
 		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_OES")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
 		[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 		public const int PRIMITIVE_BOUNDING_BOX = 0x92BE;
@@ -533,7 +533,7 @@ namespace OpenGL
 		[AliasOf("glPrimitiveBoundingBoxEXT")]
 		[AliasOf("glPrimitiveBoundingBoxOES")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
 		[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 		public static void Primitive(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW)
@@ -571,7 +571,7 @@ namespace OpenGL
 			internal static glBlendBarrier pglBlendBarrier;
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_ES3_2_compatibility")]
+			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
 			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]

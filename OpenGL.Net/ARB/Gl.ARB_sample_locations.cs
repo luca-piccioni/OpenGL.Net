@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int SAMPLE_LOCATION_SUBPIXEL_BITS_ARB = 0x933D;
 
@@ -40,7 +40,7 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB = 0x933E;
 
@@ -48,7 +48,7 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB = 0x933F;
 
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB = 0x9340;
 
@@ -64,7 +64,7 @@ namespace OpenGL
 		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAMMABLE_SAMPLE_LOCATION_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_ARB = 0x9341;
 
@@ -72,7 +72,7 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342;
 
@@ -80,7 +80,7 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV")]
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public const int FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB = 0x9343;
 
@@ -99,7 +99,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		public static void FramebufferSampleLocationARB(Int32 target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -128,7 +128,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		public static void NamedFramebufferSampleLocationARB(UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -145,7 +145,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glEvaluateDepthValuesARB.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_sample_locations")]
+		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		public static void EvaluateDepthValuesARB()
 		{
 			Debug.Assert(Delegates.pglEvaluateDepthValuesARB != null, "pglEvaluateDepthValuesARB not implemented");
@@ -172,21 +172,21 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_ARB_sample_locations")]
+			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFramebufferSampleLocationsfvARB(Int32 target, UInt32 start, Int32 count, float* v);
 
 			[ThreadStatic]
 			internal static glFramebufferSampleLocationsfvARB pglFramebufferSampleLocationsfvARB;
 
-			[RequiredByFeature("GL_ARB_sample_locations")]
+			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
 			[ThreadStatic]
 			internal static glNamedFramebufferSampleLocationsfvARB pglNamedFramebufferSampleLocationsfvARB;
 
-			[RequiredByFeature("GL_ARB_sample_locations")]
+			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvaluateDepthValuesARB();
 

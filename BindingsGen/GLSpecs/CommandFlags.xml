@@ -84,6 +84,10 @@
 		<add_enum>GL_UNSIGNED_INT_2_10_10_10_REV</add_enum>
 	</enumerant>
 
+	<enumerant name="^StringName$">
+		<add_enum>GL_SHADING_LANGUAGE_VERSION</add_enum>
+	</enumerant>
+
 	<enumerant name="^TextureTarget$">
 		<add_enum>GL_TEXTURE_RECTANGLE</add_enum>
 		<add_enum>GL_TEXTURE_CUBE_MAP</add_enum>
@@ -119,7 +123,7 @@
 		<add_enum>GL_DEPTH_STENCIL_TEXTURE_MODE</add_enum>
 	</enumerant>
 
-	<enumerant name="^MapBufferUsageMask">
+	<enumerant name="^MapBufferUsageMask$">
 		<add_enum>GL_NONE</add_enum>
 	</enumerant>
 	

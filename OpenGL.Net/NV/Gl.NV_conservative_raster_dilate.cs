@@ -31,19 +31,19 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONSERVATIVE_RASTER_DILATE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster_dilate")]
+		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public const int CONSERVATIVE_RASTER_DILATE_NV = 0x9379;
 
 		/// <summary>
 		/// Value of GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster_dilate")]
+		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public const int CONSERVATIVE_RASTER_DILATE_RANGE_NV = 0x937A;
 
 		/// <summary>
 		/// Value of GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_conservative_raster_dilate")]
+		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public const int CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV = 0x937B;
 
 		/// <summary>
@@ -55,7 +55,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_conservative_raster_dilate")]
+		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public static void ConservativeRasterParameterfNV(Int32 pname, float value)
 		{
 			Debug.Assert(Delegates.pglConservativeRasterParameterfNV != null, "pglConservativeRasterParameterfNV not implemented");
@@ -74,7 +74,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_conservative_raster_dilate")]
+			[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glConservativeRasterParameterfNV(Int32 pname, float value);
 

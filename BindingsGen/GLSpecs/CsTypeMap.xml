@@ -166,6 +166,8 @@
 	<type name="GLDEBUGPROCKHR" value="Gl.DebugProc" />
 	<type name="GLDEBUGPROCARB" value="Gl.DebugProc" />
 	<type name="GLDEBUGPROCAMD" value="Gl.DebugProc" />
+	<type name="GLVULKANPROCNV" value="Gl.VulkanProc" />
+	
 
 	<!-- GLX types -->
 	<type name="Void" value="void" />

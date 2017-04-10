@@ -31,7 +31,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glTextureBarrierNV.
 		/// </summary>
-		[RequiredByFeature("GL_NV_texture_barrier")]
+		[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]
 		public static void TextureBarrierNV()
 		{
 			Debug.Assert(Delegates.pglTextureBarrierNV != null, "pglTextureBarrierNV not implemented");
@@ -50,7 +50,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_texture_barrier")]
+			[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureBarrierNV();
 

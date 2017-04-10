@@ -663,6 +663,12 @@ namespace OpenGL
 		public delegate void DebugProc(DebugSource source, DebugType type, uint id, DebugSeverity severity, int length, IntPtr message, IntPtr userParam);
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public delegate IntPtr VulkanProc();
+
+		/// <summary>
 		/// specify values to record in transform feedback buffers
 		/// </summary>
 		/// <param name="program">

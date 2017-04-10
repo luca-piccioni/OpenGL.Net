@@ -31,19 +31,19 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNIFORM_BUFFER_UNIFIED_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_uniform_buffer_unified_memory")]
+		[RequiredByFeature("GL_NV_uniform_buffer_unified_memory", Api = "gl|glcore")]
 		public const int UNIFORM_BUFFER_UNIFIED_NV = 0x936E;
 
 		/// <summary>
 		/// Value of GL_UNIFORM_BUFFER_ADDRESS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_uniform_buffer_unified_memory")]
+		[RequiredByFeature("GL_NV_uniform_buffer_unified_memory", Api = "gl|glcore")]
 		public const int UNIFORM_BUFFER_ADDRESS_NV = 0x936F;
 
 		/// <summary>
 		/// Value of GL_UNIFORM_BUFFER_LENGTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_uniform_buffer_unified_memory")]
+		[RequiredByFeature("GL_NV_uniform_buffer_unified_memory", Api = "gl|glcore")]
 		public const int UNIFORM_BUFFER_LENGTH_NV = 0x9370;
 
 	}

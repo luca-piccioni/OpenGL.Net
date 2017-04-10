@@ -701,7 +701,7 @@ namespace OpenGL
 		[AliasOf("GL_CLAMP_TO_BORDER_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_texture_border_clamp")]
+		[RequiredByFeature("GL_ARB_texture_border_clamp", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_texture_border_clamp")]

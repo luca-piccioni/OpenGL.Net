@@ -154,7 +154,7 @@ namespace OpenGL
 		[AliasOf("GL_MIRRORED_REPEAT_OES")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_texture_mirrored_repeat")]
+		[RequiredByFeature("GL_ARB_texture_mirrored_repeat", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IBM_texture_mirrored_repeat")]
 		[RequiredByFeature("GL_OES_texture_mirrored_repeat", Api = "gles1")]
 		public const int MIRRORED_REPEAT = 0x8370;

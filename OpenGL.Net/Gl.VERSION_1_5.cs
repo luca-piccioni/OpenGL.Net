@@ -169,7 +169,7 @@ namespace OpenGL
 		[AliasOf("GL_WRITE_ONLY_OES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_NV_shader_buffer_store")]
+		[RequiredByFeature("GL_NV_shader_buffer_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 		public const int WRITE_ONLY = 0x88B9;
@@ -180,7 +180,7 @@ namespace OpenGL
 		[AliasOf("GL_READ_WRITE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_NV_shader_buffer_store")]
+		[RequiredByFeature("GL_NV_shader_buffer_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int READ_WRITE = 0x88BA;
 

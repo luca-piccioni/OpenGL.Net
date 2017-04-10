@@ -31,19 +31,19 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VIEWPORT_POSITION_W_SCALE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
 		public const int VIEWPORT_POSITION_W_SCALE_NV = 0x937C;
 
 		/// <summary>
 		/// Value of GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
 		public const int VIEWPORT_POSITION_W_SCALE_X_COEFF_NV = 0x937D;
 
 		/// <summary>
 		/// Value of GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
 		public const int VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV = 0x937E;
 
 		/// <summary>
@@ -58,7 +58,7 @@ namespace OpenGL
 		/// <param name="ycoeff">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
 		public static void ViewportPositionWScaleNV(UInt32 index, float xcoeff, float ycoeff)
 		{
 			Debug.Assert(Delegates.pglViewportPositionWScaleNV != null, "pglViewportPositionWScaleNV not implemented");
@@ -77,7 +77,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_clip_space_w_scaling")]
+			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewportPositionWScaleNV(UInt32 index, float xcoeff, float ycoeff);
 

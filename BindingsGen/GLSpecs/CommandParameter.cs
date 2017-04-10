@@ -138,6 +138,20 @@ namespace BindingsGen.GLSpecs
 		}
 
 		/// <summary>
+		/// Determine whether this CommandParameter can be used in a safe context when marshalling argument.
+		/// </summary>
+		internal bool IsSafeMarshal
+		{
+			get
+			{
+				if ((ManagedImplementationType == "IntPtr") && (ImportType != "IntPtr"))
+					return (true);
+
+				return (false);
+			}
+		}
+
+		/// <summary>
 		/// Determine whether this CommandParameter must be used in a fixed context.
 		/// </summary>
 		/// <param name="ctx"></param>

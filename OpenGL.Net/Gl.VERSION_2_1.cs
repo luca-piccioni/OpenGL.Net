@@ -35,7 +35,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_PACK_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_PACK_BUFFER = 0x88EB;
 
@@ -46,7 +46,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
@@ -58,7 +58,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
@@ -70,7 +70,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_UNPACK_BUFFER_BINDING = 0x88EF;
 

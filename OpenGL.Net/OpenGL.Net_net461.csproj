@@ -113,6 +113,7 @@
     <Compile Include="AMD\Gl.AMD_compressed_ATC_texture.cs" />
     <Compile Include="AMD\Gl.AMD_debug_output.cs" />
     <Compile Include="AMD\Gl.AMD_depth_clamp_separate.cs" />
+    <Compile Include="AMD\Gl.AMD_framebuffer_sample_positions.cs" />
     <Compile Include="AMD\Gl.AMD_gpu_shader_half_float.cs" />
     <Compile Include="AMD\Gl.AMD_interleaved_elements.cs" />
     <Compile Include="AMD\Gl.AMD_name_gen_delete.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="ARB\Gl.ARB_compute_variable_group_size.cs" />
     <Compile Include="ARB\Gl.ARB_fragment_program.cs" />
     <Compile Include="ARB\Gl.ARB_geometry_shader4.cs" />
+    <Compile Include="ARB\Gl.ARB_gl_spirv.cs" />
     <Compile Include="ARB\Gl.ARB_gpu_shader_int64.cs" />
     <Compile Include="ARB\Gl.ARB_imaging.cs" />
     <Compile Include="ARB\Gl.ARB_indirect_parameters.cs" />
@@ -287,6 +289,7 @@
     <Compile Include="EXT\Gl.EXT_shader_framebuffer_fetch.cs" />
     <Compile Include="EXT\Gl.EXT_shader_pixel_local_storage.cs" />
     <Compile Include="EXT\Gl.EXT_shader_pixel_local_storage2.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_compression_astc_decode_mode.cs" />
     <Compile Include="EXT\Gl.EXT_texture_sRGB_R8.cs" />
     <Compile Include="EXT\Gl.EXT_texture_sRGB_RG8.cs" />
     <Compile Include="EXT\Gl.EXT_window_rectangles.cs" />
@@ -550,6 +553,7 @@
     <Compile Include="NOK\Egl.NOK_texture_from_pixmap.cs" />
     <Compile Include="NVX\Gl.NVX_conditional_render.cs" />
     <Compile Include="NVX\Gl.NVX_gpu_memory_info.cs" />
+    <Compile Include="NVX\Gl.NVX_linked_gpu_multicast.cs" />
     <Compile Include="NV\Egl.NV_3dvision_surface.cs" />
     <Compile Include="NV\Egl.NV_coverage_sample.cs" />
     <Compile Include="NV\Egl.NV_coverage_sample_resolve.cs" />
@@ -575,6 +579,7 @@
     <Compile Include="NV\Egl.NV_stream_sync.cs" />
     <Compile Include="NV\Egl.NV_sync.cs" />
     <Compile Include="NV\Egl.NV_system_time.cs" />
+    <Compile Include="NV\Gl.NV_alpha_to_coverage_dither_control.cs" />
     <Compile Include="NV\Gl.NV_bindless_multi_draw_indirect.cs" />
     <Compile Include="NV\Gl.NV_bindless_multi_draw_indirect_count.cs" />
     <Compile Include="NV\Gl.NV_bindless_texture.cs" />
@@ -592,6 +597,7 @@
     <Compile Include="NV\Gl.NV_depth_nonlinear.cs" />
     <Compile Include="NV\Gl.NV_draw_buffers.cs" />
     <Compile Include="NV\Gl.NV_draw_texture.cs" />
+    <Compile Include="NV\Gl.NV_draw_vulkan_image.cs" />
     <Compile Include="NV\Gl.NV_evaluators.cs" />
     <Compile Include="NV\Gl.NV_explicit_multisample.cs" />
     <Compile Include="NV\Gl.NV_fence.cs" />
@@ -604,6 +610,7 @@
     <Compile Include="NV\Gl.NV_framebuffer_mixed_samples.cs" />
     <Compile Include="NV\Gl.NV_framebuffer_multisample_coverage.cs" />
     <Compile Include="NV\Gl.NV_geometry_program4.cs" />
+    <Compile Include="NV\Gl.NV_gpu_multicast.cs" />
     <Compile Include="NV\Gl.NV_gpu_program4.cs" />
     <Compile Include="NV\Gl.NV_gpu_program5.cs" />
     <Compile Include="NV\Gl.NV_half_float.cs" />
@@ -721,6 +728,7 @@
     <Compile Include="QCOM\Gl.QCOM_driver_control.cs" />
     <Compile Include="QCOM\Gl.QCOM_extended_get.cs" />
     <Compile Include="QCOM\Gl.QCOM_extended_get2.cs" />
+    <Compile Include="QCOM\Gl.QCOM_framebuffer_foveated.cs" />
     <Compile Include="QCOM\Gl.QCOM_perfmon_global_mode.cs" />
     <Compile Include="QCOM\Gl.QCOM_tiled_rendering.cs" />
     <Compile Include="QCOM\Gl.QCOM_writeonly_rendering.cs" />

@@ -695,7 +695,7 @@ namespace OpenGL
 			/// <summary>
 			/// Value of GL_CLEAR symbol.
 			/// </summary>
-			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			public const int CLEAR = 0x1500;
 
@@ -708,7 +708,7 @@ namespace OpenGL
 			/// window coordinates are both set to 0, and the width and height are set to the width and height of the window into which 
 			/// the GL will do its rendering. See Gl.ViewportIndexedf.
 			/// </summary>
-			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
@@ -719,7 +719,7 @@ namespace OpenGL
 			/// <summary>
 			/// Value of GL_BITMAP symbol (DEPRECATED).
 			/// </summary>
-			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			public const int BITMAP = 0x1A00;
 
@@ -739,7 +739,7 @@ namespace OpenGL
 			/// Gl.Enable: if enabled and no fragment shader is active, blend a fog color into the post-texturing color. See Gl.Fog.
 			/// </para>
 			/// </summary>
-			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_NV_register_combiners")]
 			[RemovedByFeature("GL_VERSION_3_2")]
@@ -751,7 +751,7 @@ namespace OpenGL
 			/// selected buffer. The result is a floating-point value in the range 01, which is multiplied by value and added to the 
 			/// corresponding pixel component in the accumulation buffer, thereby updating the accumulation buffer.
 			/// </summary>
-			[RequiredByFeature("GL_VERSION_1_1")]
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			public const int ACCUM = 0x0100;
 

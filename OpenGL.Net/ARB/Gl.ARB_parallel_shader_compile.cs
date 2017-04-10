@@ -31,13 +31,13 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_SHADER_COMPILER_THREADS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_parallel_shader_compile")]
+		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 		public const int MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
 
 		/// <summary>
 		/// Value of GL_COMPLETION_STATUS_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARB_parallel_shader_compile")]
+		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 		public const int COMPLETION_STATUS_ARB = 0x91B1;
 
 		/// <summary>
@@ -46,7 +46,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_ARB_parallel_shader_compile")]
+		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 		public static void MaxShaderCompilerThreadsARB(UInt32 count)
 		{
 			Debug.Assert(Delegates.pglMaxShaderCompilerThreadsARB != null, "pglMaxShaderCompilerThreadsARB not implemented");
@@ -65,7 +65,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_ARB_parallel_shader_compile")]
+			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMaxShaderCompilerThreadsARB(UInt32 count);
 
