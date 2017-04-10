@@ -478,6 +478,28 @@ namespace BindingsGen.GLSpecs
 		}
 
 		/// <summary>
+		/// Determine whether the command implementation requires fixed statement(s).
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the method implementation parameters requires
+		/// a fixed statement.
+		/// </returns>
+		private bool IsSafeMarshalImplementation(RegistryContext ctx, List<CommandParameter> commandParams)
+		{
+			foreach (CommandParameter param in commandParams)
+				if (param.IsSafeMarshal)
+					return (true);
+
+			return (false);
+		}
+
+		/// <summary>
 		/// Determine whether the command implementation requires GC pinned statement(s).
 		/// </summary>
 		/// <param name="ctx">
@@ -726,7 +748,7 @@ namespace BindingsGen.GLSpecs
 			// The implementation returned type
 			string returnType = aliasCommand.GetImplementationReturnType(ctx);
 			// Is fixed implementation
-			bool fixedImplementation = IsFixedImplementation(ctx, commandParams);
+			bool fixedImplementation = IsFixedImplementation(ctx, commandParams) || IsSafeMarshalImplementation(ctx, commandParams);
 
 			aliases.Add(this);
 			aliases.AddRange(Aliases);

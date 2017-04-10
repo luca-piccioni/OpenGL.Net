@@ -2169,9 +2169,13 @@ namespace OpenWF
 		/// </param>
 		public static void SetPipelineTSColor(UInt32 device, UInt32 pipeline, WFDTSColorFormat colorFormat, int count, IntPtr color)
 		{
-			Debug.Assert(Delegates.pwfdSetPipelineTSColor != null, "pwfdSetPipelineTSColor not implemented");
-			Delegates.pwfdSetPipelineTSColor(device, pipeline, colorFormat, count, color.ToPointer());
-			LogFunction("wfdSetPipelineTSColor({0}, {1}, {2}, {3}, 0x{4})", device, pipeline, colorFormat, count, color.ToString("X8"));
+			unsafe {
+				{
+					Debug.Assert(Delegates.pwfdSetPipelineTSColor != null, "pwfdSetPipelineTSColor not implemented");
+					Delegates.pwfdSetPipelineTSColor(device, pipeline, colorFormat, count, color.ToPointer());
+					LogFunction("wfdSetPipelineTSColor({0}, {1}, {2}, {3}, 0x{4})", device, pipeline, colorFormat, count, color.ToString("X8"));
+				}
+			}
 			DebugCheckErrors(null);
 		}
 
