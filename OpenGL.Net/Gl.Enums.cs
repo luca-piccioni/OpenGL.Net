@@ -424,6 +424,157 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration BufferTargetARB.
+	/// </summary>
+	public enum BufferTargetARB
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ARRAY_BUFFER.
+		/// </summary>
+		ArrayBuffer = Gl.ARRAY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER.
+		/// </summary>
+		AtomicCounterBuffer = Gl.ATOMIC_COUNTER_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_COPY_READ_BUFFER.
+		/// </summary>
+		CopyReadBuffer = Gl.COPY_READ_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_COPY_WRITE_BUFFER.
+		/// </summary>
+		CopyWriteBuffer = Gl.COPY_WRITE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DISPATCH_INDIRECT_BUFFER.
+		/// </summary>
+		DispatchIndirectBuffer = Gl.DISPATCH_INDIRECT_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DRAW_INDIRECT_BUFFER.
+		/// </summary>
+		DrawIndirectBuffer = Gl.DRAW_INDIRECT_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_ELEMENT_ARRAY_BUFFER.
+		/// </summary>
+		ElementArrayBuffer = Gl.ELEMENT_ARRAY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PIXEL_PACK_BUFFER.
+		/// </summary>
+		PixelPackBuffer = Gl.PIXEL_PACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PIXEL_UNPACK_BUFFER.
+		/// </summary>
+		PixelUnpackBuffer = Gl.PIXEL_UNPACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_BUFFER.
+		/// </summary>
+		QueryBuffer = Gl.QUERY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_SHADER_STORAGE_BUFFER.
+		/// </summary>
+		ShaderStorageBuffer = Gl.SHADER_STORAGE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_BUFFER.
+		/// </summary>
+		TextureBuffer = Gl.TEXTURE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER.
+		/// </summary>
+		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM_BUFFER.
+		/// </summary>
+		UniformBuffer = Gl.UNIFORM_BUFFER,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration BufferUsageARB.
+	/// </summary>
+	public enum BufferUsageARB
+	{
+		/// <summary>
+		/// Strongly typed for value GL_STREAM_DRAW.
+		/// </summary>
+		StreamDraw = Gl.STREAM_DRAW,
+
+		/// <summary>
+		/// Strongly typed for value GL_STREAM_READ.
+		/// </summary>
+		StreamRead = Gl.STREAM_READ,
+
+		/// <summary>
+		/// Strongly typed for value GL_STREAM_COPY.
+		/// </summary>
+		StreamCopy = Gl.STREAM_COPY,
+
+		/// <summary>
+		/// Strongly typed for value GL_STATIC_DRAW.
+		/// </summary>
+		StaticDraw = Gl.STATIC_DRAW,
+
+		/// <summary>
+		/// Strongly typed for value GL_STATIC_READ.
+		/// </summary>
+		StaticRead = Gl.STATIC_READ,
+
+		/// <summary>
+		/// Strongly typed for value GL_STATIC_COPY.
+		/// </summary>
+		StaticCopy = Gl.STATIC_COPY,
+
+		/// <summary>
+		/// Strongly typed for value GL_DYNAMIC_DRAW.
+		/// </summary>
+		DynamicDraw = Gl.DYNAMIC_DRAW,
+
+		/// <summary>
+		/// Strongly typed for value GL_DYNAMIC_READ.
+		/// </summary>
+		DynamicRead = Gl.DYNAMIC_READ,
+
+		/// <summary>
+		/// Strongly typed for value GL_DYNAMIC_COPY.
+		/// </summary>
+		DynamicCopy = Gl.DYNAMIC_COPY,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration BufferAccessARB.
+	/// </summary>
+	public enum BufferAccessARB
+	{
+		/// <summary>
+		/// Strongly typed for value GL_READ_ONLY.
+		/// </summary>
+		ReadOnly = Gl.READ_ONLY,
+
+		/// <summary>
+		/// Strongly typed for value GL_WRITE_ONLY.
+		/// </summary>
+		WriteOnly = Gl.WRITE_ONLY,
+
+		/// <summary>
+		/// Strongly typed for value GL_READ_WRITE.
+		/// </summary>
+		ReadWrite = Gl.READ_WRITE,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration ClearBufferMask.
 	/// </summary>
 	[Flags()]
@@ -7739,9 +7890,29 @@ namespace OpenGL
 		ProxyTexture1d = Gl.PROXY_TEXTURE_1D,
 
 		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_1D_ARRAY, GL_PROXY_TEXTURE_1D_ARRAY_EXT.
+		/// </summary>
+		ProxyTexture1dArray = Gl.PROXY_TEXTURE_1D_ARRAY,
+
+		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_2D, GL_PROXY_TEXTURE_2D_EXT.
 		/// </summary>
 		ProxyTexture2d = Gl.PROXY_TEXTURE_2D,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D_ARRAY, GL_PROXY_TEXTURE_2D_ARRAY_EXT.
+		/// </summary>
+		ProxyTexture2dArray = Gl.PROXY_TEXTURE_2D_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D_MULTISAMPLE.
+		/// </summary>
+		ProxyTexture2dMultisample = Gl.PROXY_TEXTURE_2D_MULTISAMPLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// </summary>
+		ProxyTexture2dMultisampleArray = Gl.PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_3D, GL_PROXY_TEXTURE_3D_EXT.
@@ -7752,6 +7923,21 @@ namespace OpenGL
 		/// Strongly typed for value GL_PROXY_TEXTURE_4D_SGIS.
 		/// </summary>
 		ProxyTexture4dSgis = Gl.PROXY_TEXTURE_4D_SGIS,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_CUBE_MAP, GL_PROXY_TEXTURE_CUBE_MAP_ARB, GL_PROXY_TEXTURE_CUBE_MAP_EXT.
+		/// </summary>
+		ProxyTextureCubeMap = Gl.PROXY_TEXTURE_CUBE_MAP,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_CUBE_MAP_ARRAY, GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB.
+		/// </summary>
+		ProxyTextureCubeMapArray = Gl.PROXY_TEXTURE_CUBE_MAP_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROXY_TEXTURE_RECTANGLE, GL_PROXY_TEXTURE_RECTANGLE_ARB, GL_PROXY_TEXTURE_RECTANGLE_NV.
+		/// </summary>
+		ProxyTextureRectangle = Gl.PROXY_TEXTURE_RECTANGLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_1D.
@@ -7772,26 +7958,6 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_4D_SGIS.
 		/// </summary>
 		Texture4dSgis = Gl.TEXTURE_4D_SGIS,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BASE_LEVEL_SGIS.
-		/// </summary>
-		TextureBaseLevel = Gl.TEXTURE_BASE_LEVEL,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LEVEL_SGIS.
-		/// </summary>
-		TextureMaxLevel = Gl.TEXTURE_MAX_LEVEL,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MAX_LOD, GL_TEXTURE_MAX_LOD_SGIS.
-		/// </summary>
-		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MIN_LOD, GL_TEXTURE_MIN_LOD_SGIS.
-		/// </summary>
-		TextureMinLod = Gl.TEXTURE_MIN_LOD,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_RECTANGLE.
@@ -7834,6 +8000,12 @@ namespace OpenGL
 		TextureCubeMapNegativeZ = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z,
 
 		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_CUBE_MAP_ARRAY_ARB, GL_TEXTURE_CUBE_MAP_ARRAY_EXT, 
+		/// GL_TEXTURE_CUBE_MAP_ARRAY_OES.
+		/// </summary>
+		TextureCubeMapArray = Gl.TEXTURE_CUBE_MAP_ARRAY,
+
+		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_1D_ARRAY.
 		/// </summary>
 		Texture1dArray = Gl.TEXTURE_1D_ARRAY,
@@ -7852,26 +8024,6 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
 		/// </summary>
 		Texture2dMultisampleArray = Gl.TEXTURE_2D_MULTISAMPLE_ARRAY,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROXY_TEXTURE_1D_ARRAY.
-		/// </summary>
-		ProxyTexture1dArray = Gl.PROXY_TEXTURE_1D_ARRAY,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROXY_TEXTURE_2D_ARRAY.
-		/// </summary>
-		ProxyTexture2dArray = Gl.PROXY_TEXTURE_2D_ARRAY,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROXY_TEXTURE_2D_MULTISAMPLE.
-		/// </summary>
-		ProxyTexture2dMultisample = Gl.PROXY_TEXTURE_2D_MULTISAMPLE,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY.
-		/// </summary>
-		ProxyTexture2dMultisampleArray = Gl.PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY,
 
 	}
 
@@ -7969,157 +8121,6 @@ namespace OpenGL
 		/// Strongly typed for value GL_SHORT.
 		/// </summary>
 		Short = Gl.SHORT,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration BufferTargetARB.
-	/// </summary>
-	public enum BufferTargetARB
-	{
-		/// <summary>
-		/// Strongly typed for value GL_ARRAY_BUFFER.
-		/// </summary>
-		ArrayBuffer = Gl.ARRAY_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER.
-		/// </summary>
-		AtomicCounterBuffer = Gl.ATOMIC_COUNTER_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_COPY_READ_BUFFER.
-		/// </summary>
-		CopyReadBuffer = Gl.COPY_READ_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_COPY_WRITE_BUFFER.
-		/// </summary>
-		CopyWriteBuffer = Gl.COPY_WRITE_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_DISPATCH_INDIRECT_BUFFER.
-		/// </summary>
-		DispatchIndirectBuffer = Gl.DISPATCH_INDIRECT_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_DRAW_INDIRECT_BUFFER.
-		/// </summary>
-		DrawIndirectBuffer = Gl.DRAW_INDIRECT_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_ELEMENT_ARRAY_BUFFER.
-		/// </summary>
-		ElementArrayBuffer = Gl.ELEMENT_ARRAY_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_PACK_BUFFER.
-		/// </summary>
-		PixelPackBuffer = Gl.PIXEL_PACK_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_UNPACK_BUFFER.
-		/// </summary>
-		PixelUnpackBuffer = Gl.PIXEL_UNPACK_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_BUFFER.
-		/// </summary>
-		QueryBuffer = Gl.QUERY_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_SHADER_STORAGE_BUFFER.
-		/// </summary>
-		ShaderStorageBuffer = Gl.SHADER_STORAGE_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_BUFFER.
-		/// </summary>
-		TextureBuffer = Gl.TEXTURE_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER.
-		/// </summary>
-		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_UNIFORM_BUFFER.
-		/// </summary>
-		UniformBuffer = Gl.UNIFORM_BUFFER,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration BufferUsageARB.
-	/// </summary>
-	public enum BufferUsageARB
-	{
-		/// <summary>
-		/// Strongly typed for value GL_STREAM_DRAW.
-		/// </summary>
-		StreamDraw = Gl.STREAM_DRAW,
-
-		/// <summary>
-		/// Strongly typed for value GL_STREAM_READ.
-		/// </summary>
-		StreamRead = Gl.STREAM_READ,
-
-		/// <summary>
-		/// Strongly typed for value GL_STREAM_COPY.
-		/// </summary>
-		StreamCopy = Gl.STREAM_COPY,
-
-		/// <summary>
-		/// Strongly typed for value GL_STATIC_DRAW.
-		/// </summary>
-		StaticDraw = Gl.STATIC_DRAW,
-
-		/// <summary>
-		/// Strongly typed for value GL_STATIC_READ.
-		/// </summary>
-		StaticRead = Gl.STATIC_READ,
-
-		/// <summary>
-		/// Strongly typed for value GL_STATIC_COPY.
-		/// </summary>
-		StaticCopy = Gl.STATIC_COPY,
-
-		/// <summary>
-		/// Strongly typed for value GL_DYNAMIC_DRAW.
-		/// </summary>
-		DynamicDraw = Gl.DYNAMIC_DRAW,
-
-		/// <summary>
-		/// Strongly typed for value GL_DYNAMIC_READ.
-		/// </summary>
-		DynamicRead = Gl.DYNAMIC_READ,
-
-		/// <summary>
-		/// Strongly typed for value GL_DYNAMIC_COPY.
-		/// </summary>
-		DynamicCopy = Gl.DYNAMIC_COPY,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration BufferAccessARB.
-	/// </summary>
-	public enum BufferAccessARB
-	{
-		/// <summary>
-		/// Strongly typed for value GL_READ_ONLY.
-		/// </summary>
-		ReadOnly = Gl.READ_ONLY,
-
-		/// <summary>
-		/// Strongly typed for value GL_WRITE_ONLY.
-		/// </summary>
-		WriteOnly = Gl.WRITE_ONLY,
-
-		/// <summary>
-		/// Strongly typed for value GL_READ_WRITE.
-		/// </summary>
-		ReadWrite = Gl.READ_WRITE,
 
 	}
 

@@ -3259,11 +3259,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
-		public static void MultiDrawArraysIndirect(Int32 mode, IntPtr indirect, Int32 drawcount, Int32 stride)
+		public static void MultiDrawArraysIndirect(PrimitiveType mode, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirect != null, "pglMultiDrawArraysIndirect not implemented");
-			Delegates.pglMultiDrawArraysIndirect(mode, indirect, drawcount, stride);
-			LogFunction("glMultiDrawArraysIndirect({0}, 0x{1}, {2}, {3})", LogEnumName(mode), indirect.ToString("X8"), drawcount, stride);
+			Delegates.pglMultiDrawArraysIndirect((Int32)mode, indirect, drawcount, stride);
+			LogFunction("glMultiDrawArraysIndirect({0}, 0x{1}, {2}, {3})", mode, indirect.ToString("X8"), drawcount, stride);
 			DebugCheckErrors(null);
 		}
 
@@ -3318,7 +3318,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
-		public static void MultiDrawArraysIndirect(Int32 mode, Object indirect, Int32 drawcount, Int32 stride)
+		public static void MultiDrawArraysIndirect(PrimitiveType mode, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -3387,11 +3387,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
-		public static void MultiDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirect != null, "pglMultiDrawElementsIndirect not implemented");
-			Delegates.pglMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
-			LogFunction("glMultiDrawElementsIndirect({0}, {1}, 0x{2}, {3}, {4})", LogEnumName(mode), LogEnumName(type), indirect.ToString("X8"), drawcount, stride);
+			Delegates.pglMultiDrawElementsIndirect((Int32)mode, type, indirect, drawcount, stride);
+			LogFunction("glMultiDrawElementsIndirect({0}, {1}, 0x{2}, {3}, {4})", mode, LogEnumName(type), indirect.ToString("X8"), drawcount, stride);
 			DebugCheckErrors(null);
 		}
 
@@ -3454,7 +3454,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
-		public static void MultiDrawElementsIndirect(Int32 mode, Int32 type, Object indirect, Int32 drawcount, Int32 stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, Int32 type, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

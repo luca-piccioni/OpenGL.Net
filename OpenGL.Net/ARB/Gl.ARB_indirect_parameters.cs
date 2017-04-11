@@ -44,7 +44,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawArraysIndirectCountARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -59,11 +59,11 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawArraysIndirectARB(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawArraysIndirectARB(PrimitiveType mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectCountARB != null, "pglMultiDrawArraysIndirectCountARB not implemented");
-			Delegates.pglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride);
-			LogFunction("glMultiDrawArraysIndirectCountARB({0}, 0x{1}, 0x{2}, {3}, {4})", LogEnumName(mode), indirect.ToString("X8"), drawcount.ToString("X8"), maxdrawcount, stride);
+			Delegates.pglMultiDrawArraysIndirectCountARB((Int32)mode, indirect, drawcount, maxdrawcount, stride);
+			LogFunction("glMultiDrawArraysIndirectCountARB({0}, 0x{1}, 0x{2}, {3}, {4})", mode, indirect.ToString("X8"), drawcount.ToString("X8"), maxdrawcount, stride);
 			DebugCheckErrors(null);
 		}
 
@@ -71,7 +71,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawElementsIndirectCountARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -89,11 +89,11 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirectARB(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawElementsIndirectARB(PrimitiveType mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCountARB != null, "pglMultiDrawElementsIndirectCountARB not implemented");
-			Delegates.pglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride);
-			LogFunction("glMultiDrawElementsIndirectCountARB({0}, {1}, 0x{2}, 0x{3}, {4}, {5})", LogEnumName(mode), LogEnumName(type), indirect.ToString("X8"), drawcount.ToString("X8"), maxdrawcount, stride);
+			Delegates.pglMultiDrawElementsIndirectCountARB((Int32)mode, type, indirect, drawcount, maxdrawcount, stride);
+			LogFunction("glMultiDrawElementsIndirectCountARB({0}, {1}, 0x{2}, 0x{3}, {4}, {5})", mode, LogEnumName(type), indirect.ToString("X8"), drawcount.ToString("X8"), maxdrawcount, stride);
 			DebugCheckErrors(null);
 		}
 
