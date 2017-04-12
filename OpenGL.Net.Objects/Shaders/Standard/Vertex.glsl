@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2016 Luca Piccioni
+// Copyright (C) 2011-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -44,6 +44,7 @@ SHADER_OUT mat3 glo_VertexTBN;
 
 // Vertex/Fragment position (model-view space)
 SHADER_OUT vec4 glo_VertexPositionModelView;
+
 void main()
 {
 	vec4 vPosition = glo_Position;
