@@ -120,14 +120,17 @@ namespace BindingsGen
 
 			// Assembly processing
 			if ((args.Length > 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); }) >= 0)) {
-				RegistryAssemblyConfiguration cfg = new RegistryAssemblyConfiguration();
+				List<RegistryAssemblyConfiguration> cfgs = new List<RegistryAssemblyConfiguration>();
 
-				cfg.Api = "gles2";
+				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
+				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
 
-				try {
-					RegistryAssembly.CleanAssembly(@"C:\Users\Luca\Desktop\OpenGL.Net\OpenGL.Net\bin\net461\Debug\OpenGL.Net.dll", cfg);
-				} catch (Exception exception) {
-					Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
+				foreach (RegistryAssemblyConfiguration cfg in cfgs) {
+					try {
+						RegistryAssembly.CleanAssembly(@"C:\Users\Luca\Desktop\OpenGL.Net\OpenGL.Net\bin\net461\Debug\OpenGL.Net.dll", cfg);
+					} catch (Exception exception) {
+						Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
+					}
 				}
 			}
 

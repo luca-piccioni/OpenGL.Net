@@ -66,14 +66,22 @@ namespace BindingsGen
 					Console.WriteLine("*** Removing {0} methods", removedMethods.Count);
 					foreach (MethodDefinition method in removedMethods) {
 						Console.WriteLine("  - {0}", method.Name);
-						type.Methods.Remove(method);
+						RemoveMethod(type, method);
 					}
 				}
 			}
 
 			string baseDirPath = Path.GetDirectoryName(path);
 
-			assembly.Write(Path.Combine(baseDirPath, "OpenGL.Net-GLES2.dll"));
+			assembly.Write(Path.Combine(baseDirPath, String.Format("OpenGL.Net-{0}.dll", cfg.Name)));
+		}
+
+		private static void RemoveMethod(TypeDefinition type, MethodDefinition method)
+		{
+			// Remove method
+			type.Methods.Remove(method);
+
+			// type.NestedTypes[0]
 		}
 
 		private static bool IsCompatibleField(RegistryAssemblyConfiguration cfg, FieldDefinition field)
@@ -122,38 +130,42 @@ namespace BindingsGen
 
 		private static bool IsCompatible_RequiredAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
 		{
-			// Match by API?
-			if (cfg.Api != null) {
-				string apiRegex = customAttrib.Fields.Count > 0 ? customAttrib.Fields[0].Argument.Value as string : "gl";
-
-				if (Regex.IsMatch(cfg.Api, "^(" + apiRegex + ")$") == false)
-					return (false);
-			}
-
 			string featureName = customAttrib.ConstructorArguments[0].Value as string;
 			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName, false);
 
-			if (attribVersion != null) {
-				KhronosVersion minVersion = cfg.MinApiVersion != null ? KhronosVersion.Parse(cfg.MinApiVersion) : null;
-				KhronosVersion maxVersion = cfg.MaxApiVersion != null ? KhronosVersion.Parse(cfg.MaxApiVersion) : null;
-				// API version
-				if (minVersion != null && attribVersion < minVersion)
-					return (false);
-				if (maxVersion != null && attribVersion > maxVersion)
-					return (false);
-			} else {
-				// Extension
-				return (cfg.Extensions.Count == 0 || cfg.Extensions.Contains(featureName));
+			// Match at least one feature?
+			bool compatible = false;
+
+			foreach (RegistryAssemblyConfiguration.VersionRange cfgFeature in cfg.Features) {
+				if (cfgFeature.Api != null) {
+					string apiRegex = customAttrib.Fields.Count > 0 ? customAttrib.Fields[0].Argument.Value as string : "gl";
+
+					if (Regex.IsMatch(cfgFeature.Api, "^(" + apiRegex + ")$"))
+						compatible |= true;
+				}
+
+				if (attribVersion != null) {
+					KhronosVersion minVersion = cfgFeature.MinApiVersion != null ? KhronosVersion.Parse(cfgFeature.MinApiVersion) : null;
+					KhronosVersion maxVersion = cfgFeature.MaxApiVersion != null ? KhronosVersion.Parse(cfgFeature.MaxApiVersion) : null;
+					// API version
+					if (minVersion != null && attribVersion < minVersion)
+						return (false);
+					if (maxVersion != null && attribVersion > maxVersion)
+						return (false);
+				} else {
+					// Extension
+					compatible |= (cfg.Extensions.Count == 0 || cfg.Extensions.Contains(featureName));
+				}
 			}
 
-			return (true);
+			return (compatible);
 		}
 
 		private static bool IsCompatible_RemovedAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
 		{
 			string featureName = customAttrib.ConstructorArguments[0].Value as string;
 
-			return (false);
+			return (true);
 		}
 	}
 }

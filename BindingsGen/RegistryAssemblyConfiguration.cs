@@ -16,6 +16,8 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Reflection;
 using System.Xml.Serialization;
 
 namespace BindingsGen
@@ -32,26 +34,41 @@ namespace BindingsGen
 		/// <summary>
 		/// The configuration name.
 		/// </summary>
-		[XmlElement("Name")]
+		[XmlAttribute("Name")]
 		public string Name;
 
 		/// <summary>
-		/// Minimum version of the API to be implemented.
+		/// Range of version of a specific API.
 		/// </summary>
-		[XmlElement("MinApiVersion")]
-		public string MinApiVersion;
+		[XmlType("VersionRange")]
+		public class VersionRange
+		{
+			/// <summary>
+			/// API to be implemented.
+			/// </summary>
+			[XmlAttribute("Api")]
+			public string Api;
+
+			/// <summary>
+			/// Minimum version of the API to be implemented.
+			/// </summary>
+			[XmlElement("MinApiVersion")]
+			[DefaultValue(null)]
+			public string MinApiVersion;
+
+			/// <summary>
+			/// Maximum version of the API to be implemented.
+			/// </summary>
+			[XmlElement("MaxApiVersion")]
+			[DefaultValue(null)]
+			public string MaxApiVersion;
+		}
 
 		/// <summary>
-		/// Maximum version of the API to be implemented.
+		/// Features
 		/// </summary>
-		[XmlElement("MinApiVersion")]
-		public string MaxApiVersion;
-
-		/// <summary>
-		/// API to be implemented.
-		/// </summary>
-		[XmlElement("MinApiVersion")]
-		public string Api;
+		[XmlElement("Feature")]
+		public readonly List<VersionRange> Features = new List<VersionRange>();
 
 		/// <summary>
 		/// Extesion to be implemented.
@@ -75,6 +92,19 @@ namespace BindingsGen
 		/// Default value for <see cref="PlatformApi"/>.
 		/// </summary>
 		private const string DefaultPlatformApi = "wgl|glx|egl";
+
+		#endregion
+
+		#region Resource Loading
+
+		public static RegistryAssemblyConfiguration Load(string path)
+		{
+			using (Stream sr = Assembly.GetExecutingAssembly().GetManifestResourceStream(path)) {
+				XmlSerializer serializer = new XmlSerializer(typeof(RegistryAssemblyConfiguration));
+
+				return ((RegistryAssemblyConfiguration)serializer.Deserialize(sr));
+			}
+		}
 
 		#endregion
 	}
