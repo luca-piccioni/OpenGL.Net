@@ -118,6 +118,19 @@ namespace BindingsGen
 				GenerateVbCommands(glRegistryProcessor, ctx);
 			}
 
+			// Assembly processing
+			if ((args.Length > 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); }) >= 0)) {
+				RegistryAssemblyConfiguration cfg = new RegistryAssemblyConfiguration();
+
+				cfg.Api = "gles2";
+
+				try {
+					RegistryAssembly.CleanAssembly(@"C:\Users\Luca\Desktop\OpenGL.Net\OpenGL.Net\bin\net461\Debug\OpenGL.Net.dll", cfg);
+				} catch (Exception exception) {
+					Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
+				}
+			}
+
 			RegistryDocumentation.CloseLog();
 		}
 
