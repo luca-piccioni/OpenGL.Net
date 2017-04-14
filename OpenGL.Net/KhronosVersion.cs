@@ -372,31 +372,40 @@ namespace OpenGL
 			if (featureName == "GL_VERSION_ES_CM_1_0")
 				return (new KhronosVersion(1, 0, 0, ApiGles1));
 
-			Match versionMatch;
-			int major, minor;
-
-			// Match SC versions
-			versionMatch = Regex.Match(featureName, @"GL_SC_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
-			if (versionMatch.Success == true) {
-				major = Int32.Parse(versionMatch.Groups["Major"].Value);
-				minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
-
-				return (new KhronosVersion(major, minor, ApiGlsc2));
-			}
-
-			// Matches GL and GL ES versions
-			versionMatch = Regex.Match(featureName, @"GL(?<Embedded>_ES)?_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
+			// Match GL|GLES|GLSC|WGL|GLX|EGL versions
+			Match versionMatch = Regex.Match(featureName, @"(?<Api>GL|GL_ES|GL_SC|WGL|GLX|EGL)_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
 			if (versionMatch.Success == false) {
 				if (throwException)
 					throw new ArgumentException("unrecognized pattern", "featureName");
 				return (null);
 			}
+			
+			string api = versionMatch.Groups["Api"].Value;
+			int major = Int32.Parse(versionMatch.Groups["Major"].Value);
+			int minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 
-			major = Int32.Parse(versionMatch.Groups["Major"].Value);
-			minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
-			bool embedded = versionMatch.Groups["Embedded"].Success;
+			switch (api) {
+				case "GL":
+					api = ApiGl;
+					break;
+				case "GL_ES":
+					api = ApiGles2;
+					break;
+				case "GL_SC":
+					api = ApiGlsc2;
+					break;
+				case "WGL":
+					api = ApiWgl;
+					break;
+				case "GLX":
+					api = ApiGlx;
+					break;
+				case "EGL":
+					api = ApiEgl;
+					break;
+			}
 
-			return (new KhronosVersion(major, minor, embedded ? ApiGles2 : ApiGl));
+			return (new KhronosVersion(major, minor, api));
 		}
 
 		/// <summary>
