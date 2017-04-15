@@ -44,12 +44,6 @@ namespace BindingsGen
 		/// </summary>
 		static RegistryDocumentation()
 		{
-#if !DEBUG
-			ScanDocumentation_GL4();
-			ScanDocumentation_GL2();
-			ScanDocumentation_EGL();
-#endif
-
 			TranformEnumerantMan2 = new XslCompiledTransform();
 			using (Stream xsltStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("BindingsGen.GLSpecs.EnumerantDoc_Man2.xslt")) {
 				using (XmlReader xmlReader = XmlReader.Create(xsltStream)) {
@@ -927,6 +921,23 @@ namespace BindingsGen
 		#endregion
 
 		#region Documentation Scanning
+
+		/// <summary>
+		/// Index all documented OpenGL commands.
+		/// </summary>
+		public static void ScanDocumentation()
+		{
+#if !DEBUG
+			if (_DocScanned)
+				return;
+			ScanDocumentation_GL4();
+			ScanDocumentation_GL2();
+			ScanDocumentation_EGL();
+			_DocScanned = true;
+#endif
+		}
+
+		private static bool _DocScanned;
 
 		/// <summary>
 		/// Index all documented OpenGL commands the the OpenGL 2 manual.

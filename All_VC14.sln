@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net_net35", "OpenGL.Net\OpenGL.Net_net35.csproj", "{ABB8DFA8-473A-4FC1-85C0-E21680772A58}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663} = {6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Test_net35", "OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj", "{861A0458-2848-4585-B844-8945E4B61B5C}"
 EndProject
@@ -81,6 +84,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloObjects", "Samples\HelloObjects\HelloObjects.csproj", "{F8ADB90D-C402-448D-A0E9-60F71883FFAC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net_net461", "OpenGL.Net\OpenGL.Net_net461.csproj", "{9E3018F3-770E-4CFD-87D0-BAEE66E9FE8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663} = {6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Test_net461", "OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj", "{2C30C91A-47DB-4D35-8FA1-4BCE4DC4C1FE}"
 EndProject

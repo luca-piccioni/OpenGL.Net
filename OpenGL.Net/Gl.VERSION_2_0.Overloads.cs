@@ -42,7 +42,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.DeleteShader"/>
+		[AliasOf("glShaderSourceARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void ShaderSource(UInt32 shader, String[] @string)
 		{
 			Int32[] length = new Int32[@string.Length];

@@ -49,6 +49,8 @@ namespace BindingsGen
 
 			// OpenGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
+				RegistryDocumentation.ScanDocumentation();
+
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -59,6 +61,8 @@ namespace BindingsGen
 
 			// OpenGL for Windows
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
+				RegistryDocumentation.ScanDocumentation();
+
 				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -69,6 +73,8 @@ namespace BindingsGen
 
 			// OpenGL for Unix
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0)) {
+				RegistryDocumentation.ScanDocumentation();
+
 				ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -79,6 +85,8 @@ namespace BindingsGen
 
 			// EGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
+				RegistryDocumentation.ScanDocumentation();
+
 				ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -119,7 +127,11 @@ namespace BindingsGen
 			}
 
 			// Assembly processing
-			if ((args.Length > 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); }) >= 0)) {
+			int index;
+
+			if ((args.Length > 0) && ((index = Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); })) >= 0)) {
+				string assemblyPath = args[index + 1];
+
 				List<RegistryAssemblyConfiguration> cfgs = new List<RegistryAssemblyConfiguration>();
 
 				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
@@ -127,7 +139,7 @@ namespace BindingsGen
 
 				foreach (RegistryAssemblyConfiguration cfg in cfgs) {
 					try {
-						RegistryAssembly.CleanAssembly(@"C:\Users\Luca\Desktop\OpenGL.Net\OpenGL.Net\bin\net461\Debug\OpenGL.Net.dll", cfg);
+						RegistryAssembly.CleanAssembly(assemblyPath, cfg);
 					} catch (Exception exception) {
 						Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
 					}

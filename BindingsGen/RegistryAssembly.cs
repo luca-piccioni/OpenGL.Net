@@ -31,6 +31,8 @@ namespace BindingsGen
 	{
 		public static void CleanAssembly(string path, RegistryAssemblyConfiguration cfg)
 		{
+			Console.WriteLine("*** Generate assembly {0}", cfg.Name);
+
 			AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(path);
 
 			foreach (ModuleDefinition module in assembly.Modules) {
@@ -49,9 +51,9 @@ namespace BindingsGen
 							removedFields.Add(field);
 					}
 
-					Console.WriteLine("*** Removing {0} field", removedFields.Count);
+					Console.WriteLine("- Removing {0} constants", removedFields.Count);
 					foreach (FieldDefinition field in removedFields) {
-						Console.WriteLine("  - {0}", field.Name);
+						// Console.WriteLine("  - {0}", field.Name);
 						type.Fields.Remove(field);
 					}
 
@@ -63,9 +65,9 @@ namespace BindingsGen
 							removedMethods.Add(method);
 					}
 
-					Console.WriteLine("*** Removing {0} methods", removedMethods.Count);
+					Console.WriteLine("- Removing {0} methods", removedMethods.Count);
 					foreach (MethodDefinition method in removedMethods) {
-						Console.WriteLine("  - {0}", method.Name);
+						// Console.WriteLine("  - {0}", method.Name);
 						RemoveMethod(type, method);
 					}
 				}
@@ -78,10 +80,48 @@ namespace BindingsGen
 
 		private static void RemoveMethod(TypeDefinition type, MethodDefinition method)
 		{
+			string methodName = type.Name.ToLower() + method.Name;
+
 			// Remove method
 			type.Methods.Remove(method);
 
-			// type.NestedTypes[0]
+			// Unsafe methods
+			List<MethodDefinition> removedUnsafeMethods = new List<MethodDefinition>();
+
+			TypeDefinition unsafeNestedType = type.NestedTypes[0];
+			foreach (MethodDefinition unsafeMethod in unsafeNestedType.Methods) {
+				if (unsafeMethod.Name == methodName) {
+					removedUnsafeMethods.Add(unsafeMethod);
+					break;
+				}
+			}
+			foreach (MethodDefinition unsafeMethod in removedUnsafeMethods)
+				unsafeNestedType.Methods.Remove(unsafeMethod);
+
+			// Delegates
+			List<FieldDefinition> removedDelegateFields = new List<FieldDefinition>();
+			List<TypeDefinition> removedDelegateTypes = new List<TypeDefinition>();
+
+			TypeDefinition delegatesNestedType = type.NestedTypes[1];
+
+			foreach (FieldDefinition field in delegatesNestedType.Fields) {
+				if (field.Name == "p" + methodName) {
+					removedDelegateFields.Add(field);
+					break;
+				}
+			}
+
+			foreach (TypeDefinition nestedType in delegatesNestedType.NestedTypes) {
+				if (nestedType.Name == methodName) {
+					removedDelegateTypes.Add(nestedType);
+					break;
+				}
+			}
+
+			foreach (FieldDefinition field in removedDelegateFields)
+				unsafeNestedType.Fields.Remove(field);
+			foreach (TypeDefinition nestedType in removedDelegateTypes)
+				unsafeNestedType.NestedTypes.Remove(nestedType);
 		}
 
 		private static bool IsCompatibleField(RegistryAssemblyConfiguration cfg, FieldDefinition field)
@@ -154,7 +194,7 @@ namespace BindingsGen
 						return (false);
 				} else {
 					// Extension
-					compatible |= (cfg.Extensions.Count == 0 || cfg.Extensions.Contains(featureName));
+					// compatible |= (cfg.Extensions.Count == 0 || cfg.Extensions.Contains(featureName));
 				}
 			}
 
