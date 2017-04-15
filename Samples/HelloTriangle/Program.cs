@@ -33,7 +33,7 @@ namespace HelloTriangle
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 
-			if (envDebug == "GL") {
+			if (envDebug == "GL" || true) {
 				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
 					Console.WriteLine(format, args);
 				});

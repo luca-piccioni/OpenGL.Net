@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-		<id>OpenGL.Net</id>
-		<version>0.4.1</version>
-		<title>OpenGL for .Net</title>
+		<id>OpenGL.Net.ES2Profile</id>
+		<version>0.4.1-alpha</version>
+		<title>OpenGL for .Net - Core Profile</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
 		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
 		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
     <!--<iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>-->
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
-		<summary>Modern OpenGL bindings for C#.</summary>
+		<summary>Modern OpenGL bindings for C# - OpenGL ES 2+.</summary>
 		<description>
 			Modern OpenGL bindings for C#.
 
 			It supports the following APIs:
-			- OpenGL 4.5 and OpenGL ES 3.2 with relative extensions, updated by the specification of 29 Nov 2016 (rev 33312).
+			- OpenGL ES 3.2, updated by the specification of 29 Nov 2016 (rev 33312).
 			- OpenGL for Windows (WGL) with relative extensions, updated by the specification of 19 Dec 2016 (rev 33340)
 			- OpenGL for X11 1.4 (XGL) with relative extensions, updated by the specification of 7 Jun 2016 (rev 32941).
 			- Native Platform Interface 1.5 (EGL) with relative extensions, updated by the specification of 30 Nov 2016 (rev 33315)
@@ -25,6 +25,10 @@
 			- System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
 			- Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android
 			- Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
+
+			Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
+			- OpenGL ES related symbols: only OpenGL ES 2+ symbols are included.
+			- Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via guthub issue system.
 		</description>
 		<releaseNotes>
 			This package includes the targets:
@@ -42,11 +46,11 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.dll" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.xml" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net.dll" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net.xml" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.dll" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.xml" target="lib\MonoAndroid" />
+		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\net35" />
+		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\net35" />
+		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.dll.dll" target="lib\net461" />
+		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.xml" target="lib\net461" />
+		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll.dll" target="lib\MonoAndroid" />
+		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\MonoAndroid" />
 	</files>
 </package>
