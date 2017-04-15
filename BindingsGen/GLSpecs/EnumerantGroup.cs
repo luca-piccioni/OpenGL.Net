@@ -157,6 +157,25 @@ namespace BindingsGen.GLSpecs
 				} else
 					sw.WriteLine("/// Strongly typed for value {0}.", enumerant.Name);
 				sw.WriteLine("/// </summary>");
+
+				Enumerant enumvalue = ctx.Registry.GetEnumerant(ctx.Class.ToUpperInvariant() + "_" + bindingName);
+				string classDefaultApi = ctx.Class.ToLower();
+
+				if (enumvalue != null) {
+					foreach (IFeature feature in enumvalue.RequiredBy) {
+						if (feature.Api != null && feature.Api != classDefaultApi)
+							sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+						else
+							sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+					}
+					foreach (IFeature feature in enumvalue.RemovedBy) {
+						if (feature.Api != null && feature.Api != classDefaultApi)
+							sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+						else
+							sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
+					}
+				}
+
 				sw.WriteLine("{0} = {1}.{2},", camelCase, ctx.Class, bindingName);
 				sw.WriteLine();
 			}
