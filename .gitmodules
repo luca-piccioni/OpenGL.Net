@@ -1,0 +1,3 @@
+[submodule "OpenGL-Refpages"]
+	path = OpenGL-Refpages
+	url = https://github.com/KhronosGroup/OpenGL-Refpages.git
