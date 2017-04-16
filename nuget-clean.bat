@@ -1,0 +1,3 @@
+del *.nupkg
+
+pause

@@ -1,3 +1,3 @@
-nuget.exe push $1 ApiKey 3754A140-3925-40B2-ACDC-F3E3A648658B
+nuget.exe push "%1" -ApiKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -Source https://www.nuget.org/api/v2/package
 
 pause

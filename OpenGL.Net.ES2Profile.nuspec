@@ -3,7 +3,7 @@
   <metadata>
 		<id>OpenGL.Net.ES2Profile</id>
 		<version>0.4.1-alpha</version>
-		<title>OpenGL for .Net - Core Profile</title>
+		<title>OpenGL for .Net - ES2 Profile</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
 		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
