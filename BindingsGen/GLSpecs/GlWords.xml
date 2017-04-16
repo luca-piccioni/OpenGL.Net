@@ -3,6 +3,7 @@
 	<word>Accum</word>
 	<word>Active</word>
 	<word>Address</word>
+	<word>Addr</word>
 	<word>Alpha</word>
 	<word>Along</word>
 	<word>Apply</word>
@@ -352,6 +353,7 @@
 	<word>Present</word>
 	<word>Primitive</word>
 	<word>Prioritize</word>
+	<word>Proc</word>
 	<word>Programs</word>
 	<word>Program</word>
 	<word>Provoking</word>
@@ -391,6 +393,7 @@
 	<word>Scissor</word>
 	<word>Secondary</word>
 	<word>Select</word>
+	<word>Semaphore</word>
 	<word>Separable</word>
 	<word>Separatei</word>
 	<word>Separate</word>
@@ -400,6 +403,7 @@
 	<word>Shade</word>
 	<word>Shading</word>
 	<word>Sharpen</word>
+	<word>Signal</word>
 	<word>Size</word>
 	<word>Source</word>
 	<word>Spacing</word>
@@ -481,6 +485,7 @@
 	<word>Video</word>
 	<word>Viewport</word>
 	<word>View</word>
+	<word>Vk</word>
 	<word>Wait</word>
 	<word>Weighth</word>
 	<word>Weight</word>

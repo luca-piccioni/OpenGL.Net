@@ -80,7 +80,7 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static Gl.VulkanProc GetNV(String name)
+		public static Gl.VulkanProc GetVkProcAddrNV(String name)
 		{
 			IntPtr retValue;
 
@@ -99,7 +99,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static void WaitNV(UInt64 vkSemaphore)
+		public static void WaitVkSemaphoreNV(UInt64 vkSemaphore)
 		{
 			Debug.Assert(Delegates.pglWaitVkSemaphoreNV != null, "pglWaitVkSemaphoreNV not implemented");
 			Delegates.pglWaitVkSemaphoreNV(vkSemaphore);
@@ -114,7 +114,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static void NV(UInt64 vkSemaphore)
+		public static void SignalVkSemaphoreNV(UInt64 vkSemaphore)
 		{
 			Debug.Assert(Delegates.pglSignalVkSemaphoreNV != null, "pglSignalVkSemaphoreNV not implemented");
 			Delegates.pglSignalVkSemaphoreNV(vkSemaphore);
