@@ -162,12 +162,23 @@ namespace BindingsGen.GLSpecs
 				string classDefaultApi = ctx.Class.ToLower();
 
 				if (enumvalue != null) {
+					// RequiredByFeature
 					foreach (IFeature feature in enumvalue.RequiredBy) {
 						if (feature.Api != null && feature.Api != classDefaultApi)
 							sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
 						else
 							sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
 					}
+					// RequiredByFeature (from aliases)
+					foreach (Enumerant aliasOf in enumvalue.AliasOf) {
+						foreach (IFeature feature in aliasOf.RequiredBy) {
+							if (feature.Api != null && feature.Api != classDefaultApi)
+								sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
+							else
+								sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+						}
+					}
+					// RemovedByFeature
 					foreach (IFeature feature in enumvalue.RemovedBy) {
 						if (feature.Api != null && feature.Api != classDefaultApi)
 							sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);

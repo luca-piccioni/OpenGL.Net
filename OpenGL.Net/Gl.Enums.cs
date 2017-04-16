@@ -162,6 +162,9 @@ namespace OpenGL
 		/// Strongly typed for value GL_MULTISAMPLE_BIT, GL_MULTISAMPLE_BIT_3DFX, GL_MULTISAMPLE_BIT_ARB, GL_MULTISAMPLE_BIT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_3DFX_multisample")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		MultisampleBit = Gl.MULTISAMPLE_BIT,
 
@@ -331,6 +334,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 		FuncAdd = Gl.FUNC_ADD,
 
 		/// <summary>
@@ -341,6 +346,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_subtract")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 		FuncReverseSubtract = Gl.FUNC_REVERSE_SUBTRACT,
 
 		/// <summary>
@@ -351,6 +358,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_subtract")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 		FuncSubtract = Gl.FUNC_SUBTRACT,
 
 		/// <summary>
@@ -368,6 +377,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
 		Max = Gl.MAX,
 
 		/// <summary>
@@ -378,6 +388,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
 		Min = Gl.MIN,
 
 	}
@@ -395,6 +406,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		ConstantAlpha = Gl.CONSTANT_ALPHA,
 
 		/// <summary>
@@ -405,6 +417,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		ConstantColor = Gl.CONSTANT_COLOR,
 
 		/// <summary>
@@ -435,6 +448,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		OneMinusConstantAlpha = Gl.ONE_MINUS_CONSTANT_ALPHA,
 
 		/// <summary>
@@ -445,6 +459,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		OneMinusConstantColor = Gl.ONE_MINUS_CONSTANT_COLOR,
 
 		/// <summary>
@@ -524,6 +539,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		ConstantAlpha = Gl.CONSTANT_ALPHA,
 
 		/// <summary>
@@ -534,6 +550,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		ConstantColor = Gl.CONSTANT_COLOR,
 
 		/// <summary>
@@ -574,6 +591,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		OneMinusConstantAlpha = Gl.ONE_MINUS_CONSTANT_ALPHA,
 
 		/// <summary>
@@ -584,6 +602,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		OneMinusConstantColor = Gl.ONE_MINUS_CONSTANT_COLOR,
 
 		/// <summary>
@@ -634,6 +653,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		SrcAlphaSaturate = Gl.SRC_ALPHA_SATURATE,
 
 		/// <summary>
@@ -684,6 +704,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		ArrayBuffer = Gl.ARRAY_BUFFER,
 
 		/// <summary>
@@ -701,6 +722,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
 		CopyReadBuffer = Gl.COPY_READ_BUFFER,
 
 		/// <summary>
@@ -709,6 +731,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
 		CopyWriteBuffer = Gl.COPY_WRITE_BUFFER,
 
 		/// <summary>
@@ -733,6 +756,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		ElementArrayBuffer = Gl.ELEMENT_ARRAY_BUFFER,
 
 		/// <summary>
@@ -740,6 +764,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		PixelPackBuffer = Gl.PIXEL_PACK_BUFFER,
 
 		/// <summary>
@@ -747,6 +773,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		PixelUnpackBuffer = Gl.PIXEL_UNPACK_BUFFER,
 
 		/// <summary>
@@ -754,6 +782,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		QueryBuffer = Gl.QUERY_BUFFER,
 
 		/// <summary>
@@ -770,6 +799,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_buffer_object")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 		TextureBuffer = Gl.TEXTURE_BUFFER,
 
 		/// <summary>
@@ -779,6 +812,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
 
 		/// <summary>
@@ -801,6 +836,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		StreamDraw = Gl.STREAM_DRAW,
 
 		/// <summary>
@@ -808,6 +844,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		StreamRead = Gl.STREAM_READ,
 
 		/// <summary>
@@ -815,6 +852,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		StreamCopy = Gl.STREAM_COPY,
 
 		/// <summary>
@@ -823,6 +861,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		StaticDraw = Gl.STATIC_DRAW,
 
 		/// <summary>
@@ -830,6 +869,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		StaticRead = Gl.STATIC_READ,
 
 		/// <summary>
@@ -837,6 +877,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		StaticCopy = Gl.STATIC_COPY,
 
 		/// <summary>
@@ -845,6 +886,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		DynamicDraw = Gl.DYNAMIC_DRAW,
 
 		/// <summary>
@@ -852,6 +894,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		DynamicRead = Gl.DYNAMIC_READ,
 
 		/// <summary>
@@ -859,6 +902,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		DynamicCopy = Gl.DYNAMIC_COPY,
 
 	}
@@ -873,6 +917,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		ReadOnly = Gl.READ_ONLY,
 
 		/// <summary>
@@ -881,6 +926,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_NV_shader_buffer_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 		WriteOnly = Gl.WRITE_ONLY,
 
 		/// <summary>
@@ -889,6 +936,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_NV_shader_buffer_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		ReadWrite = Gl.READ_WRITE,
 
 	}
@@ -977,6 +1025,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
@@ -985,6 +1034,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
@@ -993,6 +1043,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
@@ -1001,6 +1052,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
@@ -1009,6 +1061,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
@@ -1017,6 +1070,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane5 = Gl.CLIP_PLANE5,
 
@@ -1024,12 +1078,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_CLIP_DISTANCE6.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
 		ClipDistance6 = Gl.CLIP_DISTANCE6,
 
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE7.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
 		ClipDistance7 = Gl.CLIP_DISTANCE7,
 
 	}
@@ -1202,12 +1258,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_COLOR_TABLE_BIAS, GL_COLOR_TABLE_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableBias = Gl.COLOR_TABLE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_SCALE, GL_COLOR_TABLE_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableScale = Gl.COLOR_TABLE_SCALE,
 
 	}
@@ -1221,36 +1279,42 @@ namespace OpenGL
 		/// Strongly typed for value GL_COLOR_TABLE, GL_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTable = Gl.COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE, GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		PostColorMatrixColorTable = Gl.POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE, GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		PostConvolutionColorTable = Gl.POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_COLOR_TABLE, GL_PROXY_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ProxyColorTable = Gl.PROXY_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE, GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ProxyPostColorMatrixColorTable = Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_POST_CONVOLUTION_COLOR_TABLE, GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ProxyPostConvolutionColorTable = Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
@@ -1279,6 +1343,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		ContextFlagDebugBit = Gl.CONTEXT_FLAG_DEBUG_BIT,
 
 		/// <summary>
@@ -1292,6 +1357,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		ContextFlagRobustAccessBit = Gl.CONTEXT_FLAG_ROBUST_ACCESS_BIT,
 
 		/// <summary>
@@ -1331,6 +1397,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_REDUCE, GL_REDUCE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Reduce = Gl.REDUCE,
 
 	}
@@ -1344,18 +1411,21 @@ namespace OpenGL
 		/// Strongly typed for value GL_CONVOLUTION_BORDER_MODE, GL_CONVOLUTION_BORDER_MODE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionBorderMode = Gl.CONVOLUTION_BORDER_MODE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FILTER_BIAS, GL_CONVOLUTION_FILTER_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionFilterBias = Gl.CONVOLUTION_FILTER_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FILTER_SCALE, GL_CONVOLUTION_FILTER_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionFilterScale = Gl.CONVOLUTION_FILTER_SCALE,
 
 	}
@@ -1369,12 +1439,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_CONVOLUTION_1D, GL_CONVOLUTION_1D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Convolution1d = Gl.CONVOLUTION_1D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_2D, GL_CONVOLUTION_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Convolution2d = Gl.CONVOLUTION_2D,
 
 	}
@@ -1592,6 +1664,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		None = Gl.NONE,
 
 		/// <summary>
@@ -1647,6 +1720,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		AlphaTest = Gl.ALPHA_TEST,
 
@@ -1702,6 +1776,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
@@ -1710,6 +1785,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
@@ -1718,6 +1794,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
@@ -1726,6 +1803,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
@@ -1734,6 +1812,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
@@ -1742,6 +1821,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane5 = Gl.CLIP_PLANE5,
 
@@ -1750,6 +1830,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ColorArray = Gl.COLOR_ARRAY,
 
@@ -1772,18 +1853,21 @@ namespace OpenGL
 		/// Strongly typed for value GL_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTable = Gl.COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_1D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Convolution1d = Gl.CONVOLUTION_1D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Convolution2d = Gl.CONVOLUTION_2D,
 
 		/// <summary>
@@ -1814,6 +1898,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_EDGE_FLAG_ARRAY.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		EdgeFlagArray = Gl.EDGE_FLAG_ARRAY,
 
@@ -1902,12 +1987,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_HISTOGRAM_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		Histogram = Gl.HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value GL_INDEX_ARRAY.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		IndexArray = Gl.INDEX_ARRAY,
 
@@ -2146,6 +2233,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_MINMAX_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		Minmax = Gl.MINMAX,
 
 		/// <summary>
@@ -2153,6 +2241,10 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_compatibility", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		Multisample = Gl.MULTISAMPLE,
 
 		/// <summary>
@@ -2168,6 +2260,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		NormalArray = Gl.NORMAL_ARRAY,
 
@@ -2203,12 +2296,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_POLYGON_OFFSET_LINE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		PolygonOffsetLine = Gl.POLYGON_OFFSET_LINE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POLYGON_OFFSET_POINT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		PolygonOffsetPoint = Gl.POLYGON_OFFSET_POINT,
 
 		/// <summary>
@@ -2228,12 +2323,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		PostColorMatrixColorTable = Gl.POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		PostConvolutionColorTable = Gl.POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
@@ -2247,6 +2344,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_rescale_normal")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		RescaleNormal = Gl.RESCALE_NORMAL,
 
@@ -2254,6 +2352,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SAMPLE_ALPHA_TO_MASK_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SampleAlphaToMaskExt = Gl.SAMPLE_ALPHA_TO_MASK_EXT,
 
 		/// <summary>
@@ -2261,6 +2360,10 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_compatibility", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SampleAlphaToOne = Gl.SAMPLE_ALPHA_TO_ONE,
 
 		/// <summary>
@@ -2284,6 +2387,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SEPARABLE_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Separable2d = Gl.SEPARABLE_2D,
 
 		/// <summary>
@@ -2330,6 +2434,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		Texture3d = Gl.TEXTURE_3D,
 
 		/// <summary>
@@ -2349,6 +2455,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureCoordArray = Gl.TEXTURE_COORD_ARRAY,
 
@@ -2388,6 +2495,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		VertexArray = Gl.VERTEX_ARRAY,
 
@@ -2396,6 +2505,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_sRGB", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_sRGB")]
+		[RequiredByFeature("GL_EXT_sRGB_write_control", Api = "gles2")]
 		FramebufferSrgb = Gl.FRAMEBUFFER_SRGB,
 
 		/// <summary>
@@ -2415,6 +2526,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		RasterizerDiscard = Gl.RASTERIZER_DISCARD,
 
 	}
@@ -2439,6 +2552,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		InvalidFramebufferOperation = Gl.INVALID_FRAMEBUFFER_OPERATION,
 
 		/// <summary>
@@ -2486,6 +2601,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		StackOverflow = Gl.STACK_OVERFLOW,
 
@@ -2497,6 +2613,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		StackUnderflow = Gl.STACK_UNDERFLOW,
 
@@ -2504,6 +2621,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_TABLE_TOO_LARGE, GL_TABLE_TOO_LARGE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		TableTooLarge = Gl.TABLE_TOO_LARGE,
 
 		/// <summary>
@@ -2879,60 +2997,70 @@ namespace OpenGL
 		/// Strongly typed for value GL_COLOR_TABLE_ALPHA_SIZE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableAlphaSize = Gl.COLOR_TABLE_ALPHA_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableBias = Gl.COLOR_TABLE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_BLUE_SIZE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableBlueSize = Gl.COLOR_TABLE_BLUE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_FORMAT_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableFormat = Gl.COLOR_TABLE_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_GREEN_SIZE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableGreenSize = Gl.COLOR_TABLE_GREEN_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_INTENSITY_SIZE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableIntensitySize = Gl.COLOR_TABLE_INTENSITY_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_LUMINANCE_SIZE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableLuminanceSize = Gl.COLOR_TABLE_LUMINANCE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_RED_SIZE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableRedSize = Gl.COLOR_TABLE_RED_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableScale = Gl.COLOR_TABLE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_WIDTH_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTableWidth = Gl.COLOR_TABLE_WIDTH,
 
 	}
@@ -2946,48 +3074,56 @@ namespace OpenGL
 		/// Strongly typed for value GL_CONVOLUTION_BORDER_MODE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionBorderMode = Gl.CONVOLUTION_BORDER_MODE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FILTER_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionFilterBias = Gl.CONVOLUTION_FILTER_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FILTER_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionFilterScale = Gl.CONVOLUTION_FILTER_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FORMAT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionFormat = Gl.CONVOLUTION_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_HEIGHT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionHeight = Gl.CONVOLUTION_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_WIDTH_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		ConvolutionWidth = Gl.CONVOLUTION_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_MAX_CONVOLUTION_HEIGHT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		MaxConvolutionHeight = Gl.MAX_CONVOLUTION_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value GL_MAX_CONVOLUTION_WIDTH_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		MaxConvolutionWidth = Gl.MAX_CONVOLUTION_WIDTH,
 
 	}
@@ -3001,48 +3137,56 @@ namespace OpenGL
 		/// Strongly typed for value GL_HISTOGRAM_ALPHA_SIZE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramAlphaSize = Gl.HISTOGRAM_ALPHA_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_BLUE_SIZE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramBlueSize = Gl.HISTOGRAM_BLUE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_FORMAT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramFormat = Gl.HISTOGRAM_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_GREEN_SIZE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramGreenSize = Gl.HISTOGRAM_GREEN_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_LUMINANCE_SIZE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramLuminanceSize = Gl.HISTOGRAM_LUMINANCE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_RED_SIZE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramRedSize = Gl.HISTOGRAM_RED_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_SINK_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramSink = Gl.HISTOGRAM_SINK,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_WIDTH_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		HistogramWidth = Gl.HISTOGRAM_WIDTH,
 
 	}
@@ -3084,12 +3228,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_MINMAX_FORMAT, GL_MINMAX_FORMAT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		MinmaxFormat = Gl.MINMAX_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_MINMAX_SINK, GL_MINMAX_SINK_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		MinmaxSink = Gl.MINMAX_SINK,
 
 	}
@@ -3257,6 +3403,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		AlphaTest = Gl.ALPHA_TEST,
 
@@ -3265,6 +3412,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		AlphaTestFunc = Gl.ALPHA_TEST_FUNC,
 
@@ -3273,6 +3421,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		AlphaTestRef = Gl.ALPHA_TEST_REF,
 
@@ -3342,6 +3491,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		BlendColor = Gl.BLEND_COLOR,
 
 		/// <summary>
@@ -3356,6 +3506,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 		BlendEquation = Gl.BLEND_EQUATION,
 
 		/// <summary>
@@ -3406,6 +3558,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
@@ -3414,6 +3567,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
@@ -3422,6 +3576,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
@@ -3430,6 +3585,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
@@ -3438,6 +3594,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
@@ -3446,6 +3603,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane5 = Gl.CLIP_PLANE5,
 
@@ -3454,6 +3612,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ColorArray = Gl.COLOR_ARRAY,
 
@@ -3468,6 +3627,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ColorArraySize = Gl.COLOR_ARRAY_SIZE,
 
@@ -3476,6 +3636,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ColorArrayStride = Gl.COLOR_ARRAY_STRIDE,
 
@@ -3484,6 +3645,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ColorArrayType = Gl.COLOR_ARRAY_TYPE,
 
@@ -3528,18 +3690,21 @@ namespace OpenGL
 		/// Strongly typed for value GL_COLOR_MATRIX_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		ColorMatrix = Gl.COLOR_MATRIX,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_MATRIX_STACK_DEPTH_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		ColorMatrixStackDepth = Gl.COLOR_MATRIX_STACK_DEPTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		ColorTable = Gl.COLOR_TABLE,
 
 		/// <summary>
@@ -3556,12 +3721,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_CONVOLUTION_1D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Convolution1d = Gl.CONVOLUTION_1D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Convolution2d = Gl.CONVOLUTION_2D,
 
 		/// <summary>
@@ -3741,6 +3908,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_DISTANCE_ATTENUATION_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		DistanceAttenuationExt = Gl.DISTANCE_ATTENUATION_EXT,
 
 		/// <summary>
@@ -3761,6 +3929,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_DRAW_BUFFER, GL_DRAW_BUFFER_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		DrawBuffer = Gl.DRAW_BUFFER,
 
 		/// <summary>
@@ -3774,6 +3943,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_EDGE_FLAG_ARRAY.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		EdgeFlagArray = Gl.EDGE_FLAG_ARRAY,
 
@@ -3787,6 +3957,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_EDGE_FLAG_ARRAY_STRIDE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		EdgeFlagArrayStride = Gl.EDGE_FLAG_ARRAY_STRIDE,
 
@@ -3966,6 +4137,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		GenerateMipmapHint = Gl.GENERATE_MIPMAP_HINT,
 
@@ -3996,12 +4168,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_HISTOGRAM_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		Histogram = Gl.HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value GL_INDEX_ARRAY.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		IndexArray = Gl.INDEX_ARRAY,
 
@@ -4015,6 +4189,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INDEX_ARRAY_STRIDE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		IndexArrayStride = Gl.INDEX_ARRAY_STRIDE,
 
@@ -4022,6 +4197,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INDEX_ARRAY_TYPE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		IndexArrayType = Gl.INDEX_ARRAY_TYPE,
 
@@ -4182,6 +4358,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LIGHT_MODEL_COLOR_CONTROL.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		LightModelColorControl = Gl.LIGHT_MODEL_COLOR_CONTROL,
 
@@ -4464,6 +4641,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		Max3dTextureSize = Gl.MAX_3D_TEXTURE_SIZE,
 
 		/// <summary>
@@ -4533,6 +4712,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		MaxClipPlanes = Gl.MAX_CLIP_PLANES,
 
@@ -4540,6 +4720,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		MaxColorMatrixStackDepth = Gl.MAX_COLOR_MATRIX_STACK_DEPTH,
 
 		/// <summary>
@@ -4640,6 +4821,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_MINMAX_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		Minmax = Gl.MINMAX,
 
 		/// <summary>
@@ -4663,6 +4845,10 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_compatibility", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		Multisample = Gl.MULTISAMPLE,
 
 		/// <summary>
@@ -4685,6 +4871,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		NormalArray = Gl.NORMAL_ARRAY,
 
@@ -4699,6 +4886,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		NormalArrayStride = Gl.NORMAL_ARRAY_STRIDE,
 
@@ -4707,6 +4895,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		NormalArrayType = Gl.NORMAL_ARRAY_TYPE,
 
@@ -4734,6 +4923,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_PACK_IMAGE_HEIGHT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		PackImageHeight = Gl.PACK_IMAGE_HEIGHT,
 
 		/// <summary>
@@ -4759,6 +4949,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_PACK_SKIP_IMAGES_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		PackSkipImages = Gl.PACK_SKIP_IMAGES,
 
 		/// <summary>
@@ -4942,6 +5133,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		PointFadeThresholdSize = Gl.POINT_FADE_THRESHOLD_SIZE,
 
 		/// <summary>
@@ -4962,6 +5156,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		PointSizeMax = Gl.POINT_SIZE_MAX,
 
@@ -4970,6 +5167,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		PointSizeMin = Gl.POINT_SIZE_MIN,
 
@@ -4999,6 +5199,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_POLYGON_MODE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		PolygonMode = Gl.POLYGON_MODE,
 
 		/// <summary>
@@ -5013,6 +5214,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_polygon_offset")]
 		PolygonOffsetFactor = Gl.POLYGON_OFFSET_FACTOR,
 
 		/// <summary>
@@ -5027,12 +5229,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_POLYGON_OFFSET_LINE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		PolygonOffsetLine = Gl.POLYGON_OFFSET_LINE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POLYGON_OFFSET_POINT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		PolygonOffsetPoint = Gl.POLYGON_OFFSET_POINT,
 
 		/// <summary>
@@ -5066,108 +5270,126 @@ namespace OpenGL
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixAlphaBias = Gl.POST_COLOR_MATRIX_ALPHA_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixAlphaScale = Gl.POST_COLOR_MATRIX_ALPHA_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixBlueBias = Gl.POST_COLOR_MATRIX_BLUE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixBlueScale = Gl.POST_COLOR_MATRIX_BLUE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		PostColorMatrixColorTable = Gl.POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixGreenBias = Gl.POST_COLOR_MATRIX_GREEN_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixGreenScale = Gl.POST_COLOR_MATRIX_GREEN_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixRedBias = Gl.POST_COLOR_MATRIX_RED_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixRedScale = Gl.POST_COLOR_MATRIX_RED_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionAlphaBias = Gl.POST_CONVOLUTION_ALPHA_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionAlphaScale = Gl.POST_CONVOLUTION_ALPHA_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionBlueBias = Gl.POST_CONVOLUTION_BLUE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionBlueScale = Gl.POST_CONVOLUTION_BLUE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_table")]
 		PostConvolutionColorTable = Gl.POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionGreenBias = Gl.POST_CONVOLUTION_GREEN_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionGreenScale = Gl.POST_CONVOLUTION_GREEN_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_RED_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionRedBias = Gl.POST_CONVOLUTION_RED_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_RED_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionRedScale = Gl.POST_CONVOLUTION_RED_SCALE,
 
 		/// <summary>
@@ -5203,6 +5425,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
 		ReadBuffer = Gl.READ_BUFFER,
 
 		/// <summary>
@@ -5252,6 +5476,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_rescale_normal")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		RescaleNormal = Gl.RESCALE_NORMAL,
 
@@ -5269,12 +5494,17 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_NV_multisample_coverage")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		Samples = Gl.SAMPLES,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_ALPHA_TO_MASK_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SampleAlphaToMaskExt = Gl.SAMPLE_ALPHA_TO_MASK_EXT,
 
 		/// <summary>
@@ -5282,6 +5512,10 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_compatibility", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SampleAlphaToOne = Gl.SAMPLE_ALPHA_TO_ONE,
 
 		/// <summary>
@@ -5290,12 +5524,16 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_multisample")]
+		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SampleBuffers = Gl.SAMPLE_BUFFERS,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_MASK_INVERT_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SampleMaskInvertExt = Gl.SAMPLE_MASK_INVERT_EXT,
 
 		/// <summary>
@@ -5314,6 +5552,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SAMPLE_PATTERN_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		SamplePatternExt = Gl.SAMPLE_PATTERN_EXT,
 
 		/// <summary>
@@ -5349,6 +5588,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SEPARABLE_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Separable2d = Gl.SEPARABLE_2D,
 
 		/// <summary>
@@ -5508,6 +5748,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		TextureBinding3d = Gl.TEXTURE_BINDING_3D,
 
 		/// <summary>
@@ -5517,6 +5758,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		Texture3d = Gl.TEXTURE_3D,
 
 		/// <summary>
@@ -5560,6 +5803,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureCoordArray = Gl.TEXTURE_COORD_ARRAY,
 
@@ -5574,6 +5818,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureCoordArraySize = Gl.TEXTURE_COORD_ARRAY_SIZE,
 
@@ -5582,6 +5827,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureCoordArrayStride = Gl.TEXTURE_COORD_ARRAY_STRIDE,
 
@@ -5590,6 +5836,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureCoordArrayType = Gl.TEXTURE_COORD_ARRAY_TYPE,
 
@@ -5662,6 +5909,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		UnpackImageHeight = Gl.UNPACK_IMAGE_HEIGHT,
 
 		/// <summary>
@@ -5681,6 +5929,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		UnpackRowLength = Gl.UNPACK_ROW_LENGTH,
 
 		/// <summary>
@@ -5688,6 +5937,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		UnpackSkipImages = Gl.UNPACK_SKIP_IMAGES,
 
 		/// <summary>
@@ -5695,6 +5945,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		UnpackSkipPixels = Gl.UNPACK_SKIP_PIXELS,
 
 		/// <summary>
@@ -5702,6 +5953,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		UnpackSkipRows = Gl.UNPACK_SKIP_ROWS,
 
 		/// <summary>
@@ -5730,6 +5982,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		VertexArray = Gl.VERTEX_ARRAY,
 
@@ -5744,6 +5998,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		VertexArraySize = Gl.VERTEX_ARRAY_SIZE,
 
@@ -5752,6 +6007,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		VertexArrayStride = Gl.VERTEX_ARRAY_STRIDE,
 
@@ -5760,6 +6016,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		VertexArrayType = Gl.VERTEX_ARRAY_TYPE,
 
@@ -5825,6 +6082,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ColorArrayPointer = Gl.COLOR_ARRAY_POINTER,
 
@@ -5832,6 +6090,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_EDGE_FLAG_ARRAY_POINTER, GL_EDGE_FLAG_ARRAY_POINTER_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		EdgeFlagArrayPointer = Gl.EDGE_FLAG_ARRAY_POINTER,
 
@@ -5846,6 +6105,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INDEX_ARRAY_POINTER, GL_INDEX_ARRAY_POINTER_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		IndexArrayPointer = Gl.INDEX_ARRAY_POINTER,
 
@@ -5860,6 +6120,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		NormalArrayPointer = Gl.NORMAL_ARRAY_POINTER,
 
@@ -5875,6 +6136,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureCoordArrayPointer = Gl.TEXTURE_COORD_ARRAY_POINTER,
 
@@ -5883,8 +6145,29 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		VertexArrayPointer = Gl.VERTEX_ARRAY_POINTER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEBUG_CALLBACK_FUNCTION.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		DebugCallbackFunction = Gl.DEBUG_CALLBACK_FUNCTION,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEBUG_CALLBACK_USER_PARAM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		DebugCallbackUserParam = Gl.DEBUG_CALLBACK_USER_PARAM,
 
 	}
 
@@ -5922,6 +6205,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		GenerateMipmap = Gl.GENERATE_MIPMAP,
 
@@ -5966,6 +6250,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
 		TextureAlphaSize = Gl.TEXTURE_ALPHA_SIZE,
 
 		/// <summary>
@@ -5973,6 +6258,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureBaseLevel = Gl.TEXTURE_BASE_LEVEL,
 
 		/// <summary>
@@ -5980,6 +6266,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
 		TextureBlueSize = Gl.TEXTURE_BLUE_SIZE,
 
 		/// <summary>
@@ -5994,6 +6281,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		TextureBorderColor = Gl.TEXTURE_BORDER_COLOR,
 
 		/// <summary>
@@ -6056,6 +6346,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		TextureDepth = Gl.TEXTURE_DEPTH,
 
 		/// <summary>
@@ -6075,6 +6366,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
 		TextureGreenSize = Gl.TEXTURE_GREEN_SIZE,
 
 		/// <summary>
@@ -6088,6 +6380,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_INTENSITY_SIZE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureIntensitySize = Gl.TEXTURE_INTENSITY_SIZE,
 
@@ -6119,6 +6412,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_LUMINANCE_SIZE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureLuminanceSize = Gl.TEXTURE_LUMINANCE_SIZE,
 
@@ -6153,6 +6447,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_texture_max_level", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureMaxLevel = Gl.TEXTURE_MAX_LEVEL,
 
 		/// <summary>
@@ -6160,6 +6456,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
 
 		/// <summary>
@@ -6175,12 +6472,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureMinLod = Gl.TEXTURE_MIN_LOD,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_PRIORITY.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TexturePriority = Gl.TEXTURE_PRIORITY,
 
@@ -6189,12 +6488,14 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
 		TextureRedSize = Gl.TEXTURE_RED_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_RESIDENT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureResident = Gl.TEXTURE_RESIDENT,
 
@@ -6216,6 +6517,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		TextureWrapR = Gl.TEXTURE_WRAP_R,
 
 		/// <summary>
@@ -6364,6 +6667,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_fragment_shader")]
+		[RequiredByFeature("GL_OES_standard_derivatives", Api = "gles2|glsc2")]
 		FragmentShaderDerivativeHint = Gl.FRAGMENT_SHADER_DERIVATIVE_HINT,
 
 		/// <summary>
@@ -6378,6 +6683,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		GenerateMipmapHint = Gl.GENERATE_MIPMAP_HINT,
 
@@ -6500,6 +6806,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_COMPRESSION_HINT, GL_TEXTURE_COMPRESSION_HINT_ARB.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
 		TextureCompressionHint = Gl.TEXTURE_COMPRESSION_HINT,
 
 		/// <summary>
@@ -6573,12 +6880,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_HISTOGRAM, GL_HISTOGRAM_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		Histogram = Gl.HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_HISTOGRAM, GL_PROXY_HISTOGRAM_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		ProxyHistogram = Gl.PROXY_HISTOGRAM,
 
 	}
@@ -6782,6 +7091,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SEPARATE_SPECULAR_COLOR, GL_SEPARATE_SPECULAR_COLOR_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		SeparateSpecularColor = Gl.SEPARATE_SPECULAR_COLOR,
 
@@ -6789,6 +7099,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SINGLE_COLOR, GL_SINGLE_COLOR_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		SingleColor = Gl.SINGLE_COLOR,
 
@@ -6811,6 +7122,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LIGHT_MODEL_COLOR_CONTROL, GL_LIGHT_MODEL_COLOR_CONTROL_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		LightModelColorControl = Gl.LIGHT_MODEL_COLOR_CONTROL,
 
@@ -7274,6 +7586,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		Xor = Gl.XOR,
 
 	}
@@ -7289,6 +7602,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		ClientStorageBit = Gl.CLIENT_STORAGE_BIT,
 
 		/// <summary>
@@ -7296,6 +7610,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		DynamicStorageBit = Gl.DYNAMIC_STORAGE_BIT,
 
 		/// <summary>
@@ -7303,6 +7618,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		MapCoherentBit = Gl.MAP_COHERENT_BIT,
 
 		/// <summary>
@@ -7311,6 +7627,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		MapFlushExplicitBit = Gl.MAP_FLUSH_EXPLICIT_BIT,
 
 		/// <summary>
@@ -7319,6 +7636,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		MapInvalidateBufferBit = Gl.MAP_INVALIDATE_BUFFER_BIT,
 
 		/// <summary>
@@ -7327,6 +7645,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		MapInvalidateRangeBit = Gl.MAP_INVALIDATE_RANGE_BIT,
 
 		/// <summary>
@@ -7334,6 +7653,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		MapPersistentBit = Gl.MAP_PERSISTENT_BIT,
 
 		/// <summary>
@@ -7345,6 +7665,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		MapReadBit = Gl.MAP_READ_BIT,
 
 		/// <summary>
@@ -7353,6 +7674,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		MapUnsynchronizedBit = Gl.MAP_UNSYNCHRONIZED_BIT,
 
 		/// <summary>
@@ -7364,6 +7686,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 		MapWriteBit = Gl.MAP_WRITE_BIT,
 
 		/// <summary>
@@ -7374,6 +7697,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		None = Gl.NONE,
 
 	}
@@ -7686,6 +8010,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		AllBarrierBits = Gl.ALL_BARRIER_BITS,
 
 		/// <summary>
@@ -7694,6 +8019,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		AtomicCounterBarrierBit = Gl.ATOMIC_COUNTER_BARRIER_BIT,
 
 		/// <summary>
@@ -7702,6 +8028,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		BufferUpdateBarrierBit = Gl.BUFFER_UPDATE_BARRIER_BIT,
 
 		/// <summary>
@@ -7709,6 +8036,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 		ClientMappedBufferBarrierBit = Gl.CLIENT_MAPPED_BUFFER_BARRIER_BIT,
 
 		/// <summary>
@@ -7717,6 +8045,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		CommandBarrierBit = Gl.COMMAND_BARRIER_BIT,
 
 		/// <summary>
@@ -7725,6 +8054,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		ElementArrayBarrierBit = Gl.ELEMENT_ARRAY_BARRIER_BIT,
 
 		/// <summary>
@@ -7733,6 +8063,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		FramebufferBarrierBit = Gl.FRAMEBUFFER_BARRIER_BIT,
 
 		/// <summary>
@@ -7741,6 +8072,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		PixelBufferBarrierBit = Gl.PIXEL_BUFFER_BARRIER_BIT,
 
 		/// <summary>
@@ -7762,6 +8094,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		ShaderImageAccessBarrierBit = Gl.SHADER_IMAGE_ACCESS_BARRIER_BIT,
 
 		/// <summary>
@@ -7778,6 +8111,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		TextureFetchBarrierBit = Gl.TEXTURE_FETCH_BARRIER_BIT,
 
 		/// <summary>
@@ -7786,6 +8120,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		TextureUpdateBarrierBit = Gl.TEXTURE_UPDATE_BARRIER_BIT,
 
 		/// <summary>
@@ -7794,6 +8129,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		TransformFeedbackBarrierBit = Gl.TRANSFORM_FEEDBACK_BARRIER_BIT,
 
 		/// <summary>
@@ -7802,6 +8138,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		UniformBarrierBit = Gl.UNIFORM_BARRIER_BIT,
 
 		/// <summary>
@@ -7810,6 +8147,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		VertexAttribArrayBarrierBit = Gl.VERTEX_ATTRIB_ARRAY_BARRIER_BIT,
 
 	}
@@ -7823,12 +8161,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_LINE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Line = Gl.LINE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POINT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Point = Gl.POINT,
 
 	}
@@ -7842,18 +8182,21 @@ namespace OpenGL
 		/// Strongly typed for value GL_FILL.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Fill = Gl.FILL,
 
 		/// <summary>
 		/// Strongly typed for value GL_LINE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Line = Gl.LINE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POINT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Point = Gl.POINT,
 
 	}
@@ -7867,6 +8210,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_MINMAX, GL_MINMAX_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_histogram")]
 		Minmax = Gl.MINMAX,
 
 	}
@@ -7932,6 +8276,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 		Color = Gl.COLOR,
 
 		/// <summary>
@@ -7939,6 +8284,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 		Depth = Gl.DEPTH,
 
 		/// <summary>
@@ -7946,6 +8292,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 		Stencil = Gl.STENCIL,
 
 	}
@@ -7976,6 +8323,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		Blue = Gl.BLUE,
 
 		/// <summary>
@@ -8012,6 +8360,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		Green = Gl.GREEN,
 
 		/// <summary>
@@ -8038,6 +8387,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		Red = Gl.RED,
 
 		/// <summary>
@@ -8064,6 +8415,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_stencil8", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_texture_stencil8", Api = "gles2")]
 		StencilIndex = Gl.STENCIL_INDEX,
 
 		/// <summary>
@@ -8102,6 +8454,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_BGR.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_bgra")]
 		Bgr = Gl.BGR,
 
 		/// <summary>
@@ -8110,6 +8463,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ARB_vertex_array_bgra", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_array_bgra")]
+		[RequiredByFeature("GL_APPLE_texture_format_BGRA8888", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_bgra")]
+		[RequiredByFeature("GL_EXT_read_format_bgra", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_format_BGRA8888", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_IMG_read_format", Api = "gles1|gles2")]
 		Bgra = Gl.BGRA,
 
 		/// <summary>
@@ -8118,6 +8476,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
 		Rg = Gl.RG,
 
 		/// <summary>
@@ -8126,6 +8485,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_packed_depth_stencil")]
+		[RequiredByFeature("GL_NV_packed_depth_stencil")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_packed_depth_stencil", Api = "gles1|gles2")]
 		DepthStencil = Gl.DEPTH_STENCIL,
 
 		/// <summary>
@@ -8133,6 +8496,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		RedInteger = Gl.RED_INTEGER,
 
 		/// <summary>
@@ -8148,6 +8512,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		RgbInteger = Gl.RGB_INTEGER,
 
 		/// <summary>
@@ -8155,6 +8520,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		RgbaInteger = Gl.RGBA_INTEGER,
 
 	}
@@ -8168,6 +8534,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_ALPHA12.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Alpha12 = Gl.ALPHA12,
 
@@ -8175,6 +8542,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_ALPHA16.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Alpha16 = Gl.ALPHA16,
 
@@ -8182,6 +8550,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_ALPHA4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Alpha4 = Gl.ALPHA4,
 
@@ -8189,6 +8558,9 @@ namespace OpenGL
 		/// Strongly typed for value GL_ALPHA8.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Alpha8 = Gl.ALPHA8,
 
@@ -8198,6 +8570,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
 		DepthComponent16 = Gl.DEPTH_COMPONENT16,
 
 		/// <summary>
@@ -8205,12 +8581,21 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_OES_depth24", Api = "gles1|gles2|glsc2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
 		DepthComponent24 = Gl.DEPTH_COMPONENT24,
 
 		/// <summary>
 		/// Strongly typed for value GL_DEPTH_COMPONENT32_SGIX.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_depth32", Api = "gles1|gles2|glsc2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
 		DepthComponent32 = Gl.DEPTH_COMPONENT32,
 
 		/// <summary>
@@ -8301,6 +8686,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INTENSITY.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Intensity = Gl.INTENSITY,
 
@@ -8308,6 +8694,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INTENSITY12.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Intensity12 = Gl.INTENSITY12,
 
@@ -8315,6 +8702,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INTENSITY16.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Intensity16 = Gl.INTENSITY16,
 
@@ -8322,6 +8710,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INTENSITY4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Intensity4 = Gl.INTENSITY4,
 
@@ -8329,6 +8718,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_INTENSITY8.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Intensity8 = Gl.INTENSITY8,
 
@@ -8336,6 +8726,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE12.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance12 = Gl.LUMINANCE12,
 
@@ -8343,6 +8734,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE12_ALPHA12.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance12Alpha12 = Gl.LUMINANCE12_ALPHA12,
 
@@ -8350,6 +8742,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE12_ALPHA4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance12Alpha4 = Gl.LUMINANCE12_ALPHA4,
 
@@ -8357,6 +8750,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE16.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance16 = Gl.LUMINANCE16,
 
@@ -8364,6 +8758,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE16_ALPHA16.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance16Alpha16 = Gl.LUMINANCE16_ALPHA16,
 
@@ -8371,6 +8766,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance4 = Gl.LUMINANCE4,
 
@@ -8378,6 +8774,8 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE4_ALPHA4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance4Alpha4 = Gl.LUMINANCE4_ALPHA4,
 
@@ -8385,6 +8783,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE6_ALPHA2.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance6Alpha2 = Gl.LUMINANCE6_ALPHA2,
 
@@ -8392,6 +8791,9 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE8.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance8 = Gl.LUMINANCE8,
 
@@ -8399,6 +8801,9 @@ namespace OpenGL
 		/// Strongly typed for value GL_LUMINANCE8_ALPHA8.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Luminance8Alpha8 = Gl.LUMINANCE8_ALPHA8,
 
@@ -8448,6 +8853,9 @@ namespace OpenGL
 		/// Strongly typed for value GL_RGB10.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		Rgb10 = Gl.RGB10,
 
 		/// <summary>
@@ -8455,18 +8863,24 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		Rgb10A2 = Gl.RGB10_A2,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGB12.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		Rgb12 = Gl.RGB12,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGB16.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
 		Rgb16 = Gl.RGB16,
 
 		/// <summary>
@@ -8479,12 +8893,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_RGB4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		Rgb4 = Gl.RGB4,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGB5.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		Rgb5 = Gl.RGB5,
 
 		/// <summary>
@@ -8492,6 +8908,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		Rgb5A1 = Gl.RGB5_A1,
 
 		/// <summary>
@@ -8499,24 +8918,31 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
 		Rgb8 = Gl.RGB8,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGBA12.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		Rgba12 = Gl.RGBA12,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGBA16.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
 		Rgba16 = Gl.RGBA16,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGBA2.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		Rgba2 = Gl.RGBA2,
 
 		/// <summary>
@@ -8524,6 +8950,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		Rgba4 = Gl.RGBA4,
 
 		/// <summary>
@@ -8531,6 +8960,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
 		Rgba8 = Gl.RGBA8,
 
 	}
@@ -8635,6 +9067,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_PACK_IMAGE_HEIGHT, GL_PACK_IMAGE_HEIGHT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		PackImageHeight = Gl.PACK_IMAGE_HEIGHT,
 
 		/// <summary>
@@ -8666,6 +9099,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_PACK_SKIP_IMAGES, GL_PACK_SKIP_IMAGES_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		PackSkipImages = Gl.PACK_SKIP_IMAGES,
 
 		/// <summary>
@@ -8755,6 +9189,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		UnpackImageHeight = Gl.UNPACK_IMAGE_HEIGHT,
 
 		/// <summary>
@@ -8780,6 +9215,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		UnpackRowLength = Gl.UNPACK_ROW_LENGTH,
 
 		/// <summary>
@@ -8787,6 +9223,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		UnpackSkipImages = Gl.UNPACK_SKIP_IMAGES,
 
 		/// <summary>
@@ -8794,6 +9231,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		UnpackSkipPixels = Gl.UNPACK_SKIP_PIXELS,
 
 		/// <summary>
@@ -8801,6 +9239,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
 		UnpackSkipRows = Gl.UNPACK_SKIP_ROWS,
 
 		/// <summary>
@@ -8904,6 +9343,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		None = Gl.NONE,
 
 		/// <summary>
@@ -9037,96 +9477,112 @@ namespace OpenGL
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_BIAS, GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixAlphaBias = Gl.POST_COLOR_MATRIX_ALPHA_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_SCALE, GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixAlphaScale = Gl.POST_COLOR_MATRIX_ALPHA_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_BIAS, GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixBlueBias = Gl.POST_COLOR_MATRIX_BLUE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_SCALE, GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixBlueScale = Gl.POST_COLOR_MATRIX_BLUE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_BIAS, GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixGreenBias = Gl.POST_COLOR_MATRIX_GREEN_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_SCALE, GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixGreenScale = Gl.POST_COLOR_MATRIX_GREEN_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_BIAS, GL_POST_COLOR_MATRIX_RED_BIAS_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixRedBias = Gl.POST_COLOR_MATRIX_RED_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_SCALE, GL_POST_COLOR_MATRIX_RED_SCALE_SGI.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_SGI_color_matrix")]
 		PostColorMatrixRedScale = Gl.POST_COLOR_MATRIX_RED_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_BIAS, GL_POST_CONVOLUTION_ALPHA_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionAlphaBias = Gl.POST_CONVOLUTION_ALPHA_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_SCALE, GL_POST_CONVOLUTION_ALPHA_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionAlphaScale = Gl.POST_CONVOLUTION_ALPHA_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_BIAS, GL_POST_CONVOLUTION_BLUE_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionBlueBias = Gl.POST_CONVOLUTION_BLUE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_SCALE, GL_POST_CONVOLUTION_BLUE_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionBlueScale = Gl.POST_CONVOLUTION_BLUE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_BIAS, GL_POST_CONVOLUTION_GREEN_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionGreenBias = Gl.POST_CONVOLUTION_GREEN_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_SCALE, GL_POST_CONVOLUTION_GREEN_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionGreenScale = Gl.POST_CONVOLUTION_GREEN_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_RED_BIAS, GL_POST_CONVOLUTION_RED_BIAS_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionRedBias = Gl.POST_CONVOLUTION_RED_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_RED_SCALE, GL_POST_CONVOLUTION_RED_SCALE_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		PostConvolutionRedScale = Gl.POST_CONVOLUTION_RED_SCALE,
 
 		/// <summary>
@@ -9205,6 +9661,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_3_3_2_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_packed_pixels")]
 		UnsignedByte332 = Gl.UNSIGNED_BYTE_3_3_2,
 
 		/// <summary>
@@ -9221,12 +9678,14 @@ namespace OpenGL
 		/// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_packed_pixels")]
 		UnsignedInt1010102 = Gl.UNSIGNED_INT_10_10_10_2,
 
 		/// <summary>
 		/// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_packed_pixels")]
 		UnsignedInt8888 = Gl.UNSIGNED_INT_8_8_8_8,
 
 		/// <summary>
@@ -9245,6 +9704,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_packed_pixels")]
 		UnsignedShort4444 = Gl.UNSIGNED_SHORT_4_4_4_4,
 
 		/// <summary>
@@ -9253,6 +9713,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_packed_pixels")]
 		UnsignedShort5551 = Gl.UNSIGNED_SHORT_5_5_5_1,
 
 		/// <summary>
@@ -9269,6 +9730,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_half_float_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_half_float_pixel")]
+		[RequiredByFeature("GL_NV_half_float")]
 		HalfFloat = Gl.HALF_FLOAT,
 
 		/// <summary>
@@ -9289,6 +9752,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_UNSIGNED_SHORT_1_5_5_5_REV.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_read_format_bgra", Api = "gles1|gles2")]
 		UnsignedShort1555Rev = Gl.UNSIGNED_SHORT_1_5_5_5_REV,
 
 		/// <summary>
@@ -9303,6 +9767,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_type_2_10_10_10_REV", Api = "gles2")]
 		UnsignedInt2101010Rev = Gl.UNSIGNED_INT_2_10_10_10_REV,
 
 	}
@@ -9317,6 +9782,7 @@ namespace OpenGL
 		/// GL_POINT_DISTANCE_ATTENUATION_ARB.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		DistanceAttenuationExt = Gl.DISTANCE_ATTENUATION_EXT,
 
 		/// <summary>
@@ -9325,6 +9791,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		PointFadeThresholdSize = Gl.POINT_FADE_THRESHOLD_SIZE,
 
 		/// <summary>
@@ -9332,6 +9801,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		PointSizeMax = Gl.POINT_SIZE_MAX,
 
@@ -9340,6 +9812,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		PointSizeMin = Gl.POINT_SIZE_MIN,
 
@@ -9354,18 +9829,21 @@ namespace OpenGL
 		/// Strongly typed for value GL_FILL.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Fill = Gl.FILL,
 
 		/// <summary>
 		/// Strongly typed for value GL_LINE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Line = Gl.LINE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POINT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		Point = Gl.POINT,
 
 	}
@@ -9388,6 +9866,11 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		LinesAdjacency = Gl.LINES_ADJACENCY,
 
 		/// <summary>
@@ -9411,6 +9894,11 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		LineStripAdjacency = Gl.LINE_STRIP_ADJACENCY,
 
 		/// <summary>
@@ -9420,6 +9908,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		Patches = Gl.PATCHES,
 
 		/// <summary>
@@ -9444,6 +9934,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Quads = Gl.QUADS,
 
@@ -9471,6 +9963,11 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		TrianglesAdjacency = Gl.TRIANGLES_ADJACENCY,
 
 		/// <summary>
@@ -9494,6 +9991,11 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		TriangleStripAdjacency = Gl.TRIANGLE_STRIP_ADJACENCY,
 
 	}
@@ -9629,6 +10131,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		ColorAttachment0 = Gl.COLOR_ATTACHMENT0,
 
 		/// <summary>
@@ -9637,6 +10144,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment1 = Gl.COLOR_ATTACHMENT1,
 
 		/// <summary>
@@ -9645,6 +10156,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment2 = Gl.COLOR_ATTACHMENT2,
 
 		/// <summary>
@@ -9653,6 +10168,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment3 = Gl.COLOR_ATTACHMENT3,
 
 		/// <summary>
@@ -9661,6 +10180,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment4 = Gl.COLOR_ATTACHMENT4,
 
 		/// <summary>
@@ -9669,6 +10192,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment5 = Gl.COLOR_ATTACHMENT5,
 
 		/// <summary>
@@ -9677,6 +10204,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment6 = Gl.COLOR_ATTACHMENT6,
 
 		/// <summary>
@@ -9685,6 +10216,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment7 = Gl.COLOR_ATTACHMENT7,
 
 		/// <summary>
@@ -9693,6 +10228,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment8 = Gl.COLOR_ATTACHMENT8,
 
 		/// <summary>
@@ -9701,6 +10240,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment9 = Gl.COLOR_ATTACHMENT9,
 
 		/// <summary>
@@ -9709,6 +10252,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment10 = Gl.COLOR_ATTACHMENT10,
 
 		/// <summary>
@@ -9717,6 +10264,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment11 = Gl.COLOR_ATTACHMENT11,
 
 		/// <summary>
@@ -9725,6 +10276,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment12 = Gl.COLOR_ATTACHMENT12,
 
 		/// <summary>
@@ -9733,6 +10288,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment13 = Gl.COLOR_ATTACHMENT13,
 
 		/// <summary>
@@ -9741,6 +10300,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment14 = Gl.COLOR_ATTACHMENT14,
 
 		/// <summary>
@@ -9749,6 +10312,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
 		ColorAttachment15 = Gl.COLOR_ATTACHMENT15,
 
 		/// <summary>
@@ -9944,6 +10511,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_SEPARABLE_2D, GL_SEPARABLE_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_convolution")]
 		Separable2d = Gl.SEPARABLE_2D,
 
 	}
@@ -10181,6 +10749,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shading_language_100")]
 		ShadingLanguageVersion = Gl.SHADING_LANGUAGE_VERSION,
 
 	}
@@ -10386,6 +10955,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_EYE_LINEAR.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		EyeLinear = Gl.EYE_LINEAR,
 
@@ -10405,6 +10975,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_OBJECT_LINEAR.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ObjectLinear = Gl.OBJECT_LINEAR,
 
@@ -10465,6 +11036,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_GEN_MODE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureGenMode = Gl.TEXTURE_GEN_MODE,
 
@@ -10648,6 +11220,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		GenerateMipmap = Gl.GENERATE_MIPMAP,
 
@@ -10680,6 +11253,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		TextureBorderColor = Gl.TEXTURE_BORDER_COLOR,
 
 		/// <summary>
@@ -10780,6 +11356,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_PRIORITY, GL_TEXTURE_PRIORITY_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture_object")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TexturePriority = Gl.TEXTURE_PRIORITY,
 
@@ -10794,6 +11371,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		TextureWrapR = Gl.TEXTURE_WRAP_R,
 
 		/// <summary>
@@ -10817,6 +11396,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureBaseLevel = Gl.TEXTURE_BASE_LEVEL,
 
 		/// <summary>
@@ -10824,6 +11404,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shadow")]
+		[RequiredByFeature("GL_EXT_shadow_samplers", Api = "gles2")]
 		TextureCompareMode = Gl.TEXTURE_COMPARE_MODE,
 
 		/// <summary>
@@ -10831,12 +11413,15 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shadow")]
+		[RequiredByFeature("GL_EXT_shadow_samplers", Api = "gles2")]
 		TextureCompareFunc = Gl.TEXTURE_COMPARE_FUNC,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_LOD_BIAS.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_texture_lod_bias", Api = "gl|gles1")]
 		TextureLodBias = Gl.TEXTURE_LOD_BIAS,
 
 		/// <summary>
@@ -10844,6 +11429,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureMinLod = Gl.TEXTURE_MIN_LOD,
 
 		/// <summary>
@@ -10851,6 +11437,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
 
 		/// <summary>
@@ -10858,6 +11445,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_texture_max_level", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
 		TextureMaxLevel = Gl.TEXTURE_MAX_LEVEL,
 
 		/// <summary>
@@ -10866,6 +11455,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		TextureSwizzleR = Gl.TEXTURE_SWIZZLE_R,
 
 		/// <summary>
@@ -10874,6 +11464,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		TextureSwizzleG = Gl.TEXTURE_SWIZZLE_G,
 
 		/// <summary>
@@ -10882,6 +11473,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		TextureSwizzleB = Gl.TEXTURE_SWIZZLE_B,
 
 		/// <summary>
@@ -10890,6 +11482,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		TextureSwizzleA = Gl.TEXTURE_SWIZZLE_A,
 
 		/// <summary>
@@ -10897,6 +11490,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		TextureSwizzleRgba = Gl.TEXTURE_SWIZZLE_RGBA,
 
 		/// <summary>
@@ -10924,24 +11518,28 @@ namespace OpenGL
 		/// Strongly typed for value GL_PROXY_TEXTURE_1D, GL_PROXY_TEXTURE_1D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		ProxyTexture1d = Gl.PROXY_TEXTURE_1D,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_1D_ARRAY, GL_PROXY_TEXTURE_1D_ARRAY_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_texture_array")]
 		ProxyTexture1dArray = Gl.PROXY_TEXTURE_1D_ARRAY,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_2D, GL_PROXY_TEXTURE_2D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
 		ProxyTexture2d = Gl.PROXY_TEXTURE_2D,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_2D_ARRAY, GL_PROXY_TEXTURE_2D_ARRAY_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_texture_array")]
 		ProxyTexture2dArray = Gl.PROXY_TEXTURE_2D_ARRAY,
 
 		/// <summary>
@@ -10962,6 +11560,7 @@ namespace OpenGL
 		/// Strongly typed for value GL_PROXY_TEXTURE_3D, GL_PROXY_TEXTURE_3D_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
 		ProxyTexture3d = Gl.PROXY_TEXTURE_3D,
 
 		/// <summary>
@@ -10974,18 +11573,23 @@ namespace OpenGL
 		/// Strongly typed for value GL_PROXY_TEXTURE_CUBE_MAP, GL_PROXY_TEXTURE_CUBE_MAP_ARB, GL_PROXY_TEXTURE_CUBE_MAP_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
 		ProxyTextureCubeMap = Gl.PROXY_TEXTURE_CUBE_MAP,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_CUBE_MAP_ARRAY, GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
 		ProxyTextureCubeMapArray = Gl.PROXY_TEXTURE_CUBE_MAP_ARRAY,
 
 		/// <summary>
 		/// Strongly typed for value GL_PROXY_TEXTURE_RECTANGLE, GL_PROXY_TEXTURE_RECTANGLE_ARB, GL_PROXY_TEXTURE_RECTANGLE_NV.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_texture_rectangle")]
+		[RequiredByFeature("GL_NV_texture_rectangle")]
 		ProxyTextureRectangle = Gl.PROXY_TEXTURE_RECTANGLE,
 
 		/// <summary>
@@ -11012,6 +11616,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		Texture3d = Gl.TEXTURE_3D,
 
 		/// <summary>
@@ -11025,6 +11631,8 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_texture_rectangle")]
+		[RequiredByFeature("GL_NV_texture_rectangle")]
 		TextureRectangle = Gl.TEXTURE_RECTANGLE,
 
 		/// <summary>
@@ -11034,6 +11642,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMap = Gl.TEXTURE_CUBE_MAP,
 
 		/// <summary>
@@ -11041,6 +11652,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMapPositiveX = Gl.TEXTURE_CUBE_MAP_POSITIVE_X,
 
 		/// <summary>
@@ -11048,6 +11662,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMapNegativeX = Gl.TEXTURE_CUBE_MAP_NEGATIVE_X,
 
 		/// <summary>
@@ -11055,6 +11672,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMapPositiveY = Gl.TEXTURE_CUBE_MAP_POSITIVE_Y,
 
 		/// <summary>
@@ -11062,6 +11682,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMapNegativeY = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y,
 
 		/// <summary>
@@ -11069,6 +11692,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMapPositiveZ = Gl.TEXTURE_CUBE_MAP_POSITIVE_Z,
 
 		/// <summary>
@@ -11076,6 +11702,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_cube_map")]
+		[RequiredByFeature("GL_EXT_texture_cube_map")]
+		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		TextureCubeMapNegativeZ = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z,
 
 		/// <summary>
@@ -11085,6 +11714,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_cube_map_array", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_cube_map_array", Api = "gles2")]
 		TextureCubeMapArray = Gl.TEXTURE_CUBE_MAP_ARRAY,
 
 		/// <summary>
@@ -11092,6 +11725,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_array")]
 		Texture1dArray = Gl.TEXTURE_1D_ARRAY,
 
 		/// <summary>
@@ -11101,6 +11735,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_array")]
 		Texture2dArray = Gl.TEXTURE_2D_ARRAY,
 
 		/// <summary>
@@ -11121,6 +11756,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
 		Texture2dMultisampleArray = Gl.TEXTURE_2D_MULTISAMPLE_ARRAY,
 
 	}
@@ -11142,6 +11778,11 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_border_clamp", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_border_clamp")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		ClampToBorder = Gl.CLAMP_TO_BORDER,
 
 		/// <summary>
@@ -11150,6 +11791,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_edge_clamp")]
 		ClampToEdge = Gl.CLAMP_TO_EDGE,
 
 		/// <summary>
@@ -11174,6 +11816,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
 		VertexShaderBit = Gl.VERTEX_SHADER_BIT,
 
 		/// <summary>
@@ -11182,6 +11825,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
 		FragmentShaderBit = Gl.FRAGMENT_SHADER_BIT,
 
 		/// <summary>
@@ -11190,6 +11834,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		GeometryShaderBit = Gl.GEOMETRY_SHADER_BIT,
 
 		/// <summary>
@@ -11198,6 +11844,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		TessControlShaderBit = Gl.TESS_CONTROL_SHADER_BIT,
 
 		/// <summary>
@@ -11206,6 +11854,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 		TessEvaluationShaderBit = Gl.TESS_EVALUATION_SHADER_BIT,
 
 		/// <summary>
@@ -11222,6 +11872,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
 		AllShaderBits = Gl.ALL_SHADER_BITS,
 
 	}
