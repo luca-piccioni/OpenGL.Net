@@ -3,19 +3,15 @@
 Modern OpenGL binding for C#.
 
 Generated from the lastest official XML specification, OpenGL.Net provides:
-- Strongly typed enumerants: we like strongly-typed enumerations and flags. 
-- Function pointer wrappers, with unsafe and strongly-typed arguments: because the garbage collector we're required to pin
-  managed objects in order to use the OpenGL entry points; OpenGL.Net functions already fix the arguments for you. Of course
-  the unmanaged pointer capability is reserved for those situation that you'll face.
-- OpenGL entry points overloading.
-- Automatic entry points aliasing management: many OpenGL commands were introduced in extensions, which were promoted from ARB
-  or in core specification; if the semantic of these commands didn't change, they can be called equivalently. When the OpenGL
-  specification assert a command equivalency, the corresponding OpenGL.Net function will fallback to equivalent commands in
-  case the current host does not implement the specific core function.
-- Fully documented OpenGL entry points with the official manual pages (GL2 and GL4 repositories): having a nice and complete
-  documentation integrated with your IDE will be of great help.
-- Integrated entry points call logging: every OpenGL call could be logged for debugging. Additionally every OpenGL command is
-  checked for errors, to catch a soon as possible OpenGL errors.
+- Strongly typed enumerants;
+- Function pointer wrappers, with safe and unsafe parameters, pinning managed memory when necessary;
+- OpenGL entry points overloading;
+- Automatic entry points aliasing management: loads different OpenGL subsets depending on the current OpenGL context;
+- Fully documented OpenGL entry points with the official manual pages;
+- Checking errors after each OpenGL command (Debug builds only);
+- Integrated entry points call logging (Debug builds only);
+- Vector, math and color data structures. With _System.Numerics.Vector_ support.
+- Automatic OpenGL extensions and implementation limits query;
 
 Currently implemented API are:
 - [OpenGL 4.5](https://www.opengl.org/registry/), including compatibility profile
@@ -26,8 +22,8 @@ Currently implemented API are:
 
 # Instructions
 
-In order to use OpenGL.Net you only need to link the library; Then it is just to write code.
-Due the current state of the project, it is advisable to clone the repository and work directly with the library, since this method offers more flexible solution.
+In order to use _OpenGL.Net_ you only need to link the library; Then it is just to write code.
+Due the current state of the project, it is advisable to clone the repository and work directly with the library, since this method offers more flexible solution (i.e. Debug builds).
 
 ### Clone the repository
 
@@ -46,6 +42,11 @@ Open the [Package Manager Console](https://docs.nuget.org/consume/package-manage
     Install-Package OpenGL.Net
 
 or just download the [nuget binary package](https://www.nuget.org/packages/OpenGL.Net/)
+
+The nuget package does not implement any UI integration. If you need it, install one of the following nuget packages:
+- [System.Windows.Forms](https://www.nuget.org/packages/OpenGL.Net.WinForms/) UI integration (GlControl).
+- [Xamarin.Android](https://www.nuget.org/packages/OpenGL.Net.Xamarin.Android/) UI integration.
+- [Rasperry PI 2](https://www.nuget.org/packages/OpenGL.Net.VideoCore/) UI integration (native, no X11 support).
 
 # Documentation
 
