@@ -1096,6 +1096,8 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_TEXTURE_COORD_ARRAY_POINTER_EXT"/>
             <enum name="GL_VERTEX_ARRAY_POINTER"/>
             <enum name="GL_VERTEX_ARRAY_POINTER_EXT"/>
+            <enum name="GL_DEBUG_CALLBACK_FUNCTION"/>
+            <enum name="GL_DEBUG_CALLBACK_USER_PARAM"/>
         </group>
 
         <group name="GetTextureParameter">
