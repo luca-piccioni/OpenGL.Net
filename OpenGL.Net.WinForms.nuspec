@@ -34,7 +34,7 @@
 		</frameworkAssemblies>
 		<dependencies>
 			<group>
-				<dependency id="OpenGL.Net" version="0.4.0" />
+				<dependency id="OpenGL.Net" version="0.4.1" />
 			</group>
 			<group targetFramework="net461">
 				<dependency id="System.Numerics.Vector" version="4.3.0" />

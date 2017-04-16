@@ -15,7 +15,7 @@
 			Modern OpenGL bindings for C#.
 
 			It supports the following APIs:
-			- OpenGL ES 3.2, updated by the specification of 29 Nov 2016 (rev 33312).
+			- OpenGL ES 3.2 and relative extensions, updated by the specification of 29 Nov 2016 (rev 33312).
 			- OpenGL for Windows (WGL) with relative extensions, updated by the specification of 19 Dec 2016 (rev 33340)
 			- OpenGL for X11 1.4 (XGL) with relative extensions, updated by the specification of 7 Jun 2016 (rev 32941).
 			- Native Platform Interface 1.5 (EGL) with relative extensions, updated by the specification of 30 Nov 2016 (rev 33315)
@@ -28,7 +28,7 @@
 
 			Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
 			- OpenGL ES related symbols: only OpenGL ES 2+ symbols are included.
-			- Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via guthub issue system.
+			- No OpenGL API
 		</description>
 		<releaseNotes>
 			This package includes the targets:
@@ -47,10 +47,10 @@
 	</metadata>
 	<files>
 		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.dll.dll" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.xml" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll.dll" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\MonoAndroid" />
+		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\net35" />-->
+		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.dll" target="lib\net461" />
+		<!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.xml" target="lib\net461" />-->
+		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\MonoAndroid" />
+		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\MonoAndroid" />-->
 	</files>
 </package>

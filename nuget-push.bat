@@ -1,0 +1,3 @@
+nuget.exe push $1 ApiKey 3754A140-3925-40B2-ACDC-F3E3A648658B
+
+pause

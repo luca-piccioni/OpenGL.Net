@@ -48,10 +48,10 @@
 	</metadata>
 	<files>
 		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.dll.dll" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.xml" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll.dll" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\MonoAndroid" />
+		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\net35" />-->
+		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.dll" target="lib\net461" />
+		<!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.xml" target="lib\net461" />-->
+		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\MonoAndroid" />
+		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\MonoAndroid" />-->
 	</files>
 </package>
