@@ -15,7 +15,7 @@
 			Modern OpenGL bindings for C#.
 
 			It supports the following APIs:
-			- OpenGL 4.5 and OpenGL ES 3.2, updated by the specification of 29 Nov 2016 (rev 33312).
+			- OpenGL 4.5 and relative extensions, updated by the specification of 29 Nov 2016 (rev 33312).
 			- OpenGL for Windows (WGL) with relative extensions, updated by the specification of 19 Dec 2016 (rev 33340)
 			- OpenGL for X11 1.4 (XGL) with relative extensions, updated by the specification of 7 Jun 2016 (rev 32941).
 			- Native Platform Interface 1.5 (EGL) with relative extensions, updated by the specification of 30 Nov 2016 (rev 33315)
@@ -28,8 +28,8 @@
 
 			Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
 			- Compatibility profile related symbols: make a favor to yourself.
-			- OpenGL ES related symbols: only OpenGL ES 2+ symbols are included.
-			- Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via guthub issue system.
+			- OpenGL ES related symbols. Only desktop environment.
+			- Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via github issue system.
 		</description>
 		<releaseNotes>
 			This package includes the targets:
