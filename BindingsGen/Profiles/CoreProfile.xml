@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <RegistryAssemblyConfiguration Name="CoreProfile">
+	<Feature Api="gl" />
 	<Feature Api="glcore" />
-	<Feature Api="gles2" />
 </RegistryAssemblyConfiguration>

@@ -18,6 +18,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+
+using Mono.Collections.Generic;
 using Mono.Cecil;
 
 using OpenGL;
@@ -35,12 +37,13 @@ namespace BindingsGen
 
 			AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(path);
 
-			foreach (ModuleDefinition module in assembly.Modules) {
-				foreach (TypeDefinition type in module.Types) {
-					if (type.BaseType == null || type.BaseType.Name != "KhronosApi")
-						continue;
+			#region Enums
 
-					if (type.Name != "Gl")
+			foreach (ModuleDefinition module in assembly.Modules) {
+				List<TypeDefinition> removedTypes = new List<TypeDefinition>();
+
+				foreach (TypeDefinition type in module.Types) {
+					if (type.IsEnum == false)
 						continue;
 
 					// Remove fields
@@ -51,31 +54,85 @@ namespace BindingsGen
 							removedFields.Add(field);
 					}
 
-					Console.WriteLine("- Removing {0} constants", removedFields.Count);
+					// Console.WriteLine("- Removing {0} constants", removedFields.Count);
 					foreach (FieldDefinition field in removedFields) {
 						// Console.WriteLine("  - {0}", field.Name);
 						type.Fields.Remove(field);
 					}
 
-					// Remove methods
-					List<MethodDefinition> removedMethods = new List<MethodDefinition>();
+					if (type.Fields.Count == 1)
+						removedTypes.Add(type);
+				}
 
-					foreach (MethodDefinition method in type.Methods) {
-						if (IsCompatibleMethod(cfg, method) == false)
-							removedMethods.Add(method);
-					}
-
-					Console.WriteLine("- Removing {0} methods", removedMethods.Count);
-					foreach (MethodDefinition method in removedMethods) {
-						// Console.WriteLine("  - {0}", method.Name);
-						RemoveMethod(type, method);
-					}
+				Console.WriteLine("- Removing {0} enum types", removedTypes.Count);
+				foreach (TypeDefinition type in removedTypes) {
+					// Console.WriteLine("  - {0}", field.Name);
+					module.Types.Remove(type);
 				}
 			}
 
+			#endregion
+
+			#region KhronosApi (Gl)
+
+			foreach (ModuleDefinition module in assembly.Modules) {
+				foreach (TypeDefinition type in module.Types) {
+					if (type.BaseType == null || type.BaseType.Name != "KhronosApi")
+						continue;
+					if (type.Name != "Gl")
+						continue;
+
+					CleanTypeDefinition(type, cfg);
+
+					TypeDefinition vbNestedType = type.NestedTypes.GetNestedType("VB");
+					if (vbNestedType != null)
+						CleanTypeDefinition(vbNestedType, cfg);
+				}
+			}
+
+			#endregion
+
+			// Export
 			string baseDirPath = Path.GetDirectoryName(path);
 
 			assembly.Write(Path.Combine(baseDirPath, String.Format("OpenGL.Net-{0}.dll", cfg.Name)));
+		}
+
+		private static void CleanTypeDefinition(TypeDefinition type, RegistryAssemblyConfiguration cfg)
+		{
+			// Remove fields
+			List<FieldDefinition> removedFields = new List<FieldDefinition>();
+
+			foreach (FieldDefinition field in type.Fields) {
+				if (IsCompatibleField(cfg, field) == false) {
+					Console.WriteLine("    - Remove {0}", field.Name);
+					removedFields.Add(field);
+				}
+					
+			}
+
+			if (removedFields.Count > 0) {
+				Console.WriteLine("- Removed {0} constants from {1}", removedFields.Count, type.FullName);
+				foreach (FieldDefinition field in removedFields) {
+					type.Fields.Remove(field);
+				}
+			}
+
+			// Remove methods
+			List<MethodDefinition> removedMethods = new List<MethodDefinition>();
+
+			foreach (MethodDefinition method in type.Methods) {
+				if (IsCompatibleMethod(cfg, method) == false) {
+					Console.WriteLine("    - Remove {0}", method.ToString());
+					removedMethods.Add(method);
+				}
+			}
+
+			if (removedMethods.Count > 0) {
+				Console.WriteLine("- Removing {0} methods from {1}", removedMethods.Count, type.FullName);
+				foreach (MethodDefinition method in removedMethods)
+					RemoveMethod(type, method);
+			}
 		}
 
 		private static void RemoveMethod(TypeDefinition type, MethodDefinition method)
@@ -88,40 +145,43 @@ namespace BindingsGen
 			// Unsafe methods
 			List<MethodDefinition> removedUnsafeMethods = new List<MethodDefinition>();
 
-			TypeDefinition unsafeNestedType = type.NestedTypes[0];
-			foreach (MethodDefinition unsafeMethod in unsafeNestedType.Methods) {
-				if (unsafeMethod.Name == methodName) {
-					removedUnsafeMethods.Add(unsafeMethod);
-					break;
+			TypeDefinition unsafeNestedType = type.NestedTypes.GetNestedType("UnsafeNativeMethods");
+			if (unsafeNestedType != null) {
+				foreach (MethodDefinition unsafeMethod in unsafeNestedType.Methods) {
+					if (unsafeMethod.Name == methodName) {
+						removedUnsafeMethods.Add(unsafeMethod);
+						break;
+					}
 				}
+				foreach (MethodDefinition unsafeMethod in removedUnsafeMethods)
+					unsafeNestedType.Methods.Remove(unsafeMethod);
 			}
-			foreach (MethodDefinition unsafeMethod in removedUnsafeMethods)
-				unsafeNestedType.Methods.Remove(unsafeMethod);
 
 			// Delegates
 			List<FieldDefinition> removedDelegateFields = new List<FieldDefinition>();
 			List<TypeDefinition> removedDelegateTypes = new List<TypeDefinition>();
 
-			TypeDefinition delegatesNestedType = type.NestedTypes[1];
-
-			foreach (FieldDefinition field in delegatesNestedType.Fields) {
-				if (field.Name == "p" + methodName) {
-					removedDelegateFields.Add(field);
-					break;
+			TypeDefinition delegatesNestedType = type.NestedTypes.GetNestedType("Delegates");
+			if (delegatesNestedType != null) {
+				foreach (FieldDefinition field in delegatesNestedType.Fields) {
+					if (field.Name == "p" + methodName) {
+						removedDelegateFields.Add(field);
+						break;
+					}
 				}
-			}
 
-			foreach (TypeDefinition nestedType in delegatesNestedType.NestedTypes) {
-				if (nestedType.Name == methodName) {
-					removedDelegateTypes.Add(nestedType);
-					break;
+				foreach (TypeDefinition nestedType in delegatesNestedType.NestedTypes) {
+					if (nestedType.Name == methodName) {
+						removedDelegateTypes.Add(nestedType);
+						break;
+					}
 				}
-			}
 
-			foreach (FieldDefinition field in removedDelegateFields)
-				unsafeNestedType.Fields.Remove(field);
-			foreach (TypeDefinition nestedType in removedDelegateTypes)
-				unsafeNestedType.NestedTypes.Remove(nestedType);
+				foreach (FieldDefinition field in removedDelegateFields)
+					unsafeNestedType.Fields.Remove(field);
+				foreach (TypeDefinition nestedType in removedDelegateTypes)
+					unsafeNestedType.NestedTypes.Remove(nestedType);
+			}
 		}
 
 		private static bool IsCompatibleField(RegistryAssemblyConfiguration cfg, FieldDefinition field)
@@ -138,7 +198,6 @@ namespace BindingsGen
 					case "RemovedByFeatureAttribute":
 						if (IsCompatible_RemovedAttribute(cfg, customAttrib) == false)
 							return (false);
-						featureAttribCount++;
 						break;
 				}
 			}
@@ -193,8 +252,9 @@ namespace BindingsGen
 					if (maxVersion != null && attribVersion > maxVersion)
 						return (false);
 				} else {
-					// Extension
-					// compatible |= (cfg.Extensions.Count == 0 || cfg.Extensions.Contains(featureName));
+					// Extension (Api must match)
+					if (compatible)
+						compatible &= cfg.Extensions.Contains(featureName);
 				}
 			}
 
@@ -204,8 +264,29 @@ namespace BindingsGen
 		private static bool IsCompatible_RemovedAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
 		{
 			string featureName = customAttrib.ConstructorArguments[0].Value as string;
+			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName, false);
+
+			if (attribVersion != null) {
+				foreach (RegistryAssemblyConfiguration.VersionRange cfgFeature in cfg.Features) {
+					if (cfgFeature.Api != null && cfgFeature.Api == attribVersion.Api)
+						return (false);
+				}
+			}
 
 			return (true);
+		}
+	}
+
+	static class TypeDefinitionExtensions
+	{
+		public static TypeDefinition GetNestedType(this Collection<TypeDefinition> typeCollection, string name)
+		{
+			foreach (TypeDefinition nestedType in typeCollection) {
+				if (nestedType.Name == name)
+					return (nestedType);
+			}
+
+			return (null);
 		}
 	}
 }
