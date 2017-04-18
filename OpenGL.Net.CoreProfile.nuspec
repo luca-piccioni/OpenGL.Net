@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.CoreProfile</id>
-		<version>0.4.1-alpha</version>
+		<version>0.4.2-alpha</version>
 		<title>OpenGL for .Net - Core Profile</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -41,7 +41,7 @@
 		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
 		<dependencies>
 			<group targetFramework="net461">
-				<dependency id="System.Numerics.Vector" version="4.3.0" />
+				<dependency id="System.Numerics.Vectors" version="4.3.0" />
 				<dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
 			</group>
 		</dependencies>

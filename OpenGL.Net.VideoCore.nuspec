@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.VideoCore</id>
-		<version>0.4.1</version>
+		<version>0.4.2</version>
 		<title>OpenGL for .Net - Broadcom VideoCore IV (Raspberry PI 2) utilities</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -21,7 +21,7 @@
 			- .NET 3.5
 		</releaseNotes>
 		<dependencies>
-			<dependency id="OpenGL.Net" version="0.4.1" />
+			<dependency id="OpenGL.Net" version="0.4.2" />
 		</dependencies>
 		<copyright>Copyright 2015-2017</copyright>
 		<tags>RPi RaspberryPi OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>

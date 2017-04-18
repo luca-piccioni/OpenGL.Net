@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.WinForms</id>
-		<version>0.4.1</version>
+		<version>0.4.2</version>
 		<title>OpenGL for .Net - WinForms utilities</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -34,11 +34,7 @@
 		</frameworkAssemblies>
 		<dependencies>
 			<group>
-				<dependency id="OpenGL.Net" version="0.4.1" />
-			</group>
-			<group targetFramework="net461">
-				<dependency id="System.Numerics.Vector" version="4.3.0" />
-				<dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
+				<dependency id="OpenGL.Net" version="0.4.2" />
 			</group>
 		</dependencies>
 	</metadata>
