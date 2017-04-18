@@ -87,3 +87,4 @@ packages
 /Samples/HelloObjects/bin
 /Samples/HelloObjects/obj
 /nuget.exe
+/nuget-push.bat
