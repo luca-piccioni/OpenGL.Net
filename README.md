@@ -20,6 +20,8 @@ Currently implemented API are:
 - [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs) (alpha state)
 - [OpenWF Composition](https://www.khronos.org/openwf/) (alpha state)
 
+If you need more [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) in OpenGL, you can give a try to [OpenGL.Net.Objects](https://github.com/luca-piccioni/OpenGL.Net.Objects).
+
 # Instructions
 
 In order to use _OpenGL.Net_ you only need to link the library; Then it is just to write code.
