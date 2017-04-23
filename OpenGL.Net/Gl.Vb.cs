@@ -706,7 +706,7 @@ namespace OpenGL
 			/// rendering. See Gl.Viewport. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns four 
 			/// values: the x and y window coordinates of the indexed viewport, followed by its width and height. Initially the x and y 
 			/// window coordinates are both set to 0, and the width and height are set to the width and height of the window into which 
-			/// the GL will do its rendering. See Gl.ViewportIndexedf.
+			/// the GL will do its rendering. See glViewportIndexedf.
 			/// </summary>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

@@ -664,8 +664,8 @@ namespace OpenGL
 		public const int CULL_FACE = 0x0B44;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, a symbolic constant indicating which polygon faces are to be culled. The initial value 
-		/// is Gl.BACK. See Gl.CullFace.
+		/// Gl.Get: data returns a single value indicating the mode of polygon culling. The initial value is Gl.BACK. See 
+		/// Gl.CullFace.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -828,7 +828,7 @@ namespace OpenGL
 		/// rendering. See Gl.Viewport. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns four 
 		/// values: the x and y window coordinates of the indexed viewport, followed by its width and height. Initially the x and y 
 		/// window coordinates are both set to 0, and the width and height are set to the width and height of the window into which 
-		/// the GL will do its rendering. See Gl.ViewportIndexedf.
+		/// the GL will do its rendering. See glViewportIndexedf.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -7726,13 +7726,9 @@ namespace OpenGL
 		/// existing texture object.
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -7785,13 +7781,9 @@ namespace OpenGL
 		/// existing texture object.
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -8065,7 +8057,6 @@ namespace OpenGL
 		/// state <paramref name="cap"/>.
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Disable"/>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

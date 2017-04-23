@@ -1713,9 +1713,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[AliasOf("glFramebufferTextureARB")]
 		[AliasOf("glFramebufferTextureEXT")]
 		[AliasOf("glFramebufferTextureOES")]
@@ -1776,7 +1773,11 @@ namespace OpenGL
 		/// than Gl.MAX_TEXTURE_SIZE.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for this <paramref name="target"/> and <paramref name="internalformat"/>.
 		/// </exception>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexImage2DMultisample"/>
@@ -1839,7 +1840,11 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="depth"/> is negative or is greater than Gl.MAX_ARRAY_TEXTURE_LAYERS.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for this <paramref name="target"/> and <paramref name="internalformat"/>.
 		/// </exception>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexImage2DMultisample"/>

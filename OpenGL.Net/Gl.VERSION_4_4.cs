@@ -754,10 +754,12 @@ namespace OpenGL
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
 		/// </param>
 		/// <param name="offsets">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// A pointer to an array of offsets into the corresponding buffer in <paramref name="buffers"/> to bind, or Gl.L if 
+		/// <paramref name="buffers"/> is Gl.L.
 		/// </param>
 		/// <param name="sizes">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A pointer to an array of sizes of the corresponding buffer in <paramref name="buffers"/> to bind, or Gl.L if <paramref 
+		/// name="buffers"/> is Gl.L.
 		/// </param>
 		/// <remarks>
 		/// </remarks>

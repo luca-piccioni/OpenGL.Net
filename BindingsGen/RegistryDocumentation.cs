@@ -133,7 +133,7 @@ namespace BindingsGen
 		{
 			List<EnumerationDocumentationBase> enumDocumentations;
 
-			if (sDocumentationEnumMap4.TryGetValue(enumerant.Name, out enumDocumentations) == false)
+			if (_DocMap_GL4_Enums.TryGetValue(enumerant.Name, out enumDocumentations) == false)
 				return (false);
 
 			bool arrangeInPara = enumDocumentations.Count > 1;
@@ -161,7 +161,7 @@ namespace BindingsGen
 		{
 			List<EnumerationDocumentationBase> enumDocumentations;
 
-			if (sDocumentationEnumMap2.TryGetValue(enumerant.Name, out enumDocumentations) == false)
+			if (_DocMap_GL2_Enums.TryGetValue(enumerant.Name, out enumDocumentations) == false)
 				return (false);
 
 			bool arrangeInPara = enumDocumentations.Count > 1;
@@ -189,7 +189,7 @@ namespace BindingsGen
 		{
 			List<EnumerationDocumentationBase> enumDocumentations;
 
-			if (sDocumentationEnumMapE.TryGetValue(enumerant.Name, out enumDocumentations) == false)
+			if (_DocMap_EGL_Enums.TryGetValue(enumerant.Name, out enumDocumentations) == false)
 				return (false);
 
 			bool arrangeInPara = enumDocumentations.Count > 1;
@@ -304,13 +304,13 @@ namespace BindingsGen
 			XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
 			nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
 
-			if (sDocumentationMap2.TryGetValue(command.Prototype.Name, out xml))
+			if (_DocMap_GL2.TryGetValue(command.Prototype.Name, out xml))
 				root = xml.DocumentElement;
 
 			if (fail && (root == null))
 				return (false);
 
-#region Summary
+			#region Summary
 
 			string purpose = String.Format("Binding for {0}.", command.Prototype.Name);
 
@@ -324,9 +324,9 @@ namespace BindingsGen
 			sw.WriteLine("/// {0}", purpose);
 			sw.WriteLine("/// </summary>");
 
-#endregion
+			#endregion
 
-#region Parameters
+			#region Parameters
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
@@ -352,9 +352,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </param>");
 			}
 
-#endregion
+			#endregion
 
-#region Remarks
+			#region Remarks
 
 			xmlNodes = root.SelectNodes("/refentry/refsect1[@id='errors']/para", nsmgr);
 			int errorsCount = xmlNodes.Count == 0 ? 0 : xmlNodes.Count;
@@ -363,7 +363,7 @@ namespace BindingsGen
 			if (requiresRemarks) {
 				sw.WriteLine("/// <remarks>");
 
-#region Description & Associated Gets
+			#region Description & Associated Gets
 
 				if (root != null && DocumentationLevel == 0) {
 					xmlNodes = root.SelectNodes("/refentry/refsect1[@id='description']/para", nsmgr);
@@ -394,7 +394,7 @@ namespace BindingsGen
 
 				}
 
-#endregion
+				#endregion
 
 				if (errorsCount > 0) {
 					if ((command.Flags & CommandFlags.NoGetError) != 0) {
@@ -407,9 +407,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </remarks>");
 			}
 
-#endregion
+			#endregion
 
-#region Errors
+			#region Errors
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/refentry/refsect1[@id='errors']/para", nsmgr);
@@ -431,9 +431,9 @@ namespace BindingsGen
 				}
 			}
 
-#endregion
+			#endregion
 
-#region See Also
+			#region See Also
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/refentry/refsect1[@id='seealso']/para/citerefentry/refentrytitle", nsmgr);
@@ -448,7 +448,7 @@ namespace BindingsGen
 				}
 			}
 
-#endregion
+			#endregion
 
 			return (true);
 		}
@@ -476,13 +476,13 @@ namespace BindingsGen
 			nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
 			nsmgr.AddNamespace("x", "http://docbook.org/ns/docbook");
 
-			if (sDocumentationMap4.TryGetValue(command.Prototype.Name, out xml))
+			if (_DocMap_GL4.TryGetValue(command.Prototype.Name, out xml))
 				root = xml.DocumentElement;
 
 			if (fail && (root == null))
 				return (false);
 
-#region Summary
+			#region Summary
 
 			string purpose = String.Format("Binding for {0}.", command.Prototype.Name);
 
@@ -496,9 +496,9 @@ namespace BindingsGen
 			sw.WriteLine("/// {0}", purpose);
 			sw.WriteLine("/// </summary>");
 
-#endregion
+			#endregion
 
-#region Parameters
+			#region Parameters
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
@@ -561,9 +561,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </param>");
 			}
 
-#endregion
+			#endregion
 
-#region Remarks
+			#region Remarks
 
 			xmlNodes = null;
 			if (root != null)
@@ -578,7 +578,7 @@ namespace BindingsGen
 			if (requiresRemarks) {
 				sw.WriteLine("/// <remarks>");
 
-#region Description & Associated Gets
+			#region Description & Associated Gets
 
 				if (root != null && DocumentationLevel == 0) {
 					xmlNodes = root.SelectNodes("/x:refentry/x:refsect1[@xml:id='description']/x:para", nsmgr);
@@ -607,7 +607,7 @@ namespace BindingsGen
 					}
 				}
 
-#endregion
+				#endregion
 
 				if (errorsCount > 0) {
 					if ((command.Flags & CommandFlags.NoGetError) != 0) {
@@ -620,9 +620,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </remarks>");
 			}
 
-#endregion
+			#endregion
 
-#region Errors
+			#region Errors
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/x:refentry/x:refsect1[@xml:id='errors']/x:para", nsmgr);
@@ -644,9 +644,9 @@ namespace BindingsGen
 				}
 			}
 
-#endregion
+			#endregion
 
-#region See Also
+			#region See Also
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/x:refentry/x:refsect1[@xml:id='seealso']/x:para/x:citerefentry/x:refentrytitle", nsmgr);
@@ -661,7 +661,7 @@ namespace BindingsGen
 				}
 			}
 
-#endregion
+			#endregion
 
 			return (true);
 		}
@@ -688,13 +688,13 @@ namespace BindingsGen
 			nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
 			nsmgr.AddNamespace("x", "http://docbook.org/ns/docbook");
 
-			if (sDocumentationMapE.TryGetValue(command.Prototype.Name, out xml))
+			if (_DocMap_EGL.TryGetValue(command.Prototype.Name, out xml))
 				root = xml.DocumentElement;
 
 			if (fail && (root == null))
 				return (false);
 
-#region Summary
+			#region Summary
 
 			string purpose = String.Format("Binding for {0}.", command.Prototype.Name);
 
@@ -708,9 +708,9 @@ namespace BindingsGen
 			sw.WriteLine("/// {0}", purpose);
 			sw.WriteLine("/// </summary>");
 
-#endregion
+			#endregion
 
-#region Parameters
+			#region Parameters
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
@@ -736,7 +736,7 @@ namespace BindingsGen
 				sw.WriteLine("/// </param>");
 			}
 
-#endregion
+			#endregion
 
 			return (true);
 		}
@@ -945,7 +945,7 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (GL2)...");
 
-			List<string> documentationFiles = new List<string>(Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/GL2")));
+			List<string> documentationFiles = new List<string>(Directory.GetFiles(Path.Combine(Program.BasePath, "OpenGL-Refpages/gl2.1")));
 
 			documentationFiles = documentationFiles.FindAll(delegate(string item) {
 				return (item.ToLowerInvariant().EndsWith(".xml"));
@@ -963,8 +963,8 @@ namespace BindingsGen
 
 			LocalXhtmlXmlResolver.Touch();
 
-			Dictionary<string, XmlDocument> commandsMap = sDocumentationMap2;
-			Dictionary<string, List<EnumerationDocumentationBase>> enumerantsMap = sDocumentationEnumMap2;
+			Dictionary<string, XmlDocument> commandsMap = _DocMap_GL2;
+			Dictionary<string, List<EnumerationDocumentationBase>> enumerantsMap = _DocMap_GL2_Enums;
 
 			using (ManualResetEvent waitThreads = new ManualResetEvent(false)) {
 				foreach (List<string> items in documentationJobs) {
@@ -1046,7 +1046,7 @@ namespace BindingsGen
 				waitThreads.WaitOne();
 			}
 
-			Console.WriteLine("\r\tFound documentation for {0} commands and {1} enumerants.", sDocumentationMap2.Count, sDocumentationEnumMap2.Count);
+			Console.WriteLine("\r\tFound documentation for {0} commands and {1} enumerants.", _DocMap_GL2.Count, _DocMap_GL2_Enums.Count);
 		}
 
 		/// <summary>
@@ -1056,7 +1056,7 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (GL4)...");
 
-			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/GL4"))) {
+			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "OpenGL-Refpages/gl4"))) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
 				if (Regex.IsMatch(Path.GetFileNameWithoutExtension(documentationFile), @"(gl|wgl|glX)\w+") == false)
@@ -1095,10 +1095,10 @@ namespace BindingsGen
 						foreach (XmlNode xmlIdentifier in xmlIdentifiers) {
 							if (!Regex.IsMatch(xmlIdentifier.InnerText, "^(gl|wgl|glX).*"))
 								continue;
-							if (sDocumentationMap4.ContainsKey(xmlIdentifier.InnerText))
+							if (_DocMap_GL4.ContainsKey(xmlIdentifier.InnerText))
 								continue;
 
-							sDocumentationMap4.Add(xmlIdentifier.InnerText, xml);
+							_DocMap_GL4.Add(xmlIdentifier.InnerText, xml);
 						}
 
 						XmlNodeList enumerants;
@@ -1118,10 +1118,10 @@ namespace BindingsGen
 							if (!Regex.IsMatch(enumerantId.InnerText, "^(GL_|WGL_|GLX_).*"))
 								continue;
 
-							if (!sDocumentationEnumMap4.ContainsKey(enumerantId.InnerText))
-								sDocumentationEnumMap4.Add(enumerantId.InnerText, new List<EnumerationDocumentationBase>());
+							if (!_DocMap_GL4_Enums.ContainsKey(enumerantId.InnerText))
+								_DocMap_GL4_Enums.Add(enumerantId.InnerText, new List<EnumerationDocumentationBase>());
 
-							sDocumentationEnumMap4[enumerantId.InnerText].Add(new EnumerationDocumentationGetParam(xml, xmlIdentifiers[0].InnerText, enumerantDoc));
+							_DocMap_GL4_Enums[enumerantId.InnerText].Add(new EnumerationDocumentationGetParam(xml, xmlIdentifiers[0].InnerText, enumerantDoc));
 						}
 
 #if false
@@ -1148,7 +1148,7 @@ namespace BindingsGen
 				}
 			}
 
-			Console.WriteLine("\tFound documentation for {0} commands and {1} enumerants.", sDocumentationMap4.Count, sDocumentationEnumMap4.Count);
+			Console.WriteLine("\tFound documentation for {0} commands and {1} enumerants.", _DocMap_GL4.Count, _DocMap_GL4_Enums.Count);
 		}
 
 		/// <summary>
@@ -1195,10 +1195,10 @@ namespace BindingsGen
 						foreach (XmlNode xmlIdentifier in xmlIdentifiers) {
 							if (!Regex.IsMatch(xmlIdentifier.InnerText, "^(gl|wgl|glX|egl).*"))
 								continue;
-							if (sDocumentationMapE.ContainsKey(xmlIdentifier.InnerText))
+							if (_DocMap_EGL.ContainsKey(xmlIdentifier.InnerText))
 								continue;
 
-							sDocumentationMapE.Add(xmlIdentifier.InnerText, xml);
+							_DocMap_EGL.Add(xmlIdentifier.InnerText, xml);
 						}
 
 						// Extract enumeration documentation:
@@ -1216,10 +1216,10 @@ namespace BindingsGen
 							if (!Regex.IsMatch(enumerantId.InnerText, "^(GL_|WGL_|GLX_|EGL_).*"))
 								continue;
 
-							if (!sDocumentationEnumMapE.ContainsKey(enumerantId.InnerText))
-								sDocumentationEnumMapE.Add(enumerantId.InnerText, new List<EnumerationDocumentationBase>());
+							if (!_DocMap_EGL_Enums.ContainsKey(enumerantId.InnerText))
+								_DocMap_EGL_Enums.Add(enumerantId.InnerText, new List<EnumerationDocumentationBase>());
 
-							sDocumentationEnumMapE[enumerantId.InnerText].Add(new EnumerationDocumentationGetParam(xml, xmlIdentifiers[0].InnerText, enumerantDoc));
+							_DocMap_EGL_Enums[enumerantId.InnerText].Add(new EnumerationDocumentationGetParam(xml, xmlIdentifiers[0].InnerText, enumerantDoc));
 						}
 					}
 				} catch (Exception) {
@@ -1229,7 +1229,7 @@ namespace BindingsGen
 
 
 
-			Console.WriteLine("\tFound documentation for {0} commands.", sDocumentationMapE.Count);
+			Console.WriteLine("\tFound documentation for {0} commands.", _DocMap_EGL.Count);
 		}
 
 		private abstract class EnumerationDocumentationBase
@@ -1308,32 +1308,32 @@ namespace BindingsGen
 		/// <summary>
 		/// Map between the GL command name and the relative documentation.
 		/// </summary>
-		private static readonly Dictionary<string, XmlDocument> sDocumentationMap2 = new Dictionary<string, XmlDocument>();
+		private static readonly Dictionary<string, XmlDocument> _DocMap_GL2 = new Dictionary<string, XmlDocument>();
 
 		/// <summary>
 		/// Map between the GL enumerant name and the relative documentation.
 		/// </summary>
-		private static readonly Dictionary<string, List<EnumerationDocumentationBase>> sDocumentationEnumMap2 = new Dictionary<string, List<EnumerationDocumentationBase>>();
+		private static readonly Dictionary<string, List<EnumerationDocumentationBase>> _DocMap_GL2_Enums = new Dictionary<string, List<EnumerationDocumentationBase>>();
 
 		/// <summary>
 		/// Map between the GL command name and the relative documentation.
 		/// </summary>
-		private static readonly Dictionary<string, XmlDocument> sDocumentationMap4 = new Dictionary<string, XmlDocument>();
+		private static readonly Dictionary<string, XmlDocument> _DocMap_GL4 = new Dictionary<string, XmlDocument>();
 
 		/// <summary>
 		/// Map between the GL enumerant name and the relative documentation.
 		/// </summary>
-		private static readonly Dictionary<string, List<EnumerationDocumentationBase>> sDocumentationEnumMap4 = new Dictionary<string, List<EnumerationDocumentationBase>>();
+		private static readonly Dictionary<string, List<EnumerationDocumentationBase>> _DocMap_GL4_Enums = new Dictionary<string, List<EnumerationDocumentationBase>>();
 
 		/// <summary>
 		/// Map between the GL command name and the relative documentation.
 		/// </summary>
-		private static readonly Dictionary<string, XmlDocument> sDocumentationMapE = new Dictionary<string, XmlDocument>();
+		private static readonly Dictionary<string, XmlDocument> _DocMap_EGL = new Dictionary<string, XmlDocument>();
 
 		/// <summary>
 		/// Map between the GL enumerant name and the relative documentation.
 		/// </summary>
-		private static readonly Dictionary<string, List<EnumerationDocumentationBase>> sDocumentationEnumMapE = new Dictionary<string, List<EnumerationDocumentationBase>>();
+		private static readonly Dictionary<string, List<EnumerationDocumentationBase>> _DocMap_EGL_Enums = new Dictionary<string, List<EnumerationDocumentationBase>>();
 
 		/// <summary>
 		/// XHTML/XML DTD entity resolver.

@@ -284,7 +284,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
 		/// <seealso cref="Gl.IsTransformFeedback"/>
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
@@ -1764,10 +1763,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
 		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
-		/// <seealso cref="Gl.FramebufferTextureFace"/>
 		/// <seealso cref="Gl.FramebufferTextureLayer"/>
 		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		/// <seealso cref="Gl.IsFramebuffer"/>
@@ -1828,9 +1823,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer)
@@ -1954,9 +1946,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level)
@@ -2025,7 +2014,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTextureFace"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferTextureLayer(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer)
@@ -2871,7 +2859,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.NamedRenderbufferStorageMultisample"/>
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
@@ -2914,7 +2901,8 @@ namespace OpenGL
 		/// is not the name of an existing renderbuffer object.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for <paramref name="internalformat"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a color-renderable, depth-renderable, or 
@@ -2933,7 +2921,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.NamedRenderbufferStorage"/>
 		/// <seealso cref="Gl.RenderbufferStorage"/>
 		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
@@ -3283,7 +3270,11 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="levels"/> is less than 1.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than the value of Gl.MAX_SAMPLES.
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for this <paramref name="target"/> and <paramref name="internalformat"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the value of Gl.TEXTURE_IMMUTABLE_FORMAT for the texture bound to <paramref 
@@ -3358,7 +3349,11 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="levels"/> is less than 1.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than the value of Gl.MAX_SAMPLES.
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for this <paramref name="target"/> and <paramref name="internalformat"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the value of Gl.TEXTURE_IMMUTABLE_FORMAT for the texture bound to <paramref 
@@ -5384,13 +5379,9 @@ namespace OpenGL
 		/// existing texture object.
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -5440,13 +5431,9 @@ namespace OpenGL
 		/// existing texture object.
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -5496,13 +5483,9 @@ namespace OpenGL
 		/// existing texture object.
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -5552,13 +5535,9 @@ namespace OpenGL
 		/// existing texture object.
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -5891,7 +5870,8 @@ namespace OpenGL
 		/// The type of the data stored in the array.
 		/// </param>
 		/// <param name="normalized">
-		/// The distance between elements within the buffer.
+		/// Specifies whether fixed-point data values should be normalized (Gl.TRUE) or converted directly as fixed-point values 
+		/// (Gl.FALSE) when they are accessed. This parameter is ignored if <paramref name="type"/> is Gl.FIXED.
 		/// </param>
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
@@ -6188,8 +6168,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribIPointer"/>
-		/// <seealso cref="Gl.VertexAttribLPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -6239,8 +6217,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribIPointer"/>
-		/// <seealso cref="Gl.VertexAttribLPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -6355,7 +6331,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.BeginQueryIndexed"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
@@ -6580,7 +6555,6 @@ namespace OpenGL
 		/// <paramref name="bufSize"/>.
 		/// </exception>
 		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTextureImage"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
@@ -6674,7 +6648,6 @@ namespace OpenGL
 		/// <paramref name="bufSize"/>.
 		/// </exception>
 		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTextureImage"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
@@ -6780,7 +6753,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
 		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetCompressedTextureImage"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
@@ -6878,7 +6850,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
 		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetCompressedTextureImage"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
@@ -6896,9 +6867,6 @@ namespace OpenGL
 		/// check if the rendering context has not been lost due to software or hardware issues
 		/// </summary>
 		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetIntegerv"/>
-		/// <seealso cref="Gl.GetQueryObjectuiv"/>
-		/// <seealso cref="Gl.GetSynciv"/>
 		[AliasOf("glGetGraphicsResetStatusKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]

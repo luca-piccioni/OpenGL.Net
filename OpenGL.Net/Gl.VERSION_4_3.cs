@@ -827,7 +827,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum width for a framebuffer that has no attachments, which must be at least 
-		/// 16384. See Gl.FramebufferParameter.
+		/// 16384. See glFramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -836,7 +836,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum height for a framebuffer that has no attachments, which must be at least 
-		/// 16384. See Gl.FramebufferParameter.
+		/// 16384. See glFramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -845,7 +845,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum number of layers for a framebuffer that has no attachments, which must be at 
-		/// least 2048. See Gl.FramebufferParameter.
+		/// least 2048. See glFramebufferParameter.
 		/// </summary>
 		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_EXT")]
 		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_OES")]
@@ -858,7 +858,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Gl.Get: data returns one value, the maximum samples in a framebuffer that has no attachments, which must be at least 4. 
-		/// See Gl.FramebufferParameter.
+		/// See glFramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2158,7 +2158,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Gl.Get: data returns a single value, the minimum required alignment for shader storage buffer sizes and offset. The 
-		/// initial value is 1. See Gl.ShaderStorateBlockBinding.
+		/// initial value is 1. See Gl.ShaderStorageBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -3612,7 +3612,7 @@ namespace OpenGL
 		/// interface identified by <paramref name="programInterface"/>.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetGetProgramResource"/>
+		/// <seealso cref="Gl.GetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3669,7 +3669,7 @@ namespace OpenGL
 		/// strings.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetGetProgramResource"/>
+		/// <seealso cref="Gl.GetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3726,7 +3726,7 @@ namespace OpenGL
 		/// interface <paramref name="programInterface"/>
 		/// </exception>
 		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetGetProgramResourceIndex"/>
+		/// <seealso cref="Gl.GetProgramResourceIndex"/>
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3773,7 +3773,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetProgramResourceName"/>
 		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetGetProgramResource"/>
+		/// <seealso cref="Gl.GetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -3816,7 +3816,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GetProgramResourceName"/>
 		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetGetProgramResource"/>
+		/// <seealso cref="Gl.GetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3847,15 +3847,15 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="attribindex"/> is greater than or equal to the value of 
-		/// Gl.MAX_VERTEX_ATTRIBS.
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of either a program or shader object.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="bindingindex"/> is greater than or equal to the value of 
-		/// Gl.MAX_VERTEX_ATTRIB_BINDINGS.
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is the name of a shader object.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if no vertex array object is bound.
+		/// Gl.INVALID_VALUE is generated if <paramref name="storageBlockIndex"/> is not an active shader storage block index in 
+		/// <paramref name="program"/>, or if <paramref name="storageBlockBinding"/> is greater than or equal to the value of 
+		/// Gl._SHADER_STORAGE_BUFFER_BINDINGS.
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
@@ -3979,7 +3979,11 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="levels"/> is less than 1.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than the value of Gl.MAX_SAMPLES.
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for this <paramref name="target"/> and <paramref name="internalformat"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the value of Gl.TEXTURE_IMMUTABLE_FORMAT for the texture bound to <paramref 
@@ -4055,7 +4059,11 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="levels"/> is less than 1.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than the value of Gl.MAX_SAMPLES.
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is zero.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="samples"/> is greater than the maximum number of samples supported 
+		/// for this <paramref name="target"/> and <paramref name="internalformat"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the value of Gl.TEXTURE_IMMUTABLE_FORMAT for the texture bound to <paramref 
@@ -4229,7 +4237,8 @@ namespace OpenGL
 		/// The type of the data stored in the array.
 		/// </param>
 		/// <param name="normalized">
-		/// The distance between elements within the buffer.
+		/// Specifies whether fixed-point data values should be normalized (Gl.TRUE) or converted directly as fixed-point values 
+		/// (Gl.FALSE) when they are accessed. This parameter is ignored if <paramref name="type"/> is Gl.FIXED.
 		/// </param>
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.

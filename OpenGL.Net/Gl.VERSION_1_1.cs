@@ -2146,7 +2146,8 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is not a name returned from a previous call to glGenTextures.
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not a name returned from a previous call to 
+		/// glGenTextures.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="texture"/> was previously created with a target that doesn't match 

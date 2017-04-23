@@ -107,7 +107,8 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
+		/// Glx. is returned if <paramref name="ctx"/> is Glx.. Otherwise, if <paramref name="ctx"/> does not refer to a valid 
+		/// context, undefined behavior results.
 		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.QueryVersion"/>

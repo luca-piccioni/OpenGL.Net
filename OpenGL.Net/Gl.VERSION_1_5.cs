@@ -427,7 +427,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		[AliasOf("glGenQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -455,7 +454,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		[AliasOf("glGenQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -479,7 +477,6 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
@@ -508,7 +505,6 @@ namespace OpenGL
 		/// </param>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		[AliasOf("glIsQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -530,7 +526,7 @@ namespace OpenGL
 		/// delimit the boundaries of a query object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent glEndQuery. The symbolic 
+		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent Gl.EndQuery. The symbolic 
 		/// constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED_CONSERVATIVE, 
 		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
@@ -547,8 +543,8 @@ namespace OpenGL
 		/// name="target"/> is already active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndQuery is executed when a query object of the same <paramref name="target"/> is 
-		/// not active.
+		/// Gl.INVALID_OPERATION is generated if Gl.EndQuery is executed when a query object of the same <paramref name="target"/> 
+		/// is not active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
@@ -562,7 +558,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BeginQueryIndexed"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
@@ -583,7 +578,7 @@ namespace OpenGL
 		/// delimit the boundaries of a query object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent glEndQuery. The symbolic 
+		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent Gl.EndQuery. The symbolic 
 		/// constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED_CONSERVATIVE, 
 		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
@@ -597,8 +592,8 @@ namespace OpenGL
 		/// name="target"/> is already active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndQuery is executed when a query object of the same <paramref name="target"/> is 
-		/// not active.
+		/// Gl.INVALID_OPERATION is generated if Gl.EndQuery is executed when a query object of the same <paramref name="target"/> 
+		/// is not active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
@@ -612,7 +607,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BeginQueryIndexed"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
@@ -739,7 +733,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -793,7 +786,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -847,7 +839,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -900,7 +891,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>

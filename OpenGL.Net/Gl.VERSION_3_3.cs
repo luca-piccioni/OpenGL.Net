@@ -771,7 +771,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query object that is already in use within a 
-		/// glBeginQuery / glEndQuery block.
+		/// glBeginQuery / Gl.EndQuery block.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a query object returned from a previous call 
@@ -782,7 +782,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
@@ -831,7 +830,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -885,7 +883,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -939,7 +936,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -993,7 +989,6 @@ namespace OpenGL
 		/// would cause data to be written beyond the bounds of that buffer's data store.
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
@@ -1033,7 +1028,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		[AliasOf("glVertexAttribDivisorANGLE")]
 		[AliasOf("glVertexAttribDivisorARB")]
 		[AliasOf("glVertexAttribDivisorEXT")]

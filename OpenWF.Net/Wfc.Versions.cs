@@ -25,7 +25,7 @@ namespace OpenWF
 		/// <summary>
 		/// Version for WFC_VERSION_1_0 API.
 		/// </summary>
-		public static readonly OpenGL.KhronosVersion Version_100 = new OpenGL.KhronosVersion(1, 0, OpenGL.KhronosVersion.ApiWfc);
+		public static readonly KhronosVersion Version_100 = new KhronosVersion(1, 0, KhronosVersion.ApiWfc);
 
 		#endregion
 

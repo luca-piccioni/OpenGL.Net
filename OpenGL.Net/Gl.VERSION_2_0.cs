@@ -1286,7 +1286,6 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not a program object.
 		/// </exception>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
@@ -2284,7 +2283,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
@@ -2341,7 +2339,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
@@ -2399,7 +2396,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
@@ -2457,7 +2453,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
@@ -6385,7 +6380,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
@@ -6472,7 +6466,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>

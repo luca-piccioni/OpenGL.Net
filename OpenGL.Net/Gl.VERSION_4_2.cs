@@ -1531,7 +1531,7 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback has never been called while the transform feedback object 
 		/// named by <paramref name="id"/> was bound.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1593,7 +1593,7 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback has never been called while the transform feedback object 
 		/// named by <paramref name="id"/> was bound.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>

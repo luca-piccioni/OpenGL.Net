@@ -2172,7 +2172,7 @@ namespace OpenGL
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
-		/// Gl.ACTIVE_SUBROUTINES.
+		/// Gl.ACTIVE_SUBROUTINE_UNIFORMS.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
@@ -2481,7 +2481,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2505,7 +2504,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[AliasOf("glDeleteTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2536,7 +2534,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[AliasOf("glGenTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2564,7 +2561,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[AliasOf("glGenTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2615,7 +2611,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[AliasOf("glPauseTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -2642,7 +2637,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[AliasOf("glResumeTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -2688,7 +2682,7 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback has never been called while the transform feedback object 
 		/// named by <paramref name="id"/> was bound.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2748,7 +2742,7 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback has never been called while the transform feedback object 
 		/// named by <paramref name="id"/> was bound.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2770,9 +2764,9 @@ namespace OpenGL
 		/// delimit the boundaries of a query object on an indexed target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent glEndQueryIndexed. 
-		/// The symbolic constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.PRIMITIVES_GENERATED, 
-		/// Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
+		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent 
+		/// Gl.EndQueryIndexed. The symbolic constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
+		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the query target upon which to begin the query.
@@ -2793,7 +2787,7 @@ namespace OpenGL
 		/// name="target"/> is already active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same <paramref 
+		/// Gl.INVALID_OPERATION is generated if Gl.EndQueryIndexed is executed when a query object of the same <paramref 
 		/// name="target"/> is not active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
@@ -2808,7 +2802,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
@@ -2827,9 +2820,9 @@ namespace OpenGL
 		/// delimit the boundaries of a query object on an indexed target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent glEndQueryIndexed. 
-		/// The symbolic constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.PRIMITIVES_GENERATED, 
-		/// Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
+		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent 
+		/// Gl.EndQueryIndexed. The symbolic constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
+		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the query target upon which to begin the query.
@@ -2847,7 +2840,7 @@ namespace OpenGL
 		/// name="target"/> is already active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same <paramref 
+		/// Gl.INVALID_OPERATION is generated if Gl.EndQueryIndexed is executed when a query object of the same <paramref 
 		/// name="target"/> is not active.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
@@ -2862,7 +2855,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>

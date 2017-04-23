@@ -956,7 +956,7 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if if <paramref name="type"/> is not an accepted shader type.
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted shader type.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
@@ -1023,7 +1023,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.IsProgramPipeline"/>
-		/// <seealso cref="Gl.UseShaderPrograms"/>
+		/// <seealso cref="Gl.UseProgramStages"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1050,7 +1050,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.IsProgramPipeline"/>
-		/// <seealso cref="Gl.UseShaderPrograms"/>
+		/// <seealso cref="Gl.UseProgramStages"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1074,7 +1074,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.IsProgramPipeline"/>
-		/// <seealso cref="Gl.UseShaderPrograms"/>
+		/// <seealso cref="Gl.UseProgramStages"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1094,7 +1094,7 @@ namespace OpenGL
 		/// </param>
 		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
-		/// <seealso cref="Gl.DeleteProgramPipeline"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
@@ -1132,7 +1132,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted values.
 		/// </exception>
-		/// <seealso cref="Gl.GetProgramPipelines"/>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -6451,7 +6451,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
@@ -6533,7 +6532,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
@@ -6588,7 +6586,6 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
