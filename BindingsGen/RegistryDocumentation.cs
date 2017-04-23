@@ -945,7 +945,7 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (GL2)...");
 
-			List<string> documentationFiles = new List<string>(Directory.GetFiles(Path.Combine(Program.BasePath, "OpenGL-Refpages/gl2.1")));
+			List<string> documentationFiles = new List<string>(Directory.GetFiles(Path.Combine(Program.BasePath, "Refpages/OpenGL/gl2.1")));
 
 			documentationFiles = documentationFiles.FindAll(delegate(string item) {
 				return (item.ToLowerInvariant().EndsWith(".xml"));
@@ -983,7 +983,7 @@ namespace BindingsGen
 
 									xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
 									// xmlReaderSettings.ProhibitDtd = false;
-									xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(Path.Combine(Program.BasePath, "GLMan/DTD"));
+									xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(Path.Combine(Program.BasePath, "RefPages/DTD"));
 
 									using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings)) {
 										xml.Load(xmlReader);
@@ -1056,7 +1056,7 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (GL4)...");
 
-			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "OpenGL-Refpages/gl4"))) {
+			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "Refpages/OpenGL/gl4"))) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
 				if (Regex.IsMatch(Path.GetFileNameWithoutExtension(documentationFile), @"(gl|wgl|glX)\w+") == false)
@@ -1158,7 +1158,7 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (EGL)...");
 
-			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/EGL"))) {
+			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "Refpages/EGL"))) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
 
@@ -1357,7 +1357,7 @@ namespace BindingsGen
 				KnownUris["-//W3C//DTD XHTML 1.0 Transitional//EN"] = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 				LocalDtdPaths[KnownUris["-//W3C//DTD XHTML 1.0 Transitional//EN"]] = "xhtml1-transitional.dtd";
 
-				mDtdPath = Path.Combine(Program.BasePath, "GLMan/DTD");
+				mDtdPath = Path.Combine(Program.BasePath, "RefPages/DTD");
 
 				string[] dtdFiles;
 
