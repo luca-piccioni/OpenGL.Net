@@ -1158,7 +1158,7 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (EGL)...");
 
-			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "Refpages/EGL"))) {
+			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "Refpages/EGL-Registry/sdk/docs/man"))) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
 
