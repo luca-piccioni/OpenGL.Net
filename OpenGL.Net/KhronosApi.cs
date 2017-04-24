@@ -839,16 +839,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Flag used for enabling/disabling procedure logging.
-		/// </summary>
-		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
-
-		/// <summary>
-		/// Flag used for enabling/disabling procedure logging.
-		/// </summary>
-		protected static bool _ProcLogEnabled;
-
-		/// <summary>
 		/// Log a comment.
 		/// </summary>
 		/// <param name="format">
@@ -858,157 +848,28 @@ namespace OpenGL
 		/// <param name="args">
 		/// A <see cref="T:System.Object[]"/> listing the <paramref name="format"/> string argument values.
 		/// </param>
+		[Conditional("GL_DEBUG")]
 		public static void LogComment(string format, params object[] args)
 		{
-			// LogFunction(String.Format("// " + format, args));
-		}
-
-		/// <summary>
-		/// Log an enumeration value.
-		/// </summary>
-		/// <param name="array">
-		/// A <see cref="Array"/> that specifies the set of values.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="array"/>.
-		/// </returns>
-		protected static string LogValue(Array array)
-		{
-			if (array != null) {
-				StringBuilder sb = new StringBuilder();
-
-				sb.Append("{");
-				foreach (object arrayItem in array)
-					sb.AppendFormat("{0},", arrayItem.ToString());
-				if (array.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
-
-				return (sb.ToString());
-			} else
-				return ("{ null }");
-		}
-
-		/// <summary>
-		/// Log an enumeration value.
-		/// </summary>
-		/// <param name="stringArray">
-		/// A <see cref="Array"/> that specifies the set of values.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="stringArray"/>.
-		/// </returns>
-		protected static string LogValue(string[] stringArray)
-		{
-			if (stringArray != null) {
-				StringBuilder sb = new StringBuilder();
-
-				sb.Append("{");
-				foreach (string arrayItem in stringArray)
-					sb.AppendFormat("{0},", arrayItem.Replace("\n", "\\n"));
-				if (stringArray.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
-
-				return (sb.ToString());
-			} else
-				return ("{ null }");
-		}
-
-		/// <summary>
-		/// Log an enumeration value.
-		/// </summary>
-		/// <param name="enumValue">
-		/// A <see cref="Int32"/> that specifies the enumeration value.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/>.
-		/// </returns>
-		protected static string LogEnumName(int enumValue)
-		{
-			return (String.Format("0x{0}", enumValue.ToString("X4")));
-		}
-
-		/// <summary>
-		/// Log an enumeration value.
-		/// </summary>
-		/// <param name="enumValues">
-		/// An array of <see cref="Int32"/> that specifies the enumeration values.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="enumValues"/>.
-		/// </returns>
-		protected static string LogEnumName(int[] enumValues)
-		{
-			if (enumValues.Length > 4) {
-				return ("{ ... }");
-			} else {
-				StringBuilder sb = new StringBuilder();
-
-				sb.Append("{");
-				foreach (int enumValue in enumValues)
-					sb.AppendFormat("{0},", LogEnumName(enumValue));
-				if (enumValues.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
-
-				return (sb.ToString());
-			}
-		}
-
-		/// <summary>
-		/// Log an bitmask value.
-		/// </summary>
-		/// <param name="bitmaskName">
-		/// A <see cref="String"/> that specifies the enumeration bitmask name.
-		/// </param>
-		/// <param name="bitmaskValue">
-		/// A <see cref="Int32"/> that specifies the enumeration bitmask value.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="bitmaskValue"/>.
-		/// </returns>
-		protected static string LogEnumBitmask(string bitmaskName, long bitmaskValue)
-		{
-			return (String.Format("0x{0}", bitmaskValue.ToString("X8")));
-		}
-
-		/// <summary>
-		/// Log an bitmask value.
-		/// </summary>
-		/// <param name="bitmaskValue">
-		/// A <see cref="Int32"/> that specifies the enumeration bitmask value.
-		/// </param>
-		/// <param name="bitmaskNames">
-		/// A <see cref="Dictionary{Int32, String}"/> that specifies the bitmask items names.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="bitmaskValue"/>.
-		/// </returns>
-		protected static string LogEnumBitmask(long bitmaskValue, Dictionary<long, string> bitmaskNames)
-		{
-			if (bitmaskNames == null)
-				throw new ArgumentNullException("bitmaskNames");
-
-			StringBuilder sb = new StringBuilder();
-
-			foreach (KeyValuePair<long, string> pair in bitmaskNames) {
-				// Exclude zero values
-				if (pair.Key == 0)
-					continue;
-				// Append name in the case all value bits are set
-				if ((bitmaskValue & pair.Key) == pair.Key) {
-					sb.AppendFormat("{0}|", pair.Value);
-					// Esclude these bits
-					bitmaskValue &= ~pair.Key;
+			if (_ProcLogEnabled && Log != null) {
+				KhronosLogEventArgs e = new KhronosLogEventArgs(format, args);
+				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
+					try {
+						eventHandler(null, e);
+					} catch { /* Fail-safe */ }
 				}
 			}
-			// Remove trailing pipe
-			if (sb.Length > 0)
-				sb.Remove(sb.Length - 1, 1);
-
-			return (sb.ToString());
 		}
+
+		/// <summary>
+		/// Flag used for enabling/disabling procedure logging.
+		/// </summary>
+		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
+
+		/// <summary>
+		/// Flag used for enabling/disabling procedure logging.
+		/// </summary>
+		protected static bool _ProcLogEnabled;
 
 		/// <summary>
 		/// Information usedful for logging purposes.
