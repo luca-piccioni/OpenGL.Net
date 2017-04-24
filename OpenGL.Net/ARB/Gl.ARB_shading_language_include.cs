@@ -69,7 +69,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNamedStringARB != null, "pglNamedStringARB not implemented");
 			Delegates.pglNamedStringARB(type, namelen, name, stringlen, @string);
-			LogFunction("glNamedStringARB({0}, {1}, {2}, {3}, {4})", LogEnumName(type), namelen, name, stringlen, @string);
+			LogCommand("glNamedStringARB", null, type, namelen, name, stringlen, @string			);
 			DebugCheckErrors(null);
 		}
 
@@ -87,7 +87,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDeleteNamedStringARB != null, "pglDeleteNamedStringARB not implemented");
 			Delegates.pglDeleteNamedStringARB(namelen, name);
-			LogFunction("glDeleteNamedStringARB({0}, {1})", namelen, name);
+			LogCommand("glDeleteNamedStringARB", null, namelen, name			);
 			DebugCheckErrors(null);
 		}
 
@@ -111,7 +111,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCompileShaderIncludeARB != null, "pglCompileShaderIncludeARB not implemented");
 					Delegates.pglCompileShaderIncludeARB(shader, (Int32)path.Length, path, p_length);
-					LogFunction("glCompileShaderIncludeARB({0}, {1}, {2}, {3})", shader, path.Length, LogValue(path), LogValue(length));
+					LogCommand("glCompileShaderIncludeARB", null, shader, path.Length, path, length					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -133,7 +133,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsNamedStringARB != null, "pglIsNamedStringARB not implemented");
 			retValue = Delegates.pglIsNamedStringARB(namelen, name);
-			LogFunction("glIsNamedStringARB({0}, {1}) = {2}", namelen, name, retValue);
+			LogCommand("glIsNamedStringARB", retValue, namelen, name			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -165,7 +165,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedStringARB != null, "pglGetNamedStringARB not implemented");
 					Delegates.pglGetNamedStringARB(namelen, name, bufSize, p_stringlen, @string);
-					LogFunction("glGetNamedStringARB({0}, {1}, {2}, {3}, {4})", namelen, name, bufSize, stringlen, @string);
+					LogCommand("glGetNamedStringARB", null, namelen, name, bufSize, stringlen, @string					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -194,7 +194,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedStringivARB != null, "pglGetNamedStringivARB not implemented");
 					Delegates.pglGetNamedStringivARB(namelen, name, pname, p_params);
-					LogFunction("glGetNamedStringivARB({0}, {1}, {2}, {3})", namelen, name, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetNamedStringivARB", null, namelen, name, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -223,7 +223,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedStringivARB != null, "pglGetNamedStringivARB not implemented");
 					Delegates.pglGetNamedStringivARB(namelen, name, pname, p_params);
-					LogFunction("glGetNamedStringivARB({0}, {1}, {2}, {3})", namelen, name, LogEnumName(pname), @params);
+					LogCommand("glGetNamedStringivARB", null, namelen, name, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

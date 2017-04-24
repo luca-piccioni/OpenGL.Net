@@ -39,7 +39,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReadBufferNV != null, "pglReadBufferNV not implemented");
 			Delegates.pglReadBufferNV(mode);
-			LogFunction("glReadBufferNV({0})", LogEnumName(mode));
+			LogCommand("glReadBufferNV", null, mode			);
 			DebugCheckErrors(null);
 		}
 

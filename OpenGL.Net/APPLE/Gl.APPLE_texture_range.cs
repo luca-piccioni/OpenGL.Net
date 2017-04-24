@@ -69,7 +69,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureRangeAPPLE != null, "pglTextureRangeAPPLE not implemented");
 			Delegates.pglTextureRangeAPPLE(target, length, pointer);
-			LogFunction("glTextureRangeAPPLE({0}, {1}, 0x{2})", LogEnumName(target), length, pointer.ToString("X8"));
+			LogCommand("glTextureRangeAPPLE", null, target, length, pointer			);
 			DebugCheckErrors(null);
 		}
 
@@ -116,7 +116,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexParameterPointervAPPLE != null, "pglGetTexParameterPointervAPPLE not implemented");
 					Delegates.pglGetTexParameterPointervAPPLE(target, pname, p_params);
-					LogFunction("glGetTexParameterPointervAPPLE({0}, {1}, 0x{2})", LogEnumName(target), LogEnumName(pname), @params.ToString("X8"));
+					LogCommand("glGetTexParameterPointervAPPLE", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

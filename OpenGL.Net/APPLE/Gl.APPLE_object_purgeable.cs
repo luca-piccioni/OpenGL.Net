@@ -83,7 +83,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglObjectPurgeableAPPLE != null, "pglObjectPurgeableAPPLE not implemented");
 			retValue = Delegates.pglObjectPurgeableAPPLE(objectType, name, option);
-			LogFunction("glObjectPurgeableAPPLE({0}, {1}, {2}) = {3}", LogEnumName(objectType), name, LogEnumName(option), retValue);
+			LogCommand("glObjectPurgeableAPPLE", retValue, objectType, name, option			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -108,7 +108,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglObjectUnpurgeableAPPLE != null, "pglObjectUnpurgeableAPPLE not implemented");
 			retValue = Delegates.pglObjectUnpurgeableAPPLE(objectType, name, option);
-			LogFunction("glObjectUnpurgeableAPPLE({0}, {1}, {2}) = {3}", LogEnumName(objectType), name, LogEnumName(option), retValue);
+			LogCommand("glObjectUnpurgeableAPPLE", retValue, objectType, name, option			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -137,7 +137,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivAPPLE != null, "pglGetObjectParameterivAPPLE not implemented");
 					Delegates.pglGetObjectParameterivAPPLE(objectType, name, pname, p_params);
-					LogFunction("glGetObjectParameterivAPPLE({0}, {1}, {2}, {3})", LogEnumName(objectType), name, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetObjectParameterivAPPLE", null, objectType, name, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

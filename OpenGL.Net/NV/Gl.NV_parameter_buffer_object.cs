@@ -81,7 +81,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramBufferParametersfvNV != null, "pglProgramBufferParametersfvNV not implemented");
 					Delegates.pglProgramBufferParametersfvNV(target, bindingIndex, wordIndex, (Int32)@params.Length, p_params);
-					LogFunction("glProgramBufferParametersfvNV({0}, {1}, {2}, {3}, {4})", LogEnumName(target), bindingIndex, wordIndex, @params.Length, LogValue(@params));
+					LogCommand("glProgramBufferParametersfvNV", null, target, bindingIndex, wordIndex, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -110,7 +110,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramBufferParametersIivNV != null, "pglProgramBufferParametersIivNV not implemented");
 					Delegates.pglProgramBufferParametersIivNV(target, bindingIndex, wordIndex, (Int32)@params.Length, p_params);
-					LogFunction("glProgramBufferParametersIivNV({0}, {1}, {2}, {3}, {4})", LogEnumName(target), bindingIndex, wordIndex, @params.Length, LogValue(@params));
+					LogCommand("glProgramBufferParametersIivNV", null, target, bindingIndex, wordIndex, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -139,7 +139,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramBufferParametersIuivNV != null, "pglProgramBufferParametersIuivNV not implemented");
 					Delegates.pglProgramBufferParametersIuivNV(target, bindingIndex, wordIndex, (Int32)@params.Length, p_params);
-					LogFunction("glProgramBufferParametersIuivNV({0}, {1}, {2}, {3}, {4})", LogEnumName(target), bindingIndex, wordIndex, @params.Length, LogValue(@params));
+					LogCommand("glProgramBufferParametersIuivNV", null, target, bindingIndex, wordIndex, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);

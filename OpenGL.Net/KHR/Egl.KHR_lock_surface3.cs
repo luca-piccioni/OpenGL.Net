@@ -209,7 +209,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglLockSurfaceKHR != null, "peglLockSurfaceKHR not implemented");
 					retValue = Delegates.peglLockSurfaceKHR(dpy, surface, p_attrib_list);
-					LogFunction("eglLockSurfaceKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(attrib_list), retValue);
+					LogCommand("eglLockSurfaceKHR", retValue, dpy, surface, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -234,7 +234,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglUnlockSurfaceKHR != null, "peglUnlockSurfaceKHR not implemented");
 			retValue = Delegates.peglUnlockSurfaceKHR(dpy, surface);
-			LogFunction("eglUnlockSurfaceKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue);
+			LogCommand("eglUnlockSurfaceKHR", retValue, dpy, surface			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -265,7 +265,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQuerySurface64KHR != null, "peglQuerySurface64KHR not implemented");
 					retValue = Delegates.peglQuerySurface64KHR(dpy, surface, attribute, p_value);
-					LogFunction("eglQuerySurface64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, LogValue(value), retValue);
+					LogCommand("eglQuerySurface64KHR", retValue, dpy, surface, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);

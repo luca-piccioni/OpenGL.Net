@@ -52,7 +52,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDevicesEXT != null, "peglQueryDevicesEXT not implemented");
 					retValue = Delegates.peglQueryDevicesEXT(max_devices, p_devices, p_num_devices);
-					LogFunction("eglQueryDevicesEXT({0}, {1}, {2}) = {3}", max_devices, LogValue(devices), LogValue(num_devices), retValue);
+					LogCommand("eglQueryDevicesEXT", retValue, max_devices, devices, num_devices					);
 				}
 			}
 			DebugCheckErrors(retValue);

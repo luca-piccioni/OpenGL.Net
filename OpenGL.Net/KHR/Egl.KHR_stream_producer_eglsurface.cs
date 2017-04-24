@@ -60,7 +60,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateStreamProducerSurfaceKHR != null, "peglCreateStreamProducerSurfaceKHR not implemented");
 					retValue = Delegates.peglCreateStreamProducerSurfaceKHR(dpy, config, stream, p_attrib_list);
-					LogFunction("eglCreateStreamProducerSurfaceKHR(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), stream.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreateStreamProducerSurfaceKHR", retValue, dpy, config, stream, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

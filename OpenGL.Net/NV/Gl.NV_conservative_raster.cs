@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSubpixelPrecisionBiasNV != null, "pglSubpixelPrecisionBiasNV not implemented");
 			Delegates.pglSubpixelPrecisionBiasNV(xbits, ybits);
-			LogFunction("glSubpixelPrecisionBiasNV({0}, {1})", xbits, ybits);
+			LogCommand("glSubpixelPrecisionBiasNV", null, xbits, ybits			);
 			DebugCheckErrors(null);
 		}
 

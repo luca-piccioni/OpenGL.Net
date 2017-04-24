@@ -45,7 +45,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglClipPlanefOES != null, "pglClipPlanefOES not implemented");
 					Delegates.pglClipPlanefOES(plane, p_equation);
-					LogFunction("glClipPlanefOES({0}, {1})", LogEnumName(plane), LogValue(equation));
+					LogCommand("glClipPlanefOES", null, plane, equation					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFrustumfOES != null, "pglFrustumfOES not implemented");
 			Delegates.pglFrustumfOES(l, r, b, t, n, f);
-			LogFunction("glFrustumfOES({0}, {1}, {2}, {3}, {4}, {5})", l, r, b, t, n, f);
+			LogCommand("glFrustumfOES", null, l, r, b, t, n, f			);
 			DebugCheckErrors(null);
 		}
 
@@ -98,7 +98,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetClipPlanefOES != null, "pglGetClipPlanefOES not implemented");
 					Delegates.pglGetClipPlanefOES(plane, p_equation);
-					LogFunction("glGetClipPlanefOES({0}, {1})", LogEnumName(plane), LogValue(equation));
+					LogCommand("glGetClipPlanefOES", null, plane, equation					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -130,7 +130,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglOrthofOES != null, "pglOrthofOES not implemented");
 			Delegates.pglOrthofOES(l, r, b, t, n, f);
-			LogFunction("glOrthofOES({0}, {1}, {2}, {3}, {4}, {5})", l, r, b, t, n, f);
+			LogCommand("glOrthofOES", null, l, r, b, t, n, f			);
 			DebugCheckErrors(null);
 		}
 

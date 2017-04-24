@@ -678,7 +678,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGenFragmentShadersATI != null, "pglGenFragmentShadersATI not implemented");
 			retValue = Delegates.pglGenFragmentShadersATI(range);
-			LogFunction("glGenFragmentShadersATI({0}) = {1}", range, retValue);
+			LogCommand("glGenFragmentShadersATI", retValue, range			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -695,7 +695,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindFragmentShaderATI != null, "pglBindFragmentShaderATI not implemented");
 			Delegates.pglBindFragmentShaderATI(id);
-			LogFunction("glBindFragmentShaderATI({0})", id);
+			LogCommand("glBindFragmentShaderATI", null, id			);
 			DebugCheckErrors(null);
 		}
 
@@ -710,7 +710,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDeleteFragmentShaderATI != null, "pglDeleteFragmentShaderATI not implemented");
 			Delegates.pglDeleteFragmentShaderATI(id);
-			LogFunction("glDeleteFragmentShaderATI({0})", id);
+			LogCommand("glDeleteFragmentShaderATI", null, id			);
 			DebugCheckErrors(null);
 		}
 
@@ -722,7 +722,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBeginFragmentShaderATI != null, "pglBeginFragmentShaderATI not implemented");
 			Delegates.pglBeginFragmentShaderATI();
-			LogFunction("glBeginFragmentShaderATI()");
+			LogCommand("glBeginFragmentShaderATI", null			);
 			DebugCheckErrors(null);
 		}
 
@@ -734,7 +734,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEndFragmentShaderATI != null, "pglEndFragmentShaderATI not implemented");
 			Delegates.pglEndFragmentShaderATI();
-			LogFunction("glEndFragmentShaderATI()");
+			LogCommand("glEndFragmentShaderATI", null			);
 			DebugCheckErrors(null);
 		}
 
@@ -755,7 +755,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPassTexCoordATI != null, "pglPassTexCoordATI not implemented");
 			Delegates.pglPassTexCoordATI(dst, coord, swizzle);
-			LogFunction("glPassTexCoordATI({0}, {1}, {2})", dst, coord, LogEnumName(swizzle));
+			LogCommand("glPassTexCoordATI", null, dst, coord, swizzle			);
 			DebugCheckErrors(null);
 		}
 
@@ -776,7 +776,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSampleMapATI != null, "pglSampleMapATI not implemented");
 			Delegates.pglSampleMapATI(dst, interp, swizzle);
-			LogFunction("glSampleMapATI({0}, {1}, {2})", dst, interp, LogEnumName(swizzle));
+			LogCommand("glSampleMapATI", null, dst, interp, swizzle			);
 			DebugCheckErrors(null);
 		}
 
@@ -809,7 +809,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorFragmentOp1ATI != null, "pglColorFragmentOp1ATI not implemented");
 			Delegates.pglColorFragmentOp1ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod);
-			LogFunction("glColorFragmentOp1ATI({0}, {1}, {2}, {3}, {4}, {5}, {6})", LogEnumName(op), dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod);
+			LogCommand("glColorFragmentOp1ATI", null, op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod			);
 			DebugCheckErrors(null);
 		}
 
@@ -851,7 +851,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorFragmentOp2ATI != null, "pglColorFragmentOp2ATI not implemented");
 			Delegates.pglColorFragmentOp2ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
-			LogFunction("glColorFragmentOp2ATI({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", LogEnumName(op), dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
+			LogCommand("glColorFragmentOp2ATI", null, op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod			);
 			DebugCheckErrors(null);
 		}
 
@@ -902,7 +902,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorFragmentOp3ATI != null, "pglColorFragmentOp3ATI not implemented");
 			Delegates.pglColorFragmentOp3ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
-			LogFunction("glColorFragmentOp3ATI({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", LogEnumName(op), dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
+			LogCommand("glColorFragmentOp3ATI", null, op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod			);
 			DebugCheckErrors(null);
 		}
 
@@ -932,7 +932,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAlphaFragmentOp1ATI != null, "pglAlphaFragmentOp1ATI not implemented");
 			Delegates.pglAlphaFragmentOp1ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod);
-			LogFunction("glAlphaFragmentOp1ATI({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(op), dst, dstMod, arg1, arg1Rep, arg1Mod);
+			LogCommand("glAlphaFragmentOp1ATI", null, op, dst, dstMod, arg1, arg1Rep, arg1Mod			);
 			DebugCheckErrors(null);
 		}
 
@@ -971,7 +971,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAlphaFragmentOp2ATI != null, "pglAlphaFragmentOp2ATI not implemented");
 			Delegates.pglAlphaFragmentOp2ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
-			LogFunction("glAlphaFragmentOp2ATI({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", LogEnumName(op), dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
+			LogCommand("glAlphaFragmentOp2ATI", null, op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod			);
 			DebugCheckErrors(null);
 		}
 
@@ -1019,7 +1019,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAlphaFragmentOp3ATI != null, "pglAlphaFragmentOp3ATI not implemented");
 			Delegates.pglAlphaFragmentOp3ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
-			LogFunction("glAlphaFragmentOp3ATI({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", LogEnumName(op), dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
+			LogCommand("glAlphaFragmentOp3ATI", null, op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod			);
 			DebugCheckErrors(null);
 		}
 
@@ -1040,7 +1040,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSetFragmentShaderConstantATI != null, "pglSetFragmentShaderConstantATI not implemented");
 					Delegates.pglSetFragmentShaderConstantATI(dst, p_value);
-					LogFunction("glSetFragmentShaderConstantATI({0}, {1})", dst, LogValue(value));
+					LogCommand("glSetFragmentShaderConstantATI", null, dst, value					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -809,28 +809,34 @@ namespace OpenGL
 		#region Procedure Logging
 
 		/// <summary>
-		/// Delegate used for logging procedure using application procedures.
+		/// Event raised whenever an API command is called.
 		/// </summary>
-		public delegate void ProcedureLogDelegate(string format, params object[] args);
+		public static event EventHandler<KhronosLogEventArgs> Log;
 
 		/// <summary>
-		/// Register a callback used to notify the application about a procedure log.
+		/// Load an API command call.
 		/// </summary>
-		/// <param name="callback">
-		/// The <see cref="ProcedureLogDelegate"/> used to notify application about a procedure log event.
+		/// <param name="name">
+		/// A <see cref="String"/> that specifies the name of the API command.
 		/// </param>
-		public static void RegisterApplicationLogDelegate(ProcedureLogDelegate callback)
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the returned value, if any.
+		/// </param>
+		/// <param name="args">
+		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
+		/// </param>
+		[Conditional("GL_DEBUG")]
+		protected internal static void LogCommand(string name, object returnValue, params object[] args)
 		{
-			_ProcLogCallbacks.Add(callback);
-
-			// Automatically query information
-			_ProcLogEnabled = _ProcLogCallbacks.Count == 1;
+			if (_ProcLogEnabled && Log != null) {
+				KhronosLogEventArgs e = new KhronosLogEventArgs(name, args, returnValue);
+				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
+					try {
+						eventHandler(null, e);
+					} catch { /* Fail-safe */ }
+				}
+			}
 		}
-
-		/// <summary>
-		/// Delegate for logging using application framework.
-		/// </summary>
-		private static readonly List<ProcedureLogDelegate> _ProcLogCallbacks = new List<ProcedureLogDelegate>();
 
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
@@ -841,34 +847,6 @@ namespace OpenGL
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
 		protected static bool _ProcLogEnabled;
-
-		/// <summary>
-		/// Log a procedure call.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="String"/> that specifies the format string.
-		/// </param>
-		/// <param name="args">
-		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
-		/// </param>
-		[Conditional("GL_DEBUG")]
-		protected internal static void LogFunction(string format, params object[] args)
-		{
-			if (format == null)
-				throw new ArgumentNullException("format");
-
-			// Global flag
-			if (_ProcLogEnabled == false)
-				return;
-
-			foreach (ProcedureLogDelegate logDelegate in _ProcLogCallbacks) {
-				try {
-					logDelegate(format, args);
-				} catch (Exception exception) {
-					LogComment("Unable to log function ({0}): {1}", format, exception.ToString());
-				}
-			}
-		}
 
 		/// <summary>
 		/// Log a comment.
@@ -882,7 +860,7 @@ namespace OpenGL
 		/// </param>
 		public static void LogComment(string format, params object[] args)
 		{
-			LogFunction(String.Format("// " + format, args));
+			// LogFunction(String.Format("// " + format, args));
 		}
 
 		/// <summary>

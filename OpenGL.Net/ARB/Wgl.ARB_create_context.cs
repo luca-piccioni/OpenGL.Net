@@ -94,7 +94,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreateContextAttribsARB != null, "pwglCreateContextAttribsARB not implemented");
 					retValue = Delegates.pwglCreateContextAttribsARB(hDC, hShareContext, p_attribList);
-					LogFunction("wglCreateContextAttribsARB(0x{0}, 0x{1}, {2}) = {3}", hDC.ToString("X8"), hShareContext.ToString("X8"), LogEnumName(attribList), retValue.ToString("X8"));
+					LogCommand("wglCreateContextAttribsARB", retValue, hDC, hShareContext, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);

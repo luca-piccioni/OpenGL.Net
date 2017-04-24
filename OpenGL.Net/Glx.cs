@@ -2174,7 +2174,7 @@ namespace OpenGL
 			IntPtr retValue;
 
 			retValue = UnsafeNativeMethods.XOpenDisplay(display);
-			LogFunction("XOpenDisplay({0}) = 0x{1}", display.ToInt32(), retValue.ToString("X8"));
+			LogCommand("XOpenDisplay", retValue, display);
 
 			return (retValue);
 		}
@@ -2185,7 +2185,7 @@ namespace OpenGL
 			int retValue;
 
 			retValue = UnsafeNativeMethods.XDefaultScreen(display);
-			LogFunction("XDefaultScreen(0x{0}) = {1}", display.ToString("X8"), retValue);
+			LogCommand("XDefaultScreen", retValue, display);
 
 			return (retValue);
 		}
@@ -2195,7 +2195,7 @@ namespace OpenGL
 			int retValue;
 
 			retValue = UnsafeNativeMethods.XFree(data);
-			LogFunction("XFree(0x{0}) = {1}", data.ToString("X8"), retValue);
+			LogCommand("XFree", retValue, data);
 
 			return (retValue);
 		}
@@ -2205,7 +2205,7 @@ namespace OpenGL
 			IntPtr retValue;
 
 			retValue = UnsafeNativeMethods.XCreateColormap(display, w, visual, alloc);
-			LogFunction("XCreateColormap(0x{0}, 0x{1}, 0x{2}, {3}) = 0x{4}", display.ToString("X8"), w.ToString("X8"), visual.ToString("X8"), alloc, retValue.ToString("X8"));
+			LogCommand("XCreateColormap", retValue, display, w, visual, alloc, retValue);
 
 			return (retValue);
 		}
@@ -2215,13 +2215,7 @@ namespace OpenGL
 			IntPtr retValue;
 
 			retValue = UnsafeNativeMethods.XCreateWindow(display, parent, x, y, width, height, border_width, depth, xclass, visual, valuemask, ref attributes);
-			LogFunction("XCreateWindow(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, 0x{9}, 0x{10}, {11}) = 0x{12}",
-				display.ToString("X8"), parent.ToString("X8"),
-				x, y, width, height, border_width, depth, xclass,
-				visual.ToString("X8"), valuemask.ToUInt32().ToString("X8"),
-				attributes,
-				retValue.ToString("X8")
-			);
+			LogCommand("XCreateWindow", retValue, display, parent, x, y, width, height, border_width, depth, xclass, visual, valuemask, attributes);
 
 			return (retValue);
 		}
@@ -2231,7 +2225,7 @@ namespace OpenGL
 			IntPtr retValue;
 
 			retValue = UnsafeNativeMethods.XRootWindow(display, screen_number);
-			LogFunction("XRootWindow(0x{0}, {1}) = {2}", display.ToString("X8"), screen_number, retValue.ToString("X8"));
+			LogCommand("XRootWindow", retValue, display, screen_number);
 
 			return (retValue);
 		}

@@ -102,7 +102,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream1sATI != null, "pglVertexStream1sATI not implemented");
 			Delegates.pglVertexStream1sATI(stream, x);
-			LogFunction("glVertexStream1sATI({0}, {1})", LogEnumName(stream), x);
+			LogCommand("glVertexStream1sATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
 
@@ -123,7 +123,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream1svATI != null, "pglVertexStream1svATI not implemented");
 					Delegates.pglVertexStream1svATI(stream, p_coords);
-					LogFunction("glVertexStream1svATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream1svATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -143,7 +143,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream1iATI != null, "pglVertexStream1iATI not implemented");
 			Delegates.pglVertexStream1iATI(stream, x);
-			LogFunction("glVertexStream1iATI({0}, {1})", LogEnumName(stream), x);
+			LogCommand("glVertexStream1iATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
 
@@ -164,7 +164,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream1ivATI != null, "pglVertexStream1ivATI not implemented");
 					Delegates.pglVertexStream1ivATI(stream, p_coords);
-					LogFunction("glVertexStream1ivATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream1ivATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -184,7 +184,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream1fATI != null, "pglVertexStream1fATI not implemented");
 			Delegates.pglVertexStream1fATI(stream, x);
-			LogFunction("glVertexStream1fATI({0}, {1})", LogEnumName(stream), x);
+			LogCommand("glVertexStream1fATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
 
@@ -205,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream1fvATI != null, "pglVertexStream1fvATI not implemented");
 					Delegates.pglVertexStream1fvATI(stream, p_coords);
-					LogFunction("glVertexStream1fvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream1fvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -225,7 +225,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream1dATI != null, "pglVertexStream1dATI not implemented");
 			Delegates.pglVertexStream1dATI(stream, x);
-			LogFunction("glVertexStream1dATI({0}, {1})", LogEnumName(stream), x);
+			LogCommand("glVertexStream1dATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
 
@@ -246,7 +246,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream1dvATI != null, "pglVertexStream1dvATI not implemented");
 					Delegates.pglVertexStream1dvATI(stream, p_coords);
-					LogFunction("glVertexStream1dvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream1dvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -269,7 +269,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream2sATI != null, "pglVertexStream2sATI not implemented");
 			Delegates.pglVertexStream2sATI(stream, x, y);
-			LogFunction("glVertexStream2sATI({0}, {1}, {2})", LogEnumName(stream), x, y);
+			LogCommand("glVertexStream2sATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
 
@@ -290,7 +290,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream2svATI != null, "pglVertexStream2svATI not implemented");
 					Delegates.pglVertexStream2svATI(stream, p_coords);
-					LogFunction("glVertexStream2svATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream2svATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -313,7 +313,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream2iATI != null, "pglVertexStream2iATI not implemented");
 			Delegates.pglVertexStream2iATI(stream, x, y);
-			LogFunction("glVertexStream2iATI({0}, {1}, {2})", LogEnumName(stream), x, y);
+			LogCommand("glVertexStream2iATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
 
@@ -334,7 +334,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream2ivATI != null, "pglVertexStream2ivATI not implemented");
 					Delegates.pglVertexStream2ivATI(stream, p_coords);
-					LogFunction("glVertexStream2ivATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream2ivATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -357,7 +357,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream2fATI != null, "pglVertexStream2fATI not implemented");
 			Delegates.pglVertexStream2fATI(stream, x, y);
-			LogFunction("glVertexStream2fATI({0}, {1}, {2})", LogEnumName(stream), x, y);
+			LogCommand("glVertexStream2fATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
 
@@ -378,7 +378,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream2fvATI != null, "pglVertexStream2fvATI not implemented");
 					Delegates.pglVertexStream2fvATI(stream, p_coords);
-					LogFunction("glVertexStream2fvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream2fvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -401,7 +401,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream2dATI != null, "pglVertexStream2dATI not implemented");
 			Delegates.pglVertexStream2dATI(stream, x, y);
-			LogFunction("glVertexStream2dATI({0}, {1}, {2})", LogEnumName(stream), x, y);
+			LogCommand("glVertexStream2dATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
 
@@ -422,7 +422,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream2dvATI != null, "pglVertexStream2dvATI not implemented");
 					Delegates.pglVertexStream2dvATI(stream, p_coords);
-					LogFunction("glVertexStream2dvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream2dvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -448,7 +448,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream3sATI != null, "pglVertexStream3sATI not implemented");
 			Delegates.pglVertexStream3sATI(stream, x, y, z);
-			LogFunction("glVertexStream3sATI({0}, {1}, {2}, {3})", LogEnumName(stream), x, y, z);
+			LogCommand("glVertexStream3sATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
 
@@ -469,7 +469,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream3svATI != null, "pglVertexStream3svATI not implemented");
 					Delegates.pglVertexStream3svATI(stream, p_coords);
-					LogFunction("glVertexStream3svATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream3svATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -495,7 +495,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream3iATI != null, "pglVertexStream3iATI not implemented");
 			Delegates.pglVertexStream3iATI(stream, x, y, z);
-			LogFunction("glVertexStream3iATI({0}, {1}, {2}, {3})", LogEnumName(stream), x, y, z);
+			LogCommand("glVertexStream3iATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
 
@@ -516,7 +516,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream3ivATI != null, "pglVertexStream3ivATI not implemented");
 					Delegates.pglVertexStream3ivATI(stream, p_coords);
-					LogFunction("glVertexStream3ivATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream3ivATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -542,7 +542,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream3fATI != null, "pglVertexStream3fATI not implemented");
 			Delegates.pglVertexStream3fATI(stream, x, y, z);
-			LogFunction("glVertexStream3fATI({0}, {1}, {2}, {3})", LogEnumName(stream), x, y, z);
+			LogCommand("glVertexStream3fATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
 
@@ -563,7 +563,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream3fvATI != null, "pglVertexStream3fvATI not implemented");
 					Delegates.pglVertexStream3fvATI(stream, p_coords);
-					LogFunction("glVertexStream3fvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream3fvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -589,7 +589,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream3dATI != null, "pglVertexStream3dATI not implemented");
 			Delegates.pglVertexStream3dATI(stream, x, y, z);
-			LogFunction("glVertexStream3dATI({0}, {1}, {2}, {3})", LogEnumName(stream), x, y, z);
+			LogCommand("glVertexStream3dATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
 
@@ -610,7 +610,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream3dvATI != null, "pglVertexStream3dvATI not implemented");
 					Delegates.pglVertexStream3dvATI(stream, p_coords);
-					LogFunction("glVertexStream3dvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream3dvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -639,7 +639,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream4sATI != null, "pglVertexStream4sATI not implemented");
 			Delegates.pglVertexStream4sATI(stream, x, y, z, w);
-			LogFunction("glVertexStream4sATI({0}, {1}, {2}, {3}, {4})", LogEnumName(stream), x, y, z, w);
+			LogCommand("glVertexStream4sATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -660,7 +660,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream4svATI != null, "pglVertexStream4svATI not implemented");
 					Delegates.pglVertexStream4svATI(stream, p_coords);
-					LogFunction("glVertexStream4svATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream4svATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -689,7 +689,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream4iATI != null, "pglVertexStream4iATI not implemented");
 			Delegates.pglVertexStream4iATI(stream, x, y, z, w);
-			LogFunction("glVertexStream4iATI({0}, {1}, {2}, {3}, {4})", LogEnumName(stream), x, y, z, w);
+			LogCommand("glVertexStream4iATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -710,7 +710,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream4ivATI != null, "pglVertexStream4ivATI not implemented");
 					Delegates.pglVertexStream4ivATI(stream, p_coords);
-					LogFunction("glVertexStream4ivATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream4ivATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -739,7 +739,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream4fATI != null, "pglVertexStream4fATI not implemented");
 			Delegates.pglVertexStream4fATI(stream, x, y, z, w);
-			LogFunction("glVertexStream4fATI({0}, {1}, {2}, {3}, {4})", LogEnumName(stream), x, y, z, w);
+			LogCommand("glVertexStream4fATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -760,7 +760,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream4fvATI != null, "pglVertexStream4fvATI not implemented");
 					Delegates.pglVertexStream4fvATI(stream, p_coords);
-					LogFunction("glVertexStream4fvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream4fvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -789,7 +789,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexStream4dATI != null, "pglVertexStream4dATI not implemented");
 			Delegates.pglVertexStream4dATI(stream, x, y, z, w);
-			LogFunction("glVertexStream4dATI({0}, {1}, {2}, {3}, {4})", LogEnumName(stream), x, y, z, w);
+			LogCommand("glVertexStream4dATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -810,7 +810,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexStream4dvATI != null, "pglVertexStream4dvATI not implemented");
 					Delegates.pglVertexStream4dvATI(stream, p_coords);
-					LogFunction("glVertexStream4dvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glVertexStream4dvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -836,7 +836,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalStream3bATI != null, "pglNormalStream3bATI not implemented");
 			Delegates.pglNormalStream3bATI(stream, nx, ny, nz);
-			LogFunction("glNormalStream3bATI({0}, {1}, {2}, {3})", LogEnumName(stream), nx, ny, nz);
+			LogCommand("glNormalStream3bATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
 
@@ -857,7 +857,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalStream3bvATI != null, "pglNormalStream3bvATI not implemented");
 					Delegates.pglNormalStream3bvATI(stream, p_coords);
-					LogFunction("glNormalStream3bvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glNormalStream3bvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -883,7 +883,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalStream3sATI != null, "pglNormalStream3sATI not implemented");
 			Delegates.pglNormalStream3sATI(stream, nx, ny, nz);
-			LogFunction("glNormalStream3sATI({0}, {1}, {2}, {3})", LogEnumName(stream), nx, ny, nz);
+			LogCommand("glNormalStream3sATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
 
@@ -904,7 +904,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalStream3svATI != null, "pglNormalStream3svATI not implemented");
 					Delegates.pglNormalStream3svATI(stream, p_coords);
-					LogFunction("glNormalStream3svATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glNormalStream3svATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -930,7 +930,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalStream3iATI != null, "pglNormalStream3iATI not implemented");
 			Delegates.pglNormalStream3iATI(stream, nx, ny, nz);
-			LogFunction("glNormalStream3iATI({0}, {1}, {2}, {3})", LogEnumName(stream), nx, ny, nz);
+			LogCommand("glNormalStream3iATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
 
@@ -951,7 +951,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalStream3ivATI != null, "pglNormalStream3ivATI not implemented");
 					Delegates.pglNormalStream3ivATI(stream, p_coords);
-					LogFunction("glNormalStream3ivATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glNormalStream3ivATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -977,7 +977,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalStream3fATI != null, "pglNormalStream3fATI not implemented");
 			Delegates.pglNormalStream3fATI(stream, nx, ny, nz);
-			LogFunction("glNormalStream3fATI({0}, {1}, {2}, {3})", LogEnumName(stream), nx, ny, nz);
+			LogCommand("glNormalStream3fATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
 
@@ -998,7 +998,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalStream3fvATI != null, "pglNormalStream3fvATI not implemented");
 					Delegates.pglNormalStream3fvATI(stream, p_coords);
-					LogFunction("glNormalStream3fvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glNormalStream3fvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1024,7 +1024,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalStream3dATI != null, "pglNormalStream3dATI not implemented");
 			Delegates.pglNormalStream3dATI(stream, nx, ny, nz);
-			LogFunction("glNormalStream3dATI({0}, {1}, {2}, {3})", LogEnumName(stream), nx, ny, nz);
+			LogCommand("glNormalStream3dATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
 
@@ -1045,7 +1045,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalStream3dvATI != null, "pglNormalStream3dvATI not implemented");
 					Delegates.pglNormalStream3dvATI(stream, p_coords);
-					LogFunction("glNormalStream3dvATI({0}, {1})", LogEnumName(stream), LogValue(coords));
+					LogCommand("glNormalStream3dvATI", null, stream, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1062,7 +1062,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClientActiveVertexStreamATI != null, "pglClientActiveVertexStreamATI not implemented");
 			Delegates.pglClientActiveVertexStreamATI(stream);
-			LogFunction("glClientActiveVertexStreamATI({0})", LogEnumName(stream));
+			LogCommand("glClientActiveVertexStreamATI", null, stream			);
 			DebugCheckErrors(null);
 		}
 
@@ -1080,7 +1080,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexBlendEnviATI != null, "pglVertexBlendEnviATI not implemented");
 			Delegates.pglVertexBlendEnviATI(pname, param);
-			LogFunction("glVertexBlendEnviATI({0}, {1})", LogEnumName(pname), param);
+			LogCommand("glVertexBlendEnviATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -1098,7 +1098,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexBlendEnvfATI != null, "pglVertexBlendEnvfATI not implemented");
 			Delegates.pglVertexBlendEnvfATI(pname, param);
-			LogFunction("glVertexBlendEnvfATI({0}, {1})", LogEnumName(pname), param);
+			LogCommand("glVertexBlendEnvfATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 

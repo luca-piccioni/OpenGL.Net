@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStringMarkerGREMEDY != null, "pglStringMarkerGREMEDY not implemented");
 			Delegates.pglStringMarkerGREMEDY(len, @string);
-			LogFunction("glStringMarkerGREMEDY({0}, 0x{1})", len, @string.ToString("X8"));
+			LogCommand("glStringMarkerGREMEDY", null, len, @string			);
 			DebugCheckErrors(null);
 		}
 

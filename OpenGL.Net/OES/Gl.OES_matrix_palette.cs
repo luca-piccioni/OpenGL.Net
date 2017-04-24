@@ -45,7 +45,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCurrentPaletteMatrixOES != null, "pglCurrentPaletteMatrixOES not implemented");
 			Delegates.pglCurrentPaletteMatrixOES(matrixpaletteindex);
-			LogFunction("glCurrentPaletteMatrixOES({0})", matrixpaletteindex);
+			LogCommand("glCurrentPaletteMatrixOES", null, matrixpaletteindex			);
 			DebugCheckErrors(null);
 		}
 
@@ -57,7 +57,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLoadPaletteFromModelViewMatrixOES != null, "pglLoadPaletteFromModelViewMatrixOES not implemented");
 			Delegates.pglLoadPaletteFromModelViewMatrixOES();
-			LogFunction("glLoadPaletteFromModelViewMatrixOES()");
+			LogCommand("glLoadPaletteFromModelViewMatrixOES", null			);
 			DebugCheckErrors(null);
 		}
 
@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerOES != null, "pglMatrixIndexPointerOES not implemented");
 			Delegates.pglMatrixIndexPointerOES(size, type, stride, pointer);
-			LogFunction("glMatrixIndexPointerOES({0}, {1}, {2}, 0x{3})", size, LogEnumName(type), stride, pointer.ToString("X8"));
+			LogCommand("glMatrixIndexPointerOES", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
 
@@ -131,7 +131,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWeightPointerOES != null, "pglWeightPointerOES not implemented");
 			Delegates.pglWeightPointerOES(size, type, stride, pointer);
-			LogFunction("glWeightPointerOES({0}, {1}, {2}, 0x{3})", size, LogEnumName(type), stride, pointer.ToString("X8"));
+			LogCommand("glWeightPointerOES", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
 

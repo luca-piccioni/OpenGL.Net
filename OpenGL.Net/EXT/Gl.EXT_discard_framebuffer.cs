@@ -45,7 +45,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDiscardFramebufferEXT != null, "pglDiscardFramebufferEXT not implemented");
 					Delegates.pglDiscardFramebufferEXT(target, (Int32)attachments.Length, p_attachments);
-					LogFunction("glDiscardFramebufferEXT({0}, {1}, {2})", LogEnumName(target), attachments.Length, LogEnumName(attachments));
+					LogCommand("glDiscardFramebufferEXT", null, target, attachments.Length, attachments					);
 				}
 			}
 			DebugCheckErrors(null);

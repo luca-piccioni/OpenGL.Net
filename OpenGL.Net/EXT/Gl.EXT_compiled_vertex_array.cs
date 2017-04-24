@@ -54,7 +54,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLockArraysEXT != null, "pglLockArraysEXT not implemented");
 			Delegates.pglLockArraysEXT(first, count);
-			LogFunction("glLockArraysEXT({0}, {1})", first, count);
+			LogCommand("glLockArraysEXT", null, first, count			);
 			DebugCheckErrors(null);
 		}
 
@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUnlockArraysEXT != null, "pglUnlockArraysEXT not implemented");
 			Delegates.pglUnlockArraysEXT();
-			LogFunction("glUnlockArraysEXT()");
+			LogCommand("glUnlockArraysEXT", null			);
 			DebugCheckErrors(null);
 		}
 

@@ -50,7 +50,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglAllocateMemoryNV != null, "pwglAllocateMemoryNV not implemented");
 			retValue = Delegates.pwglAllocateMemoryNV(size, readfreq, writefreq, priority);
-			LogFunction("wglAllocateMemoryNV({0}, {1}, {2}, {3}) = {4}", size, readfreq, writefreq, priority, retValue.ToString("X8"));
+			LogCommand("wglAllocateMemoryNV", retValue, size, readfreq, writefreq, priority			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -67,7 +67,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pwglFreeMemoryNV != null, "pwglFreeMemoryNV not implemented");
 			Delegates.pwglFreeMemoryNV(pointer);
-			LogFunction("wglFreeMemoryNV(0x{0})", pointer.ToString("X8"));
+			LogCommand("wglFreeMemoryNV", null, pointer			);
 			DebugCheckErrors(null);
 		}
 

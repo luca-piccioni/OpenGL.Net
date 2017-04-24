@@ -54,7 +54,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectBindlessCountNV != null, "pglMultiDrawArraysIndirectBindlessCountNV not implemented");
 			Delegates.pglMultiDrawArraysIndirectBindlessCountNV((Int32)mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
-			LogFunction("glMultiDrawArraysIndirectBindlessCountNV({0}, 0x{1}, {2}, {3}, {4}, {5})", mode, indirect.ToString("X8"), drawCount, maxDrawCount, stride, vertexBufferCount);
+			LogCommand("glMultiDrawArraysIndirectBindlessCountNV", null, mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount			);
 			DebugCheckErrors(null);
 		}
 
@@ -119,7 +119,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectBindlessCountNV != null, "pglMultiDrawElementsIndirectBindlessCountNV not implemented");
 			Delegates.pglMultiDrawElementsIndirectBindlessCountNV((Int32)mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
-			LogFunction("glMultiDrawElementsIndirectBindlessCountNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6})", mode, LogEnumName(type), indirect.ToString("X8"), drawCount, maxDrawCount, stride, vertexBufferCount);
+			LogCommand("glMultiDrawElementsIndirectBindlessCountNV", null, mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount			);
 			DebugCheckErrors(null);
 		}
 

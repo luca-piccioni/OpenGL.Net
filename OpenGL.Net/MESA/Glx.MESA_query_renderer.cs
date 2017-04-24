@@ -119,7 +119,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryCurrentRendererIntegerMESA != null, "pglXQueryCurrentRendererIntegerMESA not implemented");
 					retValue = Delegates.pglXQueryCurrentRendererIntegerMESA(attribute, p_value);
-					LogFunction("glXQueryCurrentRendererIntegerMESA({0}, {1}) = {2}", attribute, LogValue(value), retValue);
+					LogCommand("glXQueryCurrentRendererIntegerMESA", retValue, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -140,7 +140,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryCurrentRendererStringMESA != null, "pglXQueryCurrentRendererStringMESA not implemented");
 			retValue = Delegates.pglXQueryCurrentRendererStringMESA(attribute);
-			LogFunction("glXQueryCurrentRendererStringMESA({0}) = {1}", attribute, Marshal.PtrToStringAnsi(retValue));
+			LogCommand("glXQueryCurrentRendererStringMESA", Marshal.PtrToStringAnsi(retValue), attribute			);
 			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));
@@ -174,7 +174,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryRendererIntegerMESA != null, "pglXQueryRendererIntegerMESA not implemented");
 					retValue = Delegates.pglXQueryRendererIntegerMESA(dpy, screen, renderer, attribute, p_value);
-					LogFunction("glXQueryRendererIntegerMESA(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), screen, renderer, attribute, LogValue(value), retValue);
+					LogCommand("glXQueryRendererIntegerMESA", retValue, dpy, screen, renderer, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -204,7 +204,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryRendererStringMESA != null, "pglXQueryRendererStringMESA not implemented");
 			retValue = Delegates.pglXQueryRendererStringMESA(dpy, screen, renderer, attribute);
-			LogFunction("glXQueryRendererStringMESA(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, renderer, attribute, Marshal.PtrToStringAnsi(retValue));
+			LogCommand("glXQueryRendererStringMESA", Marshal.PtrToStringAnsi(retValue), dpy, screen, renderer, attribute			);
 			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));

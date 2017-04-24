@@ -703,7 +703,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackVaryings_Unmanaged != null, "pglTransformFeedbackVaryings not implemented");
 					Delegates.pglTransformFeedbackVaryings_Unmanaged(program, (Int32)varyings.Length, p_varyings, bufferMode);
-					LogFunction("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, varyings.Length, LogValue(varyings), LogEnumName(bufferMode));
+					LogCommand("glTransformFeedbackVaryings", null, program, varyings.Length, varyings, bufferMode);
 				}
 			}
 			DebugCheckErrors(null);

@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDispatchComputeGroupSizeARB != null, "pglDispatchComputeGroupSizeARB not implemented");
 			Delegates.pglDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
-			LogFunction("glDispatchComputeGroupSizeARB({0}, {1}, {2}, {3}, {4}, {5})", num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
+			LogCommand("glDispatchComputeGroupSizeARB", null, num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z			);
 			DebugCheckErrors(null);
 		}
 

@@ -48,7 +48,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
 			Delegates.pglGetConvolutionFilterEXT((Int32)target, (Int32)format, (Int32)type, image);
-			LogFunction("glGetConvolutionFilterEXT({0}, {1}, {2}, 0x{3})", target, format, type, image.ToString("X8"));
+			LogCommand("glGetConvolutionFilterEXT", null, target, format, type, image			);
 			DebugCheckErrors(null);
 		}
 
@@ -98,7 +98,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfvEXT != null, "pglGetConvolutionParameterfvEXT not implemented");
 					Delegates.pglGetConvolutionParameterfvEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, LogValue(@params));
+					LogCommand("glGetConvolutionParameterfvEXT", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -124,7 +124,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterivEXT != null, "pglGetConvolutionParameterivEXT not implemented");
 					Delegates.pglGetConvolutionParameterivEXT((Int32)target, (Int32)pname, p_params);
-					LogFunction("glGetConvolutionParameterivEXT({0}, {1}, {2})", target, pname, LogValue(@params));
+					LogCommand("glGetConvolutionParameterivEXT", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -156,7 +156,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
 			Delegates.pglGetSeparableFilterEXT((Int32)target, (Int32)format, (Int32)type, row, column, span);
-			LogFunction("glGetSeparableFilterEXT({0}, {1}, {2}, 0x{3}, 0x{4}, 0x{5})", target, format, type, row.ToString("X8"), column.ToString("X8"), span.ToString("X8"));
+			LogCommand("glGetSeparableFilterEXT", null, target, format, type, row, column, span			);
 			DebugCheckErrors(null);
 		}
 

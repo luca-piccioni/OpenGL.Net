@@ -69,7 +69,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawVkImageNV != null, "pglDrawVkImageNV not implemented");
 			Delegates.pglDrawVkImageNV(vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
-			LogFunction("glDrawVkImageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
+			LogCommand("glDrawVkImageNV", null, vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1			);
 			DebugCheckErrors(null);
 		}
 
@@ -86,7 +86,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetVkProcAddrNV != null, "pglGetVkProcAddrNV not implemented");
 			retValue = Delegates.pglGetVkProcAddrNV(name);
-			LogFunction("glGetVkProcAddrNV({0}) = {1}", name, (Gl.VulkanProc)Marshal.PtrToStructure(retValue, typeof(Gl.VulkanProc)));
+			LogCommand("glGetVkProcAddrNV", (Gl.VulkanProc)Marshal.PtrToStructure(retValue, typeof(Gl.VulkanProc)), name			);
 			DebugCheckErrors(retValue);
 
 			return ((Gl.VulkanProc)Marshal.PtrToStructure(retValue, typeof(Gl.VulkanProc)));
@@ -103,7 +103,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWaitVkSemaphoreNV != null, "pglWaitVkSemaphoreNV not implemented");
 			Delegates.pglWaitVkSemaphoreNV(vkSemaphore);
-			LogFunction("glWaitVkSemaphoreNV({0})", vkSemaphore);
+			LogCommand("glWaitVkSemaphoreNV", null, vkSemaphore			);
 			DebugCheckErrors(null);
 		}
 
@@ -118,7 +118,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSignalVkSemaphoreNV != null, "pglSignalVkSemaphoreNV not implemented");
 			Delegates.pglSignalVkSemaphoreNV(vkSemaphore);
-			LogFunction("glSignalVkSemaphoreNV({0})", vkSemaphore);
+			LogCommand("glSignalVkSemaphoreNV", null, vkSemaphore			);
 			DebugCheckErrors(null);
 		}
 
@@ -133,7 +133,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSignalVkFenceNV != null, "pglSignalVkFenceNV not implemented");
 			Delegates.pglSignalVkFenceNV(vkFence);
-			LogFunction("glSignalVkFenceNV({0})", vkFence);
+			LogCommand("glSignalVkFenceNV", null, vkFence			);
 			DebugCheckErrors(null);
 		}
 

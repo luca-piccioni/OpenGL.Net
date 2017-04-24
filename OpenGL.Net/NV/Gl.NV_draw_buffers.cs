@@ -42,7 +42,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawBuffersNV != null, "pglDrawBuffersNV not implemented");
 					Delegates.pglDrawBuffersNV((Int32)bufs.Length, p_bufs);
-					LogFunction("glDrawBuffersNV({0}, {1})", bufs.Length, LogEnumName(bufs));
+					LogCommand("glDrawBuffersNV", null, bufs.Length, bufs					);
 				}
 			}
 			DebugCheckErrors(null);

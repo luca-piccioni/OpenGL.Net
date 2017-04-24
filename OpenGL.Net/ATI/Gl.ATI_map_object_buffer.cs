@@ -41,7 +41,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglMapObjectBufferATI != null, "pglMapObjectBufferATI not implemented");
 			retValue = Delegates.pglMapObjectBufferATI(buffer);
-			LogFunction("glMapObjectBufferATI({0}) = {1}", buffer, retValue.ToString("X8"));
+			LogCommand("glMapObjectBufferATI", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -58,7 +58,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUnmapObjectBufferATI != null, "pglUnmapObjectBufferATI not implemented");
 			Delegates.pglUnmapObjectBufferATI(buffer);
-			LogFunction("glUnmapObjectBufferATI({0})", buffer);
+			LogCommand("glUnmapObjectBufferATI", null, buffer			);
 			DebugCheckErrors(null);
 		}
 

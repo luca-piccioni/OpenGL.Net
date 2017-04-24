@@ -54,7 +54,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCombinerStageParameterfvNV != null, "pglCombinerStageParameterfvNV not implemented");
 					Delegates.pglCombinerStageParameterfvNV(stage, pname, p_params);
-					LogFunction("glCombinerStageParameterfvNV({0}, {1}, {2})", LogEnumName(stage), LogEnumName(pname), LogValue(@params));
+					LogCommand("glCombinerStageParameterfvNV", null, stage, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -80,7 +80,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetCombinerStageParameterfvNV != null, "pglGetCombinerStageParameterfvNV not implemented");
 					Delegates.pglGetCombinerStageParameterfvNV(stage, pname, p_params);
-					LogFunction("glGetCombinerStageParameterfvNV({0}, {1}, {2})", LogEnumName(stage), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetCombinerStageParameterfvNV", null, stage, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

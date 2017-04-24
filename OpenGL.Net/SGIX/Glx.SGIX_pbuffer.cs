@@ -82,7 +82,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateGLXPbufferSGIX != null, "pglXCreateGLXPbufferSGIX not implemented");
 					retValue = Delegates.pglXCreateGLXPbufferSGIX(dpy, config, width, height, p_attrib_list);
-					LogFunction("glXCreateGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), width, height, LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("glXCreateGLXPbufferSGIX", retValue, dpy, config, width, height, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -104,7 +104,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXDestroyGLXPbufferSGIX != null, "pglXDestroyGLXPbufferSGIX not implemented");
 			Delegates.pglXDestroyGLXPbufferSGIX(dpy, pbuf);
-			LogFunction("glXDestroyGLXPbufferSGIX(0x{0}, 0x{1})", dpy.ToString("X8"), pbuf.ToString("X8"));
+			LogCommand("glXDestroyGLXPbufferSGIX", null, dpy, pbuf			);
 			DebugCheckErrors(null);
 		}
 
@@ -133,7 +133,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryGLXPbufferSGIX != null, "pglXQueryGLXPbufferSGIX not implemented");
 					retValue = Delegates.pglXQueryGLXPbufferSGIX(dpy, pbuf, attribute, p_value);
-					LogFunction("glXQueryGLXPbufferSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), pbuf.ToString("X8"), attribute, LogValue(value), retValue);
+					LogCommand("glXQueryGLXPbufferSGIX", retValue, dpy, pbuf, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -158,7 +158,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXSelectEventSGIX != null, "pglXSelectEventSGIX not implemented");
 			Delegates.pglXSelectEventSGIX(dpy, drawable, mask);
-			LogFunction("glXSelectEventSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), mask);
+			LogCommand("glXSelectEventSGIX", null, dpy, drawable, mask			);
 			DebugCheckErrors(null);
 		}
 
@@ -182,7 +182,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetSelectedEventSGIX != null, "pglXGetSelectedEventSGIX not implemented");
 					Delegates.pglXGetSelectedEventSGIX(dpy, drawable, p_mask);
-					LogFunction("glXGetSelectedEventSGIX(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), LogValue(mask));
+					LogCommand("glXGetSelectedEventSGIX", null, dpy, drawable, mask					);
 				}
 			}
 			DebugCheckErrors(null);

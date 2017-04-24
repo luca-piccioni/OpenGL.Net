@@ -68,7 +68,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglSetStereoEmitterState3DL != null, "pwglSetStereoEmitterState3DL not implemented");
 			retValue = Delegates.pwglSetStereoEmitterState3DL(hDC, uState);
-			LogFunction("wglSetStereoEmitterState3DL(0x{0}, {1}) = {2}", hDC.ToString("X8"), uState, retValue);
+			LogCommand("wglSetStereoEmitterState3DL", retValue, hDC, uState			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

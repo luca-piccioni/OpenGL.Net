@@ -498,7 +498,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendBarrier != null, "pglBlendBarrier not implemented");
 			Delegates.pglBlendBarrier();
-			LogFunction("glBlendBarrier()");
+			LogCommand("glBlendBarrier", null			);
 			DebugCheckErrors(null);
 		}
 
@@ -540,7 +540,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPrimitiveBoundingBox != null, "pglPrimitiveBoundingBox not implemented");
 			Delegates.pglPrimitiveBoundingBox(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
-			LogFunction("glPrimitiveBoundingBox({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
+			LogCommand("glPrimitiveBoundingBox", null, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW			);
 			DebugCheckErrors(null);
 		}
 

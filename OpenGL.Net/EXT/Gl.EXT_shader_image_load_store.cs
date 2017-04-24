@@ -57,7 +57,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindImageTextureEXT != null, "pglBindImageTextureEXT not implemented");
 			Delegates.pglBindImageTextureEXT(index, texture, level, layered, layer, access, format);
-			LogFunction("glBindImageTextureEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, texture, level, layered, layer, LogEnumName(access), format);
+			LogCommand("glBindImageTextureEXT", null, index, texture, level, layered, layer, access, format			);
 			DebugCheckErrors(null);
 		}
 

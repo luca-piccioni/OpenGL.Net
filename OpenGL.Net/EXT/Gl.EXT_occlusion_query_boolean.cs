@@ -43,7 +43,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenQueriesEXT != null, "pglGenQueriesEXT not implemented");
 					Delegates.pglGenQueriesEXT((Int32)ids.Length, p_ids);
-					LogFunction("glGenQueriesEXT({0}, {1})", ids.Length, LogValue(ids));
+					LogCommand("glGenQueriesEXT", null, ids.Length, ids					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -76,7 +76,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteQueriesEXT != null, "pglDeleteQueriesEXT not implemented");
 					Delegates.pglDeleteQueriesEXT((Int32)ids.Length, p_ids);
-					LogFunction("glDeleteQueriesEXT({0}, {1})", ids.Length, LogValue(ids));
+					LogCommand("glDeleteQueriesEXT", null, ids.Length, ids					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -96,7 +96,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsQueryEXT != null, "pglIsQueryEXT not implemented");
 			retValue = Delegates.pglIsQueryEXT(id);
-			LogFunction("glIsQueryEXT({0}) = {1}", id, retValue);
+			LogCommand("glIsQueryEXT", retValue, id			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -117,7 +117,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBeginQueryEXT != null, "pglBeginQueryEXT not implemented");
 			Delegates.pglBeginQueryEXT(target, id);
-			LogFunction("glBeginQueryEXT({0}, {1})", LogEnumName(target), id);
+			LogCommand("glBeginQueryEXT", null, target, id			);
 			DebugCheckErrors(null);
 		}
 
@@ -133,7 +133,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEndQueryEXT != null, "pglEndQueryEXT not implemented");
 			Delegates.pglEndQueryEXT(target);
-			LogFunction("glEndQueryEXT({0})", LogEnumName(target));
+			LogCommand("glEndQueryEXT", null, target			);
 			DebugCheckErrors(null);
 		}
 
@@ -158,7 +158,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryivEXT != null, "pglGetQueryivEXT not implemented");
 					Delegates.pglGetQueryivEXT(target, pname, p_params);
-					LogFunction("glGetQueryivEXT({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetQueryivEXT", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -185,7 +185,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuivEXT != null, "pglGetQueryObjectuivEXT not implemented");
 					Delegates.pglGetQueryObjectuivEXT(id, pname, p_params);
-					LogFunction("glGetQueryObjectuivEXT({0}, {1}, {2})", id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetQueryObjectuivEXT", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

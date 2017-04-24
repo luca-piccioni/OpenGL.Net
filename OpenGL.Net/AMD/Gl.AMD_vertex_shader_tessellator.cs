@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTessellationFactorAMD != null, "pglTessellationFactorAMD not implemented");
 			Delegates.pglTessellationFactorAMD(factor);
-			LogFunction("glTessellationFactorAMD({0})", factor);
+			LogCommand("glTessellationFactorAMD", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -96,7 +96,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTessellationModeAMD != null, "pglTessellationModeAMD not implemented");
 			Delegates.pglTessellationModeAMD(mode);
-			LogFunction("glTessellationModeAMD({0})", LogEnumName(mode));
+			LogCommand("glTessellationModeAMD", null, mode			);
 			DebugCheckErrors(null);
 		}
 

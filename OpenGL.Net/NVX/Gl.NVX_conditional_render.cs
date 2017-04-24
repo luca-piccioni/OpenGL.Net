@@ -39,7 +39,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRenderNVX != null, "pglBeginConditionalRenderNVX not implemented");
 			Delegates.pglBeginConditionalRenderNVX(id);
-			LogFunction("glBeginConditionalRenderNVX({0})", id);
+			LogCommand("glBeginConditionalRenderNVX", null, id			);
 			DebugCheckErrors(null);
 		}
 

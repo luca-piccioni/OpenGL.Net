@@ -69,7 +69,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFramebufferSamplePositionsfvAMD != null, "pglFramebufferSamplePositionsfvAMD not implemented");
 					Delegates.pglFramebufferSamplePositionsfvAMD(target, numsamples, pixelindex, p_values);
-					LogFunction("glFramebufferSamplePositionsfvAMD({0}, {1}, {2}, {3})", LogEnumName(target), numsamples, pixelindex, LogValue(values));
+					LogCommand("glFramebufferSamplePositionsfvAMD", null, target, numsamples, pixelindex, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -98,7 +98,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedFramebufferSamplePositionsfvAMD != null, "pglNamedFramebufferSamplePositionsfvAMD not implemented");
 					Delegates.pglNamedFramebufferSamplePositionsfvAMD(framebuffer, numsamples, pixelindex, p_values);
-					LogFunction("glNamedFramebufferSamplePositionsfvAMD({0}, {1}, {2}, {3})", framebuffer, numsamples, pixelindex, LogValue(values));
+					LogCommand("glNamedFramebufferSamplePositionsfvAMD", null, framebuffer, numsamples, pixelindex, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -133,7 +133,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameterfvAMD != null, "pglGetFramebufferParameterfvAMD not implemented");
 					Delegates.pglGetFramebufferParameterfvAMD(target, pname, numsamples, pixelindex, size, p_values);
-					LogFunction("glGetFramebufferParameterfvAMD({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(pname), numsamples, pixelindex, size, LogValue(values));
+					LogCommand("glGetFramebufferParameterfvAMD", null, target, pname, numsamples, pixelindex, size, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -168,7 +168,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferParameterfvAMD != null, "pglGetNamedFramebufferParameterfvAMD not implemented");
 					Delegates.pglGetNamedFramebufferParameterfvAMD(framebuffer, pname, numsamples, pixelindex, size, p_values);
-					LogFunction("glGetNamedFramebufferParameterfvAMD({0}, {1}, {2}, {3}, {4}, {5})", framebuffer, LogEnumName(pname), numsamples, pixelindex, size, LogValue(values));
+					LogCommand("glGetNamedFramebufferParameterfvAMD", null, framebuffer, pname, numsamples, pixelindex, size, values					);
 				}
 			}
 			DebugCheckErrors(null);

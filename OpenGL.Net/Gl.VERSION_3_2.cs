@@ -738,7 +738,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsBaseVertex != null, "pglDrawElementsBaseVertex not implemented");
 			Delegates.pglDrawElementsBaseVertex((Int32)mode, count, (Int32)type, indices, basevertex);
-			LogFunction("glDrawElementsBaseVertex({0}, {1}, {2}, 0x{3}, {4})", mode, count, type, indices.ToString("X8"), basevertex);
+			LogCommand("glDrawElementsBaseVertex", null, mode, count, type, indices, basevertex			);
 			DebugCheckErrors(null);
 		}
 
@@ -863,7 +863,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertex != null, "pglDrawRangeElementsBaseVertex not implemented");
 			Delegates.pglDrawRangeElementsBaseVertex((Int32)mode, start, end, count, (Int32)type, indices, basevertex);
-			LogFunction("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, 0x{5}, {6})", mode, start, end, count, type, indices.ToString("X8"), basevertex);
+			LogCommand("glDrawRangeElementsBaseVertex", null, mode, start, end, count, type, indices, basevertex			);
 			DebugCheckErrors(null);
 		}
 
@@ -991,7 +991,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertex != null, "pglDrawElementsInstancedBaseVertex not implemented");
 			Delegates.pglDrawElementsInstancedBaseVertex((Int32)mode, count, (Int32)type, indices, primcount, basevertex);
-			LogFunction("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), primcount, basevertex);
+			LogCommand("glDrawElementsInstancedBaseVertex", null, mode, count, type, indices, primcount, basevertex			);
 			DebugCheckErrors(null);
 		}
 
@@ -1112,7 +1112,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
 					Delegates.pglMultiDrawElementsBaseVertex((Int32)mode, p_count, (Int32)type, p_indices, drawcount, p_basevertex);
-					LogFunction("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, LogValue(count), type, LogValue(indices), drawcount, LogValue(basevertex));
+					LogCommand("glMultiDrawElementsBaseVertex", null, mode, count, type, indices, drawcount, basevertex					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1137,7 +1137,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProvokingVertex != null, "pglProvokingVertex not implemented");
 			Delegates.pglProvokingVertex(provokeMode);
-			LogFunction("glProvokingVertex({0})", LogEnumName(provokeMode));
+			LogCommand("glProvokingVertex", null, provokeMode			);
 			DebugCheckErrors(null);
 		}
 
@@ -1179,7 +1179,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglFenceSync != null, "pglFenceSync not implemented");
 			retValue = Delegates.pglFenceSync(condition, flags);
-			LogFunction("glFenceSync({0}, {1}) = {2}", LogEnumName(condition), flags, retValue);
+			LogCommand("glFenceSync", retValue, condition, flags			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1206,7 +1206,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsSync != null, "pglIsSync not implemented");
 			retValue = Delegates.pglIsSync(sync);
-			LogFunction("glIsSync({0}) = {1}", sync, retValue);
+			LogCommand("glIsSync", retValue, sync			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1235,7 +1235,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDeleteSync != null, "pglDeleteSync not implemented");
 			Delegates.pglDeleteSync(sync);
-			LogFunction("glDeleteSync({0})", sync);
+			LogCommand("glDeleteSync", null, sync			);
 			DebugCheckErrors(null);
 		}
 
@@ -1274,7 +1274,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglClientWaitSync != null, "pglClientWaitSync not implemented");
 			retValue = Delegates.pglClientWaitSync(sync, flags, timeout);
-			LogFunction("glClientWaitSync({0}, {1}, {2}) = {3}", sync, flags, timeout, retValue);
+			LogCommand("glClientWaitSync", retValue, sync, flags, timeout			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1315,7 +1315,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWaitSync != null, "pglWaitSync not implemented");
 			Delegates.pglWaitSync(sync, flags, timeout);
-			LogFunction("glWaitSync({0}, {1}, {2})", sync, flags, timeout);
+			LogCommand("glWaitSync", null, sync, flags, timeout			);
 			DebugCheckErrors(null);
 		}
 
@@ -1374,7 +1374,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 					Delegates.pglGetInteger64v(pname, p_data);
-					LogFunction("glGetInteger64v({0}, {1})", LogEnumName(pname), LogValue(data));
+					LogCommand("glGetInteger64v", null, pname, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1435,7 +1435,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 					Delegates.pglGetInteger64v(pname, p_data);
-					LogFunction("glGetInteger64v({0}, {1})", LogEnumName(pname), data);
+					LogCommand("glGetInteger64v", null, pname, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1480,7 +1480,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
 					Delegates.pglGetSynciv(sync, pname, (Int32)values.Length, p_length, p_values);
-					LogFunction("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, LogEnumName(pname), values.Length, length, LogValue(values));
+					LogCommand("glGetSynciv", null, sync, pname, values.Length, length, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1541,7 +1541,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
-					LogFunction("glGetInteger64i_v({0}, {1}, {2})", LogEnumName(target), index, LogValue(data));
+					LogCommand("glGetInteger64i_v", null, target, index, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1602,7 +1602,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
-					LogFunction("glGetInteger64i_v({0}, {1}, {2})", LogEnumName(target), index, data);
+					LogCommand("glGetInteger64i_v", null, target, index, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1652,7 +1652,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
 					Delegates.pglGetBufferParameteri64v((Int32)target, value, p_params);
-					LogFunction("glGetBufferParameteri64v({0}, {1}, {2})", target, LogEnumName(value), LogValue(data));
+					LogCommand("glGetBufferParameteri64v", null, target, value, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1726,7 +1726,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture != null, "pglFramebufferTexture not implemented");
 			Delegates.pglFramebufferTexture(target, attachment, texture, level);
-			LogFunction("glFramebufferTexture({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(attachment), texture, level);
+			LogCommand("glFramebufferTexture", null, target, attachment, texture, level			);
 			DebugCheckErrors(null);
 		}
 
@@ -1787,7 +1787,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisample != null, "pglTexImage2DMultisample not implemented");
 			Delegates.pglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
-			LogFunction("glTexImage2DMultisample({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), samples, LogEnumName(internalformat), width, height, fixedsamplelocations);
+			LogCommand("glTexImage2DMultisample", null, target, samples, internalformat, width, height, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
 
@@ -1854,7 +1854,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisample != null, "pglTexImage3DMultisample not implemented");
 			Delegates.pglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-			LogFunction("glTexImage3DMultisample({0}, {1}, {2}, {3}, {4}, {5}, {6})", LogEnumName(target), samples, LogEnumName(internalformat), width, height, depth, fixedsamplelocations);
+			LogCommand("glTexImage3DMultisample", null, target, samples, internalformat, width, height, depth, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
 
@@ -1892,7 +1892,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultisamplefv != null, "pglGetMultisamplefv not implemented");
 					Delegates.pglGetMultisamplefv(pname, index, p_val);
-					LogFunction("glGetMultisamplefv({0}, {1}, {2})", LogEnumName(pname), index, LogValue(val));
+					LogCommand("glGetMultisamplefv", null, pname, index, val					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1925,7 +1925,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSampleMaski != null, "pglSampleMaski not implemented");
 			Delegates.pglSampleMaski(maskNumber, mask);
-			LogFunction("glSampleMaski({0}, {1})", maskNumber, mask);
+			LogCommand("glSampleMaski", null, maskNumber, mask			);
 			DebugCheckErrors(null);
 		}
 

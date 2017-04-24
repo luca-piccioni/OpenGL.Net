@@ -524,7 +524,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pgluNewTess != null, "pgluNewTess not implemented");
 			retValue = Delegates.pgluNewTess();
-			LogFunction("gluNewTess() = 0x{0}", retValue.ToString("X"));
+			LogCommand("gluNewTess", retValue);
 
 			return (retValue);
 		}
@@ -533,63 +533,63 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pgluDeleteTess != null, "pgluDeleteTess not implemented");
 			Delegates.pgluDeleteTess(tess);
-			LogFunction("gluDeleteTess(0x{0})", tess.ToString("X"));
+			LogCommand("gluDeleteTess", null, tess);
 		}
 
 		public static void TessBeginPolygon(IntPtr tess, IntPtr polygon_data)
 		{
 			Debug.Assert(Delegates.pgluTessBeginPolygon != null, "pgluTessBeginPolygon not implemented");
 			Delegates.pgluTessBeginPolygon(tess, polygon_data);
-			LogFunction("gluTessBeginPolygon(0x{0}, 0x{1})", tess.ToString("X"), polygon_data.ToString("X"));
+			LogCommand("gluTessBeginPolygon", null, tess, polygon_data);
 		}
 
 		public static void TessEndPolygon(IntPtr tess)
 		{
 			Debug.Assert(Delegates.pgluTessEndPolygon != null, "pgluTessEndPolygon not implemented");
 			Delegates.pgluTessEndPolygon(tess);
-			LogFunction("gluTessBeginPolygon(0x{0})", tess.ToString("X"));
+			LogCommand("gluTessBeginPolygon", null, tess);
 		}
 
 		public static void TessBeginContour(IntPtr tess)
 		{
 			Debug.Assert(Delegates.pgluTessBeginContour != null, "pgluTessBeginContour not implemented");
 			Delegates.pgluTessBeginContour(tess);
-			LogFunction("gluTessBeginContour(0x{0})", tess.ToString("X"));
+			LogCommand("gluTessBeginContour", null, tess);
 		}
 
 		public static void TessEndContour(IntPtr tess)
 		{
 			Debug.Assert(Delegates.pgluTessEndContour != null, "pgluTessEndContour not implemented");
 			Delegates.pgluTessEndContour(tess);
-			LogFunction("gluTessEndContour(0x{0})", tess.ToString("X"));
+			LogCommand("gluTessEndContour", null, tess);
 		}
 
 		public static void TessVertex(IntPtr tess, IntPtr coords, IntPtr data)
 		{
 			Debug.Assert(Delegates.pgluTessVertex != null, "pgluTessVertex not implemented");
 			Delegates.pgluTessVertex(tess, coords, data);
-			LogFunction("gluTessVertex(0x{0}, 0x{1}, 0x{2})", tess.ToString("X"), coords.ToString("X"), data.ToString("X"));
+			LogCommand("gluTessVertex", null, tess, coords, data);
 		}
 
 		public static void TessNormal(IntPtr tess, double valueX, double valueY, double valueZ)
 		{
 			Debug.Assert(Delegates.pgluTessNormal != null, "pgluTessNormal not implemented");
 			Delegates.pgluTessNormal(tess, valueX, valueY, valueZ);
-			LogFunction("gluTessNormal(0x{0}, {1:F6}, {2:F6}, {3:F6})", tess.ToString("X"), valueX, valueY, valueZ);
+			LogCommand("gluTessNormal", null, tess, valueX, valueY, valueZ);
 		}
 
 		public static void TessProperty(IntPtr tess, int which, double value)
 		{
 			Debug.Assert(Delegates.pgluTessProperty != null, "pgluTessProperty not implemented");
 			Delegates.pgluTessProperty(tess, which, value);
-			LogFunction("gluTessProperty(0x{0}, {1}, {2:F6})", tess.ToString("X"), which, value);
+			LogCommand("gluTessProperty", null, tess, which, value);
 		}
 
 		public static void TessCallback(IntPtr tess, TessCallbackType which, IntPtr fn)
 		{
 			Debug.Assert(Delegates.pgluTessCallback != null, "pgluTessCallback not implemented");
 			Delegates.pgluTessCallback(tess, (int)which, fn);
-			LogFunction("pgluTessCallback(0x{0}, {1}, 0x{2})", tess.ToString("X"), which, fn.ToString("X"));
+			LogCommand("gluTessCallback", null, tess, which, fn);
 		}
 
 		internal unsafe static partial class UnsafeNativeMethods

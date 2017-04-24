@@ -56,7 +56,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateGLXVideoSourceSGIX != null, "pglXCreateGLXVideoSourceSGIX not implemented");
 			retValue = Delegates.pglXCreateGLXVideoSourceSGIX(display, screen, server, path, nodeClass, drainNode);
-			LogFunction("glXCreateGLXVideoSourceSGIX(0x{0}, {1}, 0x{2}, 0x{3}, {4}, 0x{5}) = {6}", display.ToString("X8"), screen, server.ToString("X8"), path.ToString("X8"), nodeClass, drainNode.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("glXCreateGLXVideoSourceSGIX", retValue, display, screen, server, path, nodeClass, drainNode			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -76,7 +76,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXDestroyGLXVideoSourceSGIX != null, "pglXDestroyGLXVideoSourceSGIX not implemented");
 			Delegates.pglXDestroyGLXVideoSourceSGIX(dpy, glxvideosource);
-			LogFunction("glXDestroyGLXVideoSourceSGIX(0x{0}, 0x{1})", dpy.ToString("X8"), glxvideosource.ToString("X8"));
+			LogCommand("glXDestroyGLXVideoSourceSGIX", null, dpy, glxvideosource			);
 			DebugCheckErrors(null);
 		}
 

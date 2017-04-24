@@ -53,7 +53,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXSet3DfxModeMESA != null, "pglXSet3DfxModeMESA not implemented");
 			retValue = Delegates.pglXSet3DfxModeMESA(mode);
-			LogFunction("glXSet3DfxModeMESA({0}) = {1}", mode, retValue);
+			LogCommand("glXSet3DfxModeMESA", retValue, mode			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

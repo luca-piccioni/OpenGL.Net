@@ -38,7 +38,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetExtensionsStringEXT != null, "pwglGetExtensionsStringEXT not implemented");
 			retValue = Delegates.pwglGetExtensionsStringEXT();
-			LogFunction("wglGetExtensionsStringEXT() = {0}", Marshal.PtrToStringAnsi(retValue));
+			LogCommand("wglGetExtensionsStringEXT", Marshal.PtrToStringAnsi(retValue)			);
 			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));

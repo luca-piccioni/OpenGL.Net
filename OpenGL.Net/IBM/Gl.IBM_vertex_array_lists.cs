@@ -150,7 +150,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorPointerListIBM != null, "pglColorPointerListIBM not implemented");
 					Delegates.pglColorPointerListIBM(size, (Int32)type, stride, p_pointer, ptrstride);
-					LogFunction("glColorPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, LogValue(pointer), ptrstride);
+					LogCommand("glColorPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -182,7 +182,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSecondaryColorPointerListIBM != null, "pglSecondaryColorPointerListIBM not implemented");
 					Delegates.pglSecondaryColorPointerListIBM(size, type, stride, p_pointer, ptrstride);
-					LogFunction("glSecondaryColorPointerListIBM({0}, {1}, {2}, {3}, {4})", size, LogEnumName(type), stride, LogValue(pointer), ptrstride);
+					LogCommand("glSecondaryColorPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -205,7 +205,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointerListIBM != null, "pglEdgeFlagPointerListIBM not implemented");
 			Delegates.pglEdgeFlagPointerListIBM(stride, pointer, ptrstride);
-			LogFunction("glEdgeFlagPointerListIBM({0}, {1}, {2})", stride, LogValue(pointer), ptrstride);
+			LogCommand("glEdgeFlagPointerListIBM", null, stride, pointer, ptrstride			);
 			DebugCheckErrors(null);
 		}
 
@@ -232,7 +232,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFogCoordPointerListIBM != null, "pglFogCoordPointerListIBM not implemented");
 					Delegates.pglFogCoordPointerListIBM((Int32)type, stride, p_pointer, ptrstride);
-					LogFunction("glFogCoordPointerListIBM({0}, {1}, {2}, {3})", type, stride, LogValue(pointer), ptrstride);
+					LogCommand("glFogCoordPointerListIBM", null, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -261,7 +261,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglIndexPointerListIBM != null, "pglIndexPointerListIBM not implemented");
 					Delegates.pglIndexPointerListIBM((Int32)type, stride, p_pointer, ptrstride);
-					LogFunction("glIndexPointerListIBM({0}, {1}, {2}, {3})", type, stride, LogValue(pointer), ptrstride);
+					LogCommand("glIndexPointerListIBM", null, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -290,7 +290,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalPointerListIBM != null, "pglNormalPointerListIBM not implemented");
 					Delegates.pglNormalPointerListIBM((Int32)type, stride, p_pointer, ptrstride);
-					LogFunction("glNormalPointerListIBM({0}, {1}, {2}, {3})", type, stride, LogValue(pointer), ptrstride);
+					LogCommand("glNormalPointerListIBM", null, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -322,7 +322,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoordPointerListIBM != null, "pglTexCoordPointerListIBM not implemented");
 					Delegates.pglTexCoordPointerListIBM(size, (Int32)type, stride, p_pointer, ptrstride);
-					LogFunction("glTexCoordPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, LogValue(pointer), ptrstride);
+					LogCommand("glTexCoordPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -354,7 +354,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexPointerListIBM != null, "pglVertexPointerListIBM not implemented");
 					Delegates.pglVertexPointerListIBM(size, (Int32)type, stride, p_pointer, ptrstride);
-					LogFunction("glVertexPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, LogValue(pointer), ptrstride);
+					LogCommand("glVertexPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
 			DebugCheckErrors(null);

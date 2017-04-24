@@ -267,7 +267,7 @@ namespace OpenGL
 		{
 			// Ensure to have X11 thread system initialized
 			int initialized = Glx.UnsafeNativeMethods.XInitThreads();
-			KhronosApi.LogFunction("XInitThreads() = {0}", initialized);
+			KhronosApi.LogCommand("XInitThreads", initialized);
 			
 			if (initialized == 0)
 				throw new InvalidOperationException("platform does not support multithreading");

@@ -67,7 +67,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSpecializeShaderARB != null, "pglSpecializeShaderARB not implemented");
 					Delegates.pglSpecializeShaderARB(shader, pEntryPoint, numSpecializationConstants, p_pConstantIndex, p_pConstantValue);
-					LogFunction("glSpecializeShaderARB({0}, {1}, {2}, {3}, {4})", shader, pEntryPoint, numSpecializationConstants, LogValue(pConstantIndex), LogValue(pConstantValue));
+					LogCommand("glSpecializeShaderARB", null, shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue					);
 				}
 			}
 			DebugCheckErrors(null);

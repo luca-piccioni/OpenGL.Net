@@ -64,7 +64,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLGPUNamedBufferSubDataNVX != null, "pglLGPUNamedBufferSubDataNVX not implemented");
 			Delegates.pglLGPUNamedBufferSubDataNVX(gpuMask, buffer, offset, size, data);
-			LogFunction("glLGPUNamedBufferSubDataNVX({0}, {1}, 0x{2}, {3}, 0x{4})", gpuMask, buffer, offset.ToString("X8"), size, data.ToString("X8"));
+			LogCommand("glLGPUNamedBufferSubDataNVX", null, gpuMask, buffer, offset, size, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -156,7 +156,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLGPUCopyImageSubDataNVX != null, "pglLGPUCopyImageSubDataNVX not implemented");
 			Delegates.pglLGPUCopyImageSubDataNVX(sourceGpu, destinationGpuMask, srcName, srcTarget, srcLevel, srcX, srxY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
-			LogFunction("glLGPUCopyImageSubDataNVX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16})", sourceGpu, destinationGpuMask, srcName, LogEnumName(srcTarget), srcLevel, srcX, srxY, srcZ, dstName, LogEnumName(dstTarget), dstLevel, dstX, dstY, dstZ, width, height, depth);
+			LogCommand("glLGPUCopyImageSubDataNVX", null, sourceGpu, destinationGpuMask, srcName, srcTarget, srcLevel, srcX, srxY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth			);
 			DebugCheckErrors(null);
 		}
 
@@ -168,7 +168,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLGPUInterlockNVX != null, "pglLGPUInterlockNVX not implemented");
 			Delegates.pglLGPUInterlockNVX();
-			LogFunction("glLGPUInterlockNVX()");
+			LogCommand("glLGPUInterlockNVX", null			);
 			DebugCheckErrors(null);
 		}
 

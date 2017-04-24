@@ -48,7 +48,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDepthRangeArrayfvNV != null, "pglDepthRangeArrayfvNV not implemented");
 					Delegates.pglDepthRangeArrayfvNV(first, count, p_v);
-					LogFunction("glDepthRangeArrayfvNV({0}, {1}, {2})", first, count, LogValue(v));
+					LogCommand("glDepthRangeArrayfvNV", null, first, count, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDepthRangeIndexedfNV != null, "pglDepthRangeIndexedfNV not implemented");
 			Delegates.pglDepthRangeIndexedfNV(index, n, f);
-			LogFunction("glDepthRangeIndexedfNV({0}, {1}, {2})", index, n, f);
+			LogCommand("glDepthRangeIndexedfNV", null, index, n, f			);
 			DebugCheckErrors(null);
 		}
 

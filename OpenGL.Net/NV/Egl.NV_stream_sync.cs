@@ -59,7 +59,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateStreamSyncNV != null, "peglCreateStreamSyncNV not implemented");
 					retValue = Delegates.peglCreateStreamSyncNV(dpy, stream, type, p_attrib_list);
-					LogFunction("eglCreateStreamSyncNV(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), type, LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreateStreamSyncNV", retValue, dpy, stream, type, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

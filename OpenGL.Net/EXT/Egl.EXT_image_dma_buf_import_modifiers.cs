@@ -120,7 +120,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDmaBufFormatsEXT != null, "peglQueryDmaBufFormatsEXT not implemented");
 					retValue = Delegates.peglQueryDmaBufFormatsEXT(dpy, max_formats, p_formats, p_num_formats);
-					LogFunction("eglQueryDmaBufFormatsEXT(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), max_formats, LogValue(formats), LogValue(num_formats), retValue);
+					LogCommand("eglQueryDmaBufFormatsEXT", retValue, dpy, max_formats, formats, num_formats					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -161,7 +161,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDmaBufModifiersEXT != null, "peglQueryDmaBufModifiersEXT not implemented");
 					retValue = Delegates.peglQueryDmaBufModifiersEXT(dpy, format, max_modifiers, p_modifiers, p_external_only, p_num_modifiers);
-					LogFunction("eglQueryDmaBufModifiersEXT(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", dpy.ToString("X8"), format, max_modifiers, LogValue(modifiers), LogValue(external_only), LogValue(num_modifiers), retValue);
+					LogCommand("eglQueryDmaBufModifiersEXT", retValue, dpy, format, max_modifiers, modifiers, external_only, num_modifiers					);
 				}
 			}
 			DebugCheckErrors(retValue);

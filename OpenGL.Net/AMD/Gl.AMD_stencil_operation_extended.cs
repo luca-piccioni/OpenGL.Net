@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStencilOpValueAMD != null, "pglStencilOpValueAMD not implemented");
 			Delegates.pglStencilOpValueAMD((Int32)face, value);
-			LogFunction("glStencilOpValueAMD({0}, {1})", face, value);
+			LogCommand("glStencilOpValueAMD", null, face, value			);
 			DebugCheckErrors(null);
 		}
 

@@ -38,7 +38,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetSystemTimeFrequencyNV != null, "peglGetSystemTimeFrequencyNV not implemented");
 			retValue = Delegates.peglGetSystemTimeFrequencyNV();
-			LogFunction("eglGetSystemTimeFrequencyNV() = {0}", retValue);
+			LogCommand("eglGetSystemTimeFrequencyNV", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -54,7 +54,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetSystemTimeNV != null, "peglGetSystemTimeNV not implemented");
 			retValue = Delegates.peglGetSystemTimeNV();
-			LogFunction("eglGetSystemTimeNV() = {0}", retValue);
+			LogCommand("eglGetSystemTimeNV", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

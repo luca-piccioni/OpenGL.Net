@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DMultisampleEXT != null, "pglFramebufferTexture2DMultisampleEXT not implemented");
 			Delegates.pglFramebufferTexture2DMultisampleEXT(target, attachment, textarget, texture, level, samples);
-			LogFunction("glFramebufferTexture2DMultisampleEXT({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(attachment), LogEnumName(textarget), texture, level, samples);
+			LogCommand("glFramebufferTexture2DMultisampleEXT", null, target, attachment, textarget, texture, level, samples			);
 			DebugCheckErrors(null);
 		}
 

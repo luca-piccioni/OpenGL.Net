@@ -58,7 +58,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDMABUFImageQueryMESA != null, "peglExportDMABUFImageQueryMESA not implemented");
 					retValue = Delegates.peglExportDMABUFImageQueryMESA(dpy, image, p_fourcc, p_num_planes, p_modifiers);
-					LogFunction("eglExportDMABUFImageQueryMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(fourcc), LogValue(num_planes), LogValue(modifiers), retValue);
+					LogCommand("eglExportDMABUFImageQueryMESA", retValue, dpy, image, fourcc, num_planes, modifiers					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -96,7 +96,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDMABUFImageMESA != null, "peglExportDMABUFImageMESA not implemented");
 					retValue = Delegates.peglExportDMABUFImageMESA(dpy, image, p_fds, p_strides, p_offsets);
-					LogFunction("eglExportDMABUFImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), LogValue(fds), LogValue(strides), LogValue(offsets), retValue);
+					LogCommand("eglExportDMABUFImageMESA", retValue, dpy, image, fds, strides, offsets					);
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -44,7 +44,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentDisplayEXT != null, "pglXGetCurrentDisplayEXT not implemented");
 			retValue = Delegates.pglXGetCurrentDisplayEXT();
-			LogFunction("glXGetCurrentDisplayEXT() = {0}", retValue.ToString("X8"));
+			LogCommand("glXGetCurrentDisplayEXT", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -90,7 +90,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryContextInfoEXT != null, "pglXQueryContextInfoEXT not implemented");
 					retValue = Delegates.pglXQueryContextInfoEXT(dpy, context, attribute, p_value);
-					LogFunction("glXQueryContextInfoEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), context.ToString("X8"), attribute, LogValue(value), retValue);
+					LogCommand("glXQueryContextInfoEXT", retValue, dpy, context, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -120,7 +120,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetContextIDEXT != null, "pglXGetContextIDEXT not implemented");
 			retValue = Delegates.pglXGetContextIDEXT(context);
-			LogFunction("glXGetContextIDEXT(0x{0}) = {1}", context.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("glXGetContextIDEXT", retValue, context			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -152,7 +152,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXImportContextEXT != null, "pglXImportContextEXT not implemented");
 			retValue = Delegates.pglXImportContextEXT(dpy, contextID);
-			LogFunction("glXImportContextEXT(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), contextID.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("glXImportContextEXT", retValue, dpy, contextID			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -181,7 +181,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXFreeContextEXT != null, "pglXFreeContextEXT not implemented");
 			Delegates.pglXFreeContextEXT(dpy, context);
-			LogFunction("glXFreeContextEXT(0x{0}, 0x{1})", dpy.ToString("X8"), context.ToString("X8"));
+			LogCommand("glXFreeContextEXT", null, dpy, context			);
 			DebugCheckErrors(null);
 		}
 

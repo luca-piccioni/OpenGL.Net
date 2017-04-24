@@ -51,7 +51,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvNV != null, "pglFramebufferSampleLocationsfvNV not implemented");
 					Delegates.pglFramebufferSampleLocationsfvNV(target, start, count, p_v);
-					LogFunction("glFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3})", LogEnumName(target), start, count, LogValue(v));
+					LogCommand("glFramebufferSampleLocationsfvNV", null, target, start, count, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -80,7 +80,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedFramebufferSampleLocationsfvNV != null, "pglNamedFramebufferSampleLocationsfvNV not implemented");
 					Delegates.pglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, p_v);
-					LogFunction("glNamedFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3})", framebuffer, start, count, LogValue(v));
+					LogCommand("glNamedFramebufferSampleLocationsfvNV", null, framebuffer, start, count, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -94,7 +94,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglResolveDepthValuesNV != null, "pglResolveDepthValuesNV not implemented");
 			Delegates.pglResolveDepthValuesNV();
-			LogFunction("glResolveDepthValuesNV()");
+			LogCommand("glResolveDepthValuesNV", null			);
 			DebugCheckErrors(null);
 		}
 

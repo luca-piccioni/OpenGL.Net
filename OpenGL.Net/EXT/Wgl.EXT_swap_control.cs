@@ -41,7 +41,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglSwapIntervalEXT != null, "pwglSwapIntervalEXT not implemented");
 			retValue = Delegates.pwglSwapIntervalEXT(interval);
-			LogFunction("wglSwapIntervalEXT({0}) = {1}", interval, retValue);
+			LogCommand("wglSwapIntervalEXT", retValue, interval			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -57,7 +57,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetSwapIntervalEXT != null, "pwglGetSwapIntervalEXT not implemented");
 			retValue = Delegates.pwglGetSwapIntervalEXT();
-			LogFunction("wglGetSwapIntervalEXT() = {0}", retValue);
+			LogCommand("wglGetSwapIntervalEXT", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

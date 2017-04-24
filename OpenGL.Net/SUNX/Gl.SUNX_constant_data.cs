@@ -48,7 +48,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFinishTextureSUNX != null, "pglFinishTextureSUNX not implemented");
 			Delegates.pglFinishTextureSUNX();
-			LogFunction("glFinishTextureSUNX()");
+			LogCommand("glFinishTextureSUNX", null			);
 			DebugCheckErrors(null);
 		}
 

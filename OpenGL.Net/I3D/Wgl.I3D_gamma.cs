@@ -62,7 +62,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetGammaTableParametersI3D != null, "pwglGetGammaTableParametersI3D not implemented");
 					retValue = Delegates.pwglGetGammaTableParametersI3D(hDC, iAttribute, p_piValue);
-					LogFunction("wglGetGammaTableParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, LogValue(piValue), retValue);
+					LogCommand("wglGetGammaTableParametersI3D", retValue, hDC, iAttribute, piValue					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -92,7 +92,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetGammaTableParametersI3D != null, "pwglSetGammaTableParametersI3D not implemented");
 					retValue = Delegates.pwglSetGammaTableParametersI3D(hDC, iAttribute, p_piValue);
-					LogFunction("wglSetGammaTableParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, LogValue(piValue), retValue);
+					LogCommand("wglSetGammaTableParametersI3D", retValue, hDC, iAttribute, piValue					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -130,7 +130,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetGammaTableI3D != null, "pwglGetGammaTableI3D not implemented");
 					retValue = Delegates.pwglGetGammaTableI3D(hDC, iEntries, p_puRed, p_puGreen, p_puBlue);
-					LogFunction("wglGetGammaTableI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iEntries, LogValue(puRed), LogValue(puGreen), LogValue(puBlue), retValue);
+					LogCommand("wglGetGammaTableI3D", retValue, hDC, iEntries, puRed, puGreen, puBlue					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -168,7 +168,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetGammaTableI3D != null, "pwglSetGammaTableI3D not implemented");
 					retValue = Delegates.pwglSetGammaTableI3D(hDC, iEntries, p_puRed, p_puGreen, p_puBlue);
-					LogFunction("wglSetGammaTableI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iEntries, LogValue(puRed), LogValue(puGreen), LogValue(puBlue), retValue);
+					LogCommand("wglSetGammaTableI3D", retValue, hDC, iEntries, puRed, puGreen, puBlue					);
 				}
 			}
 			DebugCheckErrors(retValue);

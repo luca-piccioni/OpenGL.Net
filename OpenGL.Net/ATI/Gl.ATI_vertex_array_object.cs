@@ -95,7 +95,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglNewObjectBufferATI != null, "pglNewObjectBufferATI not implemented");
 			retValue = Delegates.pglNewObjectBufferATI(size, pointer, usage);
-			LogFunction("glNewObjectBufferATI({0}, 0x{1}, {2}) = {3}", size, pointer.ToString("X8"), LogEnumName(usage), retValue);
+			LogCommand("glNewObjectBufferATI", retValue, size, pointer, usage			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -137,7 +137,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsObjectBufferATI != null, "pglIsObjectBufferATI not implemented");
 			retValue = Delegates.pglIsObjectBufferATI(buffer);
-			LogFunction("glIsObjectBufferATI({0}) = {1}", buffer, retValue);
+			LogCommand("glIsObjectBufferATI", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -166,7 +166,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUpdateObjectBufferATI != null, "pglUpdateObjectBufferATI not implemented");
 			Delegates.pglUpdateObjectBufferATI(buffer, offset, size, pointer, preserve);
-			LogFunction("glUpdateObjectBufferATI({0}, {1}, {2}, 0x{3}, {4})", buffer, offset, size, pointer.ToString("X8"), LogEnumName(preserve));
+			LogCommand("glUpdateObjectBufferATI", null, buffer, offset, size, pointer, preserve			);
 			DebugCheckErrors(null);
 		}
 
@@ -219,7 +219,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectBufferfvATI != null, "pglGetObjectBufferfvATI not implemented");
 					Delegates.pglGetObjectBufferfvATI(buffer, pname, p_params);
-					LogFunction("glGetObjectBufferfvATI({0}, {1}, {2})", buffer, LogEnumName(pname), @params);
+					LogCommand("glGetObjectBufferfvATI", null, buffer, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -245,7 +245,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectBufferivATI != null, "pglGetObjectBufferivATI not implemented");
 					Delegates.pglGetObjectBufferivATI(buffer, pname, p_params);
-					LogFunction("glGetObjectBufferivATI({0}, {1}, {2})", buffer, LogEnumName(pname), @params);
+					LogCommand("glGetObjectBufferivATI", null, buffer, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -262,7 +262,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFreeObjectBufferATI != null, "pglFreeObjectBufferATI not implemented");
 			Delegates.pglFreeObjectBufferATI(buffer);
-			LogFunction("glFreeObjectBufferATI({0})", buffer);
+			LogCommand("glFreeObjectBufferATI", null, buffer			);
 			DebugCheckErrors(null);
 		}
 
@@ -292,7 +292,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglArrayObjectATI != null, "pglArrayObjectATI not implemented");
 			Delegates.pglArrayObjectATI((Int32)array, size, type, stride, buffer, offset);
-			LogFunction("glArrayObjectATI({0}, {1}, {2}, {3}, {4}, {5})", array, size, LogEnumName(type), stride, buffer, offset);
+			LogCommand("glArrayObjectATI", null, array, size, type, stride, buffer, offset			);
 			DebugCheckErrors(null);
 		}
 
@@ -316,7 +316,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetArrayObjectfvATI != null, "pglGetArrayObjectfvATI not implemented");
 					Delegates.pglGetArrayObjectfvATI((Int32)array, pname, p_params);
-					LogFunction("glGetArrayObjectfvATI({0}, {1}, {2})", array, LogEnumName(pname), @params);
+					LogCommand("glGetArrayObjectfvATI", null, array, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -342,7 +342,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetArrayObjectivATI != null, "pglGetArrayObjectivATI not implemented");
 					Delegates.pglGetArrayObjectivATI((Int32)array, pname, p_params);
-					LogFunction("glGetArrayObjectivATI({0}, {1}, {2})", array, LogEnumName(pname), @params);
+					LogCommand("glGetArrayObjectivATI", null, array, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -371,7 +371,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVariantArrayObjectATI != null, "pglVariantArrayObjectATI not implemented");
 			Delegates.pglVariantArrayObjectATI(id, type, stride, buffer, offset);
-			LogFunction("glVariantArrayObjectATI({0}, {1}, {2}, {3}, {4})", id, LogEnumName(type), stride, buffer, offset);
+			LogCommand("glVariantArrayObjectATI", null, id, type, stride, buffer, offset			);
 			DebugCheckErrors(null);
 		}
 
@@ -395,7 +395,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVariantArrayObjectfvATI != null, "pglGetVariantArrayObjectfvATI not implemented");
 					Delegates.pglGetVariantArrayObjectfvATI(id, pname, p_params);
-					LogFunction("glGetVariantArrayObjectfvATI({0}, {1}, {2})", id, LogEnumName(pname), @params);
+					LogCommand("glGetVariantArrayObjectfvATI", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -421,7 +421,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVariantArrayObjectivATI != null, "pglGetVariantArrayObjectivATI not implemented");
 					Delegates.pglGetVariantArrayObjectivATI(id, pname, p_params);
-					LogFunction("glGetVariantArrayObjectivATI({0}, {1}, {2})", id, LogEnumName(pname), @params);
+					LogCommand("glGetVariantArrayObjectivATI", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

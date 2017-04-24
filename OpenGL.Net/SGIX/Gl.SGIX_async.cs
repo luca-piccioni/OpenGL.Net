@@ -45,7 +45,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAsyncMarkerSGIX != null, "pglAsyncMarkerSGIX not implemented");
 			Delegates.pglAsyncMarkerSGIX(marker);
-			LogFunction("glAsyncMarkerSGIX({0})", marker);
+			LogCommand("glAsyncMarkerSGIX", null, marker			);
 			DebugCheckErrors(null);
 		}
 
@@ -65,7 +65,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFinishAsyncSGIX != null, "pglFinishAsyncSGIX not implemented");
 					retValue = Delegates.pglFinishAsyncSGIX(p_markerp);
-					LogFunction("glFinishAsyncSGIX({0}) = {1}", LogValue(markerp), retValue);
+					LogCommand("glFinishAsyncSGIX", retValue, markerp					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -89,7 +89,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPollAsyncSGIX != null, "pglPollAsyncSGIX not implemented");
 					retValue = Delegates.pglPollAsyncSGIX(p_markerp);
-					LogFunction("glPollAsyncSGIX({0}) = {1}", LogValue(markerp), retValue);
+					LogCommand("glPollAsyncSGIX", retValue, markerp					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -110,7 +110,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGenAsyncMarkersSGIX != null, "pglGenAsyncMarkersSGIX not implemented");
 			retValue = Delegates.pglGenAsyncMarkersSGIX(range);
-			LogFunction("glGenAsyncMarkersSGIX({0}) = {1}", range, retValue);
+			LogCommand("glGenAsyncMarkersSGIX", retValue, range			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -130,7 +130,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDeleteAsyncMarkersSGIX != null, "pglDeleteAsyncMarkersSGIX not implemented");
 			Delegates.pglDeleteAsyncMarkersSGIX(marker, range);
-			LogFunction("glDeleteAsyncMarkersSGIX({0}, {1})", marker, range);
+			LogCommand("glDeleteAsyncMarkersSGIX", null, marker, range			);
 			DebugCheckErrors(null);
 		}
 
@@ -147,7 +147,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsAsyncMarkerSGIX != null, "pglIsAsyncMarkerSGIX not implemented");
 			retValue = Delegates.pglIsAsyncMarkerSGIX(marker);
-			LogFunction("glIsAsyncMarkerSGIX({0}) = {1}", marker, retValue);
+			LogCommand("glIsAsyncMarkerSGIX", retValue, marker			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -123,7 +123,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglViewportSwizzleNV != null, "pglViewportSwizzleNV not implemented");
 			Delegates.pglViewportSwizzleNV(index, swizzlex, swizzley, swizzlez, swizzlew);
-			LogFunction("glViewportSwizzleNV({0}, {1}, {2}, {3}, {4})", index, LogEnumName(swizzlex), LogEnumName(swizzley), LogEnumName(swizzlez), LogEnumName(swizzlew));
+			LogCommand("glViewportSwizzleNV", null, index, swizzlex, swizzley, swizzlez, swizzlew			);
 			DebugCheckErrors(null);
 		}
 

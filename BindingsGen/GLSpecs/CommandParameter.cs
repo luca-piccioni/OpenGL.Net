@@ -486,20 +486,20 @@ namespace BindingsGen.GLSpecs
 		{
 			CommandFlagsDatabase.CommandItem.ParameterItemFlags parameterFlags = CommandFlagsDatabase.GetCommandParameterFlags(parentCommand, this);
 
-			if (((Type != null) && (Type == "GLenum")) || ((parameterFlags & CommandFlagsDatabase.CommandItem.ParameterItemFlags.LogAsEnum) != 0))
-				sw.Write("LogEnumName({0})", ImplementationName);
-			else if (IsManagedArray && GetImplementationTypeModifier(ctx, parentCommand) != "out")
-				sw.Write("LogValue({0})", ImplementationName);
-			else
+			//if (((Type != null) && (Type == "GLenum")) || ((parameterFlags & CommandFlagsDatabase.CommandItem.ParameterItemFlags.LogAsEnum) != 0))
+			//	sw.Write("LogEnumName({0})", ImplementationName);
+			//else if (IsManagedArray && GetImplementationTypeModifier(ctx, parentCommand) != "out")
+			//	sw.Write("LogValue({0})", ImplementationName);
+			//else
 				WriteCallLogArgParam(sw, ImplementationName, GetImplementationType(ctx, parentCommand));
 		}
 
 		public static void WriteCallLogArgParam(SourceStreamWriter sw, string implementationName, string implementationType)
 		{
 			if (implementationType.EndsWith("*"))
-				sw.Write("{0} != null ? {0}->ToString() : \"(null)\"", implementationName);
-			else if (implementationType == "IntPtr")
-				sw.Write("{0}.ToString(\"X8\")", implementationName);
+				sw.Write("new IntPtr({0})", implementationName);
+			//else if (implementationType == "IntPtr")
+			//	sw.Write("{0}.ToString(\"X8\")", implementationName);
 			else
 				sw.Write("{0}", implementationName);
 		}

@@ -48,7 +48,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWindowPos4dMESA != null, "pglWindowPos4dMESA not implemented");
 			Delegates.pglWindowPos4dMESA(x, y, z, w);
-			LogFunction("glWindowPos4dMESA({0}, {1}, {2}, {3})", x, y, z, w);
+			LogCommand("glWindowPos4dMESA", null, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -66,7 +66,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWindowPos4dvMESA != null, "pglWindowPos4dvMESA not implemented");
 					Delegates.pglWindowPos4dvMESA(p_v);
-					LogFunction("glWindowPos4dvMESA({0})", LogValue(v));
+					LogCommand("glWindowPos4dvMESA", null, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -92,7 +92,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWindowPos4fMESA != null, "pglWindowPos4fMESA not implemented");
 			Delegates.pglWindowPos4fMESA(x, y, z, w);
-			LogFunction("glWindowPos4fMESA({0}, {1}, {2}, {3})", x, y, z, w);
+			LogCommand("glWindowPos4fMESA", null, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -110,7 +110,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWindowPos4fvMESA != null, "pglWindowPos4fvMESA not implemented");
 					Delegates.pglWindowPos4fvMESA(p_v);
-					LogFunction("glWindowPos4fvMESA({0})", LogValue(v));
+					LogCommand("glWindowPos4fvMESA", null, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -136,7 +136,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWindowPos4iMESA != null, "pglWindowPos4iMESA not implemented");
 			Delegates.pglWindowPos4iMESA(x, y, z, w);
-			LogFunction("glWindowPos4iMESA({0}, {1}, {2}, {3})", x, y, z, w);
+			LogCommand("glWindowPos4iMESA", null, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -154,7 +154,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWindowPos4ivMESA != null, "pglWindowPos4ivMESA not implemented");
 					Delegates.pglWindowPos4ivMESA(p_v);
-					LogFunction("glWindowPos4ivMESA({0})", LogValue(v));
+					LogCommand("glWindowPos4ivMESA", null, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -180,7 +180,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWindowPos4sMESA != null, "pglWindowPos4sMESA not implemented");
 			Delegates.pglWindowPos4sMESA(x, y, z, w);
-			LogFunction("glWindowPos4sMESA({0}, {1}, {2}, {3})", x, y, z, w);
+			LogCommand("glWindowPos4sMESA", null, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -198,7 +198,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWindowPos4svMESA != null, "pglWindowPos4svMESA not implemented");
 					Delegates.pglWindowPos4svMESA(p_v);
-					LogFunction("glWindowPos4svMESA({0})", LogValue(v));
+					LogCommand("glWindowPos4svMESA", null, v					);
 				}
 			}
 			DebugCheckErrors(null);

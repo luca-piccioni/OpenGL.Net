@@ -47,7 +47,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryNativeDisplayNV != null, "peglQueryNativeDisplayNV not implemented");
 					retValue = Delegates.peglQueryNativeDisplayNV(dpy, p_display_id);
-					LogFunction("eglQueryNativeDisplayNV(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(display_id), retValue);
+					LogCommand("eglQueryNativeDisplayNV", retValue, dpy, display_id					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -77,7 +77,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryNativeWindowNV != null, "peglQueryNativeWindowNV not implemented");
 					retValue = Delegates.peglQueryNativeWindowNV(dpy, surf, p_window);
-					LogFunction("eglQueryNativeWindowNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), LogValue(window), retValue);
+					LogCommand("eglQueryNativeWindowNV", retValue, dpy, surf, window					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -107,7 +107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryNativePixmapNV != null, "peglQueryNativePixmapNV not implemented");
 					retValue = Delegates.peglQueryNativePixmapNV(dpy, surf, p_pixmap);
-					LogFunction("eglQueryNativePixmapNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), LogValue(pixmap), retValue);
+					LogCommand("eglQueryNativePixmapNV", retValue, dpy, surf, pixmap					);
 				}
 			}
 			DebugCheckErrors(retValue);

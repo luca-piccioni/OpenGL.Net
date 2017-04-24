@@ -107,7 +107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetGPUIDsAMD != null, "pglXGetGPUIDsAMD not implemented");
 					retValue = Delegates.pglXGetGPUIDsAMD(maxCount, p_ids);
-					LogFunction("glXGetGPUIDsAMD({0}, {1}) = {2}", maxCount, LogValue(ids), retValue);
+					LogCommand("glXGetGPUIDsAMD", retValue, maxCount, ids					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -140,7 +140,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetGPUInfoAMD != null, "pglXGetGPUInfoAMD not implemented");
 			retValue = Delegates.pglXGetGPUInfoAMD(id, property, dataType, size, data);
-			LogFunction("glXGetGPUInfoAMD({0}, {1}, {2}, {3}, 0x{4}) = {5}", id, property, LogEnumName(dataType), size, data.ToString("X8"), retValue);
+			LogCommand("glXGetGPUInfoAMD", retValue, id, property, dataType, size, data			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -159,7 +159,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetContextGPUIDAMD != null, "pglXGetContextGPUIDAMD not implemented");
 			retValue = Delegates.pglXGetContextGPUIDAMD(ctx);
-			LogFunction("glXGetContextGPUIDAMD(0x{0}) = {1}", ctx.ToString("X8"), retValue);
+			LogCommand("glXGetContextGPUIDAMD", retValue, ctx			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -181,7 +181,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateAssociatedContextAMD != null, "pglXCreateAssociatedContextAMD not implemented");
 			retValue = Delegates.pglXCreateAssociatedContextAMD(id, share_list);
-			LogFunction("glXCreateAssociatedContextAMD({0}, 0x{1}) = {2}", id, share_list.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("glXCreateAssociatedContextAMD", retValue, id, share_list			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -209,7 +209,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateAssociatedContextAttribsAMD != null, "pglXCreateAssociatedContextAttribsAMD not implemented");
 					retValue = Delegates.pglXCreateAssociatedContextAttribsAMD(id, share_context, p_attribList);
-					LogFunction("glXCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, share_context.ToString("X8"), LogValue(attribList), retValue.ToString("X8"));
+					LogCommand("glXCreateAssociatedContextAttribsAMD", retValue, id, share_context, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -230,7 +230,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXDeleteAssociatedContextAMD != null, "pglXDeleteAssociatedContextAMD not implemented");
 			retValue = Delegates.pglXDeleteAssociatedContextAMD(ctx);
-			LogFunction("glXDeleteAssociatedContextAMD(0x{0}) = {1}", ctx.ToString("X8"), retValue);
+			LogCommand("glXDeleteAssociatedContextAMD", retValue, ctx			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -249,7 +249,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXMakeAssociatedContextCurrentAMD != null, "pglXMakeAssociatedContextCurrentAMD not implemented");
 			retValue = Delegates.pglXMakeAssociatedContextCurrentAMD(ctx);
-			LogFunction("glXMakeAssociatedContextCurrentAMD(0x{0}) = {1}", ctx.ToString("X8"), retValue);
+			LogCommand("glXMakeAssociatedContextCurrentAMD", retValue, ctx			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -265,7 +265,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentAssociatedContextAMD != null, "pglXGetCurrentAssociatedContextAMD not implemented");
 			retValue = Delegates.pglXGetCurrentAssociatedContextAMD();
-			LogFunction("glXGetCurrentAssociatedContextAMD() = {0}", retValue.ToString("X8"));
+			LogCommand("glXGetCurrentAssociatedContextAMD", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -312,7 +312,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXBlitContextFramebufferAMD != null, "pglXBlitContextFramebufferAMD not implemented");
 			Delegates.pglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			LogFunction("glXBlitContextFramebufferAMD(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx.ToString("X8"), srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, LogEnumName(filter));
+			LogCommand("glXBlitContextFramebufferAMD", null, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}
 

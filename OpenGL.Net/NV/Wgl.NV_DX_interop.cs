@@ -65,7 +65,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDXSetResourceShareHandleNV != null, "pwglDXSetResourceShareHandleNV not implemented");
 			retValue = Delegates.pwglDXSetResourceShareHandleNV(dxObject, shareHandle);
-			LogFunction("wglDXSetResourceShareHandleNV(0x{0}, 0x{1}) = {2}", dxObject.ToString("X8"), shareHandle.ToString("X8"), retValue);
+			LogCommand("wglDXSetResourceShareHandleNV", retValue, dxObject, shareHandle			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -84,7 +84,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDXOpenDeviceNV != null, "pwglDXOpenDeviceNV not implemented");
 			retValue = Delegates.pwglDXOpenDeviceNV(dxDevice);
-			LogFunction("wglDXOpenDeviceNV(0x{0}) = {1}", dxDevice.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("wglDXOpenDeviceNV", retValue, dxDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -103,7 +103,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDXCloseDeviceNV != null, "pwglDXCloseDeviceNV not implemented");
 			retValue = Delegates.pwglDXCloseDeviceNV(hDevice);
-			LogFunction("wglDXCloseDeviceNV(0x{0}) = {1}", hDevice.ToString("X8"), retValue);
+			LogCommand("wglDXCloseDeviceNV", retValue, hDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -134,7 +134,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDXRegisterObjectNV != null, "pwglDXRegisterObjectNV not implemented");
 			retValue = Delegates.pwglDXRegisterObjectNV(hDevice, dxObject, name, type, access);
-			LogFunction("wglDXRegisterObjectNV(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", hDevice.ToString("X8"), dxObject.ToString("X8"), name, LogEnumName(type), LogEnumName(access), retValue.ToString("X8"));
+			LogCommand("wglDXRegisterObjectNV", retValue, hDevice, dxObject, name, type, access			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -156,7 +156,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDXUnregisterObjectNV != null, "pwglDXUnregisterObjectNV not implemented");
 			retValue = Delegates.pwglDXUnregisterObjectNV(hDevice, hObject);
-			LogFunction("wglDXUnregisterObjectNV(0x{0}, 0x{1}) = {2}", hDevice.ToString("X8"), hObject.ToString("X8"), retValue);
+			LogCommand("wglDXUnregisterObjectNV", retValue, hDevice, hObject			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -178,7 +178,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDXObjectAccessNV != null, "pwglDXObjectAccessNV not implemented");
 			retValue = Delegates.pwglDXObjectAccessNV(hObject, access);
-			LogFunction("wglDXObjectAccessNV(0x{0}, {1}) = {2}", hObject.ToString("X8"), LogEnumName(access), retValue);
+			LogCommand("wglDXObjectAccessNV", retValue, hObject, access			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -206,7 +206,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglDXLockObjectsNV != null, "pwglDXLockObjectsNV not implemented");
 					retValue = Delegates.pwglDXLockObjectsNV(hDevice, count, p_hObjects);
-					LogFunction("wglDXLockObjectsNV(0x{0}, {1}, {2}) = {3}", hDevice.ToString("X8"), count, LogValue(hObjects), retValue);
+					LogCommand("wglDXLockObjectsNV", retValue, hDevice, count, hObjects					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -236,7 +236,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglDXUnlockObjectsNV != null, "pwglDXUnlockObjectsNV not implemented");
 					retValue = Delegates.pwglDXUnlockObjectsNV(hDevice, count, p_hObjects);
-					LogFunction("wglDXUnlockObjectsNV(0x{0}, {1}, {2}) = {3}", hDevice.ToString("X8"), count, LogValue(hObjects), retValue);
+					LogCommand("wglDXUnlockObjectsNV", retValue, hDevice, count, hObjects					);
 				}
 			}
 			DebugCheckErrors(retValue);

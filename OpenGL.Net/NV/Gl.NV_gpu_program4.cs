@@ -90,7 +90,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameterI4iNV != null, "pglProgramLocalParameterI4iNV not implemented");
 			Delegates.pglProgramLocalParameterI4iNV(target, index, x, y, z, w);
-			LogFunction("glProgramLocalParameterI4iNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), index, x, y, z, w);
+			LogCommand("glProgramLocalParameterI4iNV", null, target, index, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -114,7 +114,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameterI4ivNV != null, "pglProgramLocalParameterI4ivNV not implemented");
 					Delegates.pglProgramLocalParameterI4ivNV(target, index, p_params);
-					LogFunction("glProgramLocalParameterI4ivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glProgramLocalParameterI4ivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -143,7 +143,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParametersI4ivNV != null, "pglProgramLocalParametersI4ivNV not implemented");
 					Delegates.pglProgramLocalParametersI4ivNV(target, index, count, p_params);
-					LogFunction("glProgramLocalParametersI4ivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, count, LogValue(@params));
+					LogCommand("glProgramLocalParametersI4ivNV", null, target, index, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -175,7 +175,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameterI4uiNV != null, "pglProgramLocalParameterI4uiNV not implemented");
 			Delegates.pglProgramLocalParameterI4uiNV(target, index, x, y, z, w);
-			LogFunction("glProgramLocalParameterI4uiNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), index, x, y, z, w);
+			LogCommand("glProgramLocalParameterI4uiNV", null, target, index, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -199,7 +199,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameterI4uivNV != null, "pglProgramLocalParameterI4uivNV not implemented");
 					Delegates.pglProgramLocalParameterI4uivNV(target, index, p_params);
-					LogFunction("glProgramLocalParameterI4uivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glProgramLocalParameterI4uivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -228,7 +228,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParametersI4uivNV != null, "pglProgramLocalParametersI4uivNV not implemented");
 					Delegates.pglProgramLocalParametersI4uivNV(target, index, count, p_params);
-					LogFunction("glProgramLocalParametersI4uivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, count, LogValue(@params));
+					LogCommand("glProgramLocalParametersI4uivNV", null, target, index, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -260,7 +260,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameterI4iNV != null, "pglProgramEnvParameterI4iNV not implemented");
 			Delegates.pglProgramEnvParameterI4iNV(target, index, x, y, z, w);
-			LogFunction("glProgramEnvParameterI4iNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), index, x, y, z, w);
+			LogCommand("glProgramEnvParameterI4iNV", null, target, index, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -284,7 +284,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameterI4ivNV != null, "pglProgramEnvParameterI4ivNV not implemented");
 					Delegates.pglProgramEnvParameterI4ivNV(target, index, p_params);
-					LogFunction("glProgramEnvParameterI4ivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glProgramEnvParameterI4ivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -313,7 +313,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParametersI4ivNV != null, "pglProgramEnvParametersI4ivNV not implemented");
 					Delegates.pglProgramEnvParametersI4ivNV(target, index, count, p_params);
-					LogFunction("glProgramEnvParametersI4ivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, count, LogValue(@params));
+					LogCommand("glProgramEnvParametersI4ivNV", null, target, index, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -345,7 +345,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameterI4uiNV != null, "pglProgramEnvParameterI4uiNV not implemented");
 			Delegates.pglProgramEnvParameterI4uiNV(target, index, x, y, z, w);
-			LogFunction("glProgramEnvParameterI4uiNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), index, x, y, z, w);
+			LogCommand("glProgramEnvParameterI4uiNV", null, target, index, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
 
@@ -369,7 +369,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameterI4uivNV != null, "pglProgramEnvParameterI4uivNV not implemented");
 					Delegates.pglProgramEnvParameterI4uivNV(target, index, p_params);
-					LogFunction("glProgramEnvParameterI4uivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glProgramEnvParameterI4uivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -398,7 +398,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParametersI4uivNV != null, "pglProgramEnvParametersI4uivNV not implemented");
 					Delegates.pglProgramEnvParametersI4uivNV(target, index, count, p_params);
-					LogFunction("glProgramEnvParametersI4uivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, count, LogValue(@params));
+					LogCommand("glProgramEnvParametersI4uivNV", null, target, index, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -424,7 +424,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterIivNV != null, "pglGetProgramLocalParameterIivNV not implemented");
 					Delegates.pglGetProgramLocalParameterIivNV(target, index, p_params);
-					LogFunction("glGetProgramLocalParameterIivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glGetProgramLocalParameterIivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -450,7 +450,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterIuivNV != null, "pglGetProgramLocalParameterIuivNV not implemented");
 					Delegates.pglGetProgramLocalParameterIuivNV(target, index, p_params);
-					LogFunction("glGetProgramLocalParameterIuivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glGetProgramLocalParameterIuivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -476,7 +476,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterIivNV != null, "pglGetProgramEnvParameterIivNV not implemented");
 					Delegates.pglGetProgramEnvParameterIivNV(target, index, p_params);
-					LogFunction("glGetProgramEnvParameterIivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glGetProgramEnvParameterIivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -502,7 +502,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterIuivNV != null, "pglGetProgramEnvParameterIuivNV not implemented");
 					Delegates.pglGetProgramEnvParameterIuivNV(target, index, p_params);
-					LogFunction("glGetProgramEnvParameterIuivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(@params));
+					LogCommand("glGetProgramEnvParameterIuivNV", null, target, index, @params					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -70,7 +70,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRenderGpuMaskNV != null, "pglRenderGpuMaskNV not implemented");
 			Delegates.pglRenderGpuMaskNV(mask);
-			LogFunction("glRenderGpuMaskNV({0})", mask);
+			LogCommand("glRenderGpuMaskNV", null, mask			);
 			DebugCheckErrors(null);
 		}
 
@@ -99,7 +99,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMulticastBufferSubDataNV != null, "pglMulticastBufferSubDataNV not implemented");
 					Delegates.pglMulticastBufferSubDataNV(gpuMask, buffer, offset, size, data.ToPointer());
-					LogFunction("glMulticastBufferSubDataNV({0}, {1}, 0x{2}, {3}, 0x{4})", gpuMask, buffer, offset.ToString("X8"), size, data.ToString("X8"));
+					LogCommand("glMulticastBufferSubDataNV", null, gpuMask, buffer, offset, size, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -163,7 +163,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMulticastCopyBufferSubDataNV != null, "pglMulticastCopyBufferSubDataNV not implemented");
 			Delegates.pglMulticastCopyBufferSubDataNV(readGpu, writeGpuMask, readBuffer, writeBuffer, readOffset, writeOffset, size);
-			LogFunction("glMulticastCopyBufferSubDataNV({0}, {1}, {2}, {3}, 0x{4}, 0x{5}, {6})", readGpu, writeGpuMask, readBuffer, writeBuffer, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
+			LogCommand("glMulticastCopyBufferSubDataNV", null, readGpu, writeGpuMask, readBuffer, writeBuffer, readOffset, writeOffset, size			);
 			DebugCheckErrors(null);
 		}
 
@@ -226,7 +226,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMulticastCopyImageSubDataNV != null, "pglMulticastCopyImageSubDataNV not implemented");
 			Delegates.pglMulticastCopyImageSubDataNV(srcGpu, dstGpuMask, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-			LogFunction("glMulticastCopyImageSubDataNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16})", srcGpu, dstGpuMask, srcName, LogEnumName(srcTarget), srcLevel, srcX, srcY, srcZ, dstName, LogEnumName(dstTarget), dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
+			LogCommand("glMulticastCopyImageSubDataNV", null, srcGpu, dstGpuMask, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth			);
 			DebugCheckErrors(null);
 		}
 
@@ -274,7 +274,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMulticastBlitFramebufferNV != null, "pglMulticastBlitFramebufferNV not implemented");
 			Delegates.pglMulticastBlitFramebufferNV(srcGpu, dstGpu, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			LogFunction("glMulticastBlitFramebufferNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", srcGpu, dstGpu, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, LogEnumName(filter));
+			LogCommand("glMulticastBlitFramebufferNV", null, srcGpu, dstGpu, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}
 
@@ -304,7 +304,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMulticastFramebufferSampleLocationsfvNV != null, "pglMulticastFramebufferSampleLocationsfvNV not implemented");
 					Delegates.pglMulticastFramebufferSampleLocationsfvNV(gpu, framebuffer, start, count, p_v);
-					LogFunction("glMulticastFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3}, {4})", gpu, framebuffer, start, count, LogValue(v));
+					LogCommand("glMulticastFramebufferSampleLocationsfvNV", null, gpu, framebuffer, start, count, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -318,7 +318,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMulticastBarrierNV != null, "pglMulticastBarrierNV not implemented");
 			Delegates.pglMulticastBarrierNV();
-			LogFunction("glMulticastBarrierNV()");
+			LogCommand("glMulticastBarrierNV", null			);
 			DebugCheckErrors(null);
 		}
 
@@ -336,7 +336,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMulticastWaitSyncNV != null, "pglMulticastWaitSyncNV not implemented");
 			Delegates.pglMulticastWaitSyncNV(signalGpu, waitGpuMask);
-			LogFunction("glMulticastWaitSyncNV({0}, {1})", signalGpu, waitGpuMask);
+			LogCommand("glMulticastWaitSyncNV", null, signalGpu, waitGpuMask			);
 			DebugCheckErrors(null);
 		}
 
@@ -363,7 +363,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjectivNV != null, "pglMulticastGetQueryObjectivNV not implemented");
 					Delegates.pglMulticastGetQueryObjectivNV(gpu, id, pname, p_params);
-					LogFunction("glMulticastGetQueryObjectivNV({0}, {1}, {2}, {3})", gpu, id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glMulticastGetQueryObjectivNV", null, gpu, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -392,7 +392,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjectuivNV != null, "pglMulticastGetQueryObjectuivNV not implemented");
 					Delegates.pglMulticastGetQueryObjectuivNV(gpu, id, pname, p_params);
-					LogFunction("glMulticastGetQueryObjectuivNV({0}, {1}, {2}, {3})", gpu, id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glMulticastGetQueryObjectuivNV", null, gpu, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -421,7 +421,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjecti64vNV != null, "pglMulticastGetQueryObjecti64vNV not implemented");
 					Delegates.pglMulticastGetQueryObjecti64vNV(gpu, id, pname, p_params);
-					LogFunction("glMulticastGetQueryObjecti64vNV({0}, {1}, {2}, {3})", gpu, id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glMulticastGetQueryObjecti64vNV", null, gpu, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -450,7 +450,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjectui64vNV != null, "pglMulticastGetQueryObjectui64vNV not implemented");
 					Delegates.pglMulticastGetQueryObjectui64vNV(gpu, id, pname, p_params);
-					LogFunction("glMulticastGetQueryObjectui64vNV({0}, {1}, {2}, {3})", gpu, id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glMulticastGetQueryObjectui64vNV", null, gpu, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

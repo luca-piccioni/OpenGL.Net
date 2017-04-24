@@ -327,6 +327,7 @@
     <Compile Include="IVertex2.cs" />
     <Compile Include="IVertex3.cs" />
     <Compile Include="IVertex4.cs" />
+    <Compile Include="KhronosLogEventArgs.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />
     <Compile Include="KHR\Egl.KHR_mutable_render_buffer.cs" />
     <Compile Include="KHR\Egl.KHR_no_config_context.cs" />

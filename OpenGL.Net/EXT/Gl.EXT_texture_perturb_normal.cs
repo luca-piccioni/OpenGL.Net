@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureNormalEXT != null, "pglTextureNormalEXT not implemented");
 			Delegates.pglTextureNormalEXT(mode);
-			LogFunction("glTextureNormalEXT({0})", LogEnumName(mode));
+			LogCommand("glTextureNormalEXT", null, mode			);
 			DebugCheckErrors(null);
 		}
 

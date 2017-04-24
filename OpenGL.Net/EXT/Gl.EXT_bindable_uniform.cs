@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUniformBufferEXT != null, "pglUniformBufferEXT not implemented");
 			Delegates.pglUniformBufferEXT(program, location, buffer);
-			LogFunction("glUniformBufferEXT({0}, {1}, {2})", program, location, buffer);
+			LogCommand("glUniformBufferEXT", null, program, location, buffer			);
 			DebugCheckErrors(null);
 		}
 
@@ -101,7 +101,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetUniformBufferSizeEXT != null, "pglGetUniformBufferSizeEXT not implemented");
 			retValue = Delegates.pglGetUniformBufferSizeEXT(program, location);
-			LogFunction("glGetUniformBufferSizeEXT({0}, {1}) = {2}", program, location, retValue);
+			LogCommand("glGetUniformBufferSizeEXT", retValue, program, location			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -123,7 +123,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetUniformOffsetEXT != null, "pglGetUniformOffsetEXT not implemented");
 			retValue = Delegates.pglGetUniformOffsetEXT(program, location);
-			LogFunction("glGetUniformOffsetEXT({0}, {1}) = {2}", program, location, retValue.ToString("X8"));
+			LogCommand("glGetUniformOffsetEXT", retValue, program, location			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

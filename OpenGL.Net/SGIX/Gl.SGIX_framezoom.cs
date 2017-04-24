@@ -57,7 +57,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFrameZoomSGIX != null, "pglFrameZoomSGIX not implemented");
 			Delegates.pglFrameZoomSGIX(factor);
-			LogFunction("glFrameZoomSGIX({0})", factor);
+			LogCommand("glFrameZoomSGIX", null, factor			);
 			DebugCheckErrors(null);
 		}
 

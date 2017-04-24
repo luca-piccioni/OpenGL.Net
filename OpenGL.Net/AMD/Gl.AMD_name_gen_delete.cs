@@ -63,7 +63,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenNamesAMD != null, "pglGenNamesAMD not implemented");
 					Delegates.pglGenNamesAMD(identifier, (UInt32)names.Length, p_names);
-					LogFunction("glGenNamesAMD({0}, {1}, {2})", LogEnumName(identifier), names.Length, LogValue(names));
+					LogCommand("glGenNamesAMD", null, identifier, names.Length, names					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -100,7 +100,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteNamesAMD != null, "pglDeleteNamesAMD not implemented");
 					Delegates.pglDeleteNamesAMD(identifier, (UInt32)names.Length, p_names);
-					LogFunction("glDeleteNamesAMD({0}, {1}, {2})", LogEnumName(identifier), names.Length, LogValue(names));
+					LogCommand("glDeleteNamesAMD", null, identifier, names.Length, names					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -122,7 +122,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsNameAMD != null, "pglIsNameAMD not implemented");
 			retValue = Delegates.pglIsNameAMD(identifier, name);
-			LogFunction("glIsNameAMD({0}, {1}) = {2}", LogEnumName(identifier), name, retValue);
+			LogCommand("glIsNameAMD", retValue, identifier, name			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

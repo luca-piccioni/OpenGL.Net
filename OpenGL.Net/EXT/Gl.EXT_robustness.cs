@@ -38,7 +38,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetGraphicsResetStatusEXT != null, "pglGetGraphicsResetStatusEXT not implemented");
 			retValue = Delegates.pglGetGraphicsResetStatusEXT();
-			LogFunction("glGetGraphicsResetStatusEXT() = {0}", retValue);
+			LogCommand("glGetGraphicsResetStatusEXT", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -64,7 +64,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformfvEXT != null, "pglGetnUniformfvEXT not implemented");
 					Delegates.pglGetnUniformfvEXT(program, location, (Int32)@params.Length, p_params);
-					LogFunction("glGetnUniformfvEXT({0}, {1}, {2}, {3})", program, location, @params.Length, LogValue(@params));
+					LogCommand("glGetnUniformfvEXT", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -90,7 +90,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformivEXT != null, "pglGetnUniformivEXT not implemented");
 					Delegates.pglGetnUniformivEXT(program, location, (Int32)@params.Length, p_params);
-					LogFunction("glGetnUniformivEXT({0}, {1}, {2}, {3})", program, location, @params.Length, LogValue(@params));
+					LogCommand("glGetnUniformivEXT", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);

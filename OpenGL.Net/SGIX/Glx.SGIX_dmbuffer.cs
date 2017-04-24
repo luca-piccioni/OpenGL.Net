@@ -59,7 +59,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXAssociateDMPbufferSGIX != null, "pglXAssociateDMPbufferSGIX not implemented");
 					retValue = Delegates.pglXAssociateDMPbufferSGIX(dpy, pbuffer, p_params, dmbuffer);
-					LogFunction("glXAssociateDMPbufferSGIX(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), pbuffer.ToString("X8"), LogValue(@params), dmbuffer.ToString("X8"), retValue);
+					LogCommand("glXAssociateDMPbufferSGIX", retValue, dpy, pbuffer, @params, dmbuffer					);
 				}
 			}
 			DebugCheckErrors(retValue);

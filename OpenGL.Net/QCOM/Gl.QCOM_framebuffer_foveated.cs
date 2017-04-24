@@ -68,7 +68,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFramebufferFoveationConfigQCOM != null, "pglFramebufferFoveationConfigQCOM not implemented");
 					Delegates.pglFramebufferFoveationConfigQCOM(framebuffer, numLayers, focalPointsPerLayer, requestedFeatures, p_providedFeatures);
-					LogFunction("glFramebufferFoveationConfigQCOM({0}, {1}, {2}, {3}, {4})", framebuffer, numLayers, focalPointsPerLayer, requestedFeatures, LogValue(providedFeatures));
+					LogCommand("glFramebufferFoveationConfigQCOM", null, framebuffer, numLayers, focalPointsPerLayer, requestedFeatures, providedFeatures					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -106,7 +106,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferFoveationParametersQCOM != null, "pglFramebufferFoveationParametersQCOM not implemented");
 			Delegates.pglFramebufferFoveationParametersQCOM(framebuffer, layer, focalPoint, focalX, focalY, gainX, gainY, foveaArea);
-			LogFunction("glFramebufferFoveationParametersQCOM({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", framebuffer, layer, focalPoint, focalX, focalY, gainX, gainY, foveaArea);
+			LogCommand("glFramebufferFoveationParametersQCOM", null, framebuffer, layer, focalPoint, focalX, focalY, gainX, gainY, foveaArea			);
 			DebugCheckErrors(null);
 		}
 

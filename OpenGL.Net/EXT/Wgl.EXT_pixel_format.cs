@@ -66,7 +66,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetPixelFormatAttribivEXT != null, "pwglGetPixelFormatAttribivEXT not implemented");
 					retValue = Delegates.pwglGetPixelFormatAttribivEXT(hdc, iPixelFormat, iLayerPlane, nAttributes, p_piAttributes, p_piValues);
-					LogFunction("wglGetPixelFormatAttribivEXT(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), iPixelFormat, iLayerPlane, nAttributes, LogValue(piAttributes), LogValue(piValues), retValue);
+					LogCommand("wglGetPixelFormatAttribivEXT", retValue, hdc, iPixelFormat, iLayerPlane, nAttributes, piAttributes, piValues					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -106,7 +106,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetPixelFormatAttribfvEXT != null, "pwglGetPixelFormatAttribfvEXT not implemented");
 					retValue = Delegates.pwglGetPixelFormatAttribfvEXT(hdc, iPixelFormat, iLayerPlane, nAttributes, p_piAttributes, p_pfValues);
-					LogFunction("wglGetPixelFormatAttribfvEXT(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), iPixelFormat, iLayerPlane, nAttributes, LogValue(piAttributes), LogValue(pfValues), retValue);
+					LogCommand("wglGetPixelFormatAttribfvEXT", retValue, hdc, iPixelFormat, iLayerPlane, nAttributes, piAttributes, pfValues					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -148,7 +148,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglChoosePixelFormatEXT != null, "pwglChoosePixelFormatEXT not implemented");
 					retValue = Delegates.pwglChoosePixelFormatEXT(hdc, p_piAttribIList, p_pfAttribFList, nMaxFormats, p_piFormats, p_nNumFormats);
-					LogFunction("wglChoosePixelFormatEXT(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), LogValue(piAttribIList), LogValue(pfAttribFList), nMaxFormats, LogValue(piFormats), LogValue(nNumFormats), retValue);
+					LogCommand("wglChoosePixelFormatEXT", retValue, hdc, piAttribIList, pfAttribFList, nMaxFormats, piFormats, nNumFormats					);
 				}
 			}
 			DebugCheckErrors(retValue);

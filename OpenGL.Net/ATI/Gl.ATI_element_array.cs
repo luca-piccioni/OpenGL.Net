@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglElementPointerATI != null, "pglElementPointerATI not implemented");
 			Delegates.pglElementPointerATI(type, pointer);
-			LogFunction("glElementPointerATI({0}, 0x{1})", LogEnumName(type), pointer.ToString("X8"));
+			LogCommand("glElementPointerATI", null, type, pointer			);
 			DebugCheckErrors(null);
 		}
 
@@ -98,7 +98,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
 			Delegates.pglDrawElementArrayATI((Int32)mode, count);
-			LogFunction("glDrawElementArrayATI({0}, {1})", mode, count);
+			LogCommand("glDrawElementArrayATI", null, mode, count			);
 			DebugCheckErrors(null);
 		}
 
@@ -122,7 +122,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayATI != null, "pglDrawRangeElementArrayATI not implemented");
 			Delegates.pglDrawRangeElementArrayATI((Int32)mode, start, end, count);
-			LogFunction("glDrawRangeElementArrayATI({0}, {1}, {2}, {3})", mode, start, end, count);
+			LogCommand("glDrawRangeElementArrayATI", null, mode, start, end, count			);
 			DebugCheckErrors(null);
 		}
 

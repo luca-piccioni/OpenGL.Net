@@ -54,7 +54,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReferencePlaneSGIX != null, "pglReferencePlaneSGIX not implemented");
 					Delegates.pglReferencePlaneSGIX(p_equation);
-					LogFunction("glReferencePlaneSGIX({0})", LogValue(equation));
+					LogCommand("glReferencePlaneSGIX", null, equation					);
 				}
 			}
 			DebugCheckErrors(null);

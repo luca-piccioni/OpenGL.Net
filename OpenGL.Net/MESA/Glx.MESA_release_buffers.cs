@@ -44,7 +44,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXReleaseBuffersMESA != null, "pglXReleaseBuffersMESA not implemented");
 			retValue = Delegates.pglXReleaseBuffersMESA(dpy, drawable);
-			LogFunction("glXReleaseBuffersMESA(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), drawable.ToString("X8"), retValue);
+			LogCommand("glXReleaseBuffersMESA", retValue, dpy, drawable			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

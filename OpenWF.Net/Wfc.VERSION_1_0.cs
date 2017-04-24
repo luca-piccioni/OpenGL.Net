@@ -31,12 +31,14 @@ namespace OpenWF
 		/// <summary>
 		/// Value of OPENWFC_VERSION_1_0 symbol.
 		/// </summary>
-		public const int OPENWFC_VERSION_1_0 = (1);
+		public const int OPENWFC_VERSION_1_0 = (1)
+;
 
 		/// <summary>
 		/// Value of WFC_NONE symbol.
 		/// </summary>
-		public const int NONE = (0);
+		public const int NONE = (0)
+;
 
 		/// <summary>
 		/// Value of WFC_INVALID_HANDLE symbol.
@@ -46,7 +48,8 @@ namespace OpenWF
 		/// <summary>
 		/// Value of WFC_DEFAULT_DEVICE_ID symbol.
 		/// </summary>
-		public const int DEFAULT_DEVICE_ID = (0);
+		public const int DEFAULT_DEVICE_ID = (0)
+;
 
 		/// <summary>
 		/// Value of WFC_ERROR_NONE symbol.
@@ -360,7 +363,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcEnumerateDevices != null, "pwfcEnumerateDevices not implemented");
 					retValue = Delegates.pwfcEnumerateDevices(p_deviceIds, deviceIdsCount, p_filterList);
-					LogFunction("wfcEnumerateDevices({0}, {1}, {2}) = {3}", LogValue(deviceIds), deviceIdsCount, LogValue(filterList), retValue);
+					LogCommand("wfcEnumerateDevices", retValue, deviceIds, deviceIdsCount, filterList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -386,7 +389,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcCreateDevice != null, "pwfcCreateDevice not implemented");
 					retValue = Delegates.pwfcCreateDevice(deviceId, p_attribList);
-					LogFunction("wfcCreateDevice({0}, {1}) = {2}", deviceId, LogValue(attribList), retValue);
+					LogCommand("wfcCreateDevice", retValue, deviceId, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -406,7 +409,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetError != null, "pwfcGetError not implemented");
 			retValue = Delegates.pwfcGetError(dev);
-			LogFunction("wfcGetError({0}) = {1}", dev, retValue);
+			LogCommand("wfcGetError", retValue, dev			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -427,7 +430,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetDeviceAttribi != null, "pwfcGetDeviceAttribi not implemented");
 			retValue = Delegates.pwfcGetDeviceAttribi(dev, attrib);
-			LogFunction("wfcGetDeviceAttribi({0}, {1}) = {2}", dev, attrib, retValue);
+			LogCommand("wfcGetDeviceAttribi", retValue, dev, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -445,7 +448,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcDestroyDevice != null, "pwfcDestroyDevice not implemented");
 			retValue = Delegates.pwfcDestroyDevice(dev);
-			LogFunction("wfcDestroyDevice({0}) = {1}", dev, retValue);
+			LogCommand("wfcDestroyDevice", retValue, dev			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -472,7 +475,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcCreateOnScreenContext != null, "pwfcCreateOnScreenContext not implemented");
 					retValue = Delegates.pwfcCreateOnScreenContext(dev, screenNumber, p_attribList);
-					LogFunction("wfcCreateOnScreenContext({0}, {1}, {2}) = {3}", dev, screenNumber, LogValue(attribList), retValue);
+					LogCommand("wfcCreateOnScreenContext", retValue, dev, screenNumber, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -501,7 +504,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcCreateOffScreenContext != null, "pwfcCreateOffScreenContext not implemented");
 					retValue = Delegates.pwfcCreateOffScreenContext(dev, stream, p_attribList);
-					LogFunction("wfcCreateOffScreenContext({0}, {1}, {2}) = {3}", dev, stream, LogValue(attribList), retValue);
+					LogCommand("wfcCreateOffScreenContext", retValue, dev, stream, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -525,7 +528,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcCommit != null, "pwfcCommit not implemented");
 			Delegates.pwfcCommit(dev, ctx, wait);
-			LogFunction("wfcCommit({0}, {1}, {2})", dev, ctx, wait);
+			LogCommand("wfcCommit", null, dev, ctx, wait			);
 			DebugCheckErrors(null);
 		}
 
@@ -547,7 +550,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetContextAttribi != null, "pwfcGetContextAttribi not implemented");
 			retValue = Delegates.pwfcGetContextAttribi(dev, ctx, attrib);
-			LogFunction("wfcGetContextAttribi({0}, {1}, {2}) = {3}", dev, ctx, attrib, retValue);
+			LogCommand("wfcGetContextAttribi", retValue, dev, ctx, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -578,7 +581,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcGetContextAttribfv != null, "pwfcGetContextAttribfv not implemented");
 					Delegates.pwfcGetContextAttribfv(dev, ctx, attrib, count, p_values);
-					LogFunction("wfcGetContextAttribfv({0}, {1}, {2}, {3}, {4})", dev, ctx, attrib, count, LogValue(values));
+					LogCommand("wfcGetContextAttribfv", null, dev, ctx, attrib, count, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -603,7 +606,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcSetContextAttribi != null, "pwfcSetContextAttribi not implemented");
 			Delegates.pwfcSetContextAttribi(dev, ctx, attrib, value);
-			LogFunction("wfcSetContextAttribi({0}, {1}, {2}, {3})", dev, ctx, attrib, value);
+			LogCommand("wfcSetContextAttribi", null, dev, ctx, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -632,7 +635,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcSetContextAttribfv != null, "pwfcSetContextAttribfv not implemented");
 					Delegates.pwfcSetContextAttribfv(dev, ctx, attrib, count, p_values);
-					LogFunction("wfcSetContextAttribfv({0}, {1}, {2}, {3}, {4})", dev, ctx, attrib, count, LogValue(values));
+					LogCommand("wfcSetContextAttribfv", null, dev, ctx, attrib, count, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -651,7 +654,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcDestroyContext != null, "pwfcDestroyContext not implemented");
 			Delegates.pwfcDestroyContext(dev, ctx);
-			LogFunction("wfcDestroyContext({0}, {1})", dev, ctx);
+			LogCommand("wfcDestroyContext", null, dev, ctx			);
 			DebugCheckErrors(null);
 		}
 
@@ -679,7 +682,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcCreateSourceFromStream != null, "pwfcCreateSourceFromStream not implemented");
 					retValue = Delegates.pwfcCreateSourceFromStream(dev, ctx, stream, p_attribList);
-					LogFunction("wfcCreateSourceFromStream({0}, {1}, {2}, {3}) = {4}", dev, ctx, stream, LogValue(attribList), retValue);
+					LogCommand("wfcCreateSourceFromStream", retValue, dev, ctx, stream, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -700,7 +703,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcDestroySource != null, "pwfcDestroySource not implemented");
 			Delegates.pwfcDestroySource(dev, src);
-			LogFunction("wfcDestroySource({0}, {1})", dev, src);
+			LogCommand("wfcDestroySource", null, dev, src			);
 			DebugCheckErrors(null);
 		}
 
@@ -728,7 +731,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcCreateMaskFromStream != null, "pwfcCreateMaskFromStream not implemented");
 					retValue = Delegates.pwfcCreateMaskFromStream(dev, ctx, stream, p_attribList);
-					LogFunction("wfcCreateMaskFromStream({0}, {1}, {2}, {3}) = {4}", dev, ctx, stream, LogValue(attribList), retValue);
+					LogCommand("wfcCreateMaskFromStream", retValue, dev, ctx, stream, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -749,7 +752,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcDestroyMask != null, "pwfcDestroyMask not implemented");
 			Delegates.pwfcDestroyMask(dev, mask);
-			LogFunction("wfcDestroyMask({0}, {1})", dev, mask);
+			LogCommand("wfcDestroyMask", null, dev, mask			);
 			DebugCheckErrors(null);
 		}
 
@@ -774,7 +777,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcCreateElement != null, "pwfcCreateElement not implemented");
 					retValue = Delegates.pwfcCreateElement(dev, ctx, p_attribList);
-					LogFunction("wfcCreateElement({0}, {1}, {2}) = {3}", dev, ctx, LogValue(attribList), retValue);
+					LogCommand("wfcCreateElement", retValue, dev, ctx, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -800,7 +803,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetElementAttribi != null, "pwfcGetElementAttribi not implemented");
 			retValue = Delegates.pwfcGetElementAttribi(dev, element, attrib);
-			LogFunction("wfcGetElementAttribi({0}, {1}, {2}) = {3}", dev, element, attrib, retValue);
+			LogCommand("wfcGetElementAttribi", retValue, dev, element, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -824,7 +827,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetElementAttribf != null, "pwfcGetElementAttribf not implemented");
 			retValue = Delegates.pwfcGetElementAttribf(dev, element, attrib);
-			LogFunction("wfcGetElementAttribf({0}, {1}, {2}) = {3}", dev, element, attrib, retValue);
+			LogCommand("wfcGetElementAttribf", retValue, dev, element, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -855,7 +858,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcGetElementAttribiv != null, "pwfcGetElementAttribiv not implemented");
 					Delegates.pwfcGetElementAttribiv(dev, element, attrib, count, p_values);
-					LogFunction("wfcGetElementAttribiv({0}, {1}, {2}, {3}, {4})", dev, element, attrib, count, LogValue(values));
+					LogCommand("wfcGetElementAttribiv", null, dev, element, attrib, count, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -886,7 +889,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcGetElementAttribfv != null, "pwfcGetElementAttribfv not implemented");
 					Delegates.pwfcGetElementAttribfv(dev, element, attrib, count, p_values);
-					LogFunction("wfcGetElementAttribfv({0}, {1}, {2}, {3}, {4})", dev, element, attrib, count, LogValue(values));
+					LogCommand("wfcGetElementAttribfv", null, dev, element, attrib, count, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -911,7 +914,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcSetElementAttribi != null, "pwfcSetElementAttribi not implemented");
 			Delegates.pwfcSetElementAttribi(dev, element, attrib, value);
-			LogFunction("wfcSetElementAttribi({0}, {1}, {2}, {3})", dev, element, attrib, value);
+			LogCommand("wfcSetElementAttribi", null, dev, element, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -934,7 +937,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcSetElementAttribf != null, "pwfcSetElementAttribf not implemented");
 			Delegates.pwfcSetElementAttribf(dev, element, attrib, value);
-			LogFunction("wfcSetElementAttribf({0}, {1}, {2}, {3})", dev, element, attrib, value);
+			LogCommand("wfcSetElementAttribf", null, dev, element, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -963,7 +966,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcSetElementAttribiv != null, "pwfcSetElementAttribiv not implemented");
 					Delegates.pwfcSetElementAttribiv(dev, element, attrib, count, p_values);
-					LogFunction("wfcSetElementAttribiv({0}, {1}, {2}, {3}, {4})", dev, element, attrib, count, LogValue(values));
+					LogCommand("wfcSetElementAttribiv", null, dev, element, attrib, count, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -994,7 +997,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcSetElementAttribfv != null, "pwfcSetElementAttribfv not implemented");
 					Delegates.pwfcSetElementAttribfv(dev, element, attrib, count, p_values);
-					LogFunction("wfcSetElementAttribfv({0}, {1}, {2}, {3}, {4})", dev, element, attrib, count, LogValue(values));
+					LogCommand("wfcSetElementAttribfv", null, dev, element, attrib, count, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1016,7 +1019,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcInsertElement != null, "pwfcInsertElement not implemented");
 			Delegates.pwfcInsertElement(dev, element, subordinate);
-			LogFunction("wfcInsertElement({0}, {1}, {2})", dev, element, subordinate);
+			LogCommand("wfcInsertElement", null, dev, element, subordinate			);
 			DebugCheckErrors(null);
 		}
 
@@ -1033,7 +1036,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcRemoveElement != null, "pwfcRemoveElement not implemented");
 			Delegates.pwfcRemoveElement(dev, element);
-			LogFunction("wfcRemoveElement({0}, {1})", dev, element);
+			LogCommand("wfcRemoveElement", null, dev, element			);
 			DebugCheckErrors(null);
 		}
 
@@ -1052,7 +1055,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetElementAbove != null, "pwfcGetElementAbove not implemented");
 			retValue = Delegates.pwfcGetElementAbove(dev, element);
-			LogFunction("wfcGetElementAbove({0}, {1}) = {2}", dev, element, retValue);
+			LogCommand("wfcGetElementAbove", retValue, dev, element			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1073,7 +1076,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfcGetElementBelow != null, "pwfcGetElementBelow not implemented");
 			retValue = Delegates.pwfcGetElementBelow(dev, element);
-			LogFunction("wfcGetElementBelow({0}, {1}) = {2}", dev, element, retValue);
+			LogCommand("wfcGetElementBelow", retValue, dev, element			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1092,7 +1095,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcDestroyElement != null, "pwfcDestroyElement not implemented");
 			Delegates.pwfcDestroyElement(dev, element);
-			LogFunction("wfcDestroyElement({0}, {1})", dev, element);
+			LogCommand("wfcDestroyElement", null, dev, element			);
 			DebugCheckErrors(null);
 		}
 
@@ -1109,7 +1112,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcActivate != null, "pwfcActivate not implemented");
 			Delegates.pwfcActivate(dev, ctx);
-			LogFunction("wfcActivate({0}, {1})", dev, ctx);
+			LogCommand("wfcActivate", null, dev, ctx			);
 			DebugCheckErrors(null);
 		}
 
@@ -1126,7 +1129,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcDeactivate != null, "pwfcDeactivate not implemented");
 			Delegates.pwfcDeactivate(dev, ctx);
-			LogFunction("wfcDeactivate({0}, {1})", dev, ctx);
+			LogCommand("wfcDeactivate", null, dev, ctx			);
 			DebugCheckErrors(null);
 		}
 
@@ -1146,7 +1149,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcCompose != null, "pwfcCompose not implemented");
 			Delegates.pwfcCompose(dev, ctx, wait);
-			LogFunction("wfcCompose({0}, {1}, {2})", dev, ctx, wait);
+			LogCommand("wfcCompose", null, dev, ctx, wait			);
 			DebugCheckErrors(null);
 		}
 
@@ -1169,7 +1172,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfcFence != null, "pwfcFence not implemented");
 			Delegates.pwfcFence(dev, ctx, dpy, sync);
-			LogFunction("wfcFence({0}, {1}, 0x{2}, 0x{3})", dev, ctx, dpy.ToString("X8"), sync.ToString("X8"));
+			LogCommand("wfcFence", null, dev, ctx, dpy, sync			);
 			DebugCheckErrors(null);
 		}
 
@@ -1197,7 +1200,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcGetStrings != null, "pwfcGetStrings not implemented");
 					retValue = Delegates.pwfcGetStrings(dev, name, p_strings, stringsCount);
-					LogFunction("wfcGetStrings({0}, {1}, {2}, {3}) = {4}", dev, name, LogValue(strings), stringsCount, retValue);
+					LogCommand("wfcGetStrings", retValue, dev, name, strings, stringsCount					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1223,7 +1226,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfcIsExtensionSupported != null, "pwfcIsExtensionSupported not implemented");
 					retValue = Delegates.pwfcIsExtensionSupported(dev, p_string);
-					LogFunction("wfcIsExtensionSupported({0}, {1}) = {2}", dev, LogValue(@string), retValue);
+					LogCommand("wfcIsExtensionSupported", retValue, dev, @string					);
 				}
 			}
 			DebugCheckErrors(retValue);

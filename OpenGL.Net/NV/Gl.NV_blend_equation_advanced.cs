@@ -222,7 +222,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendParameteriNV != null, "pglBlendParameteriNV not implemented");
 			Delegates.pglBlendParameteriNV(pname, value);
-			LogFunction("glBlendParameteriNV({0}, {1})", LogEnumName(pname), value);
+			LogCommand("glBlendParameteriNV", null, pname, value			);
 			DebugCheckErrors(null);
 		}
 

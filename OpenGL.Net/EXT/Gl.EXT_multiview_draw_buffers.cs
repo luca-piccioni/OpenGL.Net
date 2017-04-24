@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReadBufferIndexedEXT != null, "pglReadBufferIndexedEXT not implemented");
 			Delegates.pglReadBufferIndexedEXT(src, index);
-			LogFunction("glReadBufferIndexedEXT({0}, {1})", LogEnumName(src), index);
+			LogCommand("glReadBufferIndexedEXT", null, src, index			);
 			DebugCheckErrors(null);
 		}
 
@@ -82,7 +82,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawBuffersIndexedEXT != null, "pglDrawBuffersIndexedEXT not implemented");
 					Delegates.pglDrawBuffersIndexedEXT((Int32)location.Length, p_location, p_indices);
-					LogFunction("glDrawBuffersIndexedEXT({0}, {1}, {2})", location.Length, LogEnumName(location), LogValue(indices));
+					LogCommand("glDrawBuffersIndexedEXT", null, location.Length, location, indices					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -108,7 +108,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_vEXT != null, "pglGetIntegeri_vEXT not implemented");
 					Delegates.pglGetIntegeri_vEXT(target, index, p_data);
-					LogFunction("glGetIntegeri_vEXT({0}, {1}, {2})", LogEnumName(target), index, LogValue(data));
+					LogCommand("glGetIntegeri_vEXT", null, target, index, data					);
 				}
 			}
 			DebugCheckErrors(null);

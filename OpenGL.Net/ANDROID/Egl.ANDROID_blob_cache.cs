@@ -45,7 +45,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.peglSetBlobCacheFuncsANDROID != null, "peglSetBlobCacheFuncsANDROID not implemented");
 			Delegates.peglSetBlobCacheFuncsANDROID(dpy, set, get);
-			LogFunction("eglSetBlobCacheFuncsANDROID(0x{0}, {1}, {2})", dpy.ToString("X8"), set, get);
+			LogCommand("eglSetBlobCacheFuncsANDROID", null, dpy, set, get			);
 			DebugCheckErrors(null);
 		}
 

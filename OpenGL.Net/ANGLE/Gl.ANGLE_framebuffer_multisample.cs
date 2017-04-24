@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleANGLE != null, "pglRenderbufferStorageMultisampleANGLE not implemented");
 			Delegates.pglRenderbufferStorageMultisampleANGLE(target, samples, internalformat, width, height);
-			LogFunction("glRenderbufferStorageMultisampleANGLE({0}, {1}, {2}, {3}, {4})", LogEnumName(target), samples, LogEnumName(internalformat), width, height);
+			LogCommand("glRenderbufferStorageMultisampleANGLE", null, target, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
 

@@ -827,50 +827,26 @@ namespace BindingsGen.GLSpecs
 
 			#region Call Log
 
-			sw.WriteIdentation(); sw.Write("LogFunction(");
-
-			#region Call Log - Format String
-
-			sw.Write("\"{0}(", aliasCommand.ImportName);
-			for (int i = 0; i < commandParams.Count; i++)
-			{
-				commandParams[i].WriteCallLogFormatParam(sw, ctx, this, i);
-				if (i < commandParams.Count - 1)
-					sw.Write(", ");
-			}
-			sw.Write(")");
-
-			if (HasReturnValue)
-				sw.Write(" = {{{0}}}", commandParams.Count);
-
-			sw.Write("\"");
-
-			#endregion
-
-			#region Call Log - Format Arguments
-
-			if ((commandParams.Count > 0) || HasReturnValue) {
+			// Log command
+			sw.WriteIdentation(); sw.Write("LogCommand(\"{0}\"", aliasCommand.ImportName);
+			// Return value
+			if (HasReturnValue) {
 				sw.Write(", ");
-
+				CommandParameter.WriteCallLogArgParam(sw, GetReturnValueExpression(ctx), returnType);
+			} else {
+				sw.Write(", null");
+			}
+			// Arguments
+			if (commandParams.Count > 0) {
+				sw.Write(", ");
 				for (int i = 0; i < commandParams.Count; i++) {
 					commandParams[i].WriteCallLogArgParam(sw, ctx, this);
 					if (i < commandParams.Count - 1)
 						sw.Write(", ");
 				}
 			}
-
-			// Return value
-			if (HasReturnValue)
-			{
-				if (commandParams.Count > 0)
-					sw.Write(", ");
-				CommandParameter.WriteCallLogArgParam(sw, GetReturnValueExpression(ctx), returnType);
-			}
-
-			#endregion
-
-			sw.Write(");");
-			sw.WriteLine();
+			// End LogCommand
+			sw.WriteLine(");");
 
 			#endregion
 

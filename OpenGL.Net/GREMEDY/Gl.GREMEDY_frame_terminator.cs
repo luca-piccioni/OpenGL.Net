@@ -36,7 +36,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFrameTerminatorGREMEDY != null, "pglFrameTerminatorGREMEDY not implemented");
 			Delegates.pglFrameTerminatorGREMEDY();
-			LogFunction("glFrameTerminatorGREMEDY()");
+			LogCommand("glFrameTerminatorGREMEDY", null			);
 			DebugCheckErrors(null);
 		}
 

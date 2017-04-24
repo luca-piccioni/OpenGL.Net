@@ -10,12 +10,12 @@ namespace HelloTriangle.OpenWF
 		static void Main()
 		{
 			try {
-				string envDebug = Environment.GetEnvironmentVariable("GL_DEBUG");
-
-				if (envDebug == "YES") {
-					KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
-						Console.WriteLine(format, args);
-					});
+				string envDebug = Environment.GetEnvironmentVariable("DEBUG");
+				if (envDebug == "GL") {
+					KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+						Console.WriteLine(e.ToString());
+					};
+					KhronosApi.LogEnabled = true;
 				}
 
 				

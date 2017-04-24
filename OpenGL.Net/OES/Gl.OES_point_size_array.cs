@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPointSizePointerOES != null, "pglPointSizePointerOES not implemented");
 			Delegates.pglPointSizePointerOES(type, stride, pointer);
-			LogFunction("glPointSizePointerOES({0}, {1}, 0x{2})", LogEnumName(type), stride, pointer.ToString("X8"));
+			LogCommand("glPointSizePointerOES", null, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
 

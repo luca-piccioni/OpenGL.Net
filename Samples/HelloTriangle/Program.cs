@@ -32,11 +32,11 @@ namespace HelloTriangle
 		static void Main()
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
-
-			if (envDebug == "GL" || true) {
-				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
-					Console.WriteLine(format, args);
-				});
+			if (envDebug == "GL") {
+				KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+					Console.WriteLine(e.ToString());
+				};
+				KhronosApi.LogEnabled = true;
 			}
 
 			Application.EnableVisualStyles();

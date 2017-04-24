@@ -99,7 +99,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDebugMessageEnableAMD != null, "pglDebugMessageEnableAMD not implemented");
 					Delegates.pglDebugMessageEnableAMD(category, severity, (Int32)ids.Length, p_ids, enabled);
-					LogFunction("glDebugMessageEnableAMD({0}, {1}, {2}, {3}, {4})", LogEnumName(category), LogEnumName(severity), ids.Length, LogValue(ids), enabled);
+					LogCommand("glDebugMessageEnableAMD", null, category, severity, ids.Length, ids, enabled					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -128,7 +128,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertAMD != null, "pglDebugMessageInsertAMD not implemented");
 			Delegates.pglDebugMessageInsertAMD(category, severity, id, length, buf);
-			LogFunction("glDebugMessageInsertAMD({0}, {1}, {2}, {3}, {4})", LogEnumName(category), LogEnumName(severity), id, length, buf);
+			LogCommand("glDebugMessageInsertAMD", null, category, severity, id, length, buf			);
 			DebugCheckErrors(null);
 		}
 
@@ -146,7 +146,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackAMD != null, "pglDebugMessageCallbackAMD not implemented");
 			Delegates.pglDebugMessageCallbackAMD(callback, userParam);
-			LogFunction("glDebugMessageCallbackAMD({0}, 0x{1})", callback, userParam.ToString("X8"));
+			LogCommand("glDebugMessageCallbackAMD", null, callback, userParam			);
 			DebugCheckErrors(null);
 		}
 
@@ -184,7 +184,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDebugMessageLogAMD != null, "pglGetDebugMessageLogAMD not implemented");
 					retValue = Delegates.pglGetDebugMessageLogAMD((UInt32)categories.Length, bufsize, p_categories, p_severities, p_ids, p_lengths, message);
-					LogFunction("glGetDebugMessageLogAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", categories.Length, bufsize, LogEnumName(categories), LogValue(severities), LogValue(ids), LogValue(lengths), message, retValue);
+					LogCommand("glGetDebugMessageLogAMD", retValue, categories.Length, bufsize, categories, severities, ids, lengths, message					);
 				}
 			}
 			DebugCheckErrors(retValue);

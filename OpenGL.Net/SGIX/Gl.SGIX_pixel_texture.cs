@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelTexGenSGIX != null, "pglPixelTexGenSGIX not implemented");
 			Delegates.pglPixelTexGenSGIX(mode);
-			LogFunction("glPixelTexGenSGIX({0})", LogEnumName(mode));
+			LogCommand("glPixelTexGenSGIX", null, mode			);
 			DebugCheckErrors(null);
 		}
 

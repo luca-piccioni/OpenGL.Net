@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEGLImageTargetTexture2DOES != null, "pglEGLImageTargetTexture2DOES not implemented");
 			Delegates.pglEGLImageTargetTexture2DOES(target, image);
-			LogFunction("glEGLImageTargetTexture2DOES({0}, 0x{1})", LogEnumName(target), image.ToString("X8"));
+			LogCommand("glEGLImageTargetTexture2DOES", null, target, image			);
 			DebugCheckErrors(null);
 		}
 
@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEGLImageTargetRenderbufferStorageOES != null, "pglEGLImageTargetRenderbufferStorageOES not implemented");
 			Delegates.pglEGLImageTargetRenderbufferStorageOES(target, image);
-			LogFunction("glEGLImageTargetRenderbufferStorageOES({0}, 0x{1})", LogEnumName(target), image.ToString("X8"));
+			LogCommand("glEGLImageTargetRenderbufferStorageOES", null, target, image			);
 			DebugCheckErrors(null);
 		}
 

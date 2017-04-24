@@ -63,7 +63,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCullParameterdvEXT != null, "pglCullParameterdvEXT not implemented");
 					Delegates.pglCullParameterdvEXT(pname, p_params);
-					LogFunction("glCullParameterdvEXT({0}, {1})", LogEnumName(pname), LogValue(@params));
+					LogCommand("glCullParameterdvEXT", null, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -86,7 +86,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCullParameterfvEXT != null, "pglCullParameterfvEXT not implemented");
 					Delegates.pglCullParameterfvEXT(pname, p_params);
-					LogFunction("glCullParameterfvEXT({0}, {1})", LogEnumName(pname), LogValue(@params));
+					LogCommand("glCullParameterfvEXT", null, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

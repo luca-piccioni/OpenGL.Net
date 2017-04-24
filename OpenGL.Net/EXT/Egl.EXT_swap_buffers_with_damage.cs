@@ -53,7 +53,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglSwapBuffersWithDamageEXT != null, "peglSwapBuffersWithDamageEXT not implemented");
 					retValue = Delegates.peglSwapBuffersWithDamageEXT(dpy, surface, p_rects, n_rects);
-					LogFunction("eglSwapBuffersWithDamageEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), LogValue(rects), n_rects, retValue);
+					LogCommand("eglSwapBuffersWithDamageEXT", retValue, dpy, surface, rects, n_rects					);
 				}
 			}
 			DebugCheckErrors(retValue);

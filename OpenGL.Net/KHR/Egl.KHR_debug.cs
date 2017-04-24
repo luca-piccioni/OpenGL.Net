@@ -119,7 +119,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglDebugMessageControlKHR != null, "peglDebugMessageControlKHR not implemented");
 					retValue = Delegates.peglDebugMessageControlKHR(callback, p_attrib_list);
-					LogFunction("eglDebugMessageControlKHR({0}, {1}) = {2}", callback, LogValue(attrib_list), retValue);
+					LogCommand("eglDebugMessageControlKHR", retValue, callback, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -146,7 +146,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDebugKHR != null, "peglQueryDebugKHR not implemented");
 					retValue = Delegates.peglQueryDebugKHR(attribute, p_value);
-					LogFunction("eglQueryDebugKHR({0}, {1}) = {2}", attribute, LogValue(value), retValue);
+					LogCommand("eglQueryDebugKHR", retValue, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -176,7 +176,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglLabelObjectKHR != null, "peglLabelObjectKHR not implemented");
 			retValue = Delegates.peglLabelObjectKHR(display, objectType, @object, label);
-			LogFunction("eglLabelObjectKHR(0x{0}, {1}, 0x{2}, 0x{3}) = {4}", display.ToString("X8"), objectType, @object.ToString("X8"), label.ToString("X8"), retValue);
+			LogCommand("eglLabelObjectKHR", retValue, display, objectType, @object, label			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -63,7 +63,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglViewportPositionWScaleNV != null, "pglViewportPositionWScaleNV not implemented");
 			Delegates.pglViewportPositionWScaleNV(index, xcoeff, ycoeff);
-			LogFunction("glViewportPositionWScaleNV({0}, {1}, {2})", index, xcoeff, ycoeff);
+			LogCommand("glViewportPositionWScaleNV", null, index, xcoeff, ycoeff			);
 			DebugCheckErrors(null);
 		}
 

@@ -94,7 +94,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCoverageMaskNV != null, "pglCoverageMaskNV not implemented");
 			Delegates.pglCoverageMaskNV(mask);
-			LogFunction("glCoverageMaskNV({0})", mask);
+			LogCommand("glCoverageMaskNV", null, mask			);
 			DebugCheckErrors(null);
 		}
 
@@ -109,7 +109,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCoverageOperationNV != null, "pglCoverageOperationNV not implemented");
 			Delegates.pglCoverageOperationNV(operation);
-			LogFunction("glCoverageOperationNV({0})", LogEnumName(operation));
+			LogCommand("glCoverageOperationNV", null, operation			);
 			DebugCheckErrors(null);
 		}
 

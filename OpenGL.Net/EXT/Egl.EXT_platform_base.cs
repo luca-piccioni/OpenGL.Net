@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetPlatformDisplayEXT != null, "peglGetPlatformDisplayEXT not implemented");
 					retValue = Delegates.peglGetPlatformDisplayEXT(platform, native_display, p_attrib_list);
-					LogFunction("eglGetPlatformDisplayEXT({0}, 0x{1}, {2}) = {3}", platform, native_display.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglGetPlatformDisplayEXT", retValue, platform, native_display, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -83,7 +83,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePlatformWindowSurfaceEXT != null, "peglCreatePlatformWindowSurfaceEXT not implemented");
 					retValue = Delegates.peglCreatePlatformWindowSurfaceEXT(dpy, config, native_window, p_attrib_list);
-					LogFunction("eglCreatePlatformWindowSurfaceEXT(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_window.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreatePlatformWindowSurfaceEXT", retValue, dpy, config, native_window, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -116,7 +116,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePlatformPixmapSurfaceEXT != null, "peglCreatePlatformPixmapSurfaceEXT not implemented");
 					retValue = Delegates.peglCreatePlatformPixmapSurfaceEXT(dpy, config, native_pixmap, p_attrib_list);
-					LogFunction("eglCreatePlatformPixmapSurfaceEXT(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_pixmap.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreatePlatformPixmapSurfaceEXT", retValue, dpy, config, native_pixmap, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

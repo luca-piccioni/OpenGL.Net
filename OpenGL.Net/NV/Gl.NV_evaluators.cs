@@ -207,7 +207,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMapControlPointsNV != null, "pglMapControlPointsNV not implemented");
 			Delegates.pglMapControlPointsNV(target, index, type, ustride, vstride, uorder, vorder, packed, points);
-			LogFunction("glMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", LogEnumName(target), index, LogEnumName(type), ustride, vstride, uorder, vorder, packed, points.ToString("X8"));
+			LogCommand("glMapControlPointsNV", null, target, index, type, ustride, vstride, uorder, vorder, packed, points			);
 			DebugCheckErrors(null);
 		}
 
@@ -272,7 +272,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapParameterivNV != null, "pglMapParameterivNV not implemented");
 					Delegates.pglMapParameterivNV(target, pname, p_params);
-					LogFunction("glMapParameterivNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glMapParameterivNV", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -298,7 +298,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapParameterfvNV != null, "pglMapParameterfvNV not implemented");
 					Delegates.pglMapParameterfvNV(target, pname, p_params);
-					LogFunction("glMapParameterfvNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glMapParameterfvNV", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -333,7 +333,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetMapControlPointsNV != null, "pglGetMapControlPointsNV not implemented");
 			Delegates.pglGetMapControlPointsNV(target, index, type, ustride, vstride, packed, points);
-			LogFunction("glGetMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", LogEnumName(target), index, LogEnumName(type), ustride, vstride, packed, points.ToString("X8"));
+			LogCommand("glGetMapControlPointsNV", null, target, index, type, ustride, vstride, packed, points			);
 			DebugCheckErrors(null);
 		}
 
@@ -392,7 +392,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapParameterivNV != null, "pglGetMapParameterivNV not implemented");
 					Delegates.pglGetMapParameterivNV(target, pname, p_params);
-					LogFunction("glGetMapParameterivNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetMapParameterivNV", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -418,7 +418,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapParameterfvNV != null, "pglGetMapParameterfvNV not implemented");
 					Delegates.pglGetMapParameterfvNV(target, pname, p_params);
-					LogFunction("glGetMapParameterfvNV({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetMapParameterfvNV", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -447,7 +447,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapAttribParameterivNV != null, "pglGetMapAttribParameterivNV not implemented");
 					Delegates.pglGetMapAttribParameterivNV(target, index, pname, p_params);
-					LogFunction("glGetMapAttribParameterivNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetMapAttribParameterivNV", null, target, index, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -476,7 +476,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapAttribParameterfvNV != null, "pglGetMapAttribParameterfvNV not implemented");
 					Delegates.pglGetMapAttribParameterfvNV(target, index, pname, p_params);
-					LogFunction("glGetMapAttribParameterfvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetMapAttribParameterfvNV", null, target, index, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -496,7 +496,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEvalMapsNV != null, "pglEvalMapsNV not implemented");
 			Delegates.pglEvalMapsNV(target, mode);
-			LogFunction("glEvalMapsNV({0}, {1})", LogEnumName(target), LogEnumName(mode));
+			LogCommand("glEvalMapsNV", null, target, mode			);
 			DebugCheckErrors(null);
 		}
 

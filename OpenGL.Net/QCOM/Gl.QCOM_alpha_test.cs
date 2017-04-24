@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAlphaFuncQCOM != null, "pglAlphaFuncQCOM not implemented");
 			Delegates.pglAlphaFuncQCOM(func, @ref);
-			LogFunction("glAlphaFuncQCOM({0}, {1})", LogEnumName(func), @ref);
+			LogCommand("glAlphaFuncQCOM", null, func, @ref			);
 			DebugCheckErrors(null);
 		}
 

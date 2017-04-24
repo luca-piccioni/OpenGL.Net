@@ -48,7 +48,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateOES != null, "pglBlendFuncSeparateOES not implemented");
 			Delegates.pglBlendFuncSeparateOES(srcRGB, dstRGB, srcAlpha, dstAlpha);
-			LogFunction("glBlendFuncSeparateOES({0}, {1}, {2}, {3})", LogEnumName(srcRGB), LogEnumName(dstRGB), LogEnumName(srcAlpha), LogEnumName(dstAlpha));
+			LogCommand("glBlendFuncSeparateOES", null, srcRGB, dstRGB, srcAlpha, dstAlpha			);
 			DebugCheckErrors(null);
 		}
 

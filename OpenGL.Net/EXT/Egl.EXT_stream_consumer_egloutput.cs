@@ -47,7 +47,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglStreamConsumerOutputEXT != null, "peglStreamConsumerOutputEXT not implemented");
 			retValue = Delegates.peglStreamConsumerOutputEXT(dpy, stream, layer);
-			LogFunction("eglStreamConsumerOutputEXT(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), layer.ToString("X8"), retValue);
+			LogCommand("eglStreamConsumerOutputEXT", retValue, dpy, stream, layer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

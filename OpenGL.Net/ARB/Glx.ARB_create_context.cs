@@ -88,7 +88,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateContextAttribsARB != null, "pglXCreateContextAttribsARB not implemented");
 					retValue = Delegates.pglXCreateContextAttribsARB(dpy, config, share_context, direct, p_attrib_list);
-					LogFunction("glXCreateContextAttribsARB(0x{0}, 0x{1}, 0x{2}, {3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), share_context.ToString("X8"), direct, LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("glXCreateContextAttribsARB", retValue, dpy, config, share_context, direct, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -75,7 +75,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateStreamAttribKHR != null, "peglCreateStreamAttribKHR not implemented");
 					retValue = Delegates.peglCreateStreamAttribKHR(dpy, p_attrib_list);
-					LogFunction("eglCreateStreamAttribKHR(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreateStreamAttribKHR", retValue, dpy, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -105,7 +105,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglSetStreamAttribKHR != null, "peglSetStreamAttribKHR not implemented");
 			retValue = Delegates.peglSetStreamAttribKHR(dpy, stream, attribute, value);
-			LogFunction("eglSetStreamAttribKHR(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, value.ToString("X8"), retValue);
+			LogCommand("eglSetStreamAttribKHR", retValue, dpy, stream, attribute, value			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -136,7 +136,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryStreamAttribKHR != null, "peglQueryStreamAttribKHR not implemented");
 					retValue = Delegates.peglQueryStreamAttribKHR(dpy, stream, attribute, p_value);
-					LogFunction("eglQueryStreamAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, LogValue(value), retValue);
+					LogCommand("eglQueryStreamAttribKHR", retValue, dpy, stream, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -166,7 +166,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglStreamConsumerAcquireAttribKHR != null, "peglStreamConsumerAcquireAttribKHR not implemented");
 					retValue = Delegates.peglStreamConsumerAcquireAttribKHR(dpy, stream, p_attrib_list);
-					LogFunction("eglStreamConsumerAcquireAttribKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), LogValue(attrib_list), retValue);
+					LogCommand("eglStreamConsumerAcquireAttribKHR", retValue, dpy, stream, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -196,7 +196,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglStreamConsumerReleaseAttribKHR != null, "peglStreamConsumerReleaseAttribKHR not implemented");
 					retValue = Delegates.peglStreamConsumerReleaseAttribKHR(dpy, stream, p_attrib_list);
-					LogFunction("eglStreamConsumerReleaseAttribKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), LogValue(attrib_list), retValue);
+					LogCommand("eglStreamConsumerReleaseAttribKHR", retValue, dpy, stream, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

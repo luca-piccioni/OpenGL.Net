@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DDownsampleIMG != null, "pglFramebufferTexture2DDownsampleIMG not implemented");
 			Delegates.pglFramebufferTexture2DDownsampleIMG(target, attachment, textarget, texture, level, xscale, yscale);
-			LogFunction("glFramebufferTexture2DDownsampleIMG({0}, {1}, {2}, {3}, {4}, {5}, {6})", LogEnumName(target), LogEnumName(attachment), LogEnumName(textarget), texture, level, xscale, yscale);
+			LogCommand("glFramebufferTexture2DDownsampleIMG", null, target, attachment, textarget, texture, level, xscale, yscale			);
 			DebugCheckErrors(null);
 		}
 
@@ -114,7 +114,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureLayerDownsampleIMG != null, "pglFramebufferTextureLayerDownsampleIMG not implemented");
 			Delegates.pglFramebufferTextureLayerDownsampleIMG(target, attachment, texture, level, layer, xscale, yscale);
-			LogFunction("glFramebufferTextureLayerDownsampleIMG({0}, {1}, {2}, {3}, {4}, {5}, {6})", LogEnumName(target), LogEnumName(attachment), texture, level, layer, xscale, yscale);
+			LogCommand("glFramebufferTextureLayerDownsampleIMG", null, target, attachment, texture, level, layer, xscale, yscale			);
 			DebugCheckErrors(null);
 		}
 

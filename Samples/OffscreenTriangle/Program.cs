@@ -33,11 +33,11 @@ namespace OffscreenTriangle
 		static void Main()
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
-
 			if (envDebug == "GL") {
-				KhronosApi.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
-					Console.WriteLine(format, args);
-				});
+				KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+					Console.WriteLine(e.ToString());
+				};
+				KhronosApi.LogEnabled = true;
 			}
 
 			try {

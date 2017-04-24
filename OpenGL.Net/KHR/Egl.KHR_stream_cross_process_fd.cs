@@ -50,7 +50,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetStreamFileDescriptorKHR != null, "peglGetStreamFileDescriptorKHR not implemented");
 			retValue = Delegates.peglGetStreamFileDescriptorKHR(dpy, stream);
-			LogFunction("eglGetStreamFileDescriptorKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue);
+			LogCommand("eglGetStreamFileDescriptorKHR", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -72,7 +72,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglCreateStreamFromFileDescriptorKHR != null, "peglCreateStreamFromFileDescriptorKHR not implemented");
 			retValue = Delegates.peglCreateStreamFromFileDescriptorKHR(dpy, file_descriptor);
-			LogFunction("eglCreateStreamFromFileDescriptorKHR(0x{0}, {1}) = {2}", dpy.ToString("X8"), file_descriptor, retValue.ToString("X8"));
+			LogCommand("eglCreateStreamFromFileDescriptorKHR", retValue, dpy, file_descriptor			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

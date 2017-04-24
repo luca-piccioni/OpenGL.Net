@@ -50,7 +50,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetInstrumentsSGIX != null, "pglGetInstrumentsSGIX not implemented");
 			retValue = Delegates.pglGetInstrumentsSGIX();
-			LogFunction("glGetInstrumentsSGIX() = {0}", retValue);
+			LogCommand("glGetInstrumentsSGIX", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -70,7 +70,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglInstrumentsBufferSGIX != null, "pglInstrumentsBufferSGIX not implemented");
 					Delegates.pglInstrumentsBufferSGIX((Int32)buffer.Length, p_buffer);
-					LogFunction("glInstrumentsBufferSGIX({0}, {1})", buffer.Length, LogValue(buffer));
+					LogCommand("glInstrumentsBufferSGIX", null, buffer.Length, buffer					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -92,7 +92,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPollInstrumentsSGIX != null, "pglPollInstrumentsSGIX not implemented");
 					retValue = Delegates.pglPollInstrumentsSGIX(p_marker_p);
-					LogFunction("glPollInstrumentsSGIX({0}) = {1}", LogValue(marker_p), retValue);
+					LogCommand("glPollInstrumentsSGIX", retValue, marker_p					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -111,7 +111,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReadInstrumentsSGIX != null, "pglReadInstrumentsSGIX not implemented");
 			Delegates.pglReadInstrumentsSGIX(marker);
-			LogFunction("glReadInstrumentsSGIX({0})", marker);
+			LogCommand("glReadInstrumentsSGIX", null, marker			);
 			DebugCheckErrors(null);
 		}
 
@@ -123,7 +123,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStartInstrumentsSGIX != null, "pglStartInstrumentsSGIX not implemented");
 			Delegates.pglStartInstrumentsSGIX();
-			LogFunction("glStartInstrumentsSGIX()");
+			LogCommand("glStartInstrumentsSGIX", null			);
 			DebugCheckErrors(null);
 		}
 
@@ -138,7 +138,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStopInstrumentsSGIX != null, "pglStopInstrumentsSGIX not implemented");
 			Delegates.pglStopInstrumentsSGIX(marker);
-			LogFunction("glStopInstrumentsSGIX({0})", marker);
+			LogCommand("glStopInstrumentsSGIX", null, marker			);
 			DebugCheckErrors(null);
 		}
 

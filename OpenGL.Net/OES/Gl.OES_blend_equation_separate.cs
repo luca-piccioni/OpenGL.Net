@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateOES != null, "pglBlendEquationSeparateOES not implemented");
 			Delegates.pglBlendEquationSeparateOES(modeRGB, modeAlpha);
-			LogFunction("glBlendEquationSeparateOES({0}, {1})", LogEnumName(modeRGB), LogEnumName(modeAlpha));
+			LogCommand("glBlendEquationSeparateOES", null, modeRGB, modeAlpha			);
 			DebugCheckErrors(null);
 		}
 

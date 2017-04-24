@@ -82,7 +82,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglStreamConsumerGLTextureExternalAttribsNV != null, "peglStreamConsumerGLTextureExternalAttribsNV not implemented");
 					retValue = Delegates.peglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, p_attrib_list);
-					LogFunction("eglStreamConsumerGLTextureExternalAttribsNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), stream.ToString("X8"), LogValue(attrib_list), retValue);
+					LogCommand("eglStreamConsumerGLTextureExternalAttribsNV", retValue, dpy, stream, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

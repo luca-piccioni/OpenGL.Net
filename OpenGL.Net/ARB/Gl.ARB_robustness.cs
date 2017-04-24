@@ -38,7 +38,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetGraphicsResetStatusARB != null, "pglGetGraphicsResetStatusARB not implemented");
 			retValue = Delegates.pglGetGraphicsResetStatusARB();
-			LogFunction("glGetGraphicsResetStatusARB() = {0}", retValue);
+			LogCommand("glGetGraphicsResetStatusARB", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -70,7 +70,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnTexImageARB != null, "pglGetnTexImageARB not implemented");
 			Delegates.pglGetnTexImageARB(target, level, format, type, bufSize, img);
-			LogFunction("glGetnTexImageARB({0}, {1}, {2}, {3}, {4}, 0x{5})", LogEnumName(target), level, LogEnumName(format), LogEnumName(type), bufSize, img.ToString("X8"));
+			LogCommand("glGetnTexImageARB", null, target, level, format, type, bufSize, img			);
 			DebugCheckErrors(null);
 		}
 
@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnCompressedTexImageARB != null, "pglGetnCompressedTexImageARB not implemented");
 			Delegates.pglGetnCompressedTexImageARB(target, lod, bufSize, img);
-			LogFunction("glGetnCompressedTexImageARB({0}, {1}, {2}, 0x{3})", LogEnumName(target), lod, bufSize, img.ToString("X8"));
+			LogCommand("glGetnCompressedTexImageARB", null, target, lod, bufSize, img			);
 			DebugCheckErrors(null);
 		}
 
@@ -176,7 +176,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformfvARB != null, "pglGetnUniformfvARB not implemented");
 					Delegates.pglGetnUniformfvARB(program, location, (Int32)@params.Length, p_params);
-					LogFunction("glGetnUniformfvARB({0}, {1}, {2}, {3})", program, location, @params.Length, LogValue(@params));
+					LogCommand("glGetnUniformfvARB", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -202,7 +202,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformivARB != null, "pglGetnUniformivARB not implemented");
 					Delegates.pglGetnUniformivARB(program, location, (Int32)@params.Length, p_params);
-					LogFunction("glGetnUniformivARB({0}, {1}, {2}, {3})", program, location, @params.Length, LogValue(@params));
+					LogCommand("glGetnUniformivARB", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -228,7 +228,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformuivARB != null, "pglGetnUniformuivARB not implemented");
 					Delegates.pglGetnUniformuivARB(program, location, (Int32)@params.Length, p_params);
-					LogFunction("glGetnUniformuivARB({0}, {1}, {2}, {3})", program, location, @params.Length, LogValue(@params));
+					LogCommand("glGetnUniformuivARB", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -254,7 +254,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnUniformdvARB != null, "pglGetnUniformdvARB not implemented");
 					Delegates.pglGetnUniformdvARB(program, location, (Int32)@params.Length, p_params);
-					LogFunction("glGetnUniformdvARB({0}, {1}, {2}, {3})", program, location, @params.Length, LogValue(@params));
+					LogCommand("glGetnUniformdvARB", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -280,7 +280,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnMapdvARB != null, "pglGetnMapdvARB not implemented");
 					Delegates.pglGetnMapdvARB(target, query, (Int32)v.Length, p_v);
-					LogFunction("glGetnMapdvARB({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(query), v.Length, LogValue(v));
+					LogCommand("glGetnMapdvARB", null, target, query, v.Length, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -306,7 +306,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnMapfvARB != null, "pglGetnMapfvARB not implemented");
 					Delegates.pglGetnMapfvARB(target, query, (Int32)v.Length, p_v);
-					LogFunction("glGetnMapfvARB({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(query), v.Length, LogValue(v));
+					LogCommand("glGetnMapfvARB", null, target, query, v.Length, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -332,7 +332,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnMapivARB != null, "pglGetnMapivARB not implemented");
 					Delegates.pglGetnMapivARB(target, query, (Int32)v.Length, p_v);
-					LogFunction("glGetnMapivARB({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(query), v.Length, LogValue(v));
+					LogCommand("glGetnMapivARB", null, target, query, v.Length, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -355,7 +355,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapfvARB != null, "pglGetnPixelMapfvARB not implemented");
 					Delegates.pglGetnPixelMapfvARB(map, (Int32)values.Length, p_values);
-					LogFunction("glGetnPixelMapfvARB({0}, {1}, {2})", LogEnumName(map), values.Length, LogValue(values));
+					LogCommand("glGetnPixelMapfvARB", null, map, values.Length, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -378,7 +378,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapuivARB != null, "pglGetnPixelMapuivARB not implemented");
 					Delegates.pglGetnPixelMapuivARB(map, (Int32)values.Length, p_values);
-					LogFunction("glGetnPixelMapuivARB({0}, {1}, {2})", LogEnumName(map), values.Length, LogValue(values));
+					LogCommand("glGetnPixelMapuivARB", null, map, values.Length, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -401,7 +401,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapusvARB != null, "pglGetnPixelMapusvARB not implemented");
 					Delegates.pglGetnPixelMapusvARB(map, (Int32)values.Length, p_values);
-					LogFunction("glGetnPixelMapusvARB({0}, {1}, {2})", LogEnumName(map), values.Length, LogValue(values));
+					LogCommand("glGetnPixelMapusvARB", null, map, values.Length, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -421,7 +421,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetnPolygonStippleARB != null, "pglGetnPolygonStippleARB not implemented");
 					Delegates.pglGetnPolygonStippleARB((Int32)pattern.Length, p_pattern);
-					LogFunction("glGetnPolygonStippleARB({0}, {1})", pattern.Length, LogValue(pattern));
+					LogCommand("glGetnPolygonStippleARB", null, pattern.Length, pattern					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -450,7 +450,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnColorTableARB != null, "pglGetnColorTableARB not implemented");
 			Delegates.pglGetnColorTableARB(target, format, type, bufSize, table);
-			LogFunction("glGetnColorTableARB({0}, {1}, {2}, {3}, 0x{4})", LogEnumName(target), LogEnumName(format), LogEnumName(type), bufSize, table.ToString("X8"));
+			LogCommand("glGetnColorTableARB", null, target, format, type, bufSize, table			);
 			DebugCheckErrors(null);
 		}
 
@@ -506,7 +506,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilterARB != null, "pglGetnConvolutionFilterARB not implemented");
 			Delegates.pglGetnConvolutionFilterARB(target, format, type, bufSize, image);
-			LogFunction("glGetnConvolutionFilterARB({0}, {1}, {2}, {3}, 0x{4})", LogEnumName(target), LogEnumName(format), LogEnumName(type), bufSize, image.ToString("X8"));
+			LogCommand("glGetnConvolutionFilterARB", null, target, format, type, bufSize, image			);
 			DebugCheckErrors(null);
 		}
 
@@ -571,7 +571,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilterARB != null, "pglGetnSeparableFilterARB not implemented");
 			Delegates.pglGetnSeparableFilterARB(target, format, type, rowBufSize, row, columnBufSize, column, span);
-			LogFunction("glGetnSeparableFilterARB({0}, {1}, {2}, {3}, 0x{4}, {5}, 0x{6}, 0x{7})", LogEnumName(target), LogEnumName(format), LogEnumName(type), rowBufSize, row.ToString("X8"), columnBufSize, column.ToString("X8"), span.ToString("X8"));
+			LogCommand("glGetnSeparableFilterARB", null, target, format, type, rowBufSize, row, columnBufSize, column, span			);
 			DebugCheckErrors(null);
 		}
 
@@ -643,7 +643,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnHistogramARB != null, "pglGetnHistogramARB not implemented");
 			Delegates.pglGetnHistogramARB(target, reset, format, type, bufSize, values);
-			LogFunction("glGetnHistogramARB({0}, {1}, {2}, {3}, {4}, 0x{5})", LogEnumName(target), reset, LogEnumName(format), LogEnumName(type), bufSize, values.ToString("X8"));
+			LogCommand("glGetnHistogramARB", null, target, reset, format, type, bufSize, values			);
 			DebugCheckErrors(null);
 		}
 
@@ -705,7 +705,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnMinmaxARB != null, "pglGetnMinmaxARB not implemented");
 			Delegates.pglGetnMinmaxARB(target, reset, format, type, bufSize, values);
-			LogFunction("glGetnMinmaxARB({0}, {1}, {2}, {3}, {4}, 0x{5})", LogEnumName(target), reset, LogEnumName(format), LogEnumName(type), bufSize, values.ToString("X8"));
+			LogCommand("glGetnMinmaxARB", null, target, reset, format, type, bufSize, values			);
 			DebugCheckErrors(null);
 		}
 

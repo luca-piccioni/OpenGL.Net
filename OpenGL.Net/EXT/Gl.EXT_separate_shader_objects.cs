@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUseShaderProgramEXT != null, "pglUseShaderProgramEXT not implemented");
 			Delegates.pglUseShaderProgramEXT(type, program);
-			LogFunction("glUseShaderProgramEXT({0}, {1})", LogEnumName(type), program);
+			LogCommand("glUseShaderProgramEXT", null, type, program			);
 			DebugCheckErrors(null);
 		}
 
@@ -57,7 +57,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglActiveProgramEXT != null, "pglActiveProgramEXT not implemented");
 			Delegates.pglActiveProgramEXT(program);
-			LogFunction("glActiveProgramEXT({0})", program);
+			LogCommand("glActiveProgramEXT", null, program			);
 			DebugCheckErrors(null);
 		}
 
@@ -77,7 +77,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCreateShaderProgramEXT != null, "pglCreateShaderProgramEXT not implemented");
 			retValue = Delegates.pglCreateShaderProgramEXT(type, @string);
-			LogFunction("glCreateShaderProgramEXT({0}, {1}) = {2}", LogEnumName(type), @string, retValue);
+			LogCommand("glCreateShaderProgramEXT", retValue, type, @string			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -97,7 +97,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglActiveShaderProgramEXT != null, "pglActiveShaderProgramEXT not implemented");
 			Delegates.pglActiveShaderProgramEXT(pipeline, program);
-			LogFunction("glActiveShaderProgramEXT({0}, {1})", pipeline, program);
+			LogCommand("glActiveShaderProgramEXT", null, pipeline, program			);
 			DebugCheckErrors(null);
 		}
 
@@ -112,7 +112,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindProgramPipelineEXT != null, "pglBindProgramPipelineEXT not implemented");
 			Delegates.pglBindProgramPipelineEXT(pipeline);
-			LogFunction("glBindProgramPipelineEXT({0})", pipeline);
+			LogCommand("glBindProgramPipelineEXT", null, pipeline			);
 			DebugCheckErrors(null);
 		}
 
@@ -132,7 +132,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
 			retValue = Delegates.pglCreateShaderProgramvEXT(type, (Int32)strings.Length, strings);
-			LogFunction("glCreateShaderProgramvEXT({0}, {1}, {2}) = {3}", LogEnumName(type), strings.Length, LogValue(strings), retValue);
+			LogCommand("glCreateShaderProgramvEXT", retValue, type, strings.Length, strings			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -152,7 +152,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteProgramPipelinesEXT != null, "pglDeleteProgramPipelinesEXT not implemented");
 					Delegates.pglDeleteProgramPipelinesEXT((Int32)pipelines.Length, p_pipelines);
-					LogFunction("glDeleteProgramPipelinesEXT({0}, {1})", pipelines.Length, LogValue(pipelines));
+					LogCommand("glDeleteProgramPipelinesEXT", null, pipelines.Length, pipelines					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -172,7 +172,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenProgramPipelinesEXT != null, "pglGenProgramPipelinesEXT not implemented");
 					Delegates.pglGenProgramPipelinesEXT((Int32)pipelines.Length, p_pipelines);
-					LogFunction("glGenProgramPipelinesEXT({0}, {1})", pipelines.Length, LogValue(pipelines));
+					LogCommand("glGenProgramPipelinesEXT", null, pipelines.Length, pipelines					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -212,7 +212,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineInfoLogEXT != null, "pglGetProgramPipelineInfoLogEXT not implemented");
 					Delegates.pglGetProgramPipelineInfoLogEXT(pipeline, bufSize, p_length, infoLog);
-					LogFunction("glGetProgramPipelineInfoLogEXT({0}, {1}, {2}, {3})", pipeline, bufSize, length, infoLog);
+					LogCommand("glGetProgramPipelineInfoLogEXT", null, pipeline, bufSize, length, infoLog					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -238,7 +238,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineivEXT != null, "pglGetProgramPipelineivEXT not implemented");
 					Delegates.pglGetProgramPipelineivEXT(pipeline, pname, p_params);
-					LogFunction("glGetProgramPipelineivEXT({0}, {1}, {2})", pipeline, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetProgramPipelineivEXT", null, pipeline, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -257,7 +257,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsProgramPipelineEXT != null, "pglIsProgramPipelineEXT not implemented");
 			retValue = Delegates.pglIsProgramPipelineEXT(pipeline);
-			LogFunction("glIsProgramPipelineEXT({0}) = {1}", pipeline, retValue);
+			LogCommand("glIsProgramPipelineEXT", retValue, pipeline			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -280,7 +280,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUseProgramStagesEXT != null, "pglUseProgramStagesEXT not implemented");
 			Delegates.pglUseProgramStagesEXT(pipeline, stages, program);
-			LogFunction("glUseProgramStagesEXT({0}, {1}, {2})", pipeline, stages, program);
+			LogCommand("glUseProgramStagesEXT", null, pipeline, stages, program			);
 			DebugCheckErrors(null);
 		}
 
@@ -295,7 +295,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglValidateProgramPipelineEXT != null, "pglValidateProgramPipelineEXT not implemented");
 			Delegates.pglValidateProgramPipelineEXT(pipeline);
-			LogFunction("glValidateProgramPipelineEXT({0})", pipeline);
+			LogCommand("glValidateProgramPipelineEXT", null, pipeline			);
 			DebugCheckErrors(null);
 		}
 

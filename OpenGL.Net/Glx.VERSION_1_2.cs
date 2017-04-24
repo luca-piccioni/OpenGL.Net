@@ -42,7 +42,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentDisplay != null, "pglXGetCurrentDisplay not implemented");
 			retValue = Delegates.pglXGetCurrentDisplay();
-			LogFunction("glXGetCurrentDisplay() = {0}", retValue.ToString("X8"));
+			LogCommand("glXGetCurrentDisplay", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexGenfOES != null, "pglTexGenfOES not implemented");
 			Delegates.pglTexGenfOES(coord, pname, param);
-			LogFunction("glTexGenfOES({0}, {1}, {2})", LogEnumName(coord), LogEnumName(pname), param);
+			LogCommand("glTexGenfOES", null, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -75,7 +75,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexGenfvOES != null, "pglTexGenfvOES not implemented");
 					Delegates.pglTexGenfvOES(coord, pname, p_params);
-					LogFunction("glTexGenfvOES({0}, {1}, {2})", LogEnumName(coord), LogEnumName(pname), LogValue(@params));
+					LogCommand("glTexGenfvOES", null, coord, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -98,7 +98,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexGeniOES != null, "pglTexGeniOES not implemented");
 			Delegates.pglTexGeniOES(coord, pname, param);
-			LogFunction("glTexGeniOES({0}, {1}, {2})", LogEnumName(coord), LogEnumName(pname), param);
+			LogCommand("glTexGeniOES", null, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -122,7 +122,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexGenivOES != null, "pglTexGenivOES not implemented");
 					Delegates.pglTexGenivOES(coord, pname, p_params);
-					LogFunction("glTexGenivOES({0}, {1}, {2})", LogEnumName(coord), LogEnumName(pname), LogValue(@params));
+					LogCommand("glTexGenivOES", null, coord, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -148,7 +148,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexGenfvOES != null, "pglGetTexGenfvOES not implemented");
 					Delegates.pglGetTexGenfvOES(coord, pname, p_params);
-					LogFunction("glGetTexGenfvOES({0}, {1}, {2})", LogEnumName(coord), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetTexGenfvOES", null, coord, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -174,7 +174,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexGenivOES != null, "pglGetTexGenivOES not implemented");
 					Delegates.pglGetTexGenivOES(coord, pname, p_params);
-					LogFunction("glGetTexGenivOES({0}, {1}, {2})", LogEnumName(coord), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetTexGenivOES", null, coord, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -276,7 +276,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglCopyContext != null, "pwglCopyContext not implemented");
 			retValue = Delegates.pwglCopyContext(hglrcSrc, hglrcDst, mask);
-			LogFunction("wglCopyContext(0x{0}, 0x{1}, {2}) = {3}", hglrcSrc.ToString("X8"), hglrcDst.ToString("X8"), mask, retValue);
+			LogCommand("wglCopyContext", retValue, hglrcSrc, hglrcDst, mask			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -295,7 +295,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglCreateContext != null, "pwglCreateContext not implemented");
 			retValue = Delegates.pwglCreateContext(hDc);
-			LogFunction("wglCreateContext(0x{0}) = {1}", hDc.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("wglCreateContext", retValue, hDc			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -317,7 +317,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglCreateLayerContext != null, "pwglCreateLayerContext not implemented");
 			retValue = Delegates.pwglCreateLayerContext(hDc, level);
-			LogFunction("wglCreateLayerContext(0x{0}, {1}) = {2}", hDc.ToString("X8"), level, retValue.ToString("X8"));
+			LogCommand("wglCreateLayerContext", retValue, hDc, level			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -336,7 +336,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDeleteContext != null, "pwglDeleteContext not implemented");
 			retValue = Delegates.pwglDeleteContext(oldContext);
-			LogFunction("wglDeleteContext(0x{0}) = {1}", oldContext.ToString("X8"), retValue);
+			LogCommand("wglDeleteContext", retValue, oldContext			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -370,7 +370,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglDescribeLayerPlane != null, "pwglDescribeLayerPlane not implemented");
 					retValue = Delegates.pwglDescribeLayerPlane(hDc, pixelFormat, layerPlane, nBytes, p_plpd);
-					LogFunction("wglDescribeLayerPlane(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDc.ToString("X8"), pixelFormat, layerPlane, nBytes, LogValue(plpd), retValue);
+					LogCommand("wglDescribeLayerPlane", retValue, hDc, pixelFormat, layerPlane, nBytes, plpd					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -388,7 +388,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetCurrentContext != null, "pwglGetCurrentContext not implemented");
 			retValue = Delegates.pwglGetCurrentContext();
-			LogFunction("wglGetCurrentContext() = {0}", retValue.ToString("X8"));
+			LogCommand("wglGetCurrentContext", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -404,7 +404,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetCurrentDC != null, "pwglGetCurrentDC not implemented");
 			retValue = Delegates.pwglGetCurrentDC();
-			LogFunction("wglGetCurrentDC() = {0}", retValue.ToString("X8"));
+			LogCommand("wglGetCurrentDC", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -435,7 +435,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetLayerPaletteEntries != null, "pwglGetLayerPaletteEntries not implemented");
 			retValue = Delegates.pwglGetLayerPaletteEntries(hdc, iLayerPlane, iStart, cEntries, pcr);
-			LogFunction("wglGetLayerPaletteEntries(0x{0}, {1}, {2}, {3}, 0x{4}) = {5}", hdc.ToString("X8"), iLayerPlane, iStart, cEntries, pcr.ToString("X8"), retValue);
+			LogCommand("wglGetLayerPaletteEntries", retValue, hdc, iLayerPlane, iStart, cEntries, pcr			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -454,7 +454,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetProcAddress != null, "pwglGetProcAddress not implemented");
 			retValue = Delegates.pwglGetProcAddress(lpszProc);
-			LogFunction("wglGetProcAddress({0}) = {1}", lpszProc, retValue.ToString("X8"));
+			LogCommand("wglGetProcAddress", retValue, lpszProc			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -476,7 +476,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglMakeCurrent != null, "pwglMakeCurrent not implemented");
 			retValue = Delegates.pwglMakeCurrent(hDc, newContext);
-			LogFunction("wglMakeCurrent(0x{0}, 0x{1}) = {2}", hDc.ToString("X8"), newContext.ToString("X8"), retValue);
+			LogCommand("wglMakeCurrent", retValue, hDc, newContext			);
 
 			return (retValue);
 		}
@@ -500,7 +500,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglRealizeLayerPalette != null, "pwglRealizeLayerPalette not implemented");
 			retValue = Delegates.pwglRealizeLayerPalette(hdc, iLayerPlane, bRealize);
-			LogFunction("wglRealizeLayerPalette(0x{0}, {1}, {2}) = {3}", hdc.ToString("X8"), iLayerPlane, bRealize, retValue);
+			LogCommand("wglRealizeLayerPalette", retValue, hdc, iLayerPlane, bRealize			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -531,7 +531,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglSetLayerPaletteEntries != null, "pwglSetLayerPaletteEntries not implemented");
 			retValue = Delegates.pwglSetLayerPaletteEntries(hdc, iLayerPlane, iStart, cEntries, pcr);
-			LogFunction("wglSetLayerPaletteEntries(0x{0}, {1}, {2}, {3}, 0x{4}) = {5}", hdc.ToString("X8"), iLayerPlane, iStart, cEntries, pcr.ToString("X8"), retValue);
+			LogCommand("wglSetLayerPaletteEntries", retValue, hdc, iLayerPlane, iStart, cEntries, pcr			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -553,7 +553,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglShareLists != null, "pwglShareLists not implemented");
 			retValue = Delegates.pwglShareLists(hrcSrvShare, hrcSrvSource);
-			LogFunction("wglShareLists(0x{0}, 0x{1}) = {2}", hrcSrvShare.ToString("X8"), hrcSrvSource.ToString("X8"), retValue);
+			LogCommand("wglShareLists", retValue, hrcSrvShare, hrcSrvSource			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -575,7 +575,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglSwapLayerBuffers != null, "pwglSwapLayerBuffers not implemented");
 			retValue = Delegates.pwglSwapLayerBuffers(hdc, fuFlags);
-			LogFunction("wglSwapLayerBuffers(0x{0}, {1}) = {2}", hdc.ToString("X8"), fuFlags, retValue);
+			LogCommand("wglSwapLayerBuffers", retValue, hdc, fuFlags			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -603,7 +603,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglUseFontBitmaps != null, "pwglUseFontBitmaps not implemented");
 			retValue = Delegates.pwglUseFontBitmaps(hDC, first, count, listBase);
-			LogFunction("wglUseFontBitmaps(0x{0}, {1}, {2}, {3}) = {4}", hDC.ToString("X8"), first, count, listBase, retValue);
+			LogCommand("wglUseFontBitmaps", retValue, hDC, first, count, listBase			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -631,7 +631,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglUseFontBitmapsA != null, "pwglUseFontBitmapsA not implemented");
 			retValue = Delegates.pwglUseFontBitmapsA(hDC, first, count, listBase);
-			LogFunction("wglUseFontBitmapsA(0x{0}, {1}, {2}, {3}) = {4}", hDC.ToString("X8"), first, count, listBase, retValue);
+			LogCommand("wglUseFontBitmapsA", retValue, hDC, first, count, listBase			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -659,7 +659,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglUseFontBitmapsW != null, "pwglUseFontBitmapsW not implemented");
 			retValue = Delegates.pwglUseFontBitmapsW(hDC, first, count, listBase);
-			LogFunction("wglUseFontBitmapsW(0x{0}, {1}, {2}, {3}) = {4}", hDC.ToString("X8"), first, count, listBase, retValue);
+			LogCommand("wglUseFontBitmapsW", retValue, hDC, first, count, listBase			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -699,7 +699,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglUseFontOutlines != null, "pwglUseFontOutlines not implemented");
 			retValue = Delegates.pwglUseFontOutlines(hDC, first, count, listBase, deviation, extrusion, format, lpgmf);
-			LogFunction("wglUseFontOutlines(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7}) = {8}", hDC.ToString("X8"), first, count, listBase, deviation, extrusion, format, lpgmf.ToString("X8"), retValue);
+			LogCommand("wglUseFontOutlines", retValue, hDC, first, count, listBase, deviation, extrusion, format, lpgmf			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -739,7 +739,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglUseFontOutlinesA != null, "pwglUseFontOutlinesA not implemented");
 			retValue = Delegates.pwglUseFontOutlinesA(hDC, first, count, listBase, deviation, extrusion, format, lpgmf);
-			LogFunction("wglUseFontOutlinesA(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7}) = {8}", hDC.ToString("X8"), first, count, listBase, deviation, extrusion, format, lpgmf.ToString("X8"), retValue);
+			LogCommand("wglUseFontOutlinesA", retValue, hDC, first, count, listBase, deviation, extrusion, format, lpgmf			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -779,7 +779,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglUseFontOutlinesW != null, "pwglUseFontOutlinesW not implemented");
 			retValue = Delegates.pwglUseFontOutlinesW(hDC, first, count, listBase, deviation, extrusion, format, lpgmf);
-			LogFunction("wglUseFontOutlinesW(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7}) = {8}", hDC.ToString("X8"), first, count, listBase, deviation, extrusion, format, lpgmf.ToString("X8"), retValue);
+			LogCommand("wglUseFontOutlinesW", retValue, hDC, first, count, listBase, deviation, extrusion, format, lpgmf			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

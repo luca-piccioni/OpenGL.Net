@@ -69,7 +69,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramSubroutineParametersuivNV != null, "pglProgramSubroutineParametersuivNV not implemented");
 					Delegates.pglProgramSubroutineParametersuivNV(target, (Int32)@params.Length, p_params);
-					LogFunction("glProgramSubroutineParametersuivNV({0}, {1}, {2})", LogEnumName(target), @params.Length, LogValue(@params));
+					LogCommand("glProgramSubroutineParametersuivNV", null, target, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -95,7 +95,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramSubroutineParameteruivNV != null, "pglGetProgramSubroutineParameteruivNV not implemented");
 					Delegates.pglGetProgramSubroutineParameteruivNV(target, index, p_param);
-					LogFunction("glGetProgramSubroutineParameteruivNV({0}, {1}, {2})", LogEnumName(target), index, LogValue(param));
+					LogCommand("glGetProgramSubroutineParameteruivNV", null, target, index, param					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -55,7 +55,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSetMultisamplefvAMD != null, "pglSetMultisamplefvAMD not implemented");
 					Delegates.pglSetMultisamplefvAMD(pname, index, p_val);
-					LogFunction("glSetMultisamplefvAMD({0}, {1}, {2})", LogEnumName(pname), index, LogValue(val));
+					LogCommand("glSetMultisamplefvAMD", null, pname, index, val					);
 				}
 			}
 			DebugCheckErrors(null);

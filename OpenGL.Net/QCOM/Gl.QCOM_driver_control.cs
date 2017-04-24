@@ -46,7 +46,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDriverControlsQCOM != null, "pglGetDriverControlsQCOM not implemented");
 					Delegates.pglGetDriverControlsQCOM(p_num, (Int32)driverControls.Length, p_driverControls);
-					LogFunction("glGetDriverControlsQCOM({0}, {1}, {2})", LogValue(num), driverControls.Length, LogValue(driverControls));
+					LogCommand("glGetDriverControlsQCOM", null, num, driverControls.Length, driverControls					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -75,7 +75,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDriverControlStringQCOM != null, "pglGetDriverControlStringQCOM not implemented");
 					Delegates.pglGetDriverControlStringQCOM(driverControl, bufSize, p_length, driverControlString);
-					LogFunction("glGetDriverControlStringQCOM({0}, {1}, {2}, {3})", driverControl, bufSize, LogValue(length), driverControlString);
+					LogCommand("glGetDriverControlStringQCOM", null, driverControl, bufSize, length, driverControlString					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -92,7 +92,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEnableDriverControlQCOM != null, "pglEnableDriverControlQCOM not implemented");
 			Delegates.pglEnableDriverControlQCOM(driverControl);
-			LogFunction("glEnableDriverControlQCOM({0})", driverControl);
+			LogCommand("glEnableDriverControlQCOM", null, driverControl			);
 			DebugCheckErrors(null);
 		}
 
@@ -107,7 +107,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDisableDriverControlQCOM != null, "pglDisableDriverControlQCOM not implemented");
 			Delegates.pglDisableDriverControlQCOM(driverControl);
-			LogFunction("glDisableDriverControlQCOM({0})", driverControl);
+			LogCommand("glDisableDriverControlQCOM", null, driverControl			);
 			DebugCheckErrors(null);
 		}
 

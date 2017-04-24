@@ -113,7 +113,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryHyperpipeNetworkSGIX != null, "pglXQueryHyperpipeNetworkSGIX not implemented");
 					retValue = Delegates.pglXQueryHyperpipeNetworkSGIX(dpy, p_npipes);
-					LogFunction("glXQueryHyperpipeNetworkSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(npipes), retValue != null ? retValue->ToString() : "(null)");
+					LogCommand("glXQueryHyperpipeNetworkSGIX", new IntPtr(retValue), dpy, npipes					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -149,7 +149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXHyperpipeConfigSGIX != null, "pglXHyperpipeConfigSGIX not implemented");
 					retValue = Delegates.pglXHyperpipeConfigSGIX(dpy, networkId, npipes, cfg, p_hpId);
-					LogFunction("glXHyperpipeConfigSGIX(0x{0}, {1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), networkId, npipes, cfg.ToString("X8"), LogValue(hpId), retValue);
+					LogCommand("glXHyperpipeConfigSGIX", retValue, dpy, networkId, npipes, cfg, hpId					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -179,7 +179,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryHyperpipeConfigSGIX != null, "pglXQueryHyperpipeConfigSGIX not implemented");
 					retValue = Delegates.pglXQueryHyperpipeConfigSGIX(dpy, hpId, p_npipes);
-					LogFunction("glXQueryHyperpipeConfigSGIX(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), hpId, LogValue(npipes), retValue.ToString("X8"));
+					LogCommand("glXQueryHyperpipeConfigSGIX", retValue, dpy, hpId, npipes					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -203,7 +203,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXDestroyHyperpipeConfigSGIX != null, "pglXDestroyHyperpipeConfigSGIX not implemented");
 			retValue = Delegates.pglXDestroyHyperpipeConfigSGIX(dpy, hpId);
-			LogFunction("glXDestroyHyperpipeConfigSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), hpId, retValue);
+			LogCommand("glXDestroyHyperpipeConfigSGIX", retValue, dpy, hpId			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -225,7 +225,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXBindHyperpipeSGIX != null, "pglXBindHyperpipeSGIX not implemented");
 			retValue = Delegates.pglXBindHyperpipeSGIX(dpy, hpId);
-			LogFunction("glXBindHyperpipeSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), hpId, retValue);
+			LogCommand("glXBindHyperpipeSGIX", retValue, dpy, hpId			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryHyperpipeBestAttribSGIX != null, "pglXQueryHyperpipeBestAttribSGIX not implemented");
 			retValue = Delegates.pglXQueryHyperpipeBestAttribSGIX(dpy, timeSlice, attrib, size, attribList, returnAttribList);
-			LogFunction("glXQueryHyperpipeBestAttribSGIX(0x{0}, {1}, {2}, {3}, 0x{4}, 0x{5}) = {6}", dpy.ToString("X8"), timeSlice, attrib, size, attribList.ToString("X8"), returnAttribList.ToString("X8"), retValue);
+			LogCommand("glXQueryHyperpipeBestAttribSGIX", retValue, dpy, timeSlice, attrib, size, attribList, returnAttribList			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -290,7 +290,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXHyperpipeAttribSGIX != null, "pglXHyperpipeAttribSGIX not implemented");
 			retValue = Delegates.pglXHyperpipeAttribSGIX(dpy, timeSlice, attrib, size, attribList);
-			LogFunction("glXHyperpipeAttribSGIX(0x{0}, {1}, {2}, {3}, 0x{4}) = {5}", dpy.ToString("X8"), timeSlice, attrib, size, attribList.ToString("X8"), retValue);
+			LogCommand("glXHyperpipeAttribSGIX", retValue, dpy, timeSlice, attrib, size, attribList			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -321,7 +321,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryHyperpipeAttribSGIX != null, "pglXQueryHyperpipeAttribSGIX not implemented");
 			retValue = Delegates.pglXQueryHyperpipeAttribSGIX(dpy, timeSlice, attrib, size, returnAttribList);
-			LogFunction("glXQueryHyperpipeAttribSGIX(0x{0}, {1}, {2}, {3}, 0x{4}) = {5}", dpy.ToString("X8"), timeSlice, attrib, size, returnAttribList.ToString("X8"), retValue);
+			LogCommand("glXQueryHyperpipeAttribSGIX", retValue, dpy, timeSlice, attrib, size, returnAttribList			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

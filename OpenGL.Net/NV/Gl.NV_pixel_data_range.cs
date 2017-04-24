@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelDataRangeNV != null, "pglPixelDataRangeNV not implemented");
 			Delegates.pglPixelDataRangeNV(target, length, pointer);
-			LogFunction("glPixelDataRangeNV({0}, {1}, 0x{2})", LogEnumName(target), length, pointer.ToString("X8"));
+			LogCommand("glPixelDataRangeNV", null, target, length, pointer			);
 			DebugCheckErrors(null);
 		}
 
@@ -119,7 +119,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFlushPixelDataRangeNV != null, "pglFlushPixelDataRangeNV not implemented");
 			Delegates.pglFlushPixelDataRangeNV(target);
-			LogFunction("glFlushPixelDataRangeNV({0})", LogEnumName(target));
+			LogCommand("glFlushPixelDataRangeNV", null, target			);
 			DebugCheckErrors(null);
 		}
 

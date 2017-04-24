@@ -213,7 +213,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBeginVideoCaptureNV != null, "pglBeginVideoCaptureNV not implemented");
 			Delegates.pglBeginVideoCaptureNV(video_capture_slot);
-			LogFunction("glBeginVideoCaptureNV({0})", video_capture_slot);
+			LogCommand("glBeginVideoCaptureNV", null, video_capture_slot			);
 			DebugCheckErrors(null);
 		}
 
@@ -237,7 +237,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindVideoCaptureStreamBufferNV != null, "pglBindVideoCaptureStreamBufferNV not implemented");
 			Delegates.pglBindVideoCaptureStreamBufferNV(video_capture_slot, stream, frame_region, offset);
-			LogFunction("glBindVideoCaptureStreamBufferNV({0}, {1}, {2}, 0x{3})", video_capture_slot, stream, LogEnumName(frame_region), offset.ToString("X8"));
+			LogCommand("glBindVideoCaptureStreamBufferNV", null, video_capture_slot, stream, frame_region, offset			);
 			DebugCheckErrors(null);
 		}
 
@@ -264,7 +264,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindVideoCaptureStreamTextureNV != null, "pglBindVideoCaptureStreamTextureNV not implemented");
 			Delegates.pglBindVideoCaptureStreamTextureNV(video_capture_slot, stream, frame_region, target, texture);
-			LogFunction("glBindVideoCaptureStreamTextureNV({0}, {1}, {2}, {3}, {4})", video_capture_slot, stream, LogEnumName(frame_region), LogEnumName(target), texture);
+			LogCommand("glBindVideoCaptureStreamTextureNV", null, video_capture_slot, stream, frame_region, target, texture			);
 			DebugCheckErrors(null);
 		}
 
@@ -279,7 +279,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEndVideoCaptureNV != null, "pglEndVideoCaptureNV not implemented");
 			Delegates.pglEndVideoCaptureNV(video_capture_slot);
-			LogFunction("glEndVideoCaptureNV({0})", video_capture_slot);
+			LogCommand("glEndVideoCaptureNV", null, video_capture_slot			);
 			DebugCheckErrors(null);
 		}
 
@@ -303,7 +303,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureivNV != null, "pglGetVideoCaptureivNV not implemented");
 					Delegates.pglGetVideoCaptureivNV(video_capture_slot, pname, p_params);
-					LogFunction("glGetVideoCaptureivNV({0}, {1}, {2})", video_capture_slot, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetVideoCaptureivNV", null, video_capture_slot, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -332,7 +332,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureStreamivNV != null, "pglGetVideoCaptureStreamivNV not implemented");
 					Delegates.pglGetVideoCaptureStreamivNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glGetVideoCaptureStreamivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetVideoCaptureStreamivNV", null, video_capture_slot, stream, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -361,7 +361,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureStreamfvNV != null, "pglGetVideoCaptureStreamfvNV not implemented");
 					Delegates.pglGetVideoCaptureStreamfvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glGetVideoCaptureStreamfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetVideoCaptureStreamfvNV", null, video_capture_slot, stream, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -390,7 +390,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVideoCaptureStreamdvNV != null, "pglGetVideoCaptureStreamdvNV not implemented");
 					Delegates.pglGetVideoCaptureStreamdvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glGetVideoCaptureStreamdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetVideoCaptureStreamdvNV", null, video_capture_slot, stream, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -419,7 +419,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureNV != null, "pglVideoCaptureNV not implemented");
 					retValue = Delegates.pglVideoCaptureNV(video_capture_slot, p_sequence_num, p_capture_time);
-					LogFunction("glVideoCaptureNV({0}, {1}, {2}) = {3}", video_capture_slot, LogValue(sequence_num), LogValue(capture_time), retValue);
+					LogCommand("glVideoCaptureNV", retValue, video_capture_slot, sequence_num, capture_time					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -450,7 +450,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureStreamParameterivNV != null, "pglVideoCaptureStreamParameterivNV not implemented");
 					Delegates.pglVideoCaptureStreamParameterivNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glVideoCaptureStreamParameterivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
+					LogCommand("glVideoCaptureStreamParameterivNV", null, video_capture_slot, stream, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -479,7 +479,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureStreamParameterfvNV != null, "pglVideoCaptureStreamParameterfvNV not implemented");
 					Delegates.pglVideoCaptureStreamParameterfvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glVideoCaptureStreamParameterfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
+					LogCommand("glVideoCaptureStreamParameterfvNV", null, video_capture_slot, stream, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -508,7 +508,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVideoCaptureStreamParameterdvNV != null, "pglVideoCaptureStreamParameterdvNV not implemented");
 					Delegates.pglVideoCaptureStreamParameterdvNV(video_capture_slot, stream, pname, p_params);
-					LogFunction("glVideoCaptureStreamParameterdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, LogEnumName(pname), LogValue(@params));
+					LogCommand("glVideoCaptureStreamParameterdvNV", null, video_capture_slot, stream, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

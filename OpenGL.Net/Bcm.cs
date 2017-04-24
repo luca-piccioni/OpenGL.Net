@@ -324,14 +324,14 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pbcm_host_init != null, "pbcm_host_init not implemented");
 			Delegates.pbcm_host_init();
-			LogFunction("bcm_host_init()");
+			LogCommand("bcm_host_init", null);
 		}
 
 		public static void bcm_host_deinit()
 		{
 			Debug.Assert(Delegates.pbcm_host_deinit != null, "pbcm_host_deinit not implemented");
 			Delegates.pbcm_host_deinit();
-			LogFunction("bcm_host_deinit()");
+			LogCommand("bcm_host_deinit", null);
 		}
 
 		public static int graphics_get_display_size(Int16 display_number, out Int32 width, out Int32 height)
@@ -340,7 +340,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pgraphics_get_display_size != null, "pgraphics_get_display_size not implemented");
 			retvalue = Delegates.pgraphics_get_display_size(display_number, out width, out height);
-			LogFunction("graphics_get_display_size({0}, {1}, {2}) = {3}", display_number, width, height, retvalue);
+			LogCommand("graphics_get_display_size", retvalue, display_number, width, height);
 
 			return (retvalue);
 		}
@@ -351,7 +351,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_display_open != null, "vc_dispmanx_display_open not implemented");
 			retvalue = Delegates.pvc_dispmanx_display_open(device);
-			LogFunction("vc_dispmanx_display_open({0}) = 0x{1:X8}", device, retvalue);
+			LogCommand("vc_dispmanx_display_open", retvalue, device);
 
 			return (retvalue);
 		}
@@ -362,7 +362,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_display_close != null, "vc_dispmanx_display_close not implemented");
 			retvalue = Delegates.pvc_dispmanx_display_close(display);
-			LogFunction("vc_dispmanx_display_close(0x{0:X8}) = {1}", display, retvalue);
+			LogCommand("vc_dispmanx_display_close", retvalue, display);
 
 			return (retvalue);
 		}
@@ -373,7 +373,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_update_start != null, "vc_dispmanx_update_start not implemented");
 			retvalue = Delegates.pvc_dispmanx_update_start(priority);
-			LogFunction("vc_dispmanx_update_start({0}) = 0x{1}", priority, retvalue.ToString("X8"));
+			LogCommand("vc_dispmanx_update_start", retvalue, priority);
 
 			return (retvalue);
 		}
@@ -383,11 +383,11 @@ namespace OpenGL
 			DISPMANX_ELEMENT_HANDLE_T retvalue;
 
 			GCHandle dest_rectHandle = GCHandle.Alloc(dest_rect, GCHandleType.Pinned);
-			GCHandle src_rectHandle = GCHandle.Alloc(dest_rect, GCHandleType.Pinned);
+			GCHandle src_rectHandle = GCHandle.Alloc(src_rect, GCHandleType.Pinned);
 			try {
 				Debug.Assert(Delegates.pvc_dispmanx_element_add != null, "vc_dispmanx_element_add not implemented");
 				retvalue = Delegates.pvc_dispmanx_element_add(update, display, layer, dest_rectHandle.AddrOfPinnedObject(), src, src_rectHandle.AddrOfPinnedObject(), protection, alpha, clamp, transform);
-				LogFunction("vc_dispmanx_element_add(0x{0:X8}, 0x{1:X8}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}) = 0x{10:X8}", update, display, layer, dest_rect, src, src_rect, protection, alpha, clamp, transform, retvalue);
+				LogCommand("vc_dispmanx_element_add", retvalue, update, display, layer, dest_rect, src, src_rect, protection, alpha, clamp, transform);
 			} finally {
 				dest_rectHandle.Free();
 				src_rectHandle.Free();
@@ -402,7 +402,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_element_remove != null, "vc_dispmanx_element_remove not implemented");
 			retvalue = Delegates.pvc_dispmanx_element_remove(update, element);
-			LogFunction("vc_dispmanx_element_remove(0x{0:X8}, 0x{1:X8}) = {2}", update, element, retvalue);
+			LogCommand("vc_dispmanx_element_remove", retvalue, update, element);
 			
 			return (retvalue);
 		}
@@ -413,7 +413,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pvc_dispmanx_update_submit_sync != null, "vc_dispmanx_update_submit_sync not implemented");
 			retvalue = Delegates.pvc_dispmanx_update_submit_sync(update);
-			LogFunction("vc_dispmanx_update_submit_sync(0x{0:X8}) = {1}", update, retvalue);
+			LogCommand("vc_dispmanx_update_submit_sync", retvalue, update);
 
 			return (retvalue);
 		}

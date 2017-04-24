@@ -101,7 +101,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateStreamKHR != null, "peglCreateStreamKHR not implemented");
 					retValue = Delegates.peglCreateStreamKHR(dpy, p_attrib_list);
-					LogFunction("eglCreateStreamKHR(0x{0}, {1}) = {2}", dpy.ToString("X8"), LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreateStreamKHR", retValue, dpy, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -125,7 +125,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglDestroyStreamKHR != null, "peglDestroyStreamKHR not implemented");
 			retValue = Delegates.peglDestroyStreamKHR(dpy, stream);
-			LogFunction("eglDestroyStreamKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue);
+			LogCommand("eglDestroyStreamKHR", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -153,7 +153,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglStreamAttribKHR != null, "peglStreamAttribKHR not implemented");
 			retValue = Delegates.peglStreamAttribKHR(dpy, stream, attribute, value);
-			LogFunction("eglStreamAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, value, retValue);
+			LogCommand("eglStreamAttribKHR", retValue, dpy, stream, attribute, value			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -184,7 +184,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryStreamKHR != null, "peglQueryStreamKHR not implemented");
 					retValue = Delegates.peglQueryStreamKHR(dpy, stream, attribute, p_value);
-					LogFunction("eglQueryStreamKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, LogValue(value), retValue);
+					LogCommand("eglQueryStreamKHR", retValue, dpy, stream, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -217,7 +217,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryStreamu64KHR != null, "peglQueryStreamu64KHR not implemented");
 					retValue = Delegates.peglQueryStreamu64KHR(dpy, stream, attribute, p_value);
-					LogFunction("eglQueryStreamu64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, LogValue(value), retValue);
+					LogCommand("eglQueryStreamu64KHR", retValue, dpy, stream, attribute, value					);
 				}
 			}
 			DebugCheckErrors(retValue);

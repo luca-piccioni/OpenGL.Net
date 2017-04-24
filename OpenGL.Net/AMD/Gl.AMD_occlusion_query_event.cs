@@ -84,7 +84,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglQueryObjectParameteruiAMD != null, "pglQueryObjectParameteruiAMD not implemented");
 			Delegates.pglQueryObjectParameteruiAMD(target, id, pname, (UInt32)param);
-			LogFunction("glQueryObjectParameteruiAMD({0}, {1}, {2}, {3})", LogEnumName(target), id, LogEnumName(pname), param);
+			LogCommand("glQueryObjectParameteruiAMD", null, target, id, pname, param			);
 			DebugCheckErrors(null);
 		}
 

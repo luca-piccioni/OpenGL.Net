@@ -39,7 +39,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendEquationOES != null, "pglBlendEquationOES not implemented");
 			Delegates.pglBlendEquationOES(mode);
-			LogFunction("glBlendEquationOES({0})", LogEnumName(mode));
+			LogCommand("glBlendEquationOES", null, mode			);
 			DebugCheckErrors(null);
 		}
 

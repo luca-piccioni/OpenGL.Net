@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleAPPLE != null, "pglRenderbufferStorageMultisampleAPPLE not implemented");
 			Delegates.pglRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height);
-			LogFunction("glRenderbufferStorageMultisampleAPPLE({0}, {1}, {2}, {3}, {4})", LogEnumName(target), samples, LogEnumName(internalformat), width, height);
+			LogCommand("glRenderbufferStorageMultisampleAPPLE", null, target, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -63,7 +63,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglResolveMultisampleFramebufferAPPLE != null, "pglResolveMultisampleFramebufferAPPLE not implemented");
 			Delegates.pglResolveMultisampleFramebufferAPPLE();
-			LogFunction("glResolveMultisampleFramebufferAPPLE()");
+			LogCommand("glResolveMultisampleFramebufferAPPLE", null			);
 			DebugCheckErrors(null);
 		}
 

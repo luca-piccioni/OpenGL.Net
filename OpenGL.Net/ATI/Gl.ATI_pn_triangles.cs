@@ -96,7 +96,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPNTrianglesiATI != null, "pglPNTrianglesiATI not implemented");
 			Delegates.pglPNTrianglesiATI(pname, param);
-			LogFunction("glPNTrianglesiATI({0}, {1})", LogEnumName(pname), param);
+			LogCommand("glPNTrianglesiATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -114,7 +114,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPNTrianglesfATI != null, "pglPNTrianglesfATI not implemented");
 			Delegates.pglPNTrianglesfATI(pname, param);
-			LogFunction("glPNTrianglesfATI({0}, {1})", LogEnumName(pname), param);
+			LogCommand("glPNTrianglesfATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 

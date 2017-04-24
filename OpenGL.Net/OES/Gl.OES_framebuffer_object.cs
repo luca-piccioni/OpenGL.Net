@@ -41,7 +41,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsRenderbufferOES != null, "pglIsRenderbufferOES not implemented");
 			retValue = Delegates.pglIsRenderbufferOES(renderbuffer);
-			LogFunction("glIsRenderbufferOES({0}) = {1}", renderbuffer, retValue);
+			LogCommand("glIsRenderbufferOES", retValue, renderbuffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -61,7 +61,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferOES != null, "pglBindRenderbufferOES not implemented");
 			Delegates.pglBindRenderbufferOES(target, renderbuffer);
-			LogFunction("glBindRenderbufferOES({0}, {1})", LogEnumName(target), renderbuffer);
+			LogCommand("glBindRenderbufferOES", null, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
 
@@ -79,7 +79,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteRenderbuffersOES != null, "pglDeleteRenderbuffersOES not implemented");
 					Delegates.pglDeleteRenderbuffersOES((Int32)renderbuffers.Length, p_renderbuffers);
-					LogFunction("glDeleteRenderbuffersOES({0}, {1})", renderbuffers.Length, LogValue(renderbuffers));
+					LogCommand("glDeleteRenderbuffersOES", null, renderbuffers.Length, renderbuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -99,7 +99,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenRenderbuffersOES != null, "pglGenRenderbuffersOES not implemented");
 					Delegates.pglGenRenderbuffersOES((Int32)renderbuffers.Length, p_renderbuffers);
-					LogFunction("glGenRenderbuffersOES({0}, {1})", renderbuffers.Length, LogValue(renderbuffers));
+					LogCommand("glGenRenderbuffersOES", null, renderbuffers.Length, renderbuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -136,7 +136,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageOES != null, "pglRenderbufferStorageOES not implemented");
 			Delegates.pglRenderbufferStorageOES(target, internalformat, width, height);
-			LogFunction("glRenderbufferStorageOES({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(internalformat), width, height);
+			LogCommand("glRenderbufferStorageOES", null, target, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -160,7 +160,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetRenderbufferParameterivOES != null, "pglGetRenderbufferParameterivOES not implemented");
 					Delegates.pglGetRenderbufferParameterivOES(target, pname, p_params);
-					LogFunction("glGetRenderbufferParameterivOES({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetRenderbufferParameterivOES", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -179,7 +179,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsFramebufferOES != null, "pglIsFramebufferOES not implemented");
 			retValue = Delegates.pglIsFramebufferOES(framebuffer);
-			LogFunction("glIsFramebufferOES({0}) = {1}", framebuffer, retValue);
+			LogCommand("glIsFramebufferOES", retValue, framebuffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -199,7 +199,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindFramebufferOES != null, "pglBindFramebufferOES not implemented");
 			Delegates.pglBindFramebufferOES(target, framebuffer);
-			LogFunction("glBindFramebufferOES({0}, {1})", LogEnumName(target), framebuffer);
+			LogCommand("glBindFramebufferOES", null, target, framebuffer			);
 			DebugCheckErrors(null);
 		}
 
@@ -217,7 +217,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteFramebuffersOES != null, "pglDeleteFramebuffersOES not implemented");
 					Delegates.pglDeleteFramebuffersOES((Int32)framebuffers.Length, p_framebuffers);
-					LogFunction("glDeleteFramebuffersOES({0}, {1})", framebuffers.Length, LogValue(framebuffers));
+					LogCommand("glDeleteFramebuffersOES", null, framebuffers.Length, framebuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -237,7 +237,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenFramebuffersOES != null, "pglGenFramebuffersOES not implemented");
 					Delegates.pglGenFramebuffersOES((Int32)framebuffers.Length, p_framebuffers);
-					LogFunction("glGenFramebuffersOES({0}, {1})", framebuffers.Length, LogValue(framebuffers));
+					LogCommand("glGenFramebuffersOES", null, framebuffers.Length, framebuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -267,7 +267,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCheckFramebufferStatusOES != null, "pglCheckFramebufferStatusOES not implemented");
 			retValue = Delegates.pglCheckFramebufferStatusOES(target);
-			LogFunction("glCheckFramebufferStatusOES({0}) = {1}", LogEnumName(target), retValue);
+			LogCommand("glCheckFramebufferStatusOES", retValue, target			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -293,7 +293,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferRenderbufferOES != null, "pglFramebufferRenderbufferOES not implemented");
 			Delegates.pglFramebufferRenderbufferOES(target, attachment, renderbuffertarget, renderbuffer);
-			LogFunction("glFramebufferRenderbufferOES({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(attachment), LogEnumName(renderbuffertarget), renderbuffer);
+			LogCommand("glFramebufferRenderbufferOES", null, target, attachment, renderbuffertarget, renderbuffer			);
 			DebugCheckErrors(null);
 		}
 
@@ -320,7 +320,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DOES != null, "pglFramebufferTexture2DOES not implemented");
 			Delegates.pglFramebufferTexture2DOES(target, attachment, textarget, texture, level);
-			LogFunction("glFramebufferTexture2DOES({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(attachment), LogEnumName(textarget), texture, level);
+			LogCommand("glFramebufferTexture2DOES", null, target, attachment, textarget, texture, level			);
 			DebugCheckErrors(null);
 		}
 
@@ -347,7 +347,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFramebufferAttachmentParameterivOES != null, "pglGetFramebufferAttachmentParameterivOES not implemented");
 					Delegates.pglGetFramebufferAttachmentParameterivOES(target, attachment, pname, p_params);
-					LogFunction("glGetFramebufferAttachmentParameterivOES({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(attachment), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetFramebufferAttachmentParameterivOES", null, target, attachment, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -364,7 +364,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGenerateMipmapOES != null, "pglGenerateMipmapOES not implemented");
 			Delegates.pglGenerateMipmapOES(target);
-			LogFunction("glGenerateMipmapOES({0})", LogEnumName(target));
+			LogCommand("glGenerateMipmapOES", null, target			);
 			DebugCheckErrors(null);
 		}
 

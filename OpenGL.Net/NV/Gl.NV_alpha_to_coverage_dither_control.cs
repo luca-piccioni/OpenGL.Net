@@ -63,7 +63,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAlphaToCoverageDitherControlNV != null, "pglAlphaToCoverageDitherControlNV not implemented");
 			Delegates.pglAlphaToCoverageDitherControlNV(mode);
-			LogFunction("glAlphaToCoverageDitherControlNV({0})", LogEnumName(mode));
+			LogCommand("glAlphaToCoverageDitherControlNV", null, mode			);
 			DebugCheckErrors(null);
 		}
 

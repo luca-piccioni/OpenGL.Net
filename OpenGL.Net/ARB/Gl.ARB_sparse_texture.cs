@@ -155,7 +155,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexPageCommitmentARB != null, "pglTexPageCommitmentARB not implemented");
 			Delegates.pglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
-			LogFunction("glTexPageCommitmentARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", LogEnumName(target), level, xoffset, yoffset, zoffset, width, height, depth, commit);
+			LogCommand("glTexPageCommitmentARB", null, target, level, xoffset, yoffset, zoffset, width, height, depth, commit			);
 			DebugCheckErrors(null);
 		}
 

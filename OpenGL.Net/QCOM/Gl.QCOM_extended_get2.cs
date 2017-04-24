@@ -46,7 +46,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetShadersQCOM != null, "pglExtGetShadersQCOM not implemented");
 					Delegates.pglExtGetShadersQCOM(p_shaders, (Int32)shaders.Length, p_numShaders);
-					LogFunction("glExtGetShadersQCOM({0}, {1}, {2})", LogValue(shaders), shaders.Length, LogValue(numShaders));
+					LogCommand("glExtGetShadersQCOM", null, shaders, shaders.Length, numShaders					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -70,7 +70,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetProgramsQCOM != null, "pglExtGetProgramsQCOM not implemented");
 					Delegates.pglExtGetProgramsQCOM(p_programs, (Int32)programs.Length, p_numPrograms);
-					LogFunction("glExtGetProgramsQCOM({0}, {1}, {2})", LogValue(programs), programs.Length, LogValue(numPrograms));
+					LogCommand("glExtGetProgramsQCOM", null, programs, programs.Length, numPrograms					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -89,7 +89,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglExtIsProgramBinaryQCOM != null, "pglExtIsProgramBinaryQCOM not implemented");
 			retValue = Delegates.pglExtIsProgramBinaryQCOM(program);
-			LogFunction("glExtIsProgramBinaryQCOM({0}) = {1}", program, retValue);
+			LogCommand("glExtIsProgramBinaryQCOM", retValue, program			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -118,7 +118,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetProgramBinarySourceQCOM != null, "pglExtGetProgramBinarySourceQCOM not implemented");
 					Delegates.pglExtGetProgramBinarySourceQCOM(program, shadertype, source, p_length);
-					LogFunction("glExtGetProgramBinarySourceQCOM({0}, {1}, {2}, {3})", program, LogEnumName(shadertype), source, LogValue(length));
+					LogCommand("glExtGetProgramBinarySourceQCOM", null, program, shadertype, source, length					);
 				}
 			}
 			DebugCheckErrors(null);

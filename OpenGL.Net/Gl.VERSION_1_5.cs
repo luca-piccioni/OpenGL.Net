@@ -438,7 +438,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenQueries != null, "pglGenQueries not implemented");
 					Delegates.pglGenQueries((Int32)ids.Length, p_ids);
-					LogFunction("glGenQueries({0}, {1})", ids.Length, LogValue(ids));
+					LogCommand("glGenQueries", null, ids.Length, ids					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -491,7 +491,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteQueries != null, "pglDeleteQueries not implemented");
 					Delegates.pglDeleteQueries((Int32)ids.Length, p_ids);
-					LogFunction("glDeleteQueries({0}, {1})", ids.Length, LogValue(ids));
+					LogCommand("glDeleteQueries", null, ids.Length, ids					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -516,7 +516,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsQuery != null, "pglIsQuery not implemented");
 			retValue = Delegates.pglIsQuery(id);
-			LogFunction("glIsQuery({0}) = {1}", id, retValue);
+			LogCommand("glIsQuery", retValue, id			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -570,7 +570,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBeginQuery != null, "pglBeginQuery not implemented");
 			Delegates.pglBeginQuery(target, id);
-			LogFunction("glBeginQuery({0}, {1})", LogEnumName(target), id);
+			LogCommand("glBeginQuery", null, target, id			);
 			DebugCheckErrors(null);
 		}
 
@@ -619,7 +619,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEndQuery != null, "pglEndQuery not implemented");
 			Delegates.pglEndQuery(target);
-			LogFunction("glEndQuery({0})", LogEnumName(target));
+			LogCommand("glEndQuery", null, target			);
 			DebugCheckErrors(null);
 		}
 
@@ -656,7 +656,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryiv != null, "pglGetQueryiv not implemented");
 					Delegates.pglGetQueryiv(target, pname, p_params);
-					LogFunction("glGetQueryiv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetQueryiv", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -695,7 +695,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryiv != null, "pglGetQueryiv not implemented");
 					Delegates.pglGetQueryiv(target, pname, p_params);
-					LogFunction("glGetQueryiv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
+					LogCommand("glGetQueryiv", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -748,7 +748,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectiv != null, "pglGetQueryObjectiv not implemented");
 					Delegates.pglGetQueryObjectiv(id, pname, p_params);
-					LogFunction("glGetQueryObjectiv({0}, {1}, {2})", id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetQueryObjectiv", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -801,7 +801,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectiv != null, "pglGetQueryObjectiv not implemented");
 					Delegates.pglGetQueryObjectiv(id, pname, p_params);
-					LogFunction("glGetQueryObjectiv({0}, {1}, {2})", id, LogEnumName(pname), @params);
+					LogCommand("glGetQueryObjectiv", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -853,7 +853,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
 					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
-					LogFunction("glGetQueryObjectuiv({0}, {1}, {2})", id, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetQueryObjectuiv", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -905,7 +905,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
 					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
-					LogFunction("glGetQueryObjectuiv({0}, {1}, {2})", id, LogEnumName(pname), @params);
+					LogCommand("glGetQueryObjectuiv", null, id, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -947,7 +947,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindBuffer != null, "pglBindBuffer not implemented");
 			Delegates.pglBindBuffer((Int32)target, buffer);
-			LogFunction("glBindBuffer({0}, {1})", target, buffer);
+			LogCommand("glBindBuffer", null, target, buffer			);
 			DebugCheckErrors(null);
 		}
 
@@ -977,7 +977,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteBuffers != null, "pglDeleteBuffers not implemented");
 					Delegates.pglDeleteBuffers((Int32)buffers.Length, p_buffers);
-					LogFunction("glDeleteBuffers({0}, {1})", buffers.Length, LogValue(buffers));
+					LogCommand("glDeleteBuffers", null, buffers.Length, buffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1009,7 +1009,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenBuffers != null, "pglGenBuffers not implemented");
 					Delegates.pglGenBuffers((Int32)buffers.Length, p_buffers);
-					LogFunction("glGenBuffers({0}, {1})", buffers.Length, LogValue(buffers));
+					LogCommand("glGenBuffers", null, buffers.Length, buffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1059,7 +1059,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsBuffer != null, "pglIsBuffer not implemented");
 			retValue = Delegates.pglIsBuffer(buffer);
-			LogFunction("glIsBuffer({0}) = {1}", buffer, retValue);
+			LogCommand("glIsBuffer", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1122,7 +1122,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
 			Delegates.pglBufferData(target, size, data, usage);
-			LogFunction("glBufferData({0}, {1}, 0x{2}, {3})", LogEnumName(target), size, data.ToString("X8"), LogEnumName(usage));
+			LogCommand("glBufferData", null, target, size, data, usage			);
 		}
 
 		/// <summary>
@@ -1182,7 +1182,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
 			Delegates.pglBufferData((Int32)target, size, data, (Int32)usage);
-			LogFunction("glBufferData({0}, {1}, 0x{2}, {3})", target, size, data.ToString("X8"), usage);
+			LogCommand("glBufferData", null, target, size, data, usage			);
 		}
 
 		/// <summary>
@@ -1366,7 +1366,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferSubData != null, "pglBufferSubData not implemented");
 			Delegates.pglBufferSubData((Int32)target, offset, size, data);
-			LogFunction("glBufferSubData({0}, 0x{1}, {2}, 0x{3})", target, offset.ToString("X8"), size, data.ToString("X8"));
+			LogCommand("glBufferSubData", null, target, offset, size, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -1480,7 +1480,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetBufferSubData != null, "pglGetBufferSubData not implemented");
 			Delegates.pglGetBufferSubData((Int32)target, offset, size, data);
-			LogFunction("glGetBufferSubData({0}, 0x{1}, {2}, 0x{3})", target, offset.ToString("X8"), size, data.ToString("X8"));
+			LogCommand("glGetBufferSubData", null, target, offset, size, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -1593,7 +1593,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglMapBuffer != null, "pglMapBuffer not implemented");
 			retValue = Delegates.pglMapBuffer((Int32)target, (Int32)access);
-			LogFunction("glMapBuffer({0}, {1}) = {2}", target, access, retValue.ToString("X8"));
+			LogCommand("glMapBuffer", retValue, target, access			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1638,7 +1638,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglUnmapBuffer != null, "pglUnmapBuffer not implemented");
 			retValue = Delegates.pglUnmapBuffer((Int32)target);
-			LogFunction("glUnmapBuffer({0}) = {1}", target, retValue);
+			LogCommand("glUnmapBuffer", retValue, target			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1691,7 +1691,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
 					Delegates.pglGetBufferParameteriv((Int32)target, value, p_params);
-					LogFunction("glGetBufferParameteriv({0}, {1}, {2})", target, LogEnumName(value), LogValue(data));
+					LogCommand("glGetBufferParameteriv", null, target, value, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1744,7 +1744,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
 					Delegates.pglGetBufferParameteriv((Int32)target, value, p_params);
-					LogFunction("glGetBufferParameteriv({0}, {1}, {2})", target, LogEnumName(value), data);
+					LogCommand("glGetBufferParameteriv", null, target, value, data					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1791,7 +1791,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferPointerv != null, "pglGetBufferPointerv not implemented");
 					Delegates.pglGetBufferPointerv((Int32)target, pname, p_params);
-					LogFunction("glGetBufferPointerv({0}, {1}, 0x{2})", target, LogEnumName(pname), @params.ToString("X8"));
+					LogCommand("glGetBufferPointerv", null, target, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

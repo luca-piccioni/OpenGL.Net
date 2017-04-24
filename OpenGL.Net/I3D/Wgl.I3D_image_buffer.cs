@@ -61,7 +61,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglCreateImageBufferI3D != null, "pwglCreateImageBufferI3D not implemented");
 			retValue = Delegates.pwglCreateImageBufferI3D(hDC, dwSize, uFlags);
-			LogFunction("wglCreateImageBufferI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), dwSize, uFlags, retValue.ToString("X8"));
+			LogCommand("wglCreateImageBufferI3D", retValue, hDC, dwSize, uFlags			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -83,7 +83,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDestroyImageBufferI3D != null, "pwglDestroyImageBufferI3D not implemented");
 			retValue = Delegates.pwglDestroyImageBufferI3D(hDC, pAddress);
-			LogFunction("wglDestroyImageBufferI3D(0x{0}, 0x{1}) = {2}", hDC.ToString("X8"), pAddress.ToString("X8"), retValue);
+			LogCommand("wglDestroyImageBufferI3D", retValue, hDC, pAddress			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -119,7 +119,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglAssociateImageBufferEventsI3D != null, "pwglAssociateImageBufferEventsI3D not implemented");
 					retValue = Delegates.pwglAssociateImageBufferEventsI3D(hDC, p_pEvent, p_pAddress, p_pSize, count);
-					LogFunction("wglAssociateImageBufferEventsI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), LogValue(pEvent), LogValue(pAddress), LogValue(pSize), count, retValue);
+					LogCommand("wglAssociateImageBufferEventsI3D", retValue, hDC, pEvent, pAddress, pSize, count					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -149,7 +149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglReleaseImageBufferEventsI3D != null, "pwglReleaseImageBufferEventsI3D not implemented");
 					retValue = Delegates.pwglReleaseImageBufferEventsI3D(hDC, p_pAddress, count);
-					LogFunction("wglReleaseImageBufferEventsI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), LogValue(pAddress), count, retValue);
+					LogCommand("wglReleaseImageBufferEventsI3D", retValue, hDC, pAddress, count					);
 				}
 			}
 			DebugCheckErrors(retValue);

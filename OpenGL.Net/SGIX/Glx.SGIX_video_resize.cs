@@ -64,7 +64,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXBindChannelToWindowSGIX != null, "pglXBindChannelToWindowSGIX not implemented");
 			retValue = Delegates.pglXBindChannelToWindowSGIX(display, screen, channel, window);
-			LogFunction("glXBindChannelToWindowSGIX(0x{0}, {1}, {2}, 0x{3}) = {4}", display.ToString("X8"), screen, channel, window.ToString("X8"), retValue);
+			LogCommand("glXBindChannelToWindowSGIX", retValue, display, screen, channel, window			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -101,7 +101,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXChannelRectSGIX != null, "pglXChannelRectSGIX not implemented");
 			retValue = Delegates.pglXChannelRectSGIX(display, screen, channel, x, y, w, h);
-			LogFunction("glXChannelRectSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, x, y, w, h, retValue);
+			LogCommand("glXChannelRectSGIX", retValue, display, screen, channel, x, y, w, h			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -144,7 +144,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryChannelRectSGIX != null, "pglXQueryChannelRectSGIX not implemented");
 					retValue = Delegates.pglXQueryChannelRectSGIX(display, screen, channel, p_dx, p_dy, p_dw, p_dh);
-					LogFunction("glXQueryChannelRectSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, LogValue(dx), LogValue(dy), LogValue(dw), LogValue(dh), retValue);
+					LogCommand("glXQueryChannelRectSGIX", retValue, display, screen, channel, dx, dy, dw, dh					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -189,7 +189,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryChannelDeltasSGIX != null, "pglXQueryChannelDeltasSGIX not implemented");
 					retValue = Delegates.pglXQueryChannelDeltasSGIX(display, screen, channel, p_x, p_y, p_w, p_h);
-					LogFunction("glXQueryChannelDeltasSGIX(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", display.ToString("X8"), screen, channel, LogValue(x), LogValue(y), LogValue(w), LogValue(h), retValue);
+					LogCommand("glXQueryChannelDeltasSGIX", retValue, display, screen, channel, x, y, w, h					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -219,7 +219,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXChannelRectSyncSGIX != null, "pglXChannelRectSyncSGIX not implemented");
 			retValue = Delegates.pglXChannelRectSyncSGIX(display, screen, channel, synctype);
-			LogFunction("glXChannelRectSyncSGIX(0x{0}, {1}, {2}, {3}) = {4}", display.ToString("X8"), screen, channel, LogEnumName(synctype), retValue);
+			LogCommand("glXChannelRectSyncSGIX", retValue, display, screen, channel, synctype			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

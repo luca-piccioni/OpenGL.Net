@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelTexGenParameteriSGIS != null, "pglPixelTexGenParameteriSGIS not implemented");
 			Delegates.pglPixelTexGenParameteriSGIS((Int32)pname, param);
-			LogFunction("glPixelTexGenParameteriSGIS({0}, {1})", pname, param);
+			LogCommand("glPixelTexGenParameteriSGIS", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -87,7 +87,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPixelTexGenParameterivSGIS != null, "pglPixelTexGenParameterivSGIS not implemented");
 					Delegates.pglPixelTexGenParameterivSGIS((Int32)pname, p_params);
-					LogFunction("glPixelTexGenParameterivSGIS({0}, {1})", pname, LogValue(@params));
+					LogCommand("glPixelTexGenParameterivSGIS", null, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -107,7 +107,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelTexGenParameterfSGIS != null, "pglPixelTexGenParameterfSGIS not implemented");
 			Delegates.pglPixelTexGenParameterfSGIS((Int32)pname, param);
-			LogFunction("glPixelTexGenParameterfSGIS({0}, {1})", pname, param);
+			LogCommand("glPixelTexGenParameterfSGIS", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -128,7 +128,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPixelTexGenParameterfvSGIS != null, "pglPixelTexGenParameterfvSGIS not implemented");
 					Delegates.pglPixelTexGenParameterfvSGIS((Int32)pname, p_params);
-					LogFunction("glPixelTexGenParameterfvSGIS({0}, {1})", pname, LogValue(@params));
+					LogCommand("glPixelTexGenParameterfvSGIS", null, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -151,7 +151,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPixelTexGenParameterivSGIS != null, "pglGetPixelTexGenParameterivSGIS not implemented");
 					Delegates.pglGetPixelTexGenParameterivSGIS((Int32)pname, p_params);
-					LogFunction("glGetPixelTexGenParameterivSGIS({0}, {1})", pname, LogValue(@params));
+					LogCommand("glGetPixelTexGenParameterivSGIS", null, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -174,7 +174,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPixelTexGenParameterfvSGIS != null, "pglGetPixelTexGenParameterfvSGIS not implemented");
 					Delegates.pglGetPixelTexGenParameterfvSGIS((Int32)pname, p_params);
-					LogFunction("glGetPixelTexGenParameterfvSGIS({0}, {1})", pname, LogValue(@params));
+					LogCommand("glGetPixelTexGenParameterfvSGIS", null, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);

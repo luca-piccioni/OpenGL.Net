@@ -1069,7 +1069,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstance != null, "pglDrawArraysInstancedBaseInstance not implemented");
 			Delegates.pglDrawArraysInstancedBaseInstance((Int32)mode, first, count, primcount, baseinstance);
-			LogFunction("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, primcount, baseinstance);
+			LogCommand("glDrawArraysInstancedBaseInstance", null, mode, first, count, primcount, baseinstance			);
 			DebugCheckErrors(null);
 		}
 
@@ -1102,7 +1102,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, primcount, baseinstance);
-			LogFunction("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, LogEnumName(type), indices.ToString("X8"), primcount, baseinstance);
+			LogCommand("glDrawElementsInstancedBaseInstance", null, mode, count, type, indices, primcount, baseinstance			);
 			DebugCheckErrors(null);
 		}
 
@@ -1173,7 +1173,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, primcount, basevertex, baseinstance);
-			LogFunction("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", mode, count, LogEnumName(type), indices.ToString("X8"), primcount, basevertex, baseinstance);
+			LogCommand("glDrawElementsInstancedBaseVertexBaseInstance", null, mode, count, type, indices, primcount, basevertex, baseinstance			);
 			DebugCheckErrors(null);
 		}
 
@@ -1258,7 +1258,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
 					Delegates.pglGetInternalformativ(target, internalformat, pname, (Int32)@params.Length, p_params);
-					LogFunction("glGetInternalformativ({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), LogEnumName(pname), @params.Length, LogValue(@params));
+					LogCommand("glGetInternalformativ", null, target, internalformat, pname, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1305,7 +1305,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveAtomicCounterBufferiv != null, "pglGetActiveAtomicCounterBufferiv not implemented");
 					Delegates.pglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, p_params);
-					LogFunction("glGetActiveAtomicCounterBufferiv({0}, {1}, {2}, {3})", program, bufferIndex, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetActiveAtomicCounterBufferiv", null, program, bufferIndex, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1366,7 +1366,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindImageTexture != null, "pglBindImageTexture not implemented");
 			Delegates.pglBindImageTexture(unit, texture, level, layered, layer, access, format);
-			LogFunction("glBindImageTexture({0}, {1}, {2}, {3}, {4}, {5}, {6})", unit, texture, level, layered, layer, LogEnumName(access), LogEnumName(format));
+			LogCommand("glBindImageTexture", null, unit, texture, level, layered, layer, access, format			);
 			DebugCheckErrors(null);
 		}
 
@@ -1397,7 +1397,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMemoryBarrier != null, "pglMemoryBarrier not implemented");
 			Delegates.pglMemoryBarrier(barriers);
-			LogFunction("glMemoryBarrier({0})", barriers);
+			LogCommand("glMemoryBarrier", null, barriers			);
 			DebugCheckErrors(null);
 		}
 
@@ -1424,7 +1424,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
 			Delegates.pglTexStorage1D(target, levels, internalformat, width);
-			LogFunction("glTexStorage1D({0}, {1}, {2}, {3})", LogEnumName(target), levels, LogEnumName(internalformat), width);
+			LogCommand("glTexStorage1D", null, target, levels, internalformat, width			);
 			DebugCheckErrors(null);
 		}
 
@@ -1455,7 +1455,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
 			Delegates.pglTexStorage2D(target, levels, internalformat, width, height);
-			LogFunction("glTexStorage2D({0}, {1}, {2}, {3}, {4})", LogEnumName(target), levels, LogEnumName(internalformat), width, height);
+			LogCommand("glTexStorage2D", null, target, levels, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -1489,7 +1489,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");
 			Delegates.pglTexStorage3D(target, levels, internalformat, width, height, depth);
-			LogFunction("glTexStorage3D({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), levels, LogEnumName(internalformat), width, height, depth);
+			LogCommand("glTexStorage3D", null, target, levels, internalformat, width, height, depth			);
 			DebugCheckErrors(null);
 		}
 
@@ -1548,7 +1548,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackInstanced != null, "pglDrawTransformFeedbackInstanced not implemented");
 			Delegates.pglDrawTransformFeedbackInstanced((Int32)mode, id, primcount);
-			LogFunction("glDrawTransformFeedbackInstanced({0}, {1}, {2})", mode, id, primcount);
+			LogCommand("glDrawTransformFeedbackInstanced", null, mode, id, primcount			);
 			DebugCheckErrors(null);
 		}
 
@@ -1608,7 +1608,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackStreamInstanced != null, "pglDrawTransformFeedbackStreamInstanced not implemented");
 			Delegates.pglDrawTransformFeedbackStreamInstanced((Int32)mode, id, stream, primcount);
-			LogFunction("glDrawTransformFeedbackStreamInstanced({0}, {1}, {2}, {3})", mode, id, stream, primcount);
+			LogCommand("glDrawTransformFeedbackStreamInstanced", null, mode, id, stream, primcount			);
 			DebugCheckErrors(null);
 		}
 

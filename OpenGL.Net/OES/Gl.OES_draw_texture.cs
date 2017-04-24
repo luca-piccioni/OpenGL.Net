@@ -57,7 +57,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawTexsOES != null, "pglDrawTexsOES not implemented");
 			Delegates.pglDrawTexsOES(x, y, z, width, height);
-			LogFunction("glDrawTexsOES({0}, {1}, {2}, {3}, {4})", x, y, z, width, height);
+			LogCommand("glDrawTexsOES", null, x, y, z, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -84,7 +84,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawTexiOES != null, "pglDrawTexiOES not implemented");
 			Delegates.pglDrawTexiOES(x, y, z, width, height);
-			LogFunction("glDrawTexiOES({0}, {1}, {2}, {3}, {4})", x, y, z, width, height);
+			LogCommand("glDrawTexiOES", null, x, y, z, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -111,7 +111,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawTexxOES != null, "pglDrawTexxOES not implemented");
 			Delegates.pglDrawTexxOES(x, y, z, width, height);
-			LogFunction("glDrawTexxOES(0x{0}, 0x{1}, 0x{2}, 0x{3}, 0x{4})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"), width.ToString("X8"), height.ToString("X8"));
+			LogCommand("glDrawTexxOES", null, x, y, z, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -129,7 +129,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawTexsvOES != null, "pglDrawTexsvOES not implemented");
 					Delegates.pglDrawTexsvOES(p_coords);
-					LogFunction("glDrawTexsvOES({0})", LogValue(coords));
+					LogCommand("glDrawTexsvOES", null, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -149,7 +149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawTexivOES != null, "pglDrawTexivOES not implemented");
 					Delegates.pglDrawTexivOES(p_coords);
-					LogFunction("glDrawTexivOES({0})", LogValue(coords));
+					LogCommand("glDrawTexivOES", null, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -169,7 +169,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawTexxvOES != null, "pglDrawTexxvOES not implemented");
 					Delegates.pglDrawTexxvOES(p_coords);
-					LogFunction("glDrawTexxvOES({0})", LogValue(coords));
+					LogCommand("glDrawTexxvOES", null, coords					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -198,7 +198,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawTexfOES != null, "pglDrawTexfOES not implemented");
 			Delegates.pglDrawTexfOES(x, y, z, width, height);
-			LogFunction("glDrawTexfOES({0}, {1}, {2}, {3}, {4})", x, y, z, width, height);
+			LogCommand("glDrawTexfOES", null, x, y, z, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -216,7 +216,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawTexfvOES != null, "pglDrawTexfvOES not implemented");
 					Delegates.pglDrawTexfvOES(p_coords);
-					LogFunction("glDrawTexfvOES({0})", LogValue(coords));
+					LogCommand("glDrawTexfvOES", null, coords					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -39,7 +39,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTbufferMask3DFX != null, "pglTbufferMask3DFX not implemented");
 			Delegates.pglTbufferMask3DFX(mask);
-			LogFunction("glTbufferMask3DFX({0})", mask);
+			LogCommand("glTbufferMask3DFX", null, mask			);
 			DebugCheckErrors(null);
 		}
 

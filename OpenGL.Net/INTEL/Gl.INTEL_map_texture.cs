@@ -63,7 +63,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSyncTextureINTEL != null, "pglSyncTextureINTEL not implemented");
 			Delegates.pglSyncTextureINTEL(texture);
-			LogFunction("glSyncTextureINTEL({0})", texture);
+			LogCommand("glSyncTextureINTEL", null, texture			);
 			DebugCheckErrors(null);
 		}
 
@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUnmapTexture2DINTEL != null, "pglUnmapTexture2DINTEL not implemented");
 			Delegates.pglUnmapTexture2DINTEL(texture, level);
-			LogFunction("glUnmapTexture2DINTEL({0}, {1})", texture, level);
+			LogCommand("glUnmapTexture2DINTEL", null, texture, level			);
 			DebugCheckErrors(null);
 		}
 
@@ -114,7 +114,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapTexture2DINTEL != null, "pglMapTexture2DINTEL not implemented");
 					retValue = Delegates.pglMapTexture2DINTEL(texture, level, access, p_stride, p_layout);
-					LogFunction("glMapTexture2DINTEL({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, access, LogValue(stride), LogEnumName(layout), retValue.ToString("X8"));
+					LogCommand("glMapTexture2DINTEL", retValue, texture, level, access, stride, layout					);
 				}
 			}
 			DebugCheckErrors(retValue);

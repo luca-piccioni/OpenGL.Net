@@ -56,7 +56,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglBindVideoCaptureDeviceNV != null, "pwglBindVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglBindVideoCaptureDeviceNV(uVideoSlot, hDevice);
-			LogFunction("wglBindVideoCaptureDeviceNV({0}, 0x{1}) = {2}", uVideoSlot, hDevice.ToString("X8"), retValue);
+			LogCommand("wglBindVideoCaptureDeviceNV", retValue, uVideoSlot, hDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -81,7 +81,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumerateVideoCaptureDevicesNV != null, "pwglEnumerateVideoCaptureDevicesNV not implemented");
 					retValue = Delegates.pwglEnumerateVideoCaptureDevicesNV(hDc, p_phDeviceList);
-					LogFunction("wglEnumerateVideoCaptureDevicesNV(0x{0}, {1}) = {2}", hDc.ToString("X8"), LogValue(phDeviceList), retValue);
+					LogCommand("wglEnumerateVideoCaptureDevicesNV", retValue, hDc, phDeviceList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -105,7 +105,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglLockVideoCaptureDeviceNV != null, "pwglLockVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglLockVideoCaptureDeviceNV(hDc, hDevice);
-			LogFunction("wglLockVideoCaptureDeviceNV(0x{0}, 0x{1}) = {2}", hDc.ToString("X8"), hDevice.ToString("X8"), retValue);
+			LogCommand("wglLockVideoCaptureDeviceNV", retValue, hDc, hDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -136,7 +136,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryVideoCaptureDeviceNV != null, "pwglQueryVideoCaptureDeviceNV not implemented");
 					retValue = Delegates.pwglQueryVideoCaptureDeviceNV(hDc, hDevice, iAttribute, p_piValue);
-					LogFunction("wglQueryVideoCaptureDeviceNV(0x{0}, 0x{1}, {2}, {3}) = {4}", hDc.ToString("X8"), hDevice.ToString("X8"), iAttribute, LogValue(piValue), retValue);
+					LogCommand("wglQueryVideoCaptureDeviceNV", retValue, hDc, hDevice, iAttribute, piValue					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -160,7 +160,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglReleaseVideoCaptureDeviceNV != null, "pwglReleaseVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglReleaseVideoCaptureDeviceNV(hDc, hDevice);
-			LogFunction("wglReleaseVideoCaptureDeviceNV(0x{0}, 0x{1}) = {2}", hDc.ToString("X8"), hDevice.ToString("X8"), retValue);
+			LogCommand("wglReleaseVideoCaptureDeviceNV", retValue, hDc, hDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

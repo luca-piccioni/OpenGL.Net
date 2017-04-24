@@ -128,7 +128,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetVideoDeviceNV != null, "pwglGetVideoDeviceNV not implemented");
 					retValue = Delegates.pwglGetVideoDeviceNV(hDC, numDevices, p_hVideoDevice);
-					LogFunction("wglGetVideoDeviceNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), numDevices, LogValue(hVideoDevice), retValue);
+					LogCommand("wglGetVideoDeviceNV", retValue, hDC, numDevices, hVideoDevice					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -149,7 +149,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglReleaseVideoDeviceNV != null, "pwglReleaseVideoDeviceNV not implemented");
 			retValue = Delegates.pwglReleaseVideoDeviceNV(hVideoDevice);
-			LogFunction("wglReleaseVideoDeviceNV(0x{0}) = {1}", hVideoDevice.ToString("X8"), retValue);
+			LogCommand("wglReleaseVideoDeviceNV", retValue, hVideoDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -174,7 +174,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglBindVideoImageNV != null, "pwglBindVideoImageNV not implemented");
 			retValue = Delegates.pwglBindVideoImageNV(hVideoDevice, hPbuffer, iVideoBuffer);
-			LogFunction("wglBindVideoImageNV(0x{0}, 0x{1}, {2}) = {3}", hVideoDevice.ToString("X8"), hPbuffer.ToString("X8"), iVideoBuffer, retValue);
+			LogCommand("wglBindVideoImageNV", retValue, hVideoDevice, hPbuffer, iVideoBuffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -196,7 +196,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglReleaseVideoImageNV != null, "pwglReleaseVideoImageNV not implemented");
 			retValue = Delegates.pwglReleaseVideoImageNV(hPbuffer, iVideoBuffer);
-			LogFunction("wglReleaseVideoImageNV(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), iVideoBuffer, retValue);
+			LogCommand("wglReleaseVideoImageNV", retValue, hPbuffer, iVideoBuffer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -227,7 +227,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSendPbufferToVideoNV != null, "pwglSendPbufferToVideoNV not implemented");
 					retValue = Delegates.pwglSendPbufferToVideoNV(hPbuffer, iBufferType, p_pulCounterPbuffer, bBlock);
-					LogFunction("wglSendPbufferToVideoNV(0x{0}, {1}, {2}, {3}) = {4}", hPbuffer.ToString("X8"), iBufferType, LogValue(pulCounterPbuffer), bBlock, retValue);
+					LogCommand("wglSendPbufferToVideoNV", retValue, hPbuffer, iBufferType, pulCounterPbuffer, bBlock					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -258,7 +258,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetVideoInfoNV != null, "pwglGetVideoInfoNV not implemented");
 					retValue = Delegates.pwglGetVideoInfoNV(hpVideoDevice, p_pulCounterOutputPbuffer, p_pulCounterOutputVideo);
-					LogFunction("wglGetVideoInfoNV(0x{0}, {1}, {2}) = {3}", hpVideoDevice.ToString("X8"), LogValue(pulCounterOutputPbuffer), LogValue(pulCounterOutputVideo), retValue);
+					LogCommand("wglGetVideoInfoNV", retValue, hpVideoDevice, pulCounterOutputPbuffer, pulCounterOutputVideo					);
 				}
 			}
 			DebugCheckErrors(retValue);

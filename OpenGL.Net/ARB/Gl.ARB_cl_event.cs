@@ -59,7 +59,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCreateSyncFromCLeventARB != null, "pglCreateSyncFromCLeventARB not implemented");
 			retValue = Delegates.pglCreateSyncFromCLeventARB(context, @event, flags);
-			LogFunction("glCreateSyncFromCLeventARB(0x{0}, 0x{1}, {2}) = {3}", context.ToString("X8"), @event.ToString("X8"), flags, retValue);
+			LogCommand("glCreateSyncFromCLeventARB", retValue, context, @event, flags			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

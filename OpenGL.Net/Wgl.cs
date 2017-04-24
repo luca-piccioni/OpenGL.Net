@@ -214,7 +214,7 @@ namespace OpenGL
 						default:
 							throw new WglException(errorCode);
 						case ErrorHandlingMode.LogOnly:
-							LogFunction("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
+							LogComment("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
 							break;
 						case ErrorHandlingMode.Ignore:
 							break;
@@ -310,7 +310,7 @@ namespace OpenGL
 		{
 			int retValue = UnsafeNativeMethods.ChoosePixelFormat(deviceContext, ref pixelFormatDescriptor);
 
-			LogFunction("ChoosePixelFormat(0x{0}, {1}) = {2}", deviceContext.ToString("X8"), pixelFormatDescriptor, retValue);
+			LogCommand("ChoosePixelFormat", retValue, deviceContext, pixelFormatDescriptor);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -328,7 +328,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref pixelFormatDescriptor);
 
-			LogFunction("DescribePixelFormat(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), iPixelFormat, nBytes, pixelFormatDescriptor, retValue);
+			LogCommand("DescribePixelFormat", retValue, hdc, iPixelFormat, nBytes, pixelFormatDescriptor);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -345,7 +345,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);
 
-			LogFunction("SetPixelFormat(0x{0}, {1}, {2}) = {3}", deviceContext.ToString("X8"), pixelFormat, pixelFormatDescriptor, retValue);
+			LogCommand("SetPixelFormat", retValue, deviceContext, pixelFormat, pixelFormatDescriptor);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -360,7 +360,7 @@ namespace OpenGL
 		{
 			IntPtr retValue = UnsafeNativeMethods.GetDC(windowHandle);
 
-			LogFunction("GetDC(0x{0}) = 0x{1}", windowHandle.ToString("X8"), retValue.ToString("X8"));
+			LogCommand("GetDC", retValue, windowHandle.ToString("X8"));
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -376,7 +376,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.ReleaseDC(windowHandle, deviceContext);
 
-			LogFunction("ReleaseDC(0x{0}, 0x{1}) = {2}", windowHandle.ToString("X8"), deviceContext.ToString("X8"), retValue);
+			LogCommand("ReleaseDC", windowHandle.ToString("X8"), deviceContext.ToString("X8"), retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);

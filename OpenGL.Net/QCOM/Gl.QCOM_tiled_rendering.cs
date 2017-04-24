@@ -275,7 +275,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStartTilingQCOM != null, "pglStartTilingQCOM not implemented");
 			Delegates.pglStartTilingQCOM(x, y, width, height, preserveMask);
-			LogFunction("glStartTilingQCOM({0}, {1}, {2}, {3}, {4})", x, y, width, height, preserveMask);
+			LogCommand("glStartTilingQCOM", null, x, y, width, height, preserveMask			);
 			DebugCheckErrors(null);
 		}
 
@@ -290,7 +290,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEndTilingQCOM != null, "pglEndTilingQCOM not implemented");
 			Delegates.pglEndTilingQCOM(preserveMask);
-			LogFunction("glEndTilingQCOM({0})", preserveMask);
+			LogCommand("glEndTilingQCOM", null, preserveMask			);
 			DebugCheckErrors(null);
 		}
 

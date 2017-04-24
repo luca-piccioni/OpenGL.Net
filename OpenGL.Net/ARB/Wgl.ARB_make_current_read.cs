@@ -61,7 +61,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglMakeContextCurrentARB != null, "pwglMakeContextCurrentARB not implemented");
 			retValue = Delegates.pwglMakeContextCurrentARB(hDrawDC, hReadDC, hglrc);
-			LogFunction("wglMakeContextCurrentARB(0x{0}, 0x{1}, 0x{2}) = {3}", hDrawDC.ToString("X8"), hReadDC.ToString("X8"), hglrc.ToString("X8"), retValue);
+			LogCommand("wglMakeContextCurrentARB", retValue, hDrawDC, hReadDC, hglrc			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -77,7 +77,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetCurrentReadDCARB != null, "pwglGetCurrentReadDCARB not implemented");
 			retValue = Delegates.pwglGetCurrentReadDCARB();
-			LogFunction("wglGetCurrentReadDCARB() = {0}", retValue.ToString("X8"));
+			LogCommand("wglGetCurrentReadDCARB", retValue			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

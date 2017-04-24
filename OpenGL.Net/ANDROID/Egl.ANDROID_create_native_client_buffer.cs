@@ -71,7 +71,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateNativeClientBufferANDROID != null, "peglCreateNativeClientBufferANDROID not implemented");
 					retValue = Delegates.peglCreateNativeClientBufferANDROID(p_attrib_list);
-					LogFunction("eglCreateNativeClientBufferANDROID({0}) = {1}", LogValue(attrib_list), retValue.ToString("X8"));
+					LogCommand("eglCreateNativeClientBufferANDROID", retValue, attrib_list					);
 				}
 			}
 			DebugCheckErrors(retValue);

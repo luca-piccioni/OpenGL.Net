@@ -47,7 +47,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetProgramResourceLocationIndexEXT != null, "pglGetProgramResourceLocationIndexEXT not implemented");
 			retValue = Delegates.pglGetProgramResourceLocationIndexEXT(program, programInterface, name);
-			LogFunction("glGetProgramResourceLocationIndexEXT({0}, {1}, {2}) = {3}", program, LogEnumName(programInterface), name, retValue);
+			LogCommand("glGetProgramResourceLocationIndexEXT", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

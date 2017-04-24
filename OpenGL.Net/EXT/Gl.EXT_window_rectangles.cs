@@ -84,7 +84,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWindowRectanglesEXT != null, "pglWindowRectanglesEXT not implemented");
 					Delegates.pglWindowRectanglesEXT(mode, count, p_box);
-					LogFunction("glWindowRectanglesEXT({0}, {1}, {2})", LogEnumName(mode), count, LogValue(box));
+					LogCommand("glWindowRectanglesEXT", null, mode, count, box					);
 				}
 			}
 			DebugCheckErrors(null);

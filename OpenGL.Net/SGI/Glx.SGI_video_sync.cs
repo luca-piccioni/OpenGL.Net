@@ -44,7 +44,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetVideoSyncSGI != null, "pglXGetVideoSyncSGI not implemented");
 					retValue = Delegates.pglXGetVideoSyncSGI(p_count);
-					LogFunction("glXGetVideoSyncSGI({0}) = {1}", LogValue(count), retValue);
+					LogCommand("glXGetVideoSyncSGI", retValue, count					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -74,7 +74,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXWaitVideoSyncSGI != null, "pglXWaitVideoSyncSGI not implemented");
 					retValue = Delegates.pglXWaitVideoSyncSGI(divisor, remainder, p_count);
-					LogFunction("glXWaitVideoSyncSGI({0}, {1}, {2}) = {3}", divisor, remainder, LogValue(count), retValue);
+					LogCommand("glXWaitVideoSyncSGI", retValue, divisor, remainder, count					);
 				}
 			}
 			DebugCheckErrors(retValue);

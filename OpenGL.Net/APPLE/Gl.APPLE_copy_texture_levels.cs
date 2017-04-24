@@ -48,7 +48,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyTextureLevelsAPPLE != null, "pglCopyTextureLevelsAPPLE not implemented");
 			Delegates.pglCopyTextureLevelsAPPLE(destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
-			LogFunction("glCopyTextureLevelsAPPLE({0}, {1}, {2}, {3})", destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
+			LogCommand("glCopyTextureLevelsAPPLE", null, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount			);
 			DebugCheckErrors(null);
 		}
 

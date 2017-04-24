@@ -41,7 +41,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetAGPOffsetMESA != null, "pglXGetAGPOffsetMESA not implemented");
 			retValue = Delegates.pglXGetAGPOffsetMESA(pointer);
-			LogFunction("glXGetAGPOffsetMESA(0x{0}) = {1}", pointer.ToString("X8"), retValue);
+			LogCommand("glXGetAGPOffsetMESA", retValue, pointer			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

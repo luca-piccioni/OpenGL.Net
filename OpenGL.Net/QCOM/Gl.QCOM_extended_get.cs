@@ -115,7 +115,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetTexturesQCOM != null, "pglExtGetTexturesQCOM not implemented");
 					Delegates.pglExtGetTexturesQCOM(p_textures, maxTextures, p_numTextures);
-					LogFunction("glExtGetTexturesQCOM({0}, {1}, {2})", LogValue(textures), maxTextures, LogValue(numTextures));
+					LogCommand("glExtGetTexturesQCOM", null, textures, maxTextures, numTextures					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -139,7 +139,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetBuffersQCOM != null, "pglExtGetBuffersQCOM not implemented");
 					Delegates.pglExtGetBuffersQCOM(p_buffers, (Int32)buffers.Length, p_numBuffers);
-					LogFunction("glExtGetBuffersQCOM({0}, {1}, {2})", LogValue(buffers), buffers.Length, LogValue(numBuffers));
+					LogCommand("glExtGetBuffersQCOM", null, buffers, buffers.Length, numBuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -163,7 +163,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetRenderbuffersQCOM != null, "pglExtGetRenderbuffersQCOM not implemented");
 					Delegates.pglExtGetRenderbuffersQCOM(p_renderbuffers, (Int32)renderbuffers.Length, p_numRenderbuffers);
-					LogFunction("glExtGetRenderbuffersQCOM({0}, {1}, {2})", LogValue(renderbuffers), renderbuffers.Length, LogValue(numRenderbuffers));
+					LogCommand("glExtGetRenderbuffersQCOM", null, renderbuffers, renderbuffers.Length, numRenderbuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -187,7 +187,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetFramebuffersQCOM != null, "pglExtGetFramebuffersQCOM not implemented");
 					Delegates.pglExtGetFramebuffersQCOM(p_framebuffers, (Int32)framebuffers.Length, p_numFramebuffers);
-					LogFunction("glExtGetFramebuffersQCOM({0}, {1}, {2})", LogValue(framebuffers), framebuffers.Length, LogValue(numFramebuffers));
+					LogCommand("glExtGetFramebuffersQCOM", null, framebuffers, framebuffers.Length, numFramebuffers					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -219,7 +219,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetTexLevelParameterivQCOM != null, "pglExtGetTexLevelParameterivQCOM not implemented");
 					Delegates.pglExtGetTexLevelParameterivQCOM(texture, face, level, pname, p_params);
-					LogFunction("glExtGetTexLevelParameterivQCOM({0}, {1}, {2}, {3}, {4})", texture, LogEnumName(face), level, LogEnumName(pname), LogValue(@params));
+					LogCommand("glExtGetTexLevelParameterivQCOM", null, texture, face, level, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -242,7 +242,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglExtTexObjectStateOverrideiQCOM != null, "pglExtTexObjectStateOverrideiQCOM not implemented");
 			Delegates.pglExtTexObjectStateOverrideiQCOM(target, pname, param);
-			LogFunction("glExtTexObjectStateOverrideiQCOM({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), param);
+			LogCommand("glExtTexObjectStateOverrideiQCOM", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
 
@@ -287,7 +287,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglExtGetTexSubImageQCOM != null, "pglExtGetTexSubImageQCOM not implemented");
 			Delegates.pglExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
-			LogFunction("glExtGetTexSubImageQCOM({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", LogEnumName(target), level, xoffset, yoffset, zoffset, width, height, depth, LogEnumName(format), LogEnumName(type), texels.ToString("X8"));
+			LogCommand("glExtGetTexSubImageQCOM", null, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels			);
 			DebugCheckErrors(null);
 		}
 
@@ -308,7 +308,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExtGetBufferPointervQCOM != null, "pglExtGetBufferPointervQCOM not implemented");
 					Delegates.pglExtGetBufferPointervQCOM(target, p_params);
-					LogFunction("glExtGetBufferPointervQCOM({0}, {1})", LogEnumName(target), LogValue(@params));
+					LogCommand("glExtGetBufferPointervQCOM", null, target, @params					);
 				}
 			}
 			DebugCheckErrors(null);

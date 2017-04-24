@@ -59,7 +59,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumGpusNV != null, "pwglEnumGpusNV not implemented");
 					retValue = Delegates.pwglEnumGpusNV(iGpuIndex, p_phGpu);
-					LogFunction("wglEnumGpusNV({0}, {1}) = {2}", iGpuIndex, LogValue(phGpu), retValue);
+					LogCommand("wglEnumGpusNV", retValue, iGpuIndex, phGpu					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -86,7 +86,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglEnumGpuDevicesNV != null, "pwglEnumGpuDevicesNV not implemented");
 			retValue = Delegates.pwglEnumGpuDevicesNV(hGpu, iDeviceIndex, lpGpuDevice);
-			LogFunction("wglEnumGpuDevicesNV(0x{0}, {1}, 0x{2}) = {3}", hGpu.ToString("X8"), iDeviceIndex, lpGpuDevice.ToString("X8"), retValue);
+			LogCommand("wglEnumGpuDevicesNV", retValue, hGpu, iDeviceIndex, lpGpuDevice			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -108,7 +108,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreateAffinityDCNV != null, "pwglCreateAffinityDCNV not implemented");
 					retValue = Delegates.pwglCreateAffinityDCNV(p_phGpuList);
-					LogFunction("wglCreateAffinityDCNV({0}) = {1}", LogValue(phGpuList), retValue.ToString("X8"));
+					LogCommand("wglCreateAffinityDCNV", retValue, phGpuList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -138,7 +138,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumGpusFromAffinityDCNV != null, "pwglEnumGpusFromAffinityDCNV not implemented");
 					retValue = Delegates.pwglEnumGpusFromAffinityDCNV(hAffinityDC, iGpuIndex, p_hGpu);
-					LogFunction("wglEnumGpusFromAffinityDCNV(0x{0}, {1}, {2}) = {3}", hAffinityDC.ToString("X8"), iGpuIndex, LogValue(hGpu), retValue);
+					LogCommand("wglEnumGpusFromAffinityDCNV", retValue, hAffinityDC, iGpuIndex, hGpu					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -159,7 +159,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDeleteDCNV != null, "pwglDeleteDCNV not implemented");
 			retValue = Delegates.pwglDeleteDCNV(hdc);
-			LogFunction("wglDeleteDCNV(0x{0}) = {1}", hdc.ToString("X8"), retValue);
+			LogCommand("wglDeleteDCNV", retValue, hdc			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

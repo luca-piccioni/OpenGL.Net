@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferPixelLocalStorageSizeEXT != null, "pglFramebufferPixelLocalStorageSizeEXT not implemented");
 			Delegates.pglFramebufferPixelLocalStorageSizeEXT(target, size);
-			LogFunction("glFramebufferPixelLocalStorageSizeEXT({0}, {1})", target, size);
+			LogCommand("glFramebufferPixelLocalStorageSizeEXT", null, target, size			);
 			DebugCheckErrors(null);
 		}
 
@@ -77,7 +77,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetFramebufferPixelLocalStorageSizeEXT != null, "pglGetFramebufferPixelLocalStorageSizeEXT not implemented");
 			retValue = Delegates.pglGetFramebufferPixelLocalStorageSizeEXT(target);
-			LogFunction("glGetFramebufferPixelLocalStorageSizeEXT({0}) = {1}", target, retValue);
+			LogCommand("glGetFramebufferPixelLocalStorageSizeEXT", retValue, target			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -103,7 +103,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglClearPixelLocalStorageuiEXT != null, "pglClearPixelLocalStorageuiEXT not implemented");
 					Delegates.pglClearPixelLocalStorageuiEXT(offset, n, p_values);
-					LogFunction("glClearPixelLocalStorageuiEXT({0}, {1}, {2})", offset, n, LogValue(values));
+					LogCommand("glClearPixelLocalStorageuiEXT", null, offset, n, values					);
 				}
 			}
 			DebugCheckErrors(null);

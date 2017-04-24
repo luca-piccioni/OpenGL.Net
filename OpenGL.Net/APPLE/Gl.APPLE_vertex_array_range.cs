@@ -86,7 +86,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexArrayRangeAPPLE != null, "pglVertexArrayRangeAPPLE not implemented");
 			Delegates.pglVertexArrayRangeAPPLE(length, pointer);
-			LogFunction("glVertexArrayRangeAPPLE({0}, 0x{1})", length, pointer.ToString("X8"));
+			LogCommand("glVertexArrayRangeAPPLE", null, length, pointer			);
 			DebugCheckErrors(null);
 		}
 
@@ -104,7 +104,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFlushVertexArrayRangeAPPLE != null, "pglFlushVertexArrayRangeAPPLE not implemented");
 			Delegates.pglFlushVertexArrayRangeAPPLE(length, pointer);
-			LogFunction("glFlushVertexArrayRangeAPPLE({0}, 0x{1})", length, pointer.ToString("X8"));
+			LogCommand("glFlushVertexArrayRangeAPPLE", null, length, pointer			);
 			DebugCheckErrors(null);
 		}
 
@@ -122,7 +122,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexArrayParameteriAPPLE != null, "pglVertexArrayParameteriAPPLE not implemented");
 			Delegates.pglVertexArrayParameteriAPPLE(pname, param);
-			LogFunction("glVertexArrayParameteriAPPLE({0}, {1})", LogEnumName(pname), param);
+			LogCommand("glVertexArrayParameteriAPPLE", null, pname, param			);
 			DebugCheckErrors(null);
 		}
 

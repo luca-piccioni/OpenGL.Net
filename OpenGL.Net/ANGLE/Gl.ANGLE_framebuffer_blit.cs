@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlitFramebufferANGLE != null, "pglBlitFramebufferANGLE not implemented");
 			Delegates.pglBlitFramebufferANGLE(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			LogFunction("glBlitFramebufferANGLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, LogEnumName(filter));
+			LogCommand("glBlitFramebufferANGLE", null, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}
 

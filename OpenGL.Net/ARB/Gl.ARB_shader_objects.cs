@@ -121,7 +121,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDeleteObjectARB != null, "pglDeleteObjectARB not implemented");
 			Delegates.pglDeleteObjectARB(obj);
-			LogFunction("glDeleteObjectARB({0})", obj);
+			LogCommand("glDeleteObjectARB", null, obj			);
 			DebugCheckErrors(null);
 		}
 
@@ -138,7 +138,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetHandleARB != null, "pglGetHandleARB not implemented");
 			retValue = Delegates.pglGetHandleARB(pname);
-			LogFunction("glGetHandleARB({0}) = {1}", LogEnumName(pname), retValue);
+			LogCommand("glGetHandleARB", retValue, pname			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -164,7 +164,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 					Delegates.pglGetObjectParameterfvARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterfvARB({0}, {1}, {2})", obj, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetObjectParameterfvARB", null, obj, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -190,7 +190,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 					Delegates.pglGetObjectParameterfvARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterfvARB({0}, {1}, {2})", obj, LogEnumName(pname), @params);
+					LogCommand("glGetObjectParameterfvARB", null, obj, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -216,7 +216,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterivARB({0}, {1}, {2})", obj, LogEnumName(pname), LogValue(@params));
+					LogCommand("glGetObjectParameterivARB", null, obj, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -242,7 +242,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterivARB({0}, {1}, {2})", obj, LogEnumName(pname), @params);
+					LogCommand("glGetObjectParameterivARB", null, obj, pname, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -271,7 +271,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInfoLogARB != null, "pglGetInfoLogARB not implemented");
 					Delegates.pglGetInfoLogARB(obj, maxLength, p_length, infoLog);
-					LogFunction("glGetInfoLogARB({0}, {1}, {2}, {3})", obj, maxLength, length, infoLog);
+					LogCommand("glGetInfoLogARB", null, obj, maxLength, length, infoLog					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -298,7 +298,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetAttachedObjectsARB != null, "pglGetAttachedObjectsARB not implemented");
 					Delegates.pglGetAttachedObjectsARB(containerObj, (Int32)obj.Length, p_count, p_obj);
-					LogFunction("glGetAttachedObjectsARB({0}, {1}, {2}, {3})", containerObj, obj.Length, count, LogValue(obj));
+					LogCommand("glGetAttachedObjectsARB", null, containerObj, obj.Length, count, obj					);
 				}
 			}
 			DebugCheckErrors(null);

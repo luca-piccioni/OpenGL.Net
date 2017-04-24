@@ -57,7 +57,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTranslatedShaderSourceANGLE != null, "pglGetTranslatedShaderSourceANGLE not implemented");
 					Delegates.pglGetTranslatedShaderSourceANGLE(shader, bufsize, p_length, source);
-					LogFunction("glGetTranslatedShaderSourceANGLE({0}, {1}, {2}, {3})", shader, bufsize, length, source);
+					LogCommand("glGetTranslatedShaderSourceANGLE", null, shader, bufsize, length, source					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -150,7 +150,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackAttribsNV != null, "pglTransformFeedbackAttribsNV not implemented");
 					Delegates.pglTransformFeedbackAttribsNV(count, p_attribs, bufferMode);
-					LogFunction("glTransformFeedbackAttribsNV({0}, {1}, {2})", count, LogValue(attribs), LogEnumName(bufferMode));
+					LogCommand("glTransformFeedbackAttribsNV", null, count, attribs, bufferMode					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -176,7 +176,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackVaryingsNV != null, "pglTransformFeedbackVaryingsNV not implemented");
 					Delegates.pglTransformFeedbackVaryingsNV(program, (Int32)locations.Length, p_locations, bufferMode);
-					LogFunction("glTransformFeedbackVaryingsNV({0}, {1}, {2}, {3})", program, locations.Length, LogValue(locations), LogEnumName(bufferMode));
+					LogCommand("glTransformFeedbackVaryingsNV", null, program, locations.Length, locations, bufferMode					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -196,7 +196,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglActiveVaryingNV != null, "pglActiveVaryingNV not implemented");
 			Delegates.pglActiveVaryingNV(program, name);
-			LogFunction("glActiveVaryingNV({0}, {1})", program, name);
+			LogCommand("glActiveVaryingNV", null, program, name			);
 			DebugCheckErrors(null);
 		}
 
@@ -216,7 +216,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetVaryingLocationNV != null, "pglGetVaryingLocationNV not implemented");
 			retValue = Delegates.pglGetVaryingLocationNV(program, name);
-			LogFunction("glGetVaryingLocationNV({0}, {1}) = {2}", program, name, retValue);
+			LogCommand("glGetVaryingLocationNV", retValue, program, name			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -256,7 +256,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveVaryingNV != null, "pglGetActiveVaryingNV not implemented");
 					Delegates.pglGetActiveVaryingNV(program, index, bufSize, p_length, p_size, p_type, name);
-					LogFunction("glGetActiveVaryingNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, LogEnumName(type), name);
+					LogCommand("glGetActiveVaryingNV", null, program, index, bufSize, length, size, type, name					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -282,7 +282,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTransformFeedbackVaryingNV != null, "pglGetTransformFeedbackVaryingNV not implemented");
 					Delegates.pglGetTransformFeedbackVaryingNV(program, index, p_location);
-					LogFunction("glGetTransformFeedbackVaryingNV({0}, {1}, {2})", program, index, location);
+					LogCommand("glGetTransformFeedbackVaryingNV", null, program, index, location					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -309,7 +309,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackStreamAttribsNV != null, "pglTransformFeedbackStreamAttribsNV not implemented");
 					Delegates.pglTransformFeedbackStreamAttribsNV((Int32)attribs.Length, p_attribs, (Int32)bufstreams.Length, p_bufstreams, bufferMode);
-					LogFunction("glTransformFeedbackStreamAttribsNV({0}, {1}, {2}, {3}, {4})", attribs.Length, LogValue(attribs), bufstreams.Length, LogValue(bufstreams), LogEnumName(bufferMode));
+					LogCommand("glTransformFeedbackStreamAttribsNV", null, attribs.Length, attribs, bufstreams.Length, bufstreams, bufferMode					);
 				}
 			}
 			DebugCheckErrors(null);

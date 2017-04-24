@@ -45,7 +45,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglClipPlanefIMG != null, "pglClipPlanefIMG not implemented");
 					Delegates.pglClipPlanefIMG(p, p_eqn);
-					LogFunction("glClipPlanefIMG({0}, {1})", LogEnumName(p), LogValue(eqn));
+					LogCommand("glClipPlanefIMG", null, p, eqn					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -68,7 +68,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglClipPlanexIMG != null, "pglClipPlanexIMG not implemented");
 					Delegates.pglClipPlanexIMG(p, p_eqn);
-					LogFunction("glClipPlanexIMG({0}, {1})", LogEnumName(p), LogValue(eqn));
+					LogCommand("glClipPlanexIMG", null, p, eqn					);
 				}
 			}
 			DebugCheckErrors(null);

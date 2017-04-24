@@ -53,7 +53,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglSwapBuffersRegion2NOK != null, "peglSwapBuffersRegion2NOK not implemented");
 					retValue = Delegates.peglSwapBuffersRegion2NOK(dpy, surface, numRects, p_rects);
-					LogFunction("eglSwapBuffersRegion2NOK(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), numRects, LogValue(rects), retValue);
+					LogCommand("eglSwapBuffersRegion2NOK", retValue, dpy, surface, numRects, rects					);
 				}
 			}
 			DebugCheckErrors(retValue);

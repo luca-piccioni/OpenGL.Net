@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleIMG != null, "pglRenderbufferStorageMultisampleIMG not implemented");
 			Delegates.pglRenderbufferStorageMultisampleIMG(target, samples, internalformat, width, height);
-			LogFunction("glRenderbufferStorageMultisampleIMG({0}, {1}, {2}, {3}, {4})", LogEnumName(target), samples, LogEnumName(internalformat), width, height);
+			LogCommand("glRenderbufferStorageMultisampleIMG", null, target, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
 
@@ -105,7 +105,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DMultisampleIMG != null, "pglFramebufferTexture2DMultisampleIMG not implemented");
 			Delegates.pglFramebufferTexture2DMultisampleIMG(target, attachment, textarget, texture, level, samples);
-			LogFunction("glFramebufferTexture2DMultisampleIMG({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(attachment), LogEnumName(textarget), texture, level, samples);
+			LogCommand("glFramebufferTexture2DMultisampleIMG", null, target, attachment, textarget, texture, level, samples			);
 			DebugCheckErrors(null);
 		}
 

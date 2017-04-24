@@ -56,7 +56,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePixmapSurfaceHI != null, "peglCreatePixmapSurfaceHI not implemented");
 					retValue = Delegates.peglCreatePixmapSurfaceHI(dpy, config, p_pixmap);
-					LogFunction("eglCreatePixmapSurfaceHI(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), LogValue(pixmap), retValue.ToString("X8"));
+					LogCommand("eglCreatePixmapSurfaceHI", retValue, dpy, config, pixmap					);
 				}
 			}
 			DebugCheckErrors(retValue);

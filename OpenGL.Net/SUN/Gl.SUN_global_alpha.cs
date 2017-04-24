@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorbSUN != null, "pglGlobalAlphaFactorbSUN not implemented");
 			Delegates.pglGlobalAlphaFactorbSUN(factor);
-			LogFunction("glGlobalAlphaFactorbSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactorbSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorsSUN != null, "pglGlobalAlphaFactorsSUN not implemented");
 			Delegates.pglGlobalAlphaFactorsSUN(factor);
-			LogFunction("glGlobalAlphaFactorsSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactorsSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactoriSUN != null, "pglGlobalAlphaFactoriSUN not implemented");
 			Delegates.pglGlobalAlphaFactoriSUN(factor);
-			LogFunction("glGlobalAlphaFactoriSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactoriSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -96,7 +96,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorfSUN != null, "pglGlobalAlphaFactorfSUN not implemented");
 			Delegates.pglGlobalAlphaFactorfSUN(factor);
-			LogFunction("glGlobalAlphaFactorfSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactorfSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -111,7 +111,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactordSUN != null, "pglGlobalAlphaFactordSUN not implemented");
 			Delegates.pglGlobalAlphaFactordSUN(factor);
-			LogFunction("glGlobalAlphaFactordSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactordSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorubSUN != null, "pglGlobalAlphaFactorubSUN not implemented");
 			Delegates.pglGlobalAlphaFactorubSUN(factor);
-			LogFunction("glGlobalAlphaFactorubSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactorubSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -141,7 +141,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorusSUN != null, "pglGlobalAlphaFactorusSUN not implemented");
 			Delegates.pglGlobalAlphaFactorusSUN(factor);
-			LogFunction("glGlobalAlphaFactorusSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactorusSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 
@@ -156,7 +156,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactoruiSUN != null, "pglGlobalAlphaFactoruiSUN not implemented");
 			Delegates.pglGlobalAlphaFactoruiSUN(factor);
-			LogFunction("glGlobalAlphaFactoruiSUN({0})", factor);
+			LogCommand("glGlobalAlphaFactoruiSUN", null, factor			);
 			DebugCheckErrors(null);
 		}
 

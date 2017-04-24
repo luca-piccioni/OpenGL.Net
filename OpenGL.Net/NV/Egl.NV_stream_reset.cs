@@ -56,7 +56,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglResetStreamNV != null, "peglResetStreamNV not implemented");
 			retValue = Delegates.peglResetStreamNV(dpy, stream);
-			LogFunction("eglResetStreamNV(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue);
+			LogCommand("eglResetStreamNV", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

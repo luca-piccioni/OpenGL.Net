@@ -107,7 +107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvARB != null, "pglFramebufferSampleLocationsfvARB not implemented");
 					Delegates.pglFramebufferSampleLocationsfvARB(target, start, count, p_v);
-					LogFunction("glFramebufferSampleLocationsfvARB({0}, {1}, {2}, {3})", LogEnumName(target), start, count, LogValue(v));
+					LogCommand("glFramebufferSampleLocationsfvARB", null, target, start, count, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -136,7 +136,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNamedFramebufferSampleLocationsfvARB != null, "pglNamedFramebufferSampleLocationsfvARB not implemented");
 					Delegates.pglNamedFramebufferSampleLocationsfvARB(framebuffer, start, count, p_v);
-					LogFunction("glNamedFramebufferSampleLocationsfvARB({0}, {1}, {2}, {3})", framebuffer, start, count, LogValue(v));
+					LogCommand("glNamedFramebufferSampleLocationsfvARB", null, framebuffer, start, count, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -150,7 +150,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEvaluateDepthValuesARB != null, "pglEvaluateDepthValuesARB not implemented");
 			Delegates.pglEvaluateDepthValuesARB();
-			LogFunction("glEvaluateDepthValuesARB()");
+			LogCommand("glEvaluateDepthValuesARB", null			);
 			DebugCheckErrors(null);
 		}
 

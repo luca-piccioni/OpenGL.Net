@@ -66,7 +66,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglAreTexturesResidentEXT != null, "pglAreTexturesResidentEXT not implemented");
 					retValue = Delegates.pglAreTexturesResidentEXT((Int32)textures.Length, p_textures, p_residences);
-					LogFunction("glAreTexturesResidentEXT({0}, {1}, {2}) = {3}", textures.Length, LogValue(textures), LogValue(residences), retValue);
+					LogCommand("glAreTexturesResidentEXT", retValue, textures.Length, textures, residences					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -88,7 +88,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteTexturesEXT != null, "pglDeleteTexturesEXT not implemented");
 					Delegates.pglDeleteTexturesEXT((Int32)textures.Length, p_textures);
-					LogFunction("glDeleteTexturesEXT({0}, {1})", textures.Length, LogValue(textures));
+					LogCommand("glDeleteTexturesEXT", null, textures.Length, textures					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -108,7 +108,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenTexturesEXT != null, "pglGenTexturesEXT not implemented");
 					Delegates.pglGenTexturesEXT((Int32)textures.Length, p_textures);
-					LogFunction("glGenTexturesEXT({0}, {1})", textures.Length, LogValue(textures));
+					LogCommand("glGenTexturesEXT", null, textures.Length, textures					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -138,7 +138,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsTextureEXT != null, "pglIsTextureEXT not implemented");
 			retValue = Delegates.pglIsTextureEXT(texture);
-			LogFunction("glIsTextureEXT({0}) = {1}", texture, retValue);
+			LogCommand("glIsTextureEXT", retValue, texture			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

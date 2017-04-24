@@ -47,7 +47,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglPresentationTimeANDROID != null, "peglPresentationTimeANDROID not implemented");
 			retValue = Delegates.peglPresentationTimeANDROID(dpy, surface, time);
-			LogFunction("eglPresentationTimeANDROID(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), time, retValue);
+			LogCommand("eglPresentationTimeANDROID", retValue, dpy, surface, time			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
