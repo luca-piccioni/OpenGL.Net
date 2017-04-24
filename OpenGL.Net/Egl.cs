@@ -72,7 +72,7 @@ namespace OpenGL
 					break;
 				case Platform.Id.Linux:
 					// Note: on RPi libEGL.so depends on libGLESv2.so, so it's required to pre-load the shared library
-					GetProcAddressX11.Instance.GetLibraryHandle("libGLESv2.so");
+					GetProcAddressX11.GetLibraryHandle("libGLESv2.so", false);
 					break;
 			}
 

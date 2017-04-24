@@ -133,17 +133,11 @@ namespace OpenGL
 		/// <param name="path">
 		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
-		/// <param name="imports">
-		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
-		/// </param>
-		/// <param name="delegates">
-		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
-		/// </param>
 		/// <param name="getAddress">
 		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="path"/>, <paramref name="imports"/>, <paramref name="delegates"/> or <paramref name="getAddress"/> is null.
+		/// Exception thrown if <paramref name="path"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
 		private static void BindAPI<T>(string path, GetAddressDelegate getAddress)
 		{

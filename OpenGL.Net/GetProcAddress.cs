@@ -346,12 +346,30 @@ namespace OpenGL
 	/// </summary>
 	internal class GetProcAddressX11 : IGetProcAddress
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static GetProcAddressX11()
+		{
+			// Library libGL.so.1 is optional
+			IntPtr libHandle = GetLibraryHandle(Library, false);
+			if (libHandle != IntPtr.Zero) {
+				IntPtr functionPtr = UnsafeNativeMethods.dlsym(libHandle, "glXGetProcAddress");
+				if (functionPtr != null)
+					Delegates.pglXGetProcAddress = (Delegates.glXGetProcAddress)Marshal.GetDelegateForFunctionPointer(functionPtr, typeof(Delegates.glXGetProcAddress));
+			}
+		}
+
+		#endregion
+
 		#region Singleton
 
 		/// <summary>
 		/// The <see cref="GetProcAddressEgl"/> singleton instance.
 		/// </summary>
-		public static readonly GetProcAddressX11 Instance = new GetProcAddressX11();
+		internal static readonly GetProcAddressX11 Instance = new GetProcAddressX11();
 
 		#endregion
 
@@ -369,9 +387,14 @@ namespace OpenGL
 
 			[DllImport("dl")]
 			public static extern string dlerror();
+		}
 
-			[DllImport(Library, EntryPoint = "glXGetProcAddress")]
-			public static extern IntPtr glxGetProcAddress([MarshalAs(UnmanagedType.LPTStr)] string procName);
+		unsafe static partial class Delegates
+		{
+			[RequiredByFeature("GLX_VERSION_1_4")]
+			public unsafe delegate IntPtr glXGetProcAddress(string procName);
+
+			public static glXGetProcAddress pglXGetProcAddress;
 		}
 
 		#endregion
@@ -442,20 +465,29 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetOpenGLProcAddress(string function)
 		{
-			return (UnsafeNativeMethods.glxGetProcAddress(function));
+			if (Delegates.pglXGetProcAddress != null)
+				return (Delegates.pglXGetProcAddress(function));
+			else
+				return (IntPtr.Zero);
 		}
 
-		internal IntPtr GetLibraryHandle(string libraryPath)
+		internal static IntPtr GetLibraryHandle(string libraryPath)
+		{
+			return (GetLibraryHandle(libraryPath, true));
+		}
+
+		internal static IntPtr GetLibraryHandle(string libraryPath, bool throws)
 		{
 			IntPtr libraryHandle;
 
 			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
-				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW)) == IntPtr.Zero)
-					throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath), new InvalidOperationException(UnsafeNativeMethods.dlerror()));
+				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW)) == IntPtr.Zero) {
+					if (throws)
+						throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath), new InvalidOperationException(UnsafeNativeMethods.dlerror()));
+				}
+					
 				_LibraryHandles.Add(libraryPath, libraryHandle);
 			}
-
-			Debug.Assert(libraryHandle == IntPtr.Zero);
 
 			return (libraryHandle);
 		}
