@@ -104,6 +104,8 @@ namespace OpenGL
 				return (FormatArg((string[])arg));
 			else if (argType.IsArray)
 				return (FormatArg((Array)arg));
+			if (argType == typeof(IntPtr))
+				return (FormatArg((IntPtr)arg));
 			else
 				return (arg);
 		}
@@ -140,6 +142,11 @@ namespace OpenGL
 				return (sb.ToString());
 			} else
 				return ("{ null }");
+		}
+
+		private object FormatArg(IntPtr arg)
+		{
+			return ("0x" + arg.ToString("X8"));
 		}
 
 		#endregion
