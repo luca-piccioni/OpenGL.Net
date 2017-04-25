@@ -40,15 +40,16 @@ namespace BindingsGen
 			RegistryContext ctx;
 			RegistryProcessor glRegistryProcessor;
 
-			RegistryDocumentation.CreateLog();
-
 			// XML-based speicfications
 
 			// OpenGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
-				RegistryDocumentation.ScanDocumentation();
+				RegistryDocumentation<RegistryDocumentationHandler_GL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
+				gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
 
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+				ctx.RefPages = gl4Documentation;
+
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
@@ -58,8 +59,6 @@ namespace BindingsGen
 
 			// OpenGL for Windows
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
-				RegistryDocumentation.ScanDocumentation();
-
 				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -70,8 +69,6 @@ namespace BindingsGen
 
 			// OpenGL for Unix
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0)) {
-				RegistryDocumentation.ScanDocumentation();
-
 				ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -82,9 +79,12 @@ namespace BindingsGen
 
 			// EGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
-				RegistryDocumentation.ScanDocumentation();
+				RegistryDocumentation<RegistryDocumentationHandler_EGL> eglDocumentation = new RegistryDocumentation<RegistryDocumentationHandler_EGL>();
+				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/EGL-Registry/sdk/docs/man"));
 
 				ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
+				ctx.RefPages = eglDocumentation;
+
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
@@ -142,8 +142,6 @@ namespace BindingsGen
 					}
 				}
 			}
-
-			RegistryDocumentation.CloseLog();
 		}
 
 		/// <summary>

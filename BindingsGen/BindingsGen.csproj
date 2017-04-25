@@ -122,6 +122,7 @@
     <Compile Include="GLSpecs\Registry.cs" />
     <Compile Include="GLSpecs\Header.cs" />
     <Compile Include="RegistryAssemblyConfiguration.cs" />
+    <Compile Include="RegistryDocumentationHandler.cs" />
     <Compile Include="SpecificationStyle.cs" />
     <Compile Include="GLSpecs\SpecWordsDictionary.cs" />
     <Compile Include="GLSpecs\Type.cs" />

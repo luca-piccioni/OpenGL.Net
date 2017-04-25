@@ -151,6 +151,11 @@ namespace BindingsGen
 		public readonly IRegistry Registry;
 
 		/// <summary>
+		/// The Khronos reference pages.
+		/// </summary>
+		public IRegistryDocumentation RefPages;
+
+		/// <summary>
 		/// The extension names dictionary.
 		/// </summary>
 		public readonly SpecWordsDictionary ExtensionsDictionary;

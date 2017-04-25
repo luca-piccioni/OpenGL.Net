@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -99,6 +99,16 @@ namespace BindingsGen
 		/// The string representing the current identation.
 		/// </summary>
 		private string mIdentation = string.Empty;
+
+		#endregion
+
+		#region Multiline
+
+		public void WriteLine(string format, IEnumerable<string> lines)
+		{
+			foreach (string line in lines)
+				WriteLine(format, line);
+		}
 
 		#endregion
 

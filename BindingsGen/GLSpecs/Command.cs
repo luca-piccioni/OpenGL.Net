@@ -663,10 +663,10 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation_Signature(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams, string implementationName, string returnType)
 		{
-#if !DEBUG
 			// Documentation
-			RegistryDocumentation.GenerateDocumentation(sw, ctx, this, commandParams);
-#endif
+			if (ctx.RefPages != null)
+				ctx.RefPages.GenerateDocumentation(sw, ctx, this, true, commandParams);
+
 			string classDefaultApi = ctx.Class.ToLower();
 
 			if (Aliases.Count > 0) {
