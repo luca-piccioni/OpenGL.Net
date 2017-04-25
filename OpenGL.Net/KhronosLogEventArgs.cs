@@ -32,20 +32,27 @@ namespace OpenGL
 		/// <summary>
 		/// Construct a KhronosLogEventArgs.
 		/// </summary>
+		/// <param name="logContext">
+		/// A <see cref="KhronosLogContext"/> holding information about the API logged.
+		/// </param>
 		/// <param name="format">
 		/// A <see cref="String"/> that specifies the format string.
 		/// </param>
 		/// <param name="args">
 		/// An array of objects that specifies the arguments for <paramref name="format"/>.
 		/// </param>
-		internal KhronosLogEventArgs(string format, params object[] args)
+		internal KhronosLogEventArgs(KhronosLogContext logContext, string format, params object[] args)
 		{
 			_Comment = String.Format(format, args);
+			_LogContext = logContext;
 		}
 
 		/// <summary>
 		/// Construct a KhronosLogEventArgs.
 		/// </summary>
+		/// <param name="logContext">
+		/// A <see cref="KhronosLogContext"/> holding information about the API logged.
+		/// </param>
 		/// <param name="name">
 		/// A <see cref="String"/> that specifies the name of the command.
 		/// </param>
@@ -55,13 +62,14 @@ namespace OpenGL
 		/// <param name="retvalue">
 		/// The <see cref="Object"/> returned by the function.
 		/// </param>
-		internal KhronosLogEventArgs(string name, object[] args, object retvalue)
+		internal KhronosLogEventArgs(KhronosLogContext logContext, string name, object[] args, object retvalue)
 		{
 			if (name == null)
 				throw new ArgumentNullException("name");
 			Name = name;
 			Args = args;
 			ReturnValue = retvalue;
+			_LogContext = logContext;
 		}
 
 		#endregion
@@ -148,6 +156,11 @@ namespace OpenGL
 		{
 			return ("0x" + arg.ToString("X8"));
 		}
+
+		/// <summary>
+		/// Optional logging context holding information about the API logged.
+		/// </summary>
+		private readonly KhronosLogContext _LogContext;
 
 		#endregion
 

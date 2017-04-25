@@ -664,7 +664,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Procedure Checking
+		#region Command Checking
 
 		/// <summary>
 		/// Check whether commands implemented by the current driver have a corresponding extension declaring the
@@ -806,7 +806,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Procedure Logging
+		#region Command Logging
 
 		/// <summary>
 		/// Event raised whenever an API command is called.
@@ -829,7 +829,7 @@ namespace OpenGL
 		protected internal static void LogCommand(string name, object returnValue, params object[] args)
 		{
 			if (_ProcLogEnabled && Log != null) {
-				KhronosLogEventArgs e = new KhronosLogEventArgs(name, args, returnValue);
+				KhronosLogEventArgs e = new KhronosLogEventArgs(_LogContext, name, args, returnValue);
 				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
 					try {
 						eventHandler(null, e);
@@ -852,7 +852,7 @@ namespace OpenGL
 		public static void LogComment(string format, params object[] args)
 		{
 			if (_ProcLogEnabled && Log != null) {
-				KhronosLogEventArgs e = new KhronosLogEventArgs(format, args);
+				KhronosLogEventArgs e = new KhronosLogEventArgs(_LogContext, format, args);
 				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
 					try {
 						eventHandler(null, e);
@@ -872,84 +872,9 @@ namespace OpenGL
 		protected static bool _ProcLogEnabled;
 
 		/// <summary>
-		/// Information usedful for logging purposes.
+		/// The logging context.
 		/// </summary>
-		protected struct LogContext
-		{
-			/// <summary>
-			/// Enumeration names indexed by their value.
-			/// </summary>
-			public Dictionary<Int64, string> EnumNames;
-
-			/// <summary>
-			/// Enumeration names (indexed by their values) collected in enumeration bitmask.
-			/// </summary>
-			public Dictionary<string, Dictionary<Int64, string>> EnumBitmasks;
-		}
-
-		/// <summary>
-		/// Query KhronoApi derived class enumeration names.
-		/// </summary>
-		/// <param name="khronoApiType">
-		/// A <see cref="Type"/> that specifies the type of the class where to query enumeration names.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Dictionary{Int32, String}"/> that correlates the enumeration value with
-		/// the enumeration name.
-		/// </returns>
-		protected static LogContext QueryLogContext(Type khronoApiType)
-		{
-			if (khronoApiType == null)
-				throw new ArgumentNullException("khronoApiType");
-
-			LogContext logContext = new LogContext();
-
-			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
-			Dictionary<string, Dictionary<Int64, string>> enumBitmasks = new Dictionary<string, Dictionary<Int64, string>>();
-
-			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
-
-			foreach (FieldInfo fieldInfo in fieldInfos) {
-				// Enumeration values are defined as const fields
-				if (fieldInfo.IsLiteral == false)
-					continue;
-
-				// Enumeration values have at least one RequiredByFeatureAttribute
-				Attribute[] requiredByFeatureAttribs = Attribute.GetCustomAttributes(fieldInfo, typeof(RequiredByFeatureAttribute));
-				if ((requiredByFeatureAttribs == null) || (requiredByFeatureAttribs.Length == 0))
-					continue;
-
-				LogAttribute logAttribute = (LogAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(LogAttribute));
-				IConvertible fieldInfoValue = (IConvertible)fieldInfo.GetValue(null);
-				Int64 enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
-
-				// Pure enum
-				if ((logAttribute == null) || (logAttribute.BitmaskName == null)) {
-					// Collect enumeration
-					if (enumNames.ContainsKey(enumValueKey) == false)
-						enumNames.Add(enumValueKey, fieldInfo.Name);
-				}
-
-				// Bitmask enum
-				if ((logAttribute != null) && (logAttribute.BitmaskName != null)) {
-					Dictionary<Int64, string> enumBitmaskNames;
-
-					if (enumBitmasks.TryGetValue(logAttribute.BitmaskName, out enumBitmaskNames) == false) {
-						enumBitmaskNames = new Dictionary<long, string>();
-						enumBitmasks.Add(logAttribute.BitmaskName, enumBitmaskNames);
-					}
-
-					if (enumBitmaskNames.ContainsKey(enumValueKey) == false)
-						enumBitmaskNames.Add(enumValueKey, fieldInfo.Name);
-				}
-			}
-
-			// Componse LogContext
-			logContext.EnumNames = enumNames;
-			logContext.EnumBitmasks = enumBitmasks;
-
-			return (logContext);
-		}
+		private static KhronosLogContext _LogContext;
 
 		#endregion
 	}

@@ -267,7 +267,6 @@
     </Compile>
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="ColorSRGB.cs" />
-    <Compile Include="CpuInformation.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />
     <Compile Include="EXT\Egl.EXT_gl_colorspace_bt2020_linear.cs" />
@@ -327,6 +326,7 @@
     <Compile Include="IVertex2.cs" />
     <Compile Include="IVertex3.cs" />
     <Compile Include="IVertex4.cs" />
+    <Compile Include="KhronosLogContext.cs" />
     <Compile Include="KhronosLogEventArgs.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />
     <Compile Include="KHR\Egl.KHR_mutable_render_buffer.cs" />

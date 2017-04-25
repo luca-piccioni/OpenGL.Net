@@ -20,7 +20,6 @@
 #pragma warning disable 649
 
 using System;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Reflection.Emit;
@@ -45,19 +44,6 @@ namespace OpenGL
 			// Ensure MemoryCopy functionality
 			EnsureMemoryCopy();
 		}
-
-		#endregion
-
-		#region CPU Information
-
-		/// <summary>
-		/// Delegate used for getting CPU information.
-		/// </summary>
-		/// <returns></returns>
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		[System.Security.SuppressUnmanagedCodeSecurity()]
-		[return : MarshalAs(UnmanagedType.Struct)]
-		private delegate void GetCpuInformation(ref CpuInformation cpuInformation);
 
 		#endregion
 
@@ -273,125 +259,5 @@ namespace OpenGL
 		}
 
 		#endregion
-
-		/// <summary>
-		/// Delegate used for 
-		/// </summary>
-		/// <param name="result"></param>
-		/// <param name="left"></param>
-		/// <param name="right"></param>
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		[System.Security.SuppressUnmanagedCodeSecurity()]
-		internal delegate void Matrix4x4MultiplyOfDelegate(float* result, float* left, float* right);
-
-		/// <summary>
-		/// Delegate used for 
-		/// </summary>
-		/// <param name="result"></param>
-		/// <param name="count"></param>
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		[System.Security.SuppressUnmanagedCodeSecurity()]
-		internal delegate void Matrix4x4ConcatenateDelegate(float*[] result, uint count);
-
-		/// <summary>
-		/// Cached delegate for multiply two matrices.
-		/// </summary>
-		internal static Matrix4x4MultiplyOfDelegate Matrix4x4_Multiply_Matrix4x4;
-
-		/// <summary>
-		/// Cached delegate for multiply a chain of matrices.
-		/// </summary>
-		internal static Matrix4x4ConcatenateDelegate Matrix4x4_Concatenate;
-
-		/// <summary>
-		/// Load available SIMD extensions.
-		/// </summary>
-		public static void LoadSimdExtensions()
-		{
-			const string AssemblyPath = "OpenGL.Simd.dll";
-
-			IntPtr getCpuInformationPtr = IntPtr.Zero;
-
-			if (File.Exists(AssemblyPath) == false)
-				return;
-
-			try {
-				getCpuInformationPtr = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, "GetCpuInformation");	
-			} catch { /* Ignore exception, leave 'getCpuInformationPtr' equals to 'IntPtr.Zero' */ }
-
-			// No CPU information? Ahi ahi ahi
-			if (getCpuInformationPtr == IntPtr.Zero)
-				return;
-
-			GetCpuInformation getCpuInformation = (GetCpuInformation)Marshal.GetDelegateForFunctionPointer(getCpuInformationPtr, typeof(GetCpuInformation));
-			CpuInformation cpuInfo = new CpuInformation();
-			
-			getCpuInformation(ref cpuInfo);
-
-			if (cpuInfo.SimdSupport != SimdTechnology.None) {
-				FieldInfo[] fields = typeof(Memory).GetFields(BindingFlags.Static | BindingFlags.NonPublic);
-
-				foreach (FieldInfo fieldInfo in fields) {
-
-					// Test for SSSE3 support
-					if ((cpuInfo.SimdSupport & SimdTechnology.SSSE3) != 0) {
-						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSSE3");
-						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
-
-						if (address != IntPtr.Zero) {
-							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
-							continue;
-						}
-					}
-
-					// Test for SSE3 support
-					if ((cpuInfo.SimdSupport & SimdTechnology.SSE3) != 0) {
-						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSE3");
-						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
-
-						if (address != IntPtr.Zero) {
-							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
-							continue;
-						}
-					}
-
-					// Test for SSE2 support
-					if ((cpuInfo.SimdSupport & SimdTechnology.SSE2) != 0) {
-						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSE2");
-						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
-
-						if (address != IntPtr.Zero) {
-							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
-							continue;
-						}
-					}
-
-					// Test for SSE support
-					if ((cpuInfo.SimdSupport & SimdTechnology.SSE) != 0) {
-						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "SSE");
-						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
-
-						if (address != IntPtr.Zero) {
-							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
-							continue;
-						}
-					}
-
-					// Test for MMX support
-					if ((cpuInfo.SimdSupport & SimdTechnology.MMX) != 0) {
-						string entryPoint = String.Format("{0}_{1}", fieldInfo.Name, "MMX");
-						IntPtr address = GetProcAddress.GetProcAddressOS.GetProcAddress(AssemblyPath, entryPoint);
-
-						if (address != IntPtr.Zero) {
-							fieldInfo.SetValue(null, Marshal.GetDelegateForFunctionPointer(address, fieldInfo.FieldType));
-							continue;
-						}
-					}
-
-					// Reset field
-					fieldInfo.SetValue(null, null);
-				}
-			}
-		}
 	}
 }
