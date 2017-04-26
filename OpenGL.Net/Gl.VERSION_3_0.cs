@@ -346,7 +346,8 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_MODE = 0x8C7F;
 
 		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of components which can be written per attribute or output in 
+		/// separate transform feedback mode. The value must be at least 4. See Gl.TransformFeedbackVaryings.
 		/// </summary>
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_NV")]
@@ -419,7 +420,8 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN = 0x8C88;
 
 		/// <summary>
-		/// Value of GL_RASTERIZER_DISCARD symbol.
+		/// Gl.Get: data returns one value, a single boolean value indicating whether primitives are discarded immediately before 
+		/// the rasterization stage, but after the optional transform feedback stage. See Gl.Enable.
 		/// </summary>
 		[AliasOf("GL_RASTERIZER_DISCARD_EXT")]
 		[AliasOf("GL_RASTERIZER_DISCARD_NV")]
@@ -430,7 +432,8 @@ namespace OpenGL
 		public const int RASTERIZER_DISCARD = 0x8C89;
 
 		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of components which can be written to a single transform feedback 
+		/// buffer in interleaved mode. The value must be at least 64. See Gl.TransformFeedbackVaryings.
 		/// </summary>
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV")]
@@ -441,7 +444,8 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS = 0x8C8A;
 
 		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS symbol.
+		/// Gl.Get: data returns one value, the maximum separate attributes or outputs which can be captured in separate transform 
+		/// feedback mode. The value must be at least 4. See Gl.TransformFeedbackVaryings.
 		/// </summary>
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_EXT")]
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_NV")]
@@ -1411,7 +1415,8 @@ namespace OpenGL
 		public const int FRAMEBUFFER_UNSUPPORTED = 0x8CDD;
 
 		/// <summary>
-		/// Value of GL_MAX_COLOR_ATTACHMENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of color attachment points in a framebuffer object. The value must be 
+		/// at least 4. See Gl.FramebufferRenderbuffer and Gl.FramebufferTexture2D.
 		/// </summary>
 		[AliasOf("GL_MAX_COLOR_ATTACHMENTS_EXT")]
 		[AliasOf("GL_MAX_COLOR_ATTACHMENTS_NV")]
@@ -1987,7 +1992,8 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE = 0x8D56;
 
 		/// <summary>
-		/// Value of GL_MAX_SAMPLES symbol.
+		/// Gl.Get: data returns one value. The value indicates the maximum supported number of samples for multisampling. The value 
+		/// must be at least 4. See Gl.GetInternalformativ.
 		/// </summary>
 		[AliasOf("GL_MAX_SAMPLES_ANGLE")]
 		[AliasOf("GL_MAX_SAMPLES_APPLE")]

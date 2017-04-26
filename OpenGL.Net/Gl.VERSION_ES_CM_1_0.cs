@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int VERSION_ES_CL_1_1 = 1;
 
 		/// <summary>
-		/// Binding for glClipPlanef.
+		/// specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="p">
 		/// A <see cref="T:Int32"/>.
@@ -55,6 +55,12 @@ namespace OpenGL
 		/// <param name="eqn">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.GetClipPlane"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClipPlane(Int32 p, float[] eqn)
 		{
@@ -70,7 +76,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFrustumf.
+		/// multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -90,6 +96,16 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="near"/> or <paramref name="far"/> is not positive, or if <paramref 
+		/// name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = <paramref name="top"/>, or <paramref 
+		/// name="near"/> = <paramref name="far"/>.
+		/// </exception>
+		/// <seealso cref="Gl.Ortho"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Frustum(float l, float r, float b, float t, float n, float f)
 		{
@@ -100,14 +116,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetClipPlanef.
+		/// return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
+		/// planes are supported. Symbolic names of the form Gl.CLIP_PLANEi, where i is an integer between 0 and 
+		/// Gl.MAX_CLIP_PLANES-1, are accepted.
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:float[]"/>.
+		/// Returns four fixed-point or floating-point values that are the coefficients of the plane equation of <paramref 
+		/// name="plane"/> in eye coordinates in the order p1, p2, p3, and p4. The initial value is (0, 0, 0, 0).
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetClipPlane(Int32 plane, [Out] float[] equation)
 		{
@@ -123,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glOrthof.
+		/// multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -143,6 +166,15 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = 
+		/// <paramref name="top"/>, or <paramref name="near"/> = <paramref name="far"/>.
+		/// </exception>
+		/// <seealso cref="Gl.Frustum"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Ortho(float l, float r, float b, float t, float n, float f)
 		{
@@ -153,14 +185,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glAlphaFuncx.
+		/// specify the alpha test function
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the alpha comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
+		/// Gl.NOTEQUAL, Gl.GEQUAL, and Gl.ALWAYS are accepted. The initial value is Gl.ALWAYS.
 		/// </param>
 		/// <param name="ref">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the reference value that incoming alpha values are compared to. This value is clamped to the range [0, 1], 
+		/// where 0 represents the lowest possible alpha value and 1 the highest possible value. The initial reference value is 0.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="func"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void AlphaFunc(Int32 func, IntPtr @ref)
 		{
@@ -171,20 +213,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClearColorx.
+		/// specify clear values for the color buffer
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
 		/// </param>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.ClearDepth"/>
+		/// <seealso cref="Gl.ClearStencil"/>
+		/// <seealso cref="Gl.ColorMask"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClearColor(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha)
 		{
@@ -195,11 +241,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClearDepthx.
+		/// specify the clear value for the depth buffer
 		/// </summary>
 		/// <param name="depth">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
 		/// </param>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.ClearColor"/>
+		/// <seealso cref="Gl.ClearStencil"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthMask"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClearDepth(IntPtr depth)
 		{
@@ -210,14 +261,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClipPlanex.
+		/// specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies which clipping plane is being positioned. Symbolic names of the form Gl.CLIP_PLANEi, where i is an integer 
+		/// between 0 and Gl.MAX_CLIP_PLANES-1, are accepted.
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Specifies the address of an array of four fixed-point or floating-point values. These are the coefficients of a plane 
+		/// equation in object coordinates: p1, p2, p3, and p4, in that order.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.GetClipPlane"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClipPlane(Int32 plane, IntPtr[] equation)
 		{
@@ -233,20 +292,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4x.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify new red, green, blue, and alpha values for the current color.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify new red, green, blue, and alpha values for the current color.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify new red, green, blue, and alpha values for the current color.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify new red, green, blue, and alpha values for the current color.
 		/// </param>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Color4(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha)
 		{
@@ -257,7 +319,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDepthRangex.
+		/// specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:IntPtr"/>.
@@ -265,6 +327,9 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void DepthRange(IntPtr n, IntPtr f)
 		{
@@ -275,14 +340,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogx.
+		/// specify fog parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
+		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.FOG_DENSITY, and <paramref name="params"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Fog(Int32 pname, IntPtr param)
 		{
@@ -293,14 +366,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogxv.
+		/// specify fog parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
+		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.FOG_DENSITY, and <paramref name="params"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Fog(Int32 pname, IntPtr[] param)
 		{
@@ -316,7 +397,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFrustumx.
+		/// multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:IntPtr"/>.
@@ -336,6 +417,16 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="near"/> or <paramref name="far"/> is not positive, or if <paramref 
+		/// name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = <paramref name="top"/>, or <paramref 
+		/// name="near"/> = <paramref name="far"/>.
+		/// </exception>
+		/// <seealso cref="Gl.Ortho"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Frustum(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f)
 		{
@@ -346,14 +437,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetClipPlanex.
+		/// return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
+		/// planes are supported. Symbolic names of the form Gl.CLIP_PLANEi, where i is an integer between 0 and 
+		/// Gl.MAX_CLIP_PLANES-1, are accepted.
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns four fixed-point or floating-point values that are the coefficients of the plane equation of <paramref 
+		/// name="plane"/> in eye coordinates in the order p1, p2, p3, and p4. The initial value is (0, 0, 0, 0).
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetClipPlane(Int32 plane, [Out] IntPtr[] equation)
 		{
@@ -369,14 +467,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetFixedv.
+		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the parameter value to be returned. The symbolic constants in the list below are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetString"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetFixed(Int32 pname, [Out] IntPtr[] @params)
 		{
@@ -392,17 +495,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLightxv.
+		/// return light source parameter values
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
+		/// supported. They are identified by symbolic names of the form GL_LIGHTi where 0&lt;i&lt;GL_MAX_LIGHTS
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a light source parameter for light. Accepted symbolic names are Gl.AMBIENT, Gl.DIFFUSE, Gl.SPECULAR, 
+		/// Gl.POSITION, Gl.SPOT_DIRECTION, Gl.SPOT_EXPONENT, Gl.SPOT_CUTOFF, Gl.CONSTANT_ATTENUATION, Gl.LINEAR_ATTENUATION, and 
+		/// Gl.QUADRATIC_ATTENUATION.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns the requested data.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetLightxv(Int32 light, Int32 pname, [Out] IntPtr[] @params)
 		{
@@ -418,17 +528,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMaterialxv.
+		/// return material parameters values
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies which of the two materials is being queried. Gl.FRONT or Gl.BACK are accepted, representing the front and back 
+		/// materials, respectively.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the material parameter to return. Accepted symbolic names are Gl.AMBIENT, Gl.DIFFUSE, Gl.SPECULAR, 
+		/// Gl.EMISSION, and Gl.SHININESS.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns the requested data.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetMaterial(Int32 face, Int32 pname, [Out] IntPtr[] @params)
 		{
@@ -444,17 +560,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexEnvxv.
+		/// return texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the symbolic name of a texture environment parameter. Accepted values are Gl.TEXTURE_ENV_MODE, 
+		/// Gl.TEXTURE_ENV_COLOR, Gl.COMBINE_RGB, Gl.COMBINE_ALPHA, Gl.SRC0_RGB, Gl.SRC1_RGB, Gl.SRC2_RGB, Gl.SRC0_ALPHA, 
+		/// Gl.SRC1_ALPHA, Gl.SRC2_ALPHA, Gl.OPERAND0_RGB, Gl.OPERAND1_RGB, Gl.OPERAND2_RGB, Gl.OPERAND0_ALPHA, Gl.OPERAND1_ALPHA, 
+		/// Gl.OPERAND2_ALPHA, Gl.RGB_SCALE, Gl.ALPHA_SCALE, or Gl.COORD_REPLACE_OES.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns the requested data.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetTexEnv(Int32 target, Int32 pname, [Out] IntPtr[] @params)
 		{
@@ -470,17 +594,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexParameterxv.
+		/// return texture parameter values
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the symbolic name of a texture parameter. Which can be one of the following: Gl.TEXTURE_MIN_FILTER, 
+		/// Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, or Gl.GENERATE_MIPMAP.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns texture parameters.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
+		/// values.
+		/// </exception>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetTexParameter(Int32 target, Int32 pname, [Out] IntPtr[] @params)
 		{
@@ -496,14 +626,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModelx.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a single-valued lighting model parameter. Must be Gl.LIGHT_MODEL_TWO_SIDE.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LightModel(Int32 pname, IntPtr param)
 		{
@@ -514,14 +649,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModelxv.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a single-valued lighting model parameter. Must be Gl.LIGHT_MODEL_TWO_SIDE.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LightModel(Int32 pname, IntPtr[] param)
 		{
@@ -537,17 +677,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightx.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identified by symbolic names of the form Gl.LIGHTi where 0&lt;=i&lt;GL_MAX_LIGHTS.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. Gl.SPOT_EXPONENT, Gl.SPOT_CUTOFF, 
+		/// Gl.CONSTANT_ATTENUATION, Gl.LINEAR_ATTENUATION, and Gl.QUADRATIC_ATTENUATION are accepted.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if a spot exponent value is specified outside the range [0, 128], or if spot cutoff is 
+		/// specified outside the range [0, 90] (except for the special value 180), or if a negative attenuation factor is 
+		/// specified.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Lightx(Int32 light, Int32 pname, IntPtr param)
 		{
@@ -558,17 +711,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightxv.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identified by symbolic names of the form Gl.LIGHTi where 0&lt;=i&lt;GL_MAX_LIGHTS.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. Gl.SPOT_EXPONENT, Gl.SPOT_CUTOFF, 
+		/// Gl.CONSTANT_ATTENUATION, Gl.LINEAR_ATTENUATION, and Gl.QUADRATIC_ATTENUATION are accepted.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if a spot exponent value is specified outside the range [0, 128], or if spot cutoff is 
+		/// specified outside the range [0, 90] (except for the special value 180), or if a negative attenuation factor is 
+		/// specified.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Lightxv(Int32 light, Int32 pname, IntPtr[] @params)
 		{
@@ -584,11 +750,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLineWidthx.
+		/// specify the width of rasterized lines
 		/// </summary>
 		/// <param name="width">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the width of rasterized lines. The initial value is 1.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than or equal to 0.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LineWidth(IntPtr width)
 		{
@@ -599,11 +770,15 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLoadMatrixx.
+		/// replace the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
 		/// </param>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LoadMatrixx(IntPtr[] m)
 		{
@@ -619,17 +794,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialx.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies which face or faces are being updated. Must be Gl.FRONT_AND_BACK.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be Gl.SHININESS.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if a specular exponent outside the range [0, 128] is specified.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Material(Int32 face, Int32 pname, IntPtr param)
 		{
@@ -640,17 +824,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialxv.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies which face or faces are being updated. Must be Gl.FRONT_AND_BACK.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be Gl.SHININESS.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if a specular exponent outside the range [0, 128] is specified.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Material(Int32 face, Int32 pname, IntPtr[] param)
 		{
@@ -666,11 +859,15 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultMatrixx.
+		/// multiply the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
 		/// </param>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void MultMatrixx(IntPtr[] m)
 		{
@@ -686,23 +883,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4x.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for <paramref name="target"/> texture unit.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for <paramref name="target"/> texture unit.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for <paramref name="target"/> texture unit.
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for <paramref name="target"/> texture unit.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void MultiTexCoord4(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
 		{
@@ -713,17 +920,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3x.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of the new current normal. 
+		/// The initial value is (0, 0, 1).
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of the new current normal. 
+		/// The initial value is (0, 0, 1).
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of the new current normal. 
+		/// The initial value is (0, 0, 1).
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Normal3(IntPtr nx, IntPtr ny, IntPtr nz)
 		{
@@ -734,7 +948,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glOrthox.
+		/// multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:IntPtr"/>.
@@ -754,6 +968,15 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = 
+		/// <paramref name="top"/>, or <paramref name="near"/> = <paramref name="far"/>.
+		/// </exception>
+		/// <seealso cref="Gl.Frustum"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Orthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f)
 		{
@@ -764,14 +987,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPointParameterx.
+		/// specify parameters for point rasterization
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the single-valued parameter to be updated. Can be either Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
+		/// Gl.POINT_FADE_THRESHOLD_SIZE.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the value that the parameter will be set to.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if assigned values for Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
+		/// Gl.POINT_FADE_THRESHOLD_SIZE are less then Gl.o.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointParameter(Int32 pname, IntPtr param)
 		{
@@ -782,14 +1017,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPointParameterxv.
+		/// specify parameters for point rasterization
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the single-valued parameter to be updated. Can be either Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
+		/// Gl.POINT_FADE_THRESHOLD_SIZE.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if assigned values for Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
+		/// Gl.POINT_FADE_THRESHOLD_SIZE are less then Gl.o.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointParameter(Int32 pname, IntPtr[] @params)
 		{
@@ -805,11 +1052,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPointSizex.
+		/// specify the diameter of rasterized points
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the diameter of rasterized points. The initial value is 1.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is less than or equal to 0.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointSize(IntPtr size)
 		{
@@ -820,14 +1072,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPolygonOffsetx.
+		/// set the scale and units used to calculate depth values
 		/// </summary>
 		/// <param name="factor">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a scale factor that is used to create a variable depth offset for each polygon. The initial value is 0.
 		/// </param>
 		/// <param name="units">
-		/// A <see cref="T:IntPtr"/>.
+		/// Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0.
 		/// </param>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PolygonOffset(IntPtr factor, IntPtr units)
 		{
@@ -838,20 +1092,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRotatex.
+		/// multiply the current matrix by a rotation matrix
 		/// </summary>
 		/// <param name="angle">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the angle of rotation, in degrees.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a vector, respectively.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a vector, respectively.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a vector, respectively.
 		/// </param>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Scale"/>
+		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Rotate(IntPtr angle, IntPtr x, IntPtr y, IntPtr z)
 		{
@@ -862,14 +1121,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSampleCoveragex.
+		/// specify mask to modify multisampled pixel fragments
 		/// </summary>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the coverage of the modification mask. The value is clamped to the range [0, 1], where 0 represents no 
+		/// coverage and 1 full coverage. The initial value is 1.
 		/// </param>
 		/// <param name="invert">
-		/// A <see cref="T:bool"/>.
+		/// Specifies whether the modification mask implied by <paramref name="value"/> is inverted or not. The initial value is 
+		/// Gl.FALSE.
 		/// </param>
+		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void SampleCoverage(Int32 value, bool invert)
 		{
@@ -880,17 +1142,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glScalex.
+		/// multiply the current matrix by a general scaling matrix
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify scale factors along the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> axes, respectively.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify scale factors along the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> axes, respectively.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify scale factors along the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> axes, respectively.
 		/// </param>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Scale(IntPtr x, IntPtr y, IntPtr z)
 		{
@@ -901,17 +1169,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexEnvx.
+		/// set texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the symbolic name of a single-valued texture environment parameter. May be either Gl.TEXTURE_ENV_MODE, 
+		/// Gl.COMBINE_RGB, Gl.COMBINE_ALPHA, Gl.SRC0_RGB, Gl.SRC1_RGB, Gl.SRC2_RGB, Gl.SRC0_ALPHA, Gl.SRC1_ALPHA, Gl.SRC2_ALPHA, 
+		/// Gl.OPERAND0_RGB, Gl.OPERAND1_RGB, Gl.OPERAND2_RGB, Gl.OPERAND0_ALPHA, Gl.OPERAND1_ALPHA, Gl.OPERAND2_ALPHA, 
+		/// Gl.RGB_SCALE, Gl.ALPHA_SCALE, or Gl.COORD_REPLACE_OES.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a single symbolic constant, one of Gl.ADD, Gl.ADD_SIGNED, Gl.DOT3_RGB, Gl.DOT3_RGBA, Gl.INTERPOLATE, 
+		/// Gl.MODULATE, Gl.DECAL, Gl.BLEND, Gl.REPLACE, Gl.SUBTRACT, Gl.COMBINE, Gl.TEXTURE, Gl.CONSTANT, Gl.PRIMARY_COLOR, 
+		/// Gl.PREVIOUS, Gl.SRC_COLOR, Gl.ONE_MINUS_SRC_COLOR, Gl.SRC_ALPHA, Gl.ONE_MINUS_SRC_ALPHA, a single boolean value for the 
+		/// point sprite texture coordinate replacement, or 1.0, 2.0, or 4.0 when specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
+		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
+		/// name="pname"/>) and does not.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if the <paramref name="params"/> value for Gl.RGB_SCALE or Gl.ALPHA_SCALE are not one of 
+		/// 1.0, 2.0, or 4.0.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexEnv(Int32 target, Int32 pname, IntPtr param)
 		{
@@ -922,17 +1213,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexEnvxv.
+		/// set texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the symbolic name of a single-valued texture environment parameter. May be either Gl.TEXTURE_ENV_MODE, 
+		/// Gl.COMBINE_RGB, Gl.COMBINE_ALPHA, Gl.SRC0_RGB, Gl.SRC1_RGB, Gl.SRC2_RGB, Gl.SRC0_ALPHA, Gl.SRC1_ALPHA, Gl.SRC2_ALPHA, 
+		/// Gl.OPERAND0_RGB, Gl.OPERAND1_RGB, Gl.OPERAND2_RGB, Gl.OPERAND0_ALPHA, Gl.OPERAND1_ALPHA, Gl.OPERAND2_ALPHA, 
+		/// Gl.RGB_SCALE, Gl.ALPHA_SCALE, or Gl.COORD_REPLACE_OES.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
+		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
+		/// name="pname"/>) and does not.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if the <paramref name="params"/> value for Gl.RGB_SCALE or Gl.ALPHA_SCALE are not one of 
+		/// 1.0, 2.0, or 4.0.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexEnv(Int32 target, Int32 pname, IntPtr[] @params)
 		{
@@ -948,17 +1259,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexParameterx.
+		/// set texture parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the symbolic name of a single-valued texture parameter. Which can be one of the following: 
+		/// Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, or Gl.GENERATE_MIPMAP.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
+		/// values.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="param"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.PixelStorei"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexParameter(Int32 target, Int32 pname, IntPtr param)
 		{
@@ -969,17 +1298,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexParameterxv.
+		/// set texture parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the symbolic name of a single-valued texture parameter. Which can be one of the following: 
+		/// Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, or Gl.GENERATE_MIPMAP.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
+		/// values.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="param"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.PixelStorei"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexParameter(Int32 target, Int32 pname, IntPtr[] @params)
 		{
@@ -995,17 +1342,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTranslatex.
+		/// multiply the current matrix by a translation matrix
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a translation vector.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a translation vector.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a translation vector.
 		/// </param>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Translate(IntPtr x, IntPtr y, IntPtr z)
 		{

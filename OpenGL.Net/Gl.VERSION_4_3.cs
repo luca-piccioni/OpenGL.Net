@@ -121,7 +121,8 @@ namespace OpenGL
 		public const int COMPRESSED_SIGNED_RG11_EAC = 0x9273;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART_FIXED_INDEX symbol.
+		/// Gl.Get: data returns a single boolean value indicating whether primitive restart with a fixed index is enabled. The 
+		/// initial value is Gl.FALSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -174,7 +175,7 @@ namespace OpenGL
 		public const int MAX_COMPUTE_TEXTURE_IMAGE_UNITS = 0x91BC;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_IMAGE_UNIFORMS symbol.
+		/// Gl.Get: data returns one value, the maximum supported number of image variables in compute shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -315,7 +316,7 @@ namespace OpenGL
 		public const int DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 		/// <summary>
-		/// Value of GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH symbol.
+		/// Gl.Get: data returns a single value, the length, including the NULL terminator, of the oldest message in the debug log.
 		/// </summary>
 		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB")]
 		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR")]
@@ -496,7 +497,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_OTHER = 0x8251;
 
 		/// <summary>
-		/// Value of GL_MAX_DEBUG_MESSAGE_LENGTH symbol.
+		/// Gl.Get: data returns a single value, the maximum length of a debug message string, including its null terminator.
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_AMD")]
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB")]
@@ -510,7 +511,7 @@ namespace OpenGL
 		public const int MAX_DEBUG_MESSAGE_LENGTH = 0x9143;
 
 		/// <summary>
-		/// Value of GL_MAX_DEBUG_LOGGED_MESSAGES symbol.
+		/// Gl.Get: data returns a single value, the maximum number of messages stored in the debug message log.
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_AMD")]
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB")]
@@ -524,7 +525,7 @@ namespace OpenGL
 		public const int MAX_DEBUG_LOGGED_MESSAGES = 0x9144;
 
 		/// <summary>
-		/// Value of GL_DEBUG_LOGGED_MESSAGES symbol.
+		/// Gl.Get: data returns a single value, the number of messages currently in the debug log.
 		/// </summary>
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_AMD")]
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB")]
@@ -2149,7 +2150,8 @@ namespace OpenGL
 		public const int MAX_SHADER_STORAGE_BUFFER_BINDINGS = 0x90DD;
 
 		/// <summary>
-		/// Value of GL_MAX_SHADER_STORAGE_BLOCK_SIZE symbol.
+		/// Gl.Get: data returns one value, the maximum size in basic machine units of a shader storage block. The value must be at 
+		/// least 227.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2279,7 +2281,8 @@ namespace OpenGL
 		public const int TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_BINDING symbol.
+		/// Gl.GetVertexAttrib: params returns a single value that is the current vertex buffer binding of the vertex attribute. See 
+		/// Gl.VertexAttribBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

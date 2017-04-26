@@ -29,14 +29,17 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glQueryMatrixxOES.
+		/// return the values of the current matrix
 		/// </summary>
 		/// <param name="mantissa">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns the mantissa values of the current matrix.
 		/// </param>
 		/// <param name="exponent">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the exponents of the current matrix.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.MatrixMode"/>
 		[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 		public static UInt32 QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
 		{

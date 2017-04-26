@@ -46,7 +46,8 @@ namespace OpenGL
 		public const int PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED = 0x8221;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target Gl.TEXTURE_BUFFER. If 
+		/// no buffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_BINDING_EXT")]
 		[AliasOf("GL_TEXTURE_BUFFER_BINDING_OES")]

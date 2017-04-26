@@ -144,7 +144,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_BUFFER = 0x8C2C;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER_DATA_STORE_BINDING symbol.
+		/// Gl.GetTexLevelParameter: params returns the name of the buffer object bound to the data store for a buffer texture. See 
+		/// Gl.TexBufferRange
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB")]
 		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT")]
@@ -457,7 +458,9 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_OFFSET_ALIGNMENT = 0x8A34;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH symbol.
+		/// Gl.GetProgram: params returns the length of the longest active uniform block name for program, including the null 
+		/// termination character (i.e., the size of the character buffer required to store the longest uniform block name). If no 
+		/// active uniform blocks exist, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -465,7 +468,7 @@ namespace OpenGL
 		public const int ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH = 0x8A35;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_UNIFORM_BLOCKS symbol.
+		/// Gl.GetProgram: params returns the number of uniform blocks for program containing active uniforms.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

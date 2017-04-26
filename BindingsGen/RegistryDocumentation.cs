@@ -252,7 +252,7 @@ namespace BindingsGen
 		/// </summary>
 		public void ScanDocumentation(string path)
 		{
-			Console.WriteLine("Scanning registry documentation (EGL)...");
+			Console.WriteLine("Scanning registry documentation ({0})...", Api ?? "?");
 
 			foreach (string documentationFile in Directory.GetFiles(path)) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)

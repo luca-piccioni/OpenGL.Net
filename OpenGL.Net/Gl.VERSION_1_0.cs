@@ -848,14 +848,14 @@ namespace OpenGL
 		public const int DITHER = 0x0BD0;
 
 		/// <summary>
-		/// Value of GL_BLEND_DST symbol.
+		/// Gl.Get: params returns one value, the symbolic constant identifying the destination blend function. See Gl.BlendFunc.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int BLEND_DST = 0x0BE0;
 
 		/// <summary>
-		/// Value of GL_BLEND_SRC symbol.
+		/// Gl.Get: params returns one value, the symbolic constant identifying the source blend function. See Gl.BlendFunc.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

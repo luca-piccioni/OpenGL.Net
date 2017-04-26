@@ -199,7 +199,8 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATOMIC_COUNTER_BUFFERS = 0x92CC;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a tesselation 
+		/// control shader.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_OES")]
@@ -211,7 +212,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS = 0x92CD;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a tesselation 
+		/// evaluation shader.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_OES")]
@@ -223,7 +225,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS = 0x92CE;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a geometry 
+		/// shader.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_OES")]
@@ -235,7 +238,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS = 0x92CF;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a fragment 
+		/// shader. In GL ES 3.1, the minimum value is 0. in GL ES 3.2, the minimum value is 1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -319,7 +323,8 @@ namespace OpenGL
 		public const int MAX_ATOMIC_COUNTER_BUFFER_SIZE = 0x92D8;
 
 		/// <summary>
-		/// Value of GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS symbol.
+		/// Gl.Get: data returns one value, the maximum number of atomic counter buffer binding points. The value must be at least 
+		/// 1. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -533,7 +538,7 @@ namespace OpenGL
 		public const int IMAGE_BINDING_LEVEL = 0x8F3B;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BINDING_LAYERED symbol.
+		/// Gl.Get: data returns one value, corresponding to whether the image bound to the indexed image unit is layered or not.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_LAYERED_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -941,7 +946,7 @@ namespace OpenGL
 		public const int IMAGE_FORMAT_COMPATIBILITY_BY_CLASS = 0x90C9;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_IMAGE_UNIFORMS symbol.
+		/// Gl.Get: data returns one value, the maximum supported number of image variables in vertex shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -949,7 +954,7 @@ namespace OpenGL
 		public const int MAX_VERTEX_IMAGE_UNIFORMS = 0x90CA;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS symbol.
+		/// Gl.Get: data returns one value, the maximum supported number of image variables in tesselation control shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_OES")]
@@ -961,7 +966,7 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_IMAGE_UNIFORMS = 0x90CB;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS symbol.
+		/// Gl.Get: data returns one value, the maximum supported number of image variables in tesselation evaluation shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_OES")]
@@ -973,7 +978,7 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_IMAGE_UNIFORMS = 0x90CC;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_IMAGE_UNIFORMS symbol.
+		/// Gl.Get: data returns one value, the maximum supported number of image variables in geometry shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_IMAGE_UNIFORMS_OES")]
@@ -985,7 +990,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_IMAGE_UNIFORMS = 0x90CD;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_IMAGE_UNIFORMS symbol.
+		/// Gl.Get: data returns one value, the maximum supported number of image variables in fragment shaders. In GL ES 3.1, the 
+		/// minimum value is 0. in GL ES 3.2, the minimum value is 4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

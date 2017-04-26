@@ -201,7 +201,7 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS = 0x8DDF;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_OUTPUT_VERTICES symbol.
+		/// Gl.Get: data returns one value, the maximum number of vertices emit by a geometry shader, which must be at least 256.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT")]
@@ -215,7 +215,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES = 0x8DE0;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices written by a 
+		/// geometry shader, which must be at least 1024.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT")]
@@ -592,7 +593,7 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY = 0x9105;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SAMPLES symbol.
+		/// Gl.GetTexLevelParameter: params returns a single value, the number of samples of the texture image.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

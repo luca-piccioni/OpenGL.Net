@@ -29,7 +29,8 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_LINE_WIDTH_RANGE symbol.
+		/// Gl.Get: data returns a pair of values indicating the range of widths supported for lines drawn when Gl.SAMPLE_BUFFERS is 
+		/// one. See Gl.LineWidth.
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -195,7 +196,8 @@ namespace OpenGL
 		public const int HSL_LUMINOSITY = 0x92B0;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_BOUNDING_BOX symbol.
+		/// Gl.Get: data returns eight values minX, minY, minZ, minW, and maxX, maxY, maxZ, maxW corresponding to the clip space 
+		/// coordinates of the primitive bounding box. See Gl.PrimitiveBoundingBox.
 		/// </summary>
 		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_ARB")]
 		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_EXT")]
@@ -487,8 +489,11 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_12x12 = 0x93DD;
 
 		/// <summary>
-		/// Binding for glBlendBarrier.
+		/// specifies a boundary between advanced blending passes
 		/// </summary>
+		/// <seealso cref="Gl.BlendEquation"/>
+		/// <seealso cref="Gl.BlendEquationi"/>
+		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glBlendBarrierKHR")]
 		[AliasOf("glBlendBarrierNV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -503,31 +508,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPrimitiveBoundingBox.
+		/// set the bounding box for a primitive
 		/// </summary>
 		/// <param name="minX">
-		/// A <see cref="T:float"/>.
+		/// Specify the minimum clip space cooridnate of the bounding box. The initial value is (-1, -1, -1, -1).
 		/// </param>
 		/// <param name="minY">
-		/// A <see cref="T:float"/>.
+		/// Specify the minimum clip space cooridnate of the bounding box. The initial value is (-1, -1, -1, -1).
 		/// </param>
 		/// <param name="minZ">
-		/// A <see cref="T:float"/>.
+		/// Specify the minimum clip space cooridnate of the bounding box. The initial value is (-1, -1, -1, -1).
 		/// </param>
 		/// <param name="minW">
-		/// A <see cref="T:float"/>.
+		/// Specify the minimum clip space cooridnate of the bounding box. The initial value is (-1, -1, -1, -1).
 		/// </param>
 		/// <param name="maxX">
-		/// A <see cref="T:float"/>.
+		/// Specify the maximum clip space cooridnate of the bounding box. The initial value is (1, 1, 1, 1).
 		/// </param>
 		/// <param name="maxY">
-		/// A <see cref="T:float"/>.
+		/// Specify the maximum clip space cooridnate of the bounding box. The initial value is (1, 1, 1, 1).
 		/// </param>
 		/// <param name="maxZ">
-		/// A <see cref="T:float"/>.
+		/// Specify the maximum clip space cooridnate of the bounding box. The initial value is (1, 1, 1, 1).
 		/// </param>
 		/// <param name="maxW">
-		/// A <see cref="T:float"/>.
+		/// Specify the maximum clip space cooridnate of the bounding box. The initial value is (1, 1, 1, 1).
 		/// </param>
 		[AliasOf("glPrimitiveBoundingBoxARB")]
 		[AliasOf("glPrimitiveBoundingBoxEXT")]

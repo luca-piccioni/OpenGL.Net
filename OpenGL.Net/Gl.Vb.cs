@@ -538,14 +538,22 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// Binding for glFogx.
+			/// specify fog parameters
 			/// </summary>
 			/// <param name="pname">
-			/// A <see cref="T:Int32"/>.
+			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
 			/// </param>
 			/// <param name="param">
-			/// A <see cref="T:IntPtr"/>.
+			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
+			/// <exception cref="KhronosException">
+			/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
+			/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
+			/// </exception>
+			/// <exception cref="KhronosException">
+			/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.FOG_DENSITY, and <paramref name="params"/> is negative.
+			/// </exception>
+			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			public static void Fog(Int32 pname, IntPtr param)
 			{
@@ -556,14 +564,22 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// Binding for glFogxv.
+			/// specify fog parameters
 			/// </summary>
 			/// <param name="pname">
-			/// A <see cref="T:Int32"/>.
+			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
 			/// </param>
 			/// <param name="param">
-			/// A <see cref="T:IntPtr[]"/>.
+			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
+			/// <exception cref="KhronosException">
+			/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
+			/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
+			/// </exception>
+			/// <exception cref="KhronosException">
+			/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.FOG_DENSITY, and <paramref name="params"/> is negative.
+			/// </exception>
+			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			public static void Fog(Int32 pname, IntPtr[] param)
 			{

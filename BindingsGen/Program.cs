@@ -52,9 +52,19 @@ namespace BindingsGen
 				gl2Documentation.Api = "GL2.1";
 				gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
 
+				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
+				gles3Documentation.Api = "GLES3.2";
+				gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es3"));
+
+				RegistryDocumentation<RegistryDocumentationHandler_GL2> gles1Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
+				gles1Documentation.Api = "GLES1.1";
+				gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es1.1"));
+
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
+				ctx.RefPages.Add(gles3Documentation);
+				ctx.RefPages.Add(gles1Documentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);

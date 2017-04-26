@@ -131,7 +131,8 @@ namespace OpenGL
 		public const int SHADER_COMPILER = 0x8DFA;
 
 		/// <summary>
-		/// Value of GL_SHADER_BINARY_FORMATS symbol.
+		/// Gl.Get: data returns a list of symbolic constants of length Gl.NUM_SHADER_BINARY_FORMATS indicating which shader binary 
+		/// formats are available. See Gl.ShaderBinary.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -189,7 +190,7 @@ namespace OpenGL
 		public const int RGB565 = 0x8D62;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_BINARY_RETRIEVABLE_HINT symbol.
+		/// Gl.GetProgram: params returns the current value of whether the binary retrieval hint is enabled for program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -301,7 +302,8 @@ namespace OpenGL
 		public const uint ALL_SHADER_BITS = 0xFFFFFFFF;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_SEPARABLE symbol.
+		/// Gl.GetProgram: params returns Gl.TRUE if the program has been flagged for use as a separable program object that can be 
+		/// found to individual shader stages with Gl.UseProgramStages.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_SEPARABLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]

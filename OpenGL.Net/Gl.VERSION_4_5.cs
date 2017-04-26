@@ -167,7 +167,10 @@ namespace OpenGL
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
 
 		/// <summary>
-		/// Value of GL_RESET_NOTIFICATION_STRATEGY symbol.
+		/// Gl.Get: data returns a single value, the behaviour of reset notification. Valid values are Gl.NO_RESET_NOTIFICATION, 
+		/// indicating that no reset notification events will be provided by the implementation, or Gl.LOSE_CONTEXT_ON_RESET, 
+		/// indicating that a reset will result in the loss of graphics context. This loss can be found by querying 
+		/// Gl.GetGraphicsResetStatus.
 		/// </summary>
 		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB")]
 		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_EXT")]
