@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PHONG_WIN symbol.
+		/// [GL] Value of GL_PHONG_WIN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_WIN_phong_shading")]
 		public const int PHONG_WIN = 0x80EA;
 
 		/// <summary>
-		/// Value of GL_PHONG_HINT_WIN symbol.
+		/// [GL] Value of GL_PHONG_HINT_WIN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_WIN_phong_shading")]
 		public const int PHONG_HINT_WIN = 0x80EB;

@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PROGRAM_ATTRIB_COMPONENTS_NV symbol.
+		/// [GL] Value of GL_PROGRAM_ATTRIB_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public const int PROGRAM_ATTRIB_COMPONENTS_NV = 0x8906;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_RESULT_COMPONENTS_NV symbol.
+		/// [GL] Value of GL_PROGRAM_RESULT_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public const int PROGRAM_RESULT_COMPONENTS_NV = 0x8907;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_ATTRIB_COMPONENTS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_ATTRIB_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public const int MAX_PROGRAM_ATTRIB_COMPONENTS_NV = 0x8908;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_RESULT_COMPONENTS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_RESULT_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public const int MAX_PROGRAM_RESULT_COMPONENTS_NV = 0x8909;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_GENERIC_ATTRIBS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_GENERIC_ATTRIBS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public const int MAX_PROGRAM_GENERIC_ATTRIBS_NV = 0x8DA5;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_GENERIC_RESULTS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_GENERIC_RESULTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public const int MAX_PROGRAM_GENERIC_RESULTS_NV = 0x8DA6;

@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_STATIC_ATI symbol.
+		/// [GL] Value of GL_STATIC_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int STATIC_ATI = 0x8760;
 
 		/// <summary>
-		/// Value of GL_DYNAMIC_ATI symbol.
+		/// [GL] Value of GL_DYNAMIC_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int DYNAMIC_ATI = 0x8761;
 
 		/// <summary>
-		/// Value of GL_PRESERVE_ATI symbol.
+		/// [GL] Value of GL_PRESERVE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int PRESERVE_ATI = 0x8762;
 
 		/// <summary>
-		/// Value of GL_DISCARD_ATI symbol.
+		/// [GL] Value of GL_DISCARD_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int DISCARD_ATI = 0x8763;
 
 		/// <summary>
-		/// Value of GL_OBJECT_BUFFER_SIZE_ATI symbol.
+		/// [GL] Value of GL_OBJECT_BUFFER_SIZE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int OBJECT_BUFFER_SIZE_ATI = 0x8764;
 
 		/// <summary>
-		/// Value of GL_OBJECT_BUFFER_USAGE_ATI symbol.
+		/// [GL] Value of GL_OBJECT_BUFFER_USAGE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int OBJECT_BUFFER_USAGE_ATI = 0x8765;
 
 		/// <summary>
-		/// Value of GL_ARRAY_OBJECT_BUFFER_ATI symbol.
+		/// [GL] Value of GL_ARRAY_OBJECT_BUFFER_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int ARRAY_OBJECT_BUFFER_ATI = 0x8766;
 
 		/// <summary>
-		/// Value of GL_ARRAY_OBJECT_OFFSET_ATI symbol.
+		/// [GL] Value of GL_ARRAY_OBJECT_OFFSET_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public const int ARRAY_OBJECT_OFFSET_ATI = 0x8767;

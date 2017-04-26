@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range2")]
 		public const int VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV = 0x8533;

@@ -29,73 +29,73 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RGBA_FLOAT32_ATI symbol.
+		/// [GL] Value of GL_RGBA_FLOAT32_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int RGBA_FLOAT32_ATI = 0x8814;
 
 		/// <summary>
-		/// Value of GL_RGB_FLOAT32_ATI symbol.
+		/// [GL] Value of GL_RGB_FLOAT32_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int RGB_FLOAT32_ATI = 0x8815;
 
 		/// <summary>
-		/// Value of GL_ALPHA_FLOAT32_ATI symbol.
+		/// [GL] Value of GL_ALPHA_FLOAT32_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int ALPHA_FLOAT32_ATI = 0x8816;
 
 		/// <summary>
-		/// Value of GL_INTENSITY_FLOAT32_ATI symbol.
+		/// [GL] Value of GL_INTENSITY_FLOAT32_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int INTENSITY_FLOAT32_ATI = 0x8817;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE_FLOAT32_ATI symbol.
+		/// [GL] Value of GL_LUMINANCE_FLOAT32_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int LUMINANCE_FLOAT32_ATI = 0x8818;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE_ALPHA_FLOAT32_ATI symbol.
+		/// [GL] Value of GL_LUMINANCE_ALPHA_FLOAT32_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int LUMINANCE_ALPHA_FLOAT32_ATI = 0x8819;
 
 		/// <summary>
-		/// Value of GL_RGBA_FLOAT16_ATI symbol.
+		/// [GL] Value of GL_RGBA_FLOAT16_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int RGBA_FLOAT16_ATI = 0x881A;
 
 		/// <summary>
-		/// Value of GL_RGB_FLOAT16_ATI symbol.
+		/// [GL] Value of GL_RGB_FLOAT16_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int RGB_FLOAT16_ATI = 0x881B;
 
 		/// <summary>
-		/// Value of GL_ALPHA_FLOAT16_ATI symbol.
+		/// [GL] Value of GL_ALPHA_FLOAT16_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int ALPHA_FLOAT16_ATI = 0x881C;
 
 		/// <summary>
-		/// Value of GL_INTENSITY_FLOAT16_ATI symbol.
+		/// [GL] Value of GL_INTENSITY_FLOAT16_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int INTENSITY_FLOAT16_ATI = 0x881D;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE_FLOAT16_ATI symbol.
+		/// [GL] Value of GL_LUMINANCE_FLOAT16_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int LUMINANCE_FLOAT16_ATI = 0x881E;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE_ALPHA_FLOAT16_ATI symbol.
+		/// [GL] Value of GL_LUMINANCE_ALPHA_FLOAT16_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_float")]
 		public const int LUMINANCE_ALPHA_FLOAT16_ATI = 0x881F;

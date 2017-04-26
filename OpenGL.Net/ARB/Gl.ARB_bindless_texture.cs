@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_ARB symbol.
+		/// [GL] Value of GL_UNSIGNED_INT64_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT64_NV")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]

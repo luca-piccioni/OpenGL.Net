@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RGBA_SIGNED_COMPONENTS_EXT symbol.
+		/// [GL] Value of GL_RGBA_SIGNED_COMPONENTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_packed_float")]
 		public const int RGBA_SIGNED_COMPONENTS_EXT = 0x8C3C;

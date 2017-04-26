@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_NUM_SHADING_LANGUAGE_VERSIONS symbol.
+		/// [GL] Value of GL_NUM_SHADING_LANGUAGE_VERSIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		public const int NUM_SHADING_LANGUAGE_VERSIONS = 0x82E9;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_LONG symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY_LONG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		public const int VERTEX_ATTRIB_ARRAY_LONG = 0x874E;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGB8_ETC2 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGB8_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -49,7 +49,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGB8_ETC2 = 0x9274;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ETC2 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -57,7 +57,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ETC2 = 0x9275;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9276;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -73,7 +73,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9277;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA8_ETC2_EAC symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA8_ETC2_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -81,7 +81,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA8_ETC2_EAC = 0x9278;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ETC2_EAC = 0x9279;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_R11_EAC symbol.
+		/// [GL] Value of GL_COMPRESSED_R11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -97,7 +97,7 @@ namespace OpenGL
 		public const int COMPRESSED_R11_EAC = 0x9270;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_R11_EAC symbol.
+		/// [GL] Value of GL_COMPRESSED_SIGNED_R11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -105,7 +105,7 @@ namespace OpenGL
 		public const int COMPRESSED_SIGNED_R11_EAC = 0x9271;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RG11_EAC symbol.
+		/// [GL] Value of GL_COMPRESSED_RG11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -113,7 +113,7 @@ namespace OpenGL
 		public const int COMPRESSED_RG11_EAC = 0x9272;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_RG11_EAC symbol.
+		/// [GL] Value of GL_COMPRESSED_SIGNED_RG11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -121,8 +121,8 @@ namespace OpenGL
 		public const int COMPRESSED_SIGNED_RG11_EAC = 0x9273;
 
 		/// <summary>
-		/// Gl.Get: data returns a single boolean value indicating whether primitive restart with a fixed index is enabled. The 
-		/// initial value is Gl.FALSE.
+		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether primitive restart with a fixed index is 
+		/// enabled. The initial value is Gl.FALSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -130,7 +130,7 @@ namespace OpenGL
 		public const int PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
 
 		/// <summary>
-		/// Value of GL_ANY_SAMPLES_PASSED_CONSERVATIVE symbol.
+		/// [GL] Value of GL_ANY_SAMPLES_PASSED_CONSERVATIVE symbol.
 		/// </summary>
 		[AliasOf("GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -140,8 +140,14 @@ namespace OpenGL
 		public const int ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum index that may be specified during the transfer of generic vertex 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum index that may be specified during the transfer of generic vertex 
 		/// attributes to the GL.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum index supported by the implementation. The value must be at least 
+		/// 224-1.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -149,7 +155,7 @@ namespace OpenGL
 		public const int MAX_ELEMENT_INDEX = 0x8D6B;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_SHADER symbol.
+		/// [GL] Value of GL_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -157,8 +163,14 @@ namespace OpenGL
 		public const int COMPUTE_SHADER = 0x91B9;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be at least 14. 
-		/// See Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be at 
+		/// least 14. See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be at 
+		/// least 14. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -166,8 +178,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_UNIFORM_BLOCKS = 0x91BB;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
-		/// the compute shader. The value may be at least 16. See Gl.ActiveTexture.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps 
+		/// from the compute shader. The value may be at least 16. See Gl.ActiveTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
+		/// maps from the compute shader. The value may be at least 16. See Gl.ActiveTexture.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -175,7 +193,7 @@ namespace OpenGL
 		public const int MAX_COMPUTE_TEXTURE_IMAGE_UNITS = 0x91BC;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of image variables in compute shaders.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in compute shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -183,7 +201,7 @@ namespace OpenGL
 		public const int MAX_COMPUTE_IMAGE_UNIFORMS = 0x91BD;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_SHARED_MEMORY_SIZE symbol.
+		/// [GL] Value of GL_MAX_COMPUTE_SHARED_MEMORY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -191,8 +209,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_SHARED_MEMORY_SIZE = 0x8262;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
-		/// held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that 
+		/// can be held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
+		/// that can be held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -200,8 +224,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_UNIFORM_COMPONENTS = 0x8263;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a compute 
-		/// shader.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
+		/// compute shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
+		/// compute shader.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -209,7 +239,12 @@ namespace OpenGL
 		public const int MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS = 0x8264;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -217,8 +252,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_ATOMIC_COUNTERS = 0x8265;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform blocks 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform blocks 
 		/// (including default). The value must be at least 1. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform blocks 
+		/// (including default). The value must be at least 1. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -226,8 +267,14 @@ namespace OpenGL
 		public const int MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS = 0x8266;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product of the three 
-		/// dimensions) that may be dispatched to a compute shader.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product of the 
+		/// three dimensions) that may be dispatched to a compute shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product of 
+		/// the three dimensions) that may be dispatched to a compute shader.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -235,8 +282,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_WORK_GROUP_INVOCATIONS = 0x90EB;
 
 		/// <summary>
-		/// Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be dispatched to a 
-		/// compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
+		/// <para>
+		/// [GL4] Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be dispatched 
+		/// to a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be 
+		/// dispatched to a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -244,8 +297,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_WORK_GROUP_COUNT = 0x91BE;
 
 		/// <summary>
-		/// Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used during 
+		/// <para>
+		/// [GL4] Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used during 
 		/// compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used 
+		/// during compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -253,9 +312,16 @@ namespace OpenGL
 		public const int MAX_COMPUTE_WORK_GROUP_SIZE = 0x91BF;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns an array of three integers containing the local work group size of the compute program as 
-		/// specified by its input layout qualifier(s). program must be the name of a program object that has been previously linked 
-		/// successfully and contains a binary for the compute shader stage.
+		/// <para>
+		/// [GL4] Gl.GetProgram: params returns an array of three integers containing the local work group size of the compute 
+		/// program as specified by its input layout qualifier(s). program must be the name of a program object that has been 
+		/// previously linked successfully and contains a binary for the compute shader stage.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgram: params returns an array of three integers containing the local work group size of the compute 
+		/// program as specified by its input layout qualifier(s). program must be the name of a program object that has been 
+		/// previously linked successfully and contains a binary for the compute shader stage.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -263,21 +329,21 @@ namespace OpenGL
 		public const int COMPUTE_WORK_GROUP_SIZE = 0x8267;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER = 0x90EC;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER = 0x90ED;
 
 		/// <summary>
-		/// Value of GL_DISPATCH_INDIRECT_BUFFER symbol.
+		/// [GL] Value of GL_DISPATCH_INDIRECT_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -285,9 +351,16 @@ namespace OpenGL
 		public const int DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
 		/// Gl.DISPATCH_INDIRECT_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// Gl.DISPATCH_INDIRECT_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindBuffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -295,7 +368,7 @@ namespace OpenGL
 		public const int DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_SHADER_BIT symbol.
+		/// [GL] Value of GL_COMPUTE_SHADER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -304,7 +377,7 @@ namespace OpenGL
 		public const uint COMPUTE_SHADER_BIT = 0x00000020;
 
 		/// <summary>
-		/// Value of GL_DEBUG_OUTPUT_SYNCHRONOUS symbol.
+		/// [GL] Value of GL_DEBUG_OUTPUT_SYNCHRONOUS symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB")]
 		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR")]
@@ -316,7 +389,8 @@ namespace OpenGL
 		public const int DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the length, including the NULL terminator, of the oldest message in the debug log.
+		/// [GLES3.2] Gl.Get: data returns a single value, the length, including the NULL terminator, of the oldest message in the 
+		/// debug log.
 		/// </summary>
 		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB")]
 		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR")]
@@ -328,7 +402,13 @@ namespace OpenGL
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
 
 		/// <summary>
-		/// Gl.GetPointer: Returns the current callback function set with the callback argument of Gl.DebugMessageCallback.
+		/// <para>
+		/// [GL4] Gl.GetPointer: Returns the current callback function set with the callback argument of Gl.DebugMessageCallback.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetPointer: Returns the current callback function set with the callback argument of 
+		/// Gl.DebugMessageCallback.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_KHR")]
@@ -340,8 +420,14 @@ namespace OpenGL
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
 
 		/// <summary>
-		/// Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument of 
+		/// <para>
+		/// [GL4] Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument of 
 		/// Gl.DebugMessageCallback.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument of 
+		/// Gl.DebugMessageCallback.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_KHR")]
@@ -353,7 +439,7 @@ namespace OpenGL
 		public const int DEBUG_CALLBACK_USER_PARAM = 0x8245;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SOURCE_API symbol.
+		/// [GL] Value of GL_DEBUG_SOURCE_API symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_API_ARB")]
 		[AliasOf("GL_DEBUG_SOURCE_API_KHR")]
@@ -365,7 +451,7 @@ namespace OpenGL
 		public const int DEBUG_SOURCE_API = 0x8246;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SOURCE_WINDOW_SYSTEM symbol.
+		/// [GL] Value of GL_DEBUG_SOURCE_WINDOW_SYSTEM symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB")]
 		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR")]
@@ -377,7 +463,7 @@ namespace OpenGL
 		public const int DEBUG_SOURCE_WINDOW_SYSTEM = 0x8247;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SOURCE_SHADER_COMPILER symbol.
+		/// [GL] Value of GL_DEBUG_SOURCE_SHADER_COMPILER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_ARB")]
 		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_KHR")]
@@ -389,7 +475,7 @@ namespace OpenGL
 		public const int DEBUG_SOURCE_SHADER_COMPILER = 0x8248;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SOURCE_THIRD_PARTY symbol.
+		/// [GL] Value of GL_DEBUG_SOURCE_THIRD_PARTY symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_ARB")]
 		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_KHR")]
@@ -401,7 +487,7 @@ namespace OpenGL
 		public const int DEBUG_SOURCE_THIRD_PARTY = 0x8249;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SOURCE_APPLICATION symbol.
+		/// [GL] Value of GL_DEBUG_SOURCE_APPLICATION symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_ARB")]
 		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_KHR")]
@@ -413,7 +499,7 @@ namespace OpenGL
 		public const int DEBUG_SOURCE_APPLICATION = 0x824A;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SOURCE_OTHER symbol.
+		/// [GL] Value of GL_DEBUG_SOURCE_OTHER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SOURCE_OTHER_ARB")]
 		[AliasOf("GL_DEBUG_SOURCE_OTHER_KHR")]
@@ -425,7 +511,7 @@ namespace OpenGL
 		public const int DEBUG_SOURCE_OTHER = 0x824B;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_ERROR symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_ERROR symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_ERROR_ARB")]
 		[AliasOf("GL_DEBUG_TYPE_ERROR_KHR")]
@@ -437,7 +523,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_ERROR = 0x824C;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB")]
 		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR")]
@@ -449,7 +535,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_DEPRECATED_BEHAVIOR = 0x824D;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB")]
 		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR")]
@@ -461,7 +547,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_UNDEFINED_BEHAVIOR = 0x824E;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_PORTABILITY symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_PORTABILITY symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_ARB")]
 		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_KHR")]
@@ -473,7 +559,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_PORTABILITY = 0x824F;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_PERFORMANCE symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_PERFORMANCE symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_ARB")]
 		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_KHR")]
@@ -485,7 +571,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_PERFORMANCE = 0x8250;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_OTHER symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_OTHER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_OTHER_ARB")]
 		[AliasOf("GL_DEBUG_TYPE_OTHER_KHR")]
@@ -497,7 +583,8 @@ namespace OpenGL
 		public const int DEBUG_TYPE_OTHER = 0x8251;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum length of a debug message string, including its null terminator.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum length of a debug message string, including its null 
+		/// terminator.
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_AMD")]
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB")]
@@ -511,7 +598,7 @@ namespace OpenGL
 		public const int MAX_DEBUG_MESSAGE_LENGTH = 0x9143;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of messages stored in the debug message log.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of messages stored in the debug message log.
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_AMD")]
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB")]
@@ -525,7 +612,7 @@ namespace OpenGL
 		public const int MAX_DEBUG_LOGGED_MESSAGES = 0x9144;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the number of messages currently in the debug log.
+		/// [GLES3.2] Gl.Get: data returns a single value, the number of messages currently in the debug log.
 		/// </summary>
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_AMD")]
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB")]
@@ -539,7 +626,7 @@ namespace OpenGL
 		public const int DEBUG_LOGGED_MESSAGES = 0x9145;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_HIGH symbol.
+		/// [GL] Value of GL_DEBUG_SEVERITY_HIGH symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_HIGH_AMD")]
 		[AliasOf("GL_DEBUG_SEVERITY_HIGH_ARB")]
@@ -553,7 +640,7 @@ namespace OpenGL
 		public const int DEBUG_SEVERITY_HIGH = 0x9146;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_MEDIUM symbol.
+		/// [GL] Value of GL_DEBUG_SEVERITY_MEDIUM symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_AMD")]
 		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_ARB")]
@@ -567,7 +654,7 @@ namespace OpenGL
 		public const int DEBUG_SEVERITY_MEDIUM = 0x9147;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_LOW symbol.
+		/// [GL] Value of GL_DEBUG_SEVERITY_LOW symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_LOW_AMD")]
 		[AliasOf("GL_DEBUG_SEVERITY_LOW_ARB")]
@@ -581,7 +668,7 @@ namespace OpenGL
 		public const int DEBUG_SEVERITY_LOW = 0x9148;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_MARKER symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_MARKER symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_MARKER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -591,7 +678,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_MARKER = 0x8268;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_PUSH_GROUP symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_PUSH_GROUP symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_PUSH_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -601,7 +688,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_PUSH_GROUP = 0x8269;
 
 		/// <summary>
-		/// Value of GL_DEBUG_TYPE_POP_GROUP symbol.
+		/// [GL] Value of GL_DEBUG_TYPE_POP_GROUP symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_TYPE_POP_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -611,7 +698,7 @@ namespace OpenGL
 		public const int DEBUG_TYPE_POP_GROUP = 0x826A;
 
 		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_NOTIFICATION symbol.
+		/// [GL] Value of GL_DEBUG_SEVERITY_NOTIFICATION symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_SEVERITY_NOTIFICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -621,7 +708,12 @@ namespace OpenGL
 		public const int DEBUG_SEVERITY_NOTIFICATION = 0x826B;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -631,7 +723,12 @@ namespace OpenGL
 		public const int MAX_DEBUG_GROUP_STACK_DEPTH = 0x826C;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the current depth of the debug message group stack.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the current depth of the debug message group stack.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the current depth of the debug message group stack.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -641,7 +738,7 @@ namespace OpenGL
 		public const int DEBUG_GROUP_STACK_DEPTH = 0x826D;
 
 		/// <summary>
-		/// Value of GL_BUFFER symbol.
+		/// [GL] Value of GL_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_BUFFER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -651,7 +748,7 @@ namespace OpenGL
 		public const int BUFFER = 0x82E0;
 
 		/// <summary>
-		/// Value of GL_SHADER symbol.
+		/// [GL] Value of GL_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_SHADER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -661,7 +758,7 @@ namespace OpenGL
 		public const int SHADER = 0x82E1;
 
 		/// <summary>
-		/// Value of GL_PROGRAM symbol.
+		/// [GL] Value of GL_PROGRAM symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -671,7 +768,7 @@ namespace OpenGL
 		public const int PROGRAM = 0x82E2;
 
 		/// <summary>
-		/// Value of GL_QUERY symbol.
+		/// [GL] Value of GL_QUERY symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -681,7 +778,7 @@ namespace OpenGL
 		public const int QUERY = 0x82E3;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_PIPELINE symbol.
+		/// [GL] Value of GL_PROGRAM_PIPELINE symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_PIPELINE_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -691,7 +788,7 @@ namespace OpenGL
 		public const int PROGRAM_PIPELINE = 0x82E4;
 
 		/// <summary>
-		/// Value of GL_SAMPLER symbol.
+		/// [GL] Value of GL_SAMPLER symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -702,8 +799,13 @@ namespace OpenGL
 		public const int SAMPLER = 0x82E6;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum length of a label that may be assigned to an object. See Gl.ObjectLabel and 
-		/// Gl.ObjectPtrLabel.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum length of a label that may be assigned to an object. See 
+		/// Gl.ObjectLabel and Gl.ObjectPtrLabel.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum length of a label string.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_LABEL_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -713,7 +815,7 @@ namespace OpenGL
 		public const int MAX_LABEL_LENGTH = 0x82E8;
 
 		/// <summary>
-		/// Value of GL_DEBUG_OUTPUT symbol.
+		/// [GL] Value of GL_DEBUG_OUTPUT symbol.
 		/// </summary>
 		[AliasOf("GL_DEBUG_OUTPUT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -723,7 +825,7 @@ namespace OpenGL
 		public const int DEBUG_OUTPUT = 0x92E0;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAG_DEBUG_BIT symbol.
+		/// [GL] Value of GL_CONTEXT_FLAG_DEBUG_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_CONTEXT_FLAG_DEBUG_BIT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -734,8 +836,14 @@ namespace OpenGL
 		public const uint CONTEXT_FLAG_DEBUG_BIT = 0x00000002;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must be at least 
-		/// 1024.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must be at 
+		/// least 1024.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must be 
+		/// at least 1024.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -744,13 +852,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.FramebufferParameter: param specifies the assumed with for a framebuffer object with no attachments. If a framebuffer 
-		/// has attachments then the width of those attachments is used, otherwise the value of Gl.FRAMEBUFFER_DEFAULT_WIDTH is used 
-		/// for the framebuffer. param must be greater than or equal to zero and less than or equal to the value of 
-		/// Gl.MAX_FRAMEBUFFER_WIDTH.
+		/// [GL4] Gl.FramebufferParameter: param specifies the assumed with for a framebuffer object with no attachments. If a 
+		/// framebuffer has attachments then the width of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_WIDTH is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_WIDTH.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_WIDTH for the framebuffer object.
+		/// [GL4] Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_WIDTH for the framebuffer object.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.FramebufferParameter: param specifies the assumed with for a framebuffer object with no attachments. If a 
+		/// framebuffer has attachments then the width of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_WIDTH is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_WIDTH.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetFramebufferParameter: The value of Gl.FRAMEBUFFER_DEFAULT_WIDTH for the framebuffer is written to the 
+		/// single integer variable whose address is given by params.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -760,13 +878,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.FramebufferParameter: param specifies the assumed height for a framebuffer object with no attachments. If a 
+		/// [GL4] Gl.FramebufferParameter: param specifies the assumed height for a framebuffer object with no attachments. If a 
 		/// framebuffer has attachments then the height of those attachments is used, otherwise the value of 
 		/// Gl.FRAMEBUFFER_DEFAULT_HEIGHT is used for the framebuffer. param must be greater than or equal to zero and less than or 
 		/// equal to the value of Gl.MAX_FRAMEBUFFER_HEIGHT.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_HEIGHT for the framebuffer object.
+		/// [GL4] Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_HEIGHT for the framebuffer object.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.FramebufferParameter: param specifies the assumed height for a framebuffer object with no attachments. If a 
+		/// framebuffer has attachments then the height of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_HEIGHT is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_HEIGHT.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetFramebufferParameter: The value of Gl.FRAMEBUFFER_DEFAULT_HEIGHT for the framebuffer is written to the 
+		/// single integer variable whose address is given by params.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -776,13 +904,22 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.FramebufferParameter: param specifies the assumed number of layers for a framebuffer object with no attachments. If a 
-		/// framebuffer has attachments then the layer count of those attachments is used, otherwise the value of 
+		/// [GL4] Gl.FramebufferParameter: param specifies the assumed number of layers for a framebuffer object with no 
+		/// attachments. If a framebuffer has attachments then the layer count of those attachments is used, otherwise the value of 
 		/// Gl.FRAMEBUFFER_DEFAULT_LAYERS is used for the framebuffer. param must be greater than or equal to zero and less than or 
 		/// equal to the value of Gl.MAX_FRAMEBUFFER_LAYERS.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_LAYERS for the framebuffer object.
+		/// [GL4] Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_LAYERS for the framebuffer object.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.FramebufferParameter: param specifies the assumed number of layers for a framebuffer object with no 
+		/// attachments. If a framebuffer has attachments then the layer count of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_LAYERS is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_LAYERS.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_LAYERS for the framebuffer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT")]
@@ -796,13 +933,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.FramebufferParameter: param specifies the assumed number of samples in a framebuffer object with no attachments. If a 
-		/// framebuffer has attachments then the sample count of those attachments is used, otherwise the value of 
+		/// [GL4] Gl.FramebufferParameter: param specifies the assumed number of samples in a framebuffer object with no 
+		/// attachments. If a framebuffer has attachments then the sample count of those attachments is used, otherwise the value of 
 		/// Gl.FRAMEBUFFER_DEFAULT_SAMPLES is used for the framebuffer. param must be greater than or equal to zero and less than or 
 		/// equal to the value of Gl.MAX_FRAMEBUFFER_SAMPLE.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_SAMPLES for the framebuffer object.
+		/// [GL4] Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_SAMPLES for the framebuffer object.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.FramebufferParameter: param specifies the assumed number of samples in a framebuffer object with no 
+		/// attachments. If a framebuffer has attachments then the sample count of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_SAMPLES is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_SAMPLE.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetFramebufferParameter: The value of Gl.FRAMEBUFFER_DEFAULT_SAMPLES for the framebuffer is written to the 
+		/// single integer variable whose address is given by params.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -812,13 +959,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.FramebufferParameter: param specifies whether the framebuffer should assume identical sample locations and the same 
-		/// number of samples for all texels in the virtual image. If param is zero, then the implementation may vary the position 
-		/// or the count of samples within the virtual image from pixel to pixel, otherwise it will use the same sample position and 
-		/// count for all pixels in the virtual image.
+		/// [GL4] Gl.FramebufferParameter: param specifies whether the framebuffer should assume identical sample locations and the 
+		/// same number of samples for all texels in the virtual image. If param is zero, then the implementation may vary the 
+		/// position or the count of samples within the virtual image from pixel to pixel, otherwise it will use the same sample 
+		/// position and count for all pixels in the virtual image.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: params returns the boolean value of Gl.FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS.
+		/// [GL4] Gl.GetFramebufferParameter: params returns the boolean value of Gl.FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.FramebufferParameter: param specifies whether the framebuffer should assume identical sample locations and 
+		/// the same number of samples for all texels in the virtual image. If param is zero, then the implementation may vary the 
+		/// position or the count of samples within the virtual image from pixel to pixel, otherwise it will use the same sample 
+		/// position and count for all pixels in the virtual image.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetFramebufferParameter: If the value of Gl.FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS for the framebuffer 
+		/// is Gl.TRUE then the single integer variable whose address is in params is set to one, otherwise it is set to zero.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -827,8 +984,14 @@ namespace OpenGL
 		public const int FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS = 0x9314;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum width for a framebuffer that has no attachments, which must be at least 
-		/// 16384. See glFramebufferParameter.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum width for a framebuffer that has no attachments, which must be at 
+		/// least 16384. See glFramebufferParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum width for a framebuffer that has no attachments, which must be at 
+		/// least 16384. See Gl.FramebufferParameteri.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -836,8 +999,14 @@ namespace OpenGL
 		public const int MAX_FRAMEBUFFER_WIDTH = 0x9315;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum height for a framebuffer that has no attachments, which must be at least 
-		/// 16384. See glFramebufferParameter.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum height for a framebuffer that has no attachments, which must be at 
+		/// least 16384. See glFramebufferParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum height for a framebuffer that has no attachments, which must be at 
+		/// least 16384. See Gl.FramebufferParameteri.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -845,8 +1014,14 @@ namespace OpenGL
 		public const int MAX_FRAMEBUFFER_HEIGHT = 0x9316;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of layers for a framebuffer that has no attachments, which must be at 
-		/// least 2048. See glFramebufferParameter.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of layers for a framebuffer that has no attachments, which must 
+		/// be at least 2048. See glFramebufferParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of layers for a framebuffer that has no attachments, which 
+		/// must be at least 256. See Gl.FramebufferParameteri.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_EXT")]
 		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_OES")]
@@ -858,8 +1033,14 @@ namespace OpenGL
 		public const int MAX_FRAMEBUFFER_LAYERS = 0x9317;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum samples in a framebuffer that has no attachments, which must be at least 4. 
-		/// See glFramebufferParameter.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum samples in a framebuffer that has no attachments, which must be at 
+		/// least 4. See glFramebufferParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum samples in a framebuffer that has no attachments, which must be at 
+		/// least 4. See Gl.FramebufferParameteri.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -867,686 +1048,686 @@ namespace OpenGL
 		public const int MAX_FRAMEBUFFER_SAMPLES = 0x9318;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_SUPPORTED symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_SUPPORTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_SUPPORTED = 0x826F;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_PREFERRED symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_PREFERRED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_PREFERRED = 0x8270;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_RED_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_RED_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_RED_SIZE = 0x8271;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_GREEN_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_GREEN_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_GREEN_SIZE = 0x8272;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_BLUE_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_BLUE_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_BLUE_SIZE = 0x8273;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_ALPHA_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_ALPHA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_ALPHA_SIZE = 0x8274;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_DEPTH_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_DEPTH_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_DEPTH_SIZE = 0x8275;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_STENCIL_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_STENCIL_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_STENCIL_SIZE = 0x8276;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_SHARED_SIZE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_SHARED_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_SHARED_SIZE = 0x8277;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_RED_TYPE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_RED_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_RED_TYPE = 0x8278;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_GREEN_TYPE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_GREEN_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_GREEN_TYPE = 0x8279;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_BLUE_TYPE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_BLUE_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_BLUE_TYPE = 0x827A;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_ALPHA_TYPE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_ALPHA_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_ALPHA_TYPE = 0x827B;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_DEPTH_TYPE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_DEPTH_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_DEPTH_TYPE = 0x827C;
 
 		/// <summary>
-		/// Value of GL_INTERNALFORMAT_STENCIL_TYPE symbol.
+		/// [GL] Value of GL_INTERNALFORMAT_STENCIL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int INTERNALFORMAT_STENCIL_TYPE = 0x827D;
 
 		/// <summary>
-		/// Value of GL_MAX_WIDTH symbol.
+		/// [GL] Value of GL_MAX_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_WIDTH = 0x827E;
 
 		/// <summary>
-		/// Value of GL_MAX_HEIGHT symbol.
+		/// [GL] Value of GL_MAX_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_HEIGHT = 0x827F;
 
 		/// <summary>
-		/// Value of GL_MAX_DEPTH symbol.
+		/// [GL] Value of GL_MAX_DEPTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_DEPTH = 0x8280;
 
 		/// <summary>
-		/// Value of GL_MAX_LAYERS symbol.
+		/// [GL] Value of GL_MAX_LAYERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_LAYERS = 0x8281;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_DIMENSIONS symbol.
+		/// [GL] Value of GL_MAX_COMBINED_DIMENSIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MAX_COMBINED_DIMENSIONS = 0x8282;
 
 		/// <summary>
-		/// Value of GL_COLOR_COMPONENTS symbol.
+		/// [GL] Value of GL_COLOR_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COLOR_COMPONENTS = 0x8283;
 
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENTS symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int DEPTH_COMPONENTS = 0x8284;
 
 		/// <summary>
-		/// Value of GL_STENCIL_COMPONENTS symbol.
+		/// [GL] Value of GL_STENCIL_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int STENCIL_COMPONENTS = 0x8285;
 
 		/// <summary>
-		/// Value of GL_COLOR_RENDERABLE symbol.
+		/// [GL] Value of GL_COLOR_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COLOR_RENDERABLE = 0x8286;
 
 		/// <summary>
-		/// Value of GL_DEPTH_RENDERABLE symbol.
+		/// [GL] Value of GL_DEPTH_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int DEPTH_RENDERABLE = 0x8287;
 
 		/// <summary>
-		/// Value of GL_STENCIL_RENDERABLE symbol.
+		/// [GL] Value of GL_STENCIL_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int STENCIL_RENDERABLE = 0x8288;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_RENDERABLE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_RENDERABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_RENDERABLE = 0x8289;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_RENDERABLE_LAYERED symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_RENDERABLE_LAYERED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_RENDERABLE_LAYERED = 0x828A;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_BLEND symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_BLEND symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAMEBUFFER_BLEND = 0x828B;
 
 		/// <summary>
-		/// Value of GL_READ_PIXELS symbol.
+		/// [GL] Value of GL_READ_PIXELS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int READ_PIXELS = 0x828C;
 
 		/// <summary>
-		/// Value of GL_READ_PIXELS_FORMAT symbol.
+		/// [GL] Value of GL_READ_PIXELS_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int READ_PIXELS_FORMAT = 0x828D;
 
 		/// <summary>
-		/// Value of GL_READ_PIXELS_TYPE symbol.
+		/// [GL] Value of GL_READ_PIXELS_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int READ_PIXELS_TYPE = 0x828E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_IMAGE_FORMAT symbol.
+		/// [GL] Value of GL_TEXTURE_IMAGE_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_IMAGE_FORMAT = 0x828F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_IMAGE_TYPE symbol.
+		/// [GL] Value of GL_TEXTURE_IMAGE_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_IMAGE_TYPE = 0x8290;
 
 		/// <summary>
-		/// Value of GL_GET_TEXTURE_IMAGE_FORMAT symbol.
+		/// [GL] Value of GL_GET_TEXTURE_IMAGE_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int GET_TEXTURE_IMAGE_FORMAT = 0x8291;
 
 		/// <summary>
-		/// Value of GL_GET_TEXTURE_IMAGE_TYPE symbol.
+		/// [GL] Value of GL_GET_TEXTURE_IMAGE_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int GET_TEXTURE_IMAGE_TYPE = 0x8292;
 
 		/// <summary>
-		/// Value of GL_MIPMAP symbol.
+		/// [GL] Value of GL_MIPMAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MIPMAP = 0x8293;
 
 		/// <summary>
-		/// Value of GL_MANUAL_GENERATE_MIPMAP symbol.
+		/// [GL] Value of GL_MANUAL_GENERATE_MIPMAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int MANUAL_GENERATE_MIPMAP = 0x8294;
 
 		/// <summary>
-		/// Value of GL_AUTO_GENERATE_MIPMAP symbol.
+		/// [GL] Value of GL_AUTO_GENERATE_MIPMAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int AUTO_GENERATE_MIPMAP = 0x8295;
 
 		/// <summary>
-		/// Value of GL_COLOR_ENCODING symbol.
+		/// [GL] Value of GL_COLOR_ENCODING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COLOR_ENCODING = 0x8296;
 
 		/// <summary>
-		/// Value of GL_SRGB_READ symbol.
+		/// [GL] Value of GL_SRGB_READ symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SRGB_READ = 0x8297;
 
 		/// <summary>
-		/// Value of GL_SRGB_WRITE symbol.
+		/// [GL] Value of GL_SRGB_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SRGB_WRITE = 0x8298;
 
 		/// <summary>
-		/// Value of GL_FILTER symbol.
+		/// [GL] Value of GL_FILTER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FILTER = 0x829A;
 
 		/// <summary>
-		/// Value of GL_VERTEX_TEXTURE symbol.
+		/// [GL] Value of GL_VERTEX_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VERTEX_TEXTURE = 0x829B;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_TEXTURE symbol.
+		/// [GL] Value of GL_TESS_CONTROL_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TESS_CONTROL_TEXTURE = 0x829C;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_TEXTURE symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_TEXTURE = 0x829D;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_TEXTURE symbol.
+		/// [GL] Value of GL_GEOMETRY_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int GEOMETRY_TEXTURE = 0x829E;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_TEXTURE symbol.
+		/// [GL] Value of GL_FRAGMENT_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FRAGMENT_TEXTURE = 0x829F;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_TEXTURE symbol.
+		/// [GL] Value of GL_COMPUTE_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int COMPUTE_TEXTURE = 0x82A0;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SHADOW symbol.
+		/// [GL] Value of GL_TEXTURE_SHADOW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_SHADOW = 0x82A1;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_GATHER symbol.
+		/// [GL] Value of GL_TEXTURE_GATHER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_GATHER = 0x82A2;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_GATHER_SHADOW symbol.
+		/// [GL] Value of GL_TEXTURE_GATHER_SHADOW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_GATHER_SHADOW = 0x82A3;
 
 		/// <summary>
-		/// Value of GL_SHADER_IMAGE_LOAD symbol.
+		/// [GL] Value of GL_SHADER_IMAGE_LOAD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SHADER_IMAGE_LOAD = 0x82A4;
 
 		/// <summary>
-		/// Value of GL_SHADER_IMAGE_STORE symbol.
+		/// [GL] Value of GL_SHADER_IMAGE_STORE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SHADER_IMAGE_STORE = 0x82A5;
 
 		/// <summary>
-		/// Value of GL_SHADER_IMAGE_ATOMIC symbol.
+		/// [GL] Value of GL_SHADER_IMAGE_ATOMIC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SHADER_IMAGE_ATOMIC = 0x82A6;
 
 		/// <summary>
-		/// Value of GL_IMAGE_TEXEL_SIZE symbol.
+		/// [GL] Value of GL_IMAGE_TEXEL_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_TEXEL_SIZE = 0x82A7;
 
 		/// <summary>
-		/// Value of GL_IMAGE_COMPATIBILITY_CLASS symbol.
+		/// [GL] Value of GL_IMAGE_COMPATIBILITY_CLASS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_COMPATIBILITY_CLASS = 0x82A8;
 
 		/// <summary>
-		/// Value of GL_IMAGE_PIXEL_FORMAT symbol.
+		/// [GL] Value of GL_IMAGE_PIXEL_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_PIXEL_FORMAT = 0x82A9;
 
 		/// <summary>
-		/// Value of GL_IMAGE_PIXEL_TYPE symbol.
+		/// [GL] Value of GL_IMAGE_PIXEL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_PIXEL_TYPE = 0x82AA;
 
 		/// <summary>
-		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST symbol.
+		/// [GL] Value of GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST = 0x82AC;
 
 		/// <summary>
-		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST symbol.
+		/// [GL] Value of GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST = 0x82AD;
 
 		/// <summary>
-		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE symbol.
+		/// [GL] Value of GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE = 0x82AE;
 
 		/// <summary>
-		/// Value of GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE symbol.
+		/// [GL] Value of GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE = 0x82AF;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPRESSED_BLOCK_WIDTH symbol.
+		/// [GL] Value of GL_TEXTURE_COMPRESSED_BLOCK_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_COMPRESSED_BLOCK_WIDTH = 0x82B1;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT symbol.
+		/// [GL] Value of GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_COMPRESSED_BLOCK_HEIGHT = 0x82B2;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPRESSED_BLOCK_SIZE symbol.
+		/// [GL] Value of GL_TEXTURE_COMPRESSED_BLOCK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_COMPRESSED_BLOCK_SIZE = 0x82B3;
 
 		/// <summary>
-		/// Value of GL_CLEAR_BUFFER symbol.
+		/// [GL] Value of GL_CLEAR_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int CLEAR_BUFFER = 0x82B4;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_VIEW symbol.
+		/// [GL] Value of GL_TEXTURE_VIEW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int TEXTURE_VIEW = 0x82B5;
 
 		/// <summary>
-		/// Value of GL_VIEW_COMPATIBILITY_CLASS symbol.
+		/// [GL] Value of GL_VIEW_COMPATIBILITY_CLASS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_COMPATIBILITY_CLASS = 0x82B6;
 
 		/// <summary>
-		/// Value of GL_FULL_SUPPORT symbol.
+		/// [GL] Value of GL_FULL_SUPPORT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int FULL_SUPPORT = 0x82B7;
 
 		/// <summary>
-		/// Value of GL_CAVEAT_SUPPORT symbol.
+		/// [GL] Value of GL_CAVEAT_SUPPORT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int CAVEAT_SUPPORT = 0x82B8;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_4_X_32 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_4_X_32 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_4_X_32 = 0x82B9;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_2_X_32 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_2_X_32 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_2_X_32 = 0x82BA;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_1_X_32 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_1_X_32 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_1_X_32 = 0x82BB;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_4_X_16 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_4_X_16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_4_X_16 = 0x82BC;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_2_X_16 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_2_X_16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_2_X_16 = 0x82BD;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_1_X_16 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_1_X_16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_1_X_16 = 0x82BE;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_4_X_8 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_4_X_8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_4_X_8 = 0x82BF;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_2_X_8 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_2_X_8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_2_X_8 = 0x82C0;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_1_X_8 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_1_X_8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_1_X_8 = 0x82C1;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_11_11_10 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_11_11_10 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_11_11_10 = 0x82C2;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CLASS_10_10_10_2 symbol.
+		/// [GL] Value of GL_IMAGE_CLASS_10_10_10_2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int IMAGE_CLASS_10_10_10_2 = 0x82C3;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_128_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_128_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_128_BITS = 0x82C4;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_96_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_96_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_96_BITS = 0x82C5;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_64_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_64_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_64_BITS = 0x82C6;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_48_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_48_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_48_BITS = 0x82C7;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_32_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_32_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_32_BITS = 0x82C8;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_24_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_24_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_24_BITS = 0x82C9;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_16_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_16_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_16_BITS = 0x82CA;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_8_BITS symbol.
+		/// [GL] Value of GL_VIEW_CLASS_8_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_8_BITS = 0x82CB;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_S3TC_DXT1_RGB symbol.
+		/// [GL] Value of GL_VIEW_CLASS_S3TC_DXT1_RGB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT1_RGB = 0x82CC;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_S3TC_DXT1_RGBA symbol.
+		/// [GL] Value of GL_VIEW_CLASS_S3TC_DXT1_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT1_RGBA = 0x82CD;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_S3TC_DXT3_RGBA symbol.
+		/// [GL] Value of GL_VIEW_CLASS_S3TC_DXT3_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT3_RGBA = 0x82CE;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_S3TC_DXT5_RGBA symbol.
+		/// [GL] Value of GL_VIEW_CLASS_S3TC_DXT5_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_S3TC_DXT5_RGBA = 0x82CF;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_RGTC1_RED symbol.
+		/// [GL] Value of GL_VIEW_CLASS_RGTC1_RED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_RGTC1_RED = 0x82D0;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_RGTC2_RG symbol.
+		/// [GL] Value of GL_VIEW_CLASS_RGTC2_RG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_RGTC2_RG = 0x82D1;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_BPTC_UNORM symbol.
+		/// [GL] Value of GL_VIEW_CLASS_BPTC_UNORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int VIEW_CLASS_BPTC_UNORM = 0x82D2;
 
 		/// <summary>
-		/// Value of GL_VIEW_CLASS_BPTC_FLOAT symbol.
+		/// [GL] Value of GL_VIEW_CLASS_BPTC_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -1554,13 +1735,22 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active uniforms within program.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active uniforms within program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active uniforms within program.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active uniforms within program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active uniforms within program.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active uniforms within program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active uniforms within program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of active uniforms within program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of active uniforms within program.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1570,13 +1760,22 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active uniform blocks within program.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active uniform blocks within program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active uniform blocks within program.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active uniform blocks within program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active uniform blocks within program.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active uniform blocks within program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active uniform blocks within program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of active uniform blocks within program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of active uniform blocks within program.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1586,19 +1785,34 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active input variables used by the first shader stage of 
-		/// program. If program contains multiple shader stages then input variables from any stage other than the first will not be 
-		/// enumerated.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active input variables used by the first shader stage 
+		/// of program. If program contains multiple shader stages then input variables from any stage other than the first will not 
+		/// be enumerated.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active input variables used by the first shader stage of 
-		/// program. If program contains multiple shader stages then input variables from any stage other than the first will not be 
-		/// enumerated.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active input variables used by the first shader 
+		/// stage of program. If program contains multiple shader stages then input variables from any stage other than the first 
+		/// will not be enumerated.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active input variables used by the first shader stage of 
-		/// program. If program contains multiple shader stages then input variables from any stage other than the first will not be 
-		/// enumerated.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active input variables used by the first shader 
+		/// stage of program. If program contains multiple shader stages then input variables from any stage other than the first 
+		/// will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active input variables used by the first shader 
+		/// stage of program. If program contains multiple shader stages then input variables from any stage other than the first 
+		/// will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of active input variables used by the first 
+		/// shader stage of program. If program contains multiple shader stages then input variables from any stage other than the 
+		/// first will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of active input variables used by the first shader 
+		/// stage of program. If program contains multiple shader stages then input variables from any stage other than the first 
+		/// will not be enumerated.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1608,19 +1822,34 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active output variables produced by the last shader stage of 
-		/// program. If program contains multiple shader stages then output variables from any stage other than the last will not be 
-		/// enumerated.
-		/// </para>
-		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active output variables produced by the last shader 
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active output variables produced by the last shader 
 		/// stage of program. If program contains multiple shader stages then output variables from any stage other than the last 
 		/// will not be enumerated.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active output variables produced by the last shader stage 
-		/// of program. If program contains multiple shader stages then output variables from any stage other than the last will not 
-		/// be enumerated.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active output variables produced by the last 
+		/// shader stage of program. If program contains multiple shader stages then output variables from any stage other than the 
+		/// last will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active output variables produced by the last shader 
+		/// stage of program. If program contains multiple shader stages then output variables from any stage other than the last 
+		/// will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active output variables produced by the last 
+		/// shader stage of program. If program contains multiple shader stages then output variables from any stage other than the 
+		/// last will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of active output variables produced by the last 
+		/// shader stage of program. If program contains multiple shader stages then output variables from any stage other than the 
+		/// last will not be enumerated.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of active output variables produced by the last 
+		/// shader stage of program. If program contains multiple shader stages then output variables from any stage other than the 
+		/// last will not be enumerated.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1630,13 +1859,22 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active buffer variables used by program.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active buffer variables used by program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active buffer variables used by program.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active buffer variables used by program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active buffer variables used by program.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active buffer variables used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active buffer variables used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of active buffer variables used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of active buffer variables used by program.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1646,13 +1884,22 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active shader storage blocks used by program.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active shader storage blocks used by program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active shader storage blocks used by program.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active shader storage blocks used by program.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active shader storage blocks used by program.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active shader storage blocks used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active shader storage blocks used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of active shader storage blocks used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of active shader storage blocks used by program.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1662,16 +1909,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active subroutines for the vertex, tessellation control, 
-		/// tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active subroutines for the vertex, tessellation 
+		/// control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active subroutines for the vertex, tessellation control, 
-		/// tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active subroutines for the vertex, tessellation 
+		/// control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active subroutines for the vertex, tessellation control, 
-		/// tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active subroutines for the vertex, tessellation 
+		/// control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1679,35 +1926,35 @@ namespace OpenGL
 		public const int VERTEX_SUBROUTINE = 0x92E8;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_SUBROUTINE symbol.
+		/// [GL] Value of GL_TESS_CONTROL_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_CONTROL_SUBROUTINE = 0x92E9;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_SUBROUTINE symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_SUBROUTINE = 0x92EA;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_SUBROUTINE symbol.
+		/// [GL] Value of GL_GEOMETRY_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int GEOMETRY_SUBROUTINE = 0x92EB;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_SUBROUTINE symbol.
+		/// [GL] Value of GL_FRAGMENT_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int FRAGMENT_SUBROUTINE = 0x92EC;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_SUBROUTINE symbol.
+		/// [GL] Value of GL_COMPUTE_SUBROUTINE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -1715,16 +1962,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active subroutine uniform variables used by the vertex, 
-		/// tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active subroutine uniform variables used by the 
+		/// vertex, tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, 
+		/// respectively.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active subroutine uniform variables used by the vertex, 
-		/// tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active subroutine uniform variables used by the 
+		/// vertex, tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, 
+		/// respectively.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of active subroutine uniform variables used by the vertex, 
-		/// tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of active subroutine uniform variables used by the 
+		/// vertex, tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, 
+		/// respectively.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1732,35 +1982,35 @@ namespace OpenGL
 		public const int VERTEX_SUBROUTINE_UNIFORM = 0x92EE;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_SUBROUTINE_UNIFORM symbol.
+		/// [GL] Value of GL_TESS_CONTROL_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_CONTROL_SUBROUTINE_UNIFORM = 0x92EF;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_SUBROUTINE_UNIFORM symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int TESS_EVALUATION_SUBROUTINE_UNIFORM = 0x92F0;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_SUBROUTINE_UNIFORM symbol.
+		/// [GL] Value of GL_GEOMETRY_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int GEOMETRY_SUBROUTINE_UNIFORM = 0x92F1;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_SUBROUTINE_UNIFORM symbol.
+		/// [GL] Value of GL_FRAGMENT_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int FRAGMENT_SUBROUTINE_UNIFORM = 0x92F2;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_SUBROUTINE_UNIFORM symbol.
+		/// [GL] Value of GL_COMPUTE_SUBROUTINE_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -1768,16 +2018,28 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of output variables from the last non-fragment stage of program 
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of output variables from the last non-fragment stage of 
+		/// program that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of output variables from the last non-fragment stage 
+		/// of program that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// [GL4] Gl.GetProgramResourceName: The query is targeted at the set of output variables from the last non-fragment stage 
+		/// of program that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of output variables from the last non-fragment stage 
+		/// of program that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceIndex: The query is targeted at the set of output variables from the vertex stage of 
+		/// program that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramResourceName: The query is targeted at the set of output variables from vertex stage of program 
 		/// that would be captured if transform feedback were active.
-		/// </para>
-		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of output variables from the last non-fragment stage of 
-		/// program that would be captured if transform feedback were active.
-		/// </para>
-		/// <para>
-		/// Gl.GetProgramResourceName: The query is targeted at the set of output variables from the last non-fragment stage of 
-		/// program that would be captured if transform feedback were active.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -1786,7 +2048,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_VARYING = 0x92F4;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_RESOURCES symbol.
+		/// [GL] Value of GL_ACTIVE_RESOURCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1794,7 +2056,7 @@ namespace OpenGL
 		public const int ACTIVE_RESOURCES = 0x92F5;
 
 		/// <summary>
-		/// Value of GL_MAX_NAME_LENGTH symbol.
+		/// [GL] Value of GL_MAX_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1802,7 +2064,7 @@ namespace OpenGL
 		public const int MAX_NAME_LENGTH = 0x92F6;
 
 		/// <summary>
-		/// Value of GL_MAX_NUM_ACTIVE_VARIABLES symbol.
+		/// [GL] Value of GL_MAX_NUM_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1810,14 +2072,14 @@ namespace OpenGL
 		public const int MAX_NUM_ACTIVE_VARIABLES = 0x92F7;
 
 		/// <summary>
-		/// Value of GL_MAX_NUM_COMPATIBLE_SUBROUTINES symbol.
+		/// [GL] Value of GL_MAX_NUM_COMPATIBLE_SUBROUTINES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public const int MAX_NUM_COMPATIBLE_SUBROUTINES = 0x92F8;
 
 		/// <summary>
-		/// Value of GL_NAME_LENGTH symbol.
+		/// [GL] Value of GL_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1825,7 +2087,7 @@ namespace OpenGL
 		public const int NAME_LENGTH = 0x92F9;
 
 		/// <summary>
-		/// Value of GL_TYPE symbol.
+		/// [GL] Value of GL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1833,7 +2095,7 @@ namespace OpenGL
 		public const int TYPE = 0x92FA;
 
 		/// <summary>
-		/// Value of GL_ARRAY_SIZE symbol.
+		/// [GL] Value of GL_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1841,7 +2103,7 @@ namespace OpenGL
 		public const int ARRAY_SIZE = 0x92FB;
 
 		/// <summary>
-		/// Value of GL_OFFSET symbol.
+		/// [GL] Value of GL_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1849,7 +2111,7 @@ namespace OpenGL
 		public const int OFFSET = 0x92FC;
 
 		/// <summary>
-		/// Value of GL_BLOCK_INDEX symbol.
+		/// [GL] Value of GL_BLOCK_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1857,7 +2119,7 @@ namespace OpenGL
 		public const int BLOCK_INDEX = 0x92FD;
 
 		/// <summary>
-		/// Value of GL_ARRAY_STRIDE symbol.
+		/// [GL] Value of GL_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1865,7 +2127,7 @@ namespace OpenGL
 		public const int ARRAY_STRIDE = 0x92FE;
 
 		/// <summary>
-		/// Value of GL_MATRIX_STRIDE symbol.
+		/// [GL] Value of GL_MATRIX_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1873,7 +2135,7 @@ namespace OpenGL
 		public const int MATRIX_STRIDE = 0x92FF;
 
 		/// <summary>
-		/// Value of GL_IS_ROW_MAJOR symbol.
+		/// [GL] Value of GL_IS_ROW_MAJOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1881,7 +2143,7 @@ namespace OpenGL
 		public const int IS_ROW_MAJOR = 0x9300;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_INDEX symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1889,7 +2151,7 @@ namespace OpenGL
 		public const int ATOMIC_COUNTER_BUFFER_INDEX = 0x9301;
 
 		/// <summary>
-		/// Value of GL_BUFFER_BINDING symbol.
+		/// [GL] Value of GL_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1897,7 +2159,7 @@ namespace OpenGL
 		public const int BUFFER_BINDING = 0x9302;
 
 		/// <summary>
-		/// Value of GL_BUFFER_DATA_SIZE symbol.
+		/// [GL] Value of GL_BUFFER_DATA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1905,7 +2167,7 @@ namespace OpenGL
 		public const int BUFFER_DATA_SIZE = 0x9303;
 
 		/// <summary>
-		/// Value of GL_NUM_ACTIVE_VARIABLES symbol.
+		/// [GL] Value of GL_NUM_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1913,7 +2175,7 @@ namespace OpenGL
 		public const int NUM_ACTIVE_VARIABLES = 0x9304;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_VARIABLES symbol.
+		/// [GL] Value of GL_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1921,7 +2183,7 @@ namespace OpenGL
 		public const int ACTIVE_VARIABLES = 0x9305;
 
 		/// <summary>
-		/// Value of GL_REFERENCED_BY_VERTEX_SHADER symbol.
+		/// [GL] Value of GL_REFERENCED_BY_VERTEX_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1929,7 +2191,7 @@ namespace OpenGL
 		public const int REFERENCED_BY_VERTEX_SHADER = 0x9306;
 
 		/// <summary>
-		/// Value of GL_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
+		/// [GL] Value of GL_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT")]
 		[AliasOf("GL_REFERENCED_BY_TESS_CONTROL_SHADER_OES")]
@@ -1941,7 +2203,7 @@ namespace OpenGL
 		public const int REFERENCED_BY_TESS_CONTROL_SHADER = 0x9307;
 
 		/// <summary>
-		/// Value of GL_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
+		/// [GL] Value of GL_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT")]
 		[AliasOf("GL_REFERENCED_BY_TESS_EVALUATION_SHADER_OES")]
@@ -1953,7 +2215,7 @@ namespace OpenGL
 		public const int REFERENCED_BY_TESS_EVALUATION_SHADER = 0x9308;
 
 		/// <summary>
-		/// Value of GL_REFERENCED_BY_GEOMETRY_SHADER symbol.
+		/// [GL] Value of GL_REFERENCED_BY_GEOMETRY_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_REFERENCED_BY_GEOMETRY_SHADER_EXT")]
 		[AliasOf("GL_REFERENCED_BY_GEOMETRY_SHADER_OES")]
@@ -1965,7 +2227,7 @@ namespace OpenGL
 		public const int REFERENCED_BY_GEOMETRY_SHADER = 0x9309;
 
 		/// <summary>
-		/// Value of GL_REFERENCED_BY_FRAGMENT_SHADER symbol.
+		/// [GL] Value of GL_REFERENCED_BY_FRAGMENT_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1973,7 +2235,7 @@ namespace OpenGL
 		public const int REFERENCED_BY_FRAGMENT_SHADER = 0x930A;
 
 		/// <summary>
-		/// Value of GL_REFERENCED_BY_COMPUTE_SHADER symbol.
+		/// [GL] Value of GL_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1981,7 +2243,7 @@ namespace OpenGL
 		public const int REFERENCED_BY_COMPUTE_SHADER = 0x930B;
 
 		/// <summary>
-		/// Value of GL_TOP_LEVEL_ARRAY_SIZE symbol.
+		/// [GL] Value of GL_TOP_LEVEL_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1989,7 +2251,7 @@ namespace OpenGL
 		public const int TOP_LEVEL_ARRAY_SIZE = 0x930C;
 
 		/// <summary>
-		/// Value of GL_TOP_LEVEL_ARRAY_STRIDE symbol.
+		/// [GL] Value of GL_TOP_LEVEL_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1997,7 +2259,7 @@ namespace OpenGL
 		public const int TOP_LEVEL_ARRAY_STRIDE = 0x930D;
 
 		/// <summary>
-		/// Value of GL_LOCATION symbol.
+		/// [GL] Value of GL_LOCATION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2005,7 +2267,7 @@ namespace OpenGL
 		public const int LOCATION = 0x930E;
 
 		/// <summary>
-		/// Value of GL_LOCATION_INDEX symbol.
+		/// [GL] Value of GL_LOCATION_INDEX symbol.
 		/// </summary>
 		[AliasOf("GL_LOCATION_INDEX_EXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -2014,7 +2276,7 @@ namespace OpenGL
 		public const int LOCATION_INDEX = 0x930F;
 
 		/// <summary>
-		/// Value of GL_IS_PER_PATCH symbol.
+		/// [GL] Value of GL_IS_PER_PATCH symbol.
 		/// </summary>
 		[AliasOf("GL_IS_PER_PATCH_EXT")]
 		[AliasOf("GL_IS_PER_PATCH_OES")]
@@ -2026,7 +2288,7 @@ namespace OpenGL
 		public const int IS_PER_PATCH = 0x92E7;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BUFFER symbol.
+		/// [GL] Value of GL_SHADER_STORAGE_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2034,11 +2296,20 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER = 0x90D2;
 
 		/// <summary>
-		/// Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
-		/// the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to this target, 0 
-		/// is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name 
-		/// of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 for all targets. 
-		/// See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// <para>
+		/// [GL4] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
+		/// name of the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to this 
+		/// target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, 
+		/// the name of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 for all 
+		/// targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
+		/// name of the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to this 
+		/// target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, 
+		/// the name of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 for all 
+		/// targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2046,9 +2317,16 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
 		/// <summary>
-		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
-		/// offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
-		/// Gl.BindBufferRange.
+		/// <para>
+		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// start offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all 
+		/// bindings. See Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// start offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all 
+		/// bindings. See Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2056,9 +2334,16 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_START = 0x90D4;
 
 		/// <summary>
-		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
-		/// the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
+		/// <para>
+		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// size of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
 		/// Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// size of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2066,8 +2351,14 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_SIZE = 0x90D5;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a vertex 
-		/// shader.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// vertex shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// vertex shader.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2075,8 +2366,14 @@ namespace OpenGL
 		public const int MAX_VERTEX_SHADER_STORAGE_BLOCKS = 0x90D6;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a geometry 
-		/// shader.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// geometry shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// geometry shader.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES")]
@@ -2088,8 +2385,14 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_SHADER_STORAGE_BLOCKS = 0x90D7;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
 		/// tessellation control shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// tessellation control shader.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES")]
@@ -2101,8 +2404,14 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS = 0x90D8;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
 		/// tessellation evaluation shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// tessellation evaluation shader.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES")]
@@ -2114,8 +2423,14 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS = 0x90D9;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a fragment 
-		/// shader.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// fragment shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// fragment shader. In GL ES 3.1, the minimum value is 0. in GL ES 3.2, the minimum value is 4.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2123,8 +2438,14 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_SHADER_STORAGE_BLOCKS = 0x90DA;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a compute 
-		/// shader.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// compute shader.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// compute shader.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2132,8 +2453,14 @@ namespace OpenGL
 		public const int MAX_COMPUTE_SHADER_STORAGE_BLOCKS = 0x90DB;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be accessed by all 
-		/// active shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be accessed by 
+		/// all active shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be accessed 
+		/// by all active shaders.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2141,8 +2468,14 @@ namespace OpenGL
 		public const int MAX_COMBINED_SHADER_STORAGE_BLOCKS = 0x90DC;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, which must be 
-		/// at least 8.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, which 
+		/// must be at least 8.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, 
+		/// which must be at least 8.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2150,8 +2483,8 @@ namespace OpenGL
 		public const int MAX_SHADER_STORAGE_BUFFER_BINDINGS = 0x90DD;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum size in basic machine units of a shader storage block. The value must be at 
-		/// least 227.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum size in basic machine units of a shader storage block. The value 
+		/// must be at least 227.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2159,8 +2492,14 @@ namespace OpenGL
 		public const int MAX_SHADER_STORAGE_BLOCK_SIZE = 0x90DE;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the minimum required alignment for shader storage buffer sizes and offset. The 
-		/// initial value is 1. See Gl.ShaderStorageBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the minimum required alignment for shader storage buffer sizes and offset. 
+		/// The initial value is 1. See Gl.ShaderStorageBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for shader storage buffer sizes and 
+		/// offset. The initial value is 1. See Gl.ShaderStorateBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2168,7 +2507,7 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT = 0x90DF;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BARRIER_BIT symbol.
+		/// [GL] Value of GL_SHADER_STORAGE_BARRIER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2177,8 +2516,14 @@ namespace OpenGL
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns the single-value depth stencil texture mode, a symbolic constant. The initial value is 
+		/// <para>
+		/// [GL4] Gl.GetTexParameter: Returns the single-value depth stencil texture mode, a symbolic constant. The initial value is 
 		/// Gl.DEPTH_COMPONENT.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexParameter: Returns the single-value depth stencil texture mode, a symbolic constant. The initial 
+		/// value is Gl.DEPTH_COMPONENT.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2186,8 +2531,14 @@ namespace OpenGL
 		public const int DEPTH_STENCIL_TEXTURE_MODE = 0x90EA;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: params returns a single integer value, the offset into the data store of the buffer bound to a 
-		/// buffer texture. Gl.TexBufferRange.
+		/// <para>
+		/// [GL4] Gl.GetTexLevelParameter: params returns a single integer value, the offset into the data store of the buffer bound 
+		/// to a buffer texture. Gl.TexBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single integer value, the offset into the data store of the buffer 
+		/// bound to a buffer texture. See Gl.TexBufferRange
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_EXT")]
 		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_OES")]
@@ -2199,8 +2550,14 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER_OFFSET = 0x919D;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: params returns a single integer value, the size of the range of a data store of the buffer 
-		/// bound to a buffer texture. Gl.TexBufferRange.
+		/// <para>
+		/// [GL4] Gl.GetTexLevelParameter: params returns a single integer value, the size of the range of a data store of the 
+		/// buffer bound to a buffer texture. Gl.TexBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single integer value, the size of the range of a data store of the 
+		/// buffer bound to a buffer texture. See Gl.TexBufferRange
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_SIZE_EXT")]
 		[AliasOf("GL_TEXTURE_BUFFER_SIZE_OES")]
@@ -2212,8 +2569,14 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER_SIZE = 0x919E;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The initial 
-		/// value is 1. See Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The 
+		/// initial value is 1. See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The 
+		/// initial value is 1. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT")]
 		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES")]
@@ -2225,8 +2588,8 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns a single-valued base level of a texture view relative to its parent. The initial value is 0. 
-		/// See Gl.TextureView.
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued base level of a texture view relative to its parent. The initial value 
+		/// is 0. See Gl.TextureView.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_VIEW_MIN_LEVEL_EXT")]
 		[AliasOf("GL_TEXTURE_VIEW_MIN_LEVEL_OES")]
@@ -2237,7 +2600,7 @@ namespace OpenGL
 		public const int TEXTURE_VIEW_MIN_LEVEL = 0x82DB;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns a single-valued number of levels of detail of a texture view. See Gl.TextureView.
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued number of levels of detail of a texture view. See Gl.TextureView.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_VIEW_NUM_LEVELS_EXT")]
 		[AliasOf("GL_TEXTURE_VIEW_NUM_LEVELS_OES")]
@@ -2248,7 +2611,7 @@ namespace OpenGL
 		public const int TEXTURE_VIEW_NUM_LEVELS = 0x82DC;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns a single-valued first level of a texture array view relative to its parent. See 
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued first level of a texture array view relative to its parent. See 
 		/// Gl.TextureView.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_VIEW_MIN_LAYER_EXT")]
@@ -2260,7 +2623,7 @@ namespace OpenGL
 		public const int TEXTURE_VIEW_MIN_LAYER = 0x82DD;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns a single-valued number of layers in a texture array view. See Gl.TextureView.
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued number of layers in a texture array view. See Gl.TextureView.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_VIEW_NUM_LAYERS_EXT")]
 		[AliasOf("GL_TEXTURE_VIEW_NUM_LAYERS_OES")]
@@ -2271,7 +2634,14 @@ namespace OpenGL
 		public const int TEXTURE_VIEW_NUM_LAYERS = 0x82DE;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns a single-valued number of immutable texture levels in a texture view. See Gl.TextureView.
+		/// <para>
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued number of immutable texture levels in a texture view. See 
+		/// Gl.TextureView.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexParameter: Returns a single-valued number of texture levels in an immutable texture. See 
+		/// Gl.TexStorage2D.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2281,8 +2651,8 @@ namespace OpenGL
 		public const int TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 		/// <summary>
-		/// Gl.GetVertexAttrib: params returns a single value that is the current vertex buffer binding of the vertex attribute. See 
-		/// Gl.VertexAttribBinding.
+		/// [GLES3.2] Gl.GetVertexAttrib: params returns a single value that is the current vertex buffer binding of the vertex 
+		/// attribute. See Gl.VertexAttribBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2290,7 +2660,7 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_BINDING = 0x82D4;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_RELATIVE_OFFSET symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_RELATIVE_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2298,8 +2668,14 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D5;
 
 		/// <summary>
-		/// Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the instance step divisor of the 
-		/// first element in the bound buffer's data store for vertex attribute bound to index.
+		/// <para>
+		/// [GL4] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the instance step divisor 
+		/// of the first element in the bound buffer's data store for vertex attribute bound to index.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the instance step 
+		/// divisor of the first element in the bound buffer's data store for vertex attribute bound to index.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2307,8 +2683,14 @@ namespace OpenGL
 		public const int VERTEX_BINDING_DIVISOR = 0x82D6;
 
 		/// <summary>
-		/// Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset of the first 
-		/// element in the bound buffer's data store for vertex attribute bound to index.
+		/// <para>
+		/// [GL4] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset of the 
+		/// first element in the bound buffer's data store for vertex attribute bound to index.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset of the 
+		/// first element in the bound buffer's data store for vertex attribute bound to index.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2316,8 +2698,14 @@ namespace OpenGL
 		public const int VERTEX_BINDING_OFFSET = 0x82D7;
 
 		/// <summary>
-		/// Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset between the 
-		/// start of each element in the bound buffer's data store for vertex attribute bound to index.
+		/// <para>
+		/// [GL4] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset between 
+		/// the start of each element in the bound buffer's data store for vertex attribute bound to index.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset 
+		/// between the start of each element in the bound buffer's data store for vertex attribute bound to index.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2325,7 +2713,14 @@ namespace OpenGL
 		public const int VERTEX_BINDING_STRIDE = 0x82D8;
 
 		/// <summary>
-		/// Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex binding offset.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex binding 
+		/// offset.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex 
+		/// binding offset.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2333,7 +2728,12 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9;
 
 		/// <summary>
-		/// Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2341,14 +2741,14 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATTRIB_BINDINGS = 0x82DA;
 
 		/// <summary>
-		/// Value of GL_VERTEX_BINDING_BUFFER symbol.
+		/// [GL] Value of GL_VERTEX_BINDING_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int VERTEX_BINDING_BUFFER = 0x8F4F;
 
 		/// <summary>
-		/// Value of GL_DISPLAY_LIST symbol.
+		/// [GL] Value of GL_DISPLAY_LIST symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]

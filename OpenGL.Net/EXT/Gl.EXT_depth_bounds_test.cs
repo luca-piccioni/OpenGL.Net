@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DEPTH_BOUNDS_TEST_EXT symbol.
+		/// [GL] Value of GL_DEPTH_BOUNDS_TEST_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_depth_bounds_test")]
 		public const int DEPTH_BOUNDS_TEST_EXT = 0x8890;
 
 		/// <summary>
-		/// Value of GL_DEPTH_BOUNDS_EXT symbol.
+		/// [GL] Value of GL_DEPTH_BOUNDS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_depth_bounds_test")]
 		public const int DEPTH_BOUNDS_EXT = 0x8891;

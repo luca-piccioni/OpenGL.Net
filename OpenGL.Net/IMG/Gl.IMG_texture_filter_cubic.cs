@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CUBIC_IMG symbol.
+		/// [GL] Value of GL_CUBIC_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_filter_cubic", Api = "gles2")]
 		public const int CUBIC_IMG = 0x9139;
 
 		/// <summary>
-		/// Value of GL_CUBIC_MIPMAP_NEAREST_IMG symbol.
+		/// [GL] Value of GL_CUBIC_MIPMAP_NEAREST_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_filter_cubic", Api = "gles2")]
 		public const int CUBIC_MIPMAP_NEAREST_IMG = 0x913A;
 
 		/// <summary>
-		/// Value of GL_CUBIC_MIPMAP_LINEAR_IMG symbol.
+		/// [GL] Value of GL_CUBIC_MIPMAP_LINEAR_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_filter_cubic", Api = "gles2")]
 		public const int CUBIC_MIPMAP_LINEAR_IMG = 0x913B;

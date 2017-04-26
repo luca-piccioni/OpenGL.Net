@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_COLOR_TABLE_SGI symbol.
+		/// [GL] Value of GL_TEXTURE_COLOR_TABLE_SGI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGI_texture_color_table")]
 		public const int TEXTURE_COLOR_TABLE_SGI = 0x80BC;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_COLOR_TABLE_SGI symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_COLOR_TABLE_SGI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGI_texture_color_table")]
 		public const int PROXY_TEXTURE_COLOR_TABLE_SGI = 0x80BD;

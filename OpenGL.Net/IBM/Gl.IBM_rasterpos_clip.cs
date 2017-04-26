@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RASTER_POSITION_UNCLIPPED_IBM symbol.
+		/// [GL] Value of GL_RASTER_POSITION_UNCLIPPED_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_rasterpos_clip")]
 		public const int RASTER_POSITION_UNCLIPPED_IBM = 0x19262;

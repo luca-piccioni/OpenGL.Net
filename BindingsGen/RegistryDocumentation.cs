@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -39,6 +40,8 @@ namespace BindingsGen
 		bool HasDocumentation(Command enumerant);
 
 		bool HasDocumentation(Enumerant enumerant);
+
+		List<RegistryDocumentationHandler> GetDocumentationHandlers(Enumerant enumerant);
 
 		/// <summary>
 		/// Generate a <see cref="Command"/> documentation using the Khronos reference pages.
@@ -68,15 +71,19 @@ namespace BindingsGen
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
 				docHandler.Load();
 
+			List<string> docHandlersDoc = new List<string>();
+			foreach (RegistryDocumentationHandler docHandler in docHandlers)
+				docHandlersDoc.Add(String.Format("[{0}] {1}", docHandler.Api ?? ctx.Class.ToUpperInvariant(), docHandler.QueryEnumSummary(ctx, enumerant)));
+
 			sw.WriteLine("/// <summary>");
-			if (docHandlers.Count > 1) {
-				foreach (RegistryDocumentationHandler docHandler in docHandlers) {
+			if (docHandlersDoc.Count > 1) {
+				foreach (string doc in docHandlersDoc) {
 					sw.WriteLine("/// <para>");
-					sw.WriteLine("/// {0}", SplitDocumentationLines(docHandler.QueryEnumSummary(ctx, enumerant)));
+					sw.WriteLine("/// {0}", SplitDocumentationLines(doc));
 					sw.WriteLine("/// </para>");
 				}
 			} else {
-				sw.WriteLine("/// {0}", SplitDocumentationLines(docHandlers[0].QueryEnumSummary(ctx, enumerant)));
+				sw.WriteLine("/// {0}", SplitDocumentationLines(docHandlersDoc[0]));
 			}
 			sw.WriteLine("/// </summary>");
 
@@ -261,6 +268,7 @@ namespace BindingsGen
 				try {
 					T docHandler = new T();
 
+					docHandler.Api = Api;
 					docHandler.Load(documentationFile);
 					docHandler.Query();
 
@@ -296,6 +304,16 @@ namespace BindingsGen
 		public bool HasDocumentation(Enumerant enumerant)
 		{
 			return (_DocMapEnums.ContainsKey(enumerant.Name));
+		}
+
+		public List<RegistryDocumentationHandler> GetDocumentationHandlers(Enumerant enumerant)
+		{
+			List<T> handlers;
+
+			if (_DocMapEnums.TryGetValue(enumerant.Name, out handlers))
+				return (handlers.ConvertAll(delegate(T item) { return ((RegistryDocumentationHandler)item); }));
+
+			return (null);
 		}
 
 		/// <summary>
@@ -346,11 +364,8 @@ namespace BindingsGen
 
 	static class CollectionExtensions
 	{
-		public static void GenerateDocumentation(this ICollection<IRegistryDocumentation> docs, SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant)
+		private static List<IRegistryDocumentation> GetDocRegistries(ICollection<IRegistryDocumentation> docs, Enumerant enumerant)
 		{
-			if (docs == null || docs.Count == 0)
-				return;
-
 			List<IRegistryDocumentation> validDocs = new List<IRegistryDocumentation>();
 
 			foreach (IRegistryDocumentation doc in docs) {
@@ -359,9 +374,54 @@ namespace BindingsGen
 				validDocs.Add(doc);
 			}
 
-			if (validDocs.Count > 0)
-				validDocs[0].GenerateDocumentation(sw, ctx, enumerant);
-			else {
+			return (FilterDocRegistries(validDocs));
+		}
+
+		private static List<IRegistryDocumentation> GetDocRegistries(ICollection<IRegistryDocumentation> docs, Command command)
+		{
+			List<IRegistryDocumentation> validDocs = new List<IRegistryDocumentation>();
+
+			foreach (IRegistryDocumentation doc in docs) {
+				if (doc.HasDocumentation(command) == false)
+					continue;
+				validDocs.Add(doc);
+			}
+
+			return (FilterDocRegistries(validDocs));
+		}
+
+		private static List<IRegistryDocumentation> FilterDocRegistries(List<IRegistryDocumentation> validDocs)
+		{
+			if (validDocs.Exists(delegate(IRegistryDocumentation item) { return (item.Api == "GL2.1"); }) && validDocs.Exists(delegate(IRegistryDocumentation item) { return (item.Api == "GL4"); }))
+				validDocs.RemoveAll(delegate(IRegistryDocumentation item) { return (item.Api == "GL2.1"); });
+
+			if (validDocs.Exists(delegate(IRegistryDocumentation item) { return (item.Api == "GLES3.2"); }) && validDocs.Exists(delegate(IRegistryDocumentation item) { return (item.Api == "GLES1.1"); }))
+				validDocs.RemoveAll(delegate(IRegistryDocumentation item) { return (item.Api == "GLES1.1"); });
+
+			return (validDocs);
+		}
+
+		public static void GenerateDocumentation(this ICollection<IRegistryDocumentation> docs, SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant)
+		{
+			if (docs == null || docs.Count == 0)
+				return;
+
+			List<IRegistryDocumentation> validDocs = GetDocRegistries(docs, enumerant);
+
+			if (validDocs.Count > 0) {
+				if (validDocs.Count > 1) {
+					List<RegistryDocumentationHandler> handlers = new List<RegistryDocumentationHandler>();
+
+					foreach (IRegistryDocumentation docRegistry in validDocs) {
+						List<RegistryDocumentationHandler> registryHandlers = docRegistry.GetDocumentationHandlers(enumerant);
+
+						if (registryHandlers != null)
+							handlers.AddRange(registryHandlers);
+					}
+					RegistryDocumentation.GenerateDocumentation(sw, ctx, enumerant, handlers);
+				} else
+					validDocs[0].GenerateDocumentation(sw, ctx, enumerant);
+			} else {
 				RegistryDocumentation.GenerateDocumentation(sw, ctx, enumerant, new List<RegistryDocumentationHandler>(new RegistryDocumentationHandler[] {
 					new RegistryDocumentationHandler_Default()
 				}));
@@ -386,13 +446,7 @@ namespace BindingsGen
 			if (docs == null || docs.Count == 0)
 				return;
 
-			List<IRegistryDocumentation> validDocs = new List<IRegistryDocumentation>();
-
-			foreach (IRegistryDocumentation doc in docs) {
-				if (doc.HasDocumentation(command) == false)
-					continue;
-				validDocs.Add(doc);
-			}
+			List<IRegistryDocumentation> validDocs = GetDocRegistries(docs, command);
 
 			if (validDocs.Count > 0)
 				validDocs[0].GenerateDocumentation(sw, ctx, command, fail, commandParams);

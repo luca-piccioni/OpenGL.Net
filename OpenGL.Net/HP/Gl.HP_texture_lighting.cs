@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_LIGHTING_MODE_HP symbol.
+		/// [GL] Value of GL_TEXTURE_LIGHTING_MODE_HP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_HP_texture_lighting")]
 		public const int TEXTURE_LIGHTING_MODE_HP = 0x8167;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_POST_SPECULAR_HP symbol.
+		/// [GL] Value of GL_TEXTURE_POST_SPECULAR_HP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_HP_texture_lighting")]
 		public const int TEXTURE_POST_SPECULAR_HP = 0x8168;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_PRE_SPECULAR_HP symbol.
+		/// [GL] Value of GL_TEXTURE_PRE_SPECULAR_HP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_HP_texture_lighting")]
 		public const int TEXTURE_PRE_SPECULAR_HP = 0x8169;

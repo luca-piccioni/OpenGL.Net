@@ -29,55 +29,55 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PIXEL_TRANSFORM_2D_EXT symbol.
+		/// [GL] Value of GL_PIXEL_TRANSFORM_2D_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int PIXEL_TRANSFORM_2D_EXT = 0x8330;
 
 		/// <summary>
-		/// Value of GL_PIXEL_MAG_FILTER_EXT symbol.
+		/// [GL] Value of GL_PIXEL_MAG_FILTER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int PIXEL_MAG_FILTER_EXT = 0x8331;
 
 		/// <summary>
-		/// Value of GL_PIXEL_MIN_FILTER_EXT symbol.
+		/// [GL] Value of GL_PIXEL_MIN_FILTER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int PIXEL_MIN_FILTER_EXT = 0x8332;
 
 		/// <summary>
-		/// Value of GL_PIXEL_CUBIC_WEIGHT_EXT symbol.
+		/// [GL] Value of GL_PIXEL_CUBIC_WEIGHT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int PIXEL_CUBIC_WEIGHT_EXT = 0x8333;
 
 		/// <summary>
-		/// Value of GL_CUBIC_EXT symbol.
+		/// [GL] Value of GL_CUBIC_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int CUBIC_EXT = 0x8334;
 
 		/// <summary>
-		/// Value of GL_AVERAGE_EXT symbol.
+		/// [GL] Value of GL_AVERAGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int AVERAGE_EXT = 0x8335;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT symbol.
+		/// [GL] Value of GL_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT = 0x8336;
 
 		/// <summary>
-		/// Value of GL_MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT symbol.
+		/// [GL] Value of GL_MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT = 0x8337;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TRANSFORM_2D_MATRIX_EXT symbol.
+		/// [GL] Value of GL_PIXEL_TRANSFORM_2D_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public const int PIXEL_TRANSFORM_2D_MATRIX_EXT = 0x8338;

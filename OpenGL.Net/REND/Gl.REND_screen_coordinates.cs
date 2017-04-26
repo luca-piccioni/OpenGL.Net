@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SCREEN_COORDINATES_REND symbol.
+		/// [GL] Value of GL_SCREEN_COORDINATES_REND symbol.
 		/// </summary>
 		[RequiredByFeature("GL_REND_screen_coordinates")]
 		public const int SCREEN_COORDINATES_REND = 0x8490;
 
 		/// <summary>
-		/// Value of GL_INVERTED_SCREEN_W_REND symbol.
+		/// [GL] Value of GL_INVERTED_SCREEN_W_REND symbol.
 		/// </summary>
 		[RequiredByFeature("GL_REND_screen_coordinates")]
 		public const int INVERTED_SCREEN_W_REND = 0x8491;

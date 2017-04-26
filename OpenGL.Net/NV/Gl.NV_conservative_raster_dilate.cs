@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTER_DILATE_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_DILATE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public const int CONSERVATIVE_RASTER_DILATE_NV = 0x9379;
 
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public const int CONSERVATIVE_RASTER_DILATE_RANGE_NV = 0x937A;
 
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 		public const int CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV = 0x937B;

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PROGRAM_PIPELINE_OBJECT_EXT symbol.
+		/// [GL] Value of GL_PROGRAM_PIPELINE_OBJECT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 		public const int PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
 		/// <summary>
-		/// Value of GL_BUFFER_OBJECT_EXT symbol.
+		/// [GL] Value of GL_BUFFER_OBJECT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 		public const int BUFFER_OBJECT_EXT = 0x9151;
 
 		/// <summary>
-		/// Value of GL_QUERY_OBJECT_EXT symbol.
+		/// [GL] Value of GL_QUERY_OBJECT_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_OBJECT_AMD")]
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
@@ -49,7 +49,7 @@ namespace OpenGL
 		public const int QUERY_OBJECT_EXT = 0x9153;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_OBJECT_EXT symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_OBJECT_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_OBJECT_AMD")]
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]

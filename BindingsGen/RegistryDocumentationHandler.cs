@@ -33,8 +33,17 @@ namespace BindingsGen
 	/// <summary>
 	/// OpenGL registry documentation handler.
 	/// </summary>
-	abstract class RegistryDocumentationHandler : IDisposable
+	public abstract class RegistryDocumentationHandler : IDisposable
 	{
+		#region Metadata
+
+		/// <summary>
+		/// API which this documentation belongs to.
+		/// </summary>
+		public string Api;
+
+		#endregion
+
 		#region Abstract Interface
 
 		/// <summary>

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAMEZOOM_SGIX symbol.
+		/// [GL] Value of GL_FRAMEZOOM_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_framezoom")]
 		public const int FRAMEZOOM_SGIX = 0x818B;
 
 		/// <summary>
-		/// Value of GL_FRAMEZOOM_FACTOR_SGIX symbol.
+		/// [GL] Value of GL_FRAMEZOOM_FACTOR_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_framezoom")]
 		public const int FRAMEZOOM_FACTOR_SGIX = 0x818C;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAMEZOOM_FACTOR_SGIX symbol.
+		/// [GL] Value of GL_MAX_FRAMEZOOM_FACTOR_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_framezoom")]
 		public const int MAX_FRAMEZOOM_FACTOR_SGIX = 0x818D;

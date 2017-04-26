@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP1_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP1_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP1_APPLE = 0x8A00;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP2_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP2_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP2_APPLE = 0x8A01;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP1_SIZE_APPLE = 0x8A02;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP1_COEFF_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP1_COEFF_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP1_COEFF_APPLE = 0x8A03;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP1_ORDER_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP1_ORDER_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP1_ORDER_APPLE = 0x8A04;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP1_DOMAIN_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP1_DOMAIN_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP1_DOMAIN_APPLE = 0x8A05;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP2_SIZE_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP2_SIZE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP2_SIZE_APPLE = 0x8A06;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP2_COEFF_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP2_COEFF_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP2_COEFF_APPLE = 0x8A07;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP2_ORDER_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP2_ORDER_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP2_ORDER_APPLE = 0x8A08;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_MAP2_DOMAIN_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_MAP2_DOMAIN_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public const int VERTEX_ATTRIB_MAP2_DOMAIN_APPLE = 0x8A09;

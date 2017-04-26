@@ -29,55 +29,55 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAGMENT_MATERIAL_EXT symbol.
+		/// [GL] Value of GL_FRAGMENT_MATERIAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int FRAGMENT_MATERIAL_EXT = 0x8349;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_NORMAL_EXT symbol.
+		/// [GL] Value of GL_FRAGMENT_NORMAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int FRAGMENT_NORMAL_EXT = 0x834A;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_COLOR_EXT symbol.
+		/// [GL] Value of GL_FRAGMENT_COLOR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int FRAGMENT_COLOR_EXT = 0x834C;
 
 		/// <summary>
-		/// Value of GL_ATTENUATION_EXT symbol.
+		/// [GL] Value of GL_ATTENUATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int ATTENUATION_EXT = 0x834D;
 
 		/// <summary>
-		/// Value of GL_SHADOW_ATTENUATION_EXT symbol.
+		/// [GL] Value of GL_SHADOW_ATTENUATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int SHADOW_ATTENUATION_EXT = 0x834E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_APPLICATION_MODE_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_APPLICATION_MODE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int TEXTURE_APPLICATION_MODE_EXT = 0x834F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_LIGHT_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_LIGHT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int TEXTURE_LIGHT_EXT = 0x8350;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MATERIAL_FACE_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_MATERIAL_FACE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int TEXTURE_MATERIAL_FACE_EXT = 0x8351;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MATERIAL_PARAMETER_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_MATERIAL_PARAMETER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public const int TEXTURE_MATERIAL_PARAMETER_EXT = 0x8352;

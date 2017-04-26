@@ -29,55 +29,55 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT2_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT2_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT2_AMD = 0x91C5;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT3_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT3_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT3_AMD = 0x91C6;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT4_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT4_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT4_AMD = 0x91C7;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT2x3_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT2x3_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT2x3_AMD = 0x91C8;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT2x4_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT2x4_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT2x4_AMD = 0x91C9;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT3x2_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT3x2_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT3x2_AMD = 0x91CA;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT3x4_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT3x4_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT3x4_AMD = 0x91CB;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT4x2_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT4x2_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT4x2_AMD = 0x91CC;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_MAT4x3_AMD symbol.
+		/// [GL] Value of GL_FLOAT16_MAT4x3_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		public const int FLOAT16_MAT4x3_AMD = 0x91CD;

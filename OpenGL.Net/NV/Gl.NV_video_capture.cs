@@ -29,175 +29,175 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VIDEO_BUFFER_NV symbol.
+		/// [GL] Value of GL_VIDEO_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_BUFFER_NV = 0x9020;
 
 		/// <summary>
-		/// Value of GL_VIDEO_BUFFER_BINDING_NV symbol.
+		/// [GL] Value of GL_VIDEO_BUFFER_BINDING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_BUFFER_BINDING_NV = 0x9021;
 
 		/// <summary>
-		/// Value of GL_FIELD_UPPER_NV symbol.
+		/// [GL] Value of GL_FIELD_UPPER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int FIELD_UPPER_NV = 0x9022;
 
 		/// <summary>
-		/// Value of GL_FIELD_LOWER_NV symbol.
+		/// [GL] Value of GL_FIELD_LOWER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int FIELD_LOWER_NV = 0x9023;
 
 		/// <summary>
-		/// Value of GL_NUM_VIDEO_CAPTURE_STREAMS_NV symbol.
+		/// [GL] Value of GL_NUM_VIDEO_CAPTURE_STREAMS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int NUM_VIDEO_CAPTURE_STREAMS_NV = 0x9024;
 
 		/// <summary>
-		/// Value of GL_NEXT_VIDEO_CAPTURE_BUFFER_STATUS_NV symbol.
+		/// [GL] Value of GL_NEXT_VIDEO_CAPTURE_BUFFER_STATUS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int NEXT_VIDEO_CAPTURE_BUFFER_STATUS_NV = 0x9025;
 
 		/// <summary>
-		/// Value of GL_VIDEO_CAPTURE_TO_422_SUPPORTED_NV symbol.
+		/// [GL] Value of GL_VIDEO_CAPTURE_TO_422_SUPPORTED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_CAPTURE_TO_422_SUPPORTED_NV = 0x9026;
 
 		/// <summary>
-		/// Value of GL_LAST_VIDEO_CAPTURE_STATUS_NV symbol.
+		/// [GL] Value of GL_LAST_VIDEO_CAPTURE_STATUS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int LAST_VIDEO_CAPTURE_STATUS_NV = 0x9027;
 
 		/// <summary>
-		/// Value of GL_VIDEO_BUFFER_PITCH_NV symbol.
+		/// [GL] Value of GL_VIDEO_BUFFER_PITCH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_BUFFER_PITCH_NV = 0x9028;
 
 		/// <summary>
-		/// Value of GL_VIDEO_COLOR_CONVERSION_MATRIX_NV symbol.
+		/// [GL] Value of GL_VIDEO_COLOR_CONVERSION_MATRIX_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_COLOR_CONVERSION_MATRIX_NV = 0x9029;
 
 		/// <summary>
-		/// Value of GL_VIDEO_COLOR_CONVERSION_MAX_NV symbol.
+		/// [GL] Value of GL_VIDEO_COLOR_CONVERSION_MAX_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_COLOR_CONVERSION_MAX_NV = 0x902A;
 
 		/// <summary>
-		/// Value of GL_VIDEO_COLOR_CONVERSION_MIN_NV symbol.
+		/// [GL] Value of GL_VIDEO_COLOR_CONVERSION_MIN_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_COLOR_CONVERSION_MIN_NV = 0x902B;
 
 		/// <summary>
-		/// Value of GL_VIDEO_COLOR_CONVERSION_OFFSET_NV symbol.
+		/// [GL] Value of GL_VIDEO_COLOR_CONVERSION_OFFSET_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_COLOR_CONVERSION_OFFSET_NV = 0x902C;
 
 		/// <summary>
-		/// Value of GL_VIDEO_BUFFER_INTERNAL_FORMAT_NV symbol.
+		/// [GL] Value of GL_VIDEO_BUFFER_INTERNAL_FORMAT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_BUFFER_INTERNAL_FORMAT_NV = 0x902D;
 
 		/// <summary>
-		/// Value of GL_PARTIAL_SUCCESS_NV symbol.
+		/// [GL] Value of GL_PARTIAL_SUCCESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int PARTIAL_SUCCESS_NV = 0x902E;
 
 		/// <summary>
-		/// Value of GL_SUCCESS_NV symbol.
+		/// [GL] Value of GL_SUCCESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int SUCCESS_NV = 0x902F;
 
 		/// <summary>
-		/// Value of GL_FAILURE_NV symbol.
+		/// [GL] Value of GL_FAILURE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int FAILURE_NV = 0x9030;
 
 		/// <summary>
-		/// Value of GL_YCBYCR8_422_NV symbol.
+		/// [GL] Value of GL_YCBYCR8_422_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int YCBYCR8_422_NV = 0x9031;
 
 		/// <summary>
-		/// Value of GL_YCBAYCR8A_4224_NV symbol.
+		/// [GL] Value of GL_YCBAYCR8A_4224_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int YCBAYCR8A_4224_NV = 0x9032;
 
 		/// <summary>
-		/// Value of GL_Z6Y10Z6CB10Z6Y10Z6CR10_422_NV symbol.
+		/// [GL] Value of GL_Z6Y10Z6CB10Z6Y10Z6CR10_422_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int Z6Y10Z6CB10Z6Y10Z6CR10_422_NV = 0x9033;
 
 		/// <summary>
-		/// Value of GL_Z6Y10Z6CB10Z6A10Z6Y10Z6CR10Z6A10_4224_NV symbol.
+		/// [GL] Value of GL_Z6Y10Z6CB10Z6A10Z6Y10Z6CR10Z6A10_4224_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int Z6Y10Z6CB10Z6A10Z6Y10Z6CR10Z6A10_4224_NV = 0x9034;
 
 		/// <summary>
-		/// Value of GL_Z4Y12Z4CB12Z4Y12Z4CR12_422_NV symbol.
+		/// [GL] Value of GL_Z4Y12Z4CB12Z4Y12Z4CR12_422_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int Z4Y12Z4CB12Z4Y12Z4CR12_422_NV = 0x9035;
 
 		/// <summary>
-		/// Value of GL_Z4Y12Z4CB12Z4A12Z4Y12Z4CR12Z4A12_4224_NV symbol.
+		/// [GL] Value of GL_Z4Y12Z4CB12Z4A12Z4Y12Z4CR12Z4A12_4224_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int Z4Y12Z4CB12Z4A12Z4Y12Z4CR12Z4A12_4224_NV = 0x9036;
 
 		/// <summary>
-		/// Value of GL_Z4Y12Z4CB12Z4CR12_444_NV symbol.
+		/// [GL] Value of GL_Z4Y12Z4CB12Z4CR12_444_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int Z4Y12Z4CB12Z4CR12_444_NV = 0x9037;
 
 		/// <summary>
-		/// Value of GL_VIDEO_CAPTURE_FRAME_WIDTH_NV symbol.
+		/// [GL] Value of GL_VIDEO_CAPTURE_FRAME_WIDTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_CAPTURE_FRAME_WIDTH_NV = 0x9038;
 
 		/// <summary>
-		/// Value of GL_VIDEO_CAPTURE_FRAME_HEIGHT_NV symbol.
+		/// [GL] Value of GL_VIDEO_CAPTURE_FRAME_HEIGHT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_CAPTURE_FRAME_HEIGHT_NV = 0x9039;
 
 		/// <summary>
-		/// Value of GL_VIDEO_CAPTURE_FIELD_UPPER_HEIGHT_NV symbol.
+		/// [GL] Value of GL_VIDEO_CAPTURE_FIELD_UPPER_HEIGHT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_CAPTURE_FIELD_UPPER_HEIGHT_NV = 0x903A;
 
 		/// <summary>
-		/// Value of GL_VIDEO_CAPTURE_FIELD_LOWER_HEIGHT_NV symbol.
+		/// [GL] Value of GL_VIDEO_CAPTURE_FIELD_LOWER_HEIGHT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_CAPTURE_FIELD_LOWER_HEIGHT_NV = 0x903B;
 
 		/// <summary>
-		/// Value of GL_VIDEO_CAPTURE_SURFACE_ORIGIN_NV symbol.
+		/// [GL] Value of GL_VIDEO_CAPTURE_SURFACE_ORIGIN_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_video_capture")]
 		public const int VIDEO_CAPTURE_SURFACE_ORIGIN_NV = 0x903C;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_UNSIGNED_REMAP_MODE_NV symbol.
+		/// [GL] Value of GL_TEXTURE_UNSIGNED_REMAP_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_expand_normal")]
 		public const int TEXTURE_UNSIGNED_REMAP_MODE_NV = 0x888F;

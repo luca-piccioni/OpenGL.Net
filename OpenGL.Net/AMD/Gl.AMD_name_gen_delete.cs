@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DATA_BUFFER_AMD symbol.
+		/// [GL] Value of GL_DATA_BUFFER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int DATA_BUFFER_AMD = 0x9151;
 
 		/// <summary>
-		/// Value of GL_PERFORMANCE_MONITOR_AMD symbol.
+		/// [GL] Value of GL_PERFORMANCE_MONITOR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int PERFORMANCE_MONITOR_AMD = 0x9152;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_OBJECT_AMD symbol.
+		/// [GL] Value of GL_SAMPLER_OBJECT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int SAMPLER_OBJECT_AMD = 0x9155;

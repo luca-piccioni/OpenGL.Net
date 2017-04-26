@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD symbol.
+		/// [GL] Value of GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_pinned_memory")]
 		public const int EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD = 0x9160;

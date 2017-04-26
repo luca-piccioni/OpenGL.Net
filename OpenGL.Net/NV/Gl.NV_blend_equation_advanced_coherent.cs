@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BLEND_ADVANCED_COHERENT_NV symbol.
+		/// [GL] Value of GL_BLEND_ADVANCED_COHERENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_blend_equation_advanced_coherent", Api = "gl|glcore|gles2")]
 		public const int BLEND_ADVANCED_COHERENT_NV = 0x9285;

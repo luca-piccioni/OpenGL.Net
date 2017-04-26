@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR symbol.
+		/// [GL] Value of GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_KHR_no_error", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]

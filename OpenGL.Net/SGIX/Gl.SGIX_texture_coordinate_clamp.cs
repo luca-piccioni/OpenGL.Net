@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_MAX_CLAMP_S_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_MAX_CLAMP_S_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_coordinate_clamp")]
 		public const int TEXTURE_MAX_CLAMP_S_SGIX = 0x8369;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MAX_CLAMP_T_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_MAX_CLAMP_T_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_coordinate_clamp")]
 		public const int TEXTURE_MAX_CLAMP_T_SGIX = 0x836A;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MAX_CLAMP_R_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_MAX_CLAMP_R_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_coordinate_clamp")]
 		public const int TEXTURE_MAX_CLAMP_R_SGIX = 0x836B;

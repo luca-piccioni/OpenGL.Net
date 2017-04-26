@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_BEST_ALIGNMENT_SGIX = 0x813E;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_CACHE_INCREMENT_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_CACHE_INCREMENT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_CACHE_INCREMENT_SGIX = 0x813F;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_WIDTH_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_WIDTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_WIDTH_SGIX = 0x8140;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_HEIGHT_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_HEIGHT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_HEIGHT_SGIX = 0x8141;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_GRID_WIDTH_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_GRID_WIDTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_GRID_WIDTH_SGIX = 0x8142;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_GRID_HEIGHT_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_GRID_HEIGHT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_GRID_HEIGHT_SGIX = 0x8143;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_GRID_DEPTH_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_GRID_DEPTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_GRID_DEPTH_SGIX = 0x8144;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TILE_CACHE_SIZE_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TILE_CACHE_SIZE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_tiles")]
 		public const int PIXEL_TILE_CACHE_SIZE_SGIX = 0x8145;

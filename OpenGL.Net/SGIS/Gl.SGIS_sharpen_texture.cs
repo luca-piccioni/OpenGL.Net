@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_LINEAR_SHARPEN_SGIS symbol.
+		/// [GL] Value of GL_LINEAR_SHARPEN_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public const int LINEAR_SHARPEN_SGIS = 0x80AD;
 
 		/// <summary>
-		/// Value of GL_LINEAR_SHARPEN_ALPHA_SGIS symbol.
+		/// [GL] Value of GL_LINEAR_SHARPEN_ALPHA_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public const int LINEAR_SHARPEN_ALPHA_SGIS = 0x80AE;
 
 		/// <summary>
-		/// Value of GL_LINEAR_SHARPEN_COLOR_SGIS symbol.
+		/// [GL] Value of GL_LINEAR_SHARPEN_COLOR_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public const int LINEAR_SHARPEN_COLOR_SGIS = 0x80AF;
 
 		/// <summary>
-		/// Value of GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS symbol.
+		/// [GL] Value of GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public const int SHARPEN_TEXTURE_FUNC_POINTS_SGIS = 0x80B0;

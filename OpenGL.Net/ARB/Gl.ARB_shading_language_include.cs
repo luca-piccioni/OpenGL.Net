@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADER_INCLUDE_ARB symbol.
+		/// [GL] Value of GL_SHADER_INCLUDE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 		public const int SHADER_INCLUDE_ARB = 0x8DAE;
 
 		/// <summary>
-		/// Value of GL_NAMED_STRING_LENGTH_ARB symbol.
+		/// [GL] Value of GL_NAMED_STRING_LENGTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 		public const int NAMED_STRING_LENGTH_ARB = 0x8DE9;
 
 		/// <summary>
-		/// Value of GL_NAMED_STRING_TYPE_ARB symbol.
+		/// [GL] Value of GL_NAMED_STRING_TYPE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 		public const int NAMED_STRING_TYPE_ARB = 0x8DEA;

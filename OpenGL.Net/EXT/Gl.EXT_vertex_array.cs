@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_COUNT_EXT symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int VERTEX_ARRAY_COUNT_EXT = 0x807D;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_COUNT_EXT symbol.
+		/// [GL] Value of GL_NORMAL_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int NORMAL_ARRAY_COUNT_EXT = 0x8080;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_COUNT_EXT symbol.
+		/// [GL] Value of GL_COLOR_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int COLOR_ARRAY_COUNT_EXT = 0x8084;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_COUNT_EXT symbol.
+		/// [GL] Value of GL_INDEX_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int INDEX_ARRAY_COUNT_EXT = 0x8087;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_COUNT_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int TEXTURE_COORD_ARRAY_COUNT_EXT = 0x808B;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_COUNT_EXT symbol.
+		/// [GL] Value of GL_EDGE_FLAG_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int EDGE_FLAG_ARRAY_COUNT_EXT = 0x808D;

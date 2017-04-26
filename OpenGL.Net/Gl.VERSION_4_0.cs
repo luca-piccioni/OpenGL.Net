@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: data returns a single integer value indicating whether sample rate shading is enabled. See Gl.Enable.
+		/// [GLES3.2] Gl.Get: data returns a single integer value indicating whether sample rate shading is enabled. See Gl.Enable.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_SHADING_ARB")]
 		[AliasOf("GL_SAMPLE_SHADING_OES")]
@@ -40,7 +40,7 @@ namespace OpenGL
 		public const int SAMPLE_SHADING = 0x8C36;
 
 		/// <summary>
-		/// Gl.Get: data returns a single floating-point value indicating the minimum sample shading fraction. See 
+		/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the minimum sample shading fraction. See 
 		/// Gl.MinSampleShading.
 		/// </summary>
 		[AliasOf("GL_MIN_SAMPLE_SHADING_VALUE_ARB")]
@@ -52,7 +52,7 @@ namespace OpenGL
 		public const int MIN_SAMPLE_SHADING_VALUE = 0x8C37;
 
 		/// <summary>
-		/// Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
+		/// [GL] Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
 		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB")]
 		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV")]
@@ -63,7 +63,7 @@ namespace OpenGL
 		public const int MIN_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5E;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB")]
 		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV")]
@@ -74,7 +74,7 @@ namespace OpenGL
 		public const int MAX_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_EXT")]
@@ -89,8 +89,8 @@ namespace OpenGL
 		public const int TEXTURE_CUBE_MAP_ARRAY = 0x9009;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_CUBE_MAP_ARRAY. 
-		/// The initial value is 0. See Gl.BindTexture.
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// Gl.TEXTURE_CUBE_MAP_ARRAY. The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT")]
@@ -105,7 +105,7 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_CUBE_MAP_ARRAY = 0x900A;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -113,7 +113,7 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_CUBE_MAP_ARRAY = 0x900B;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_ARB")]
 		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_EXT")]
@@ -126,7 +126,7 @@ namespace OpenGL
 		public const int SAMPLER_CUBE_MAP_ARRAY = 0x900C;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW symbol.
+		/// [GL] Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB")]
 		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_EXT")]
@@ -139,7 +139,7 @@ namespace OpenGL
 		public const int SAMPLER_CUBE_MAP_ARRAY_SHADOW = 0x900D;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB")]
 		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_EXT")]
@@ -152,7 +152,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_CUBE_MAP_ARRAY = 0x900E;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB")]
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_EXT")]
@@ -165,7 +165,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY = 0x900F;
 
 		/// <summary>
-		/// Value of GL_DRAW_INDIRECT_BUFFER symbol.
+		/// [GL] Value of GL_DRAW_INDIRECT_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -173,7 +173,7 @@ namespace OpenGL
 		public const int DRAW_INDIRECT_BUFFER = 0x8F3F;
 
 		/// <summary>
-		/// Value of GL_DRAW_INDIRECT_BUFFER_BINDING symbol.
+		/// [GL] Value of GL_DRAW_INDIRECT_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -181,7 +181,8 @@ namespace OpenGL
 		public const int DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the number of invocations per primitive that the geometry shader in program will execute.
+		/// [GLES3.2] Gl.GetProgram: params returns the number of invocations per primitive that the geometry shader in program will 
+		/// execute.
 		/// </summary>
 		[AliasOf("GL_GEOMETRY_SHADER_INVOCATIONS_EXT")]
 		[AliasOf("GL_GEOMETRY_SHADER_INVOCATIONS_OES")]
@@ -194,7 +195,8 @@ namespace OpenGL
 		public const int GEOMETRY_SHADER_INVOCATIONS = 0x887F;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of invocations per primitive of a geometry shader.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of invocations per primitive of a geometry 
+		/// shader.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_SHADER_INVOCATIONS_OES")]
@@ -206,7 +208,7 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_SHADER_INVOCATIONS = 0x8E5A;
 
 		/// <summary>
-		/// Gl.Get: data returns a single floating-point value indicating the minimum valid offset for interpolation. See 
+		/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the minimum valid offset for interpolation. See 
 		/// Gl.terpolateAtOffset.
 		/// </summary>
 		[AliasOf("GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES")]
@@ -219,7 +221,7 @@ namespace OpenGL
 		public const int MIN_FRAGMENT_INTERPOLATION_OFFSET = 0x8E5B;
 
 		/// <summary>
-		/// Gl.Get: data returns a single floating-point value indicating the maximum valid offset for interpolation. See 
+		/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the maximum valid offset for interpolation. See 
 		/// Gl.terpolateAtOffset.
 		/// </summary>
 		[AliasOf("GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES")]
@@ -232,8 +234,8 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_INTERPOLATION_OFFSET = 0x8E5C;
 
 		/// <summary>
-		/// Gl.Get: data returns a single integer value indicating the number of subpixels bits available in the offset for 
-		/// interpolation. See Gl.terpolateAtOffset.
+		/// [GLES3.2] Gl.Get: data returns a single integer value indicating the number of subpixels bits available in the offset 
+		/// for interpolation. See Gl.terpolateAtOffset.
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -243,7 +245,7 @@ namespace OpenGL
 		public const int FRAGMENT_INTERPOLATION_OFFSET_BITS = 0x8E5D;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_STREAMS symbol.
+		/// [GL] Value of GL_MAX_VERTEX_STREAMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
@@ -251,7 +253,7 @@ namespace OpenGL
 		public const int MAX_VERTEX_STREAMS = 0x8E71;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_VEC2 symbol.
+		/// [GL] Value of GL_DOUBLE_VEC2 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_VEC2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -261,7 +263,7 @@ namespace OpenGL
 		public const int DOUBLE_VEC2 = 0x8FFC;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_VEC3 symbol.
+		/// [GL] Value of GL_DOUBLE_VEC3 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_VEC3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -271,7 +273,7 @@ namespace OpenGL
 		public const int DOUBLE_VEC3 = 0x8FFD;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_VEC4 symbol.
+		/// [GL] Value of GL_DOUBLE_VEC4 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_VEC4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -281,7 +283,7 @@ namespace OpenGL
 		public const int DOUBLE_VEC4 = 0x8FFE;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT2 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT2 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -291,7 +293,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT2 = 0x8F46;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT3 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT3 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -301,7 +303,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT3 = 0x8F47;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT4 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT4 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -311,7 +313,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT4 = 0x8F48;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT2x3 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT2x3 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT2x3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -321,7 +323,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT2x3 = 0x8F49;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT2x4 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT2x4 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT2x4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -331,7 +333,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT2x4 = 0x8F4A;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT3x2 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT3x2 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT3x2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -341,7 +343,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT3x2 = 0x8F4B;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT3x4 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT3x4 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT3x4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -351,7 +353,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT3x4 = 0x8F4C;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT4x2 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT4x2 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT4x2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -361,7 +363,7 @@ namespace OpenGL
 		public const int DOUBLE_MAT4x2 = 0x8F4D;
 
 		/// <summary>
-		/// Value of GL_DOUBLE_MAT4x3 symbol.
+		/// [GL] Value of GL_DOUBLE_MAT4x3 symbol.
 		/// </summary>
 		[AliasOf("GL_DOUBLE_MAT4x3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -371,56 +373,56 @@ namespace OpenGL
 		public const int DOUBLE_MAT4x3 = 0x8F4E;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_SUBROUTINES symbol.
+		/// [GL] Value of GL_ACTIVE_SUBROUTINES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int ACTIVE_SUBROUTINES = 0x8DE5;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_SUBROUTINE_UNIFORMS symbol.
+		/// [GL] Value of GL_ACTIVE_SUBROUTINE_UNIFORMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int ACTIVE_SUBROUTINE_UNIFORMS = 0x8DE6;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS symbol.
+		/// [GL] Value of GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS = 0x8E47;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_SUBROUTINE_MAX_LENGTH symbol.
+		/// [GL] Value of GL_ACTIVE_SUBROUTINE_MAX_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int ACTIVE_SUBROUTINE_MAX_LENGTH = 0x8E48;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH symbol.
+		/// [GL] Value of GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH = 0x8E49;
 
 		/// <summary>
-		/// Value of GL_MAX_SUBROUTINES symbol.
+		/// [GL] Value of GL_MAX_SUBROUTINES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int MAX_SUBROUTINES = 0x8DE7;
 
 		/// <summary>
-		/// Value of GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS symbol.
+		/// [GL] Value of GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public const int MAX_SUBROUTINE_UNIFORM_LOCATIONS = 0x8DE8;
 
 		/// <summary>
-		/// Value of GL_NUM_COMPATIBLE_SUBROUTINES symbol.
+		/// [GL] Value of GL_NUM_COMPATIBLE_SUBROUTINES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -428,7 +430,7 @@ namespace OpenGL
 		public const int NUM_COMPATIBLE_SUBROUTINES = 0x8E4A;
 
 		/// <summary>
-		/// Value of GL_COMPATIBLE_SUBROUTINES symbol.
+		/// [GL] Value of GL_COMPATIBLE_SUBROUTINES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -436,7 +438,7 @@ namespace OpenGL
 		public const int COMPATIBLE_SUBROUTINES = 0x8E4B;
 
 		/// <summary>
-		/// Value of GL_PATCHES symbol.
+		/// [GL] Value of GL_PATCHES symbol.
 		/// </summary>
 		[AliasOf("GL_PATCHES_EXT")]
 		[AliasOf("GL_PATCHES_OES")]
@@ -449,7 +451,7 @@ namespace OpenGL
 		public const int PATCHES = 0x000E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of vertices in an input patch. The initial value is 3. See 
+		/// [GLES3.2] Gl.Get: data returns one value, the number of vertices in an input patch. The initial value is 3. See 
 		/// Gl.PatchParameteri.
 		/// </summary>
 		[AliasOf("GL_PATCH_VERTICES_EXT")]
@@ -462,21 +464,21 @@ namespace OpenGL
 		public const int PATCH_VERTICES = 0x8E72;
 
 		/// <summary>
-		/// Value of GL_PATCH_DEFAULT_INNER_LEVEL symbol.
+		/// [GL] Value of GL_PATCH_DEFAULT_INNER_LEVEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		public const int PATCH_DEFAULT_INNER_LEVEL = 0x8E73;
 
 		/// <summary>
-		/// Value of GL_PATCH_DEFAULT_OUTER_LEVEL symbol.
+		/// [GL] Value of GL_PATCH_DEFAULT_OUTER_LEVEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		public const int PATCH_DEFAULT_OUTER_LEVEL = 0x8E74;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the number of vertices in the tesselation control shader output patch.
+		/// [GLES3.2] Gl.GetProgram: params returns the number of vertices in the tesselation control shader output patch.
 		/// </summary>
 		[AliasOf("GL_TESS_CONTROL_OUTPUT_VERTICES_EXT")]
 		[AliasOf("GL_TESS_CONTROL_OUTPUT_VERTICES_OES")]
@@ -488,8 +490,8 @@ namespace OpenGL
 		public const int TESS_CONTROL_OUTPUT_VERTICES = 0x8E75;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the primitive mode declared by the tesselation evaluation shader for tesselation primitive 
-		/// generation. This is one of Gl.QUADS, Gl.TRIANGLES, or Gl.ISOLINES.
+		/// [GLES3.2] Gl.GetProgram: params returns the primitive mode declared by the tesselation evaluation shader for tesselation 
+		/// primitive generation. This is one of Gl.QUADS, Gl.TRIANGLES, or Gl.ISOLINES.
 		/// </summary>
 		[AliasOf("GL_TESS_GEN_MODE_EXT")]
 		[AliasOf("GL_TESS_GEN_MODE_OES")]
@@ -501,8 +503,8 @@ namespace OpenGL
 		public const int TESS_GEN_MODE = 0x8E76;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the spacing declared by the tesselation evaluation shader for tesselation primitive 
-		/// generation edge subdivision. This is one of Gl.EQUAL, Gl.FRACTIONAL_EVEN, or Gl.FRACTIONAL_ODD.
+		/// [GLES3.2] Gl.GetProgram: params returns the spacing declared by the tesselation evaluation shader for tesselation 
+		/// primitive generation edge subdivision. This is one of Gl.EQUAL, Gl.FRACTIONAL_EVEN, or Gl.FRACTIONAL_ODD.
 		/// </summary>
 		[AliasOf("GL_TESS_GEN_SPACING_EXT")]
 		[AliasOf("GL_TESS_GEN_SPACING_OES")]
@@ -514,8 +516,8 @@ namespace OpenGL
 		public const int TESS_GEN_SPACING = 0x8E77;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the vertex order declared by the tesselation evaluation shader for tesselation primitive 
-		/// generation. This is one of Gl.CW, or Gl.CCW.
+		/// [GLES3.2] Gl.GetProgram: params returns the vertex order declared by the tesselation evaluation shader for tesselation 
+		/// primitive generation. This is one of Gl.CW, or Gl.CCW.
 		/// </summary>
 		[AliasOf("GL_TESS_GEN_VERTEX_ORDER_EXT")]
 		[AliasOf("GL_TESS_GEN_VERTEX_ORDER_OES")]
@@ -527,8 +529,8 @@ namespace OpenGL
 		public const int TESS_GEN_VERTEX_ORDER = 0x8E78;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns a single boolean, the point mode declared by the tesselation evaluation shader to 
-		/// determine if the tesselation primitive generator emits points.
+		/// [GLES3.2] Gl.GetProgram: params returns a single boolean, the point mode declared by the tesselation evaluation shader 
+		/// to determine if the tesselation primitive generator emits points.
 		/// </summary>
 		[AliasOf("GL_TESS_GEN_POINT_MODE_EXT")]
 		[AliasOf("GL_TESS_GEN_POINT_MODE_OES")]
@@ -540,7 +542,7 @@ namespace OpenGL
 		public const int TESS_GEN_POINT_MODE = 0x8E79;
 
 		/// <summary>
-		/// Value of GL_ISOLINES symbol.
+		/// [GL] Value of GL_ISOLINES symbol.
 		/// </summary>
 		[AliasOf("GL_ISOLINES_EXT")]
 		[AliasOf("GL_ISOLINES_OES")]
@@ -552,7 +554,7 @@ namespace OpenGL
 		public const int ISOLINES = 0x8E7A;
 
 		/// <summary>
-		/// Value of GL_FRACTIONAL_ODD symbol.
+		/// [GL] Value of GL_FRACTIONAL_ODD symbol.
 		/// </summary>
 		[AliasOf("GL_FRACTIONAL_ODD_EXT")]
 		[AliasOf("GL_FRACTIONAL_ODD_OES")]
@@ -564,7 +566,7 @@ namespace OpenGL
 		public const int FRACTIONAL_ODD = 0x8E7B;
 
 		/// <summary>
-		/// Value of GL_FRACTIONAL_EVEN symbol.
+		/// [GL] Value of GL_FRACTIONAL_EVEN symbol.
 		/// </summary>
 		[AliasOf("GL_FRACTIONAL_EVEN_EXT")]
 		[AliasOf("GL_FRACTIONAL_EVEN_OES")]
@@ -576,7 +578,7 @@ namespace OpenGL
 		public const int FRACTIONAL_EVEN = 0x8E7C;
 
 		/// <summary>
-		/// Value of GL_MAX_PATCH_VERTICES symbol.
+		/// [GL] Value of GL_MAX_PATCH_VERTICES symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_PATCH_VERTICES_EXT")]
 		[AliasOf("GL_MAX_PATCH_VERTICES_OES")]
@@ -588,7 +590,8 @@ namespace OpenGL
 		public const int MAX_PATCH_VERTICES = 0x8E7D;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum tessellation level supported by the tesselation primitive generator.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum tessellation level supported by the tesselation primitive 
+		/// generator.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_GEN_LEVEL_EXT")]
 		[AliasOf("GL_MAX_TESS_GEN_LEVEL_OES")]
@@ -600,8 +603,9 @@ namespace OpenGL
 		public const int MAX_TESS_GEN_LEVEL = 0x8E7E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
-		/// held in uniform variable storage for a tesselation control shader. The value must be at least 1024. See Gl.Uniform.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
+		/// that can be held in uniform variable storage for a tesselation control shader. The value must be at least 1024. See 
+		/// Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_OES")]
@@ -613,8 +617,9 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_UNIFORM_COMPONENTS = 0x8E7F;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
-		/// held in uniform variable storage for a tesselation evaluation shader. The value must be at least 1024. See Gl.Uniform.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
+		/// that can be held in uniform variable storage for a tesselation evaluation shader. The value must be at least 1024. See 
+		/// Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_OES")]
@@ -626,8 +631,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_UNIFORM_COMPONENTS = 0x8E80;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
-		/// the tesselation control shader. The value may be at least 16. See Gl.ActiveTexture.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
+		/// maps from the tesselation control shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_OES")]
@@ -639,8 +644,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS = 0x8E81;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
-		/// the tesselation evaluation shader. The value may be at least 16. See Gl.ActiveTexture.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
+		/// maps from the tesselation evaluation shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_OES")]
@@ -652,8 +657,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS = 0x8E82;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation control shader, 
-		/// which must be at least 128.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation control 
+		/// shader, which must be at least 128.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_OES")]
@@ -665,8 +670,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_OUTPUT_COMPONENTS = 0x8E83;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of per-patch outputs written by a tesselation control 
-		/// shader, which must be at least 128.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of per-patch outputs written by a tesselation 
+		/// control shader, which must be at least 128.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_PATCH_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_PATCH_COMPONENTS_OES")]
@@ -678,8 +683,8 @@ namespace OpenGL
 		public const int MAX_TESS_PATCH_COMPONENTS = 0x8E84;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices written by a 
-		/// tesselation control shader, including per-vertex and per-patch outputs, which must be at least 2048.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices 
+		/// written by a tesselation control shader, including per-vertex and per-patch outputs, which must be at least 2048.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_OES")]
@@ -691,8 +696,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS = 0x8E85;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation evaluation shader, 
-		/// which must be at least 128.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation 
+		/// evaluation shader, which must be at least 128.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_OES")]
@@ -704,8 +709,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_OUTPUT_COMPONENTS = 0x8E86;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation control shader. The value must be 
-		/// at least 12. See Gl.UniformBlockBinding.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation control shader. The value 
+		/// must be at least 12. See Gl.UniformBlockBinding.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_OES")]
@@ -717,8 +722,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_UNIFORM_BLOCKS = 0x8E89;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation evaluation shader. The value must 
-		/// be at least 12. See Gl.UniformBlockBinding.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation evaluation shader. The 
+		/// value must be at least 12. See Gl.UniformBlockBinding.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_OES")]
@@ -730,8 +735,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_UNIFORM_BLOCKS = 0x8E8A;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation control shader, which 
-		/// must be at least 128.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation control 
+		/// shader, which must be at least 128.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_OES")]
@@ -743,8 +748,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_INPUT_COMPONENTS = 0x886C;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation evaluation shader, 
-		/// which must be at least 128.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation evaluation 
+		/// shader, which must be at least 128.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_OES")]
@@ -756,8 +761,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_INPUT_COMPONENTS = 0x886D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of words for tesselation control shader uniform variables in all uniform 
-		/// blocks (including default). The value must be at least Gl.MAX_TESS_CONTROL_UNIFORM_COMPONENTS + 
+		/// [GLES3.2] Gl.Get: data returns one value, the number of words for tesselation control shader uniform variables in all 
+		/// uniform blocks (including default). The value must be at least Gl.MAX_TESS_CONTROL_UNIFORM_COMPONENTS + 
 		/// Gl.MAX_UNIFORM_BLOCK_SIZE * Gl.MAX_TESS_CONTROL_UNIFORM_BLOCKS / 4. See Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT")]
@@ -770,8 +775,8 @@ namespace OpenGL
 		public const int MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS = 0x8E1E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of words for tesselation evaluation shader uniform variables in all uniform 
-		/// blocks (including default). The value must be at least Gl.MAX_TESS_EVALUATION_UNIFORM_COMPONENTS + 
+		/// [GLES3.2] Gl.Get: data returns one value, the number of words for tesselation evaluation shader uniform variables in all 
+		/// uniform blocks (including default). The value must be at least Gl.MAX_TESS_EVALUATION_UNIFORM_COMPONENTS + 
 		/// Gl.MAX_UNIFORM_BLOCK_SIZE * Gl.MAX_TESS_EVALUATION_UNIFORM_BLOCKS / 4. See Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT")]
@@ -784,21 +789,21 @@ namespace OpenGL
 		public const int MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS = 0x8E1F;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER = 0x84F0;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER = 0x84F1;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_SHADER symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_TESS_EVALUATION_SHADER_EXT")]
 		[AliasOf("GL_TESS_EVALUATION_SHADER_OES")]
@@ -810,7 +815,7 @@ namespace OpenGL
 		public const int TESS_EVALUATION_SHADER = 0x8E87;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_SHADER symbol.
+		/// [GL] Value of GL_TESS_CONTROL_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_TESS_CONTROL_SHADER_EXT")]
 		[AliasOf("GL_TESS_CONTROL_SHADER_OES")]
@@ -822,7 +827,7 @@ namespace OpenGL
 		public const int TESS_CONTROL_SHADER = 0x8E88;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK symbol.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -833,7 +838,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK = 0x8E22;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED symbol.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -842,7 +847,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_PAUSED = 0x8E23;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE symbol.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -851,7 +856,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_ACTIVE = 0x8E24;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the transform feedback object currently bound to the 
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the transform feedback object currently bound to the 
 		/// Gl.TRANSFORM_FEEDBACK target. If no transform feedback object is bound to this target, 0 is returned. The initial value 
 		/// is 0. See Gl.BindTransformFeedback.
 		/// </summary>
@@ -863,7 +868,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BINDING = 0x8E25;
 
 		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_BUFFERS symbol.
+		/// [GL] Value of GL_MAX_TRANSFORM_FEEDBACK_BUFFERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]

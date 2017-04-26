@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT symbol.
+		/// [GL] Value of GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_YUV_target", Api = "gles2")]
 		public const int SAMPLER_EXTERNAL_2D_Y2Y_EXT = 0x8BE7;

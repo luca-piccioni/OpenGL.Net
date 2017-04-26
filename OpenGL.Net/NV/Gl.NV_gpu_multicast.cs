@@ -29,32 +29,32 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PER_GPU_STORAGE_BIT_NV symbol.
+		/// [GL] Value of GL_PER_GPU_STORAGE_BIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		[Log(BitmaskName = "GL")]
 		public const int PER_GPU_STORAGE_BIT_NV = 0x0800;
 
 		/// <summary>
-		/// Value of GL_MULTICAST_GPUS_NV symbol.
+		/// [GL] Value of GL_MULTICAST_GPUS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		public const int MULTICAST_GPUS_NV = 0x92BA;
 
 		/// <summary>
-		/// Value of GL_RENDER_GPU_MASK_NV symbol.
+		/// [GL] Value of GL_RENDER_GPU_MASK_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		public const int RENDER_GPU_MASK_NV = 0x9558;
 
 		/// <summary>
-		/// Value of GL_PER_GPU_STORAGE_NV symbol.
+		/// [GL] Value of GL_PER_GPU_STORAGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		public const int PER_GPU_STORAGE_NV = 0x9548;
 
 		/// <summary>
-		/// Value of GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV symbol.
+		/// [GL] Value of GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		public const int MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9549;

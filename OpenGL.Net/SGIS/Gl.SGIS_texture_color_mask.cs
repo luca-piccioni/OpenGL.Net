@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_COLOR_WRITEMASK_SGIS symbol.
+		/// [GL] Value of GL_TEXTURE_COLOR_WRITEMASK_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture_color_mask")]
 		public const int TEXTURE_COLOR_WRITEMASK_SGIS = 0x81EF;

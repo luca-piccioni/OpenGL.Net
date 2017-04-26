@@ -29,661 +29,661 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_EXT = 0x8780;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_BINDING_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_BINDING_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_BINDING_EXT = 0x8781;
 
 		/// <summary>
-		/// Value of GL_OP_INDEX_EXT symbol.
+		/// [GL] Value of GL_OP_INDEX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_INDEX_EXT = 0x8782;
 
 		/// <summary>
-		/// Value of GL_OP_NEGATE_EXT symbol.
+		/// [GL] Value of GL_OP_NEGATE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_NEGATE_EXT = 0x8783;
 
 		/// <summary>
-		/// Value of GL_OP_DOT3_EXT symbol.
+		/// [GL] Value of GL_OP_DOT3_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_DOT3_EXT = 0x8784;
 
 		/// <summary>
-		/// Value of GL_OP_DOT4_EXT symbol.
+		/// [GL] Value of GL_OP_DOT4_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_DOT4_EXT = 0x8785;
 
 		/// <summary>
-		/// Value of GL_OP_MUL_EXT symbol.
+		/// [GL] Value of GL_OP_MUL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_MUL_EXT = 0x8786;
 
 		/// <summary>
-		/// Value of GL_OP_ADD_EXT symbol.
+		/// [GL] Value of GL_OP_ADD_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_ADD_EXT = 0x8787;
 
 		/// <summary>
-		/// Value of GL_OP_MADD_EXT symbol.
+		/// [GL] Value of GL_OP_MADD_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_MADD_EXT = 0x8788;
 
 		/// <summary>
-		/// Value of GL_OP_FRAC_EXT symbol.
+		/// [GL] Value of GL_OP_FRAC_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_FRAC_EXT = 0x8789;
 
 		/// <summary>
-		/// Value of GL_OP_MAX_EXT symbol.
+		/// [GL] Value of GL_OP_MAX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_MAX_EXT = 0x878A;
 
 		/// <summary>
-		/// Value of GL_OP_MIN_EXT symbol.
+		/// [GL] Value of GL_OP_MIN_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_MIN_EXT = 0x878B;
 
 		/// <summary>
-		/// Value of GL_OP_SET_GE_EXT symbol.
+		/// [GL] Value of GL_OP_SET_GE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_SET_GE_EXT = 0x878C;
 
 		/// <summary>
-		/// Value of GL_OP_SET_LT_EXT symbol.
+		/// [GL] Value of GL_OP_SET_LT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_SET_LT_EXT = 0x878D;
 
 		/// <summary>
-		/// Value of GL_OP_CLAMP_EXT symbol.
+		/// [GL] Value of GL_OP_CLAMP_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_CLAMP_EXT = 0x878E;
 
 		/// <summary>
-		/// Value of GL_OP_FLOOR_EXT symbol.
+		/// [GL] Value of GL_OP_FLOOR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_FLOOR_EXT = 0x878F;
 
 		/// <summary>
-		/// Value of GL_OP_ROUND_EXT symbol.
+		/// [GL] Value of GL_OP_ROUND_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_ROUND_EXT = 0x8790;
 
 		/// <summary>
-		/// Value of GL_OP_EXP_BASE_2_EXT symbol.
+		/// [GL] Value of GL_OP_EXP_BASE_2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_EXP_BASE_2_EXT = 0x8791;
 
 		/// <summary>
-		/// Value of GL_OP_LOG_BASE_2_EXT symbol.
+		/// [GL] Value of GL_OP_LOG_BASE_2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_LOG_BASE_2_EXT = 0x8792;
 
 		/// <summary>
-		/// Value of GL_OP_POWER_EXT symbol.
+		/// [GL] Value of GL_OP_POWER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_POWER_EXT = 0x8793;
 
 		/// <summary>
-		/// Value of GL_OP_RECIP_EXT symbol.
+		/// [GL] Value of GL_OP_RECIP_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_RECIP_EXT = 0x8794;
 
 		/// <summary>
-		/// Value of GL_OP_RECIP_SQRT_EXT symbol.
+		/// [GL] Value of GL_OP_RECIP_SQRT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_RECIP_SQRT_EXT = 0x8795;
 
 		/// <summary>
-		/// Value of GL_OP_SUB_EXT symbol.
+		/// [GL] Value of GL_OP_SUB_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_SUB_EXT = 0x8796;
 
 		/// <summary>
-		/// Value of GL_OP_CROSS_PRODUCT_EXT symbol.
+		/// [GL] Value of GL_OP_CROSS_PRODUCT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_CROSS_PRODUCT_EXT = 0x8797;
 
 		/// <summary>
-		/// Value of GL_OP_MULTIPLY_MATRIX_EXT symbol.
+		/// [GL] Value of GL_OP_MULTIPLY_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_MULTIPLY_MATRIX_EXT = 0x8798;
 
 		/// <summary>
-		/// Value of GL_OP_MOV_EXT symbol.
+		/// [GL] Value of GL_OP_MOV_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OP_MOV_EXT = 0x8799;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_VERTEX_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_VERTEX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_VERTEX_EXT = 0x879A;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_COLOR0_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_COLOR0_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_COLOR0_EXT = 0x879B;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_COLOR1_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_COLOR1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_COLOR1_EXT = 0x879C;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD0_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD0_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD0_EXT = 0x879D;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD1_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD1_EXT = 0x879E;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD2_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD2_EXT = 0x879F;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD3_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD3_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD3_EXT = 0x87A0;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD4_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD4_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD4_EXT = 0x87A1;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD5_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD5_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD5_EXT = 0x87A2;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD6_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD6_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD6_EXT = 0x87A3;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD7_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD7_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD7_EXT = 0x87A4;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD8_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD8_EXT = 0x87A5;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD9_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD9_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD9_EXT = 0x87A6;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD10_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD10_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD10_EXT = 0x87A7;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD11_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD11_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD11_EXT = 0x87A8;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD12_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD12_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD12_EXT = 0x87A9;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD13_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD13_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD13_EXT = 0x87AA;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD14_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD14_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD14_EXT = 0x87AB;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD15_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD15_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD15_EXT = 0x87AC;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD16_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD16_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD16_EXT = 0x87AD;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD17_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD17_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD17_EXT = 0x87AE;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD18_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD18_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD18_EXT = 0x87AF;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD19_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD19_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD19_EXT = 0x87B0;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD20_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD20_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD20_EXT = 0x87B1;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD21_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD21_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD21_EXT = 0x87B2;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD22_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD22_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD22_EXT = 0x87B3;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD23_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD23_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD23_EXT = 0x87B4;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD24_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD24_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD24_EXT = 0x87B5;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD25_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD25_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD25_EXT = 0x87B6;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD26_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD26_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD26_EXT = 0x87B7;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD27_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD27_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD27_EXT = 0x87B8;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD28_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD28_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD28_EXT = 0x87B9;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD29_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD29_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD29_EXT = 0x87BA;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD30_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD30_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD30_EXT = 0x87BB;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_TEXTURE_COORD31_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_TEXTURE_COORD31_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_TEXTURE_COORD31_EXT = 0x87BC;
 
 		/// <summary>
-		/// Value of GL_OUTPUT_FOG_EXT symbol.
+		/// [GL] Value of GL_OUTPUT_FOG_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int OUTPUT_FOG_EXT = 0x87BD;
 
 		/// <summary>
-		/// Value of GL_SCALAR_EXT symbol.
+		/// [GL] Value of GL_SCALAR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int SCALAR_EXT = 0x87BE;
 
 		/// <summary>
-		/// Value of GL_VECTOR_EXT symbol.
+		/// [GL] Value of GL_VECTOR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VECTOR_EXT = 0x87BF;
 
 		/// <summary>
-		/// Value of GL_MATRIX_EXT symbol.
+		/// [GL] Value of GL_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MATRIX_EXT = 0x87C0;
 
 		/// <summary>
-		/// Value of GL_VARIANT_EXT symbol.
+		/// [GL] Value of GL_VARIANT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_EXT = 0x87C1;
 
 		/// <summary>
-		/// Value of GL_INVARIANT_EXT symbol.
+		/// [GL] Value of GL_INVARIANT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int INVARIANT_EXT = 0x87C2;
 
 		/// <summary>
-		/// Value of GL_LOCAL_CONSTANT_EXT symbol.
+		/// [GL] Value of GL_LOCAL_CONSTANT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int LOCAL_CONSTANT_EXT = 0x87C3;
 
 		/// <summary>
-		/// Value of GL_LOCAL_EXT symbol.
+		/// [GL] Value of GL_LOCAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int LOCAL_EXT = 0x87C4;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
+		/// [GL] Value of GL_MAX_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_VERTEX_SHADER_INSTRUCTIONS_EXT = 0x87C5;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_SHADER_VARIANTS_EXT symbol.
+		/// [GL] Value of GL_MAX_VERTEX_SHADER_VARIANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_VERTEX_SHADER_VARIANTS_EXT = 0x87C6;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_SHADER_INVARIANTS_EXT symbol.
+		/// [GL] Value of GL_MAX_VERTEX_SHADER_INVARIANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_VERTEX_SHADER_INVARIANTS_EXT = 0x87C7;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
+		/// [GL] Value of GL_MAX_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_VERTEX_SHADER_LOCAL_CONSTANTS_EXT = 0x87C8;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_SHADER_LOCALS_EXT symbol.
+		/// [GL] Value of GL_MAX_VERTEX_SHADER_LOCALS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_VERTEX_SHADER_LOCALS_EXT = 0x87C9;
 
 		/// <summary>
-		/// Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
+		/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_OPTIMIZED_VERTEX_SHADER_INSTRUCTIONS_EXT = 0x87CA;
 
 		/// <summary>
-		/// Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_VARIANTS_EXT symbol.
+		/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_VARIANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_OPTIMIZED_VERTEX_SHADER_VARIANTS_EXT = 0x87CB;
 
 		/// <summary>
-		/// Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
+		/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_OPTIMIZED_VERTEX_SHADER_LOCAL_CONSTANTS_EXT = 0x87CC;
 
 		/// <summary>
-		/// Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_INVARIANTS_EXT symbol.
+		/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_INVARIANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_OPTIMIZED_VERTEX_SHADER_INVARIANTS_EXT = 0x87CD;
 
 		/// <summary>
-		/// Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_LOCALS_EXT symbol.
+		/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_LOCALS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MAX_OPTIMIZED_VERTEX_SHADER_LOCALS_EXT = 0x87CE;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_INSTRUCTIONS_EXT = 0x87CF;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_VARIANTS_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_VARIANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_VARIANTS_EXT = 0x87D0;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_INVARIANTS_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_INVARIANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_INVARIANTS_EXT = 0x87D1;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_LOCAL_CONSTANTS_EXT = 0x87D2;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_LOCALS_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_LOCALS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_LOCALS_EXT = 0x87D3;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_OPTIMIZED_EXT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_OPTIMIZED_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VERTEX_SHADER_OPTIMIZED_EXT = 0x87D4;
 
 		/// <summary>
-		/// Value of GL_X_EXT symbol.
+		/// [GL] Value of GL_X_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int X_EXT = 0x87D5;
 
 		/// <summary>
-		/// Value of GL_Y_EXT symbol.
+		/// [GL] Value of GL_Y_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int Y_EXT = 0x87D6;
 
 		/// <summary>
-		/// Value of GL_Z_EXT symbol.
+		/// [GL] Value of GL_Z_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int Z_EXT = 0x87D7;
 
 		/// <summary>
-		/// Value of GL_W_EXT symbol.
+		/// [GL] Value of GL_W_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int W_EXT = 0x87D8;
 
 		/// <summary>
-		/// Value of GL_NEGATIVE_X_EXT symbol.
+		/// [GL] Value of GL_NEGATIVE_X_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int NEGATIVE_X_EXT = 0x87D9;
 
 		/// <summary>
-		/// Value of GL_NEGATIVE_Y_EXT symbol.
+		/// [GL] Value of GL_NEGATIVE_Y_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int NEGATIVE_Y_EXT = 0x87DA;
 
 		/// <summary>
-		/// Value of GL_NEGATIVE_Z_EXT symbol.
+		/// [GL] Value of GL_NEGATIVE_Z_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int NEGATIVE_Z_EXT = 0x87DB;
 
 		/// <summary>
-		/// Value of GL_NEGATIVE_W_EXT symbol.
+		/// [GL] Value of GL_NEGATIVE_W_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int NEGATIVE_W_EXT = 0x87DC;
 
 		/// <summary>
-		/// Value of GL_ZERO_EXT symbol.
+		/// [GL] Value of GL_ZERO_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int ZERO_EXT = 0x87DD;
 
 		/// <summary>
-		/// Value of GL_ONE_EXT symbol.
+		/// [GL] Value of GL_ONE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int ONE_EXT = 0x87DE;
 
 		/// <summary>
-		/// Value of GL_NEGATIVE_ONE_EXT symbol.
+		/// [GL] Value of GL_NEGATIVE_ONE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int NEGATIVE_ONE_EXT = 0x87DF;
 
 		/// <summary>
-		/// Value of GL_NORMALIZED_RANGE_EXT symbol.
+		/// [GL] Value of GL_NORMALIZED_RANGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int NORMALIZED_RANGE_EXT = 0x87E0;
 
 		/// <summary>
-		/// Value of GL_FULL_RANGE_EXT symbol.
+		/// [GL] Value of GL_FULL_RANGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int FULL_RANGE_EXT = 0x87E1;
 
 		/// <summary>
-		/// Value of GL_CURRENT_VERTEX_EXT symbol.
+		/// [GL] Value of GL_CURRENT_VERTEX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int CURRENT_VERTEX_EXT = 0x87E2;
 
 		/// <summary>
-		/// Value of GL_MVP_MATRIX_EXT symbol.
+		/// [GL] Value of GL_MVP_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int MVP_MATRIX_EXT = 0x87E3;
 
 		/// <summary>
-		/// Value of GL_VARIANT_VALUE_EXT symbol.
+		/// [GL] Value of GL_VARIANT_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_VALUE_EXT = 0x87E4;
 
 		/// <summary>
-		/// Value of GL_VARIANT_DATATYPE_EXT symbol.
+		/// [GL] Value of GL_VARIANT_DATATYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_DATATYPE_EXT = 0x87E5;
 
 		/// <summary>
-		/// Value of GL_VARIANT_ARRAY_STRIDE_EXT symbol.
+		/// [GL] Value of GL_VARIANT_ARRAY_STRIDE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_ARRAY_STRIDE_EXT = 0x87E6;
 
 		/// <summary>
-		/// Value of GL_VARIANT_ARRAY_TYPE_EXT symbol.
+		/// [GL] Value of GL_VARIANT_ARRAY_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_ARRAY_TYPE_EXT = 0x87E7;
 
 		/// <summary>
-		/// Value of GL_VARIANT_ARRAY_EXT symbol.
+		/// [GL] Value of GL_VARIANT_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_ARRAY_EXT = 0x87E8;
 
 		/// <summary>
-		/// Value of GL_VARIANT_ARRAY_POINTER_EXT symbol.
+		/// [GL] Value of GL_VARIANT_ARRAY_POINTER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int VARIANT_ARRAY_POINTER_EXT = 0x87E9;
 
 		/// <summary>
-		/// Value of GL_INVARIANT_VALUE_EXT symbol.
+		/// [GL] Value of GL_INVARIANT_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int INVARIANT_VALUE_EXT = 0x87EA;
 
 		/// <summary>
-		/// Value of GL_INVARIANT_DATATYPE_EXT symbol.
+		/// [GL] Value of GL_INVARIANT_DATATYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int INVARIANT_DATATYPE_EXT = 0x87EB;
 
 		/// <summary>
-		/// Value of GL_LOCAL_CONSTANT_VALUE_EXT symbol.
+		/// [GL] Value of GL_LOCAL_CONSTANT_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int LOCAL_CONSTANT_VALUE_EXT = 0x87EC;
 
 		/// <summary>
-		/// Value of GL_LOCAL_CONSTANT_DATATYPE_EXT symbol.
+		/// [GL] Value of GL_LOCAL_CONSTANT_DATATYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public const int LOCAL_CONSTANT_DATATYPE_EXT = 0x87ED;

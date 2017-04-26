@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_POST_TEXTURE_FILTER_BIAS_SGIX symbol.
+		/// [GL] Value of GL_POST_TEXTURE_FILTER_BIAS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_scale_bias")]
 		public const int POST_TEXTURE_FILTER_BIAS_SGIX = 0x8179;
 
 		/// <summary>
-		/// Value of GL_POST_TEXTURE_FILTER_SCALE_SGIX symbol.
+		/// [GL] Value of GL_POST_TEXTURE_FILTER_SCALE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_scale_bias")]
 		public const int POST_TEXTURE_FILTER_SCALE_SGIX = 0x817A;
 
 		/// <summary>
-		/// Value of GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX symbol.
+		/// [GL] Value of GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_scale_bias")]
 		public const int POST_TEXTURE_FILTER_BIAS_RANGE_SGIX = 0x817B;
 
 		/// <summary>
-		/// Value of GL_POST_TEXTURE_FILTER_SCALE_RANGE_SGIX symbol.
+		/// [GL] Value of GL_POST_TEXTURE_FILTER_SCALE_RANGE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_scale_bias")]
 		public const int POST_TEXTURE_FILTER_SCALE_RANGE_SGIX = 0x817C;

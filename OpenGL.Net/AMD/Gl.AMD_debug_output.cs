@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_API_ERROR_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_API_ERROR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_API_ERROR_AMD = 0x9149;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_WINDOW_SYSTEM_AMD = 0x914A;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_DEPRECATION_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_DEPRECATION_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_DEPRECATION_AMD = 0x914B;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD = 0x914C;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_PERFORMANCE_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_PERFORMANCE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_PERFORMANCE_AMD = 0x914D;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_SHADER_COMPILER_AMD = 0x914E;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_APPLICATION_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_APPLICATION_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_APPLICATION_AMD = 0x914F;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CATEGORY_OTHER_AMD symbol.
+		/// [GL] Value of GL_DEBUG_CATEGORY_OTHER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public const int DEBUG_CATEGORY_OTHER_AMD = 0x9150;

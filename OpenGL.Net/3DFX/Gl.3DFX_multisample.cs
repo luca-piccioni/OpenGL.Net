@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_3DFX symbol.
+		/// [GL] Value of GL_MULTISAMPLE_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_3DFX_multisample")]
 		public const int MULTISAMPLE_3DFX = 0x86B2;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_BUFFERS_3DFX symbol.
+		/// [GL] Value of GL_SAMPLE_BUFFERS_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_3DFX_multisample")]
 		public const int SAMPLE_BUFFERS_3DFX = 0x86B3;
 
 		/// <summary>
-		/// Value of GL_SAMPLES_3DFX symbol.
+		/// [GL] Value of GL_SAMPLES_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_3DFX_multisample")]
 		public const int SAMPLES_3DFX = 0x86B4;

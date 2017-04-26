@@ -29,43 +29,43 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SPRITE_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_SGIX = 0x8148;
 
 		/// <summary>
-		/// Value of GL_SPRITE_MODE_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_MODE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_MODE_SGIX = 0x8149;
 
 		/// <summary>
-		/// Value of GL_SPRITE_AXIS_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_AXIS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_AXIS_SGIX = 0x814A;
 
 		/// <summary>
-		/// Value of GL_SPRITE_TRANSLATION_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_TRANSLATION_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_TRANSLATION_SGIX = 0x814B;
 
 		/// <summary>
-		/// Value of GL_SPRITE_AXIAL_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_AXIAL_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_AXIAL_SGIX = 0x814C;
 
 		/// <summary>
-		/// Value of GL_SPRITE_OBJECT_ALIGNED_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_OBJECT_ALIGNED_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_OBJECT_ALIGNED_SGIX = 0x814D;
 
 		/// <summary>
-		/// Value of GL_SPRITE_EYE_ALIGNED_SGIX symbol.
+		/// [GL] Value of GL_SPRITE_EYE_ALIGNED_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_sprite")]
 		public const int SPRITE_EYE_ALIGNED_SGIX = 0x814E;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_FILTER_HINT_NV symbol.
+		/// [GL] Value of GL_MULTISAMPLE_FILTER_HINT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_multisample_filter_hint")]
 		public const int MULTISAMPLE_FILTER_HINT_NV = 0x8534;

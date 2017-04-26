@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADER_BINARY_DMP symbol.
+		/// [GL] Value of GL_SHADER_BINARY_DMP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_DMP_shader_binary", Api = "gles2")]
 		public const int SHADER_BINARY_DMP = 0x9250;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV symbol.
+		/// [GL] Value of GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_deep_texture3D")]
 		public const int MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV = 0x90D0;
 
 		/// <summary>
-		/// Value of GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV symbol.
+		/// [GL] Value of GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_deep_texture3D")]
 		public const int MAX_DEEP_3D_TEXTURE_DEPTH_NV = 0x90D1;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_GCCSO_SHADER_BINARY_FJ symbol.
+		/// [GL] Value of GL_GCCSO_SHADER_BINARY_FJ symbol.
 		/// </summary>
 		[RequiredByFeature("GL_FJ_shader_binary_GCCSO", Api = "gles2")]
 		public const int GCCSO_SHADER_BINARY_FJ = 0x9260;

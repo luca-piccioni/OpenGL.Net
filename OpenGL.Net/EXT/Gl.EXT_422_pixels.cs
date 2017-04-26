@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_422_EXT symbol.
+		/// [GL] Value of GL_422_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_422_pixels")]
 		public const int _422_EXT = 0x80CC;
 
 		/// <summary>
-		/// Value of GL_422_REV_EXT symbol.
+		/// [GL] Value of GL_422_REV_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_422_pixels")]
 		public const int _422_REV_EXT = 0x80CD;
 
 		/// <summary>
-		/// Value of GL_422_AVERAGE_EXT symbol.
+		/// [GL] Value of GL_422_AVERAGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_422_pixels")]
 		public const int _422_AVERAGE_EXT = 0x80CE;
 
 		/// <summary>
-		/// Value of GL_422_REV_AVERAGE_EXT symbol.
+		/// [GL] Value of GL_422_REV_AVERAGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_422_pixels")]
 		public const int _422_REV_AVERAGE_EXT = 0x80CF;

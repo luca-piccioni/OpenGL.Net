@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_1D_STACK_MESAX symbol.
+		/// [GL] Value of GL_TEXTURE_1D_STACK_MESAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESAX_texture_stack")]
 		public const int TEXTURE_1D_STACK_MESAX = 0x8759;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_2D_STACK_MESAX symbol.
+		/// [GL] Value of GL_TEXTURE_2D_STACK_MESAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESAX_texture_stack")]
 		public const int TEXTURE_2D_STACK_MESAX = 0x875A;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_1D_STACK_MESAX symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_1D_STACK_MESAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESAX_texture_stack")]
 		public const int PROXY_TEXTURE_1D_STACK_MESAX = 0x875B;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_2D_STACK_MESAX symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_2D_STACK_MESAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESAX_texture_stack")]
 		public const int PROXY_TEXTURE_2D_STACK_MESAX = 0x875C;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_1D_STACK_BINDING_MESAX symbol.
+		/// [GL] Value of GL_TEXTURE_1D_STACK_BINDING_MESAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESAX_texture_stack")]
 		public const int TEXTURE_1D_STACK_BINDING_MESAX = 0x875D;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_2D_STACK_BINDING_MESAX symbol.
+		/// [GL] Value of GL_TEXTURE_2D_STACK_BINDING_MESAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESAX_texture_stack")]
 		public const int TEXTURE_2D_STACK_BINDING_MESAX = 0x875E;

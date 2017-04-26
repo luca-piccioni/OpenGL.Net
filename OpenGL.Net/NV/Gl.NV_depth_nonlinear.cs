@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENT16_NONLINEAR_NV symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENT16_NONLINEAR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_nonlinear", Api = "gles2")]
 		public const int DEPTH_COMPONENT16_NONLINEAR_NV = 0x8E2C;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_QUAD_MESH_SUN symbol.
+		/// [GL] Value of GL_QUAD_MESH_SUN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUN_mesh_array")]
 		public const int QUAD_MESH_SUN = 0x8614;
 
 		/// <summary>
-		/// Value of GL_TRIANGLE_MESH_SUN symbol.
+		/// [GL] Value of GL_TRIANGLE_MESH_SUN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUN_mesh_array")]
 		public const int TRIANGLE_MESH_SUN = 0x8615;

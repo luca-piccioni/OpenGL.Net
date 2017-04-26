@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FOG_SPECULAR_TEXTURE_WIN symbol.
+		/// [GL] Value of GL_FOG_SPECULAR_TEXTURE_WIN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_WIN_specular_fog")]
 		public const int FOG_SPECULAR_TEXTURE_WIN = 0x80EC;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PERFMON_GLOBAL_MODE_QCOM symbol.
+		/// [GL] Value of GL_PERFMON_GLOBAL_MODE_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_perfmon_global_mode", Api = "gles1|gles2")]
 		public const int PERFMON_GLOBAL_MODE_QCOM = 0x8FA0;

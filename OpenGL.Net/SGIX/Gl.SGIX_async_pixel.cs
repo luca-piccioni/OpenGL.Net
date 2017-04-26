@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ASYNC_TEX_IMAGE_SGIX symbol.
+		/// [GL] Value of GL_ASYNC_TEX_IMAGE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]
 		public const int ASYNC_TEX_IMAGE_SGIX = 0x835C;
 
 		/// <summary>
-		/// Value of GL_ASYNC_DRAW_PIXELS_SGIX symbol.
+		/// [GL] Value of GL_ASYNC_DRAW_PIXELS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]
 		public const int ASYNC_DRAW_PIXELS_SGIX = 0x835D;
 
 		/// <summary>
-		/// Value of GL_ASYNC_READ_PIXELS_SGIX symbol.
+		/// [GL] Value of GL_ASYNC_READ_PIXELS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]
 		public const int ASYNC_READ_PIXELS_SGIX = 0x835E;
 
 		/// <summary>
-		/// Value of GL_MAX_ASYNC_TEX_IMAGE_SGIX symbol.
+		/// [GL] Value of GL_MAX_ASYNC_TEX_IMAGE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]
 		public const int MAX_ASYNC_TEX_IMAGE_SGIX = 0x835F;
 
 		/// <summary>
-		/// Value of GL_MAX_ASYNC_DRAW_PIXELS_SGIX symbol.
+		/// [GL] Value of GL_MAX_ASYNC_DRAW_PIXELS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]
 		public const int MAX_ASYNC_DRAW_PIXELS_SGIX = 0x8360;
 
 		/// <summary>
-		/// Value of GL_MAX_ASYNC_READ_PIXELS_SGIX symbol.
+		/// [GL] Value of GL_MAX_ASYNC_READ_PIXELS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]
 		public const int MAX_ASYNC_READ_PIXELS_SGIX = 0x8361;

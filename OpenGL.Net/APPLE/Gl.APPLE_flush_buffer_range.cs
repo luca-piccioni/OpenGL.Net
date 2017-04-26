@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BUFFER_SERIALIZED_MODIFY_APPLE symbol.
+		/// [GL] Value of GL_BUFFER_SERIALIZED_MODIFY_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 		public const int BUFFER_SERIALIZED_MODIFY_APPLE = 0x8A12;
 
 		/// <summary>
-		/// Value of GL_BUFFER_FLUSHING_UNMAP_APPLE symbol.
+		/// [GL] Value of GL_BUFFER_FLUSHING_UNMAP_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 		public const int BUFFER_FLUSHING_UNMAP_APPLE = 0x8A13;

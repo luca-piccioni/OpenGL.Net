@@ -29,21 +29,21 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONTEXT_CORE_PROFILE_BIT symbol.
+		/// [GL] Value of GL_CONTEXT_CORE_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_CORE_PROFILE_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_COMPATIBILITY_PROFILE_BIT symbol.
+		/// [GL] Value of GL_CONTEXT_COMPATIBILITY_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_COMPATIBILITY_PROFILE_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_LINES_ADJACENCY symbol.
+		/// [GL] Value of GL_LINES_ADJACENCY symbol.
 		/// </summary>
 		[AliasOf("GL_LINES_ADJACENCY_ARB")]
 		[AliasOf("GL_LINES_ADJACENCY_EXT")]
@@ -58,7 +58,7 @@ namespace OpenGL
 		public const int LINES_ADJACENCY = 0x000A;
 
 		/// <summary>
-		/// Value of GL_LINE_STRIP_ADJACENCY symbol.
+		/// [GL] Value of GL_LINE_STRIP_ADJACENCY symbol.
 		/// </summary>
 		[AliasOf("GL_LINE_STRIP_ADJACENCY_ARB")]
 		[AliasOf("GL_LINE_STRIP_ADJACENCY_EXT")]
@@ -73,7 +73,7 @@ namespace OpenGL
 		public const int LINE_STRIP_ADJACENCY = 0x000B;
 
 		/// <summary>
-		/// Value of GL_TRIANGLES_ADJACENCY symbol.
+		/// [GL] Value of GL_TRIANGLES_ADJACENCY symbol.
 		/// </summary>
 		[AliasOf("GL_TRIANGLES_ADJACENCY_ARB")]
 		[AliasOf("GL_TRIANGLES_ADJACENCY_EXT")]
@@ -88,7 +88,7 @@ namespace OpenGL
 		public const int TRIANGLES_ADJACENCY = 0x000C;
 
 		/// <summary>
-		/// Value of GL_TRIANGLE_STRIP_ADJACENCY symbol.
+		/// [GL] Value of GL_TRIANGLE_STRIP_ADJACENCY symbol.
 		/// </summary>
 		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_ARB")]
 		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_EXT")]
@@ -103,8 +103,14 @@ namespace OpenGL
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
-		/// the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps 
+		/// from the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
+		/// maps from the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT")]
@@ -119,7 +125,7 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_TEXTURE_IMAGE_UNITS = 0x8C29;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB")]
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT")]
@@ -134,7 +140,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_ARB")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT")]
@@ -149,7 +155,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS = 0x8DA8;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_SHADER symbol.
+		/// [GL] Value of GL_GEOMETRY_SHADER symbol.
 		/// </summary>
 		[AliasOf("GL_GEOMETRY_SHADER_ARB")]
 		[AliasOf("GL_GEOMETRY_SHADER_EXT")]
@@ -163,31 +169,37 @@ namespace OpenGL
 		public const int GEOMETRY_SHADER = 0x8DD9;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the maximum number of vertices that the geometry shader in program will output.
+		/// [GL4] Gl.GetProgram: params returns the maximum number of vertices that the geometry shader in program will output.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		public const int GEOMETRY_VERTICES_OUT = 0x8916;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns a symbolic constant indicating the primitive type accepted as input to the geometry shader 
-		/// contained in program.
+		/// [GL4] Gl.GetProgram: params returns a symbolic constant indicating the primitive type accepted as input to the geometry 
+		/// shader contained in program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		public const int GEOMETRY_INPUT_TYPE = 0x8917;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns a symbolic constant indicating the primitive type that will be output by the geometry 
-		/// shader contained in program.
+		/// [GL4] Gl.GetProgram: params returns a symbolic constant indicating the primitive type that will be output by the 
+		/// geometry shader contained in program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		public const int GEOMETRY_OUTPUT_TYPE = 0x8918;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
-		/// held in uniform variable storage for a geometry shader. The value must be at least 1024. See Gl.Uniform.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that 
+		/// can be held in uniform variable storage for a geometry shader. The value must be at least 1024. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
+		/// that can be held in uniform variable storage for a geometry shader. The value must be at least 1024. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
@@ -201,7 +213,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS = 0x8DDF;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of vertices emit by a geometry shader, which must be at least 256.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of vertices emit by a geometry shader, which must be at 
+		/// least 256.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT")]
@@ -215,8 +228,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES = 0x8DE0;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices written by a 
-		/// geometry shader, which must be at least 1024.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices 
+		/// written by a geometry shader, which must be at least 1024.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT")]
@@ -230,16 +243,28 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, which must be at 
-		/// least 64.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, which must 
+		/// be at least 64.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, which 
+		/// must be at least 64.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int MAX_VERTEX_OUTPUT_COMPONENTS = 0x9122;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, which must be at 
-		/// least 64.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, which must 
+		/// be at least 64.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, which 
+		/// must be at least 64.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_INPUT_COMPONENTS_OES")]
@@ -250,8 +275,14 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_INPUT_COMPONENTS = 0x9123;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, which must be 
-		/// at least 128.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, which 
+		/// must be at least 128.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, 
+		/// which must be at least 128.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_OES")]
@@ -262,21 +293,27 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_OUTPUT_COMPONENTS = 0x9124;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components of the inputs read by the fragment shader, which must 
-		/// be at least 128.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of components of the inputs read by the fragment shader, which 
+		/// must be at least 128.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of the inputs read by the fragment shader, 
+		/// which must be at least 60.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int MAX_FRAGMENT_INPUT_COMPONENTS = 0x9125;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_PROFILE_MASK symbol.
+		/// [GL] Value of GL_CONTEXT_PROFILE_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int CONTEXT_PROFILE_MASK = 0x9126;
 
 		/// <summary>
-		/// Value of GL_DEPTH_CLAMP symbol.
+		/// [GL] Value of GL_DEPTH_CLAMP symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_CLAMP_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -285,7 +322,7 @@ namespace OpenGL
 		public const int DEPTH_CLAMP = 0x864F;
 
 		/// <summary>
-		/// Value of GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION symbol.
+		/// [GL] Value of GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION symbol.
 		/// </summary>
 		[AliasOf("GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -294,7 +331,7 @@ namespace OpenGL
 		public const int QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
 
 		/// <summary>
-		/// Value of GL_FIRST_VERTEX_CONVENTION symbol.
+		/// [GL] Value of GL_FIRST_VERTEX_CONVENTION symbol.
 		/// </summary>
 		[AliasOf("GL_FIRST_VERTEX_CONVENTION_EXT")]
 		[AliasOf("GL_FIRST_VERTEX_CONVENTION_OES")]
@@ -308,7 +345,7 @@ namespace OpenGL
 		public const int FIRST_VERTEX_CONVENTION = 0x8E4D;
 
 		/// <summary>
-		/// Value of GL_LAST_VERTEX_CONVENTION symbol.
+		/// [GL] Value of GL_LAST_VERTEX_CONVENTION symbol.
 		/// </summary>
 		[AliasOf("GL_LAST_VERTEX_CONVENTION_EXT")]
 		[AliasOf("GL_LAST_VERTEX_CONVENTION_OES")]
@@ -322,7 +359,7 @@ namespace OpenGL
 		public const int LAST_VERTEX_CONVENTION = 0x8E4E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the currently selected provoking vertex convention. The initial value is 
+		/// [GL4] Gl.Get: data returns one value, the currently selected provoking vertex convention. The initial value is 
 		/// Gl.LAST_VERTEX_CONVENTION. See Gl.ProvokingVertex.
 		/// </summary>
 		[AliasOf("GL_PROVOKING_VERTEX_EXT")]
@@ -333,7 +370,7 @@ namespace OpenGL
 		public const int PROVOKING_VERTEX = 0x8E4F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CUBE_MAP_SEAMLESS symbol.
+		/// [GL] Value of GL_TEXTURE_CUBE_MAP_SEAMLESS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_AMD_seamless_cubemap_per_texture")]
@@ -342,7 +379,12 @@ namespace OpenGL
 		public const int TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_SERVER_WAIT_TIMEOUT_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -352,7 +394,7 @@ namespace OpenGL
 		public const int MAX_SERVER_WAIT_TIMEOUT = 0x9111;
 
 		/// <summary>
-		/// Value of GL_OBJECT_TYPE symbol.
+		/// [GL] Value of GL_OBJECT_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_OBJECT_TYPE_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -362,7 +404,7 @@ namespace OpenGL
 		public const int OBJECT_TYPE = 0x9112;
 
 		/// <summary>
-		/// Value of GL_SYNC_CONDITION symbol.
+		/// [GL] Value of GL_SYNC_CONDITION symbol.
 		/// </summary>
 		[AliasOf("GL_SYNC_CONDITION_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -372,7 +414,7 @@ namespace OpenGL
 		public const int SYNC_CONDITION = 0x9113;
 
 		/// <summary>
-		/// Value of GL_SYNC_STATUS symbol.
+		/// [GL] Value of GL_SYNC_STATUS symbol.
 		/// </summary>
 		[AliasOf("GL_SYNC_STATUS_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -382,7 +424,7 @@ namespace OpenGL
 		public const int SYNC_STATUS = 0x9114;
 
 		/// <summary>
-		/// Value of GL_SYNC_FLAGS symbol.
+		/// [GL] Value of GL_SYNC_FLAGS symbol.
 		/// </summary>
 		[AliasOf("GL_SYNC_FLAGS_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -392,7 +434,7 @@ namespace OpenGL
 		public const int SYNC_FLAGS = 0x9115;
 
 		/// <summary>
-		/// Value of GL_SYNC_FENCE symbol.
+		/// [GL] Value of GL_SYNC_FENCE symbol.
 		/// </summary>
 		[AliasOf("GL_SYNC_FENCE_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -402,7 +444,7 @@ namespace OpenGL
 		public const int SYNC_FENCE = 0x9116;
 
 		/// <summary>
-		/// Value of GL_SYNC_GPU_COMMANDS_COMPLETE symbol.
+		/// [GL] Value of GL_SYNC_GPU_COMMANDS_COMPLETE symbol.
 		/// </summary>
 		[AliasOf("GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -412,7 +454,7 @@ namespace OpenGL
 		public const int SYNC_GPU_COMMANDS_COMPLETE = 0x9117;
 
 		/// <summary>
-		/// Value of GL_UNSIGNALED symbol.
+		/// [GL] Value of GL_UNSIGNALED symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNALED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -422,7 +464,7 @@ namespace OpenGL
 		public const int UNSIGNALED = 0x9118;
 
 		/// <summary>
-		/// Value of GL_SIGNALED symbol.
+		/// [GL] Value of GL_SIGNALED symbol.
 		/// </summary>
 		[AliasOf("GL_SIGNALED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -432,7 +474,7 @@ namespace OpenGL
 		public const int SIGNALED = 0x9119;
 
 		/// <summary>
-		/// Value of GL_ALREADY_SIGNALED symbol.
+		/// [GL] Value of GL_ALREADY_SIGNALED symbol.
 		/// </summary>
 		[AliasOf("GL_ALREADY_SIGNALED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -442,7 +484,7 @@ namespace OpenGL
 		public const int ALREADY_SIGNALED = 0x911A;
 
 		/// <summary>
-		/// Value of GL_TIMEOUT_EXPIRED symbol.
+		/// [GL] Value of GL_TIMEOUT_EXPIRED symbol.
 		/// </summary>
 		[AliasOf("GL_TIMEOUT_EXPIRED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -452,7 +494,7 @@ namespace OpenGL
 		public const int TIMEOUT_EXPIRED = 0x911B;
 
 		/// <summary>
-		/// Value of GL_CONDITION_SATISFIED symbol.
+		/// [GL] Value of GL_CONDITION_SATISFIED symbol.
 		/// </summary>
 		[AliasOf("GL_CONDITION_SATISFIED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -462,7 +504,7 @@ namespace OpenGL
 		public const int CONDITION_SATISFIED = 0x911C;
 
 		/// <summary>
-		/// Value of GL_WAIT_FAILED symbol.
+		/// [GL] Value of GL_WAIT_FAILED symbol.
 		/// </summary>
 		[AliasOf("GL_WAIT_FAILED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -472,7 +514,7 @@ namespace OpenGL
 		public const int WAIT_FAILED = 0x911D;
 
 		/// <summary>
-		/// Value of GL_TIMEOUT_IGNORED symbol.
+		/// [GL] Value of GL_TIMEOUT_IGNORED symbol.
 		/// </summary>
 		[AliasOf("GL_TIMEOUT_IGNORED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -482,7 +524,7 @@ namespace OpenGL
 		public const ulong TIMEOUT_IGNORED = 0xFFFFFFFFFFFFF;
 
 		/// <summary>
-		/// Value of GL_SYNC_FLUSH_COMMANDS_BIT symbol.
+		/// [GL] Value of GL_SYNC_FLUSH_COMMANDS_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_SYNC_FLUSH_COMMANDS_BIT_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -493,7 +535,7 @@ namespace OpenGL
 		public const uint SYNC_FLUSH_COMMANDS_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_POSITION symbol.
+		/// [GL] Value of GL_SAMPLE_POSITION symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_POSITION_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -503,7 +545,7 @@ namespace OpenGL
 		public const int SAMPLE_POSITION = 0x8E50;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK symbol.
+		/// [GL] Value of GL_SAMPLE_MASK symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_MASK_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -513,7 +555,7 @@ namespace OpenGL
 		public const int SAMPLE_MASK = 0x8E51;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK_VALUE symbol.
+		/// [GL] Value of GL_SAMPLE_MASK_VALUE symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_MASK_VALUE_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -523,7 +565,12 @@ namespace OpenGL
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of sample mask words.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of sample mask words.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of sample mask words.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -533,7 +580,7 @@ namespace OpenGL
 		public const int MAX_SAMPLE_MASK_WORDS = 0x8E59;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_TEXTURE_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -543,14 +590,14 @@ namespace OpenGL
 		public const int TEXTURE_2D_MULTISAMPLE = 0x9100;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 		public const int PROXY_TEXTURE_2D_MULTISAMPLE = 0x9101;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_TEXTURE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -562,15 +609,21 @@ namespace OpenGL
 		public const int TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9102;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 		public const int PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D_MULTISAMPLE. 
-		/// The initial value is 0. See Gl.BindTexture.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// Gl.TEXTURE_2D_MULTISAMPLE. The initial value is 0. See Gl.BindTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// Gl.TEXTURE_2D_MULTISAMPLE. The initial value is 0. See Gl.BindTexture.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -580,8 +633,14 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE = 0x9104;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY. The initial value is 0. See Gl.BindTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY. The initial value is 0. See Gl.BindTexture.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -593,7 +652,7 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY = 0x9105;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: params returns a single value, the number of samples of the texture image.
+		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the number of samples of the texture image.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -601,7 +660,7 @@ namespace OpenGL
 		public const int TEXTURE_SAMPLES = 0x9106;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS symbol.
+		/// [GL] Value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -609,7 +668,7 @@ namespace OpenGL
 		public const int TEXTURE_FIXED_SAMPLE_LOCATIONS = 0x9107;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_SAMPLER_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -617,7 +676,7 @@ namespace OpenGL
 		public const int SAMPLER_2D_MULTISAMPLE = 0x9108;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_INT_SAMPLER_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -625,7 +684,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_2D_MULTISAMPLE = 0x9109;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -633,7 +692,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE = 0x910A;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -643,7 +702,7 @@ namespace OpenGL
 		public const int SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910B;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -653,7 +712,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910C;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -663,7 +722,12 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -671,7 +735,7 @@ namespace OpenGL
 		public const int MAX_COLOR_TEXTURE_SAMPLES = 0x910E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of samples in a multisample depth or depth-stencil texture.
+		/// [GL4] Gl.Get: data returns one value, the maximum number of samples in a multisample depth or depth-stencil texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -679,7 +743,12 @@ namespace OpenGL
 		public const int MAX_DEPTH_TEXTURE_SAMPLES = 0x910F;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample buffers.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample buffers.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample buffers.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

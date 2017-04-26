@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLER_2D_RECT symbol.
+		/// [GL] Value of GL_SAMPLER_2D_RECT symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_RECT_ARB")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int SAMPLER_2D_RECT = 0x8B63;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_2D_RECT_SHADOW symbol.
+		/// [GL] Value of GL_SAMPLER_2D_RECT_SHADOW symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_RECT_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -45,7 +45,7 @@ namespace OpenGL
 		public const int SAMPLER_2D_RECT_SHADOW = 0x8B64;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_BUFFER symbol.
+		/// [GL] Value of GL_SAMPLER_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_BUFFER_EXT")]
 		[AliasOf("GL_SAMPLER_BUFFER_OES")]
@@ -57,7 +57,7 @@ namespace OpenGL
 		public const int SAMPLER_BUFFER = 0x8DC2;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_2D_RECT symbol.
+		/// [GL] Value of GL_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_2D_RECT = 0x8DCD;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_BUFFER symbol.
+		/// [GL] Value of GL_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_BUFFER_EXT")]
 		[AliasOf("GL_INT_SAMPLER_BUFFER_OES")]
@@ -77,7 +77,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_BUFFER = 0x8DD0;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_RECT symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -85,7 +85,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D_RECT = 0x8DD5;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_BUFFER symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT")]
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_OES")]
@@ -97,7 +97,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_BUFFER = 0x8DD8;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER symbol.
+		/// [GL] Value of GL_TEXTURE_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_ARB")]
 		[AliasOf("GL_TEXTURE_BUFFER_EXT")]
@@ -112,8 +112,14 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER = 0x8C2A;
 
 		/// <summary>
-		/// Gl.Get: data returns one value. The value gives the maximum number of texels allowed in the texel array of a texture 
-		/// buffer object. Value must be at least 65536.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value. The value gives the maximum number of texels allowed in the texel array of a 
+		/// texture buffer object. Value must be at least 65536.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value. The value gives the maximum number of texels allowed in the texel array of a 
+		/// texture buffer object. Value must be at least 65536.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_EXT")]
@@ -127,8 +133,14 @@ namespace OpenGL
 		public const int MAX_TEXTURE_BUFFER_SIZE = 0x8C2B;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_BUFFER. The 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_BUFFER. The 
 		/// initial value is 0. See Gl.BindTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_BUFFER. 
+		/// The initial value is 0. See Gl.BindTexture.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT")]
@@ -144,8 +156,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_BUFFER = 0x8C2C;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: params returns the name of the buffer object bound to the data store for a buffer texture. See 
-		/// Gl.TexBufferRange
+		/// [GLES3.2] Gl.GetTexLevelParameter: params returns the name of the buffer object bound to the data store for a buffer 
+		/// texture. See Gl.TexBufferRange
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB")]
 		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT")]
@@ -159,7 +171,7 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER_DATA_STORE_BINDING = 0x8C2D;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_RECTANGLE symbol.
+		/// [GL] Value of GL_TEXTURE_RECTANGLE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_RECTANGLE_ARB")]
 		[AliasOf("GL_TEXTURE_RECTANGLE_NV")]
@@ -170,8 +182,8 @@ namespace OpenGL
 		public const int TEXTURE_RECTANGLE = 0x84F5;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_RECTANGLE. The 
-		/// initial value is 0. See Gl.BindTexture.
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_RECTANGLE. 
+		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_NV")]
@@ -183,7 +195,7 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_RECTANGLE = 0x84F6;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_RECTANGLE symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_RECTANGLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_ARB")]
 		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_NV")]
@@ -193,8 +205,8 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_RECTANGLE = 0x84F7;
 
 		/// <summary>
-		/// Gl.Get: data returns one value. The value gives a rough estimate of the largest rectangular texture that the GL can 
-		/// handle. The value must be at least 1024. Use Gl.PROXY_TEXTURE_RECTANGLE to determine if a texture is too large. See 
+		/// [GL4] Gl.Get: data returns one value. The value gives a rough estimate of the largest rectangular texture that the GL 
+		/// can handle. The value must be at least 1024. Use Gl.PROXY_TEXTURE_RECTANGLE to determine if a texture is too large. See 
 		/// Gl.TexImage2D.
 		/// </summary>
 		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB")]
@@ -205,7 +217,7 @@ namespace OpenGL
 		public const int MAX_RECTANGLE_TEXTURE_SIZE = 0x84F8;
 
 		/// <summary>
-		/// Value of GL_R8_SNORM symbol.
+		/// [GL] Value of GL_R8_SNORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -214,7 +226,7 @@ namespace OpenGL
 		public const int R8_SNORM = 0x8F94;
 
 		/// <summary>
-		/// Value of GL_RG8_SNORM symbol.
+		/// [GL] Value of GL_RG8_SNORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -223,7 +235,7 @@ namespace OpenGL
 		public const int RG8_SNORM = 0x8F95;
 
 		/// <summary>
-		/// Value of GL_RGB8_SNORM symbol.
+		/// [GL] Value of GL_RGB8_SNORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -231,7 +243,7 @@ namespace OpenGL
 		public const int RGB8_SNORM = 0x8F96;
 
 		/// <summary>
-		/// Value of GL_RGBA8_SNORM symbol.
+		/// [GL] Value of GL_RGBA8_SNORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -240,7 +252,7 @@ namespace OpenGL
 		public const int RGBA8_SNORM = 0x8F97;
 
 		/// <summary>
-		/// Value of GL_R16_SNORM symbol.
+		/// [GL] Value of GL_R16_SNORM symbol.
 		/// </summary>
 		[AliasOf("GL_R16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -250,7 +262,7 @@ namespace OpenGL
 		public const int R16_SNORM = 0x8F98;
 
 		/// <summary>
-		/// Value of GL_RG16_SNORM symbol.
+		/// [GL] Value of GL_RG16_SNORM symbol.
 		/// </summary>
 		[AliasOf("GL_RG16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -260,7 +272,7 @@ namespace OpenGL
 		public const int RG16_SNORM = 0x8F99;
 
 		/// <summary>
-		/// Value of GL_RGB16_SNORM symbol.
+		/// [GL] Value of GL_RGB16_SNORM symbol.
 		/// </summary>
 		[AliasOf("GL_RGB16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -269,7 +281,7 @@ namespace OpenGL
 		public const int RGB16_SNORM = 0x8F9A;
 
 		/// <summary>
-		/// Value of GL_RGBA16_SNORM symbol.
+		/// [GL] Value of GL_RGBA16_SNORM symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -279,7 +291,7 @@ namespace OpenGL
 		public const int RGBA16_SNORM = 0x8F9B;
 
 		/// <summary>
-		/// Value of GL_SIGNED_NORMALIZED symbol.
+		/// [GL] Value of GL_SIGNED_NORMALIZED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -287,20 +299,20 @@ namespace OpenGL
 		public const int SIGNED_NORMALIZED = 0x8F9C;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART symbol.
+		/// [GL] Value of GL_PRIMITIVE_RESTART symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PRIMITIVE_RESTART = 0x8F9D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the current primitive restart index. The initial value is 0. See 
+		/// [GL4] Gl.Get: data returns one value, the current primitive restart index. The initial value is 0. See 
 		/// Gl.PrimitiveRestartIndex.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PRIMITIVE_RESTART_INDEX = 0x8F9E;
 
 		/// <summary>
-		/// Value of GL_COPY_READ_BUFFER symbol.
+		/// [GL] Value of GL_COPY_READ_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_COPY_READ_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -310,7 +322,7 @@ namespace OpenGL
 		public const int COPY_READ_BUFFER = 0x8F36;
 
 		/// <summary>
-		/// Value of GL_COPY_WRITE_BUFFER symbol.
+		/// [GL] Value of GL_COPY_WRITE_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_COPY_WRITE_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -320,7 +332,7 @@ namespace OpenGL
 		public const int COPY_WRITE_BUFFER = 0x8F37;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER symbol.
+		/// [GL] Value of GL_UNIFORM_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -328,11 +340,20 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER = 0x8A11;
 
 		/// <summary>
-		/// Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
-		/// the buffer object currently bound to the target Gl.UNIFORM_BUFFER. If no buffer object is bound to this target, 0 is 
-		/// returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name of 
-		/// the buffer object bound to the indexed uniform buffer binding point. The initial value is 0 for all targets. See 
+		/// <para>
+		/// [GL4] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
+		/// name of the buffer object currently bound to the target Gl.UNIFORM_BUFFER. If no buffer object is bound to this target, 
+		/// 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name 
+		/// of the buffer object bound to the indexed uniform buffer binding point. The initial value is 0 for all targets. See 
 		/// Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
+		/// name of the buffer object currently bound to the target Gl.UNIFORM_BUFFER. If no buffer object is bound to this target, 
+		/// 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name 
+		/// of the buffer object bound to the indexed uniform buffer binding point. The initial value is 0 for all targets. See 
+		/// Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -340,9 +361,16 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_BINDING = 0x8A28;
 
 		/// <summary>
-		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
-		/// offset of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
+		/// <para>
+		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// start offset of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
 		/// Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// start offset of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -350,9 +378,16 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_START = 0x8A29;
 
 		/// <summary>
-		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
-		/// the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
+		/// <para>
+		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// size of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
 		/// Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// size of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -360,8 +395,14 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_SIZE = 0x8A2A;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per vertex shader. The value must be at least 12. 
-		/// See Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform blocks per vertex shader. The value must be at least 
+		/// 12. See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per vertex shader. The value must be at 
+		/// least 12. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -369,8 +410,14 @@ namespace OpenGL
 		public const int MAX_VERTEX_UNIFORM_BLOCKS = 0x8A2B;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per geometry shader. The value must be at least 12. 
-		/// See Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform blocks per geometry shader. The value must be at 
+		/// least 12. See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per geometry shader. The value must be at 
+		/// least 12. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_BLOCKS_OES")]
@@ -382,8 +429,14 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_UNIFORM_BLOCKS = 0x8A2C;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per fragment shader. The value must be at least 12. 
-		/// See Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform blocks per fragment shader. The value must be at 
+		/// least 12. See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per fragment shader. The value must be at 
+		/// least 12. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -391,8 +444,14 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_UNIFORM_BLOCKS = 0x8A2D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform blocks per program. The value must be at least 70. See 
-		/// Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform blocks per program. The value must be at least 70. 
+		/// See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per program. The value must be at least 
+		/// 60. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -400,8 +459,14 @@ namespace OpenGL
 		public const int MAX_COMBINED_UNIFORM_BLOCKS = 0x8A2E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of uniform buffer binding points on the context, which must be at 
-		/// least 36.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform buffer binding points on the context, which must be 
+		/// at least 36.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform buffer binding points on the context, which must 
+		/// be at least 72.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -409,8 +474,14 @@ namespace OpenGL
 		public const int MAX_UNIFORM_BUFFER_BINDINGS = 0x8A2F;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum size in basic machine units of a uniform block, which must be at least 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum size in basic machine units of a uniform block, which must be at least 
 		/// 16384.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum size in basic machine units of a uniform block. The value must be 
+		/// at least 16384. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -418,8 +489,15 @@ namespace OpenGL
 		public const int MAX_UNIFORM_BLOCK_SIZE = 0x8A30;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of words for vertex shader uniform variables in all uniform blocks (including 
-		/// default). The value must be at least 1. See Gl.Uniform.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of words for vertex shader uniform variables in all uniform blocks 
+		/// (including default). The value must be at least 1. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number of words for vertex shader uniform variables in all uniform blocks 
+		/// (including default). The value must be at least . Gl.MAX_VERTEX_UNIFORM_COMPONENTS + Gl.MAX_UNIFORM_BLOCK_SIZE * 
+		/// Gl.MAX_VERTEX_UNIFORM_BLOCKS / 4. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -427,8 +505,15 @@ namespace OpenGL
 		public const int MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS = 0x8A31;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of words for geometry shader uniform variables in all uniform blocks 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of words for geometry shader uniform variables in all uniform blocks 
 		/// (including default). The value must be at least 1. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number of words for geometry shader uniform variables in all uniform 
+		/// blocks (including default). The value must be at least Gl.MAX_GEOMETRY_UNIFORM_COMPONENTS + Gl.MAX_UNIFORM_BLOCK_SIZE * 
+		/// Gl.MAX_GEOMETRY_UNIFORM_BLOCKS / 4. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_OES")]
@@ -440,8 +525,15 @@ namespace OpenGL
 		public const int MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS = 0x8A32;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of words for fragment shader uniform variables in all uniform blocks 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of words for fragment shader uniform variables in all uniform blocks 
 		/// (including default). The value must be at least 1. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number of words for fragment shader uniform variables in all uniform 
+		/// blocks (including default). The value must be at least Gl.MAX_FRAGMENT_UNIFORM_COMPONENTS + Gl.MAX_UNIFORM_BLOCK_SIZE * 
+		/// Gl.MAX_FRAGMENT_UNIFORM_BLOCKS / 4. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -449,8 +541,14 @@ namespace OpenGL
 		public const int MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS = 0x8A33;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the minimum required alignment for uniform buffer sizes and offset. The initial 
-		/// value is 1. See Gl.UniformBlockBinding.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the minimum required alignment for uniform buffer sizes and offset. The 
+		/// initial value is 1. See Gl.UniformBlockBinding.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for uniform buffer sizes and offset. The 
+		/// initial value is 1. See Gl.UniformBlockBinding.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -458,9 +556,9 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_OFFSET_ALIGNMENT = 0x8A34;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the length of the longest active uniform block name for program, including the null 
-		/// termination character (i.e., the size of the character buffer required to store the longest uniform block name). If no 
-		/// active uniform blocks exist, 0 is returned.
+		/// [GLES3.2] Gl.GetProgram: params returns the length of the longest active uniform block name for program, including the 
+		/// null termination character (i.e., the size of the character buffer required to store the longest uniform block name). If 
+		/// no active uniform blocks exist, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -468,7 +566,7 @@ namespace OpenGL
 		public const int ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH = 0x8A35;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the number of uniform blocks for program containing active uniforms.
+		/// [GLES3.2] Gl.GetProgram: params returns the number of uniform blocks for program containing active uniforms.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -476,7 +574,7 @@ namespace OpenGL
 		public const int ACTIVE_UNIFORM_BLOCKS = 0x8A36;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_TYPE symbol.
+		/// [GL] Value of GL_UNIFORM_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -484,7 +582,7 @@ namespace OpenGL
 		public const int UNIFORM_TYPE = 0x8A37;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_SIZE symbol.
+		/// [GL] Value of GL_UNIFORM_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -493,7 +591,7 @@ namespace OpenGL
 		public const int UNIFORM_SIZE = 0x8A38;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_NAME_LENGTH symbol.
+		/// [GL] Value of GL_UNIFORM_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -502,7 +600,7 @@ namespace OpenGL
 		public const int UNIFORM_NAME_LENGTH = 0x8A39;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_INDEX symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -510,7 +608,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_INDEX = 0x8A3A;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_OFFSET symbol.
+		/// [GL] Value of GL_UNIFORM_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -518,7 +616,7 @@ namespace OpenGL
 		public const int UNIFORM_OFFSET = 0x8A3B;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_ARRAY_STRIDE symbol.
+		/// [GL] Value of GL_UNIFORM_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -526,7 +624,7 @@ namespace OpenGL
 		public const int UNIFORM_ARRAY_STRIDE = 0x8A3C;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_MATRIX_STRIDE symbol.
+		/// [GL] Value of GL_UNIFORM_MATRIX_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -534,7 +632,7 @@ namespace OpenGL
 		public const int UNIFORM_MATRIX_STRIDE = 0x8A3D;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_IS_ROW_MAJOR symbol.
+		/// [GL] Value of GL_UNIFORM_IS_ROW_MAJOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -542,7 +640,7 @@ namespace OpenGL
 		public const int UNIFORM_IS_ROW_MAJOR = 0x8A3E;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_BINDING symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -550,7 +648,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_BINDING = 0x8A3F;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_DATA_SIZE symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_DATA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -558,7 +656,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_DATA_SIZE = 0x8A40;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_NAME_LENGTH symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -566,7 +664,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_NAME_LENGTH = 0x8A41;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -574,7 +672,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_ACTIVE_UNIFORMS = 0x8A42;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -582,7 +680,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES = 0x8A43;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -590,14 +688,14 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER = 0x8A44;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER = 0x8A45;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER symbol.
+		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -605,7 +703,7 @@ namespace OpenGL
 		public const int UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER = 0x8A46;
 
 		/// <summary>
-		/// Value of GL_INVALID_INDEX symbol.
+		/// [GL] Value of GL_INVALID_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

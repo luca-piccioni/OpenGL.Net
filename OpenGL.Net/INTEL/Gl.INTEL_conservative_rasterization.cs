@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTERIZATION_INTEL symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTERIZATION_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_conservative_rasterization", Api = "gl|glcore|gles2")]
 		public const int CONSERVATIVE_RASTERIZATION_INTEL = 0x83FE;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_STREAM_RASTERIZATION_AMD symbol.
+		/// [GL] Value of GL_STREAM_RASTERIZATION_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_transform_feedback4")]
 		public const int STREAM_RASTERIZATION_AMD = 0x91A0;

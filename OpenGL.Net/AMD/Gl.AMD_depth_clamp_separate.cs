@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DEPTH_CLAMP_NEAR_AMD symbol.
+		/// [GL] Value of GL_DEPTH_CLAMP_NEAR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_depth_clamp_separate")]
 		public const int DEPTH_CLAMP_NEAR_AMD = 0x901E;
 
 		/// <summary>
-		/// Value of GL_DEPTH_CLAMP_FAR_AMD symbol.
+		/// [GL] Value of GL_DEPTH_CLAMP_FAR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_depth_clamp_separate")]
 		public const int DEPTH_CLAMP_FAR_AMD = 0x901F;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_UNITS_ARB symbol.
+		/// [GL] Value of GL_MAX_VERTEX_UNITS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_UNITS_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -37,31 +37,31 @@ namespace OpenGL
 		public const int MAX_VERTEX_UNITS_ARB = 0x86A4;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_VERTEX_UNITS_ARB symbol.
+		/// [GL] Value of GL_ACTIVE_VERTEX_UNITS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int ACTIVE_VERTEX_UNITS_ARB = 0x86A5;
 
 		/// <summary>
-		/// Value of GL_WEIGHT_SUM_UNITY_ARB symbol.
+		/// [GL] Value of GL_WEIGHT_SUM_UNITY_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int WEIGHT_SUM_UNITY_ARB = 0x86A6;
 
 		/// <summary>
-		/// Value of GL_VERTEX_BLEND_ARB symbol.
+		/// [GL] Value of GL_VERTEX_BLEND_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int VERTEX_BLEND_ARB = 0x86A7;
 
 		/// <summary>
-		/// Value of GL_CURRENT_WEIGHT_ARB symbol.
+		/// [GL] Value of GL_CURRENT_WEIGHT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int CURRENT_WEIGHT_ARB = 0x86A8;
 
 		/// <summary>
-		/// Value of GL_WEIGHT_ARRAY_TYPE_ARB symbol.
+		/// [GL] Value of GL_WEIGHT_ARRAY_TYPE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_WEIGHT_ARRAY_TYPE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -69,7 +69,7 @@ namespace OpenGL
 		public const int WEIGHT_ARRAY_TYPE_ARB = 0x86A9;
 
 		/// <summary>
-		/// Value of GL_WEIGHT_ARRAY_STRIDE_ARB symbol.
+		/// [GL] Value of GL_WEIGHT_ARRAY_STRIDE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_WEIGHT_ARRAY_STRIDE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -77,7 +77,7 @@ namespace OpenGL
 		public const int WEIGHT_ARRAY_STRIDE_ARB = 0x86AA;
 
 		/// <summary>
-		/// Value of GL_WEIGHT_ARRAY_SIZE_ARB symbol.
+		/// [GL] Value of GL_WEIGHT_ARRAY_SIZE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_WEIGHT_ARRAY_SIZE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -85,7 +85,7 @@ namespace OpenGL
 		public const int WEIGHT_ARRAY_SIZE_ARB = 0x86AB;
 
 		/// <summary>
-		/// Value of GL_WEIGHT_ARRAY_POINTER_ARB symbol.
+		/// [GL] Value of GL_WEIGHT_ARRAY_POINTER_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_WEIGHT_ARRAY_POINTER_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -93,7 +93,7 @@ namespace OpenGL
 		public const int WEIGHT_ARRAY_POINTER_ARB = 0x86AC;
 
 		/// <summary>
-		/// Value of GL_WEIGHT_ARRAY_ARB symbol.
+		/// [GL] Value of GL_WEIGHT_ARRAY_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_WEIGHT_ARRAY_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -101,7 +101,7 @@ namespace OpenGL
 		public const int WEIGHT_ARRAY_ARB = 0x86AD;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW0_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW0_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MODELVIEW0_EXT")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -109,7 +109,7 @@ namespace OpenGL
 		public const int MODELVIEW0_ARB = 0x1700;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW1_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW1_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MODELVIEW1_EXT")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -117,181 +117,181 @@ namespace OpenGL
 		public const int MODELVIEW1_ARB = 0x850A;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW2_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW2_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW2_ARB = 0x8722;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW3_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW3_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW3_ARB = 0x8723;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW4_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW4_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW4_ARB = 0x8724;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW5_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW5_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW5_ARB = 0x8725;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW6_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW6_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW6_ARB = 0x8726;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW7_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW7_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW7_ARB = 0x8727;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW8_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW8_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW8_ARB = 0x8728;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW9_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW9_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW9_ARB = 0x8729;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW10_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW10_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW10_ARB = 0x872A;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW11_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW11_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW11_ARB = 0x872B;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW12_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW12_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW12_ARB = 0x872C;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW13_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW13_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW13_ARB = 0x872D;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW14_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW14_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW14_ARB = 0x872E;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW15_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW15_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW15_ARB = 0x872F;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW16_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW16_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW16_ARB = 0x8730;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW17_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW17_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW17_ARB = 0x8731;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW18_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW18_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW18_ARB = 0x8732;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW19_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW19_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW19_ARB = 0x8733;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW20_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW20_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW20_ARB = 0x8734;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW21_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW21_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW21_ARB = 0x8735;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW22_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW22_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW22_ARB = 0x8736;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW23_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW23_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW23_ARB = 0x8737;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW24_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW24_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW24_ARB = 0x8738;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW25_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW25_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW25_ARB = 0x8739;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW26_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW26_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW26_ARB = 0x873A;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW27_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW27_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW27_ARB = 0x873B;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW28_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW28_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW28_ARB = 0x873C;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW29_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW29_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW29_ARB = 0x873D;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW30_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW30_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW30_ARB = 0x873E;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW31_ARB symbol.
+		/// [GL] Value of GL_MODELVIEW31_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW31_ARB = 0x873F;

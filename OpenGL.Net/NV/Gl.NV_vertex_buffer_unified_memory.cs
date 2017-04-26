@@ -29,151 +29,151 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_UNIFIED_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY_UNIFIED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int VERTEX_ATTRIB_ARRAY_UNIFIED_NV = 0x8F1E;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_UNIFIED_NV symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_UNIFIED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int ELEMENT_ARRAY_UNIFIED_NV = 0x8F1F;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int VERTEX_ATTRIB_ARRAY_ADDRESS_NV = 0x8F20;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int VERTEX_ARRAY_ADDRESS_NV = 0x8F21;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_NORMAL_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int NORMAL_ARRAY_ADDRESS_NV = 0x8F22;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_COLOR_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int COLOR_ARRAY_ADDRESS_NV = 0x8F23;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_INDEX_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int INDEX_ARRAY_ADDRESS_NV = 0x8F24;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int TEXTURE_COORD_ARRAY_ADDRESS_NV = 0x8F25;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_EDGE_FLAG_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int EDGE_FLAG_ARRAY_ADDRESS_NV = 0x8F26;
 
 		/// <summary>
-		/// Value of GL_SECONDARY_COLOR_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_SECONDARY_COLOR_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int SECONDARY_COLOR_ARRAY_ADDRESS_NV = 0x8F27;
 
 		/// <summary>
-		/// Value of GL_FOG_COORD_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_FOG_COORD_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int FOG_COORD_ARRAY_ADDRESS_NV = 0x8F28;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_ADDRESS_NV symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int ELEMENT_ARRAY_ADDRESS_NV = 0x8F29;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int VERTEX_ATTRIB_ARRAY_LENGTH_NV = 0x8F2A;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int VERTEX_ARRAY_LENGTH_NV = 0x8F2B;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_NORMAL_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int NORMAL_ARRAY_LENGTH_NV = 0x8F2C;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_COLOR_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int COLOR_ARRAY_LENGTH_NV = 0x8F2D;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_INDEX_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int INDEX_ARRAY_LENGTH_NV = 0x8F2E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int TEXTURE_COORD_ARRAY_LENGTH_NV = 0x8F2F;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_EDGE_FLAG_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int EDGE_FLAG_ARRAY_LENGTH_NV = 0x8F30;
 
 		/// <summary>
-		/// Value of GL_SECONDARY_COLOR_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_SECONDARY_COLOR_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int SECONDARY_COLOR_ARRAY_LENGTH_NV = 0x8F31;
 
 		/// <summary>
-		/// Value of GL_FOG_COORD_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_FOG_COORD_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int FOG_COORD_ARRAY_LENGTH_NV = 0x8F32;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_LENGTH_NV symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int ELEMENT_ARRAY_LENGTH_NV = 0x8F33;
 
 		/// <summary>
-		/// Value of GL_DRAW_INDIRECT_UNIFIED_NV symbol.
+		/// [GL] Value of GL_DRAW_INDIRECT_UNIFIED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int DRAW_INDIRECT_UNIFIED_NV = 0x8F40;
 
 		/// <summary>
-		/// Value of GL_DRAW_INDIRECT_ADDRESS_NV symbol.
+		/// [GL] Value of GL_DRAW_INDIRECT_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int DRAW_INDIRECT_ADDRESS_NV = 0x8F41;
 
 		/// <summary>
-		/// Value of GL_DRAW_INDIRECT_LENGTH_NV symbol.
+		/// [GL] Value of GL_DRAW_INDIRECT_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 		public const int DRAW_INDIRECT_LENGTH_NV = 0x8F42;

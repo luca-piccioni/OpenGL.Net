@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FACTOR_MIN_AMD symbol.
+		/// [GL] Value of GL_FACTOR_MIN_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_blend_minmax_factor")]
 		public const int FACTOR_MIN_AMD = 0x901C;
 
 		/// <summary>
-		/// Value of GL_FACTOR_MAX_AMD symbol.
+		/// [GL] Value of GL_FACTOR_MAX_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_blend_minmax_factor")]
 		public const int FACTOR_MAX_AMD = 0x901D;

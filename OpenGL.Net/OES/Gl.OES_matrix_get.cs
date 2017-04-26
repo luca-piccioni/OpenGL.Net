@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
+		/// [GL] Value of GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_matrix_get", Api = "gles1")]
 		public const int MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES = 0x898D;
 
 		/// <summary>
-		/// Value of GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
+		/// [GL] Value of GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_matrix_get", Api = "gles1")]
 		public const int PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES = 0x898E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
+		/// [GL] Value of GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_matrix_get", Api = "gles1")]
 		public const int TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES = 0x898F;

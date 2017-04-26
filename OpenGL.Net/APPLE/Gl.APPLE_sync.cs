@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SYNC_OBJECT_APPLE symbol.
+		/// [GL] Value of GL_SYNC_OBJECT_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		public const int SYNC_OBJECT_APPLE = 0x8A53;

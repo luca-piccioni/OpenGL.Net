@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_IUI_V2F_EXT symbol.
+		/// [GL] Value of GL_IUI_V2F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int IUI_V2F_EXT = 0x81AD;
 
 		/// <summary>
-		/// Value of GL_IUI_V3F_EXT symbol.
+		/// [GL] Value of GL_IUI_V3F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int IUI_V3F_EXT = 0x81AE;
 
 		/// <summary>
-		/// Value of GL_IUI_N3F_V2F_EXT symbol.
+		/// [GL] Value of GL_IUI_N3F_V2F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int IUI_N3F_V2F_EXT = 0x81AF;
 
 		/// <summary>
-		/// Value of GL_IUI_N3F_V3F_EXT symbol.
+		/// [GL] Value of GL_IUI_N3F_V3F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int IUI_N3F_V3F_EXT = 0x81B0;
 
 		/// <summary>
-		/// Value of GL_T2F_IUI_V2F_EXT symbol.
+		/// [GL] Value of GL_T2F_IUI_V2F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int T2F_IUI_V2F_EXT = 0x81B1;
 
 		/// <summary>
-		/// Value of GL_T2F_IUI_V3F_EXT symbol.
+		/// [GL] Value of GL_T2F_IUI_V3F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int T2F_IUI_V3F_EXT = 0x81B2;
 
 		/// <summary>
-		/// Value of GL_T2F_IUI_N3F_V2F_EXT symbol.
+		/// [GL] Value of GL_T2F_IUI_N3F_V2F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int T2F_IUI_N3F_V2F_EXT = 0x81B3;
 
 		/// <summary>
-		/// Value of GL_T2F_IUI_N3F_V3F_EXT symbol.
+		/// [GL] Value of GL_T2F_IUI_N3F_V3F_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_array_formats")]
 		public const int T2F_IUI_N3F_V3F_EXT = 0x81B4;

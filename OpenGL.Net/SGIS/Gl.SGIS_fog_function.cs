@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FOG_FUNC_SGIS symbol.
+		/// [GL] Value of GL_FOG_FUNC_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_fog_function")]
 		public const int FOG_FUNC_SGIS = 0x812A;
 
 		/// <summary>
-		/// Value of GL_FOG_FUNC_POINTS_SGIS symbol.
+		/// [GL] Value of GL_FOG_FUNC_POINTS_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_fog_function")]
 		public const int FOG_FUNC_POINTS_SGIS = 0x812B;
 
 		/// <summary>
-		/// Value of GL_MAX_FOG_FUNC_POINTS_SGIS symbol.
+		/// [GL] Value of GL_MAX_FOG_FUNC_POINTS_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_fog_function")]
 		public const int MAX_FOG_FUNC_POINTS_SGIS = 0x812C;

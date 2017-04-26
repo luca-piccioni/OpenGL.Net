@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BLEND_ADVANCED_COHERENT_KHR symbol.
+		/// [GL] Value of GL_BLEND_ADVANCED_COHERENT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_KHR_blend_equation_advanced_coherent", Api = "gl|glcore|gles2")]
 		public const int BLEND_ADVANCED_COHERENT_KHR = 0x9285;

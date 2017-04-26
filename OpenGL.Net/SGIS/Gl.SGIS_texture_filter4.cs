@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FILTER4_SGIS symbol.
+		/// [GL] Value of GL_FILTER4_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public const int FILTER4_SGIS = 0x8146;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FILTER4_SIZE_SGIS symbol.
+		/// [GL] Value of GL_TEXTURE_FILTER4_SIZE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public const int TEXTURE_FILTER4_SIZE_SGIS = 0x8147;

@@ -29,91 +29,91 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FLOAT_R_NV symbol.
+		/// [GL] Value of GL_FLOAT_R_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_R_NV = 0x8880;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RG_NV symbol.
+		/// [GL] Value of GL_FLOAT_RG_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RG_NV = 0x8881;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGB_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGB_NV = 0x8882;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGBA_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGBA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGBA_NV = 0x8883;
 
 		/// <summary>
-		/// Value of GL_FLOAT_R16_NV symbol.
+		/// [GL] Value of GL_FLOAT_R16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_R16_NV = 0x8884;
 
 		/// <summary>
-		/// Value of GL_FLOAT_R32_NV symbol.
+		/// [GL] Value of GL_FLOAT_R32_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_R32_NV = 0x8885;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RG16_NV symbol.
+		/// [GL] Value of GL_FLOAT_RG16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RG16_NV = 0x8886;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RG32_NV symbol.
+		/// [GL] Value of GL_FLOAT_RG32_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RG32_NV = 0x8887;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGB16_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGB16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGB16_NV = 0x8888;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGB32_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGB32_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGB32_NV = 0x8889;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGBA16_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGBA16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGBA16_NV = 0x888A;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGBA32_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGBA32_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGBA32_NV = 0x888B;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FLOAT_COMPONENTS_NV symbol.
+		/// [GL] Value of GL_TEXTURE_FLOAT_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int TEXTURE_FLOAT_COMPONENTS_NV = 0x888C;
 
 		/// <summary>
-		/// Value of GL_FLOAT_CLEAR_COLOR_VALUE_NV symbol.
+		/// [GL] Value of GL_FLOAT_CLEAR_COLOR_VALUE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_CLEAR_COLOR_VALUE_NV = 0x888D;
 
 		/// <summary>
-		/// Value of GL_FLOAT_RGBA_MODE_NV symbol.
+		/// [GL] Value of GL_FLOAT_RGBA_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_float_buffer")]
 		public const int FLOAT_RGBA_MODE_NV = 0x888E;

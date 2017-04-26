@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_10_10_10_2_OES symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_10_10_10_2_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_vertex_type_10_10_10_2", Api = "gles2")]
 		public const int UNSIGNED_INT_10_10_10_2_OES = 0x8DF6;
 
 		/// <summary>
-		/// Value of GL_INT_10_10_10_2_OES symbol.
+		/// [GL] Value of GL_INT_10_10_10_2_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_vertex_type_10_10_10_2", Api = "gles2")]
 		public const int INT_10_10_10_2_OES = 0x8DF7;

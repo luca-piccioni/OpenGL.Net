@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_PRECLIP_SGIX symbol.
+		/// [GL] Value of GL_VERTEX_PRECLIP_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_vertex_preclip")]
 		public const int VERTEX_PRECLIP_SGIX = 0x83EE;
 
 		/// <summary>
-		/// Value of GL_VERTEX_PRECLIP_HINT_SGIX symbol.
+		/// [GL] Value of GL_VERTEX_PRECLIP_HINT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_vertex_preclip")]
 		public const int VERTEX_PRECLIP_HINT_SGIX = 0x83EF;

@@ -29,14 +29,14 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ATTRIB_STRIDE symbol.
+		/// [GL] Value of GL_MAX_VERTEX_ATTRIB_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED symbol.
+		/// [GL] Value of GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED symbol.
 		/// </summary>
 		[AliasOf("GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED_OES")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -46,8 +46,9 @@ namespace OpenGL
 		public const int PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED = 0x8221;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target Gl.TEXTURE_BUFFER. If 
-		/// no buffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// Gl.TEXTURE_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_BINDING_EXT")]
 		[AliasOf("GL_TEXTURE_BUFFER_BINDING_OES")]
@@ -58,7 +59,7 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER_BINDING = 0x8C2A;
 
 		/// <summary>
-		/// Value of GL_MAP_PERSISTENT_BIT symbol.
+		/// [GL] Value of GL_MAP_PERSISTENT_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_PERSISTENT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -68,7 +69,7 @@ namespace OpenGL
 		public const int MAP_PERSISTENT_BIT = 0x0040;
 
 		/// <summary>
-		/// Value of GL_MAP_COHERENT_BIT symbol.
+		/// [GL] Value of GL_MAP_COHERENT_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_COHERENT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -78,7 +79,7 @@ namespace OpenGL
 		public const int MAP_COHERENT_BIT = 0x0080;
 
 		/// <summary>
-		/// Value of GL_DYNAMIC_STORAGE_BIT symbol.
+		/// [GL] Value of GL_DYNAMIC_STORAGE_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_DYNAMIC_STORAGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -88,7 +89,7 @@ namespace OpenGL
 		public const int DYNAMIC_STORAGE_BIT = 0x0100;
 
 		/// <summary>
-		/// Value of GL_CLIENT_STORAGE_BIT symbol.
+		/// [GL] Value of GL_CLIENT_STORAGE_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_CLIENT_STORAGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -98,7 +99,7 @@ namespace OpenGL
 		public const int CLIENT_STORAGE_BIT = 0x0200;
 
 		/// <summary>
-		/// Value of GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT symbol.
+		/// [GL] Value of GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -108,8 +109,8 @@ namespace OpenGL
 		public const uint CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x00004000;
 
 		/// <summary>
-		/// Gl.GetBufferParameter: params returns a boolean flag indicating whether the buffer object is immutable. The initial 
-		/// value is Gl.FALSE.
+		/// [GL4] Gl.GetBufferParameter: params returns a boolean flag indicating whether the buffer object is immutable. The 
+		/// initial value is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_BUFFER_IMMUTABLE_STORAGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -118,7 +119,7 @@ namespace OpenGL
 		public const int BUFFER_IMMUTABLE_STORAGE = 0x821F;
 
 		/// <summary>
-		/// Gl.GetBufferParameter: params returns a bitfield indicating the storage flags for the buffer object. If the buffer 
+		/// [GL4] Gl.GetBufferParameter: params returns a bitfield indicating the storage flags for the buffer object. If the buffer 
 		/// object is immutable, the value returned will be that specified when the data store was established with glBufferStorage. 
 		/// If the data store was established with glBufferData, the value will be Gl.MAP_READ_BIT | Gl.MAP_WRITE_BIT | 
 		/// Gl.DYNAMIC_STORAGE_BIT | Gl.MAP_WRITE_BIT. The initial value is zero.
@@ -130,35 +131,35 @@ namespace OpenGL
 		public const int BUFFER_STORAGE_FLAGS = 0x8220;
 
 		/// <summary>
-		/// Value of GL_CLEAR_TEXTURE symbol.
+		/// [GL] Value of GL_CLEAR_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		public const int CLEAR_TEXTURE = 0x9365;
 
 		/// <summary>
-		/// Value of GL_LOCATION_COMPONENT symbol.
+		/// [GL] Value of GL_LOCATION_COMPONENT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
 		public const int LOCATION_COMPONENT = 0x934A;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_INDEX symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BUFFER_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_INDEX = 0x934B;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
 
 		/// <summary>
-		/// Value of GL_QUERY_BUFFER symbol.
+		/// [GL] Value of GL_QUERY_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_BUFFER_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -167,7 +168,7 @@ namespace OpenGL
 		public const int QUERY_BUFFER = 0x9192;
 
 		/// <summary>
-		/// Value of GL_QUERY_BUFFER_BARRIER_BIT symbol.
+		/// [GL] Value of GL_QUERY_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
@@ -175,7 +176,7 @@ namespace OpenGL
 		public const uint QUERY_BUFFER_BARRIER_BIT = 0x00008000;
 
 		/// <summary>
-		/// Value of GL_QUERY_BUFFER_BINDING symbol.
+		/// [GL] Value of GL_QUERY_BUFFER_BINDING symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_BUFFER_BINDING_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -184,9 +185,9 @@ namespace OpenGL
 		public const int QUERY_BUFFER_BINDING = 0x9193;
 
 		/// <summary>
-		/// Gl.GetQueryObject: If the result of the query is available (that is, a query of Gl.QUERY_RESULT_AVAILABLE would return 
-		/// non-zero), then params returns the value of the query object's passed samples counter, otherwise, the data referred to 
-		/// by params is not modified. The initial value is 0.
+		/// [GL4] Gl.GetQueryObject: If the result of the query is available (that is, a query of Gl.QUERY_RESULT_AVAILABLE would 
+		/// return non-zero), then params returns the value of the query object's passed samples counter, otherwise, the data 
+		/// referred to by params is not modified. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -195,7 +196,7 @@ namespace OpenGL
 		public const int QUERY_RESULT_NO_WAIT = 0x9194;
 
 		/// <summary>
-		/// Value of GL_MIRROR_CLAMP_TO_EDGE symbol.
+		/// [GL] Value of GL_MIRROR_CLAMP_TO_EDGE symbol.
 		/// </summary>
 		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_ATI")]
 		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_EXT")]

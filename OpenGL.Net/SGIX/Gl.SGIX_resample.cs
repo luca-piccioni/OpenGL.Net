@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_RESAMPLE_SGIX symbol.
+		/// [GL] Value of GL_PACK_RESAMPLE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_resample")]
 		public const int PACK_RESAMPLE_SGIX = 0x842E;
 
 		/// <summary>
-		/// Value of GL_UNPACK_RESAMPLE_SGIX symbol.
+		/// [GL] Value of GL_UNPACK_RESAMPLE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_resample")]
 		public const int UNPACK_RESAMPLE_SGIX = 0x842F;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_REPLICATE_SGIX symbol.
+		/// [GL] Value of GL_RESAMPLE_REPLICATE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_resample")]
 		public const int RESAMPLE_REPLICATE_SGIX = 0x8433;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_ZERO_FILL_SGIX symbol.
+		/// [GL] Value of GL_RESAMPLE_ZERO_FILL_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_resample")]
 		public const int RESAMPLE_ZERO_FILL_SGIX = 0x8434;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_DECIMATE_SGIX symbol.
+		/// [GL] Value of GL_RESAMPLE_DECIMATE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_resample")]
 		public const int RESAMPLE_DECIMATE_SGIX = 0x8430;

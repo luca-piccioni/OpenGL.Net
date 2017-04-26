@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DOT_PRODUCT_TEXTURE_3D_NV symbol.
+		/// [GL] Value of GL_DOT_PRODUCT_TEXTURE_3D_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_shader2")]
 		public const int DOT_PRODUCT_TEXTURE_3D_NV = 0x86EF;

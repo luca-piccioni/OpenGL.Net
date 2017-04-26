@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_GEOMETRY_LINKED_VERTICES_OUT_EXT symbol.
+		/// [GL] Value of GL_GEOMETRY_LINKED_VERTICES_OUT_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_GEOMETRY_LINKED_VERTICES_OUT_OES")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int GEOMETRY_LINKED_VERTICES_OUT_EXT = 0x8916;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_LINKED_INPUT_TYPE_EXT symbol.
+		/// [GL] Value of GL_GEOMETRY_LINKED_INPUT_TYPE_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_GEOMETRY_LINKED_INPUT_TYPE_OES")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
@@ -45,7 +45,7 @@ namespace OpenGL
 		public const int GEOMETRY_LINKED_INPUT_TYPE_EXT = 0x8917;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT symbol.
+		/// [GL] Value of GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_GEOMETRY_LINKED_OUTPUT_TYPE_OES")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT_EXT symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		public const int COLOR_ATTACHMENT_EXT = 0x90F0;
 
 		/// <summary>
-		/// Value of GL_MULTIVIEW_EXT symbol.
+		/// [GL] Value of GL_MULTIVIEW_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		public const int MULTIVIEW_EXT = 0x90F1;
 
 		/// <summary>
-		/// Value of GL_MAX_MULTIVIEW_BUFFERS_EXT symbol.
+		/// [GL] Value of GL_MAX_MULTIVIEW_BUFFERS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		public const int MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;

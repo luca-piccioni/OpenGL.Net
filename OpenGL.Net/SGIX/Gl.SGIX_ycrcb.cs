@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_YCRCB_422_SGIX symbol.
+		/// [GL] Value of GL_YCRCB_422_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_ycrcb")]
 		public const int YCRCB_422_SGIX = 0x81BB;
 
 		/// <summary>
-		/// Value of GL_YCRCB_444_SGIX symbol.
+		/// [GL] Value of GL_YCRCB_444_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_ycrcb")]
 		public const int YCRCB_444_SGIX = 0x81BC;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_POLYGON_OFFSET_EXT symbol.
+		/// [GL] Value of GL_POLYGON_OFFSET_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_polygon_offset")]
 		public const int POLYGON_OFFSET_EXT = 0x8037;
 
 		/// <summary>
-		/// Value of GL_POLYGON_OFFSET_BIAS_EXT symbol.
+		/// [GL] Value of GL_POLYGON_OFFSET_BIAS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_polygon_offset")]
 		public const int POLYGON_OFFSET_BIAS_EXT = 0x8039;

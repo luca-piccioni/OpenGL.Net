@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DOT3_RGB_EXT symbol.
+		/// [GL] Value of GL_DOT3_RGB_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_env_dot3")]
 		public const int DOT3_RGB_EXT = 0x8740;
 
 		/// <summary>
-		/// Value of GL_DOT3_RGBA_EXT symbol.
+		/// [GL] Value of GL_DOT3_RGBA_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_env_dot3")]
 		public const int DOT3_RGBA_EXT = 0x8741;

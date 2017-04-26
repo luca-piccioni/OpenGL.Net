@@ -29,16 +29,32 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: data returns a single boolean value indicating whether a fragment's RGBA color values are merged into the 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single boolean value indicating whether a fragment's RGBA color values are merged into the 
 		/// framebuffer using a logical operation. The initial value is Gl.FALSE. See Gl.LogicOp.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Enable: If enabled, apply the currently selected logical operation to the computed fragment color and color 
+		/// buffer values. See Gl.LogicOp.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether logical operation on color values is enabled. 
+		/// The initial value is Gl.FALSE. See Gl.LogicOp.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int COLOR_LOGIC_OP = 0x0BF2;
 
 		/// <summary>
-		/// Gl.Get: data returns one value. This value is multiplied by an implementation-specific value and then added to the depth 
-		/// value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value. This value is multiplied by an implementation-specific value and then added to the 
+		/// depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value. This value is multiplied by an implementation-specific value and then added to 
+		/// the depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -46,8 +62,8 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_UNITS = 0x2A00;
 
 		/// <summary>
-		/// Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in point mode. The 
-		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// [GL4] Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in point 
+		/// mode. The initial value is Gl.FALSE. See Gl.PolygonOffset.
 		/// </summary>
 		[AliasOf("GL_POLYGON_OFFSET_POINT_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -55,8 +71,8 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_POINT = 0x2A01;
 
 		/// <summary>
-		/// Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in line mode. The 
-		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// [GL4] Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in line 
+		/// mode. The initial value is Gl.FALSE. See Gl.PolygonOffset.
 		/// </summary>
 		[AliasOf("GL_POLYGON_OFFSET_LINE_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -64,8 +80,14 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_LINE = 0x2A02;
 
 		/// <summary>
-		/// Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in fill mode. The 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in fill 
+		/// mode. The initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons. The 
 		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -73,8 +95,14 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_FILL = 0x8037;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the scaling factor used to determine the variable offset that is added to the depth 
-		/// value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the scaling factor used to determine the variable offset that is added to the 
+		/// depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the scaling factor used to determine the variable offset that is added to the 
+		/// depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_POLYGON_OFFSET_FACTOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -84,8 +112,8 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_FACTOR = 0x8038;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_1D. The initial 
-		/// value is 0. See Gl.BindTexture.
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_1D. The 
+		/// initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -93,8 +121,14 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_1D = 0x8068;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D. The initial 
-		/// value is 0. See Gl.BindTexture.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D. The 
+		/// initial value is 0. See Gl.BindTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D. The 
+		/// initial value is 0. See Gl.BindTexture.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -104,16 +138,26 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D = 0x8069;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
+		/// <para>
+		/// [GL4] Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int TEXTURE_INTERNAL_FORMAT = 0x1003;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: The internal storage resolution of an individual component. The resolution chosen by the GL 
-		/// will be a close match for the resolution requested by the user with the component argument of Gl.TexImage1D, 
+		/// <para>
+		/// [GL4] Gl.GetTexLevelParameter: The internal storage resolution of an individual component. The resolution chosen by the 
+		/// GL will be a close match for the resolution requested by the user with the component argument of Gl.TexImage1D, 
 		/// Gl.TexImage2D, Gl.TexImage3D, Gl.CopyTexImage1D, and Gl.CopyTexImage2D. The initial value is 0.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexLevelParameter: The actual internal storage resolution of an individual component.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -122,7 +166,7 @@ namespace OpenGL
 		public const int TEXTURE_RED_SIZE = 0x805C;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: 
+		/// [GL2.1] Gl.GetTexLevelParameter: 
 		/// </summary>
 		[AliasOf("GL_TEXTURE_GREEN_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -131,7 +175,7 @@ namespace OpenGL
 		public const int TEXTURE_GREEN_SIZE = 0x805D;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: 
+		/// [GL2.1] Gl.GetTexLevelParameter: 
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BLUE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -140,7 +184,7 @@ namespace OpenGL
 		public const int TEXTURE_BLUE_SIZE = 0x805E;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: 
+		/// [GL2.1] Gl.GetTexLevelParameter: 
 		/// </summary>
 		[AliasOf("GL_TEXTURE_ALPHA_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -149,7 +193,7 @@ namespace OpenGL
 		public const int TEXTURE_ALPHA_SIZE = 0x805F;
 
 		/// <summary>
-		/// Value of GL_DOUBLE symbol.
+		/// [GL] Value of GL_DOUBLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -157,7 +201,7 @@ namespace OpenGL
 		public const int DOUBLE = 0x140A;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_1D symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_1D symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_TEXTURE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -165,7 +209,7 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_1D = 0x8063;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_2D symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_2D symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_TEXTURE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -173,13 +217,13 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_2D = 0x8064;
 
 		/// <summary>
-		/// Value of GL_R3_G3_B2 symbol.
+		/// [GL] Value of GL_R3_G3_B2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int R3_G3_B2 = 0x2A10;
 
 		/// <summary>
-		/// Value of GL_RGB4 symbol.
+		/// [GL] Value of GL_RGB4 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -187,7 +231,7 @@ namespace OpenGL
 		public const int RGB4 = 0x804F;
 
 		/// <summary>
-		/// Value of GL_RGB5 symbol.
+		/// [GL] Value of GL_RGB5 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB5_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -195,7 +239,7 @@ namespace OpenGL
 		public const int RGB5 = 0x8050;
 
 		/// <summary>
-		/// Value of GL_RGB8 symbol.
+		/// [GL] Value of GL_RGB8 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB8_EXT")]
 		[AliasOf("GL_RGB8_OES")]
@@ -207,7 +251,7 @@ namespace OpenGL
 		public const int RGB8 = 0x8051;
 
 		/// <summary>
-		/// Value of GL_RGB10 symbol.
+		/// [GL] Value of GL_RGB10 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB10_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -217,7 +261,7 @@ namespace OpenGL
 		public const int RGB10 = 0x8052;
 
 		/// <summary>
-		/// Value of GL_RGB12 symbol.
+		/// [GL] Value of GL_RGB12 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -225,7 +269,7 @@ namespace OpenGL
 		public const int RGB12 = 0x8053;
 
 		/// <summary>
-		/// Value of GL_RGB16 symbol.
+		/// [GL] Value of GL_RGB16 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -234,7 +278,7 @@ namespace OpenGL
 		public const int RGB16 = 0x8054;
 
 		/// <summary>
-		/// Value of GL_RGBA2 symbol.
+		/// [GL] Value of GL_RGBA2 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -242,7 +286,7 @@ namespace OpenGL
 		public const int RGBA2 = 0x8055;
 
 		/// <summary>
-		/// Value of GL_RGBA4 symbol.
+		/// [GL] Value of GL_RGBA4 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA4_EXT")]
 		[AliasOf("GL_RGBA4_OES")]
@@ -254,7 +298,7 @@ namespace OpenGL
 		public const int RGBA4 = 0x8056;
 
 		/// <summary>
-		/// Value of GL_RGB5_A1 symbol.
+		/// [GL] Value of GL_RGB5_A1 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB5_A1_EXT")]
 		[AliasOf("GL_RGB5_A1_OES")]
@@ -266,7 +310,7 @@ namespace OpenGL
 		public const int RGB5_A1 = 0x8057;
 
 		/// <summary>
-		/// Value of GL_RGBA8 symbol.
+		/// [GL] Value of GL_RGBA8 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA8_EXT")]
 		[AliasOf("GL_RGBA8_OES")]
@@ -278,7 +322,7 @@ namespace OpenGL
 		public const int RGBA8 = 0x8058;
 
 		/// <summary>
-		/// Value of GL_RGB10_A2 symbol.
+		/// [GL] Value of GL_RGB10_A2 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB10_A2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -289,7 +333,7 @@ namespace OpenGL
 		public const int RGB10_A2 = 0x8059;
 
 		/// <summary>
-		/// Value of GL_RGBA12 symbol.
+		/// [GL] Value of GL_RGBA12 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -297,7 +341,7 @@ namespace OpenGL
 		public const int RGBA12 = 0x805A;
 
 		/// <summary>
-		/// Value of GL_RGBA16 symbol.
+		/// [GL] Value of GL_RGBA16 symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -306,7 +350,7 @@ namespace OpenGL
 		public const int RGBA16 = 0x805B;
 
 		/// <summary>
-		/// Value of GL_CLIENT_PIXEL_STORE_BIT symbol (DEPRECATED).
+		/// [GL] Value of GL_CLIENT_PIXEL_STORE_BIT symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -314,7 +358,7 @@ namespace OpenGL
 		public const uint CLIENT_PIXEL_STORE_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_CLIENT_VERTEX_ARRAY_BIT symbol (DEPRECATED).
+		/// [GL] Value of GL_CLIENT_VERTEX_ARRAY_BIT symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -322,7 +366,7 @@ namespace OpenGL
 		public const uint CLIENT_VERTEX_ARRAY_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_CLIENT_ALL_ATTRIB_BITS symbol (DEPRECATED).
+		/// [GL] Value of GL_CLIENT_ALL_ATTRIB_BITS symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -330,7 +374,7 @@ namespace OpenGL
 		public const uint CLIENT_ALL_ATTRIB_BITS = 0xFFFFFFFF;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_VERTEX_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -340,7 +384,7 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_POINTER = 0x808E;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_NORMAL_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -350,7 +394,7 @@ namespace OpenGL
 		public const int NORMAL_ARRAY_POINTER = 0x808F;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_COLOR_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -360,7 +404,7 @@ namespace OpenGL
 		public const int COLOR_ARRAY_POINTER = 0x8090;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_INDEX_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_INDEX_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -369,7 +413,7 @@ namespace OpenGL
 		public const int INDEX_ARRAY_POINTER = 0x8091;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -379,7 +423,7 @@ namespace OpenGL
 		public const int TEXTURE_COORD_ARRAY_POINTER = 0x8092;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_EDGE_FLAG_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_EDGE_FLAG_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -388,21 +432,21 @@ namespace OpenGL
 		public const int EDGE_FLAG_ARRAY_POINTER = 0x8093;
 
 		/// <summary>
-		/// Value of GL_FEEDBACK_BUFFER_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_FEEDBACK_BUFFER_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int FEEDBACK_BUFFER_POINTER = 0x0DF0;
 
 		/// <summary>
-		/// Value of GL_SELECTION_BUFFER_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_SELECTION_BUFFER_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int SELECTION_BUFFER_POINTER = 0x0DF3;
 
 		/// <summary>
-		/// Gl.Get: params returns one value indicating the depth of the attribute stack. The initial value is 0. See 
+		/// [GL2.1] Gl.Get: params returns one value indicating the depth of the attribute stack. The initial value is 0. See 
 		/// Gl.PushClientAttrib.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -411,11 +455,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, apply the currently selected logical operation to the incoming index and color buffer indices. 
-		/// See Gl.LogicOp.
+		/// [GL2.1] Gl.Enable: If enabled, apply the currently selected logical operation to the incoming index and color buffer 
+		/// indices. See Gl.LogicOp.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether a fragment's index values are merged into the 
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether a fragment's index values are merged into the 
 		/// framebuffer using a logical operation. The initial value is Gl.FALSE. See Gl.LogicOp.
 		/// </para>
 		/// </summary>
@@ -424,7 +468,7 @@ namespace OpenGL
 		public const int INDEX_LOGIC_OP = 0x0BF1;
 
 		/// <summary>
-		/// Gl.Get: params returns one value indicating the maximum supported depth of the client attribute stack. See 
+		/// [GL2.1] Gl.Get: params returns one value indicating the maximum supported depth of the client attribute stack. See 
 		/// Gl.PushClientAttrib.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -432,21 +476,21 @@ namespace OpenGL
 		public const int MAX_CLIENT_ATTRIB_STACK_DEPTH = 0x0D3B;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the size of the feedback buffer. See Gl.FeedbackBuffer.
+		/// [GL2.1] Gl.Get: params returns one value, the size of the feedback buffer. See Gl.FeedbackBuffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int FEEDBACK_BUFFER_SIZE = 0x0DF1;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the type of the feedback buffer. See Gl.FeedbackBuffer.
+		/// [GL2.1] Gl.Get: params returns one value, the type of the feedback buffer. See Gl.FeedbackBuffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int FEEDBACK_BUFFER_TYPE = 0x0DF2;
 
 		/// <summary>
-		/// Gl.Get: params return one value, the size of the selection buffer. See Gl.SelectBuffer.
+		/// [GL2.1] Gl.Get: params return one value, the size of the selection buffer. See Gl.SelectBuffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -454,13 +498,21 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the vertex array is enabled for writing and used during rendering when 
+		/// [GL2.1] Gl.EnableClientState: If enabled, the vertex array is enabled for writing and used during rendering when 
 		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
 		/// called. See Gl.VertexPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the vertex array is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.VertexPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the vertex array is enabled. The initial value 
+		/// is Gl.FALSE. See Gl.VertexPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.EnableClientState: If enabled, the vertex array is enabled for writing and used during rendering when 
+		/// Gl.DrawArrays, or Gl.DrawElements is called. See Gl.VertexPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether the vertex array is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.VertexPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_EXT")]
@@ -477,13 +529,21 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the normal array is enabled for writing and used during rendering when 
+		/// [GL2.1] Gl.EnableClientState: If enabled, the normal array is enabled for writing and used during rendering when 
 		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
 		/// called. See Gl.NormalPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value, indicating whether the normal array is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.NormalPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value, indicating whether the normal array is enabled. The initial value 
+		/// is Gl.FALSE. See Gl.NormalPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.EnableClientState: If enabled, the normal array is enabled for writing and used during rendering when 
+		/// Gl.DrawArrays, or Gl.DrawElements is called. See Gl.NormalPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether the normal array is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.NormalPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_EXT")]
@@ -495,13 +555,21 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the color array is enabled for writing and used during rendering when Gl.ArrayElement, 
-		/// Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is called. See 
-		/// Gl.ColorPointer.
+		/// [GL2.1] Gl.EnableClientState: If enabled, the color array is enabled for writing and used during rendering when 
+		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
+		/// called. See Gl.ColorPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the color array is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.ColorPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the color array is enabled. The initial value 
+		/// is Gl.FALSE. See Gl.ColorPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.EnableClientState: If enabled, the color array is enabled for writing and used during rendering when 
+		/// Gl.DrawArrays, or Gl.DrawElements is called. See Gl.ColorPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether the color array is enabled. The initial value 
+		/// is Gl.FALSE. See Gl.ColorPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_EXT")]
@@ -513,13 +581,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the index array is enabled for writing and used during rendering when Gl.ArrayElement, 
-		/// Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is called. See 
-		/// Gl.IndexPointer.
+		/// [GL2.1] Gl.EnableClientState: If enabled, the index array is enabled for writing and used during rendering when 
+		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
+		/// called. See Gl.IndexPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the color index array is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.IndexPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the color index array is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.IndexPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_INDEX_ARRAY_EXT")]
@@ -530,13 +598,21 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the texture coordinate array is enabled for writing and used during rendering when 
-		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
+		/// [GL2.1] Gl.EnableClientState: If enabled, the texture coordinate array is enabled for writing and used during rendering 
+		/// when Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
 		/// called. See Gl.TexCoordPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the texture coordinate array is enabled. The initial 
-		/// value is Gl.FALSE. See Gl.TexCoordPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the texture coordinate array is enabled. The 
+		/// initial value is Gl.FALSE. See Gl.TexCoordPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.EnableClientState: If enabled, the texture coordinate array is enabled for writing and used during 
+		/// rendering when Gl.DrawArrays, or Gl.DrawElements is called. See Gl.TexCoordPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether the texture coordinate array is enabled. The 
+		/// initial value is Gl.FALSE. See Gl.TexCoordPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_EXT")]
@@ -548,13 +624,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the edge flag array is enabled for writing and used during rendering when 
+		/// [GL2.1] Gl.EnableClientState: If enabled, the edge flag array is enabled for writing and used during rendering when 
 		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
 		/// called. See Gl.EdgeFlagPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the edge flag array is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.EdgeFlagPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the edge flag array is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.EdgeFlagPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_EDGE_FLAG_ARRAY_EXT")]
@@ -564,8 +640,13 @@ namespace OpenGL
 		public const int EDGE_FLAG_ARRAY = 0x8079;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the number of coordinates per vertex in the vertex array. The initial value is 4. See 
-		/// Gl.VertexPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the number of coordinates per vertex in the vertex array. The initial value is 
+		/// 4. See Gl.VertexPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, number of coordinates per vertex in the vertex array. See Gl.VertexPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -575,8 +656,14 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_SIZE = 0x807A;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of each coordinate in the vertex array. The initial value is Gl.FLOAT. 
-		/// See Gl.VertexPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the data type of each coordinate in the vertex array. The initial value is 
+		/// Gl.FLOAT. See Gl.VertexPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, returns the data type of each coordinate in the vertex array. See 
+		/// Gl.VertexPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -586,8 +673,14 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_TYPE = 0x807B;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive vertices in the vertex array. The initial value is 
-		/// 0. See Gl.VertexPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive vertices in the vertex array. The initial 
+		/// value is 0. See Gl.VertexPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the byte offset between consecutive vertexes in the vertex array. See 
+		/// Gl.VertexPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -597,8 +690,13 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_STRIDE = 0x807C;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of each coordinate in the normal array. The initial value is Gl.FLOAT. 
-		/// See Gl.NormalPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the data type of each coordinate in the normal array. The initial value is 
+		/// Gl.FLOAT. See Gl.NormalPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the data type of each normal in the normal array. See Gl.NormalPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -608,8 +706,14 @@ namespace OpenGL
 		public const int NORMAL_ARRAY_TYPE = 0x807E;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive normals in the normal array. The initial value is 
-		/// 0. See Gl.NormalPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive normals in the normal array. The initial 
+		/// value is 0. See Gl.NormalPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the byte offset between consective normals in the normal array. See 
+		/// Gl.NormalPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -619,8 +723,13 @@ namespace OpenGL
 		public const int NORMAL_ARRAY_STRIDE = 0x807F;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the number of components per color in the color array. The initial value is 4. See 
-		/// Gl.ColorPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the number of components per color in the color array. The initial value is 4. 
+		/// See Gl.ColorPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the number of components per color in the color array. See Gl.ColorPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -630,8 +739,14 @@ namespace OpenGL
 		public const int COLOR_ARRAY_SIZE = 0x8081;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of each component in the color array. The initial value is Gl.FLOAT. See 
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the data type of each component in the color array. The initial value is 
+		/// Gl.FLOAT. See Gl.ColorPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, returns the data type of each component in the color array. See 
 		/// Gl.ColorPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -641,8 +756,14 @@ namespace OpenGL
 		public const int COLOR_ARRAY_TYPE = 0x8082;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive colors in the color array. The initial value is 0. 
-		/// See Gl.ColorPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive colors in the color array. The initial 
+		/// value is 0. See Gl.ColorPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the byte offset between consecutive colors in the color array. See 
+		/// Gl.ColorPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -652,8 +773,8 @@ namespace OpenGL
 		public const int COLOR_ARRAY_STRIDE = 0x8083;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of indexes in the color index array. The initial value is Gl.FLOAT. See 
-		/// Gl.IndexPointer.
+		/// [GL2.1] Gl.Get: params returns one value, the data type of indexes in the color index array. The initial value is 
+		/// Gl.FLOAT. See Gl.IndexPointer.
 		/// </summary>
 		[AliasOf("GL_INDEX_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -662,8 +783,8 @@ namespace OpenGL
 		public const int INDEX_ARRAY_TYPE = 0x8085;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive color indexes in the color index array. The 
-		/// initial value is 0. See Gl.IndexPointer.
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive color indexes in the color index array. 
+		/// The initial value is 0. See Gl.IndexPointer.
 		/// </summary>
 		[AliasOf("GL_INDEX_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -672,8 +793,14 @@ namespace OpenGL
 		public const int INDEX_ARRAY_STRIDE = 0x8086;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the number of coordinates per element in the texture coordinate array. The initial 
-		/// value is 4. See Gl.TexCoordPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the number of coordinates per element in the texture coordinate array. The 
+		/// initial value is 4. See Gl.TexCoordPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the number of coordinates per element in the texture coordinate array. See 
+		/// Gl.TexCoordPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -683,8 +810,14 @@ namespace OpenGL
 		public const int TEXTURE_COORD_ARRAY_SIZE = 0x8088;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of the coordinates in the texture coordinate array. The initial value is 
-		/// Gl.FLOAT. See Gl.TexCoordPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the data type of the coordinates in the texture coordinate array. The initial 
+		/// value is Gl.FLOAT. See Gl.TexCoordPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, returns the data type of each coordinate in the texture coordinate array. 
+		/// See Gl.TexCoordPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -694,8 +827,14 @@ namespace OpenGL
 		public const int TEXTURE_COORD_ARRAY_TYPE = 0x8089;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive elements in the texture coordinate array. The 
-		/// initial value is 0. See Gl.TexCoordPointer.
+		/// <para>
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive elements in the texture coordinate array. 
+		/// The initial value is 0. See Gl.TexCoordPointer.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the byte offset between consecutive elements in the texture coordinate 
+		/// array. See Gl.TexCoordPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -705,8 +844,8 @@ namespace OpenGL
 		public const int TEXTURE_COORD_ARRAY_STRIDE = 0x808A;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive edge flags in the edge flag array. The initial 
-		/// value is 0. See Gl.EdgeFlagPointer.
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive edge flags in the edge flag array. The 
+		/// initial value is 0. See Gl.EdgeFlagPointer.
 		/// </summary>
 		[AliasOf("GL_EDGE_FLAG_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -715,7 +854,7 @@ namespace OpenGL
 		public const int EDGE_FLAG_ARRAY_STRIDE = 0x808C;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: 
+		/// [GL2.1] Gl.GetTexLevelParameter: 
 		/// </summary>
 		[AliasOf("GL_TEXTURE_LUMINANCE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -724,7 +863,7 @@ namespace OpenGL
 		public const int TEXTURE_LUMINANCE_SIZE = 0x8060;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: 
+		/// [GL2.1] Gl.GetTexLevelParameter: 
 		/// </summary>
 		[AliasOf("GL_TEXTURE_INTENSITY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -734,12 +873,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: Returns the residence priority of the target texture (or the named texture bound to it). The initial 
-		/// value is 1. See Gl.PrioritizeTextures.
+		/// [GL2.1] Gl.GetTexParameter: Returns the residence priority of the target texture (or the named texture bound to it). The 
+		/// initial value is 1. See Gl.PrioritizeTextures.
 		/// </para>
 		/// <para>
-		/// Gl.TexParameter: Specifies the texture residence priority of the currently bound texture. Permissible values are in the 
-		/// range 01. See Gl.PrioritizeTextures and Gl.BindTexture for more information.
+		/// [GL2.1] Gl.TexParameter: Specifies the texture residence priority of the currently bound texture. Permissible values are 
+		/// in the range 01. See Gl.PrioritizeTextures and Gl.BindTexture for more information.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_PRIORITY_EXT")]
@@ -749,8 +888,8 @@ namespace OpenGL
 		public const int TEXTURE_PRIORITY = 0x8066;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns the residence status of the target texture. If the value returned in params is Gl.TRUE, the 
-		/// texture is resident in texture memory. See Gl.AreTexturesResident.
+		/// [GL2.1] Gl.GetTexParameter: Returns the residence status of the target texture. If the value returned in params is 
+		/// Gl.TRUE, the texture is resident in texture memory. See Gl.AreTexturesResident.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_RESIDENT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -759,7 +898,7 @@ namespace OpenGL
 		public const int TEXTURE_RESIDENT = 0x8067;
 
 		/// <summary>
-		/// Value of GL_ALPHA4 symbol (DEPRECATED).
+		/// [GL] Value of GL_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_ALPHA4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -768,7 +907,7 @@ namespace OpenGL
 		public const int ALPHA4 = 0x803B;
 
 		/// <summary>
-		/// Value of GL_ALPHA8 symbol (DEPRECATED).
+		/// [GL] Value of GL_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_ALPHA8_EXT")]
 		[AliasOf("GL_ALPHA8_OES")]
@@ -780,7 +919,7 @@ namespace OpenGL
 		public const int ALPHA8 = 0x803C;
 
 		/// <summary>
-		/// Value of GL_ALPHA12 symbol (DEPRECATED).
+		/// [GL] Value of GL_ALPHA12 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_ALPHA12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -789,7 +928,7 @@ namespace OpenGL
 		public const int ALPHA12 = 0x803D;
 
 		/// <summary>
-		/// Value of GL_ALPHA16 symbol (DEPRECATED).
+		/// [GL] Value of GL_ALPHA16 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_ALPHA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -798,7 +937,7 @@ namespace OpenGL
 		public const int ALPHA16 = 0x803E;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE4 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE4 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -807,7 +946,7 @@ namespace OpenGL
 		public const int LUMINANCE4 = 0x803F;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE8 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE8_EXT")]
 		[AliasOf("GL_LUMINANCE8_OES")]
@@ -819,7 +958,7 @@ namespace OpenGL
 		public const int LUMINANCE8 = 0x8040;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE12 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE12 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -828,7 +967,7 @@ namespace OpenGL
 		public const int LUMINANCE12 = 0x8041;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE16 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE16 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -837,7 +976,7 @@ namespace OpenGL
 		public const int LUMINANCE16 = 0x8042;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE4_ALPHA4 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE4_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE4_ALPHA4_EXT")]
 		[AliasOf("GL_LUMINANCE4_ALPHA4_OES")]
@@ -848,7 +987,7 @@ namespace OpenGL
 		public const int LUMINANCE4_ALPHA4 = 0x8043;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE6_ALPHA2 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE6_ALPHA2 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE6_ALPHA2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -857,7 +996,7 @@ namespace OpenGL
 		public const int LUMINANCE6_ALPHA2 = 0x8044;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE8_ALPHA8 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE8_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE8_ALPHA8_EXT")]
 		[AliasOf("GL_LUMINANCE8_ALPHA8_OES")]
@@ -869,7 +1008,7 @@ namespace OpenGL
 		public const int LUMINANCE8_ALPHA8 = 0x8045;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE12_ALPHA4 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE12_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE12_ALPHA4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -878,7 +1017,7 @@ namespace OpenGL
 		public const int LUMINANCE12_ALPHA4 = 0x8046;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE12_ALPHA12 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE12_ALPHA12 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE12_ALPHA12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -887,7 +1026,7 @@ namespace OpenGL
 		public const int LUMINANCE12_ALPHA12 = 0x8047;
 
 		/// <summary>
-		/// Value of GL_LUMINANCE16_ALPHA16 symbol (DEPRECATED).
+		/// [GL] Value of GL_LUMINANCE16_ALPHA16 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_LUMINANCE16_ALPHA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -897,22 +1036,22 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.TexImage1D: Each element is a single intensity value. The GL converts it to floating point, then assembles it into an 
-		/// RGBA element by replicating the intensity value three times for red, green, blue, and alpha. Each component is then 
-		/// multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] 
-		/// (see Gl.PixelTransfer).
+		/// [GL2.1] Gl.TexImage1D: Each element is a single intensity value. The GL converts it to floating point, then assembles it 
+		/// into an RGBA element by replicating the intensity value three times for red, green, blue, and alpha. Each component is 
+		/// then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range 
+		/// [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: Each element is a single intensity value. The GL converts it to floating point, then assembles it into an 
-		/// RGBA element by replicating the intensity value three times for red, green, blue, and alpha. Each component is then 
-		/// multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] 
-		/// (see Gl.PixelTransfer).
+		/// [GL2.1] Gl.TexImage2D: Each element is a single intensity value. The GL converts it to floating point, then assembles it 
+		/// into an RGBA element by replicating the intensity value three times for red, green, blue, and alpha. Each component is 
+		/// then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range 
+		/// [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage3D: Each element is a single intensity value. The GL converts it to floating point, then assembles it into an 
-		/// RGBA element by replicating the intensity value three times for red, green, blue, and alpha. Each component is then 
-		/// multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] 
-		/// (see Gl.PixelTransfer).
+		/// [GL2.1] Gl.TexImage3D: Each element is a single intensity value. The GL converts it to floating point, then assembles it 
+		/// into an RGBA element by replicating the intensity value three times for red, green, blue, and alpha. Each component is 
+		/// then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range 
+		/// [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_INTENSITY_EXT")]
@@ -922,7 +1061,7 @@ namespace OpenGL
 		public const int INTENSITY = 0x8049;
 
 		/// <summary>
-		/// Value of GL_INTENSITY4 symbol (DEPRECATED).
+		/// [GL] Value of GL_INTENSITY4 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_INTENSITY4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -931,7 +1070,7 @@ namespace OpenGL
 		public const int INTENSITY4 = 0x804A;
 
 		/// <summary>
-		/// Value of GL_INTENSITY8 symbol (DEPRECATED).
+		/// [GL] Value of GL_INTENSITY8 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_INTENSITY8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -940,7 +1079,7 @@ namespace OpenGL
 		public const int INTENSITY8 = 0x804B;
 
 		/// <summary>
-		/// Value of GL_INTENSITY12 symbol (DEPRECATED).
+		/// [GL] Value of GL_INTENSITY12 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_INTENSITY12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -949,7 +1088,7 @@ namespace OpenGL
 		public const int INTENSITY12 = 0x804C;
 
 		/// <summary>
-		/// Value of GL_INTENSITY16 symbol (DEPRECATED).
+		/// [GL] Value of GL_INTENSITY16 symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_INTENSITY16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -958,98 +1097,98 @@ namespace OpenGL
 		public const int INTENSITY16 = 0x804D;
 
 		/// <summary>
-		/// Value of GL_V2F symbol (DEPRECATED).
+		/// [GL] Value of GL_V2F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int V2F = 0x2A20;
 
 		/// <summary>
-		/// Value of GL_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int V3F = 0x2A21;
 
 		/// <summary>
-		/// Value of GL_C4UB_V2F symbol (DEPRECATED).
+		/// [GL] Value of GL_C4UB_V2F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int C4UB_V2F = 0x2A22;
 
 		/// <summary>
-		/// Value of GL_C4UB_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_C4UB_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int C4UB_V3F = 0x2A23;
 
 		/// <summary>
-		/// Value of GL_C3F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_C3F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int C3F_V3F = 0x2A24;
 
 		/// <summary>
-		/// Value of GL_N3F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_N3F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int N3F_V3F = 0x2A25;
 
 		/// <summary>
-		/// Value of GL_C4F_N3F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_C4F_N3F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int C4F_N3F_V3F = 0x2A26;
 
 		/// <summary>
-		/// Value of GL_T2F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_T2F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int T2F_V3F = 0x2A27;
 
 		/// <summary>
-		/// Value of GL_T4F_V4F symbol (DEPRECATED).
+		/// [GL] Value of GL_T4F_V4F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int T4F_V4F = 0x2A28;
 
 		/// <summary>
-		/// Value of GL_T2F_C4UB_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_T2F_C4UB_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int T2F_C4UB_V3F = 0x2A29;
 
 		/// <summary>
-		/// Value of GL_T2F_C3F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_T2F_C3F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int T2F_C3F_V3F = 0x2A2A;
 
 		/// <summary>
-		/// Value of GL_T2F_N3F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_T2F_N3F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int T2F_N3F_V3F = 0x2A2B;
 
 		/// <summary>
-		/// Value of GL_T2F_C4F_N3F_V3F symbol (DEPRECATED).
+		/// [GL] Value of GL_T2F_C4F_N3F_V3F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int T2F_C4F_N3F_V3F = 0x2A2C;
 
 		/// <summary>
-		/// Value of GL_T4F_C4F_N3F_V4F symbol (DEPRECATED).
+		/// [GL] Value of GL_T4F_C4F_N3F_V4F symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]

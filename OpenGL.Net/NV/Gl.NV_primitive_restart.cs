@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART_NV symbol.
+		/// [GL] Value of GL_PRIMITIVE_RESTART_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_primitive_restart")]
 		public const int PRIMITIVE_RESTART_NV = 0x8558;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART_INDEX_NV symbol.
+		/// [GL] Value of GL_PRIMITIVE_RESTART_INDEX_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_primitive_restart")]
 		public const int PRIMITIVE_RESTART_INDEX_NV = 0x8559;

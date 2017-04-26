@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FOG_DISTANCE_MODE_NV symbol.
+		/// [GL] Value of GL_FOG_DISTANCE_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fog_distance")]
 		public const int FOG_DISTANCE_MODE_NV = 0x855A;
 
 		/// <summary>
-		/// Value of GL_EYE_RADIAL_NV symbol.
+		/// [GL] Value of GL_EYE_RADIAL_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fog_distance")]
 		public const int EYE_RADIAL_NV = 0x855B;
 
 		/// <summary>
-		/// Value of GL_EYE_PLANE_ABSOLUTE_NV symbol.
+		/// [GL] Value of GL_EYE_PLANE_ABSOLUTE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fog_distance")]
 		public const int EYE_PLANE_ABSOLUTE_NV = 0x855C;

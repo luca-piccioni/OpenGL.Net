@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB symbol.
+		/// [GL] Value of GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB = 0x9344;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB symbol.
+		/// [GL] Value of GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 		public const int MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB = 0x9345;

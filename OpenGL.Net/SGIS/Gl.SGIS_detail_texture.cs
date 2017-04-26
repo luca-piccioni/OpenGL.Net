@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DETAIL_TEXTURE_2D_SGIS symbol.
+		/// [GL] Value of GL_DETAIL_TEXTURE_2D_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int DETAIL_TEXTURE_2D_SGIS = 0x8095;
 
 		/// <summary>
-		/// Value of GL_DETAIL_TEXTURE_2D_BINDING_SGIS symbol.
+		/// [GL] Value of GL_DETAIL_TEXTURE_2D_BINDING_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int DETAIL_TEXTURE_2D_BINDING_SGIS = 0x8096;
 
 		/// <summary>
-		/// Value of GL_LINEAR_DETAIL_SGIS symbol.
+		/// [GL] Value of GL_LINEAR_DETAIL_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int LINEAR_DETAIL_SGIS = 0x8097;
 
 		/// <summary>
-		/// Value of GL_LINEAR_DETAIL_ALPHA_SGIS symbol.
+		/// [GL] Value of GL_LINEAR_DETAIL_ALPHA_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int LINEAR_DETAIL_ALPHA_SGIS = 0x8098;
 
 		/// <summary>
-		/// Value of GL_LINEAR_DETAIL_COLOR_SGIS symbol.
+		/// [GL] Value of GL_LINEAR_DETAIL_COLOR_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int LINEAR_DETAIL_COLOR_SGIS = 0x8099;
 
 		/// <summary>
-		/// Value of GL_DETAIL_TEXTURE_LEVEL_SGIS symbol.
+		/// [GL] Value of GL_DETAIL_TEXTURE_LEVEL_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int DETAIL_TEXTURE_LEVEL_SGIS = 0x809A;
 
 		/// <summary>
-		/// Value of GL_DETAIL_TEXTURE_MODE_SGIS symbol.
+		/// [GL] Value of GL_DETAIL_TEXTURE_MODE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int DETAIL_TEXTURE_MODE_SGIS = 0x809B;
 
 		/// <summary>
-		/// Value of GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS symbol.
+		/// [GL] Value of GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public const int DETAIL_TEXTURE_FUNC_POINTS_SGIS = 0x809C;

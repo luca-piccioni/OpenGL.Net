@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG = 0x913C;
 
 		/// <summary>
-		/// Value of GL_NUM_DOWNSAMPLE_SCALES_IMG symbol.
+		/// [GL] Value of GL_NUM_DOWNSAMPLE_SCALES_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
 		public const int NUM_DOWNSAMPLE_SCALES_IMG = 0x913D;
 
 		/// <summary>
-		/// Value of GL_DOWNSAMPLE_SCALES_IMG symbol.
+		/// [GL] Value of GL_DOWNSAMPLE_SCALES_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
 		public const int DOWNSAMPLE_SCALES_IMG = 0x913E;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;

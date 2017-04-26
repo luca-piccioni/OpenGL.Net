@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_EMBOSS_LIGHT_NV symbol.
+		/// [GL] Value of GL_EMBOSS_LIGHT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texgen_emboss")]
 		public const int EMBOSS_LIGHT_NV = 0x855D;
 
 		/// <summary>
-		/// Value of GL_EMBOSS_CONSTANT_NV symbol.
+		/// [GL] Value of GL_EMBOSS_CONSTANT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texgen_emboss")]
 		public const int EMBOSS_CONSTANT_NV = 0x855E;
 
 		/// <summary>
-		/// Value of GL_EMBOSS_MAP_NV symbol.
+		/// [GL] Value of GL_EMBOSS_MAP_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texgen_emboss")]
 		public const int EMBOSS_MAP_NV = 0x855F;

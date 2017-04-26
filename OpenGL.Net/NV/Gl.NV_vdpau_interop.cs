@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SURFACE_STATE_NV symbol.
+		/// [GL] Value of GL_SURFACE_STATE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
 		public const int SURFACE_STATE_NV = 0x86EB;
 
 		/// <summary>
-		/// Value of GL_SURFACE_REGISTERED_NV symbol.
+		/// [GL] Value of GL_SURFACE_REGISTERED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
 		public const int SURFACE_REGISTERED_NV = 0x86FD;
 
 		/// <summary>
-		/// Value of GL_SURFACE_MAPPED_NV symbol.
+		/// [GL] Value of GL_SURFACE_MAPPED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
 		public const int SURFACE_MAPPED_NV = 0x8700;
 
 		/// <summary>
-		/// Value of GL_WRITE_DISCARD_NV symbol.
+		/// [GL] Value of GL_WRITE_DISCARD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
 		public const int WRITE_DISCARD_NV = 0x88BE;

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RGB2_EXT symbol.
+		/// [GL] Value of GL_RGB2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int RGB2_EXT = 0x804E;
 
 		/// <summary>
-		/// Value of GL_REPLACE_EXT symbol.
+		/// [GL] Value of GL_REPLACE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int REPLACE_EXT = 0x8062;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_TOO_LARGE_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_TOO_LARGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
 		public const int TEXTURE_TOO_LARGE_EXT = 0x8065;

@@ -29,123 +29,123 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PERFQUERY_SINGLE_CONTEXT_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_SINGLE_CONTEXT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int PERFQUERY_SINGLE_CONTEXT_INTEL = 0x00000000;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_GLOBAL_CONTEXT_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_GLOBAL_CONTEXT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const int PERFQUERY_GLOBAL_CONTEXT_INTEL = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_WAIT_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_WAIT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_WAIT_INTEL = 0x83FB;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_FLUSH_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_FLUSH_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_FLUSH_INTEL = 0x83FA;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_DONOT_FLUSH_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_DONOT_FLUSH_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_DONOT_FLUSH_INTEL = 0x83F9;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_EVENT_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_EVENT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_EVENT_INTEL = 0x94F0;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DURATION_NORM_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DURATION_NORM_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DURATION_NORM_INTEL = 0x94F1;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DURATION_RAW_INTEL = 0x94F2;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_THROUGHPUT_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_THROUGHPUT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_THROUGHPUT_INTEL = 0x94F3;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_RAW_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_RAW_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_RAW_INTEL = 0x94F4;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_TIMESTAMP_INTEL = 0x94F5;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_UINT32_INTEL = 0x94F8;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_UINT64_INTEL = 0x94F9;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_FLOAT_INTEL = 0x94FA;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_DOUBLE_INTEL = 0x94FB;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DATA_BOOL32_INTEL = 0x94FC;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL = 0x94FD;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL = 0x94FE;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL = 0x94FF;
 
 		/// <summary>
-		/// Value of GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL symbol.
+		/// [GL] Value of GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 		public const int PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL = 0x9500;

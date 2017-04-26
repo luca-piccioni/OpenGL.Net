@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_LUMINANCE_LATC1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_LUMINANCE_LATC1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_latc")]
 		public const int COMPRESSED_LUMINANCE_LATC1_EXT = 0x8C70;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_LUMINANCE_LATC1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SIGNED_LUMINANCE_LATC1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_latc")]
 		public const int COMPRESSED_SIGNED_LUMINANCE_LATC1_EXT = 0x8C71;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_latc")]
 		public const int COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT = 0x8C72;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_LUMINANCE_ALPHA_LATC2_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SIGNED_LUMINANCE_ALPHA_LATC2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_latc")]
 		public const int COMPRESSED_SIGNED_LUMINANCE_ALPHA_LATC2_EXT = 0x8C73;

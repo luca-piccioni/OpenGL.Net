@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV symbol.
+		/// [GL] Value of GL_MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public const int MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV = 0x8868;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_PROGRAM_NV symbol.
+		/// [GL] Value of GL_FRAGMENT_PROGRAM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public const int FRAGMENT_PROGRAM_NV = 0x8870;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_PROGRAM_BINDING_NV symbol.
+		/// [GL] Value of GL_FRAGMENT_PROGRAM_BINDING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public const int FRAGMENT_PROGRAM_BINDING_NV = 0x8873;

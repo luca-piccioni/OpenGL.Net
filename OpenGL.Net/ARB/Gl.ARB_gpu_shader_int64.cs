@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INT64_ARB symbol.
+		/// [GL] Value of GL_INT64_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_INT64_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -39,7 +39,7 @@ namespace OpenGL
 		public const int INT64_ARB = 0x140E;
 
 		/// <summary>
-		/// Value of GL_INT64_VEC2_ARB symbol.
+		/// [GL] Value of GL_INT64_VEC2_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_INT64_VEC2_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int INT64_VEC2_ARB = 0x8FE9;
 
 		/// <summary>
-		/// Value of GL_INT64_VEC3_ARB symbol.
+		/// [GL] Value of GL_INT64_VEC3_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_INT64_VEC3_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -57,7 +57,7 @@ namespace OpenGL
 		public const int INT64_VEC3_ARB = 0x8FEA;
 
 		/// <summary>
-		/// Value of GL_INT64_VEC4_ARB symbol.
+		/// [GL] Value of GL_INT64_VEC4_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_INT64_VEC4_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -66,7 +66,7 @@ namespace OpenGL
 		public const int INT64_VEC4_ARB = 0x8FEB;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_VEC2_ARB symbol.
+		/// [GL] Value of GL_UNSIGNED_INT64_VEC2_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT64_VEC2_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -75,7 +75,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT64_VEC2_ARB = 0x8FF5;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_VEC3_ARB symbol.
+		/// [GL] Value of GL_UNSIGNED_INT64_VEC3_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT64_VEC3_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -84,7 +84,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT64_VEC3_ARB = 0x8FF6;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_VEC4_ARB symbol.
+		/// [GL] Value of GL_UNSIGNED_INT64_VEC4_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT64_VEC4_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]

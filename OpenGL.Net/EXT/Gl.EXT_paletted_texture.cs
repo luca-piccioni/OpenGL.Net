@@ -29,43 +29,43 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COLOR_INDEX1_EXT symbol.
+		/// [GL] Value of GL_COLOR_INDEX1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int COLOR_INDEX1_EXT = 0x80E2;
 
 		/// <summary>
-		/// Value of GL_COLOR_INDEX2_EXT symbol.
+		/// [GL] Value of GL_COLOR_INDEX2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int COLOR_INDEX2_EXT = 0x80E3;
 
 		/// <summary>
-		/// Value of GL_COLOR_INDEX4_EXT symbol.
+		/// [GL] Value of GL_COLOR_INDEX4_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int COLOR_INDEX4_EXT = 0x80E4;
 
 		/// <summary>
-		/// Value of GL_COLOR_INDEX8_EXT symbol.
+		/// [GL] Value of GL_COLOR_INDEX8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int COLOR_INDEX8_EXT = 0x80E5;
 
 		/// <summary>
-		/// Value of GL_COLOR_INDEX12_EXT symbol.
+		/// [GL] Value of GL_COLOR_INDEX12_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int COLOR_INDEX12_EXT = 0x80E6;
 
 		/// <summary>
-		/// Value of GL_COLOR_INDEX16_EXT symbol.
+		/// [GL] Value of GL_COLOR_INDEX16_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int COLOR_INDEX16_EXT = 0x80E7;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_INDEX_SIZE_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_INDEX_SIZE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public const int TEXTURE_INDEX_SIZE_EXT = 0x80ED;

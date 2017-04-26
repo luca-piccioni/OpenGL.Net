@@ -29,20 +29,20 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_YCBCR_422_APPLE symbol.
+		/// [GL] Value of GL_YCBCR_422_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_ycbcr_422")]
 		public const int YCBCR_422_APPLE = 0x85B9;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_SHORT_8_8_APPLE symbol.
+		/// [GL] Value of GL_UNSIGNED_SHORT_8_8_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_rgb_422", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_APPLE_ycbcr_422")]
 		public const int UNSIGNED_SHORT_8_8_APPLE = 0x85BA;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_SHORT_8_8_REV_APPLE symbol.
+		/// [GL] Value of GL_UNSIGNED_SHORT_8_8_REV_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_rgb_422", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_APPLE_ycbcr_422")]

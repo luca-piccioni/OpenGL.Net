@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ETC1_SRGB8_NV symbol.
+		/// [GL] Value of GL_ETC1_SRGB8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		public const int ETC1_SRGB8_NV = 0x88EE;

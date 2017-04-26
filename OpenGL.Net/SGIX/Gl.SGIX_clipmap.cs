@@ -29,73 +29,73 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_LINEAR_CLIPMAP_LINEAR_SGIX symbol.
+		/// [GL] Value of GL_LINEAR_CLIPMAP_LINEAR_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int LINEAR_CLIPMAP_LINEAR_SGIX = 0x8170;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CLIPMAP_CENTER_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_CLIPMAP_CENTER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int TEXTURE_CLIPMAP_CENTER_SGIX = 0x8171;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CLIPMAP_FRAME_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_CLIPMAP_FRAME_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int TEXTURE_CLIPMAP_FRAME_SGIX = 0x8172;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CLIPMAP_OFFSET_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_CLIPMAP_OFFSET_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int TEXTURE_CLIPMAP_OFFSET_SGIX = 0x8173;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CLIPMAP_VIRTUAL_DEPTH_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_CLIPMAP_VIRTUAL_DEPTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int TEXTURE_CLIPMAP_VIRTUAL_DEPTH_SGIX = 0x8174;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CLIPMAP_LOD_OFFSET_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_CLIPMAP_LOD_OFFSET_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int TEXTURE_CLIPMAP_LOD_OFFSET_SGIX = 0x8175;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CLIPMAP_DEPTH_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_CLIPMAP_DEPTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int TEXTURE_CLIPMAP_DEPTH_SGIX = 0x8176;
 
 		/// <summary>
-		/// Value of GL_MAX_CLIPMAP_DEPTH_SGIX symbol.
+		/// [GL] Value of GL_MAX_CLIPMAP_DEPTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int MAX_CLIPMAP_DEPTH_SGIX = 0x8177;
 
 		/// <summary>
-		/// Value of GL_MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX symbol.
+		/// [GL] Value of GL_MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX = 0x8178;
 
 		/// <summary>
-		/// Value of GL_NEAREST_CLIPMAP_NEAREST_SGIX symbol.
+		/// [GL] Value of GL_NEAREST_CLIPMAP_NEAREST_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int NEAREST_CLIPMAP_NEAREST_SGIX = 0x844D;
 
 		/// <summary>
-		/// Value of GL_NEAREST_CLIPMAP_LINEAR_SGIX symbol.
+		/// [GL] Value of GL_NEAREST_CLIPMAP_LINEAR_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int NEAREST_CLIPMAP_LINEAR_SGIX = 0x844E;
 
 		/// <summary>
-		/// Value of GL_LINEAR_CLIPMAP_NEAREST_SGIX symbol.
+		/// [GL] Value of GL_LINEAR_CLIPMAP_NEAREST_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_clipmap")]
 		public const int LINEAR_CLIPMAP_NEAREST_SGIX = 0x844F;

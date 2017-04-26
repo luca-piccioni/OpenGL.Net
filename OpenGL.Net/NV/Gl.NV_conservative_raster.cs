@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTERIZATION_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTERIZATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 		public const int CONSERVATIVE_RASTERIZATION_NV = 0x9346;
 
 		/// <summary>
-		/// Value of GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV symbol.
+		/// [GL] Value of GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 		public const int SUBPIXEL_PRECISION_BIAS_X_BITS_NV = 0x9347;
 
 		/// <summary>
-		/// Value of GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV symbol.
+		/// [GL] Value of GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 		public const int SUBPIXEL_PRECISION_BIAS_Y_BITS_NV = 0x9348;
 
 		/// <summary>
-		/// Value of GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV symbol.
+		/// [GL] Value of GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 		public const int MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;

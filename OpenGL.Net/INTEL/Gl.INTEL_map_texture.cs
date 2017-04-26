@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_MEMORY_LAYOUT_INTEL symbol.
+		/// [GL] Value of GL_TEXTURE_MEMORY_LAYOUT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_map_texture")]
 		public const int TEXTURE_MEMORY_LAYOUT_INTEL = 0x83FF;
 
 		/// <summary>
-		/// Value of GL_LAYOUT_DEFAULT_INTEL symbol.
+		/// [GL] Value of GL_LAYOUT_DEFAULT_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_map_texture")]
 		public const int LAYOUT_DEFAULT_INTEL = 0;
 
 		/// <summary>
-		/// Value of GL_LAYOUT_LINEAR_INTEL symbol.
+		/// [GL] Value of GL_LAYOUT_LINEAR_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_map_texture")]
 		public const int LAYOUT_LINEAR_INTEL = 1;
 
 		/// <summary>
-		/// Value of GL_LAYOUT_LINEAR_CPU_CACHED_INTEL symbol.
+		/// [GL] Value of GL_LAYOUT_LINEAR_CPU_CACHED_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_map_texture")]
 		public const int LAYOUT_LINEAR_CPU_CACHED_INTEL = 2;

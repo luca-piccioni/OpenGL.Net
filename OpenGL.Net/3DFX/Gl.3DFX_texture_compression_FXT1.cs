@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGB_FXT1_3DFX symbol.
+		/// [GL] Value of GL_COMPRESSED_RGB_FXT1_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_3DFX_texture_compression_FXT1")]
 		public const int COMPRESSED_RGB_FXT1_3DFX = 0x86B0;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_FXT1_3DFX symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_FXT1_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_3DFX_texture_compression_FXT1")]
 		public const int COMPRESSED_RGBA_FXT1_3DFX = 0x86B1;

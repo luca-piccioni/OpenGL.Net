@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_COVERAGE_SAMPLES_NV symbol.
+		/// [GL] Value of GL_RENDERBUFFER_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
 		public const int RENDERBUFFER_COVERAGE_SAMPLES_NV = 0x8CAB;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_COLOR_SAMPLES_NV symbol.
+		/// [GL] Value of GL_RENDERBUFFER_COLOR_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
 		public const int RENDERBUFFER_COLOR_SAMPLES_NV = 0x8E10;
 
 		/// <summary>
-		/// Value of GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV symbol.
+		/// [GL] Value of GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
 		public const int MAX_MULTISAMPLE_COVERAGE_MODES_NV = 0x8E11;
 
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_COVERAGE_MODES_NV symbol.
+		/// [GL] Value of GL_MULTISAMPLE_COVERAGE_MODES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
 		public const int MULTISAMPLE_COVERAGE_MODES_NV = 0x8E12;

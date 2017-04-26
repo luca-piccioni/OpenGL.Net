@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_3DC_X_AMD symbol.
+		/// [GL] Value of GL_3DC_X_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_compressed_3DC_texture", Api = "gles1|gles2")]
 		public const int _3DC_X_AMD = 0x87F9;
 
 		/// <summary>
-		/// Value of GL_3DC_XY_AMD symbol.
+		/// [GL] Value of GL_3DC_XY_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_compressed_3DC_texture", Api = "gles1|gles2")]
 		public const int _3DC_XY_AMD = 0x87FA;

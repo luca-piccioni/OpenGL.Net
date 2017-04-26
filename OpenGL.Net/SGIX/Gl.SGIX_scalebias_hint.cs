@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SCALEBIAS_HINT_SGIX symbol.
+		/// [GL] Value of GL_SCALEBIAS_HINT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_scalebias_hint")]
 		public const int SCALEBIAS_HINT_SGIX = 0x8322;

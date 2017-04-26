@@ -29,14 +29,14 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT symbol.
+		/// [GL] Value of GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_protected_textures", Api = "gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT = 0x00000010;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_PROTECTED_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_PROTECTED_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_protected_textures", Api = "gles2")]
 		public const int TEXTURE_PROTECTED_EXT = 0x8BFA;

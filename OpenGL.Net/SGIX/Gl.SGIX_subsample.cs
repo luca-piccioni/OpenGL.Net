@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_SUBSAMPLE_RATE_SGIX symbol.
+		/// [GL] Value of GL_PACK_SUBSAMPLE_RATE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_subsample")]
 		public const int PACK_SUBSAMPLE_RATE_SGIX = 0x85A0;
 
 		/// <summary>
-		/// Value of GL_UNPACK_SUBSAMPLE_RATE_SGIX symbol.
+		/// [GL] Value of GL_UNPACK_SUBSAMPLE_RATE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_subsample")]
 		public const int UNPACK_SUBSAMPLE_RATE_SGIX = 0x85A1;
 
 		/// <summary>
-		/// Value of GL_PIXEL_SUBSAMPLE_4444_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_SUBSAMPLE_4444_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_subsample")]
 		public const int PIXEL_SUBSAMPLE_4444_SGIX = 0x85A2;
 
 		/// <summary>
-		/// Value of GL_PIXEL_SUBSAMPLE_2424_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_SUBSAMPLE_2424_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_subsample")]
 		public const int PIXEL_SUBSAMPLE_2424_SGIX = 0x85A3;
 
 		/// <summary>
-		/// Value of GL_PIXEL_SUBSAMPLE_4242_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_SUBSAMPLE_4242_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_subsample")]
 		public const int PIXEL_SUBSAMPLE_4242_SGIX = 0x85A4;

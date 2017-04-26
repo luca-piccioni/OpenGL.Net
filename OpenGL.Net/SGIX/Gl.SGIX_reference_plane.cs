@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_REFERENCE_PLANE_SGIX symbol.
+		/// [GL] Value of GL_REFERENCE_PLANE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_reference_plane")]
 		public const int REFERENCE_PLANE_SGIX = 0x817D;
 
 		/// <summary>
-		/// Value of GL_REFERENCE_PLANE_EQUATION_SGIX symbol.
+		/// [GL] Value of GL_REFERENCE_PLANE_EQUATION_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_reference_plane")]
 		public const int REFERENCE_PLANE_EQUATION_SGIX = 0x817E;

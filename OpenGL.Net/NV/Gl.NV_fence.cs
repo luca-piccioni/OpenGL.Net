@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ALL_COMPLETED_NV symbol.
+		/// [GL] Value of GL_ALL_COMPLETED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 		public const int ALL_COMPLETED_NV = 0x84F2;
 
 		/// <summary>
-		/// Value of GL_FENCE_STATUS_NV symbol.
+		/// [GL] Value of GL_FENCE_STATUS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 		public const int FENCE_STATUS_NV = 0x84F3;
 
 		/// <summary>
-		/// Value of GL_FENCE_CONDITION_NV symbol.
+		/// [GL] Value of GL_FENCE_CONDITION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 		public const int FENCE_CONDITION_NV = 0x84F4;

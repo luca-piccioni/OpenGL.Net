@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BLEND_EQUATION symbol.
+		/// [GL] Value of GL_BLEND_EQUATION symbol.
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_EXT")]
 		[AliasOf("GL_BLEND_EQUATION_OES")]
@@ -40,8 +40,14 @@ namespace OpenGL
 		public const int BLEND_EQUATION = 0x8009;
 
 		/// <summary>
-		/// Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the blend color. 
-		/// See Gl.BlendColor.
+		/// <para>
+		/// [GL4] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the blend 
+		/// color. See Gl.BlendColor.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the blend 
+		/// color. See Gl.BlendColor.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLEND_COLOR_EXT")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -50,7 +56,7 @@ namespace OpenGL
 		public const int BLEND_COLOR = 0x8005;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_OES")]

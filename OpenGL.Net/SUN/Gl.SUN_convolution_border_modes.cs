@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_WRAP_BORDER_SUN symbol.
+		/// [GL] Value of GL_WRAP_BORDER_SUN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUN_convolution_border_modes")]
 		public const int WRAP_BORDER_SUN = 0x81D4;

@@ -30,10 +30,11 @@ namespace OpenGL
 	{
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, perform a 1D convolution operation on incoming RGBA color values. See Gl.ConvolutionFilter1D.
+		/// [GL2.1] Gl.Enable: If enabled, perform a 1D convolution operation on incoming RGBA color values. See 
+		/// Gl.ConvolutionFilter1D.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 1D convolution is enabled. The initial value is 
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether 1D convolution is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.ConvolutionFilter1D.
 		/// </para>
 		/// </summary>
@@ -44,10 +45,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, perform a 2D convolution operation on incoming RGBA color values. See Gl.ConvolutionFilter2D.
+		/// [GL2.1] Gl.Enable: If enabled, perform a 2D convolution operation on incoming RGBA color values. See 
+		/// Gl.ConvolutionFilter2D.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 2D convolution is enabled. The initial value is 
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether 2D convolution is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.ConvolutionFilter2D.
 		/// </para>
 		/// </summary>
@@ -58,12 +60,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, perform a two-dimensional convolution operation using a separable convolution filter on incoming 
-		/// RGBA color values. See Gl.SeparableFilter2D.
+		/// [GL2.1] Gl.Enable: If enabled, perform a two-dimensional convolution operation using a separable convolution filter on 
+		/// incoming RGBA color values. See Gl.SeparableFilter2D.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 2D separable convolution is enabled. The initial value 
-		/// is Gl.FALSE. See Gl.SeparableFilter2D.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether 2D separable convolution is enabled. The 
+		/// initial value is Gl.FALSE. See Gl.SeparableFilter2D.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_SEPARABLE_2D_EXT")]
@@ -72,7 +74,7 @@ namespace OpenGL
 		public const int SEPARABLE_2D = 0x8012;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The convolution border mode. See Gl.ConvolutionParameter for a list of border modes.
+		/// [GL2.1] Gl.GetConvolutionParameter: The convolution border mode. See Gl.ConvolutionParameter for a list of border modes.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_BORDER_MODE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -80,8 +82,8 @@ namespace OpenGL
 		public const int CONVOLUTION_BORDER_MODE = 0x8013;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The current filter scale factors. params must be a pointer to an array of four elements, 
-		/// which will receive the red, green, blue, and alpha filter scale factors in that order.
+		/// [GL2.1] Gl.GetConvolutionParameter: The current filter scale factors. params must be a pointer to an array of four 
+		/// elements, which will receive the red, green, blue, and alpha filter scale factors in that order.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FILTER_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -89,8 +91,8 @@ namespace OpenGL
 		public const int CONVOLUTION_FILTER_SCALE = 0x8014;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The current filter bias factors. params must be a pointer to an array of four elements, 
-		/// which will receive the red, green, blue, and alpha filter bias terms in that order.
+		/// [GL2.1] Gl.GetConvolutionParameter: The current filter bias factors. params must be a pointer to an array of four 
+		/// elements, which will receive the red, green, blue, and alpha filter bias terms in that order.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FILTER_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -98,11 +100,11 @@ namespace OpenGL
 		public const int CONVOLUTION_FILTER_BIAS = 0x8015;
 
 		/// <summary>
-		/// Gl.ConvolutionParameter: The image resulting from convolution is smaller than the source image. If the filter width is 
-		/// Wf and height is Hf, and the source image width is Ws and height is Hs, then the convolved image width will be Ws-Wf+1 
-		/// and height will be Hs-Hf+1. (If this reduction would generate an image with zero or negative width and/or height, the 
-		/// output is simply null, with no error generated.) The coordinates of the image resulting from convolution are zero 
-		/// through Ws-Wf in width and zero through Hs-Hf in height.
+		/// [GL2.1] Gl.ConvolutionParameter: The image resulting from convolution is smaller than the source image. If the filter 
+		/// width is Wf and height is Hf, and the source image width is Ws and height is Hs, then the convolved image width will be 
+		/// Ws-Wf+1 and height will be Hs-Hf+1. (If this reduction would generate an image with zero or negative width and/or 
+		/// height, the output is simply null, with no error generated.) The coordinates of the image resulting from convolution are 
+		/// zero through Ws-Wf in width and zero through Hs-Hf in height.
 		/// </summary>
 		[AliasOf("GL_REDUCE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -110,7 +112,7 @@ namespace OpenGL
 		public const int REDUCE = 0x8016;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The current internal format. See Gl.ConvolutionFilter1D, Gl.ConvolutionFilter2D, and 
+		/// [GL2.1] Gl.GetConvolutionParameter: The current internal format. See Gl.ConvolutionFilter1D, Gl.ConvolutionFilter2D, and 
 		/// Gl.SeparableFilter2D for lists of allowable formats.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FORMAT_EXT")]
@@ -119,7 +121,7 @@ namespace OpenGL
 		public const int CONVOLUTION_FORMAT = 0x8017;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The current filter image width.
+		/// [GL2.1] Gl.GetConvolutionParameter: The current filter image width.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -127,7 +129,7 @@ namespace OpenGL
 		public const int CONVOLUTION_WIDTH = 0x8018;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The current filter image height.
+		/// [GL2.1] Gl.GetConvolutionParameter: The current filter image height.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_HEIGHT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -135,7 +137,7 @@ namespace OpenGL
 		public const int CONVOLUTION_HEIGHT = 0x8019;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The maximum acceptable filter image width.
+		/// [GL2.1] Gl.GetConvolutionParameter: The maximum acceptable filter image width.
 		/// </summary>
 		[AliasOf("GL_MAX_CONVOLUTION_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -143,7 +145,7 @@ namespace OpenGL
 		public const int MAX_CONVOLUTION_WIDTH = 0x801A;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The maximum acceptable filter image height.
+		/// [GL2.1] Gl.GetConvolutionParameter: The maximum acceptable filter image height.
 		/// </summary>
 		[AliasOf("GL_MAX_CONVOLUTION_HEIGHT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -151,8 +153,8 @@ namespace OpenGL
 		public const int MAX_CONVOLUTION_HEIGHT = 0x801B;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the red scale factor applied to RGBA fragments after convolution. The initial value is 
-		/// 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the red scale factor applied to RGBA fragments after convolution. The initial 
+		/// value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_RED_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -160,8 +162,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_RED_SCALE = 0x801C;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the green scale factor applied to RGBA fragments after convolution. The initial value 
-		/// is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the green scale factor applied to RGBA fragments after convolution. The 
+		/// initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_GREEN_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -169,8 +171,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_GREEN_SCALE = 0x801D;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the blue scale factor applied to RGBA fragments after convolution. The initial value 
-		/// is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the blue scale factor applied to RGBA fragments after convolution. The initial 
+		/// value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_BLUE_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -178,8 +180,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_BLUE_SCALE = 0x801E;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the alpha scale factor applied to RGBA fragments after convolution. The initial value 
-		/// is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the alpha scale factor applied to RGBA fragments after convolution. The 
+		/// initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_ALPHA_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -187,8 +189,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_ALPHA_SCALE = 0x801F;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the red bias factor applied to RGBA fragments after convolution. The initial value is 
-		/// 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the red bias factor applied to RGBA fragments after convolution. The initial 
+		/// value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_RED_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -196,8 +198,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_RED_BIAS = 0x8020;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the green bias factor applied to RGBA fragments after convolution. The initial value 
-		/// is 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the green bias factor applied to RGBA fragments after convolution. The initial 
+		/// value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_GREEN_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -205,8 +207,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_GREEN_BIAS = 0x8021;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the blue bias factor applied to RGBA fragments after convolution. The initial value is 
-		/// 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the blue bias factor applied to RGBA fragments after convolution. The initial 
+		/// value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_BLUE_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -214,8 +216,8 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_BLUE_BIAS = 0x8022;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the alpha bias factor applied to RGBA fragments after convolution. The initial value 
-		/// is 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the alpha bias factor applied to RGBA fragments after convolution. The initial 
+		/// value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_ALPHA_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -224,11 +226,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, histogram incoming RGBA color values. See Gl.Histogram.
+		/// [GL2.1] Gl.Enable: If enabled, histogram incoming RGBA color values. See Gl.Histogram.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is Gl.FALSE. 
-		/// See Gl.Histogram.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.Histogram.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_EXT")]
@@ -237,7 +239,7 @@ namespace OpenGL
 		public const int HISTOGRAM = 0x8024;
 
 		/// <summary>
-		/// Value of GL_PROXY_HISTOGRAM symbol.
+		/// [GL] Value of GL_PROXY_HISTOGRAM symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_HISTOGRAM_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -245,7 +247,7 @@ namespace OpenGL
 		public const int PROXY_HISTOGRAM = 0x8025;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_WIDTH symbol.
+		/// [GL] Value of GL_HISTOGRAM_WIDTH symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -253,7 +255,7 @@ namespace OpenGL
 		public const int HISTOGRAM_WIDTH = 0x8026;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_FORMAT symbol.
+		/// [GL] Value of GL_HISTOGRAM_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -261,7 +263,7 @@ namespace OpenGL
 		public const int HISTOGRAM_FORMAT = 0x8027;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_RED_SIZE symbol.
+		/// [GL] Value of GL_HISTOGRAM_RED_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -269,7 +271,7 @@ namespace OpenGL
 		public const int HISTOGRAM_RED_SIZE = 0x8028;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_GREEN_SIZE symbol.
+		/// [GL] Value of GL_HISTOGRAM_GREEN_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_GREEN_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -277,7 +279,7 @@ namespace OpenGL
 		public const int HISTOGRAM_GREEN_SIZE = 0x8029;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_BLUE_SIZE symbol.
+		/// [GL] Value of GL_HISTOGRAM_BLUE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_BLUE_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -285,7 +287,7 @@ namespace OpenGL
 		public const int HISTOGRAM_BLUE_SIZE = 0x802A;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_ALPHA_SIZE symbol.
+		/// [GL] Value of GL_HISTOGRAM_ALPHA_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_ALPHA_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -293,7 +295,7 @@ namespace OpenGL
 		public const int HISTOGRAM_ALPHA_SIZE = 0x802B;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_LUMINANCE_SIZE symbol.
+		/// [GL] Value of GL_HISTOGRAM_LUMINANCE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_LUMINANCE_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -301,7 +303,7 @@ namespace OpenGL
 		public const int HISTOGRAM_LUMINANCE_SIZE = 0x802C;
 
 		/// <summary>
-		/// Value of GL_HISTOGRAM_SINK symbol.
+		/// [GL] Value of GL_HISTOGRAM_SINK symbol.
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_SINK_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -310,11 +312,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
+		/// [GL2.1] Gl.Enable: If enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial value is 
-		/// Gl.FALSE. See Gl.Minmax.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial 
+		/// value is Gl.FALSE. See Gl.Minmax.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_MINMAX_EXT")]
@@ -323,7 +325,7 @@ namespace OpenGL
 		public const int MINMAX = 0x802E;
 
 		/// <summary>
-		/// Value of GL_MINMAX_FORMAT symbol.
+		/// [GL] Value of GL_MINMAX_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_MINMAX_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -331,7 +333,7 @@ namespace OpenGL
 		public const int MINMAX_FORMAT = 0x802F;
 
 		/// <summary>
-		/// Value of GL_MINMAX_SINK symbol.
+		/// [GL] Value of GL_MINMAX_SINK symbol.
 		/// </summary>
 		[AliasOf("GL_MINMAX_SINK_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -339,8 +341,8 @@ namespace OpenGL
 		public const int MINMAX_SINK = 0x8030;
 
 		/// <summary>
-		/// Gl.GetError: The specified table exceeds the implementation's maximum supported table size. The offending command is 
-		/// ignored and has no other side effect than to set the error flag.
+		/// [GL2.1] Gl.GetError: The specified table exceeds the implementation's maximum supported table size. The offending 
+		/// command is ignored and has no other side effect than to set the error flag.
 		/// </summary>
 		[AliasOf("GL_TABLE_TOO_LARGE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -348,8 +350,8 @@ namespace OpenGL
 		public const int TABLE_TOO_LARGE = 0x8031;
 
 		/// <summary>
-		/// Gl.Get: params returns sixteen values: the color matrix on the top of the color matrix stack. Initially this matrix is 
-		/// the identity matrix. See Gl.PushMatrix.
+		/// [GL2.1] Gl.Get: params returns sixteen values: the color matrix on the top of the color matrix stack. Initially this 
+		/// matrix is the identity matrix. See Gl.PushMatrix.
 		/// </summary>
 		[AliasOf("GL_COLOR_MATRIX_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -357,8 +359,8 @@ namespace OpenGL
 		public const int COLOR_MATRIX = 0x80B1;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the maximum supported depth of the projection matrix stack. The value must be at least 
-		/// 2. See Gl.PushMatrix.
+		/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the projection matrix stack. The value must be 
+		/// at least 2. See Gl.PushMatrix.
 		/// </summary>
 		[AliasOf("GL_COLOR_MATRIX_STACK_DEPTH_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -366,8 +368,8 @@ namespace OpenGL
 		public const int COLOR_MATRIX_STACK_DEPTH = 0x80B2;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the maximum supported depth of the color matrix stack. The value must be at least 2. 
-		/// See Gl.PushMatrix.
+		/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the color matrix stack. The value must be at 
+		/// least 2. See Gl.PushMatrix.
 		/// </summary>
 		[AliasOf("GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -375,8 +377,8 @@ namespace OpenGL
 		public const int MAX_COLOR_MATRIX_STACK_DEPTH = 0x80B3;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the red scale factor applied to RGBA fragments after color matrix transformations. The 
-		/// initial value is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the red scale factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_RED_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -384,8 +386,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_RED_SCALE = 0x80B4;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the green scale factor applied to RGBA fragments after color matrix transformations. 
-		/// The initial value is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the green scale factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -393,8 +395,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_GREEN_SCALE = 0x80B5;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the blue scale factor applied to RGBA fragments after color matrix transformations. 
-		/// The initial value is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the blue scale factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -402,8 +404,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_BLUE_SCALE = 0x80B6;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the alpha scale factor applied to RGBA fragments after color matrix transformations. 
-		/// The initial value is 1. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the alpha scale factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 1. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -411,8 +413,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_ALPHA_SCALE = 0x80B7;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the red bias factor applied to RGBA fragments after color matrix transformations. The 
-		/// initial value is 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the red bias factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_RED_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -420,8 +422,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_RED_BIAS = 0x80B8;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the green bias factor applied to RGBA fragments after color matrix transformations. 
-		/// The initial value is 0. See Gl.PixelTransfer
+		/// [GL2.1] Gl.Get: params returns one value, the green bias factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 0. See Gl.PixelTransfer
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -429,8 +431,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_GREEN_BIAS = 0x80B9;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the blue bias factor applied to RGBA fragments after color matrix transformations. The 
-		/// initial value is 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the blue bias factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -438,8 +440,8 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_BLUE_BIAS = 0x80BA;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the alpha bias factor applied to RGBA fragments after color matrix transformations. 
-		/// The initial value is 0. See Gl.PixelTransfer.
+		/// [GL2.1] Gl.Get: params returns one value, the alpha bias factor applied to RGBA fragments after color matrix 
+		/// transformations. The initial value is 0. See Gl.PixelTransfer.
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -448,10 +450,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, perform a color table lookup on the incoming RGBA color values. See Gl.ColorTable.
+		/// [GL2.1] Gl.Enable: If enabled, perform a color table lookup on the incoming RGBA color values. See Gl.ColorTable.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the color table lookup is enabled. See Gl.ColorTable.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the color table lookup is enabled. See 
+		/// Gl.ColorTable.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_SGI")]
@@ -461,11 +464,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, perform a color table lookup on RGBA color values after convolution. See Gl.ColorTable.
+		/// [GL2.1] Gl.Enable: If enabled, perform a color table lookup on RGBA color values after convolution. See Gl.ColorTable.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether post convolution lookup is enabled. The initial value 
-		/// is Gl.FALSE. See Gl.ColorTable.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether post convolution lookup is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.ColorTable.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_COLOR_TABLE_SGI")]
@@ -475,12 +478,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled, perform a color table lookup on RGBA color values after color matrix transformation. See 
+		/// [GL2.1] Gl.Enable: If enabled, perform a color table lookup on RGBA color values after color matrix transformation. See 
 		/// Gl.ColorTable.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether post color matrix transformation lookup is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.ColorTable.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether post color matrix transformation lookup is 
+		/// enabled. The initial value is Gl.FALSE. See Gl.ColorTable.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
@@ -489,7 +492,7 @@ namespace OpenGL
 		public const int POST_COLOR_MATRIX_COLOR_TABLE = 0x80D2;
 
 		/// <summary>
-		/// Value of GL_PROXY_COLOR_TABLE symbol.
+		/// [GL] Value of GL_PROXY_COLOR_TABLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -497,7 +500,7 @@ namespace OpenGL
 		public const int PROXY_COLOR_TABLE = 0x80D3;
 
 		/// <summary>
-		/// Value of GL_PROXY_POST_CONVOLUTION_COLOR_TABLE symbol.
+		/// [GL] Value of GL_PROXY_POST_CONVOLUTION_COLOR_TABLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -505,7 +508,7 @@ namespace OpenGL
 		public const int PROXY_POST_CONVOLUTION_COLOR_TABLE = 0x80D4;
 
 		/// <summary>
-		/// Value of GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE symbol.
+		/// [GL] Value of GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -513,7 +516,7 @@ namespace OpenGL
 		public const int PROXY_POST_COLOR_MATRIX_COLOR_TABLE = 0x80D5;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_SCALE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_SCALE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -521,7 +524,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_SCALE = 0x80D6;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_BIAS symbol.
+		/// [GL] Value of GL_COLOR_TABLE_BIAS symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -529,7 +532,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_BIAS = 0x80D7;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_FORMAT symbol.
+		/// [GL] Value of GL_COLOR_TABLE_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_FORMAT_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -537,7 +540,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_FORMAT = 0x80D8;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_WIDTH symbol.
+		/// [GL] Value of GL_COLOR_TABLE_WIDTH symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_WIDTH_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -545,7 +548,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_WIDTH = 0x80D9;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_RED_SIZE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_RED_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_RED_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -553,7 +556,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_RED_SIZE = 0x80DA;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_GREEN_SIZE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_GREEN_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_GREEN_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -561,7 +564,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_GREEN_SIZE = 0x80DB;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_BLUE_SIZE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_BLUE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_BLUE_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -569,7 +572,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_BLUE_SIZE = 0x80DC;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_ALPHA_SIZE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_ALPHA_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_ALPHA_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -577,7 +580,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_ALPHA_SIZE = 0x80DD;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_LUMINANCE_SIZE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_LUMINANCE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_LUMINANCE_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -585,7 +588,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_LUMINANCE_SIZE = 0x80DE;
 
 		/// <summary>
-		/// Value of GL_COLOR_TABLE_INTENSITY_SIZE symbol.
+		/// [GL] Value of GL_COLOR_TABLE_INTENSITY_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_INTENSITY_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -593,8 +596,9 @@ namespace OpenGL
 		public const int COLOR_TABLE_INTENSITY_SIZE = 0x80DF;
 
 		/// <summary>
-		/// Gl.ConvolutionParameter: The image resulting from convolution is the same size as the source image, and processed as if 
-		/// the source image were surrounded by pixels with their color specified by the Gl.CONVOLUTION_BORDER_COLOR.
+		/// [GL2.1] Gl.ConvolutionParameter: The image resulting from convolution is the same size as the source image, and 
+		/// processed as if the source image were surrounded by pixels with their color specified by the 
+		/// Gl.CONVOLUTION_BORDER_COLOR.
 		/// </summary>
 		[AliasOf("GL_CONSTANT_BORDER_HP")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -602,8 +606,8 @@ namespace OpenGL
 		public const int CONSTANT_BORDER = 0x8151;
 
 		/// <summary>
-		/// Gl.ConvolutionParameter: The image resulting from convolution is the same size as the source image, and processed as if 
-		/// the outermost pixel on the border of the source image were replicated.
+		/// [GL2.1] Gl.ConvolutionParameter: The image resulting from convolution is the same size as the source image, and 
+		/// processed as if the outermost pixel on the border of the source image were replicated.
 		/// </summary>
 		[AliasOf("GL_REPLICATE_BORDER_HP")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -611,8 +615,8 @@ namespace OpenGL
 		public const int REPLICATE_BORDER = 0x8153;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: The current convolution border color. params must be a pointer to an array of four elements, 
-		/// which will receive the red, green, blue, and alpha border colors.
+		/// [GL2.1] Gl.GetConvolutionParameter: The current convolution border color. params must be a pointer to an array of four 
+		/// elements, which will receive the red, green, blue, and alpha border colors.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_BORDER_COLOR_HP")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]

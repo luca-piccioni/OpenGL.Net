@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_STENCIL_TEST_TWO_SIDE_EXT symbol.
+		/// [GL] Value of GL_STENCIL_TEST_TWO_SIDE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_stencil_two_side")]
 		public const int STENCIL_TEST_TWO_SIDE_EXT = 0x8910;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_STENCIL_FACE_EXT symbol.
+		/// [GL] Value of GL_ACTIVE_STENCIL_FACE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_stencil_two_side")]
 		public const int ACTIVE_STENCIL_FACE_EXT = 0x8911;

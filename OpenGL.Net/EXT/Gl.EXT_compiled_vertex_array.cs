@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ARRAY_ELEMENT_LOCK_FIRST_EXT symbol.
+		/// [GL] Value of GL_ARRAY_ELEMENT_LOCK_FIRST_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 		public const int ARRAY_ELEMENT_LOCK_FIRST_EXT = 0x81A8;
 
 		/// <summary>
-		/// Value of GL_ARRAY_ELEMENT_LOCK_COUNT_EXT symbol.
+		/// [GL] Value of GL_ARRAY_ELEMENT_LOCK_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 		public const int ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;

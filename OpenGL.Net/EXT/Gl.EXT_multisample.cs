@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLE_ALPHA_TO_MASK_EXT symbol.
+		/// [GL] Value of GL_SAMPLE_ALPHA_TO_MASK_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_MASK_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -37,13 +37,13 @@ namespace OpenGL
 		public const int SAMPLE_ALPHA_TO_MASK_EXT = 0x809E;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK_EXT symbol.
+		/// [GL] Value of GL_SAMPLE_MASK_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
 		public const int SAMPLE_MASK_EXT = 0x80A0;
 
 		/// <summary>
-		/// Value of GL_1PASS_EXT symbol.
+		/// [GL] Value of GL_1PASS_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_1PASS_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -51,7 +51,7 @@ namespace OpenGL
 		public const int _1PASS_EXT = 0x80A1;
 
 		/// <summary>
-		/// Value of GL_2PASS_0_EXT symbol.
+		/// [GL] Value of GL_2PASS_0_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_2PASS_0_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -59,7 +59,7 @@ namespace OpenGL
 		public const int _2PASS_0_EXT = 0x80A2;
 
 		/// <summary>
-		/// Value of GL_2PASS_1_EXT symbol.
+		/// [GL] Value of GL_2PASS_1_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_2PASS_1_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -67,7 +67,7 @@ namespace OpenGL
 		public const int _2PASS_1_EXT = 0x80A3;
 
 		/// <summary>
-		/// Value of GL_4PASS_0_EXT symbol.
+		/// [GL] Value of GL_4PASS_0_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_4PASS_0_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -75,7 +75,7 @@ namespace OpenGL
 		public const int _4PASS_0_EXT = 0x80A4;
 
 		/// <summary>
-		/// Value of GL_4PASS_1_EXT symbol.
+		/// [GL] Value of GL_4PASS_1_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_4PASS_1_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -83,7 +83,7 @@ namespace OpenGL
 		public const int _4PASS_1_EXT = 0x80A5;
 
 		/// <summary>
-		/// Value of GL_4PASS_2_EXT symbol.
+		/// [GL] Value of GL_4PASS_2_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_4PASS_2_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -91,7 +91,7 @@ namespace OpenGL
 		public const int _4PASS_2_EXT = 0x80A6;
 
 		/// <summary>
-		/// Value of GL_4PASS_3_EXT symbol.
+		/// [GL] Value of GL_4PASS_3_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_4PASS_3_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -99,13 +99,13 @@ namespace OpenGL
 		public const int _4PASS_3_EXT = 0x80A7;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK_VALUE_EXT symbol.
+		/// [GL] Value of GL_SAMPLE_MASK_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
 		public const int SAMPLE_MASK_VALUE_EXT = 0x80AA;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK_INVERT_EXT symbol.
+		/// [GL] Value of GL_SAMPLE_MASK_INVERT_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_MASK_INVERT_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -113,7 +113,7 @@ namespace OpenGL
 		public const int SAMPLE_MASK_INVERT_EXT = 0x80AB;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_PATTERN_EXT symbol.
+		/// [GL] Value of GL_SAMPLE_PATTERN_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_PATTERN_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]

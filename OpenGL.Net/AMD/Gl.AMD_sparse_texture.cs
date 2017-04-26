@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS symbol.
+		/// [GL] Value of GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB")]
 		[AliasOf("GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT")]
@@ -39,19 +39,19 @@ namespace OpenGL
 		public const int MAX_SPARSE_ARRAY_TEXTURE_LAYERS = 0x919A;
 
 		/// <summary>
-		/// Value of GL_MIN_SPARSE_LEVEL_AMD symbol.
+		/// [GL] Value of GL_MIN_SPARSE_LEVEL_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int MIN_SPARSE_LEVEL_AMD = 0x919B;
 
 		/// <summary>
-		/// Value of GL_MIN_LOD_WARNING_AMD symbol.
+		/// [GL] Value of GL_MIN_LOD_WARNING_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int MIN_LOD_WARNING_AMD = 0x919C;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_STORAGE_SPARSE_BIT_AMD symbol.
+		/// [GL] Value of GL_TEXTURE_STORAGE_SPARSE_BIT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
 		[Log(BitmaskName = "GL")]

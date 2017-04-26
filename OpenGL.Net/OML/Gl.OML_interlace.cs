@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INTERLACE_OML symbol.
+		/// [GL] Value of GL_INTERLACE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_interlace")]
 		public const int INTERLACE_OML = 0x8980;
 
 		/// <summary>
-		/// Value of GL_INTERLACE_READ_OML symbol.
+		/// [GL] Value of GL_INTERLACE_READ_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_interlace")]
 		public const int INTERLACE_READ_OML = 0x8981;

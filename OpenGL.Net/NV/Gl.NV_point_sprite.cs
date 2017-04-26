@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_POINT_SPRITE_R_MODE_NV symbol.
+		/// [GL] Value of GL_POINT_SPRITE_R_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_point_sprite")]
 		public const int POINT_SPRITE_R_MODE_NV = 0x8863;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAGMENT_COVERAGE_TO_COLOR_NV symbol.
+		/// [GL] Value of GL_FRAGMENT_COVERAGE_TO_COLOR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 		public const int FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_COVERAGE_COLOR_NV symbol.
+		/// [GL] Value of GL_FRAGMENT_COVERAGE_COLOR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 		public const int FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;

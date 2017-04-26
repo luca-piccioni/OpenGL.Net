@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SRGB_DECODE_ARB symbol.
+		/// [GL] Value of GL_SRGB_DECODE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SRGB_DECODE_ARB = 0x8299;

@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMBINE4_NV symbol.
+		/// [GL] Value of GL_COMBINE4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_env_combine4")]
 		public const int COMBINE4_NV = 0x8503;
 
 		/// <summary>
-		/// Value of GL_SOURCE3_RGB_NV symbol.
+		/// [GL] Value of GL_SOURCE3_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_env_combine4")]
 		public const int SOURCE3_RGB_NV = 0x8583;
 
 		/// <summary>
-		/// Value of GL_SOURCE3_ALPHA_NV symbol.
+		/// [GL] Value of GL_SOURCE3_ALPHA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_env_combine4")]
 		public const int SOURCE3_ALPHA_NV = 0x858B;
 
 		/// <summary>
-		/// Value of GL_OPERAND3_RGB_NV symbol.
+		/// [GL] Value of GL_OPERAND3_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_env_combine4")]
 		public const int OPERAND3_RGB_NV = 0x8593;
 
 		/// <summary>
-		/// Value of GL_OPERAND3_ALPHA_NV symbol.
+		/// [GL] Value of GL_OPERAND3_ALPHA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_env_combine4")]
 		public const int OPERAND3_ALPHA_NV = 0x859B;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CLIP_DISTANCE6 symbol.
+		/// [GL] Value of GL_CLIP_DISTANCE6 symbol.
 		/// </summary>
 		[AliasOf("GL_CLIP_DISTANCE6_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int CLIP_DISTANCE6 = 0x3006;
 
 		/// <summary>
-		/// Value of GL_CLIP_DISTANCE7 symbol.
+		/// [GL] Value of GL_CLIP_DISTANCE7 symbol.
 		/// </summary>
 		[AliasOf("GL_CLIP_DISTANCE7_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -45,55 +45,79 @@ namespace OpenGL
 		public const int CLIP_DISTANCE7 = 0x3007;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the major version number of the OpenGL API supported by the current context.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the major version number of the OpenGL API supported by the current context.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the major version number of the OpenGL ES API supported by the current 
+		/// context. This must be 3.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int MAJOR_VERSION = 0x821B;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the minor version number of the OpenGL API supported by the current context.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the minor version number of the OpenGL API supported by the current context.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the minor version number of the OpenGL ES API supported by the current 
+		/// context.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int MINOR_VERSION = 0x821C;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the current context. See 
-		/// Gl.GetString.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the current 
+		/// context. See Gl.GetString.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the current 
+		/// context. See Gl.GetString.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int NUM_EXTENSIONS = 0x821D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the flags with which the context was created (such as debugging functionality).
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the flags with which the context was created (such as debugging functionality).
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the flags with which the context was created (such as debugging 
+		/// functionality).
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		public const int CONTEXT_FLAGS = 0x821E;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RED symbol.
+		/// [GL] Value of GL_COMPRESSED_RED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int COMPRESSED_RED = 0x8225;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RG symbol.
+		/// [GL] Value of GL_COMPRESSED_RG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int COMPRESSED_RG = 0x8226;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT symbol.
+		/// [GL] Value of GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_RGBA32F symbol.
+		/// [GL] Value of GL_RGBA32F symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA32F_ARB")]
 		[AliasOf("GL_RGBA32F_EXT")]
@@ -104,7 +128,7 @@ namespace OpenGL
 		public const int RGBA32F = 0x8814;
 
 		/// <summary>
-		/// Value of GL_RGB32F symbol.
+		/// [GL] Value of GL_RGB32F symbol.
 		/// </summary>
 		[AliasOf("GL_RGB32F_ARB")]
 		[AliasOf("GL_RGB32F_EXT")]
@@ -116,7 +140,7 @@ namespace OpenGL
 		public const int RGB32F = 0x8815;
 
 		/// <summary>
-		/// Value of GL_RGBA16F symbol.
+		/// [GL] Value of GL_RGBA16F symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA16F_ARB")]
 		[AliasOf("GL_RGBA16F_EXT")]
@@ -128,7 +152,7 @@ namespace OpenGL
 		public const int RGBA16F = 0x881A;
 
 		/// <summary>
-		/// Value of GL_RGB16F symbol.
+		/// [GL] Value of GL_RGB16F symbol.
 		/// </summary>
 		[AliasOf("GL_RGB16F_ARB")]
 		[AliasOf("GL_RGB16F_EXT")]
@@ -140,8 +164,15 @@ namespace OpenGL
 		public const int RGB16F = 0x881B;
 
 		/// <summary>
-		/// Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the vertex 
+		/// <para>
+		/// [GL4] Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the vertex 
 		/// attribute array indicated by index have integer data types, and 0 (false) otherwise. The initial value is 0 (Gl.FALSE).
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the 
+		/// vertex attribute array indicated by index have integer data types, and 0 (false) otherwise. The initial value is 0 
+		/// (Gl.FALSE).
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT")]
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV")]
@@ -152,8 +183,14 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_ARRAY_INTEGER = 0x88FD;
 
 		/// <summary>
-		/// Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array texture, and must 
-		/// be at least 256. See Gl.TexImage2D.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array texture, and 
+		/// must be at least 256. See Gl.TexImage2D.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array texture, 
+		/// and must be at least 256. See Gl.TexImage2D.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_ARRAY_TEXTURE_LAYERS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -162,7 +199,13 @@ namespace OpenGL
 		public const int MAX_ARRAY_TEXTURE_LAYERS = 0x88FF;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at most -8.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at most -8.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at most 
+		/// -8.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_EXT")]
 		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_NV")]
@@ -173,7 +216,13 @@ namespace OpenGL
 		public const int MIN_PROGRAM_TEXEL_OFFSET = 0x8904;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at least 7.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at least 7.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at least 
+		/// 7.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_EXT")]
 		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_NV")]
@@ -184,7 +233,7 @@ namespace OpenGL
 		public const int MAX_PROGRAM_TEXEL_OFFSET = 0x8905;
 
 		/// <summary>
-		/// Value of GL_CLAMP_READ_COLOR symbol.
+		/// [GL] Value of GL_CLAMP_READ_COLOR symbol.
 		/// </summary>
 		[AliasOf("GL_CLAMP_READ_COLOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -192,7 +241,7 @@ namespace OpenGL
 		public const int CLAMP_READ_COLOR = 0x891C;
 
 		/// <summary>
-		/// Value of GL_FIXED_ONLY symbol.
+		/// [GL] Value of GL_FIXED_ONLY symbol.
 		/// </summary>
 		[AliasOf("GL_FIXED_ONLY_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -200,7 +249,12 @@ namespace OpenGL
 		public const int FIXED_ONLY = 0x891D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -210,7 +264,7 @@ namespace OpenGL
 		public const int MAX_VARYING_COMPONENTS = 0x8B4B;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_1D_ARRAY symbol.
+		/// [GL] Value of GL_TEXTURE_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -219,7 +273,7 @@ namespace OpenGL
 		public const int TEXTURE_1D_ARRAY = 0x8C18;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_1D_ARRAY symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_TEXTURE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -227,7 +281,7 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_1D_ARRAY = 0x8C19;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_2D_ARRAY symbol.
+		/// [GL] Value of GL_TEXTURE_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -238,7 +292,7 @@ namespace OpenGL
 		public const int TEXTURE_2D_ARRAY = 0x8C1A;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_2D_ARRAY symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_PROXY_TEXTURE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -246,8 +300,8 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_2D_ARRAY = 0x8C1B;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_1D_ARRAY. The 
-		/// initial value is 0. See Gl.BindTexture.
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_1D_ARRAY. 
+		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -257,8 +311,14 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_1D_ARRAY = 0x8C1C;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D_ARRAY. The 
-		/// initial value is 0. See Gl.BindTexture.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D_ARRAY. 
+		/// The initial value is 0. See Gl.BindTexture.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// Gl.TEXTURE_2D_ARRAY. The initial value is 0. See Gl.BindTexture.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -269,7 +329,7 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D_ARRAY = 0x8C1D;
 
 		/// <summary>
-		/// Value of GL_R11F_G11F_B10F symbol.
+		/// [GL] Value of GL_R11F_G11F_B10F symbol.
 		/// </summary>
 		[AliasOf("GL_R11F_G11F_B10F_APPLE")]
 		[AliasOf("GL_R11F_G11F_B10F_EXT")]
@@ -280,7 +340,7 @@ namespace OpenGL
 		public const int R11F_G11F_B10F = 0x8C3A;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_10F_11F_11F_REV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_10F_11F_11F_REV symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE")]
 		[AliasOf("GL_UNSIGNED_INT_10F_11F_11F_REV_EXT")]
@@ -293,7 +353,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_10F_11F_11F_REV = 0x8C3B;
 
 		/// <summary>
-		/// Value of GL_RGB9_E5 symbol.
+		/// [GL] Value of GL_RGB9_E5 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB9_E5_APPLE")]
 		[AliasOf("GL_RGB9_E5_EXT")]
@@ -304,7 +364,7 @@ namespace OpenGL
 		public const int RGB9_E5 = 0x8C3D;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_5_9_9_9_REV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_5_9_9_9_REV symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_5_9_9_9_REV_APPLE")]
 		[AliasOf("GL_UNSIGNED_INT_5_9_9_9_REV_EXT")]
@@ -315,7 +375,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_5_9_9_9_REV = 0x8C3E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SHARED_SIZE symbol.
+		/// [GL] Value of GL_TEXTURE_SHARED_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SHARED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -324,8 +384,14 @@ namespace OpenGL
 		public const int TEXTURE_SHARED_SIZE = 0x8C3F;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, including the 
-		/// null-terminator.
+		/// <para>
+		/// [GL4] Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, including 
+		/// the null-terminator.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, 
+		/// including the null-terminator.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -334,8 +400,14 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH = 0x8C76;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback is active. 
-		/// This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
+		/// <para>
+		/// [GL4] Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback is 
+		/// active. This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback is 
+		/// active. This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_NV")]
@@ -346,8 +418,8 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_MODE = 0x8C7F;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components which can be written per attribute or output in 
-		/// separate transform feedback mode. The value must be at least 4. See Gl.TransformFeedbackVaryings.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components which can be written per attribute or output 
+		/// in separate transform feedback mode. The value must be at least 4. See Gl.TransformFeedbackVaryings.
 		/// </summary>
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_NV")]
@@ -358,7 +430,14 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS = 0x8C80;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for the program.
+		/// <para>
+		/// [GL4] Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for the 
+		/// program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for the 
+		/// program.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_NV")]
@@ -369,9 +448,16 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_VARYINGS = 0x8C83;
 
 		/// <summary>
-		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
-		/// offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
-		/// Gl.BindBufferRange.
+		/// <para>
+		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// start offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. 
+		/// See Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// start offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. 
+		/// See Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_NV")]
@@ -382,9 +468,16 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_START = 0x8C84;
 
 		/// <summary>
-		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
-		/// the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
+		/// <para>
+		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// size of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
 		/// Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
+		/// size of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
+		/// Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_NV")]
@@ -395,7 +488,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_SIZE = 0x8C85;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVES_GENERATED symbol.
+		/// [GL] Value of GL_PRIMITIVES_GENERATED symbol.
 		/// </summary>
 		[AliasOf("GL_PRIMITIVES_GENERATED_EXT")]
 		[AliasOf("GL_PRIMITIVES_GENERATED_NV")]
@@ -409,7 +502,7 @@ namespace OpenGL
 		public const int PRIMITIVES_GENERATED = 0x8C87;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN symbol.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_NV")]
@@ -420,8 +513,8 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN = 0x8C88;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, a single boolean value indicating whether primitives are discarded immediately before 
-		/// the rasterization stage, but after the optional transform feedback stage. See Gl.Enable.
+		/// [GLES3.2] Gl.Get: data returns one value, a single boolean value indicating whether primitives are discarded immediately 
+		/// before the rasterization stage, but after the optional transform feedback stage. See Gl.Enable.
 		/// </summary>
 		[AliasOf("GL_RASTERIZER_DISCARD_EXT")]
 		[AliasOf("GL_RASTERIZER_DISCARD_NV")]
@@ -432,8 +525,8 @@ namespace OpenGL
 		public const int RASTERIZER_DISCARD = 0x8C89;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of components which can be written to a single transform feedback 
-		/// buffer in interleaved mode. The value must be at least 64. See Gl.TransformFeedbackVaryings.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components which can be written to a single transform 
+		/// feedback buffer in interleaved mode. The value must be at least 64. See Gl.TransformFeedbackVaryings.
 		/// </summary>
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV")]
@@ -444,8 +537,8 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS = 0x8C8A;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum separate attributes or outputs which can be captured in separate transform 
-		/// feedback mode. The value must be at least 4. See Gl.TransformFeedbackVaryings.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum separate attributes or outputs which can be captured in separate 
+		/// transform feedback mode. The value must be at least 4. See Gl.TransformFeedbackVaryings.
 		/// </summary>
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_EXT")]
 		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_NV")]
@@ -456,7 +549,7 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS = 0x8C8B;
 
 		/// <summary>
-		/// Value of GL_INTERLEAVED_ATTRIBS symbol.
+		/// [GL] Value of GL_INTERLEAVED_ATTRIBS symbol.
 		/// </summary>
 		[AliasOf("GL_INTERLEAVED_ATTRIBS_EXT")]
 		[AliasOf("GL_INTERLEAVED_ATTRIBS_NV")]
@@ -467,7 +560,7 @@ namespace OpenGL
 		public const int INTERLEAVED_ATTRIBS = 0x8C8C;
 
 		/// <summary>
-		/// Value of GL_SEPARATE_ATTRIBS symbol.
+		/// [GL] Value of GL_SEPARATE_ATTRIBS symbol.
 		/// </summary>
 		[AliasOf("GL_SEPARATE_ATTRIBS_EXT")]
 		[AliasOf("GL_SEPARATE_ATTRIBS_NV")]
@@ -479,12 +572,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active buffer binding points to which output variables in 
-		/// the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active buffer binding points to which output variables 
+		/// in the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
 		/// </para>
 		/// <para>
-		/// Gl.GetProgramResourceIndex: The query is targeted at the set of active buffer binding points to which output variables 
-		/// in the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
+		/// [GL4] Gl.GetProgramResourceIndex: The query is targeted at the set of active buffer binding points to which output 
+		/// variables in the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active buffer binding points to which output 
+		/// variables in the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_EXT")]
@@ -498,11 +595,20 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER = 0x8C8E;
 
 		/// <summary>
-		/// Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
-		/// the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound to this 
-		/// target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, 
-		/// the name of the buffer object bound to the indexed transform feedback attribute stream. The initial value is 0 for all 
-		/// targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// <para>
+		/// [GL4] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
+		/// name of the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound to 
+		/// this target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single 
+		/// value, the name of the buffer object bound to the indexed transform feedback attribute stream. The initial value is 0 
+		/// for all targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
+		/// name of the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound to 
+		/// this target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single 
+		/// value, the name of the buffer object bound to the indexed transform feedback attribute stream. The initial value is 0 
+		/// for all targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_NV")]
@@ -513,7 +619,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_BINDING = 0x8C8F;
 
 		/// <summary>
-		/// Value of GL_RGBA32UI symbol.
+		/// [GL] Value of GL_RGBA32UI symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA32UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -522,7 +628,7 @@ namespace OpenGL
 		public const int RGBA32UI = 0x8D70;
 
 		/// <summary>
-		/// Value of GL_RGB32UI symbol.
+		/// [GL] Value of GL_RGB32UI symbol.
 		/// </summary>
 		[AliasOf("GL_RGB32UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -532,7 +638,7 @@ namespace OpenGL
 		public const int RGB32UI = 0x8D71;
 
 		/// <summary>
-		/// Value of GL_RGBA16UI symbol.
+		/// [GL] Value of GL_RGBA16UI symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA16UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -541,7 +647,7 @@ namespace OpenGL
 		public const int RGBA16UI = 0x8D76;
 
 		/// <summary>
-		/// Value of GL_RGB16UI symbol.
+		/// [GL] Value of GL_RGB16UI symbol.
 		/// </summary>
 		[AliasOf("GL_RGB16UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -550,7 +656,7 @@ namespace OpenGL
 		public const int RGB16UI = 0x8D77;
 
 		/// <summary>
-		/// Value of GL_RGBA8UI symbol.
+		/// [GL] Value of GL_RGBA8UI symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA8UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -560,7 +666,7 @@ namespace OpenGL
 		public const int RGBA8UI = 0x8D7C;
 
 		/// <summary>
-		/// Value of GL_RGB8UI symbol.
+		/// [GL] Value of GL_RGB8UI symbol.
 		/// </summary>
 		[AliasOf("GL_RGB8UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -569,7 +675,7 @@ namespace OpenGL
 		public const int RGB8UI = 0x8D7D;
 
 		/// <summary>
-		/// Value of GL_RGBA32I symbol.
+		/// [GL] Value of GL_RGBA32I symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA32I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -578,7 +684,7 @@ namespace OpenGL
 		public const int RGBA32I = 0x8D82;
 
 		/// <summary>
-		/// Value of GL_RGB32I symbol.
+		/// [GL] Value of GL_RGB32I symbol.
 		/// </summary>
 		[AliasOf("GL_RGB32I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -589,7 +695,7 @@ namespace OpenGL
 		public const int RGB32I = 0x8D83;
 
 		/// <summary>
-		/// Value of GL_RGBA16I symbol.
+		/// [GL] Value of GL_RGBA16I symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA16I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -598,7 +704,7 @@ namespace OpenGL
 		public const int RGBA16I = 0x8D88;
 
 		/// <summary>
-		/// Value of GL_RGB16I symbol.
+		/// [GL] Value of GL_RGB16I symbol.
 		/// </summary>
 		[AliasOf("GL_RGB16I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -607,7 +713,7 @@ namespace OpenGL
 		public const int RGB16I = 0x8D89;
 
 		/// <summary>
-		/// Value of GL_RGBA8I symbol.
+		/// [GL] Value of GL_RGBA8I symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA8I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -616,7 +722,7 @@ namespace OpenGL
 		public const int RGBA8I = 0x8D8E;
 
 		/// <summary>
-		/// Value of GL_RGB8I symbol.
+		/// [GL] Value of GL_RGB8I symbol.
 		/// </summary>
 		[AliasOf("GL_RGB8I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -625,7 +731,7 @@ namespace OpenGL
 		public const int RGB8I = 0x8D8F;
 
 		/// <summary>
-		/// Value of GL_RED_INTEGER symbol.
+		/// [GL] Value of GL_RED_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_RED_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -634,7 +740,7 @@ namespace OpenGL
 		public const int RED_INTEGER = 0x8D94;
 
 		/// <summary>
-		/// Value of GL_GREEN_INTEGER symbol.
+		/// [GL] Value of GL_GREEN_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_GREEN_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -642,7 +748,7 @@ namespace OpenGL
 		public const int GREEN_INTEGER = 0x8D95;
 
 		/// <summary>
-		/// Value of GL_BLUE_INTEGER symbol.
+		/// [GL] Value of GL_BLUE_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_BLUE_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -650,7 +756,7 @@ namespace OpenGL
 		public const int BLUE_INTEGER = 0x8D96;
 
 		/// <summary>
-		/// Value of GL_RGB_INTEGER symbol.
+		/// [GL] Value of GL_RGB_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_RGB_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -659,7 +765,7 @@ namespace OpenGL
 		public const int RGB_INTEGER = 0x8D98;
 
 		/// <summary>
-		/// Value of GL_RGBA_INTEGER symbol.
+		/// [GL] Value of GL_RGBA_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_RGBA_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -668,7 +774,7 @@ namespace OpenGL
 		public const int RGBA_INTEGER = 0x8D99;
 
 		/// <summary>
-		/// Value of GL_BGR_INTEGER symbol.
+		/// [GL] Value of GL_BGR_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_BGR_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -676,7 +782,7 @@ namespace OpenGL
 		public const int BGR_INTEGER = 0x8D9A;
 
 		/// <summary>
-		/// Value of GL_BGRA_INTEGER symbol.
+		/// [GL] Value of GL_BGRA_INTEGER symbol.
 		/// </summary>
 		[AliasOf("GL_BGRA_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -684,7 +790,7 @@ namespace OpenGL
 		public const int BGRA_INTEGER = 0x8D9B;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_1D_ARRAY symbol.
+		/// [GL] Value of GL_SAMPLER_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -692,7 +798,7 @@ namespace OpenGL
 		public const int SAMPLER_1D_ARRAY = 0x8DC0;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_2D_ARRAY symbol.
+		/// [GL] Value of GL_SAMPLER_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -701,7 +807,7 @@ namespace OpenGL
 		public const int SAMPLER_2D_ARRAY = 0x8DC1;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_1D_ARRAY_SHADOW symbol.
+		/// [GL] Value of GL_SAMPLER_1D_ARRAY_SHADOW symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_1D_ARRAY_SHADOW_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -709,7 +815,7 @@ namespace OpenGL
 		public const int SAMPLER_1D_ARRAY_SHADOW = 0x8DC3;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_2D_ARRAY_SHADOW symbol.
+		/// [GL] Value of GL_SAMPLER_2D_ARRAY_SHADOW symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_ARRAY_SHADOW_EXT")]
 		[AliasOf("GL_SAMPLER_2D_ARRAY_SHADOW_NV")]
@@ -720,7 +826,7 @@ namespace OpenGL
 		public const int SAMPLER_2D_ARRAY_SHADOW = 0x8DC4;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_CUBE_SHADOW symbol.
+		/// [GL] Value of GL_SAMPLER_CUBE_SHADOW symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLER_CUBE_SHADOW_EXT")]
 		[AliasOf("GL_SAMPLER_CUBE_SHADOW_NV")]
@@ -731,7 +837,7 @@ namespace OpenGL
 		public const int SAMPLER_CUBE_SHADOW = 0x8DC5;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_VEC2 symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_VEC2 symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_VEC2_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -740,7 +846,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_VEC2 = 0x8DC6;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_VEC3 symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_VEC3 symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_VEC3_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -749,7 +855,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_VEC3 = 0x8DC7;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_VEC4 symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_VEC4 symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_VEC4_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -758,7 +864,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_VEC4 = 0x8DC8;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_1D symbol.
+		/// [GL] Value of GL_INT_SAMPLER_1D symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -766,7 +872,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_1D = 0x8DC9;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_2D symbol.
+		/// [GL] Value of GL_INT_SAMPLER_2D symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -775,7 +881,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_2D = 0x8DCA;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_3D symbol.
+		/// [GL] Value of GL_INT_SAMPLER_3D symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -784,7 +890,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_3D = 0x8DCB;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_CUBE symbol.
+		/// [GL] Value of GL_INT_SAMPLER_CUBE symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -793,7 +899,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_CUBE = 0x8DCC;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_1D_ARRAY symbol.
+		/// [GL] Value of GL_INT_SAMPLER_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -801,7 +907,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_1D_ARRAY = 0x8DCE;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_2D_ARRAY symbol.
+		/// [GL] Value of GL_INT_SAMPLER_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_SAMPLER_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -810,7 +916,7 @@ namespace OpenGL
 		public const int INT_SAMPLER_2D_ARRAY = 0x8DCF;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_1D symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_1D symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -818,7 +924,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_1D = 0x8DD1;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_2D symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -827,7 +933,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D = 0x8DD2;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_3D symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_3D symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -836,7 +942,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_3D = 0x8DD3;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_CUBE symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -845,7 +951,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_CUBE = 0x8DD4;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_1D_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -853,7 +959,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_1D_ARRAY = 0x8DD6;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -862,7 +968,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D_ARRAY = 0x8DD7;
 
 		/// <summary>
-		/// Value of GL_QUERY_WAIT symbol.
+		/// [GL] Value of GL_QUERY_WAIT symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -870,7 +976,7 @@ namespace OpenGL
 		public const int QUERY_WAIT = 0x8E13;
 
 		/// <summary>
-		/// Value of GL_QUERY_NO_WAIT symbol.
+		/// [GL] Value of GL_QUERY_NO_WAIT symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_NO_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -878,7 +984,7 @@ namespace OpenGL
 		public const int QUERY_NO_WAIT = 0x8E14;
 
 		/// <summary>
-		/// Value of GL_QUERY_BY_REGION_WAIT symbol.
+		/// [GL] Value of GL_QUERY_BY_REGION_WAIT symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_BY_REGION_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -886,7 +992,7 @@ namespace OpenGL
 		public const int QUERY_BY_REGION_WAIT = 0x8E15;
 
 		/// <summary>
-		/// Value of GL_QUERY_BY_REGION_NO_WAIT symbol.
+		/// [GL] Value of GL_QUERY_BY_REGION_NO_WAIT symbol.
 		/// </summary>
 		[AliasOf("GL_QUERY_BY_REGION_NO_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -894,33 +1000,50 @@ namespace OpenGL
 		public const int QUERY_BY_REGION_NO_WAIT = 0x8E16;
 
 		/// <summary>
-		/// Gl.GetBufferParameter: params returns the access policy set while mapping the buffer object (the value of the access 
-		/// parameter bitfield passed to glMapBufferRange). If the buffer was mapped with glMapBuffer, the access policy is 
+		/// <para>
+		/// [GL4] Gl.GetBufferParameter: params returns the access policy set while mapping the buffer object (the value of the 
+		/// access parameter bitfield passed to glMapBufferRange). If the buffer was mapped with glMapBuffer, the access policy is 
 		/// determined by translating the enums in that access parameter to the corresponding bits for glMapBufferRange as described 
 		/// in the OpenGL Specification. The initial value is zero.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetBufferParameter: params returns the access policy set while mapping the buffer object.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int BUFFER_ACCESS_FLAGS = 0x911F;
 
 		/// <summary>
-		/// Gl.GetBufferParameter: params returns the length of the mapping into the buffer object established with glMapBuffer*. 
-		/// The i64v versions of these queries should be used for this parameter. The initial value is zero.
+		/// <para>
+		/// [GL4] Gl.GetBufferParameter: params returns the length of the mapping into the buffer object established with 
+		/// glMapBuffer*. The i64v versions of these queries should be used for this parameter. The initial value is zero.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetBufferParameter: params returns the length of the buffer object mapping, measured in bytes. The initial 
+		/// value is 0.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int BUFFER_MAP_LENGTH = 0x9120;
 
 		/// <summary>
-		/// Gl.GetBufferParameter: params returns the offset of the mapping into the buffer object established with glMapBuffer*. 
-		/// The i64v versions of these queries should be used for this parameter. The initial value is zero.
+		/// <para>
+		/// [GL4] Gl.GetBufferParameter: params returns the offset of the mapping into the buffer object established with 
+		/// glMapBuffer*. The i64v versions of these queries should be used for this parameter. The initial value is zero.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetBufferParameter: params returns the offset (start) of the buffer object mapping, measured in bytes. The 
+		/// initial value is 0.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int BUFFER_MAP_OFFSET = 0x9121;
 
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENT32F symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENT32F symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -928,7 +1051,7 @@ namespace OpenGL
 		public const int DEPTH_COMPONENT32F = 0x8CAC;
 
 		/// <summary>
-		/// Value of GL_DEPTH32F_STENCIL8 symbol.
+		/// [GL] Value of GL_DEPTH32F_STENCIL8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -936,7 +1059,7 @@ namespace OpenGL
 		public const int DEPTH32F_STENCIL8 = 0x8CAD;
 
 		/// <summary>
-		/// Value of GL_FLOAT_32_UNSIGNED_INT_24_8_REV symbol.
+		/// [GL] Value of GL_FLOAT_32_UNSIGNED_INT_24_8_REV symbol.
 		/// </summary>
 		[AliasOf("GL_FLOAT_32_UNSIGNED_INT_24_8_REV_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -946,8 +1069,14 @@ namespace OpenGL
 		public const int FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
 
 		/// <summary>
-		/// Gl.GetError: The framebuffer object is not complete. The offending command is ignored and has no other side effect than 
-		/// to set the error flag.
+		/// <para>
+		/// [GL4] Gl.GetError: The framebuffer object is not complete. The offending command is ignored and has no other side effect 
+		/// than to set the error flag.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetError: The framebuffer object is not complete. The offending command is ignored and has no other side 
+		/// effect than to set the error flag.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_EXT")]
 		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_OES")]
@@ -959,7 +1088,7 @@ namespace OpenGL
 		public const int INVALID_FRAMEBUFFER_OPERATION = 0x0506;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -969,7 +1098,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING = 0x8210;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -979,7 +1108,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE = 0x8211;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -987,7 +1116,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_RED_SIZE = 0x8212;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -995,7 +1124,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_GREEN_SIZE = 0x8213;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1003,7 +1132,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_BLUE_SIZE = 0x8214;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1011,7 +1140,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE = 0x8215;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1019,7 +1148,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE = 0x8216;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1027,7 +1156,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE = 0x8217;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_DEFAULT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_DEFAULT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1035,7 +1164,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_DEFAULT = 0x8218;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_UNDEFINED symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_UNDEFINED symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_UNDEFINED_OES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1045,7 +1174,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_UNDEFINED = 0x8219;
 
 		/// <summary>
-		/// Value of GL_DEPTH_STENCIL_ATTACHMENT symbol.
+		/// [GL] Value of GL_DEPTH_STENCIL_ATTACHMENT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1053,8 +1182,14 @@ namespace OpenGL
 		public const int DEPTH_STENCIL_ATTACHMENT = 0x821A;
 
 		/// <summary>
-		/// Gl.Get: data returns one value. The value indicates the maximum supported size for renderbuffers. See 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value. The value indicates the maximum supported size for renderbuffers. See 
 		/// Gl.FramebufferRenderbuffer.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value. The value indicates the maximum supported size for renderbuffers and must be 
+		/// at least 2048. See Gl.FramebufferRenderbuffer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_RENDERBUFFER_SIZE_EXT")]
 		[AliasOf("GL_MAX_RENDERBUFFER_SIZE_OES")]
@@ -1066,7 +1201,7 @@ namespace OpenGL
 		public const int MAX_RENDERBUFFER_SIZE = 0x84E8;
 
 		/// <summary>
-		/// Value of GL_DEPTH_STENCIL symbol.
+		/// [GL] Value of GL_DEPTH_STENCIL symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_STENCIL_EXT")]
 		[AliasOf("GL_DEPTH_STENCIL_NV")]
@@ -1081,7 +1216,7 @@ namespace OpenGL
 		public const int DEPTH_STENCIL = 0x84F9;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_24_8 symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_24_8 symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_24_8_EXT")]
 		[AliasOf("GL_UNSIGNED_INT_24_8_NV")]
@@ -1096,7 +1231,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_24_8 = 0x84FA;
 
 		/// <summary>
-		/// Value of GL_DEPTH24_STENCIL8 symbol.
+		/// [GL] Value of GL_DEPTH24_STENCIL8 symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH24_STENCIL8_EXT")]
 		[AliasOf("GL_DEPTH24_STENCIL8_OES")]
@@ -1110,7 +1245,7 @@ namespace OpenGL
 		public const int DEPTH24_STENCIL8 = 0x88F0;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_STENCIL_SIZE symbol.
+		/// [GL] Value of GL_TEXTURE_STENCIL_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_STENCIL_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1120,10 +1255,18 @@ namespace OpenGL
 		public const int TEXTURE_STENCIL_SIZE = 0x88F1;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: The data type used to store the component. The types Gl.NONE, Gl.SIGNED_NORMALIZED, 
+		/// <para>
+		/// [GL4] Gl.GetTexLevelParameter: The data type used to store the component. The types Gl.NONE, Gl.SIGNED_NORMALIZED, 
 		/// Gl.UNSIGNED_NORMALIZED, Gl.FLOAT, Gl.INT, and Gl.UNSIGNED_INT may be returned to indicate signed normalized fixed-point, 
 		/// unsigned normalized fixed-point, floating-point, integer unnormalized, and unsigned integer unnormalized components, 
 		/// respectively.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexLevelParameter: The data type used to store the component. The types Gl.NONE, Gl.SIGNED_NORMALIZED, 
+		/// Gl.UNSIGNED_NORMALIZED, Gl.FLOAT, Gl.INT, and Gl.UNSIGNED_INT may be returned to indicate missing, signed normalized 
+		/// fixed-point, unsigned normalized fixed-point, floating-point, signed unnormalized integer, and unsigned unnormalized 
+		/// integer components, respectively.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_RED_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1132,7 +1275,7 @@ namespace OpenGL
 		public const int TEXTURE_RED_TYPE = 0x8C10;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_GREEN_TYPE symbol.
+		/// [GL] Value of GL_TEXTURE_GREEN_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_GREEN_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1141,7 +1284,7 @@ namespace OpenGL
 		public const int TEXTURE_GREEN_TYPE = 0x8C11;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BLUE_TYPE symbol.
+		/// [GL] Value of GL_TEXTURE_BLUE_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BLUE_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1150,7 +1293,7 @@ namespace OpenGL
 		public const int TEXTURE_BLUE_TYPE = 0x8C12;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_ALPHA_TYPE symbol.
+		/// [GL] Value of GL_TEXTURE_ALPHA_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_ALPHA_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1159,7 +1302,7 @@ namespace OpenGL
 		public const int TEXTURE_ALPHA_TYPE = 0x8C13;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_DEPTH_TYPE symbol.
+		/// [GL] Value of GL_TEXTURE_DEPTH_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_DEPTH_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1168,7 +1311,7 @@ namespace OpenGL
 		public const int TEXTURE_DEPTH_TYPE = 0x8C16;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_NORMALIZED symbol.
+		/// [GL] Value of GL_UNSIGNED_NORMALIZED symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_NORMALIZED_ARB")]
 		[AliasOf("GL_UNSIGNED_NORMALIZED_EXT")]
@@ -1180,7 +1323,7 @@ namespace OpenGL
 		public const int UNSIGNED_NORMALIZED = 0x8C17;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_BINDING symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_BINDING symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_BINDING_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_BINDING_OES")]
@@ -1192,8 +1335,14 @@ namespace OpenGL
 		public const int FRAMEBUFFER_BINDING = 0x8CA6;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.DRAW_FRAMEBUFFER target. If 
-		/// the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.DRAW_FRAMEBUFFER 
+		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.DRAW_FRAMEBUFFER 
+		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_ANGLE")]
 		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_APPLE")]
@@ -1209,8 +1358,16 @@ namespace OpenGL
 		public const int DRAW_FRAMEBUFFER_BINDING = 0x8CA6;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target Gl.RENDERBUFFER. 
-		/// If no renderbuffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindRenderbuffer.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target 
+		/// Gl.RENDERBUFFER. If no renderbuffer object is bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindRenderbuffer.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target 
+		/// Gl.RENDERBUFFER. If no renderbuffer object is bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindRenderbuffer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_BINDING_EXT")]
 		[AliasOf("GL_RENDERBUFFER_BINDING_OES")]
@@ -1222,7 +1379,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_BINDING = 0x8CA7;
 
 		/// <summary>
-		/// Value of GL_READ_FRAMEBUFFER symbol.
+		/// [GL] Value of GL_READ_FRAMEBUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_READ_FRAMEBUFFER_ANGLE")]
 		[AliasOf("GL_READ_FRAMEBUFFER_APPLE")]
@@ -1238,7 +1395,7 @@ namespace OpenGL
 		public const int READ_FRAMEBUFFER = 0x8CA8;
 
 		/// <summary>
-		/// Value of GL_DRAW_FRAMEBUFFER symbol.
+		/// [GL] Value of GL_DRAW_FRAMEBUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_DRAW_FRAMEBUFFER_ANGLE")]
 		[AliasOf("GL_DRAW_FRAMEBUFFER_APPLE")]
@@ -1254,8 +1411,14 @@ namespace OpenGL
 		public const int DRAW_FRAMEBUFFER = 0x8CA9;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.READ_FRAMEBUFFER target. If 
-		/// the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.READ_FRAMEBUFFER 
+		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.READ_FRAMEBUFFER 
+		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_ANGLE")]
 		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_APPLE")]
@@ -1271,7 +1434,7 @@ namespace OpenGL
 		public const int READ_FRAMEBUFFER_BINDING = 0x8CAA;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_SAMPLES symbol.
+		/// [GL] Value of GL_RENDERBUFFER_SAMPLES symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_SAMPLES_ANGLE")]
 		[AliasOf("GL_RENDERBUFFER_SAMPLES_APPLE")]
@@ -1288,7 +1451,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_SAMPLES = 0x8CAB;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_OES")]
@@ -1300,7 +1463,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0x8CD0;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_OES")]
@@ -1312,7 +1475,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0x8CD1;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_OES")]
@@ -1324,7 +1487,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0x8CD2;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_OES")]
@@ -1336,7 +1499,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0x8CD3;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1349,7 +1512,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER = 0x8CD4;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_COMPLETE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_COMPLETE symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_COMPLETE_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_COMPLETE_OES")]
@@ -1361,7 +1524,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_COMPLETE = 0x8CD5;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_OES")]
@@ -1373,7 +1536,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0x8CD6;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_OES")]
@@ -1385,7 +1548,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0x8CD7;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1394,7 +1557,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER = 0x8CDB;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1403,7 +1566,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_READ_BUFFER = 0x8CDC;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_UNSUPPORTED symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_UNSUPPORTED symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_UNSUPPORTED_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_UNSUPPORTED_OES")]
@@ -1415,8 +1578,8 @@ namespace OpenGL
 		public const int FRAMEBUFFER_UNSUPPORTED = 0x8CDD;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of color attachment points in a framebuffer object. The value must be 
-		/// at least 4. See Gl.FramebufferRenderbuffer and Gl.FramebufferTexture2D.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of color attachment points in a framebuffer object. The 
+		/// value must be at least 4. See Gl.FramebufferRenderbuffer and Gl.FramebufferTexture2D.
 		/// </summary>
 		[AliasOf("GL_MAX_COLOR_ATTACHMENTS_EXT")]
 		[AliasOf("GL_MAX_COLOR_ATTACHMENTS_NV")]
@@ -1429,7 +1592,7 @@ namespace OpenGL
 		public const int MAX_COLOR_ATTACHMENTS = 0x8CDF;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT0 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT0 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT0_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT0_NV")]
@@ -1445,7 +1608,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT0 = 0x8CE0;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT1 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT1 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT1_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT1_NV")]
@@ -1459,7 +1622,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT1 = 0x8CE1;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT2 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT2 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT2_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT2_NV")]
@@ -1473,7 +1636,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT2 = 0x8CE2;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT3 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT3 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT3_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT3_NV")]
@@ -1487,7 +1650,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT3 = 0x8CE3;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT4 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT4 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT4_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT4_NV")]
@@ -1501,7 +1664,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT4 = 0x8CE4;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT5 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT5 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT5_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT5_NV")]
@@ -1515,7 +1678,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT5 = 0x8CE5;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT6 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT6 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT6_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT6_NV")]
@@ -1529,7 +1692,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT6 = 0x8CE6;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT7 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT7 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT7_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT7_NV")]
@@ -1543,7 +1706,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT7 = 0x8CE7;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT8 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT8 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT8_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT8_NV")]
@@ -1557,7 +1720,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT8 = 0x8CE8;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT9 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT9 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT9_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT9_NV")]
@@ -1571,7 +1734,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT9 = 0x8CE9;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT10 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT10 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT10_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT10_NV")]
@@ -1585,7 +1748,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT10 = 0x8CEA;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT11 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT11 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT11_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT11_NV")]
@@ -1599,7 +1762,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT11 = 0x8CEB;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT12 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT12 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT12_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT12_NV")]
@@ -1613,7 +1776,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT12 = 0x8CEC;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT13 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT13 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT13_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT13_NV")]
@@ -1627,7 +1790,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT13 = 0x8CED;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT14 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT14 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT14_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT14_NV")]
@@ -1641,7 +1804,7 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT14 = 0x8CEE;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT15 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT15 symbol.
 		/// </summary>
 		[AliasOf("GL_COLOR_ATTACHMENT15_EXT")]
 		[AliasOf("GL_COLOR_ATTACHMENT15_NV")]
@@ -1655,119 +1818,119 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT15 = 0x8CEF;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT16 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT16 = 0x8CF0;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT17 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT17 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT17 = 0x8CF1;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT18 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT18 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT18 = 0x8CF2;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT19 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT19 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT19 = 0x8CF3;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT20 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT20 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT20 = 0x8CF4;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT21 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT21 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT21 = 0x8CF5;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT22 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT22 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT22 = 0x8CF6;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT23 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT23 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT23 = 0x8CF7;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT24 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT24 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT24 = 0x8CF8;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT25 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT25 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT25 = 0x8CF9;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT26 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT26 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT26 = 0x8CFA;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT27 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT27 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT27 = 0x8CFB;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT28 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT28 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT28 = 0x8CFC;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT29 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT29 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT29 = 0x8CFD;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT30 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT30 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT30 = 0x8CFE;
 
 		/// <summary>
-		/// Value of GL_COLOR_ATTACHMENT31 symbol.
+		/// [GL] Value of GL_COLOR_ATTACHMENT31 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int COLOR_ATTACHMENT31 = 0x8CFF;
 
 		/// <summary>
-		/// Value of GL_DEPTH_ATTACHMENT symbol.
+		/// [GL] Value of GL_DEPTH_ATTACHMENT symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_ATTACHMENT_EXT")]
 		[AliasOf("GL_DEPTH_ATTACHMENT_OES")]
@@ -1779,7 +1942,7 @@ namespace OpenGL
 		public const int DEPTH_ATTACHMENT = 0x8D00;
 
 		/// <summary>
-		/// Value of GL_STENCIL_ATTACHMENT symbol.
+		/// [GL] Value of GL_STENCIL_ATTACHMENT symbol.
 		/// </summary>
 		[AliasOf("GL_STENCIL_ATTACHMENT_EXT")]
 		[AliasOf("GL_STENCIL_ATTACHMENT_OES")]
@@ -1791,7 +1954,7 @@ namespace OpenGL
 		public const int STENCIL_ATTACHMENT = 0x8D20;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER symbol.
+		/// [GL] Value of GL_FRAMEBUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_OES")]
@@ -1803,7 +1966,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER = 0x8D40;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER symbol.
+		/// [GL] Value of GL_RENDERBUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_EXT")]
 		[AliasOf("GL_RENDERBUFFER_OES")]
@@ -1817,8 +1980,8 @@ namespace OpenGL
 		public const int RENDERBUFFER = 0x8D41;
 
 		/// <summary>
-		/// Gl.GetRenderbufferParameter: params returns the width in pixels, the height in pixels, internal format, or the number of 
-		/// samples, respectively, of the image of the specified renderbuffer object.
+		/// [GL4] Gl.GetRenderbufferParameter: params returns the width in pixels, the height in pixels, internal format, or the 
+		/// number of samples, respectively, of the image of the specified renderbuffer object.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_WIDTH_EXT")]
 		[AliasOf("GL_RENDERBUFFER_WIDTH_OES")]
@@ -1830,7 +1993,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_WIDTH = 0x8D42;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_HEIGHT symbol.
+		/// [GL] Value of GL_RENDERBUFFER_HEIGHT symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_HEIGHT_EXT")]
 		[AliasOf("GL_RENDERBUFFER_HEIGHT_OES")]
@@ -1842,7 +2005,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_HEIGHT = 0x8D43;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_INTERNAL_FORMAT symbol.
+		/// [GL] Value of GL_RENDERBUFFER_INTERNAL_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_INTERNAL_FORMAT_EXT")]
 		[AliasOf("GL_RENDERBUFFER_INTERNAL_FORMAT_OES")]
@@ -1854,7 +2017,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_INTERNAL_FORMAT = 0x8D44;
 
 		/// <summary>
-		/// Value of GL_STENCIL_INDEX1 symbol.
+		/// [GL] Value of GL_STENCIL_INDEX1 symbol.
 		/// </summary>
 		[AliasOf("GL_STENCIL_INDEX1_EXT")]
 		[AliasOf("GL_STENCIL_INDEX1_OES")]
@@ -1865,7 +2028,7 @@ namespace OpenGL
 		public const int STENCIL_INDEX1 = 0x8D46;
 
 		/// <summary>
-		/// Value of GL_STENCIL_INDEX4 symbol.
+		/// [GL] Value of GL_STENCIL_INDEX4 symbol.
 		/// </summary>
 		[AliasOf("GL_STENCIL_INDEX4_EXT")]
 		[AliasOf("GL_STENCIL_INDEX4_OES")]
@@ -1876,7 +2039,7 @@ namespace OpenGL
 		public const int STENCIL_INDEX4 = 0x8D47;
 
 		/// <summary>
-		/// Value of GL_STENCIL_INDEX8 symbol.
+		/// [GL] Value of GL_STENCIL_INDEX8 symbol.
 		/// </summary>
 		[AliasOf("GL_STENCIL_INDEX8_EXT")]
 		[AliasOf("GL_STENCIL_INDEX8_OES")]
@@ -1892,7 +2055,7 @@ namespace OpenGL
 		public const int STENCIL_INDEX8 = 0x8D48;
 
 		/// <summary>
-		/// Value of GL_STENCIL_INDEX16 symbol.
+		/// [GL] Value of GL_STENCIL_INDEX16 symbol.
 		/// </summary>
 		[AliasOf("GL_STENCIL_INDEX16_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1901,8 +2064,8 @@ namespace OpenGL
 		public const int STENCIL_INDEX16 = 0x8D49;
 
 		/// <summary>
-		/// Gl.GetRenderbufferParameter: params returns the actual resolution in bits (not the resolution specified when the image 
-		/// was defined) for the red, green, blue, alpha, depth or stencil components, respectively, of the image of the 
+		/// [GL4] Gl.GetRenderbufferParameter: params returns the actual resolution in bits (not the resolution specified when the 
+		/// image was defined) for the red, green, blue, alpha, depth or stencil components, respectively, of the image of the 
 		/// renderbuffer object.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_RED_SIZE_EXT")]
@@ -1915,7 +2078,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_RED_SIZE = 0x8D50;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_GREEN_SIZE symbol.
+		/// [GL] Value of GL_RENDERBUFFER_GREEN_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_GREEN_SIZE_EXT")]
 		[AliasOf("GL_RENDERBUFFER_GREEN_SIZE_OES")]
@@ -1927,7 +2090,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_GREEN_SIZE = 0x8D51;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_BLUE_SIZE symbol.
+		/// [GL] Value of GL_RENDERBUFFER_BLUE_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_BLUE_SIZE_EXT")]
 		[AliasOf("GL_RENDERBUFFER_BLUE_SIZE_OES")]
@@ -1939,7 +2102,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_BLUE_SIZE = 0x8D52;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_ALPHA_SIZE symbol.
+		/// [GL] Value of GL_RENDERBUFFER_ALPHA_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_ALPHA_SIZE_EXT")]
 		[AliasOf("GL_RENDERBUFFER_ALPHA_SIZE_OES")]
@@ -1951,7 +2114,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_ALPHA_SIZE = 0x8D53;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_DEPTH_SIZE symbol.
+		/// [GL] Value of GL_RENDERBUFFER_DEPTH_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_DEPTH_SIZE_EXT")]
 		[AliasOf("GL_RENDERBUFFER_DEPTH_SIZE_OES")]
@@ -1963,7 +2126,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_DEPTH_SIZE = 0x8D54;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_STENCIL_SIZE symbol.
+		/// [GL] Value of GL_RENDERBUFFER_STENCIL_SIZE symbol.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_STENCIL_SIZE_EXT")]
 		[AliasOf("GL_RENDERBUFFER_STENCIL_SIZE_OES")]
@@ -1975,7 +2138,7 @@ namespace OpenGL
 		public const int RENDERBUFFER_STENCIL_SIZE = 0x8D55;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_APPLE")]
@@ -1992,8 +2155,8 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE = 0x8D56;
 
 		/// <summary>
-		/// Gl.Get: data returns one value. The value indicates the maximum supported number of samples for multisampling. The value 
-		/// must be at least 4. See Gl.GetInternalformativ.
+		/// [GLES3.2] Gl.Get: data returns one value. The value indicates the maximum supported number of samples for multisampling. 
+		/// The value must be at least 4. See Gl.GetInternalformativ.
 		/// </summary>
 		[AliasOf("GL_MAX_SAMPLES_ANGLE")]
 		[AliasOf("GL_MAX_SAMPLES_APPLE")]
@@ -2010,14 +2173,14 @@ namespace OpenGL
 		public const int MAX_SAMPLES = 0x8D57;
 
 		/// <summary>
-		/// Value of GL_INDEX symbol.
+		/// [GL] Value of GL_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		public const int INDEX = 0x8222;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_LUMINANCE_TYPE symbol (DEPRECATED).
+		/// [GL] Value of GL_TEXTURE_LUMINANCE_TYPE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_TEXTURE_LUMINANCE_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2026,7 +2189,7 @@ namespace OpenGL
 		public const int TEXTURE_LUMINANCE_TYPE = 0x8C14;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_INTENSITY_TYPE symbol (DEPRECATED).
+		/// [GL] Value of GL_TEXTURE_INTENSITY_TYPE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_TEXTURE_INTENSITY_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2035,7 +2198,7 @@ namespace OpenGL
 		public const int TEXTURE_INTENSITY_TYPE = 0x8C15;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_SRGB symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_SRGB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2045,7 +2208,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_SRGB = 0x8DB9;
 
 		/// <summary>
-		/// Value of GL_HALF_FLOAT symbol.
+		/// [GL] Value of GL_HALF_FLOAT symbol.
 		/// </summary>
 		[AliasOf("GL_HALF_FLOAT_ARB")]
 		[AliasOf("GL_HALF_FLOAT_NV")]
@@ -2057,7 +2220,7 @@ namespace OpenGL
 		public const int HALF_FLOAT = 0x140B;
 
 		/// <summary>
-		/// Value of GL_MAP_READ_BIT symbol.
+		/// [GL] Value of GL_MAP_READ_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_READ_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2071,7 +2234,7 @@ namespace OpenGL
 		public const int MAP_READ_BIT = 0x0001;
 
 		/// <summary>
-		/// Value of GL_MAP_WRITE_BIT symbol.
+		/// [GL] Value of GL_MAP_WRITE_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_WRITE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2085,7 +2248,7 @@ namespace OpenGL
 		public const int MAP_WRITE_BIT = 0x0002;
 
 		/// <summary>
-		/// Value of GL_MAP_INVALIDATE_RANGE_BIT symbol.
+		/// [GL] Value of GL_MAP_INVALIDATE_RANGE_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_INVALIDATE_RANGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2096,7 +2259,7 @@ namespace OpenGL
 		public const int MAP_INVALIDATE_RANGE_BIT = 0x0004;
 
 		/// <summary>
-		/// Value of GL_MAP_INVALIDATE_BUFFER_BIT symbol.
+		/// [GL] Value of GL_MAP_INVALIDATE_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_INVALIDATE_BUFFER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2107,7 +2270,7 @@ namespace OpenGL
 		public const int MAP_INVALIDATE_BUFFER_BIT = 0x0008;
 
 		/// <summary>
-		/// Value of GL_MAP_FLUSH_EXPLICIT_BIT symbol.
+		/// [GL] Value of GL_MAP_FLUSH_EXPLICIT_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_FLUSH_EXPLICIT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2118,7 +2281,7 @@ namespace OpenGL
 		public const int MAP_FLUSH_EXPLICIT_BIT = 0x0010;
 
 		/// <summary>
-		/// Value of GL_MAP_UNSYNCHRONIZED_BIT symbol.
+		/// [GL] Value of GL_MAP_UNSYNCHRONIZED_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_MAP_UNSYNCHRONIZED_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2129,7 +2292,7 @@ namespace OpenGL
 		public const int MAP_UNSYNCHRONIZED_BIT = 0x0020;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RED_RGTC1 symbol.
+		/// [GL] Value of GL_COMPRESSED_RED_RGTC1 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RED_RGTC1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2138,7 +2301,7 @@ namespace OpenGL
 		public const int COMPRESSED_RED_RGTC1 = 0x8DBB;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_RED_RGTC1 symbol.
+		/// [GL] Value of GL_COMPRESSED_SIGNED_RED_RGTC1 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SIGNED_RED_RGTC1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2147,21 +2310,21 @@ namespace OpenGL
 		public const int COMPRESSED_SIGNED_RED_RGTC1 = 0x8DBC;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RG_RGTC2 symbol.
+		/// [GL] Value of GL_COMPRESSED_RG_RGTC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
 		public const int COMPRESSED_RG_RGTC2 = 0x8DBD;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_RG_RGTC2 symbol.
+		/// [GL] Value of GL_COMPRESSED_SIGNED_RG_RGTC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
 		public const int COMPRESSED_SIGNED_RG_RGTC2 = 0x8DBE;
 
 		/// <summary>
-		/// Value of GL_RG symbol.
+		/// [GL] Value of GL_RG symbol.
 		/// </summary>
 		[AliasOf("GL_RG_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2171,7 +2334,7 @@ namespace OpenGL
 		public const int RG = 0x8227;
 
 		/// <summary>
-		/// Value of GL_RG_INTEGER symbol.
+		/// [GL] Value of GL_RG_INTEGER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2179,7 +2342,7 @@ namespace OpenGL
 		public const int RG_INTEGER = 0x8228;
 
 		/// <summary>
-		/// Value of GL_R8 symbol.
+		/// [GL] Value of GL_R8 symbol.
 		/// </summary>
 		[AliasOf("GL_R8_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2190,7 +2353,7 @@ namespace OpenGL
 		public const int R8 = 0x8229;
 
 		/// <summary>
-		/// Value of GL_R16 symbol.
+		/// [GL] Value of GL_R16 symbol.
 		/// </summary>
 		[AliasOf("GL_R16_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2199,7 +2362,7 @@ namespace OpenGL
 		public const int R16 = 0x822A;
 
 		/// <summary>
-		/// Value of GL_RG8 symbol.
+		/// [GL] Value of GL_RG8 symbol.
 		/// </summary>
 		[AliasOf("GL_RG8_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2210,7 +2373,7 @@ namespace OpenGL
 		public const int RG8 = 0x822B;
 
 		/// <summary>
-		/// Value of GL_RG16 symbol.
+		/// [GL] Value of GL_RG16 symbol.
 		/// </summary>
 		[AliasOf("GL_RG16_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2219,7 +2382,7 @@ namespace OpenGL
 		public const int RG16 = 0x822C;
 
 		/// <summary>
-		/// Value of GL_R16F symbol.
+		/// [GL] Value of GL_R16F symbol.
 		/// </summary>
 		[AliasOf("GL_R16F_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2230,7 +2393,7 @@ namespace OpenGL
 		public const int R16F = 0x822D;
 
 		/// <summary>
-		/// Value of GL_R32F symbol.
+		/// [GL] Value of GL_R32F symbol.
 		/// </summary>
 		[AliasOf("GL_R32F_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2240,7 +2403,7 @@ namespace OpenGL
 		public const int R32F = 0x822E;
 
 		/// <summary>
-		/// Value of GL_RG16F symbol.
+		/// [GL] Value of GL_RG16F symbol.
 		/// </summary>
 		[AliasOf("GL_RG16F_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2251,7 +2414,7 @@ namespace OpenGL
 		public const int RG16F = 0x822F;
 
 		/// <summary>
-		/// Value of GL_RG32F symbol.
+		/// [GL] Value of GL_RG32F symbol.
 		/// </summary>
 		[AliasOf("GL_RG32F_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2261,7 +2424,7 @@ namespace OpenGL
 		public const int RG32F = 0x8230;
 
 		/// <summary>
-		/// Value of GL_R8I symbol.
+		/// [GL] Value of GL_R8I symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2269,7 +2432,7 @@ namespace OpenGL
 		public const int R8I = 0x8231;
 
 		/// <summary>
-		/// Value of GL_R8UI symbol.
+		/// [GL] Value of GL_R8UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2277,7 +2440,7 @@ namespace OpenGL
 		public const int R8UI = 0x8232;
 
 		/// <summary>
-		/// Value of GL_R16I symbol.
+		/// [GL] Value of GL_R16I symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2285,7 +2448,7 @@ namespace OpenGL
 		public const int R16I = 0x8233;
 
 		/// <summary>
-		/// Value of GL_R16UI symbol.
+		/// [GL] Value of GL_R16UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2293,7 +2456,7 @@ namespace OpenGL
 		public const int R16UI = 0x8234;
 
 		/// <summary>
-		/// Value of GL_R32I symbol.
+		/// [GL] Value of GL_R32I symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2301,7 +2464,7 @@ namespace OpenGL
 		public const int R32I = 0x8235;
 
 		/// <summary>
-		/// Value of GL_R32UI symbol.
+		/// [GL] Value of GL_R32UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2309,7 +2472,7 @@ namespace OpenGL
 		public const int R32UI = 0x8236;
 
 		/// <summary>
-		/// Value of GL_RG8I symbol.
+		/// [GL] Value of GL_RG8I symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2317,7 +2480,7 @@ namespace OpenGL
 		public const int RG8I = 0x8237;
 
 		/// <summary>
-		/// Value of GL_RG8UI symbol.
+		/// [GL] Value of GL_RG8UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2326,7 +2489,7 @@ namespace OpenGL
 		public const int RG8UI = 0x8238;
 
 		/// <summary>
-		/// Value of GL_RG16I symbol.
+		/// [GL] Value of GL_RG16I symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2334,7 +2497,7 @@ namespace OpenGL
 		public const int RG16I = 0x8239;
 
 		/// <summary>
-		/// Value of GL_RG16UI symbol.
+		/// [GL] Value of GL_RG16UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2343,7 +2506,7 @@ namespace OpenGL
 		public const int RG16UI = 0x823A;
 
 		/// <summary>
-		/// Value of GL_RG32I symbol.
+		/// [GL] Value of GL_RG32I symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2351,7 +2514,7 @@ namespace OpenGL
 		public const int RG32I = 0x823B;
 
 		/// <summary>
-		/// Value of GL_RG32UI symbol.
+		/// [GL] Value of GL_RG32UI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2359,8 +2522,14 @@ namespace OpenGL
 		public const int RG32UI = 0x823C;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the name of the vertex array object currently bound to the context. If no vertex 
-		/// array object is bound to the context, 0 is returned. The initial value is 0. See Gl.BindVertexArray.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the name of the vertex array object currently bound to the context. If no 
+		/// vertex array object is bound to the context, 0 is returned. The initial value is 0. See Gl.BindVertexArray.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the name of the vertex array object currently bound. If no vertex array 
+		/// object is bound, 0 is returned. The initial value is 0. See Gl.BindVertexArray.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_BINDING_APPLE")]
 		[AliasOf("GL_VERTEX_ARRAY_BINDING_OES")]
@@ -2372,7 +2541,7 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_BINDING = 0x85B5;
 
 		/// <summary>
-		/// Value of GL_CLAMP_VERTEX_COLOR symbol (DEPRECATED).
+		/// [GL] Value of GL_CLAMP_VERTEX_COLOR symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_CLAMP_VERTEX_COLOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2381,7 +2550,7 @@ namespace OpenGL
 		public const int CLAMP_VERTEX_COLOR = 0x891A;
 
 		/// <summary>
-		/// Value of GL_CLAMP_FRAGMENT_COLOR symbol (DEPRECATED).
+		/// [GL] Value of GL_CLAMP_FRAGMENT_COLOR symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_CLAMP_FRAGMENT_COLOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -2390,7 +2559,7 @@ namespace OpenGL
 		public const int CLAMP_FRAGMENT_COLOR = 0x891B;
 
 		/// <summary>
-		/// Value of GL_ALPHA_INTEGER symbol (DEPRECATED).
+		/// [GL] Value of GL_ALPHA_INTEGER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_ALPHA_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]

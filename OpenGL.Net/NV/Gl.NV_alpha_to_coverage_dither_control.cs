@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV symbol.
+		/// [GL] Value of GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 		public const int ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV = 0x934D;
 
 		/// <summary>
-		/// Value of GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV symbol.
+		/// [GL] Value of GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 		public const int ALPHA_TO_COVERAGE_DITHER_ENABLE_NV = 0x934E;
 
 		/// <summary>
-		/// Value of GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV symbol.
+		/// [GL] Value of GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 		public const int ALPHA_TO_COVERAGE_DITHER_DISABLE_NV = 0x934F;
 
 		/// <summary>
-		/// Value of GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV symbol.
+		/// [GL] Value of GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 		public const int ALPHA_TO_COVERAGE_DITHER_MODE_NV = 0x92BF;

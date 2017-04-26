@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SET_AMD symbol.
+		/// [GL] Value of GL_SET_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 		public const int SET_AMD = 0x874A;
 
 		/// <summary>
-		/// Value of GL_REPLACE_VALUE_AMD symbol.
+		/// [GL] Value of GL_REPLACE_VALUE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 		public const int REPLACE_VALUE_AMD = 0x874B;
 
 		/// <summary>
-		/// Value of GL_STENCIL_OP_VALUE_AMD symbol.
+		/// [GL] Value of GL_STENCIL_OP_VALUE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 		public const int STENCIL_OP_VALUE_AMD = 0x874C;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_OP_VALUE_AMD symbol.
+		/// [GL] Value of GL_STENCIL_BACK_OP_VALUE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 		public const int STENCIL_BACK_OP_VALUE_AMD = 0x874D;

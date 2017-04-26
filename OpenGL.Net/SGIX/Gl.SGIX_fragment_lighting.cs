@@ -29,121 +29,121 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHTING_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHTING_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHTING_SGIX = 0x8400;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_COLOR_MATERIAL_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_COLOR_MATERIAL_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_COLOR_MATERIAL_SGIX = 0x8401;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_COLOR_MATERIAL_FACE_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_COLOR_MATERIAL_FACE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_COLOR_MATERIAL_FACE_SGIX = 0x8402;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX = 0x8403;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_LIGHTS_SGIX symbol.
+		/// [GL] Value of GL_MAX_FRAGMENT_LIGHTS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int MAX_FRAGMENT_LIGHTS_SGIX = 0x8404;
 
 		/// <summary>
-		/// Value of GL_MAX_ACTIVE_LIGHTS_SGIX symbol.
+		/// [GL] Value of GL_MAX_ACTIVE_LIGHTS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int MAX_ACTIVE_LIGHTS_SGIX = 0x8405;
 
 		/// <summary>
-		/// Value of GL_CURRENT_RASTER_NORMAL_SGIX symbol.
+		/// [GL] Value of GL_CURRENT_RASTER_NORMAL_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int CURRENT_RASTER_NORMAL_SGIX = 0x8406;
 
 		/// <summary>
-		/// Value of GL_LIGHT_ENV_MODE_SGIX symbol.
+		/// [GL] Value of GL_LIGHT_ENV_MODE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int LIGHT_ENV_MODE_SGIX = 0x8407;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX = 0x8408;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX = 0x8409;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX = 0x840A;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX = 0x840B;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT0_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT0_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT0_SGIX = 0x840C;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT1_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT1_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT1_SGIX = 0x840D;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT2_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT2_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT2_SGIX = 0x840E;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT3_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT3_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT3_SGIX = 0x840F;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT4_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT4_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT4_SGIX = 0x8410;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT5_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT5_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT5_SGIX = 0x8411;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT6_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT6_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT6_SGIX = 0x8412;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_LIGHT7_SGIX symbol.
+		/// [GL] Value of GL_FRAGMENT_LIGHT7_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public const int FRAGMENT_LIGHT7_SGIX = 0x8413;

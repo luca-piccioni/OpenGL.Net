@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK_SGIS symbol.
+		/// [GL] Value of GL_SAMPLE_MASK_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_MASK_SGIS = 0x80A0;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK_VALUE_SGIS symbol.
+		/// [GL] Value of GL_SAMPLE_MASK_VALUE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_MASK_VALUE_SGIS = 0x80AA;

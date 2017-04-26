@@ -29,85 +29,85 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TANGENT_ARRAY_EXT symbol.
+		/// [GL] Value of GL_TANGENT_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int TANGENT_ARRAY_EXT = 0x8439;
 
 		/// <summary>
-		/// Value of GL_BINORMAL_ARRAY_EXT symbol.
+		/// [GL] Value of GL_BINORMAL_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int BINORMAL_ARRAY_EXT = 0x843A;
 
 		/// <summary>
-		/// Value of GL_CURRENT_TANGENT_EXT symbol.
+		/// [GL] Value of GL_CURRENT_TANGENT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int CURRENT_TANGENT_EXT = 0x843B;
 
 		/// <summary>
-		/// Value of GL_CURRENT_BINORMAL_EXT symbol.
+		/// [GL] Value of GL_CURRENT_BINORMAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int CURRENT_BINORMAL_EXT = 0x843C;
 
 		/// <summary>
-		/// Value of GL_TANGENT_ARRAY_TYPE_EXT symbol.
+		/// [GL] Value of GL_TANGENT_ARRAY_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int TANGENT_ARRAY_TYPE_EXT = 0x843E;
 
 		/// <summary>
-		/// Value of GL_TANGENT_ARRAY_STRIDE_EXT symbol.
+		/// [GL] Value of GL_TANGENT_ARRAY_STRIDE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int TANGENT_ARRAY_STRIDE_EXT = 0x843F;
 
 		/// <summary>
-		/// Value of GL_BINORMAL_ARRAY_TYPE_EXT symbol.
+		/// [GL] Value of GL_BINORMAL_ARRAY_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int BINORMAL_ARRAY_TYPE_EXT = 0x8440;
 
 		/// <summary>
-		/// Value of GL_BINORMAL_ARRAY_STRIDE_EXT symbol.
+		/// [GL] Value of GL_BINORMAL_ARRAY_STRIDE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int BINORMAL_ARRAY_STRIDE_EXT = 0x8441;
 
 		/// <summary>
-		/// Value of GL_TANGENT_ARRAY_POINTER_EXT symbol.
+		/// [GL] Value of GL_TANGENT_ARRAY_POINTER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int TANGENT_ARRAY_POINTER_EXT = 0x8442;
 
 		/// <summary>
-		/// Value of GL_BINORMAL_ARRAY_POINTER_EXT symbol.
+		/// [GL] Value of GL_BINORMAL_ARRAY_POINTER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int BINORMAL_ARRAY_POINTER_EXT = 0x8443;
 
 		/// <summary>
-		/// Value of GL_MAP1_TANGENT_EXT symbol.
+		/// [GL] Value of GL_MAP1_TANGENT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int MAP1_TANGENT_EXT = 0x8444;
 
 		/// <summary>
-		/// Value of GL_MAP2_TANGENT_EXT symbol.
+		/// [GL] Value of GL_MAP2_TANGENT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int MAP2_TANGENT_EXT = 0x8445;
 
 		/// <summary>
-		/// Value of GL_MAP1_BINORMAL_EXT symbol.
+		/// [GL] Value of GL_MAP1_BINORMAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int MAP1_BINORMAL_EXT = 0x8446;
 
 		/// <summary>
-		/// Value of GL_MAP2_BINORMAL_EXT symbol.
+		/// [GL] Value of GL_MAP2_BINORMAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public const int MAP2_BINORMAL_EXT = 0x8447;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DRAW_PIXELS_APPLE symbol.
+		/// [GL] Value of GL_DRAW_PIXELS_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_fence")]
 		public const int DRAW_PIXELS_APPLE = 0x8A0A;
 
 		/// <summary>
-		/// Value of GL_FENCE_APPLE symbol.
+		/// [GL] Value of GL_FENCE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_fence")]
 		public const int FENCE_APPLE = 0x8A0B;

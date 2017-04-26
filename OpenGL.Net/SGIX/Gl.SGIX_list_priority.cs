@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_LIST_PRIORITY_SGIX symbol.
+		/// [GL] Value of GL_LIST_PRIORITY_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_list_priority")]
 		public const int LIST_PRIORITY_SGIX = 0x8182;

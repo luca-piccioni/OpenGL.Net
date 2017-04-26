@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_USAGE_ANGLE symbol.
+		/// [GL] Value of GL_TEXTURE_USAGE_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ANGLE_texture_usage", Api = "gles2")]
 		public const int TEXTURE_USAGE_ANGLE = 0x93A2;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_ANGLE symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ANGLE_texture_usage", Api = "gles2")]
 		public const int FRAMEBUFFER_ATTACHMENT_ANGLE = 0x93A3;

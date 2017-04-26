@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_SHADER_COMPILER_THREADS_ARB symbol.
+		/// [GL] Value of GL_MAX_SHADER_COMPILER_THREADS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 		public const int MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
 
 		/// <summary>
-		/// Value of GL_COMPLETION_STATUS_ARB symbol.
+		/// [GL] Value of GL_COMPLETION_STATUS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 		public const int COMPLETION_STATUS_ARB = 0x91B1;

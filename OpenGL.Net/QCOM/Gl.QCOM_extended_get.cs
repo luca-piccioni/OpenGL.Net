@@ -29,67 +29,67 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_WIDTH_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_WIDTH_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_WIDTH_QCOM = 0x8BD2;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_HEIGHT_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_HEIGHT_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_HEIGHT_QCOM = 0x8BD3;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_DEPTH_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_DEPTH_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_DEPTH_QCOM = 0x8BD4;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_INTERNAL_FORMAT_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_INTERNAL_FORMAT_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_INTERNAL_FORMAT_QCOM = 0x8BD5;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FORMAT_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_FORMAT_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_FORMAT_QCOM = 0x8BD6;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_TYPE_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_TYPE_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_TYPE_QCOM = 0x8BD7;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_IMAGE_VALID_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_IMAGE_VALID_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_IMAGE_VALID_QCOM = 0x8BD8;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_NUM_LEVELS_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_NUM_LEVELS_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_NUM_LEVELS_QCOM = 0x8BD9;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_TARGET_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_TARGET_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_TARGET_QCOM = 0x8BDA;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_OBJECT_VALID_QCOM symbol.
+		/// [GL] Value of GL_TEXTURE_OBJECT_VALID_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int TEXTURE_OBJECT_VALID_QCOM = 0x8BDB;
 
 		/// <summary>
-		/// Value of GL_STATE_RESTORE symbol.
+		/// [GL] Value of GL_STATE_RESTORE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public const int STATE_RESTORE = 0x8BDC;

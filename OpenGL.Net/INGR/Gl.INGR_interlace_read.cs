@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INTERLACE_READ_INGR symbol.
+		/// [GL] Value of GL_INTERLACE_READ_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_interlace_read")]
 		public const int INTERLACE_READ_INGR = 0x8568;

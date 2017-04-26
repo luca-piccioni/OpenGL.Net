@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MALI_SHADER_BINARY_ARM symbol.
+		/// [GL] Value of GL_MALI_SHADER_BINARY_ARM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARM_mali_shader_binary", Api = "gles2")]
 		public const int MALI_SHADER_BINARY_ARM = 0x8F60;

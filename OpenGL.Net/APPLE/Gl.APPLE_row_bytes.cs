@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_ROW_BYTES_APPLE symbol.
+		/// [GL] Value of GL_PACK_ROW_BYTES_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_row_bytes")]
 		public const int PACK_ROW_BYTES_APPLE = 0x8A15;
 
 		/// <summary>
-		/// Value of GL_UNPACK_ROW_BYTES_APPLE symbol.
+		/// [GL] Value of GL_UNPACK_ROW_BYTES_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_row_bytes")]
 		public const int UNPACK_ROW_BYTES_APPLE = 0x8A16;

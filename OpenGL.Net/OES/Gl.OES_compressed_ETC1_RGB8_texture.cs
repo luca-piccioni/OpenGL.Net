@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ETC1_RGB8_OES symbol.
+		/// [GL] Value of GL_ETC1_RGB8_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_compressed_ETC1_RGB8_texture", Api = "gles1|gles2")]
 		public const int ETC1_RGB8_OES = 0x8D64;

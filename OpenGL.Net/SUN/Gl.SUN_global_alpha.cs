@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_GLOBAL_ALPHA_SUN symbol.
+		/// [GL] Value of GL_GLOBAL_ALPHA_SUN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUN_global_alpha")]
 		public const int GLOBAL_ALPHA_SUN = 0x81D9;
 
 		/// <summary>
-		/// Value of GL_GLOBAL_ALPHA_FACTOR_SUN symbol.
+		/// [GL] Value of GL_GLOBAL_ALPHA_FACTOR_SUN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUN_global_alpha")]
 		public const int GLOBAL_ALPHA_FACTOR_SUN = 0x81DA;

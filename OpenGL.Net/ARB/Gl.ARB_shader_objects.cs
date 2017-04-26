@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PROGRAM_OBJECT_ARB symbol.
+		/// [GL] Value of GL_PROGRAM_OBJECT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_OBJECT_EXT")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int PROGRAM_OBJECT_ARB = 0x8B40;
 
 		/// <summary>
-		/// Value of GL_SHADER_OBJECT_ARB symbol.
+		/// [GL] Value of GL_SHADER_OBJECT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SHADER_OBJECT_EXT")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
@@ -45,67 +45,67 @@ namespace OpenGL
 		public const int SHADER_OBJECT_ARB = 0x8B48;
 
 		/// <summary>
-		/// Value of GL_OBJECT_TYPE_ARB symbol.
+		/// [GL] Value of GL_OBJECT_TYPE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_TYPE_ARB = 0x8B4E;
 
 		/// <summary>
-		/// Value of GL_OBJECT_SUBTYPE_ARB symbol.
+		/// [GL] Value of GL_OBJECT_SUBTYPE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_SUBTYPE_ARB = 0x8B4F;
 
 		/// <summary>
-		/// Value of GL_OBJECT_DELETE_STATUS_ARB symbol.
+		/// [GL] Value of GL_OBJECT_DELETE_STATUS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_DELETE_STATUS_ARB = 0x8B80;
 
 		/// <summary>
-		/// Value of GL_OBJECT_COMPILE_STATUS_ARB symbol.
+		/// [GL] Value of GL_OBJECT_COMPILE_STATUS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_COMPILE_STATUS_ARB = 0x8B81;
 
 		/// <summary>
-		/// Value of GL_OBJECT_LINK_STATUS_ARB symbol.
+		/// [GL] Value of GL_OBJECT_LINK_STATUS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_LINK_STATUS_ARB = 0x8B82;
 
 		/// <summary>
-		/// Value of GL_OBJECT_VALIDATE_STATUS_ARB symbol.
+		/// [GL] Value of GL_OBJECT_VALIDATE_STATUS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_VALIDATE_STATUS_ARB = 0x8B83;
 
 		/// <summary>
-		/// Value of GL_OBJECT_INFO_LOG_LENGTH_ARB symbol.
+		/// [GL] Value of GL_OBJECT_INFO_LOG_LENGTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_INFO_LOG_LENGTH_ARB = 0x8B84;
 
 		/// <summary>
-		/// Value of GL_OBJECT_ATTACHED_OBJECTS_ARB symbol.
+		/// [GL] Value of GL_OBJECT_ATTACHED_OBJECTS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_ATTACHED_OBJECTS_ARB = 0x8B85;
 
 		/// <summary>
-		/// Value of GL_OBJECT_ACTIVE_UNIFORMS_ARB symbol.
+		/// [GL] Value of GL_OBJECT_ACTIVE_UNIFORMS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_ACTIVE_UNIFORMS_ARB = 0x8B86;
 
 		/// <summary>
-		/// Value of GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB symbol.
+		/// [GL] Value of GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB = 0x8B87;
 
 		/// <summary>
-		/// Value of GL_OBJECT_SHADER_SOURCE_LENGTH_ARB symbol.
+		/// [GL] Value of GL_OBJECT_SHADER_SOURCE_LENGTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int OBJECT_SHADER_SOURCE_LENGTH_ARB = 0x8B88;

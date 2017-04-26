@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ASYNC_HISTOGRAM_SGIX symbol.
+		/// [GL] Value of GL_ASYNC_HISTOGRAM_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_histogram")]
 		public const int ASYNC_HISTOGRAM_SGIX = 0x832C;
 
 		/// <summary>
-		/// Value of GL_MAX_ASYNC_HISTOGRAM_SGIX symbol.
+		/// [GL] Value of GL_MAX_ASYNC_HISTOGRAM_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_histogram")]
 		public const int MAX_ASYNC_HISTOGRAM_SGIX = 0x832D;

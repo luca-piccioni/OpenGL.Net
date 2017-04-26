@@ -29,39 +29,39 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_GEOMETRY_PROGRAM_NV symbol.
+		/// [GL] Value of GL_GEOMETRY_PROGRAM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int GEOMETRY_PROGRAM_NV = 0x8C26;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_OUTPUT_VERTICES_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_OUTPUT_VERTICES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int MAX_PROGRAM_OUTPUT_VERTICES_NV = 0x8C27;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV = 0x8C28;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_VERTICES_OUT_EXT symbol.
+		/// [GL] Value of GL_GEOMETRY_VERTICES_OUT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int GEOMETRY_VERTICES_OUT_EXT = 0x8DDA;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_INPUT_TYPE_EXT symbol.
+		/// [GL] Value of GL_GEOMETRY_INPUT_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int GEOMETRY_INPUT_TYPE_EXT = 0x8DDB;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_OUTPUT_TYPE_EXT symbol.
+		/// [GL] Value of GL_GEOMETRY_OUTPUT_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]

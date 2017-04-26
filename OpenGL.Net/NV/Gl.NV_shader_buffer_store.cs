@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV symbol.
+		/// [GL] Value of GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_buffer_store", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INSTRUMENT_BUFFER_POINTER_SGIX symbol.
+		/// [GL] Value of GL_INSTRUMENT_BUFFER_POINTER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_instruments")]
 		public const int INSTRUMENT_BUFFER_POINTER_SGIX = 0x8180;
 
 		/// <summary>
-		/// Value of GL_INSTRUMENT_MEASUREMENTS_SGIX symbol.
+		/// [GL] Value of GL_INSTRUMENT_MEASUREMENTS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_instruments")]
 		public const int INSTRUMENT_MEASUREMENTS_SGIX = 0x8181;

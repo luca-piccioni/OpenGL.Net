@@ -29,8 +29,8 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: data returns a pair of values indicating the range of widths supported for lines drawn when Gl.SAMPLE_BUFFERS is 
-		/// one. See Gl.LineWidth.
+		/// [GLES3.2] Gl.Get: data returns a pair of values indicating the range of widths supported for lines drawn when 
+		/// Gl.SAMPLE_BUFFERS is one. See Gl.LineWidth.
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -38,7 +38,7 @@ namespace OpenGL
 		public const int MULTISAMPLE_LINE_WIDTH_RANGE = 0x9381;
 
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY symbol.
+		/// [GL] Value of GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY symbol.
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -46,7 +46,7 @@ namespace OpenGL
 		public const int MULTISAMPLE_LINE_WIDTH_GRANULARITY = 0x9382;
 
 		/// <summary>
-		/// Value of GL_MULTIPLY symbol.
+		/// [GL] Value of GL_MULTIPLY symbol.
 		/// </summary>
 		[AliasOf("GL_MULTIPLY_KHR")]
 		[AliasOf("GL_MULTIPLY_NV")]
@@ -56,7 +56,7 @@ namespace OpenGL
 		public const int MULTIPLY = 0x9294;
 
 		/// <summary>
-		/// Value of GL_SCREEN symbol.
+		/// [GL] Value of GL_SCREEN symbol.
 		/// </summary>
 		[AliasOf("GL_SCREEN_KHR")]
 		[AliasOf("GL_SCREEN_NV")]
@@ -66,7 +66,7 @@ namespace OpenGL
 		public const int SCREEN = 0x9295;
 
 		/// <summary>
-		/// Value of GL_OVERLAY symbol.
+		/// [GL] Value of GL_OVERLAY symbol.
 		/// </summary>
 		[AliasOf("GL_OVERLAY_KHR")]
 		[AliasOf("GL_OVERLAY_NV")]
@@ -76,7 +76,7 @@ namespace OpenGL
 		public const int OVERLAY = 0x9296;
 
 		/// <summary>
-		/// Value of GL_DARKEN symbol.
+		/// [GL] Value of GL_DARKEN symbol.
 		/// </summary>
 		[AliasOf("GL_DARKEN_KHR")]
 		[AliasOf("GL_DARKEN_NV")]
@@ -86,7 +86,7 @@ namespace OpenGL
 		public const int DARKEN = 0x9297;
 
 		/// <summary>
-		/// Value of GL_LIGHTEN symbol.
+		/// [GL] Value of GL_LIGHTEN symbol.
 		/// </summary>
 		[AliasOf("GL_LIGHTEN_KHR")]
 		[AliasOf("GL_LIGHTEN_NV")]
@@ -96,7 +96,7 @@ namespace OpenGL
 		public const int LIGHTEN = 0x9298;
 
 		/// <summary>
-		/// Value of GL_COLORDODGE symbol.
+		/// [GL] Value of GL_COLORDODGE symbol.
 		/// </summary>
 		[AliasOf("GL_COLORDODGE_KHR")]
 		[AliasOf("GL_COLORDODGE_NV")]
@@ -106,7 +106,7 @@ namespace OpenGL
 		public const int COLORDODGE = 0x9299;
 
 		/// <summary>
-		/// Value of GL_COLORBURN symbol.
+		/// [GL] Value of GL_COLORBURN symbol.
 		/// </summary>
 		[AliasOf("GL_COLORBURN_KHR")]
 		[AliasOf("GL_COLORBURN_NV")]
@@ -116,7 +116,7 @@ namespace OpenGL
 		public const int COLORBURN = 0x929A;
 
 		/// <summary>
-		/// Value of GL_HARDLIGHT symbol.
+		/// [GL] Value of GL_HARDLIGHT symbol.
 		/// </summary>
 		[AliasOf("GL_HARDLIGHT_KHR")]
 		[AliasOf("GL_HARDLIGHT_NV")]
@@ -126,7 +126,7 @@ namespace OpenGL
 		public const int HARDLIGHT = 0x929B;
 
 		/// <summary>
-		/// Value of GL_SOFTLIGHT symbol.
+		/// [GL] Value of GL_SOFTLIGHT symbol.
 		/// </summary>
 		[AliasOf("GL_SOFTLIGHT_KHR")]
 		[AliasOf("GL_SOFTLIGHT_NV")]
@@ -136,7 +136,7 @@ namespace OpenGL
 		public const int SOFTLIGHT = 0x929C;
 
 		/// <summary>
-		/// Value of GL_DIFFERENCE symbol.
+		/// [GL] Value of GL_DIFFERENCE symbol.
 		/// </summary>
 		[AliasOf("GL_DIFFERENCE_KHR")]
 		[AliasOf("GL_DIFFERENCE_NV")]
@@ -146,7 +146,7 @@ namespace OpenGL
 		public const int DIFFERENCE = 0x929E;
 
 		/// <summary>
-		/// Value of GL_EXCLUSION symbol.
+		/// [GL] Value of GL_EXCLUSION symbol.
 		/// </summary>
 		[AliasOf("GL_EXCLUSION_KHR")]
 		[AliasOf("GL_EXCLUSION_NV")]
@@ -156,7 +156,7 @@ namespace OpenGL
 		public const int EXCLUSION = 0x92A0;
 
 		/// <summary>
-		/// Value of GL_HSL_HUE symbol.
+		/// [GL] Value of GL_HSL_HUE symbol.
 		/// </summary>
 		[AliasOf("GL_HSL_HUE_KHR")]
 		[AliasOf("GL_HSL_HUE_NV")]
@@ -166,7 +166,7 @@ namespace OpenGL
 		public const int HSL_HUE = 0x92AD;
 
 		/// <summary>
-		/// Value of GL_HSL_SATURATION symbol.
+		/// [GL] Value of GL_HSL_SATURATION symbol.
 		/// </summary>
 		[AliasOf("GL_HSL_SATURATION_KHR")]
 		[AliasOf("GL_HSL_SATURATION_NV")]
@@ -176,7 +176,7 @@ namespace OpenGL
 		public const int HSL_SATURATION = 0x92AE;
 
 		/// <summary>
-		/// Value of GL_HSL_COLOR symbol.
+		/// [GL] Value of GL_HSL_COLOR symbol.
 		/// </summary>
 		[AliasOf("GL_HSL_COLOR_KHR")]
 		[AliasOf("GL_HSL_COLOR_NV")]
@@ -186,7 +186,7 @@ namespace OpenGL
 		public const int HSL_COLOR = 0x92AF;
 
 		/// <summary>
-		/// Value of GL_HSL_LUMINOSITY symbol.
+		/// [GL] Value of GL_HSL_LUMINOSITY symbol.
 		/// </summary>
 		[AliasOf("GL_HSL_LUMINOSITY_KHR")]
 		[AliasOf("GL_HSL_LUMINOSITY_NV")]
@@ -196,8 +196,8 @@ namespace OpenGL
 		public const int HSL_LUMINOSITY = 0x92B0;
 
 		/// <summary>
-		/// Gl.Get: data returns eight values minX, minY, minZ, minW, and maxX, maxY, maxZ, maxW corresponding to the clip space 
-		/// coordinates of the primitive bounding box. See Gl.PrimitiveBoundingBox.
+		/// [GLES3.2] Gl.Get: data returns eight values minX, minY, minZ, minW, and maxX, maxY, maxZ, maxW corresponding to the clip 
+		/// space coordinates of the primitive bounding box. See Gl.PrimitiveBoundingBox.
 		/// </summary>
 		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_ARB")]
 		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_EXT")]
@@ -209,7 +209,7 @@ namespace OpenGL
 		public const int PRIMITIVE_BOUNDING_BOX = 0x92BE;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_4x4 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_4x4 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_4x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -219,7 +219,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_4x4 = 0x93B0;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_5x4 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_5x4 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_5x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -229,7 +229,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_5x4 = 0x93B1;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_5x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_5x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_5x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -239,7 +239,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_5x5 = 0x93B2;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_6x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_6x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_6x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -249,7 +249,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_6x5 = 0x93B3;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_6x6 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_6x6 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_6x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -259,7 +259,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_6x6 = 0x93B4;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_8x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_8x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_8x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -269,7 +269,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_8x5 = 0x93B5;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_8x6 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_8x6 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_8x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -279,7 +279,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_8x6 = 0x93B6;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_8x8 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_8x8 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_8x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -289,7 +289,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_8x8 = 0x93B7;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_10x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -299,7 +299,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_10x5 = 0x93B8;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_10x6 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x6 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -309,7 +309,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_10x6 = 0x93B9;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_10x8 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x8 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -319,7 +319,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_10x8 = 0x93BA;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_10x10 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x10 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -329,7 +329,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_10x10 = 0x93BB;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_12x10 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_12x10 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_12x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -339,7 +339,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_12x10 = 0x93BC;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_ASTC_12x12 symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_12x12 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_ASTC_12x12_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -349,7 +349,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_ASTC_12x12 = 0x93BD;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -359,7 +359,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_4x4 = 0x93D0;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -369,7 +369,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x4 = 0x93D1;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -379,7 +379,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x5 = 0x93D2;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -389,7 +389,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x5 = 0x93D3;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -399,7 +399,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x6 = 0x93D4;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -409,7 +409,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_8x5 = 0x93D5;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -419,7 +419,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_8x6 = 0x93D6;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -429,7 +429,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_8x8 = 0x93D7;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -439,7 +439,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x5 = 0x93D8;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -449,7 +449,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x6 = 0x93D9;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -459,7 +459,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x8 = 0x93DA;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -469,7 +469,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x10 = 0x93DB;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -479,7 +479,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_12x10 = 0x93DC;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12 symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12 symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]

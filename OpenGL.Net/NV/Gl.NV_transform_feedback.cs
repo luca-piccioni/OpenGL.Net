@@ -29,103 +29,103 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BACK_PRIMARY_COLOR_NV symbol.
+		/// [GL] Value of GL_BACK_PRIMARY_COLOR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int BACK_PRIMARY_COLOR_NV = 0x8C77;
 
 		/// <summary>
-		/// Value of GL_BACK_SECONDARY_COLOR_NV symbol.
+		/// [GL] Value of GL_BACK_SECONDARY_COLOR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int BACK_SECONDARY_COLOR_NV = 0x8C78;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_NV symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int TEXTURE_COORD_NV = 0x8C79;
 
 		/// <summary>
-		/// Value of GL_CLIP_DISTANCE_NV symbol.
+		/// [GL] Value of GL_CLIP_DISTANCE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int CLIP_DISTANCE_NV = 0x8C7A;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ID_NV symbol.
+		/// [GL] Value of GL_VERTEX_ID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int VERTEX_ID_NV = 0x8C7B;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_ID_NV symbol.
+		/// [GL] Value of GL_PRIMITIVE_ID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int PRIMITIVE_ID_NV = 0x8C7C;
 
 		/// <summary>
-		/// Value of GL_GENERIC_ATTRIB_NV symbol.
+		/// [GL] Value of GL_GENERIC_ATTRIB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int GENERIC_ATTRIB_NV = 0x8C7D;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_ATTRIBS_NV symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_ATTRIBS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int TRANSFORM_FEEDBACK_ATTRIBS_NV = 0x8C7E;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_VARYINGS_NV symbol.
+		/// [GL] Value of GL_ACTIVE_VARYINGS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int ACTIVE_VARYINGS_NV = 0x8C81;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_VARYING_MAX_LENGTH_NV symbol.
+		/// [GL] Value of GL_ACTIVE_VARYING_MAX_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int ACTIVE_VARYING_MAX_LENGTH_NV = 0x8C82;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_RECORD_NV symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_RECORD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int TRANSFORM_FEEDBACK_RECORD_NV = 0x8C86;
 
 		/// <summary>
-		/// Value of GL_LAYER_NV symbol.
+		/// [GL] Value of GL_LAYER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int LAYER_NV = 0x8DAA;
 
 		/// <summary>
-		/// Value of GL_NEXT_BUFFER_NV symbol.
+		/// [GL] Value of GL_NEXT_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int NEXT_BUFFER_NV = -2;
 
 		/// <summary>
-		/// Value of GL_SKIP_COMPONENTS4_NV symbol.
+		/// [GL] Value of GL_SKIP_COMPONENTS4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int SKIP_COMPONENTS4_NV = -3;
 
 		/// <summary>
-		/// Value of GL_SKIP_COMPONENTS3_NV symbol.
+		/// [GL] Value of GL_SKIP_COMPONENTS3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int SKIP_COMPONENTS3_NV = -4;
 
 		/// <summary>
-		/// Value of GL_SKIP_COMPONENTS2_NV symbol.
+		/// [GL] Value of GL_SKIP_COMPONENTS2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int SKIP_COMPONENTS2_NV = -5;
 
 		/// <summary>
-		/// Value of GL_SKIP_COMPONENTS1_NV symbol.
+		/// [GL] Value of GL_SKIP_COMPONENTS1_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int SKIP_COMPONENTS1_NV = -6;

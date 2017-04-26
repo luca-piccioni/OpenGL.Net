@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_1D_BINDING_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_1D_BINDING_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_object")]
 		public const int TEXTURE_1D_BINDING_EXT = 0x8068;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_2D_BINDING_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_2D_BINDING_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_object")]
 		public const int TEXTURE_2D_BINDING_EXT = 0x8069;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_3D_BINDING_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_3D_BINDING_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_object")]
 		public const int TEXTURE_3D_BINDING_EXT = 0x806A;

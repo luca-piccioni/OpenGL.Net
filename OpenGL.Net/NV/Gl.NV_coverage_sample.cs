@@ -29,55 +29,55 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COVERAGE_COMPONENT_NV symbol.
+		/// [GL] Value of GL_COVERAGE_COMPONENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_COMPONENT_NV = 0x8ED0;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_COMPONENT4_NV symbol.
+		/// [GL] Value of GL_COVERAGE_COMPONENT4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_COMPONENT4_NV = 0x8ED1;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_ATTACHMENT_NV symbol.
+		/// [GL] Value of GL_COVERAGE_ATTACHMENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_ATTACHMENT_NV = 0x8ED2;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_BUFFERS_NV symbol.
+		/// [GL] Value of GL_COVERAGE_BUFFERS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_BUFFERS_NV = 0x8ED3;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_SAMPLES_NV symbol.
+		/// [GL] Value of GL_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_SAMPLES_NV = 0x8ED4;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_ALL_FRAGMENTS_NV symbol.
+		/// [GL] Value of GL_COVERAGE_ALL_FRAGMENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_ALL_FRAGMENTS_NV = 0x8ED5;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_EDGE_FRAGMENTS_NV symbol.
+		/// [GL] Value of GL_COVERAGE_EDGE_FRAGMENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_EDGE_FRAGMENTS_NV = 0x8ED6;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_AUTOMATIC_NV symbol.
+		/// [GL] Value of GL_COVERAGE_AUTOMATIC_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		public const int COVERAGE_AUTOMATIC_NV = 0x8ED7;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_BUFFER_BIT_NV symbol.
+		/// [GL] Value of GL_COVERAGE_BUFFER_BIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 		[Log(BitmaskName = "GL")]

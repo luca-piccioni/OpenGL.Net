@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DEPTH_STENCIL_TO_RGBA_NV symbol.
+		/// [GL] Value of GL_DEPTH_STENCIL_TO_RGBA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_copy_depth_to_color")]
 		public const int DEPTH_STENCIL_TO_RGBA_NV = 0x886E;
 
 		/// <summary>
-		/// Value of GL_DEPTH_STENCIL_TO_BGRA_NV symbol.
+		/// [GL] Value of GL_DEPTH_STENCIL_TO_BGRA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_copy_depth_to_color")]
 		public const int DEPTH_STENCIL_TO_BGRA_NV = 0x886F;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ELEMENT_SWIZZLE_AMD symbol.
+		/// [GL] Value of GL_VERTEX_ELEMENT_SWIZZLE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int VERTEX_ELEMENT_SWIZZLE_AMD = 0x91A4;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ID_SWIZZLE_AMD symbol.
+		/// [GL] Value of GL_VERTEX_ID_SWIZZLE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int VERTEX_ID_SWIZZLE_AMD = 0x91A5;

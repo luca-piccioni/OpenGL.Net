@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_REVERSE_ROW_ORDER_ANGLE symbol.
+		/// [GL] Value of GL_PACK_REVERSE_ROW_ORDER_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ANGLE_pack_reverse_row_order", Api = "gles2")]
 		public const int PACK_REVERSE_ROW_ORDER_ANGLE = 0x93A4;

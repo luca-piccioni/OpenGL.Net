@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public const int MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV = 0x8DA0;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public const int MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV = 0x8DA1;
 
 		/// <summary>
-		/// Value of GL_VERTEX_PROGRAM_PARAMETER_BUFFER_NV symbol.
+		/// [GL] Value of GL_VERTEX_PROGRAM_PARAMETER_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public const int VERTEX_PROGRAM_PARAMETER_BUFFER_NV = 0x8DA2;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_PROGRAM_PARAMETER_BUFFER_NV symbol.
+		/// [GL] Value of GL_GEOMETRY_PROGRAM_PARAMETER_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public const int GEOMETRY_PROGRAM_PARAMETER_BUFFER_NV = 0x8DA3;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_PROGRAM_PARAMETER_BUFFER_NV symbol.
+		/// [GL] Value of GL_FRAGMENT_PROGRAM_PARAMETER_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public const int FRAGMENT_PROGRAM_PARAMETER_BUFFER_NV = 0x8DA4;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CLIP_VOLUME_CLIPPING_HINT_EXT symbol.
+		/// [GL] Value of GL_CLIP_VOLUME_CLIPPING_HINT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_clip_volume_hint")]
 		public const int CLIP_VOLUME_CLIPPING_HINT_EXT = 0x80F0;

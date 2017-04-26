@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXT_FRAGMENT_SHADER_ATI symbol.
+		/// [GL] Value of GL_TEXT_FRAGMENT_SHADER_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_text_fragment_shader")]
 		public const int TEXT_FRAGMENT_SHADER_ATI = 0x8200;

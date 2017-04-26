@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPARE_REF_DEPTH_TO_TEXTURE_EXT symbol.
+		/// [GL] Value of GL_COMPARE_REF_DEPTH_TO_TEXTURE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_array")]
 		public const int COMPARE_REF_DEPTH_TO_TEXTURE_EXT = 0x884E;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_CROP_RECT_OES symbol.
+		/// [GL] Value of GL_TEXTURE_CROP_RECT_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public const int TEXTURE_CROP_RECT_OES = 0x8B9D;

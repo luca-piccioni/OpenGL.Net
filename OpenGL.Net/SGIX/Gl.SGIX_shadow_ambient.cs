@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADOW_AMBIENT_SGIX symbol.
+		/// [GL] Value of GL_SHADOW_AMBIENT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_shadow_ambient")]
 		public const int SHADOW_AMBIENT_SGIX = 0x80BF;

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PROGRAM_MATRIX_EXT symbol.
+		/// [GL] Value of GL_PROGRAM_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public const int PROGRAM_MATRIX_EXT = 0x8E2D;
 
 		/// <summary>
-		/// Value of GL_TRANSPOSE_PROGRAM_MATRIX_EXT symbol.
+		/// [GL] Value of GL_TRANSPOSE_PROGRAM_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public const int TRANSPOSE_PROGRAM_MATRIX_EXT = 0x8E2E;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_MATRIX_STACK_DEPTH_EXT symbol.
+		/// [GL] Value of GL_PROGRAM_MATRIX_STACK_DEPTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public const int PROGRAM_MATRIX_STACK_DEPTH_EXT = 0x8E2F;

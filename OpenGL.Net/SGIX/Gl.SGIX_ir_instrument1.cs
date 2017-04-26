@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_IR_INSTRUMENT1_SGIX symbol.
+		/// [GL] Value of GL_IR_INSTRUMENT1_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_ir_instrument1")]
 		public const int IR_INSTRUMENT1_SGIX = 0x817F;

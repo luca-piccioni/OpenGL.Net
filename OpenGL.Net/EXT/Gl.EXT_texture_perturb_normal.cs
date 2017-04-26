@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PERTURB_EXT symbol.
+		/// [GL] Value of GL_PERTURB_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_perturb_normal")]
 		public const int PERTURB_EXT = 0x85AE;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_NORMAL_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_NORMAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_perturb_normal")]
 		public const int TEXTURE_NORMAL_EXT = 0x85AF;

@@ -29,115 +29,115 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TERMINATE_SEQUENCE_COMMAND_NV symbol.
+		/// [GL] Value of GL_TERMINATE_SEQUENCE_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int TERMINATE_SEQUENCE_COMMAND_NV = 0x0000;
 
 		/// <summary>
-		/// Value of GL_NOP_COMMAND_NV symbol.
+		/// [GL] Value of GL_NOP_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int NOP_COMMAND_NV = 0x0001;
 
 		/// <summary>
-		/// Value of GL_DRAW_ELEMENTS_COMMAND_NV symbol.
+		/// [GL] Value of GL_DRAW_ELEMENTS_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ELEMENTS_COMMAND_NV = 0x0002;
 
 		/// <summary>
-		/// Value of GL_DRAW_ARRAYS_COMMAND_NV symbol.
+		/// [GL] Value of GL_DRAW_ARRAYS_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ARRAYS_COMMAND_NV = 0x0003;
 
 		/// <summary>
-		/// Value of GL_DRAW_ELEMENTS_STRIP_COMMAND_NV symbol.
+		/// [GL] Value of GL_DRAW_ELEMENTS_STRIP_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ELEMENTS_STRIP_COMMAND_NV = 0x0004;
 
 		/// <summary>
-		/// Value of GL_DRAW_ARRAYS_STRIP_COMMAND_NV symbol.
+		/// [GL] Value of GL_DRAW_ARRAYS_STRIP_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ARRAYS_STRIP_COMMAND_NV = 0x0005;
 
 		/// <summary>
-		/// Value of GL_DRAW_ELEMENTS_INSTANCED_COMMAND_NV symbol.
+		/// [GL] Value of GL_DRAW_ELEMENTS_INSTANCED_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ELEMENTS_INSTANCED_COMMAND_NV = 0x0006;
 
 		/// <summary>
-		/// Value of GL_DRAW_ARRAYS_INSTANCED_COMMAND_NV symbol.
+		/// [GL] Value of GL_DRAW_ARRAYS_INSTANCED_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int DRAW_ARRAYS_INSTANCED_COMMAND_NV = 0x0007;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ADDRESS_COMMAND_NV symbol.
+		/// [GL] Value of GL_ELEMENT_ADDRESS_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int ELEMENT_ADDRESS_COMMAND_NV = 0x0008;
 
 		/// <summary>
-		/// Value of GL_ATTRIBUTE_ADDRESS_COMMAND_NV symbol.
+		/// [GL] Value of GL_ATTRIBUTE_ADDRESS_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int ATTRIBUTE_ADDRESS_COMMAND_NV = 0x0009;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_ADDRESS_COMMAND_NV symbol.
+		/// [GL] Value of GL_UNIFORM_ADDRESS_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int UNIFORM_ADDRESS_COMMAND_NV = 0x000A;
 
 		/// <summary>
-		/// Value of GL_BLEND_COLOR_COMMAND_NV symbol.
+		/// [GL] Value of GL_BLEND_COLOR_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int BLEND_COLOR_COMMAND_NV = 0x000B;
 
 		/// <summary>
-		/// Value of GL_STENCIL_REF_COMMAND_NV symbol.
+		/// [GL] Value of GL_STENCIL_REF_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int STENCIL_REF_COMMAND_NV = 0x000C;
 
 		/// <summary>
-		/// Value of GL_LINE_WIDTH_COMMAND_NV symbol.
+		/// [GL] Value of GL_LINE_WIDTH_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int LINE_WIDTH_COMMAND_NV = 0x000D;
 
 		/// <summary>
-		/// Value of GL_POLYGON_OFFSET_COMMAND_NV symbol.
+		/// [GL] Value of GL_POLYGON_OFFSET_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int POLYGON_OFFSET_COMMAND_NV = 0x000E;
 
 		/// <summary>
-		/// Value of GL_ALPHA_REF_COMMAND_NV symbol.
+		/// [GL] Value of GL_ALPHA_REF_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int ALPHA_REF_COMMAND_NV = 0x000F;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_COMMAND_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int VIEWPORT_COMMAND_NV = 0x0010;
 
 		/// <summary>
-		/// Value of GL_SCISSOR_COMMAND_NV symbol.
+		/// [GL] Value of GL_SCISSOR_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int SCISSOR_COMMAND_NV = 0x0011;
 
 		/// <summary>
-		/// Value of GL_FRONT_FACE_COMMAND_NV symbol.
+		/// [GL] Value of GL_FRONT_FACE_COMMAND_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public const int FRONT_FACE_COMMAND_NV = 0x0012;

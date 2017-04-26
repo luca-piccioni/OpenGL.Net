@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAME_NV symbol.
+		/// [GL] Value of GL_FRAME_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_present_video")]
 		public const int FRAME_NV = 0x8E26;
 
 		/// <summary>
-		/// Value of GL_FIELDS_NV symbol.
+		/// [GL] Value of GL_FIELDS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_present_video")]
 		public const int FIELDS_NV = 0x8E27;
 
 		/// <summary>
-		/// Value of GL_CURRENT_TIME_NV symbol.
+		/// [GL] Value of GL_CURRENT_TIME_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_present_video")]
 		public const int CURRENT_TIME_NV = 0x8E28;
 
 		/// <summary>
-		/// Value of GL_NUM_FILL_STREAMS_NV symbol.
+		/// [GL] Value of GL_NUM_FILL_STREAMS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_present_video")]
 		public const int NUM_FILL_STREAMS_NV = 0x8E29;
 
 		/// <summary>
-		/// Value of GL_PRESENT_TIME_NV symbol.
+		/// [GL] Value of GL_PRESENT_TIME_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_present_video")]
 		public const int PRESENT_TIME_NV = 0x8E2A;
 
 		/// <summary>
-		/// Value of GL_PRESENT_DURATION_NV symbol.
+		/// [GL] Value of GL_PRESENT_DURATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_present_video")]
 		public const int PRESENT_DURATION_NV = 0x8E2B;

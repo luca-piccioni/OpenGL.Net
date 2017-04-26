@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT = 0x8CD4;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_FORMATS_OES")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_COVERAGE_SAMPLES_NV symbol.
+		/// [GL] Value of GL_TEXTURE_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_multisample")]
 		public const int TEXTURE_COVERAGE_SAMPLES_NV = 0x9045;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COLOR_SAMPLES_NV symbol.
+		/// [GL] Value of GL_TEXTURE_COLOR_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_multisample")]
 		public const int TEXTURE_COLOR_SAMPLES_NV = 0x9046;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SYNC_CL_EVENT_ARB symbol.
+		/// [GL] Value of GL_SYNC_CL_EVENT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 		public const int SYNC_CL_EVENT_ARB = 0x8240;
 
 		/// <summary>
-		/// Value of GL_SYNC_CL_EVENT_COMPLETE_ARB symbol.
+		/// [GL] Value of GL_SYNC_CL_EVENT_COMPLETE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 		public const int SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADER_BINARY_VIV symbol.
+		/// [GL] Value of GL_SHADER_BINARY_VIV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VIV_shader_binary", Api = "gles2")]
 		public const int SHADER_BINARY_VIV = 0x8FC4;

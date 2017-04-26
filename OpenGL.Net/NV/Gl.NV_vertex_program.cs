@@ -29,451 +29,451 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_STATE_PROGRAM_NV symbol.
+		/// [GL] Value of GL_VERTEX_STATE_PROGRAM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_STATE_PROGRAM_NV = 0x8621;
 
 		/// <summary>
-		/// Value of GL_ATTRIB_ARRAY_SIZE_NV symbol.
+		/// [GL] Value of GL_ATTRIB_ARRAY_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int ATTRIB_ARRAY_SIZE_NV = 0x8623;
 
 		/// <summary>
-		/// Value of GL_ATTRIB_ARRAY_STRIDE_NV symbol.
+		/// [GL] Value of GL_ATTRIB_ARRAY_STRIDE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int ATTRIB_ARRAY_STRIDE_NV = 0x8624;
 
 		/// <summary>
-		/// Value of GL_ATTRIB_ARRAY_TYPE_NV symbol.
+		/// [GL] Value of GL_ATTRIB_ARRAY_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int ATTRIB_ARRAY_TYPE_NV = 0x8625;
 
 		/// <summary>
-		/// Value of GL_CURRENT_ATTRIB_NV symbol.
+		/// [GL] Value of GL_CURRENT_ATTRIB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int CURRENT_ATTRIB_NV = 0x8626;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW_PROJECTION_NV symbol.
+		/// [GL] Value of GL_MODELVIEW_PROJECTION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MODELVIEW_PROJECTION_NV = 0x8629;
 
 		/// <summary>
-		/// Value of GL_IDENTITY_NV symbol.
+		/// [GL] Value of GL_IDENTITY_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int IDENTITY_NV = 0x862A;
 
 		/// <summary>
-		/// Value of GL_INVERSE_NV symbol.
+		/// [GL] Value of GL_INVERSE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int INVERSE_NV = 0x862B;
 
 		/// <summary>
-		/// Value of GL_TRANSPOSE_NV symbol.
+		/// [GL] Value of GL_TRANSPOSE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int TRANSPOSE_NV = 0x862C;
 
 		/// <summary>
-		/// Value of GL_INVERSE_TRANSPOSE_NV symbol.
+		/// [GL] Value of GL_INVERSE_TRANSPOSE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int INVERSE_TRANSPOSE_NV = 0x862D;
 
 		/// <summary>
-		/// Value of GL_MAX_TRACK_MATRIX_STACK_DEPTH_NV symbol.
+		/// [GL] Value of GL_MAX_TRACK_MATRIX_STACK_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAX_TRACK_MATRIX_STACK_DEPTH_NV = 0x862E;
 
 		/// <summary>
-		/// Value of GL_MAX_TRACK_MATRICES_NV symbol.
+		/// [GL] Value of GL_MAX_TRACK_MATRICES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAX_TRACK_MATRICES_NV = 0x862F;
 
 		/// <summary>
-		/// Value of GL_MATRIX0_NV symbol.
+		/// [GL] Value of GL_MATRIX0_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX0_NV = 0x8630;
 
 		/// <summary>
-		/// Value of GL_MATRIX1_NV symbol.
+		/// [GL] Value of GL_MATRIX1_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX1_NV = 0x8631;
 
 		/// <summary>
-		/// Value of GL_MATRIX2_NV symbol.
+		/// [GL] Value of GL_MATRIX2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX2_NV = 0x8632;
 
 		/// <summary>
-		/// Value of GL_MATRIX3_NV symbol.
+		/// [GL] Value of GL_MATRIX3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX3_NV = 0x8633;
 
 		/// <summary>
-		/// Value of GL_MATRIX4_NV symbol.
+		/// [GL] Value of GL_MATRIX4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX4_NV = 0x8634;
 
 		/// <summary>
-		/// Value of GL_MATRIX5_NV symbol.
+		/// [GL] Value of GL_MATRIX5_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX5_NV = 0x8635;
 
 		/// <summary>
-		/// Value of GL_MATRIX6_NV symbol.
+		/// [GL] Value of GL_MATRIX6_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX6_NV = 0x8636;
 
 		/// <summary>
-		/// Value of GL_MATRIX7_NV symbol.
+		/// [GL] Value of GL_MATRIX7_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MATRIX7_NV = 0x8637;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_PARAMETER_NV symbol.
+		/// [GL] Value of GL_PROGRAM_PARAMETER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int PROGRAM_PARAMETER_NV = 0x8644;
 
 		/// <summary>
-		/// Value of GL_ATTRIB_ARRAY_POINTER_NV symbol.
+		/// [GL] Value of GL_ATTRIB_ARRAY_POINTER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int ATTRIB_ARRAY_POINTER_NV = 0x8645;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_TARGET_NV symbol.
+		/// [GL] Value of GL_PROGRAM_TARGET_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int PROGRAM_TARGET_NV = 0x8646;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_RESIDENT_NV symbol.
+		/// [GL] Value of GL_PROGRAM_RESIDENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int PROGRAM_RESIDENT_NV = 0x8647;
 
 		/// <summary>
-		/// Value of GL_TRACK_MATRIX_NV symbol.
+		/// [GL] Value of GL_TRACK_MATRIX_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int TRACK_MATRIX_NV = 0x8648;
 
 		/// <summary>
-		/// Value of GL_TRACK_MATRIX_TRANSFORM_NV symbol.
+		/// [GL] Value of GL_TRACK_MATRIX_TRANSFORM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int TRACK_MATRIX_TRANSFORM_NV = 0x8649;
 
 		/// <summary>
-		/// Value of GL_VERTEX_PROGRAM_BINDING_NV symbol.
+		/// [GL] Value of GL_VERTEX_PROGRAM_BINDING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_PROGRAM_BINDING_NV = 0x864A;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY0_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY0_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY0_NV = 0x8650;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY1_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY1_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY1_NV = 0x8651;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY2_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY2_NV = 0x8652;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY3_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY3_NV = 0x8653;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY4_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY4_NV = 0x8654;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY5_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY5_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY5_NV = 0x8655;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY6_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY6_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY6_NV = 0x8656;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY7_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY7_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY7_NV = 0x8657;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY8_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY8_NV = 0x8658;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY9_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY9_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY9_NV = 0x8659;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY10_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY10_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY10_NV = 0x865A;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY11_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY11_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY11_NV = 0x865B;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY12_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY12_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY12_NV = 0x865C;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY13_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY13_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY13_NV = 0x865D;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY14_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY14_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY14_NV = 0x865E;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY15_NV symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY15_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_ATTRIB_ARRAY15_NV = 0x865F;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB0_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB0_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB0_4_NV = 0x8660;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB1_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB1_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB1_4_NV = 0x8661;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB2_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB2_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB2_4_NV = 0x8662;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB3_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB3_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB3_4_NV = 0x8663;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB4_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB4_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB4_4_NV = 0x8664;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB5_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB5_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB5_4_NV = 0x8665;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB6_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB6_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB6_4_NV = 0x8666;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB7_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB7_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB7_4_NV = 0x8667;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB8_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB8_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB8_4_NV = 0x8668;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB9_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB9_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB9_4_NV = 0x8669;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB10_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB10_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB10_4_NV = 0x866A;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB11_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB11_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB11_4_NV = 0x866B;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB12_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB12_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB12_4_NV = 0x866C;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB13_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB13_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB13_4_NV = 0x866D;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB14_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB14_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB14_4_NV = 0x866E;
 
 		/// <summary>
-		/// Value of GL_MAP1_VERTEX_ATTRIB15_4_NV symbol.
+		/// [GL] Value of GL_MAP1_VERTEX_ATTRIB15_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP1_VERTEX_ATTRIB15_4_NV = 0x866F;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB0_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB0_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB0_4_NV = 0x8670;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB1_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB1_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB1_4_NV = 0x8671;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB2_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB2_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB2_4_NV = 0x8672;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB3_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB3_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB3_4_NV = 0x8673;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB4_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB4_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB4_4_NV = 0x8674;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB5_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB5_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB5_4_NV = 0x8675;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB6_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB6_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB6_4_NV = 0x8676;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB7_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB7_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB7_4_NV = 0x8677;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB8_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB8_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB8_4_NV = 0x8678;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB9_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB9_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB9_4_NV = 0x8679;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB10_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB10_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB10_4_NV = 0x867A;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB11_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB11_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB11_4_NV = 0x867B;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB12_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB12_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB12_4_NV = 0x867C;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB13_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB13_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB13_4_NV = 0x867D;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB14_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB14_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB14_4_NV = 0x867E;
 
 		/// <summary>
-		/// Value of GL_MAP2_VERTEX_ATTRIB15_4_NV symbol.
+		/// [GL] Value of GL_MAP2_VERTEX_ATTRIB15_4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int MAP2_VERTEX_ATTRIB15_4_NV = 0x867F;

@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RGB_S3TC symbol.
+		/// [GL] Value of GL_RGB_S3TC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_S3_s3tc")]
 		public const int RGB_S3TC = 0x83A0;
 
 		/// <summary>
-		/// Value of GL_RGB4_S3TC symbol.
+		/// [GL] Value of GL_RGB4_S3TC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_S3_s3tc")]
 		public const int RGB4_S3TC = 0x83A1;
 
 		/// <summary>
-		/// Value of GL_RGBA_S3TC symbol.
+		/// [GL] Value of GL_RGBA_S3TC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_S3_s3tc")]
 		public const int RGBA_S3TC = 0x83A2;
 
 		/// <summary>
-		/// Value of GL_RGBA4_S3TC symbol.
+		/// [GL] Value of GL_RGBA4_S3TC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_S3_s3tc")]
 		public const int RGBA4_S3TC = 0x83A3;
 
 		/// <summary>
-		/// Value of GL_RGBA_DXT5_S3TC symbol.
+		/// [GL] Value of GL_RGBA_DXT5_S3TC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_S3_s3tc")]
 		public const int RGBA_DXT5_S3TC = 0x83A4;
 
 		/// <summary>
-		/// Value of GL_RGBA4_DXT5_S3TC symbol.
+		/// [GL] Value of GL_RGBA4_DXT5_S3TC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_S3_s3tc")]
 		public const int RGBA4_DXT5_S3TC = 0x83A5;

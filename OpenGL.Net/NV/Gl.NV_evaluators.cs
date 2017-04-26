@@ -29,145 +29,145 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_EVAL_2D_NV symbol.
+		/// [GL] Value of GL_EVAL_2D_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_2D_NV = 0x86C0;
 
 		/// <summary>
-		/// Value of GL_EVAL_TRIANGULAR_2D_NV symbol.
+		/// [GL] Value of GL_EVAL_TRIANGULAR_2D_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_TRIANGULAR_2D_NV = 0x86C1;
 
 		/// <summary>
-		/// Value of GL_MAP_TESSELLATION_NV symbol.
+		/// [GL] Value of GL_MAP_TESSELLATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int MAP_TESSELLATION_NV = 0x86C2;
 
 		/// <summary>
-		/// Value of GL_MAP_ATTRIB_U_ORDER_NV symbol.
+		/// [GL] Value of GL_MAP_ATTRIB_U_ORDER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int MAP_ATTRIB_U_ORDER_NV = 0x86C3;
 
 		/// <summary>
-		/// Value of GL_MAP_ATTRIB_V_ORDER_NV symbol.
+		/// [GL] Value of GL_MAP_ATTRIB_V_ORDER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int MAP_ATTRIB_V_ORDER_NV = 0x86C4;
 
 		/// <summary>
-		/// Value of GL_EVAL_FRACTIONAL_TESSELLATION_NV symbol.
+		/// [GL] Value of GL_EVAL_FRACTIONAL_TESSELLATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_FRACTIONAL_TESSELLATION_NV = 0x86C5;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB0_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB0_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB0_NV = 0x86C6;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB1_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB1_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB1_NV = 0x86C7;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB2_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB2_NV = 0x86C8;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB3_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB3_NV = 0x86C9;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB4_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB4_NV = 0x86CA;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB5_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB5_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB5_NV = 0x86CB;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB6_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB6_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB6_NV = 0x86CC;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB7_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB7_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB7_NV = 0x86CD;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB8_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB8_NV = 0x86CE;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB9_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB9_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB9_NV = 0x86CF;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB10_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB10_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB10_NV = 0x86D0;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB11_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB11_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB11_NV = 0x86D1;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB12_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB12_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB12_NV = 0x86D2;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB13_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB13_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB13_NV = 0x86D3;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB14_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB14_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB14_NV = 0x86D4;
 
 		/// <summary>
-		/// Value of GL_EVAL_VERTEX_ATTRIB15_NV symbol.
+		/// [GL] Value of GL_EVAL_VERTEX_ATTRIB15_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int EVAL_VERTEX_ATTRIB15_NV = 0x86D5;
 
 		/// <summary>
-		/// Value of GL_MAX_MAP_TESSELLATION_NV symbol.
+		/// [GL] Value of GL_MAX_MAP_TESSELLATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int MAX_MAP_TESSELLATION_NV = 0x86D6;
 
 		/// <summary>
-		/// Value of GL_MAX_RATIONAL_EVAL_ORDER_NV symbol.
+		/// [GL] Value of GL_MAX_RATIONAL_EVAL_ORDER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_evaluators")]
 		public const int MAX_RATIONAL_EVAL_ORDER_NV = 0x86D7;

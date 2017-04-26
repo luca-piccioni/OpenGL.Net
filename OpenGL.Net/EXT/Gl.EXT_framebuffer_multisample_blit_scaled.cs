@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SCALED_RESOLVE_FASTEST_EXT symbol.
+		/// [GL] Value of GL_SCALED_RESOLVE_FASTEST_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_multisample_blit_scaled")]
 		public const int SCALED_RESOLVE_FASTEST_EXT = 0x90BA;
 
 		/// <summary>
-		/// Value of GL_SCALED_RESOLVE_NICEST_EXT symbol.
+		/// [GL] Value of GL_SCALED_RESOLVE_NICEST_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_multisample_blit_scaled")]
 		public const int SCALED_RESOLVE_NICEST_EXT = 0x90BB;

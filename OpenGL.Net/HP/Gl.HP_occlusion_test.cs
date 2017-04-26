@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_OCCLUSION_TEST_HP symbol.
+		/// [GL] Value of GL_OCCLUSION_TEST_HP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_HP_occlusion_test")]
 		public const int OCCLUSION_TEST_HP = 0x8165;
 
 		/// <summary>
-		/// Value of GL_OCCLUSION_TEST_RESULT_HP symbol.
+		/// [GL] Value of GL_OCCLUSION_TEST_RESULT_HP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_HP_occlusion_test")]
 		public const int OCCLUSION_TEST_RESULT_HP = 0x8166;

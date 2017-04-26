@@ -29,119 +29,119 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INT8_NV symbol.
+		/// [GL] Value of GL_INT8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT8_NV = 0x8FE0;
 
 		/// <summary>
-		/// Value of GL_INT8_VEC2_NV symbol.
+		/// [GL] Value of GL_INT8_VEC2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT8_VEC2_NV = 0x8FE1;
 
 		/// <summary>
-		/// Value of GL_INT8_VEC3_NV symbol.
+		/// [GL] Value of GL_INT8_VEC3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT8_VEC3_NV = 0x8FE2;
 
 		/// <summary>
-		/// Value of GL_INT8_VEC4_NV symbol.
+		/// [GL] Value of GL_INT8_VEC4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT8_VEC4_NV = 0x8FE3;
 
 		/// <summary>
-		/// Value of GL_INT16_NV symbol.
+		/// [GL] Value of GL_INT16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT16_NV = 0x8FE4;
 
 		/// <summary>
-		/// Value of GL_INT16_VEC2_NV symbol.
+		/// [GL] Value of GL_INT16_VEC2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT16_VEC2_NV = 0x8FE5;
 
 		/// <summary>
-		/// Value of GL_INT16_VEC3_NV symbol.
+		/// [GL] Value of GL_INT16_VEC3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT16_VEC3_NV = 0x8FE6;
 
 		/// <summary>
-		/// Value of GL_INT16_VEC4_NV symbol.
+		/// [GL] Value of GL_INT16_VEC4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int INT16_VEC4_NV = 0x8FE7;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT8_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT8_NV = 0x8FEC;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT8_VEC2_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT8_VEC2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT8_VEC2_NV = 0x8FED;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT8_VEC3_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT8_VEC3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT8_VEC3_NV = 0x8FEE;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT8_VEC4_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT8_VEC4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT8_VEC4_NV = 0x8FEF;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT16_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT16_NV = 0x8FF0;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT16_VEC2_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT16_VEC2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT16_VEC2_NV = 0x8FF1;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT16_VEC3_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT16_VEC3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT16_VEC3_NV = 0x8FF2;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT16_VEC4_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT16_VEC4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT16_VEC4_NV = 0x8FF3;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_NV symbol.
+		/// [GL] Value of GL_FLOAT16_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -149,7 +149,7 @@ namespace OpenGL
 		public const int FLOAT16_NV = 0x8FF8;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_VEC2_NV symbol.
+		/// [GL] Value of GL_FLOAT16_VEC2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -157,7 +157,7 @@ namespace OpenGL
 		public const int FLOAT16_VEC2_NV = 0x8FF9;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_VEC3_NV symbol.
+		/// [GL] Value of GL_FLOAT16_VEC3_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -165,7 +165,7 @@ namespace OpenGL
 		public const int FLOAT16_VEC3_NV = 0x8FFA;
 
 		/// <summary>
-		/// Value of GL_FLOAT16_VEC4_NV symbol.
+		/// [GL] Value of GL_FLOAT16_VEC4_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_half_float")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]

@@ -29,7 +29,8 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: data returns one boolean value, indicating if robust buffer access has been enabled at context creation time.
+		/// [GLES3.2] Gl.Get: data returns one boolean value, indicating if robust buffer access has been enabled at context 
+		/// creation time.
 		/// </summary>
 		[AliasOf("GL_CONTEXT_ROBUST_ACCESS_EXT")]
 		[AliasOf("GL_CONTEXT_ROBUST_ACCESS_KHR")]

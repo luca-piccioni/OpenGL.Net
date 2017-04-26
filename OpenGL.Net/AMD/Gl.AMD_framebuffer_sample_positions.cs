@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD symbol.
+		/// [GL] Value of GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
 		public const int PIXELS_PER_SAMPLE_PATTERN_X_AMD = 0x91AE;
 
 		/// <summary>
-		/// Value of GL_PIXELS_PER_SAMPLE_PATTERN_Y_AMD symbol.
+		/// [GL] Value of GL_PIXELS_PER_SAMPLE_PATTERN_Y_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
 		public const int PIXELS_PER_SAMPLE_PATTERN_Y_AMD = 0x91AF;
 
 		/// <summary>
-		/// Value of GL_ALL_PIXELS_AMD symbol.
+		/// [GL] Value of GL_ALL_PIXELS_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
 		public const uint ALL_PIXELS_AMD = 0xFFFFFFFF;

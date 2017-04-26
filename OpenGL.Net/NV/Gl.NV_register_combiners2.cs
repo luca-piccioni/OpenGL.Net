@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PER_STAGE_CONSTANTS_NV symbol.
+		/// [GL] Value of GL_PER_STAGE_CONSTANTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_register_combiners2")]
 		public const int PER_STAGE_CONSTANTS_NV = 0x8535;

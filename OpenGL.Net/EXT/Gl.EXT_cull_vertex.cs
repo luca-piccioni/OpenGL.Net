@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CULL_VERTEX_EXT symbol.
+		/// [GL] Value of GL_CULL_VERTEX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public const int CULL_VERTEX_EXT = 0x81AA;
 
 		/// <summary>
-		/// Value of GL_CULL_VERTEX_EYE_POSITION_EXT symbol.
+		/// [GL] Value of GL_CULL_VERTEX_EYE_POSITION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public const int CULL_VERTEX_EYE_POSITION_EXT = 0x81AB;
 
 		/// <summary>
-		/// Value of GL_CULL_VERTEX_OBJECT_POSITION_EXT symbol.
+		/// [GL] Value of GL_CULL_VERTEX_OBJECT_POSITION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public const int CULL_VERTEX_OBJECT_POSITION_EXT = 0x81AC;

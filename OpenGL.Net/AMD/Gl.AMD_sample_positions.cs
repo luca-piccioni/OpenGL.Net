@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SUBSAMPLE_DISTANCE_AMD symbol.
+		/// [GL] Value of GL_SUBSAMPLE_DISTANCE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
 		[RequiredByFeature("GL_AMD_sample_positions")]

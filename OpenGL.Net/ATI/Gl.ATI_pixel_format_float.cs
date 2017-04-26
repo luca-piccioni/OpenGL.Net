@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI symbol.
+		/// [GL] Value of GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pixel_format_float")]
 		public const int COLOR_CLEAR_UNCLAMPED_VALUE_ATI = 0x8835;

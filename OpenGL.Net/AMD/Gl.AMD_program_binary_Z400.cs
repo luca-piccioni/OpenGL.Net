@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_Z400_BINARY_AMD symbol.
+		/// [GL] Value of GL_Z400_BINARY_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_program_binary_Z400", Api = "gles2")]
 		public const int Z400_BINARY_AMD = 0x8740;

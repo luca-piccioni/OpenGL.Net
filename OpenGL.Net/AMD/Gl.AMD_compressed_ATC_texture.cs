@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ATC_RGB_AMD symbol.
+		/// [GL] Value of GL_ATC_RGB_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_compressed_ATC_texture", Api = "gles1|gles2")]
 		public const int ATC_RGB_AMD = 0x8C92;
 
 		/// <summary>
-		/// Value of GL_ATC_RGBA_EXPLICIT_ALPHA_AMD symbol.
+		/// [GL] Value of GL_ATC_RGBA_EXPLICIT_ALPHA_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_compressed_ATC_texture", Api = "gles1|gles2")]
 		public const int ATC_RGBA_EXPLICIT_ALPHA_AMD = 0x8C93;
 
 		/// <summary>
-		/// Value of GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD symbol.
+		/// [GL] Value of GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_compressed_ATC_texture", Api = "gles1|gles2")]
 		public const int ATC_RGBA_INTERPOLATED_ALPHA_AMD = 0x87EE;

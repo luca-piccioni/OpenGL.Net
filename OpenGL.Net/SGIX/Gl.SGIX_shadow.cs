@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPARE_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_COMPARE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_shadow")]
 		public const int TEXTURE_COMPARE_SGIX = 0x819A;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPARE_OPERATOR_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_COMPARE_OPERATOR_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_shadow")]
 		public const int TEXTURE_COMPARE_OPERATOR_SGIX = 0x819B;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_LEQUAL_R_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_LEQUAL_R_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_shadow")]
 		public const int TEXTURE_LEQUAL_R_SGIX = 0x819C;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_GEQUAL_R_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_GEQUAL_R_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_shadow")]
 		public const int TEXTURE_GEQUAL_R_SGIX = 0x819D;

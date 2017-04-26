@@ -29,63 +29,63 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_UNPACK_COMPRESSED_BLOCK_WIDTH symbol.
+		/// [GL] Value of GL_UNPACK_COMPRESSED_BLOCK_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int UNPACK_COMPRESSED_BLOCK_WIDTH = 0x9127;
 
 		/// <summary>
-		/// Value of GL_UNPACK_COMPRESSED_BLOCK_HEIGHT symbol.
+		/// [GL] Value of GL_UNPACK_COMPRESSED_BLOCK_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int UNPACK_COMPRESSED_BLOCK_HEIGHT = 0x9128;
 
 		/// <summary>
-		/// Value of GL_UNPACK_COMPRESSED_BLOCK_DEPTH symbol.
+		/// [GL] Value of GL_UNPACK_COMPRESSED_BLOCK_DEPTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int UNPACK_COMPRESSED_BLOCK_DEPTH = 0x9129;
 
 		/// <summary>
-		/// Value of GL_UNPACK_COMPRESSED_BLOCK_SIZE symbol.
+		/// [GL] Value of GL_UNPACK_COMPRESSED_BLOCK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int UNPACK_COMPRESSED_BLOCK_SIZE = 0x912A;
 
 		/// <summary>
-		/// Value of GL_PACK_COMPRESSED_BLOCK_WIDTH symbol.
+		/// [GL] Value of GL_PACK_COMPRESSED_BLOCK_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int PACK_COMPRESSED_BLOCK_WIDTH = 0x912B;
 
 		/// <summary>
-		/// Value of GL_PACK_COMPRESSED_BLOCK_HEIGHT symbol.
+		/// [GL] Value of GL_PACK_COMPRESSED_BLOCK_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int PACK_COMPRESSED_BLOCK_HEIGHT = 0x912C;
 
 		/// <summary>
-		/// Value of GL_PACK_COMPRESSED_BLOCK_DEPTH symbol.
+		/// [GL] Value of GL_PACK_COMPRESSED_BLOCK_DEPTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int PACK_COMPRESSED_BLOCK_DEPTH = 0x912D;
 
 		/// <summary>
-		/// Value of GL_PACK_COMPRESSED_BLOCK_SIZE symbol.
+		/// [GL] Value of GL_PACK_COMPRESSED_BLOCK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_compressed_texture_pixel_storage", Api = "gl|glcore")]
 		public const int PACK_COMPRESSED_BLOCK_SIZE = 0x912E;
 
 		/// <summary>
-		/// Value of GL_NUM_SAMPLE_COUNTS symbol.
+		/// [GL] Value of GL_NUM_SAMPLE_COUNTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -94,15 +94,22 @@ namespace OpenGL
 		public const int NUM_SAMPLE_COUNTS = 0x9380;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the minimum alignment in basic machine units of pointers returned fromGl.MapBuffer and 
-		/// Gl.MapBufferRange. This value must be a power of two and must be at least 64.
+		/// [GL4] Gl.Get: data returns one value, the minimum alignment in basic machine units of pointers returned fromGl.MapBuffer 
+		/// and Gl.MapBufferRange. This value must be a power of two and must be at least 64.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_map_buffer_alignment", Api = "gl|glcore")]
 		public const int MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
 		/// <summary>
-		/// Gl.GetProgramInterface: The query is targeted at the set of active atomic counter buffer binding points within program.
+		/// <para>
+		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active atomic counter buffer binding points within 
+		/// program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active atomic counter buffer binding points within 
+		/// program.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -111,7 +118,7 @@ namespace OpenGL
 		public const int ATOMIC_COUNTER_BUFFER = 0x92C0;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_BINDING symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -119,7 +126,7 @@ namespace OpenGL
 		public const int ATOMIC_COUNTER_BUFFER_BINDING = 0x92C1;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_START symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_START symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -127,7 +134,7 @@ namespace OpenGL
 		public const int ATOMIC_COUNTER_BUFFER_START = 0x92C2;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_SIZE symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -135,63 +142,63 @@ namespace OpenGL
 		public const int ATOMIC_COUNTER_BUFFER_SIZE = 0x92C3;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_DATA_SIZE = 0x92C4;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS = 0x92C5;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES = 0x92C6;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER = 0x92C7;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER = 0x92C8;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER = 0x92C9;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER = 0x92CA;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER = 0x92CB;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS symbol.
+		/// [GL] Value of GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -199,8 +206,8 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATOMIC_COUNTER_BUFFERS = 0x92CC;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a tesselation 
-		/// control shader.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
+		/// tesselation control shader.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_OES")]
@@ -212,8 +219,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS = 0x92CD;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a tesselation 
-		/// evaluation shader.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
+		/// tesselation evaluation shader.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_OES")]
@@ -225,8 +232,8 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS = 0x92CE;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a geometry 
-		/// shader.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
+		/// geometry shader.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_OES")]
@@ -238,8 +245,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS = 0x92CF;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a fragment 
-		/// shader. In GL ES 3.1, the minimum value is 0. in GL ES 3.2, the minimum value is 1.
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
+		/// fragment shader. In GL ES 3.1, the minimum value is 0. in GL ES 3.2, the minimum value is 1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -247,7 +254,7 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS = 0x92D0;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS symbol.
+		/// [GL] Value of GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -255,7 +262,12 @@ namespace OpenGL
 		public const int MAX_COMBINED_ATOMIC_COUNTER_BUFFERS = 0x92D1;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -263,7 +275,14 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATOMIC_COUNTERS = 0x92D2;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation control shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation control 
+		/// shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation control 
+		/// shaders.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_OES")]
@@ -275,7 +294,14 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTERS = 0x92D3;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation evaluation shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation evaluation 
+		/// shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
+		/// evaluation shaders.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_OES")]
@@ -287,7 +313,12 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTERS = 0x92D4;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTERS_OES")]
@@ -299,7 +330,13 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_ATOMIC_COUNTERS = 0x92D5;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to fragment shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to fragment shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to fragment shaders. In 
+		/// GL ES 3.1, the minimum value is 0. in GL ES 3.2, the minimum value is 8.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -307,7 +344,12 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_ATOMIC_COUNTERS = 0x92D6;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to all active shaders.
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to all active shaders.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to all active shaders.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -315,7 +357,7 @@ namespace OpenGL
 		public const int MAX_COMBINED_ATOMIC_COUNTERS = 0x92D7;
 
 		/// <summary>
-		/// Value of GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE symbol.
+		/// [GL] Value of GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -323,8 +365,8 @@ namespace OpenGL
 		public const int MAX_ATOMIC_COUNTER_BUFFER_SIZE = 0x92D8;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of atomic counter buffer binding points. The value must be at least 
-		/// 1. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of atomic counter buffer binding points. The value must be 
+		/// at least 1. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -332,7 +374,12 @@ namespace OpenGL
 		public const int MAX_ATOMIC_COUNTER_BUFFER_BINDINGS = 0x92DC;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
+		/// <para>
+		/// [GL4] Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -340,14 +387,14 @@ namespace OpenGL
 		public const int ACTIVE_ATOMIC_COUNTER_BUFFERS = 0x92D9;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX symbol.
+		/// [GL] Value of GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public const int UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX = 0x92DA;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_ATOMIC_COUNTER symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_ATOMIC_COUNTER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -355,7 +402,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT symbol.
+		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -366,7 +413,7 @@ namespace OpenGL
 		public const uint VERTEX_ATTRIB_ARRAY_BARRIER_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_BARRIER_BIT symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_ELEMENT_ARRAY_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -377,7 +424,7 @@ namespace OpenGL
 		public const uint ELEMENT_ARRAY_BARRIER_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BARRIER_BIT symbol.
+		/// [GL] Value of GL_UNIFORM_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_UNIFORM_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -388,7 +435,7 @@ namespace OpenGL
 		public const uint UNIFORM_BARRIER_BIT = 0x00000004;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FETCH_BARRIER_BIT symbol.
+		/// [GL] Value of GL_TEXTURE_FETCH_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_FETCH_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -399,7 +446,7 @@ namespace OpenGL
 		public const uint TEXTURE_FETCH_BARRIER_BIT = 0x00000008;
 
 		/// <summary>
-		/// Value of GL_SHADER_IMAGE_ACCESS_BARRIER_BIT symbol.
+		/// [GL] Value of GL_SHADER_IMAGE_ACCESS_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_SHADER_IMAGE_ACCESS_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -410,7 +457,7 @@ namespace OpenGL
 		public const uint SHADER_IMAGE_ACCESS_BARRIER_BIT = 0x00000020;
 
 		/// <summary>
-		/// Value of GL_COMMAND_BARRIER_BIT symbol.
+		/// [GL] Value of GL_COMMAND_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_COMMAND_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -421,7 +468,7 @@ namespace OpenGL
 		public const uint COMMAND_BARRIER_BIT = 0x00000040;
 
 		/// <summary>
-		/// Value of GL_PIXEL_BUFFER_BARRIER_BIT symbol.
+		/// [GL] Value of GL_PIXEL_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_PIXEL_BUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -432,7 +479,7 @@ namespace OpenGL
 		public const uint PIXEL_BUFFER_BARRIER_BIT = 0x00000080;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_UPDATE_BARRIER_BIT symbol.
+		/// [GL] Value of GL_TEXTURE_UPDATE_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_UPDATE_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -443,7 +490,7 @@ namespace OpenGL
 		public const uint TEXTURE_UPDATE_BARRIER_BIT = 0x00000100;
 
 		/// <summary>
-		/// Value of GL_BUFFER_UPDATE_BARRIER_BIT symbol.
+		/// [GL] Value of GL_BUFFER_UPDATE_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_BUFFER_UPDATE_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -454,7 +501,7 @@ namespace OpenGL
 		public const uint BUFFER_UPDATE_BARRIER_BIT = 0x00000200;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_BARRIER_BIT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -465,7 +512,7 @@ namespace OpenGL
 		public const uint FRAMEBUFFER_BARRIER_BIT = 0x00000400;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BARRIER_BIT symbol.
+		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -476,7 +523,7 @@ namespace OpenGL
 		public const uint TRANSFORM_FEEDBACK_BARRIER_BIT = 0x00000800;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BARRIER_BIT symbol.
+		/// [GL] Value of GL_ATOMIC_COUNTER_BARRIER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_ATOMIC_COUNTER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -487,7 +534,7 @@ namespace OpenGL
 		public const uint ATOMIC_COUNTER_BARRIER_BIT = 0x00001000;
 
 		/// <summary>
-		/// Value of GL_ALL_BARRIER_BITS symbol.
+		/// [GL] Value of GL_ALL_BARRIER_BITS symbol.
 		/// </summary>
 		[AliasOf("GL_ALL_BARRIER_BITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -498,7 +545,7 @@ namespace OpenGL
 		public const uint ALL_BARRIER_BITS = 0xFFFFFFFF;
 
 		/// <summary>
-		/// Value of GL_MAX_IMAGE_UNITS symbol.
+		/// [GL] Value of GL_MAX_IMAGE_UNITS symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_IMAGE_UNITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -508,7 +555,7 @@ namespace OpenGL
 		public const int MAX_IMAGE_UNITS = 0x8F38;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS symbol.
+		/// [GL] Value of GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -518,7 +565,7 @@ namespace OpenGL
 		public const int MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS = 0x8F39;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BINDING_NAME symbol.
+		/// [GL] Value of GL_IMAGE_BINDING_NAME symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_NAME_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -528,7 +575,7 @@ namespace OpenGL
 		public const int IMAGE_BINDING_NAME = 0x8F3A;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BINDING_LEVEL symbol.
+		/// [GL] Value of GL_IMAGE_BINDING_LEVEL symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_LEVEL_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -538,7 +585,8 @@ namespace OpenGL
 		public const int IMAGE_BINDING_LEVEL = 0x8F3B;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, corresponding to whether the image bound to the indexed image unit is layered or not.
+		/// [GLES3.2] Gl.Get: data returns one value, corresponding to whether the image bound to the indexed image unit is layered 
+		/// or not.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_LAYERED_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -548,7 +596,7 @@ namespace OpenGL
 		public const int IMAGE_BINDING_LAYERED = 0x8F3C;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BINDING_LAYER symbol.
+		/// [GL] Value of GL_IMAGE_BINDING_LAYER symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_LAYER_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -558,7 +606,7 @@ namespace OpenGL
 		public const int IMAGE_BINDING_LAYER = 0x8F3D;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BINDING_ACCESS symbol.
+		/// [GL] Value of GL_IMAGE_BINDING_ACCESS symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_ACCESS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -568,7 +616,7 @@ namespace OpenGL
 		public const int IMAGE_BINDING_ACCESS = 0x8F3E;
 
 		/// <summary>
-		/// Value of GL_IMAGE_1D symbol.
+		/// [GL] Value of GL_IMAGE_1D symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -577,7 +625,7 @@ namespace OpenGL
 		public const int IMAGE_1D = 0x904C;
 
 		/// <summary>
-		/// Value of GL_IMAGE_2D symbol.
+		/// [GL] Value of GL_IMAGE_2D symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -587,7 +635,7 @@ namespace OpenGL
 		public const int IMAGE_2D = 0x904D;
 
 		/// <summary>
-		/// Value of GL_IMAGE_3D symbol.
+		/// [GL] Value of GL_IMAGE_3D symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -597,7 +645,7 @@ namespace OpenGL
 		public const int IMAGE_3D = 0x904E;
 
 		/// <summary>
-		/// Value of GL_IMAGE_2D_RECT symbol.
+		/// [GL] Value of GL_IMAGE_2D_RECT symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -606,7 +654,7 @@ namespace OpenGL
 		public const int IMAGE_2D_RECT = 0x904F;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CUBE symbol.
+		/// [GL] Value of GL_IMAGE_CUBE symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -616,7 +664,7 @@ namespace OpenGL
 		public const int IMAGE_CUBE = 0x9050;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BUFFER symbol.
+		/// [GL] Value of GL_IMAGE_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BUFFER_EXT")]
 		[AliasOf("GL_IMAGE_BUFFER_OES")]
@@ -629,7 +677,7 @@ namespace OpenGL
 		public const int IMAGE_BUFFER = 0x9051;
 
 		/// <summary>
-		/// Value of GL_IMAGE_1D_ARRAY symbol.
+		/// [GL] Value of GL_IMAGE_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -638,7 +686,7 @@ namespace OpenGL
 		public const int IMAGE_1D_ARRAY = 0x9052;
 
 		/// <summary>
-		/// Value of GL_IMAGE_2D_ARRAY symbol.
+		/// [GL] Value of GL_IMAGE_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -648,7 +696,7 @@ namespace OpenGL
 		public const int IMAGE_2D_ARRAY = 0x9053;
 
 		/// <summary>
-		/// Value of GL_IMAGE_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_IMAGE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_CUBE_MAP_ARRAY_EXT")]
 		[AliasOf("GL_IMAGE_CUBE_MAP_ARRAY_OES")]
@@ -661,7 +709,7 @@ namespace OpenGL
 		public const int IMAGE_CUBE_MAP_ARRAY = 0x9054;
 
 		/// <summary>
-		/// Value of GL_IMAGE_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_IMAGE_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -670,7 +718,7 @@ namespace OpenGL
 		public const int IMAGE_2D_MULTISAMPLE = 0x9055;
 
 		/// <summary>
-		/// Value of GL_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -679,7 +727,7 @@ namespace OpenGL
 		public const int IMAGE_2D_MULTISAMPLE_ARRAY = 0x9056;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_1D symbol.
+		/// [GL] Value of GL_INT_IMAGE_1D symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -688,7 +736,7 @@ namespace OpenGL
 		public const int INT_IMAGE_1D = 0x9057;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_2D symbol.
+		/// [GL] Value of GL_INT_IMAGE_2D symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -698,7 +746,7 @@ namespace OpenGL
 		public const int INT_IMAGE_2D = 0x9058;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_3D symbol.
+		/// [GL] Value of GL_INT_IMAGE_3D symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -708,7 +756,7 @@ namespace OpenGL
 		public const int INT_IMAGE_3D = 0x9059;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_2D_RECT symbol.
+		/// [GL] Value of GL_INT_IMAGE_2D_RECT symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -717,7 +765,7 @@ namespace OpenGL
 		public const int INT_IMAGE_2D_RECT = 0x905A;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_CUBE symbol.
+		/// [GL] Value of GL_INT_IMAGE_CUBE symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -727,7 +775,7 @@ namespace OpenGL
 		public const int INT_IMAGE_CUBE = 0x905B;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_BUFFER symbol.
+		/// [GL] Value of GL_INT_IMAGE_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_BUFFER_EXT")]
 		[AliasOf("GL_INT_IMAGE_BUFFER_OES")]
@@ -740,7 +788,7 @@ namespace OpenGL
 		public const int INT_IMAGE_BUFFER = 0x905C;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_1D_ARRAY symbol.
+		/// [GL] Value of GL_INT_IMAGE_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -749,7 +797,7 @@ namespace OpenGL
 		public const int INT_IMAGE_1D_ARRAY = 0x905D;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_2D_ARRAY symbol.
+		/// [GL] Value of GL_INT_IMAGE_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -759,7 +807,7 @@ namespace OpenGL
 		public const int INT_IMAGE_2D_ARRAY = 0x905E;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_INT_IMAGE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT")]
 		[AliasOf("GL_INT_IMAGE_CUBE_MAP_ARRAY_OES")]
@@ -772,7 +820,7 @@ namespace OpenGL
 		public const int INT_IMAGE_CUBE_MAP_ARRAY = 0x905F;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_INT_IMAGE_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -781,7 +829,7 @@ namespace OpenGL
 		public const int INT_IMAGE_2D_MULTISAMPLE = 0x9060;
 
 		/// <summary>
-		/// Value of GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -790,7 +838,7 @@ namespace OpenGL
 		public const int INT_IMAGE_2D_MULTISAMPLE_ARRAY = 0x9061;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_1D symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_1D symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -799,7 +847,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_1D = 0x9062;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_2D symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -809,7 +857,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_2D = 0x9063;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_3D symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_3D symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -819,7 +867,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_3D = 0x9064;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_2D_RECT symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_RECT symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -828,7 +876,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_2D_RECT = 0x9065;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_CUBE symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_CUBE symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -838,7 +886,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_CUBE = 0x9066;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_BUFFER symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_BUFFER symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_BUFFER_EXT")]
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_BUFFER_OES")]
@@ -851,7 +899,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_BUFFER = 0x9067;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_1D_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_1D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -860,7 +908,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_1D_ARRAY = 0x9068;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_2D_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -870,7 +918,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_2D_ARRAY = 0x9069;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT")]
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES")]
@@ -883,7 +931,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY = 0x906A;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -892,7 +940,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_2D_MULTISAMPLE = 0x906B;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -901,7 +949,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY = 0x906C;
 
 		/// <summary>
-		/// Value of GL_MAX_IMAGE_SAMPLES symbol.
+		/// [GL] Value of GL_MAX_IMAGE_SAMPLES symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_IMAGE_SAMPLES_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -910,7 +958,7 @@ namespace OpenGL
 		public const int MAX_IMAGE_SAMPLES = 0x906D;
 
 		/// <summary>
-		/// Value of GL_IMAGE_BINDING_FORMAT symbol.
+		/// [GL] Value of GL_IMAGE_BINDING_FORMAT symbol.
 		/// </summary>
 		[AliasOf("GL_IMAGE_BINDING_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -920,8 +968,14 @@ namespace OpenGL
 		public const int IMAGE_BINDING_FORMAT = 0x906E;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns the matching criteria use for the texture when used as an image texture. Can return 
+		/// <para>
+		/// [GL4] Gl.GetTexParameter: Returns the matching criteria use for the texture when used as an image texture. Can return 
 		/// Gl.IMAGE_FORMAT_COMPATIBILITY_BY_SIZE, Gl.IMAGE_FORMAT_COMPATIBILITY_BY_CLASS or Gl.NONE.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued image format compatibility matching criteria. This can be one of 
+		/// Gl.IMAGE_FORMAT_COMPATIBILITY_BY_CLASS or Gl.IMAGE_FORMAT_COMPATIBILITY_BY_SIZE.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -930,7 +984,7 @@ namespace OpenGL
 		public const int IMAGE_FORMAT_COMPATIBILITY_TYPE = 0x90C7;
 
 		/// <summary>
-		/// Value of GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE symbol.
+		/// [GL] Value of GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -938,7 +992,7 @@ namespace OpenGL
 		public const int IMAGE_FORMAT_COMPATIBILITY_BY_SIZE = 0x90C8;
 
 		/// <summary>
-		/// Value of GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS symbol.
+		/// [GL] Value of GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -946,7 +1000,7 @@ namespace OpenGL
 		public const int IMAGE_FORMAT_COMPATIBILITY_BY_CLASS = 0x90C9;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of image variables in vertex shaders.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in vertex shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -954,7 +1008,8 @@ namespace OpenGL
 		public const int MAX_VERTEX_IMAGE_UNIFORMS = 0x90CA;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of image variables in tesselation control shaders.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in tesselation control 
+		/// shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_OES")]
@@ -966,7 +1021,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_IMAGE_UNIFORMS = 0x90CB;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of image variables in tesselation evaluation shaders.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in tesselation evaluation 
+		/// shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_OES")]
@@ -978,7 +1034,7 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_IMAGE_UNIFORMS = 0x90CC;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of image variables in geometry shaders.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in geometry shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_IMAGE_UNIFORMS_OES")]
@@ -990,8 +1046,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_IMAGE_UNIFORMS = 0x90CD;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum supported number of image variables in fragment shaders. In GL ES 3.1, the 
-		/// minimum value is 0. in GL ES 3.2, the minimum value is 4.
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in fragment shaders. In GL ES 
+		/// 3.1, the minimum value is 0. in GL ES 3.2, the minimum value is 4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -999,7 +1055,7 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_IMAGE_UNIFORMS = 0x90CE;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_IMAGE_UNIFORMS symbol.
+		/// [GL] Value of GL_MAX_COMBINED_IMAGE_UNIFORMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1007,7 +1063,7 @@ namespace OpenGL
 		public const int MAX_COMBINED_IMAGE_UNIFORMS = 0x90CF;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_BPTC_UNORM symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_BPTC_UNORM symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_BPTC_UNORM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -1015,7 +1071,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_BPTC_UNORM = 0x8E8C;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -1023,7 +1079,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB_ALPHA_BPTC_UNORM = 0x8E8D;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT symbol.
+		/// [GL] Value of GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -1031,7 +1087,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGB_BPTC_SIGNED_FLOAT = 0x8E8E;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT symbol.
+		/// [GL] Value of GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
@@ -1039,8 +1095,14 @@ namespace OpenGL
 		public const int COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT = 0x8E8F;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns non-zero if the texture has an immutable format. Textures become immutable if their storage 
-		/// is specified with Gl.TexStorage1D, Gl.TexStorage2D or Gl.TexStorage3D. The initial value is Gl.FALSE.
+		/// <para>
+		/// [GL4] Gl.GetTexParameter: Returns non-zero if the texture has an immutable format. Textures become immutable if their 
+		/// storage is specified with Gl.TexStorage1D, Gl.TexStorage2D or Gl.TexStorage3D. The initial value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexParameter: Returns a single-value boolean representing the immutability of the texture format and 
+		/// size. initial value is Gl.FALSE. See Gl.TexStorage2D.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_IMMUTABLE_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]

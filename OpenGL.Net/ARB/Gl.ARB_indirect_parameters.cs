@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PARAMETER_BUFFER_ARB symbol.
+		/// [GL] Value of GL_PARAMETER_BUFFER_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public const int PARAMETER_BUFFER_ARB = 0x80EE;
 
 		/// <summary>
-		/// Value of GL_PARAMETER_BUFFER_BINDING_ARB symbol.
+		/// [GL] Value of GL_PARAMETER_BUFFER_BINDING_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public const int PARAMETER_BUFFER_BINDING_ARB = 0x80EF;

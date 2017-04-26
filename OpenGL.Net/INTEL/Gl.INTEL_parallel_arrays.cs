@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PARALLEL_ARRAYS_INTEL symbol.
+		/// [GL] Value of GL_PARALLEL_ARRAYS_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public const int PARALLEL_ARRAYS_INTEL = 0x83F4;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_PARALLEL_POINTERS_INTEL symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_PARALLEL_POINTERS_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public const int VERTEX_ARRAY_PARALLEL_POINTERS_INTEL = 0x83F5;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_PARALLEL_POINTERS_INTEL symbol.
+		/// [GL] Value of GL_NORMAL_ARRAY_PARALLEL_POINTERS_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public const int NORMAL_ARRAY_PARALLEL_POINTERS_INTEL = 0x83F6;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_PARALLEL_POINTERS_INTEL symbol.
+		/// [GL] Value of GL_COLOR_ARRAY_PARALLEL_POINTERS_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public const int COLOR_ARRAY_PARALLEL_POINTERS_INTEL = 0x83F7;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public const int TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL = 0x83F8;

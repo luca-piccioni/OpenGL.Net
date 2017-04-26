@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BUFFER_OBJECT_APPLE symbol.
+		/// [GL] Value of GL_BUFFER_OBJECT_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public const int BUFFER_OBJECT_APPLE = 0x85B3;
 
 		/// <summary>
-		/// Value of GL_RELEASED_APPLE symbol.
+		/// [GL] Value of GL_RELEASED_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public const int RELEASED_APPLE = 0x8A19;
 
 		/// <summary>
-		/// Value of GL_VOLATILE_APPLE symbol.
+		/// [GL] Value of GL_VOLATILE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public const int VOLATILE_APPLE = 0x8A1A;
 
 		/// <summary>
-		/// Value of GL_RETAINED_APPLE symbol.
+		/// [GL] Value of GL_RETAINED_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public const int RETAINED_APPLE = 0x8A1B;
 
 		/// <summary>
-		/// Value of GL_UNDEFINED_APPLE symbol.
+		/// [GL] Value of GL_UNDEFINED_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public const int UNDEFINED_APPLE = 0x8A1C;
 
 		/// <summary>
-		/// Value of GL_PURGEABLE_APPLE symbol.
+		/// [GL] Value of GL_PURGEABLE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public const int PURGEABLE_APPLE = 0x8A1D;

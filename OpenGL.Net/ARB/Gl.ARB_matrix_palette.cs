@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MATRIX_PALETTE_ARB symbol.
+		/// [GL] Value of GL_MATRIX_PALETTE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MATRIX_PALETTE_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -37,13 +37,13 @@ namespace OpenGL
 		public const int MATRIX_PALETTE_ARB = 0x8840;
 
 		/// <summary>
-		/// Value of GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB symbol.
+		/// [GL] Value of GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public const int MAX_MATRIX_PALETTE_STACK_DEPTH_ARB = 0x8841;
 
 		/// <summary>
-		/// Value of GL_MAX_PALETTE_MATRICES_ARB symbol.
+		/// [GL] Value of GL_MAX_PALETTE_MATRICES_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_PALETTE_MATRICES_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -51,7 +51,7 @@ namespace OpenGL
 		public const int MAX_PALETTE_MATRICES_ARB = 0x8842;
 
 		/// <summary>
-		/// Value of GL_CURRENT_PALETTE_MATRIX_ARB symbol.
+		/// [GL] Value of GL_CURRENT_PALETTE_MATRIX_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_CURRENT_PALETTE_MATRIX_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -59,7 +59,7 @@ namespace OpenGL
 		public const int CURRENT_PALETTE_MATRIX_ARB = 0x8843;
 
 		/// <summary>
-		/// Value of GL_MATRIX_INDEX_ARRAY_ARB symbol.
+		/// [GL] Value of GL_MATRIX_INDEX_ARRAY_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MATRIX_INDEX_ARRAY_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -67,13 +67,13 @@ namespace OpenGL
 		public const int MATRIX_INDEX_ARRAY_ARB = 0x8844;
 
 		/// <summary>
-		/// Value of GL_CURRENT_MATRIX_INDEX_ARB symbol.
+		/// [GL] Value of GL_CURRENT_MATRIX_INDEX_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public const int CURRENT_MATRIX_INDEX_ARB = 0x8845;
 
 		/// <summary>
-		/// Value of GL_MATRIX_INDEX_ARRAY_SIZE_ARB symbol.
+		/// [GL] Value of GL_MATRIX_INDEX_ARRAY_SIZE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MATRIX_INDEX_ARRAY_SIZE_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -81,7 +81,7 @@ namespace OpenGL
 		public const int MATRIX_INDEX_ARRAY_SIZE_ARB = 0x8846;
 
 		/// <summary>
-		/// Value of GL_MATRIX_INDEX_ARRAY_TYPE_ARB symbol.
+		/// [GL] Value of GL_MATRIX_INDEX_ARRAY_TYPE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MATRIX_INDEX_ARRAY_TYPE_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int MATRIX_INDEX_ARRAY_TYPE_ARB = 0x8847;
 
 		/// <summary>
-		/// Value of GL_MATRIX_INDEX_ARRAY_STRIDE_ARB symbol.
+		/// [GL] Value of GL_MATRIX_INDEX_ARRAY_STRIDE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MATRIX_INDEX_ARRAY_STRIDE_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -97,7 +97,7 @@ namespace OpenGL
 		public const int MATRIX_INDEX_ARRAY_STRIDE_ARB = 0x8848;
 
 		/// <summary>
-		/// Value of GL_MATRIX_INDEX_ARRAY_POINTER_ARB symbol.
+		/// [GL] Value of GL_MATRIX_INDEX_ARRAY_POINTER_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MATRIX_INDEX_ARRAY_POINTER_OES")]
 		[RequiredByFeature("GL_ARB_matrix_palette")]

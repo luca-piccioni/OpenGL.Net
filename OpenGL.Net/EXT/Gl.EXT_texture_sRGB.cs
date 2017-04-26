@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_S3TC_DXT1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_S3TC_DXT1_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_S3TC_DXT1_NV")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB_S3TC_DXT1_EXT = 0x8C4C;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_NV")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
@@ -45,7 +45,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT = 0x8C4D;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT = 0x8C4E;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]

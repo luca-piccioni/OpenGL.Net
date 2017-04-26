@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_LOD_BIAS_S_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_LOD_BIAS_S_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_lod_bias")]
 		public const int TEXTURE_LOD_BIAS_S_SGIX = 0x818E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_LOD_BIAS_T_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_LOD_BIAS_T_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_lod_bias")]
 		public const int TEXTURE_LOD_BIAS_T_SGIX = 0x818F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_LOD_BIAS_R_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_LOD_BIAS_R_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_lod_bias")]
 		public const int TEXTURE_LOD_BIAS_R_SGIX = 0x8190;

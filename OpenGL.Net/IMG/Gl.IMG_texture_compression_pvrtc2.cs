@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_compression_pvrtc2", Api = "gles2")]
 		public const int COMPRESSED_RGBA_PVRTC_2BPPV2_IMG = 0x9137;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_compression_pvrtc2", Api = "gles2")]
 		public const int COMPRESSED_RGBA_PVRTC_4BPPV2_IMG = 0x9138;

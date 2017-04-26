@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV symbol.
+		/// [GL] Value of GL_MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program5")]
 		public const int MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV = 0x8E5A;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_PROGRAM_INTERPOLATION_OFFSET_BITS_NV symbol.
+		/// [GL] Value of GL_FRAGMENT_PROGRAM_INTERPOLATION_OFFSET_BITS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program5")]
 		public const int FRAGMENT_PROGRAM_INTERPOLATION_OFFSET_BITS_NV = 0x8E5D;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program5")]
 		public const int MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV = 0x8F44;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_SUBROUTINE_NUM_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_SUBROUTINE_NUM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program5")]
 		public const int MAX_PROGRAM_SUBROUTINE_NUM_NV = 0x8F45;

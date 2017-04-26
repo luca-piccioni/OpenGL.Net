@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ASYNC_MARKER_SGIX symbol.
+		/// [GL] Value of GL_ASYNC_MARKER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async")]
 		public const int ASYNC_MARKER_SGIX = 0x8329;

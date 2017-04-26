@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_IGNORE_BORDER_HP symbol.
+		/// [GL] Value of GL_IGNORE_BORDER_HP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_HP_convolution_border_modes")]
 		public const int IGNORE_BORDER_HP = 0x8150;

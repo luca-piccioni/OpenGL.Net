@@ -29,73 +29,73 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_POSITIVE_X_NV = 0x9350;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_NEGATIVE_X_NV = 0x9351;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_POSITIVE_Y_NV = 0x9352;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_NEGATIVE_Y_NV = 0x9353;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_POSITIVE_Z_NV = 0x9354;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_NEGATIVE_Z_NV = 0x9355;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_POSITIVE_W_NV = 0x9356;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_NEGATIVE_W_NV = 0x9357;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_X_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_X_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_X_NV = 0x9358;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_Y_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_Y_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_Y_NV = 0x9359;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_Z_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_Z_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_Z_NV = 0x935A;
 
 		/// <summary>
-		/// Value of GL_VIEWPORT_SWIZZLE_W_NV symbol.
+		/// [GL] Value of GL_VIEWPORT_SWIZZLE_W_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_SWIZZLE_W_NV = 0x935B;

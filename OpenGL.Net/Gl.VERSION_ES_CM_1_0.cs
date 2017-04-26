@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERSION_ES_CL_1_0 symbol.
+		/// [GL] Value of GL_VERSION_ES_CL_1_0 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int VERSION_ES_CL_1_0 = 1;
 
 		/// <summary>
-		/// Value of GL_VERSION_ES_CM_1_1 symbol.
+		/// [GL] Value of GL_VERSION_ES_CM_1_1 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int VERSION_ES_CM_1_1 = 1;
 
 		/// <summary>
-		/// Value of GL_VERSION_ES_CL_1_1 symbol.
+		/// [GL] Value of GL_VERSION_ES_CL_1_1 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public const int VERSION_ES_CL_1_1 = 1;

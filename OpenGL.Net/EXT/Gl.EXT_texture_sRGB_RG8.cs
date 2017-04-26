@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SRG8_EXT symbol.
+		/// [GL] Value of GL_SRG8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_sRGB_RG8", Api = "gles2")]
 		public const int SRG8_EXT = 0x8FBE;

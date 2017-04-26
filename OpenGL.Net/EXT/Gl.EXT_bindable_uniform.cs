@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT symbol.
+		/// [GL] Value of GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public const int MAX_VERTEX_BINDABLE_UNIFORMS_EXT = 0x8DE2;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT symbol.
+		/// [GL] Value of GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public const int MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT = 0x8DE3;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT symbol.
+		/// [GL] Value of GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public const int MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT = 0x8DE4;
 
 		/// <summary>
-		/// Value of GL_MAX_BINDABLE_UNIFORM_SIZE_EXT symbol.
+		/// [GL] Value of GL_MAX_BINDABLE_UNIFORM_SIZE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public const int MAX_BINDABLE_UNIFORM_SIZE_EXT = 0x8DED;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER_EXT symbol.
+		/// [GL] Value of GL_UNIFORM_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public const int UNIFORM_BUFFER_EXT = 0x8DEE;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER_BINDING_EXT symbol.
+		/// [GL] Value of GL_UNIFORM_BUFFER_BINDING_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public const int UNIFORM_BUFFER_BINDING_EXT = 0x8DEF;

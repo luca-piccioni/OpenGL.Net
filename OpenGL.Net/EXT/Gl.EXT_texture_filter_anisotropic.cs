@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_MAX_ANISOTROPY_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_MAX_ANISOTROPY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_filter_anisotropic", Api = "gl|gles1|gles2")]
 		public const int TEXTURE_MAX_ANISOTROPY_EXT = 0x84FE;
 
 		/// <summary>
-		/// Value of GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT symbol.
+		/// [GL] Value of GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_filter_anisotropic", Api = "gl|gles1|gles2")]
 		public const int MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SYNC_X11_FENCE_EXT symbol.
+		/// [GL] Value of GL_SYNC_X11_FENCE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_x11_sync_object")]
 		public const int SYNC_X11_FENCE_EXT = 0x90E1;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INTERLACE_SGIX symbol.
+		/// [GL] Value of GL_INTERLACE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_interlace")]
 		public const int INTERLACE_SGIX = 0x8094;

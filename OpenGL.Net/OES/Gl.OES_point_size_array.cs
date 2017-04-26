@@ -30,39 +30,40 @@ namespace OpenGL
 	{
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the point size array controls the sizes used to render points and point sprites. In 
-		/// this case the point size defined by Gl.PointSize is ignored. The point sizes supplied in the point size arrays will be 
-		/// the sizes used to render both points and point sprites. See Gl.PointSize
+		/// [GLES1.1] Gl.EnableClientState: If enabled, the point size array controls the sizes used to render points and point 
+		/// sprites. In this case the point size defined by Gl.PointSize is ignored. The point sizes supplied in the point size 
+		/// arrays will be the sizes used to render both points and point sprites. See Gl.PointSize
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the point size array is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.PointSizePointerOES.
+		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether the point size array is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.PointSizePointerOES.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public const int POINT_SIZE_ARRAY_OES = 0x8B9C;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of each point size in the point array. See Gl.PointSizePointerOES.
+		/// [GLES1.1] Gl.Get: params returns one value, the data type of each point size in the point array. See 
+		/// Gl.PointSizePointerOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public const int POINT_SIZE_ARRAY_TYPE_OES = 0x898A;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive point sizes in the point size array. See 
+		/// [GLES1.1] Gl.Get: params returns one value, the byte offset between consecutive point sizes in the point size array. See 
 		/// Gl.PointSizePointerOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public const int POINT_SIZE_ARRAY_STRIDE_OES = 0x898B;
 
 		/// <summary>
-		/// Value of GL_POINT_SIZE_ARRAY_POINTER_OES symbol.
+		/// [GL] Value of GL_POINT_SIZE_ARRAY_POINTER_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public const int POINT_SIZE_ARRAY_POINTER_OES = 0x898C;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the point size array buffer binding. See Gl.PointSizePointerOES.
+		/// [GLES1.1] Gl.Get: params returns one value, the point size array buffer binding. See Gl.PointSizePointerOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public const int POINT_SIZE_ARRAY_BUFFER_BINDING_OES = 0x8B9F;

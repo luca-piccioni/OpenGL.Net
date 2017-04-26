@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SMAPHS30_PROGRAM_BINARY_DMP symbol.
+		/// [GL] Value of GL_SMAPHS30_PROGRAM_BINARY_DMP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_DMP_program_binary", Api = "gles2")]
 		public const int SMAPHS30_PROGRAM_BINARY_DMP = 0x9251;
 
 		/// <summary>
-		/// Value of GL_SMAPHS_PROGRAM_BINARY_DMP symbol.
+		/// [GL] Value of GL_SMAPHS_PROGRAM_BINARY_DMP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_DMP_program_binary", Api = "gles2")]
 		public const int SMAPHS_PROGRAM_BINARY_DMP = 0x9252;
 
 		/// <summary>
-		/// Value of GL_DMP_PROGRAM_BINARY_DMP symbol.
+		/// [GL] Value of GL_DMP_PROGRAM_BINARY_DMP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_DMP_program_binary", Api = "gles2")]
 		public const int DMP_PROGRAM_BINARY_DMP = 0x9253;

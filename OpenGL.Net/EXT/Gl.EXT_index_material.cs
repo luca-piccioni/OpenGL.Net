@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INDEX_MATERIAL_EXT symbol.
+		/// [GL] Value of GL_INDEX_MATERIAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_material")]
 		public const int INDEX_MATERIAL_EXT = 0x81B8;
 
 		/// <summary>
-		/// Value of GL_INDEX_MATERIAL_PARAMETER_EXT symbol.
+		/// [GL] Value of GL_INDEX_MATERIAL_PARAMETER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_material")]
 		public const int INDEX_MATERIAL_PARAMETER_EXT = 0x81B9;
 
 		/// <summary>
-		/// Value of GL_INDEX_MATERIAL_FACE_EXT symbol.
+		/// [GL] Value of GL_INDEX_MATERIAL_FACE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_material")]
 		public const int INDEX_MATERIAL_FACE_EXT = 0x81BA;

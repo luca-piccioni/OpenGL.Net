@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE symbol.
+		/// [GL] Value of GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
 		public const int TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;

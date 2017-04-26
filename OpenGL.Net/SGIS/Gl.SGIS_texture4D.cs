@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_SKIP_VOLUMES_SGIS symbol.
+		/// [GL] Value of GL_PACK_SKIP_VOLUMES_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int PACK_SKIP_VOLUMES_SGIS = 0x8130;
 
 		/// <summary>
-		/// Value of GL_PACK_IMAGE_DEPTH_SGIS symbol.
+		/// [GL] Value of GL_PACK_IMAGE_DEPTH_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int PACK_IMAGE_DEPTH_SGIS = 0x8131;
 
 		/// <summary>
-		/// Value of GL_UNPACK_SKIP_VOLUMES_SGIS symbol.
+		/// [GL] Value of GL_UNPACK_SKIP_VOLUMES_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int UNPACK_SKIP_VOLUMES_SGIS = 0x8132;
 
 		/// <summary>
-		/// Value of GL_UNPACK_IMAGE_DEPTH_SGIS symbol.
+		/// [GL] Value of GL_UNPACK_IMAGE_DEPTH_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int UNPACK_IMAGE_DEPTH_SGIS = 0x8133;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_4D_SGIS symbol.
+		/// [GL] Value of GL_TEXTURE_4D_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int TEXTURE_4D_SGIS = 0x8134;
 
 		/// <summary>
-		/// Value of GL_PROXY_TEXTURE_4D_SGIS symbol.
+		/// [GL] Value of GL_PROXY_TEXTURE_4D_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int PROXY_TEXTURE_4D_SGIS = 0x8135;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_4DSIZE_SGIS symbol.
+		/// [GL] Value of GL_TEXTURE_4DSIZE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int TEXTURE_4DSIZE_SGIS = 0x8136;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_WRAP_Q_SGIS symbol.
+		/// [GL] Value of GL_TEXTURE_WRAP_Q_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int TEXTURE_WRAP_Q_SGIS = 0x8137;
 
 		/// <summary>
-		/// Value of GL_MAX_4D_TEXTURE_SIZE_SGIS symbol.
+		/// [GL] Value of GL_MAX_4D_TEXTURE_SIZE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int MAX_4D_TEXTURE_SIZE_SGIS = 0x8138;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_4D_BINDING_SGIS symbol.
+		/// [GL] Value of GL_TEXTURE_4D_BINDING_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture4D")]
 		public const int TEXTURE_4D_BINDING_SGIS = 0x814F;

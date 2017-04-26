@@ -29,39 +29,39 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_DEFORMATION_BIT_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_DEFORMATION_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		[Log(BitmaskName = "GL")]
 		public const uint TEXTURE_DEFORMATION_BIT_SGIX = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_DEFORMATION_BIT_SGIX symbol.
+		/// [GL] Value of GL_GEOMETRY_DEFORMATION_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		[Log(BitmaskName = "GL")]
 		public const uint GEOMETRY_DEFORMATION_BIT_SGIX = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_DEFORMATION_SGIX symbol.
+		/// [GL] Value of GL_GEOMETRY_DEFORMATION_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public const int GEOMETRY_DEFORMATION_SGIX = 0x8194;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_DEFORMATION_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_DEFORMATION_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public const int TEXTURE_DEFORMATION_SGIX = 0x8195;
 
 		/// <summary>
-		/// Value of GL_DEFORMATIONS_MASK_SGIX symbol.
+		/// [GL] Value of GL_DEFORMATIONS_MASK_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public const int DEFORMATIONS_MASK_SGIX = 0x8196;
 
 		/// <summary>
-		/// Value of GL_MAX_DEFORMATION_ORDER_SGIX symbol.
+		/// [GL] Value of GL_MAX_DEFORMATION_ORDER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public const int MAX_DEFORMATION_ORDER_SGIX = 0x8197;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT = 0x8D6C;

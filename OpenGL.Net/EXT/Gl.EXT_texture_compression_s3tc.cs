@@ -29,21 +29,21 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGB_S3TC_DXT1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_RGB_S3TC_DXT1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_dxt1", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
 		public const int COMPRESSED_RGB_S3TC_DXT1_EXT = 0x83F0;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_S3TC_DXT1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_dxt1", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
 		public const int COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT3_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_S3TC_DXT3_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE")]
 		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
@@ -51,7 +51,7 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA_S3TC_DXT3_EXT = 0x83F2;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT5_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_RGBA_S3TC_DXT5_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE")]
 		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]

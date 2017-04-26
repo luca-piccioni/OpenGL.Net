@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_POLYGON_OFFSET_CLAMP_EXT symbol.
+		/// [GL] Value of GL_POLYGON_OFFSET_CLAMP_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2")]
 		public const int POLYGON_OFFSET_CLAMP_EXT = 0x8E1B;

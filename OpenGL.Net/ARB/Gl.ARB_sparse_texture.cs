@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_SPARSE_ARB symbol.
+		/// [GL] Value of GL_TEXTURE_SPARSE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SPARSE_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int TEXTURE_SPARSE_ARB = 0x91A6;
 
 		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_INDEX_ARB symbol.
+		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_INDEX_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_INDEX_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
@@ -45,7 +45,7 @@ namespace OpenGL
 		public const int VIRTUAL_PAGE_SIZE_INDEX_ARB = 0x91A7;
 
 		/// <summary>
-		/// Value of GL_NUM_SPARSE_LEVELS_ARB symbol.
+		/// [GL] Value of GL_NUM_SPARSE_LEVELS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_NUM_SPARSE_LEVELS_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int NUM_SPARSE_LEVELS_ARB = 0x91AA;
 
 		/// <summary>
-		/// Value of GL_NUM_VIRTUAL_PAGE_SIZES_ARB symbol.
+		/// [GL] Value of GL_NUM_VIRTUAL_PAGE_SIZES_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_NUM_VIRTUAL_PAGE_SIZES_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
@@ -61,7 +61,7 @@ namespace OpenGL
 		public const int NUM_VIRTUAL_PAGE_SIZES_ARB = 0x91A8;
 
 		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_X_ARB symbol.
+		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_X_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_EXT")]
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_AMD")]
@@ -71,7 +71,7 @@ namespace OpenGL
 		public const int VIRTUAL_PAGE_SIZE_X_ARB = 0x9195;
 
 		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_Y_ARB symbol.
+		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_Y_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_EXT")]
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_AMD")]
@@ -81,7 +81,7 @@ namespace OpenGL
 		public const int VIRTUAL_PAGE_SIZE_Y_ARB = 0x9196;
 
 		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_Z_ARB symbol.
+		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_Z_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_EXT")]
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_AMD")]
@@ -91,7 +91,7 @@ namespace OpenGL
 		public const int VIRTUAL_PAGE_SIZE_Z_ARB = 0x9197;
 
 		/// <summary>
-		/// Value of GL_MAX_SPARSE_TEXTURE_SIZE_ARB symbol.
+		/// [GL] Value of GL_MAX_SPARSE_TEXTURE_SIZE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_EXT")]
 		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_AMD")]
@@ -101,7 +101,7 @@ namespace OpenGL
 		public const int MAX_SPARSE_TEXTURE_SIZE_ARB = 0x9198;
 
 		/// <summary>
-		/// Value of GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB symbol.
+		/// [GL] Value of GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT")]
 		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD")]
@@ -111,7 +111,7 @@ namespace OpenGL
 		public const int MAX_SPARSE_3D_TEXTURE_SIZE_ARB = 0x9199;
 
 		/// <summary>
-		/// Value of GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB symbol.
+		/// [GL] Value of GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]

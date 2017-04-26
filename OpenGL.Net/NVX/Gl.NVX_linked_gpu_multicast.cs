@@ -29,14 +29,14 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_LGPU_SEPARATE_STORAGE_BIT_NVX symbol.
+		/// [GL] Value of GL_LGPU_SEPARATE_STORAGE_BIT_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 		[Log(BitmaskName = "GL")]
 		public const int LGPU_SEPARATE_STORAGE_BIT_NVX = 0x0800;
 
 		/// <summary>
-		/// Value of GL_MAX_LGPU_GPUS_NVX symbol.
+		/// [GL] Value of GL_MAX_LGPU_GPUS_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 		public const int MAX_LGPU_GPUS_NVX = 0x92BA;

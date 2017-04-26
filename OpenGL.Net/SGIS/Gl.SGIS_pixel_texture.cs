@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PIXEL_TEXTURE_SGIS symbol.
+		/// [GL] Value of GL_PIXEL_TEXTURE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public const int PIXEL_TEXTURE_SGIS = 0x8353;
 
 		/// <summary>
-		/// Value of GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS symbol.
+		/// [GL] Value of GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public const int PIXEL_FRAGMENT_RGB_SOURCE_SGIS = 0x8354;
 
 		/// <summary>
-		/// Value of GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS symbol.
+		/// [GL] Value of GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public const int PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS = 0x8355;
 
 		/// <summary>
-		/// Value of GL_PIXEL_GROUP_COLOR_SGIS symbol.
+		/// [GL] Value of GL_PIXEL_GROUP_COLOR_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public const int PIXEL_GROUP_COLOR_SGIS = 0x8356;

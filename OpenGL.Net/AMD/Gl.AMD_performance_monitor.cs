@@ -29,43 +29,43 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COUNTER_TYPE_AMD symbol.
+		/// [GL] Value of GL_COUNTER_TYPE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int COUNTER_TYPE_AMD = 0x8BC0;
 
 		/// <summary>
-		/// Value of GL_COUNTER_RANGE_AMD symbol.
+		/// [GL] Value of GL_COUNTER_RANGE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int COUNTER_RANGE_AMD = 0x8BC1;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_AMD symbol.
+		/// [GL] Value of GL_UNSIGNED_INT64_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int UNSIGNED_INT64_AMD = 0x8BC2;
 
 		/// <summary>
-		/// Value of GL_PERCENTAGE_AMD symbol.
+		/// [GL] Value of GL_PERCENTAGE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int PERCENTAGE_AMD = 0x8BC3;
 
 		/// <summary>
-		/// Value of GL_PERFMON_RESULT_AVAILABLE_AMD symbol.
+		/// [GL] Value of GL_PERFMON_RESULT_AVAILABLE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int PERFMON_RESULT_AVAILABLE_AMD = 0x8BC4;
 
 		/// <summary>
-		/// Value of GL_PERFMON_RESULT_SIZE_AMD symbol.
+		/// [GL] Value of GL_PERFMON_RESULT_SIZE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int PERFMON_RESULT_SIZE_AMD = 0x8BC5;
 
 		/// <summary>
-		/// Value of GL_PERFMON_RESULT_AMD symbol.
+		/// [GL] Value of GL_PERFMON_RESULT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public const int PERFMON_RESULT_AMD = 0x8BC6;

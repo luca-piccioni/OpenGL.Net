@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_PATCH_ATTRIBS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_PATCH_ATTRIBS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_tessellation_program5")]
 		public const int MAX_PROGRAM_PATCH_ATTRIBS_NV = 0x86D8;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_PROGRAM_NV symbol.
+		/// [GL] Value of GL_TESS_CONTROL_PROGRAM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_tessellation_program5")]
 		public const int TESS_CONTROL_PROGRAM_NV = 0x891E;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_PROGRAM_NV symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_PROGRAM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_tessellation_program5")]
 		public const int TESS_EVALUATION_PROGRAM_NV = 0x891F;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_PROGRAM_PARAMETER_BUFFER_NV symbol.
+		/// [GL] Value of GL_TESS_CONTROL_PROGRAM_PARAMETER_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_tessellation_program5")]
 		public const int TESS_CONTROL_PROGRAM_PARAMETER_BUFFER_NV = 0x8C74;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_PROGRAM_PARAMETER_BUFFER_NV symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_PROGRAM_PARAMETER_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_tessellation_program5")]
 		public const int TESS_EVALUATION_PROGRAM_PARAMETER_BUFFER_NV = 0x8C75;

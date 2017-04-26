@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONVOLUTION_HINT_SGIX symbol.
+		/// [GL] Value of GL_CONVOLUTION_HINT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_convolution_accuracy")]
 		public const int CONVOLUTION_HINT_SGIX = 0x8316;

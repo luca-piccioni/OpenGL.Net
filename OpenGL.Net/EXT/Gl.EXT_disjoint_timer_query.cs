@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_GPU_DISJOINT_EXT symbol.
+		/// [GL] Value of GL_GPU_DISJOINT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public const int GPU_DISJOINT_EXT = 0x8FBB;

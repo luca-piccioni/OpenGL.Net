@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_REDUCTION_MODE_ARB symbol.
+		/// [GL] Value of GL_TEXTURE_REDUCTION_MODE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_filter_minmax", Api = "gl|glcore")]
 		public const int TEXTURE_REDUCTION_MODE_ARB = 0x9366;
 
 		/// <summary>
-		/// Value of GL_WEIGHTED_AVERAGE_ARB symbol.
+		/// [GL] Value of GL_WEIGHTED_AVERAGE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_filter_minmax", Api = "gl|glcore")]
 		public const int WEIGHTED_AVERAGE_ARB = 0x9367;

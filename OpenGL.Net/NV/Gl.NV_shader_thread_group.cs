@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_WARP_SIZE_NV symbol.
+		/// [GL] Value of GL_WARP_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_thread_group", Api = "gl|glcore")]
 		public const int WARP_SIZE_NV = 0x9339;
 
 		/// <summary>
-		/// Value of GL_WARPS_PER_SM_NV symbol.
+		/// [GL] Value of GL_WARPS_PER_SM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_thread_group", Api = "gl|glcore")]
 		public const int WARPS_PER_SM_NV = 0x933A;
 
 		/// <summary>
-		/// Value of GL_SM_COUNT_NV symbol.
+		/// [GL] Value of GL_SM_COUNT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_thread_group", Api = "gl|glcore")]
 		public const int SM_COUNT_NV = 0x933B;

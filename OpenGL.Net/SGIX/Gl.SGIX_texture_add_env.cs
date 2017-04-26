@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_ENV_BIAS_SGIX symbol.
+		/// [GL] Value of GL_TEXTURE_ENV_BIAS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_texture_add_env")]
 		public const int TEXTURE_ENV_BIAS_SGIX = 0x80BE;

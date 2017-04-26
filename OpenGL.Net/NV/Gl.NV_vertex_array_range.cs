@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_NV = 0x851D;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_LENGTH_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_LENGTH_NV = 0x851E;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_VALID_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_VALID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_VALID_NV = 0x851F;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV symbol.
+		/// [GL] Value of GL_MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public const int MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV = 0x8520;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_POINTER_NV symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_POINTER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_POINTER_NV = 0x8521;

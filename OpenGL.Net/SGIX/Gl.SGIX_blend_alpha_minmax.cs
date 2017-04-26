@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ALPHA_MIN_SGIX symbol.
+		/// [GL] Value of GL_ALPHA_MIN_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_blend_alpha_minmax")]
 		public const int ALPHA_MIN_SGIX = 0x8320;
 
 		/// <summary>
-		/// Value of GL_ALPHA_MAX_SGIX symbol.
+		/// [GL] Value of GL_ALPHA_MAX_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_blend_alpha_minmax")]
 		public const int ALPHA_MAX_SGIX = 0x8321;

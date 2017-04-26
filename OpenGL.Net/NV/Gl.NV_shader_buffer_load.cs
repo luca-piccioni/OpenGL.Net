@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BUFFER_GPU_ADDRESS_NV symbol.
+		/// [GL] Value of GL_BUFFER_GPU_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 		public const int BUFFER_GPU_ADDRESS_NV = 0x8F1D;
 
 		/// <summary>
-		/// Value of GL_GPU_ADDRESS_NV symbol.
+		/// [GL] Value of GL_GPU_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 		public const int GPU_ADDRESS_NV = 0x8F34;
 
 		/// <summary>
-		/// Value of GL_MAX_SHADER_BUFFER_ADDRESS_NV symbol.
+		/// [GL] Value of GL_MAX_SHADER_BUFFER_ADDRESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 		public const int MAX_SHADER_BUFFER_ADDRESS_NV = 0x8F35;

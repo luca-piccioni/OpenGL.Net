@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_RANGE_LENGTH_APPLE symbol.
+		/// [GL] Value of GL_TEXTURE_RANGE_LENGTH_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		public const int TEXTURE_RANGE_LENGTH_APPLE = 0x85B7;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_RANGE_POINTER_APPLE symbol.
+		/// [GL] Value of GL_TEXTURE_RANGE_POINTER_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		public const int TEXTURE_RANGE_POINTER_APPLE = 0x85B8;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_STORAGE_HINT_APPLE symbol.
+		/// [GL] Value of GL_TEXTURE_STORAGE_HINT_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		public const int TEXTURE_STORAGE_HINT_APPLE = 0x85BC;
 
 		/// <summary>
-		/// Value of GL_STORAGE_PRIVATE_APPLE symbol.
+		/// [GL] Value of GL_STORAGE_PRIVATE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		public const int STORAGE_PRIVATE_APPLE = 0x85BD;

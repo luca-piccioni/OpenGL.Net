@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_GPU_MEMORY_INFO_DEDICATED_VIDMEM_NVX symbol.
+		/// [GL] Value of GL_GPU_MEMORY_INFO_DEDICATED_VIDMEM_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_gpu_memory_info")]
 		public const int GPU_MEMORY_INFO_DEDICATED_VIDMEM_NVX = 0x9047;
 
 		/// <summary>
-		/// Value of GL_GPU_MEMORY_INFO_TOTAL_AVAILABLE_MEMORY_NVX symbol.
+		/// [GL] Value of GL_GPU_MEMORY_INFO_TOTAL_AVAILABLE_MEMORY_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_gpu_memory_info")]
 		public const int GPU_MEMORY_INFO_TOTAL_AVAILABLE_MEMORY_NVX = 0x9048;
 
 		/// <summary>
-		/// Value of GL_GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX symbol.
+		/// [GL] Value of GL_GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_gpu_memory_info")]
 		public const int GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX = 0x9049;
 
 		/// <summary>
-		/// Value of GL_GPU_MEMORY_INFO_EVICTION_COUNT_NVX symbol.
+		/// [GL] Value of GL_GPU_MEMORY_INFO_EVICTION_COUNT_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_gpu_memory_info")]
 		public const int GPU_MEMORY_INFO_EVICTION_COUNT_NVX = 0x904A;
 
 		/// <summary>
-		/// Value of GL_GPU_MEMORY_INFO_EVICTED_MEMORY_NVX symbol.
+		/// [GL] Value of GL_GPU_MEMORY_INFO_EVICTED_MEMORY_NVX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_gpu_memory_info")]
 		public const int GPU_MEMORY_INFO_EVICTED_MEMORY_NVX = 0x904B;

@@ -29,44 +29,44 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_APPLE = 0x851D;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_LENGTH_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_LENGTH_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_LENGTH_APPLE = 0x851E;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_STORAGE_HINT_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_STORAGE_HINT_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public const int VERTEX_ARRAY_STORAGE_HINT_APPLE = 0x851F;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_RANGE_POINTER_APPLE symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_RANGE_POINTER_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public const int VERTEX_ARRAY_RANGE_POINTER_APPLE = 0x8521;
 
 		/// <summary>
-		/// Value of GL_STORAGE_CLIENT_APPLE symbol.
+		/// [GL] Value of GL_STORAGE_CLIENT_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public const int STORAGE_CLIENT_APPLE = 0x85B4;
 
 		/// <summary>
-		/// Value of GL_STORAGE_CACHED_APPLE symbol.
+		/// [GL] Value of GL_STORAGE_CACHED_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public const int STORAGE_CACHED_APPLE = 0x85BE;
 
 		/// <summary>
-		/// Value of GL_STORAGE_SHARED_APPLE symbol.
+		/// [GL] Value of GL_STORAGE_SHARED_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]

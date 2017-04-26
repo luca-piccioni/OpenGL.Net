@@ -29,33 +29,33 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program2")]
 		[RequiredByFeature("GL_NV_vertex_program2_option")]
 		public const int MAX_PROGRAM_EXEC_INSTRUCTIONS_NV = 0x88F4;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_CALL_DEPTH_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_CALL_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program2")]
 		[RequiredByFeature("GL_NV_vertex_program2_option")]
 		public const int MAX_PROGRAM_CALL_DEPTH_NV = 0x88F5;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_IF_DEPTH_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_IF_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program2")]
 		public const int MAX_PROGRAM_IF_DEPTH_NV = 0x88F6;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_LOOP_DEPTH_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_LOOP_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program2")]
 		public const int MAX_PROGRAM_LOOP_DEPTH_NV = 0x88F7;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_LOOP_COUNT_NV symbol.
+		/// [GL] Value of GL_MAX_PROGRAM_LOOP_COUNT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program2")]
 		public const int MAX_PROGRAM_LOOP_COUNT_NV = 0x88F8;

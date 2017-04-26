@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_APPLE symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public const int ELEMENT_ARRAY_APPLE = 0x8A0C;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_TYPE_APPLE symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_TYPE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public const int ELEMENT_ARRAY_TYPE_APPLE = 0x8A0D;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_POINTER_APPLE symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_POINTER_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public const int ELEMENT_ARRAY_POINTER_APPLE = 0x8A0E;

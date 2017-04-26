@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MODULATE_COLOR_IMG symbol.
+		/// [GL] Value of GL_MODULATE_COLOR_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		public const int MODULATE_COLOR_IMG = 0x8C04;
 
 		/// <summary>
-		/// Value of GL_RECIP_ADD_SIGNED_ALPHA_IMG symbol.
+		/// [GL] Value of GL_RECIP_ADD_SIGNED_ALPHA_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		public const int RECIP_ADD_SIGNED_ALPHA_IMG = 0x8C05;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_ALPHA_MODULATE_IMG symbol.
+		/// [GL] Value of GL_TEXTURE_ALPHA_MODULATE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		public const int TEXTURE_ALPHA_MODULATE_IMG = 0x8C06;
 
 		/// <summary>
-		/// Value of GL_FACTOR_ALPHA_MODULATE_IMG symbol.
+		/// [GL] Value of GL_FACTOR_ALPHA_MODULATE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		public const int FACTOR_ALPHA_MODULATE_IMG = 0x8C07;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_ALPHA_MODULATE_IMG symbol.
+		/// [GL] Value of GL_FRAGMENT_ALPHA_MODULATE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		public const int FRAGMENT_ALPHA_MODULATE_IMG = 0x8C08;
 
 		/// <summary>
-		/// Value of GL_ADD_BLEND_IMG symbol.
+		/// [GL] Value of GL_ADD_BLEND_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function", Api = "gles1")]
 		public const int ADD_BLEND_IMG = 0x8C09;

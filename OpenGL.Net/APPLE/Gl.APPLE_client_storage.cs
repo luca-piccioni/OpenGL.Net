@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_UNPACK_CLIENT_STORAGE_APPLE symbol.
+		/// [GL] Value of GL_UNPACK_CLIENT_STORAGE_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_client_storage")]
 		public const int UNPACK_CLIENT_STORAGE_APPLE = 0x85B2;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHADER_BINARY_FORMAT_SPIR_V_ARB symbol.
+		/// [GL] Value of GL_SHADER_BINARY_FORMAT_SPIR_V_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
 		public const int SHADER_BINARY_FORMAT_SPIR_V_ARB = 0x9551;
 
 		/// <summary>
-		/// Value of GL_SPIR_V_BINARY_ARB symbol.
+		/// [GL] Value of GL_SPIR_V_BINARY_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
 		public const int SPIR_V_BINARY_ARB = 0x9552;

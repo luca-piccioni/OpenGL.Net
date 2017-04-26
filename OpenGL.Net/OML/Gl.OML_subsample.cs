@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FORMAT_SUBSAMPLE_24_24_OML symbol.
+		/// [GL] Value of GL_FORMAT_SUBSAMPLE_24_24_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_subsample")]
 		public const int FORMAT_SUBSAMPLE_24_24_OML = 0x8982;
 
 		/// <summary>
-		/// Value of GL_FORMAT_SUBSAMPLE_244_244_OML symbol.
+		/// [GL] Value of GL_FORMAT_SUBSAMPLE_244_244_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_subsample")]
 		public const int FORMAT_SUBSAMPLE_244_244_OML = 0x8983;

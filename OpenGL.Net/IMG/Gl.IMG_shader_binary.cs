@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SGX_BINARY_IMG symbol.
+		/// [GL] Value of GL_SGX_BINARY_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_shader_binary", Api = "gles2")]
 		public const int SGX_BINARY_IMG = 0x8C0A;

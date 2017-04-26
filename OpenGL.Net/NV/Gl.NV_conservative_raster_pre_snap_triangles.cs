@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTER_MODE_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
 		public const int CONSERVATIVE_RASTER_MODE_NV = 0x954D;
 
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
 		public const int CONSERVATIVE_RASTER_MODE_POST_SNAP_NV = 0x954E;
 
 		/// <summary>
-		/// Value of GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
 		public const int CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV = 0x954F;

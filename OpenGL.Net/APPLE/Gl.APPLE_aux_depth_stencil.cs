@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_AUX_DEPTH_STENCIL_APPLE symbol.
+		/// [GL] Value of GL_AUX_DEPTH_STENCIL_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_aux_depth_stencil")]
 		public const int AUX_DEPTH_STENCIL_APPLE = 0x8A14;

@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RED_MIN_CLAMP_INGR symbol.
+		/// [GL] Value of GL_RED_MIN_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int RED_MIN_CLAMP_INGR = 0x8560;
 
 		/// <summary>
-		/// Value of GL_GREEN_MIN_CLAMP_INGR symbol.
+		/// [GL] Value of GL_GREEN_MIN_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int GREEN_MIN_CLAMP_INGR = 0x8561;
 
 		/// <summary>
-		/// Value of GL_BLUE_MIN_CLAMP_INGR symbol.
+		/// [GL] Value of GL_BLUE_MIN_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int BLUE_MIN_CLAMP_INGR = 0x8562;
 
 		/// <summary>
-		/// Value of GL_ALPHA_MIN_CLAMP_INGR symbol.
+		/// [GL] Value of GL_ALPHA_MIN_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int ALPHA_MIN_CLAMP_INGR = 0x8563;
 
 		/// <summary>
-		/// Value of GL_RED_MAX_CLAMP_INGR symbol.
+		/// [GL] Value of GL_RED_MAX_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int RED_MAX_CLAMP_INGR = 0x8564;
 
 		/// <summary>
-		/// Value of GL_GREEN_MAX_CLAMP_INGR symbol.
+		/// [GL] Value of GL_GREEN_MAX_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int GREEN_MAX_CLAMP_INGR = 0x8565;
 
 		/// <summary>
-		/// Value of GL_BLUE_MAX_CLAMP_INGR symbol.
+		/// [GL] Value of GL_BLUE_MAX_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int BLUE_MAX_CLAMP_INGR = 0x8566;
 
 		/// <summary>
-		/// Value of GL_ALPHA_MAX_CLAMP_INGR symbol.
+		/// [GL] Value of GL_ALPHA_MAX_CLAMP_INGR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_INGR_color_clamp")]
 		public const int ALPHA_MAX_CLAMP_INGR = 0x8567;

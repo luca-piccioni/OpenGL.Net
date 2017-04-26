@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_INVERT_MESA symbol.
+		/// [GL] Value of GL_PACK_INVERT_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESA_pack_invert")]
 		public const int PACK_INVERT_MESA = 0x8758;

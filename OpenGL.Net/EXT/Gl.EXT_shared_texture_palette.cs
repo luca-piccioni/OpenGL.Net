@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHARED_TEXTURE_PALETTE_EXT symbol.
+		/// [GL] Value of GL_SHARED_TEXTURE_PALETTE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shared_texture_palette")]
 		public const int SHARED_TEXTURE_PALETTE_EXT = 0x81FB;

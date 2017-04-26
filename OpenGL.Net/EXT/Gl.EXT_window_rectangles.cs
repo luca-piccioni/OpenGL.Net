@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INCLUSIVE_EXT symbol.
+		/// [GL] Value of GL_INCLUSIVE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 		public const int INCLUSIVE_EXT = 0x8F10;
 
 		/// <summary>
-		/// Value of GL_EXCLUSIVE_EXT symbol.
+		/// [GL] Value of GL_EXCLUSIVE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 		public const int EXCLUSIVE_EXT = 0x8F11;
 
 		/// <summary>
-		/// Value of GL_WINDOW_RECTANGLE_EXT symbol.
+		/// [GL] Value of GL_WINDOW_RECTANGLE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 		public const int WINDOW_RECTANGLE_EXT = 0x8F12;
 
 		/// <summary>
-		/// Value of GL_WINDOW_RECTANGLE_MODE_EXT symbol.
+		/// [GL] Value of GL_WINDOW_RECTANGLE_MODE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 		public const int WINDOW_RECTANGLE_MODE_EXT = 0x8F13;
 
 		/// <summary>
-		/// Value of GL_MAX_WINDOW_RECTANGLES_EXT symbol.
+		/// [GL] Value of GL_MAX_WINDOW_RECTANGLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 		public const int MAX_WINDOW_RECTANGLES_EXT = 0x8F14;
 
 		/// <summary>
-		/// Value of GL_NUM_WINDOW_RECTANGLES_EXT symbol.
+		/// [GL] Value of GL_NUM_WINDOW_RECTANGLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 		public const int NUM_WINDOW_RECTANGLES_EXT = 0x8F15;

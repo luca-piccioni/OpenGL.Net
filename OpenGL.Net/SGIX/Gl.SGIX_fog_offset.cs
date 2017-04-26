@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FOG_OFFSET_SGIX symbol.
+		/// [GL] Value of GL_FOG_OFFSET_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fog_offset")]
 		public const int FOG_OFFSET_SGIX = 0x8198;
 
 		/// <summary>
-		/// Value of GL_FOG_OFFSET_VALUE_SGIX symbol.
+		/// [GL] Value of GL_FOG_OFFSET_VALUE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_fog_offset")]
 		public const int FOG_OFFSET_VALUE_SGIX = 0x8199;

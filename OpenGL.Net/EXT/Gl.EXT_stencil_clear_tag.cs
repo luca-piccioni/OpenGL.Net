@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_STENCIL_TAG_BITS_EXT symbol.
+		/// [GL] Value of GL_STENCIL_TAG_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 		public const int STENCIL_TAG_BITS_EXT = 0x88F2;
 
 		/// <summary>
-		/// Value of GL_STENCIL_CLEAR_TAG_VALUE_EXT symbol.
+		/// [GL] Value of GL_STENCIL_CLEAR_TAG_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 		public const int STENCIL_CLEAR_TAG_VALUE_EXT = 0x88F3;

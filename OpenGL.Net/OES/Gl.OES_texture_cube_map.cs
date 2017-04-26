@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_GEN_STR_OES symbol.
+		/// [GL] Value of GL_TEXTURE_GEN_STR_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		public const int TEXTURE_GEN_STR_OES = 0x8D60;

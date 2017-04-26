@@ -29,97 +29,97 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int VERTEX_ARRAY_LIST_IBM = 103070;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_NORMAL_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int NORMAL_ARRAY_LIST_IBM = 103071;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_COLOR_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int COLOR_ARRAY_LIST_IBM = 103072;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_INDEX_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int INDEX_ARRAY_LIST_IBM = 103073;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int TEXTURE_COORD_ARRAY_LIST_IBM = 103074;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_EDGE_FLAG_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int EDGE_FLAG_ARRAY_LIST_IBM = 103075;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_FOG_COORDINATE_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int FOG_COORDINATE_ARRAY_LIST_IBM = 103076;
 
 		/// <summary>
-		/// Value of GL_SECONDARY_COLOR_ARRAY_LIST_IBM symbol.
+		/// [GL] Value of GL_SECONDARY_COLOR_ARRAY_LIST_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int SECONDARY_COLOR_ARRAY_LIST_IBM = 103077;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_VERTEX_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int VERTEX_ARRAY_LIST_STRIDE_IBM = 103080;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_NORMAL_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int NORMAL_ARRAY_LIST_STRIDE_IBM = 103081;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_COLOR_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int COLOR_ARRAY_LIST_STRIDE_IBM = 103082;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_INDEX_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int INDEX_ARRAY_LIST_STRIDE_IBM = 103083;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_TEXTURE_COORD_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int TEXTURE_COORD_ARRAY_LIST_STRIDE_IBM = 103084;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_EDGE_FLAG_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int EDGE_FLAG_ARRAY_LIST_STRIDE_IBM = 103085;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM = 103086;
 
 		/// <summary>
-		/// Value of GL_SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM symbol.
+		/// [GL] Value of GL_SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public const int SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM = 103087;

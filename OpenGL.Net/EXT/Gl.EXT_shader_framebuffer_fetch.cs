@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT symbol.
+		/// [GL] Value of GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_framebuffer_fetch", Api = "gles2")]
 		public const int FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT = 0x8A52;

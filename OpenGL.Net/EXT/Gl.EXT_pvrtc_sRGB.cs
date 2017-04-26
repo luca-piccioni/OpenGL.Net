@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pvrtc_sRGB", Api = "gles2")]
 		public const int COMPRESSED_SRGB_PVRTC_2BPPV1_EXT = 0x8A54;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pvrtc_sRGB", Api = "gles2")]
 		public const int COMPRESSED_SRGB_PVRTC_4BPPV1_EXT = 0x8A55;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pvrtc_sRGB", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT = 0x8A56;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pvrtc_sRGB", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT = 0x8A57;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pvrtc_sRGB", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG = 0x93F0;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG symbol.
+		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_pvrtc_sRGB", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG = 0x93F1;

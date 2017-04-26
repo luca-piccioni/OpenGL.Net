@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VBO_FREE_MEMORY_ATI symbol.
+		/// [GL] Value of GL_VBO_FREE_MEMORY_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_meminfo")]
 		public const int VBO_FREE_MEMORY_ATI = 0x87FB;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FREE_MEMORY_ATI symbol.
+		/// [GL] Value of GL_TEXTURE_FREE_MEMORY_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_meminfo")]
 		public const int TEXTURE_FREE_MEMORY_ATI = 0x87FC;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_FREE_MEMORY_ATI symbol.
+		/// [GL] Value of GL_RENDERBUFFER_FREE_MEMORY_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_meminfo")]
 		public const int RENDERBUFFER_FREE_MEMORY_ATI = 0x87FD;

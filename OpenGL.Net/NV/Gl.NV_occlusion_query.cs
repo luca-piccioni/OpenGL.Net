@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PIXEL_COUNTER_BITS_NV symbol.
+		/// [GL] Value of GL_PIXEL_COUNTER_BITS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
 		public const int PIXEL_COUNTER_BITS_NV = 0x8864;
 
 		/// <summary>
-		/// Value of GL_CURRENT_OCCLUSION_QUERY_ID_NV symbol.
+		/// [GL] Value of GL_CURRENT_OCCLUSION_QUERY_ID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
 		public const int CURRENT_OCCLUSION_QUERY_ID_NV = 0x8865;
 
 		/// <summary>
-		/// Value of GL_PIXEL_COUNT_NV symbol.
+		/// [GL] Value of GL_PIXEL_COUNT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
 		public const int PIXEL_COUNT_NV = 0x8866;
 
 		/// <summary>
-		/// Value of GL_PIXEL_COUNT_AVAILABLE_NV symbol.
+		/// [GL] Value of GL_PIXEL_COUNT_AVAILABLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
 		public const int PIXEL_COUNT_AVAILABLE_NV = 0x8867;

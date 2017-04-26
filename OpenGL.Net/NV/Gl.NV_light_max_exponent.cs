@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_SHININESS_NV symbol.
+		/// [GL] Value of GL_MAX_SHININESS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_light_max_exponent")]
 		public const int MAX_SHININESS_NV = 0x8504;
 
 		/// <summary>
-		/// Value of GL_MAX_SPOT_EXPONENT_NV symbol.
+		/// [GL] Value of GL_MAX_SPOT_EXPONENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_light_max_exponent")]
 		public const int MAX_SPOT_EXPONENT_NV = 0x8505;

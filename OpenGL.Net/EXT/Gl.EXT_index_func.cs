@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INDEX_TEST_EXT symbol.
+		/// [GL] Value of GL_INDEX_TEST_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_func")]
 		public const int INDEX_TEST_EXT = 0x81B5;
 
 		/// <summary>
-		/// Value of GL_INDEX_TEST_FUNC_EXT symbol.
+		/// [GL] Value of GL_INDEX_TEST_FUNC_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_func")]
 		public const int INDEX_TEST_FUNC_EXT = 0x81B6;
 
 		/// <summary>
-		/// Value of GL_INDEX_TEST_REF_EXT symbol.
+		/// [GL] Value of GL_INDEX_TEST_REF_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_index_func")]
 		public const int INDEX_TEST_REF_EXT = 0x81B7;

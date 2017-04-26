@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CALLIGRAPHIC_FRAGMENT_SGIX symbol.
+		/// [GL] Value of GL_CALLIGRAPHIC_FRAGMENT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_calligraphic_fragment")]
 		public const int CALLIGRAPHIC_FRAGMENT_SGIX = 0x8183;

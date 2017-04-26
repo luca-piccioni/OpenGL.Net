@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_WRITEONLY_RENDERING_QCOM symbol.
+		/// [GL] Value of GL_WRITEONLY_RENDERING_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_writeonly_rendering", Api = "gles1|gles2")]
 		public const int WRITEONLY_RENDERING_QCOM = 0x8823;

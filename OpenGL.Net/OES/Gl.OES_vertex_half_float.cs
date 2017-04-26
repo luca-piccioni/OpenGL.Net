@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_HALF_FLOAT_OES symbol.
+		/// [GL] Value of GL_HALF_FLOAT_OES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OES_texture_half_float", Api = "gles2")]
 		[RequiredByFeature("GL_OES_vertex_half_float", Api = "gles2")]

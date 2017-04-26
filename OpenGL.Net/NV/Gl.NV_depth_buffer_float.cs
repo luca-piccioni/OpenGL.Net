@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENT32F_NV symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENT32F_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		public const int DEPTH_COMPONENT32F_NV = 0x8DAB;
 
 		/// <summary>
-		/// Value of GL_DEPTH32F_STENCIL8_NV symbol.
+		/// [GL] Value of GL_DEPTH32F_STENCIL8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		public const int DEPTH32F_STENCIL8_NV = 0x8DAC;
 
 		/// <summary>
-		/// Value of GL_DEPTH_BUFFER_FLOAT_MODE_NV symbol.
+		/// [GL] Value of GL_DEPTH_BUFFER_FLOAT_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		public const int DEPTH_BUFFER_FLOAT_MODE_NV = 0x8DAF;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_SRGB_CAPABLE_EXT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_SRGB_CAPABLE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_sRGB")]
 		public const int FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x8DBA;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: params returns one value, the matrix index array buffer binding. See Gl.MatrixIndexPointer.
+		/// [GLES1.1] Gl.Get: params returns one value, the matrix index array buffer binding. See Gl.MatrixIndexPointer.
 		/// </summary>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES = 0x8B9E;

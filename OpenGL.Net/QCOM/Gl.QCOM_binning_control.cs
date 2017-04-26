@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BINNING_CONTROL_HINT_QCOM symbol.
+		/// [GL] Value of GL_BINNING_CONTROL_HINT_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_binning_control", Api = "gles2")]
 		public const int BINNING_CONTROL_HINT_QCOM = 0x8FB0;
 
 		/// <summary>
-		/// Value of GL_CPU_OPTIMIZED_QCOM symbol.
+		/// [GL] Value of GL_CPU_OPTIMIZED_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_binning_control", Api = "gles2")]
 		public const int CPU_OPTIMIZED_QCOM = 0x8FB1;
 
 		/// <summary>
-		/// Value of GL_GPU_OPTIMIZED_QCOM symbol.
+		/// [GL] Value of GL_GPU_OPTIMIZED_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_binning_control", Api = "gles2")]
 		public const int GPU_OPTIMIZED_QCOM = 0x8FB2;
 
 		/// <summary>
-		/// Value of GL_RENDER_DIRECT_TO_FRAMEBUFFER_QCOM symbol.
+		/// [GL] Value of GL_RENDER_DIRECT_TO_FRAMEBUFFER_QCOM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_binning_control", Api = "gles2")]
 		public const int RENDER_DIRECT_TO_FRAMEBUFFER_QCOM = 0x8FB3;

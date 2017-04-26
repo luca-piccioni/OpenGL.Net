@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -38,25 +38,25 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB = 0x8DA9;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_VERTICES_OUT_ARB symbol.
+		/// [GL] Value of GL_GEOMETRY_VERTICES_OUT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		public const int GEOMETRY_VERTICES_OUT_ARB = 0x8DDA;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_INPUT_TYPE_ARB symbol.
+		/// [GL] Value of GL_GEOMETRY_INPUT_TYPE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		public const int GEOMETRY_INPUT_TYPE_ARB = 0x8DDB;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_OUTPUT_TYPE_ARB symbol.
+		/// [GL] Value of GL_GEOMETRY_OUTPUT_TYPE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		public const int GEOMETRY_OUTPUT_TYPE_ARB = 0x8DDC;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
+		/// [GL] Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -64,7 +64,7 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_VARYING_COMPONENTS_ARB = 0x8DDD;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
+		/// [GL] Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]

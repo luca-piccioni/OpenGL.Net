@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PURGED_CONTEXT_RESET_NV symbol.
+		/// [GL] Value of GL_PURGED_CONTEXT_RESET_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_robustness_video_memory_purge")]
 		public const int PURGED_CONTEXT_RESET_NV = 0x92BB;

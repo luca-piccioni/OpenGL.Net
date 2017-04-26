@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_RENDERBUFFER_NV symbol.
+		/// [GL] Value of GL_TEXTURE_BINDING_RENDERBUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int TEXTURE_BINDING_RENDERBUFFER_NV = 0x8E53;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_RENDERBUFFER_DATA_STORE_BINDING_NV symbol.
+		/// [GL] Value of GL_TEXTURE_RENDERBUFFER_DATA_STORE_BINDING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int TEXTURE_RENDERBUFFER_DATA_STORE_BINDING_NV = 0x8E54;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_RENDERBUFFER_NV symbol.
+		/// [GL] Value of GL_TEXTURE_RENDERBUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int TEXTURE_RENDERBUFFER_NV = 0x8E55;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_RENDERBUFFER_NV symbol.
+		/// [GL] Value of GL_SAMPLER_RENDERBUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int SAMPLER_RENDERBUFFER_NV = 0x8E56;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_RENDERBUFFER_NV symbol.
+		/// [GL] Value of GL_INT_SAMPLER_RENDERBUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int INT_SAMPLER_RENDERBUFFER_NV = 0x8E57;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FETCH_PER_SAMPLE_ARM symbol.
+		/// [GL] Value of GL_FETCH_PER_SAMPLE_ARM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARM_shader_framebuffer_fetch", Api = "gles2")]
 		public const int FETCH_PER_SAMPLE_ARM = 0x8F65;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM symbol.
+		/// [GL] Value of GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARM_shader_framebuffer_fetch", Api = "gles2")]
 		public const int FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM = 0x8F66;

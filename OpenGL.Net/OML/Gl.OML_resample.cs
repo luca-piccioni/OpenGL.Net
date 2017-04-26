@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PACK_RESAMPLE_OML symbol.
+		/// [GL] Value of GL_PACK_RESAMPLE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_resample")]
 		public const int PACK_RESAMPLE_OML = 0x8984;
 
 		/// <summary>
-		/// Value of GL_UNPACK_RESAMPLE_OML symbol.
+		/// [GL] Value of GL_UNPACK_RESAMPLE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_resample")]
 		public const int UNPACK_RESAMPLE_OML = 0x8985;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_REPLICATE_OML symbol.
+		/// [GL] Value of GL_RESAMPLE_REPLICATE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_resample")]
 		public const int RESAMPLE_REPLICATE_OML = 0x8986;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_ZERO_FILL_OML symbol.
+		/// [GL] Value of GL_RESAMPLE_ZERO_FILL_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_resample")]
 		public const int RESAMPLE_ZERO_FILL_OML = 0x8987;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_AVERAGE_OML symbol.
+		/// [GL] Value of GL_RESAMPLE_AVERAGE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_resample")]
 		public const int RESAMPLE_AVERAGE_OML = 0x8988;
 
 		/// <summary>
-		/// Value of GL_RESAMPLE_DECIMATE_OML symbol.
+		/// [GL] Value of GL_RESAMPLE_DECIMATE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GL_OML_resample")]
 		public const int RESAMPLE_DECIMATE_OML = 0x8989;

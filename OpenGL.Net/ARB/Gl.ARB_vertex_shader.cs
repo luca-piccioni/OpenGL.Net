@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_OBJECT_ACTIVE_ATTRIBUTES_ARB symbol.
+		/// [GL] Value of GL_OBJECT_ACTIVE_ATTRIBUTES_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int OBJECT_ACTIVE_ATTRIBUTES_ARB = 0x8B89;
 
 		/// <summary>
-		/// Value of GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB symbol.
+		/// [GL] Value of GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB = 0x8B8A;

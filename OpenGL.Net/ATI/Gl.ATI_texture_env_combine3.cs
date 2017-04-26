@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MODULATE_ADD_ATI symbol.
+		/// [GL] Value of GL_MODULATE_ADD_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_env_combine3")]
 		public const int MODULATE_ADD_ATI = 0x8744;
 
 		/// <summary>
-		/// Value of GL_MODULATE_SIGNED_ADD_ATI symbol.
+		/// [GL] Value of GL_MODULATE_SIGNED_ADD_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_env_combine3")]
 		public const int MODULATE_SIGNED_ADD_ATI = 0x8745;
 
 		/// <summary>
-		/// Value of GL_MODULATE_SUBTRACT_ATI symbol.
+		/// [GL] Value of GL_MODULATE_SUBTRACT_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_texture_env_combine3")]
 		public const int MODULATE_SUBTRACT_ATI = 0x8746;

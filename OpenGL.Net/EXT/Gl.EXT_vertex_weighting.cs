@@ -29,67 +29,67 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MODELVIEW0_STACK_DEPTH_EXT symbol.
+		/// [GL] Value of GL_MODELVIEW0_STACK_DEPTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW0_STACK_DEPTH_EXT = 0x0BA3;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW1_STACK_DEPTH_EXT symbol.
+		/// [GL] Value of GL_MODELVIEW1_STACK_DEPTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW1_STACK_DEPTH_EXT = 0x8502;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW0_MATRIX_EXT symbol.
+		/// [GL] Value of GL_MODELVIEW0_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW0_MATRIX_EXT = 0x0BA6;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW1_MATRIX_EXT symbol.
+		/// [GL] Value of GL_MODELVIEW1_MATRIX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW1_MATRIX_EXT = 0x8506;
 
 		/// <summary>
-		/// Value of GL_VERTEX_WEIGHTING_EXT symbol.
+		/// [GL] Value of GL_VERTEX_WEIGHTING_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int VERTEX_WEIGHTING_EXT = 0x8509;
 
 		/// <summary>
-		/// Value of GL_CURRENT_VERTEX_WEIGHT_EXT symbol.
+		/// [GL] Value of GL_CURRENT_VERTEX_WEIGHT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int CURRENT_VERTEX_WEIGHT_EXT = 0x850B;
 
 		/// <summary>
-		/// Value of GL_VERTEX_WEIGHT_ARRAY_EXT symbol.
+		/// [GL] Value of GL_VERTEX_WEIGHT_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int VERTEX_WEIGHT_ARRAY_EXT = 0x850C;
 
 		/// <summary>
-		/// Value of GL_VERTEX_WEIGHT_ARRAY_SIZE_EXT symbol.
+		/// [GL] Value of GL_VERTEX_WEIGHT_ARRAY_SIZE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int VERTEX_WEIGHT_ARRAY_SIZE_EXT = 0x850D;
 
 		/// <summary>
-		/// Value of GL_VERTEX_WEIGHT_ARRAY_TYPE_EXT symbol.
+		/// [GL] Value of GL_VERTEX_WEIGHT_ARRAY_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int VERTEX_WEIGHT_ARRAY_TYPE_EXT = 0x850E;
 
 		/// <summary>
-		/// Value of GL_VERTEX_WEIGHT_ARRAY_STRIDE_EXT symbol.
+		/// [GL] Value of GL_VERTEX_WEIGHT_ARRAY_STRIDE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int VERTEX_WEIGHT_ARRAY_STRIDE_EXT = 0x850F;
 
 		/// <summary>
-		/// Value of GL_VERTEX_WEIGHT_ARRAY_POINTER_EXT symbol.
+		/// [GL] Value of GL_VERTEX_WEIGHT_ARRAY_POINTER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int VERTEX_WEIGHT_ARRAY_POINTER_EXT = 0x8510;

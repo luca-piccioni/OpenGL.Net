@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPUTE_PROGRAM_NV symbol.
+		/// [GL] Value of GL_COMPUTE_PROGRAM_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_compute_program5")]
 		public const int COMPUTE_PROGRAM_NV = 0x90FB;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV symbol.
+		/// [GL] Value of GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_compute_program5")]
 		public const int COMPUTE_PROGRAM_PARAMETER_BUFFER_NV = 0x90FC;

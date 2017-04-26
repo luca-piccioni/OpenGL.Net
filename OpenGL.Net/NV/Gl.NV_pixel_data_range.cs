@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_WRITE_PIXEL_DATA_RANGE_NV symbol.
+		/// [GL] Value of GL_WRITE_PIXEL_DATA_RANGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public const int WRITE_PIXEL_DATA_RANGE_NV = 0x8878;
 
 		/// <summary>
-		/// Value of GL_READ_PIXEL_DATA_RANGE_NV symbol.
+		/// [GL] Value of GL_READ_PIXEL_DATA_RANGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public const int READ_PIXEL_DATA_RANGE_NV = 0x8879;
 
 		/// <summary>
-		/// Value of GL_WRITE_PIXEL_DATA_RANGE_LENGTH_NV symbol.
+		/// [GL] Value of GL_WRITE_PIXEL_DATA_RANGE_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public const int WRITE_PIXEL_DATA_RANGE_LENGTH_NV = 0x887A;
 
 		/// <summary>
-		/// Value of GL_READ_PIXEL_DATA_RANGE_LENGTH_NV symbol.
+		/// [GL] Value of GL_READ_PIXEL_DATA_RANGE_LENGTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public const int READ_PIXEL_DATA_RANGE_LENGTH_NV = 0x887B;
 
 		/// <summary>
-		/// Value of GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV symbol.
+		/// [GL] Value of GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public const int WRITE_PIXEL_DATA_RANGE_POINTER_NV = 0x887C;
 
 		/// <summary>
-		/// Value of GL_READ_PIXEL_DATA_RANGE_POINTER_NV symbol.
+		/// [GL] Value of GL_READ_PIXEL_DATA_RANGE_POINTER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public const int READ_PIXEL_DATA_RANGE_POINTER_NV = 0x887D;

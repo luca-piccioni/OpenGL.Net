@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_ASTC_DECODE_PRECISION_EXT symbol.
+		/// [GL] Value of GL_TEXTURE_ASTC_DECODE_PRECISION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_astc_decode_mode", Api = "gles2")]
 		public const int TEXTURE_ASTC_DECODE_PRECISION_EXT = 0x8F69;

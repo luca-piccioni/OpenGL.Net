@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPARE_FAIL_VALUE_ARB symbol.
+		/// [GL] Value of GL_TEXTURE_COMPARE_FAIL_VALUE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_shadow_ambient")]
 		public const int TEXTURE_COMPARE_FAIL_VALUE_ARB = 0x80BF;

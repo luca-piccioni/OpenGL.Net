@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SLICE_ACCUM_SUN symbol.
+		/// [GL] Value of GL_SLICE_ACCUM_SUN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUN_slice_accum")]
 		public const int SLICE_ACCUM_SUN = 0x85CC;

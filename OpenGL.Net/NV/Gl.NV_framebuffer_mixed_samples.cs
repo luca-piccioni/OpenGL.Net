@@ -29,43 +29,43 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COVERAGE_MODULATION_TABLE_NV symbol.
+		/// [GL] Value of GL_COVERAGE_MODULATION_TABLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int COVERAGE_MODULATION_TABLE_NV = 0x9331;
 
 		/// <summary>
-		/// Value of GL_DEPTH_SAMPLES_NV symbol.
+		/// [GL] Value of GL_DEPTH_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int DEPTH_SAMPLES_NV = 0x932D;
 
 		/// <summary>
-		/// Value of GL_STENCIL_SAMPLES_NV symbol.
+		/// [GL] Value of GL_STENCIL_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int STENCIL_SAMPLES_NV = 0x932E;
 
 		/// <summary>
-		/// Value of GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV symbol.
+		/// [GL] Value of GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int MIXED_DEPTH_SAMPLES_SUPPORTED_NV = 0x932F;
 
 		/// <summary>
-		/// Value of GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV symbol.
+		/// [GL] Value of GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int MIXED_STENCIL_SAMPLES_SUPPORTED_NV = 0x9330;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_MODULATION_NV symbol.
+		/// [GL] Value of GL_COVERAGE_MODULATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int COVERAGE_MODULATION_NV = 0x9332;
 
 		/// <summary>
-		/// Value of GL_COVERAGE_MODULATION_TABLE_SIZE_NV symbol.
+		/// [GL] Value of GL_COVERAGE_MODULATION_TABLE_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 		public const int COVERAGE_MODULATION_TABLE_SIZE_NV = 0x9333;

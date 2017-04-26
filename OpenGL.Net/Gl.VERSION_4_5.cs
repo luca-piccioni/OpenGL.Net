@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONTEXT_LOST symbol.
+		/// [GL] Value of GL_CONTEXT_LOST symbol.
 		/// </summary>
 		[AliasOf("GL_CONTEXT_LOST_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -39,78 +39,78 @@ namespace OpenGL
 		public const int CONTEXT_LOST = 0x0507;
 
 		/// <summary>
-		/// Value of GL_NEGATIVE_ONE_TO_ONE symbol.
+		/// [GL] Value of GL_NEGATIVE_ONE_TO_ONE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int NEGATIVE_ONE_TO_ONE = 0x935E;
 
 		/// <summary>
-		/// Value of GL_ZERO_TO_ONE symbol.
+		/// [GL] Value of GL_ZERO_TO_ONE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int ZERO_TO_ONE = 0x935F;
 
 		/// <summary>
-		/// Value of GL_CLIP_ORIGIN symbol.
+		/// [GL] Value of GL_CLIP_ORIGIN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int CLIP_ORIGIN = 0x935C;
 
 		/// <summary>
-		/// Value of GL_CLIP_DEPTH_MODE symbol.
+		/// [GL] Value of GL_CLIP_DEPTH_MODE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public const int CLIP_DEPTH_MODE = 0x935D;
 
 		/// <summary>
-		/// Value of GL_QUERY_WAIT_INVERTED symbol.
+		/// [GL] Value of GL_QUERY_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_WAIT_INVERTED = 0x8E17;
 
 		/// <summary>
-		/// Value of GL_QUERY_NO_WAIT_INVERTED symbol.
+		/// [GL] Value of GL_QUERY_NO_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_NO_WAIT_INVERTED = 0x8E18;
 
 		/// <summary>
-		/// Value of GL_QUERY_BY_REGION_WAIT_INVERTED symbol.
+		/// [GL] Value of GL_QUERY_BY_REGION_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_BY_REGION_WAIT_INVERTED = 0x8E19;
 
 		/// <summary>
-		/// Value of GL_QUERY_BY_REGION_NO_WAIT_INVERTED symbol.
+		/// [GL] Value of GL_QUERY_BY_REGION_NO_WAIT_INVERTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_conditional_render_inverted", Api = "gl|glcore")]
 		public const int QUERY_BY_REGION_NO_WAIT_INVERTED = 0x8E1A;
 
 		/// <summary>
-		/// Value of GL_MAX_CULL_DISTANCES symbol.
+		/// [GL] Value of GL_MAX_CULL_DISTANCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_cull_distance", Api = "gl|glcore")]
 		public const int MAX_CULL_DISTANCES = 0x82F9;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES symbol.
+		/// [GL] Value of GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_cull_distance", Api = "gl|glcore")]
 		public const int MAX_COMBINED_CLIP_AND_CULL_DISTANCES = 0x82FA;
 
 		/// <summary>
-		/// Gl.GetTexParameter: Returns the effective target of the texture object. For glGetTex*Parameter functions, this is the 
-		/// target parameter. For glGetTextureParameter*, it is the target to which the texture was initially bound when it was 
+		/// [GL4] Gl.GetTexParameter: Returns the effective target of the texture object. For glGetTex*Parameter functions, this is 
+		/// the target parameter. For glGetTextureParameter*, it is the target to which the texture was initially bound when it was 
 		/// created, or the value of the target parameter to the call to glCreateTextures which created the texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -118,14 +118,21 @@ namespace OpenGL
 		public const int TEXTURE_TARGET = 0x1006;
 
 		/// <summary>
-		/// Value of GL_QUERY_TARGET symbol.
+		/// [GL] Value of GL_QUERY_TARGET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public const int QUERY_TARGET = 0x82EA;
 
 		/// <summary>
-		/// Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL context.
+		/// <para>
+		/// [GL4] Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL 
+		/// context.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL 
+		/// context.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_EXT")]
@@ -139,7 +146,13 @@ namespace OpenGL
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
 
 		/// <summary>
-		/// Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL context.
+		/// <para>
+		/// [GL4] Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL context.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL 
+		/// context.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_EXT")]
@@ -153,7 +166,12 @@ namespace OpenGL
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
 
 		/// <summary>
-		/// Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
+		/// <para>
+		/// [GL4] Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_EXT")]
@@ -167,10 +185,10 @@ namespace OpenGL
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the behaviour of reset notification. Valid values are Gl.NO_RESET_NOTIFICATION, 
-		/// indicating that no reset notification events will be provided by the implementation, or Gl.LOSE_CONTEXT_ON_RESET, 
-		/// indicating that a reset will result in the loss of graphics context. This loss can be found by querying 
-		/// Gl.GetGraphicsResetStatus.
+		/// [GLES3.2] Gl.Get: data returns a single value, the behaviour of reset notification. Valid values are 
+		/// Gl.NO_RESET_NOTIFICATION, indicating that no reset notification events will be provided by the implementation, or 
+		/// Gl.LOSE_CONTEXT_ON_RESET, indicating that a reset will result in the loss of graphics context. This loss can be found by 
+		/// querying Gl.GetGraphicsResetStatus.
 		/// </summary>
 		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB")]
 		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_EXT")]
@@ -184,7 +202,7 @@ namespace OpenGL
 		public const int RESET_NOTIFICATION_STRATEGY = 0x8256;
 
 		/// <summary>
-		/// Value of GL_LOSE_CONTEXT_ON_RESET symbol.
+		/// [GL] Value of GL_LOSE_CONTEXT_ON_RESET symbol.
 		/// </summary>
 		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB")]
 		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_EXT")]
@@ -198,7 +216,7 @@ namespace OpenGL
 		public const int LOSE_CONTEXT_ON_RESET = 0x8252;
 
 		/// <summary>
-		/// Value of GL_NO_RESET_NOTIFICATION symbol.
+		/// [GL] Value of GL_NO_RESET_NOTIFICATION symbol.
 		/// </summary>
 		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB")]
 		[AliasOf("GL_NO_RESET_NOTIFICATION_EXT")]
@@ -212,7 +230,7 @@ namespace OpenGL
 		public const int NO_RESET_NOTIFICATION = 0x8261;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT symbol.
+		/// [GL] Value of GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -222,7 +240,7 @@ namespace OpenGL
 		public const uint CONTEXT_FLAG_ROBUST_ACCESS_BIT = 0x00000004;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_RELEASE_BEHAVIOR symbol.
+		/// [GL] Value of GL_CONTEXT_RELEASE_BEHAVIOR symbol.
 		/// </summary>
 		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -231,7 +249,7 @@ namespace OpenGL
 		public const int CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH symbol.
+		/// [GL] Value of GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH symbol.
 		/// </summary>
 		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]

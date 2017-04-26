@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_UNSIGNED_SHORT_8_8_MESA symbol.
+		/// [GL] Value of GL_UNSIGNED_SHORT_8_8_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESA_ycbcr_texture")]
 		public const int UNSIGNED_SHORT_8_8_MESA = 0x85BA;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_SHORT_8_8_REV_MESA symbol.
+		/// [GL] Value of GL_UNSIGNED_SHORT_8_8_REV_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESA_ycbcr_texture")]
 		public const int UNSIGNED_SHORT_8_8_REV_MESA = 0x85BB;
 
 		/// <summary>
-		/// Value of GL_YCBCR_MESA symbol.
+		/// [GL] Value of GL_YCBCR_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_MESA_ycbcr_texture")]
 		public const int YCBCR_MESA = 0x8757;

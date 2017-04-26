@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT symbol.
+		/// [GL] Value of GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 		public const int MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT = 0x9650;
 
 		/// <summary>
-		/// Value of GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT symbol.
+		/// [GL] Value of GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 		public const int MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT = 0x9651;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 		public const int FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;

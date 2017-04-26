@@ -29,43 +29,43 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLER_BUFFER_AMD symbol.
+		/// [GL] Value of GL_SAMPLER_BUFFER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int SAMPLER_BUFFER_AMD = 0x9001;
 
 		/// <summary>
-		/// Value of GL_INT_SAMPLER_BUFFER_AMD symbol.
+		/// [GL] Value of GL_INT_SAMPLER_BUFFER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int INT_SAMPLER_BUFFER_AMD = 0x9002;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD symbol.
+		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int UNSIGNED_INT_SAMPLER_BUFFER_AMD = 0x9003;
 
 		/// <summary>
-		/// Value of GL_TESSELLATION_MODE_AMD symbol.
+		/// [GL] Value of GL_TESSELLATION_MODE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int TESSELLATION_MODE_AMD = 0x9004;
 
 		/// <summary>
-		/// Value of GL_TESSELLATION_FACTOR_AMD symbol.
+		/// [GL] Value of GL_TESSELLATION_FACTOR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int TESSELLATION_FACTOR_AMD = 0x9005;
 
 		/// <summary>
-		/// Value of GL_DISCRETE_AMD symbol.
+		/// [GL] Value of GL_DISCRETE_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int DISCRETE_AMD = 0x9006;
 
 		/// <summary>
-		/// Value of GL_CONTINUOUS_AMD symbol.
+		/// [GL] Value of GL_CONTINUOUS_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public const int CONTINUOUS_AMD = 0x9007;

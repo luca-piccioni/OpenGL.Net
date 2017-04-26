@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB symbol.
+		/// [GL] Value of GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int SAMPLE_LOCATION_SUBPIXEL_BITS_ARB = 0x933D;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB symbol.
+		/// [GL] Value of GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -45,7 +45,7 @@ namespace OpenGL
 		public const int SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB = 0x933E;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB symbol.
+		/// [GL] Value of GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB = 0x933F;
 
 		/// <summary>
-		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB symbol.
+		/// [GL] Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -61,7 +61,7 @@ namespace OpenGL
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB = 0x9340;
 
 		/// <summary>
-		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_ARB symbol.
+		/// [GL] Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_PROGRAMMABLE_SAMPLE_LOCATION_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -69,7 +69,7 @@ namespace OpenGL
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_ARB = 0x9341;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -77,7 +77,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV")]
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]

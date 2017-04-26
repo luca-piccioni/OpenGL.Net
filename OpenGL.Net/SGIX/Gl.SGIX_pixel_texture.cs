@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PIXEL_TEX_GEN_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TEX_GEN_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_texture")]
 		public const int PIXEL_TEX_GEN_SGIX = 0x8139;
 
 		/// <summary>
-		/// Value of GL_PIXEL_TEX_GEN_MODE_SGIX symbol.
+		/// [GL] Value of GL_PIXEL_TEX_GEN_MODE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_pixel_texture")]
 		public const int PIXEL_TEX_GEN_MODE_SGIX = 0x832B;

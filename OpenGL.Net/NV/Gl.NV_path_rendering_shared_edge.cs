@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SHARED_EDGE_NV symbol.
+		/// [GL] Value of GL_SHARED_EDGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_path_rendering_shared_edge", Api = "gl|glcore|gles2")]
 		public const int SHARED_EDGE_NV = 0xC0;

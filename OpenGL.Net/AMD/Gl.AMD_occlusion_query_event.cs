@@ -29,37 +29,37 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_OCCLUSION_QUERY_EVENT_MASK_AMD symbol.
+		/// [GL] Value of GL_OCCLUSION_QUERY_EVENT_MASK_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public const int OCCLUSION_QUERY_EVENT_MASK_AMD = 0x874F;
 
 		/// <summary>
-		/// Value of GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD symbol.
+		/// [GL] Value of GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public const uint QUERY_DEPTH_PASS_EVENT_BIT_AMD = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD symbol.
+		/// [GL] Value of GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public const uint QUERY_DEPTH_FAIL_EVENT_BIT_AMD = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD symbol.
+		/// [GL] Value of GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public const uint QUERY_STENCIL_FAIL_EVENT_BIT_AMD = 0x00000004;
 
 		/// <summary>
-		/// Value of GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD symbol.
+		/// [GL] Value of GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public const uint QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD = 0x00000008;
 
 		/// <summary>
-		/// Value of GL_QUERY_ALL_EVENT_BITS_AMD symbol.
+		/// [GL] Value of GL_QUERY_ALL_EVENT_BITS_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public const uint QUERY_ALL_EVENT_BITS_AMD = 0xFFFFFFFF;

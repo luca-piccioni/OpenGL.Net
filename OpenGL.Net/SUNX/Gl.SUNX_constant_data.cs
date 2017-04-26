@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_UNPACK_CONSTANT_DATA_SUNX symbol.
+		/// [GL] Value of GL_UNPACK_CONSTANT_DATA_SUNX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUNX_constant_data")]
 		public const int UNPACK_CONSTANT_DATA_SUNX = 0x81D5;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CONSTANT_DATA_SUNX symbol.
+		/// [GL] Value of GL_TEXTURE_CONSTANT_DATA_SUNX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_SUNX_constant_data")]
 		public const int TEXTURE_CONSTANT_DATA_SUNX = 0x81D6;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ALL_STATIC_DATA_IBM symbol.
+		/// [GL] Value of GL_ALL_STATIC_DATA_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_static_data")]
 		public const int ALL_STATIC_DATA_IBM = 103060;
 
 		/// <summary>
-		/// Value of GL_STATIC_VERTEX_ARRAY_IBM symbol.
+		/// [GL] Value of GL_STATIC_VERTEX_ARRAY_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_static_data")]
 		public const int STATIC_VERTEX_ARRAY_IBM = 103061;

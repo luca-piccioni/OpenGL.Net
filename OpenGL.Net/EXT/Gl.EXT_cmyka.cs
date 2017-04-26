@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CMYK_EXT symbol.
+		/// [GL] Value of GL_CMYK_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cmyka")]
 		public const int CMYK_EXT = 0x800C;
 
 		/// <summary>
-		/// Value of GL_CMYKA_EXT symbol.
+		/// [GL] Value of GL_CMYKA_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cmyka")]
 		public const int CMYKA_EXT = 0x800D;
 
 		/// <summary>
-		/// Value of GL_PACK_CMYK_HINT_EXT symbol.
+		/// [GL] Value of GL_PACK_CMYK_HINT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cmyka")]
 		public const int PACK_CMYK_HINT_EXT = 0x800E;
 
 		/// <summary>
-		/// Value of GL_UNPACK_CMYK_HINT_EXT symbol.
+		/// [GL] Value of GL_UNPACK_CMYK_HINT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_cmyka")]
 		public const int UNPACK_CMYK_HINT_EXT = 0x800F;

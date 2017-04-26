@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RASTER_MULTISAMPLE_EXT symbol.
+		/// [GL] Value of GL_RASTER_MULTISAMPLE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int RASTER_MULTISAMPLE_EXT = 0x9327;
 
 		/// <summary>
-		/// Value of GL_RASTER_SAMPLES_EXT symbol.
+		/// [GL] Value of GL_RASTER_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
@@ -45,7 +45,7 @@ namespace OpenGL
 		public const int RASTER_SAMPLES_EXT = 0x9328;
 
 		/// <summary>
-		/// Value of GL_MAX_RASTER_SAMPLES_EXT symbol.
+		/// [GL] Value of GL_MAX_RASTER_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int MAX_RASTER_SAMPLES_EXT = 0x9329;
 
 		/// <summary>
-		/// Value of GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT symbol.
+		/// [GL] Value of GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
@@ -61,7 +61,7 @@ namespace OpenGL
 		public const int RASTER_FIXED_SAMPLE_LOCATIONS_EXT = 0x932A;
 
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT symbol.
+		/// [GL] Value of GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
@@ -69,7 +69,7 @@ namespace OpenGL
 		public const int MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B;
 
 		/// <summary>
-		/// Value of GL_EFFECTIVE_RASTER_SAMPLES_EXT symbol.
+		/// [GL] Value of GL_EFFECTIVE_RASTER_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]

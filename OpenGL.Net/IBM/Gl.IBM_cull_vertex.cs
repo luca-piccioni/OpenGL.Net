@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CULL_VERTEX_IBM symbol.
+		/// [GL] Value of GL_CULL_VERTEX_IBM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IBM_cull_vertex")]
 		public const int CULL_VERTEX_IBM = 103050;

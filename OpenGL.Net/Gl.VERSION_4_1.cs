@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FIXED symbol.
+		/// [GL] Value of GL_FIXED symbol.
 		/// </summary>
 		[AliasOf("GL_FIXED_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -41,11 +41,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: data returns a single GLenum value indicating the implementation's preferred pixel data type. See Gl.ReadPixels.
+		/// [GL4] Gl.Get: data returns a single GLenum value indicating the implementation's preferred pixel data type. See 
+		/// Gl.ReadPixels.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: param returns a GLenum value indicating the implementation's preferred pixel data type for 
-		/// the framebuffer object. See Gl.ReadPixels.
+		/// [GL4] Gl.GetFramebufferParameter: param returns a GLenum value indicating the implementation's preferred pixel data type 
+		/// for the framebuffer object. See Gl.ReadPixels.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the type chosen by the implementation with which pixels may be read from the 
+		/// color buffer of the currently bound framebuffer in conjunction with Gl.IMPLEMENTATION_COLOR_READ_FORMAT. See 
+		/// Gl.ReadPixels.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_TYPE_OES")]
@@ -57,12 +63,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: data returns a single GLenum value indicating the implementation's preferred pixel data format. See 
+		/// [GL4] Gl.Get: data returns a single GLenum value indicating the implementation's preferred pixel data format. See 
 		/// Gl.ReadPixels.
 		/// </para>
 		/// <para>
-		/// Gl.GetFramebufferParameter: param returns a GLenum value indicating the preferred pixel data format for the framebuffer 
-		/// object. See Gl.ReadPixels.
+		/// [GL4] Gl.GetFramebufferParameter: param returns a GLenum value indicating the preferred pixel data format for the 
+		/// framebuffer object. See Gl.ReadPixels.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the format chosen by the implementation in which pixels may be read from the 
+		/// color buffer of the currently bound framebuffer in conjunction with Gl.IMPLEMENTATION_COLOR_READ_TYPE. See 
+		/// Gl.ReadPixels.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES")]
@@ -73,7 +84,7 @@ namespace OpenGL
 		public const int IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
 
 		/// <summary>
-		/// Value of GL_LOW_FLOAT symbol.
+		/// [GL] Value of GL_LOW_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -81,7 +92,7 @@ namespace OpenGL
 		public const int LOW_FLOAT = 0x8DF0;
 
 		/// <summary>
-		/// Value of GL_MEDIUM_FLOAT symbol.
+		/// [GL] Value of GL_MEDIUM_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -89,7 +100,7 @@ namespace OpenGL
 		public const int MEDIUM_FLOAT = 0x8DF1;
 
 		/// <summary>
-		/// Value of GL_HIGH_FLOAT symbol.
+		/// [GL] Value of GL_HIGH_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -97,7 +108,7 @@ namespace OpenGL
 		public const int HIGH_FLOAT = 0x8DF2;
 
 		/// <summary>
-		/// Value of GL_LOW_INT symbol.
+		/// [GL] Value of GL_LOW_INT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -105,7 +116,7 @@ namespace OpenGL
 		public const int LOW_INT = 0x8DF3;
 
 		/// <summary>
-		/// Value of GL_MEDIUM_INT symbol.
+		/// [GL] Value of GL_MEDIUM_INT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -113,7 +124,7 @@ namespace OpenGL
 		public const int MEDIUM_INT = 0x8DF4;
 
 		/// <summary>
-		/// Value of GL_HIGH_INT symbol.
+		/// [GL] Value of GL_HIGH_INT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -121,9 +132,15 @@ namespace OpenGL
 		public const int HIGH_INT = 0x8DF5;
 
 		/// <summary>
-		/// Gl.Get: data returns a single boolean value indicating whether an online shader compiler is present in the 
+		/// <para>
+		/// [GL4] Gl.Get: data returns a single boolean value indicating whether an online shader compiler is present in the 
 		/// implementation. All desktop OpenGL implementations must support online shader compilations, and therefore the value of 
 		/// Gl.SHADER_COMPILER will always be Gl.TRUE.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether a shader compiler is supported. This value is 
+		/// always Gl.TRUE. See Gl.CompileShader.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -131,8 +148,8 @@ namespace OpenGL
 		public const int SHADER_COMPILER = 0x8DFA;
 
 		/// <summary>
-		/// Gl.Get: data returns a list of symbolic constants of length Gl.NUM_SHADER_BINARY_FORMATS indicating which shader binary 
-		/// formats are available. See Gl.ShaderBinary.
+		/// [GLES3.2] Gl.Get: data returns a list of symbolic constants of length Gl.NUM_SHADER_BINARY_FORMATS indicating which 
+		/// shader binary formats are available. See Gl.ShaderBinary.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -140,9 +157,15 @@ namespace OpenGL
 		public const int SHADER_BINARY_FORMATS = 0x8DF8;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of binary shader formats supported by the implementation. If this value is 
-		/// greater than zero, then the implementation supports loading binary shaders. If it is zero, then the loading of binary 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of binary shader formats supported by the implementation. If this value 
+		/// is greater than zero, then the implementation supports loading binary shaders. If it is zero, then the loading of binary 
 		/// shaders by the implementation is not supported.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single integer value indicating the number of available shader binary formats. The 
+		/// minimum value is 0. See Gl.ShaderBinary.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -150,9 +173,15 @@ namespace OpenGL
 		public const int NUM_SHADER_BINARY_FORMATS = 0x8DF9;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of 4-vectors that may be held in uniform variable storage for the 
-		/// vertex shader. The value of Gl.MAX_VERTEX_UNIFORM_VECTORS is equal to the value of Gl.MAX_VERTEX_UNIFORM_COMPONENTS and 
-		/// must be at least 256.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of 4-vectors that may be held in uniform variable storage for 
+		/// the vertex shader. The value of Gl.MAX_VERTEX_UNIFORM_VECTORS is equal to the value of Gl.MAX_VERTEX_UNIFORM_COMPONENTS 
+		/// and must be at least 256.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of vector floating-point, integer, or boolean values that 
+		/// can be held in uniform variable storage for a vertex shader. The value must be at least 256. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -160,8 +189,15 @@ namespace OpenGL
 		public const int MAX_VERTEX_UNIFORM_VECTORS = 0x8DFB;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number 4-vectors for varying variables, which is equal to the value of 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number 4-vectors for varying variables, which is equal to the value of 
 		/// Gl.MAX_VARYING_COMPONENTS and must be at least 15.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of interpolators available for processing varying variables 
+		/// used by vertex and fragment shaders. This value represents the number of vector values that can be interpolated; varying 
+		/// variables declared as matrices and arrays will consume multiple interpolators. The value must be at least 15.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -169,9 +205,15 @@ namespace OpenGL
 		public const int MAX_VARYING_VECTORS = 0x8DFC;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of individual 4-vectors of floating-point, integer, or boolean values 
-		/// that can be held in uniform variable storage for a fragment shader. The value is equal to the value of 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of individual 4-vectors of floating-point, integer, or boolean 
+		/// values that can be held in uniform variable storage for a fragment shader. The value is equal to the value of 
 		/// Gl.MAX_FRAGMENT_UNIFORM_COMPONENTS divided by 4 and must be at least 256. See Gl.Uniform.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of vector floating-point, integer, or boolean values that 
+		/// can be held in uniform variable storage for a fragment shader. The value must be at least 224. See Gl.Uniform.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -179,7 +221,7 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_UNIFORM_VECTORS = 0x8DFD;
 
 		/// <summary>
-		/// Value of GL_RGB565 symbol.
+		/// [GL] Value of GL_RGB565 symbol.
 		/// </summary>
 		[AliasOf("GL_RGB565_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -190,7 +232,7 @@ namespace OpenGL
 		public const int RGB565 = 0x8D62;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the current value of whether the binary retrieval hint is enabled for program.
+		/// [GLES3.2] Gl.GetProgram: params returns the current value of whether the binary retrieval hint is enabled for program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -198,7 +240,7 @@ namespace OpenGL
 		public const int PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns the length of the program binary, in bytes that will be returned by a call to 
+		/// [GL4] Gl.GetProgram: params returns the length of the program binary, in bytes that will be returned by a call to 
 		/// Gl.GetProgramBinary. When a progam's Gl.LINK_STATUS is Gl.FALSE, its program binary length is zero.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_BINARY_LENGTH_OES")]
@@ -209,7 +251,13 @@ namespace OpenGL
 		public const int PROGRAM_BINARY_LENGTH = 0x8741;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the number of program binary formats supported by the implementation.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the number of program binary formats supported by the implementation.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a single integer value indicating the number of available program binary formats. The 
+		/// minimum value is 0. See Gl.ProgramBinary.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_NUM_PROGRAM_BINARY_FORMATS_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -219,8 +267,14 @@ namespace OpenGL
 		public const int NUM_PROGRAM_BINARY_FORMATS = 0x87FE;
 
 		/// <summary>
-		/// Gl.Get: data an array of Gl.NUM_PROGRAM_BINARY_FORMATS values, indicating the proram binary formats supported by the 
-		/// implementation.
+		/// <para>
+		/// [GL4] Gl.Get: data an array of Gl.NUM_PROGRAM_BINARY_FORMATS values, indicating the proram binary formats supported by 
+		/// the implementation.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns a list of symbolic constants of length Gl.NUM_PROGRAM_BINARY_FORMATS indicating which 
+		/// program binary formats are available. See Gl.ProgramBinary.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_PROGRAM_BINARY_FORMATS_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -230,7 +284,7 @@ namespace OpenGL
 		public const int PROGRAM_BINARY_FORMATS = 0x87FF;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SHADER_BIT symbol.
+		/// [GL] Value of GL_VERTEX_SHADER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_VERTEX_SHADER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -241,7 +295,7 @@ namespace OpenGL
 		public const uint VERTEX_SHADER_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_SHADER_BIT symbol.
+		/// [GL] Value of GL_FRAGMENT_SHADER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -252,7 +306,7 @@ namespace OpenGL
 		public const uint FRAGMENT_SHADER_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_SHADER_BIT symbol.
+		/// [GL] Value of GL_GEOMETRY_SHADER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_GEOMETRY_SHADER_BIT_EXT")]
 		[AliasOf("GL_GEOMETRY_SHADER_BIT_OES")]
@@ -265,7 +319,7 @@ namespace OpenGL
 		public const uint GEOMETRY_SHADER_BIT = 0x00000004;
 
 		/// <summary>
-		/// Value of GL_TESS_CONTROL_SHADER_BIT symbol.
+		/// [GL] Value of GL_TESS_CONTROL_SHADER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_TESS_CONTROL_SHADER_BIT_EXT")]
 		[AliasOf("GL_TESS_CONTROL_SHADER_BIT_OES")]
@@ -278,7 +332,7 @@ namespace OpenGL
 		public const uint TESS_CONTROL_SHADER_BIT = 0x00000008;
 
 		/// <summary>
-		/// Value of GL_TESS_EVALUATION_SHADER_BIT symbol.
+		/// [GL] Value of GL_TESS_EVALUATION_SHADER_BIT symbol.
 		/// </summary>
 		[AliasOf("GL_TESS_EVALUATION_SHADER_BIT_EXT")]
 		[AliasOf("GL_TESS_EVALUATION_SHADER_BIT_OES")]
@@ -291,7 +345,7 @@ namespace OpenGL
 		public const uint TESS_EVALUATION_SHADER_BIT = 0x00000010;
 
 		/// <summary>
-		/// Value of GL_ALL_SHADER_BITS symbol.
+		/// [GL] Value of GL_ALL_SHADER_BITS symbol.
 		/// </summary>
 		[AliasOf("GL_ALL_SHADER_BITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -302,8 +356,8 @@ namespace OpenGL
 		public const uint ALL_SHADER_BITS = 0xFFFFFFFF;
 
 		/// <summary>
-		/// Gl.GetProgram: params returns Gl.TRUE if the program has been flagged for use as a separable program object that can be 
-		/// found to individual shader stages with Gl.UseProgramStages.
+		/// [GLES3.2] Gl.GetProgram: params returns Gl.TRUE if the program has been flagged for use as a separable program object 
+		/// that can be found to individual shader stages with Gl.UseProgramStages.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_SEPARABLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -313,7 +367,7 @@ namespace OpenGL
 		public const int PROGRAM_SEPARABLE = 0x8258;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_PROGRAM symbol.
+		/// [GL] Value of GL_ACTIVE_PROGRAM symbol.
 		/// </summary>
 		[AliasOf("GL_ACTIVE_PROGRAM_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -323,8 +377,14 @@ namespace OpenGL
 		public const int ACTIVE_PROGRAM = 0x8259;
 
 		/// <summary>
-		/// Gl.Get: data a single value, the name of the currently bound program pipeline object, or zero if no program pipeline 
-		/// object is bound. See Gl.BindProgramPipeline.
+		/// <para>
+		/// [GL4] Gl.Get: data a single value, the name of the currently bound program pipeline object, or zero if no program 
+		/// pipeline object is bound. See Gl.BindProgramPipeline.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data a single value, the name of the currently bound program pipeline object, or zero if no program 
+		/// pipeline object is bound. See Gl.BindProgramPipeline.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_PROGRAM_PIPELINE_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -334,8 +394,8 @@ namespace OpenGL
 		public const int PROGRAM_PIPELINE_BINDING = 0x825A;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum number of simultaneous viewports that are supported. The value must be at 
-		/// least 16. See Gl.ViewportIndexed.
+		/// [GL4] Gl.Get: data returns one value, the maximum number of simultaneous viewports that are supported. The value must be 
+		/// at least 16. See Gl.ViewportIndexed.
 		/// </summary>
 		[AliasOf("GL_MAX_VIEWPORTS_NV")]
 		[AliasOf("GL_MAX_VIEWPORTS_OES")]
@@ -346,7 +406,7 @@ namespace OpenGL
 		public const int MAX_VIEWPORTS = 0x825B;
 
 		/// <summary>
-		/// Gl.Get: data returns a single value, the number of bits of sub-pixel precision which the GL uses to interpret the 
+		/// [GL4] Gl.Get: data returns a single value, the number of bits of sub-pixel precision which the GL uses to interpret the 
 		/// floating point viewport bounds. The minimum value is 0.
 		/// </summary>
 		[AliasOf("GL_VIEWPORT_SUBPIXEL_BITS_NV")]
@@ -358,8 +418,8 @@ namespace OpenGL
 		public const int VIEWPORT_SUBPIXEL_BITS = 0x825C;
 
 		/// <summary>
-		/// Gl.Get: data returns two values, the minimum and maximum viewport bounds range. The minimum range should be at least 
-		/// [-32768, 32767].
+		/// [GL4] Gl.Get: data returns two values, the minimum and maximum viewport bounds range. The minimum range should be at 
+		/// least [-32768, 32767].
 		/// </summary>
 		[AliasOf("GL_VIEWPORT_BOUNDS_RANGE_NV")]
 		[AliasOf("GL_VIEWPORT_BOUNDS_RANGE_OES")]
@@ -370,13 +430,23 @@ namespace OpenGL
 		public const int VIEWPORT_BOUNDS_RANGE = 0x825D;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the implementation dependent specifc vertex of a primitive that is used to select the 
-		/// rendering layer. If the value returned is equivalent to Gl.PROVOKING_VERTEX, then the vertex selection follows the 
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the implementation dependent specifc vertex of a primitive that is used to select 
+		/// the rendering layer. If the value returned is equivalent to Gl.PROVOKING_VERTEX, then the vertex selection follows the 
 		/// convention specified by Gl.ProvokingVertex. If the value returned is equivalent to Gl.FIRST_VERTEX_CONVENTION, then the 
 		/// selection is always taken from the first vertex in the primitive. If the value returned is equivalent to 
 		/// Gl.LAST_VERTEX_CONVENTION, then the selection is always taken from the last vertex in the primitive. If the value 
 		/// returned is equivalent to Gl.UNDEFINED_VERTEX, then the selection is not guaranteed to be taken from any specific vertex 
 		/// in the primitive.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the implementation dependent specifc vertex of a primitive that is used to 
+		/// select the rendering layer. If the value returned is Gl.FIRST_VERTEX_CONVENTION, then the selection is always taken from 
+		/// the first vertex in the primitive. If the value returned is Gl.LAST_VERTEX_CONVENTION, then the selection is always 
+		/// taken from the last vertex in the primitive. If the value returned is Gl.UNDEFINED_VERTEX, then the selection is not 
+		/// guaranteed to be taken from any specific vertex in the primitive. Portable applications will therefore assign the same 
+		/// layer for all vertices in a primitive.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_LAYER_PROVOKING_VERTEX_EXT")]
 		[AliasOf("GL_LAYER_PROVOKING_VERTEX_OES")]
@@ -388,8 +458,8 @@ namespace OpenGL
 		public const int LAYER_PROVOKING_VERTEX = 0x825E;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the implementation dependent specifc vertex of a primitive that is used to select the 
-		/// viewport index. If the value returned is equivalent to Gl.PROVOKING_VERTEX, then the vertex selection follows the 
+		/// [GL4] Gl.Get: data returns one value, the implementation dependent specifc vertex of a primitive that is used to select 
+		/// the viewport index. If the value returned is equivalent to Gl.PROVOKING_VERTEX, then the vertex selection follows the 
 		/// convention specified by Gl.ProvokingVertex. If the value returned is equivalent to Gl.FIRST_VERTEX_CONVENTION, then the 
 		/// selection is always taken from the first vertex in the primitive. If the value returned is equivalent to 
 		/// Gl.LAST_VERTEX_CONVENTION, then the selection is always taken from the last vertex in the primitive. If the value 
@@ -405,7 +475,7 @@ namespace OpenGL
 		public const int VIEWPORT_INDEX_PROVOKING_VERTEX = 0x825F;
 
 		/// <summary>
-		/// Value of GL_UNDEFINED_VERTEX symbol.
+		/// [GL] Value of GL_UNDEFINED_VERTEX symbol.
 		/// </summary>
 		[AliasOf("GL_UNDEFINED_VERTEX_EXT")]
 		[AliasOf("GL_UNDEFINED_VERTEX_OES")]

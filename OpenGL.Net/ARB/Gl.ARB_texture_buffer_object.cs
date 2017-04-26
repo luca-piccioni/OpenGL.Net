@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER_FORMAT_ARB symbol.
+		/// [GL] Value of GL_TEXTURE_BUFFER_FORMAT_ARB symbol.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]

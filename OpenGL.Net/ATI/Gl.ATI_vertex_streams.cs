@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_STREAMS_ATI symbol.
+		/// [GL] Value of GL_MAX_VERTEX_STREAMS_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int MAX_VERTEX_STREAMS_ATI = 0x876B;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM0_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM0_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM0_ATI = 0x876C;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM1_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM1_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM1_ATI = 0x876D;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM2_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM2_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM2_ATI = 0x876E;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM3_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM3_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM3_ATI = 0x876F;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM4_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM4_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM4_ATI = 0x8770;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM5_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM5_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM5_ATI = 0x8771;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM6_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM6_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM6_ATI = 0x8772;
 
 		/// <summary>
-		/// Value of GL_VERTEX_STREAM7_ATI symbol.
+		/// [GL] Value of GL_VERTEX_STREAM7_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_STREAM7_ATI = 0x8773;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SOURCE_ATI symbol.
+		/// [GL] Value of GL_VERTEX_SOURCE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public const int VERTEX_SOURCE_ATI = 0x8774;

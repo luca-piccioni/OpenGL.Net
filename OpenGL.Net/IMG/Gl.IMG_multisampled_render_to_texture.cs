@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_SAMPLES_IMG symbol.
+		/// [GL] Value of GL_RENDERBUFFER_SAMPLES_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 		public const int RENDERBUFFER_SAMPLES_IMG = 0x9133;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG = 0x9134;
 
 		/// <summary>
-		/// Value of GL_MAX_SAMPLES_IMG symbol.
+		/// [GL] Value of GL_MAX_SAMPLES_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 		public const int MAX_SAMPLES_IMG = 0x9135;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SAMPLES_IMG symbol.
+		/// [GL] Value of GL_TEXTURE_SAMPLES_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 		public const int TEXTURE_SAMPLES_IMG = 0x9136;

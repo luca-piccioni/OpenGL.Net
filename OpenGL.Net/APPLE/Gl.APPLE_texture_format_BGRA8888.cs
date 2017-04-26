@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BGRA8_EXT symbol.
+		/// [GL] Value of GL_BGRA8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_format_BGRA8888", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]

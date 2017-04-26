@@ -29,14 +29,14 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SPARSE_STORAGE_BIT_ARB symbol.
+		/// [GL] Value of GL_SPARSE_STORAGE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		[Log(BitmaskName = "GL")]
 		public const int SPARSE_STORAGE_BIT_ARB = 0x0400;
 
 		/// <summary>
-		/// Value of GL_SPARSE_BUFFER_PAGE_SIZE_ARB symbol.
+		/// [GL] Value of GL_SPARSE_BUFFER_PAGE_SIZE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 		public const int SPARSE_BUFFER_PAGE_SIZE_ARB = 0x82F8;

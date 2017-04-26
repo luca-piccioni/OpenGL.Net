@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_LIGHT_MODEL_SPECULAR_VECTOR_APPLE symbol.
+		/// [GL] Value of GL_LIGHT_MODEL_SPECULAR_VECTOR_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_specular_vector")]
 		public const int LIGHT_MODEL_SPECULAR_VECTOR_APPLE = 0x85B0;

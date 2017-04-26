@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_ATI symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_element_array")]
 		public const int ELEMENT_ARRAY_ATI = 0x8768;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_TYPE_ATI symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_TYPE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_element_array")]
 		public const int ELEMENT_ARRAY_TYPE_ATI = 0x8769;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_POINTER_ATI symbol.
+		/// [GL] Value of GL_ELEMENT_ARRAY_POINTER_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_element_array")]
 		public const int ELEMENT_ARRAY_POINTER_ATI = 0x876A;

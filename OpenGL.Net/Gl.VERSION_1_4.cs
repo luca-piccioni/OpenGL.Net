@@ -29,8 +29,14 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Get: data returns one value, the symbolic constant identifying the RGB destination blend function. The initial value 
-		/// is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the RGB destination blend function. The initial 
+		/// value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the RGB destination blend function. The 
+		/// initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLEND_DST_RGB_EXT")]
 		[AliasOf("GL_BLEND_DST_RGB_OES")]
@@ -43,8 +49,14 @@ namespace OpenGL
 		public const int BLEND_DST_RGB = 0x80C8;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the symbolic constant identifying the RGB source blend function. The initial value is 
-		/// Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the RGB source blend function. The initial value 
+		/// is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the RGB source blend function. The initial 
+		/// value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLEND_SRC_RGB_EXT")]
 		[AliasOf("GL_BLEND_SRC_RGB_OES")]
@@ -57,8 +69,14 @@ namespace OpenGL
 		public const int BLEND_SRC_RGB = 0x80C9;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the symbolic constant identifying the alpha destination blend function. The initial 
-		/// value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the alpha destination blend function. The 
+		/// initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the alpha destination blend function. The 
+		/// initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLEND_DST_ALPHA_EXT")]
 		[AliasOf("GL_BLEND_DST_ALPHA_OES")]
@@ -71,8 +89,14 @@ namespace OpenGL
 		public const int BLEND_DST_ALPHA = 0x80CA;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the symbolic constant identifying the alpha source blend function. The initial value is 
-		/// Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the alpha source blend function. The initial 
+		/// value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the alpha source blend function. The initial 
+		/// value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLEND_SRC_ALPHA_EXT")]
 		[AliasOf("GL_BLEND_SRC_ALPHA_OES")]
@@ -86,11 +110,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: data returns one value, the point size threshold for determining the point size. See Gl.PointParameter.
+		/// [GL4] Gl.Get: data returns one value, the point size threshold for determining the point size. See Gl.PointParameter.
 		/// </para>
 		/// <para>
-		/// Gl.PointParameter: params is a single floating-point value that specifies the threshold value to which point sizes are 
-		/// clamped if they exceed the specified value. The default value is 1.0.
+		/// [GL4] Gl.PointParameter: params is a single floating-point value that specifies the threshold value to which point sizes 
+		/// are clamped if they exceed the specified value. The default value is 1.0.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the point fade threshold. The initial value is Gl.. See Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.PointParameter: param specifies, or params points to the point fade threshold.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_ARB")]
@@ -104,7 +134,7 @@ namespace OpenGL
 		public const int POINT_FADE_THRESHOLD_SIZE = 0x8128;
 
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENT16 symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENT16 symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_COMPONENT16_ARB")]
 		[AliasOf("GL_DEPTH_COMPONENT16_OES")]
@@ -119,7 +149,7 @@ namespace OpenGL
 		public const int DEPTH_COMPONENT16 = 0x81A5;
 
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENT24 symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENT24 symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_COMPONENT24_ARB")]
 		[AliasOf("GL_DEPTH_COMPONENT24_OES")]
@@ -133,7 +163,7 @@ namespace OpenGL
 		public const int DEPTH_COMPONENT24 = 0x81A6;
 
 		/// <summary>
-		/// Value of GL_DEPTH_COMPONENT32 symbol.
+		/// [GL] Value of GL_DEPTH_COMPONENT32 symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_COMPONENT32_ARB")]
 		[AliasOf("GL_DEPTH_COMPONENT32_OES")]
@@ -147,7 +177,7 @@ namespace OpenGL
 		public const int DEPTH_COMPONENT32 = 0x81A7;
 
 		/// <summary>
-		/// Value of GL_MIRRORED_REPEAT symbol.
+		/// [GL] Value of GL_MIRRORED_REPEAT symbol.
 		/// </summary>
 		[AliasOf("GL_MIRRORED_REPEAT_ARB")]
 		[AliasOf("GL_MIRRORED_REPEAT_IBM")]
@@ -160,8 +190,14 @@ namespace OpenGL
 		public const int MIRRORED_REPEAT = 0x8370;
 
 		/// <summary>
-		/// Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value must be at 
-		/// least 2.0.
+		/// <para>
+		/// [GL4] Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value must be 
+		/// at least 2.0.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value 
+		/// must be at least 2.0.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -170,8 +206,8 @@ namespace OpenGL
 		public const int MAX_TEXTURE_LOD_BIAS = 0x84FD;
 
 		/// <summary>
-		/// Gl.GetTexEnv: params returns a single floating-point value that is the texture level-of-detail bias. The initial value 
-		/// is 0.
+		/// [GL2.1] Gl.GetTexEnv: params returns a single floating-point value that is the texture level-of-detail bias. The initial 
+		/// value is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -180,12 +216,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: Increments the current stencil buffer value. Wraps stencil buffer value to zero when incrementing the 
-		/// maximum representable unsigned value.
+		/// [GL4] Gl.StencilOp: Increments the current stencil buffer value. Wraps stencil buffer value to zero when incrementing 
+		/// the maximum representable unsigned value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: Increments the current stencil buffer value. Wraps stencil buffer value to zero when incrementing 
-		/// the maximum representable unsigned value.
+		/// [GL4] Gl.StencilOpSeparate: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
+		/// incrementing the maximum representable unsigned value.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.StencilOp: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
+		/// incrementing the maximum representable unsigned value.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.StencilOpSeparate: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
+		/// incrementing the maximum representable unsigned value.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_INCR_WRAP_EXT")]
@@ -198,11 +242,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum representable 
+		/// [GL4] Gl.StencilOp: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum representable 
 		/// unsigned value when decrementing a stencil buffer value of zero.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
+		/// [GL4] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
+		/// representable unsigned value when decrementing a stencil buffer value of zero.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.StencilOp: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
+		/// representable unsigned value when decrementing a stencil buffer value of zero.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
 		/// representable unsigned value when decrementing a stencil buffer value of zero.
 		/// </para>
 		/// </summary>
@@ -215,8 +267,8 @@ namespace OpenGL
 		public const int DECR_WRAP = 0x8508;
 
 		/// <summary>
-		/// Gl.GetTexLevelParameter: The internal storage resolution of an individual component. The resolution chosen by the GL 
-		/// will be a close match for the resolution requested by the user with the component argument of Gl.TexImage1D, 
+		/// [GL2.1] Gl.GetTexLevelParameter: The internal storage resolution of an individual component. The resolution chosen by 
+		/// the GL will be a close match for the resolution requested by the user with the component argument of Gl.TexImage1D, 
 		/// Gl.TexImage2D, Gl.TexImage3D, Gl.CopyTexImage1D, and Gl.CopyTexImage2D. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_DEPTH_SIZE_ARB")]
@@ -227,12 +279,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
+		/// [GL4] Gl.GetSamplerParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
 		/// Gl.NONE. See Gl.SamplerParameter.
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is Gl.NONE. 
-		/// See Gl.TexParameter.
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
+		/// Gl.NONE. See Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetSamplerParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial 
+		/// value is Gl.NONE. See Gl.SamplerParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
+		/// Gl.NONE. See Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_MODE_ARB")]
@@ -245,12 +305,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial value is 
-		/// Gl.LEQUAL. See Gl.SamplerParameter.
+		/// [GL4] Gl.GetSamplerParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
+		/// value is Gl.LEQUAL. See Gl.SamplerParameter.
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial value is 
+		/// [GL4] Gl.GetTexParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial value is 
 		/// Gl.LEQUAL. See Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetSamplerParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
+		/// value is Gl.LEQUAL. See Gl.SamplerParameter.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.GetTexParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
+		/// value is Gl.LEQUAL. See Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_FUNC_ARB")]
@@ -263,12 +331,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns one value, the lower bound for the attenuated point sizes. The initial value is 1.0. See 
+		/// [GL2.1] Gl.Get: params returns one value, the lower bound for the attenuated point sizes. The initial value is 1.0. See 
 		/// Gl.PointParameter.
 		/// </para>
 		/// <para>
-		/// Gl.PointParameter: params is a single floating-point value that specifies the minimum point size. The default value is 
-		/// 0.0.
+		/// [GL2.1] Gl.PointParameter: params is a single floating-point value that specifies the minimum point size. The default 
+		/// value is 0.0.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the lower bound to which the derived point size is clamped. The initial 
+		/// value is Gl.. See Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.PointParameter: param specifies, or params points to the lower bound to which the derived point size is 
+		/// clamped.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SIZE_MIN_ARB")]
@@ -284,12 +360,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns one value, the upper bound for the attenuated point sizes. The initial value is 0.0. See 
+		/// [GL2.1] Gl.Get: params returns one value, the upper bound for the attenuated point sizes. The initial value is 0.0. See 
 		/// Gl.PointParameter.
 		/// </para>
 		/// <para>
-		/// Gl.PointParameter: params is a single floating-point value that specifies the maximum point size. The default value is 
-		/// 1.0.
+		/// [GL2.1] Gl.PointParameter: params is a single floating-point value that specifies the maximum point size. The default 
+		/// value is 1.0.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns one value, the upper bound to which the derived point size is clamped. The initial 
+		/// value is the maximum of the implementation dependent max aliased and smooth point sizes. See Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.PointParameter: param specifies, or params points to the upper bound to which the derived point size is 
+		/// clamped.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SIZE_MAX_ARB")]
@@ -305,12 +389,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns three values, the coefficients for computing the attenuation value for points. See 
+		/// [GL2.1] Gl.Get: params returns three values, the coefficients for computing the attenuation value for points. See 
 		/// Gl.PointParameter.
 		/// </para>
 		/// <para>
-		/// Gl.PointParameter: params is an array of three floating-point values that specify the coefficients used for scaling the 
-		/// computed point size. The default values are 100.
+		/// [GL2.1] Gl.PointParameter: params is an array of three floating-point values that specify the coefficients used for 
+		/// scaling the computed point size. The default values are 100.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.Get: params returns three values, the distance attenuation function coefficients a, b, and c. The initial 
+		/// value is (1, 0, 0). See Gl.PointParameter.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.PointParameter: params points to the distance attenuation function coefficients Gl., Gl., and Gl..
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_DISTANCE_ATTENUATION_ARB")]
@@ -322,12 +413,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: Returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
+		/// [GL2.1] Gl.GetTexParameter: Returns a single boolean value indicating if automatic mipmap level updates are enabled. See 
 		/// Gl.TexParameter.
 		/// </para>
 		/// <para>
-		/// Gl.TexParameter: Specifies a boolean value that indicates if all levels of a mipmap array should be automatically 
-		/// updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
+		/// [GL2.1] Gl.TexParameter: Specifies a boolean value that indicates if all levels of a mipmap array should be 
+		/// automatically updated when any modification to the base level mipmap is done. The initial value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.GetTexParameter: Returns a single boolean value indicating if automatic mipmap level updates are enabled. 
+		/// The initial value is Gl.FALSE. See Gl.TexParameter.
+		/// </para>
+		/// <para>
+		/// [GLES1.1] Gl.TexParameter: Sets the automatic mipmap generation parameter. If set to Gl.TRUE, making any change to the 
+		/// interior texels of the levelbase array of a mipmap will also compute a complete set of mipmap arrays derived from the 
+		/// modified levelbase array. Array levels levelbase+1 through p are replaced with the derived arrays, regardless of their 
+		/// previous contents. All other mipmap arrays, including the levelbase array, are left unchanged by this computation.The 
+		/// initial value of Gl.GENERATE_MIPMAP is Gl.FALSE.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
@@ -339,11 +441,18 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns one value, a symbolic constant indicating the mode of the mipmap generation filtering hint. The 
-		/// initial value is Gl.DONT_CARE. See Gl.Hint.
+		/// [GL2.1] Gl.Get: params returns one value, a symbolic constant indicating the mode of the mipmap generation filtering 
+		/// hint. The initial value is Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: Indicates the quality of filtering when generating mipmap images.
+		/// [GL2.1] Gl.Hint: Indicates the quality of filtering when generating mipmap images.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating the mode of the generate mipmap quality hint. 
+		/// The initial value is Gl.DONT_CARE. See Gl.Hint.
+		/// </para>
+		/// <para>
+		/// [GLES3.2] Gl.Hint: Indicates the quality of filtering when generating mipmap images with Gl.GenerateMipmap.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_HINT_SGIS")]
@@ -355,7 +464,7 @@ namespace OpenGL
 		public const int GENERATE_MIPMAP_HINT = 0x8192;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_SOURCE symbol (DEPRECATED).
+		/// [GL] Value of GL_FOG_COORDINATE_SOURCE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_SOURCE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -364,7 +473,7 @@ namespace OpenGL
 		public const int FOG_COORDINATE_SOURCE = 0x8450;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE symbol (DEPRECATED).
+		/// [GL] Value of GL_FOG_COORDINATE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -373,7 +482,7 @@ namespace OpenGL
 		public const int FOG_COORDINATE = 0x8451;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_DEPTH symbol (DEPRECATED).
+		/// [GL] Value of GL_FRAGMENT_DEPTH symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -383,7 +492,7 @@ namespace OpenGL
 		public const int FRAGMENT_DEPTH = 0x8452;
 
 		/// <summary>
-		/// Value of GL_CURRENT_FOG_COORDINATE symbol (DEPRECATED).
+		/// [GL] Value of GL_CURRENT_FOG_COORDINATE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_CURRENT_FOG_COORDINATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -392,7 +501,7 @@ namespace OpenGL
 		public const int CURRENT_FOG_COORDINATE = 0x8453;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_ARRAY_TYPE symbol (DEPRECATED).
+		/// [GL] Value of GL_FOG_COORDINATE_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -401,7 +510,7 @@ namespace OpenGL
 		public const int FOG_COORDINATE_ARRAY_TYPE = 0x8454;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_ARRAY_STRIDE symbol (DEPRECATED).
+		/// [GL] Value of GL_FOG_COORDINATE_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -410,7 +519,7 @@ namespace OpenGL
 		public const int FOG_COORDINATE_ARRAY_STRIDE = 0x8455;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_FOG_COORDINATE_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -419,7 +528,7 @@ namespace OpenGL
 		public const int FOG_COORDINATE_ARRAY_POINTER = 0x8456;
 
 		/// <summary>
-		/// Value of GL_FOG_COORDINATE_ARRAY symbol (DEPRECATED).
+		/// [GL] Value of GL_FOG_COORDINATE_ARRAY symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -429,11 +538,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Enable: If enabled and no fragment shader is active, add the secondary color value to the computed fragment color. 
-		/// See Gl.SecondaryColor.
+		/// [GL2.1] Gl.Enable: If enabled and no fragment shader is active, add the secondary color value to the computed fragment 
+		/// color. See Gl.SecondaryColor.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether primary and secondary color sum is enabled. See 
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether primary and secondary color sum is enabled. See 
 		/// Gl.SecondaryColor.
 		/// </para>
 		/// </summary>
@@ -446,10 +555,10 @@ namespace OpenGL
 		public const int COLOR_SUM = 0x8458;
 
 		/// <summary>
-		/// Gl.Get: params returns four values: the red, green, blue, and alpha values of the current secondary color. Integer 
-		/// values, if requested, are linearly mapped from the internal floating-point representation such that 1.0 returns the most 
-		/// positive representable integer value, and -1.0 returns the most negative representable integer value. The initial value 
-		/// is (0, 0, 0, 0). See Gl.SecondaryColor.
+		/// [GL2.1] Gl.Get: params returns four values: the red, green, blue, and alpha values of the current secondary color. 
+		/// Integer values, if requested, are linearly mapped from the internal floating-point representation such that 1.0 returns 
+		/// the most positive representable integer value, and -1.0 returns the most negative representable integer value. The 
+		/// initial value is (0, 0, 0, 0). See Gl.SecondaryColor.
 		/// </summary>
 		[AliasOf("GL_CURRENT_SECONDARY_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -458,8 +567,8 @@ namespace OpenGL
 		public const int CURRENT_SECONDARY_COLOR = 0x8459;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the number of components per color in the secondary color array. The initial value is 
-		/// 3. See Gl.SecondaryColorPointer.
+		/// [GL2.1] Gl.Get: params returns one value, the number of components per color in the secondary color array. The initial 
+		/// value is 3. See Gl.SecondaryColorPointer.
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -468,8 +577,8 @@ namespace OpenGL
 		public const int SECONDARY_COLOR_ARRAY_SIZE = 0x845A;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the data type of each component in the secondary color array. The initial value is 
-		/// Gl.FLOAT. See Gl.SecondaryColorPointer.
+		/// [GL2.1] Gl.Get: params returns one value, the data type of each component in the secondary color array. The initial 
+		/// value is Gl.FLOAT. See Gl.SecondaryColorPointer.
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -478,8 +587,8 @@ namespace OpenGL
 		public const int SECONDARY_COLOR_ARRAY_TYPE = 0x845B;
 
 		/// <summary>
-		/// Gl.Get: params returns one value, the byte offset between consecutive colors in the secondary color array. The initial 
-		/// value is 0. See Gl.SecondaryColorPointer.
+		/// [GL2.1] Gl.Get: params returns one value, the byte offset between consecutive colors in the secondary color array. The 
+		/// initial value is 0. See Gl.SecondaryColorPointer.
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -488,7 +597,7 @@ namespace OpenGL
 		public const int SECONDARY_COLOR_ARRAY_STRIDE = 0x845C;
 
 		/// <summary>
-		/// Value of GL_SECONDARY_COLOR_ARRAY_POINTER symbol (DEPRECATED).
+		/// [GL] Value of GL_SECONDARY_COLOR_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -498,13 +607,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.EnableClientState: If enabled, the secondary color array is enabled for writing and used during rendering when 
-		/// Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
+		/// [GL2.1] Gl.EnableClientState: If enabled, the secondary color array is enabled for writing and used during rendering 
+		/// when Gl.ArrayElement, Gl.DrawArrays, Gl.DrawElements, Gl.DrawRangeElementsGl.MultiDrawArrays, or Gl.MultiDrawElements is 
 		/// called. See Gl.ColorPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the secondary color array is enabled. The initial value 
-		/// is Gl.FALSE. See Gl.SecondaryColorPointer.
+		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the secondary color array is enabled. The 
+		/// initial value is Gl.FALSE. See Gl.SecondaryColorPointer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_EXT")]
@@ -514,7 +623,7 @@ namespace OpenGL
 		public const int SECONDARY_COLOR_ARRAY = 0x845E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_FILTER_CONTROL symbol (DEPRECATED).
+		/// [GL] Value of GL_TEXTURE_FILTER_CONTROL symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_TEXTURE_FILTER_CONTROL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -524,12 +633,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetTexParameter: Returns a single-valued texture format indicating how the depth values should be converted into 
-		/// color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
+		/// [GL2.1] Gl.GetTexParameter: Returns a single-valued texture format indicating how the depth values should be converted 
+		/// into color components. The initial value is Gl.LUMINANCE. See Gl.TexParameter.
 		/// </para>
 		/// <para>
-		/// Gl.TexParameter: Specifies a single symbolic constant indicating how depth values should be treated during filtering and 
-		/// texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is Gl.LUMINANCE.
+		/// [GL2.1] Gl.TexParameter: Specifies a single symbolic constant indicating how depth values should be treated during 
+		/// filtering and texture application. Accepted values are Gl.LUMINANCE, Gl.INTENSITY, and Gl.ALPHA. The initial value is 
+		/// Gl.LUMINANCE.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]
@@ -539,7 +649,7 @@ namespace OpenGL
 		public const int DEPTH_TEXTURE_MODE = 0x884B;
 
 		/// <summary>
-		/// Value of GL_COMPARE_R_TO_TEXTURE symbol (DEPRECATED).
+		/// [GL] Value of GL_COMPARE_R_TO_TEXTURE symbol (DEPRECATED).
 		/// </summary>
 		[AliasOf("GL_COMPARE_R_TO_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -548,7 +658,7 @@ namespace OpenGL
 		public const int COMPARE_R_TO_TEXTURE = 0x884E;
 
 		/// <summary>
-		/// Value of GL_FUNC_ADD symbol.
+		/// [GL] Value of GL_FUNC_ADD symbol.
 		/// </summary>
 		[AliasOf("GL_FUNC_ADD_EXT")]
 		[AliasOf("GL_FUNC_ADD_OES")]
@@ -562,7 +672,7 @@ namespace OpenGL
 		public const int FUNC_ADD = 0x8006;
 
 		/// <summary>
-		/// Value of GL_FUNC_SUBTRACT symbol.
+		/// [GL] Value of GL_FUNC_SUBTRACT symbol.
 		/// </summary>
 		[AliasOf("GL_FUNC_SUBTRACT_EXT")]
 		[AliasOf("GL_FUNC_SUBTRACT_OES")]
@@ -576,7 +686,7 @@ namespace OpenGL
 		public const int FUNC_SUBTRACT = 0x800A;
 
 		/// <summary>
-		/// Value of GL_FUNC_REVERSE_SUBTRACT symbol.
+		/// [GL] Value of GL_FUNC_REVERSE_SUBTRACT symbol.
 		/// </summary>
 		[AliasOf("GL_FUNC_REVERSE_SUBTRACT_EXT")]
 		[AliasOf("GL_FUNC_REVERSE_SUBTRACT_OES")]
@@ -590,7 +700,7 @@ namespace OpenGL
 		public const int FUNC_REVERSE_SUBTRACT = 0x800B;
 
 		/// <summary>
-		/// Value of GL_MIN symbol.
+		/// [GL] Value of GL_MIN symbol.
 		/// </summary>
 		[AliasOf("GL_MIN_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -602,7 +712,7 @@ namespace OpenGL
 		public const int MIN = 0x8007;
 
 		/// <summary>
-		/// Value of GL_MAX symbol.
+		/// [GL] Value of GL_MAX symbol.
 		/// </summary>
 		[AliasOf("GL_MAX_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -614,7 +724,7 @@ namespace OpenGL
 		public const int MAX = 0x8008;
 
 		/// <summary>
-		/// Value of GL_CONSTANT_COLOR symbol.
+		/// [GL] Value of GL_CONSTANT_COLOR symbol.
 		/// </summary>
 		[AliasOf("GL_CONSTANT_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -626,7 +736,7 @@ namespace OpenGL
 		public const int CONSTANT_COLOR = 0x8001;
 
 		/// <summary>
-		/// Value of GL_ONE_MINUS_CONSTANT_COLOR symbol.
+		/// [GL] Value of GL_ONE_MINUS_CONSTANT_COLOR symbol.
 		/// </summary>
 		[AliasOf("GL_ONE_MINUS_CONSTANT_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -638,7 +748,7 @@ namespace OpenGL
 		public const int ONE_MINUS_CONSTANT_COLOR = 0x8002;
 
 		/// <summary>
-		/// Value of GL_CONSTANT_ALPHA symbol.
+		/// [GL] Value of GL_CONSTANT_ALPHA symbol.
 		/// </summary>
 		[AliasOf("GL_CONSTANT_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -650,7 +760,7 @@ namespace OpenGL
 		public const int CONSTANT_ALPHA = 0x8003;
 
 		/// <summary>
-		/// Value of GL_ONE_MINUS_CONSTANT_ALPHA symbol.
+		/// [GL] Value of GL_ONE_MINUS_CONSTANT_ALPHA symbol.
 		/// </summary>
 		[AliasOf("GL_ONE_MINUS_CONSTANT_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]

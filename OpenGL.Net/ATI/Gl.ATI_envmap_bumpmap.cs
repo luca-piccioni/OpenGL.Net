@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BUMP_ROT_MATRIX_ATI symbol.
+		/// [GL] Value of GL_BUMP_ROT_MATRIX_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int BUMP_ROT_MATRIX_ATI = 0x8775;
 
 		/// <summary>
-		/// Value of GL_BUMP_ROT_MATRIX_SIZE_ATI symbol.
+		/// [GL] Value of GL_BUMP_ROT_MATRIX_SIZE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int BUMP_ROT_MATRIX_SIZE_ATI = 0x8776;
 
 		/// <summary>
-		/// Value of GL_BUMP_NUM_TEX_UNITS_ATI symbol.
+		/// [GL] Value of GL_BUMP_NUM_TEX_UNITS_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int BUMP_NUM_TEX_UNITS_ATI = 0x8777;
 
 		/// <summary>
-		/// Value of GL_BUMP_TEX_UNITS_ATI symbol.
+		/// [GL] Value of GL_BUMP_TEX_UNITS_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int BUMP_TEX_UNITS_ATI = 0x8778;
 
 		/// <summary>
-		/// Value of GL_DUDV_ATI symbol.
+		/// [GL] Value of GL_DUDV_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int DUDV_ATI = 0x8779;
 
 		/// <summary>
-		/// Value of GL_DU8DV8_ATI symbol.
+		/// [GL] Value of GL_DU8DV8_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int DU8DV8_ATI = 0x877A;
 
 		/// <summary>
-		/// Value of GL_BUMP_ENVMAP_ATI symbol.
+		/// [GL] Value of GL_BUMP_ENVMAP_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int BUMP_ENVMAP_ATI = 0x877B;
 
 		/// <summary>
-		/// Value of GL_BUMP_TARGET_ATI symbol.
+		/// [GL] Value of GL_BUMP_TARGET_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 		public const int BUMP_TARGET_ATI = 0x877C;

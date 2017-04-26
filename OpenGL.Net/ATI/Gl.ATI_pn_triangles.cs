@@ -29,55 +29,55 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_ATI = 0x87F0;
 
 		/// <summary>
-		/// Value of GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI symbol.
+		/// [GL] Value of GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI = 0x87F1;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_POINT_MODE_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_POINT_MODE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_POINT_MODE_ATI = 0x87F2;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_NORMAL_MODE_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_NORMAL_MODE_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_NORMAL_MODE_ATI = 0x87F3;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_TESSELATION_LEVEL_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_TESSELATION_LEVEL_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_TESSELATION_LEVEL_ATI = 0x87F4;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_POINT_MODE_LINEAR_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_POINT_MODE_LINEAR_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_POINT_MODE_LINEAR_ATI = 0x87F5;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_POINT_MODE_CUBIC_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_POINT_MODE_CUBIC_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_POINT_MODE_CUBIC_ATI = 0x87F6;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI = 0x87F7;
 
 		/// <summary>
-		/// Value of GL_PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI symbol.
+		/// [GL] Value of GL_PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public const int PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI = 0x87F8;

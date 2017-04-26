@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_PROGRAM_BINARY_ANGLE symbol.
+		/// [GL] Value of GL_PROGRAM_BINARY_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ANGLE_program_binary", Api = "gles2")]
 		public const int PROGRAM_BINARY_ANGLE = 0x93A6;

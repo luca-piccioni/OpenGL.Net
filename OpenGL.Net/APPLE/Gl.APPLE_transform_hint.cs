@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TRANSFORM_HINT_APPLE symbol.
+		/// [GL] Value of GL_TRANSFORM_HINT_APPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_transform_hint")]
 		public const int TRANSFORM_HINT_APPLE = 0x85B1;
