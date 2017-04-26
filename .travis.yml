@@ -7,8 +7,8 @@ addons:
         - xpra
         - mesa-utils
 install:
-#  - nuget restore All.sln
-  - nuget restore OpenGL.Net.sln
+#  - nuget restore All_VC14.sln.sln
+  - nuget restore OpenGL.Net_VC14.sln.sln
 #  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
 #  - xbuild /p:Configuration=Release All.sln
