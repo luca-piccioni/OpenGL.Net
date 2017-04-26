@@ -71,27 +71,16 @@ namespace OpenGL
 		public const int MINOR_VERSION = 0x821C;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the current 
-		/// context. See Gl.GetString.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the current 
-		/// context. See Gl.GetString.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the 
+		/// current context. See Gl.GetString.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int NUM_EXTENSIONS = 0x821D;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the flags with which the context was created (such as debugging functionality).
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the flags with which the context was created (such as debugging 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the flags with which the context was created (such as debugging 
 		/// functionality).
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -164,15 +153,9 @@ namespace OpenGL
 		public const int RGB16F = 0x881B;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the vertex 
-		/// attribute array indicated by index have integer data types, and 0 (false) otherwise. The initial value is 0 (Gl.FALSE).
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the 
-		/// vertex attribute array indicated by index have integer data types, and 0 (false) otherwise. The initial value is 0 
+		/// [GL4|GLES3.2] Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for 
+		/// the vertex attribute array indicated by index have integer data types, and 0 (false) otherwise. The initial value is 0 
 		/// (Gl.FALSE).
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT")]
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV")]
@@ -183,14 +166,8 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_ARRAY_INTEGER = 0x88FD;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array texture, and 
-		/// must be at least 256. See Gl.TexImage2D.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array texture, 
-		/// and must be at least 256. See Gl.TexImage2D.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array 
+		/// texture, and must be at least 256. See Gl.TexImage2D.
 		/// </summary>
 		[AliasOf("GL_MAX_ARRAY_TEXTURE_LAYERS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -199,13 +176,8 @@ namespace OpenGL
 		public const int MAX_ARRAY_TEXTURE_LAYERS = 0x88FF;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at most -8.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at most 
-		/// -8.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at 
+		/// most -8.
 		/// </summary>
 		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_EXT")]
 		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_NV")]
@@ -216,13 +188,8 @@ namespace OpenGL
 		public const int MIN_PROGRAM_TEXEL_OFFSET = 0x8904;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at least 7.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at least 
-		/// 7.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at 
+		/// least 7.
 		/// </summary>
 		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_EXT")]
 		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_NV")]
@@ -249,12 +216,7 @@ namespace OpenGL
 		public const int FIXED_ONLY = 0x891D;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
 		/// </summary>
 		[AliasOf("GL_MAX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -311,14 +273,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_1D_ARRAY = 0x8C1C;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D_ARRAY. 
-		/// The initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_2D_ARRAY. The initial value is 0. See Gl.BindTexture.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -384,14 +340,8 @@ namespace OpenGL
 		public const int TEXTURE_SHARED_SIZE = 0x8C3F;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, including 
-		/// the null-terminator.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, 
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, 
 		/// including the null-terminator.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -400,14 +350,8 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH = 0x8C76;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback is 
-		/// active. This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback is 
-		/// active. This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback 
+		/// is active. This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_NV")]
@@ -430,14 +374,8 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS = 0x8C80;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for the 
-		/// program.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for the 
-		/// program.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for 
+		/// the program.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_NV")]
@@ -448,16 +386,9 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_VARYINGS = 0x8C83;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// start offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. 
-		/// See Gl.BindBufferRange.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// start offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. 
-		/// See Gl.BindBufferRange.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, 
+		/// the start offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all 
+		/// streams. See Gl.BindBufferRange.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_NV")]
@@ -468,16 +399,9 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_START = 0x8C84;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// size of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
+		/// [GL4|GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, 
+		/// the size of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
 		/// Gl.BindBufferRange.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// size of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
-		/// Gl.BindBufferRange.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_NV")]
@@ -595,20 +519,11 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER = 0x8C8E;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
-		/// name of the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound to 
-		/// this target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single 
+		/// [GL4|GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, 
+		/// the name of the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound 
+		/// to this target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single 
 		/// value, the name of the buffer object bound to the indexed transform feedback attribute stream. The initial value is 0 
 		/// for all targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
-		/// name of the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound to 
-		/// this target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single 
-		/// value, the name of the buffer object bound to the indexed transform feedback attribute stream. The initial value is 0 
-		/// for all targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_NV")]
@@ -1069,14 +984,8 @@ namespace OpenGL
 		public const int FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetError: The framebuffer object is not complete. The offending command is ignored and has no other side effect 
-		/// than to set the error flag.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetError: The framebuffer object is not complete. The offending command is ignored and has no other side 
-		/// effect than to set the error flag.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetError: The framebuffer object is not complete. The offending command is ignored and has no other 
+		/// side effect than to set the error flag.
 		/// </summary>
 		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_EXT")]
 		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_OES")]
@@ -1335,14 +1244,9 @@ namespace OpenGL
 		public const int FRAMEBUFFER_BINDING = 0x8CA6;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.DRAW_FRAMEBUFFER 
-		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.DRAW_FRAMEBUFFER 
-		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the 
+		/// Gl.DRAW_FRAMEBUFFER target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See 
+		/// Gl.BindFramebuffer.
 		/// </summary>
 		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_ANGLE")]
 		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_APPLE")]
@@ -1358,16 +1262,9 @@ namespace OpenGL
 		public const int DRAW_FRAMEBUFFER_BINDING = 0x8CA6;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target 
 		/// Gl.RENDERBUFFER. If no renderbuffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindRenderbuffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target 
-		/// Gl.RENDERBUFFER. If no renderbuffer object is bound to this target, 0 is returned. The initial value is 0. See 
-		/// Gl.BindRenderbuffer.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_BINDING_EXT")]
 		[AliasOf("GL_RENDERBUFFER_BINDING_OES")]
@@ -1411,14 +1308,9 @@ namespace OpenGL
 		public const int DRAW_FRAMEBUFFER = 0x8CA9;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.READ_FRAMEBUFFER 
-		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.READ_FRAMEBUFFER 
-		/// target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the name of the framebuffer object currently bound to the 
+		/// Gl.READ_FRAMEBUFFER target. If the default framebuffer is bound, this value will be zero. The initial value is zero. See 
+		/// Gl.BindFramebuffer.
 		/// </summary>
 		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_ANGLE")]
 		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_APPLE")]

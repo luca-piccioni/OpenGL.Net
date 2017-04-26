@@ -163,14 +163,8 @@ namespace OpenGL
 		public const int COMPUTE_SHADER = 0x91B9;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be at 
-		/// least 14. See Gl.UniformBlockBinding.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be at 
-		/// least 14. See Gl.UniformBlockBinding.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be 
+		/// at least 14. See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -178,14 +172,8 @@ namespace OpenGL
 		public const int MAX_COMPUTE_UNIFORM_BLOCKS = 0x91BB;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps 
-		/// from the compute shader. The value may be at least 16. See Gl.ActiveTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
-		/// maps from the compute shader. The value may be at least 16. See Gl.ActiveTexture.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
+		/// texture maps from the compute shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -209,14 +197,9 @@ namespace OpenGL
 		public const int MAX_COMPUTE_SHARED_MEMORY_SIZE = 0x8262;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that 
-		/// can be held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
-		/// that can be held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean 
+		/// values that can be held in uniform variable storage for a compute shader. The value must be at least 1024. See 
+		/// Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -224,14 +207,8 @@ namespace OpenGL
 		public const int MAX_COMPUTE_UNIFORM_COMPONENTS = 0x8263;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
-		/// compute shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
-		/// compute shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by 
+		/// a compute shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -239,12 +216,7 @@ namespace OpenGL
 		public const int MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS = 0x8264;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -252,14 +224,8 @@ namespace OpenGL
 		public const int MAX_COMPUTE_ATOMIC_COUNTERS = 0x8265;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform blocks 
-		/// (including default). The value must be at least 1. See Gl.Uniform.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform blocks 
-		/// (including default). The value must be at least 1. See Gl.Uniform.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform 
+		/// blocks (including default). The value must be at least 1. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -267,14 +233,8 @@ namespace OpenGL
 		public const int MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS = 0x8266;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product of the 
-		/// three dimensions) that may be dispatched to a compute shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product of 
-		/// the three dimensions) that may be dispatched to a compute shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product 
+		/// of the three dimensions) that may be dispatched to a compute shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -282,14 +242,8 @@ namespace OpenGL
 		public const int MAX_COMPUTE_WORK_GROUP_INVOCATIONS = 0x90EB;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be dispatched 
-		/// to a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be 
+		/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be 
 		/// dispatched to a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -297,14 +251,8 @@ namespace OpenGL
 		public const int MAX_COMPUTE_WORK_GROUP_COUNT = 0x91BE;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used during 
-		/// compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used 
+		/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used 
 		/// during compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -312,16 +260,9 @@ namespace OpenGL
 		public const int MAX_COMPUTE_WORK_GROUP_SIZE = 0x91BF;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetProgram: params returns an array of three integers containing the local work group size of the compute 
-		/// program as specified by its input layout qualifier(s). program must be the name of a program object that has been 
-		/// previously linked successfully and contains a binary for the compute shader stage.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns an array of three integers containing the local work group size of the compute 
-		/// program as specified by its input layout qualifier(s). program must be the name of a program object that has been 
-		/// previously linked successfully and contains a binary for the compute shader stage.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns an array of three integers containing the local work group size of the 
+		/// compute program as specified by its input layout qualifier(s). program must be the name of a program object that has 
+		/// been previously linked successfully and contains a binary for the compute shader stage.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -351,16 +292,9 @@ namespace OpenGL
 		public const int DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
 		/// Gl.DISPATCH_INDIRECT_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
-		/// Gl.DISPATCH_INDIRECT_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
-		/// Gl.BindBuffer.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -402,13 +336,8 @@ namespace OpenGL
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetPointer: Returns the current callback function set with the callback argument of Gl.DebugMessageCallback.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetPointer: Returns the current callback function set with the callback argument of 
+		/// [GL4|GLES3.2] Gl.GetPointer: Returns the current callback function set with the callback argument of 
 		/// Gl.DebugMessageCallback.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_KHR")]
@@ -420,14 +349,8 @@ namespace OpenGL
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument of 
-		/// Gl.DebugMessageCallback.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument of 
-		/// Gl.DebugMessageCallback.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument 
+		/// of Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_KHR")]
@@ -708,12 +631,7 @@ namespace OpenGL
 		public const int DEBUG_SEVERITY_NOTIFICATION = 0x826B;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
 		/// </summary>
 		[AliasOf("GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -723,12 +641,7 @@ namespace OpenGL
 		public const int MAX_DEBUG_GROUP_STACK_DEPTH = 0x826C;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the current depth of the debug message group stack.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the current depth of the debug message group stack.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the current depth of the debug message group stack.
 		/// </summary>
 		[AliasOf("GL_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -836,14 +749,8 @@ namespace OpenGL
 		public const uint CONTEXT_FLAG_DEBUG_BIT = 0x00000002;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must be at 
-		/// least 1024.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must be 
-		/// at least 1024.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must 
+		/// be at least 1024.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2296,20 +2203,11 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER = 0x90D2;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
-		/// name of the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to this 
-		/// target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, 
-		/// the name of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 for all 
-		/// targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the 
-		/// name of the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to this 
-		/// target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, 
-		/// the name of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 for all 
-		/// targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, 
+		/// the name of the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to 
+		/// this target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single 
+		/// value, the name of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 
+		/// for all targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2317,16 +2215,9 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// start offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all 
+		/// [GL4|GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, 
+		/// the start offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all 
 		/// bindings. See Gl.BindBufferRange.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// start offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all 
-		/// bindings. See Gl.BindBufferRange.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2334,16 +2225,9 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_START = 0x90D4;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// size of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
-		/// Gl.BindBufferRange.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the 
-		/// size of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
-		/// Gl.BindBufferRange.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, 
+		/// the size of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. 
+		/// See Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2351,14 +2235,8 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER_SIZE = 0x90D5;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// vertex shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// vertex shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
+		/// a vertex shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2366,14 +2244,8 @@ namespace OpenGL
 		public const int MAX_VERTEX_SHADER_STORAGE_BLOCKS = 0x90D6;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// geometry shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// geometry shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
+		/// a geometry shader.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES")]
@@ -2385,14 +2257,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_SHADER_STORAGE_BLOCKS = 0x90D7;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// tessellation control shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// tessellation control shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
+		/// a tessellation control shader.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES")]
@@ -2404,14 +2270,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS = 0x90D8;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// tessellation evaluation shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// tessellation evaluation shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
+		/// a tessellation evaluation shader.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES")]
@@ -2438,14 +2298,8 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_SHADER_STORAGE_BLOCKS = 0x90DA;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// compute shader.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
-		/// compute shader.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
+		/// a compute shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2453,14 +2307,8 @@ namespace OpenGL
 		public const int MAX_COMPUTE_SHADER_STORAGE_BLOCKS = 0x90DB;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be accessed by 
-		/// all active shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be accessed 
-		/// by all active shaders.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be 
+		/// accessed by all active shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2468,14 +2316,8 @@ namespace OpenGL
 		public const int MAX_COMBINED_SHADER_STORAGE_BLOCKS = 0x90DC;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, which 
-		/// must be at least 8.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, 
 		/// which must be at least 8.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2516,14 +2358,8 @@ namespace OpenGL
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-value depth stencil texture mode, a symbolic constant. The initial value is 
-		/// Gl.DEPTH_COMPONENT.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-value depth stencil texture mode, a symbolic constant. The initial 
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-value depth stencil texture mode, a symbolic constant. The initial 
 		/// value is Gl.DEPTH_COMPONENT.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2569,14 +2405,8 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER_SIZE = 0x919E;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The 
-		/// initial value is 1. See Gl.UniformBlockBinding.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The 
-		/// initial value is 1. See Gl.UniformBlockBinding.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. 
+		/// The initial value is 1. See Gl.UniformBlockBinding.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT")]
 		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES")]
@@ -2668,14 +2498,8 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D5;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the instance step divisor 
-		/// of the first element in the bound buffer's data store for vertex attribute bound to index.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the instance step 
+		/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the instance step 
 		/// divisor of the first element in the bound buffer's data store for vertex attribute bound to index.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2683,14 +2507,8 @@ namespace OpenGL
 		public const int VERTEX_BINDING_DIVISOR = 0x82D6;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset of the 
-		/// first element in the bound buffer's data store for vertex attribute bound to index.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset of the 
-		/// first element in the bound buffer's data store for vertex attribute bound to index.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset of 
+		/// the first element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2698,14 +2516,8 @@ namespace OpenGL
 		public const int VERTEX_BINDING_OFFSET = 0x82D7;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset between 
-		/// the start of each element in the bound buffer's data store for vertex attribute bound to index.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset 
+		/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed forms. data returns a single integer value representing the byte offset 
 		/// between the start of each element in the bound buffer's data store for vertex attribute bound to index.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2713,14 +2525,8 @@ namespace OpenGL
 		public const int VERTEX_BINDING_STRIDE = 0x82D8;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex binding 
-		/// offset.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex 
 		/// binding offset.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2728,12 +2534,8 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be 
+		/// bound.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

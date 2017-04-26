@@ -125,14 +125,8 @@ namespace OpenGL
 		public const int QUERY_TARGET = 0x82EA;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL 
+		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL 
 		/// context.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL 
-		/// context.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_EXT")]
@@ -146,13 +140,8 @@ namespace OpenGL
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL context.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL 
+		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL 
 		/// context.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_EXT")]
@@ -166,12 +155,7 @@ namespace OpenGL
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
 		/// </summary>
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_EXT")]

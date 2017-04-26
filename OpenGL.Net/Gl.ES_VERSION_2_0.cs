@@ -40,14 +40,8 @@ namespace OpenGL
 		public const int BLEND_EQUATION = 0x8009;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the blend 
-		/// color. See Gl.BlendColor.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the blend 
-		/// color. See Gl.BlendColor.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the 
+		/// blend color. See Gl.BlendColor.
 		/// </summary>
 		[AliasOf("GL_BLEND_COLOR_EXT")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]

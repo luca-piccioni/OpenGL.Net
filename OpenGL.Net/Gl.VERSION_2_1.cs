@@ -51,16 +51,9 @@ namespace OpenGL
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
 		/// Gl.PIXEL_PACK_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
-		/// Gl.PIXEL_PACK_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
-		/// Gl.BindBuffer.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
@@ -71,16 +64,9 @@ namespace OpenGL
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
 		/// Gl.PIXEL_UNPACK_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
-		/// Gl.PIXEL_UNPACK_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
-		/// Gl.BindBuffer.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]

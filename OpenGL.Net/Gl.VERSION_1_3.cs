@@ -351,14 +351,8 @@ namespace OpenGL
 		public const int TEXTURE31 = 0x84DF;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value indicating the active multitexture unit. The initial value is Gl.TEXTURE0. See 
-		/// Gl.ActiveTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value indicating the active multitexture unit. The initial value is Gl.TEXTURE0. 
-		/// See Gl.ActiveTexture.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value indicating the active multitexture unit. The initial value is 
+		/// Gl.TEXTURE0. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -501,14 +495,8 @@ namespace OpenGL
 		public const int SAMPLES = 0x80A9;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single positive floating-point value indicating the current sample coverage value. See 
-		/// Gl.SampleCoverage.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single positive floating-point value indicating the current sample coverage value. See 
-		/// Gl.SampleCoverage.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single positive floating-point value indicating the current sample coverage value. 
+		/// See Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -518,14 +506,8 @@ namespace OpenGL
 		public const int SAMPLE_COVERAGE_VALUE = 0x80AA;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating if the temporary coverage value should be inverted. See 
-		/// Gl.SampleCoverage.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating if the temporary coverage value should be inverted. See 
-		/// Gl.SampleCoverage.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating if the temporary coverage value should be inverted. 
+		/// See Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -556,14 +538,8 @@ namespace OpenGL
 		public const int TEXTURE_CUBE_MAP = 0x8513;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_CUBE_MAP. 
-		/// The initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_CUBE_MAP. The initial value is 0. See Gl.BindTexture.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT")]
@@ -763,14 +739,8 @@ namespace OpenGL
 		public const int NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a list of symbolic constants of length Gl.NUM_COMPRESSED_TEXTURE_FORMATS indicating which 
-		/// compressed texture formats are available. See Gl.CompressedTexImage2D.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a list of symbolic constants of length Gl.NUM_COMPRESSED_TEXTURE_FORMATS indicating which 
-		/// compressed texture formats are available. See Gl.CompressedTexImage2D.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a list of symbolic constants of length Gl.NUM_COMPRESSED_TEXTURE_FORMATS indicating 
+		/// which compressed texture formats are available. See Gl.CompressedTexImage2D.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -966,14 +936,8 @@ namespace OpenGL
 		public const int COMBINE = 0x8570;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current RGB combine mode. The 
-		/// initial value is Gl.MODULATE.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current RGB combine mode. The 
-		/// initial value is Gl.MODULATE.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current RGB combine mode. 
+		/// The initial value is Gl.MODULATE.
 		/// </summary>
 		[AliasOf("GL_COMBINE_RGB_ARB")]
 		[AliasOf("GL_COMBINE_RGB_EXT")]
@@ -985,14 +949,8 @@ namespace OpenGL
 		public const int COMBINE_RGB = 0x8571;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current alpha combine mode. The 
-		/// initial value is Gl.MODULATE.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current alpha combine mode. The 
-		/// initial value is Gl.MODULATE.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current alpha combine 
+		/// mode. The initial value is Gl.MODULATE.
 		/// </summary>
 		[AliasOf("GL_COMBINE_ALPHA_ARB")]
 		[AliasOf("GL_COMBINE_ALPHA_EXT")]
@@ -1070,14 +1028,8 @@ namespace OpenGL
 		public const int SOURCE2_ALPHA = 0x858A;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's RGB 
-		/// operand. The initial value is Gl.SRC_COLOR.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's RGB 
-		/// operand. The initial value is Gl.SRC_COLOR.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's 
+		/// RGB operand. The initial value is Gl.SRC_COLOR.
 		/// </summary>
 		[AliasOf("GL_OPERAND0_RGB_ARB")]
 		[AliasOf("GL_OPERAND0_RGB_EXT")]
@@ -1089,14 +1041,8 @@ namespace OpenGL
 		public const int OPERAND0_RGB = 0x8590;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's RGB 
-		/// operand. The initial value is Gl.SRC_COLOR.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's RGB 
-		/// operand. The initial value is Gl.SRC_COLOR.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's 
+		/// RGB operand. The initial value is Gl.SRC_COLOR.
 		/// </summary>
 		[AliasOf("GL_OPERAND1_RGB_ARB")]
 		[AliasOf("GL_OPERAND1_RGB_EXT")]
@@ -1108,14 +1054,8 @@ namespace OpenGL
 		public const int OPERAND1_RGB = 0x8591;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's RGB 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's RGB 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's 
+		/// RGB operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND2_RGB_ARB")]
 		[AliasOf("GL_OPERAND2_RGB_EXT")]
@@ -1127,14 +1067,8 @@ namespace OpenGL
 		public const int OPERAND2_RGB = 0x8592;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's alpha 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's alpha 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's 
+		/// alpha operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND0_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND0_ALPHA_EXT")]
@@ -1146,14 +1080,8 @@ namespace OpenGL
 		public const int OPERAND0_ALPHA = 0x8598;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's alpha 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's alpha 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's 
+		/// alpha operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND1_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND1_ALPHA_EXT")]
@@ -1165,14 +1093,8 @@ namespace OpenGL
 		public const int OPERAND1_ALPHA = 0x8599;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's alpha 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's alpha 
-		/// operand. The initial value is Gl.SRC_ALPHA.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's 
+		/// alpha operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND2_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND2_ALPHA_EXT")]
@@ -1184,14 +1106,8 @@ namespace OpenGL
 		public const int OPERAND2_ALPHA = 0x859A;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns a single floating-point value representing the current RGB texture combiner scaling 
-		/// factor. The initial value is 1.0.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns a single floating-point value representing the current RGB texture combiner 
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single floating-point value representing the current RGB texture combiner 
 		/// scaling factor. The initial value is 1.0.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_RGB_SCALE_ARB")]
 		[AliasOf("GL_RGB_SCALE_EXT")]

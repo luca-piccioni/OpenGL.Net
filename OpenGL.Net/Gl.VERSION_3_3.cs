@@ -29,14 +29,8 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetVertexAttrib: params returns a single value that is the frequency divisor used for instanced rendering. See 
-		/// Gl.VertexAttribDivisor. The initial value is 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetVertexAttrib: params returns a single value that is the frequency divisor used for instanced rendering. 
-		/// See Gl.VertexAttribDivisor. The initial value is 0.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetVertexAttrib: params returns a single value that is the frequency divisor used for instanced 
+		/// rendering. See Gl.VertexAttribDivisor. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE")]
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB")]
@@ -98,14 +92,8 @@ namespace OpenGL
 		public const int ANY_SAMPLES_PASSED = 0x8C2F;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the sampler object currently bound to the active texture unit. 
-		/// The initial value is 0. See Gl.BindSampler.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the sampler object currently bound to the active texture 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the sampler object currently bound to the active texture 
 		/// unit. The initial value is 0. See Gl.BindSampler.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -121,12 +109,7 @@ namespace OpenGL
 		public const int RGB10_A2UI = 0x906F;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the red component swizzle. The initial value is Gl.RED.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the red component swizzle. The initial value is Gl.RED.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the red component swizzle. The initial value is Gl.RED.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -136,12 +119,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the green component swizzle. The initial value is Gl.GREEN.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the green component swizzle. The initial value is Gl.GREEN.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the green component swizzle. The initial value is Gl.GREEN.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -151,12 +129,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the blue component swizzle. The initial value is Gl.BLUE.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the blue component swizzle. The initial value is Gl.BLUE.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the blue component swizzle. The initial value is Gl.BLUE.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -166,12 +139,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the alpha component swizzle. The initial value is Gl.ALPHA.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the alpha component swizzle. The initial value is Gl.ALPHA.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the alpha component swizzle. The initial value is Gl.ALPHA.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]

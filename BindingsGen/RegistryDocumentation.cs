@@ -75,6 +75,15 @@ namespace BindingsGen
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
 				docHandlersDoc.Add(String.Format("[{0}] {1}", docHandler.Api ?? ctx.Class.ToUpperInvariant(), docHandler.QueryEnumSummary(ctx, enumerant)));
 
+			if (docHandlers.Count == 2 && docHandlers[0].QueryEnumSummary(ctx, enumerant) == docHandlers[1].QueryEnumSummary(ctx, enumerant)) {
+				docHandlersDoc.Clear();
+
+				string defaultApi = ctx.Class.ToUpperInvariant();
+				string api = (docHandlers[0].Api ?? defaultApi) + "|" + (docHandlers[1].Api ?? defaultApi);
+
+				docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[0].QueryEnumSummary(ctx, enumerant)));
+			}
+
 			sw.WriteLine("/// <summary>");
 			if (docHandlersDoc.Count > 1) {
 				foreach (string doc in docHandlersDoc) {

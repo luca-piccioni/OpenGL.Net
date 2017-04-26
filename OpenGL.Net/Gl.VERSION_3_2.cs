@@ -103,14 +103,8 @@ namespace OpenGL
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps 
-		/// from the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
-		/// maps from the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
+		/// texture maps from the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT")]
@@ -192,14 +186,9 @@ namespace OpenGL
 		public const int GEOMETRY_OUTPUT_TYPE = 0x8918;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that 
-		/// can be held in uniform variable storage for a geometry shader. The value must be at least 1024. See Gl.Uniform.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
-		/// that can be held in uniform variable storage for a geometry shader. The value must be at least 1024. See Gl.Uniform.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean 
+		/// values that can be held in uniform variable storage for a geometry shader. The value must be at least 1024. See 
+		/// Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
@@ -243,28 +232,16 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, which must 
-		/// be at least 64.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, which 
-		/// must be at least 64.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, 
+		/// which must be at least 64.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public const int MAX_VERTEX_OUTPUT_COMPONENTS = 0x9122;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, which must 
-		/// be at least 64.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, which 
-		/// must be at least 64.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, 
+		/// which must be at least 64.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_INPUT_COMPONENTS_OES")]
@@ -275,14 +252,8 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_INPUT_COMPONENTS = 0x9123;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, which 
-		/// must be at least 128.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, 
 		/// which must be at least 128.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_OES")]
@@ -379,12 +350,7 @@ namespace OpenGL
 		public const int TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
 		/// </summary>
 		[AliasOf("GL_MAX_SERVER_WAIT_TIMEOUT_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -565,12 +531,7 @@ namespace OpenGL
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of sample mask words.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of sample mask words.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of sample mask words.
 		/// </summary>
 		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -616,14 +577,8 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_2D_MULTISAMPLE. The initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
-		/// Gl.TEXTURE_2D_MULTISAMPLE. The initial value is 0. See Gl.BindTexture.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -633,14 +588,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE = 0x9104;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY. The initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
-		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY. The initial value is 0. See Gl.BindTexture.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -722,12 +671,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -743,12 +687,8 @@ namespace OpenGL
 		public const int MAX_DEPTH_TEXTURE_SAMPLES = 0x910F;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample buffers.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample buffers.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample 
+		/// buffers.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

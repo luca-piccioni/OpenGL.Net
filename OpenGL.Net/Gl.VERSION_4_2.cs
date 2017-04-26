@@ -102,14 +102,8 @@ namespace OpenGL
 		public const int MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetProgramInterface: The query is targeted at the set of active atomic counter buffer binding points within 
-		/// program.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active atomic counter buffer binding points within 
-		/// program.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetProgramInterface: The query is targeted at the set of active atomic counter buffer binding points 
+		/// within program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -262,12 +256,7 @@ namespace OpenGL
 		public const int MAX_COMBINED_ATOMIC_COUNTER_BUFFERS = 0x92D1;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -275,14 +264,8 @@ namespace OpenGL
 		public const int MAX_VERTEX_ATOMIC_COUNTERS = 0x92D2;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation control 
-		/// shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation control 
-		/// shaders.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
+		/// control shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT")]
 		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_OES")]
@@ -294,14 +277,8 @@ namespace OpenGL
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTERS = 0x92D3;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation evaluation 
-		/// shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
 		/// evaluation shaders.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT")]
 		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_OES")]
@@ -313,12 +290,7 @@ namespace OpenGL
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTERS = 0x92D4;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT")]
 		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTERS_OES")]
@@ -344,12 +316,8 @@ namespace OpenGL
 		public const int MAX_FRAGMENT_ATOMIC_COUNTERS = 0x92D6;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the maximum number of atomic counters available to all active shaders.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to all active shaders.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to all active 
+		/// shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -374,12 +342,7 @@ namespace OpenGL
 		public const int MAX_ATOMIC_COUNTER_BUFFER_BINDINGS = 0x92DC;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

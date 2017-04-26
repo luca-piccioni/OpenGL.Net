@@ -29,14 +29,8 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the RGB destination blend function. The initial 
-		/// value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the RGB destination blend function. The 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the RGB destination blend function. The 
 		/// initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLEND_DST_RGB_EXT")]
 		[AliasOf("GL_BLEND_DST_RGB_OES")]
@@ -49,14 +43,8 @@ namespace OpenGL
 		public const int BLEND_DST_RGB = 0x80C8;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the RGB source blend function. The initial value 
-		/// is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the RGB source blend function. The initial 
-		/// value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the RGB source blend function. The 
+		/// initial value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_SRC_RGB_EXT")]
 		[AliasOf("GL_BLEND_SRC_RGB_OES")]
@@ -69,14 +57,8 @@ namespace OpenGL
 		public const int BLEND_SRC_RGB = 0x80C9;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the alpha destination blend function. The 
-		/// initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the alpha destination blend function. The 
-		/// initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the alpha destination blend function. 
+		/// The initial value is Gl.ZERO. See Gl.BlendFunc and Gl.BlendFuncSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_DST_ALPHA_EXT")]
 		[AliasOf("GL_BLEND_DST_ALPHA_OES")]
@@ -89,14 +71,8 @@ namespace OpenGL
 		public const int BLEND_DST_ALPHA = 0x80CA;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the symbolic constant identifying the alpha source blend function. The initial 
-		/// value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the alpha source blend function. The initial 
-		/// value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the symbolic constant identifying the alpha source blend function. The 
+		/// initial value is Gl.ONE. See Gl.BlendFunc and Gl.BlendFuncSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_SRC_ALPHA_EXT")]
 		[AliasOf("GL_BLEND_SRC_ALPHA_OES")]
@@ -190,14 +166,8 @@ namespace OpenGL
 		public const int MIRRORED_REPEAT = 0x8370;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value must be 
-		/// at least 2.0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value 
 		/// must be at least 2.0.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]

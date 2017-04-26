@@ -47,14 +47,9 @@ namespace OpenGL
 		public const int COLOR_LOGIC_OP = 0x0BF2;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value. This value is multiplied by an implementation-specific value and then added to the 
-		/// depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value. This value is multiplied by an implementation-specific value and then added to 
-		/// the depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value. This value is multiplied by an implementation-specific value and then 
+		/// added to the depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See 
+		/// Gl.PolygonOffset.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -95,14 +90,8 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_FILL = 0x8037;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the scaling factor used to determine the variable offset that is added to the 
-		/// depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the scaling factor used to determine the variable offset that is added to the 
-		/// depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the scaling factor used to determine the variable offset that is added to 
+		/// the depth value of each fragment generated when a polygon is rasterized. The initial value is 0. See Gl.PolygonOffset.
 		/// </summary>
 		[AliasOf("GL_POLYGON_OFFSET_FACTOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -121,14 +110,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_1D = 0x8068;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D. The 
-		/// initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D. The 
-		/// initial value is 0. See Gl.BindTexture.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D. 
+		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -138,12 +121,7 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D = 0x8069;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the internal format of the texture image.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

@@ -73,14 +73,8 @@ namespace OpenGL
 		public const int UNSIGNED_INT_10_10_10_2 = 0x8036;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_3D. The 
-		/// initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_3D. The 
-		/// initial value is 0. See Gl.BindTexture.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_3D. 
+		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_3D_OES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -169,13 +163,8 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_3D = 0x8070;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexLevelParameter: params returns a single value, the depth of the texture image. The initial value is 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the depth of the texture image. The initial value is 
-		/// 0.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the depth of the texture image. The initial value 
+		/// is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -359,13 +348,8 @@ namespace OpenGL
 		public const int BGRA = 0x80E1;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the recommended maximum number of vertex array vertices. See Gl.DrawRangeElements.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array vertices. See 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array vertices. See 
 		/// Gl.DrawRangeElements.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_ELEMENTS_VERTICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -374,13 +358,8 @@ namespace OpenGL
 		public const int MAX_ELEMENTS_VERTICES = 0x80E8;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the recommended maximum number of vertex array indices. See Gl.DrawRangeElements.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array indices. See 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array indices. See 
 		/// Gl.DrawRangeElements.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_MAX_ELEMENTS_INDICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -445,12 +424,7 @@ namespace OpenGL
 		public const int TEXTURE_MAX_LOD = 0x813B;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued base texture mipmap level. The initial value is 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued base texture mipmap level. The initial value is 0.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued base texture mipmap level. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BASE_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -459,12 +433,8 @@ namespace OpenGL
 		public const int TEXTURE_BASE_LEVEL = 0x813C;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued maximum texture mipmap array level. The initial value is 1000.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued maximum texture mipmap array level. The initial value is 1000.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued maximum texture mipmap array level. The initial value is 
+		/// 1000.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_MAX_LEVEL_APPLE")]
 		[AliasOf("GL_TEXTURE_MAX_LEVEL_SGIS")]
@@ -475,14 +445,8 @@ namespace OpenGL
 		public const int TEXTURE_MAX_LEVEL = 0x813D;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a pair of values indicating the range of widths supported for aliased lines. See 
+		/// [GL4|GLES3.2] Gl.Get: data returns a pair of values indicating the range of widths supported for aliased lines. See 
 		/// Gl.LineWidth.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a pair of values indicating the range of widths supported for aliased lines. See 
-		/// Gl.LineWidth.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

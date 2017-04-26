@@ -29,12 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Clear: Indicates the depth buffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Clear: Indicates the depth buffer.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Clear: Indicates the depth buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -43,12 +38,7 @@ namespace OpenGL
 		public const uint DEPTH_BUFFER_BIT = 0x00000100;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Clear: Indicates the stencil buffer.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Clear: Indicates the stencil buffer.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Clear: Indicates the stencil buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -57,12 +47,7 @@ namespace OpenGL
 		public const uint STENCIL_BUFFER_BIT = 0x00000400;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Clear: Indicates the buffers currently enabled for color writing.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Clear: Indicates the buffers currently enabled for color writing.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Clear: Indicates the buffers currently enabled for color writing.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -636,14 +621,8 @@ namespace OpenGL
 		public const int NO_ERROR = 0;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetError: An unacceptable value is specified for an enumerated argument. The offending command is ignored and 
-		/// has no other side effect than to set the error flag.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetError: An unacceptable value is specified for an enumerated argument. The offending command is ignored 
-		/// and has no other side effect than to set the error flag.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetError: An unacceptable value is specified for an enumerated argument. The offending command is 
+		/// ignored and has no other side effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -651,14 +630,8 @@ namespace OpenGL
 		public const int INVALID_ENUM = 0x0500;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetError: A numeric argument is out of range. The offending command is ignored and has no other side effect 
-		/// than to set the error flag.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetError: A numeric argument is out of range. The offending command is ignored and has no other side effect 
-		/// than to set the error flag.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetError: A numeric argument is out of range. The offending command is ignored and has no other side 
+		/// effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -666,14 +639,8 @@ namespace OpenGL
 		public const int INVALID_VALUE = 0x0501;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetError: The specified operation is not allowed in the current state. The offending command is ignored and has 
-		/// no other side effect than to set the error flag.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetError: The specified operation is not allowed in the current state. The offending command is ignored and 
-		/// has no other side effect than to set the error flag.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetError: The specified operation is not allowed in the current state. The offending command is ignored 
+		/// and has no other side effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -681,14 +648,8 @@ namespace OpenGL
 		public const int INVALID_OPERATION = 0x0502;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetError: There is not enough memory left to execute the command. The state of the GL is undefined, except for 
-		/// the state of the error flags, after this error is recorded.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetError: There is not enough memory left to execute the command. The state of the GL is undefined, except 
-		/// for the state of the error flags, after this error is recorded.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetError: There is not enough memory left to execute the command. The state of the GL is undefined, 
+		/// except for the state of the error flags, after this error is recorded.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -763,12 +724,7 @@ namespace OpenGL
 		public const int LINE_SMOOTH = 0x0B20;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the line width as specified with Gl.LineWidth. The initial value is 1.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the line width as specified with Gl.LineWidth. The initial value is 1.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the line width as specified with Gl.LineWidth. The initial value is 1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -806,14 +762,8 @@ namespace OpenGL
 		public const int POLYGON_SMOOTH = 0x0B41;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating whether polygon culling is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.CullFace.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether polygon culling is enabled. The initial value 
-		/// is Gl.FALSE. See Gl.CullFace.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating whether polygon culling is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.CullFace.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -821,14 +771,8 @@ namespace OpenGL
 		public const int CULL_FACE = 0x0B44;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single value indicating the mode of polygon culling. The initial value is Gl.BACK. See 
-		/// Gl.CullFace.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single value indicating the mode of polygon culling. The initial value is Gl.BACK. See 
-		/// Gl.CullFace.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single value indicating the mode of polygon culling. The initial value is Gl.BACK. 
+		/// See Gl.CullFace.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -888,14 +832,8 @@ namespace OpenGL
 		public const int DEPTH_TEST = 0x0B71;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating if the depth buffer is enabled for writing. The initial 
-		/// value is Gl.TRUE. See Gl.DepthMask.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating if the depth buffer is enabled for writing. The initial 
-		/// value is Gl.TRUE. See Gl.DepthMask.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating if the depth buffer is enabled for writing. The 
+		/// initial value is Gl.TRUE. See Gl.DepthMask.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -922,14 +860,8 @@ namespace OpenGL
 		public const int DEPTH_CLEAR_VALUE = 0x0B73;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the symbolic constant that indicates the depth comparison function. The initial 
-		/// value is Gl.LESS. See Gl.DepthFunc.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the symbolic constant that indicates the depth comparison function. The 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the symbolic constant that indicates the depth comparison function. The 
 		/// initial value is Gl.LESS. See Gl.DepthFunc.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -937,14 +869,8 @@ namespace OpenGL
 		public const int DEPTH_FUNC = 0x0B74;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating whether stencil testing of fragments is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.StencilFunc and Gl.StencilOp.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether stencil testing of fragments is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.StencilFunc and Gl.StencilOp.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating whether stencil testing of fragments is enabled. 
+		/// The initial value is Gl.FALSE. See Gl.StencilFunc and Gl.StencilOp.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -952,14 +878,8 @@ namespace OpenGL
 		public const int STENCIL_TEST = 0x0B90;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the index to which the stencil bitplanes are cleared. The initial value is 0. See 
-		/// Gl.ClearStencil.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the index to which the stencil bitplanes are cleared. The initial value is 0. 
-		/// See Gl.ClearStencil.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the index to which the stencil bitplanes are cleared. The initial value is 
+		/// 0. See Gl.ClearStencil.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -967,18 +887,10 @@ namespace OpenGL
 		public const int STENCIL_CLEAR_VALUE = 0x0B91;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, a symbolic constant indicating what function is used to compare the stencil 
-		/// reference value with the stencil buffer value. The initial value is Gl.ALWAYS. See Gl.StencilFunc. This stencil state 
-		/// only affects non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what function is used to compare the 
+		/// stencil reference value with the stencil buffer value. The initial value is Gl.ALWAYS. See Gl.StencilFunc. This stencil 
+		/// state only affects non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See 
 		/// Gl.StencilFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what function is used to compare the stencil 
-		/// reference value with the stencil buffer value. The initial value is Gl.ALWAYS. See Gl.StencilFunc. This stencil state 
-		/// only affects non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See 
-		/// Gl.StencilFuncSeparate.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -986,16 +898,10 @@ namespace OpenGL
 		public const int STENCIL_FUNC = 0x0B92;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the mask that is used to mask both the stencil reference value and the stencil 
-		/// buffer value before they are compared. The initial value is all 1's. See Gl.StencilFunc. This stencil state only affects 
-		/// non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the mask that is used to mask both the stencil reference value and the stencil 
-		/// buffer value before they are compared. The initial value is all 1's. See Gl.StencilFunc. This stencil state only affects 
-		/// non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the mask that is used to mask both the stencil reference value and the 
+		/// stencil buffer value before they are compared. The initial value is all 1's. See Gl.StencilFunc. This stencil state only 
+		/// affects non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See 
+		/// Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1003,16 +909,9 @@ namespace OpenGL
 		public const int STENCIL_VALUE_MASK = 0x0B93;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test fails. 
-		/// The initial value is Gl.KEEP. See Gl.StencilOp. This stencil state only affects non-polygons and front-facing polygons. 
-		/// Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test 
 		/// fails. The initial value is Gl.KEEP. See Gl.StencilOp. This stencil state only affects non-polygons and front-facing 
 		/// polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1020,16 +919,9 @@ namespace OpenGL
 		public const int STENCIL_FAIL = 0x0B94;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test passes, 
-		/// but the depth test fails. The initial value is Gl.KEEP. See Gl.StencilOp. This stencil state only affects non-polygons 
-		/// and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test 
 		/// passes, but the depth test fails. The initial value is Gl.KEEP. See Gl.StencilOp. This stencil state only affects 
 		/// non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1037,16 +929,9 @@ namespace OpenGL
 		public const int STENCIL_PASS_DEPTH_FAIL = 0x0B95;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test passes 
-		/// and the depth test passes. The initial value is Gl.KEEP. See Gl.StencilOp. This stencil state only affects non-polygons 
-		/// and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating what action is taken when the stencil test 
 		/// passes and the depth test passes. The initial value is Gl.KEEP. See Gl.StencilOp. This stencil state only affects 
 		/// non-polygons and front-facing polygons. Back-facing polygons use separate stencil state. See Gl.StencilOpSeparate.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1054,16 +939,9 @@ namespace OpenGL
 		public const int STENCIL_PASS_DEPTH_PASS = 0x0B96;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the reference value that is compared with the contents of the stencil buffer. The 
-		/// initial value is 0. See Gl.StencilFunc. This stencil state only affects non-polygons and front-facing polygons. 
-		/// Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the reference value that is compared with the contents of the stencil buffer. 
-		/// The initial value is 0. See Gl.StencilFunc. This stencil state only affects non-polygons and front-facing polygons. 
-		/// Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the reference value that is compared with the contents of the stencil 
+		/// buffer. The initial value is 0. See Gl.StencilFunc. This stencil state only affects non-polygons and front-facing 
+		/// polygons. Back-facing polygons use separate stencil state. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1071,16 +949,9 @@ namespace OpenGL
 		public const int STENCIL_REF = 0x0B97;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, the mask that controls writing of the stencil bitplanes. The initial value is all 
-		/// 1's. See Gl.StencilMask. This stencil state only affects non-polygons and front-facing polygons. Back-facing polygons 
-		/// use separate stencil state. See Gl.StencilMaskSeparate.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, the mask that controls writing of the stencil bitplanes. The initial value is 
-		/// all 1's. See Gl.StencilMask. This stencil state only affects non-polygons and front-facing polygons. Back-facing 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, the mask that controls writing of the stencil bitplanes. The initial value 
+		/// is all 1's. See Gl.StencilMask. This stencil state only affects non-polygons and front-facing polygons. Back-facing 
 		/// polygons use separate stencil state. See Gl.StencilMaskSeparate.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1112,14 +983,8 @@ namespace OpenGL
 		public const int VIEWPORT = 0x0BA2;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating whether dithering of fragment colors and indices is 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating whether dithering of fragment colors and indices is 
 		/// enabled. The initial value is Gl.TRUE.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether dithering of fragment colors and indices is 
-		/// enabled. The initial value is Gl.TRUE.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1143,14 +1008,8 @@ namespace OpenGL
 		public const int BLEND_SRC = 0x0BE1;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating whether blending is enabled. The initial value is Gl.FALSE. 
-		/// See Gl.BlendFunc.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether blending is enabled. The initial value is 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating whether blending is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.BlendFunc.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1208,16 +1067,9 @@ namespace OpenGL
 		public const int READ_BUFFER = 0x0C02;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns four values: the x and y window coordinates of the scissor box, followed by its width and 
-		/// height. Initially the x and y window coordinates are both 0 and the width and height are set to the size of the window. 
-		/// See Gl.Scissor.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns four values: the x and y window coordinates of the scissor box, followed by its width and 
-		/// height. Initially the x and y window coordinates are both 0 and the width and height are set to the size of the window. 
-		/// See Gl.Scissor.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns four values: the x and y window coordinates of the scissor box, followed by its width 
+		/// and height. Initially the x and y window coordinates are both 0 and the width and height are set to the size of the 
+		/// window. See Gl.Scissor.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1228,14 +1080,8 @@ namespace OpenGL
 		public const int SCISSOR_BOX = 0x0C10;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns a single boolean value indicating whether scissoring is enabled. The initial value is 
+		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating whether scissoring is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.Scissor.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns a single boolean value indicating whether scissoring is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.Scissor.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1246,18 +1092,10 @@ namespace OpenGL
 		public const int SCISSOR_TEST = 0x0C11;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns four values: the red, green, blue, and alpha values used to clear the color buffers. Integer 
-		/// values, if requested, are linearly mapped from the internal floating-point representation such that 1.0 returns the most 
-		/// positive representable integer value, and -1.0 returns the most negative representable integer value. The initial value 
-		/// is (0, 0, 0, 0). See Gl.ClearColor.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns four values: the red, green, blue, and alpha values used to clear the color buffers. 
+		/// [GL4|GLES3.2] Gl.Get: data returns four values: the red, green, blue, and alpha values used to clear the color buffers. 
 		/// Integer values, if requested, are linearly mapped from the internal floating-point representation such that 1.0 returns 
 		/// the most positive representable integer value, and -1.0 returns the most negative representable integer value. The 
 		/// initial value is (0, 0, 0, 0). See Gl.ClearColor.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1265,14 +1103,8 @@ namespace OpenGL
 		public const int COLOR_CLEAR_VALUE = 0x0C22;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns four boolean values: the red, green, blue, and alpha write enables for the color buffers. The 
-		/// initial value is (Gl.TRUE, Gl.TRUE, Gl.TRUE, Gl.TRUE). See Gl.ColorMask.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns four boolean values: the red, green, blue, and alpha write enables for the color buffers. 
-		/// The initial value is (Gl.TRUE, Gl.TRUE, Gl.TRUE, Gl.TRUE). See Gl.ColorMask.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data returns four boolean values: the red, green, blue, and alpha write enables for the color 
+		/// buffers. The initial value is (Gl.TRUE, Gl.TRUE, Gl.TRUE, Gl.TRUE). See Gl.ColorMask.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1505,14 +1337,8 @@ namespace OpenGL
 		public const int MAX_TEXTURE_SIZE = 0x0D33;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns two values: the maximum supported width and height of the viewport. These must be at least as 
-		/// large as the visible dimensions of the display being rendered to. See Gl.Viewport.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns two values: the maximum supported width and height of the viewport. These must be at 
+		/// [GL4|GLES3.2] Gl.Get: data returns two values: the maximum supported width and height of the viewport. These must be at 
 		/// least as large as the visible dimensions of the display being rendered to. See Gl.Viewport.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1520,14 +1346,8 @@ namespace OpenGL
 		public const int MAX_VIEWPORT_DIMS = 0x0D3A;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data returns one value, an estimate of the number of bits of subpixel resolution that are used to position 
-		/// rasterized geometry in window coordinates. The value must be at least 4.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, an estimate of the number of bits of subpixel resolution that are used to 
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, an estimate of the number of bits of subpixel resolution that are used to 
 		/// position rasterized geometry in window coordinates. The value must be at least 4.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1574,26 +1394,16 @@ namespace OpenGL
 		public const int TEXTURE_2D = 0x0DE1;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexLevelParameter: params returns a single value, the width of the texture image. The initial value is 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the width of the texture image. The initial value is 
-		/// 0.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the width of the texture image. The initial value 
+		/// is 0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public const int TEXTURE_WIDTH = 0x1000;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetTexLevelParameter: params returns a single value, the height of the texture image. The initial value is 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the height of the texture image. The initial value is 
-		/// 0.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the height of the texture image. The initial value 
+		/// is 0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1636,12 +1446,7 @@ namespace OpenGL
 		public const int TEXTURE_BORDER_COLOR = 0x1004;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Hint: No preference.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Hint: No preference.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Hint: No preference.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1649,12 +1454,7 @@ namespace OpenGL
 		public const int DONT_CARE = 0x1100;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Hint: The most efficient option should be chosen.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Hint: The most efficient option should be chosen.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Hint: The most efficient option should be chosen.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1662,12 +1462,7 @@ namespace OpenGL
 		public const int FASTEST = 0x1101;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Hint: The most correct, or highest quality, option should be chosen.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Hint: The most correct, or highest quality, option should be chosen.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Hint: The most correct, or highest quality, option should be chosen.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1904,12 +1699,7 @@ namespace OpenGL
 		public const int SET = 0x150F;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.MatrixMode: Applies subsequent matrix operations to the texture matrix stack.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.MatrixMode: Applies subsequent matrix operations to the texture matrix stack.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.MatrixMode: Applies subsequent matrix operations to the texture matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2347,14 +2137,8 @@ namespace OpenGL
 		public const int DECR = 0x1E03;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetString: Returns the company responsible for this GL implementation. This name does not change from release 
-		/// to release.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetString: Returns the company responsible for this GL implementation. This name does not change from 
+		/// [GL4|GLES3.2] Gl.GetString: Returns the company responsible for this GL implementation. This name does not change from 
 		/// release to release.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2362,14 +2146,8 @@ namespace OpenGL
 		public const int VENDOR = 0x1F00;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetString: Returns the name of the renderer. This name is typically specific to a particular configuration of a 
-		/// hardware platform. It does not change from release to release.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetString: Returns the name of the renderer. This name is typically specific to a particular configuration 
-		/// of a hardware platform. It does not change from release to release.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetString: Returns the name of the renderer. This name is typically specific to a particular 
+		/// configuration of a hardware platform. It does not change from release to release.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2377,12 +2155,7 @@ namespace OpenGL
 		public const int RENDERER = 0x1F01;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.GetString: Returns a version or release number.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetString: Returns a version or release number.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.GetString: Returns a version or release number.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2993,18 +2766,10 @@ namespace OpenGL
 		public const int PIXEL_MAP_A_TO_A = 0x0C79;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns four values: the red, green, blue, and alpha values of the current color. Integer values, 
-		/// if requested, are linearly mapped from the internal floating-point representation such that 1.0 returns the most 
-		/// positive representable integer value, and -1.0 returns the most negative representable integer value. The initial value 
-		/// is (1, 1, 1, 1). See Gl.Color.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns four values: the red, green, blue, and alpha values of the current color. Integer 
+		/// [GL2.1|GLES1.1] Gl.Get: params returns four values: the red, green, blue, and alpha values of the current color. Integer 
 		/// values, if requested, are linearly mapped from the internal floating-point representation such that 1.0 returns the most 
 		/// positive representable integer value, and -1.0 returns the most negative representable integer value. The initial value 
 		/// is (1, 1, 1, 1). See Gl.Color.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -3019,18 +2784,10 @@ namespace OpenGL
 		public const int CURRENT_INDEX = 0x0B01;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns three values: the x, y, and z values of the current normal. Integer values, if requested, 
-		/// are linearly mapped from the internal floating-point representation such that 1.0 returns the most positive 
-		/// representable integer value, and -1.0 returns the most negative representable integer value. The initial value is (0, 0, 
-		/// 1). See Gl.Normal.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns three values: the x, y, and z values of the current normal. Integer values, if 
+		/// [GL2.1|GLES1.1] Gl.Get: params returns three values: the x, y, and z values of the current normal. Integer values, if 
 		/// requested, are linearly mapped from the internal floating-point representation such that 1.0 returns the most positive 
 		/// representable integer value, and -1.0 returns the most negative representable integer value. The initial value is (0, 0, 
 		/// 1). See Gl.Normal.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -3038,14 +2795,8 @@ namespace OpenGL
 		public const int CURRENT_NORMAL = 0x0B02;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns four values: the s, t, r, and q current texture coordinates. The initial value is (0, 0, 
-		/// 0, 1). See Gl.MultiTexCoord.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns four values: the s, t, r, and q current texture coordinates. The initial value is (0, 
-		/// 0, 0, 1). See Gl.MultiTexCoord.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.Get: params returns four values: the s, t, r, and q current texture coordinates. The initial value is 
+		/// (0, 0, 0, 1). See Gl.MultiTexCoord.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -4114,12 +3865,8 @@ namespace OpenGL
 		public const int MAX_EVAL_ORDER = 0x0D30;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns one value, the maximum number of lights. The value must be at least 8. See Gl.Light.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns one value, the maximum number of lights. The value must be at least 8. See Gl.Light.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.Get: params returns one value, the maximum number of lights. The value must be at least 8. See 
+		/// Gl.Light.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -4183,14 +3930,8 @@ namespace OpenGL
 		public const int MAX_NAME_STACK_DEPTH = 0x0D37;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the projection matrix stack. The value must be 
-		/// at least 2. See Gl.PushMatrix.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns one value, the maximum supported depth of the projection matrix stack. The value must 
-		/// be at least 2. See Gl.PushMatrix.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.Get: params returns one value, the maximum supported depth of the projection matrix stack. The value 
+		/// must be at least 2. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -4198,14 +3939,8 @@ namespace OpenGL
 		public const int MAX_PROJECTION_STACK_DEPTH = 0x0D38;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the texture matrix stack. The value must be at 
-		/// least 2. See Gl.PushMatrix.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns one value, the maximum supported depth of the texture matrix stack. The value must be 
-		/// at least 2. See Gl.PushMatrix.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.Get: params returns one value, the maximum supported depth of the texture matrix stack. The value 
+		/// must be at least 2. See Gl.PushMatrix.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5214,14 +4949,8 @@ namespace OpenGL
 		public const int SHININESS = 0x1601;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Material: Equivalent to calling glMaterial twice with the same parameter values, once with Gl.AMBIENT and 
-		/// once with Gl.DIFFUSE.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Material: Equivalent to calling glMaterial twice with the same parameter values, once with Gl.AMBIENT and 
-		/// once with Gl.DIFFUSE.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.Material: Equivalent to calling glMaterial twice with the same parameter values, once with Gl.AMBIENT 
+		/// and once with Gl.DIFFUSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5246,12 +4975,7 @@ namespace OpenGL
 		public const int COLOR_INDEXES = 0x1603;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.MatrixMode: Applies subsequent matrix operations to the modelview matrix stack.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.MatrixMode: Applies subsequent matrix operations to the modelview matrix stack.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.MatrixMode: Applies subsequent matrix operations to the modelview matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5259,12 +4983,7 @@ namespace OpenGL
 		public const int MODELVIEW = 0x1700;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.MatrixMode: Applies subsequent matrix operations to the projection matrix stack.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.MatrixMode: Applies subsequent matrix operations to the projection matrix stack.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.MatrixMode: Applies subsequent matrix operations to the projection matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5508,14 +5227,8 @@ namespace OpenGL
 		public const int DECAL = 0x2101;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns the single-valued texture environment mode, a symbolic constant. The initial value 
-		/// is Gl.MODULATE.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns the single-valued texture environment mode, a symbolic constant. The initial 
-		/// value is Gl.MODULATE.
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns the single-valued texture environment mode, a symbolic constant. The 
+		/// initial value is Gl.MODULATE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5523,18 +5236,10 @@ namespace OpenGL
 		public const int TEXTURE_ENV_MODE = 0x2200;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.GetTexEnv: params returns four integer or floating-point values that are the texture environment color. 
-		/// Integer values, when requested, are linearly mapped from the internal floating-point representation such that 1.0 maps 
-		/// to the most positive representable integer, and -1.0 maps to the most negative representable integer. The initial value 
-		/// is (0, 0, 0, 0).
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.GetTexEnv: params returns four integer or floating-point values that are the texture environment color. 
-		/// Integer values, when requested, are linearly mapped from the internal floating-point representation such that 1.0 maps 
-		/// to the most positive representable integer, and -1.0 maps to the most negative representable integer. The initial value 
-		/// is (0, 0, 0, 0).
-		/// </para>
+		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns four integer or floating-point values that are the texture environment 
+		/// color. Integer values, when requested, are linearly mapped from the internal floating-point representation such that 1.0 
+		/// maps to the most positive representable integer, and -1.0 maps to the most negative representable integer. The initial 
+		/// value is (0, 0, 0, 0).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

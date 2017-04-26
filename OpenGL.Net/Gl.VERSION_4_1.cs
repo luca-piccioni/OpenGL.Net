@@ -377,14 +377,8 @@ namespace OpenGL
 		public const int ACTIVE_PROGRAM = 0x8259;
 
 		/// <summary>
-		/// <para>
-		/// [GL4] Gl.Get: data a single value, the name of the currently bound program pipeline object, or zero if no program 
-		/// pipeline object is bound. See Gl.BindProgramPipeline.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data a single value, the name of the currently bound program pipeline object, or zero if no program 
-		/// pipeline object is bound. See Gl.BindProgramPipeline.
-		/// </para>
+		/// [GL4|GLES3.2] Gl.Get: data a single value, the name of the currently bound program pipeline object, or zero if no 
+		/// program pipeline object is bound. See Gl.BindProgramPipeline.
 		/// </summary>
 		[AliasOf("GL_PROGRAM_PIPELINE_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_4_1")]
